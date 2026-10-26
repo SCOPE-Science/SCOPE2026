@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The identified transition probabilities agree under the explicit time–space shift. Bertoin's published starting-time-uniform return-tail theorem supplies an actual \(O(kn^{-3/2})\) bound for long excursions; a symmetric-walk comparison supplies \(O(n^{-1/2})\) for short excursions. Their integrable combination yields a true excursion-mean asymptotic with a beta-function constant. A geometrically stopped excursion decomposition proves finite neighboring-level passage times and transfers the result to the specified Friedman walk. Direct rational enumeration checks the shift and marginal laws, not infinite-time claims.
+
+**Originality — PASS, qualified.** Balaji–Mahmoud pose finite mean Friedman return as a conjecture. Bertoin proves the essential zero-to-zero excursion-tail estimate, not the adjacent-level first-hit mean or its beta constant. Coletti–Papageorgiou examine zero returns of the ordinary elephant walk and state a time-uniform bound that, if read in the late-start setting, conflicts with Bertoin's later quantitative limit; the sharp growing neighboring-level scale does not follow from that bound. Closest available records concern critical \(p=3/4\) elephant passage and do not imply this \(p=0\) conclusion. The sharp result may still be implicit in unindexed first-passage or urn literature; independent examination is needed.
+
+**Mathematical value — PASS.** The new quantitative passage law identifies the \(\sqrt k\) mean-delay scale for crossing the origin after an arbitrary late start. It turns a natural 2025 open finite-first-return question into a theorem for the one-dimensional opposite-reinforcement model. A geometrically distributed number of strongly time-inhomogeneous excursions cannot be handled by stationary renewal formulas; the bound remains finite and yields the exact asymptotic coefficient.
+
+The theorem does not claim an invariant probability measure or recurrence classifications of spatially homogeneous chains; it assumes the previously established uniform return-tail theorem. An equivalent treatment may exist outside the inspected sources.
+
+Self-review: passed. Independent audit: not yet performed.
