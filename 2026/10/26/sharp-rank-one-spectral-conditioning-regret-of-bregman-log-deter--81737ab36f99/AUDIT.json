@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The trace/determinant rank-one identity and signed-extreme Rayleigh optimization yield the exact divergence minimizer. Orthogonal-complement Rayleigh witnesses establish the global (not merely diagonal) spectral-condition infimum. Strict score monotonicity establishes the unique root, interval, boundary behavior, and exponential fixed-M sharp supremum. The packaged verify.py independently checks exact rational identities and finite samples; those samples are not used as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2304.12162 introductory assumptions specify nonnegative low-rank term, in contrast with the signed error of the present example.",
+        "arXiv:2312.06417 allows indefinite error but optimizes Bregman divergence, not the global spectral-condition ratio.",
+        "arXiv:2503.22286 describes Kaporin conditioning, a different objective from the two-norm generalized spectral condition number."
+      ],
+      "reasoning": "The positive-semidefinite case of the earlier Bregman preconditioner can prove conditioning optimality in its domain, but cannot dominate the signed-error setting. The new paper covers signed divergence optimization but does not settle its worst approximation factor for spectral conditioning. Kaporin-condition equivalence does not imply spectral condition-number equivalence.",
+      "searches": [
+        "\"Preconditioner Design via Bregman Divergences\" \"condition number\" \"rank\" \"indefinite\"",
+        "\"Bregman\" \"preconditioner\" \"spectral condition\" \"indefinite\" rank-one",
+        "Preconditioner Design via the Bregman Divergence Theorem 1 positive semidefinite error"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.06417, accessible preprint/journal full-text relevant sections",
+      "arXiv:2304.12162, author-shared full-text relevant sections",
+      "DOI:10.1002/nla.70012, journal text through sections 1-3,6-7",
+      "DOI:10.1137/23M1566637, publisher abstract and journal metadata",
+      "DOI:10.1137/060649021, accessible abstract",
+      "DOI:10.1137/18M1182802, accessible abstract",
+      "arXiv:2503.22286, accessible abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "DOI:10.1002/nla.70012 Theorem 2 minimizes directed Bregman divergence over low-rank updates; the target of its optimization is not the spectral condition number.",
+        "DOI:10.1137/23M1566637 treats positive-semidefinite perturbations, so its condition optimality does not cover the negative-small-eigenvalue direction.",
+        "DOI:10.1137/060649021 develops matrix nearness theory and does not in the examined abstract state the present rank-one preconditioned spectral regret."
+      ],
+      "reasoning": "The known BLD selection score is a proper premise here, not claimed anew. An independent proof of a global spectral minimax bound, requiring noncommuting rank-one candidates, is combined with it to derive an exact mismatch wedge and sharp ratio. No inspected stronger theorem implies that entire spectral comparison directly; uncertainty about other uncatalogued rank-one results is retained.",
+      "searches": [
+        "A New Matrix Truncation Method for Improving Approximate Factorisation Preconditioners Theorem 2 BLD low rank",
+        "\"matrix nearness\" \"Bregman divergences\" \"rank one\" \"condition number\"",
+        "Higham Mary low rank factorization error spectral preconditioner"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2312.06417 Section 2 gives the eigen-score maximization for divergence, not the separate optimum of the generalized pencil condition number.",
+        "DOI:10.1002/nla.70012 Section 6 reports empirical preconditioner comparisons and does not provide the present exact spectral-regret formula."
+      ],
+      "reasoning": "Equivalent formulations checked include an exact rank-one condition-number approximation ratio, a three-eigenvalue signed-error wedge, and an infinite surrogate-regret gap. The published divergence minimization theorem alone does not optimize the different spectral functional over its full rank-one class.",
+      "searches": [
+        "Bregman log determinant truncation divergence optimal rank one versus best possible spectral condition number diagonal epsilon one M exponential gap",
+        "\"rank-one\" \"log determinant divergence\" \"spectral condition number\" preconditioner",
+        "\"Bregman truncation\" \"arbitrarily\" condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2312.06417 Section 2 Example 1 tabulates an eight-dimensional selection difference from singular-value truncation, not a condition-number-optimal rank-one comparison.",
+        "DOI:10.1002/nla.70012 numerical Section 6 tabulates finite matrix tests and PCG iterations rather than the exact three-eigenvalue phase boundary."
+      ],
+      "reasoning": "The comparison is mathematical: neither a reported singular-value-truncation example nor finite PCG benchmarking computes the optimal generalized spectral condition among arbitrary signed rank-one updates. No exact indexed table of the parameter interval or sharp gap was identified.",
+      "searches": [
+        "\"A New Matrix Truncation Method\" \"condition number\" Example 1",
+        "\"A New Matrix Truncation Method\" \"65F08\" \"65F55\"",
+        "\"Bregman log determinant\" \"spectral condition number\" counterexample"
+      ]
+    },
+    "rationale": "The established BLD rank-one optimizer from Bock-Andersen is explicitly treated as prior. The new comparison solves the separate global spectral-condition minimization over every Hermitian signed rank-one update and obtains the exact regret region and sharp exponential asymptotic, not supplied by the inspected BLD theorem or the PSD predecessor. Possible undiscovered equivalent treatment is acknowledged.",
+    "residual_risks": [
+      "The 2007 general matrix-nearness source and 2019 factorization-error source were not inspected in their entirety; no whole-document negative claim is made for them.",
+      "A mathematically equivalent rank-one spectral-conditioning example might exist in unindexed or inaccessible literature.",
+      "Numerical conditioning does not entail a lower bound on actual finite-dimensional CG iterations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS BLD optimizer and its score (credited); does not state or optimize the spectral ratio over all Hermitian rank-one updates, nor derive the exact mismatch interval.",
+        "evidence": [
+          "Section 2 score selection and Example 1; Section 3 Theorem 2; Section 6 explicitly notes empirical conditioning and iteration relations differ; Section 7 calls for theoretical analysis."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.06417 ; https://doi.org/10.1002/nla.70012",
+        "material_read": "Accessible full-text HTML: introduction and mathematical setup; Section 2 eigen-score and Example 1; Section 3 Theorems 2-3; Section 6 conditioning/PCG discussion; Section 7 outlook. PDF page 2 also visually checked.",
+        "method": "Primary full text and matched journal full-text sections.",
+        "title": "A New Matrix Truncation Method for Improving Approximate Factorisation Preconditioners",
+        "trigger": "Same divergence, signed low-rank correction and identical class of preconditioners."
+      },
+      {
+        "assessment": "Nonnegative correction is an explicit premise; the present indefinite correction is outside that coverage.",
+        "evidence": [
+          "The 2023 preprint sets S=A+B with B Hermitian positive semidefinite and analyzes G=Q^{-1}BQ^{-*} nonnegative."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.12162 ; https://doi.org/10.1137/23M1566637",
+        "material_read": "Author-shared full-text 2023 preprint, introduction and Sections 2-3 condition-number argument; publisher abstract and MSC metadata.",
+        "method": "Full-text author-shared transcription plus journal abstract.",
+        "title": "Preconditioner Design via the Bregman Divergence",
+        "trigger": "Earlier theorem about condition number of Bregman-inspired preconditioners."
+      },
+      {
+        "assessment": "Framework is broader in matrix nearness but no exact rank-one preconditioner spectral ratio was identified from inspected material.",
+        "evidence": [
+          "2007 abstracts emphasize general Bregman matrix-nearness algorithms; residual risk retained for uninspected sections."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060649021",
+        "material_read": "Publisher and author-archive abstracts, classification and introduction context only.",
+        "method": "Abstract-level background inspection, not a whole-document novelty exclusion.",
+        "title": "Matrix Nearness Problems with Bregman Divergences",
+        "trigger": "Foundational source for equivalences in matrix nearness."
+      },
+      {
+        "assessment": "Focuses on LU factorization error and GMRES-based iterative refinement, not divergence-optimal signed SPD rank-one condition regret.",
+        "evidence": [
+          "2019 abstract describes non-Hermitian factorization errors and low-rank GMRES preconditioning."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/18M1182802",
+        "material_read": "Publisher abstract and methodology description.",
+        "method": "Abstract-level background inspection.",
+        "title": "A New Preconditioner that Exploits Low-Rank Approximations to Factorization Error",
+        "trigger": "Prior rank-correction approach to approximate factorization errors."
+      },
+      {
+        "assessment": "Describes Kaporin conditioning rather than the two-norm spectral condition number; uninspected full text leaves limited residual risk.",
+        "evidence": [
+          "2025 arXiv abstract identifies Kaporin objective and scaling equivalence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.22286",
+        "material_read": "Public abstract only.",
+        "method": "Abstract comparison of objective definitions.",
+        "title": "Connecting Kaporin's condition number and the Bregman log determinant divergence",
+        "trigger": "Potentially stronger equivalence involving the same divergence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81737ab3-6f99-4c88-98bc-3edbec5f6e4b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete phase diagram and exponential worst-case approximation ratio answer a natural preconditioner-design question: how much spectral conditioning is sacrificed by minimizing the directed logdet divergence under the same rank constraint? The difference is structural, applies globally to all signed Hermitian rank-one choices, and sharply bounds a relevant surrogate criterion without inferring solver runtime.",
+    "status": "PASS"
+  }
+}
