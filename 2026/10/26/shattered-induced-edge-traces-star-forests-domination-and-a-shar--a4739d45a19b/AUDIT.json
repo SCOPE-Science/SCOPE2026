@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The triangle and ordinary P4 trace obstructions are necessary and sufficient for star forests; choosing centers and selected leaves realizes all traces. The component-center and dominating-set constructions prove both inequalities for VC = n-gamma, including isolates. Component weights 1,1,r give exp(z exp(zt)-z^2t/2). For m~c n^(2/3), the P4 path is strictly balanced; the fixed-m hypergeometric factorial-moment argument yields Poisson(4c^3), with triangles negligible. Independently executed verifier tested 33,867 all-subset cases, all 1,099 host graphs through five vertices for VC identity, and 3,586 further samples; finite tests are not the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler, Benediktsson and Macpherson, arXiv:2007.16042, Definition 2.2 and Theorem 1.1: the studied ranges are open vertex neighborhoods of Johnson/Hamming graphs, with bounds 4 and 3.",
+        "Kranakis et al. (1994), Section 7: edge ranges are required to be connected, trees, paths or stars.",
+        "Coudert et al., arXiv:2405.07588 abstract: computation of VC dimension from closed vertex neighborhoods; not a material full-text comparison."
+      ],
+      "reasoning": "The relevant available broad VC theorems concern different range families. None of the materially inspected results has a hypothesis or conclusion that covers the vertex-induced-edge system or its random threshold. Uninspected content is not assigned a NOT_COVERING verdict.",
+      "searches": [
+        "\"VC dimension\" \"vertex induced edge\"",
+        "\"VC-dimension\" \"domination number\" \"star forest\"",
+        "arXiv 2405.07588 practical computation of graph VC dimension Coudert Csikos Ducoffe Viennot 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042 full text and scope",
+      "SCS-TR-255 (1994) relevant original PDF sections",
+      "arxiv:2405.07588 abstract only",
+      "Publicly indexed mathematical-record comparisons under VC/Boolean rank-two/star forest/domination/random-threshold aliases",
+      "Accessible earlier mathematical claims checked for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kranakis et al. (1994), Theorem 7.1 concerns connected edge-set EVC on complete graphs, achieving quadratic-size shattered sets; the current induced-edge ranges have only linear VC dimension. Thus the definitions cannot coincide.",
+        "Adler et al. (2020), Theorem 1.1 bounds neighborhood VC by 4 or 3, whereas the new vertex-induced-edge system on K_n has VC dimension n-1; the claims concern distinct systems.",
+        "The standard graph fact maximum spanning star-forest edges = n minus domination number is explicitly not separately claimed as new."
+      ],
+      "reasoning": "Different VC parameters cannot be substituted: the old connected-edge system has quadratic EVC on K_n, and the old vertex-neighborhood systems have bounded VC for Johnson/Hamming graphs. The new statement instead characterizes a Boolean downset trace family, then uses standard tools to determine enumeration and threshold. Existing general techniques do not, by themselves, contain the completed specific result.",
+      "searches": [
+        "Kranakis Krizanc Ruf Urrutia Woeginger 1994 VC dimensions for graphs edge induced by vertex subsets",
+        "arXiv:2007.16042 Vapnik Chervonenkis dimension and density on Johnson and Hamming graphs first published 2020-07-31",
+        "\"shattered\" \"star forests\" \"vertex\" \"edges\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The range E(G[U]) is rank-two containment in the Boolean principal ideal of U when G=K_n.",
+        "Kranakis et al., SCS-TR-255 (1994), Definition 7.1 and Section 7, develops EVC for connected, tree, path, or star edge families; these are not arbitrary induced-edge ranges.",
+        "The closest publicly indexed incidence-poset result addresses finite-space Stong cores rather than induced-edge traces or their shattering."
+      ],
+      "reasoning": "Tested the aliases vertex-induced-edge ranges, rank-two principal Boolean ideals, quadratic positive monomial traces, edge-VC and star forest complexes. The detailed claims inspected do not imply the universal star-forest characterization and its domination/Poisson consequences; terminology-based undetected equivalence remains a residual risk.",
+      "searches": [
+        "Boolean lattice rank two traces of principal ideals star forest shattering polynomial",
+        "\"induced-edge\" \"shattering\" \"star\"",
+        "VC dimension of hypergraph containing edges both endpoints chosen induced subgraph range space equals vertex count minus domination number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite counts obtained independently are S_4=(1,6,15,4) and S_6=(1,15,105,255,180,6), matched to the labeled-component recurrence.",
+        "The closest publicly indexed enumerative papers concern three-uniform hypergraph edge counts and dissociation polynomials of fan graphs; neither has a matching edge-induced shattering table."
+      ],
+      "reasoning": "No matching database of shattered induced-edge subsets, coefficient tables, or n^(2/3) threshold was found in these targeted queries. Lack of a table search hit alone is not novelty proof; exact analytic comparison and source scope are decisive.",
+      "searches": [
+        "\"shattering\" \"induced edge sets\" complete graph",
+        "Enumerating star forests shattered subsets principal downsets Boolean lattice rank two",
+        "Fixed-size random edge sets in complete graphs star forest first three-edge path Poisson threshold 2/3"
+      ]
+    },
+    "rationale": "Bounded semantic searches of publicly indexed mathematical claims, primary full-text comparison with the 2020 Johnson/Hamming neighborhood paper, and relevant 1994 edge-VC report did not identify an equivalent or dominating vertex-induced-edge result. Existing graph VC and dominating-set theory are credited. The combined universal characterization, exact induced-edge VC, enumeration and threshold remain original to the best of the checked literature, subject to alternative-terminology risk.",
+    "residual_risks": [
+      "Undiscovered equivalent theorem about vertex-induced-edge traces, monotone quadratic conjunctions or rank-two Boolean principal ideals could cover the result.",
+      "The 2024 graph-VC algorithm manuscript was not materially inspected beyond abstract, so no decisive claim about its complete contents is made.",
+      "No independent publication-priority review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NEIGHBORHOOD_RANGES_DIFFERENT; no implication to the vertex-induced-edge ranges found in the examined primary material",
+        "evidence": [
+          "The article defines ranges as N_G(v) for a single vertex v.",
+          "Theorem 1.1 gives VC values 4 on Johnson graphs and 3 on Hamming graphs, whereas this range system on K_n has VC n-1."
+        ],
+        "identifier_or_url": "arxiv:2007.16042; https://arxiv.org/abs/2007.16042",
+        "material_read": "Available full HTML text, introduction, Definitions 2.1-2.7, Theorem 1.1, Johnson-graph Section 3, Hamming Section 4 and comparison of range definitions",
+        "method": "Read the arXiv full-text rendering and searched for induced edge/principal ideal terminology",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Lead 2020 article on VC dimension of highly symmetric finite graphs and two-element-subset universes"
+      },
+      {
+        "assessment": "EDGE_SET_SYSTEM_DIFFERENT; no broader theorem covering induced-edge ranges in the material read",
+        "evidence": [
+          "Definition 7.1 uses edge sets satisfying graph properties; Section 7 considers connected, tree, path and star edge sets.",
+          "Theorem 7.1 gives a quadratic-size connected-edge VC on K_n, incompatible with the present linear n-1 value, confirming the distinction."
+        ],
+        "identifier_or_url": "SCS-TR-255 (1994); https://carleton.ca/scs/wp-content/uploads/sites/260/TR255.pdf",
+        "material_read": "PDF pages 1-5 and 22-24, including definitions, Section 7 and Theorems 7.1-7.4",
+        "method": "Inspected publisher-hosted PDF text and rendered pages, compared the defining edge-range family",
+        "title": "VC-Dimensions for Graphs",
+        "trigger": "Plausible comprehensive predecessor explicitly treating edge-VC dimensions"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_CONTEXT, no full-text NOT_COVERING inference",
+        "evidence": [
+          "The abstract defines graph VC dimension using closed vertex neighborhoods and discusses an algorithm for that parameter."
+        ],
+        "identifier_or_url": "arxiv:2405.07588; https://arxiv.org/abs/2405.07588",
+        "material_read": "Title, authors, publication metadata and abstract only; the full text was not obtained",
+        "method": "Read official paper summary; looked for the explicit range definition",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Potentially broad graph VC-dimension computational literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4739d45-a19b-43c6-b908-bb2d6f583d10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem identifies a natural complete shattering invariant for every graph and shows it is exactly n minus domination number, with the corresponding complexity transfer. It gives an exact labeled enumerator on complete graphs and a sharp n^(2/3) Poisson probability law with constant 4. These connected structural, enumerative, and stochastic results address a natural Boolean rank-two range system rather than a narrow arbitrary numeric slice.",
+    "status": "PASS"
+  }
+}
