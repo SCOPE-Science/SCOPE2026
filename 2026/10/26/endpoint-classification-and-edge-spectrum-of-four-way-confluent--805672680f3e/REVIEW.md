@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Each of the four confluence definitions is equivalent to one of the row or column endpoint monotonicity conditions on the fixed chain; their conjunction forces nonempty rows and columns unless the relation is empty. Mandatory-extreme plus optional-interior cells produce a nonoverlapping exact polynomial. The diagonal edge-insertion construction and the saturated-boundary construction prove the all-size edge spectrum and full entropy. Direct relation tests through four worlds, an endpoint enumerator through six, and explicit insertion-path tests independently corroborate the critical steps; no finite test is cited as an all-size proof.
+
+**Originality — PASS, with priority limitations.** The confluence definitions and the two-confluence endpoint normal forms are pre-existing and are credited. Full scientific texts of two especially relevant predecessors were read: one treats two row-extreme confluences (four-world count 2855), the other row/column maxima under two confluences (count 4849). Their statements do not count the intersection under all four requirements (538 at four worlds), nor provide the complete four-endpoint polynomial and spectrum. Specific searches for the exact sequence, aliases and stronger matrix coverage revealed no direct equivalent. General matrix-enumeration subsumption is an unresolved historical risk, not a claimed independence result.
+
+**Value — PASS.** All four compatibility conditions arise naturally from the four intuitionistic modal operators in the 2026 semantic treatment. An exact characterization of all labelled finite-chain frames, the complete allowed edge-cardinality set, and the full quadratic entropy rate describe structural degrees of freedom useful in finite-frame sampling and model analysis. The point is not a single marginal count.
+
+**Limitations.** Only finite linearly ordered intuitionistic bases are covered. The polynomial is finite but not a simplified recurrence. Verification counts through six worlds; no claimed closed-form leading constant or extrapolated asymptotic count. Residual priority risks are stated in AUDIT.json. Independent evaluation is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
