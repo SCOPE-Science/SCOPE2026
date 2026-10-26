@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact prime-power ratios and monotonicity eliminate all but five leading pairs; modulo the largest prime excludes squaring that prime; strict next-prime cutoffs yield 21 finite triples; solving the forced last prime yields six composite possibilities only. All nonstandard rational inequalities and the certificate are independently recomputed by the embedded Python verifier. Witness multiplication and phi/sigma are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.pdf",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf"
+      ],
+      "reasoning": "General finite-number-of-solutions results for fixed total multiplicity do not determine an empty class. A full classification of omega<=3 does not imply any result at omega=4, and sigma(n)=k*n statements use different equations.",
+      "searches": [
+        "sigma(n)=2 phi(n) four distinct prime factors Omega(n)=5 no n=p^2 q r s where p q r s primes squared single exponent",
+        "exponent pattern (2,1,1,1) sigma=2 phi four prime factor forbidden multiplicity five"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.pdf",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf",
+      "https://oeis.org/A062699",
+      "https://oeis.org/A062699/b062699.txt",
+      "Published first-multiplicity-layer results for triperfect and quadriperfect numbers",
+      "Published squarefree mixed-sign deficient-perfect classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.pdf",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf",
+        "Published first-multiplicity-layer results for triperfect numbers",
+        "Published first-multiplicity-layer results for quadriperfect numbers",
+        "Published squarefree mixed-sign deficient-perfect classification"
+      ],
+      "reasoning": "Published first-multiplicity-layer results for multiperfect values sigma(n)=3n and sigma(n)=4n do not cover sigma(n)=2phi(n); published low prime-support results stop at three. None of the retrieved statements implies the specific four-prime nonsquarefree exclusion.",
+      "searches": [
+        "sigma(n)=2 phi(n) four distinct prime factors Omega(n)=5 no n=p^2 q r s where p q r s primes squared single exponent",
+        "sum of divisors twice totient no solutions exactly one squared prime three other distinct primes 7 cubed 11 13 41",
+        "exponent pattern (2,1,1,1) sigma=2 phi four prime factor forbidden multiplicity five"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.pdf",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf",
+        "https://oeis.org/A062699"
+      ],
+      "reasoning": "The target is equivalently exclusion of a four-prime exponent vector (2,1,1,1) for sigma(n)/phi(n)=2. The primary papers contain prime-support at most three or general bounded-multiplicity finiteness, not the explicit target stratum.",
+      "searches": [
+        "sigma(n)=2 phi(n) four distinct prime factors Omega(n)=5 no n=p^2 q r s where p q r s primes squared single exponent",
+        "sum of divisors twice totient no solutions exactly one squared prime three other distinct primes 7 cubed 11 13 41",
+        "exponent pattern (2,1,1,1) sigma=2 phi four prime factor forbidden multiplicity five"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A062699",
+        "https://oeis.org/A062699/b062699.txt"
+      ],
+      "reasoning": "OEIS records the explicit 2011009 witness, not a mathematical proof of the absence of all exponent-(2,1,1,1) solutions of arbitrary size. The numerical witness is expressly treated as known.",
+      "searches": [
+        "sum of divisors twice totient no solutions exactly one squared prime three other distinct primes 7 cubed 11 13 41",
+        "OEIS A062699 sigma(n)=2phi(n) examples"
+      ]
+    },
+    "rationale": "The inspected primary literature classifies at most three distinct prime factors and states finiteness for bounded total multiplicity, but it does not prove the sharp omega=4, Omega=5 exclusion. Previously listed numerical solutions are not claimed new. Published indexed analogs concern incompatible divisor-sum equations; priority remains subject to unindexed literature risk.",
+    "residual_risks": [
+      "An unindexed or differently stated complete four-prime exponent-pattern classification could exist.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Three-prime classification and finiteness; no four-prime Omega-five exclusion",
+        "evidence": [
+          "Theorem 11 treats at most three distinct prime factors",
+          "General bounded-multiplicity result is qualitative finiteness"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL16/Broughan/broughan26.pdf",
+        "material_read": "Full primary PDF including its main three-prime theorem, bounded-multiplicity theorem and relevant proofs",
+        "method": "Read OA primary PDF and theorem statements",
+        "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function I",
+        "trigger": "Same equation, potential stronger low-multiplicity coverage"
+      },
+      {
+        "assessment": "Does not assert the targeted first nonsquarefree four-prime multiplicity exclusion",
+        "evidence": [
+          "Low-support classification concerns at most three distinct primes",
+          "Four-prime examples are recorded, not exhausted by exponent pattern"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Broughan/bro32.pdf",
+        "material_read": "Full primary PDF, introduction, theorem conclusions and sections on known four-prime examples",
+        "method": "Read OA primary PDF and compare scope",
+        "title": "On the Ratio of the Sum of Divisors and Euler’s Totient Function II",
+        "trigger": "Same equation, classification continuation"
+      },
+      {
+        "assessment": "Witness already known; table cannot prove unbounded four-prime nonexistence",
+        "evidence": [
+          "2011009 appears as a recorded solution"
+        ],
+        "identifier_or_url": "https://oeis.org/A062699",
+        "material_read": "Sequence description and downloadable numerical table",
+        "method": "Inspect sequence entries, numerical sharpness witness and supporting references",
+        "title": "OEIS A062699",
+        "trigger": "Exact numerical table of solutions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "77a5dcb9-5248-4ad0-adba-6c23c3f3dfd8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural complete first non-squarefree multiplicity stratum beyond the classical <=3-prime classification, with a rigorous universal obstruction and an already-known sharp Omega=6 witness. A prime-modular obstruction and bounded exact rational elimination explain the gap, rather than a finite search alone.",
+    "status": "PASS"
+  }
+}
