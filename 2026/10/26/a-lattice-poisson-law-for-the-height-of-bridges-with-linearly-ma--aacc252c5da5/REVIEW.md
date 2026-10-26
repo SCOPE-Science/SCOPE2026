@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The conditional event is nonempty for every finite integer parameter stated. A complete bridge with a prescribed number of returns decomposes uniquely into signed primitive excursions. Restricted-height Dyck enumeration yields the exact coefficient formula. The cross-ratio of the two fixed points of the Catalan truncation recursion yields an exact tilted height tail. Choosing the semilength tilt by matching the conditional average, and applying the triangular-array lattice local central limit theorem, produces a Poisson probability-generating function. The proof explicitly treats integer thresholds, the required interior-return density, variance nondegeneracy, and the logarithmic-scale deductions. The companion exact verifier passed 320 assertions. Finite tests are supporting checks, not a proof of asymptotic convergence. Unreviewed generalizations to endpoint return fractions and other step laws are not asserted.
+
+## Originality — PASS, with residual historical-priority risk
+Csáki and Hu's complete inspected treatment of ranked random-walk excursion heights gives unconditioned (and bridge-only) square-root limits, not the exponential-tilt law under a linear number of returns. Drube's inspected Dyck-path theorems provide finite generating functions for returns and bounded height, but not the Poisson high-excursion law or the specific logarithmic constant obtained here. A related recorded result on Chung–Feller occupations conditions the same bridge on a different statistic and has no maximum-height conclusion. An indexed result about primitive Dyck-excursion entropy controls a dynamical-system finite-core deficit, not fixed-sum, fixed-return excursion extremes. These implications were compared at the level of hypotheses and conclusions, not titles. No directly covering claim was found. Nonetheless, an implicit application of broader conditioned-composition or tilted renewal limit theorems remains possible, so historical priority is not independently certified.
+
+## Mathematical value — PASS
+Requiring a linear number of returns is a large-deviation conditioning of an ordinary bridge. The resulting change from square-root maximum height to logarithmic height has an exact and unexpectedly simple return-density coefficient. The theorem provides the full Poisson law for tall-excursion counts, not only a typical-height estimate, and identifies the essential discrete lattice behavior. This is a natural conditional extreme-value question and is not an arbitrary finite slice or a routine exact-table lookup. Its interior-density restriction and the absence of an endpoint theory are clearly stated.
+
+## Closest literature and limitations
+Endre Csáki and Yueyun Hu, *Lengths and heights of random walk excursions*, DMTCS AC, DOI 10.46298/dmtcs.3337 (first public record December 31, 2002); Paul Drube, *Raised \(k\)-Dyck paths*, arXiv:2206.01194 (June 2, 2022). Broad conditional-composition theorems and unlocated earlier derivations are residual risks. Independent priority and validity assessment remain to be performed.
+
+Self-review: passed. Independent audit: not yet performed.
