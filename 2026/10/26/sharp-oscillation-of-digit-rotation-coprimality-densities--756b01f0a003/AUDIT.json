@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Exact rotation recurrence yields G=gcd(N,(b^m−1)D) with both divisibility directions. Möbius inversion counts m-digit integers coprime to M with error at most 2^omega(M); strings of nonunit digit gcd are bounded by a fixed-base exponentially smaller count. Prime-index cyclotomic factors have order ell and reciprocals totaling o(1), giving each prescribed positive subsequential limit. Divergence of reciprocal primes along multiplicative-order multiples forces liminf zero. Absolute asymptotic upper bound is phi(b−1)/(b−1). Standalone checker exhaustively validated 235455 strings; infinite claim follows only from proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Basta treats rotations arising from prime-denominator repetends; transposable-integer congruence treats constrained digit relations."
+      ],
+      "reasoning": "Neither source studies the entire set of b-ary m-digit strings, and therefore neither implies the density-limit classification.",
+      "searches": [
+        "As length m varies, density or proportion of numbers whose cyclic digit rotations have gcd one has liminf zero and limsup phi(b-1)/(b-1), using cyclotomic prime-length and finite prime divisors",
+        "https://en.wikipedia.org/wiki/Transposable_integer",
+        "https://www.researchgate.net/publication/415560874_Analytical_Generalization_of_Cyclic_Digit_Rotation_and_Phase-Space_Prime_Location_Theory"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A084433",
+      "https://oeis.org/A387356",
+      "https://oeis.org/A287513",
+      "https://www.mathpages.com/home/kmath081/kmath081.htm",
+      "https://en.wikipedia.org/wiki/Transposable_integer",
+      "https://www.researchgate.net/publication/415560874_Analytical_Generalization_of_Cyclic_Digit_Rotation_and_Phase-Space_Prime_Location_Theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "MathPages implies gcd(N,b^m−1) divides rotation gcd, but the digit gcd D is required for equality; N=22 in base ten has both rotations 22, whereas gcd(22,99)=11.",
+        "A digit-reversal gcd claim with identifier 094a313a-caaa-4239-ad15-f49162475ce5 concerns reversal rather than all rotations.",
+        "Closest published published-finding corpus matches are generic cyclic/gcd results concerning unrelated objects and do not assert the present bound."
+      ],
+      "reasoning": "The source congruence is a useful lemma but neither sufficient to classify the full gcd nor a stronger density result. Reversal and cyclotomic/gcd claims involve non-equivalent objects; no implication covers the target theorem.",
+      "searches": [
+        "For base b integers with m digits, the gcd of all cyclic digit rotations equals gcd(the integer, (b^m-1) times gcd of all digits); characterize all rotationally common divisors and density of coprime rotations.",
+        "Digit rotation gcd: for an m-digit integer base b, common gcd of all cyclic digit shifts, formula gcd(N,(b^m-1) gcd(all digits)), primitive rotations and Euler phi density",
+        "As length m varies, density or proportion of numbers whose cyclic digit rotations have gcd one has liminf zero and limsup phi(b-1)/(b-1), using cyclotomic prime-length and finite prime divisors",
+        "Cyclic permutation decimal digits greatest common divisor 1, coprime rotations OEIS A084433 A387356, exact asymptotic density oscillation",
+        "MathPages:kmath081",
+        "OEIS:A084433"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The public sequence definitions enumerate the gcd property; MathPages contains only an incomplete gcd-divisor statement."
+      ],
+      "reasoning": "Compared the gcd-one statement, its complement, its totient-density restatement, and the exact digit-gcd reduction. No inspected source includes an equivalent full asymptotic claim.",
+      "searches": [
+        "For base b integers with m digits, the gcd of all cyclic digit rotations equals gcd(the integer, (b^m-1) times gcd of all digits); characterize all rotationally common divisors and density of coprime rotations.",
+        "Digit rotation gcd: for an m-digit integer base b, common gcd of all cyclic digit shifts, formula gcd(N,(b^m-1) gcd(all digits)), primitive rotations and Euler phi density",
+        "OEIS:A084433",
+        "OEIS:A387356",
+        "MathPages:kmath081"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A084433 tabulates the gcd-greater-than-one set; A387356 tabulates its complement; A287513 requires pairwise coprimality."
+      ],
+      "reasoning": "Finite tables of integers do not supply the infinite all-base lengths, explicit totient error, or sharp limiting behavior. Pairwise coprimality is stronger and does not account for common-gcd-one cases with nontrivial pairwise gcds.",
+      "searches": [
+        "OEIS:A084433",
+        "OEIS:A387356",
+        "OEIS:A287513",
+        "Cyclic permutation decimal digits greatest common divisor 1, coprime rotations OEIS A084433 A387356, exact asymptotic density oscillation"
+      ]
+    },
+    "rationale": "The existing sequence records and rotation-congruence literature are direct background, but none of the inspected mathematical claims implies the all-base quantitative density bound and extreme-subsequence theorem; semantic published-finding corpus and own-claim overlap checks found no covering theorem, with residual unindexed-literature risk.",
+    "residual_risks": [
+      "An unindexed earlier paper, general finite-word theorem, or stronger totient-value extremal result may imply part or all of this theorem.",
+      "published-finding corpus semantic search is not a complete mathematical-priority census.",
+      "A stronger statement in less-accessible references remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Records positive-gcd examples; no length-density theorem or extremal oscillation statement in inspected material",
+        "evidence": [
+          "A084433, created June 2, 2003; example 148/481/814 has common gcd 37."
+        ],
+        "identifier_or_url": "https://oeis.org/A084433",
+        "material_read": "Entry definition, examples, author/date and comments identifying gcd-greater-than-one digit strings",
+        "method": "Inspected public OEIS entry, including linked comments and defining examples",
+        "title": "Numbers whose cyclic permutations have GCD > 1",
+        "trigger": "Direct archival original source for the rotation-gcd property"
+      },
+      {
+        "assessment": "Contains enumerated examples, not the full all-base length count, totient approximation or limits",
+        "evidence": [
+          "A387356 records decimal integers whose complete rotation gcd equals one; listed 2025."
+        ],
+        "identifier_or_url": "https://oeis.org/A387356",
+        "material_read": "Entry definition and listed terms for common gcd one",
+        "method": "Inspected public OEIS entry",
+        "title": "Numbers whose set of cyclic permutations has GCD = 1",
+        "trigger": "Exact complement of original sequence"
+      },
+      {
+        "assessment": "Pairwise-coprime requirement is strictly stronger; cannot entail the enumeration of all common-gcd-one rotation sets",
+        "evidence": [
+          "A287513 uses pairwise rather than a single common gcd."
+        ],
+        "identifier_or_url": "https://oeis.org/A287513",
+        "material_read": "Entry title, definition, examples and construction comments",
+        "method": "Inspected public OEIS entry",
+        "title": "Numbers whose cyclic permutations are pairwise coprime",
+        "trigger": "Possible stronger or synonymous coprimality notion"
+      },
+      {
+        "assessment": "Proves that gcd(N,b^m−1) is a common divisor; no exact digit-gcd correction or density asymptotics.",
+        "evidence": [
+          "The rotation congruence gives gcd(N,b^m−1) as a common divisor; N=22 versus 22 and 22 rotations shows that this need not equal full gcd."
+        ],
+        "identifier_or_url": "https://www.mathpages.com/home/kmath081/kmath081.htm",
+        "material_read": "Full available article text including cyclic rotation identities and divisibility",
+        "method": "Read public article text",
+        "title": "Cyclic and Reverse Divisibility",
+        "trigger": "Plausible complete rotation gcd theorem"
+      },
+      {
+        "assessment": "Gives digit rotation congruences for transposable numbers, not arithmetic frequencies over all digit strings",
+        "evidence": [
+          "General rotation identity deals with special cyclic digit relationships rather than an arbitrary-length gcd-one census."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Transposable_integer",
+        "material_read": "General congruence derivation for positional rotations",
+        "method": "Read relevant full section of public article",
+        "title": "Transposable integer",
+        "trigger": "Digit-rotation equivalence and exact congruence"
+      },
+      {
+        "assessment": "Prime-denominator repetend rotations, no implication about uniform general string gcd densities",
+        "evidence": [
+          "Basta (October 11, 2026) focuses on primality and prime-denominator repetends."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/415560874_Analytical_Generalization_of_Cyclic_Digit_Rotation_and_Phase-Space_Prime_Location_Theory",
+        "material_read": "Accessible manuscript text, sections 1–4 and 6",
+        "method": "Read accessible public manuscript full-page text and mathematical claims",
+        "title": "Analytical Generalization of Cyclic Digit Rotation and Phase-Space Prime Location Theory",
+        "trigger": "Title suggests general rotation behavior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "756b01f0-a003-403d-a7d1-d24199cb4859",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The archived common-gcd-of-cyclic-permutations property motivates an exact whole-family distribution; the theorem quantifies it in every fixed base and identifies infinitely many accumulation points and sharp limsup/liminf (decimal 2/3 and 0), an informative structural result beyond finite listed examples.",
+    "status": "PASS"
+  }
+}
