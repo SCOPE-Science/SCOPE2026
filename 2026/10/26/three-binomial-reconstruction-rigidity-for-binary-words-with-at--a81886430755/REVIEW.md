@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof reconstructs every run pattern of length at most three, then four-run words from the positive \(10\), \(010\), and \(101\) subsequence counts. For opposite starting letters, an exact two-equation comparison forces reversal; a universal three-subsequence identity proves the reversal Diophantine criterion. A separate fully exhaustive length-at-most-eight enumeration establishes the earliest nonreversal collision. Independent direct enumeration and dynamic counting reproduce all 4,096 four-run parameter tests and all 10,070 restricted words through length nineteen. The finite computations are not treated as the proof of the infinite statement.
+
+**Originality — PASS subject to specified source risk.** The relevant full-text arXiv work of Lejeune–Rigo–Rosenfeld describes binary two-binomial switches and broader binomial equivalence, not the four-run three-binomial theorem. Chrisnata et al. enumerate global deck-class counts and bounds; the accessible table does not imply a sharp run-restricted reconstruction classification, but its full article was inaccessible, so overlapping special results in uninspected sections cannot be excluded categorically. Searches of published records under equivalent terminologies identified related studies using different observables (adjacent-pair multispectra, contiguous factor composition sets, and near-full-length deletion decks), not the present theorem.
+
+**Mathematical value — PASS.** Scattered-subsequence multiplicity decks are a natural reconstruction observable; bounded-run families are a standard representation for compressed strings. The result supplies a complete infinite four-run fiber classification, explicit decoder invariants, exact arithmetic parametrization of all residual ambiguities, and the sharp four-to-five run transition with a shortest global example. These are structural findings, not arbitrary finite output.
+
+The theorem assumes both compared words have no more than four runs. Full comparison access to the Chrisnata et al. 2019/2021 papers remains unavailable; a later equivalent specialization is possible. No independent review is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
