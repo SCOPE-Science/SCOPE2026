@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every de Bruijn circuit is encoded uniquely as one 2-to-2 wiring at each vertex. The shared-(k+1)-mer identity counts two matches per equal wiring. Self-loop avoidance forces the two constant wirings and a four-mer overlap floor. Permutation signs force an even wiring distance and hence overlap divisible by four. For order five a finite exhaustive search checks precisely all 2^14 allowed wirings and 2,096,128 unordered pairs. An independent rooted-edge DFS and actual six-mer intersections reproduced the complete histogram and witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lin et al. 2011, Theorems 7--8, give a general existence theorem for larger alphabets and a binary impossibility claim; no positive overlap counts are supplied in inspected full text.",
+        "Chen et al. 2025, inspected section 3, bounds collection sizes under generalized orthogonality but does not directly yield the full pair distribution."
+      ],
+      "reasoning": "A stronger or more general orthogonality existence theorem could subsume the claim only if it determined positive context intersection, not merely existence of edge-disjoint families. No such implication was found; the uninspected remainder of one related source remains a risk.",
+      "searches": [
+        "Constructing Orthogonal de Bruijn Sequences Lin Ward Jain Skiena full text",
+        "Generalized Orthogonal de Bruijn and Kautz Sequences overlap binary",
+        "arc intersection of two Hamilton cycles binary de Bruijn digraph order six probability distribution",
+        "binary de Bruijn sequences pairwise shared substrings of length k+1 order five"
+      ]
+    },
+    "checked_sources": [
+      "Lin et al., WADS 2011, doi:10.1007/978-3-642-22300-6_50 (author-hosted full text).",
+      "Spinsante et al., EURASIP 2011, doi:10.1186/1687-1499-2011-4 (full open HTML).",
+      "Chen et al., Entropy 2025, arXiv:2501.12921 (relevant indexed sections only)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 orthogonality paper proves two binary cycles cannot be arc-disjoint; this only forces strictly positive shared contexts, not a four-context floor or any pair counts.",
+        "The full Springer CDMA paper states that some cyclic bit cross-correlation values are multiples of four. That statistic depends on aligned symbol positions and lag, whereas the new quantity depends solely on intersection of factor sets.",
+        "The new exact finite checker independently counts all 2,096,128 distinct unordered pairs, and the universal parity proof is self-contained."
+      ],
+      "reasoning": "The existing zero-overlap obstruction and bit-level parity phenomena do not yield the exact new factor-overlap statements without a new wiring-comparison argument and exhaustive intersection classification.",
+      "searches": [
+        "doi:10.1007/978-3-642-22300-6_50 Sections 2--5",
+        "doi:10.1186/1687-1499-2011-4 correlation Sections 3--4",
+        "site:mdpi.com/1099-4300/27/4/366 Proposition 1 Theorem 1",
+        "binary de Bruijn four common substrings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2011 paper defines orthogonality via edge-disjoint consecutive-arc pairs; the new statistic is the number of pairs shared when disjointness is impossible.",
+        "The 2025 generalization counts allowable multiplicities across collections, not the overlap-size law for two specific binary cycles in the inspected sections."
+      ],
+      "reasoning": "The zero-overlap feasibility problem does not imply that the positive binary minimum equals four, that common contexts must be divisible by four, or that 368 order-five pairs attain the minimum. The local wiring and parity argument establishes these extra implications.",
+      "searches": [
+        "almost orthogonal binary de Bruijn sequences minimal overlap exactly four common (k+1)-mers",
+        "near-orthogonal binary deBruijn tours transition wiring complement pairs 2048 368",
+        "binary de Bruijn sequences overlap distribution shared 6-bit substrings order 5",
+        "de Bruijn binary transition systems wiring parity even Hamming distance shared (k+1) factors divisible by four"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A full-text 2011 CDMA study enumerates 2048 order-five cycles and their bit cross-correlations; it does not report the common six-mer pair histogram in inspected sections.",
+        "Previous order-five palindrome-count enumeration concerns single-cycle palindrome factors, not pairwise length-six factor-set intersections."
+      ],
+      "reasoning": "A numerical distribution table for shift cross-correlation is not a table of six-mer set overlaps. No matching exact-value table was found in the inspected publications or public research-index searches; searches are not exhaustive.",
+      "searches": [
+        "binary de Bruijn sequence pairs order five 5 exact overlap histogram 4 8 12 16 20 24 28 common six-mers 368 pairs",
+        "de Bruijn 368 overlap pairs",
+        "de Bruijn binary pairwise intersection exact order-five six-mers",
+        "binary de Bruijn cycles overlap distribution shared 6-bit substrings order 5"
+      ]
+    },
+    "rationale": "The quantitative near-orthogonality statement and pair-overlap histogram are stronger than the known binary no-orthogonal-pair obstruction and different from cyclic bit cross-correlation. Literature comparisons and indexed searches found no statement implying the exact results; remaining full-text access and specialist enumeration risks are explicitly acknowledged.",
+    "residual_risks": [
+      "Later generalized-orthogonality article inspected in relevant indexed sections only, not fully; uninspected appendices could contain comparable counts.",
+      "Other arc-disjoint de Bruijn cycle and older specialized enumeration papers may contain equivalent or stronger pairwise-intersection claims not located by searches.",
+      "No independent mathematical audit or external certification has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines compatibility as disjoint local wirings; does not in the inspected full text present the nonzero pair-overlap histogram or minimal-pair multiplicity at order five.",
+        "evidence": [
+          "ResearchGate indexed full text, lines 220--945, especially 245--286, 400--428, 631--637, 817--945."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-642-22300-6_50",
+        "material_read": "Author-posted full text indexed in ResearchGate HTML: introduction, definitions, Theorems 7--8, Section 3 wiring, Section 4 constructions, Section 5 open questions.",
+        "method": "Compared the zero-overlap statement and binary obstruction to quantitative common-context count, parity, and order-five distribution.",
+        "title": "Constructing Orthogonal de Bruijn Sequences",
+        "trigger": "Introduces the exact zero-overlap definition and proves that binary orthogonal pairs are impossible."
+      },
+      {
+        "assessment": "The paper measures periodic correlation of aligned bits and selects spreading sequences; its mod-four property and count 2048 concern different quantities and do not imply the seven-bin substring-overlap distribution.",
+        "evidence": [
+          "Springer full text, lines 127--188, 255--270; publication date 2011-06-06, lines 11--15."
+        ],
+        "identifier_or_url": "doi:10.1186/1687-1499-2011-4",
+        "material_read": "Full accessible Springer HTML, Sections Binary De Bruijn Sequences and their Correlation Properties and Evaluation of Binary De Bruijn Sequences in DS-CDMA Systems, including Figures and Tables discussions.",
+        "method": "Compared exact definition of cyclic bit cross-correlation at lag with rotation-invariant *set* overlap of distinct six-mer types.",
+        "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+        "trigger": "Full census of the same 2048 order-five binary cycles and a mod-four statement about another correlation."
+      },
+      {
+        "assessment": "Indexed results focus on collection-size bounds and variants rather than order-five pairwise intersection counts; absence from a partial inspection is not proof of complete noncoverage.",
+        "evidence": [
+          "Journal-indexed sections 1--3 and arXiv public abstract (2501.12921); full text retrieval rate-limited."
+        ],
+        "identifier_or_url": "arXiv:2501.12921; doi:10.3390/e27040366",
+        "material_read": "Search-indexed article sections Introduction, Preliminaries, and Generalized Orthogonal de Bruijn Sequences, including Definition 4 and Proposition 1; complete original article was not retrievable due source rate limits.",
+        "method": "Compared the quantitative bound on size of collections with controlled multiple appearances with count of shared distinct contexts between two fixed binary cycles.",
+        "title": "Generalized Orthogonal de Bruijn and Kautz Sequences",
+        "trigger": "Later relevant generalization may cover nearly orthogonal binary pairs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ceefe54b-1af2-4e0d-9263-1d5d1ecd6273",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A lower bound, congruence, and exact complete pairwise distribution refine a natural biosequence-design impossibility: binary orthogonality cannot be perfect. The count 368 describes every best-possible pair in the first 2048-cycle family, and shows only 23/64 of cycles can participate in a four-overlap pair, always with a unique partner. This is a structurally motivated invariant of a canonical family, not an arbitrary slice or a recomputation of bit-level cross-correlation.",
+    "status": "PASS"
+  }
+}
