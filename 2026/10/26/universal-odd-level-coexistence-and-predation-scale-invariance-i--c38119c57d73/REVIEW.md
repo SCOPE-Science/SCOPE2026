@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The theorem explicitly assumes positive initial densities, finite chain length, equal demographic rates \(r>d\ge0\), positive directed predation rates, and an initially feasible vacancy fraction. Comparison bounds keep total biomass and the top species away from zero, legitimizing the time change. A triangular differential system proves extinction of exactly the even species, persistence of exactly the odd species, and convergence of total biomass to \(1-d/r\). The closed three-species limit and zero-predation boundary follow by direct calculation. The reproducibility checker offers supporting numerical tests, not an infinite proof.
+
+**Originality — PASS with documented residual priority risk.** The closest motivating primary work is Samanta et al., arXiv:2609.09027v1: it states the model, prohibits adjacent support at equilibrium, bounds admissible coexistence size, and examines local stability for small chains. Its statements do not yield the all-positive-initial-state global odd-support selection, the initial-density-dependent limiting composition, or invariance under common predation-rate scaling. Hou, arXiv:0711.3385, studies conditions for one common attracting equilibrium, which do not imply a continuum of initial-state-dependent limits. Ecology's invasion-cycle work is structurally related but does not provide the claim. Searches of research findings and primary literature revealed no equivalent statement; indexing and alternate terminology may limit priority certainty.
+
+**Value — PASS.** The theorem turns a necessary independent-set restriction into a global predictive selection law, quantifies surviving abundance, and shows that arbitrarily weak positive predation eventually extinguishes half the trophic levels while zero predation preserves them all. Parameter-scale invariance separates ecological endpoint prediction from transient speed and gives a concrete model diagnostic. The result is confined to homogeneous deterministic dynamics and does not claim stochastic persistence.
+
+Independent audit has not been performed; no independent validation is implied.
+
+Self-review: passed. Independent audit: not yet performed.
