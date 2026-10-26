@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "An explicit source-accurate two-stage SDIRK21 matrix calculation gives strictly positive first-stage components, all case-wise denominator weights, and a unique positive conservative corrected linear solve. The uncorrected second-stage stability function and its derivative give the global minimum and both sharp interval endpoints. Pointwise epsilon-floor limits include predictor face equalities. The proof calculates a nonzero exact-flow error witness and a finite first boundary-layer coefficient. 9,020 independent deterministic checker assertions corroborate the algebra but do not prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source proves nonnegative and conservative steps for general production-destruction systems; it does not supply a stiff-step accuracy or floor-limit theorem.",
+        "Earlier modified Patankar order and oscillation papers have different stage weights."
+      ],
+      "reasoning": "A broader positivity guarantee only bounds the output inside the simplex and does not determine which face its zero-floor limit selects. Classical small-step convergence presupposes a different limiting operation; its hypotheses are not satisfied by fixed large steps.",
+      "searches": [
+        "published-finding corpus: 2026 sharp randomized numerical optimization spectral bounds stochastic gradient covariance step size eigenvalue",
+        "published-finding corpus: 2026 numerical analysis algorithms randomized low rank quadrature optimization convergence thresholds",
+        "published-finding corpus: modified Patankar Runge Kutta positive correction small epsilon nonuniform error two state kinetics stiff relaxation",
+        "published-finding corpus: positive conservative SDIRK 2 stage clipping ratio scaling sharp transition wrong equilibrium",
+        "arXiv search: Patankar type methods threshold stage negative eigenvalue ratio correction 2022 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.15271 (full relevant paper text and original method definitions)",
+      "arXiv:2108.07347 (full relevant Patankar schemes, Sections 1-5)",
+      "arXiv:2407.12540 (abstract only)",
+      "published-finding corpus semantic findings, eight actual queries listed",
+      "Additional primary numerical-analysis literature identified by mathematical topic and reference chains"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known 2026 formula (25) specifies a correction but neither calculates its epsilon-to-zero two-state limit nor excludes persistent fixed-step error.",
+        "Known 2022 oscillation and order-reduction examples are for earlier MPRK methods.",
+        "The fixed-positive-cutoff, vanishing-timestep regime asks a different mathematical question."
+      ],
+      "reasoning": "The theorem is deduced here from the published method by a separate 2x2 calculation. The prior statements do not by themselves imply the closed all-x formula, the sharp rate threshold, or the complete finite stiffness interval. A prior source containing an unrecognized equivalent could reduce originality; this is disclosed as a risk.",
+      "searches": [
+        "published-finding corpus: Patankar predictor corrector SDIRK21 two-state Markov generator negative predictor clipped ratio epsilon spurious stationary distribution",
+        "published-finding corpus: modified Patankar Runge Kutta positive correction small epsilon nonuniform error two state kinetics stiff relaxation",
+        "published-finding corpus: positive conservative SDIRK 2 stage clipping ratio scaling sharp transition wrong equilibrium",
+        "published-finding corpus: arXiv 2602.15271 final-only corrected SDIRK21 vanishing denominator floor epsilon predictor clipping two-state mass conserved exact map",
+        "published-finding corpus: Patankar predictor corrector SDIRK21 finite-step clipping limit two-species equilibrium rate ratio 3 minus 2 sqrt 2",
+        "published-finding corpus: Patankar correction stiff reversible two species negative predictor interval positivity epsilon zero",
+        "arXiv:2602.15271 full text sections 3.3 and 4.2.1",
+        "arXiv:2108.07347 Sections 2-5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nurkhametova et al. 2026 equations (21), (25) define scaling and corrector but not its pointwise clipped-predictor limit.",
+        "Torlo et al. 2022 Sections 3-5 analyze distinct MPRK formulas."
+      ],
+      "reasoning": "The result can be equivalently phrased as a zero-floor projection onto the two-state mass simplex. Direct comparison of source formulas and the 2022 method formulas shows neither supplies this equality or its rate boundary.",
+      "searches": [
+        "published-finding corpus: Patankar predictor corrector SDIRK21 two-state Markov generator negative predictor clipped ratio epsilon spurious stationary distribution",
+        "published-finding corpus: modified Patankar Runge Kutta positive correction small epsilon nonuniform error two state kinetics stiff relaxation",
+        "published-finding corpus: positive conservative SDIRK 2 stage clipping ratio scaling sharp transition wrong equilibrium",
+        "published-finding corpus: arXiv 2602.15271 final-only corrected SDIRK21 vanishing denominator floor epsilon predictor clipping two-state mass conserved exact map",
+        "published-finding corpus: Patankar predictor corrector SDIRK21 finite-step clipping limit two-species equilibrium rate ratio 3 minus 2 sqrt 2",
+        "published-finding corpus: Patankar correction stiff reversible two species negative predictor interval positivity epsilon zero",
+        "arXiv search: Patankar predictor corrector negative stage components singular epsilon wrong limit conservation two species"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact floor-limit map, rate cutoff 3-2 sqrt(2), or interval-root table among inspected primary source and semantic finding records."
+      ],
+      "reasoning": "The candidate is an exact continuous parameter theorem, not a lookup of tabulated numerical values. In the accessible records, none encodes the same formula.",
+      "searches": [
+        "published-finding corpus: Patankar predictor corrector SDIRK21 two-state Markov generator negative predictor clipped ratio epsilon spurious stationary distribution",
+        "published-finding corpus: modified Patankar Runge Kutta positive correction small epsilon nonuniform error two state kinetics stiff relaxation",
+        "published-finding corpus: positive conservative SDIRK 2 stage clipping ratio scaling sharp transition wrong equilibrium",
+        "published-finding corpus: arXiv 2602.15271 final-only corrected SDIRK21 vanishing denominator floor epsilon predictor clipping two-state mass conserved exact map",
+        "published-finding corpus: Patankar predictor corrector SDIRK21 finite-step clipping limit two-species equilibrium rate ratio 3 minus 2 sqrt 2",
+        "published-finding corpus: Patankar correction stiff reversible two species negative predictor interval positivity epsilon zero",
+        "arXiv abs:2602.15271; full text equation (25)",
+        "arXiv:2108.07347 full text Sections 2-5"
+      ]
+    },
+    "rationale": "A full-text source comparison distinguishes the source paper's general positive conservative update and local order analysis from the exact fixed-step vanishing-floor map and its sharp two-state reentrant negative-predictor interval. Earlier Patankar oscillation/order issues involve different update formulas. Eight semantic record queries and targeted arXiv queries located no covering claim. A fixed-floor timestep-refinement conclusion involves a different limiting operation and would not establish these conclusions. Residual historical priority risk remains.",
+    "residual_risks": [
+      "Older or non-indexed analysis of a similar zero-floor projection map may exist despite the searches.",
+      "Not every Patankar-related primary paper was inspected in full; an abstract-only 2024 multistep paper was noted.",
+      "General convergence arguments at small steps do not settle this fixed-large-step singular-floor limit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_SOURCE_METHOD_NOT_COVERING_STATED_LIMIT",
+        "evidence": [
+          "Equations (21),(25a)-(25c) and SDIRK21 Section 4.2.1 define algorithm, positivity and conserved mass.",
+          "Sections 3.3, 5 present local order and physical examples, not the exact zero-floor two-state phase classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.15271",
+        "material_read": "Equations (21) and (25); Section 4.2.1; relevant stated results in Sections 3 and 5; page-rendered original PDF method and tableau checks",
+        "method": "Full HTML text inspection and page-rendered original PDF comparison",
+        "title": "A Patankar predictor-corrector approach for positivity-preserving time integration",
+        "trigger": "Exactly the numerical integrator and scaling rule under analysis"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_ALGORITHMS",
+        "evidence": [
+          "Motivating two-species exchange and oscillation/order-loss analysis; named earlier MPRK schemes differ from the source 2026 SDIRK correction.",
+          "The sections considered do not state the exact epsilon-floor clipped-predictor identity for equations (21)/(25) of the later paper."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.07347v5",
+        "material_read": "Targeted full-text HTML passages in the Introduction, sections 2.1, 3, 4 and 5; method equations, oscillation and vanishing-initial-value theorems",
+        "method": "Primary arXiv full-text HTML reading and formula comparison",
+        "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+        "trigger": "Most plausible earlier two-state positive integrator pathology"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_COMPARED_FULL_TEXT",
+        "evidence": [
+          "2024 methods are linear multistep formulas, not the SDIRK21 predictor-corrector (25).",
+          "Full text not inspected; recorded as residual priority risk rather than definitive exclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.12540",
+        "material_read": "Primary abstract, metadata, stated aim (not full text)",
+        "method": "Abstract comparison only",
+        "title": "Modified Patankar Linear Multistep methods for production-destruction systems",
+        "trigger": "Potential generic positive conservative linear multistep coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "884c707e-77cf-4eab-8d2c-8d6ab63edb84",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact two-state stiffness phase diagram and full-simplex singular-floor map identify when a positivity-preserving and conservative correction can concentrate near a wrong simplex face, even though the physical flow remains in the interior. The sharp threshold, bounded reentrant window, error witness and O(epsilon) scale quantify an algorithm-specific robust-vs-misleading regime; this is a motivated design boundary not implied by positivity or small-step formal order.",
+    "status": "PASS"
+  }
+}
