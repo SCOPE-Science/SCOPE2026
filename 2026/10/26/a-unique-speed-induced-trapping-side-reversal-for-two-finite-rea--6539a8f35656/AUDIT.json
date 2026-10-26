@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The backward two-orientation generator is explicitly derived for each constant-hazard piece. Since the 2x2 transfer matrix squares to the positive squared spatial decay rate times the identity, two exact interface relations yield the closed-form splitting probability for all positive widths/rates and any interior initial data. One-dimensional symmetric paired-run displacements ensure recurrent entrance visits and almost sure capture. The derivative of log(R_L/R_R) is strictly one-signed when B_L != B_R because the relevant hyperbolic-sine derivative has a strict sign; endpoint signs therefore prove exactly one crossing iff the two rate rankings oppose. The only identically equal case forces identical trap parameters. Independent matrix-exponential transfer implementation confirms 400 randomized inputs to max absolute error 1.62e-13, plus 300 derivative tests and 110 crossover checks. Verified limits, normalizations and strict positivity; simulations alone are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Angelani 2023 generic-wall analysis DOI 10.1088/1751-8121/ad009e sections 2-5 provides arbitrary wall rates and exit-time transforms, with confinement and wall holding times, not bidirectional traversal of reactive intervals.",
+        "Jeon-Go-Kim 2023 arXiv:2310.04016 sections II-IV optimizes search time for one delta-reactive target between hard walls.",
+        "Bressloff 2023 arXiv:2302.01158 sections 4-5 includes two-endpoint splitting but not the competing finite absorption layer widths or unique speed-inversion phase law."
+      ],
+      "reasoning": "General BVP/transfer theory could reproduce the new formulas after specialization, but the reported broad papers provide no result that directly entails the sharp opposition criterion for the two distinct rankings. A broad method is not claimed as novel.",
+      "searches": [
+        "run and tumble particle two partially absorbing intervals killing splitting probability left right hyperbolic coth",
+        "one-dimensional run-and-tumble motions with generic boundary conditions absorption wall mean exit time",
+        "run and tumble particle two localized reactive regions splitting probability finite intervals",
+        "one dimensional run tumble two finite reactive intervals unequal absorbing hazards splitting probability speed reversal local rate integrated strength"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2303.03078 (full text, 2023-03-06 first public date)",
+      "arXiv:2302.01158 (full text)",
+      "doi:10.1088/1751-8121/ad009e (open-access full text)",
+      "arXiv:2310.04016 (full text)",
+      "MSC2020 82C41 classification: dynamics of random walks in statistical mechanics",
+      "Published mathematical-record semantic matches screened by source, aliases, and implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reflection of the symmetric environment in arXiv:2303.03078 fixes the split to one-half; it gives no unequal-zone parameter rankings.",
+        "The finite-interval wall processes in arXiv:2302.01158 have an absorption contact-time mechanism and no finite penetrable widths L_L and L_R.",
+        "The one-target mean-time optimum in arXiv:2310.04016 has neither two competing capture labels nor a splitting-equality condition."
+      ],
+      "reasoning": "The new claim is neither a corollary of reflection-symmetric capture (which is degenerate) nor a mere renaming of two unequal sticky-boundary absorption constants; the effective reactivities here depend on speed through a hyperbolic-cotangent function of the reactive interval width, and the global strict ratio monotonicity is needed to prove exactly one crossing.",
+      "searches": [
+        "arXiv:2303.03078 section V equations 61 70 finite symmetric trapping zones",
+        "arXiv:2302.01158 equation 5.18 inequivalent two-wall splitting probability",
+        "arXiv:2310.04016 partially absorbing single target velocity optimum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Angelani 2023 arXiv:2303.03078 section V equations (61)-(76) solves symmetric finite interval trapping; the right/left split is forced to equality by reflection symmetry.",
+        "Bressloff 2023 arXiv:2302.01158 equation (5.18) gives generalized splitting with different sticky wall reactivities in a bounded domain, rather than finite penetrable kill layers."
+      ],
+      "reasoning": "Synonyms searched included telegraph, velocity jump, competing absorption, penetration, finite reactive slabs, and hyperbolic cotangent impedance. Boundary-local-time splitting and symmetric finite-zone killing are nearby, but neither asserts the finite-width two-zone criterion based on opposed orderings of rate and rate-times-width.",
+      "searches": [
+        "run and tumble particle capture splitting probability speed reversal two traps finite reactivity directional absorption switch speed",
+        "telegraph process partially absorbing target two traps splitting probabilities exact transport resistance coth",
+        "persistent telegraph velocity jump process competing partially absorbing targets exact capture side hyperbolic coth monotone",
+        "finite-width Poisson killing slabs run and tumble telegraph process reaction strength length asymmetric split coth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic scientific-record searches returned no same-object theorem; nearest returned two-zone work concerned a piecewise-affine period annulus rather than active-particle capture.",
+        "The checked prior finite-zone paper supplies symmetric stationary density and survival equations, not an asymmetric capture-side crossover table or parameter phase partition."
+      ],
+      "reasoning": "No cited table gives the strict necessary-and-sufficient reversal condition, and no checked research-record claim matches the statement. Finite-dimensional/single-crossing identities elsewhere are not logically covering without a reduction to this two-zone model.",
+      "searches": [
+        "one dimensional run tumble two finite reactive intervals unequal absorbing hazards splitting probability speed reversal local rate integrated strength",
+        "persistent telegraph velocity jump process competing partially absorbing targets exact capture side hyperbolic coth monotone",
+        "run and tumble trapping finite zones asymmetric absorption probability flux splitting threshold",
+        "Angelani 2023 trapping environments run tumble finite zones asymmetric adhesion right left capture probability crossover swimming speed",
+        "finite-width Poisson killing slabs run and tumble telegraph process reaction strength length asymmetric split coth",
+        "two different finite trapping intervals persistent random walk single reversal competition local trap rate integrated hazard"
+      ]
+    },
+    "rationale": "The closest source treats finite traps only in the mirror-symmetric setting; separate sources treat two inequivalent sticky *walls* or a single confined reactive target. Their recorded statements do not imply a complete one-crossing criterion for two unequal penetrable finite capture regions. The present result distinguishes local hazards from integrated hazard strengths and proves a strict speed-monotonic impedance ratio. The existence of this speed reversal is an explicit mathematical result not found in the inspected primary material; generic telegraph transfer and absorption/splitting methods are prior knowledge. Search noncoverage is only qualified evidence, not proof of uniqueness.",
+    "residual_risks": [
+      "An earlier but unindexed treatment of competing finite hazard zones or a general two-layer transfer theorem might already imply the exact criterion.",
+      "Near-degenerate rates or widths yield an extreme crossover speed, limiting experimentally observable reversals.",
+      "Numerical checks verify finite samples only; the monotonic analytic lemma and recurrence argument are essential infinite-domain steps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest exact model but symmetric strengths and widths; stationary trapped-position density and trapping-time tails, no asymmetric right-vs-left probability crossover.",
+        "evidence": "Section V writes a reflection-symmetric finite trapping set and gives an even stationary spatial trapping density in equation (70).",
+        "identifier_or_url": "https://arxiv.org/pdf/2303.03078",
+        "material_read": "Full available 22-page PDF, especially model section II and finite trapping section V, pages 12-14, equations (61)-(76), plus figures and concluding discussion.",
+        "method": "Full-text PDF inspection including page image.",
+        "title": "Run-and-tumble motion in trapping environments",
+        "trigger": "Same velocity-jump and finite reactive-zone killing mechanism as the new claim."
+      },
+      {
+        "assessment": "Establishes prior splitting theory at heterogeneous sticky endpoints. The space is bounded by capturing walls rather than containing two penetrable finite kill layers in an unbounded line; no width-times-hazard reversal criterion.",
+        "evidence": "Equation (5.18) explicitly uses distinct endpoint reactivity transform variables; its boundary model includes wall adhesion until tumbling.",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.01158",
+        "material_read": "Available 27-page PDF, sections 4 and 5 and equations (5.15)-(5.20) on pages 19-21, including the asymmetric-wall case.",
+        "method": "Full-text PDF inspection including equation-page image.",
+        "title": "Encounter-based model of a run-and-tumble particle II: absorption at sticky boundaries",
+        "trigger": "Two different capture probabilities and possible stronger heterogeneous-boundary results."
+      },
+      {
+        "assessment": "Covers sticky endpoint accumulation, wall rate conditions and exit times, not finite-width permeable kill layers or capture-side one-reversal classification.",
+        "evidence": "Section 4 equation (45) gives the generic exit-time transform; subsequent results specialize to mean exit time, not the competing finite-zone split.",
+        "identifier_or_url": "https://iris.cnr.it/retrieve/e1d78abe-8685-4eff-936b-9bcad8ad4c0f/prod_489129-doc_203607.pdf",
+        "material_read": "Complete available 15-page paper; model, generic boundary formulation and exit-time sections 2-5.",
+        "method": "Open-access publisher PDF read and first-content-page image checked.",
+        "title": "One-dimensional run-and-tumble motions with generic boundary conditions",
+        "trigger": "Broad unequal reactivity at both ends could dominate a simple splitting result."
+      },
+      {
+        "assessment": "A single localized delta sink under confinement is optimized for mean time; no two separated finite reactive zones, split, or one-crossing theorem.",
+        "evidence": "Section II equation (2) introduces one delta-reactive sink, and the abstract states the objective is mean search time.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.04016",
+        "material_read": "Available 12-page paper, introduction and model (section II), main optimization and applications through sections III-IV.",
+        "method": "Full-text PDF read including model equation-page image.",
+        "title": "Searching for a partially absorbing target by a run-and-tumble particle in a confined space",
+        "trigger": "Absorbing region and velocity dependence could imply the proposed speed reversal."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6539a8f3-5656-4050-9018-b57ad237e6d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physical competition between distinct reactive environments is not resolved by survival-time formulas for symmetric zones or two sticky wall models. This result determines a complete, natural parameter phase partition for a nontrivial observables: direction of eventual immobilization. Its key counterintuitive mechanism is rank reversal between local capture rates and spatially integrated capture strengths. The exact all-parameter iff criterion and a strictly unique crossover are useful for sorting, adhesion, and active-search design; the result is not a one-off computed constant, normalization identity or textbook sign check.",
+    "status": "PASS"
+  }
+}
