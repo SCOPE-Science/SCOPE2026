@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The twelve-vertex graph is explicitly given by thirty edges of a two-pentagon icosahedral realization. Every perfect matching is enumerated by exhaustive least-unmatched-vertex recursion. A pair of matchings is adjacent exactly when its symmetric difference is connected and 2-regular on four or six distinct vertices. Direct full pairwise comparison therefore produces every and only the allowed alternating-cycle flips, including chorded cycles. The exact graph has 125 perfect matchings. There are 300 four-cycle flip edges with component sizes (120,1,1,1,1,1) and a giant-component radius/diameter (5,6), and 580 six-cycle edges with one component, radius 3, diameter 4. The five isolated four-cycle states coincide exactly with all five six-cycle centers, the remaining 120 six-cycle eccentricities being four. A second program independently scans all 593775 edge six-subsets and explicitly enumerates/toggles alternating 4/6-cycles; complete canonical edge lists agree under SHA-256, with independently recomputed all-state BFS. Both programs were run and their exact outputs are included, along with three whole-state certificates. No inference from a partial enumeration is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy et al. 2019 establish PSPACE-completeness and algorithmic results for strongly orderable, outerplanar and cograph classes; no icosahedral graph statement, and an icosahedron is not in the named easy classes.",
+        "Bošković 2026 Theorems 1 and 2 explicitly concern clique-decorated and Fisher-decorated graphs and give upper-bound cycle lengths, not exact icosahedral component and centrality data.",
+        "The 2026 Hamilton-paths matching flip work concerns complete or complete bipartite base graphs and geometric non-crossing matching spaces, not a fixed icosahedral host."
+      ],
+      "reasoning": "A general unrestricted-cycle flip-connectedness observation applies to any graph, but only guarantees connectivity when arbitrarily long alternating cycles are allowed. It cannot imply the sharp six-cycle threshold, the five four-frozen states, or their six-cycle centrality. General computational complexity statements do not provide the exact instance solution. A graph-specific stronger theorem would be covering, but none was identified from materials actually read.",
+      "searches": [
+        "arXiv:1904.06184 theorem perfect matching reconfiguration graph classes alternating cycles",
+        "arXiv:2607.16101 clique decorated Fisher graphs flip dynamics cycle bounds",
+        "icosahedral graph perfect matchings alternating cycle flip reconfiguration graph connected diameter",
+        "Hamilton paths and cycles in flip graphs of almost perfect matchings arXiv 2607.04687"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.3796v1",
+      "arXiv:1904.06184v1",
+      "arXiv:2607.16101v1",
+      "public record 28565ad1ea1a: complete RESULT.md",
+      "MATCH 66 (2011) Che–Chen survey selected sections",
+      "published results on the Heawood, Möbius–Kantor and other named graph matching flips (comparison of recoverable claims)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lei–Yeh–Zhang 2014 pages 1–3 define perfect matching and alternating cycles and state planar-bipartite anti-forcing theorems; the icosahedron is not bipartite.",
+        "Bonamy et al. 2019 full HTML identifies graph classes, decision problems and cycle-length variants; it does not compute this graph-specific reconfiguration network.",
+        "Public matching-complex theorem gives homotopy and a matching count, with simplices corresponding to disjoint-edge subsets; it does not fix which pairs of six-edge maximal simplices are adjacent by alternating cycles.",
+        "Earlier graph-specific flip findings concern nonisomorphic Heawood, Möbius–Kantor, Desargues, Tutte–Coxeter, Pappus, and dodecahedral graphs and make no universal statement implying this example."
+      ],
+      "reasoning": "The exact new claim is that the 4-flip graph on the icosahedron is 120 plus five isolated vertices, while its 6-flip graph is connected with 580 edges, radius 3, diameter 4 and centers exactly equal to the shorter-flip isolated vertices. Known scalar counts and broad connectivity results neither entail the listed adjacency structure nor the eccentricity coincidence. The already published 125 matching count is excluded from the assertion of originality.",
+      "searches": [
+        "2014 arXiv 1406.3796 anti forcing numbers alternating cycles icosahedral",
+        "2019 arXiv 1904.06184 matching reconfiguration four cycles six cycles icosahedron",
+        "2026 arXiv 2607.16101 flip dynamics non-bipartite planar decorated graphs",
+        "published icosahedral ordinary matching complex homotopy torsion perfect matching 125",
+        "dodecahedron Heawood Mobius-Kantor perfect matching flip six eight cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2019 perfect-matching reconfiguration paper (arXiv:1904.06184, Introduction and Section 1.1) formalizes alternating cycle flips and defines length-four and length-k reconfiguration; the visible results are complexity/class statements, not an icosahedral table.",
+        "The published icosahedral matching-complex record (public ID 28565ad1ea1a, complete RESULT.md) establishes the perfect-matching total 125 as its top-dimensional face number, not the graph on those faces.",
+        "No exact icosahedral 4/6-flip component or center numbers appeared in the targeted public-record search responses."
+      ],
+      "reasoning": "Equivalent names include dimer rotations, Kekulé exchange, two-edge switches, alternating quadrangle flips, and simple hexagon switches. These designate the same symmetric-difference transition only if the chosen cycle is an allowed simple (possibly chorded) cycle, as specified here. The known topological matching-complex statement does not determine the transition graph or distance eccentricities.",
+      "searches": [
+        "icosahedron graph 125 perfect matchings four-cycle flip five isolated matchings six-cycle connected 580 edges",
+        "perfect matching switch graph of the icosahedral graph length 4 and length 6 flips radius diameter",
+        "icosahedral dimer configurations icosahedron Kekule graph 4-flip connectivity 6-flip",
+        "icosahedron graph \"perfect matchings\" \"4-cycles\" flip"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public 2026 matching-complex RESULT.md: f-vector (30,315,1400,2535,1482,125), so the cardinality 125 is known and explicitly credited.",
+        "2025 article Matching Polynomials of Symmetric, Semisymmetric... reports 125 perfect matchings of the regular icosahedron, further confirming this is a known count.",
+        "No inspected graph database or source supplies the 300 and 580 flip-edge sets or frozen-center coincidence."
+      ],
+      "reasoning": "A total perfect-matching count, graph matching polynomial, or matching-complex f-vector is not an adjacency matrix for an alternating-cycle flip graph. The present new component and distance data are not corollaries of those scalar counts. Unindexed private enumerations remain a residual risk.",
+      "searches": [
+        "icosahedron graph perfect matchings 125 resonance flip alternating cycles",
+        "icosahedron Kekule structures 125 perfect matchings",
+        "icosahedral matching complex perfect matchings 125 flip graph",
+        "icosahedron 125 perfect matchings four-cycle five isolated and six-cycle centers"
+      ]
+    },
+    "rationale": "The existing icosahedral matching-complex calculation has the already known perfect-matching count 125, which this claim does not present as novel. Its homotopy theorem on the complex does not imply a four- or six-cycle transition graph on its top-dimensional simplices. The 2019 reconfiguration paper studies length-four flips and algorithmic complexity for graph classes, without resolving this icosahedral component census or length-six eccentricities. The 2026 decorated-graph results yield general connectivity bounds for particular constructions, not this exact icosahedral threshold and coincidence of frozen states with graph centers. The earlier 2014 anti-forcing paper concerns alternating cycles, mostly for planar bipartite graphs; the icosahedron is nonbipartite. Other historical examples enumerate different graphs and cannot imply this result by their statements. The public-record and primary-literature searches produced no stronger or equivalent exact table; unindexed graph-specific work is a residual priority risk.",
+    "residual_risks": [
+      "An unpublished or unindexed complete icosahedral perfect-matching flip-graph census may exist.",
+      "Some source full texts outside the five inspected records may contain undocumented equivalent tables.",
+      "Scalar perfect-matching count 125 is prior knowledge and is not claimed as original.",
+      "The 2011 survey was sampled by sections and term search, not checked exhaustively result-by-result.",
+      "No independent external mathematical audit is available."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines alternating cycles and studies forcing/anti-forcing, with central theorem for planar bipartite graphs; does not give the specified nonbipartite icosahedral flip graph.",
+        "evidence": [
+          "arXiv v1 2014-06-15 06:39:30 UTC; PDF pages 1–3 define alternating cycles and focus on anti-forcing; no document match for icosahedral."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.3796",
+        "material_read": "Full 20-page PDF text available; abstract, Introduction, Lemma 1.1, Theorem 1.2, scope, and whole-text targeted title/term searches inspected; page-one image examined.",
+        "method": "Read actual PDF text and inspect the page image; compare definitions and theorem hypotheses.",
+        "title": "Anti-forcing numbers of perfect matchings of graphs",
+        "trigger": "Dated 2014 arXiv v1 source providing the alternating-cycle framework in the archive period."
+      },
+      {
+        "assessment": "General complexity and algorithms for host graph classes do not determine the icosahedron-specific four/six flip graphs; no icosahedral mention found.",
+        "evidence": [
+          "2019 arXiv full HTML Introduction lines 14–33 and 52–68 gives scope; text search icosa found no match."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.06184",
+        "material_read": "Complete HTML text accessible; read Introduction §§1.1–1.3 and theorem/class results, and searched entire article for icosahedron and transition-model terms.",
+        "method": "Compare symmetric-difference definition, graph-class hypotheses, and published conclusions.",
+        "title": "The Perfect Matching Reconfiguration Problem",
+        "trigger": "Directly relevant matching-flip reconfiguration model and the primary possibility of broader coverage."
+      },
+      {
+        "assessment": "Decorated graph connectivity theorems and coarse bounds do not assert this fixed-host exact 4/6 flip structure.",
+        "evidence": [
+          "Theorems 1–2 explicitly concern clique and Fisher decorations; no icosahed term in full searchable page."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.16101",
+        "material_read": "Full arXiv HTML text accessible; examined Introduction, Theorems 1–2, Section 2 and decorated graph class descriptions; searched for icosahed.",
+        "method": "Compare host graph constructions, theorem quantifiers and asserted bounds to fixed icosahedron.",
+        "title": "Flip dynamics on perfect matchings beyond bipartite and planar graphs",
+        "trigger": "Newer research on exact/upper-bounded alternating cycle lengths in nonbipartite graphs."
+      },
+      {
+        "assessment": "Its f_5=125 already covers the matching count; homotopy statement does not determine the graph on perfect matchings defined by single alternating 4/6 cycles.",
+        "evidence": [
+          "Full public RESULT.md states f-vector (30,315,1400,2535,1482,125) and wedge-plus-Moore homotopy classification."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-three-torsion-in-the-icosahedral-matching-complex-a-planar-count--28565ad1ea1a",
+        "material_read": "Complete publicly accessible RESULT.md including the theorem, labeled graph, exhaustive face vector, proof, limitations and references.",
+        "method": "Direct same-object and implication comparison of matching complex to short-cycle flip graphs.",
+        "title": "Three-torsion in the icosahedral matching complex: a planar counterexample",
+        "trigger": "Same underlying icosahedral graph and perfect-matching count, highest-priority overlap candidate."
+      },
+      {
+        "assessment": "Provides matching and alternating-cycle context, not evidence of the exact claimed reconfiguration graph; full survey was not searched theorem-by-theorem.",
+        "evidence": [
+          "MATCH 66 (2011), pp. 93–136; §§1–2 define forcing and alternating cycles, with no icosahed term matched."
+        ],
+        "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match66/n1/match66n1_93-136.pdf",
+        "material_read": "PDF abstract and definition sections 1–2 plus text search for icosahed; inspected page-six image.",
+        "method": "Check alternate terminology and whether a covering icosahedral census is described in the sections inspected.",
+        "title": "Forcing on Perfect Matchings — A Survey",
+        "trigger": "Older review of alternating-cycle, resonance and perfect matching terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98a001e1-4839-4ff8-bdc5-1aaaf440d5d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The regular icosahedron is a canonical planar triangulation with exclusively triangular (odd) faces, so facial even-cycle dimer moves are unavailable. Its shortest non-facial alternating-cycle moves provide a mathematically motivated natural test case for ergodic matching reconfiguration. The exact result identifies a nontrivial sharp move length, a 120-state connected class and five frozen states at length four, full connectivity at length six, and the unexpected fact that exactly those five frozen states become the unique graph centers under six-cycle dynamics. This describes a structural mobility reversal, not merely a known matching total or a routine parameter increment. The finite classification is self-contained and valuable as a benchmark, without asserting a general theorem.",
+    "status": "PASS"
+  }
+}

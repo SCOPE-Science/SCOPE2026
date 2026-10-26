@@ -1,0 +1,15 @@
+# Scientific review of the icosahedral alternating-flip classification
+
+## Correctness — PASS
+The perfect-matchings recursion branches on every possible partner of the least free vertex; this enumerates all 125 perfect matchings without omission. The symmetric-difference criterion recognizes precisely one four- or six-cycle, allowing chords and excluding a disjoint union. Exhaustive pair checks and all-source breadth-first traversals give the complete exact flip graphs and distance eccentricities. A genuinely different six-edge-subset enumeration plus explicit cycle-toggle constructor independently reproduces full canonical edge certificates and all claimed invariants. Source files and recorded outputs were replayed from the final scientific package. The result is finite, not an extrapolation.
+
+## Originality — PASS, with explicit risk
+Primary literature on alternating cycles and anti-forcing and on perfect-matching reconfiguration was examined. The 2019 general complexity results for four-cycle matching flips do not determine this particular icosahedral switch graph. The 2026 decorated-graph bounds likewise do not supply its five frozen states and their exact centrality in the six-cycle dynamics. The publicly available icosahedral matching-complex result already records 125 perfect matchings; that count is correctly attributed as prior knowledge, and the new result is the complete flip-graph structure. Relevant published findings on other named graphs concern different graph instances and do not imply this classification. Equivalent unpublished or unindexed graph-specific tables are a residual priority risk, so database nonhits are not treated as proof of absolute novelty.
+
+## Mathematical value — PASS
+The icosahedron is the smallest regular triangulated spherical polyhedron with five neighbors per vertex, and every face is odd. Consequently it is a natural test case for non-facial alternating-cycle moves, distinct from standard bipartite planar face-flip dynamics. The result finds a sharp local move-length threshold, a giant-plus-five-frozen decomposition for shorter moves, and the unexpected coincidence that precisely those frozen states become the unique centers under six-cycle flips. Those are structural and accessibility statements beyond the previously tabulated matching count, providing a finite benchmark for reconfiguration and dimer dynamics. The theorem claims no broader extrapolation.
+
+## Closest work and limitations
+Lei–Yeh–Zhang (arXiv:1406.3796v1) develops the alternating-cycle viewpoint; Bonamy et al. (arXiv:1904.06184v1) gives general flip reconfiguration results; Bošković (arXiv:2607.16101v1) studies restricted cycle-length connectivity for decorated graphs. The published icosahedral matching-complex computation gives 125 as a known perfect-matching count but not the two transition graphs. Reproductions are finite, exhaustive and standalone, yet publication priority remains conditional on literature actually inspected. No external audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
