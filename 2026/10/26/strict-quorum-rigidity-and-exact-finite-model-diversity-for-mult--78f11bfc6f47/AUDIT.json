@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every \\(n\\ge1\\) and integers \\(r\\ge2\\), \\(\\lfloor r/2\\rfloor<q\\le r\\), disjoint supporter sets for two outgoing or incoming arcs would have total size at least \\(2q>r\\), contradicting path functionality. Thus the union containing one spanning path can only be that path or its cyclic closure. Every constituent path of the cycle removes one arc; its removal multiplicity at most \\(r-q\\) is exactly the quorum condition. This yields a bijection with capped allocations of r named omissions into n cycle arcs, with unique cyclic scaffold and no double counting, plus \\(n!\\) repeated-order cases. Positive allocations establish precisely the claimed allowed diversity s and smallest n; explicit 3-vertex constructions prove the threshold sharp. The packaged checker exhaustively verified eight parameter triples, including \\(n=5,r=3,q=2\\) and \\(n=4,r=4,q=3\\); these tests supplement rather than replace the proof. \\(n=1\\), \\(q=r\\), and small n are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.19943v1 Theorem 1.1 is a 2EXPSPACE decision and a large general finite-model bound, not a closed census of a fixed universal sentence.",
+        "arXiv:2610.09758v1 Theorem 13 bounds finite satisfiability complexity under a total lost-reference-adjacency budget and uses common blocks (Section 7.3); no strict-quorum theorem or diversity spectrum is stated.",
+        "Closest published-finding corpus record public published-finding corpus item “Exact quantifier-rank threshold for finite directed paths” classifies finite path lengths by logical quantifier rank, not tuples of interacting successor paths."
+      ],
+      "reasoning": "The broad decision algorithms establish whether a finite model exists but do not imply this exact full list of models, labelled counts, the absent two-diversity case, or sharp positive-size spectrum without additional analysis. Budgeted disagreement permits many reorderings; strict quorum narrows them to one cycle, so neither constraint implies the other in general.",
+      "searches": [
+        "published-finding corpus: Two variable logic over arbitrarily many successor relations of linear orders finite satisfiability sharp model size small fragments or random structures",
+        "published-finding corpus: Exact finite model counting for two-variable universal first-order formula: every edge appearing in some linear-order successor occurs in a strict majority of the successor relations",
+        "Web: Hamiltonian path families every arc of union occurs at least q > r/2 times agreement structure",
+        "Web: consensus of Hamiltonian paths majority common directed edges each edge quorum linear order paths aggregation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.09758v1, 2026-10-07, full-text HTML relevant Sections 1 and 7",
+      "arXiv:2610.19943v1, 2026-10-14, full-text HTML relevant Sections 2-6 and appendix",
+      "published-finding corpus: “Exact quantifier-rank threshold for finite directed paths” (different quantifier-rank problem)",
+      "published-finding corpus: “Exact five-candidate majority-tournament fibers for three voters” (different pairwise-majority predicate)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.09758v1 Section 7.3 equations (15)-(16) count lost reference edges via common-block permutations and gives a three-block rotation example; no uniform support threshold q>r/2 is imposed.",
+        "arXiv:2610.19943v1 Section 4 equation (2) is a signed factorial count of admissible local profile realisations for general formulas; it is not a direct coefficient formula for n-labelled path tuples with a per-edge voting rule.",
+        "published-finding corpus public published-finding corpus item “Exact five-candidate majority-tournament fibers for three voters” counts a different, pairwise-majority profile."
+      ],
+      "reasoning": "A general logical decision theorem is not itself a stronger quantitative theorem about all models of one fixed sentence. Common-block decomposition is potentially applicable to this case but does not automatically enforce the one-cycle union or the omission occupancy cap, which are additional structural lemmas proved here. The closest majority-tournament enumeration concerns a different logical relation.",
+      "searches": [
+        "arXiv:2610.09758v1 Section 7 common blocks budgeted finite satisfiability and equation 15",
+        "arXiv:2610.19943v1 Sections 3-6 local profiles factorial sum for cycle-free realisations",
+        "published-finding corpus: adjacency consensus of permutations or rankings: strict quorum each adjacent pair appears at least half of profiles, counting rotational profiles",
+        "published-finding corpus: successor edge frequency majority aggregation of directed Hamilton paths and linear orders"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest published-finding corpus record public published-finding corpus item “Exact five-candidate majority-tournament fibers for three voters” counts pairwise majority rankings; those are comparisons of any two candidates, not adjacency edges of spanning paths.",
+        "arXiv:2610.09758v1 Section 7 treats common-block reorderings and displays a three-cycle of blocks, but not the universal per-arc quorum constraint or exact tuple count."
+      ],
+      "reasoning": "A majority on pairwise preference comparisons is a different predicate from majority among immediate-successor arcs, even though both aggregate orders. Section 7 common-block examples contain cyclic cuts, but the cited structural results do not assert that every strict-quorum successor family must be such a cycle or count all cases. A differently named permutation-adjacency result is still a priority risk.",
+      "searches": [
+        "published-finding corpus: Strict-majority arc multiplicity in tuples of linear-order successor relations implies union a directed Hamiltonian cycle or common path, exact enumeration",
+        "published-finding corpus: Counting r-tuples of permutations with every adjacent directed pair shared by a strict majority, each order rotation of common cyclic permutation",
+        "Web: majority of adjacency relations linear rankings forms a directed cycle or path",
+        "Web: permutations adjacencies cyclic shifts maximal cliques Hamilton paths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A finite exhaustive checker found totals 2,18,168,1560 for n=2..5 when (r,q)=(3,2), with diversity values only one and three.",
+        "The above targeted exact-value and closed-expression searches did not return a relevant exact census or table. No comprehensive permutation table was exhaustively consulted."
+      ],
+      "reasoning": "Finite table matching cannot prove novelty. The novel-claim target is an all-parameter combinatorial model classification and diversity polynomial, not the numerical sequence in isolation; exact-table priority remains a residual risk.",
+      "searches": [
+        "Web: \"1, 2, 18, 168, 1560\" sequence",
+        "Web: \"18,168,1560\" permutation cyclic",
+        "Web: \"n!(n^2-3n+3)\" sequence",
+        "published-finding corpus: finite successor orders every arc supported by q relations q>r/2 cycles deleted edges exact spectrum"
+      ]
+    },
+    "rationale": "The motivating accessible full texts on arbitrary successor relations and finite satisfiability (arXiv:2610.09758v1, arXiv:2610.19943v1) were compared by mathematical implication, including the former common-block example and the latter signed factorial count. Neither establishes this strict-quorum classification or its exact full diversity enumeration. published-finding corpus and targeted literature/sequence searches found no stronger covering claim. Standard path and occupancy facts are acknowledged as prior art; uncertainty remains about differently termed adjacency consensus literature.",
+    "residual_risks": [
+      "A permutation-consensus or adjacency-intersection theorem predating these sources might state the same rigidity result under different terminology.",
+      "Targeted exact-count and literature searches are not exhaustive; independent priority review remains absent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant common-block machinery and cyclic example are prior; no all-parameter strict-quorum rigidity theorem, exact diversity enumeration or sharp quorum threshold identified in material read.",
+        "evidence": [
+          "Section 7.3 describes block permutations and a concrete three-block cyclic rotation; Theorem 13 decides budgeted finite satisfiability. The budget is sum of reference discrepancies, not the minimum support of every arc."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09758v1",
+        "material_read": "Abstract, Sections 1 and 7 (especially equations (11), (15)-(16) and the three-block example), conclusion, references.",
+        "method": "Full-text HTML reading and statement/implication comparison.",
+        "title": "Two-Variable Logic with Arbitrarily Many Successor Relations",
+        "trigger": "Same designated finite linear-order successor objects and directly relevant bound on lost adjacencies."
+      },
+      {
+        "assessment": "General finite satisfiability and profile counts do not imply the new explicit classified tuple family or its exact diversity generating polynomial directly.",
+        "evidence": [
+          "Theorem 1.1 concerns 2EXPSPACE decidability; Section 4 equation (2) counts signed local-profile realisations; neither specializes/identifies this per-arc majority class."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.19943",
+        "material_read": "Abstract; Introduction; Sections 2-6 including local profiles, signed cycle cancellation, factorial sum and decision procedure; quantitative recurrence appendix.",
+        "method": "Accessible arXiv full HTML/text reading and comparison of counted mathematical objects.",
+        "title": "Finite Satisfiability of Two-Variable Logic with Arbitrarily Many Successors",
+        "trigger": "Later primary work settles the unrestricted finite case with arbitrary successor overlap and explicitly counts profile realisations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78f11bfc-6f47-4c55-bf99-0fcbe78dfc81",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object arises naturally when multiple successor predicates are available in two-variable finite-model logic: a first-order sentence can demand quorum support for each actual adjacency. The exact classification reduces apparently independent paths to one cyclic scaffold; this yields complete labelled counts, every possible number of distinct orders, a sharp onset \\(n\\ge\\lceil r/(r-q)\\rceil\\), and the surprising exclusion of diversity exactly two. A threshold counterexample establishes that strict majority, rather than arbitrary positive support, is structurally decisive. The result is not claimed as a new general decision algorithm and relies on no arbitrary fixed finite cutoff.",
+    "status": "PASS"
+  }
+}
