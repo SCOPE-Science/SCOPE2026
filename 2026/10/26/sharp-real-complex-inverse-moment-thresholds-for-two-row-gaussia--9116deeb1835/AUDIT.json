@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For each integer \\(m\\ge2\\) and either field, the one-step convolution map \\(L_\\theta\\) has Gram eigenvalues \\(1+2|ab|\\cos(k\\pi/(m+1))\\), uniformly separated from zero over unit projective coefficients. Spherical Beta projection gives a fixed-direction small-ball bound of order \\(t^{\\beta m}\\); the projective net costs order \\(t^{-\\beta}\\), so the upper least-singular-value exponent is \\(\\beta(m-1)\\). The negative Gaussian-radius moment is finite. A bounded Gaussian chart with two free first samples and \\(m-1\\) complex or real recursion residuals has triangular Jacobian one and matching positive-density lower bound of order \\(t^{\\beta(m-1)}\\). Homogeneity and a bounded-chart lower bound establish the same condition-number exponent. Layer-cake proves the exact inverse-moment cutoff, including divergence at equality. A standalone checker replayed 1305 finite exact arithmetic identities; the continuum conclusions follow from the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Onatski and Kargin, arXiv:2412.17091, Introduction and Theorem 1, assume both row and column dimensions diverge with row/column ratio tending to a positive number.",
+        "Rudelson and Vershynin, arXiv:0802.3956, Theorem 1.1 treats independent-entry sub-Gaussian rectangular matrices.",
+        "Schmitz et al., arXiv:2402.13090v1, Sections 1–3, discuss Hankel factoring and poor conditioning rather than finite Gaussian moment thresholds."
+      ],
+      "reasoning": "The proportional-aspect-ratio Toeplitz statement does not imply estimates in a fixed-two-row asymptotic, nor a finite-m negative-moment criterion. Matrix-entry independence fails at every adjacent Hankel overlap, so the classical iid theorem cannot be instantiated. The control paper has no comparable stochastic cutoff.",
+      "searches": [
+        "overlapping Gaussian lag matrices Hankel Toeplitz full row rank conditioning exact tail exponent m-1 data enabled predictive control",
+        "arxiv:2412.17091 random rectangular Toeplitz smallest singular value fixed rows versus proportional aspect ratio",
+        "arxiv:0802.3956 rectangular Gaussian smallest singular value independent entries"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2402.13090v1, full PDF",
+      "arxiv:2310.14098v2, full PDF/appendix",
+      "arxiv:2205.06636v1, full four-page PDF",
+      "arxiv:0802.3956, original independent-entry rectangular matrix theorem",
+      "arxiv:2412.17091v3, original HTML Introduction and main theorems",
+      "Published mathematical claims for nearest Gaussian numerical linear-algebra methods and Fourier minors"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schmitz et al. arXiv:2402.13090v1, p.2, define H_L(u_N) and persistency via full row rank; Introduction discusses bad conditioning.",
+        "Lawrence et al. arXiv:2310.14098, Proposition 3.3 and Appendix B, concern singular-value growth as observation count increases.",
+        "Coulson–van Waarde–Dörfler arXiv:2205.06636, quantitative persistency is a deterministic singular-value condition.",
+        "Onatski–Kargin arXiv:2412.17091, Introduction and Theorems 1–4, involve high-dimensional Toeplitz/circulant spectral limits.",
+        "The compared Gaussian numerical-analysis findings c7b9e1d6-ef20-4907-8e7a-ca0ded9af59a and 3c8b1dae-290d-44bb-91ff-49fba67dfc0e concern eigenvector probing and Nyström compression, respectively."
+      ],
+      "reasoning": "Rank almost surely does not imply finite negative moments: the \\(m=2\\) real threshold is a direct strict example. A large-sample singular-value statement with m increasing cannot supply the finite-m inverse-moment divergence at its equality endpoint. None of the inspected claims implies the two-sided sharp tube exponent for the dependent Hankel ensemble.",
+      "searches": [
+        "arxiv:2402.13090 Hankel persistency of excitation conditioning Sections 2 and 3",
+        "arxiv:2310.14098 Gaussian Hankel Proposition 3.3 Appendix B",
+        "arxiv:2205.06636 robust fundamental lemma minimum singular value",
+        "arxiv:2412.17091 main results Toeplitz \\(p/n\\) proportional",
+        "finite sample conditioning of persistent excitation Gaussian input Hankel real complex threshold moments Moore Penrose pseudoinverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Two-row Hankel data are also a two-lag Toeplitz matrix after column reversal; the rank-one locus consists of nonzero geometric progressions.",
+        "arXiv:0802.3956, Theorem 1.1, assumes independent matrix entries, inapplicable to overlapping lagged rows.",
+        "Published mathematical-record matches 2026/10/11/SCOPE-hahn-exton-zeros-determine-every-singular-value-of-a-geometric-r--43fc115e6443 and 2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69 concern geometric Rhaly and Cesàro operators, not random two-lag matrices."
+      ],
+      "reasoning": "Geometric-sequence rank deficiency can rephrase the new result as a tube small-ball estimate around a projective rational normal curve. Searches included the Toeplitz alias, inverse moments and geometric-progression condition; no checked statement bounds this tube measure with the sharp \\(\\beta(m-1)\\) exponent in both fields.",
+      "searches": [
+        "smallest singular value random 2-row Hankel Gaussian sequential overlapping samples codimension inverse moments",
+        "geometric progression rank deficiency variety Gaussian Hankel matrix near singular small ball least singular value",
+        "two row random Hankel Gaussian negative moments smallest singular value",
+        "Gaussian Hankel inverse moments smallest singular value"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No two-row overlapping Gaussian Hankel inverse-moment theorem was identified in these targeted scholarly-record searches; nearest structural but noncovering published result 2026/10/4/SCOPE-exact-singular-minors-for-the-near-consecutive-four-row-harmonic--bb8a5601ae6d concerns deterministic Fourier minors.",
+        "Other published numerical-linear-algebra findings address Gaussian sketches, matrix least squares and Lanczos rather than this overlap-generated Hankel least-singular-value tail."
+      ],
+      "reasoning": "No exact numerical tables or database entry implying the exponent \\(\\beta(m-1)\\) for all fixed m and both fields was identified. The lack of a matching record is supporting evidence only, not a proof of novelty.",
+      "searches": [
+        "smallest singular value random 2-row Hankel Gaussian sequential overlapping samples codimension inverse moments",
+        "finite sample conditioning of persistent excitation Gaussian input Hankel real complex threshold moments Moore Penrose pseudoinverse",
+        "Gaussian Hankel matrix two rows m columns smallest singular value inverse moments sharp integrability negative moments rank deficiency geometric progression",
+        "random Hankel 2 x N gaussian condition number polynomial small ball codimension geometric sequences"
+      ]
+    },
+    "rationale": "The claim is a fixed-two-row, finite-column, overlapping Gaussian Hankel inverse-moment frontier including both base fields. The prompting control literature describes quantitative excitation and numerical Hankel ill-conditioning without this moment classification. Independent-entry Gaussian hard-edge estimates have inapplicable entry-independence hypotheses; newer patterned Toeplitz results cover a distinct proportional-row-count asymptotic. Targeted literature and mathematical-result comparisons did not identify a covering implication; best-knowledge originality, not a guarantee of uniqueness.",
+    "residual_risks": [
+      "Unlocated finite-dimensional structured Gaussian random-matrix or inverse-autocovariance result may already imply the same codimension hard-edge law.",
+      "Semantic scholarly-record and primary-literature search cannot establish exhaustive uniqueness.",
+      "This classification is not automatically a bound on a controller output or closed-loop performance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the intended Hankel structure and full-row-rank excitation, but does not state a finite-column Gaussian inverse-moment theorem.",
+        "evidence": "arXiv:2402.13090v1, PDF pp.1–4, Introduction and Section 2 equation defining H_L(u_N).",
+        "identifier_or_url": "https://arxiv.org/pdf/2402.13090",
+        "material_read": "Abstract, Sections 1–3 including the input Hankel definition, numerical solver discussion, and conclusion",
+        "method": "Accessible complete preprint PDF, textual sections and page inspection",
+        "title": "Fast and memory-efficient optimization for large-scale data-driven predictive control",
+        "trigger": "Motivating input Hankel and stated bad-conditioning gap"
+      },
+      {
+        "assessment": "Addresses probabilistic growth as data length increases, not fixed two-row small-ball exponents or negative moments.",
+        "evidence": "arXiv:2310.14098, Proposition 3.3 and Appendix B.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.14098",
+        "material_read": "Noise/input-excitation setup, Proposition 3.3, Appendix B proof material",
+        "method": "Accessible full preprint and authorized open-access version; read mathematical statements and appendix",
+        "title": "Stabilizing reinforcement learning control: A modular framework for optimizing over all stable behavior",
+        "trigger": "Stochastic Hankel singular-value results plausibly implying the claim"
+      },
+      {
+        "assessment": "Provides deterministic spectral lower-bound criteria, not the Gaussian Hankel finite-m probability tail.",
+        "evidence": "arXiv:2205.06636v1, pp.1–4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2205.06636",
+        "material_read": "Abstract, setup, robust fundamental-lemma statement and conditions, conclusion",
+        "method": "Accessible complete four-page preprint",
+        "title": "Robust Fundamental Lemma for Data-driven Control",
+        "trigger": "Prior quantitative persistency-of-excitation and minimum singular value framework"
+      },
+      {
+        "assessment": "Result requires independent entries, which overlap-generated Hankel matrices violate; no implication without a dependent-entry replacement argument.",
+        "evidence": "Rudelson and Vershynin, Theorem 1.1, pages 1–3.",
+        "identifier_or_url": "https://pages.cs.wisc.edu/~brecht/cs838docs/rv_rectangular.pdf",
+        "material_read": "Introduction, Theorem 1.1, main independent-entry hypotheses and discussion of epsilon nets",
+        "method": "Accessible original full PDF; inspected theorem and the entry-assumption statements",
+        "title": "The smallest singular value of a random rectangular matrix",
+        "trigger": "Possible general sharp hard-edge bound dominating the exponent"
+      },
+      {
+        "assessment": "Treats p,n both tending to infinity with \\(p/n\\) tending to c>0 and not fixed row count two or negative-moment thresholds.",
+        "evidence": "arXiv:2412.17091v3, Sections 1–2, Theorems 1–4.",
+        "identifier_or_url": "https://arxiv.org/html/2412.17091v3",
+        "material_read": "Complete accessible Introduction and Section 2 main theorem statements",
+        "method": "ArXiv authorized HTML full text",
+        "title": "The smallest singular value of large random rectangular Toeplitz and circulant matrices",
+        "trigger": "Closest name-level structured Gaussian matrix study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9116deeb-1835-4991-b587-8413d858b4c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantitative persistency and robust data-driven inversion depend on small singular values, but ordinary rank-a.s. excitation provides no integrability guarantee. The sharp two-row finite-sample threshold identifies the exact additional Gaussian samples needed for finite mean and variance of worst-case linear noise amplification. The real/complex distinction makes a nontrivial geometric codimension split, and the proof handles the dependence due to overlapping observations instead of applying iid matrix results. A natural standalone stability diagnostic is determined exactly for all finite column counts, with no downstream controller theorem claimed.",
+    "status": "PASS"
+  }
+}
