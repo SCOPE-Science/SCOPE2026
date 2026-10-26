@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional comparison probabilities follow from uniform rank placement among k+1 intervals. The selected-selected and unselected-unselected pairs are handled separately, yielding the precise sum over j of j(k-j) interior gaps. Optimization is a finite nonnegative-gap linear program with all n-k slack; symmetry of weak compositions gives uniform-mixture expectation, and the Radon-Nikodym density identity gives covariance. Exact rational checker on every uniform permutation for n=2..7 and all marked sets confirms the four identities and sharp boundaries, with independent n=8,k=4 hand values. No infinite claim relies on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson--Nakamura--Zeilberger arXiv:1312.3955, §3.1, derives selected fixed-pattern mixed-moment polynomials and §4 treats fixed-pattern asymptotic covariances; the exhibited pairs include increasing length-three patterns versus other length-three patterns.",
+        "Even-Zohar arXiv:1811.07883, introduction, decomposes fixed-length random-permutation pattern densities asymptotically.",
+        "Neither inspected result gives a deterministic set-of-positions comparison nor an extremizer for interior empty-position gaps."
+      ],
+      "reasoning": "Generic fixed-pattern covariance algorithms could compute the global inversion/increasing-pattern covariance for any single fixed length, so originality does not rest solely on the global covariance corollary. That framework neither states nor logically yields without new comparison calculations the exact S-dependent conditional inversion law and its sharp central-gap layout. Its asymptotic fixed-k theorems also do not themselves give a finite all-n,k equality.",
+      "searches": [
+        "Janson Nakamura Zeilberger 2015 asymptotic normality random permutation patterns covariance exact joint correlations full PDF",
+        "simultaneous pattern count covariance inversions increasing subsequences exact finite random permutation",
+        "arXiv:1312.3955 §3.1 and §4",
+        "arXiv:1811.07883 introduction",
+        "Covariance of the inversion statistic with total number of increasing subsequences for arbitrary length k, explicit binomial n k factorial coefficient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0407353 (full OA PDF; detailed pp. 1-8 and searched inversion terminology)",
+      "arXiv:1312.3955 (full OA PDF; intro, mixed moments and §4 examples)",
+      "arXiv:1811.07883 (OA PDF introduction and asymptotic scope)",
+      "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/div-classtitleorthogonal-decomposition-of-symmetric-functions-defined-on-random-permutationsdiv/4B1523619228B345C443D87934D510CD (abstract only; different random-subset decomposition)",
+      "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+      "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+      "2026/9/8/SCOPE022"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pinsky formula (1.3) gives dμ/dU proportional to the increasing-subsequence count; this supplies a known ingredient for the covariance consequence.",
+        "Pinsky Proposition 1 concerns total variation equivalence to a weak law of large numbers, not inversion expectations.",
+        "Janson--Nakamura--Zeilberger exhibits algorithmic mixed-moment access for some pattern pairs, not a general closed n,k,S mean-and-extrema statement."
+      ],
+      "reasoning": "Pinsky's density identity combined with a NEW exact conditional inversion expectation entails the stated covariance; the density identity alone does not determine this expectation. Janson's general moment framework conceptually overlaps the covariance corollary, which therefore is not presented as the only novelty. The sharp conditional S-resolution, nonuniform gap coefficients, and equality classification are the substantive new implication not supplied by the inspected prior statements.",
+      "searches": [
+        "arXiv:math/0407353 lines describing formula (1.3), Proposition 1, Corollary 2 and second-moment discussion",
+        "arXiv:1312.3955 lines on mixed moments and covariance examples",
+        "arXiv:1811.07883 introduction",
+        "Expected inversion count in permutations under order restrictions a k-chain on selected positions and n-k singleton unconstrained positions",
+        "Pinsky increasing subsequence insertion mixture mu_nk, mean inversion statistic exactly n(n-1)/4 - k(k-1)(2n+k+3)/(12(k+1))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pinsky arXiv:math/0407353, pp. 1-4, defines μn,k as the same marked-position mixture but gives total-variation and subsequence-count statements, not the conditional inversion expectation by position.",
+        "Closest record 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051 gives a distance-sensitive inversion covariance with cycle count rather than an increasing-position conditioning formula.",
+        "Closest record 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 gives covariance/precision of the inversion-indicator vector, not selected subsequence conditioning."
+      ],
+      "reasoning": "The same conditional measure is present in Pinsky, making it the most important equivalent-formulation comparison. Its stated theorem and relevant proof sections concern total variation and moments of increasing-subsequence counts. The present claim additionally computes an inversion functional for EACH deterministic position set, with gap-specific coefficients and sharp extremizers. No searched equivalent formulation with that implication was found; keyword absence alone is not treated as proof of priority.",
+      "searches": [
+        "Sharp gap-placement law for inversion expectation conditional on k chosen permutation positions being increasing: E inversion equals n(n-1)/4 minus k(k-1)/4 minus sum over j j(k-j)(s[j+1]-s[j]-1)/(k+1)",
+        "Random permutation marked increasing subsequence exact minimal mean inversion when marks form two clusters at the endpoints; best consecutive marks",
+        "Expected inversion count in permutations under order restrictions a k-chain on selected positions and n-k singleton unconstrained positions",
+        "expected number inversions random permutation conditioned increasing subsequence at fixed positions formula",
+        "random permutation conditional increasing selected positions expected inversion count gaps mean exact",
+        "arXiv:math/0407353 sections 1 and 2",
+        "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical-record hits 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051 and 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 study different inverse-comparison statistics.",
+        "2026/9/8/SCOPE022 is an inversion-refined pattern-avoidance census rather than conditional means.",
+        "Janson--Nakamura--Zeilberger §3.1 has explicit fixed-pattern covariance tables, but the inspected examples and discussion did not contain the all-k position-profile identity."
+      ],
+      "reasoning": "Queries specify the conditioned event, gap weights, marked-subsequence mixture, covariance, and the sharp extremizers, not just the theorem title. The inspected nearby sources contain no matching exact value/table. This is limited evidence of noncoverage, not evidence of global uniqueness.",
+      "searches": [
+        "Sharp gap-placement law for inversion expectation conditional on k chosen permutation positions being increasing: E inversion equals n(n-1)/4 minus k(k-1)/4 minus sum over j j(k-j)(s[j+1]-s[j]-1)/(k+1)",
+        "Pinsky increasing subsequence insertion mixture mu_nk, mean inversion statistic exactly n(n-1)/4 - k(k-1)(2n+k+3)/(12(k+1))",
+        "Covariance of the inversion statistic with total number of increasing subsequences for arbitrary length k, explicit binomial n k factorial coefficient",
+        "Random permutation marked increasing subsequence exact minimal mean inversion when marks form two clusters at the endpoints; best consecutive marks",
+        "Covariance between increasing pattern 1234 occurrence counts and inversions 21 in uniformly random permutations",
+        "random permutation specified subsequence increasing expected inversions exact formula distance positions",
+        "2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+        "2026/9/8/SCOPE022"
+      ]
+    },
+    "rationale": "The principal location-resolved identity and extremizing layout have a verifiable extra conclusion beyond Pinsky's marked-increasing-subsequence mixture and beyond mixed fixed-pattern counts; no decisive broader direct theorem or identical tabulation appeared in the recorded published-finding corpus and literature searches. The global covariance is treated as a corollary with conceptual overlap with established mixed-pattern methods. Absence from searches is not itself claimed as priority certification.",
+    "residual_risks": [
+      "An obscure earlier exact enumeration, linear-extension formula, or a specialized use of published mixed-pattern algorithms might already imply the position-resolved mean; independent priority screening has not been done.",
+      "The checked later asymptotic pattern-profile source was inspected by introductory material rather than every proof; no definite NOT_COVERING claim is made for its entire document.",
+      "No stochastic ordering of inversion distributions is established, so similarity to rearrangement or Bruhat-order arguments cannot extend the theorem automatically."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same probability measure and increasing-subsequence count; no inversion-by-marked-position mean formula in inspected relevant statements, calculations, or inversion reference.",
+        "evidence": [
+          "arXiv:math/0407353 pp. 1-4: mixture definition and size-bias density (1.3).",
+          "arXiv:math/0407353 pp. 5-8: total-variation/second-moment scope; inversions mentioned as a separate classical statistic."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0407353",
+        "material_read": "PDF title, abstract, introduction and main definitions (pp. 1-4), formula (1.3), Proposition 1, Corollary 2, discussion of moments and inversions (pp. 5-8); full-document textual search for inversion.",
+        "method": "Inspected open-access PDF extracted text, searched for inversion, and viewed the first page as a PDF image.",
+        "title": "Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure",
+        "trigger": "Defines the exact same mixture of permutations conditioned on an increasing marked position set, hence most plausible direct coverage."
+      },
+      {
+        "assessment": "Provides algorithms and examples for fixed pattern mixed moments; these might specialize to the global covariance, but no prescribed-position conditional gap formula or sharp optimization was identified.",
+        "evidence": [
+          "arXiv:1312.3955 §3.1, displayed covariance examples (21)--(23).",
+          "arXiv:1312.3955 §4, asymptotic covariance matrix of fixed three-pattern counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1312.3955",
+        "material_read": "Full PDF accessible in extracted text; studied introduction, functional-equation construction, §3.1 exact mixed-moment examples (pp. 5-7), and §4 pattern covariance examples (around p. 15).",
+        "method": "Inspected PDF text at source sections; targeted searches for covariance, moment, increasing length-four pattern, and example formulas.",
+        "title": "On the Asymptotic Statistics of the Number of Occurrences of Multiple Permutation Patterns",
+        "trigger": "General mixed-moment results may subsume covariance between inversion and increasing-pattern counts."
+      },
+      {
+        "assessment": "Fixed-pattern asymptotic decomposition, not sharp finite conditional inversion means indexed by a chosen position set. More distant overlap than Pinsky or Janson.",
+        "evidence": [
+          "arXiv:1811.07883 introductory definition of k-pattern profiles and asymptotic results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.07883",
+        "material_read": "PDF first two pages, abstract, introduction, definitions and statement of asymptotic structural decomposition.",
+        "method": "Read open PDF text and inspected primary definitions and scope.",
+        "title": "Patterns in Random Permutations",
+        "trigger": "Strong later coverage of fixed permutation-pattern covariance and Hoeffding projections."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9fc5382-3130-46e0-8c95-820cde73a157",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The selected-position mixture is a natural partial randomization construction in Pinsky's work. An exact per-gap cost j(k-j)/(k+1), a complete sharp range and equality layouts identify where preserving order has greatest inversion effect for every size and marked-subsequence length, including growing k. The global negative covariance follows without relying on an ad hoc fixed-length table. The specific positions and their exact optimization are essential to the question rather than arbitrary parameter slices.",
+    "status": "PASS"
+  }
+}
