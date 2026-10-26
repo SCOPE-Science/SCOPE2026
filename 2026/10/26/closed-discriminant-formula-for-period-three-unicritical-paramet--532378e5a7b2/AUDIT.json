@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every integer d>=2, iteration gives G_d(c)=h_d(c^(d-1)) with h_d(t)=t(t+1)^d+1. The derivative factorization h_d'(t)=(t+1)^(d-1)((d+1)t+1) yields Res(h_d,h_d')=(d+1)^(d+1)-d^d. The composition resultant for h_d(c^(d-1)) gives the exact power (d-1)^(d^2-1), the factor R_d^(d-1), and sign (-1)^(d+1). The valuation formula follows by taking p-adic valuations. A standalone standard-library script verifies exact Sylvester determinants for d=2,...,7; these finite checks are supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hutz–Towsley give a general framework for exact-period polynomials and the transversality meaning of their discriminants, plus explicit period-three factorizations for d=5 and d=7.",
+        "Buff gives the equivalent transformed period-three polynomial and irreducibility results, but not its exact integer discriminant.",
+        "Goksel focuses on irreducibility and arithmetic of Misiurewicz polynomials; the inspected full text does not give the closed discriminant formula."
+      ],
+      "reasoning": "The prior results cover the dynamical object and explain why its discriminant matters, but the inspected statements do not give the exact integer discriminant for arbitrary d. The current proof computes that invariant. A classical composition-discriminant identity makes this a short specialization, which remains a novelty risk rather than a reason to claim a new general method.",
+      "searches": [
+        "Hutz and Towsley, arXiv:1309.4048v1, full text, unicritical exact-period construction and finite-characteristic transversality results",
+        "Buff, On postcritically finite unicritical polynomials, full text, Sections 2-3",
+        "Goksel, A note on Misiurewicz polynomials, full text, Sections 1-3",
+        "Hutz Towsley exact period 3 discriminant of unicritical parameter polynomial z^d+c bad primes transversality",
+        "discriminant \"x(x+1)^n+1\" polynomial"
+      ]
+    },
+    "checked_sources": [
+      "Hutz and Towsley, arXiv:1309.4048v1, first public 2013-09-16; NYJM 21 (2015), 297–319.",
+      "Buff, On postcritically finite unicritical polynomials, NYJM 24 (2018), 1111–1122.",
+      "Goksel, A note on Misiurewicz polynomials, JTNB 32 (2020), no. 2, 373–385, DOI 10.5802/jtnb.1126.",
+      "Exact-expression and period-three dynatomic searches using the queries recorded above."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hutz–Towsley relate prime divisors of D_d(0,n) to finite-characteristic transversality failure and give examples for n=3, d=5,7, but no general closed expression in the inspected text.",
+        "Buff's discriminant calculation concerns a congruence for the iterate polynomial modulo the degree; its period-three section treats irreducibility, not the exact integer discriminant of h_d.",
+        "Goksel's results concern irreducible factors and arithmetic of Misiurewicz polynomials; they do not state this discriminant formula."
+      ],
+      "reasoning": "The general transversality criterion does not itself state the exact discriminant integer. The formula follows from an explicit resultant computation using the known dynatomic polynomial. The claim is not a new general theorem about transversality, and the standardness of the computation is recorded as a residual risk.",
+      "searches": [
+        "Hutz–Towsley, arXiv:1309.4048v1, full text: exact-period polynomial definition, discriminant criterion, and d=5,d=7 examples",
+        "Buff, NYJM 24 (2018), 1111–1122, Sections 2-3",
+        "Goksel, JTNB 32 (2020), 373–385, Sections 1-3",
+        "discriminant of period-three dynatomic polynomial G_d(c)=c^(d-1)(c^(d-1)+1)^d+1",
+        "unicritical polynomial critical period three dynatomic discriminant explicit formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hutz–Towsley define the exact-period parameter polynomial G_d(0,3)=c^(d-1)(c^(d-1)+1)^d+1 and D_d(0,3)=Disc(G_d(0,3)).",
+        "The same polynomial is h_d(c^(d-1)) for h_d(t)=t(t+1)^d+1; its derivative and composition resultants give the displayed expression."
+      ],
+      "reasoning": "The formulation in terms of h_d and the power substitution is equivalent to the original dynatomic polynomial. The inspected sources discuss the same objects but do not state the exact general discriminant expression. The claim is deliberately restricted to this exact formula and the valuation identity.",
+      "searches": [
+        "polynomial h_d(t)=t(t+1)^d+1 discriminant (d+1)^(d+1)-d^d",
+        "discriminant of period-three dynatomic polynomial G_d(c)=c^(d-1)(c^(d-1)+1)^d+1",
+        "Hutz Towsley exact period 3 discriminant of unicritical parameter polynomial z^d+c bad primes transversality",
+        "Hutz and Towsley, arXiv:1309.4048v1, Section 3 and the period-three polynomial definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact formula database or table was identified; the claim is a symbolic formula rather than a finite tabulation.",
+        "The source's d=5 example gives 2^48*101^4*431^4 and its d=7 example gives 2^48*3^54*19^12*14731^6, both matching the closed expression."
+      ],
+      "reasoning": "A database/table comparison is not directly applicable to a universal algebraic identity. The exact source examples are useful consistency checks but do not establish the formula for all degrees.",
+      "searches": [
+        "discriminant of period-three dynatomic polynomial G_d(c)=c^(d-1)(c^(d-1)+1)^d+1",
+        "polynomial h_d(t)=t(t+1)^d+1 discriminant (d+1)^(d+1)-d^d",
+        "\"(d+1)^(d+1)-d^d\" discriminant polynomial t(t+1)^d+1",
+        "Hutz–Towsley full-text inspection of the period-three examples for d=5 and d=7"
+      ]
+    },
+    "rationale": "The retained claim is the explicit closed polynomial-discriminant formula for the exact-period-three critical-orbit polynomial and its exact prime-valuation consequence. Hutz–Towsley define the same polynomial, study its discriminant as a transversality invariant, and give examples for d=5 and d=7, but their inspected full text does not state the general formula. Buff treats the equivalent transformed polynomial and its irreducibility; Goksel treats related irreducibility and arithmetic questions. No directly covering formula was found in bounded literature and claim-index searches. The result is a short specialization of classical resultant identities, so priority against unindexed or unpublished derivations is not absolute.",
+    "residual_risks": [
+      "The formula is a short application of classical resultant identities to a known polynomial, so an unindexed prior derivation or an obvious corollary in another source may exist.",
+      "The bounded searches and inspected literature do not prove absolute novelty or uniqueness.",
+      "The claim concerns the polynomial discriminant only; it does not identify number-field discriminants when the polynomial is reducible.",
+      "Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant prior work. It defines the same period-three polynomial and gives exact examples for two degrees, but the inspected full text does not state the general closed formula.",
+        "evidence": "Theorem 1.1; the section on finite-characteristic transversality; the examples for d=5 and d=7; the definition D_d(0,n)=Disc(G_d(0,n)).",
+        "identifier_or_url": "https://nyjm.albany.edu/j/2015/21-13v.pdf ; https://arxiv.org/abs/1309.4048",
+        "material_read": "Full 18-page arXiv PDF, including the unicritical construction, the definition of D_d(0,n), the finite-characteristic criterion, the proposition on discriminant prime exponents, and the period-three examples for d=5 and d=7.",
+        "method": "Read the primary full text and compared the polynomial, exact period, discriminant, and finite-characteristic conclusions rather than relying on title or abstract.",
+        "title": "Misiurewicz Points for Polynomial Maps and Transversality",
+        "trigger": "Primary source defining the same exact-period polynomial and its discriminant as a transversality invariant."
+      },
+      {
+        "assessment": "Studies h_d(t)=t(t+1)^d+1 and proves irreducibility criteria; its displayed discriminant calculation is a congruence for the iterate polynomial modulo d, not the exact integer discriminant of h_d or h_d(c^(d-1)). No direct coverage found.",
+        "evidence": "The definitions of F_p and G_p and the period-three irreducibility proposition in Sections 2-3.",
+        "identifier_or_url": "https://nyjm.albany.edu/j/2018/24-54p.pdf",
+        "material_read": "Full 12-page PDF, especially the definitions of the Gleason and exact-period polynomials and Sections 2-3 on period-three irreducibility and Misiurewicz polynomials.",
+        "method": "Compared the transformed polynomial, its discriminant statements, and the conclusions in the period-three section.",
+        "title": "On postcritically finite unicritical polynomials",
+        "trigger": "Plausible related source because it studies the transformed period-three polynomial in the same unicritical family."
+      },
+      {
+        "assessment": "The paper focuses on irreducibility and arithmetic of Misiurewicz polynomials and uses resultant/discriminant facts, but does not state the exact period-three polynomial-discriminant formula.",
+        "evidence": "Definition 1.3; Theorem 1.4; Theorem 1.9; Lemma 3.4 and the surrounding discussion.",
+        "identifier_or_url": "https://www.numdam.org/item/JTNB_2020__32_2_373_0.pdf",
+        "material_read": "Full 14-page PDF, including the definition of G_d,m,n, Theorem 1.4, Theorem 1.9, and the resultant and discriminant references in Section 3.",
+        "method": "Read the primary full text and compared the exact polynomial and arithmetic invariant with the retained claim.",
+        "title": "A note on Misiurewicz polynomials",
+        "trigger": "Plausible related source because it studies the same family of exact-period critical-orbit polynomials and their arithmetic."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "532378e5-a7b2-45da-bbae-14b59029806b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The discriminant is the natural arithmetic invariant controlling repeated roots after reduction modulo primes, and Hutz–Towsley use it to detect finite-characteristic transversality failure. The formula gives exact prime support and exact valuations for the entire period-three family in every degree, generalizing the paper's isolated d=5 and d=7 factorizations. This is useful for studying ramification and reduction of critical-orbit parameter polynomials; the value is the closed all-degree invariant, not novelty of the resultant method.",
+    "status": "PASS"
+  }
+}
