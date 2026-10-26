@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "For syndrome image W, every support of k parity columns spans W. If its first-coordinate functional is nonzero, minimal k=r and all possible supports are unordered all-affine bases of W, giving |GL_r(2)|/((2^r−1)r!) unique solutions. If first syndrome row is zero but S nonzero, k>=r+1; every minimizing support is an affine (r+1)-point basis in one of 2^(m-r) cosets v+W, yielding 2^m|GL_r(2)|/(r+1)! solutions. Uniqueness of coefficients and nonvanishing of each coefficient row are shown. Gaussian rank counts finish the syndrome census. A separate brute-force correction enumerator verified all syndromes for 8 parameter pairs including 4096 syndromes at (3,3). The finite tests supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Shangguan–Wei (2026) proves asymptotically optimal generalized-covering code rates, not this fixed extended Hamming family profile.",
+        "Alfarano–Marino–Neri–Trombetti (2026) describes geometric generalized-covering radii in its accessible abstract; full text was inaccessible.",
+        "The 2021 foundational article and the 2022 Reed–Muller specialization establish definitions and radius bounds, not the syndrome-level nearest-leader tally."
+      ],
+      "reasoning": "General covering constructions and geometric saturating-set formulations may contain implicit counting corollaries; the most plausible full text could not be fully checked. This is declared as residual risk, not treated as conclusively excluded.",
+      "searches": [
+        "rank-resolved generalized covering spectrum of extended binary Hamming code and Reed Muller RM(m-2,m)",
+        "binary extended Hamming generalized coset leader multiplicity: for t simultaneous queries a rank r syndrome with zero parity row has 2^m |GL(r,2)|/(r+1)! optimal supports, nonzero parity row has |GL(r,2)|/((2^r-1)r!)",
+        "complete distance and nearest neighbor multiplicity profile for Reed Muller RM(m-2,m) higher order covering",
+        "arxiv:2608.24856",
+        "arxiv:2606.16669",
+        "arxiv:2609.14477"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.24856 (HTML partial/full main statements)",
+      "arxiv:2012.06467 (accessible published full text)",
+      "arxiv:2107.09902 (accessible published full conference paper, Proposition 11)",
+      "arxiv:2606.16669 (abstract only)",
+      "arxiv:2609.14477 (abstract only)",
+      "SIAM J Discrete Math 8 (1995), 196–207 (abstract only)",
+      "2026/10/4/SCOPE-covering-radius-three-for-two-extended-two-weight-bch-families--01880b509c86",
+      "2026/10/4/SCOPE-exact-higher-support-spectra-for-the-new-systematic-simplex-lcd--c2fa52e0ba08",
+      "2026/10/4/SCOPE-minimum-support-multiplicities-for-simplex-sr-sums--b93f5e25acc2",
+      "2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098",
+      "2026/9/20/SCOPE-random-linear-syndrome-guesswork-phase-transition--71cabed30d84"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For m=3,t=2 the present profile has 168 syndromes of distance 2 with one minimum correction but 21 other distance-2 syndromes with four minimum corrections: data not specified by a covering radius.",
+        "The fixed-syndrome first-row/rank split counts optimal corrections: u≠0: |GL_r(2)|/((2^r−1)r!), u=0,S≠0: 2^m|GL_r(2)|/(r+1)! ."
+      ],
+      "reasoning": "Neither the maximum R_t nor a rate theorem implies these exact per-syndrome correction counts or their t-fixed asymptotic leader population. The proof uses additional affine-basis counting. Classical ordinary t=1 covering-leader results may subsume that special case, so main interest is the joint profile t>=2.",
+      "searches": [
+        "Full generalized coset-distance distribution for binary extended Hamming codes: syndrome matrix rank, affine parity-check columns, higher order covering radius enumerator and joint recovery",
+        "rank-resolved generalized covering spectrum of extended binary Hamming code and Reed Muller RM(m-2,m)",
+        "binary extended Hamming generalized coset leader multiplicity: for t simultaneous queries a rank r syndrome with zero parity row has 2^m |GL(r,2)|/(r+1)! optimal supports, nonzero parity row has |GL(r,2)|/((2^r-1)r!)",
+        "complete distance and nearest neighbor multiplicity profile for Reed Muller RM(m-2,m) higher order covering",
+        "arxiv:2107.09902 Proposition 11",
+        "arxiv:2608.24856 rate theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Elimelech–Wei–Schwartz (2022), Proposition 11: R_t(RM(m-2,m))=min(t,m)+1, a maximum over syndromes, not multiplicity of each syndrome.",
+        "The present theorem is equivalently a count of affine bases inside an affine parity-check hyperplane and of optimal joint-column corrections."
+      ],
+      "reasoning": "The known radius identity follows on maximizing the first coordinate/rank cases of the new formula, but the converse implication fails: a single maximum does not specify minimum-access multiplicities. The affine-basis formula is fully compared, including t=1 specialization.",
+      "searches": [
+        "Full generalized coset-distance distribution for binary extended Hamming codes: syndrome matrix rank, affine parity-check columns, higher order covering radius enumerator and joint recovery",
+        "rank-resolved generalized covering spectrum of extended binary Hamming code and Reed Muller RM(m-2,m)",
+        "joint Hamming distance coset leader weight enumerator parity check matrix all vectors with first coordinate one",
+        "affine bases count of nearest joint coset leaders for extended binary Hamming codes and exact t-way covering syndrome rank distribution",
+        "arxiv:2107.09902 Proposition 11",
+        "arxiv:2012.06467 extended Hamming generalized covering radii"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus BCH radius-three family counts ordinary coset-leader weights; it does not supply simultaneous-syndrome rank/fist-row multiplicities for RM(m-2,m).",
+        "published-finding corpus systematic-simplex LCD and SR-sum support spectra enumerate subcode support sizes, not joint minimum correction matrices.",
+        "Targeted literature searches identified classical multiple-covering/farthest-off-point studies, mainly t=1 covering multiplicities, not the t>=2 joint distribution."
+      ],
+      "reasoning": "No exact table or formula for the all-m,t joint profile was found in the examined records; negative retrieval cannot establish uniqueness.",
+      "searches": [
+        "Full generalized coset-distance distribution for binary extended Hamming codes: syndrome matrix rank, affine parity-check columns, higher order covering radius enumerator and joint recovery",
+        "joint Hamming distance coset leader weight enumerator parity check matrix all vectors with first coordinate one",
+        "binary extended Hamming generalized coset leader multiplicity: for t simultaneous queries a rank r syndrome with zero parity row has 2^m |GL(r,2)|/(r+1)! optimal supports, nonzero parity row has |GL(r,2)|/((2^r-1)r!)",
+        "affine bases count of nearest joint coset leaders for extended binary Hamming codes and exact t-way covering syndrome rank distribution",
+        "complete distance and nearest neighbor multiplicity profile for Reed Muller RM(m-2,m) higher order covering",
+        "extended Hamming code generalized covering radius number of optimal joint coset leaders multiplicities",
+        "generalized covering radius coset leader multiplicity extended Hamming code support rank basis"
+      ]
+    },
+    "rationale": "The established maximum generalized covering radius and the general notion of joint coverings do not determine syndrome-resolved counts of minimal correction matrices. Six semantic published-finding corpus searches and two targeted literature searches, complemented by comparison with the full available 2021/2022 foundations and 2026 rate paper, found no equivalent statement. The proof gives an exact pair (minimum support, number of minimizers) for every binary extended-Hamming syndrome and a complete finite profile. Unindexed earlier geometry and inaccessible recent full text remain specific priority risks, not claims of certainty.",
+    "residual_risks": [
+      "The full 2026 finite-geometric framework of Alfarano et al. was not accessible; an implicit equivalent affine-basis enumeration could be present.",
+      "Older coset-leader and multiple-covering literature may contain equivalent scalar and possibly multi-syndrome counting identities; one relevant 1995 paper was accessible only as abstract.",
+      "Novelty is a best-knowledge assessment, not a certified or independent claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Rates for optimized code ensembles, not per-syndrome nearest-cover ties of fixed extended Hamming codes",
+        "evidence": [
+          "arxiv:2608.24856, abstract/introduction/main theorem; initial version 2026-08-25"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.24856",
+        "material_read": "arXiv abstract and substantial HTML introduction, stated main rate theorems, preliminary generalized-covering definitions",
+        "method": "Open abstract/full HTML and compare hypotheses/object/output with per-syndrome multiplicity claim",
+        "title": "The Optimal Asymptotic Rate of Generalized Covering Codes",
+        "trigger": "Fresh 2026 rate/generalized-covering paper with first public date 2026-08-25"
+      },
+      {
+        "assessment": "Sets definitions and covers generalized radii, not the exact joint nearest-correction multiplicities",
+        "evidence": [
+          "Elimelech, Firer and Schwartz (2021), generalized covering definitions and examples"
+        ],
+        "identifier_or_url": "https://www.ece.mcmaster.ca/~schwam10/publications/MSjrnl55.pdf",
+        "material_read": "Available full paper, introduction/model/examples/relevant Reed–Muller and Hamming statements/conclusion",
+        "method": "Read PDF text and inspect its pages; compare maximum R_t to fixed-syndrome leader-count profile",
+        "title": "The Generalized Covering Radii of Linear Codes",
+        "trigger": "Original generalized covering definition and possible stronger framework"
+      },
+      {
+        "assessment": "Proposition 11 proves R_t(RM(m−2,m))=min(t,m)+1 but not the complete syndrome population or minimizing correction counts",
+        "evidence": [
+          "Elimelech, Wei and Schwartz (2022), Proposition 11"
+        ],
+        "identifier_or_url": "https://www.ece.mcmaster.ca/~schwam10/publications/MSconf58.pdf",
+        "material_read": "Accessible full conference paper with direct check of Proposition 11 and the adjacent argument",
+        "method": "Read PDF, inspect page containing Proposition 11, compare theorem conclusion to all-rank/tie formula",
+        "title": "On the Generalized Covering Radii of Reed–Muller Codes",
+        "trigger": "Same code family; crucial possible prior implication"
+      },
+      {
+        "assessment": "Potential implicit affine-basis count remains unresolved; specific priority risk",
+        "evidence": [
+          "Alfarano et al. (2026), arXiv:2606.16669 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.16669",
+        "material_read": "Abstract only; attempted full text unavailable",
+        "method": "Compare accessible abstract claims, avoid claiming full-document noncoverage",
+        "title": "A geometric approach to generalized covering radii of linear codes",
+        "trigger": "2026 finite-geometric equivalent-formulation risk"
+      },
+      {
+        "assessment": "Addresses packing-covering radius inequalities, not stated to enumerate minimizing joint access subsets; full content not checked",
+        "evidence": [
+          "Yu and Schwartz, arXiv:2609.14477 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.14477",
+        "material_read": "Accessible abstract only",
+        "method": "Compare stated packing-covering inequalities to per-syndrome optimal-correction counts",
+        "title": "On the Generalized Packing and Covering Radii of Codes",
+        "trigger": "Recent generalized-radius literature and stronger theorem check"
+      },
+      {
+        "assessment": "Ordinary scalar multiple covering appears related to t=1 but does not visibly address t>=2 joint support; full text not inspected",
+        "evidence": [
+          "Hämäläinen, Honkala, Litsyn and Östergård, SIAM J Discrete Math 8 (1995), abstract"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/S0895480193252100",
+        "material_read": "Publisher abstract and bibliographic metadata only",
+        "method": "Compare scalar farthest-off-point multiplicity setup against all-rank multicolumn syndrome matrix profile",
+        "title": "Bounds for Binary Codes that are Multiple Coverings of the Farthest-Off Points",
+        "trigger": "Older ordinary coset-leader multiplicity literature, potential stronger cover"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7af867b0-d955-479a-abe6-59f72d5d3428",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact complete joint nearest-cover profile answers the natural question of how many equally optimal access sets an extended Hamming coded system has for multiple simultaneous syndrome constraints. Fixed distance does not determine that multiplicity: same-distance syndromes can have one or 2^m-scale minimizing correction choices. The rank/first-row classification is a uniform all-m,t structural result, with exact populations and a fixed-t asymptotic probability 2^−t of a deep syndrome carrying 2^m |GL_t(2)|/(t+1)! tied optima. No performance or rate gain is asserted.",
+    "status": "PASS"
+  }
+}
