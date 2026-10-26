@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The five explicit binary cubic forms have vanishing first three elementary symmetric forms, verified coefficientwise over \(\mathbb F_4\). They span a four-dimensional cubic space and define twisted cubic embeddings. The smooth quadric, complete-intersection degree-six exhaustion, and bidegree intersection calculation prove that the reduced special fibre has exactly the asserted two components and five transverse nodes. The two components are Frobenius-conjugate, which proves all point counts and the zeta expression. The standalone exact checker corroborates the polynomial identity and four finite-field counts, without replacing the infinite proof.
+
+**Originality — PASS, qualified.** Braden–Northover (arXiv:1206.6004, original 2012 submission) study the classical complex model and analytic geometry; Braden–Disney-Hogg (DOI 10.1007/s40879-023-00706-0) give further classical geometry but explicitly exclude positive-characteristic extensions from their focus. Their results do not imply the component splitting or arithmetic at two. Prior characteristic-five Bring results concern six concurrent lines and cannot imply the distinct characteristic-two fibre. Targeted literature and mathematical-record searches located no equivalent statement. Residual risk: specialized modular/stable-reduction work was not exhaustively covered, so absence of a hit is not proof of novelty.
+
+**Value — PASS.** The arithmetic and geometry of a natural flat integral canonical model at the bad prime two are structurally significant: an apparently irreducible characteristic-zero genus-four curve becomes a reducible stable curve with Frobenius-conjugate components and no nonnodal singularities, producing unusual extension-dependent point counts. The identification resolves the full singular fibre, its normalization, dual graph and zeta function rather than a gratuitous finite-field example.
+
+**Limitations.** Only the elementary-symmetric integral model is covered. This is not the naive power-sum reduction. The classical generic-fibre geometry is previously known; the special-fibre conclusion is the contribution. Neither independent scientific validation nor an exhaustive literature novelty certification has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
