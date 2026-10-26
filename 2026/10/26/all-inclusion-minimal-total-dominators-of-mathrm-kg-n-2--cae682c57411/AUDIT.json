@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The exact open-neighborhood/vertex-cover equivalence is elementary and holds for every pair vertex; a selected edge is indispensable exactly when deleting it lowers the cover number from three to two. Four ordered 2+2 event supports per edge provide a mutually disjoint probability-1/6 certificate, forcing at most six selected edges. Exhaustive graph augmentation enumerates all simple no-isolate edge graphs through the proven six-edge bound and tests every three-cover-critical class; four survivor types result, with direct checks of their defining property. The labeled automorphism denominators yield 15, 10, 12, 1 copies on supports of sizes 6, 5, 5, 4. Independent exhaustive open-neighborhood checks n=4..8 match every coefficient; they corroborate but do not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ivanco and Zelinka (1993), Theorem 3, determines minimum total domination for K(n,2), not all inclusion-minimal total dominating sets.",
+        "Kanté et al. (2014), Section 5, gives broad enumeration problem reductions, not this Kneser family classification.",
+        "Brešar et al. (2023), introduction and minimum k-tuple theorems concern minimum solution cardinalities."
+      ],
+      "reasoning": "The prior minimum results are strictly weaker than the all-minimal spectrum; generic algorithms and reductions do not imply an explicit four-orbit shape classification and enumerator without further analysis.",
+      "searches": [
+        "\"upper total domination number\" \"Kneser graphs\"",
+        "\"k-Domination invariants on Kneser graphs\"",
+        "\"On the Enumeration of Minimal Dominating Sets and Related Notions\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.21136/MB.1993.126050",
+      "arxiv:1407.2053v1",
+      "arxiv:2312.15464v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ivančo–Zelinka Theorem 3: total domination minimum 6,4,3 and all three-element solutions are disjoint pairs.",
+        "Previous ordinary domination classifications permit selected vertices to dominate themselves; total domination does not, and consequently ordinary-minimal families differ.",
+        "General Kneser k-tuple result asserts properties of minimum k-tuple sets only."
+      ],
+      "reasoning": "Already established minimum value and three matching case are covered and credited. Neither minimum cardinality nor ordinary minimal domination implies the four-class total-minimal spectrum or upper value six. The new claim is deliberately the entire classification plus polynomial and upper parameter.",
+      "searches": [
+        "\"Domination in Kneser graphs\" \"total domination\" 1993",
+        "\"k-Domination invariants on Kneser graphs\" 2023",
+        "\"ordinary dominating sets\" KG(n,2) C5 K4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Open-neighborhood total domination of KG(n,2) is equivalent to edge-minimal vertex-cover number at least three in the corresponding edge graph; direct permutation proof supplies an at-most-six-edge reduction.",
+        "The classical edge-critical vocabulary can describe the underlying finite types but does not independently supply the new cardinality enumeration in sources inspected."
+      ],
+      "reasoning": "Searched total domination, complementary-line-graph, edge-critical vertex-cover, and tau-critical formulations. No inspected earlier source gives all four cases and the size polynomial; a classical equivalent classification remains the principal risk.",
+      "searches": [
+        "\"minimal total dominating sets\" \"Kneser graphs\" KG(n,2)",
+        "\"Edge-critical graphs with vertex cover number three: K4, five-cycle, disjoint triangle and edge, three independent edges\"",
+        "\"tau-critical\" \"vertex cover\" \"three\" graphs classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant 1993 paper has a formula for the minimum total domination number but no all-size table or enumerator.",
+        "The sampled mathematical research database returns other graph families and minimum domination assertions, not a covering full KG(n,2) table."
+      ],
+      "reasoning": "No exact published table or database record was identified containing the four type multiplicities 15,10,12,1, even under the edge-family interpretation. Absence of a record is not proof of novelty.",
+      "searches": [
+        "\"minimal total dominating\" Kneser \"polynomial\"",
+        "\"upper total domination number Kneser KG(n,2) exactly six, number of minimal total dominating sets classified\"",
+        "\"Every inclusion-minimal total dominating set of Kneser graph KG(n,2) corresponds to K4, C5, K3 disjoint K2, or 3K2. Exact polynomial for minimal total dominating sets.\""
+      ]
+    },
+    "rationale": "Identified published sources establish minimum Kneser total domination, general minimal-total enumeration machinery, and minimum k-tuple total domination, but none of the material inspected states the complete four-type inclusion-minimal spectrum, associated polynomial, and upper total invariant. Distinction from ordinary domination and from any already-known three-edge matching case is explicit. Unindexed classical vertex-cover critical graph classifications remain residual priority uncertainty.",
+    "residual_risks": [
+      "A classical classification of vertex-cover-three edge-critical graphs may independently cover the four structural types without Kneser language.",
+      "Unindexed computation or supplementary datasets may contain the same polynomial.",
+      "Some literature outside inspected material remains inaccessible or undiscovered; search failure does not establish absolute priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes minimum cardinality and three-element matching criterion; does not provide all inclusion-minimal sets or upper parameter.",
+        "evidence": [
+          "Theorem 3: minimum total domination values 6 at n=4, 4 at n=5, 3 at n at least six.",
+          "Three-element total dominating sets consist of mutually disjoint ground pairs."
+        ],
+        "identifier_or_url": "doi:10.21136/MB.1993.126050",
+        "material_read": "Full lawful open-access six-page article, specifically theorem 3 on printed page 151 and ensuing proof",
+        "method": "PDF text and printed-page inspection",
+        "title": "Domination in Kneser graphs",
+        "trigger": "Same family and same total-domination parameter"
+      },
+      {
+        "assessment": "General output-polynomial/reduction equivalences, not a KG(n,2) four-class result.",
+        "evidence": [
+          "Lemma 15 and Corollary 16 compare minimal total-domination enumeration to minimal transversal enumeration.",
+          "v1 timestamp 8 July 2014 resolves the qualifying archival day."
+        ],
+        "identifier_or_url": "arxiv:1407.2053v1",
+        "material_read": "Abstract and relevant sections on minimal total domination, including page 7 and Corollary 16",
+        "method": "Lawful open arXiv PDF text and page inspection",
+        "title": "On the Enumeration of Minimal Dominating Sets and Related Notions",
+        "trigger": "Potential broader covering algorithm for all minimal total dominators"
+      },
+      {
+        "assessment": "Minimum-only results under related open-neighborhood requirement; no classification of every inclusion-minimal total dominating set.",
+        "evidence": [
+          "Abstract states exact minimum k-tuple total domination values and structure of all minimum sets for sufficiently large n.",
+          "For k=1 the parameter is total domination, but minima do not enumerate the inclusion-minimal family."
+        ],
+        "identifier_or_url": "arxiv:2312.15464v1",
+        "material_read": "Abstract, definitions, introduction and main minimum-set statements in the open PDF",
+        "method": "Lawful open arXiv PDF reading, including distinctions between k-domination and k-tuple total domination",
+        "title": "k-Domination invariants on Kneser graphs",
+        "trigger": "Same graph family and stronger multiple total domination definitions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cae682c5-7411-40ba-b2e0-e52354f5c0b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an entire natural all-order inclusion-minimal total-domination spectrum, not merely the already-known minimum. Exact four-type classification and coefficients determine numbers of minimal feasible sets at each cardinality and a sharp upper total domination parameter. The K4 and K3 disjoint K2 configurations are total-minimal but are missed by the traditional minimum-only description. A bounded-edge structural obstruction explains why the spectrum stabilizes at cardinality six for every n.",
+    "status": "PASS"
+  }
+}
