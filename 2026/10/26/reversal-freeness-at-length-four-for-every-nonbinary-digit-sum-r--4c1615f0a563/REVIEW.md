@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For all integer moduli \(m\ge3\), the carry identity forces each pair of adjacent differences to contain \(1\). A reflected triple must have increments \((1,-1)\) or \((-1,1)\), making it palindromic; a reflected quadruple would force both alternating orientations, but the orientation with steps \((-1,1,-1)\) is impossible because one of two consecutive even numbers has valuation one. The all-length conclusion follows from length-four containment. Explicit binary constructions realize every allowed triple, giving exact initial counts. Independent implementation of the digit-count and dyadic-recursion definitions agreed, and all tested factor sets matched.
+
+**Originality — PASS, with residual risk.** The paper introducing reflection complexity (arXiv:2406.09302, Question 62) already reports the modulus-three identity, and asks about its extension to generalized Thue–Morse words. This result handles all \(m\ge3\), particularly every \(m\ge4\), through a structural reflected-factor obstruction stronger than the known modulus-three example. Earlier palindrome theorems for digit-sum words do not preclude distinct reversed factors. Recent work on generalized reflection complexity focuses on a binary alphabet and a different group action; its Section 6.2 is not a theorem on digit-sum residues in alphabet sizes \(m\ge3\). No equivalent conclusion was found in targeted searches, but hidden or synonymous prior coverage remains possible.
+
+**Mathematical value — PASS.** The all-modulus theorem answers a concretely published extension question, supplies the exact sharp local cutoff length four, and turns an infinite family of reflection enumerations into ordinary factor complexity computations without requiring those ordinary counts. It is not a routine numerical census.
+
+**Closest literature/limitations.** Allouche et al. (2024/2025), Question 62; Allouche–Shallit (2000), Section 5 on palindromes; Blažek–Dvořáková–Pelantová (2026), Section 6.2 on a different binary alphabet and group-complexity statistic. A literature search does not prove novelty; independent scrutiny is still needed. The theorem says nothing about a closed form for ordinary length-\(n\) factor complexity beyond the first three lengths.
+
+Self-review: passed. Independent audit: not yet performed.
