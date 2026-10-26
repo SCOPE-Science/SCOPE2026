@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The statement specifies a fixed positive Ewens parameter, independent vanishing marks, a relational one-bijection language and extended convergence of all defect intensities. Ewens factorial moments yield independent short-cycle Poisson counts. On all sufficiently long cycles, a rooted neighbourhood with \(j\) marked vertices has probability asymptotic to \(p_n^j\); overlapping distinct roots contribute at least one additional marked vertex. At a finite positive critical intensity \(n p_n^k\to\lambda\), canonical maximal mark clusters with bounded gaps have independent Poisson limits and generate the possibly dependent rooted neighbourhood counts. The bounded-degree Hanf theorem yields sufficiency. Distinct length-\(k\) marked runs and the injectivity of \(1-e^{-t}\) on the compactified nonnegative half-line yield necessity. Exact finite checks verified normalization, 36 expected-run identities and 214 local two-mark cases. Those checks are supplementary, not substitutes for proof.
+
+## Originality — PASS, with residual priority risk
+The sharp premise/conclusion comparison is with Mirabi–Shelah arXiv:2607.11033: their first-order bond-percolation theorem concerns deterministic higher-dimensional tori under polynomial defect scaling; our statement concerns Bernoulli vertex labels on Ewens random directed-cycle decompositions, includes a persistent independent Poisson short-cycle background, and assumes no regular-variation scaling. Müller–Skerman–Verstraaten arXiv:2302.10148 cover unmarked one-bijection permutation laws, which do not imply convergence for sparse unary expansions; Godbole (1990) covers run counts without first-order logic or Ewens background. Search records and direct source checks found no statement implying the combined necessary-and-sufficient criterion, though exhaustive historical uniqueness is not asserted. Koponen arXiv:2610.16163 was abstract-only and remains an access-related priority risk.
+
+## Mathematical value — PASS
+The result classifies *all* vanishing mark schedules rather than selecting one critical rate, locates every reciprocal-power transition, and explains how two physically distinct sources of finite first-order randomness coexist: persistent Poisson short permutation cycles and rare finite marked clusters on long cycles. It makes nonconvergence detectable by explicit finite formulas and produces a finite Poisson computation for every convergent sentence. This is a natural complete model-theoretic classification beyond mere finite counting or a single expected-value calculation.
+
+## Scope and residual limitations
+No result is claimed for nonvanishing marking, a named global order, transitive closure, monadic second-order logic or varying Ewens parameter. The locality and Poisson approximation principles are established prior art. A stronger general theorem on randomly marked bounded-degree structures remains a priority risk. Independently validated publication priority is not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
