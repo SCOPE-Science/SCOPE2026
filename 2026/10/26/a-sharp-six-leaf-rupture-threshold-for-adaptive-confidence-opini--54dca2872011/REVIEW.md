@@ -1,0 +1,20 @@
+# Scientific assessment
+
+## Correctness — PASS
+The main quantifiers concern every finite connected undirected graph with at least two vertices, with initially uniform receptive confidence, and every initial opinion vector on the unit interval. Finite Kantorovich–Rubinstein duality proves that the worst possible edge-gap amplification under uninterrupted averaging is the stated \(\Lambda_G(t)\). For the converse, graph diameter bounds let a nearly extremal Lipschitz potential be scaled to a strictly receptive admissible initial profile. The star edge-difference matrix has exactly computed norms: \(\|B_k\|_{\infty\to\infty}=3(k-1)/[2(k+1)]\) and \(\|B_k^2\|_{\infty\to\infty}\le1/3\), so only the first update can violate the growing confidence bound. The witness is strict below the threshold, including at six leaves. The stationary measure proves consensus. The actual standalone verifier, run against this package's source program, completed 24,931 recorded exact-rational checks. Finite checks are not presented as infinite proof.
+
+## Originality — PASS, with limits
+The motivating open paper Li–Luo–Porter, arXiv:2303.07563v3, Sections 2–3 and appendices, supplies the precise adaptive dyadic model and asymptotic edge-stabilization results. It does not state or logically imply a sharp universal initial-full-receptivity threshold on stars merely from stabilization: eventual constancy does not forbid an early rupture. Bauer–Jost–Liu (arXiv:1105.3803) already develop transportation contraction and its graph-curvature interpretation, so those transport identities are not asserted as new. The new claim is the necessary-and-sufficient link with adaptive confidence reinforcement and, centrally, the explicit six-leaf phase boundary. The closer 2009 Sun consensus paper was accessible only by abstract; its sufficient criterion may relate and remains a priority risk. published-finding corpus and local finding searches disclosed no matching universal star threshold, but absence of a hit is not proof of priority.
+
+## Value — PASS
+The exact critical degree is six leaves: below it all initially acceptable ties survive without institutional reinforcement; above it a high-degree hub can temporarily rupture a tie through averaging across conflicting leaf groups. The phase boundary \(\gamma_*\) gives the minimum trust-reinforcement parameter needed to make complete initial receptiveness invariant and to guarantee eventual consensus, uniformly over all admissible starting opinions and independently of confidence decay \(\delta\). The graph-wide Wasserstein test exposes a structural, rather than numerical, criterion; its star specialization reduces infinitely many time constraints to one. This is not an arbitrary parameter substitution or mere finite example.
+
+## Closest sources and remaining risks
+- G. J. Li, J. Luo and M. A. Porter, *Bounded-Confidence Models of Opinion Dynamics with Adaptive Confidence Bounds*, arXiv:2303.07563v3 (full-text inspected): defines this model and proves other, chiefly eventual, statements.
+- F. Bauer, J. Jost and S. Liu, *Ollivier–Ricci Curvature and the Spectrum of the Normalized Graph Laplace Operator*, arXiv:1105.3803 (full-text transport section inspected): overlaps the mathematical tool, not the adaptive phase boundary.
+- Z. Sun, *A Verifiable Criterion for Consensus of K-H Model* (IEEE CCA 2009; abstract only): plausible antecedent with inaccessible detailed hypotheses, explicitly retained as a publication-priority risk.
+- The research-record finding titled *Exact logarithmic switching lifetime near a nonfreezing seven-agent confidence system* studies delayed graph switching near a seven-agent nonfreezing confidence example. Its described claim neither contains this star invariant-region threshold nor a universal all-initial-opinion guarantee.
+
+Limits include the narrow initial full-receptivity condition, degree/initial-bound sharpness scope, no claim of permanently severed ties below threshold, and no independent priority verification.
+
+Self-review: passed. Independent audit: not yet performed.
