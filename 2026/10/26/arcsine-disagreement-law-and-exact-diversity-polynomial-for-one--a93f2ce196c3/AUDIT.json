@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The equivalence \\(x_v=1-x_{p(v)}\\) (or \\(x_v=1\\) for unattacked vertices) exactly enforces stable semantics and proves the component phase theorem for all finite indegree-one digraphs. Each even-cycle component contributes \\(2+2y^{s}\\) to ordered pair disagreement. Labelled cycles of rooted trees give \\(\\exp(\\sum_{j\\ge1}(T(z)^{2j}+T(zy)^{2j})/j)=Q(z)Q(zy)\\). Lagrange inversion gives the exact coefficients; singularity transfer gives \\(q_m\\sim e^m/(2\\sqrt{2\\pi m})\\) and \\([z^n]Q(z)^2\\sim e^n/8\\). Endpoint mass control through \\(q_m\\le C e^m/\\sqrt{m+1}\\) proves the full weak arcsine limit, beyond a local estimate. Exhaustive independent checker: 8,496 finite checks through five vertices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Odlyzko (1989), §2.1–§2.2, provides cycle-of-trees species, \\(T=ze^T\\), and singularity analysis for generic random maps.",
+        "Trinh et al. (2025), §§4–5, treats arbitrary finite attack digraphs and fixed-point bounds rather than the exact diversity distribution within this constrained class."
+      ],
+      "reasoning": "The prior random-mapping machinery is more general combinatorially, but its inspected applications lack the stable-extension-pair weighting that makes the split generating function \\(Q(z)Q(zy)\\); a generic method does not itself assert the calculated claim. The 2025 graph results cover wider graph classes but weaker count bounds; no stronger distribution statement was found.",
+      "searches": [
+        "\"argumentation framework\" \"in-degree at most one\" \"stable extensions\" cycle",
+        "\"random mappings\" \"stable extensions\" Boolean network",
+        "\"arcsine\" \"random mapping\" \"even cycles\"",
+        "\"random mapping\" \"even cycles\" \"arcsine\" distribution"
+      ]
+    },
+    "checked_sources": [
+      "Fichte et al., Diversity of Extensions in Abstract Argumentation, arXiv:2605.13332v1, May 13 2026",
+      "Trinh et al., Graphical Analysis of Abstract Argumentation Frameworks via Boolean Networks, ICAART 2025, DOI:10.5220/0013346400003890",
+      "Flajolet and Odlyzko, Random Mapping Statistics (1989), §2.1–2.2",
+      "Other indexed scientific results on 3-kernels and graph flexes were reviewed for possible cycle-based implications, but did not concern the present semantic distance."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fichte et al. (2026) establishes formal diversity decision tasks and polynomial-hierarchy completeness, not a stable-extension-pair EGF.",
+        "Trinh et al. (2025) derives cycle-based upper bounds and Boolean fixed-point correspondence, not the full metric polynomial.",
+        "Flajolet–Odlyzko (1989) establishes a general analytic enumeration recipe, which must be specialized to the 4-way local phase weighting; no stable argumentation objects appear."
+      ],
+      "reasoning": "None of the three inspected published statements implies the new formula without supplying the cycle-pair phase weights and bivariate split. Once that combinatorial derivation is made the arcsine law follows by established singularity transfer. This is originality relative to actual inspected claims, not proof of global first discovery.",
+      "searches": [
+        "arcsine Beta 1/2 1/2 distribution of pairwise stable-extension symmetric difference in random mapping argumentation with one attacker",
+        "exact EGF pairwise diversity stable Dung extensions independent even cycles rooted mapping forest 1/(1-T^2)^2",
+        "counting stable extensions on pseudofunctional directed attack graphs positive cycles parity 2^c",
+        "\"counting stable extensions\" \"even cycles\" argumentation framework"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Trinh–Benhamou–Risch (ICAART 2025), Theorems 1 and 16, relate stable extensions to Boolean-network fixed points and give bounds 2^{|U|} for feedback sets; no metric enumerator is stated in the inspected graphical-analysis section.",
+        "Fichte et al. (arXiv:2605.13332v1), Definition 2 and diversity problem statements, measure symmetric difference but not indegree-one exact distance enumeration."
+      ],
+      "reasoning": "A Boolean network with a negation-of-parent update is an equivalent fixed-point formulation. Existing cycle fixed-point bounds may cover the simple 2^c count, which is credited as elementary background; they do not in the inspected statements determine the entire polynomial \\(D_F(y)\\), the exact mapping-pair series, or the arcsine limit.",
+      "searches": [
+        "\"argumentation framework\" \"in-degree at most one\" \"stable extensions\" cycle",
+        "\"counting stable extensions\" \"even cycles\" argumentation framework",
+        "counting stable extensions on pseudofunctional directed attack graphs positive cycles parity 2^c",
+        "\"one attacker per argument directed pseudoforests extension diversity exact distribution\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit mappings up to five vertices were independently enumerated: pair-disagreement totals for n=5 are (k,count)=(0,1480),(2,240),(3,240),(5,1480).",
+        "The inspected indexed research results concerned different graph models and did not exhibit this bivariate enumerator or these exact probabilities."
+      ],
+      "reasoning": "No inspected exact table matched the pair-ensemble distribution. The finite enumeration is a new verification calculation, not a novelty argument by itself; it does not rule out prior tables in inaccessible collections.",
+      "searches": [
+        "arcsine Beta 1/2 1/2 distribution of pairwise stable-extension symmetric difference in random mapping argumentation with one attacker",
+        "exact EGF pairwise diversity stable Dung extensions independent even cycles rooted mapping forest 1/(1-T^2)^2",
+        "\"argumentation framework\" \"one attacker\" \"arcsine\"",
+        "\"random mapping\" \"proper 2 colorings\" \"arcsine\" cycle components"
+      ]
+    },
+    "rationale": "Comparison of explicit formula and limiting distribution (not only titles): older stable/fixed-point work establishes parity cycle mechanisms and bounds, and classical random-mapping work supplies generating-function methods, while Fichte et al. defines symmetric-difference diversity. The inspected statements do not cover the exact ordered-pair polynomial across all one-attacker graphs, the bivariate EGF over maps, or its arcsine asymptotic under the specified triple-weighted ensemble. Uninspected terminology and wider literature are a stated priority risk.",
+    "residual_risks": [
+      "A matching statement might already exist for fixed points of negative Boolean networks or random mappings with marked even-cycle components in work not indexed by the performed searches.",
+      "Generic species and square-root transfer theorems cover the analytic *method*; originality concerns the explicit logical weight and resulting law.",
+      "Uniform triple sampling is essential; changing to uniform mapping conditional on existence changes the measure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines diversity and analyzes existence/optimization complexity; no corresponding exact one-attacker distance polynomial, mapping-pair count or arcsine law in the material read.",
+        "evidence": [
+          "arXiv v1 dated 2026-05-13",
+          "PDF introductory contribution items and Table 1, pp.2–3",
+          "PDF definition of k-diverse extension and max/min-diversity problems on p.5"
+        ],
+        "identifier_or_url": "arXiv:2605.13332v1; https://arxiv.org/pdf/2605.13332",
+        "material_read": "37-page primary PDF: abstract, introduction, Definition of diversity, stable semantics, principal complexity statements and Table 1, related work; document-wide term searches for random/indegree and review of theorem headings.",
+        "method": "Opened primary PDF and visually inspected PDF page 5 (zero-indexed page 4), as well as parsed corresponding primary-text sections.",
+        "title": "Diversity of Extensions in Abstract Argumentation",
+        "trigger": "Exact motivating symmetric-difference diversity notion and stable semantics"
+      },
+      {
+        "assessment": "Overlaps the deterministic stable=fixed-point principle and cycle upper bounds but not the exact distance polynomial or random-map ensemble law.",
+        "evidence": [
+          "Theorem 1 fixed-point characterization",
+          "Corollary 3: upper bound 2^{|U|} for sets hitting positive cycles",
+          "Section 5 gives graphical cycle constraints"
+        ],
+        "identifier_or_url": "DOI:10.5220/0013346400003890; https://www.scitepress.org/publishedPapers/2025/133464/pdf/index.html",
+        "material_read": "Accessible publisher-hosted article text, pp.745–756; Sections 1, 4, 5, especially Theorems 1, 9, 15–16 and Corollary 3 on cycles and stable-extension count bounds.",
+        "method": "Primary-text review and in-document theorem comparisons.",
+        "title": "Graphical Analysis of Abstract Argumentation Frameworks via Boolean Networks",
+        "trigger": "Plausibly stronger deterministic results on stable-extension counts controlled by graph cycles"
+      },
+      {
+        "assessment": "Supplies classical random-map EGF and square-root transfer, both credited. The inspected formulas do not weigh ordered pairs of Dung-stable extensions or give their disagreement law.",
+        "evidence": [
+          "§2.1 cycle-of-trees specification and labelled exponential formula, printed p.332",
+          "§2.2 singularity-analysis framework and tree-function branch, printed pp.334–336"
+        ],
+        "identifier_or_url": "P. Flajolet and A. M. Odlyzko (1989); https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf",
+        "material_read": "Primary 26-page PDF parsed Section 2.1, combinatorial enumerations, and Section 2.2, asymptotic analysis, pp.332–336; page 332 visually inspected.",
+        "method": "Full-text sections read together with a PDF-page screenshot (PDF page 4, zero indexed page 3); exact identities for ordinary random maps and T(z)=ze^{T(z)} compared.",
+        "title": "Random Mapping Statistics",
+        "trigger": "Likely source for labelled cycle-of-trees decomposition and random map singularity analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a93f2ce1-96c3-41b5-9e4d-5eb634506652",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact full disagreement enumerator goes beyond the known stable-extension count and generic decision complexity. Its component-size subset-sum structure makes all attainable and repeated distances computable, while the exact mapping ensemble exhibits a non-Gaussian U-shaped limiting disagreement fraction, mathematically distinguishing likely near-agreement and near-total-conflict configurations. The particular uniform-triple weighting arises naturally from simultaneously counting a framework and two coherent viewpoints; its limitation is made explicit.",
+    "status": "PASS"
+  }
+}
