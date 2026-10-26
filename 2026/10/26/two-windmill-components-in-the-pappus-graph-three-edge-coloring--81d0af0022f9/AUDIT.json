@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "All perfect matchings are recursively and exhaustively generated (42), their disjoint triples generate exactly all 20 proper unlabelled edge colorings; all color-pair alternating cycles are exhaustively flipped. The complete 20-row adjacency certificate has two 10-vertex components, each with one universal node and three leaf triangles. A separately coded direct edge-color assignment enumerator obtains the identical 20-coloring / 36-edge graph digest. The proof relies on finite exhaustive coverage, not sampling or extending beyond the one fixed graph.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Belcastro–Haas (2012) proves general cubic-bipartite results concerning the number of Kempe equivalence classes.",
+        "Belcastro–Haas (2017) Theorem 4.2 determines the edge-coloring exchange graph for crossed prisms, a different graph family; general propositions concern color permutations, triangle expansion and products.",
+        "Goedgebeur–Östergård (2021) Table 2 reports distributions of the number of equivalence classes among cubic bipartite graphs of each order, not named Pappus transition-graph isomorphism classes."
+      ],
+      "reasoning": "The 2017 work treats named and root-fixed coloring graphs, which have different edge sets from the present full color-name quotient in general. The 2021 algorithm determines components while suppressing root-cycle flips; its aggregate tables provide only class counts and do not assert the Pappus windmill structure. Crossed prisms of order divisible by four are not the eighteen-vertex Pappus graph.",
+      "searches": [
+        "https://arxiv.org/abs/1209.1730 §§1–4",
+        "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf §§2–4",
+        "https://arxiv.org/pdf/2105.01363 Algorithm 1; Tables 1 and 2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1209.1730",
+      "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+      "https://arxiv.org/pdf/2105.01363"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.1 of Belcastro–Haas (2017) shows the graph of all *named* colorings is triangle-free, whereas the different color-permutation quotient computed here has triangles; there is no contradiction.",
+        "Goedgebeur–Östergård (2021) reports class counts, not the twenty-vertex graph with components containing degree-nine and degree-three vertices."
+      ],
+      "reasoning": "The exact structural claim does not follow from generic quotient definitions, a connectivity class count, or the published crossed-prism theorem without computing the Pappus-specific colorings and every quotient flip. In particular, the root-fixed graph used in 2017 is a spanning subgraph and cannot be equated with this quotient; the 2021 algorithm ignores root cycles for counting connected components, not for preserving all exchange edges. The reproducible certificate establishes the complete quotient. Absolute publication priority remains open.",
+      "searches": [
+        "https://arxiv.org/abs/1209.1730 §4",
+        "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf Proposition 2.1 and Theorem 4.2",
+        "https://arxiv.org/pdf/2105.01363 Algorithm 1 and Table 2",
+        "Pappus graph edge Kempe quotient windmill components classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belcastro–Haas (2017) §2.2 specifies one representative per color-name orbit for KE_v but only allows switches preserving the colors incident at the chosen vertex; it does not identify its edge set with the full color-permutation quotient.",
+        "Goedgebeur–Östergård (2021) Algorithm 1 omits switches on cycles through a chosen vertex because this omission preserves *Kempe equivalence classes*, not individual adjacency."
+      ],
+      "reasoning": "The full quotient and the vertex-fixed graph correspond bijectively on coloring configurations, but their edge sets can differ. A flip on a two-color cycle through the root can be restored to the root normalization by globally transposing its colors; in a three-cycle two-factor this is equivalent to flipping the OTHER TWO cycles simultaneously, which need not be an edge of the root-fixed graph. Thus the quotient can contain triangles, whereas the fully named graph and its root-fixed subgraph are triangle-free. Earlier methods for equivalence-class counting can discard root-cycle switches without preserving every quotient edge. The present complete Pappus quotient edge structure has no identified statement-level coverage.",
+      "searches": [
+        "Pappus graph 3-edge-colorings Kempe equivalence two classes exact graph component structure 10 vertices 18 edges",
+        "Pappus graph three edge colourings Kempe classes equivalence graph windmill",
+        "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf §2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Goedgebeur–Östergård (2021) Table 2 covers all connected bipartite cubic graphs of order eighteen in an aggregate count table, and references released instance data for extremal class counts.",
+        "The papers inspected do not print the twenty vertices, adjacency lists, degree histogram, or windmill decomposition for Pappus."
+      ],
+      "reasoning": "A published aggregate may already contain the fact that some order-eighteen graphs have two equivalence classes, and software can reconstruct more data; these are explicitly not independently claimed new. The fixed Pappus graph’s full exchange graph and the intrinsic center cycle signature are not stated or tabulated in these inspected sources. Residual risk of an alternate indexed database remains.",
+      "searches": [
+        "https://arxiv.org/pdf/2105.01363 Table 2 order 18",
+        "Pappus graph twenty one-factorizations 20 factorizations 3-edge colorings Kempe switching",
+        "Pappus graph 3 edge colorings Kempe switches 20 one factorizations"
+      ]
+    },
+    "rationale": "The 2012 Kempe class-count framework, 2017 coloring exchange graph theory and crossed-prism example, and 2021 cubic graph computational table/algorithm all address related objects. Their inspected statements do not assert the Pappus color-name quotient graph as two \\(K_1\\vee(3K_3)\\) components, nor its profile-defined degree-nine centers. The known algorithm/class count is not claimed as new; the complete finite transition graph and intrinsic characterization are the specific comparison-surviving contributions.",
+    "residual_risks": [
+      "Existing indexed or unpublished graph databases may encode the same twenty-vertex adjacency table without listing its windmill structure.",
+      "A generic complete enumeration algorithm can produce the result when specialized, but previously printed and inspected theorems/tables do not state it.",
+      "Independent external novelty review has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General Kempe class-count and decomposition methods; no full Pappus windmill exchange graph found",
+        "evidence": [
+          "arXiv:1209.1730v1, posted 2012-09-08, introduction and Sections 2–4",
+          "No occurrence of Pappus in inspected text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+        "material_read": "Accessible arXiv HTML text, introduction, key decomposition and equivalence-class sections, and full-text Pappus term search",
+        "method": "read public arXiv full-text rendering and targeted searches",
+        "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+        "trigger": "Foundation paper; same edge-coloring equivalence and cubic bipartite setting"
+      },
+      {
+        "assessment": "Studies named and root-fixed graphs and other graph examples, not the *full color-name-quotient* adjacency of Pappus. The fixed-root graph has fewer moves than the global-quotient version studied here; no Pappus-specific classification located.",
+        "evidence": [
+          "Australasian Journal of Combinatorics 69(2) (2017) 197–214, pp. 197–214",
+          "Proposition 2.1 and Theorem 4.2; discussion of KE_v"
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+        "material_read": "Publisher 18-page open PDF, abstract, introduction, general graph distinctions, key structural statements, graph-product discussion, crossed-prism example and final questions; Pappus term search",
+        "method": "opened accessible publisher full-text PDF, inspected material and searched Pappus/crossed prism",
+        "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+        "trigger": "Directly analyzes exchange graph (not merely component counts), therefore decisive plausible overlap"
+      },
+      {
+        "assessment": "Its algorithm intentionally drops root-containing flips when counting components; while this preserves connected classes, it does not preserve full quotient adjacency. Tables contain aggregate counts only; no Pappus windmill statement located.",
+        "evidence": [
+          "arXiv:2105.01363v1 (2021), Algorithm 1, Table 2",
+          "No occurrence of Pappus in inspected text"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.01363",
+        "material_read": "Accessible 20-page OA manuscript with definitions, Algorithm 1, and Tables 1–4, discussion of cubic-bipartite class counts; Pappus term search",
+        "method": "read arXiv full-text PDF and inspected targeted sections, tables and Pappus search",
+        "title": "Switching 3-edge-colorings of cubic graphs",
+        "trigger": "Computational census of same equivalence relation for cubic bipartite graphs up to size 36"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81d0af00-22f9-4a58-be97-4e5c4e00b166",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Kempe-move connectivity of a canonical nonplanar highly symmetric cubic bipartite graph is a motivated structural reconfiguration question. The result gives full adjacency and topology of each class, quantitative local mobility (degree 9 versus 3), exact exchange distances, and a cycle-structure characterization of the central configurations; these are not given by a bare equivalence class count.",
+    "status": "PASS"
+  }
+}
