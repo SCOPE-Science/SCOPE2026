@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For every cyclic band with n>=3,k>=2 its bipartite graph is connected, so the reduced row/column incidence has rank 2n-1. The projection KKT strict-complementarity region has Jacobian Q=I-B^T(BB^T)^{-1}B extended by zero. Translation reduces rows to the k shifts. A standard-library exact rational Gauss–Jordan checker exhausts all 440 orbit rows for n=3..13 and verifies unique n13 width7 excess 99556468/14256211151; full support has product centering projection norm 4(1-1/n)^2. Separately exact rational primal feasibility and complementary multipliers verify finite positive-input attainment with t=1/1000. Universal large-n or arbitrary-support extrapolations are not claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Sun–Toh establishes generalized Jacobian construction for any Birkhoff support; Section 5 studies computational performance, not infinity row norm extrema.",
+        "Kassel–Wu develops electrical transfer currents in general weighted graphs and scaling limits, not exact small cyclic-band support stability order."
+      ],
+      "reasoning": "These general representation theorems cover the projector construction but do not imply a numerical inequality comparing all cyclic-band widths at orders 3..13 without exact evaluation. No stronger bound or ready-made classification yielding this cutoff was found.",
+      "searches": [
+        "full-support doubly stochastic projection Jacobian not maximally stable Birkhoff polytope cyclic interval band face",
+        "sharp sup norm Lipschitz Euclidean projection onto doubly stochastic Birkhoff polytope support graphs active faces Hodge cycle projector",
+        "arXiv:1702.05934 Sections 2-5",
+        "arXiv:1312.2946 Sections 1-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1312.2946v2 accessible HTML, relevant formulations read",
+      "arXiv:1702.05934 accessible full HTML Sections 1–5, Jacobian and experiments read",
+      "DOI:10.1137/15M102825X accessible abstract and metadata only",
+      "published-finding corpus semantic scientific-record searches with actual query strings recorded under named checks",
+      "Targeted search comparisons against public mathematical finding records, with titles and implications checked"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general Jacobian equation determines a projection matrix for each face; it does not compare its absolute row sums over the 440 cyclic-band orbit rows.",
+        "The Hager–Zhang work presents a sparse polyhedral projection algorithm; available abstract and metadata describe no endpoint sensitivity theorem."
+      ],
+      "reasoning": "The claimed strict inequality is a motivated exact finite cutoff after nontrivial rational row-norm computation; it is not a restatement of the existing generic Jacobian map or a norm inequality already implied with no additional calculation.",
+      "searches": [
+        "cyclic band bipartite graph electrical current cycle-space orthogonal projector sharp l infinity norm",
+        "full-support doubly stochastic projection Jacobian not maximally stable Birkhoff polytope cyclic interval band face",
+        "Euclidean metric projection bistochastic matrices tangent spaces graph cycle edge projector",
+        "arXiv:1702.05934 Eq. (10), Section 5",
+        "DOI:10.1137/15M102825X abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The face Jacobian is the zero-extended cycle-space orthogonal projection I-B^T(BB^T)^{-1}B, complementary to transfer-current matrices.",
+        "Li–Sun–Toh Proposition 2 (arXiv:1702.05934) provides the general active-set linear map, not the exact cyclic-band norm crossing."
+      ],
+      "reasoning": "Aliases checked include nearest bistochastic matrix, doubly stochastic projection, KKT Jacobian, graph cycle projector and transfer current. The equal operator identity is known; the exact first excess and strict finite pair are not supplied by that identity without the discrete case analysis.",
+      "searches": [
+        "Euclidean projection onto Birkhoff polytope doubly stochastic matrices restricted consecutive cyclic diagonals band support exact infinity norm numerical threshold",
+        "cyclic band bipartite graph electrical current cycle-space orthogonal projector sharp l infinity norm",
+        "arXiv:1702.05934 Section 2 Proposition 2",
+        "arXiv:1312.2946 Section 1 electrical transfer current"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The doubly substochastic John-ellipsoid record treats ellipsoid geometry, not metric-projection Jacobian row sums.",
+        "The cactus record treats basis-suppression projections of transportation spaces, not cyclic bipartite Birkhoff face sensitivities."
+      ],
+      "reasoning": "Matching source records by the precise operator and claim implication rather than only Birkhoff or cycle terminology did not return a direct table or stronger exact answer for the 13-by-13 band.",
+      "searches": [
+        "Euclidean projection onto Birkhoff polytope doubly stochastic matrices restricted consecutive cyclic diagonals band support exact infinity norm numerical threshold",
+        "Birkhoff polytope projection entrywise maximum norm sensitivity active support perfect matching",
+        "published-finding corpus published findings search, nearest: 2026/10/11/SCOPE-exact-john-ellipsoid-of-the-doubly-substochastic-matrix-polytope--12b1169a9382",
+        "published-finding corpus published findings search, nearest: 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd"
+      ]
+    },
+    "rationale": "The new exact first-boundary statement concerns the n-by-n cyclic consecutive-band face family, its endpoint infinity Jacobian norms, the unique width-seven departure at n=13 and a finite strict KKT witness. Kassel–Wu (arXiv:1312.2946) gives general transfer-current matrices; Li–Sun–Toh (arXiv:1702.05934, Sections 2–5) gives a general Jacobian construction; Hager–Zhang 2016 concerns projection algorithms. The examined full primary texts and targeted scientific-record searches contain neither the exact 440-row comparison nor the 13-by-13 sensitivity departure. General formulas permit later calculation but do not state or settle this finite classification. Earlier unindexed equivalent calculations remain a risk.",
+    "residual_risks": [
+      "General Birkhoff Jacobian formulas could have been independently evaluated in unindexed computational tables; exhaustive novelty cannot be certified by search.",
+      "Full 2016 Hager–Zhang article was not material-read; its accessible abstract describes generic algorithms, not this band cutoff.",
+      "No claim is made about other face-support families or global Lipschitz extremizers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant representation and scaling-limit paper; no table of cyclic-band Birkhoff polytope maximum-norm Jacobians in inspected material.",
+        "evidence": [
+          "arXiv:1312.2946 HTML lines 83–103: transfer-current formula and spectral expansion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1312.2946v2",
+        "material_read": "Open HTML full text, Sections 1 and discrete harmonic-analysis formulation, including transfer current equations and later section index.",
+        "method": "Read openly accessible arXiv HTML and compare the operator formula, graph domain and investigated results.",
+        "title": "Transfer current and pattern fields in spanning trees",
+        "trigger": "General electrical transfer-current matrices can equal the complementary graph-cycle projector."
+      },
+      {
+        "assessment": "Precisely supplies the general Jacobian representation; does not classify the cyclic consecutive-band first excess or the exact finite witness.",
+        "evidence": [
+          "arXiv:1702.05934 Section 2, Proposition 2 and Eq. (10); Section 5 reports computational performance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1702.05934",
+        "material_read": "Full arXiv HTML: introduction, Section 2 Jacobian theorem and Proposition 2, Section 3 algorithms, Section 5 experiments and tables; checked band/infinity terminology.",
+        "method": "Read and compare relevant primary full text and formulas; checked for band-support exact norm tables.",
+        "title": "On the efficient computation of a generalized Jacobian of the projector over the Birkhoff polytope",
+        "trigger": "Same projection operator and potentially dominating Jacobian formula."
+      },
+      {
+        "assessment": "Described as algorithmic work on generic polyhedral projection; inaccessible full article poses a limited residual bibliographic risk, not decisive matching coverage.",
+        "evidence": [
+          "SIAM J. Optim. 26(3) (2016), 1773–1798; published 1 September 2016; abstract on dual active-set methods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M102825X",
+        "material_read": "Publisher abstract, publication metadata, and author repository entry; full article not obtained.",
+        "method": "Reviewed publicly accessible abstract/metadata and searched openly available copies.",
+        "title": "Projection onto a Polyhedron that Exploits Sparsity",
+        "trigger": "2016 prior polyhedral projection algorithm; potential overlap with constrained bistochastic projections."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c97497c1-85b3-4839-ae3a-b0fd2e9c3703",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cyclic consecutive bands are a natural structured family of constrained doubly stochastic support patterns, useful for locality-limited matching and bistochastic smoothing. The theorem identifies a sharp finite order at which removing permitted entries increases the endpoint sensitivity above unrestricted complete support; this distinguishes Hilbert contractivity from coordinatewise robustness. The cutoff is a complete natural finite classification with an exact KKT-realized perturbation, not an arbitrary isolated rational constant or a routine renaming. It can guide stability analysis of sparse assignment relaxations and reveals a nonmonotonic support effect.",
+    "status": "PASS"
+  }
+}
