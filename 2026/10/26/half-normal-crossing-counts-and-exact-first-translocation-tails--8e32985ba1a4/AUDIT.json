@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Brownian first-hit transform exp(-y sqrt(s/D)) times two-state semigroup gives K_y. Marked renewal geometric series proves the exact two-by-two PGF. Unmarked hit times add by positive 1/2-stability and yield an exact erfc tail for H_t, ensuring all-moment uniform integrability. The independent open coin and irreducible embedded gate chain give mark frequency p/2 and half-normal scaling. Small-s expansion of the no-switch resolvent has determinant p(1-k)/2>0 and yields two explicit positive constants; monotone Tauberian theorem gives the infinite-mean survival tail. The standalone symbolic and high precision tests passed 64 checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Scher et al arXiv:2211.09164 first-passage target-detection renewal theory; it terminates at first detection.",
+        "Bressloff arXiv:2601.01588 stochastically gated target first absorption; process terminates on success.",
+        "Grebenkov arXiv:2205.06566 analyzes boundary local-time encounter statistics in a bounded domain.",
+        "Kay–Giuggioli arXiv:2406.07142 section II.B full PDF explicitly gives crossing-count law under fixed-permeability subordinated Poisson events."
+      ],
+      "reasoning": "General counting/renewal and Tauberian results supply tools and half-normal shapes, but the inspected papers do not state a stronger theorem resolving the full finite-offset gate-correlated counting kernel together with two explicitly different initial-gate first-switch amplitudes. This comparison cannot exclude an uncited general Markov-renewal theorem.",
+      "searches": [
+        "Continuous Gated First-Passage Processes 2211.09164 site:arxiv.org",
+        "Local Time Statistics and Permeable Barrier Crossing 2406.07142 site:arxiv.org",
+        "Statistics of diffusive encounters small target 2205.06566 site:arxiv.org",
+        "heavy-tailed renewal process half normal marked Markov reward number of contacts"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.13414v1",
+      "arXiv:2406.07142v1",
+      "arXiv:2601.01588v1",
+      "arXiv:2211.09164",
+      "arXiv:2205.06566"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original source fixes the side-choice and gate-state renewal rules but computes unmarked spatial laws rather than the full path mark count.",
+        "The constant permeability paper uses crossings Poisson subordinated by reflected-Brownian local time; in the dynamic gate model successive hit marks are correlated.",
+        "The gated-target papers terminate on successful detection and therefore do not produce an indefinitely continuing translocation count."
+      ],
+      "reasoning": "The full count law is not implied by endpoint spatial marginals (only parity is determined), and constant-permeability Poisson crossing counts do not cover the dynamic gate at positive offset. First detection of a gated target is related to—but not verbatim identical with—first true side-change under the extra fair open-gate coin; the exact new amplitude is compared explicitly. A generic Markov renewal theorem may imply some portions, documented as residual risk.",
+      "searches": [
+        "arxiv 2601.13414 finite epsilon renewal section 3 physical space gate propagator",
+        "arxiv 2406.07142 crossing statistics Poisson local time section II.B",
+        "arxiv 2601.01588 gated first passage renewal first absorption",
+        "arxiv 2211.09164 continuous gated first passage point interval target"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bressloff arXiv:2601.13414 sections 2-4: unmarked position/gate propagators and renewal equation; no complete crossing-count transform in the examined full HTML.",
+        "Kay–Giuggioli arXiv:2406.07142 section II.B counts constant-permeability Poisson-local-time crossings, not independently continuing Markov-gated contacts."
+      ],
+      "reasoning": "Side parity is encoded in the propagator but does not determine the entire translocation count. The constant-permeability Poisson-clock model has independent local-time crossing marks, while the renewal gate state at hit times is a two-state correlated Markov chain. The proposed exact positive-offset marked resolvent and gate-specific first-switch tails are neither a relabeling of the propagator nor the Poisson-time-change formula.",
+      "searches": [
+        "stochastically gated Brownian interface crossing counts renewal probability",
+        "quantum process response spectra memory witness rank finite sampling",
+        "Brownian motion stochastically gated membrane interface Markov open closed first transmission survival tail exponent one half restart epsilon",
+        "stochastic gate switched Brownian excursions number of interface crossings half-normal local time renewal reward",
+        "Bressloff renewal theory diffusion across stochastically gated interface 2601.13414",
+        "Markov-gated Brownian membrane number of translocations counting statistics renewal count",
+        "stochastically switching membrane Brownian number of crossings distribution half normal",
+        "Brownian Markov gate interface number of crossings renewal time Laplace generating function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The static-permeability crossing-count law is explicitly tabulated in Kay–Giuggioli arXiv:2406.07142 section II.B for Poisson local-time marks, not time-correlated Markov gate states.",
+        "The originating gated-interface paper has no table of the full marked crossing count or state-dependent first-translocation amplitudes in its examined sections."
+      ],
+      "reasoning": "No relevant finite table or published exact distribution for the specified two-state Markov-gated, positive-offset model was identified; a failed search is not proof of novelty.",
+      "searches": [
+        "stochastically gated Brownian interface crossing counts renewal probability",
+        "quantum process response spectra memory witness rank finite sampling",
+        "Brownian motion stochastically gated membrane interface Markov open closed first transmission survival tail exponent one half restart epsilon",
+        "stochastic gate switched Brownian excursions number of interface crossings half-normal local time renewal reward",
+        "Bressloff renewal theory diffusion across stochastically gated interface 2601.13414",
+        "stochastically switching membrane Brownian number of crossings distribution half normal"
+      ]
+    },
+    "rationale": "Full-text comparison excludes the originating position/gate propagator and static-permeability Poisson crossing-count results; this statement is the marked count and gate-dependent first-translocation law in the distinct positive-offset Markov-switching model. Universal renewal scaling and general Markov renewal algebra are not asserted new. Residual implicit-coverage risk in generic Markov renewal/occupation-count theory remains.",
+    "residual_risks": [
+      "General marked Markov renewal theorems might implicitly imply the half-normal count limit, though not identified to give the specific correlated-gate finite-offset PGF and tail amplitudes.",
+      "An unlocated theorem combining gating and transport-event counting may dominate the new statements despite searches; independent priority assessment not performed.",
+      "The source model is an epsilon-regularized idealization; no zero-offset interchange is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model, resetting rules and position/gate propagation covered; marked crossing count transform and half-normal law not found",
+        "evidence": "Sections 2-4, in particular sequential half-line excursions, gate opening/closing, equal two-side selection and epsilon offset; section 4 contains bulk resetting only.",
+        "identifier_or_url": "arXiv:2601.13414v1 | https://arxiv.org/html/2601.13414v1",
+        "material_read": "Full HTML through sections 1-5, finite-epsilon renewal and bulk-reset extension; model rules/semigroup/renewal compared",
+        "method": "Web full-text reading and targeted in-document searches for crossings and generating functions",
+        "title": "Renewal theory for Brownian motion across a stochastically gated interface",
+        "trigger": "Exact originating positive-offset stochastic gate model"
+      },
+      {
+        "assessment": "A genuine preceding crossing-count theorem for the different static permeability/Poisson local-time model; no temporally switching gate or finite-offset Markov-correlated contact process",
+        "evidence": "Section II.A constructs Poisson N(local time) with constant kappa; II.B computes P_n(t|x0); compare with K_epsilon(0)=kI+(1-k)Pi in this finding.",
+        "identifier_or_url": "arXiv:2406.07142 | https://arxiv.org/pdf/2406.07142",
+        "material_read": "Full PDF text in sections I-II, detailed Section II.B Crossing Statistics including Eq. (5) and Fig. 2, page 3 visually inspected",
+        "method": "Open full arXiv PDF, read extracted text and visually inspect PDF page 3",
+        "title": "Local Time Statistics and Permeable Barrier Crossing: from Poisson to Birth-Death Diffusion Equations",
+        "trigger": "Strongest apparent prior covering exact barrier crossing count distribution"
+      },
+      {
+        "assessment": "Gated first absorption treated, no repeated indefinitely continuing signed half-line translocations",
+        "evidence": "Paper explicitly terminates diffusion at first open-gate target absorption.",
+        "identifier_or_url": "arXiv:2601.01588v1 | https://arxiv.org/abs/2601.01588",
+        "material_read": "Accessible full rendered paper: introduction, half-line renewal and stopping conditions",
+        "method": "Web full-text inspection",
+        "title": "Renewal theory for Brownian motion with stochastically gated targets",
+        "trigger": "Same author/model family gated absorption"
+      },
+      {
+        "assessment": "General gated first-passage framework, not a full crossing-count law for this continuing interface",
+        "evidence": "Unified point/interval/half-line target detection times; stochastic process terminates on first detection.",
+        "identifier_or_url": "arXiv:2211.09164 | https://arxiv.org/abs/2211.09164",
+        "material_read": "Full rendered paper introduction, target classes and renewal equations, search for counting/encounters",
+        "method": "Web full-text inspection and search",
+        "title": "Continuous Gated First-Passage Processes",
+        "trigger": "General first detection through switching gates possibly dominating first-switch claim"
+      },
+      {
+        "assessment": "Related boundary local-time statistics, predominantly bounded targets; no exogenous Markov-gate crossing reward",
+        "evidence": "Sections 2-5 analyze rescaled boundary encounters and local-time threshold, not gate-sampled side switching.",
+        "identifier_or_url": "arXiv:2205.06566 | https://arxiv.org/abs/2205.06566",
+        "material_read": "Rendered full text sections 2-5 including local-time counting relation and first crossing of local time",
+        "method": "Web full-text inspection and keyword search",
+        "title": "Statistics of diffusive encounters with a small target: Three complementary approaches",
+        "trigger": "Encounter counting may dominate universal marked-count asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8e32985b-a1a4-401a-b2c6-fe08f971670b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A static position/gate propagator recovers at most the parity of crossings, not throughput counts. The full finite-offset marked-count transform and state-dependent first-translocation tail give operational observables for dynamically gated membranes. The asymptotic count remains non-self-averaging with squared coefficient of variation \\(\\pi/2-1\\) and quantifies how open duty cycle controls transport without eliminating relative fluctuations.",
+    "status": "PASS"
+  }
+}
