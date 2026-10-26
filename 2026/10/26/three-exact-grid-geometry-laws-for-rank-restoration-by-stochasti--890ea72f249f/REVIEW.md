@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** Every possible rounded row is one of four grid vertices; determinant identities classify their projective lines exactly. Inclusion–exclusion in the zero-level case and disjoint collinearity classes otherwise prove the finite-product formulas for arbitrary independent, possibly nonidentical entry probabilities. The homogeneous rare-event limits follow directly by exponentiation, with no interchange of infinite sums. The embedded exact rational verifier passed 827 checks including boundary cases, independent brute-force rank enumeration and inhomogeneous probabilities.
+
+**Originality — PASS subject to priority uncertainty.** The 2026 primary source establishes probabilistic singular-value lower bounds with positive normalized column variance and independent stochastic errors; it does not give exact rank probabilities by quantizer-level geometry, and its fixed-positive-variance asymptotics do not imply the rare-window formulas. The prior tall-and-thin regularization results concern general concentration bounds. Classical fair binary rank formulas cover a special isolated point, not the three geometries or their variance-matched contrast. Published-record and semantic-record searches located no stronger matching implication. The 2024 predecessor's full text and older discrete-rank sources remain residual priority risks.
+
+**Value — PASS.** Grid placement is an actual algorithm-design choice in numerical quantization. The sharp finite-sample trichotomy and differing sparse-limit success probabilities at equal rounding variance explain which parts of stochastic rank lifting are lost under zero-level or dependence degeneracies. The result supplies a necessary geometric diagnostic beyond variance-only regularization theorems; it is not a claim about generic singular-value magnitudes or arbitrary matrix dimensions.
+
+Self-review: passed. Independent audit: not yet performed.
