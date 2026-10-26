@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Starting from the published three-stage tableau, the exact scalar stability polynomial is derived directly. Two bivariate polynomial identities for R+1 and R-1 are checked algebraically, their quadratic discriminants both have sign 1-9 lambda, and full root ordering and signs prove all three intervals and the gap-free threshold for all 0<lambda<=1/2. At lambda=1/9 double roots are neutral, not strictly contractive. Beyond x=2/lambda R<-1. The standalone verifier checked symbolic identities in Q[lambda,x], exact critical/root values, and 50,000 additional rational test pairs; infinite-domain proof is analytic, not experimental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General PFE and PRK stability analyses concern arbitrary projective schemes, not this final-inner-step-variation RK polynomial.",
+        "The 2026 projective-integration treatment presents PFE/PRK fast/slow stability and numerical PDE applications; no PISV theorem or sharp 1/9 threshold appears in inspected material."
+      ],
+      "reasoning": "The fact that a general Runge--Kutta criterion |R(z)|<=1 can be applied to any scheme does not state the sharp parameter-space classification for the distinct PISV cubic. General two-cluster results neither dominate nor algebraically specialize to this tableau without deriving and solving its explicit PISV inequalities.",
+      "searches": [
+        "published-finding corpus: projective integration stability bands eigenvalue fast cluster exact three components 1/9",
+        "web: projective integration stability bands eigenvalue fast cluster exact three components 1/9",
+        "Journal of Scientific Computing 2026, DOI:10.1007/s10915-026-03286-9, projective integration stability section"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.08302v1 dated 2022-10-15; arXiv:2210.08302v2 HTML full text",
+      "DOI:10.1007/s10915-026-03286-9 full HTML relevant sections",
+      "published-finding corpus semantic searches on PISV, equivalent integrator formulation and three-band critical threshold",
+      "Targeted web searches of projective inner-step variation and exact negative-axis stability"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior PISV authors derive the three-stage tableau and graphically study stability; the general stability-function formula and method itself are not claimed new.",
+        "Earlier published-finding corpus closest IDs include 2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50, which classifies a different UBU integrator, and 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1, which treats backward Euler extrapolation positivity rather than the PISV stability region."
+      ],
+      "reasoning": "Neither cited different-method theorem implies the PISV interval formulas through a special case, reduction or stronger parameter bound. The source method and implicit scalar stability test are acknowledged as earlier knowledge; only the explicit necessary-and-sufficient topology, sharp threshold, critical neutral spectrum and asymptotic band widths are assessed as the new result.",
+      "searches": [
+        "published-finding corpus: projective Runge Kutta positivity contractivity finite microsteps extrapolation",
+        "published-finding corpus: projective integration stiff ordinary differential equations scalar spectral gap numerical stability nonnormal transient",
+        "arXiv:2210.08302v2, §§4.3,6.2 and conclusion; DOI:10.1007/s10915-026-03286-9, §3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eq. (96) gives the exact PISV tableau, while Section 6.2 and Fig. 9(c) display its stability region without a parameter-sharp three-band theorem.",
+        "Closest topic-level published-finding corpus hits concerned other RK methods and numerical stability, not the three-stage PISV map."
+      ],
+      "reasoning": "Equivalent labels include inner-step Richardson correction, PISV, projective RK with varying final microstep, and real-axis RK absolute stability. Translating the source tableau into a scalar cubic is elementary and acknowledged as prior-implied; the exact 1/9 topology transition, five boundary positions, neutral critical modes and widths require the new discriminant and sign analysis and were not found stated in compared sources.",
+      "searches": [
+        "published-finding corpus: Projective inner step size variation PISV K=1 RK tableau stability real negative axis disjoint intervals threshold 1/9",
+        "published-finding corpus: Koellermeier Samaey projective inner step size variation 2022 spectral stability three islands sharp transition",
+        "arXiv:2210.08302v2, Eq. (96), Section 6.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 in the source gives accuracy-error coefficients; Figure 9(c) is a plotted stability region. The source supplies the method coefficients but no table of exact real-axis breakpoints.",
+        "Searches located no exact tabulation of the five boundary roots or of the gap-free condition."
+      ],
+      "reasoning": "The result is not an unseen entry in a listed numerical table; it analytically classifies the weak absolute-stability set for every admissible step ratio. An implicit criterion or a plotted contour does not already specify the bifurcation at 1/9 and critical nondecaying modes.",
+      "searches": [
+        "published-finding corpus: Runge Kutta stability polynomial 1 - t + 3/2 lambda(1-lambda) t squared -1/2 lambda squared(1-lambda) t cubed real stability intervals",
+        "web: PISV Projective Inner Step Size Variation spectral stability explicit intervals",
+        "arXiv:2210.08302v2, Table 1, Fig. 9(c), Eq. (96)"
+      ]
+    },
+    "rationale": "The originating 2022/2024 PISV paper gives the method/tableau and plots stability, but the compared full text does not state the exact connectedness threshold, closed-form endpoints, or two interior critical neutral modes. published-finding corpus, topic-specific web searches and nearby published projective literature disclosed no encompassing theorem. Priority is not guaranteed; general RK stability criteria and the cubic itself are prior-implied and are not claimed original.",
+    "residual_risks": [
+      "Publication-priority search is non-exhaustive; an equivalent derivation might exist under a different projective integration nomenclature or in a non-indexed source.",
+      "The earliest arXiv v1 verifies the paper date; the checked equation numbers and full material are from arXiv v2; no claim is made about v1/v2 text being identical.",
+      "A graph of stability regions in the originating paper may encode qualitative bands; the new assessment is restricted to the exact necessary-and-sufficient quantitative classification, not the observation that fast-mode islands can occur.",
+      "The 2025 journal typesetting was not compared line-by-line with the accessible arXiv full text; any unexpected final-edition addition could affect priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers PISV construction, error coefficient and qualitative stability plot; not the exact full real-axis phase theorem in this claim.",
+        "evidence": [
+          "Eq. (96) specifies the three-stage PISV coefficients.",
+          "Section 6.2 calls out Fig. 9(c) PISV and comparative larger POSV region but no formula 1/9 or exact three intervals."
+        ],
+        "identifier_or_url": "arXiv:2210.08302v2; https://arxiv.org/html/2210.08302v2",
+        "material_read": "Sections 2.2, 4.3, 6.2, 8, Eq. (96), Table 1 and Fig. 9(c) captions, plus introduction and methodological context.",
+        "method": "Materially read accessible full HTML version, including the source tableau and stability discussion; not merely an abstract/snippet.",
+        "title": "Projective Integration Methods in the Runge-Kutta Framework and the Extension to Adaptivity in Time",
+        "trigger": "Origin of the specific PISV integrator and plausible full prior coverage of its stability region."
+      },
+      {
+        "assessment": "Different PFE/PRK methods and kinetic/PDE applications, with no PISV theorem or parameter 1/9 coverage observed.",
+        "evidence": [
+          "Section 3 details standard PFE extrapolation and higher-order PRK conditions; the PISV name does not occur."
+        ],
+        "identifier_or_url": "DOI:10.1007/s10915-026-03286-9; https://link.springer.com/article/10.1007/s10915-026-03286-9",
+        "material_read": "Open full HTML: §3 projective integration construction and stability discussion, §4 examples, including PFE and PRK schemes.",
+        "method": "Read accessible full-text mathematical sections and searched for PISV and Inner Step Size Variation.",
+        "title": "Projective Integration Schemes for Nonlinear Degenerate Parabolic Systems",
+        "trigger": "Later closely related projective integration literature could potentially subsume PISV stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "abe4db8a-e644-4f62-88a5-f62b92db9ef8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete sharp parameter classification answers a natural design question for an explicitly published adaptive stiff integrator: does an inner-forward-Euler stable dissipative spectrum remain stable after the full projective step? A threshold of inner/outer ratio 1/9 separates gap-free scalar damping from two macroscopically wide instability holes; it quantifies the cost of large time-scale separation, gives exact neutral modes at transition, and the band asymptotics provide a direct analytic benchmark for multiscale spectrum selection. This is a full natural interval classification, not an arbitrary isolated computation. No generalization to complex or nonlinear dynamics is claimed.",
+    "status": "PASS"
+  }
+}
