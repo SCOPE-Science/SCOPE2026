@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The exact saddle-point dynamic recursion has multiplier-free scalar form U_new=q U_old+q sigma h^(3/2) Z. Exact rational tests reproduced the geometric variance formula. The deterministic step-doubling error is strictly positive by (1+x/2)^2>1+x; log-variance convexity proves the unique Gaussian-distance minimizer. Expansions and the strictly unimodal spectral ratio prove all limiting and resonance assertions. Verification: 894 program assertions, separately from the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Conrad et al., doi:10.1007/s11222-016-9671-0, publisher full text Section 3.1 and Note 6",
+        "Conrad et al. Note 6: more general positive-semidefinite noise covariance is possible.",
+        "Altmann–Moradi equation (4.2) fixes a common scalar coefficient for standard normal dynamic forcing."
+      ],
+      "reasoning": "Allowing one variance parameter per dynamic mode removes this particular obstruction; the claim is exclusively about the one-parameter specialization. Thus the general covariance option is broader in design freedom, but it does not quantify the sharp limitation imposed by the fixed one-scalar case.",
+      "searches": [
+        "\"probabilistic time integration\" \"multivariate\" \"noise calibration\" \"eigenvalues\"",
+        "Altmann Moradi probabilistic time integration for semi-explicit PDAEs calibration matching covariance 2024",
+        "Probabilistic numerical solver noise calibration deterministic step doubling multivariate spectral mode mismatch impossibility refinement",
+        "\"Conrad\" \"Girolami\" \"Särkkä\" \"variance\" \"mode\" \"Bhattacharyya\" calibration"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2406.07220 (first posting 2024-06-11)",
+      "https://link.springer.com/article/10.1007/s11222-024-10543-0 (full HTML §§4.1,5)",
+      "https://link.springer.com/article/10.1007/s11222-016-9671-0 (full HTML §3.1 and Note 6)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC7089645/ (2016 bibliographic/full-text alternative)",
+      "Relevant public mathematical index results concerning Gaussian noise calibration, step-doubling and spectral mismatch."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "R. Altmann and A. Moradi (arXiv:2406.07220), publisher full text Sections 4.1, 5, equation (4.2), (5.1)",
+        "Conrad et al., doi:10.1007/s11222-016-9671-0, publisher full text Section 3.1 and Note 6",
+        "The step equation, scaling sigma*h^(3/2), and componentwise objective are direct prior art. The exact asymptotic ratio lambda^5*T^2/[8(exp(2 lambda T)-1)] is derived from those premises."
+      ],
+      "reasoning": "A generic probabilistic-integrator convergence theorem does not determine optimal common-scale mismatch. Conversely, the older objective combined with exact linear recurrence and elementary one-variable optimization logically permits derivation of the theorem, creating a real residual novelty risk; the specific sharp spectral frontier and paired-rate zero-mismatch classification were not stated or proved in inspected primary texts.",
+      "searches": [
+        "Probabilistic implicit Euler scheme constrained differential algebraic equations calibration single noise scale two modes Bhattacharyya distance irreducible variance mismatch",
+        "probabilistic implicit Euler scalar noise parameter mode-dependent step-doubling error matching covariance sharp spectral resonance lambda^5/(exp(2 lambda T)-1)",
+        "\"Altmann\" \"Moradi\" \"calibration\" \"scalar\" \"modes\" variance",
+        "\"probabilistic time integration\" \"step doubling\" \"Bhattacharyya\" \"spectral\" calibration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "R. Altmann and A. Moradi (arXiv:2406.07220), publisher full text Sections 4.1, 5, equation (4.2), (5.1)",
+        "Conrad et al., doi:10.1007/s11222-016-9671-0, publisher full text Section 3.1 and Note 6",
+        "A standard equal-mean Gaussian Bhattacharyya formula is explicitly already used in the 2024 source; optimization over the shared variance parameter is the new special-purpose calculation."
+      ],
+      "reasoning": "Compared the full two-coordinate minimization, not simply the word calibration. Prior Gaussian distance identities determine each coordinate score but do not provide the mode-specific step-doubling-to-covariance ratios and unimodality needed for the claimed exact frontier.",
+      "searches": [
+        "probabilistic ODE integrator Gaussian marginal calibration cannot match all eigenmodes with one scalar sigma spectral relaxation step doubling Bhattacharyya distance",
+        "exact calibration common variance parameter two Gaussian Bhattacharyya distance two modes implicit Euler discretization error",
+        "probabilistic numerical solver noise calibration deterministic step doubling multivariate spectral mode mismatch impossibility refinement",
+        "Probabilistic implicit Euler scheme constrained differential algebraic equations calibration single noise scale two modes Bhattacharyya distance irreducible variance mismatch",
+        "Exact optimal common Gaussian variance scaling for two linear decay modes midpoint and implicit Euler step doubling error indicator Bhattacharyya calibration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic result concerns spectral calibration of Gaussian posterior ellipsoid coverage, rather than probabilistic time integration.",
+        "Other nearby records concern randomized Langevin stationary covariance and Fehlberg RK error estimation; neither addresses the present constrained implicit-Euler calibration objective."
+      ],
+      "reasoning": "No matching exact mode ratio, threshold 5(1-exp(-2x))=2x, or Bhattacharyya terminal objective for the specified implicit-Euler saddle-point scheme was identified. Failure to find a record is not proof of uniqueness.",
+      "searches": [
+        "Altmann Moradi 2024 probabilistic implicit Euler 3 state two relaxation modes cannot calibrate shared sigma Gaussian Bhattacharyya error variances",
+        "Gaussian Bhattacharyya distance exact geometric mean optimum common scale two variance targets log cosh",
+        "probabilistic implicit Euler scalar noise parameter mode-dependent step-doubling error matching covariance sharp spectral resonance lambda^5/(exp(2 lambda T)-1)",
+        "\"time integration\" \"step doubling\" \"Bhattacharyya\" \"spectral\" calibration"
+      ]
+    },
+    "rationale": "The 2024 primary source provides the stochastic saddle-point step and scalar Bhattacharyya calibration but not the exact two-mode terminal minimum, persistent fine-mesh mismatch or critical paired-rate spectrum. The 2016 source gives the generic Gaussian calibration objective and allows a more general covariance matrix; that broader option falls outside the new shared-scalar statement. Semantic mathematical-record searches and specific public literature searches found no covering theorem; classical Gaussian scale optimization remains a residual risk.",
+    "residual_risks": [
+      "General Gaussian-divergence optimization literature may already include the scalar geometric-mean minimization under equivalent terminology.",
+      "A more specific unindexed mathematical numerical-analysis note could precompute the same spectral ratio and paired-rate resonance.",
+      "Only the terminal two-coordinate subobjective is optimized; the full historical calibration objective may prefer another scale."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the underlying method and general scalar calibration, not the sharp two-mode optimum and unimodality as stated.",
+        "evidence": "Equations (4.2), (5.1); publisher AMS subject classification 65L80; arXiv first posting 2024-06-11.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-024-10543-0",
+        "material_read": "Accessible full HTML; introduction, assumptions and equations in Section 4.1 including (4.2), and Section 5 including (5.1) and the calibration algorithm.",
+        "method": "Read publisher HTML text and arXiv HTML of the same paper, comparing stochastic noise placement, scaling, Gaussian target and scope.",
+        "title": "Probabilistic time integration for semi-explicit PDAEs",
+        "trigger": "Directly introduces the tested probabilistic implicit Euler update and noise-scale calibration."
+      },
+      {
+        "assessment": "Provides calibration principle and generic Gaussian distance, but no exact constrained implicit-Euler two-mode spectral frontier.",
+        "evidence": "Section 3.1; Note 6 allows non-isotropic Q, outside the restricted claim.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-016-9671-0",
+        "material_read": "Accessible full publisher HTML: Section 3.1 on calibration and product of marginal distances; explicit scalar linear examples and Note 6 on general covariance Q.",
+        "method": "Read the relevant full text sections and comparison to current formula.",
+        "title": "Statistical analysis of differential equations: introducing probability measures on numerical solutions",
+        "trigger": "Primary antecedent of the Bhattacharyya calibration algorithm and noise scaling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5a98d34-ca8f-434f-9f7e-d90076efbf0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Shows a quantitatively sharp, positive, refinement-persistent mismatch in a motivated parameter used for calibrating numerical uncertainty; the exact λ^5/(exp(2λT)-1) spectrum identifies a nontrivial paired-rate matching resonance rather than treating any two unequal decay rates as necessarily mismatched. A constrained three-state benchmark is the smallest natural family with two dynamic modes and one common noise scale. The result guides whether a single scalar uncertainty knob can represent multiple modal discretization errors.",
+    "status": "PASS"
+  }
+}
