@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Definitions are explicit. The primary source establishes \\(\\operatorname{sat}_{<}(n,A)=O(1)\\) by an explicit witness. For the pair, a consecutive edge cannot be an edge of \\(B\\); in \\(A\\) it must be the unique minedge \\((4,5)\\), whose deletion leaves \\(B\\) in the old host. Hence a pair-saturated host has no consecutive isolated vertices. With \\(r\\) non-isolated and \\(z\\) isolated vertices, \\(z\\le r+1\\), so \\(r\\ge(n-1)/2\\) and \\(2|E(H)|\\ge r\\), proving \\(|E(H)|\\ge(n-1)/4\\) for all \\(n\\). No finite computation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full primary text states Problem 43 as an open question and does not supply this counterexample.",
+        "The search results returned the source paper and unrelated works, but no later result for the same vertex-ordered forbidden-pair comparison."
+      ],
+      "reasoning": "No broader theorem found in the inspected material dominates the claimed pair-specific lower bound. Search coverage is finite, so the audit records residual risk rather than claiming a universal literature census.",
+      "searches": [
+        "\"multiple forbidden ordered graphs\" saturation function",
+        "\"saturation function\" \"ordered graphs\" \"multiple graphs\" 2024 2025 2026",
+        "\"Problem 43\" \"sat\" \"ordered graphs\" saturation",
+        "arXiv:2203.05307v1, Section 5, Problems 42–43"
+      ]
+    },
+    "checked_sources": [
+      "Bošković and Keszegh, arXiv:2203.05307v1, first public date 2022-03-10; primary full text and Figure 5 inspected.",
+      "Bošković and Keszegh, DOI 10.1137/22M1485735; publisher metadata/abstract inspected.",
+      "Targeted literature searches for the explicit pair-comparison question returned the primary paper and unrelated results; no independent source for the same implication was located."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Claim 21 proves \\(\\operatorname{sat}_{<}(n,\\Gamma_{\\{0,1,0\\}})=O(1)\\).",
+        "Corollary 18 proves \\(\\operatorname{sat}_{<}(n,\\Gamma_3)=\\Theta(n)\\).",
+        "Problem 43 asks whether \\(\\operatorname{sat}_{<}(n,\\{A,B\\})=O(\\operatorname{sat}_{<}(n,A))\\); the paper does not assert the counterexample proved here."
+      ],
+      "reasoning": "Neither individual saturation statement implies the pair lower bound. The new step is that every copy of \\(A\\) created by adding an edge between consecutive isolates must use the unique minedge of \\(A\\), so its other three edges already realize \\(B\\) in the pre-addition host. This forces a linear number of non-isolated vertices.",
+      "searches": [
+        "arXiv:2203.05307v1, Section 2.1, Theorem 20 and Claim 21",
+        "arXiv:2203.05307v1, Section 2.1, Corollary 18",
+        "arXiv:2203.05307v1, Section 5, Problem 43"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines \\(A=\\Gamma_{\\{0,1,0\\}}\\) and \\(B=\\Gamma_3\\) in its linked-matching notation; deleting the unique minedge from \\(A\\) leaves the ordered pattern \\(B\\).",
+        "No equivalent formulation was located in the targeted literature search; the primary source itself states the pair-comparison problem explicitly."
+      ],
+      "reasoning": "The comparison is about vertex-ordered saturation under a finite forbidden family, not unordered saturation, 0-1 matrix saturation, or edge-ordered saturation. The structural relation \\(B\\subseteq A\\) is used to derive a new lower bound, not merely to rename an existing theorem.",
+      "searches": [
+        "sat_< n Gamma_{0,1,0} ordered linked matching bounded saturation function",
+        "Counterexample to Problem 43 in Saturation of Ordered Graphs: sat_< (n,{A,B}) is linear while sat_< (n,A) is bounded",
+        "Bošković Keszegh arXiv:2203.05307 Gamma_{0,1,0} Gamma_3 multiple forbidden ordered graph saturation",
+        "ordered graph saturation pair of forbidden ordered graphs no consecutive isolated vertices",
+        "arXiv:2203.05307v1, Section 5, Problem 43"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches for multiple forbidden ordered graphs and for Problem 43 surfaced the primary paper but no independent result establishing the same pair-specific implication.",
+        "No numerical table is applicable: the claim is a structural theorem about ordered subgraph embeddings."
+      ],
+      "reasoning": "No domain-specific exact database or numerical table applies. The relevant comparison is with primary mathematical literature; targeted searches did not reveal an equivalent or stronger statement, but absence from search results is not proof of novelty.",
+      "searches": [
+        "sat_< n Gamma_{0,1,0} ordered linked matching bounded saturation function",
+        "Saturation of Ordered Graphs Problem 42 Problem 43 multiple forbidden ordered graphs",
+        "Counterexample to Problem 43 in Saturation of Ordered Graphs: sat_< (n,{A,B}) is linear while sat_< (n,A) is bounded",
+        "Bošković Keszegh arXiv:2203.05307 Gamma_{0,1,0} Gamma_3 multiple forbidden ordered graph saturation",
+        "ordered graph saturation pair of forbidden ordered graphs no consecutive isolated vertices",
+        "ordered graph saturation linked matching four links Gamma_4",
+        "sat_< n {A,B} ordered graph saturation two forbidden ordered graphs",
+        "saturation of ordered graphs linked matchings bounded saturation function"
+      ]
+    },
+    "rationale": "The inspected primary source explicitly asks Problem 43 and proves the bounded-saturation premise for A, but does not state this A,B pair as a counterexample. Targeted literature-index and web searches did not surface an equivalent result; this negative search evidence is not treated as a standalone novelty proof.",
+    "residual_risks": [
+      "The web and indexed-record searches were targeted, not an exhaustive citation-graph or manuscript census; an independent later account may exist outside the searched sources.",
+      "The result establishes only an \\(\\Omega(n)\\) lower bound for the pair, not its exact saturation number or a matching \\(O(n)\\) upper bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the bounded-saturation premise and establishes that the pair comparison was posed as an open question in this source. It does not contain the pair-specific lower-bound proof given here.",
+        "evidence": [
+          "arXiv:2203.05307v1, PDF page 15 (Theorem 20, Figure 5, Claim 21)",
+          "arXiv:2203.05307v1, PDF page 14 (Corollary 18)",
+          "arXiv:2203.05307v1, PDF page 30 (Problem 43)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.05307",
+        "material_read": "ArXiv HTML and open-access PDF. Read the ordered-graph and minedge definitions; the definition of Gamma_k and linked matchings; Theorem 20 and Claim 21 with Figure 5 and its witness case analysis; Corollary 18; and Section 5, Problems 42–43.",
+        "method": "Reconstructed the labeled edge sets and compared the stated individual saturation results with the proposed forbidden-pair implication.",
+        "title": "Saturation of Ordered Graphs",
+        "trigger": "Primary source for the two ordered matchings, the bounded-saturation premise, and the explicit open Problem 43."
+      },
+      {
+        "assessment": "Confirms the 2023 journal publication and MSC 05C35; it is the same work, not an independent coverage source.",
+        "evidence": [
+          "SIAM Journal on Discrete Mathematics 37(2) (2023), 1118–1141; DOI 10.1137/22M1485735; MSC 05C35."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/22M1485735",
+        "material_read": "Publisher page metadata and abstract only; the full proof was read from the lawful arXiv open-access version.",
+        "method": "Compared title, publication metadata, and MSC classification with the arXiv source.",
+        "title": "Saturation of Ordered Graphs — publisher record",
+        "trigger": "Confirm the published bibliographic record and primary MSC classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a86bf1a-d4b3-46d6-a415-895f35b0bac6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies a concrete counterexample to an explicitly stated open problem in the primary source. It shows a structural non-monotonicity phenomenon for ordered saturation: adding a second forbidden pattern forces a linear lower bound although the first pattern alone has bounded saturation.",
+    "status": "PASS"
+  }
+}
