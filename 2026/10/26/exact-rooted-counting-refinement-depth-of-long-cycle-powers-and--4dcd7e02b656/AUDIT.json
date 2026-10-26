@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\ge4k+1\\), the first refinement colours precisely the root, its radius-\\(k\\) neighbourhood and the far tail. Round two distinguishes every individual distance \\(j\\le2k\\) using exact counts \\(j\\) and \\(2k-j+1\\). The frontier induction distinguishes each new distance \\(j\\) by the least previously separated neighbour stratum \\(j-k\\). Symmetry prevents splitting reflection pairs, and the residual tail coalesces until its final singleton distance, giving precisely \\(\\lceil(\\lfloor n/2\\rfloor-1)/k\\rceil\\) strict rounds. At \\(n=4k\\), the last two distance strata coincide at round two because the antipodal vertex has two near neighbours; the distinct \\(T_{k-1}\\) count separates them on round three. Direct and quotient finite programs passed over 869 parameter cases, but are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kluge 2022 full-text pp. 12-16, Lemma 38 and Proposition 34: eventual partition for any nonempty generating set over Z_p; no depth formula in that lemma.",
+        "Kluge 2022 Theorem 1 concerns 2-dimensional Weisfeiler-Leman general circulants, not precise rooted 1-WL depth.",
+        "Kiefer-McKay 2020 Theorems 1.1-1.2 give existence of graphs with n-1/n-2 worst-case rounds, not this exact named family."
+      ],
+      "reasoning": "General prime-order multiplier-stabilizer coverage dominates only the eventual prime-order partition subclaim, not the exact rounds or composite-order assertions. No known generic bound or eventual-partition theorem implies the exact parameter-dependent 1-WL trajectory.",
+      "searches": [
+        "Combinatorial refinement on circulant graphs Kluge Lemma 38",
+        "colour refinement prime order circulant one individualized vertex multiplier stabilizer",
+        "The Iteration Number of Colour Refinement Kiefer McKay 2020"
+      ]
+    },
+    "checked_sources": [
+      "Kersting et al. 2014 full PDF introduction and public date",
+      "Arvind et al. 2015 ECCC PDF relevant sections",
+      "Kiefer and McKay 2020 arXiv PDF relevant sections",
+      "Kluge 2022 arXiv PDF relevant Lemma 38 and framework",
+      "Research-index semantic hits for exact cycle powers and prime circulants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 paper establishes the general equitable/orbit distinction and general individualization terminology, without the present parameters.",
+        "The 2014 paper supplies the standard colouring update and optimisation correspondence; no cycle-power cutoff.",
+        "Kluge prime-order result recovers only the endpoint in a subdomain; quantification of strict rounds requires a new local counting argument."
+      ],
+      "reasoning": "Distinguish the known prime-order eventual orbit partition from the newly claimed complete intermediate trajectory and threshold. Generic 1-WL definitions and generic orbit-refinement inequalities do not imply any specific sharp strict round count. The main proof gives a direct combinatorial witness for the \\(n=4k\\) failure of the large-cycle formula.",
+      "searches": [
+        "Combinatorial refinement on circulant graphs 2204.01054 Lemma 38 full text",
+        "Graph Isomorphism Color Refinement and Compactness ECCC 2015 032",
+        "Power Iterated Color Refinement Kersting Mladenov Garnett Grohe AAAI 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kluge 2022 Lemma 38: prime-order rooted circulant stable partitions are multiplier-stabilizer cosets.",
+        "Kiefer and McKay 2020: maximal 1-WL iteration number on general uncoloured graphs, not fixed-root cycle powers.",
+        "Direct finite equality of the predicted partition evolution verified independently by two algorithms."
+      ],
+      "reasoning": "Rooted cycle powers are consecutive-generator undirected circulants; rewriting as those Cayley graphs yields the same precise object. The prime-order endpoint partition is covered by Kluge. Neither inspected theorem supplies exact strict iteration rounds for all composite moduli, intermediate distance bands, or the \\(n=4k\\) boundary.",
+      "searches": [
+        "color refinement power of cycle Weisfeiler Leman graph",
+        "one dimensional Weisfeiler Leman circulant graph rooted powers of cycles",
+        "rooted power of cycle C_n^k one-dimensional Weisfeiler-Leman color refinement singleton mark 0 distance pairs sharp stabilization rounds ceiling floor(n/2) divided by k"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching rooted-cycle-power refinement-depth database or table was identified in these searches.",
+        "Actual research-index results for C_n^k included an exact rainbow-connection study (edge-coloring) and a cycle-homology representation study, but not the present vertex-refinement invariant."
+      ],
+      "reasoning": "The result is an all-parameter structural partition statement and sharp depth threshold, not merely a numerical row. Search failure is limited evidence and not asserted to prove the absence of an older table.",
+      "searches": [
+        "OEIS rooted cycle graph color refinement steps single vertex",
+        "rooted cycle power color refinement stabilization number of steps formula ceiling",
+        "cycle power graph rooted individualization Weisfeiler Leman exact number refinement rounds"
+      ]
+    },
+    "rationale": "The precise synchronous intermediate partitions, sharp exact iteration formula for all composite and prime orders \\(n\\ge4k+1\\), and exceptional three-round threshold \\(n=4k\\) were not found in the inspected primary literature or indexed comparisons. Kluge 2022 Lemma 38 already implies the final partition for prime-order circulants, a subclaim expressly not counted as novel; the extra exact-depth and composite-modulus assertions are not consequences of that eventual partition alone. Earlier specialist coverage remains possible.",
+    "residual_risks": [
+      "A specialist earlier article or thesis may derive the exact cycle-power refinement depth, despite searches.",
+      "A study of rainbow connection on precisely the same graph family has not been read in full; its abstract addresses a different invariant.",
+      "The result does not extend to \\(2k+2\\le n<4k\\)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strong prime-order stable-partition coverage; no inspected parameter-dependent exact strict-round formula or composite-order theorem.",
+        "evidence": [
+          "Theorem 4 concerns prime-order Tinhofer property.",
+          "Lemma 38 describes one-root final classes g0+aHU, with no per-round count."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.01054",
+        "material_read": "PDF introduction and related work pp. 1-4, general S-module refinement pp. 12-13, prime-order theorem and full Lemma 38 proof pp. 14-16; full document index search for cycle-specific statements.",
+        "method": "Read searchable full-text PDF and rendered relevant pages.",
+        "title": "Combinatorial refinement on circulant graphs",
+        "trigger": "Circulant family with an individualized vertex; potential full coverage."
+      },
+      {
+        "assessment": "Global extremal round-number constructions, not the rooted family depth formula.",
+        "evidence": [
+          "Theorems 1.1-1.2 establish worst-case existence \\(\\mathrm{WL}_1(n)\\in\\{n-2,n-1\\}\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2005.10182",
+        "material_read": "22-page searchable PDF; abstract, introduction and theorem statements pp. 1-3, related work and bibliography; searched full PDF for cycle and power.",
+        "method": "Full PDF keyword search and reading relevant printed portions.",
+        "title": "The Iteration Number of Colour Refinement",
+        "trigger": "Potential stronger exact graph-family round bounds."
+      },
+      {
+        "assessment": "Provides general orbit/equitable framework but not the rooted-cycle-power exact depth.",
+        "evidence": [
+          "The orbit partition is equitable, converse is not generally true; definitions of Godsil and Tinhofer graphs."
+        ],
+        "identifier_or_url": "https://eccc.weizmann.ac.il/report/2015/032/revision/2/download/",
+        "material_read": "30-page searchable PDF; introductory definitions pp. 1-5 and automorphism-orbit, Tinhofer discussion pp. 18-20.",
+        "method": "Searchable PDF and rendered page inspection.",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness?",
+        "trigger": "Potential orbit equality theorem dominating a rooted special family."
+      },
+      {
+        "assessment": "General method and motivation; does not provide the exact cycle-power formula.",
+        "evidence": [
+          "Synchronous neighbour-colour counting is the standard refinement rule.",
+          "Published public record 2014-06-21."
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/8992/8851",
+        "material_read": "Publisher PDF abstract, introduction, and algorithm description pp. 1-2; publisher first-public record dated 2014-06-21.",
+        "method": "Full PDF opened and rendered page 1, publisher record checked.",
+        "title": "Power Iterated Color Refinement",
+        "trigger": "Earliest verified public background source and standard colour-refinement definitions."
+      },
+      {
+        "assessment": "Stated claim addresses rainbow edge-coloring, a different invariant; same-object unexplored appendix remains a residual priority risk.",
+        "evidence": [
+          "Abstract claims rainbow connection rc=src=2 and a generator-distance edge-colouring boundary at \\(n=4k\\); no color-refinement statement in abstract."
+        ],
+        "identifier_or_url": "research-index search result, publication record dated 2026-10-04",
+        "material_read": "Title and research abstract only; full text could not be fetched.",
+        "method": "Indexed record comparison; no whole-document inference.",
+        "title": "Exact rainbow connection of Dirac cycle powers",
+        "trigger": "Exactly same graph family and same \\(n=4k\\) threshold."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4dcd7e02-b656-4969-b43b-70b5b1b99928",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact strict-round count gives a sharp finite-depth bound for 1-dimensional counting refinement on a canonical two-parameter family of symmetric finite structures. The discontinuity at \\(n=4k\\) arises from a genuine wrap-around neighbour-count collision; composite-order coverage and complete intermediate partitions are beyond the known prime-order eventual partition theorem. These facts quantify information propagation in root-individualized local counting, rather than an arbitrary small numeric gain.",
+    "status": "PASS"
+  }
+}
