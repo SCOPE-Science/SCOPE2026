@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Exact one-coordinate minimization identity, concavity under averaging \\(p_1,p_2\\), and exact 1+2 invariant-block spectrum reduce the full simplex problem to one scalar. The symmetric lower eigenvalue is strictly concave because the discriminant square root has positive second derivative \\(32c^2(1+r-2c^2)>0\\). Characteristic determinant establishes a single crossing with the linear antisymmetric mode; comparing with the unique smooth maximum yields the precise critical quadratic \\(2c^2+(1-r)c-2r=0\\). Boundaries, strict SPD domain and exact-rational spectra were checked. The executable is supplementary, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gower–Richtárik gives an SDP for all SPD quadratics, stronger in generality of optimization specification but not an explicit solution for this class.",
+        "Richtárik–Takáč general ESO complexity bound optimizes a different criterion."
+      ],
+      "reasoning": "Distinguish generic problem reduction from an analytically resolved two-phase family. No source in inspected texts gives the stated closed-form threshold. Existing general SDP means claims of first formulation or first exact rate are expressly excluded.",
+      "searches": [
+        "exact optimal nonuniform coordinate sampling probabilities minimizing spectral radius of expected randomized coordinate descent iteration on quadratic three variables path tridiagonal Hessian",
+        "sharp sampling p1 p2 p3 3x3 symmetric quadratic with correlations rho alpha randomized Gauss Seidel",
+        "three point optimal design weights matrix C with equal diagonals pairwise correlations rho alpha transition E optimal",
+        "arXiv:1310.3438v1 Section 4",
+        "arXiv:1506.03296v5 Section 5.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1310.3438v1 original full HTML",
+      "arXiv:1506.03296v5 original full HTML; v1 date verified",
+      "Pukelsheim and Torsney (1991) original full PDF",
+      "published-finding corpus indexed inverse-positive optimal-coordinate sampling full RESULT.md",
+      "arXiv:1412.8060 open-access technical sections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Inverse-positive theorem hypothesis \\(C^{-1}\\ge 0\\) contradicts \\(C^{-1}\\) offdiagonal negative, including after any sign gauge.",
+        "The 1991 article includes implicit characterization of E-optimal weights but does not display this family-specific optimal design/transition.",
+        "General SDP contains the objective, but solving it is exactly the substantive new classification claimed."
+      ],
+      "reasoning": "Not a specialization or corollary of the inverse-positive closed form. Not a restatement of a numerical table. Generic variational formulations are broader but do not themselves provide the closed-form active-set phase diagram; risk of unnoticed specialized equivalent closed form is explicitly retained.",
+      "searches": [
+        "sharp mean-square rate randomized coordinate descent 3 coordinate quadratic optimal probabilities cost",
+        "E-optimal design saturated independent regressors signed equicorrelation frustrated triangle smallest eigenvalue exact weights critical transition",
+        "Full prior theorem: inverse-positive optimal coordinate sampling",
+        "Pukelsheim–Torsney (1991) full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same eigenvalue objective is the saturated E-optimal design information criterion and a general SDP for randomized methods.",
+        "Known closed form requires entrywise nonnegative inverse; the present inverse has three negative offdiagonals and sign-frustrated triangle."
+      ],
+      "reasoning": "The general SDP and saturated E-design transformation are admitted as equivalent formulations, not independent discoveries. Their inspected explicit results do not state or immediately algebraically imply the two c-regimes or critical curve without solving this parametric eigenvalue optimization. The indexed inverse-positive solution is genuinely inapplicable even after sign switching.",
+      "searches": [
+        "optimal i.i.d. coordinate descent sampling symmetric 3x3 positive offdiagonal frustrated triangle Hessian phase transition eigenvalue degeneracy",
+        "semidefinite max min eigenvalue diagonal scaling of 3 by 3 signed frustrated triangle optimal sampling",
+        "E-optimal design saturated independent regressors signed equicorrelation frustrated triangle smallest eigenvalue exact weights critical transition",
+        "arXiv:1506.03296v5 §5.1",
+        "Pukelsheim–Torsney (1991) Sections 2–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published exact formula is restricted to inverse-positive matrices; no exact signed-inverse triangle spectral design table was identified in the inspected literature.",
+        "The phase transition has a continuum of r,c parameters and was not found as an exact matrix design table."
+      ],
+      "reasoning": "The inspected published records do not give this exact frustrated-triangle parameter formula; failure to find a table is only bounded-search evidence, not proof of uniqueness.",
+      "searches": [
+        "importance sampling coordinate descent exact contraction matrix on chain quadratic correlation optimal distribution and phase transition",
+        "three-dimensional matrix diagonal scaling maximizing minimum eigenvalue optimal probability spectrum 2013 2015",
+        "published-finding corpus indexed inverse-positive theorem 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "rationale": "Source-level comparisons found general E-optimal/SDP formulations but no explicit analytic frustrated-triangle phase classification. Closest exact inverse-positive sampling theorem is inapplicable because inverse has 3 sign-frustrated negative offdiagonals, a hypothesis failure invariant under diagonal sign conjugation. The general SDP is an acknowledged antecedent, not mischaracterized as absent. Residual specialized optimal-design equivalence risk remains.",
+    "residual_risks": [
+      "Older E-optimal saturated-design work or unpublished diagonal-scaling classifications may include algebraically equivalent parameter-specific transition.",
+      "A semantic search of indexed findings cannot certify uniqueness or absence of alternative terminology; general SDP already covers the minimax formulation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed exact minimum-eigenvalue objective: their formula optimizes an ESO-based convergence surrogate, which yields no frustrated-family spectral crossover",
+        "evidence": [
+          "arXiv:1310.3438v1 Sections 2–4, especially the scalar complexity parameter \\(\\max_i w_i/(p_i v_i)\\).",
+          "The criterion here is \\(\\lambda_{\\min}(C^{1/2}PC^{1/2})\\), unlike their surrogate bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1310.3438v1",
+        "material_read": "Original arXiv v1 HTML: introduction, assumptions, Theorem 3, Sections 3–4 optimal probabilities and bound setup",
+        "method": "Read theorem statements, optimization criterion, proof parameter and probability formulas",
+        "title": "On Optimal Probabilities in Stochastic Coordinate Descent Methods",
+        "trigger": "Nonuniform coordinate sampling under strong convexity; possible exact optimum"
+      },
+      {
+        "assessment": "General SDP framework strictly covers the optimization formulation, but no stated algebraic frustrated-triangle family or sharp two-branch solution; noncoverage claimed only for explicit closed form, not generic optimization",
+        "evidence": [
+          "arXiv:1506.03296v5 Section 5.1 describes general SDP optimizing the smallest eigenvalue",
+          "arXiv:1506.03296v1 submitted 2015-06-10"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+        "material_read": "Full publicly available arXiv HTML version, especially Section 5.1 and optimal probabilities SDP; abstract/submission v1 date independently checked",
+        "method": "Compared semidefinite optimization variables/objective and results with parameter-specific closed forms",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "General optimal sampling for randomized coordinate relaxation"
+      },
+      {
+        "assessment": "Broad fixed point / optimal design characterization applies; the inspected text did not give the exact two-parameter threshold and modes, so unresolved historical-equivalence risk remains",
+        "evidence": [
+          "Pukelsheim–Torsney 1991, Ann. Statist. 19(3), Sections 2–5, 1614–1625",
+          "The design information matrix \\(\\sum_i p_i f_i f_i^{\\mathsf T}\\) is isospectral to \\(P^{1/2}CP^{1/2}\\)."
+        ],
+        "identifier_or_url": "https://www.math.uni-augsburg.de/htdocs/emeriti/pukelsheim/1991d.pdf",
+        "material_read": "Original 1991 full 12-page article, opening model and central weight-characterization sections, including examples, visually examined in PDF page images",
+        "method": "Compared independent-vector E-optimal design characterization and examples to exact signed-inverse triangle parameter classification",
+        "title": "Optimal weights for experimental designs on linearly independent support points",
+        "trigger": "Saturated E-optimal design is equivalent to exact quadratic coordinate sampling"
+      },
+      {
+        "assessment": "Exact same objective but theorem assumes entrywise nonnegative inverse, decisively contradicted by all negative inverse off-diagonal entries here. Neither direct special case nor diagonal sign-gauge reduction",
+        "evidence": [
+          "Published theorem \\(p_i\\propto(C^{-1}\\mathbf 1)_i\\) for \\(C^{-1}\\ge0\\).",
+          "Here inverse off-diagonals have signs \\(c^2-r<0\\),\\(c(r-1)<0\\),\\(c(r-1)<0\\) and an invariant negative triangle product"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Entire published RESULT.md, including definitions, theorem, proof, Poisson corollary, prior work and limitations",
+        "method": "Compared exact conditional energy criterion, theorem hypotheses, and implications for the present \\(C\\) matrix",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Closest indexed exact closed-form iid coordinate sampling claim"
+      },
+      {
+        "assessment": "Not an exact classification of the correlated quadratic three-variable minimax objective",
+        "evidence": [
+          "Qu–Richtárik arXiv:1412.8060, sampling and ESO analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.8060",
+        "material_read": "Open-access full-text results and conclusions compared for sampling criteria",
+        "method": "Compared convergence-bound sampling choices versus exact conditional energy spectral minimax",
+        "title": "On Coordinate Descent Methods with Arbitrary Sampling II: Expected Separable Overapproximation",
+        "trigger": "Arbitrary-sampling complexity analysis might cover explicit optimal law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e38fb84-c26f-4be1-9dbc-651ed4ca348c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural minimal frustrated inverse-sign triangle defeats the published inverse-positive closed form and has identical coordinate curvature scales. The new exact optimum is a nonuniform allocation with a nontrivial crossover from double to simple active contraction modes. The formulas replace generic SDP solving for this meaningful two-parameter class, with exact rates and a mechanism explaining when mode balancing ceases.",
+    "status": "PASS"
+  }
+}
