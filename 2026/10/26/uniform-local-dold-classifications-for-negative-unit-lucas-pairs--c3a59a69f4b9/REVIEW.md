@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+For each fixed positive integral \(P\), the proof reconstructs the two Lucas recurrences, the exact prime valuations in the unramified odd, ramified odd, and dyadic cases, and the complete support of their Möbius transforms. It proves exact minimality of all positive integer repair factors using witness indices \(\rho p\), \(2tp\), \(p\), \(2\), \(3\), or \(6\), as appropriate. Odd-prime rank divisibility and a Frobenius parity argument prove the Legendre-character criteria; a biquadratic compositum proves the two prime densities. The executable verifier independently compares 280 cases through index 200 against exact recurrence arithmetic and confirms congruences and signs; finite checks are corroborative only.
+
+## Originality — PASS, with residual risk
+The 2026 Chuysurichay--Jaidee--Panraksa--Ward paper proves the two prime-density values and local criteria for the classical \(P=1\) pair, rather than an all-positive-parameter theorem. A previously documented Pell-specific \(P=2\) claim also concerns one parameter. The closest broader-looking published work establishes all-local-Dold only for the *square-discriminant* companion branch, inapplicable because \(P^2+4\) is nonsquare. A second published Lucas-pair work addresses periods, not prime-local Dold congruences. Sanna and Murru--Sanna give valuation components but not the local Dold, minimal repair, companion sign, and uniform density synthesis. Targeted published-record and literature searches yielded no implication-equivalent theorem. Unindexed literature or a general statement embedded in a broader theorem remains possible; no independent bibliographic audit has been performed.
+
+## Mathematical value — PASS
+This is a complete natural one-parameter family, not an isolated computation: it answers the motivating paper's generalization direction for all \(Q=-1\) Lucas pairs, distinguishes ramified from split and inert primes, establishes a non-obvious parity exception for companions, and supplies exact repairs and a sharp sign obstruction. The uniform character criteria give the same two prime-density laws for *every* positive parameter, with a biquadratic explanation. The result does not claim a density for realizability of companions or generalize to arbitrary \(Q\).
+
+## Closest sources and limitations
+The closest directly motivated paper is arXiv:2609.24544v1 (2026-09-21). The closest published finding is *All local prime parts are Dold for split companion Lucas sequences*, whose positive square-discriminant assumption excludes these nonsquare discriminants. *Even-even period equality for Lucas pairs with q=-1* addresses a different invariant, though it supplies a related elementary dyadic valuation. Sanna (2016) and Murru--Sanna (2018) are foundational valuation sources. A possible unindexed implication-equivalent generalization remains the principal originality risk. The included verifier does not test infinite congruences, exact prime densities, or priority.
+
+Self-review: passed. Independent audit: not yet performed.
