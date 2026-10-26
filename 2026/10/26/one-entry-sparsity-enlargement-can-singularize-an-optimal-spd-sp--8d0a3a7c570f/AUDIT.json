@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Exact least-squares solves and Sylvester principal-minor SPD check yield the displayed 3x3 rank-collapse and positive 8/105 residual gap. Two-dimensional SPD single-entry updates have positive diagonal coefficients. Exact epsilon perturbation formulas, rank-two limit and nonzero singular-value continuity prove the Theta(1/epsilon) condition number divergence. The staged standard-library verifier replayed 121 exact-rational assertion groups; experiments are not treated as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferronato 2012 says the unfactored Frobenius SPAI need not be SPD for SPD input.",
+        "published-finding corpus 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba treats a different diagonal-corrected Gauss–Seidel inverse."
+      ],
+      "reasoning": "Failure of positive definiteness is logically weaker than failure of invertibility; the 2012 warning does not imply minimal dimension, strict one-entry residual improvement, or a diverging conditioning ratio. The closest recorded additive Gauss–Seidel inverse is a different preconditioner.",
+      "searches": [
+        "published-finding corpus: SPAI-GMRES iterative refinement pattern enrichment deteriorates condition number monotonicity exact counterexample",
+        "Web: \"SPAI\" \"singular\" \"sparsity pattern\" SPD",
+        "Ferronato 2012 nonfactored SPD warning DOI 10.5402/2012/127647"
+      ]
+    },
+    "checked_sources": [
+      "Carson and Khan arXiv:2202.10204v1",
+      "Huckle and Sedlacek DOI:10.1155/2010/930218",
+      "Ferronato DOI:10.5402/2012/127647",
+      "Grote and Huckle DOI:10.1137/S1064827594276552 (abstract only)",
+      "published-finding corpus semantic records relevant to SPAI, condition number, Frobenius patterns",
+      "Published mathematical findings previously accessible for comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carson–Khan gives Frobenius separability and numerical convergence analysis, not one-step singularization example.",
+        "Huckle–Sedlacek details the residual-reducing single-index update; text inspected does not specify the matrix family.",
+        "Ferronato explicitly contrasts general non-SPD unfactored SPAI with SPD-preserving factorized methods.",
+        "Grote–Huckle full paper not accessed; only abstract was available."
+      ],
+      "reasoning": "Objective monotonicity alone does not force invertibility monotonicity, but neither logically implies a specific counterexample. The explicit rank collapse and minimality are proved here and not derived as cited corollaries. Because the 1997 full text was inaccessible, remaining earlier-priority risk is stated rather than treated as a verified absence.",
+      "searches": [
+        "Carson–Khan arXiv:2202.10204v1 Section 2.2, Section 3",
+        "Huckle–Sedlacek 2010 Section 1.1",
+        "Ferronato 2012 Section 4 and SPAI versus FSAI",
+        "Grote–Huckle 1997 DOI 10.1137/S1064827594276552 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2010 source describes per-column least squares and enriching individual patterns for residual improvement, not singularity or a dimension-minimal obstruction.",
+        "2022 Carson–Khan Section 2.2 uses the same objective and discusses fixed and adaptive sparsity patterns."
+      ],
+      "reasoning": "The claim concerns losing nonsingularity at a specific strict-improvement one-index transition. It is neither the well-known least-squares construction nor generic non-SPD behavior. Symmetric transposition gives equivalent left-preconditioned singularity; it does not create a separate novelty claim.",
+      "searches": [
+        "published-finding corpus: Frobenius-norm optimal sparse approximate inverse singular on symmetric positive definite matrix adding one off-diagonal entry to identity pattern",
+        "Web: \"sparse approximate inverse\" \"singular\" \"pattern\" positive definite Frobenius",
+        "Huckle–Sedlacek 2010 SPAI Section 1.1 DOI 10.1155/2010/930218"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct candidate was returned in the actual queried mathematical records; accessible previous claims available for deduplication contained no occurrence of these terms.",
+        "The claim is an exact infinite perturbation family and proof, not a numerical benchmark or published data table."
+      ],
+      "reasoning": "No exact matrix match or table coverage found in inspected material. Failure of a finite database search does not certify priority; the older founding paper remains a known uninspected plausible source.",
+      "searches": [
+        "published-finding corpus: SPAI minimum Frobenius inverse residual pattern enrichment diagonal pivot vanishes causes singular matrix three dimensional counterexample",
+        "Web: \"sparse approximate inverse\" \"rank deficient\" Frobenius",
+        "Published-record comparison: SPAI, sparse approximate inverse, frobenius optimal inverse"
+      ]
+    },
+    "rationale": "Compared exact implications with 2022 SPAI iterative-refinement source, Huckle 2010 single-index SPAI, Ferronato 2012 non-SPD warning, published semantic records and accessible prior mathematical findings. Qualitative non-SPD warnings do not cover loss of invertibility from one strictly improving pattern enrichment, minimum dimension and unbounded nearby conditioning. The older 1997 SPAI primary full text remains inaccessible and publication priority is therefore provisional.",
+    "residual_risks": [
+      "Founding 1997 SPAI paper unavailable in full; possible earlier explicit equivalent singular construction cannot be excluded.",
+      "Other specialist linear algebra literature may contain an equivalent elementary example.",
+      "No claim about specific adaptive selection or strong small-residual preconditioning regimes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same construction and related performance context; did not identify a covering explicit one-index singularity and minimality theorem",
+        "evidence": [
+          "arXiv v1 2022-02-21; Section 2.2 Frobenius separability, Section 3.1 convergence conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.10204",
+        "material_read": "Complete machine-readable HTML text, especially Section 2.2 and Section 3.1, and arXiv submission history",
+        "method": "Read equations for per-column LS, allowed sparsity patterns, and assumptions on left preconditioners",
+        "title": "Mixed Precision Iterative Refinement with Sparse Approximate Inverse Preconditioning",
+        "trigger": "Motivating 2022 use of Frobenius SPAI in iterative refinement"
+      },
+      {
+        "assessment": "Provides adaptive SPAI mechanism; no directly covering rank-collapse family or 3D minimality observed",
+        "evidence": [
+          "Section 1.1 describes profitable added indices and recomputed least-squares fits"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2010/930218",
+        "material_read": "Accessible full HTML, particularly Section 1.1, introduction and SPAI construction",
+        "method": "Compare single-index residual improvements to the exact nonsingularity claim",
+        "title": "Smoothing and Regularization with Modified Sparse Approximate Inverses",
+        "trigger": "Early original treatment of SPAI single-entry pattern updates"
+      },
+      {
+        "assessment": "Qualitatively establishes lack of SPD guarantee, not the stronger rank loss under single-index monotonic objective decrease",
+        "evidence": [
+          "Section 4 comparison explicitly notes nonfactored SPAI need not be SPD on SPD input"
+        ],
+        "identifier_or_url": "https://doi.org/10.5402/2012/127647",
+        "material_read": "Accessible complete survey HTML; SPAI sections and comparison to FSAI/AINV",
+        "method": "Check exactly what failure is asserted for SPD matrices",
+        "title": "Preconditioning for Sparse Linear Systems at the Dawn of the 21st Century",
+        "trigger": "Potential broader impossibility/singularity result for unfactored approximate inverses"
+      },
+      {
+        "assessment": "Not assessed as NOT_COVERING, nor used to establish publication priority; explicit residual risk retained",
+        "evidence": [
+          "1997 publication metadata and abstract on automatic pattern selection and spectral bounds"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S1064827594276552",
+        "material_read": "Abstract and bibliographic metadata only; complete original full text inaccessible",
+        "method": "ArXiv and open-access source attempts did not retrieve the complete text",
+        "title": "Parallel Preconditioning with Sparse Approximate Inverses",
+        "trigger": "Foundational primary source and principal outstanding originality risk"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d0a3a7c-570f-4196-8e83-0a8fc0d6e5d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nonsingularity and conditioning of the left/right preconditioned matrix are structural requirements for useful GMRES-IR corrections. A strict Frobenius residual decrease alone can defeat invertibility already in the minimal SPD dimension, and a nearby family has unbounded conditioning deterioration with uniformly bounded base/input condition numbers. This motivates safeguarding and distinguishes Frobenius approximation monotonicity from spectral robustness; no general speed benefit or finite precision claim is made.",
+    "status": "PASS"
+  }
+}
