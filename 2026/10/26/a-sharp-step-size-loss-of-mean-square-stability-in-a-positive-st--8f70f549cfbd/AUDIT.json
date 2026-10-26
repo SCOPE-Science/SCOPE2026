@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Closed lognormal covariance recurrence and strictly positive Perron matrix give exact mean-square rate. The critical noise is computed from det(I-K)=0; a factored strictly negative second derivative proves its strict 3-to-2 decrease. Conditional first-moment contraction and Borel-Cantelli prove a.s. exponential decay for all noise. The two-time comparison and semidiscrete generator are exact. All nonstandard algebra rechecked using the provided standalone SymPy checker (1,526 assertions), not substituted for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lang–Petersson–Thalhammer 2017 supplies general mean-square spectral-radius criteria for numerical SDE/SPDE methods and considers Euler and rational schemes.",
+        "Chen–Dang–Hong 2022 treats periodic-boundary stochastic heat discretizations and theta time stepping, not the two-site Dirichlet lognormal Lie–Trotter map."
+      ],
+      "reasoning": "The generic tensor-operator criterion contains the spectral test in abstract form, but not the evaluated rational/logarithmic cutoff or its strict dependence on step size. Different boundary conditions and time integrators do not imply this exact statement.",
+      "searches": [
+        "stochastic heat equation exponential splitting long time stability step size threshold semigroup diffusion geometric Brownian",
+        "long-time Lyapunov exponent and mean square discrepancy independent lognormal spatial noise diffusion heat splitting",
+        "doi:10.1007/s10543-017-0684-7",
+        "doi:10.1016/j.jde.2022.06.009"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.08858v1",
+      "doi:10.1051/m2an/2024032",
+      "doi:10.1007/s10543-017-0684-7",
+      "doi:10.1016/j.jde.2022.06.009",
+      "doi:10.1016/j.camwa.2022.05.031",
+      "doi:10.1137/24M1636691",
+      "published-finding corpus semantic searches for exact step threshold, spatial white noise, logarithmic matrix products and spectral radius"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bréhier–Cohen–Ulander: finite-horizon strong convergence and positivity, no fixed-grid infinite-iteration cutoff.",
+        "Lang–Petersson–Thalhammer: general tensor spectral-radius principles, not specific monotone 3-to-2 threshold.",
+        "Yang–Yang–Zhang and Yang–Hu study different stochastic heat discretizations; only abstract-level comparison was available."
+      ],
+      "reasoning": "Neither finite-T positivity/convergence nor a generic moment spectral criterion implies the explicit strictly decreasing frontier without the derived covariance recurrence and concavity identity. The two abstract-only sources retain residual risk rather than being certified NOT_COVERING.",
+      "searches": [
+        "sharp stability phase diagram two interior nodes Bréhier Cohen Ulander 2023 positivity preserving splitting parabolic Anderson mean-square spectral threshold log ratio",
+        "exact cutoff sigma squared h between 2 and 3 for two point stochastic heat equation exponential splitting mean square",
+        "long-time Lyapunov exponent and mean square discrepancy independent lognormal spatial noise diffusion heat splitting",
+        "arxiv:2302.08858v1",
+        "doi:10.1007/s10543-017-0684-7",
+        "doi:10.1016/j.camwa.2022.05.031",
+        "doi:10.1137/24M1636691"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bréhier–Cohen–Ulander 2024 full text equation (15) gives exact noise-first/heat-second integrator; the investigated statements are finite-time positivity, moments, and convergence.",
+        "The covariance calculation can be reformulated as a 2x2 positive transfer matrix Perron eigenvalue test; no exact published F(x) was located."
+      ],
+      "reasoning": "The exact closed-form stability frontier is logically stronger than abstract finite-time error control or preservation of positivity. Equivalent descriptions as two-node parabolic Anderson splitting, lognormal transfer maps, and tensor moment spectral radius were searched.",
+      "searches": [
+        "two-node stochastic heat equation Lie Trotter exponential multiplicative noise exact mean square stability threshold timestep variance positivity almost sure convergence",
+        "parabolic Anderson splitting lognormal diagonal noise two interior nodes critical mean square Lyapunov moment spectral radius",
+        "sharp stability phase diagram two interior nodes Bréhier Cohen Ulander 2023 positivity preserving splitting parabolic Anderson mean-square spectral threshold log ratio",
+        "arxiv:2302.08858v1",
+        "doi:10.1051/m2an/2024032"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches returned existing findings about other semigroups and time integrators, not a database entry covering this two-node splitting threshold."
+      ],
+      "reasoning": "The claim is an all-time stability classification in a natural numerical scheme rather than a tabulated finite numerical invariant; no specific exact table or database covering it was identified.",
+      "searches": [
+        "two-node stochastic heat equation Lie Trotter exponential multiplicative noise exact mean square stability threshold timestep variance positivity almost sure convergence",
+        "parabolic Anderson splitting lognormal diagonal noise two interior nodes critical mean square Lyapunov moment spectral radius",
+        "exact cutoff sigma squared h between 2 and 3 for two point stochastic heat equation exponential splitting mean square"
+      ]
+    },
+    "rationale": "The exact fixed-grid threshold F(x), its strict monotonic decrease from 3 to 2, and a semidiscretely-stable/fully-discretely-unstable window are not obtained by the original finite-horizon splitting study or by inspected related numerical stability papers. General stochastic mean-square spectral radius criteria subsume only the conceptual criterion, not the evaluated curve. Searches do not prove absolute priority. Full texts inspected where accessible; two relevant papers were compared at abstract level only and are residual risks.",
+    "residual_risks": [
+      "A mathematically equivalent exact two-node stability curve could exist in uncatalogued literature or under tensor moment spectral terminology.",
+      "Yang–Yang–Zhang 2022 full text could not be inspected; institutional Oxford access returned VPN disconnected.",
+      "Yang–Hu 2025 could only be compared at abstract level.",
+      "Source comparison is not independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published finite-time guarantees do not state the exact long-time two-node mean-square phase diagram.",
+        "evidence": [
+          "arxiv:2302.08858v1",
+          "doi:10.1051/m2an/2024032"
+        ],
+        "identifier_or_url": "https://research.chalmers.se/publication/542281/file/542281_Fulltext.pdf",
+        "material_read": "Published full-text scheme definition, finite-horizon main results, equation (15), statements and adjacent proof/appendix sections",
+        "method": "Direct reading of accessible full-text PDF and author-hosted arXiv HTML version",
+        "title": "Analysis of a positivity-preserving splitting scheme for some semilinear stochastic heat equations",
+        "trigger": "Identical stochastic heat splitter, including specialized update"
+      },
+      {
+        "assessment": "Provides the abstract spectral-radius framework but not exact Lie–Trotter lognormal grid threshold or its strict monotonicity.",
+        "evidence": [
+          "doi:10.1007/s10543-017-0684-7"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-017-0684-7",
+        "material_read": "Open full text on tensor-operator mean-square stability and Euler/rational schemes",
+        "method": "Direct full-text inspection",
+        "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+        "trigger": "General spectral-radius criterion could theoretically dominate stability test"
+      },
+      {
+        "assessment": "Periodic spatial boundary and theta time-stepping, unlike the present Dirichlet exact lognormal splitting.",
+        "evidence": [
+          "doi:10.1016/j.jde.2022.06.009"
+        ],
+        "identifier_or_url": "doi:10.1016/j.jde.2022.06.009",
+        "material_read": "Author-hosted full PDF, including setup and main discretization theorems",
+        "method": "Direct PDF reading",
+        "title": "Weak intermittency of stochastic heat equation under discretizations",
+        "trigger": "Long-term second moment and Lyapunov exponents for spatially discretized heat equations"
+      },
+      {
+        "assessment": "Different split-step backward-Euler and finite-dimensional noise identified, but undiscovered equivalent details cannot be excluded.",
+        "evidence": [
+          "doi:10.1016/j.camwa.2022.05.031"
+        ],
+        "identifier_or_url": "doi:10.1016/j.camwa.2022.05.031",
+        "material_read": "Accessible abstract only; full-text attempts via arXiv and lawful OA unsuccessful, institutional download unavailable (VPN disconnected)",
+        "method": "Abstract-level comparison; no whole-document NOT_COVERING inference",
+        "title": "Stochastic heat equation: Numerical positivity and almost surely exponential stability",
+        "trigger": "Shared positivity/almost-sure exponential stability theme"
+      },
+      {
+        "assessment": "Implicit/spectral methods with correlated spatial noise; unresolved details noted.",
+        "evidence": [
+          "doi:10.1137/24M1636691"
+        ],
+        "identifier_or_url": "doi:10.1137/24M1636691",
+        "material_read": "Accessible abstract only",
+        "method": "Abstract-level comparison",
+        "title": "Long Time Stability and Numerical Stability of Implicit Schemes for Stochastic Heat Equations",
+        "trigger": "Later long-time stability theory for SHE discretizations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f70f549-cfbd-496c-b969-9a5ab68d5898",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original finite-horizon positivity-preserving heat splitter raises the nontrivial fixed-grid long-time stability question. The precise 2-to-3 intensity window shows steps can create mean-square instability despite positivity, a.s. decay, and mean-square stability of the spatial semidiscretization. Exact global threshold, strict step dependence, and closed counterexample are valuable structural guidance, without claiming larger-grid generality.",
+    "status": "PASS"
+  }
+}
