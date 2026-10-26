@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The coded four-state morphism follows from the arithmetic `11`-pair recurrence. A three-state weighted scanner gives exact arch counts; its four transformations are proved by a two-case induction with explicit base \(k=4\). Binary arch count equals subsequence-universality index by a direct greedy-embedding argument. Each aligned substitution block contributes at most one unit of discrepancy, and binary partition of the full prefix gives the digit-sum error bound. The standalone checker agrees with independent arithmetic and subsequence enumerations.
+
+**Originality — PASS, with residual historical risk.** The 2015 Schaeffer–Shallit paper gives the sequence and morphism but no subsequence-universality rate. Adamson's 2023 full text gives algorithms for counting/ranking words of fixed size, not the invariant on this fixed automatic word. Schnoebelen–Veron's 2023 text provides universal compositional tools for compressed words, which make values algorithmically accessible but do not imply the displayed closed form and digital discrepancy without a separate morphism analysis. The published binary distribution result concerns the uniform ensemble rather than Rudin–Shapiro; the Rudin–Shapiro attractor result concerns factor coverage. Targeted mathematical-record and literature searches found no statement covering the exact theorem. Unindexed priority remains possible.
+
+**Value — PASS.** Subsequence universality is a natural completeness measure relevant to Simon-type scattered-subword comparisons and subsequence matching. The exact \(5/16\) asymptotic capacity of a classical nonrandom automatic word, the parity-dependent dyadic formula, and the global digit-sum discrepancy law jointly determine a natural prefix invariant at every scale. This is more than a finite table or an arbitrary parameter increment.
+
+**Limits.** The result concerns origin-anchored binary Rudin–Shapiro prefixes, not every shift, not arbitrary alphabets, and not circular universality. Computational replay corroborates but does not replace the unrestricted induction. The published-record and full-text coverage cannot exclude inaccessible or unindexed prior art.
+
+Self-review: passed. Independent audit: not yet performed.
