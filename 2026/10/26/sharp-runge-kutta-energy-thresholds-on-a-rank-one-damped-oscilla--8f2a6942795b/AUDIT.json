@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Exact symbolic factorizations of B_p=R_p^T R_p-I for p=2,3,4 are checked using the standalone verifier. Analytic polynomial monotonicity and sign bounds establish the full half-line classification, including all boundary cases. An exact rational witness additionally separates spectral from norm stability. No finite numerical grid is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1811.10680 pp. 2–3 and 8–10: general RK3 strong stability and RK4 non-strong-stability, with a 3-by-3 counterexample",
+        "arxiv:2308.05689v1 Theorem 2: local matrix-class sufficient condition"
+      ],
+      "reasoning": "General RK3 stability and failure of RK4 for some matrices is known and not claimed as new. It does not determine exact p=2,3,4 allowed h for this fixed natural two-dimensional matrix; in particular the published RK4 negative example has three dimensions and fails locally, unlike the present matrix.",
+      "searches": [
+        "Runge Kutta hypocoercivity stepsize third fourth order contractivity",
+        "arxiv:1811.10680 strong stability RK4 Section 3.2",
+        "Order reversal RK2 RK3 RK4 strong energy stability on canonical rank-one-damped planar oscillator, SSPRK3 stable longer than RK4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1811.10680",
+      "arxiv:2308.05689v1",
+      "arxiv:2310.19758v1",
+      "relevant public mathematical-record matches (none covering exact statement)",
+      "accessible earlier numerical-integrator claims for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2310.19758v1: the canonical generator belongs to the same family; results are local and dimension-index based",
+        "arxiv:2308.05689v1: general order/index guarantee, not a global CFL equality",
+        "Accessible earlier planar claim treated R_beta=1+z+z^2/2+beta z^3 at beta=1/4 and local beta inequalities, not the sharp RK3 beta=1/6 and RK4 with quartic term"
+      ],
+      "reasoning": "The earlier planar claim overlaps in operator family but not in the exact method pair or full h-classification. The broad published results do not imply the new alpha root, its global exclusion side, or spectral/norm witness without further nontrivial algebra.",
+      "searches": [
+        "arxiv:2310.19758v1 equation (2), Proposition 3",
+        "arxiv:2308.05689v1 Theorem 2",
+        "earlier planar three-stage order-two Runge–Kutta stability formulation with beta=1/4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2308.05689v1 pp. 4–7: local strong-stability tests via hypocoercivity index",
+        "arxiv:2310.19758v1 pp. 1–3: tridiagonal generator and local strong-stability results"
+      ],
+      "reasoning": "The generator is orthogonally equivalent to the two-dimensional member of the 2023 tridiagonal family, but local small-step stability does not give a global exact cutoff. No exact finite-step RK3/RK4 boundary for that two-dimensional member was located in the inspected material.",
+      "searches": [
+        "RK3 RK4 strong stability damped oscillator 2x2 stepsize comparison",
+        "Sharp contractivity interval of classical third and fourth order Runge Kutta on two dimensional semidissipative generator with L squared plus L plus identity zero",
+        "arxiv:2308.05689v1, Theorem 2 and examples"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1811.10680 Table 1 gives RK family energy-algebra data and Section 3.2 gives a 3D counterexample; no stated present quintic root",
+        "Targeted mathematical-record searches returned nearby but mathematically distinct works on RK error-estimator resonance, filtered schemes and stability rates"
+      ],
+      "reasoning": "No searched exact table supplies the three sharp values or rational spectral-versus-energy witness. Absence from search is only supporting evidence, not uniqueness proof.",
+      "searches": [
+        "Exact threshold 2.37570116818623 for third order Runge Kutta strong stability, quintic h^5-3h^4+3h^3-6h^2+36h-72",
+        "RK3 RK4 strong stability damped oscillator 2x2 stepsize comparison",
+        "arxiv:1811.10680 Table 1 and Section 3.2"
+      ]
+    },
+    "rationale": "The claim is an exact global-in-step, same-matrix classification and strict RK3/RK4 threshold reversal. The inspected primary literature establishes general local strong-stability/hypocoercivity results or different counterexamples but gives no matching global cutoff theorem in the relevant inspected sections. Existing planar fixed-order calculations do not imply the RK4 comparison or this quintic cutoff. Undiscovered equivalent formulas remain a risk.",
+    "residual_risks": [
+      "Equivalent exact planar RK step-size formulas may appear in specialized literature that is not indexed or not inspected.",
+      "General finite-step contractivity methods could derive the result; priority is not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General qualitative results; no exact canonical planar global h thresholds in relevant analyzed material",
+        "evidence": "Proposition 3.1 uses a different 3-by-3 generator; Section 3.2 discusses multi-step strong stability.",
+        "identifier_or_url": "https://arxiv.org/pdf/1811.10680",
+        "material_read": "full PDF text: abstract, introduction pp. 1–3, general energy framework pp. 4–5, Table 1 and RK4 comparison in Section 3.2 pp. 8–10",
+        "method": "PDF text and page-image inspection",
+        "title": "Strong stability of explicit Runge–Kutta time discretizations",
+        "trigger": "General RK3/RK4 strong-stability comparison and potential dominating result"
+      },
+      {
+        "assessment": "Local matrix-class implications and examples do not give global h cutoffs for the chosen L",
+        "evidence": "Theorem 2 constrains locally safe methods by hypocoercivity index, and Example 2 treats a 3-by-3 RK4 counterexample.",
+        "identifier_or_url": "https://arxiv.org/pdf/2308.05689",
+        "material_read": "full-text PDF: definitions pp. 1–4, Theorem 2 pp. 5–7, structural calculations pp. 8–10, examples pp. 11–12",
+        "method": "PDF text and page-image inspection",
+        "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+        "trigger": "Closest general criterion for hypocoercive generators"
+      },
+      {
+        "assessment": "Contains the same two-dimensional member as the present benchmark, but studies local strong stability and an N=3 RK4 example rather than exact finite h=2 and quintic boundaries",
+        "evidence": "Proof of Theorem 2 selects N=1+p/2, hence N=3 for p=4; Proposition 3 is local and not an exact global-in-step classification.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.19758",
+        "material_read": "full-text PDF: generator (2), Proposition 3, proof of Theorem 2, determinant-lemma context and appendix as searchable text pp. 1–7",
+        "method": "PDF text and image inspection",
+        "title": "Hypocoercivity for Linear ODEs and Strong Stability for Runge–Kutta Methods",
+        "trigger": "Same canonical tridiagonal matrix family, possible direct coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f2a6942-795b-47b0-87dd-8040e6ccbd7f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The matrix is a minimal hypocoercive benchmark appearing in the primary literature. The theorem gives full exact step-size-safe classifications for three standard methods and a strict counterintuitive 19% RK3-over-RK4 advantage (with fewer stages), plus a rational instance of spectral stability without monotone energy. Such sharp method-choice information is not merely renaming or numerical enumeration; the result is restricted and does not suggest universal accuracy superiority.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact algebraic identity \(B_p=R_p^{\mathsf T}R_p-I\) and the factorized determinants yield necessary and sufficient conditions for Euclidean nonexpansivity. The proof establishes the unique positive root \(\alpha\) by monotone polynomial shifts, checks the singular boundary cases, and excludes all larger steps using a negative determinant or a positive diagonal entry. The rational witness and spectral-radius comparison are reconstructed directly. `verify.py` independently reproduces the algebraic identities; finite samples supplement rather than replace the analytic sign proofs.
+
+**Originality — PASS (self-review; priority uncertainty remains).** The full-text sections relevant to hypocoercivity and strong stability were inspected in Sun–Shu (arXiv:1811.10680), Achleitner–Arnold–Jüngel (arXiv:2308.05689), and the 2023 note (arXiv:2310.19758). These supply generic local stability theory and identify the canonical generator family, but the inspected passages do not contain the exact three-polynomial finite-step classification or its strict third-versus-fourth-order reversal on the same matrix. Related exact planar stability calculations for different Runge–Kutta polynomials do not imply the present sharp intervals. Equivalent specialized calculations remain a priority risk; failure of targeted searches is not proof of uniqueness.
+
+**Mathematical value — PASS.** The benchmark is the minimal nontrivial rank-one-damped hypocoercive system used in the primary literature. Its exact semigroup is strictly energy dissipating, and three standard methods are compared on equal physical and norm conventions. The sharp cutoff for order three exceeds that for order four by about 19%, despite fewer stages; the rational witness exhibits norm growth under spectral stability. This gives a motivated and fully classified limitation on using method order or scalar stability to select an energy-safe step, not an arbitrary isolated test number.
+
+The result is confined to one linear two-coordinate benchmark. It does not assert accuracy superiority, higher-dimensional behavior, or independent novelty certification.
+
+Self-review: passed. Independent audit: not yet performed.
