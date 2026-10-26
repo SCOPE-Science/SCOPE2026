@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Complete 32-state addition NFA with exact carry/adjacent-block parity invariant; product of its subset determinization with saturating exception recognizer has precisely 88 reachable states and zero accept-predicate mismatches for each parity pair. Reproducible code builds all transitions from first principles, verifies every reachable state, and independently checks direct integer representations for n<3000. No finite sample is asserted to prove the infinite theorem; the exhaustive finite automaton equivalence is the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rajasekaran–Shallit–Smith DOI:10.1007/s00224-019-09929-9 available abstract and Fig.2 caption concern Thue–Morse/Rudin–Shapiro mixed sums; full text inaccessible.",
+        "Konieczny DOI:10.5802/aif.3285 abstract supplies uniformity of the sign sequence and counts of progression patterns, not explicit finite sumset complements.",
+        "Dombi DOI:10.4064/aa103-2-3 studies higher-fold representation-count behavior for sign-defined sets."
+      ],
+      "reasoning": "General automata decidability, Fourier-uniformity or asymptotic representation results may imply eventual coverage, but do not, without a concrete deduction or complete small-value analysis, determine the specific 4- and 12-element exceptional sets. The incompletely read mixed-sum article is a residual risk rather than declared noncoverage.",
+      "searches": [
+        "\"Rudin-Shapiro\" \"two elements\" \"sum\"",
+        "\"Additive Number Theory via Automata Theory\" Rudin-Shapiro figures",
+        "DOI:10.1007/s00224-019-09929-9",
+        "DOI:10.5802/aif.3285"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.13627 full 14-page text",
+      "arXiv:2302.00405 accessible full text",
+      "DOI:10.4064/aa103-2-3 primary main statements",
+      "DOI:10.1007/s00224-019-09929-9 abstract and available figure descriptions, full text unavailable",
+      "DOI:10.5802/aif.3285 journal abstract only",
+      "OEIS:A020985 complete sequence entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2112.13627, the exact twofold identities use the Thue–Morse automaton; Rudin–Shapiro occurs in Remark 14 in connection with k>4 summands.",
+        "In arXiv:2302.00405 the defined s(n) and t(n) are running sums of Rudin–Shapiro signs, not representations n=a+b.",
+        "2019 Fig.2 explicitly names cross-sequence Thue–Morse plus Rudin–Shapiro sums; comparing that mixed-object description does not establish the same-sequence sign classes here."
+      ],
+      "reasoning": "The current object is the set of indices of plus or minus Rudin–Shapiro coefficients, and the operation is twofold integer sumset. Different notions of a \"Rudin–Shapiro sum\" are not synonymous. Earlier general decision procedures could in principle specialize to this exact case; that potential implication is a genuine originality risk pending full material inspection.",
+      "searches": [
+        "arXiv:2112.13627 \"Rudin\" \"sum\"",
+        "arXiv:2302.00405 \"Rudin-Shapiro Sums\"",
+        "\"Additive number theory via automata theory\" \"automaton for sums of Thue-Morse and Rudin-Shapiro numbers\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS:A020985 records the coefficient/sign sequence and adjacent-11 parity, but not the three sumset complements.",
+        "arXiv:2112.13627 Section 4 uses the Thue–Morse binary digit-sum predicate T[x], not the Rudin–Shapiro adjacent-11 predicate."
+      ],
+      "reasoning": "Equivalent wording would classify each complement of a twofold sumset of the positive/negative Rudin–Shapiro sign indices. The inspected exact twofold results apply to a different digit-parity sequence. No tested statement or cited table supplied the listed complements.",
+      "searches": [
+        "\"Rudin-Shapiro\" \"sumset\" parity even odd",
+        "\"Rudin Shapiro\" \"sum of two\" \"even\" \"odd\" 2025",
+        "OEIS:A020985; arXiv:2302.00405 (directly examined records)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A020985 explicitly tabulates the Rudin–Shapiro ±1 coefficients and describes their parity recurrence, not the twofold sumset exceptions.",
+        "The present exception families are checked by exhaustive automata state comparison rather than claimed as new coefficient sequences."
+      ],
+      "reasoning": "No inspected exact database entry contained the three claimed sumset complements; sequence listings of individual signs do not entail a precomputed sumset classification.",
+      "searches": [
+        "OEIS:A020985 (record opened directly)",
+        "\"Rudin-Shapiro\" \"sumset\" \"20\"",
+        "\"Rudin-Shapiro\" \"sum\" \"0, 1, 2, 3, 4, 5, 7, 8\""
+      ]
+    },
+    "rationale": "Targeted record and literature queries yielded no equivalent three-way exact Rudin–Shapiro two-summand exception classification. Direct comparison of definitions separates the current same-class/mixed-sign sumsets from Thue–Morse two-summand representations, Rudin–Shapiro sign summatory functions, generalized higher-fold representation results, and Gowers-norm statements. The 2019 mixed Thue–Morse/Rudin–Shapiro source remains incompletely inspected and its possible implicit coverage is explicitly retained as a risk.",
+    "residual_risks": [
+      "The exact lists may be unreported corollaries of a 2019 mixed Thue–Morse/Rudin–Shapiro automata construction whose full text was inaccessible.",
+      "A broad automatic-set sumset theory could imply the classifications after additional explicit state computation, even if the exact lists are not recorded.",
+      "Targeted search gives no proof of uniqueness or publication priority; the self-review is not an independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its exact two-summand classes are Thue–Morse evil/odious, not Rudin–Shapiro signs; Rudin–Shapiro appears for k>4 representation count context.",
+        "evidence": [
+          "Full arXiv:2112.13627, Section 4 and Remark 14, the Walnut formulas use T[x] as the Thue–Morse predicate."
+        ],
+        "identifier_or_url": "arXiv:2112.13627",
+        "material_read": "Full 14-page arXiv PDF extracted and inspected, including theorem statements and proof sections concerning r2, s2 and Remark 14",
+        "method": "Direct full-text page inspection and targeted terms Rudin, two summands, T[x]",
+        "title": "Additive Number Theory via Automata and Logic",
+        "trigger": "Closest primary exact automata two-summand results for digital parity classes"
+      },
+      {
+        "assessment": "The sums are running sums of signs and alternating running sums, not twofold sumsets of sign-index classes.",
+        "evidence": [
+          "arXiv:2302.00405 defines s(n)=sum_{j<=n}a(j) and t(n)=sum_{j<=n}(-1)^j a(j)."
+        ],
+        "identifier_or_url": "arXiv:2302.00405",
+        "material_read": "Accessible arXiv full text, definitions and theorem statements (including s(n), t(n))",
+        "method": "Full HTML inspection, targeted sumset and summatory definitions",
+        "title": "Rudin–Shapiro Sums via Automata Theory and Logic",
+        "trigger": "Identical sequence name and potentially misleading sum terminology"
+      },
+      {
+        "assessment": "Addresses representation counts for more than four summands, not the exact full twofold sign-class complements.",
+        "evidence": [
+          "Dombi, Acta Arith. 103 (2002), Theorem 1 concerns higher-summand representation count properties."
+        ],
+        "identifier_or_url": "DOI:10.4064/aa103-2-3",
+        "material_read": "Available full-text main theorem and surrounding discussion",
+        "method": "Full-text reading, focus on allowed number of summands and representation function",
+        "title": "Additive properties of certain sets",
+        "trigger": "Prior generalized Rudin–Shapiro additive representation result"
+      },
+      {
+        "assessment": "The visible caption concerns mixed Thue–Morse/Rudin–Shapiro sums, which are distinct from the present three same-sequence sign-class sumsets; cannot rule out implicit coverage inside inaccessible full text.",
+        "evidence": [
+          "Springer DOI page abstract and research figure caption “Automaton for sums of Thue-Morse and Rudin-Shapiro numbers”."
+        ],
+        "identifier_or_url": "DOI:10.1007/s00224-019-09929-9",
+        "material_read": "Publisher abstract, available first-page preview and labeled figure descriptions only; full article unavailable through accessible routes; institutional download required interactive input.",
+        "method": "Springer publisher preview and research figure index, compared the named sets and publication scope",
+        "title": "Additive Number Theory via Automata Theory",
+        "trigger": "Very close paper with a figure caption naming sums of Thue–Morse and Rudin–Shapiro numbers"
+      },
+      {
+        "assessment": "May support asymptotic pseudorandomness, but does not visibly enumerate the exact finite sumset complements.",
+        "evidence": [
+          "Annales de l’Institut Fourier 69 (2019), abstract describes Gowers uniformity norms and progressions."
+        ],
+        "identifier_or_url": "DOI:10.5802/aif.3285",
+        "material_read": "Journal abstract, publication metadata and displayed application to arithmetic progressions; not the article body",
+        "method": "Journal landing-page examination and theorem-purpose comparison",
+        "title": "Gowers norms for the Thue–Morse and Rudin–Shapiro sequences",
+        "trigger": "Broad uniformity theorem potentially implying eventual twofold representation"
+      },
+      {
+        "assessment": "Defines coefficient signs precisely but supplies no exact three-sumset exceptional lists.",
+        "evidence": [
+          "A020985 values, comments, recurrences, cross references."
+        ],
+        "identifier_or_url": "https://oeis.org/A020985",
+        "material_read": "Full OEIS page including coefficients, recurrence, cross references and references",
+        "method": "Direct sequence record reading",
+        "title": "OEIS A020985, Rudin–Shapiro sequence",
+        "trigger": "Exact database/table check on the underlying digital sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9120b141-ec1c-4146-8edb-b38642a8267d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete natural classification of all three pairwise two-summand sumsets of the classical Rudin–Shapiro sign-index sets, including exact finite exceptional sets of sizes 0, 4 and 12. This sharpens only-general decidability or eventual/asymptotic coverage to a fully explicit additive-basis boundary that is mathematically motivated by earlier Thue–Morse additive classifications.",
+    "status": "PASS"
+  }
+}
