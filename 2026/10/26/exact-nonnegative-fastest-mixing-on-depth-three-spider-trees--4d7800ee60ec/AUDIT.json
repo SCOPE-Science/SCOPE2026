@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every integer k>=3 a symmetry average preserves feasibility and cannot raise the centered spectral norm. The radial and contrast Laplacian blocks are derived explicitly. An exact positive contrast eigenvector of eigenvalue gamma yields a universal Rayleigh upper bound on the Laplacian gap and equality conditions forcing x=1/k,y=(2-gamma)/3,z=(1+gamma)/3 among invariant matrices. The candidate satisfies every nonnegativity constraint; an exact radial characteristic factorization and the positive evaluation q(2-gamma)=(2-gamma)(3k-8)/(9k) exclude a larger negative-end SLEM. Source code reproduces five symbolic identities and independent grounded spectra; finite experiments are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. Theorem 2.1 gives existence of an invariant optimum, not its exact weights on S(k,3).",
+        "Jafarizadeh-Jamalipour 2010 central weight 2/(k+2), tail weights 1/2; hub diagonal (2-k)/(k+2)<0 for k>=3.",
+        "Jafarizadeh 2020/2025 Sec.7.3 assumes k*pi1<=2*pi0; Sec.7.2.1 handles depth two, whereas k>=3 uniform depth-three violates assumption.",
+        "Olesker-Taylor–Zanetti, arXiv:2111.05816, geometric mixing bounds, not edgewise exact SLEM solution."
+      ],
+      "reasoning": "General SDP and averaging results provide solution methods but no closed-form implication for this constrained family. The same-topology unconstrained consensus optimum is outside the feasible Markov set. The conditional symmetric-star theorems do not imply this parameter region. Geometric bounds do not determine the exact optimum.",
+      "searches": [
+        "\"Fastest mixing Markov chain on graphs with symmetries\" arxiv:0709.0955",
+        "\"Weight Optimization for Distributed Average Consensus Algorithm in Symmetric, CCS & KCS Star Networks\" arxiv:1001.4278",
+        "\"Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs\" arxiv:2501.02421",
+        "\"Geometric bounds on the fastest mixing Markov chain\" arxiv:2111.05816"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955",
+      "arxiv:1001.4278",
+      "arxiv:2501.02421",
+      "arxiv:2111.05816 (abstract only)",
+      "published mathematical record 2026/9/7/SCOPE002 (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At k>=3 the unconstrained consensus hub diagonal (2-k)/(k+2) is negative, while here every diagonal must be >=0.",
+        "Uniform pi0=pi1 makes condition k*pi1<=2*pi0 equivalent to k<=2; it is false throughout the new theorem domain.",
+        "Symmetry averaging only guarantees existence of an invariant solution; the new Rayleigh/eigenvalue argument proves exact weights and the global SLEM."
+      ],
+      "reasoning": "Neither an infeasible optimum over a larger signed class nor a conditional theorem outside its hypotheses logically contains the new stochastic optimum. The included exact spectral certificate is a new parameter-wise solution relative to inspected sources. The all-parameter depth-two result does not subsume depth three.",
+      "searches": [
+        "arxiv:1001.4278 symmetric star hub weight 2/(k+2) stochastic feasibility",
+        "arxiv:2501.02421 symmetric tree depth three uniform pi0 pi1 inequalities",
+        "arxiv:0709.0955 fastest mixing symmetry theorem exact special cases"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al., arXiv:0709.0955, Secs.1–3: centered spectral norm formulation and automorphism averaging.",
+        "Jafarizadeh and Jamalipour, arXiv:1001.4278, Sec.IV-A, same symmetric-star topology but broader consensus weights.",
+        "Jafarizadeh, arXiv:2501.02421, Secs.6.6 and 7.2–7.3, reversible Markov terminology and depth-dependent stars."
+      ],
+      "reasoning": "Spider S(k,3), symmetric star with k arms of length three, uniformly stationary reversible chain, and nonnegative fastest averaging are equivalent descriptions of the current optimization domain. A graph-only/title match with the 2010 consensus theorem is insufficient: that optimum is infeasible for k>=3 under entrywise nonnegativity. The 2020 formula has hypotheses violated by the uniform stationary target.",
+      "searches": [
+        "\"fastest mixing\" \"spider\" tree",
+        "\"fastest mixing Markov chain\" \"subdivided star\" random walk",
+        "\"fastest mixing\" \"symmetric star\" Markov network transition probabilities",
+        "\"fastest mixing Markov chain\" symmetric tree depth 3 stationary uniform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed spider record gives coupling-tail estimates for lazy simple random walk with fixed transition mechanism.",
+        "Other nearest indexed records concern unrelated graph families or non-Markov spectral questions.",
+        "No inspected source/database table yields the radical gamma formula for the constrained k>=3 spider."
+      ],
+      "reasoning": "The nearest spider-specific record addresses a different, fixed walk and is not a table of optimized symmetric probabilities. Missing search hits do not establish uniqueness; this check is supportive evidence only.",
+      "searches": [
+        "fastest mixing Markov chain length two spider graph subdivided star with k arms symmetric uniform stationary optimum spectral radius",
+        "Fastest mixing Markov chain depth 3 spider S(k,3) Markov-constrained optimal weights with hub transition 1/k and analytic spectral gap radical",
+        "The exact fastest symmetric nonnegative stochastic Markov chain with uniform stationary measure on k identical length three spider branches k>=3 has inner edge 1/k, next edge (2-gamma)/3 outer (1+gamma)/3",
+        "2026/9/7/SCOPE002 lazy simple random walk balanced spiders mixing bounds"
+      ]
+    },
+    "rationale": "The 2007/2009 graph-symmetry FMMC framework does not provide the k-arm length-three radical solution. The 2010 symmetric-star optimum pertains to signed-diagonal consensus: its hub holding probability (2-k)/(k+2) is strictly negative for k>=3, violating the current feasible set. The 2020 FMRMC symmetric-star formula is conditional on k*pi1<=2*pi0, false under uniform mass for k>=3; its unconditional exact classification concerns depth two. The closest indexed fixed-weight spider result bounds mixing but does not solve transition-probability optimization. These implication comparisons support a distinct claim; a residual possibility of an unindexed or overlooked equivalent result remains.",
+    "residual_risks": [
+      "Unindexed specialized literature may contain an identical nonnegative uniform-star theorem.",
+      "A conditional or appendix result in the 2020/2025 general symmetric-tree work might imply the formula by a route not recognized in examined applicable sections; independent source inspection recommended.",
+      "Only arm-permutation-invariant uniqueness is proved; general nonsymmetric optimum multiplicity is unresolved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_SPECIFIC_FORMULA",
+        "evidence": "Theorem 2.1 averages an optimum to orbit invariance; explicit cases are edge-transitive/distance-transitive and other examples, not S(k,3) with the Markov hub constraint.",
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "Full accessible text, introduction, symmetry theorem in Section 2, and analytic case results Sections 3 and 5",
+        "method": "Read accessible arXiv rendered text, compared theorems and example families",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "General FMMC framework with symmetry reduction"
+      },
+      {
+        "assessment": "SAME_GRAPH_DIFFERENT_FEASIBLE_CLASS",
+        "evidence": "For k branches the prescribed central edge 2/(k+2) implies hub holding probability (2-k)/(k+2)<0 whenever k>=3.",
+        "identifier_or_url": "https://arxiv.org/abs/1001.4278",
+        "material_read": "Available full-text transcription of the symmetric-star section with formulas for central and tail weights, plus intro/method and conclusion; arXiv abstract confirms work identity",
+        "method": "Read accessible full-text transcription and arXiv source metadata, compare feasibility and resulting diagonal entries",
+        "title": "Weight Optimization for Distributed Average Consensus Algorithm in Symmetric, CCS & KCS Star Networks",
+        "trigger": "Same graph with potentially stronger fast-consensus result"
+      },
+      {
+        "assessment": "CONDITIONAL_EXPLICIT_RESULTS_NOT_COVERING_UNIFORM_DEPTH_THREE",
+        "evidence": "Sections 6.6 and 7.3 require k*pi1<=2*pi0 for the star weights. Uniform mass with k>=3 violates this. Section 7.2.1 classifies depth two, not the present depth three.",
+        "identifier_or_url": "https://arxiv.org/html/2501.02421v1",
+        "material_read": "Sections 6.5–6.6 and 7.1–7.3 and related depth-two and special-case formulas, plus introduction and discussion",
+        "method": "Read full accessible arXiv HTML in the relevant sections; inspect conditions and exact parameters",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs & Subgraphs",
+        "trigger": "Highly relevant reversible stochastic symmetric-star/tree paper"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_DIFFERENT_OBJECTIVE_NO_WHOLE_DOCUMENT_EXCLUSION",
+        "evidence": "Abstract provides geometric bounds on mixing time, not an explicit S(k,3) optimized edge-probability theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2111.05816",
+        "material_read": "Accessible abstract and summary of vertex conductance and mixing-time bounds",
+        "method": "Compare stated bound/objective with exact SLEM edge-weight optimization",
+        "title": "Geometric bounds on the fastest mixing Markov chain",
+        "trigger": "General bounds possibly dominating graph-family exact rate"
+      },
+      {
+        "assessment": "SUMMARY_ONLY_DIFFERENT_STATED_CLAIM_WITH_RESIDUAL_RISK",
+        "evidence": "Summary describes fixed lazy random walk coupling and tail bounds, not a minimax transition assignment. No claim that full paper is ruled out.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/7/SCOPE002",
+        "material_read": "Indexed published title and summary only; full text not inspected",
+        "method": "Compare explicitly stated fixed lazy walk coupling bound with optimized uniform-stationary SLEM claim",
+        "title": "Explicit coupling-tail mixing concentration for lazy simple random walk on balanced spiders",
+        "trigger": "Closest spider-specific indexed mathematical record"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d7800ee-60ec-441a-84c1-7759d4ee517c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "On a natural, infinite three-edge-arm tree family the nonnegative Markov constraint invalidates the earlier same-topology fast consensus weights. The theorem provides exact globally optimal transition probabilities, a radical spectral-gap law, a distinguished saturating hub budget, and a strict negative-spectrum certificate for all k>=3. It is a motivated complete parameter classification useful as a benchmark for spectral Markov design, not a mere numerical restatement.",
+    "status": "PASS"
+  }
+}
