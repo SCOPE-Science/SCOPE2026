@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "A complete marked-one-run bijection counts all n-vertex input configurations with fixed initial and updated support. One-step majority flips singleton runs only, giving P=H-s+t and the exact closed binomial-composition formula. All minority-coalition bounds follow from t<=r-1 and s>=max(0,2r-h), and the critical residue class enumeration lists all surviving tuples. Direct brute-force evaluation of all 2^n initial profiles for n=3..18 independently matches the entire formula; exact-composition sums validate the boundary multiplicities through n=101. Full infinite argument is combinatorial, not a finite experiment.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chebotarev–Peleg (2022), arXiv:2210.03410, treats coalition existence over classes of degree-regular graphs with loops and inequalities for happy/proponent counts. It optimizes across graphs, unlike the fixed-cycle complete labeled distribution.",
+        "1995 majority-domination literature provides general graph extremal definitions; exact weighted distributions for a fixed cycle are a separate enumeration problem."
+      ],
+      "reasoning": "Known theorems concerning general graph coalition existence do not automatically specify how many coalitions with each given support number cause each possible proponent count in the fixed cycle. The threshold by itself could be subsumed by an existing majority-domination value and is not presented as the standalone originality basis.",
+      "searches": [
+        "two tier majority voting on cycle with loops exact number of successful coalitions, count by happy voters, three-neighbor majority, complete outcome distribution",
+        "majority of majorities on a cycle count configurations where majority is correct, two-stage voting local-majority exact generating polynomial",
+        "arXiv:2210.03410"
+      ]
+    },
+    "checked_sources": [
+      "Chebotarev–Peleg, arXiv:2210.03410 (2022)",
+      "Nakar–Ron, arXiv:2205.08972 (2022)",
+      "Broere et al., Discrete Mathematics 138 (1995), 125–135, abstract",
+      "Fishburn–Hwang–Lee, Discrete Mathematics 61 (1986), 165–179, bibliographic discussion",
+      "Wolfram Atlas: elementary cellular automaton rule 232"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Chebotarev–Peleg manuscript discusses aggregate feasible vote configurations on varying regular graphs, without a run-composition counting distribution for one fixed cycle.",
+        "Nakar–Ron concerns periodic configurations. Fishburn–Hwang–Lee (1986) concerns local-vs-global majority conditions under different local-majority objectives; full text could not be fully inspected.",
+        "The established local-majority rule and classical composition enumeration are explicitly used as inputs rather than claimed as discoveries."
+      ],
+      "reasoning": "Even if a more general coalition-existence bound implies the minimum support threshold, it does not imply the coefficient-by-coefficient joint distribution or the number of exact minimal winners. Existing stability counts likewise do not imply the distribution over arbitrary one-step inputs. Full-text inaccessibility for one classical paper remains a risk.",
+      "searches": [
+        "two tier majority voting on cycle with loops exact number of successful coalitions, count by happy voters, three-neighbor majority, complete outcome distribution",
+        "majority of majorities on a cycle count configurations where majority is correct, two-stage voting local-majority exact generating polynomial",
+        "arXiv:2210.03410",
+        "arXiv:2205.08972",
+        "Fishburn Hwang Lee Do local majorities force a global majority 1986"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakar–Ron (2022) analyzes periodic/fixed configurations of one-dimensional majority automata; its object is long-term dynamics, not labeled one-step joint Hamming-weight enumerators.",
+        "Broere et al. (1995) defines majority domination as a minimum weight satisfying a majority of closed-neighborhood inequalities; the first-order threshold is consequently an instance of a known optimization *question*, while the joint two-parameter enumeration and critical winner multiplicities are different data."
+      ],
+      "reasoning": "The one-step local majority map is equivalent to the classical radius-one median/majority cellular automaton. The theorem explicitly does not claim that local map as new. The compared works do not state a joint input-weight/output-weight formula N(n,h,p) or a three-residue-class count of minimal winning placements; a parallel formulation may nevertheless exist.",
+      "searches": [
+        "cycle graph closed-neighborhood majority of majorities complete joint histogram initial supporters and local proponents cyclic run compositions singleton blocks",
+        "majority cellular automata rule 232 weight enumerator finite circular binary strings one step local majority count runs",
+        "arXiv:2205.08972",
+        "1995 majority domination in graphs DOI 10.1016/0012-365X(94)00194-N"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Wolfram cellular-automaton atlas contains the established local majority rule 232, not the claimed all-n two-variable input/output weight enumerator.",
+        "Targeted mathematical literature and research-record searches produced no identical bivariate formula; the absence of a hit is not a proof of novelty."
+      ],
+      "reasoning": "The exact theorem is an enumerator over labeled initial cyclic words, not a rule table or a known list of long-term attractors. An unindexed pre-existing weight enumerator would cover it and remains a residual risk.",
+      "searches": [
+        "majority cellular automata rule 232 weight enumerator finite circular binary strings one step local majority count runs",
+        "cycle graph closed-neighborhood majority of majorities complete joint histogram initial supporters and local proponents cyclic run compositions singleton blocks",
+        "2022 one-dimensional majority cellular automaton rule 232 weight enumerator cyclic words"
+      ]
+    },
+    "rationale": "The main contribution is the bivariate labeled one-step support-to-proponent distribution and exact multiplicities of minimum winning coalitions. Classical majority domination and Chebotarev–Peleg already motivate and partly cover coalition-existence questions, and the 232 majority local rule is known. The named comparisons distinguish the actual new enumerator from earlier existence and long-term-dynamics results; unindexed or inaccessible classical enumerations remain possible.",
+    "residual_risks": [
+      "Equivalent complete joint weight enumeration could occur in older cellular-automata or cyclic-word literature under different terminology.",
+      "Full publisher text of Broere et al. (1995) and Fishburn et al. (1986) was not available for a decisive comparison.",
+      "A general bound might already imply the support threshold, which is explicitly not claimed as standalone novel material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "no directly stated complete N(n,h,p) or boundary winning-placement multiplicity formula in inspected sections; known coalition-existence statements not claimed as new",
+        "evidence": [
+          "arXiv:2210.03410 (initial posting October 7, 2022)",
+          "Theorem and discussion on majority-of-majorities on looped regular graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2210.03410",
+        "material_read": "28-page openly accessible preprint, including definitions, central bounds, theorem on low degree and discussion of related majority-domination work",
+        "method": "full-text reading and comparison of quantified objects: variable network existence versus fixed-cycle labeled counts",
+        "title": "The Power of Small Coalitions under Two-Tier Majority on Regular Graphs",
+        "trigger": "same two-tier voting rule and degree-three looped cycles"
+      },
+      {
+        "assessment": "covers long-time behavior, not the given joint one-step histogram or sharp majority-passage multiplicity",
+        "evidence": [
+          "arXiv:2205.08972, abstract and main structure theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+        "material_read": "open-access paper, definitions and principal theorem about eventual stability and periodic configuration structure",
+        "method": "full-text comparison of dynamics versus one-step input/output enumerator",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "same underlying majority update on cyclic binary strings"
+      },
+      {
+        "assessment": "minimum support notion is pre-existing and not presented as the novel core; no evidence of full joint distribution from the accessible abstract",
+        "evidence": [
+          "I. Broere et al., Discrete Mathematics 138 (1995), 125–135; openly accessible abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(94)00194-N",
+        "material_read": "publisher/academic abstract and bibliographic description; full 1995 paper not obtained",
+        "method": "compare published definition and stated scope to theorem",
+        "title": "Majority domination in graphs",
+        "trigger": "equivalent minimum-support optimization via signed closed neighborhoods"
+      },
+      {
+        "assessment": "no justified full-document exclusion; inaccessible plausible background source listed as residual risk",
+        "evidence": [
+          "Fishburn, Hwang and Lee, Discrete Mathematics 61 (1986), 165–179"
+        ],
+        "identifier_or_url": "https://dblp.org/rec/journals/dm/FishburnHL86",
+        "material_read": "bibliographic abstract/secondary literature discussion, not full article",
+        "method": "compare local-condition quantifiers reported in related primary literature",
+        "title": "Do local majorities force a global majority?",
+        "trigger": "historical possible dominance of local-global voting statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b07f1d7-1d56-4e9a-a930-b2538dc08800",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact bivariate census resolves the natural coalition-placement sensitivity of two-tier majority on a canonical fixed regular graph for all n. It identifies exact proportions of winning configurations conditional on coalition size and a nontrivial three-case quasi-polynomial count at the sharp minority-victory boundary, exceeding an existence-only or anecdotal example. The counts are applicable to exact probabilistic voting analysis without a broad-graph theorem.",
+    "status": "PASS"
+  }
+}
