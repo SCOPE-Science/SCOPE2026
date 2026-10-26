@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The path Laplacian mean-zero rank-one formula yields delta K=nt S/(1+td). Solving Lx=e_i-e_j gives a centered integer ramp; direct summation gives S=C_n(d)-d^2(l-r)^2/(4n). Parity-mismatched d>=3 loses strictly to a neighboring symmetric chord by numerator arithmetic averaging with exactly matching denominator averages. For even n, d=2 loses strictly to d=3 by the exact positive S and S/d differences. For symmetric lengths, the adjacent gain comparison has an explicit single positive threshold t_d iff 4d>3n+4. The continuous normalized gain has positive derivative up to 3n/4 and thereafter strictly decreasing derivative numerator, forcing strictly unimodal sampled maxima, no skipped lengths and at most one adjacent tied pair. The independent grounded-Laplacian Fraction inversion in verify.py reproduces all optimal chord sets and values in 1,587 finite graph/weight checks; the infinite claim rests on these symbolic inequalities, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang–Jiang globally bounds unweighted unicyclic graph classes and characterizes extreme star-on-cycle and one-tail-on-cycle structures.",
+        "Ghosh–Boyd–Saberi optimizes weights on given graph topologies rather than selecting a single new chord while fixing the original path."
+      ],
+      "reasoning": "Broader general algorithmic objectives or global graph-family bounds could subsume a proposed special case only if they provide the actual fixed-path feasible restriction and exact parameter characterization. The examined results do not, and their respective decision variables differ.",
+      "searches": [
+        "unicyclic path with balanced tails minimizes Kirchhoff index cycle chord length degree two trees",
+        "unicyclic two tail graphs Kirchhoff index optimal chord balanced tails variable edge weight",
+        "Yang and Jiang 2008 Theorems 3.4 and 4.3",
+        "Ghosh Boyd Saberi 2008 Eq. (2)"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://match.pmf.kg.ac.rs/electronic_versions/Match60/n1/match60n1_107-120.pdf",
+      "https://arxiv.org/pdf/2503.21409",
+      "https://epubs.siam.org/doi/abs/10.1137/050645452",
+      "https://arxiv.org/abs/2503.21409",
+      "https://arxiv.org/pdf/2605.24479"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact nearest work provides path weights on fixed topology, global unweighted unicyclic extrema, and generic rank-one greedy marginal gains.",
+        "A base path with one fixed weighted shortcut is neither a fixed-topology conductance redistribution problem nor a global unicyclic graph extremum."
+      ],
+      "reasoning": "Existing exact identities can be used as tools to derive the present classification but do not themselves assert or immediately imply the globally optimal balanced chord, its explicit series of crossings, or sharp n=9 boundary.",
+      "searches": [
+        "optimal edge augmentation of P_n total effective resistance chord changes from end to interior",
+        "single edge augmentation path P_n Kirchhoff index optimal center symmetric endpoints weighted edge conductivity threshold 9 vertices",
+        "doi:10.1137/050645452 Sec. 6",
+        "MATCH60(2008) Thm.4.3",
+        "arXiv:2503.21409 Eq.(1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhou et al. Eq. (1) gives general pseudoinverse rank-one addition gain.",
+        "Current theorem converts this gain to an explicit all-path-order geometric-tail formula, excludes asymmetry, and classifies all parameter transitions."
+      ],
+      "reasoning": "Biharmonic/effective-resistance marginal gain and one-shortcut terminology were compared. The generic gain identity alone does not entail the exact optimizer or phase law without evaluating and comparing the path candidates.",
+      "searches": [
+        "Kirchhoff index optimal placement of a single added edge in path graph resistance minimization nonuniform chord endpoints conductance phase transitions",
+        "shortcuts in path reduce total effective resistance: optimal chord position under weight varying resistance",
+        "resistance-distance index path chord edge addition optimal shortcut biharmonic distance tail balanced conductance transition formula",
+        "arXiv:2503.21409 Equation (1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record returns include 2026/10/4/SCOPE-uniform-average-mixing-on-the-eight-vertex-path-p-8--606431707242 (different quantum dynamics), and 2026/10/11/SCOPE-exact-algebraic-gnarledness-of-three-path-theta-graphs--cceb12dd2a0d (different graph invariant).",
+        "The 2008 unicyclic article contains numerical-free extremal formulas but not a table of single weighted path chords."
+      ],
+      "reasoning": "No checked accessible database result or table contained the exact formula or threshold staircase. This is bounded negative search evidence, not exhaustive absence.",
+      "searches": [
+        "Kirchhoff index optimal placement of a single added edge in path graph resistance minimization nonuniform chord endpoints conductance phase transitions",
+        "single edge augmentation path P_n Kirchhoff index optimal center symmetric endpoints weighted edge conductivity threshold 9 vertices",
+        "unicyclic two tail graphs Kirchhoff index optimal chord balanced tails variable edge weight"
+      ]
+    },
+    "rationale": "Statement-level comparisons identify prior fixed-topology total-resistance weight allocation, generic graph edge-addition algorithms with their rank-one gain formula, and global unweighted unicyclic extremal graph classifications. None of these inspected full primary texts states or implies the exact all-positive-real-weight, all-path-order optimizing chord location with proven strict tail balance, rational transitions and nine-vertex threshold. Seven meaning-based research-record searches of source/parameters/equivalent phrasing found only conceptually adjacent, noncovering records. Search is not a mathematical proof of novelty; residual risk is stated.",
+    "residual_risks": [
+      "The closely related 2026 arXiv:2605.24479 studies a weighted cycle plus chord, with a different base graph and coherence/Pareto objectives; only its introduction, problem, and main contributions were inspected here.",
+      "A specialized path-chord Kirchhoff-index optimization theorem could exist under terminology not surfaced by the seven searches.",
+      "The 2006 conference version predates the 2008 electronic publication but its item-specific exact earliest availability date could not be verified.",
+      "No independent mathematical or bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: minimizes total resistance by reallocating all edge weights on a fixed graph, not selecting a single newly added fixed-conductance chord in a unit path.",
+        "evidence": [
+          "Equation (2) fixes input topology and varies all existing conductances subject to a total budget.",
+          "Section 6 optimizes fixed-topology graph families and proves the path maximal optimal total resistance among trees."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Full-text introduction, definitions/equations (1),(2), total-resistance identity (13), fixed-topology optimization, Sections 6–8 and path/graph illustrations.",
+        "method": "Primary-author open full text, rendered first pages plus extracted sections.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Foundational exact effective-resistance network optimization and path case."
+      },
+      {
+        "assessment": "NOT_COVERING from inspected scope: fixed-network edge-weight allocation, not variable chord position at separately prescribed conductance.",
+        "evidence": [
+          "Proceedings dated July 24–28, 2006; front page describes allocation of weights on a given graph.",
+          "First exactly evidenced later journal electronic publication date is 2008-02-01."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Proceedings cover/header, abstract, introduction, problem (2), and related-problem description.",
+        "method": "Original 12-page proceedings PDF, rendered first page and read introduction.",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS 2006 proceedings version)",
+        "trigger": "Earlier public conference version of same foundational study and source-date priority."
+      },
+      {
+        "assessment": "NOT_COVERING: characterizes global extremizers among arbitrary unweighted unicyclic graphs and one-tailed cycle families; does not establish exact minimum over two-tail path-chord subset as varying edge conductance crosses infinitely many phase boundaries.",
+        "evidence": [
+          "Theorem 3.4 gives bounds at fixed cycle size, with extremizers a cycle with pendant star and cycle with one pendant path.",
+          "Theorems 4.3–4.4 classify unweighted global unicyclic extrema, without a variable edge-conductance parameter."
+        ],
+        "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match60/n1/match60n1_107-120.pdf",
+        "material_read": "Introduction and Sections 2–4, Theorems 2.2, 3.4, 4.3 and 4.4 and analytical formulas (5),(6) in the publisher-hosted 14-page paper.",
+        "method": "Publisher-hosted open full PDF, inspected pages 114 and 117 as rendered images and extracted theorems.",
+        "title": "Unicyclic graphs with extremal Kirchhoff index",
+        "trigger": "Most directly relevant unweighted unicyclic extremal results; path plus chord is unicyclic."
+      },
+      {
+        "assessment": "NOT_COVERING: generic rank-one formula for a given candidate edge and greedy/approximate graph-wide algorithms, without the all-n closed-form exact path-chord optimizer, parity exclusion or explicit conductance thresholds.",
+        "evidence": [
+          "Equation (1) supplies the generic rank-one gain; it is treated as prior work, not newly claimed.",
+          "Section I and algorithmic sections optimize edge sets on general input graphs and give complexity/approximation results rather than explicit parametric optimal chord locations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2503.21409",
+        "material_read": "Introduction, Sections II–IV and marginal-gain Equations (1),(2), algorithm and theorem statements in the 14-page full manuscript; searched for path-specific results.",
+        "method": "arXiv full text and rendered page 2; statement and parameter comparison.",
+        "title": "Efficient Algorithms for Minimizing the Kirchhoff Index via Adding Edges",
+        "trigger": "Newest directly matching objective (Kirchhoff index reduction by edge addition) and stronger-algorithm concern."
+      },
+      {
+        "assessment": "DIFFERENT_DOMAIN: adds chord to a weighted CYCLE, not to a unit PATH; no all-path-order parity staircase appears in inspected material, but the rest of the 36-page source was not fully examined.",
+        "evidence": [
+          "Abstract and Sec. 1 define two complementary resistance arcs and cycle augmentation, unlike the path with two tails."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.24479",
+        "material_read": "Introduction, problem formulation and main-contribution statements on pages 1–3, with first page rendered.",
+        "method": "Lawful arXiv PDF, inspected stated graph family and central objective.",
+        "title": "Single-Chord Augmentation of Weighted Cycles for Algebraic Connectivity and Network Coherence",
+        "trigger": "Directly related single-chord Kirchhoff index and network coherence optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b232c542-57db-44f5-bc33-e617604a8573",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One fixed-conductance shortcut placement on a path is a natural minimal graph design problem and the Kirchhoff index is a recognized whole-network resistance/consensus metric. The result supplies an all-size, all-weight exact optimum, a structural exclusion of every asymmetric placement, a discrete sequence of sharp rational conductance transitions, and the unexpected onset only at n=9; these are useful as benchmark instances and describe a real design change. They are not just a numeric check or arbitrary finite table.",
+    "status": "PASS"
+  }
+}
