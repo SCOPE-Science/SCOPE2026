@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "For each new vertex the lower/upper sets in the chain are uniquely determined by 0<=l_i<=u_i<=n. Comparability among new points forces both cuts isotone; incomparability forbids the two possible chain witnesses, exactly l_i<=u_j and l_j<=u_i. These inequalities are necessary and sufficient for a valid induced extension by transitivity/path contraction. Each labelled new-point poset F yields an endpoint poset Q_F of 2r vertices with no directed cycles; finite homogeneous extension identifies these with complete types. Decomposition by image size yields T_r(n)=sum_F sum_k SurjIso(Q_F,[k])*binom(n+1,k). Every Q_F admits a linear extension, so k=2r coefficient positive and degree exactly 2r. The 2- and 3-point formulas and orientations agree with a standalone checker independent of endpoint enumeration in 15 exhaustive small direct-extension instances, including r=3,n=3. Computational checks are explicitly finite and not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jochemko, arXiv:1310.0838, Section 2, Theorem 2.3 cites Stanley: a fixed poset has a polynomial number of isotone maps to a chain.",
+        "Hubička, arXiv:1009.0566v1, Section 3.1 gives universality/homogeneity of the generic poset.",
+        "Pach et al., arXiv:1111.7109v2, Sections 1–3 classify random-poset reducts and state Fraïssé properties.",
+        "published-finding corpus indexed 2026/9/30/SCOPE-exact-ordered-tuple-orbit-profiles-of-the-five-random-poset-redu--635ca0d5aff9 counts tuple orbits with no growing named chain; this is only the n=0 specialization."
+      ],
+      "reasoning": "The generic order-polynomial theorem alone has no map from random-poset tuple types to any fixed endpoint poset; this new bridge and its extra incomparability constraints require proof. A general unparameterized orbit count gives only T_r(0), not the n-dependent spectrum. There is no identified broader result implying the stated all-arity formula.",
+      "searches": [
+        "For fixed arity r the number of realized complete r-types over a named n-element total order parameter in the random poset is a polynomial of degree 2r order-preserving map count",
+        "finite named chain in Fraisse random poset multi-point extensions count polynomial degree twice tuple arity",
+        "order polynomial decomposition labelled poset extension with fixed totally ordered subset endpoint constraints",
+        "number of labelled posets extending a fixed n element chain adding k labeled elements polynomial in n",
+        "poset extensions fixed induced chain number of ways insert k elements order polynomial"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.0566v1",
+      "arXiv:1111.7109v2",
+      "arXiv:1310.0838",
+      "arXiv:2006.01568v6",
+      "OEIS:A071245",
+      "2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+      "2026/9/30/SCOPE-exact-ordered-tuple-orbit-profiles-of-the-five-random-poset-redu--635ca0d5aff9",
+      "prior_claim:fde09381-43fa-4024-bc6c-37cd4d632635",
+      "prior_claim:3d742ffe-8f7d-4c6f-a97b-f13a15c88e72",
+      "prior_claim:f9e6713e-32c4-447a-a214-16a82a48925a",
+      "prior_claim:23742e53-0543-4848-9ed9-a13fecb0820f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior recorded claim fde09381-43fa-4024-bc6c-37cd4d632635 gives a sharp one-type extremal bound over arbitrary n-point parameter posets.",
+        "Prior recorded claim 3d742ffe-8f7d-4c6f-a97b-f13a15c88e72 gives exponential exact r=2 spectra over antichain parameters.",
+        "Prior recorded claims f9e6713e-32c4-447a-a214-16a82a48925a and 23742e53-0543-4848-9ed9-a13fecb0820f enumerate only ONE-point types over other poset classes.",
+        "Stanley/Jochemko order polynomials count isotone maps Q→[m] once Q is specified; they do not identify Q_F for this application."
+      ],
+      "reasoning": "The finite-chain base is neither an antichain nor an arbitrary 1-type specialization at r>=2. Previous no-parameter profiles fix n=0. The older one-type formulas do not imply r>=2 because interactions among new points require cross-cut inequalities. Once the new endpoint encoding is proved, classical order-polynomial results imply polynomiality, and this dependency is expressly acknowledged. The arity-uniform construction is not covered by any compared statement.",
+      "searches": [
+        "Complete 2-types over a named finite chain in the countable homogeneous universal partial order: polynomial enumeration via order polynomials of endpoint constraint posets",
+        "For fixed arity r the number of realized complete r-types over a named n-element total order parameter in the random poset is a polynomial of degree 2r order-preserving map count",
+        "Chain parameters in the random poset: exact two-variable type count T_2(n) = (n+1)(n+2)(2n^2+8n+9)/6",
+        "random partial order with chain parameters count complete types ordered distinct tuples",
+        "random partial order with chain parameters count complete types ordered distinct tuples"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest indexed: 2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1 (1-types over arbitrary finite parameter posets, not chain-relative tuples).",
+        "arXiv:1111.7109v2, Sections 1–3, defines the random poset and its homogeneous extension property, not endpoint-isotone tuple enumeration.",
+        "Prior recorded claim 3d742ffe-8f7d-4c6f-a97b-f13a15c88e72: two-types over *antichain* parameters."
+      ],
+      "reasoning": "Searched direct formula, parameter-chain variants, multituple extension, and random-poset synonyms. The closest results classify 1-types in any fixed poset or tuple types over antichains; neither gives the constraint poset Q_F for all r over a named chain, nor implies its exact degree 2r. No equivalent statement was located; absence in semantic search is not a proof of global novelty.",
+      "searches": [
+        "Complete 2-types over a named finite chain in the countable homogeneous universal partial order: polynomial enumeration via order polynomials of endpoint constraint posets",
+        "Two-point extension types over finite chain in Fraisse homogeneous random poset, count orbit polynomial",
+        "Chain parameters in the random poset: exact two-variable type count T_2(n) = (n+1)(n+2)(2n^2+8n+9)/6",
+        "random partial order with chain parameters count complete types ordered distinct tuples",
+        "counting types tuples over finite chain generic random homogeneous poset order polynomial",
+        "finite named chain in Fraisse random poset multi-point extensions count polynomial degree twice tuple arity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A071245 records a(m)=m(m-1)(2m^2+1)/6, published no later than 2002. The exact identity T_2(n)=a(n+2) holds and is acknowledged.",
+        "OEIS A071245 lists the scalar polynomial as an integer sequence, with no finite-poset type or endpoint-poset interpretation in the record.",
+        "Exact published-finding corpus queries did not find a separate all-arity table for this setting."
+      ],
+      "reasoning": "The quartic scalar sequence, after index shift, is KNOWN; its numeric discovery is not original. The final claim is instead a uniform structural bijection and full arity-r positive binomial spectrum, neither contained in the OEIS scalar record. Coincident numerical sequences do not by themselves imply identical combinatorial interpretations or the all-arity theorem. Continued bibliographic priority risk is recorded.",
+      "searches": [
+        "\"3, 19, 66, 170, 365, 693\" posets",
+        "\"19, 66, 170, 365\" poset extension",
+        "OEIS 3 19 66 170 365 693",
+        "\"19, 219, 1224, 4654, 13875\"",
+        "\"219, 4231, 36282, 197582\"",
+        "Chain parameters in the random poset: exact two-variable type count T_2(n) = (n+1)(n+2)(2n^2+8n+9)/6"
+      ]
+    },
+    "rationale": "The structural endpoint-poset encoding for every arity and its chain-relative polynomial type spectrum were not identified in relevant indexed prior claims, accessible own histories, or materially inspected background literature. Stanley order polynomiality and the arity-two scalar sequence in OEIS A071245 are explicitly old, and no novelty is claimed for them alone. Contrasting antichain spectra, arbitrary-base 1-type counts and no-parameter orbit counts do not imply the uniform Q_F construction. Full indexed GitHub text and unindexed historical enumeration remain residual priority risks.",
+    "residual_risks": [
+      "The numerical arity-two polynomial is previously tabulated as OEIS A071245 shifted by two; the original contribution is the all-arity structural interpretation.",
+      "Full text of the most relevant published-finding corpus indexed 1-type claim was not available through its GitHub link, so its exclusion rests on the actual indexed statement plus accessible own-claim comparison.",
+      "Specialized historical enumeration of labelled posets extending chains may be unindexed; an exhaustive priority check and independent audit are unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHED_BACKGROUND_NOT_COVERING",
+        "evidence": "Homogeneous partially ordered structures and generic order are constructed/discussed; no chain-relative tuple-type order-polynomial enumeration identified.",
+        "identifier_or_url": "arXiv:1009.0566v1 | https://arxiv.org/html/1009.0566v1",
+        "material_read": "Abstract, contents, Section 3.1 on the generic partial order and the finite-presentation discussion, including the generic-order theorem framing",
+        "method": "arXiv open HTML full text, targeted section and text search",
+        "title": "Combinatorial Properties of Finite Models",
+        "trigger": "Earliest verified dated background for generic finite-poset model, relevant full text"
+      },
+      {
+        "assessment": "ESTABLISHED_BACKGROUND_NOT_COVERING",
+        "evidence": "States finite homogeneous universal poset property; focuses on reduct group classification, not chain-parameter extension enumeration.",
+        "identifier_or_url": "arXiv:1111.7109v2 | https://arxiv.org/html/1111.7109v2",
+        "material_read": "Abstract and Sections 1–3, including Fraïssé limit characterization, reduct classification, random-filter construction",
+        "method": "arXiv experimental HTML full text, section inspection and phrase search",
+        "title": "Reducts of the random partial order",
+        "trigger": "Same homogeneous poset and finite orbit types"
+      },
+      {
+        "assessment": "GENERIC_ORDER_POLYNOMIAL_THEOREM_NOT_ENDPOINT_CONSTRUCTION",
+        "evidence": "Order-preserving map counts polynomial by Stanley; orbital polynomials for finite group actions. No random-poset chain-relative r-types or Q_F endpoint construction.",
+        "identifier_or_url": "arXiv:1310.0838 | https://arxiv.org/abs/1310.0838",
+        "material_read": "Full HTML text in search retrieval, abstract, introduction, Section 2 order-preserving Pólya enumeration, Theorems 2.3 and 2.5",
+        "method": "arXiv HTML full-text inspection",
+        "title": "Order polynomials and Pólya's enumeration theorem",
+        "trigger": "Potential dominating order-polynomial framework"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING",
+        "evidence": "Surveys order-polynomial formulas of fixed finite posets and their dynamics; no homogeneous-poset tuple-type encoding.",
+        "identifier_or_url": "arXiv:2006.01568v6 | https://arxiv.org/html/2006.01568v6",
+        "material_read": "Abstract, introduction and order-polynomial definitions/degree statement; section headings for classes covered",
+        "method": "arXiv HTML text",
+        "title": "Order polynomial product formulas and poset dynamics",
+        "trigger": "Broad order-polynomial theory and possible stronger coverage"
+      },
+      {
+        "assessment": "EXACT_NUMERIC_SEQUENCE_ALREADY_KNOWN_NON_DOMINATING",
+        "evidence": "m(m-1)(2m^2+1)/6, yielding T_2(n) at m=n+2; no r-ary generic-poset type interpretation recorded.",
+        "identifier_or_url": "https://oeis.org/A071245",
+        "material_read": "Full accessible OEIS entry: formula, offset, bibliography, comments, crossreferences",
+        "method": "OEIS webpage inspection",
+        "title": "A071245",
+        "trigger": "Exact two-type coefficient sequence overlap"
+      },
+      {
+        "assessment": "SUMMARY_LIMITED_NOT_FULLTEXT_EXCLUSION",
+        "evidence": "Indexed claim is 1-type count for arbitrary parameter poset and #P-hardness, not arity-r chain spectrum; full-text comparison unavailable.",
+        "identifier_or_url": "2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+        "material_read": "published-finding corpus published title and full returned semantic-search summary; direct linked GitHub full text inaccessible",
+        "method": "published-finding corpus semantic search and attempted website link",
+        "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+        "trigger": "published-finding corpus closest random-poset indexed claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "67a71af3-c8ab-409a-b0a8-fac58e8f6727",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A nontrivial parameter-sensitive orbit-counting invariant in a homogeneous model is reduced uniformly, for every fixed tuple arity, to standard finite order-polynomial data through a newly specified 2r-endpoint constraint poset. This yields a natural full-arity polynomial-versus-exponential contrast between chain and antichain parameter structures; positive integer binomial coefficients; sharp 2r degree; exact arity-two and arity-three formulas; and a structural derivation of a 1/4:1/4:1/2 limiting relation distribution. These are mathematically motivated structural results, not an arbitrary table slice or solely a sequence lookup.",
+    "status": "PASS"
+  }
+}
