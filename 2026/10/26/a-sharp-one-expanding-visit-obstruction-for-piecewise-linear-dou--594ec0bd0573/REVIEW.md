@@ -1,0 +1,11 @@
+# Scientific review: one-expanding-visit obstruction
+
+**Correctness — PASS.** The lift is continuous of degree two, with branch slopes \(u=4-t\) and \(t\). The multiplier of a regular one-plus, \(k\)-minus cycle is \(ut^k\). The affine-branch argument establishes the necessary inequality \(H_{k-1}<(5-t)t^{k-1}\) in both possible orders of the contracting-branch points. For \(k\ge5\), the first four reciprocal powers already contradict the inequality. For \(k=4\), attraction implies \(t<3/4\), producing the same contradiction. The explicit rational four-cycle survives exact transition, itinerary, distinctness and multiplier checks. The all-parameter exclusion is analytical rather than enumerative.
+
+**Originality — PASS under the inspected evidence.** The closest paper, Bhattacharyya and Banerjee, arXiv:2510.11441v1, poses realization of all positive-containing itineraries as Question 8.1; it does not state the negative one-plus classification. Its all-minus impossibility (Lemma 4.1), single-minus existence (Theorem 2.4), and conditional eye characterization (Theorem 2.5) do not imply this obstruction. Searches for equivalent words, slope-run restrictions, and broader circle-map results yielded no covering statement. A different two-saddle border-collision map has an itinerary prohibition for a different map and cannot imply this claim. Priority under less obvious coding terminology remains unverified.
+
+**Mathematical value — PASS.** The result gives a sharp infinite-period exclusion within a central symbolic-dynamics family and contradicts a concrete, explicitly stated optimistic realization question using the first primitive forbidden pattern \(+----\). The rational four-cycle shows that the obstruction starts at the precise threshold, not simply at the presence of several contracting visits. Unlike a finite sample, the theorem excludes an infinite class for all parameters.
+
+**Limitations and risks.** Only regular attracting cycles with one expanding visit are classified. Orbits contacting a branch breakpoint and itineraries with two or more expanding visits remain outside scope. The final historical-priority determination requires independent expert literature review.
+
+Self-review: passed. Independent audit: not yet performed.
