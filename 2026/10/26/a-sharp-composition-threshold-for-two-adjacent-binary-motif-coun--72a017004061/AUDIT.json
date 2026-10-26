@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Independent overlap enumeration gives exact mixed moment from all ordered window pairs; positive hypergeometric denominator; two complete slack-polynomial strict sign proofs cover every a>=1,b>=2,n>=6. The standard-library checker verified 31,990 exact assertions including full word enumeration through length 13 and rational crosschecks through a,b<=80. Boundary cases b=2 and a=1 were checked explicitly in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Even-Zohar–Lakrec–Tessler, arXiv:2012.00742: uniform fixed-composition multi-sample words, but all subsequence occurrences rather than adjacent trigrams, with asymptotic covariance spectra.",
+        "arXiv:1905.05646 Theorem D concerns one nonconsecutive order-pattern count in an iid alphabet word.",
+        "arXiv:2102.00443 Theorems 1.1–1.2 concern avoidance and Wilf-equivalence.",
+        "arXiv:2111.06185 defines a fixed multiset but its pattern avoidance is nonconsecutive, and it does not state count covariance."
+      ],
+      "reasoning": "Broader word-statistics techniques provide useful tools, but examined prior conclusions do not directly imply the explicit all-composition strict sign classification. A complete symbolic multivariate generating function could in principle compute the special case; that historical possibility is retained.",
+      "searches": [
+        "arxiv:2012.00742 (Spectral Analysis of Word Statistics)",
+        "web: random multiset permutations joint occurrences consecutive patterns runs exact covariance 2021",
+        "web: random fixed composition binary sequence triplet pattern covariance counts 001 010",
+        "arxiv:1905.05646",
+        "arxiv:2102.00443",
+        "arxiv:2111.06185"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2012.00742",
+      "https://arxiv.org/abs/1905.05646",
+      "https://arxiv.org/abs/2102.00443",
+      "https://arxiv.org/abs/2111.06185",
+      "https://www.nist.gov/publications/joint-distribution-pattern-frequencies-and-multivariate-polya-aeppli-law",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 probability-classified paper treats fixed-composition subword counts across arbitrary gaps, not the two consecutive-window count variables: its covariance eigenspaces do not directly imply the finite adjacent-count covariance threshold.",
+        "The closest published fixed-composition result derives local covariance signs for transition indicators, not the mixed moment of global 001/010 occurrence counts.",
+        "The 2021 multiset paper classifies pattern avoidance equivalence; identical avoidance cardinalities do not determine joint occurrence moments.",
+        "General Markov pattern covariance methods use an unconditioned Markov law, not uniform fixed symbol counts."
+      ],
+      "reasoning": "The new assertion concerns global U,V with a+b fixed. Even knowing all pairwise covariances of edge-transition indicators does not imply covariance of the products defining third-order motifs. The exact rational moment and strict integer boundary require an additional overlapping-window enumeration and nontrivial polynomial sign analysis.",
+      "searches": [
+        "Covariance of numbers of adjacent 001 and 010 trigrams in uniform fixed-count binary strings is strictly positive exactly when zero count exceeds one count by two, and negative otherwise",
+        "occurrence covariance of 001 and 010 in random multiset permutations and random binary runs",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+        "arxiv:2111.06185"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The reverse of 001 is 100 while 010 is invariant, so reversal gives the equivalent count pair (100,010); unlike a naming-only comparison, the same covariance follows by reversal of the fixed-composition word.",
+        "Primary arXiv:2111.06185 studies fixed-multiset pattern avoidance but defines nonconsecutive containment."
+      ],
+      "reasoning": "Reversal is an explicit true equivalence and is covered by the stated theorem; complementation exchanges a and b and maps 001/010 to 110/101 under changed composition. Search results did not identify a prior formulation of this finite sign law under these aliases.",
+      "searches": [
+        "fixed-composition binary random word consecutive 001 010 motif counts hypergeometric overlap covariance sign threshold zeros minus ones",
+        "occurrence covariance of 001 and 010 in random multiset permutations and random binary runs",
+        "web: random words prescribed composition motif occurrences joint covariance 001 010",
+        "web: \"001\" \"010\" \"covariance\" patterns permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest length-two spectrum result counts adjacent-pair multispectra, not two third-order motif occurrences.",
+        "No exact named tabulation of the composition-dependent 001/010 covariance surfaced in the actual targeted web and published-record searches."
+      ],
+      "reasoning": "A missing search hit is not a novelty proof. The specific pair covariance and strict integer sign boundary are mathematically different from known length-two spectrum tables.",
+      "searches": [
+        "web: \"001\" \"010\" \"covariance\" patterns permutations",
+        "fixed-composition binary random word consecutive 001 010 motif counts hypergeometric overlap covariance sign threshold zeros minus ones",
+        "Covariance of numbers of adjacent 001 and 010 trigrams in uniform fixed-count binary strings is strictly positive exactly when zero count exceeds one count by two, and negative otherwise",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ]
+    },
+    "rationale": "Focal 2020-12-01 primary-MSC-60C05 paper arXiv:2012.00742 explicitly studies the same uniformly fixed-composition word model, but its word counts use all nonconsecutive subsequences and its stated covariance results are spectral/asymptotic, not finite adjacent 001/010 trigram covariance. The other primary texts and published-finding corpus queries likewise do not yield the all-composition sharp sign boundary. General multivariate word techniques might implicitly imply a special case; this risk remains open.",
+    "residual_risks": [
+      "General multivariate pattern-count cluster theorems or weighted generating functions may implicitly contain this specialization.",
+      "A complete close reading of every historical joint-word pattern paper, including the full 2010 Rukhin text, was not performed.",
+      "Only accessible statements and source sections inspected are assessed; negative search results cannot establish absolute priority.",
+      "The general fixed-composition subsequence spectral results might admit a non-obvious specialization or transformation to consecutive counts beyond the inspected definitions and main results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The model W-prime(n) exactly agrees on uniformly permuting a fixed multiset, but the authors count ALL not-necessarily-consecutive subword embeddings and analyze their asymptotic covariance spectral decomposition. Literal adjacent length-three windows and the sharp finite 001/010 composition boundary are not the same statistics or a displayed corollary of the inspected results.",
+        "evidence": "arXiv:2012.00742, pp. 1–4: primary MSC 60C05; definition states occurrences do not have to be consecutive; defines multi-sample fixed-composition random word model.",
+        "identifier_or_url": "https://arxiv.org/pdf/2012.00742",
+        "material_read": "Open original full-text version 3: title and MSC, abstract, introduction pp. 1–3 and Theorems 1–4 description on pp. 3–4; original public submission date independently cross-checked against 2020-12-01 v1.",
+        "method": "Read arXiv PDF full-text passages and primary MSC 60C05 declaration; directly compared the random multiset model and the definition of the counted occurrences.",
+        "title": "Spectral Analysis of Word Statistics",
+        "trigger": "Nearest probability-classified predecessor: explicit covariance spectra in the same fixed-composition word model."
+      },
+      {
+        "assessment": "Counts a single not-necessarily-consecutive order-isomorphic pattern in an unconditioned iid uniform alphabet word; no two literal consecutive trigrams with fixed composition or strict sign boundary in the inspected claims.",
+        "evidence": "arXiv:1905.05646, pp. 1–5, 31; single-pattern variable, alphabet sampling, variance CLT.",
+        "identifier_or_url": "https://arxiv.org/pdf/1905.05646",
+        "material_read": "Abstract, introduction, Theorems A–D and definitions pp. 1–5; later covariance discussion near p. 31.",
+        "method": "Inspected open preprint text, title page and cited main results; searched covariance and fixed-composition terminology.",
+        "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+        "trigger": "Single-word pattern statistics and probabilistic moments are a plausible general predecessor."
+      },
+      {
+        "assessment": "Main results are pattern avoidance, exponential rates and Wilf-equivalence relations for nonconsecutive subsequences; no direct finite composition-conditioned joint covariance formula.",
+        "evidence": "arXiv:2102.00443, Theorems 1.1–1.2 and pattern occurrence definition on p. 2; no covariance term found.",
+        "identifier_or_url": "https://arxiv.org/pdf/2102.00443",
+        "material_read": "Title page, introduction, Theorems 1.1 and 1.2 (pp. 1–4); search for covariance.",
+        "method": "Inspected lawfully available PDF text and title-page image.",
+        "title": "Pattern occurrences in k-ary words revisited: a few new and old observations",
+        "trigger": "Pattern occurrence/avoidance machinery may dominate a finite motif covariance calculation."
+      },
+      {
+        "assessment": "Defines pattern occurrence as order-isomorphic subsequence, not consecutive literal substring; classifies avoidance and Wilf equivalence, not mixed-frequency covariance or this sign boundary.",
+        "evidence": "arXiv:2111.06185, introduction pp. 1–2, main purpose of (3,3)/(3,4) avoidance equivalences; covariance search yielded no match.",
+        "identifier_or_url": "https://arxiv.org/pdf/2111.06185",
+        "material_read": "Abstract, introduction, main purpose and definitions on pp. 1–3, results described on p. 2; searched covariance and adjacent-consecutive terminology.",
+        "method": "Inspected PDF title-page image and parsed open primary full-text passages.",
+        "title": "Avoiding a pair of patterns in multisets and compositions",
+        "trigger": "Exactly fixed-multiset words and length-three pairs make this the closest object-specific source."
+      },
+      {
+        "assessment": "Markov-generated unconditioned sequences differ from exact-symbol-count uniform words; abstract alone cannot exclude implicit derivability from general correlation methods.",
+        "evidence": "Rukhin (2010), NIST abstract; full body not inspected, retained as a residual risk.",
+        "identifier_or_url": "https://www.nist.gov/publications/joint-distribution-pattern-frequencies-and-multivariate-polya-aeppli-law",
+        "material_read": "Authoritative NIST abstract and bibliographic record; not complete paper.",
+        "method": "Read NIST publication abstract, which describes overlapping pattern counts in Markov sequences and asymptotic joint laws.",
+        "title": "Joint Distribution of Pattern Frequencies and Multivariate Polya-Aeppli Law",
+        "trigger": "Potentially stronger general joint-motif counting method."
+      },
+      {
+        "assessment": "Addresses covariance of two-point transition indicators according to position overlap, not two global counts of three-point literal motifs; summary alone cannot certify complete manuscript noncoverage.",
+        "evidence": "Published result summary explicitly identifies two-point transition indicators and thresholds, not adjacent-trigram count pair.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+        "material_read": "Available public title and result summary.",
+        "method": "Compared asserted statistical objects and implications.",
+        "title": "Exact dependence phases of fixed-composition run transitions",
+        "trigger": "Published related fixed-composition sign classifications are a direct duplication threat."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "72a01700-4061-4506-96f3-4c4d3b8233c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two canonical single-one length-three run motifs have identical expected counts but switch covariance sign at the exact abundance threshold b=a+2. Finite fixed-count randomization tests need joint motif statistics rather than marginal frequencies; the strict no-equality phase line is a structural dependence law, not a trivial renaming or a small numerical table.",
+    "status": "PASS"
+  }
+}
