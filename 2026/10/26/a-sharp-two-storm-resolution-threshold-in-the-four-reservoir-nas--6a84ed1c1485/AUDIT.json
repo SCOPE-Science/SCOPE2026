@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The impulse response h_n is the exact n-reservoir Gamma/Erlang kernel. For n=4 the derivative after the second input is an explicitly given cubic; its discriminant factors as -27 exp(s) s² F(s). The Vieta sign test decides whether three real cubic roots are all positive, and the strict monotonicity of G=exp(-s) F gives exactly one transition in (2,3). The s=3 and s>3, and n=2,3, cases were separately established including double-root and transition boundaries. The finite-width persistence argument is local uniform convergence of discharge derivatives near simple roots, not numerical extrapolation. The included program reruns 1500 coefficient and 1500 discriminant checks, supporting but not replacing proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Došlá 2009 gives a broad derivative-ratio bimodality criterion; the explicit Gamma examples involve rate or shape variation.",
+        "Nash 1957 pp.114-121 derives the linear-reservoir cascade transfer function and discusses complex rainfall hydrographs."
+      ],
+      "reasoning": "Both are broader frameworks applicable to this object. They do not explicitly establish the unique cutoff in (2,3), its strict mode-count classification, and the first-stage-depth conclusion; the novel contribution is the calculated global specialization, not a new mixture criterion.",
+      "searches": [
+        "Došlá Conditions for Bimodality and Multimodality of a Mixture of Two Unimodal Densities 2009",
+        "Nash The Form of the Instantaneous Unit Hydrograph 1957"
+      ]
+    },
+    "checked_sources": [
+      "https://iahs.info/uploads/dms/045011.pdf",
+      "https://nora.nerc.ac.uk/id/eprint/508550/",
+      "https://www.kybernetika.cz/content/2009/2/279/paper.pdf",
+      "https://ponce.sdsu.edu/linear_reservoirs_and_numerical_diffusion.html",
+      "Quantile curvature and endpoint rates for two-gamma sums (mathematically different, indexed record)",
+      "A universal optimal observation horizon for arithmetic-spectrum flows (different model, indexed record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Došlá gives general necessary-and-sufficient modality conditions and permits translations, so a general-framework implication risk remains.",
+        "The special n=4 proof evaluates a nontrivial cubic discriminant and independently proves a unique physical parameter threshold by G monotonicity."
+      ],
+      "reasoning": "The result is not new merely because wording or parameter values differ. The general criterion describes how to test modes but does not directly yield the claimed single numerical cutoff or first-stage-depth classification without additional algebra and global inequalities. The residual possibility of pre-existing derivation is acknowledged.",
+      "searches": [
+        "Došlá 2009 translated mixture derivative ratio and Gamma propositions",
+        "Nash 1957 cascade response impulse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nash gamma impulse responses convert two storms to a sum of equal-shape equal-rate translated Erlang densities.",
+        "Došlá 2009 general mixtures of two unimodal densities, and explicit Gamma propositions with rate or shape contrasts, are the closest formulation."
+      ],
+      "reasoning": "Compared equivalent translated-Erlang and two-input Nash formulations rather than relying on hydrological naming. No matching exact translated-shape-four separation equation or stage-depth theorem observed.",
+      "searches": [
+        "Nash cascade two equal rainfall impulses hydrograph bimodality two peaks four reservoirs critical separation threshold discriminant",
+        "two translated Erlang shape four densities modes mixture shifted gamma critical separation",
+        "double storm pulses Nash unit hydrograph bimodal hydrograph time separation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical record was an unrelated Gamma-sum quantile-curvature theorem (not a shifted-density modal threshold).",
+        "Own ledgers contain Green–Ampt rainfall sequencing item 955c7a9f-5dc3-41f8-8dda-28cce1e7792c, concerning infiltration not routed Nash peak splitting."
+      ],
+      "reasoning": "No exact table entry or record for the threshold was recovered. Negative search alone does not certify novelty; published primary texts and implication analyses are also required.",
+      "searches": [
+        "Nash cascade two equal rainfall impulses hydrograph bimodality two peaks four reservoirs critical separation threshold discriminant",
+        "two translated Erlang shape four densities modes mixture shifted gamma critical separation",
+        "double storm pulses Nash unit hydrograph bimodal hydrograph time separation",
+        "own-ledger local claim matching Nash Erlang bimod hydrograph rainfall storm reservoir mixture gamma"
+      ]
+    },
+    "rationale": "The explicit uniquely defined four-stage equal-impulse mode-resolution threshold and first submodal stage-depth comparison were not stated in inspected Nash (1957), Ponce (1980), or the relevant explicit gamma-mixture cases in Došlá (2009). The general derivative-ratio criterion of Došlá can be specialized to translated distributions, but does not itself supply the unique explicit separation equation or its global single-crossing proof. This is a narrowly scoped originality assessment subject to further outside review.",
+    "residual_risks": [
+      "An equivalent specific translated-Erlang mixture cutoff could exist under probability terminology not found in targeted searches.",
+      "Došlá general derivative-ratio bimodality results are potentially stronger in principle; the claim is an explicit solved special case, not a general mixture theorem.",
+      "The exact public day for the original 1957 printed publication is unknown; the date field records only verified dated archive access (2014-12-09)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives basic reservoir cascade and impulse convolution; no stated equal two-input modal resolution cutoff.",
+        "evidence": "Nash (1957), pp.114-121, https://iahs.info/uploads/dms/045011.pdf",
+        "identifier_or_url": "https://iahs.info/uploads/dms/045011.pdf",
+        "material_read": "Entire eight-page 1957 article and appended discussion, printed pages 114-121",
+        "method": "Public PDF pages opened and visually inspected",
+        "title": "The Form of the Instantaneous Unit Hydrograph",
+        "trigger": "Original Nash cascade gamma routing and arbitrary rain inputs"
+      },
+      {
+        "assessment": "General criterion plausibly applies; explicit gamma propositions compare rate/shape rather than equal-rate translated profiles. Exact claimed stage-4 cutoff not observed; a specialization could be implicit.",
+        "evidence": "Došlá, Kybernetika 45 (2009), 279-292, https://www.kybernetika.cz/content/2009/2/279/paper.pdf",
+        "identifier_or_url": "https://www.kybernetika.cz/content/2009/2/279/paper.pdf",
+        "material_read": "Full-text sections giving general derivative-ratio criteria and pertinent Gamma propositions, including PDF pp. 1-5 and 10-12",
+        "method": "Open-access PDF text and targeted page-image inspection",
+        "title": "Conditions for Bimodality and Multimodality of a Mixture of Two Unimodal Densities",
+        "trigger": "Potentially dominating general theorem on mixtures and gamma examples"
+      },
+      {
+        "assessment": "Derives linear-reservoir routing and numerical diffusion; no two-storm exact modality theorem found.",
+        "evidence": "Ponce (1980), https://ponce.sdsu.edu/linear_reservoirs_and_numerical_diffusion.html",
+        "identifier_or_url": "https://ponce.sdsu.edu/linear_reservoirs_and_numerical_diffusion.html",
+        "material_read": "Complete available online article",
+        "method": "Open-access HTML article read",
+        "title": "Linear Reservoirs and Numerical Diffusion",
+        "trigger": "Hydrological account of reservoir routing beyond Nash"
+      },
+      {
+        "assessment": "1957 bibliographic source, earliest verified exact online public archive date 2014-12-09; not falsely identified as the article original date.",
+        "evidence": "https://nora.nerc.ac.uk/id/eprint/508550/",
+        "identifier_or_url": "https://nora.nerc.ac.uk/id/eprint/508550/",
+        "material_read": "Bibliographic record with 1957 article metadata and record availability 09 Dec 2014",
+        "method": "Public archival record read",
+        "title": "NERC bibliographic record for Nash (1957)",
+        "trigger": "Determine first verifiable day-level source date without inventing 1957 day"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a84ed1c-1485-4e99-9aa6-ca4094860678",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A rain routing cascade can merge two hydrograph peaks into one even for separate storms. For the first nontrivial stage depth, this result identifies the exact smallest dimensionless separation needed to resolve two peaks, showing resolution below the individual impulse time-to-peak and persistence for small finite-width storm pulses. This quantitatively motivated sharp physical boundary is not a routine parameter normalization or unexplained narrow numerical constant.",
+    "status": "PASS"
+  }
+}

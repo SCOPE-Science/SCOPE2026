@@ -1,0 +1,11 @@
+# Scientific review: double-storm Nash peak splitting
+
+**Correctness (PASS).** The linear-reservoir impulse response follows directly from Nash's convolution formula. For four reservoirs, direct differentiation reduces the problem to a cubic with the factored discriminant \(-27e^ss^2F(s)\); the monotone function \(G(s)=e^{-s}F(s)\) has exactly one zero in \((2,3)\). The derivative sign cases, equality boundary, and exact two- and three-reservoir comparisons have been reconstructed. The supplied numerical code checks the calculation but is not substituted for the proof.
+
+**Originality (PASS, within the stated scope).** Full Nash (1957) and closely relevant Došlá (2009) material and the Ponce exposition have been examined, together with targeted literature and semantic-database searches. Nash gives the impulse-response model, not the two-storm sharp transition. Došlá's general mixture derivative-ratio framework is the closest conceptual predecessor; its explicit gamma propositions cover changes in rate or shape, not an equal-rate translated-gamma separation cutoff. The new exact one-root equation and earliest-stage submodal splitting are not explicitly found. Risk: they may be regarded as an implicit consequence of general mixture criteria, or be proved elsewhere using different terminology; the novelty is not externally certified.
+
+**Value (PASS).** Two nearby rainfall-excess events can yield either one or two routed streamflow peaks. The theorem provides an exact resolution margin and demonstrates a qualitative change in peak resolvability at the first relevant reservoir depth, instead of relying on sampled hydrographs. The narrow-rectangular-pulse persistence statement ensures the submodal peak-splitting effect is not merely a distributional artifact of idealized impulses.
+
+**Boundary conditions and risks.** All results are within equal, initially empty, linear reservoir cascades and identical storms; near the separation cutoff the first peak is very shallow. Original Nash publication year is 1957, but no original publication day was confirmed; the exact archival online record date of 2014-12-09 is explicitly distinguished.
+
+Self-review: passed. Independent audit: not yet performed.
