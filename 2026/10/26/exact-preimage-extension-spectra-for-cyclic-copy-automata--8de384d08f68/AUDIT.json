@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For each n>=2 and 1<=d<n, inverse a rotates set and crossing indices, while inverse b changes only bit 0 to bit d. A pre-first-growth inverse b step is neutral or shrinks: when shrinking, it destroys but cannot create any directed 0-to-1 crossing on d-edges. Therefore >=min E a-steps before the first growing b, and inverse a^r then b attains 1+r. If E empty, each d-orbit has constant membership, so inverse b cannot act and extension is impossible. For gcd(n,d)=1 all d-edges form one directed cycle; suppressing t consecutive-start edges gives a vertex-disjoint directed-path forest (for t<n) and counting nonincreasing 1...10...0 occupancy on each path gives product A_t; differences give all multiplicities. For t=n-1 a spanning directed path has n+1 allowable labelings; only two are trivial, giving exactly n-1 hardest proper subsets. Tested exact inverse BFS against every subset for 45 automata (n=2..10, all d), 16298 instances, including noncoprime cases, and independent forest-product counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Don 2016 Theorem 10, Lemma 13 and Proposition 15 prove extension existence via one-deficient word collections and reachability by length bounds.",
+        "The 2026 published Cerny k-avoiding result optimizes TOTAL avoidance of prescribed targets over all k-subsets and has value kn."
+      ],
+      "reasoning": "The prescribed-subset first-growth minimum is neither the full preimage of Q (total extension) nor maximum over k-target total avoidance; no stronger per-S length statement was found in the inspected broad work.",
+      "searches": [
+        "cyclic 1-contracting automaton shortest word extending subset one step boundary directed graph",
+        "shortest preimage extension of arbitrary subsets in classical Černý synchronizing automaton, exactly n-1 exceptional subsets length n, length distribution boundary run encoding",
+        "DOI:10.37236/5616",
+        "published-finding corpus/2026/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21603",
+      "arXiv:1704.08233v4",
+      "DOI:10.37236/5616",
+      "published-finding corpus/2026/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+      "published-finding corpus/2026/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3/RESULT.md",
+      "published-finding corpus/2026/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Miccinesi Section 8.1 only proves some Cerny subsets have minext>n-1; the present claim identifies precisely n-1 and their sizes.",
+        "Don gives an n-length extension existence upper bound for gcd(n,d)=1, with no per-S lower bound or multiplicities.",
+        "Cerny early deficiency result concerns min word producing rank<=n-s from whole Q.",
+        "Cyclic defect-one two-defect record concerns two b-letter reaches from whole Q."
+      ],
+      "reasoning": "The prior upper bounds imply max minext<=n, and Miccinesi implies at least one max-like exceptional set. These statements do not imply that exactly n-1 sets require n, one at each subset size, nor the displacement-sensitive complete distribution. Our lower bound relies on a new no-creation-of-crossings analysis absent from the compared statements.",
+      "searches": [
+        "cyclic defect one automata shortest extending word subset exact preimage extension distribution gcd step d 0 maps d",
+        "Černý automaton minext stuck subsets all lengths shortest extending word characterization count n-1",
+        "cyclic 1-contracting automaton shortest word extending subset one step boundary directed graph",
+        "published-finding corpus/2026/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3/RESULT.md",
+        "published-finding corpus/2026/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e/RESULT.md",
+        "arXiv:2609.21603",
+        "DOI:10.37236/5616"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miccinesi Section 2 defines minext exactly, Sections 3-8 establish sign-based sufficient tests, Section 8.1 only establishes existence of Cerny stuck subsets.",
+        "Berlinkov-Ferens-Szykula Table 2 covers preimage growth decision complexity."
+      ],
+      "reasoning": "Our theorem solves the same invariant on a family with a per-subset exact value and histogram; those works do not state these values. General extension existence or sufficient conditions are not equivalent to complete shortest-length characterization.",
+      "searches": [
+        "cyclic defect one automata shortest extending word subset exact preimage extension distribution gcd step d 0 maps d",
+        "Černý automaton minext stuck subsets all lengths shortest extending word characterization count n-1",
+        "arXiv:2609.21603",
+        "arXiv:1704.08233v4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest record two-defect reachability classifies image codimension-2 target pairs, not preimage extension."
+      ],
+      "reasoning": "No checked exact database/table enumerates the present all-n,d length counts; graph spectra are proved for infinitely many state counts and checked computationally only for the declared finite range.",
+      "searches": [
+        "cyclic defect one automata shortest extending word subset exact preimage extension distribution gcd step d 0 maps d",
+        "Černý automaton minext stuck subsets all lengths shortest extending word characterization count n-1",
+        "shortest preimage extension of arbitrary subsets in classical Černý synchronizing automaton, exactly n-1 exceptional subsets length n, length distribution boundary run encoding",
+        "published-finding corpus/2026/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e/RESULT.md"
+      ]
+    },
+    "rationale": "An exact distribution of minimum preimage-extension lengths and unique per-cardinality extremizers for cyclic copy automata is not stated or logically implied by the closest fully inspected references. Miccinesi proves sufficient certificate conditions and only existential stuckness in the Cerny family; Don gives existence of a one-state extension and reachability bound; prior research records optimize total avoidance, rank deficiency, or codimension-two IMAGE reachability. Priority is only best knowledge; older transformations/1-contracting terminology remains a residual literature risk.",
+    "residual_risks": [
+      "Equivalent statement in older circular/1-contracting automata literature under preimage/extending terminology, not indexed in consulted databases.",
+      "Some published source metadata or unseen later versions may contain equivalent classification beyond inspected texts.",
+      "No independent mathematical referee assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact cyclic-copy minext distribution",
+        "evidence": "Section 8.1 only derives existence of hard subsets from reset bounds; none of exact formula, multiplicity, chord forest, or all d-case.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.21603",
+        "material_read": "ArXiv full-text HTML: introduction, definitions, Sections 3, 7, 8.1 and relevant surrounding arguments.",
+        "method": "Primary full-text arXiv HTML reading",
+        "title": "Certificates for short extending words in a finite automaton",
+        "trigger": "Same minext invariant and explicit Cerny stuckness"
+      },
+      {
+        "assessment": "NOT_COVERING the exact explicit family spectrum",
+        "evidence": "Table 2 gives general complexities; Sections 1.2 and 3 discuss extending/total extending, not a cyclic-copy threshold.",
+        "identifier_or_url": "https://arxiv.org/html/1704.08233v4",
+        "material_read": "ArXiv HTML: introduction, problem tables, equivalences, preimage definitions and complexity discussion.",
+        "method": "Primary arXiv HTML full text",
+        "title": "Preimage Problems for Deterministic Finite Automata",
+        "trigger": "Foundational preimage extending problems, equivalences, algorithms"
+      },
+      {
+        "assessment": "STRONGER_GENERAL_EXISTENCE_BUT_NOT_EXACT_MINIMUM",
+        "evidence": "Lemma 13 constructs some word that grows a given subset; Theorem 12 states bound for reaching specified images; Proposition 15 uses coprime displacement. No per-subset optimality or histogram.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i3p12/pdf/",
+        "material_read": "Public 10-page PDF: abstract, definitions, Lemma 13, Proposition 15, reachability results and examples.",
+        "method": "Public publisher full PDF and page image",
+        "title": "The Cerny Conjecture and 1-Contracting Automata",
+        "trigger": "One-deficient cyclic copy automata, gcd condition, extension bounds"
+      },
+      {
+        "assessment": "NOT_COVERING because total avoidance differs from first extension",
+        "evidence": "Result maximizes shortest word avoiding k specified states completely and yields kn.",
+        "identifier_or_url": "published-finding corpus/2026/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+        "material_read": "Entire publicly available RESULT.md",
+        "method": "Read-only published full-text repository file",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Identical cyclic automaton and extremal length kn"
+      },
+      {
+        "assessment": "NOT_COVERING prescribed subset preimage extension",
+        "evidence": "It proves lambda_n(s)=3s-2 for s<=ceil(n/2), optimizing image size from Q.",
+        "identifier_or_url": "published-finding corpus/2026/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3/RESULT.md",
+        "material_read": "Entire publicly available RESULT.md",
+        "method": "Read-only published full-text repository file",
+        "title": "Exact early deficiency profile of the Černý automata",
+        "trigger": "Identical automaton and early image-rank thresholds"
+      },
+      {
+        "assessment": "NOT_COVERING; two b steps to codimension-2 image rather than shortest inverse growth",
+        "evidence": "Theorem characterizes missing pairs via oriented displacement and rank n-2 image words ba^kba^j.",
+        "identifier_or_url": "published-finding corpus/2026/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e/RESULT.md",
+        "material_read": "Entire publicly available RESULT.md",
+        "method": "Read-only published full-text repository file",
+        "title": "Two-defect reachability in cyclic defect-one automata",
+        "trigger": "Cyclic defect-one family and general displacement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8de384d0-8f68-4238-9dc2-c305427a9083",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete classification of a natural shortest preimage-extension invariant explicitly motivating new 2026 automata literature, for all cyclic-copy parameters. Provides an exact computable full distribution, sharp maximal length, exactly one exceptional subset per cardinality, and exponentially small hard proportion, with genuine displacement-dependent spectra. The global upper bound alone or a single worst example would not establish these structural facts; the invariant is central to subset extension methods, not arbitrary finite data.",
+    "status": "PASS"
+  }
+}
