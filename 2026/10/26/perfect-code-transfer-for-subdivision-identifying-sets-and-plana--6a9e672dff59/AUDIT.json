@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Four-step proof proves necessity/sufficiency of nonpendant perfect codes, bijectivity and cardinality. In restricted planar cubic bases nonpendant is automatic; the planar cubic perfect-code problem is independently established NP-complete, and subdivision preserves required restrictions. Independent brute-force neighborhood check passes for 150 labeled small graphs and three cubic cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cappelle et al., arxiv:2103.07972, Theorem 2.3: planar bipartite max degree 5 girth 6; Theorem 2.4: planar subcubic girth 9 (not asserted bipartite).",
+        "Seo–Slater 2017 general high-girth criterion is broad on description of possible sets but does not give the restricted NP-hardness statement.",
+        "Kratochvíl–Křivánek 1988 Springer chapter DOI 10.1007/BFb0017162 states in abstract that perfect-code recognition remains NP-complete on planar cubic graphs."
+      ],
+      "reasoning": "Broad set characterizations and two different hardness domains predate the claim. The new class is the intersection of planarity, bipartiteness, subcubic degree and girth at least six, with all edges between degree-2 and degree-3 vertices. Neither previously cited OLD NP-hardness class entails NP-hardness on that intersection; a separate transfer reduction is needed.",
+      "searches": [
+        "Cappelle Coelho Foulds Longo arxiv:2103.07972 full text Theorems 2.3–2.4",
+        "Seo Slater 2017 Theorem 3.3 girth at least five (full-text PDF)",
+        "\"open-independent open-locating-dominating\" \"NP-complete\" \"subcubic\" bipartite (web slow)",
+        "\"Planar bipartite subcubic girth six OLD-oind NP-complete subdivision of planar cubic graph\" (indexed mathematical claims search)"
+      ]
+    },
+    "checked_sources": [
+      "Seo–Slater (2017), https://www.ejgta.org/index.php/ejgta/article/download/210/pdf_47",
+      "Cappelle et al. (2021/2022), https://arxiv.org/pdf/2103.07972",
+      "Kratochvíl–Křivánek (1988), DOI 10.1007/BFb0017162 (publisher abstract only)",
+      "Kratochvíl (1994), Discrete Math. 133:191–205 (metadata/abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 iff condition: for girth at least five, each selected vertex has exactly one selected neighbor and each unselected vertex at least two.",
+        "2021/2022 prior hardness statements are different class restrictions, and no exact one-subdivision subclass or parsimonious code enumeration is asserted.",
+        "1988 establishes NP-complete perfect codes for planar cubic graphs, a necessary cited input result."
+      ],
+      "reasoning": "Prior 2017 set characterization plus earlier perfect-code hardness does not state the new decision problem on the special subdivision class. A graph-theoretic bijection must still be established, including its nonpendant exception, and then used for the polynomial reduction. The NP-hardness statement is the focal new result; the source 1988 premise and high-girth set condition are not new. Residual risk: derivation might already be present under a different description.",
+      "searches": [
+        "Full-text Seo–Slater (2017) Theorem 3.3 at PDF p 7",
+        "Full-text Cappelle et al. (2022) Theorems 2.3 and 2.4 at arxiv PDF pp 3–5",
+        "Kratochvíl and Křivánek Springer DOI 10.1007/BFb0017162 abstract",
+        "\"perfect code\" \"planar cubic graphs\" NP-complete 1988"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Seo–Slater (2017), Theorem 3.3: high-girth open-independent OLD iff selected vertices have exactly one selected neighbor and unselected vertices have at least two. https://www.ejgta.org/index.php/ejgta/article/download/210/pdf_47",
+        "Cappelle et al. arXiv:2103.07972, pdf pp 3–5 and abstract, graph classes and hardness, no subdivision equivalence."
+      ],
+      "reasoning": "The 2017 girth criterion applies to subdivisions, so it is a strong neighboring general condition and could be used to derive the transfer; however it neither states nor proves the planar-cubic parsimonious reduction or restricted hardness. The concrete polynomial-time inverse of the transfer is supplied. None of the indexed equivalent-name searches showed direct coverage.",
+      "searches": [
+        "\"open-independent\" \"subdivision\" \"perfect code\" \"locating\" (web fast)",
+        "\"OLD_oind\" \"subdivision graphs\" efficient dominating (web fast)",
+        "\"open-independent\" \"open-locating\" \"perfect codes\" \"subdivision\" (web slow)",
+        "\"perfect code one subdivision open-independent open-locating-dominating bijection cubic\" (indexed mathematical claims search)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Seo–Slater (2017), DOI 10.5614/ejgta.2017.5.2.2, and Cappelle et al. (2021/2022), DOI 10.46298/dmtcs.8440, do not report a full-one-subdivision perfect-code census or the stated restricted hardness result.",
+        "No exact public table of OLD-oind sets for once-subdivided planar cubic graphs was retrieved in the searches listed."
+      ],
+      "reasoning": "Published work located by these searches provides general OLD criteria or distinct graph families and complexity restrictions, but no table or statement identical to the present parsimonious transfer. Literature search incompleteness remains a risk.",
+      "searches": [
+        "\"open-independent open-locating-dominating\" \"NP-complete\" \"subcubic\" bipartite (web literature search)",
+        "\"open-independent\" \"subdivision\" \"perfect code\" \"locating\" (web literature search)",
+        "\"OLD-OIND\" \"perfect codes\" \"subdivision\" (web literature search)",
+        "\"full subdivision S(G) open independent locating dominating efficient closed neighborhood code count\" (indexed mathematical claims search)"
+      ]
+    },
+    "rationale": "Seo and Slater (2017) give a general girth-at-least-five neighborhood-condition characterization. Cappelle et al. (2021/2022) give NP-completeness in separately planar-bipartite degree-five and planar-subcubic girth-nine classes; no full-one-subdivision-of-planar-cubic intersection case. The 1988 planar-cubic perfect-code hardness is expressly a prior premise, not claimed as new. Algebraic signature comparison derives a one-to-one code transfer and a new NP-completeness restriction. Relevant mathematical-literature searches returned no statement covering the combined assertion; absence from search is not proof of priority.",
+    "residual_risks": [
+      "The earlier 1988 hardness theorem was invoked from explicit publisher abstract, without a full-text verification of its proof.",
+      "A paper under alternate descriptions (perfect codes in subdivisions, identifying sensors, efficient domination) may have anticipated the bridge; mathematical database searches do not prove uniqueness.",
+      "The 2017 high-girth characterization is a strong umbrella theorem; an unpublished or unindexed explicit reduction from planar cubic perfect codes may already exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_DIRECTLY_COVERING restricted planar-bipartite-subcubic subdivision NP-completeness or perfect-code bijection; high-girth criterion is credited as broad prior result.",
+        "evidence": [
+          "Theorem 3.3 gives condition by selected/unselected neighborhood counts for girth at least 5.",
+          "Theorem 3.2 gives general NP-completeness."
+        ],
+        "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/download/210/pdf_47",
+        "material_read": "PDF first page and text covering definitions, theorem 3.2, theorem 3.3 with proof and nearby structural results (pp 179–187).",
+        "method": "Publisher PDF, inspected text and page-0 screenshot.",
+        "title": "Open-independent, open-locating-dominating sets",
+        "trigger": "Exact definition, graph-girth characterization, and existing general complexity results"
+      },
+      {
+        "assessment": "NOT_DIRECTLY_COVERING simultaneous intersection restricted to full subdivisions of planar cubic graphs.",
+        "evidence": [
+          "Theorem 2.3 uses maximum degree five and girth six on planar bipartite graphs.",
+          "Theorem 2.4 uses planar subcubic graphs of girth nine without bipartite assertion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.07972",
+        "material_read": "arXiv PDF abstract/introduction, theorems 2.3 and 2.4 with construction conditions, related structural results and summary.",
+        "method": "arXiv full-text PDF rendered text, page-0 screenshot.",
+        "title": "Open-independent, open-locating-dominating sets: structural aspects of some classes of graphs",
+        "trigger": "Most relevant published NP-hardness on planar bipartite and planar subcubic classes"
+      },
+      {
+        "assessment": "ABSTRACT_CONFIRMS_PREMISE; proof not inspected; no claim of coverage of open-independent OLD subdivisions.",
+        "evidence": [
+          "Publisher abstract explicitly says perfect-code recognition is NP-complete for 3-regular planar graphs."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/BFb0017162",
+        "material_read": "Publisher abstract and publication metadata; full chapter unavailable.",
+        "method": "Springer publisher HTML and scholarly secondary citations; no accessible full text was obtained.",
+        "title": "On the computational complexity of codes in graphs",
+        "trigger": "Cited planar cubic perfect-code NP-hardness premise"
+      },
+      {
+        "assessment": "Supports established perfect-code difficulty; not identified as covering open-independent OLD subdivisions.",
+        "evidence": [
+          "1994 Discrete Mathematics volume 133, pp 191–205."
+        ],
+        "identifier_or_url": "https://dblp.org/rec/journals/dm/Kratochvil94",
+        "material_read": "Bibliographic metadata and indexed abstract summary, not full article.",
+        "method": "dblp and indexed abstracts.",
+        "title": "Regular codes in regular graphs are difficult",
+        "trigger": "Independent citation corroborating perfect-code complexity for regular graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a9e672d-ff59-4265-ae71-2b51666a9cd7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The transfer is bijective and parsimonious, with an explicit inverse. It yields NP-completeness simultaneously on planar, bipartite, max-degree-three, girth-at-least-six graphs, strengthening previously separated restrictions, plus rigid code cardinality and an exact counting identity. These naturally motivated algorithmic and detection questions are not arbitrary small invariants.",
+    "status": "PASS"
+  }
+}
