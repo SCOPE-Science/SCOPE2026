@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The digitwise carry identity gives D=w-K exactly; transition polynomials enumerate each binary input bit with correct probabilities. P has degree <=w, R<=w+2, and coefficient r_(w+2)=1/8 by forced carries through two zero separators. The exact geometric tail gives c=9/8-R(2)/2^(w+1). An explicit rational 2x2 matrix identity produces the multiaffine closed form, which the standalone standard-library checker verifies universally by eight-node interpolation and also by independent direct residue enumeration for all 27 triples a,b,c<=3. The derivatives of the numerator in A=4^-a,B=4^-b,C=4^-c are >0 on (0,1/4]^3, yielding strict monotonicity and sharp infimum. All length boundaries a,b,c>=1 are included; there is no finite-to-infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sobolewski–Spiegelhofer prove >5/9 for one/two blocks, explicitly conjecture the N-block bound, and evaluate c_{t_3}=115/216 as an infinite-block limit; §6.1 presents monotonicity failure beyond suitable restrictions.",
+        "Cheng establishes c_t >= 1/2+2^(-2s_2(t)-1) for all t but no 115/216 3-block bound or finite length formula."
+      ],
+      "reasoning": "The general positivity theorem covers the weak >1/2 corollary but not the stronger sharp bound. The 2024 general matrix representation can be specialized computationally, but its stated results leave the finite 3-run extremal inequality conjectural; the new proof supplies it for the smallest-gap family. The known limiting number is expressly credited, not claimed original.",
+      "searches": [
+        "arxiv:2411.07779 §§5.3,6.1, Conjecture 13, Proposition 16",
+        "arxiv:2606.23398 Theorem 1.1",
+        "web: Kevin Cheng 2026 proof Cusick conjecture c_t lower bound three blocks monotonic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1509.08623 (2015-09-29)",
+      "arxiv:2411.07779 (2024-11-12)",
+      "arxiv:2606.23398 (2026-06-22)",
+      "published-finding corpus semantic searches for Cusick density, three one-block patterns, 115/216 and monotonicity; closest hits unrelated to specific claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source explicitly calls c_t>=c_{t_N} Conjecture 13; Proposition 16 computes c_{t_N} only. Cheng proves universal >1/2."
+      ],
+      "reasoning": "Full Conjecture 13 would imply the present lower bound, but is not published there as a theorem. The exact transfer formula is prior technology; its application to prove the new sharp finite 3-run slice is the contribution. Even infinite-limit equality plus universal positivity leaves all intermediate finite 3-block values unbounded by 115/216, so does not logically dominate the new theorem.",
+      "searches": [
+        "arxiv:2411.07779 Conjecture 13 and Proposition 16",
+        "arxiv:2606.23398 Theorem 1.1",
+        "published-finding corpus: Kaimin Cheng Cusick conjecture three blocks 2026 exact density 115 216"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1509.08623 eqs. (1),(3) and carry interpretation; arxiv:2606.23398 §1 gives valuation-of-binomial-coefficients equivalence",
+        "published-finding corpus searches returned no comparable three-run density classification"
+      ],
+      "reasoning": "Equivalent descriptions as 2-adic binomial valuation distributions, correlation measures, and finite-state carry laws were compared. The broad equivalence of objects is prior art, but neither the precise finite three-parameter formula nor sharp monotonicity follows as a stated theorem. This formulation does not pretend a different language creates novelty.",
+      "searches": [
+        "published-finding corpus: Cusick digit-sum density binary s(n+t) >= s(n) increments t=(2^k-1) repunit exact formula strict version",
+        "published-finding corpus: Cusick Conjecture 13 N=3 one-zero gaps monotonic three ones block lengths 115/216",
+        "web: binary correlation measure 1^a 0 1^b 0 1^c 115 216",
+        "arxiv:1509.08623 §2, arxiv:2606.23398 §1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching published-finding corpus hit or targeted indexed formula located; the 2024 numerical computations for binary shifts below 2^20 are a finite data table, not an infinite classification or multivariable formula."
+      ],
+      "reasoning": "A finite precomputed table would not imply the theorem for unbounded a,b,c. Negative search results do not certify absence of an unindexed exact table or theorem.",
+      "searches": [
+        "published-finding corpus: three binary one-block lengths a b c single zero separators c_t density exact (115+32*4^-a+8*4^-b+32*4^-c+16*4^-a-b-8*4^-a-c+16*4^-b-c+32*4^-a-b-c)/216",
+        "web: Cusick conjecture three blocks gap one 115/216 exact formula monotonic 2025 2026",
+        "arxiv:2411.07779 §§5.3,6.1"
+      ]
+    },
+    "rationale": "Compared exact claim and implications with archival density definitions, the complete 2024 two-block theorem and three-block conjectural lower bound, the evaluated infinite-three-block limit, and the 2026 all-shifts positivity theorem. The new proven assertion is the sharp inequality, exact density, and strict monotonicity for every finite triple of one-block lengths with unit zero gaps, rather than the already-known limit. No equivalent found in actual published-finding corpus and primary-literature searches; residual risk remains.",
+    "residual_risks": [
+      "The 2024 general transfer formula may yield this special slice with modest algebra; novelty is the explicitly proved sharp finite-block inequality and monotonicity, not invention of transfer matrices.",
+      "An unindexed result or later work might independently establish a stronger three-block theorem or the identical explicit formula.",
+      "A new independent audit may find a gap not identified by exact arithmetic and same mathematical model proof reconstruction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original problem, carry distribution and 2-adic formulations known; no finite 3-block sharp inequality supplied",
+        "evidence": [
+          "arxiv:1509.08623 first submitted 2015-09-29; §1 Theorems 1.1–1.2, §2 Lemma 2.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.08623",
+        "material_read": "First-public metadata and full-text introduction, definitions, Lemma 2.1, density recurrence, theorem statements and early proof",
+        "method": "Primary arXiv open-access PDF and abstract page; pages 1-4 inspected",
+        "title": "On a Conjecture of Cusick Concerning the Sum of Digits of n and n + t",
+        "trigger": "Original archival formulation and MSC; equivalent methods"
+      },
+      {
+        "assessment": "The constant 115/216 for the limiting N=3 pattern is known; sharp inequality for all finite three-block single-gap patterns remains within the conjectural extension, not previously proved in inspected theorems",
+        "evidence": [
+          "arxiv:2411.07779 eq. (38), Conjecture 13 eq. (39), Proposition 16 eq. (43), pages 20–27"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2411.07779",
+        "material_read": "Open-access full-text §§5.2–5.4 and 6.1, including equation (38), Conjecture 13, Proposition 16, its derivation, monotonicity caveats, and discussion pages 20–27",
+        "method": "ArXiv PDF text inspection and rendered page examination",
+        "title": "Decomposing the sum-of-digits correlation measure",
+        "trigger": "Potential strongest coverage: sharp two-block bound and all-block Conjecture 13"
+      },
+      {
+        "assessment": "Proves all t have density >1/2 with exponential Hamming-weight margin, not the uniform 115/216 three-block threshold, explicit polynomial, or monotonicity",
+        "evidence": [
+          "arxiv:2606.23398, Theorem 1.1, pp. 1–3; §6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.23398",
+        "material_read": "Primary full-text introduction, Theorem 1.1, equivalences, and proof framework in §§3–6; inspected PDF text and page 2 rendering",
+        "method": "ArXiv open-access PDF and HTML",
+        "title": "A first-exit proof of Cusick’s sum-of-digits conjecture",
+        "trigger": "2026 resolution of global Cusick conjecture may imply weaker part of claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "48b5fe62-6b3a-4e7e-8a2c-b7efc7d13542",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact three-block bound on the family with smallest possible zero separators is a natural infinite-parameter slice of Sobolewski–Spiegelhofer Conjecture 13, whose N=3 limit is already known but whose finite-word sharpness is not established there. Strict monotonicity of each block length is structural and especially relevant because global monotonicity fails in their larger-pattern examples. The multiaffine formula provides all exact finite densities and quantitative convergence; introducing a third block breaks the sharp known two-block 5/9 barrier. It is not an arbitrary fixed finite census or a merely cosmetic renaming.",
+    "status": "PASS"
+  }
+}
