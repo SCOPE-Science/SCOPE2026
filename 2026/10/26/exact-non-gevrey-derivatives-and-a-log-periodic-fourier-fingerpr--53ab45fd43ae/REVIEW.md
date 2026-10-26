@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The renewal characteristic-function product follows directly from the Markov generator and is an established stationary representation. Fourier decay gives smoothness, differentiation of the pantograph stationary equation produces the exact \(q^{-n^2}\) derivative law, a partial-fraction residue series gives analyticity away from the fixed point, and an elementary product split plus Poisson summation yields the spectral phase with a quantitative remainder. All differentiations and inverse transforms are justified by integrable decay. The included checker passes 104 deterministic independent numerical assertions. Finite testing is not a substitute for the proof.
+
+**Originality — PASS (same mathematical model literature comparison).** Pierce's full proportional-resetting paper gives the stationary master equation and series, and Tal-Friedman–Roichman–Reuveni give the characteristic product and Laplace convolution. Di Bello and colleagues treat time-dependent partial resetting; Grzywny and colleagues explicitly establish smooth stationary densities in a broader stable-process setting. None of the materially inspected treatments formulates the exact derivative growth and strictly nonconstant sharp high-frequency phase as the paired result here. General q-Pochhammer/theta asymptotics could independently imply the periodic component, and unknown later literature remains an explicit residual priority risk. No claim is made that known smoothness or product identities are original.
+
+**Scientific value — PASS.** The stationary law is conventionally characterized by variance/kurtosis and an interpolation toward Gaussian form; the result instead identifies two structural contraction signatures outside all finite Gevrey classes and in a sharp, nonvanishing logarithmic spectral modulation. These give mathematically motivated diagnostics of the discrete-reset mechanism invisible to finite moment truncations. The exact phase and its error control distinguish this from a routine numerical density evaluation; no finite-noise detectability is asserted.
+
+The primary arguments require a deterministic contraction and no drift. Independent scholarly verification and priority assessment have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
