@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Conditional independence gives the exact identity Δ=-Kβ[2A−β(A+(K−1)B)]. The exact interference quotient maximum is the top eigenvalue of a positive two-by-two Gram matrix and its eigenvector meets the greedy ordering constraint. Residual coercivity establishes geometric mean-square convergence strictly inside the computed bound. At the bound and above it, explicit attainable residual ratios show equality and growth. Pure greedy two-worker unit-relaxation updates are orthogonal reflections off a measure-zero set of tied-residual initial states. Critical identities and examples were checked with the packaged stdlib script (2,000 exact rational moment cases and 5,000 numerical tests).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2002.04126 main text sections 1–5 and Appendices A–D analyze parallel averages and expected errors with static distributions.",
+        "arXiv:1909.03604 sections 1–9 and Appendices A–B analyze adaptive sketch choice and residual maintenance for one sketch per step.",
+        "The published 2024 Kaczmarz survey separates averaged and block-parallel variants from sequential greedy variants."
+      ],
+      "reasoning": "These broader frameworks provide core moment tools and single-row adaptivity but no stated bound that implies the present full θ,c,K iff formula and generic θ=1 reflection trap without the additional state-order eigenvector maximization. The possibility of a specialized unlocated treatment remains an acknowledged risk.",
+      "searches": [
+        "\"randomized Kaczmarz with averaging\" convergence with replacement relaxation Moorman 2020",
+        "\"adaptive sketch and project\" Gower Molitor Moorman Needell 2019",
+        "\"stale\" \"parallel\" \"Kaczmarz\" conditional mean square norm collision greedy residual adaptive sampling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.08313",
+      "arXiv:2002.04126",
+      "arXiv:1909.03604",
+      "DOI:10.1007/s11075-024-01945-2",
+      "arXiv:1912.03544 (abstract only)",
+      "Published record: Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+      "Published record: Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+      "Published record: Exact delay-distribution law for two-coordinate randomized Gauss–Seidel"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published result \"Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation\" studies a cyclic product and a defective repeated-root optimum, unlike the shared-snapshot random batch sum.",
+        "Published result \"Exact delay-distribution law for two-coordinate randomized Gauss–Seidel\" uses independently delayed scalar coordinate recurrence, not multiple copies of one chosen row at one snapshot.",
+        "Haddock and Ma, arXiv:1912.03544, study sequential Sampling Kaczmarz–Motzkin."
+      ],
+      "reasoning": "Sequential product stability and residual spike estimates do not bound the interference cross-terms K(K−1)B of this method. A general mini-batch expectation identity alone does not give the feasible max-residual eigenvector and the θ<1 versus θ=1 convergence bifurcation without additional analysis.",
+      "searches": [
+        "\"Greed Works\" sampling Kaczmarz Motzkin 2019 2021",
+        "published research index: \"two row randomized Kaczmarz same snapshot parallel batch maximal residual sampling mixture uniform greedy exact sharp mean-square contraction threshold coherence\"",
+        "published research index: \"parallel batch Kaczmarz with replacement residual-adaptive row sampling exact stability relaxation two rows collision and coherence\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.08313 studies lock-free residual-adaptive Kaczmarz with realized delays and experimental instability; it does not formulate the independent shared-snapshot mixed-maximal-row batch as this theorem.",
+        "arXiv:2002.04126 equation (3) uses independent averaged corrections; its probability/weight theory focuses on fixed or coupled sampling."
+      ],
+      "reasoning": "Averaging corresponds to rescaling our sum by K but does not supply an exact adaptive mixture threshold. A single sequential greedy projection is another non-equivalent map, as its residual refresh prevents the duplicate stale-reflection mechanism.",
+      "searches": [
+        "\"two row randomized Kaczmarz same snapshot parallel batch maximal residual sampling mixture uniform greedy exact sharp mean-square contraction threshold coherence\"",
+        "\"parallel batch Kaczmarz with replacement residual-adaptive row sampling exact stability relaxation two rows collision and coherence\"",
+        "arXiv:2607.08313 sections III–V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The survey DOI:10.1007/s11075-024-01945-2 presents a taxonomy of iterative row-action methods, not a table with the exact parameterized frontier.",
+        "The nearby published record \"Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz\" concerns total residual spikes under maximal-distance serial updates."
+      ],
+      "reasoning": "No exact published table or result with the stated combined interference parameter √(θ²+(1−θ²)c²) was located; absence of a match alone is not treated as novelty proof.",
+      "searches": [
+        "\"Kaczmarz\" \"mixture\" \"greedy\" \"uniform\" \"parallel\" mini batch",
+        "\"Kaczmarz\" \"sqrt\" \"correlation\" \"batch\" \"stability\" \"sampling\" greedy mixture",
+        "published research index: \"mini-batch randomized Kaczmarz importance sampling greedy exploration sharp step size bound adaptive distribution\""
+      ]
+    },
+    "rationale": "No covering statement for the exact state-adaptive, two-row, unaveraged common-snapshot interference frontier or the generic Householder nonconvergence/positive-exploration reversal was identified in searches of the accessible primary full texts and published mathematical result records. The source empirical asynchrony study, the fixed-distribution averaging analysis, and one-sketch adaptive theory address adjacent but nonidentical updates. A general unnamed theorem could conceivably imply this specialized closed form; independent confirmation remains outstanding.",
+    "residual_risks": [
+      "General finite-batch stochastic-gradient stability literature may contain an unlocated equivalent sufficient/necessary condition.",
+      "The 2019/2021 Sampling Kaczmarz–Motzkin article was not read beyond the abstract because its described scheme is sequential; a hidden parallel extension cannot be categorically ruled out.",
+      "No independent bibliographic audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact two-row common-snapshot mixture frontier; provides empirical motivation",
+        "evidence": "Sections III–V define row selection and atomic additive commits and report a concurrency/selection cliff, but provide no exact θ,c,K threshold.",
+        "identifier_or_url": "arXiv:2607.08313",
+        "material_read": "Full arXiv rendered body: algorithm, update semantics, related work, experiments, conclusions",
+        "method": "Read mathematical update model, residual-maintenance and read-consistency definitions; compared row and commit quantifiers",
+        "title": "Adaptive Row Selection Meets Asynchrony in Randomized Kaczmarz",
+        "trigger": "Motivating 2026 stale-residual selection and under-relaxation experiments"
+      },
+      {
+        "assessment": "PARTIALLY RELATED, not a stated or immediate covering theorem for residual-dependent mixture and unaveraged duplicate commits",
+        "evidence": "Equation (3), Theorem 1, Corollary 1, and Appendices A–D focus on averaged projections and fixed/coupled probabilities.",
+        "identifier_or_url": "arXiv:2002.04126",
+        "material_read": "Full main rendered text and appendices A–D, plus author PDF page 2",
+        "method": "Compared update equation (3), assumption PW D^{-2} proportional to I, conditional error identities, and proof appendices",
+        "title": "Randomized Kaczmarz with Averaging",
+        "trigger": "Closest published independent-with-replacement concurrent correction algebra"
+      },
+      {
+        "assessment": "NOT_COVERING; single-sketch updates, no shared-snapshot parallel additive batches",
+        "evidence": "Equation (6) projects with one selected sketch; Appendix A algorithm selects one index then immediately updates residuals.",
+        "identifier_or_url": "arXiv:1909.03604",
+        "material_read": "Rendered main body, algorithmic setup, convergence discussion, appendices A–B",
+        "method": "Checked selection quantifiers, single-sketch iterative rule, minbatch references, and implementation algorithms",
+        "title": "Adaptive Sketch-and-Project Methods for Solving Linear Systems",
+        "trigger": "Possible stronger covering adaptive-sampling theory"
+      },
+      {
+        "assessment": "No same-object sharp mixed-greed interference frontier in inspected relevant sections; not claimed as exhaustive full-document exclusion",
+        "evidence": "Section 3.13 explicitly describes RKA as an average of simultaneous updates rather than unaveraged stale commits.",
+        "identifier_or_url": "DOI:10.1007/s11075-024-01945-2",
+        "material_read": "Open-access introduction and method taxonomy including section 3.13 parallel implementations",
+        "method": "Compared descriptions of averaging, component-averaging, and block-parallel algorithms",
+        "title": "Survey of a class of iterative row-action methods: The Kaczmarz method",
+        "trigger": "Check broader historical parallel Kaczmarz mechanisms and variants"
+      },
+      {
+        "assessment": "Not a decisive coverage source for this exact batch; full specialized comparison remains a residual risk",
+        "evidence": "Abstract describes selecting one greedy row from a sampled subset per iteration.",
+        "identifier_or_url": "arXiv:1912.03544",
+        "material_read": "Abstract and bibliographic description only",
+        "method": "Compared stated sequential sampled-subset update with independent parallel snapshot corrections",
+        "title": "Greed Works: An Improved Analysis of Sampling Kaczmarz–Motzkin",
+        "trigger": "Related partial-greedy sampling might imply a stronger result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "950481c9-2526-47cc-9dee-9afc63c2949f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact stability design problem is motivated by concurrent stale residual selection, which was experimentally observed to have an aggressiveness-dependent cliff in Coleman (2026). The sharp formula isolates concurrency K, row coherence c, and exploration θ in a single natural interference eigenvalue. Especially substantive is the full-step K=2 bifurcation: pure greed repeats one stale projection twice, becoming an isometry for almost every start, while arbitrarily little uniform exploration restores global geometric mean-square convergence. This is neither a routine restatement of a sequential Kaczmarz bound nor an arbitrary numerical slice; it is a complete sharp classification of the smallest nontrivial shared-snapshot model with a concrete algorithm-design implication.",
+    "status": "PASS"
+  }
+}
