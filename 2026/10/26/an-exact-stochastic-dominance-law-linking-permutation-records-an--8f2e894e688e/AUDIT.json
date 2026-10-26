@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the standard cycle-insertion bijection; checked that insertion at the marked position forces the upper record, insertion before it destroys it, and insertion after it preserves it. Derived the exact joint PGF recurrence, solved its homogeneous centered form, and telescoped the signed coefficient difference to a nonnegative tail gap. Exact rational independent enumeration for all permutations n<=8 and recurrence checks n<=35 agreed. Finite checks supplement, rather than replace, the all-n proof. Mean derivative, covariance and asymptotic variance steps were independently checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Najnudel–Pitman represent cycle lengths by Bernoulli spacings and produce a new permutation via a fundamental transform.",
+        "Jin jointly counts Euler–Stirling record and descent statistics, without including the same-permutation cycle statistic.",
+        "Gnedin explicitly distinguishes deleting the maximum under cycle projection and deleting it in one-row notation, connecting through a fundamental bijection."
+      ],
+      "reasoning": "The inspected stronger structures do not imply a conditional ordinary-cycle law given a marked record of the output permutation without an additional joint transformation theorem. Our insertion recursion supplies the missing joint information.",
+      "searches": [
+        "arXiv:1907.09587v2 Sections 1-3",
+        "arXiv:2210.08789v1 Theorems 1-2",
+        "Gnedin 2007 Sections 4-7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1907.09587v1 (verified first posted 2019-07-22) and full-text arXiv:1907.09587v2",
+      "Gnedin 2007, Coherent random permutations with record statistics (lawful OA full PDF)",
+      "arXiv:2210.08789v1 (full arXiv text)",
+      "Dubach 2025, A geometric approach to conjugation-invariant random permutations (relevant sections)",
+      "published-finding corpus indexed comparisons: efaa92233051, 6e228e1e9495, bb66bcfebcc4, f6af0a8c3805"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical univariate polynomial for cycle count is a prerequisite used in our computation.",
+        "Marking a record at a specified one-line position is not determined by cycle lengths or by the Foata transform’s number of records.",
+        "Our PGF identity implies nonnegative gaps at every integer threshold and an exact marked covariance. The compared works did not present this same-object conditional law in inspected material."
+      ],
+      "reasoning": "The new statement is not a corollary of a cycle-count marginal, left-to-right record marginal, joint descents/records formulas, or pairwise inversion covariance alone. No dominating exact joint cycle/marked-record theorem was found in inspected primary material.",
+      "searches": [
+        "arXiv:1907.09587v2 Feller coupling and Foata map",
+        "Gnedin 2007 Proposition 3, Section 5 bijection",
+        "arXiv:2210.08789v1 generating functions",
+        "published-finding corpus efaa92233051 cycle/inversion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foata/record-cycle bijections equate the marginal cycle-count and record-count laws after transforming one permutation; same-object joint distribution is not invariant under that map.",
+        "The proof conditionally marks one upper record in the original permutation, giving an exact generating polynomial difference involving two independent smaller cycle counts."
+      ],
+      "reasoning": "A statistic-equidistribution bijection is not a proof that the two statistics, measured on the same input permutation, share a stated conditional joint law. The objects in the closest bijective formulations are distinct.",
+      "searches": [
+        "uniform random permutation joint cycle count and left-to-right record indicator at prescribed position stochastic dominance conditional record",
+        "permutation cycles conditioned on upper record at position i exact generating function conditional cycle count",
+        "\"cycles\" \"record positions\" \"random permutation\" \"conditional\"",
+        "arXiv:1907.09587v2",
+        "Gnedin-2007-Coherent-random-permutations-with-record-statistics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed research records give cycle/inversion-indicator covariance and fixed-point/descent-indicator covariance, not a PGF or a table for conditional marked-record/cycle count.",
+        "No inspected exact table enumerated the same-object marked record and cycle-count distribution for all orders."
+      ],
+      "reasoning": "A matching record/count title or parameter value is not enough; comparisons used event definition, transformed versus original permutation, and conditional distribution versus first-moment covariance. A failed search alone does not certify novelty.",
+      "searches": [
+        "covariance cycle count and records left to right maxima random permutation joint exact",
+        "uniform random permutation number cycles number records joint distribution independence covariance",
+        "uniform random permutation joint cycle count and left-to-right record indicator at prescribed position stochastic dominance conditional record",
+        "permutation cycles conditioned on upper record at position i exact generating function conditional cycle count",
+        "conditional record position cycle count covariance binomial n choose i first order stochastic order permutation",
+        "same permutation cycle number record highs joint polynomial cycle insertion",
+        "record indicator covariance cycle count uniform permutation delta distribution convolution Stirling numbers",
+        "published-finding corpus hit 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "published-finding corpus hit 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ]
+    },
+    "rationale": "The exact marked conditional PGF/stochastic-order theorem is not supplied by the inspected Feller record-to-cycle coupling, Foata-record literature, or Euler–Stirling results. Checked mathematical-record hits concerned different pairs of statistics, and the new claim is a stronger same-permutation distributional statement, not the classical marginal equidistribution. A possible older equivalent formulation remains a residual priority risk.",
+    "residual_risks": [
+      "An earlier literature identity may be phrased as a bivariate cycle/record enumerator, insertion recurrence, or character identity under another name, and could subsume the exact law despite the inspected searches.",
+      "Later work on conjugation-invariant permutations may have uninspected specializations to uniform permutation marked records; published main results inspected did not settle this exact finite-size identity.",
+      "Mathematical originality is assessed from actual search and inspected primary sources, not from proof of absence in all literature. Independent historical-priority validation was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports classical Bernoulli/cycle coupling, but the marked record is in the input iid order or transformed permutation, not the record indicator of the same output permutation whose cycles are counted.",
+        "evidence": [
+          "arXiv HTML lines 33–114 construct cycles from input records and explicitly use a Foata/Rényi bijection.",
+          "Corollary 1.4 lines 174–190 gives conditional cycle structure given Bernoulli input records; no identified theorem gives the specified one-line record of the resulting permutation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1907.09587v2",
+        "material_read": "Abstract, Section 1 including Theorems 1.1–1.3 and Corollary 1.4, cycle insertion and transformation description, theorem statements and subsequent discussion and references; complete accessible HTML was inspected for the relevant same-permutation formulation.",
+        "method": "Full-text arXiv HTML examination and term/section comparison.",
+        "title": "Feller coupling of cycles of permutations and Poisson spacings in inhomogeneous Bernoulli trials",
+        "trigger": "Direct cycle/record coupling and original source for this direction."
+      },
+      {
+        "assessment": "Focuses on record-weighted measures and an explicit bijection between cycle and record projections, not exact conditional ordinary cycle count when an upper record of the same one-line permutation is forced.",
+        "evidence": [
+          "PDF page 5 (text lines 324–371) states the cycle-vs-one-line projection and Foata map.",
+          "PDF page 5–6 (text lines 388–411) describes Ewens through transformed inverse/record measures."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/3551/download",
+        "material_read": "Thirteen-page lawful open-access paper, especially definitions of upper/lower records, coherence, Section 5 cycle deletion and fundamental bijection, Section 6 Ewens specializations and parameterized record laws.",
+        "method": "PDF parsed full-text and visual inspection of the first page; focused examination of the relevant sections.",
+        "title": "Coherent random permutations with record statistics",
+        "trigger": "Plausible predecessor linking record statistics to Ewens cycles."
+      },
+      {
+        "assessment": "Statistical set includes descents, inverse descents, right maxima, left minima and left maxima; it does not include ordinary disjoint-cycle count.",
+        "evidence": [
+          "Theorem setup defines the joint generating function with descents, inverse descents, right maxima, left minima and left maxima (lines 26–44); no cycle-count parameter."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2210.08789",
+        "material_read": "Full-text arXiv rendering, introduction, definitions and stated main generating-function theorems for descents, inverse descents, and left/right extrema, with full-document searches for cycles.",
+        "method": "Open-access arXiv full-text and statement/definition comparison.",
+        "title": "Symmetric generating functions and Euler-Stirling statistics on permutations",
+        "trigger": "Potentially broader joint generating functions containing permutation record statistics."
+      },
+      {
+        "assessment": "Studies geometric distributions and asymptotics of records conditional on conjugacy type; no exact marked-record conditional cycle-count PGF identified. Priority risk remains for results not examined line-by-line.",
+        "evidence": [
+          "Conjugation-invariant results condition on cycle type and study records via planar-point constructions; the claim assessed here is unconditional uniform permutation, marked at a fixed location and exact finite-size conditional PGF."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00440-025-01449-7",
+        "material_read": "Accessible article introduction, model definitions, geometric construction, descriptions of record statistics and claims of their asymptotic behavior under cycle types.",
+        "method": "Open accessible publisher full-text focused scan.",
+        "title": "A geometric approach to conjugation-invariant random permutations",
+        "trigger": "More recent potentially dominating result on cycles and records for conjugation-invariant permutations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f2e894e-688e-4cd9-8da5-779030985b57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dependence between a uniformly random permutation’s ordinary cycle count and upper records in its own one-line representation is structurally natural and not determined by their classical marginal equidistribution. The result gives the entire signed distributional perturbation, exact stochastic ordering for every n and record location, a sharp trivial i=1 boundary, exact marked covariance, and a rigorous n log n decorrelation law for totals. These are meaningful probabilistic properties, not an arbitrary numerical slice or a renamed marginal formula.",
+    "status": "PASS"
+  }
+}
