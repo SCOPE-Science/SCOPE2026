@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Conditional independence of receivers gives exact two-state ODE. Independent source lifetime sums give Eq.(2) variance O(1/log n), exact mean Eq.(3). The depletion correction has vanishing expectation at scale n via explicit two-source covariance Eq.(4). Thus conditional infected receivers converge to Poisson with parameter lambda Phi(theta) exp(-x), and all sources survive with probability O(1/log n). Absorbing-state identity yields Gumbel. 144 independent finite-generator matrix exponential checks and 3 large-system simulations passed; experiments not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heinzmann 2009 full PDF p.298, Theorem 2.1 uses irreducible Metzler matrix and simple Perron eigenvalue; this candidate's 2x2 mean decay matrix has one-way off-diagonal and becomes a nonsimple -1 eigenvalue at theta=0.",
+        "Windridge 2014 arXiv full-text shows exponentially decaying extinction survival tail rather than t exp(-t) resonance."
+      ],
+      "reasoning": "The strongest located Gumbel-extinction theory checked cannot directly imply a log-log-centered near-Jordan-block crossover; the present theorem supplies an independent proof. Other reducible branching results might imply an approximation and remain a residual risk.",
+      "searches": [
+        "subcritical multitype Markov branching extinction distribution Heinzmann 2009",
+        "Windridge arxiv 1408.4768 full paper extinction time distribution",
+        "one-way infection contact process with source recovery and target reinfection"
+      ]
+    },
+    "checked_sources": [
+      "Heinzmann 2009, DOI 10.1239/jap/1238592131 (full PDF partial deep read)",
+      "Windridge 2014, arXiv:1408.4768 (full text)",
+      "Ménard–Singh 2015, arXiv:1502.06982 (full text)",
+      "Van de Bovenkamp–Van Mieghem 2015, DOI 10.1103/PhysRevE.92.032806 (abstract only)",
+      "published-finding corpus semantic searches recorded in originality named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heinzmann 2009 Theorem 2.1 assumes irreducibility and strict spectral separation; neither holds at the repeated-rate one-way critical point.",
+        "Windridge 2014 estimates pure exponential tail; current proof explicitly yields t exp(-t) and rate-tilt factor Phi(theta).",
+        "Van de Bovenkamp and Van Mieghem 2015 accessible abstract describes finite-network SIS and exact mean survival times, but full text inaccessible."
+      ],
+      "reasoning": "These statements do not imply the asserted full-distribution finite-population loglog centering and crossover without further arguments. Full inaccessible 2015 source creates residual historical coverage uncertainty.",
+      "searches": [
+        "Heinzmann 2009 extinction multitype branching irreducible simple eigenvalue theorem",
+        "Windridge 2014 extinction time subcritical branching epidemic Gumbel",
+        "van de Bovenkamp Van Mieghem survival time susceptible infected susceptible graph 2015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Heinzmann 2009 pp. 296 and 298: general multitype branching results require irreducibility/simple Perron eigenvalue, while this directed model's linearization is reducible and resonant.",
+        "Windridge arXiv:1408.4768 full paper: subcritical branching Gumbel with pure exponential tails; the present theorem has logarithmic-logarithmic centering."
+      ],
+      "reasoning": "The equivalent generating-function viewpoint is a conditional binomial mixture, not an unconstrained branching process. The log-log shift and detuning profile require the repeated one-way decay mode and finite receiver reinfection treatment, not direct application of irreducible exponential-tail theory.",
+      "searches": [
+        "two-stage epidemic directed bipartite susceptible infected SIS one-way infection extinction time log n plus log log n Gumbel equal recovery rates",
+        "repeated recovery eigenvalue log-log extinction delay subcritical decomposable branching epidemic Gumbel detuning",
+        "Jordan block critical repeated eigenvalue feedforward susceptible infected epidemic Gumbel loglog",
+        "one-way infection contact process with source recovery and target reinfection"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest ids: 2026/10/11/SCOPE-universal-extinction-crossover-at-the-pitchfork-edge-of-a-nonlin--c1921b9ff104; 2026/9/14/SCOPE021; 2026/10/4/SCOPE-an-exact-near-threshold-relaxation-crossover-in-the-seitfr-conju--4c26b44f0c55",
+        "No located exact table for the specified joint parameter detuning and full extinction law."
+      ],
+      "reasoning": "Nearest records concern deterministic epidemic thresholds, a general two-patch reproduction-number example and graph hitting domination, rather than this random fading process and Gumbel crossover; absence in a database is not uniqueness proof.",
+      "searches": [
+        "directed two-layer complete bipartite SIS extinction near matching recovery rates",
+        "Jordan block critical repeated eigenvalue feedforward susceptible infected epidemic Gumbel loglog"
+      ]
+    },
+    "rationale": "Full-text comparison with Heinzmann and Windridge isolates an uncovered reducible repeated-decay regime; primary contact-process literature treats different graphs/scaling. Search results give no dominating implication, though general reducible-branching literature remains a risk.",
+    "residual_risks": [
+      "A theorem for reducible/decomposable subcritical multitype branching processes with repeated eigenvalue might imply the primary limiting law even if not using the same process formulation.",
+      "Full paper of 2015 finite-network SIS survival work could contain more relevant results than the abstract.",
+      "No exhaustive historical priority or independent audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING under published hypotheses; reducible repeated eigenvalue not subject to simple Perron spectral theory",
+        "evidence": "Heinzmann (2009), Journal of Applied Probability 46 pp.296, 298; Theorem 2.1 explicitly assumes irreducible B and proves strict simple dominant eigenvalue.",
+        "identifier_or_url": "https://doi.org/10.1239/jap/1238592131",
+        "material_read": "Full accessible PDF, abstract and pages 296–298 including irreducibility hypothesis and spectral Theorem 2.1; additional body passages on extinction estimates",
+        "method": "Read accessible source PDF text and inspect original page images of pp.296 and 298",
+        "title": "Extinction times in multitype Markov branching processes",
+        "trigger": "Potentially broader branching-process extinction Gumbel theorem"
+      },
+      {
+        "assessment": "NOT_COVERING under exact assumptions: branching epidemic model and exponential tail vs nonlinear receiver saturation and near-resonance",
+        "evidence": "Windridge (2014), arXiv:1408.4768.",
+        "identifier_or_url": "https://arxiv.org/abs/1408.4768",
+        "material_read": "Accessible full arXiv paper, theorem and subcritical tail discussion, pages 1–8",
+        "method": "Read arXiv full text and inspect original PDF images",
+        "title": "The extinction time of a subcritical branching process related to the SIR epidemic on a random graph",
+        "trigger": "Gumbel extinction law for epidemics"
+      },
+      {
+        "assessment": "NOT_COVERING: infinite-graph contact-process percolation threshold vs finite unidirectional extinction distribution",
+        "evidence": "Ménard and Singh (2015) arXiv:1502.06982, primary MSC 82C22.",
+        "identifier_or_url": "https://arxiv.org/abs/1502.06982",
+        "material_read": "Full paper was accessible, abstract, introduction, main results and relevant contact-process sections inspected",
+        "method": "Read arXiv/full open text and inspect paper pages",
+        "title": "Percolation by cumulative merging and phase transition for the contact process on random graphs",
+        "trigger": "Physically relevant contact process with verified primary MSC 82C22"
+      },
+      {
+        "assessment": "UNCERTAIN; no unsupported whole-document absence claim",
+        "evidence": "Van de Bovenkamp and Van Mieghem, Physical Review E 92, 032806 (2015).",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.92.032806",
+        "material_read": "Abstract only; lawful OA/arXiv attempts did not obtain paper PDF; full article remained unavailable",
+        "method": "Read journal abstract; attempted OA/fulltext access without bypassing VPN requirement",
+        "title": "Survival time of the susceptible-infected-susceptible infection process on a graph",
+        "trigger": "Direct finite network SIS survival time paper potentially dominating claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4fedaca5-b99e-499b-8db9-f5c7ce40221e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physical fading time of a two-stage directed epidemic displays a nontrivial loglog delay, Gumbel limiting shape, and explicit crossover on shrinking rate-difference scale 1/log n. It identifies a natural resonance boundary not visible in standard single-decay exponential tail estimates. The full distribution, not only mean extinction, is determined; the model assumptions are motivated by feedforward infection and identifiable graph topology.",
+    "status": "PASS"
+  }
+}
