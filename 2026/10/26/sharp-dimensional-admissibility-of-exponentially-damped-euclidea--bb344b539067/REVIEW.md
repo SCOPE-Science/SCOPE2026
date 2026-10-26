@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The base three-dimensional Fourier integral is elementary and has the stated normalization. The two-dimension Fourier recurrence follows from an explicit Bessel derivative identity, including the factor \(-4\pi\) in squared frequency. The imaginary-part representation yields a strictly monotone phase from \(2\arctan(\omega/a)\) to zero; its sine sign proves the necessary-and-sufficient criterion at all frequencies and at equality. Bochner's theorem gives the equivalence with finite Gram matrices. Exact low-order symbolic checks and sampled spectral signs support, but do not replace, the proof.
+
+**Originality — PASS under bounded literature review.** Genton's full paper lists wave and exponential kernels separately, giving their joint dimension-three product by standard closure, but not the sharp dimension-five-and-higher admissibility boundary. Gneiting's cited paper addresses the theory of spherical radial positive definite kernels, not this explicit Euclidean damped-wave classification. The full text of Schubert et al. treats damped sine/cosine functions without the wave's radial denominator. Public mathematical-result searches for direct and equivalent damped-sinc parameterizations did not reveal a stronger covering statement. An unindexed equivalent criterion and the historical availability of the dimension walk remain residual risks; search absence alone is not proof of global novelty.
+
+**Value — PASS.** The Euclidean wave/sinc covariance is canonically tied to spherical frequency shells, and exponential regularization is a standard covariance construction. The result supplies the sharp parameter boundary for moving this natural kernel beyond dimension three, and its all-frequency sign profile identifies precisely what fails outside the admissible region. The odd-dimensional family and the infinite threshold sequence are not obtained from positive-definite closure alone.
+
+**Limitations.** Odd dimensions only; strictly positive \(a,\omega\); no independent verification or global novelty claim. The 2001 background source gives month-level publication granularity rather than an independently verified day; metadata records the first precisely date-resolved source used.
+
+Self-review: passed. Independent audit: not yet performed.

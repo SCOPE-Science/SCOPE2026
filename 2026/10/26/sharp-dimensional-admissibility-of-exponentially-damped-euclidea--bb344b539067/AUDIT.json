@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The R3 radial Fourier integral is 8pi*a/([(a^2+(omega-s)^2)(a^2+(omega+s)^2)]). The Bessel dimension walk has the exact factor -4pi*d/d(s^2), so in d=2p+1 the density equals ((4pi)^p(p-1)!/omega) Im[(s^2+(a-i omega)^2)^(-p)]. Its phase beta decreases strictly from 2 atan(omega/a) to 0; the density is nonnegative at all frequencies iff 2p atan(omega/a)<=pi. Negative open bands establish necessity; Bochner and positive spectral density on s>0 establish sufficiency and distinct-site strictness. Algebraic identities checked by verify.py; no finite sample used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gneiting arXiv:1111.7077 discusses radial positive definiteness and spherical dimension-walk theory, not the Euclidean damped sinc family.",
+        "The broader Fourier/Bochner and dimension-walk frameworks give tools for this deduction but do not tabulate its parameter-dependent sine-phase sign region.",
+        "Schubert et al. (2021) concerns models of the form e^{-ar}(C cos(omega r)+D sin(omega r))."
+      ],
+      "reasoning": "General Bochner characterization, the Bessel recurrence, and product closure are strictly broader techniques but do not supply the complete parameter classification without a dedicated complex-power sign analysis. The nearby ARMA oscillatory family is a different function: no claim implication follows merely from a similar frequency parameter.",
+      "searches": [
+        "arxiv:1111.7077",
+        "positive definite radial exp(-a r) sinc(omega r) damped spherical Bessel j0 covariance Euclidean odd dimensions thresholds",
+        "positive definite exponential times sin(omega r)/(omega r) on Euclidean R5 R7 radial Fourier",
+        "doi:10.3390/engproc2021005037",
+        "2026/9/20/SCOPE-gegenbauer-polya-boundary-all-real-lambda--107c9b8148b4"
+      ]
+    },
+    "checked_sources": [
+      "https://www.jmlr.org/papers/volume2/genton01a/genton01a.pdf",
+      "https://arxiv.org/abs/1111.7077",
+      "https://doi.org/10.3390/engproc2021005037",
+      "2026/9/18/SCOPE-polya-bessel-zero-free-strip-for-fourier-bipyramids--72c1da0f9bb0",
+      "2026/9/20/SCOPE-gegenbauer-polya-boundary-all-real-lambda--107c9b8148b4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Genton Table 1 and the Schur product mechanism imply the d=3 positive direction, but higher-dimensional necessity and sufficiency do not follow from that closure statement.",
+        "Schubert et al. establish a criterion for an oscillating exponential with no sinc divisor: substituting a coefficient cannot create the missing radial 1/r.",
+        "Gneiting develops radial positive-definite classes and dimension walks; the exact present transform and sharp condition are not asserted in the inspected material."
+      ],
+      "reasoning": "The prior closure result covers the full d=3 subcase, explicitly excluded from a novelty claim as a standalone fact; the contribution is the sharp all-odd-dimension admissibility boundary and spectral band characterization. Applying the known dimension walk is part of the proof, not grounds for claiming that elementary tool as new.",
+      "searches": [
+        "https://www.jmlr.org/papers/volume2/genton01a/genton01a.pdf",
+        "arxiv:1111.7077",
+        "doi:10.3390/engproc2021005037",
+        "positive definite exponential times sin(omega r)/(omega r) on Euclidean R5 R7 radial Fourier",
+        "sharp dimension threshold for exponential damping of radial wave covariance sine cardinal sinc"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Genton (2001), Table 1 (PDF page 7 of 14): exp(-r/theta) is in every Euclidean dimension; sin(r/theta)/(r/theta) is certified in dimension three only.",
+        "Schubert et al. (2021), formula (4), studies exp(-ar)(C cos(omega r)+D sin(omega r)), without the 1/r wave factor."
+      ],
+      "reasoning": "Alternative names include exponentially tempered spherical Bessel j0, damped wave covariance, exponentially damped sinc, and convolution of a frequency-sphere measure with a multidimensional Cauchy spectrum. The separate wave/exponential kernels and denominator-free oscillations do not by themselves state or imply the sharp odd-dimensional positivity threshold. Searches found no direct equivalent formula, while absence in search does not prove uniqueness.",
+      "searches": [
+        "positive definite radial exp(-a r) sinc(omega r) damped spherical Bessel j0 covariance Euclidean odd dimensions thresholds",
+        "positive definite exponential times sin(omega r)/(omega r) on Euclidean R5 R7 radial Fourier",
+        "sharp dimension threshold for exponential damping of radial wave covariance sine cardinal sinc",
+        "\"exponentially damped sinc\" \"positive definite\" \"dimension\"",
+        "\"exp(-a r)\" \"sin\" \"positive definite\" \"dimension\"",
+        "Genton 2001 Table 1 wave exponential covariance",
+        "doi:10.3390/engproc2021005037"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The available Table 1 in Genton records the wave and exponential kernels separately and gives no joint higher-dimensional admissibility table.",
+        "published-finding corpus 2026/9/18/SCOPE-polya-bessel-zero-free-strip-for-fourier-bipyramids--72c1da0f9bb0 concerns zeros of Fourier transforms of convex bipyramids, not positive definiteness of exponentially damped sinc functions.",
+        "published-finding corpus 2026/9/20/SCOPE-gegenbauer-polya-boundary-all-real-lambda--107c9b8148b4 concerns positive Gegenbauer integrals, not this Euclidean spectral transform."
+      ],
+      "reasoning": "No checked database or table listed the dimension-specific thresholds a>=omega (d=5), a>=sqrt(3) omega (d=7), or the full odd-dimensional sequence. Published-record similarity matches were compared by mathematical object and implication, rather than just titles.",
+      "searches": [
+        "positive definite radial exp(-a r) sinc(omega r) damped spherical Bessel j0 covariance Euclidean odd dimensions thresholds",
+        "positive definite exponential times sin(omega r)/(omega r) on Euclidean R5 R7 radial Fourier",
+        "sharp dimension threshold for exponential damping of radial wave covariance sine cardinal sinc",
+        "2026/9/18/SCOPE-polya-bessel-zero-free-strip-for-fourier-bipyramids--72c1da0f9bb0",
+        "2026/9/20/SCOPE-gegenbauer-polya-boundary-all-real-lambda--107c9b8148b4",
+        "Genton 2001 Table 1 wave"
+      ]
+    },
+    "rationale": "Bounded primary-source and published-finding corpus comparison distinguished known wave, exponential and denominator-free damped oscillatory kernels from the exact higher-dimensional damped-sinc criterion; no inspected source implied this full phase classification. The scope and indexing risks are stated rather than treated as uniqueness proof.",
+    "residual_risks": [
+      "An unindexed equivalent theorem may be described through spectral convolution, radial Bessel functions, or a general dimension-walk theorem.",
+      "Only a bounded set of accessible mathematical records and primary works was inspected; absence of a hit does not establish global novelty.",
+      "A 2001 historical article has month-only publication information, so the day-resolved 2011 source is the conservative date anchor."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the undamped wave in R3 and exponential in arbitrary R^d, but not the complete odd-dimensional admissibility region for their damped product.",
+        "evidence": [
+          "Table 1 (printed p.305) rows (d) exponential and (f) wave; preceding Section 2 discusses radial positive definiteness and products."
+        ],
+        "identifier_or_url": "https://www.jmlr.org/papers/volume2/genton01a/genton01a.pdf",
+        "material_read": "Full 14-page open paper, especially pp. 302-305 including Table 1 and product closure.",
+        "method": "Read full PDF text, inspected Table 1 PDF page image.",
+        "title": "Classes of Kernels for Machine Learning: A Statistics Perspective",
+        "trigger": "The exact wave/sinc and exponential covariance factors appear among standard examples."
+      },
+      {
+        "assessment": "Pertains primarily to positive-definite kernels on spheres, not this explicit Euclidean damped-wave Fourier sign classification.",
+        "evidence": [
+          "arXiv posted 2011-11-30; abstract and Introduction discuss dimension walks on spheres."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+        "material_read": "ArXiv full-text abstract and opening material describing dimension walks and positive-definite radial classes.",
+        "method": "Read arXiv HTML rendition and source metadata.",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Potential broad positive-definiteness and dimension-walk coverage."
+      },
+      {
+        "assessment": "Considers e^{-ar}(C cos(omega r)+D sin(omega r)); this lacks the wave kernel divisor, so its parameter criteria do not settle the present theorem.",
+        "evidence": [
+          "Engineering Proceedings 5 (2021), 37, doi:10.3390/engproc2021005037; equation (4)."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/engproc2021005037",
+        "material_read": "Publisher open-access PDF introduction and equations including the oscillatory model in formula (4).",
+        "method": "Read accessible PDF text and inspected original equation page.",
+        "title": "On the Family of Covariance Functions Based on ARMA Models",
+        "trigger": "Nearby oscillatory exponentially damped radial covariance models and higher-dimensional positivity constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb344b53-9067-4c81-8be5-d34f0ac28d77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The wave/sinc covariance arises canonically as the inverse Fourier transform of a spherical frequency shell, and exponential damping is a natural regularization. Unlike the trivial R3 product-closure fact, the complete family of sharp positive-definiteness thresholds in higher odd dimensions determines when damping recovers admissible covariance models, identifies all negative Fourier bands outside them, and supplies exact boundary behavior and distinct-site strictness. The dimension-five and higher cutoffs are not textbook corollaries of product closure alone.",
+    "status": "PASS"
+  }
+}
