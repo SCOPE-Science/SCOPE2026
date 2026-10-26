@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Linear spatial operators and the order-two RK conditions give an identical primal update for every tableau. At gamma=1/2 a physical subcell partition gives a Jensen-based inequality for every convex entropy on exactly 0<=r<=1; r>1 is ruled out by constant-cell quadratic entropy. At gamma>1/2 a quartic hinge localized at the first-stage outflow yields a strictly negative exact defect for every r>0 and survives a positive quadratic addition producing a C2 strongly convex entropy. Exact checker validates the explicit -1/3072 witness and 320 formula instances. Alternating-mode determinant verifies the separate full-state amplification claim. No finite testing is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.18837 imposes a flux dissipation coefficient at least twice the flux Lipschitz scale times an entropy-curvature ratio; here the upwind parameter equals the advection speed, and quantification includes nonsmooth entropies.",
+        "arxiv:2412.16002 develops bound-preserving decompositions and midpoint selection, but studies invariant domains rather than the specific entropy-flux inequality."
+      ],
+      "reasoning": "The general sufficient source theorem does not imply the sharp upwind, all-convex scalar result; invariant-domain bounds for cell averages do not directly imply the particular RK-averaged entropy-flux balance.",
+      "searches": [
+        "compact Runge Kutta DG exact sharp CFL all convex entropy upwind midpoint linear advection",
+        "compact Runge Kutta DG second order piecewise linear midpoint sharp CFL one upwind convex entropy linear advection cell average",
+        "arxiv:2610.18837 Theorem 2.1 and Lemma 4.1",
+        "arxiv:2412.16002 Section 3.3.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.18837 main text §§2–5",
+      "arxiv:2412.16002 main text §§2–3.3.1",
+      "arxiv:2307.06471 main text §3.5.1 and Table 1.1",
+      "doi:10.1051/m2an/2016049 abstract only",
+      "Published mathematical record semantic queries: Two stage second order compact Runge Kutta discontinuous Galerkin all convex entropy inequality iff explicit midpoint; arbitrarily small Courant Heun method counterexample smooth convex entropy; Zheng Sun 2026 cRKDG piecewise affine sharp CFL explicit midpoint universal convex entropy flux; Heun trapezoidal RK quadrature failure; Lax Wendroff DG midpoint weak entropy entropy flux all convex RK2 output weights sharp classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 weak-to-strong theorem has uniform curvature-ratio hypotheses and sufficient dissipative flux; it neither rules out every non-midpoint tableau at all positive steps nor certifies all convex entropies for midpoint at Courant one.",
+        "The 2024 paper gives a numerical RK2 midpoint choice based on a bound-preserving decomposition; it does not establish necessary uniqueness among all nonnegative-output RK2 tableaus for stage-entropy certification.",
+        "The 2023 paper supplies linear update equivalence, and a 2017 Lax-Wendroff DG study focuses on L2-stability/error bounds."
+      ],
+      "reasoning": "Even granting all physical-update identities and known invariant-domain results, the decisive quartic-hinge entropy-flux counterexamples and midpoint convex-order proof require new comparisons of nonlinear stage-entropy quadrature, not just the physical map. The 2005 LWDG paper was available only at abstract level and remains a priority risk.",
+      "searches": [
+        "compact Runge Kutta DG second order piecewise linear midpoint sharp CFL one upwind convex entropy linear advection cell average",
+        "semi Lagrangian DG cell average exact shift discrete entropy inequalities arbitrary convex entropy advection piecewise linear",
+        "arxiv:2610.18837 Section 4 weak-to-strong entropies",
+        "arxiv:2412.16002 Sections 3.2-3.3",
+        "arxiv:2307.06471 Section 3.5",
+        "Qiu Dumbser Shu 2005 Lax-Wendroff DG title abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2307.06471, Section 3.5.1 proves linear primal update equivalence to Lax-Wendroff DG, not equivalence of nonlinear RK-stage numerical entropy fluxes.",
+        "arxiv:2610.18837 defines proper RK-stage entropy fluxes in equations (14),(16) and all-family weak inequalities in (65)."
+      ],
+      "reasoning": "Because the primal map is independent of tableau but the nonlinear RK-entropy flux is not, older physical-update equivalence is insufficient to imply the new classification; it is acknowledged as antecedent.",
+      "searches": [
+        "Two stage second order compact Runge Kutta discontinuous Galerkin all convex entropy inequality iff explicit midpoint; arbitrarily small Courant Heun method counterexample smooth convex entropy",
+        "Zheng Sun 2026 cRKDG piecewise affine sharp CFL explicit midpoint universal convex entropy flux; Heun trapezoidal RK quadrature failure",
+        "Lax Wendroff DG midpoint weak entropy entropy flux all convex RK2 output weights sharp classification",
+        "arxiv:2307.06471 Section 3.5.1 linear cRKDG/Lax-Wendroff DG equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact table of all-convex two-stage cRKDG tableau admissibility appeared in searches; nearest published mathematical record IDs: 2026/9/18/SCOPE-elcd-entropy-rectangle-minimizer-gauge-dependence--f304c0de0856, 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac, 2026/10/4/SCOPE-exact-cumulative-step-boundary-law-for-b-adapg-on-an-invariant-h--6eb2c5b9c996.",
+        "arxiv:2307.06471 Table 1.1 reports a maximum linear full-state CFL around 1/3 for cRKDG2; that is not the present weak cell-entropy certification boundary."
+      ],
+      "reasoning": "A Fourier stability table is about the entire DG coefficient vector, not all convex entropy budgets of cell averages; the observed different thresholds are not contradictory or an exact database match.",
+      "searches": [
+        "Two stage second order compact Runge Kutta discontinuous Galerkin all convex entropy inequality iff explicit midpoint; arbitrarily small Courant Heun method counterexample smooth convex entropy",
+        "Zheng Sun 2026 cRKDG piecewise affine sharp CFL explicit midpoint universal convex entropy flux; Heun trapezoidal RK quadrature failure",
+        "Lax Wendroff DG midpoint weak entropy entropy flux all convex RK2 output weights sharp classification",
+        "Search published mathematical records: two stage RK entropy flux midpoint convex order",
+        "arxiv:2307.06471 Table 1.1 Fourier CFL"
+      ]
+    },
+    "rationale": "The compared primary studies establish cRKDG construction, invariant-region bound preservation, and a sufficiently dissipative uniformly strongly convex entropy inequality, but not a two-stage tableau rigidity result for arbitrary finite convex entropies with the RK-averaged upwind entropy flux. Our exact nonlinear entropy-flux aliasing obstruction survives even though all tableaus have the same linear primal update. Closest mathematical-record results concern other entropy and numerical stability problems and do not imply this claim; remaining unindexed literature risk is stated.",
+    "residual_risks": [
+      "An unindexed equivalent classification in earlier finite-volume/semi-Lagrangian DG or convex-order literature cannot be ruled out by these searches.",
+      "The 2005 Qiu–Dumbser–Shu Lax–Wendroff DG article was identified as a possible antecedent, but its full text was not inspected; its accessible abstract and the direct 2023 equivalence comparison do not show a covering all-convex numerical entropy flux result.",
+      "The result applies to the specified nonlinear stage-averaged numerical entropy flux, not to alternate entropy flux constructions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper supplies weak inequalities under sufficient dissipative and curvature hypotheses, but not the universal convex entropy tableau classification at upwind flux.",
+        "evidence": [
+          "Equation (8) cRKDG stages; equations (14),(16) numerical entropy flux",
+          "Theorem 2.1 and Lemma 4.1 hypotheses, equations (20),(23),(64),(65)",
+          "§5 uses explicit midpoint for degree one and states the CFL bound is not sharp."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.18837",
+        "material_read": "Accessible main text: introduction; §2 operators, equations (8)-(16), assumptions and theorem; §3 proof conclusion; §4 weak/strong entropy family; §5 method selection and linear-advection experiment.",
+        "method": "Full-text HTML rendering and targeted sections",
+        "title": "Fully discrete multi-entropy-stable compact Runge–Kutta discontinuous Galerkin methods for hyperbolic conservation laws",
+        "trigger": "Motivating source and exact entropy-flux definition"
+      },
+      {
+        "assessment": "It proves invariant-domain bound preservation and identifies explicit midpoint as a convenient choice, but does not prove all-convex entropy-flux rigidity.",
+        "evidence": [
+          "Equations (2.8),(2.9) operators; (3.32)-(3.36) two-stage scheme",
+          "§3.3.1 midpoint selection framed as bound-preserving optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.16002",
+        "material_read": "Accessible introduction; §2 definitions of local and DG operators; §3.3.1 full second-order RK tableau and generalized Shu–Osher convex decompositions.",
+        "method": "Full-text HTML rendering with exact section comparison",
+        "title": "A bound-preserving Runge–Kutta discontinuous Galerkin method with compact stencils for hyperbolic conservation laws",
+        "trigger": "Same inner-stage method and two-stage tableau choice"
+      },
+      {
+        "assessment": "Shows a linear primal equivalence and linear Fourier CFL near one third, not tableau-dependent nonlinear entropy flux certification. These ingredients are credited as prior.",
+        "evidence": [
+          "§3.5.1 linear physical DG/flux identity",
+          "Table 1.1 full-state Fourier CFL; §3.5.1 does not analyze arbitrary entropy functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.06471",
+        "material_read": "Accessible introduction, Table 1.1, §3.5.1 and associated proof (3.19)-(3.24); contextual methods comparison.",
+        "method": "Full-text HTML rendering and implication comparison",
+        "title": "The Runge–Kutta discontinuous Galerkin method with compact stencils for hyperbolic conservation laws",
+        "trigger": "Stronger potential prior equivalence through Lax–Wendroff DG"
+      },
+      {
+        "assessment": "Its stated scope is L2 stability and error estimates; entropy-flux tableau-equivalence risk is not conclusively excluded from full text.",
+        "evidence": [
+          "Public abstract identifies L2 stability/error estimates, not universal convex entropy-flux classification."
+        ],
+        "identifier_or_url": "https://archive.numdam.org/articles/10.1051/m2an/2016049/",
+        "material_read": "Bibliographic metadata and abstract only; full-text access attempt timed out.",
+        "method": "Abstract and bibliography, unsuccessful full-text retrieval",
+        "title": "Stability analysis and error estimates of Lax–Wendroff discontinuous Galerkin methods for linear conservation laws",
+        "trigger": "Relevant historical linear-advection stability antecedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "616a53a5-2800-47c9-8570-c23e2f2e6ae6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a complete natural RK2 design classification for entropy certificates: identical physical cRKDG solvers can differ categorically because of stagewise nonlinear entropy-flux quadrature. It supplies a sharp all-convex midpoint CFL, a smooth strongly convex obstruction for every non-midpoint tableau and every positive step, and a rigorous separation between cell-entropy budget and Fourier stability. These consequences inform selection of tableaux and interpretation of entropy checks and go beyond finite parameter recomputation.",
+    "status": "PASS"
+  }
+}
