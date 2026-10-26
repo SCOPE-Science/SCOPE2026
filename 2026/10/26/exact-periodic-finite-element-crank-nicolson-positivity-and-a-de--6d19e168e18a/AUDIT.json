@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "Exact periodic FE assembly yields A=aI+b(S+S^-1). For 0<r<1/3, the explicit periodized inverse has G_02>0 and hence (P)_02=-36rG_02/(1-3r)<0 when n>=4. For r>1/3, inverse positivity settles offdiagonals; spectral differentiation proves a unique diagonal zero. A closed periodized Green formula yields exact roots and strictly positive, decreasing finite-size correction, proving rho_n strictly decreases to (5+sqrt(33))/12. n=3 handled by direct spectral decomposition. Standalone exact-rational program tests 121 cases but is not used for infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Huang 2012, Theorem 3.1 and Remark 3.1, provides a sufficient bound for general theta-method finite elements, including the interval [1/3,2/3] in this scaling.",
+        "Faragó–Horváth 2006 Section 6.2.1 states a sufficient interval and quotes a special Dirichlet-grid exact classification.",
+        "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a concerns finite-state Markov generators; the periodic consistent-mass semidiscrete generator has a negative off-diagonal at cyclic distance two for n≥4."
+      ],
+      "reasoning": "The broad sufficient theorems do not imply necessity or the larger sharp endpoint. The general Markov-generator return criterion cannot be specialized to a non-Metzler consistent-mass finite-element generator. Its algebraic resolvent identity is acknowledged as prior, not the proposed classification.",
+      "searches": [
+        "published-finding corpus: Crank Nicolson positivity consistent mass periodic finite elements uniform circle exact time step threshold",
+        "published-finding corpus: periodic linear finite element heat equation theta scheme entrywise nonnegative sharp stepsizes",
+        "arxiv:1209.5657 Theorem 3.1 Remark 3.1",
+        "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems pdf Farago Horvath"
+      ]
+    },
+    "checked_sources": [
+      "Faragó–Horváth 2006, DOI 10.1137/050627241, author-shared primary full text",
+      "Li–Huang 2012, arXiv:1209.5657v1, primary full text",
+      "Higueras–Roldán 2023, arXiv:2301.01066v1, primary HTML",
+      "published-finding corpus 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac, full RESULT.md",
+      "published-finding corpus 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a, full RESULT.md",
+      "Yang–Gu 2006, DOI 10.1002/num.20097, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For n≥4, r between 2/3 and 0.8953802205 is permitted by this theorem but not certified by the standard sufficient condition.",
+        "The Markov-generators source presumes Q has nonnegative offdiagonals; here the r↓0 distance-two update derivative is negative.",
+        "The filtered-lattice source studies a distinct filtered map on a finite-difference Laplacian.",
+        "The full-text 2006 Dirichlet-grid theorem is not about periodic P1 finite-element matrices."
+      ],
+      "reasoning": "None of these statements, singly or by direct parameter substitution, proves the exact periodic two-sided window, its n=3 exception and strictly decreasing upper roots; the available stronger-looking universal algebraic criteria have premises that fail for this semidiscrete operator.",
+      "searches": [
+        "Crank Nicolson positivity consistent mass periodic finite elements uniform circle exact time step threshold",
+        "sharp positivity threshold periodic consistent mass Crank Nicolson finite element n nodes 0.895380",
+        "nonnegative circulant heat amplification matrix periodic linear elements Cayley transform",
+        "full RESULT.md of 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+        "full RESULT.md of 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "arxiv:2301.01066 Sections 1–3",
+        "doi:10.1137/050627241 Theorems 6.4–6.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Faragó–Horváth 2006 Theorem 6.5 uses the one-dimensional Dirichlet initial-boundary problem, not a circle.",
+        "Higueras–Roldán 2023 explicitly applies a central finite-difference heat operator with homogeneous Dirichlet data.",
+        "published-finding corpus source 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac proves positivity of a backward-Euler-filtered Crank–Nicolson finite-difference map."
+      ],
+      "reasoning": "Changing to the periodic consistent-mass finite-element matrix changes both the spectrum and the update-entry signs. The periodized unfiltered circulant operator is not equivalent to a filtered FD or Dirichlet problem. An exact-matrix equality, similarity, or boundary reduction implying the entire classification was not found.",
+      "searches": [
+        "Crank Nicolson positivity consistent mass periodic finite elements uniform circle exact time step threshold",
+        "nonnegative circulant heat amplification matrix periodic linear elements Cayley transform",
+        "published-finding corpus: sharp positivity threshold periodic consistent mass Crank Nicolson finite element n nodes 0.895380",
+        "doi:10.1137/050627241; full text Sections 6.1–6.2",
+        "arxiv:2301.01066v1, Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Higueras–Roldán tables concern Dirichlet finite differences, not periodic consistent-mass elements.",
+        "Li–Huang numerical tables concern two-dimensional examples and sufficient conditions.",
+        "The published-finding corpus search did not return a matching periodic finite-element upper-threshold sequence."
+      ],
+      "reasoning": "No inspected exact table supplied the same all-n periodic values, root polynomial or limiting radical. An unsuccessful database search is not an independent novelty guarantee.",
+      "searches": [
+        "periodic finite elements Crank Nicolson nonnegative update matrix time step bound 0.895380",
+        "published-finding corpus: 0.895380220544836 periodic heat finite element positivity",
+        "arxiv:2301.01066v1 tables 1–3",
+        "arxiv:1209.5657 numerical results Section 4"
+      ]
+    },
+    "rationale": "The exact periodic all-size two-sided interval, strictly decreasing upper root, and limiting radical were not implied by the inspected relevant primary results: the closest older finite-element work restricts to Dirichlet-type boundaries or supplies only sufficient conditions, the later exact thresholds concern central differences with Dirichlet data, and the inspected indexed results change either the time map or spatial generator. Literature incompleteness remains explicitly recorded.",
+    "residual_risks": [
+      "A specialized older paper on cyclic tridiagonal amplification matrices or discrete maximum principles could implicitly imply the same periodic root law; searches are not exhaustive.",
+      "Yang–Gu 2006 primary full text was not obtained, though its abstract targets accuracy rather than exact positivity; no strong coverage evidence emerged.",
+      "The exact spectral/Green formula might be inferable by applying general circulant inverse tools to previously published criteria; mathematical novelty is assessed only to the best of the inspected evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different boundary specification; general sufficient and quoted Dirichlet necessary/sufficient claims do not cover cyclic periodic matrix.",
+        "evidence": [
+          "Section 6.2.1 Theorem 6.5 restricts to 1D problem (2.4)–(2.5) with prescribed Dirichlet boundaries; Table discussion centered on Dirichlet spatial domains."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/050627241",
+        "material_read": "Author-shared full text, Sections 3, 5, 6.1, 6.2.1, Theorems 6.4–6.5 and Sections 7 examples",
+        "method": "Read searchable author-shared full text at https://www.researchgate.net/publication/220412238_Discrete_Maximum_Principle_and_Adequate_Discretizations_of_Linear_Parabolic_Problems",
+        "title": "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems",
+        "trigger": "Closest older rigorous Galerkin positivity and sharp one-dimensional conditions"
+      },
+      {
+        "assessment": "Sufficient conditions; no periodic sharp cutoff or monotone cyclic finite-size result.",
+        "evidence": [
+          "Theorem 3.1 and Remark 3.1 provide sufficient lower and upper restrictions; numerical tables are nonperiodic examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.5657",
+        "material_read": "Full arXiv HTML text: introduction, formulation, Lemmas 3.3–3.4, Theorem 3.1, Remark 3.1, Section 4, conclusions",
+        "method": "Read arXiv article full HTML at https://arxiv.org/abs/1209.5657",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Direct finite-element theta-step positivity bounds, consistent mass"
+      },
+      {
+        "assessment": "Spatial discretization by central finite differences, Dirichlet boundary conditions, not a consistent-mass periodic FEM.",
+        "evidence": [
+          "Introduction (1.1)–(1.3) specifies zero Dirichlet endpoints; Section 2 defines tridiagonal FD operator."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.01066v1",
+        "material_read": "HTML: abstract, Introduction, Contributions, Section 2 problem definition and core restriction formulas",
+        "method": "Read primary full-text HTML at arxiv.org/html/2301.01066v1",
+        "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+        "trigger": "Later exact mesh-dependent CN positivity literature"
+      },
+      {
+        "assessment": "It studies C_s R_s filtered CN with FD Laplacian; not the unfiltered FEM matrix.",
+        "evidence": [
+          "Its map is 2R_s²−R_s with R_s=(I+sL)^{-1}; the present update is (M+tau K/2)^{-1}(M−tau K/2)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac/RESULT.md",
+        "material_read": "Full RESULT.md including finding, all proof, limitations and references",
+        "method": "Authorized read-only repository file fetch",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "published-finding corpus close match: periodic lattice and CN"
+      },
+      {
+        "assessment": "Requires a Metzler Markov generator, which the consistent-mass FEM generator lacks for n≥4.",
+        "evidence": [
+          "Its offdiagonal nonnegativity conclusion uses (I−sQ)^{-1}≥0 for Markov Q; the present r<1/3 result proves negative distance-two entries at small steps."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a/RESULT.md",
+        "material_read": "Full RESULT.md, assumptions, proof, prior-work comparison",
+        "method": "Authorized read-only repository file fetch",
+        "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+        "trigger": "published-finding corpus close match: Cayley/resolvent positivity threshold"
+      },
+      {
+        "assessment": "The abstract addresses accuracy-driven minimum time steps for boundary data in general, not this periodic positivity classification, but full comparison is unavailable.",
+        "evidence": [
+          "Abstract describes accuracy analysis, Crank–Nicolson minimum step and engineering simulations, without exact cyclic positivity."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/num.20097",
+        "material_read": "Bibliographic abstract and publication description only; no full text obtained",
+        "method": "Searched lawful preprints/OA and publisher/author metadata",
+        "title": "Minimum time-step criteria for the Galerkin finite element methods applied to one-dimensional parabolic partial differential equations",
+        "trigger": "2006 title suggesting sharp 1D CN criteria"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d19e168-e18a-4ab1-bf86-7b517b8867e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact classification on natural periodic heat meshes, not a routine renaming of Dirichlet boundaries: the lower-step negative-distance mechanism, the triangle exception, an upper positivity endpoint larger than the standard sufficient 2/3, its strict finite-size monotonicity and explicit limiting radical give a usable positivity window and benchmark with structural explanation.",
+    "status": "PASS"
+  }
+}
