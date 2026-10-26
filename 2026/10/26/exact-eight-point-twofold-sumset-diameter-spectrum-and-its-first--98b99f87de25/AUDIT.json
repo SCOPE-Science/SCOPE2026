@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Normalized exhaustive finite proof: for each k=2..8 all C(L_k,k−1) sets with min=0 and span<=L_k are visited, where L=(1,3,6,11,17,25,34). Every t from 2k−1 to k(k+1)/2 is witnessed within its limit, so no smaller-diameter unexamined set can exist. Two independent exact programs enumerate 5,563,258 sets each, agree at every minimum; all witnesses checked. The only descent is d_8(32)=20 to d_8(33)=19. Primary bitset supports sums up to 68 without shift overflow; independent integer occurrence array supports all sums. A reproducible verifier checks the counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nathanson, arXiv:2505.20998, abstract and separately accessible scholarly discussion describe a general compression algorithm and broad upper bounds, not the exact k=8 inverse profile; complete paper not obtained.",
+        "Rajagopal, arXiv:2510.23022, accessible paper and Discrete Analysis synopsis establish ranges of possible |2A|, not sharp minimum spans for each cardinality.",
+        "Nathanson, arXiv:2607.20571, main theorem on equality of sumset-size ranges across integer and lattice subsets does not give the exact profile."
+      ],
+      "reasoning": "Compared claims by logical implication: proving existence for each t and providing a universal bound cannot force individual optimal diameters, especially the 32-to-33 reversal. A theorem explicitly proving the complete d_8 vector would dominate this claim; no such statement was found in the accessible literature. Unread full compression text is a genuine residual risk, not a negative finding.",
+      "searches": [
+        "Nathanson compression complexity sumset sizes min diameter Theorem 8 N(h,k) upper bound",
+        "arxiv:2505.20998",
+        "arxiv:2510.23022 sumset sizes diameter",
+        "arxiv:2607.20571 lattice points N(h,k)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.20571",
+      "arxiv:2510.23022",
+      "arxiv:2505.20998 (abstract only, complete text unavailable)",
+      "arxiv:2412.16154 (partial text)",
+      "https://discreteanalysisjournal.com/article/165102-possible-sizes-of-sumsets",
+      "https://en.wikipedia.org/wiki/Golomb_ruler"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The classical range 2k-1 through k(k+1)/2 specifies which cardinalities can occur, not the least diameter for each.",
+        "The known optimal ruler lower bound d_8(36)>=34 and explicit ruler imply N(2,8)>=34, but require separate realization of all other t at diameter at most 34, independently certified here.",
+        "The nearest indexed work on oscillating sumset density concerns infinite lower density, not fixed eight-element minima."
+      ],
+      "reasoning": "No inspected prior statement logically entails the complete seven finite vectors. An existing broader inverse-diameter classification, if discovered, would override this originality judgement; specific risk is recorded.",
+      "searches": [
+        "The minimum diameter of eight-element integer sets with each possible cardinality of the twofold sumset 15 through 36",
+        "Exact sharp witness interval N(2,8)=34 for every 2-sumset size eight integers",
+        "First nonmonotonic inverse sumset diameter profile at size 8: 32 sums requires span 20 but 33 sums span 19",
+        "Rajagopal Possible Sizes of Sumsets 2k-1 k(k+1)/2",
+        "Nathanson inverse problems for sumset sizes finite sets 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Translation of a finite set to minimum zero shows the fixed-cardinality shortest interval is exactly the minimum diameter; rational affine dilations preserve |2A| but do not preserve raw integer diameter. Nathanson arXiv:2607.20571 formulates related interval-minimization problems.",
+        "Nathanson arXiv:2412.16154 discusses affine equivalence of sumset-size sequences, not the exact eight-point diameter profile."
+      ],
+      "reasoning": "Checked both the least universal interval N(2,8)=max_t d_8(t) and the finer inverse profile d_8(t), plus parameterization by 0-normalized integer subsets. The universal endpoint alone would not imply any intermediate d_8(t) or its monotonicity reversal.",
+      "searches": [
+        "The minimum diameter of eight-element integer sets with each possible cardinality of the twofold sumset 15 through 36",
+        "Exact sharp witness interval N(2,8)=34 for every 2-sumset size eight integers",
+        "First nonmonotonic inverse sumset diameter profile at size 8: 32 sums requires span 20 but 33 sums span 19",
+        "arxiv:2607.20571 problem on least interval N(h,k)",
+        "arxiv:2412.16154 inverse sumset sizes affine equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical Golomb ruler tables give optimal eight-mark length 34 and witness (0,1,4,9,15,22,32,34), precisely d_8(36); this endpoint was known.",
+        "Published research searches did not locate the full vector (7,8,8,9,9,10,10,11,11,12,12,13,13,15,15,16,17,20,19,25,28,34) or d_8(32)=20>d_8(33)=19."
+      ],
+      "reasoning": "Known Golomb tables subsume only the maximum-sumset endpoint; search nonfindings are not proof of novelty. The complete inverse vector, its first descending adjacent pair, and independent exhaustive evidence are additional facts.",
+      "searches": [
+        "Eight-mark optimal Golomb ruler smallest universal witness diameter for twofold sumsets",
+        "N(2,8) minimal support diameter all 2A sumset sizes; 8-element sets of integers",
+        "inverse diameter spectrum for finite eight-element sumsets twofold 15 to 36; optimal Golomb rulers",
+        "known optimal 8 mark Golomb ruler span 34",
+        "finite sumset diameter eight points exact profile 15 36"
+      ]
+    },
+    "rationale": "The full inverse diameter vector for each k through 8 and first strict monotonicity reversal at (8,32) were not identified in targeted mathematical literature or existing public research records. The known optimal eight-mark Golomb ruler settles d_8(36)=34 only, and Rajagopal determines attainable cardinalities without individual minima. A full-text comparison with Nathanson compression work remains an unresolved bibliographic risk; positive novelty is best knowledge, not proof of global uniqueness.",
+    "residual_risks": [
+      "The primary full text of Nathanson 2025 compression/complexity paper was not accessible, and an unforeseen stronger theorem therein could affect originality.",
+      "Independently existing offline or unindexed classifications of the whole small-k inverse diameter spectrum were not exhaustively ruled out; semantic search does not certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The range transfer and geometric-complexity question do not give the seven exact one-dimensional inverse profiles",
+        "evidence": [
+          "arXiv 2607.20571, first posted 2026-07-21; the main result equates attainable cardinality ranges for lattice and integer sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.20571",
+        "material_read": "Accessible mathematical HTML text including definitions, central result and the stated problem; the arXiv abstract/date independently verified",
+        "method": "Read publicly available full-text HTML and compare scope and claim",
+        "title": "A problem on sumset sizes of sets of lattice points",
+        "trigger": "Recent research direction; related least-interval problem"
+      },
+      {
+        "assessment": "Attainable sizes covered, sharp individual minimum spans not stated in inspected portion",
+        "evidence": [
+          "Rajagopal, arXiv:2510.23022 and Discrete Analysis 2026, full range 2k−1 to k(k+1)/2 for h=2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.23022",
+        "material_read": "Accessible HTML body and relevant paper introduction and statements; associated PDF page reviewed",
+        "method": "Inspect range theorem and compare it against the minimum-diameter functional",
+        "title": "Possible Sizes of Sumsets",
+        "trigger": "Closest direct literature on which 2-fold cardinalities are attainable"
+      },
+      {
+        "assessment": "Accessible information describes general bounds, not exact eight-point profile; absence of full text remains priority risk, not a full-paper exclusion",
+        "evidence": [
+          "arXiv:2505.20998; Journal of Number Theory 281 (2026) 321–343, DOI 10.1016/j.jnt.2025.09.025."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.20998",
+        "material_read": "Abstract and accessible secondary research synopsis; complete 17-page primary full text unavailable after arXiv and OA attempts",
+        "method": "Compared published abstract/synopsis of compression theorem with inverse-profile claim; institutional full-text access required unavailable interactive input",
+        "title": "Compression and complexity for sumset sizes in additive number theory",
+        "trigger": "Plausible broad theorem on bounded diameter, direct coverage risk"
+      },
+      {
+        "assessment": "Investigates sequences of |hA| for fixed A and affine comparison, not listed seven complete least-span tables; completeness risk retained",
+        "evidence": [
+          "arXiv:2412.16154; Fibonacci Quarterly 64 (2026), 70–82."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.16154",
+        "material_read": "Paper abstract and public paper text discussing affine equivalence and iterated sizes, not full article systematically",
+        "method": "Checked stated principal question and exact parameter against the new finite inverse diameter profile",
+        "title": "Inverse problems for sumset sizes of finite sets of integers",
+        "trigger": "Terminological collision with inverse sumset-size problems"
+      },
+      {
+        "assessment": "Endpoint d_8(36)=34 is known, excluded from stand-alone novelty claim",
+        "evidence": [
+          "Eight marks have optimal length 34 and witness [0,1,4,9,15,22,32,34]."
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Golomb_ruler",
+        "material_read": "Table of proved optimal eight-mark rulers including length and marks",
+        "method": "Check combinatorial equivalence |2A|=36 iff all unordered two-term sums distinct iff pairwise differences distinct",
+        "title": "Known optimal Golomb rulers",
+        "trigger": "Highest cardinality endpoint of the eight-point profile"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98b99f87-de25-42d0-8da0-89673949dcb3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Least witness interval length for each prescribed cardinality is a motivated inverse question in sumset theory; the exact eight-point profile is a complete natural finite classification. The first monotonicity reversal at eight points (32 sums demand span 20 while 33 demand 19) is not implied by known range or Golomb endpoint results and gives a structural boundary for plausible monotonicity heuristics. The known d_8(36)=34 alone is not considered the contribution.",
+    "status": "PASS"
+  }
+}
