@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For every a>0, differentiation shows h_a slope has one nondegenerate maximum. The proximal stationarity map has zero or exactly two folds according to beta; the global two-well energy difference has derivative minus the branch separation and opposite signs at the folds, proving exactly one coexistence input. Taylor expansions at the unique degenerate critical point and rescaled equal-depth quartic energy give the cubic-root, fold-width and jump constants. Finite SciPy diagnostics independently check key formulas but are not used to establish the global quantified proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1412.2231 Sections Generalized Singular Value Thresholding and Theorems 1-2 reduce spectral proximal problems to scalar ones with monotone minimizer selections, but do not analyze this logistic penalty.",
+        "arXiv:2610.21664v1 Theorems 4.2 and 5.2 yield the exact curvature threshold and unique strong-convexity regime."
+      ],
+      "reasoning": "Known universal proximal monotonicity and weak-convexity bounds are more general as frameworks; applying them supplies the scalar reduction and a safe sufficient scale, but not exact uniqueness at equality nor the existence, uniqueness, or asymptotic size of supercritical logistic global-minimum coexistence. Classical cusp normal forms motivate exponents but do not provide the necessary global-energy comparison or family constants.",
+      "searches": [
+        "proximal operator weak convexity threshold discontinuous multivalued cusp sharp",
+        "\"logistic\" \"weak convexity\" \"proximal\" \"multivalued\"",
+        "site:arxiv.org \"proximal\" \"Maxwell\" \"bifurcation\" shrinkage"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.21664v1, Sections 3–5 (primary full-text inspection).",
+      "arXiv:1412.2231, introductory scalar reduction, Theorems 1–2 and proximal algorithm discussion (primary text inspection).",
+      "Generic weak-convexity and nonconvex proximal literature, searched at abstract/search-result level; not used to claim whole-document exclusion."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang–Wang–Yang 2026, Theorem 5.2 assumes \\(\\beta\\rho_a<1\\) and derives monotone single-valued inversion; Theorem 4.2 proves \\(\\rho_a\\) is sharp as a convexity modulus.",
+        "Lu–Zhu–Xu–Yan–Lin 2014/2015, Theorems 1 and 2 show set-monotonicity and SVD reduction for nonconvex proximal maps, allowing nonuniqueness without deciding it for this penalty."
+      ],
+      "reasoning": "A sharp lower curvature bound does not logically imply a specific global two-minimizer input at every supercritical beta: nonconvexity of an objective is weaker than multivaluedness of its argmin. The new proof uses the unique logistic slope peak and energy sign changes to establish that missing implication. Generic cusp exponents alone do not imply the exact family-dependent amplitudes, nor uniqueness of the Maxwell input.",
+      "searches": [
+        "\"Generalized Singular Value Thresholding\" nonconvex regularization multiple proximal minimizers",
+        "\"logistic shrinker\" \"proximal\" \"phase transition\" discontinuity weak convexity",
+        "logistic shrinkage inverse penalty scaled proximal bifurcation discontinuity spinodal cusp"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.21664v1 Sections 3-5 define the identical logistic-induced penalty, its exact weak-convexity constant, and the strict-scale sufficient uniqueness theorem.",
+        "arXiv:1412.2231 Theorem 2 establishes monotonicity of nonconvex proximal minimizer sets for arbitrary lower-bounded scalar penalties; its main text allows multivaluedness but not the logistic critical constants."
+      ],
+      "reasoning": "The proposed claim is invariant under threshold scaling and equivalent to the exact global scalar proximal structure at/beyond \\(\\beta=1/\\rho_a\\). That same penalty is defined by the 2026 primary paper, but its strict-beta theorem has no endpoint, global two-well, unique equal-depth datum, or cusp/jump laws. Generic set-valued monotonicity allows jumps and therefore neither excludes nor determines the claimed unique logistic Maxwell point or its constants.",
+      "searches": [
+        "\"logistic shrinker\" \"proximal\" \"phase transition\" discontinuity weak convexity",
+        "\"smooth to hard\" \"scaled proximal\" \"bifurcation\" nonconvex",
+        "\"nonconvex proximal\" \"Maxwell\" equal-depth minima cusp threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible 2026 source gives expressions for \\(L_a\\), \\(\\rho_a\\) and a monotone root solver only when \\(\\beta\\rho_a<1\\); it has no table of beta-dependent equal-depth inputs or fold/jump coefficients.",
+        "Published mathematical findings searched with these statement- and source-specific phrases included neighboring proximal convexification and scalar threshold work, but did not supply the same penalty and conclusion."
+      ],
+      "reasoning": "The numbers here are functions of all positive a; an arbitrary table at individual a would not by itself cover the all-parameter classification. No exact table or record giving the same implicit t0 threshold plus global Maxwell uniqueness and asymptotic constants was identified. Search absence is not proof of global novelty.",
+      "searches": [
+        "logistic smooth-to-hard spectral regularization scaled proximal map weak convexity critical beta global minimizer discontinuity multivalued",
+        "arxiv:2610.21664 scaled logistic spectral proximal critical beta discontinuity one Maxwell input",
+        "cubic root cusp and square root jump of logistic singular value proximal threshold critical weak convexity"
+      ]
+    },
+    "rationale": "The 2026 primary manuscript supplies the logistic inverse penalty and sharp weak-convexity modulus, but its scaled-proximal theorem only handles \\(\\beta\\rho_a<1\\); the endpoint and supercritical global argmin structure are not claimed there. General nonconvex singular-value proximal results establish monotonicity and reduction but do not imply the logistic-specific one-Maxwell-point theorem or the exact cusp/fold amplitudes without further analysis. Targeted literature and published-record searches found no covering equivalence; residual historical uncertainty is recorded.",
+    "residual_risks": [
+      "Some unindexed specialized studies of inverse-designed logistic penalties or Maxwell sets may contain an equivalent family-specific result.",
+      "Generic cusp theory explains the exponents; originality specifically concerns the global logistic classification and exact constants, not cusp universality.",
+      "Related weakly convex optimization abstracts do not support exhaustive whole-document exclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the penalty, exact \\(\\rho_a\\), and strong-convexity safe regime; inspected claims stop at strict inequality, without supercritical global-minimum classification or critical asymptotics.",
+        "evidence": [
+          "arXiv:2610.21664v1, Sections 3.1, 4.1–4.2, 5.2–5.3, especially Eq. (5.3) and Theorem 5.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21664",
+        "material_read": "Full-text HTML portions: Abstract and Introduction; Section 3 definition and shrinker geometry; Section 4 maximum slope and curvature theorem; Section 5 scaled proximal Theorems 5.1–5.3 and proofs.",
+        "method": "Direct primary HTML text inspection and comparison of definitions, hypotheses and theorem implications.",
+        "title": "Data-Driven Smooth-to-Hard Spectral Regularization for General Linear Inverse Problems",
+        "trigger": "Identical inverse-designed logistic shrinker and scaled proximal problem; a potentially dominating primary source."
+      },
+      {
+        "assessment": "Covers spectral reduction and monotonicity for any lower-bounded penalty, but not logistic-specific critical endpoint or global cusp/fold/Maxwell constants.",
+        "evidence": [
+          "arXiv:1412.2231, Theorems 1–2 and discussion of nonunique scalar prox; lines following the proof of Theorem 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.2231",
+        "material_read": "Accessible full-text rendering: Introduction, scalar reformulation, Theorems 1–2 and their proof, and the generic nonconvex scalar solver discussion.",
+        "method": "Direct comparison of general proximal monotonicity and set-valued minimizer statements with the logistic-specific beta bifurcation.",
+        "title": "Generalized Singular Value Thresholding",
+        "trigger": "Potential general domination by nonconvex spectral proximal theory, including multivalued scalar proximal maps."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fbc9df4-762d-49ae-95a9-8283150d7c6e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact scale boundary governs whether a logistic singular-value proximal step can be computed by a guaranteed monotone root solve; the theorem closes the equality case and pinpoints a discontinuous global branch choice at every larger scale. Its unique equal-depth point, all-hardness theorem, and sharp 1/3, 1/2, and 3/2 onset laws explain conditioning and solver branch ambiguity for a recent spectral regularizer. These are motivated structural results, not arbitrary parameter slices.",
+    "status": "PASS"
+  }
+}
