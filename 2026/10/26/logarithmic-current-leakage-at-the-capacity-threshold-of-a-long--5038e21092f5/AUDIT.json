@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "From the published exact stationary weight, at N=M the K-particle backbone weights have exact ratio R_k=(L-k)/(k+1)q^{-(k+1)}(1-q^{-(M-k)})/(1-q^{-(k+1)}). Consecutive ratios decrease by at least q^{-1}, proving uniform discrete-Gaussian tails about a mode. The mode solves (log q)m+log m=log L+O(1). Conditional uniform ring placements give J=(h_f-h_b)E[K(L-K)]/[L(L-1)], yielding the stated log and loglog asymptotic; configuration complementation proves the reciprocal parameter identity. Standalone verification passed 86 deterministic assertions including finite CTMC generator checks; finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sarkar and Gupta derive random-comb stationary measures and a thermodynamic saddle point for many branches; their Appendix B covers stationary weights for a single branch but not the capacity-matched log(L)/L leakage for a branch whose length is proportional to the ring size.",
+        "Ishiguro and Sato prove a multi-dimensional product-weight stationary construction but do not resolve this boundary-layer current.",
+        "Ishiguro and Ando calculate exact finite-volume currents and observe near-zero-flow regions in their Figure 3."
+      ],
+      "reasoning": "The cited results dominate the stationary-law component but do not by themselves provide an explicit asymptotic of the critical saddle: locating the mode, establishing uniform tightness, and converting into a log/loglog current law require new analysis. A generic, unidentified canonical-ensemble theorem remains a residual priority risk.",
+      "searches": [
+        "web search: \"ASEP\" \"long branch\" \"logarithmic\" current",
+        "web search: \"exclusion\" \"comb\" \"log L\" stationary current",
+        "web search: Ishiguro Ando 2026 tree branches ASEP thermodynamic limit current phase transition",
+        "arXiv:2502.11931 (Sarkar and Gupta), Sections 2-3 and Appendix B",
+        "arXiv:2403.01934v1 (Ishiguro and Sato), stationary-state construction"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.09694v1, source Secs III–V and Fig 3",
+      "arXiv:2502.11931, product measure, thermodynamic saddle, Appendix B",
+      "arXiv:2403.01934v1, exact product steady-state generalization",
+      "Published research-record queries listed under four scientific comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior work determines stationary weights proportional to q^sum(depths) and gives exact hypergeometric partition sums, so it implies the finite law W_k and exact finite current once elementary counting is performed.",
+        "The sharp new implication uses R_{k+1}<q^{-1}R_k, uniform mode-centered tails and inversion of c m+log m=log L+O(1), none stated in those sources.",
+        "The published research-record query returned no matching mathematical-physics long-branch current finding among its highest-ranked records."
+      ],
+      "reasoning": "The new asymptotic is not a restatement of the exact finite partition: an L-dependent singular balance between binomial ring degeneracy and geometric branch penalties is needed for the loglog correction. Source equations furnish crucial premises and are credited. This is best-knowledge originality rather than independent priority certification.",
+      "searches": [
+        "arXiv:2603.09694, Eqs. (15), (31)-(42), Figure 3, conclusion",
+        "arXiv:2502.11931, Eqs. (6)-(8), Appendix B",
+        "arXiv:2403.01934, Eqs. (8), (10), (12)",
+        "published research-record query: Ishiguro Ando asymmetric simple exclusion process with tree-like network branches arxiv:2603.09694 current"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "At N=M the source canonical weights equal binom(L,k) times a q-binomial hole sum; the new claim concerns a logarithmic saddle near k=log L/log q and a correction of loglog L.",
+        "Relevant ranked records included unrelated finite-cutoff corrections, e.g. a published quantum-graph finite-cutoff study, with quantum-graph rather than exclusion-process objects."
+      ],
+      "reasoning": "The exact q-binomial and particle-hole formulations were compared as statements. The published finite combinatorial partition is acknowledged as prior art; it does not itself assert the critical occupancy concentration or two-term growing-size current asymptotic. Reciprocal particle-hole duality is treated as a supporting implication of the known product measure, not an independent priority claim.",
+      "searches": [
+        "published research-record query: Logarithmic finite-size current at critical filling N=M for ASEP on single long dangling branch q>1; number of backbone particles log L/log q minus loglog L/log q",
+        "published research-record query: Exact particle-hole duality q to q reciprocal for tree-branched exclusion process current, q-Gaussian binomial stationary weights",
+        "arXiv:2603.09694v1, Eq. (32), single-long-tree Gaussian-binomial partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing figures give numerically near-zero current and exact mixed-hypergeometric finite-size series; no inspected table identifies the N=M coefficient 1/log q or the negative loglog term.",
+        "The closest returned published records address unrelated dynamic, combinatorial, or quantum-graph cutoffs."
+      ],
+      "reasoning": "Finite-volume values could be computed from the known partition but are not a database of the stated asymptotic coefficient or concentration rate. Matching an exact finite partition is not taken as proof of the asymptotic being previously evaluated.",
+      "searches": [
+        "web search: \"q-binomial\" \"exclusion\" \"critical\" logarithmic current",
+        "published research-record query: critical jamming transport current logarithmic leakage phase at side branch carrying particles q-binomial",
+        "Ishiguro and Ando arXiv:2603.09694, Table/Figure 3 and Eqs. (39)-(42)"
+      ]
+    },
+    "rationale": "The motivating source already derives exact stationary weights and finite current, and earlier papers provide broad exact-measure constructions. The assessed addition is the sharp capacity-boundary asymptotic and mode concentration, not the preexisting q-binomial current formula. Searches of published research records and accessible highly relevant primary text did not reveal this evaluated asymptotic; the residual possibility of an implicit general theorem is explicit.",
+    "residual_risks": [
+      "Unidentified q-binomial saddle-point or inhomogeneous canonical exclusion result might imply the logarithmic and loglog law.",
+      "Search result ranking and partial material inspection cannot establish worldwide novelty.",
+      "Independent literature and mathematical assessment not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the complete exact stationary measure and finite current; states qualitative blocking, not logarithmic capacity-threshold asymptotics.",
+        "evidence": [
+          "Equation (15): branch-depth product law",
+          "Equations (32), (41): finite Gaussian-binomial partition and current",
+          "Figure 3/Conclusion: low-flow versus flow regions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.09694",
+        "material_read": "Accessible paper sections II–V, specifically Section III.3, Section IV.2 equations (31)–(42), Figure 3, and conclusion; PDF pages 4 and 8 visually inspected.",
+        "method": "Full arXiv PDF and accessible full-text equation transcription with page-image cross-check",
+        "title": "Asymmetric simple exclusion process with tree-like network branches",
+        "trigger": "Identical particle model; exact canonical partition and stationary backbone current"
+      },
+      {
+        "assessment": "Derives a product measure and saddle equations for a many-branch random comb; one-branch stationary weight precedes this work, but a single macroscopic branch at its exact capacity with logarithmic current leakage is not established in material examined.",
+        "evidence": [
+          "PDF p6 thermodynamic saddle representation",
+          "Appendix B Eq. (B.5) stationary weights for one branch",
+          "Abstract/Section 3 stationary transport focus"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2502.11931",
+        "material_read": "Abstract, model/transport sections and thermodynamic saddle near PDF pages 1–10; Appendix B stationary one-branch discussion at PDF pages 15–16 visually checked.",
+        "method": "Accessible arXiv PDF text and page image",
+        "title": "Asymmetric simple exclusion process on a random comb: Transport properties in the stationary state",
+        "trigger": "General comb ASEP stationary measure may dominate single-branch model"
+      },
+      {
+        "assessment": "Explains exact stationary measures in multi-directional ASEP; no specific singular-capacity current asymptotic for one branch.",
+        "evidence": [
+          "Eq. (12): coordinate-dependent product weights",
+          "Eq. (15): transition-decomposition proof",
+          "Example: finite current from stationary weights"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.01934",
+        "material_read": "Accessible sections introducing stationary product weights and transition decomposition, PDF pages 1–4, including Eqs. (8), (10), (12), (15) and the example.",
+        "method": "ArXiv PDF text, relevant equations and discussion",
+        "title": "Exact steady states in the asymmetric simple exclusion process beyond one dimension",
+        "trigger": "Foundational product-stationary-law theorem and possible stronger implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5038e210-92f5-4ee1-a9a4-dbf171193b49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact capacity matching N=M separates branch filling from extensive backbone transport in the source model. The stationary current decays as log L/L rather than the naive finite-defect 1/L and has a universal negative loglog correction; this quantifies the otherwise visually almost blocked regime. Uniform O(1) occupancy fluctuations distinguish critical finite-size leakage from an extensive particle reservoir. Reciprocal-bias duality transfers the prediction to the opposite critical filling. These are structural, interpretable predictions for particle transport along finite network dead ends, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}

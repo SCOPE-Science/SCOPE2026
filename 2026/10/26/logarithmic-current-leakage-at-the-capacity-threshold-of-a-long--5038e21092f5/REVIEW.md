@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact stationary weights are reconstructed from the published branch-depth product measure. At capacity matching, the backbone occupancy distribution has a directly verifiable Gaussian-binomial ratio whose successive ratios contract geometrically. This proves an \(O(1)\) occupancy window around a mode at \((\log L-\log\log L+\log\log q)/\log q+O(1)\). Exact conditional ring combinatorics give the stated current. The complement-map proof of reciprocal-bias duality is finite and exact. Checks from the actual standalone program agree with small finite generators and larger canonical sums.
+
+**Originality — PASS, with priority uncertainty.** Ishiguro–Ando's exact stationary measure, single-long-tree hypergeometric partition and current are prior results; the logarithmic boundary-layer law is not in the inspected transport section or conclusion. Sarkar–Gupta's random-comb occupation analysis and Ishiguro–Sato's transition-decomposition result provide broader stationary-measure precedents but not the explicit critical long-branch current asymptotic. Closest mathematical research records found in semantic searches concern other finite-size transitions, and none gives an implication to this object. A generic canonical inhomogeneous exclusion saddle-point theorem might imply it after further analysis; external priority evaluation is needed.
+
+**Value — PASS.** The source's numerical near-blocking regime does not quantify the residual transport at exact matching of particles to branch capacity. The logarithmic-over-size coefficient and the negative logarithm-of-logarithm correction distinguish critical finite-size leakage from simple \(1/L\) corrections and supply measurable scaling for long dead-end transport networks. The exact particle–hole relation connects the two bias orientations without a new stationary solve.
+
+**Limitations.** Fixed nonunit branch bias and a single branch with positive limiting length ratio are essential; the result concerns mean stationary current rather than dynamical rates or fluctuations. Independent priority and proof auditing remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
