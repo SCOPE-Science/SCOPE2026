@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The collision \(Sx=S(T^dx)\) excludes an isolated \(b\to a\) transition. Invariance of a full-support probability measure converts one-sided inclusion of a clopen set into equality. Periodicity of jumps modulo \(d\) makes the orbit map a bijection residue class by residue class, and the boundary-crossing argument counts its orbits exactly. The finite cyclic-factor assertion follows from the decomposition into minimal components of \(T^d\). The positive three-speed example is an explicit involutive conjugation of \(T^2\); disjoint clopen translates guarantee the displayed cocycle takes precisely the three stated positive values. Computation is a finite sanity check, not the basis of the universal proof.
+
+## Originality — PASS under inspected evidence
+The 2026 motivating paper assumes homeomorphic speedups and addresses linear recurrence; it neither solves the two-valued invertibility decision nor the sharp universal jump-alphabet threshold. Alvin–Ash–Ormes already prove general constant orbit number and already exhibit the jump set \(\{1,2,3\}\) in a particular substitution example. Those facts are explicitly excluded as stand-alone novel claims. The present contribution is the **if-and-only-if** two-valued rigidity classification with a prescribed arithmetic gap, the exact associated orbit count and the sharp threshold **for every totally minimal Cantor system**. Ash–Ormes classify speedup realizability through dimension groups but not this fixed two-value obstruction. The literature and available record searches did not locate an equivalent statement or a stronger theorem directly implying all these claims without new argument. Residual risk remains for older results under different terminology; this is not independent priority certification.
+
+## Mathematical value — PASS
+This determines a natural smallest-cardinality jump alphabet question raised by the study of allowable homeomorphic speedups: two distinct speeds are possible precisely when the base has a specific finite cyclic obstruction, whereas three suffice universally even with minimality required of the resulting time change. The criterion is effective from finite cyclic factors, extends to every minimal Cantor system, and identifies both the exact obstruction and the sharp boundary rather than a single constructed example. The integer orbit count describes the dynamical consequence within each base orbit. The elementary proof is a strength of the structural classification, not a claim of broad external consequences.
+
+## Nearest prior results and limitations
+Bruin, arXiv:2602.13652, Sec. 1–2; Alvin–Ash–Ormes, arXiv:1610.03537, Sec. 2, Sec. 4.3.1; Ash–Ormes, arXiv:2208.07854, introduction and main theorem. In particular, the three-speed alphabet was already used in the second source, and no priority is claimed for that isolated fact. Nonminimal speedups outside the two-valued case and general orbit cocycle spectra remain outside scope. Independent historical verification remains to be performed.
+
+Self-review: passed. Independent audit: not yet performed.
