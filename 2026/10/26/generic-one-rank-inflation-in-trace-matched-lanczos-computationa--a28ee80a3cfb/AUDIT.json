@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every SPD A, 1<=m<=d-2 and consecutive nonzero Lanczos coefficients, R_m has rank \\(d-m\\) by the exact Gaussian-conditioning congruence. The approximation splits into the orthogonal two-plane K and scalar bulk; the strict spectral-moment Cauchy--Schwarz inequality \\(p_1p_3>p_2^2\\) follows from beta_{m+1}>0, and omega>0. Hence rank K=2, total rank \\(d-m+1\\). Exact rational calculations give the displayed 3-by-3 covariance, determinant 1/100, variance 4/25 in an exactly observed direction, and a parameter family with continuous zero-norm error limit. CHECK.py reconstructed and verified each certificate from its actual package path; finite checks are not used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cockayne et al. (2019), arXiv:1801.05242, explicitly analyze the singular exact posterior, not this subsequently defined trace-matched Schur-Lanczos approximation.",
+        "Bartels et al. (2019), doi:10.1007/s11222-019-09897-7, compare probabilistic linear-solver constructions and conditioning.",
+        "Fifen et al. (2026), arXiv:2609.10080v1 Proposition 14 gives a bounded matrix error; Proposition 16 states rank d-m for the exact residual, without a rank formula for the approximant."
+      ],
+      "reasoning": "Generic Gaussian-conditioning laws ensure the exact posterior rank, and generic covariance approximation theory allows support changes, but neither implication yields that this particular algorithmic covariance has rank exactly d-m+1 for every nonbreakdown step; the source-specific two-plane determinant and consecutive Lanczos coefficients supply the missing theorem. Operator error estimates do not imply matching Gaussian support ranks.",
+      "searches": [
+        "Bayesian conjugate gradient posterior covariance finite rank matrix-free truncation uncertainty approximate covariance loses exact observed nullspace",
+        "probabilistic linear solver low-rank posterior covariance isotropic approximation violates observations nullspace",
+        "Optimal low-rank approximations of Bayesian linear inverse problems posterior covariance rank KL 2014 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.10080v1 (full HTML equations and propositions)",
+      "arXiv:1801.05242 (full HTML sections and posterior rank discussion)",
+      "doi:10.1007/s11222-019-09897-7 (open-access full HTML, relevant conditioning and projection sections)",
+      "arXiv:1407.3463 (bibliographic/abstract comparison of different optimal low-rank Bayesian inverse covariances)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fifen et al., 2026, Proposition 14(v) characterizes when full inverse-covariance reconstruction is exact; nonexactness alone does not imply a rank defect in the computational residual.",
+        "Fifen et al., 2026, Proposition 16 proves exact posterior nullspace and rank; its conditions apply to R_m, not to its trace-matched isotropic approximation.",
+        "Cockayne et al., 2019, exact conditional posterior is supported on a lower-dimensional affine subspace; generic conditioning does not determine this particular approximate support."
+      ],
+      "reasoning": "No inspected theorem implies that for all beta_m,beta_{m+1}>0 the approximate residual has a strictly positive two-plane determinant and hence rank d-m+1. This theorem sharpens a structural question left distinct from prior matrix-norm approximation bounds and yields a measure-theoretic implication even for arbitrarily small operator error.",
+      "searches": [
+        "Stochastic Lanczos quadrature computational uncertainty rank inflation approximate residual posterior covariance nullspace observation exact constrained directions isotropic bulk positive definite",
+        "Schur isotropic correction Gaussian linear observation posterior nullspace exact cross term rank inflation",
+        "Bayesian conjugate gradient posterior covariance finite rank matrix-free truncation uncertainty approximate covariance loses exact observed nullspace"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fifen--Karambal--Hennig, arXiv:2609.10080v1, eqs. (25)--(26), (49)--(52), Proposition 14 and Proposition 16, explicitly distinguish the inverse approximation from the exact singular computational posterior.",
+        "Cockayne--Oates--Ipsen--Girolami, arXiv:1801.05242, Section 2.1 and its posterior-covariance rank and nullspace discussion."
+      ],
+      "reasoning": "The exact rank formula for the approximated rank-one-boundary-plus-isotropic residual is neither the standard rank of the conditioned posterior nor simply an eigenvalue statement about the full inverse covariance. In the new theorem strict p1 p3>p2², forced by the next Lanczos coupling, makes the approximate boundary plane positive definite. The exact posterior has the additional null direction. No inspected primary result states the generic rank inflation or the consequent support singularity under vanishing operator-norm error.",
+      "searches": [
+        "Stochastic Lanczos quadrature computational uncertainty rank inflation approximate residual posterior covariance nullspace observation exact constrained directions isotropic bulk positive definite",
+        "Lanczos corrected inverse covariance trace matching isotropic boundary posterior rank d-m+1 Schur positive spurious variance measured direction",
+        "Lanczos isotropic complement boundary Gaussian residual covariance rank inflation nullspace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv v1 paper contains theoretical bounds and experiments but no displayed exact rank-plus-one census or rational 3-by-3 model with measured-direction variance 4/25 in Sections 4 and 6.",
+        "The exact rational matrix, inverse, and determinant in CHECK.py were independently reconstructed from the specified covariance formula."
+      ],
+      "reasoning": "The finding is an all-dimension structural statement with a first-dimensional exact example, not a claimed new database entry. No inspected table or worked example supplies its exact singularity/rank/variance combined conclusion.",
+      "searches": [
+        "\"Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra\" \"rank\" \"posterior\" 2026",
+        "Lanczos corrected inverse covariance trace matching isotropic boundary posterior rank d-m+1 Schur positive spurious variance measured direction",
+        "Lanczos corrected covariance Schur moments p1 p2 p3 exact 3x3 rational posterior observation spurious variance"
+      ]
+    },
+    "rationale": "The source paper treats the exact rank-\\(d-m\\) posterior and gives matrix error bounds for the boundary-plus-isotropic covariance, but the inspected results do not imply its generic rank-\\(d-m+1\\) approximate residual and the consequent mutually singular laws with vanishing matrix error. Foundational exact Gaussian-conditioning results do not supply the source-specific strict two-plane determinant. Focused indexed research searches and own available historical claims revealed no equivalent exact statement. Priority could change upon further specialized literature review.",
+    "residual_risks": [
+      "An earlier general result on structure-preserving Gaussian approximation might subsume support-mismatch consequences even if it does not state the specific Lanczos rank formula.",
+      "The record searches do not prove historical uniqueness and no independent expert review has been conducted.",
+      "Application to finite-probe or finite-precision implementations is unproved and intentionally excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact posterior rank and the approximation error are treated separately. The inspected paper does not give the generic rank of the analytic approximate computational residual, its nonzero variance in measured constraints, or the persistent KL support singularity.",
+        "evidence": [
+          "arXiv:2609.10080v1, eqs. (25),(26),(39),(49)--(52), Proposition 14 and Proposition 16."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.10080v1",
+        "material_read": "Full-text HTML sections 1--5: block inverse eqs. (15)--(25), coupling block (26)--(30), error Proposition 14, posterior Section 4.4 and Proposition 16, estimator Section 5; source abstract and references.",
+        "method": "Examined exact equations, source claims, hypotheses and the distinction between full inverse and residual posterior; reconstructed the approximation algebraically.",
+        "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+        "trigger": "Defines precisely the boundary-plus-isotropic approximation and its Gaussian computational-uncertainty use."
+      },
+      {
+        "assessment": "Supports the importance of exactly determined directions but does not contain the specific Schur-boundary and trace-matched complement approximation or its generic rank inflation.",
+        "evidence": [
+          "arXiv:1801.05242, Sections 2.1, 3, 6.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.05242",
+        "material_read": "Accessible full HTML text, Sections 1--3 and posterior covariance / rank and calibration discussions in Section 6, including exact support and rank d-m.",
+        "method": "Compared the exact-conditioning statements and the scope of their algorithmic covariance formulas against the later Lanczos isotropic approximation.",
+        "title": "A Bayesian Conjugate Gradient Method",
+        "trigger": "Foundational source on the rank and nullspace of Gaussian linear-solver posteriors."
+      },
+      {
+        "assessment": "Its general conditioning and equivalence results do not establish the exact rank of this specific approximate residual, nor the rational small-dimensional measurement-variance certificate.",
+        "evidence": [
+          "doi:10.1007/s11222-019-09897-7, Sections 2--3, Propositions 6, 16."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11222-019-09897-7",
+        "material_read": "Open-access full HTML, sections on Gaussian conditioning, MBI/SBI covariance, projection methods, and solver equivalence.",
+        "method": "Compared its exact conditional covariance constructions and rank-one discrepancies to the particular later Schur-Lanczos analytic covariance.",
+        "title": "Probabilistic Linear Solvers: A Unifying View",
+        "trigger": "Potential stronger general solver-posterior equivalence that could dominate a rank observation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a28ee80a-3cfb-4359-a998-b2dbb9b433db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact linear observations remove one Gaussian uncertainty direction each, and the source motivates its approximation for numerical uncertainty quantification. Generically adding one spurious eigenvalue changes exact nullspace calibration and yields mutually singular computational posteriors with infinite KL in either direction; the effect persists as the operator error tends to zero. An all-dimension rank law, a minimal exact-rational example with positive measured-direction variance, and a robust one-parameter family make this a structural fidelity boundary rather than a simple single-entry arithmetic check.",
+    "status": "PASS"
+  }
+}
