@@ -1,0 +1,15 @@
+# Scientific review: sharp two-node Szegő approximation
+
+## Correctness — PASS
+The precise statement is the best two-dimensional projection for the Hardy monomial \(z^2\), including confluent repeated nodes. The degree-two finite Blaschke product identifies the orthogonal complement, so the squared error is the sum of the first three Taylor-coefficient squares. Schwarz--Pick ensures the sign needed in the reverse triangle step. Exact completion of the square yields a universal \(9/16\) lower bound. A concrete node pair attains it. Simultaneous equality in all steps forces \(|ab|=1/2\), the exact first derivative modulus, and a phase alignment that pins down all node pairs up to rotation. The accompanying program checks the key exact identities and a direct projection calculation. Proof is analytic; numerical tests are corroborative only.
+
+## Originality — PASS, subject to historical-priority risk
+The focal 2023 work [1] constructs nonlinear Hilbert-space expansions and finite model-space decompositions (Sections 2 and 5), but no globally sharp two-kernel approximation of the quadratic monomial appears in its examined text. The 2022 existence theorem [2], Section 4.1, establishes attainment in the Hardy setting without the exact constant or geometry. The 2020 existence study [3] similarly lacks that specific quantitative claim. The 2015 rational-approximation paper [4] supplies general lower-bound methods rather than the \(9/16\) exact two-kernel result. The 2026 result [5], Theorem 2, concerns type-\((n,n)\) rational approximants to \(z^N\), \(n<N\); the two-kernel space here consists of numerators of degree at most one over a degree-two denominator, which is type-\((1,2)\). Neither the 2026 bound nor general existence statements imply the stated sharp constant and extremizer classification without an extra optimization. Queries of the published mathematical-results index about this specific norm, coefficient, aliases and two-pole formulations found no covering published result; that negative search is not a mathematical proof of historical novelty. Earlier or unindexed sources could still cover the special case.
+
+## Value — PASS
+The two-node best-kernel problem is the first genuinely nonlinear, nontrivial two-dimensional instance for a quadratic Hardy monomial. The result supplies an exact energy/error benchmark and completely identifies the optimum complex node geometry: equal radii and a right-angle separation. It is a sharp, reproducible benchmark for selecting kernel nodes in adaptive rational approximation; the geometry is not predicted by merely interpolating at the zero at the origin. The theorem is restricted to its natural small instance and asserts no general pole-count gain.
+
+## Principal limitations
+No independent audit has been performed. A complete historical priority audit of every older Blaschke/Hardy approximation text is unavailable. The proof uses classical model spaces and Schwarz--Pick, neither of which is claimed as new.
+
+Self-review: passed. Independent audit: not yet performed.
