@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For every X_n>=6 epsilon, strict monotonicity gives exactly one next root. The exact recurrence yields the integral identity in the proof. The global step bound Delta_n<=C sqrt(epsilon) controls the symmetric Taylor expansion; its local defect is O(Delta_n^3), whose sum is O(epsilon). The terminal integral is O(epsilon). Thus D=K_epsilon*epsilon+O(epsilon), proving K_epsilon=D/epsilon+O(1).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full public arXiv:1311.5729v1 text was read in the recurrence, asymptotic theorem, and Poincare-map sections; the stated theorem gives the leading limit but no uniform O(1) remainder.",
+        "Reshmin (2009), DOI 10.1016/j.jappmathmech.2009.08.011, has an accessible abstract about a large-amplitude one-switch regime, not the small-epsilon remainder."
+      ],
+      "reasoning": "The published limit implies only K_epsilon=D/epsilon+o(1/epsilon), not bounded absolute error. The new estimate follows from the exact recurrence and a summed cubic local-defect bound. The inaccessible Reshmin full text remains a priority risk.",
+      "searches": [
+        "Web: \"minimum-time damping of a physical pendulum\" \"switching number\" asymptotic epsilon",
+        "Web: \"Complexity of the minimum-time damping of a physical pendulum\" \"O(1)\" remainder switching number",
+        "Web: implicit Poincare map recurrence pendulum switching count O(1) epsilon asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1311.5729v1",
+      "DOI:10.1137/13091107X",
+      "DOI:10.1016/j.jappmathmech.2009.08.011"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary theorem states lim_{epsilon->0} epsilon*N_epsilon(u)=D.",
+        "The exact recurrence is cos(X_(n+1))-cos(X_n)=epsilon*(X_n+X_(n+1)).",
+        "The new proof derives |F(X_n)-F(X_(n+1))-epsilon|<=C*Delta_n^3 and sums these defects to O(epsilon)."
+      ],
+      "reasoning": "The leading limit does not imply a bounded absolute remainder. The exact recurrence plus uniform derivative and step-size bounds do. Scope is restricted to the quasioptimal half-swing recurrence stopped at X<6 epsilon.",
+      "searches": [
+        "arXiv:1311.5729v1, Eq. (2.16), Theorem 3.1 and Eq. (3.4)",
+        "Web: \"minimum-time damping of a physical pendulum\" \"switching number\" asymptotic epsilon"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ovseevich, arXiv:1311.5729v1, Eq. (2.16), gives the exact low-energy recurrence.",
+        "Ovseevich, arXiv:1311.5729v1, Theorem 3.1 / Eq. (3.4), states the leading limit epsilon*N_epsilon(u)->D.",
+        "Targeted public-literature searches did not identify a matching bounded-remainder statement; nearby sources concern different systems."
+      ],
+      "reasoning": "The recurrence is the exact low-energy half-swing map for the stated policy. The new claim is a stronger remainder estimate for this count, not a new optimal-control synthesis.",
+      "searches": [
+        "Web: \"minimum-time damping of a physical pendulum\" \"switching number\" asymptotic epsilon",
+        "Web: \"Complexity of the minimum-time damping of a physical pendulum\" \"O(1)\" remainder switching number",
+        "Web: implicit Poincare map recurrence pendulum switching count O(1) epsilon asymptotic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No public literature search result identified the bounded remainder. The 2013 preprint mentions the first 17 computed bifurcation values but states only the leading asymptotic equivalence."
+      ],
+      "reasoning": "No exact table or database entry covering the uniform O(1) remainder was identified. Numerical bifurcation values alone cannot establish an all-small-epsilon bound.",
+      "searches": [
+        "Web: \"minimum-time damping of a physical pendulum\" \"switching number\" asymptotic epsilon",
+        "Web: \"Complexity of the minimum-time damping of a physical pendulum\" \"O(1)\" remainder switching number"
+      ]
+    },
+    "rationale": "The inspected primary source establishes the same recurrence and only states the leading limit epsilon*N_epsilon(u)->D. The new statement is the bounded absolute remainder for the explicitly defined recurrence count, not a claim about globally optimal switch counts. Targeted public-literature searches found no matching quantitative remainder. This is a best-knowledge assessment with explicit residual priority risk.",
+    "residual_risks": [
+      "The full text of Reshmin (2009) was inaccessible; it remains a possible source of related switching-count estimates.",
+      "An unindexed or inaccessible paper may already establish an O(1) remainder for this exact recurrence.",
+      "The result is only for the specified quasioptimal half-swing recurrence and does not improve the theorem for the maximum switch count of all optimal trajectories.",
+      "A partitioned literature database cannot prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the recurrence and leading limit, but the inspected theorem and recurrence discussion do not state a uniform O(1) absolute remainder.",
+        "evidence": [
+          "arXiv:1311.5729v1, posted 2013-11-22; Eq. (2.16), Theorem 3.1 / Eq. (3.4), and Euler-approximation discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.5729",
+        "material_read": "Full public preprint text, including Eq. (2.16), Theorem 3.1 / Eq. (3.4), Section 4 on Poincare-map control, and Section 5 on switching counts.",
+        "method": "Compared the exact recurrence, count definition, theorem statement, and displayed proof discussion against the proposed O(1) remainder.",
+        "title": "Complexity of the Minimum-Time Damping of a Physical Pendulum",
+        "trigger": "Exact same pendulum model and recurrence; essential source for the leading asymptotic and Poincare map."
+      },
+      {
+        "assessment": "The abstract concerns a sufficient large-control-amplitude regime with at most one switch; it does not establish the present small-epsilon remainder. Full-text priority risk remains.",
+        "evidence": [
+          "Journal of Applied Mathematics and Mechanics 73(4) (2009), 403-410; DOI 10.1016/j.jappmathmech.2009.08.011."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jappmathmech.2009.08.011",
+        "material_read": "Accessible bibliographic record and abstract only; full text was not obtained.",
+        "method": "Compared the abstracted regime and conclusion with the small-epsilon recurrence remainder claim.",
+        "title": "Bifurcation in a time-optimal problem for a second-order non-linear system",
+        "trigger": "Cited earlier study of switching-number structure for a nonlinear second-order controlled system."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "86f93d3f-35f8-479f-a2ff-980d858ef89f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The leading asymptotic alone gives no finite absolute error on the half-swing count. The bounded remainder provides a finite-parameter estimate for a naturally defined half-swing complexity and follows from an exact recurrence with controlled cumulative error, not from a finite numerical fit.",
+    "status": "PASS"
+  }
+}
