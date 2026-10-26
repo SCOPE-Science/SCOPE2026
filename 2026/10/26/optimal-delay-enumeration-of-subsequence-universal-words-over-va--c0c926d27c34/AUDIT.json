@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Greedy arch number equals subsequence-universality index. For a prefix with r<k complete arches and s seen distinct symbols in current arch, exact minimum completion length is q(k-r)-s by arch disjointness and a construction. Slack0 permits only unseen letters, others permit any. Sorted linked-list and reversible updates allow constant-time next-feasible-child, and the path-to-path DFS bound O(n)+O(q floor(n/q))=O(n) includes arch list allocation and explicit output. Exhaustive direct comparisons checked q=1..4,n=0..7,k=0..3 (128 combinations,38984 words) plus 4 long/large-alphabet tests. Boundary n<kq and k=0 included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson–Gawrychowski–Manea 2024 Theorems 2 and 4 use graph/PCA explicitly as input and O(|E|) preprocessing, output succinct walk descriptions.",
+        "Subsequence-universal words are not prefix closed; a direct greedy-arch DFA records one of 2^q current-arch seen-symbol subsets.",
+        "Adamson et al. 2023 regular-language k-universality studies existence/all-words and ranking for explicit automata."
+      ],
+      "reasoning": "The generic walk theorem is stronger in implicit output delay but presupposes an explicit graph and preprocessing linear in its size; representing the variable-alphabet arch language naively requires exponentially many symbol-subset states. Its stated result does not give O(n+q) preprocessing or O(n) worst-case explicit lexicographic output uniformly in q. Any unstudied compact automata specialization remains a caveat.",
+      "searches": [
+        "arxiv:2401.02163 full PDF",
+        "arxiv:2311.10658 full text",
+        "enumerating length m walks directed graph constant delay preprocessing automata 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.04583",
+      "arxiv:2401.02163",
+      "arxiv:2311.10658",
+      "arxiv:2407.18599"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adamson 2023 gives O(nq) delay and poses O(n) as open.",
+        "Adamson–Gawrychowski–Manea 2024 gives O(1) succinct output on explicitly input graphs after O(|E|) preprocessing.",
+        "Regular-language universality and absent-subsequence enumeration solve different input/output problems."
+      ],
+      "reasoning": "O(nq) does not imply an O(n) bound with q part of input. Generic graph enumeration does not yield small-state implicit graph preprocessing for the q-symbol subset process; moreover it outputs succinct graph walks in an unspecified traversal order, not lexicographic explicit words. No inspected theorem dominates the full joint claim.",
+      "searches": [
+        "arxiv:2304.04583 full text §3 and conclusion",
+        "arxiv:2401.02163 full text Theorems 2/4",
+        "arxiv:2311.10658 full text",
+        "arxiv:2407.18599 PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adamson 2023 arXiv:2304.04583, §3 enumeration O(nq), §6 linear-delay open question",
+        "Theorem: output all k-subsequence-universal words of fixed length n, in lexicographic order, over alphabet 1..q"
+      ],
+      "reasoning": "Compared complete languages and delay statements rather than titles: the prior exact same enumeration problem is given O(nq) delay, not O(n). A generic greedy-arch DFS scanning q symbols can also attain O(nq) but does not imply q-independent worst-case delay.",
+      "searches": [
+        "\"k-subsequence-universal\" \"linear delay\" enumeration all words",
+        "\"subsequence universal\" \"delay\" \"enumeration\" 2025",
+        "\"k-rich words\" enumeration delay O(n) lexicographic",
+        "\"2024 2025\" \"k-subsequence universal words\" \"O(n) delay\" enumeration",
+        "arxiv:2304.04583 §6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined corpus contains no exact table needed for the all-integer algorithmic claim.",
+        "2024 absent-subsequence paper concerns the different operation of listing absent subsequences of a fixed input word."
+      ],
+      "reasoning": "The result is a uniform algorithm and complexity theorem, not an unknown integer-sequence coefficient. An exhaustive finite table or absence from an index would not constitute originality; the key comparison is the statement and guarantee of earlier algorithms.",
+      "searches": [
+        "\"subsequence universal words\" \"linear delay\" 2024",
+        "arxiv:2304.04583 enumerator O(nq)",
+        "arxiv:2407.18599 enumerating absent subsequences of fixed string"
+      ]
+    },
+    "rationale": "Adamson 2023 directly poses O(n) delay as open and gives O(nq), while 2024 general walks use explicit-graph-size preprocessing and succinct output; the new construction provides lexicographic explicit output in O(n) delay with O(n+q) setup uniformly for variable q. Primary papers inspected and comparison documented; equivalent unpublished specialization is a residual risk.",
+    "residual_risks": [
+      "An unindexed or later published specialized algorithm might obtain the same lexicographic O(n) bound.",
+      "The generic walk-enumeration paper may admit an implicit specialized automaton representation not stated in its theorem; no direct reduction giving O(n+q) preprocessing was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct predecessor: O(nq) delay and O(nkq) preprocessing; O(n) left open",
+        "evidence": "arXiv:2304.04583, initial 2023-04-10; §3 and §6.",
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Full arXiv HTML including enumeration discussion and conclusion, with inspected PDF exposition",
+        "method": "Compared Section 3 enumeration guarantee and Section 6 question",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Identical word language, nearest algorithm and explicit O(n) open question"
+      },
+      {
+        "assessment": "No stated O(n+q) preprocessing or lexicographic O(n) explicit-output theorem for this language",
+        "evidence": "arXiv:2401.02163, 2024-01-05, Theorems 2 and 4.",
+        "identifier_or_url": "https://arxiv.org/pdf/2401.02163",
+        "material_read": "Full paper text including abstract, contributions, theorem statements, and scope of prefix-closed DFA reduction; PDF page 3 visually inspected",
+        "method": "Compared explicit graph preprocessing and succinct outputs against implicit q-variable fixed-length universal-word enumeration",
+        "title": "Enumerating m-Length Walks in Directed Graphs with Constant Delay",
+        "trigger": "Potential stronger generic enumeration result from the same author"
+      },
+      {
+        "assessment": "No equivalent optimal-delay implicit-alphabet lexicographic generator established",
+        "evidence": "arXiv:2311.10658, 2023-11-17.",
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Full arXiv abstract/text of regular-language decision/counting topics and PDF introduction visually inspected",
+        "method": "Compared inputs (explicit finite automata) and computational tasks",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Broader k-universal formal-language algorithms"
+      },
+      {
+        "assessment": "Enumerates absent subsequences for a fixed word; different from listing all universal words",
+        "evidence": "arXiv:2407.18599, 2024-07-26.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.18599",
+        "material_read": "ArXiv paper text and PDF introduction visually inspected",
+        "method": "Compared domain and output objects",
+        "title": "Tight Bounds for the Number of Absent Subsequences",
+        "trigger": "Similar subsequence enumeration phrase"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0c926d2-7c34-4cf0-af80-d22fcf1c57c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves the concrete open O(n)-delay enumeration question in Adamson 2023, achieving the output-cost lower bound without an alphabet-size factor even for q growing with n. The feasibility/slack invariant and linked-list traversal give a useful structural method, not a routine numerical increment.",
+    "status": "PASS"
+  }
+}
