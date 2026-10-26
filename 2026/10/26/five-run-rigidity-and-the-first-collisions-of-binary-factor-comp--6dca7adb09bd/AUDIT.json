@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts run counts 1–5 using symbol totals, monochromatic maxima, and all-total Parikh rows; for four runs it recovers c,a,b,d, and for five it recovers c, unordered outer and inner run lengths, then the adjacency of the smaller one-run to the larger outer zero run. All equal-length boundary cases reduce to reversal. The six-run family is proved by its four exact Parikh rows; length-six nonambiguity follows from alternating-run maxima. Direct support enumeration checks 13,768 low-run words of lengths <=16 and 16,807 five-parameter tuples, plus collision parameters 2..69. Finite checks corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Burcsi et al., arXiv:1611.09017, Theorem 4: identical Parikh sets iff BOTH prefix-normal forms agree; a general equivalence criterion without low-run injectivity.",
+        "Cunha et al., DOI:10.4230/LIPIcs.CPM.2017.19, sections 2–3: binary jumbled indexing on run-length encoded words; query construction rather than inverse threshold.",
+        "Afshar et al., arXiv:2007.08787, Section 4 Lemma 9: reversal preserves ordinary jumbled-query answers."
+      ],
+      "reasoning": "The general index theorem of Burcsi et al. characterizes equality but does not furnish uniqueness for run-bounded words. Cunha et al. supports efficient index construction but does not prove inverse injectivity. Afshar et al. studies reconstruction after enriching queries beyond binary existence answers, a different observation model. No inspected stronger theorem implies the exact threshold without an additional structural analysis.",
+      "searches": [
+        "binary jumbled factor spectrum uniquely reconstructs all words at most five runs up to reversal and first collision at six runs",
+        "jumbled spectrum reconstruction run-length word uniqueness four five runs",
+        "Parikh set run reversal unique",
+        "\"jumbled\" \"reconstruct\" \"five runs\" word"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1611.09017",
+      "https://doi.org/10.4230/LIPIcs.CPM.2017.19",
+      "https://arxiv.org/abs/2007.08787",
+      "https://arxiv.org/abs/1905.11847",
+      "https://arxiv.org/abs/1401.6346 (abstract: one-sided prefix-normal word generation)",
+      "https://arxiv.org/abs/1903.07957 (abstract: counts for one-sided prefix-normal word classes)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Burcsi et al., arXiv:1611.09017, Theorem 4: identical Parikh sets iff BOTH prefix-normal forms agree; a general equivalence criterion without low-run injectivity.",
+        "Cunha et al., DOI:10.4230/LIPIcs.CPM.2017.19, sections 2–3: binary jumbled indexing on run-length encoded words; query construction rather than inverse threshold.",
+        "Afshar et al., arXiv:2007.08787, Section 4 Lemma 9: reversal preserves ordinary jumbled-query answers.",
+        "Fleischmann et al., arXiv:1905.11847, introduction and section 3: one-sided prefix-normal equivalence and its palindrome classes."
+      ],
+      "reasoning": "Matching both prefix-normal forms is necessary and sufficient for support equality, but does not by itself classify fibres of that map on five-run words; a separate reconstruction argument is supplied. One-sided prefix-normal classes studied by Fleischmann et al. are coarser, not a covering theorem for the present two-sided claim. Length-two adjacent-composition data and full composition MULTISETs are different observations and do not imply support rigidity. The six-run witness explicitly shows the asserted threshold cannot be raised.",
+      "searches": [
+        "Every binary word with at most five runs is uniquely determined by its factor Parikh set up to reversal; six runs allow nonreversal twins 0101001 0100101",
+        "prefix normal pair jumbled set reconstruct four and five run words sharp ambiguity at six runs",
+        "\"Parikh set\" \"run\" \"reversal\" unique"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burcsi et al., arXiv:1611.09017, Theorem 4: identical Parikh sets iff BOTH prefix-normal forms agree; a general equivalence criterion without low-run injectivity.",
+        "Afshar et al., arXiv:2007.08787, Section 4 Lemma 9: reversal preserves ordinary jumbled-query answers."
+      ],
+      "reasoning": "The support can be represented by minimum/maximum Parikh counts at each substring length, equivalently by both prefix-normal forms. Reversal preserves the support. The new claim is not merely that equality of forms is an equivalence relation: it gives the sharp structural consequence that on <=5 runs the pair of forms has only a reversal orbit, and supplies six-run isospectral counterexamples.",
+      "searches": [
+        "Every binary word with at most five runs is uniquely determined by its factor Parikh set up to reversal; six runs allow nonreversal twins 0101001 0100101",
+        "prefix normal pair jumbled set reconstruct four and five run words sharp ambiguity at six runs",
+        "\"Parikh set\" \"run\" \"reversal\" unique",
+        "\"prefix normal\" \"equivalence classes\" \"run\" \"two words\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Burcsi et al. arXiv:1611.09017, Table 2 lists ONE prefix-form equivalence classes at length four, not the simultaneous full-support classes at all lengths.",
+        "Published fixed-length factor-Parikh indexes specify existence ranges rather than unique inverse recovery; no matching six-run infinite collision table identified."
+      ],
+      "reasoning": "The proposed claim quantifies over all run lengths and proves a first ambiguity boundary; it is neither a finite-table re-evaluation nor a singleton value. Nearby database records on length-two composition MULTISPECTRA concern frequency-bearing observations restricted to short contiguous factors, not sets of all factor-Parikh vectors.",
+      "searches": [
+        "jumbled Parikh support six-run collision 01010^t1 versus 010^t101 shortest length seven",
+        "\"Parikh set\" \"non-reversal\" \"shortest\"",
+        "\"jumbled equivalence\" \"run length\" first ambiguous"
+      ]
+    },
+    "rationale": "The inspected primary sources give binary jumbled indexing and general prefix-normal equivalence but no sharp five-run injectivity or infinite six-run collision family. Actual semantic searches of public literature and published mathematical records, plus comparison against accessible existing claim texts, found no subsuming theorem; equivalent unindexed results remain a residual risk.",
+    "residual_risks": [
+      "The first-collision property could have appeared as an unindexed corollary or example in combinatorics-on-words literature not located by searches.",
+      "2016 Burcsi et al. provides a general equivalent criterion; originality rests on the additional sharp run-specific fibre classification and proof, not on that general criterion itself.",
+      "No independent expert review or comprehensive proprietary-database exhaustion was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact general two-prefix-normal-form characterization; does not identify <=5-run reversal-only fibres or their first six-run obstruction.",
+        "evidence": "Theorem 4 and proof on printed page 5; Section 5 discusses open issues on paired forms.",
+        "identifier_or_url": "https://arxiv.org/pdf/1611.09017",
+        "material_read": "Introduction, Sections 2.1–2.3 (Theorems 2 and 4, interval lemma, full forms), Section 5, reference scope and other main results headings",
+        "method": "Full open-access preprint text and page-image checks, including theorem page",
+        "title": "On Prefix Normal Words and Prefix Normal Forms",
+        "trigger": "Exact same factor-Parikh support equivalence problem"
+      },
+      {
+        "assessment": "Constructs jumbled indexes in terms of run count; no inverse uniqueness theorem or six-run ambiguity classification in inspected portions.",
+        "evidence": "Sections 2–3 describe indexing and factor composition extrema.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2017.19",
+        "material_read": "Introduction, indexed Parikh interval property, run encoding definition, basic algorithm and theorem descriptions, concluding sections",
+        "method": "Open-access proceedings PDF text plus page-image inspection",
+        "title": "Fast and Simple Jumbled Indexing for Binary Run-Length Encoded Strings",
+        "trigger": "Same binary run-length-compressed objects and full-factor composition query model"
+      },
+      {
+        "assessment": "Proves reversal indistinguishability and augmented-query algorithms, without establishing uniqueness up to reversal for a bounded-run binary class.",
+        "evidence": "Section 4 Lemma 9 establishes reversal obstruction; Theorem 10 adds an end marker.",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.08787",
+        "material_read": "Section 4, printed pp19–20 (Lemma 9, Theorem 10 and comparison of original versus extended queries)",
+        "method": "Open-access preprint full-text extraction plus page-image inspection",
+        "title": "Adaptive Exact Learning in a Mixed-Up World",
+        "trigger": "Direct converse-uniqueness problem under yes/no Parikh queries"
+      },
+      {
+        "assessment": "Studies one-sided prefix-normal equivalence and special palindromes, not full joint zero/one prefix-normal-form fibres on five runs.",
+        "evidence": "Introduction defines one-sided pn-equivalence and identifies prefix-normal palindromes as singleton classes.",
+        "identifier_or_url": "https://arxiv.org/pdf/1905.11847",
+        "material_read": "Abstract, introduction, definitions, section 3 statements on palindromic prefix-normal words, scope and proof organization",
+        "method": "Open-access arXiv preprint and page-image inspection",
+        "title": "On Collapsing Prefix Normal Words",
+        "trigger": "Potential stronger uniqueness theory for prefix-normal equivalence classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6dca7adb-09bd-4e68-952d-47a8e3fb50e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full factor-composition spectra are the natural observation model of jumbled-pattern indexes. A sharp inverse-rigidity threshold at five constant runs, an effective reconstruction formula, minimal collision length seven, and an infinite six-run collision family answer a motivated information-recovery question; the content is structural and not a textbook normalization or ad hoc finite slice.",
+    "status": "PASS"
+  }
+}
