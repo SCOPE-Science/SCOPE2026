@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The normalized absolute-coordinate/slack law is Dirichlet \((1,\ldots,1,\alpha+1)\), so the vertex marginal is \(\mathrm{Beta}(1,m)\) and the covariance is diagonal. This gives \(K(x,y)=1+c\sum x_i y_i/a_i^2\) with \(c=(m+1)(m+2)/2\). The convex Lebesgue function is strictly smaller away from vertices because kernels of distinct vertices cross signs on a positive-measure set. Exact beta integration yields the formula, symmetry yields the dual endpoint norm, and an explicit positive lower bound on the logarithmic derivative proves strict monotonicity. The sign extremizer and the negative-part indicator prove sharpness. The provided script passed 204 rational, symbolic, and high-precision checks; it is not substituted for the general proof.
+
+## Originality — PASS within inspected evidence
+The full primary text by Aktas–Xu on weighted simplex orthogonal polynomials describes the Jacobi/Dirichlet background but not this affine endpoint projection norm. Foucart's accessible full text concerns one-dimensional splines and their max norms. The full previously published simplex-projector result has a similar convex-row technique but a different nonsymmetric one-chamber kernel and norm; the new signed-cross-polytope weight family, its explicit amplification law, and weak-concentration instability do not follow as statements of that theorem. Related metric-projection papers instead concern nearest-point maps in finite-dimensional normed spaces. Exact phrase, object, parameter, kernel, and alias searches retrieved no stronger result. Historical priority is provisional because an equivalent calculation could exist under other terminology; these comparisons are not a mathematical uniqueness certificate.
+
+## Value — PASS
+The invariant is the sharp uniform-error amplification of a basic, natural least-squares approximation on \(\ell_1\)-ball cells, relevant to approximation on nonsimplicial domains. It gives a complete solution in every dimension and for the full integrable slack-power family, with exact extremizers, sharp positivity failure, strict effective-dimension law, and a nontrivial concentration-vs-stability contrast. The result is more than a recomputation of a point covariance and has a meaningful domain and weighting motivation, although it does not purport to settle general polygonal finite elements or higher-degree projectors.
+
+Self-review: passed. Independent audit: not yet performed.
