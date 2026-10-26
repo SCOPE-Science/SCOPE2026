@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, deleting marker 1 gives one of n-1 singleton-2 outputs, so no code can exceed n-1. At equality both singleton-output position maps are permutations. Each ordered pair of singleton-output positions determines exactly one source word unless the positions coincide, when it determines two possible marker orientations. Explicit before/between/after zero-deletion pairs prove that two different permutation rows conflict exactly when both the row and column rise by one with equal orientation. Alternating orientations on the identity permutation attain n-1 at all lengths. The count B_k sums 2 choices per run of consecutive fixed points over permutations with no rising succession off the diagonal; the subset DP counts exactly these assignments. Direct deletion-set comparisons for all signed permutations k<=8, brute-force maximum codebooks n=2..6 and DP k<=11 agree. Finite checking is not the proof of the all-length claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sloane 2002 examines binary general codes and lists nonbinary extensions in Section 6.",
+        "Tenengolts 1984 abstract describes a general nonbinary construction with asymptotic cardinality, not a statement about every maximum codebook of this constant-composition layer."
+      ],
+      "reasoning": "An unrestricted q-ary code-size bound or a VT-type construction does not force every optimum constrained code to be a signed permutation or determine the number of such codebooks. Tenengolts full text was inaccessible and is retained as a risk.",
+      "searches": [
+        "q-ary single deletion coding prescribed composition counting optimal maximum codes fixed composition two singleton markers",
+        "nonbinary single deletion codes composition constrained weight 2 two nonzero letters maximum code size",
+        "doi:10.1109/TIT.1984.1056962"
+      ]
+    },
+    "checked_sources": [
+      "Sloane (2002), arxiv:math/0207197 (material sections read)",
+      "Du and Ji (2024), arxiv:2404.00607 (material text read)",
+      "Reilly and Tanny (1979), doi:10.1002/sapm197961173 (abstract only)",
+      "Tenengolts (1984), doi:10.1109/TIT.1984.1056962 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sloane 2002 does not specialize its graph independent-set results to ternary (n-2,1,1) or enumerate all maxima.",
+        "Reilly–Tanny 1979 counts successions in ordinary permutations; Du–Ji 2024 gives bijections involving succession sets and other permutation statistics.",
+        "Earlier fixed-weight-two binary deletion-code results apply to two identical ones, rather than two distinct markers; the proved maxima differ."
+      ],
+      "reasoning": "The main contribution is not the elementary bound n-1, but the exact all-length optimizer bijection and signed succession enumeration. None of the inspected stronger or neighboring statements logically yields this full classification without the new zero-deletion collision lemma.",
+      "searches": [
+        "arxiv:math/0207197 single deletion correcting codes constant weight",
+        "doi:10.1002/sapm197961173 counting successions in permutations",
+        "arxiv:2404.00607 fixed point succession bijection"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sloane 2002, Definition 1.1 gives descendant-disjoint correction and Section 1 gives graph independence.",
+        "Permutations with rising successions are a standard object (Reilly–Tanny 1979 and Du–Ji 2024), but neither checked result states the orientation-sensitive deletion-code bijection."
+      ],
+      "reasoning": "The candidate is equivalently the full family of maximum independent sets in the single-deletion confusability graph induced by ternary composition (n-2,1,1). A standard graph formulation is not a classification or enumeration; the permutation-to-codebook equivalence is proved here.",
+      "searches": [
+        "constant composition single deletion correcting codes ternary one occurrence of each nonzero symbol",
+        "ternary composition two singleton markers deletion codes optimal permutation succession",
+        "arxiv:math/0207197 sections 1,2,5,6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The initial values were reproduced from two separate enumerations: direct subset census through n=6, and signed-permutation DP through k=11.",
+        "No matching accessible exact table from the stated searches was found."
+      ],
+      "reasoning": "Absence of a matching database entry is not novelty proof. The count is motivated by the codebook classification, not used as the sole basis for originality.",
+      "searches": [
+        "\"2, 3, 8, 32, 158, 918\" permutations codes",
+        "\"2 3 8 32 158 918\" deletion",
+        "OEIS 2 3 8 32 158 918 6258 49076 permutations"
+      ]
+    },
+    "rationale": "Checked primary coding and permutation literature defines deletion-code independence and usual permutation successions, but does not imply the fixed composition (n-2,1,1) all-length optimum-codebook classification and orientation-weighted enumeration. The earliest public driving source is Sloane arXiv:math/0207197 (2002-07-22). Historical priority remains uncertain because the Tenengolts 1984 full paper was not inspected.",
+    "residual_risks": [
+      "Tenengolts (1984) full primary text was inaccessible and could contain an unrecognized equivalent special result.",
+      "Reilly–Tanny (1979) full text was not inspected; it may have implicit enumeration formulas for related weighted succession statistics.",
+      "Unindexed prior exact classifications under different names may exist; database search is not proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different scope: general binary codes and review of nonbinary constructions; no exact ternary (n-2,1,1) maximum-codebook enumeration in the inspected material.",
+        "evidence": [
+          "arxiv:math/0207197 pp.1-4,14-18, Definition 1.1, Section 6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0207197",
+        "material_read": "Full public PDF, specifically Definitions 1.1 and 2.1, introductory graph discussion, Sections 5 and 6 and references",
+        "method": "Read accessible PDF text and inspected its first page image",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Foundational correction definition, possible broader binary/constant-weight result"
+      },
+      {
+        "assessment": "No deletion codes; the bijection between permutation statistics does not assert the signed admissibility rule for two distinct markers.",
+        "evidence": [
+          "arxiv:2404.00607 pp.1-3, Theorems 1.1 and 1.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.00607",
+        "material_read": "Full public six-page paper, with emphasis on Definitions and Theorems 1.1, 1.4",
+        "method": "Read PDF text and first-page image",
+        "title": "A Refinement of a Theorem of Diaconis-Evans-Graham",
+        "trigger": "Potential implications of permutation succession and fixed-point results"
+      },
+      {
+        "assessment": "Counts ordinary successions with fixed number and interval parameters; cannot rule out an equivalent weighted special case from inaccessible full text.",
+        "evidence": [
+          "Publisher abstract explicitly states ordinary succession counts and recurrence"
+        ],
+        "identifier_or_url": "doi:10.1002/sapm197961173",
+        "material_read": "Publisher abstract and bibliographic record only",
+        "method": "Read accessible abstract; complete publisher text unavailable",
+        "title": "Counting Successions in Permutations",
+        "trigger": "Potential prior enumeration by permutation successions"
+      },
+      {
+        "assessment": "Abstract announces nonbinary general coding construction, not all constrained maxima; definitive full-text comparison remains unperformed.",
+        "evidence": [
+          "Tenengolts 1984 abstract; Sloane 2002 Section 6 and reference [Ten84]"
+        ],
+        "identifier_or_url": "doi:10.1109/TIT.1984.1056962",
+        "material_read": "Indexed bibliographic record and abstract; full article not available through accessible noninteractive sources",
+        "method": "Searched for arXiv and lawful open-access copies, read abstract and citation in Sloane 2002",
+        "title": "Nonbinary codes, correcting single deletion or insertion",
+        "trigger": "Closest classic nonbinary single-deletion construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9818c454-5657-4d9b-a631-1c72e63810a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification of every optimum one-deletion-correcting code at a fixed ternary composition and an exact all-length count of their labeled codebooks. The elementary size bound alone would be too routine, but the signed permutation bijection, local collision lemma, and subset DP capture the full optimizer space. This structural space is relevant to choosing a capacity-optimal code with supplementary properties; no downstream theorem or broader-alphabet formula is claimed.",
+    "status": "PASS"
+  }
+}
