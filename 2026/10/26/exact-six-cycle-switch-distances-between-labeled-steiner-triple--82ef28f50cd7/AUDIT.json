@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact definitions and quantifiers cover every pair of labeled STS(9). The disjoint matching argument identifies all legal six-cycle flips with the 36 label-transposition moves. The stabilizer is explicitly enumerated as AGL(2,3) of order 432; finite exact-cover enumeration of the 840 systems proves every system is an affine relabeling. Minimum transposition word length equals nine minus cycle count, so exhaustive evaluation of all 840 cosets against all 432 stabilizer elements gives exact upper and lower switch distances. An independently constructed exact-cover graph computes all 840 BFS layers and all 705,600 ordered pair distances, checking the same intersection map. Scripts and logged stdout are included and reproduced. Theorem is finite; no extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grannell–Griggs–Murphy (1999) studies cycle switching at several orders and explicitly states order-nine connectivity, but contains no metric/diameter classification.",
+        "Erskine–Griggs (2025), Cycle Switching in Steiner Triple Systems of Order 19, doi:10.1002/jcd.21975, studies a different order."
+      ],
+      "reasoning": "A general connectedness statement or a large-order reconfiguration census cannot imply the claimed exact shortest-path classification on all 840 labeled order-nine systems without a quantitative bound. A hidden broader geodesic theorem remains a residual priority risk.",
+      "searches": [
+        "All labeled Steiner triple systems of order nine, their intersections and exact graph distances for trade replacements",
+        "STS9 840 realizations association of affine plane modulo affine group distance from minimal hexagon trade R(9,6)"
+      ]
+    },
+    "checked_sources": [
+      "Grannell, Griggs and Murphy (1999), https://grannell.net/Papers/SWITCH2.pdf",
+      "Chee, Ling and Shen (2008), https://arxiv.org/abs/0807.2500",
+      "Khosrovshahi and Maimani (1999), https://combinatorialpress.com/article/ars/Volume%20052/volume-52-paper-17.pdf",
+      "Erskine and Griggs (2025), https://doi.org/10.1002/jcd.21975"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grannell–Griggs–Murphy Theorem 4 proves R(9,6) is connected, not the precise number of moves; the paper's definitions imply the legal switch model used here.",
+        "The Lindner–Rosa intersection spectrum is c∈{0,1,2,3,4,6,12}; it does not relate c to shortest switch paths.",
+        "Full finite coset and exhaustive BFS calculations provide the additional quantitative distance relation."
+      ],
+      "reasoning": "Both main prior results are proper inputs to or weaker consequences of the new exact distance theorem, not claims whose conclusions entail the metric formula. The radius/diameter follow from the new formula and thus are not independently claimed as novel if already known elsewhere.",
+      "searches": [
+        "Steiner triple systems order 9 affine plane trades switching reconfiguration graph minimum trade size hexagon",
+        "switching cycles Steiner triple systems order 9 shortest paths three six-cycle switches common blocks 0 1 2 3 4 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grannell–Griggs–Murphy (1999), Switching cycles in Steiner triple systems, Theorem 4: connectivity of the labeled R(9,6) already known; https://grannell.net/Papers/SWITCH2.pdf",
+        "The new formula can be written as minimum transposition word length over cosets S_9/AGL(2,3); search covered both graph-switch and permutation-coset terminology."
+      ],
+      "reasoning": "Transpositions and six-cycle switches coincide specifically for STS(9), so the word-metric and graph-metric statements are equivalent. The inspected prior theorem establishes reachability, not shortest paths or the metric-by-intersection equivalence.",
+      "searches": [
+        "Steiner triple systems order 9 affine plane trades switching reconfiguration graph minimum trade size hexagon",
+        "R(9,6) labeled Steiner triple systems order 9 840 36 regular diameter three distance shells 1 36 395 408",
+        "switching cycles Steiner triple systems order 9 shortest paths three six-cycle switches common blocks 0 1 2 3 4 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chee–Ling–Shen, arXiv:0807.2500, Theorem 2.1 (crediting Lindner–Rosa) reports possible common-block counts, but gives no switch distance table.",
+        "Khosrovshahi–Maimani (1999), On 2-(v,3) Steiner trades of small volumes, https://combinatorialpress.com/article/ars/Volume%20052/volume-52-paper-17.pdf, concerns individual trade volumes rather than global distances."
+      ],
+      "reasoning": "Known intersection-size spectra and local-trade lists supply values of c but do not imply the distance assigned to each value. No verified published table giving the claimed c-to-distance mapping was found.",
+      "searches": [
+        "Steiner triple systems of order nine six-cycle switch diameter distance table 840",
+        "R(9,6) labeled Steiner triple systems order 9 840 36 regular diameter three distance shells 1 36 395 408"
+      ]
+    },
+    "rationale": "The 1999 paper of Grannell, Griggs and Murphy explicitly establishes connectedness and the total 840 labeled STS(9) configurations; those are prior results. Lindner–Rosa's intersection spectrum, reproduced by Chee–Ling–Shen, is also prior. The accepted claim newly identifies the geodesic distance for every pair as an exact function of shared blocks, including diameter three and the complete metric census. Direct comparison of pertinent accessible primary full text and overlapping modern results found no equivalent distance theorem. Publication priority beyond checked sources remains uncertain.",
+    "residual_risks": [
+      "The full content of some supplementary relevant publications was unavailable or only partially read.",
+      "A geodesic classification under different wording or an unpublished computation may exist; absence from searches is not proof of novelty.",
+      "The claim concerns only nine points; it does not imply any metric bound for higher-order Steiner systems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALREADY_COVERS connectivity and 840 configurations; NOT_COVERING the exact geodesic-by-intersection theorem in inspected full text.",
+        "evidence": "Its Theorem 4 explicitly proves R(9,6) connected and discusses 840 vertices; no stated distance formula, diameter or intersection-geodesic table.",
+        "identifier_or_url": "https://grannell.net/Papers/SWITCH2.pdf",
+        "material_read": "Full author preprint text, specifically switch definitions, Theorem 4, proof and the order-nine discussion on pages 3–7.",
+        "method": "Read available preprint body and inspected relevant PDF pages; searched for distance, diameter and shortest-path terminology.",
+        "title": "Switching cycles in Steiner triple systems",
+        "trigger": "Same switch graph and exact order-nine connectivity; strongest close coverage risk."
+      },
+      {
+        "assessment": "ALREADY_COVERS intersection-size spectrum, but NOT_COVERING distance-by-intersection classification.",
+        "evidence": "Theorem 2.1 credits Lindner–Rosa for possible intersection sizes; no six-cycle switch distances are asserted.",
+        "identifier_or_url": "https://arxiv.org/abs/0807.2500",
+        "material_read": "Accessible full preprint, particularly Theorem 2.1 and order-nine intersection spectrum.",
+        "method": "Read full text and compared theorem statements with claimed shortest-switch distances.",
+        "title": "The fine intersection problem for Steiner triple systems",
+        "trigger": "Exact possible intersection sizes for pairs of STS(9), plausible numerical overlap."
+      },
+      {
+        "assessment": "The sampled pages classify trades rather than shortest paths between all labeled STS(9); remaining pages are a residual coverage risk.",
+        "evidence": "The paper's objects are Steiner trades of bounded volume, whereas this finding concerns a 840-state shortest-path metric.",
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20052/volume-52-paper-17.pdf",
+        "material_read": "Primary PDF pages 1, 2, 5, 8, 13 and 19 of the accessible document; not every page was inspected.",
+        "method": "Direct PDF page reading; compared local trade volume classifications to global shortest-path statements.",
+        "title": "On 2-(v,3) Steiner trades of small volumes",
+        "trigger": "Trades of volume six might encode individual legal moves."
+      },
+      {
+        "assessment": "Explicit focus is order nineteen, not the nine-point labeled metric; full-text inaccessibility remains a risk.",
+        "evidence": "Paper title and accessible abstract identify order 19 and switching classes.",
+        "identifier_or_url": "https://doi.org/10.1002/jcd.21975",
+        "material_read": "Accessible abstract and reference material; full paper was not available.",
+        "method": "Read publisher abstract and secondary links; compared investigated order and configurations.",
+        "title": "Cycle Switching in Steiner Triple Systems of Order 19",
+        "trigger": "Later general switching research might imply geodesic statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82ef28f5-0cd7-43c9-9de4-cde9ad4d9d4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Six-cycle switching is a pre-existing, natural reconfiguration operation on Steiner triple systems. Earlier order-nine connectivity and intersection spectrum do not determine minimum switch counts. The new complete exact metric classification assigns an optimal transition cost to each of 705,600 ordered pairs using the natural common-block invariant. It identifies disjoint pairs as sharp distance-three witnesses and can guide exact schedule/design transformations. This is a meaningful complete finite classification, not an arbitrary isolated parameter or repetition of a known connectivity proof.",
+    "status": "PASS"
+  }
+}
