@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Four-channel propensities at (1,1) yield K=[[-10,-q],[1,-1]] and D=diag(20,2). The two exact resolvent spectra follow by 2x2 inversion. The mRNA derivative with respect to omega squared is proportional to P(q)/10-2(1+q^2/10)x-x^2, proving the unique global maximum when P>0. The cubic derivative has just one turning point on the real-eigenvalue domain [0,81/4), and P(0)<0<P(1), P(5)<0, proving exactly two crossings. Protein derivative is negative on that domain. A symbolic checker independently reconstructs the inverse resolvent and derivative identities; 72 numerical resolvent evaluations pass. All assumptions, weak-noise limitation and root endpoint behavior are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gupta and Khammash, Nature Communications 13:4305 (2022), Eq. (40) output-protein spectrum and Eq. (41) exact spectral peak condition.",
+        "Aslyamov et al., arXiv:2510.17587v1, Eq. (6) supplies the complete Gaussian resolvent and Eq. (24) full frequency response."
+      ],
+      "reasoning": "Strong established coverage: the protein/output spectral formula and its low-pass condition in this parameter regime are implied by Gupta--Khammash. Their analyzed output observable is the protein, whereas the novel reentrant window concerns the mRNA/controller. The general matrix-resolvent framework implies computability of the mRNA spectrum, but its published statements do not explicitly identify two sign reversals of the global mRNA maximum under increasing feedback at fixed equilibrium. Any unpublished supplementary general-controller maximum theorem could still dominate the new claim; see residual risks.",
+      "searches": [
+        "two-stage gene expression negative feedback mRNA protein stationary power spectral density oscillatory nonzero-frequency resonance sharp threshold exact spectral peak linear noise",
+        "Macroscopic fluctuation-response theory and its use for gene regulatory networks Aslyamov Ptaszynski Esposito finite-frequency reentrant peak 2510.17587",
+        "Frequency spectra and the color of cellular noise Gupta Khammash 2022 negative-feedback network Proposition S4.1 Eq40 Eq41"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2510.17587v1 (full primary paper, gene section and appendix)",
+      "Gupta and Khammash, Nature Communications 13:4305 (2022), Eqs. (39)-(41) and feedback sections",
+      "arxiv:1408.4782v1 (relevant primary introduction and three-node results)",
+      "Published semantic research results: exact cubic, gain/reentrance aliases, two-stage gene feedback, and motivating source title"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aslyamov et al. arXiv:2510.17587v1: Eqs. (2),(6),(25)-(33), Appendix A.",
+        "Gupta--Khammash (2022), Eq. (40),(41), two-species NFB output and AIF-controlled gene model.",
+        "Joo--Chauhan (2014), 63 three-species networks, real-versus-complex eigenvalue spectral resonance distributions."
+      ],
+      "reasoning": "The new claim is stronger than a pointwise PSD expression: it proves exactly two gain thresholds for global mRNA resonance, a rigorously unique peak throughout their open interval, persistent real eigenvalues, and loss of that peak at greater gain. Gupta--Khammash covers the protein-output component as an explicit implication, hence this supporting contrast has no independent novelty. Joo--Chauhan covers real-pole resonance in other networks but not the two-stage exact feedback reentrance. The original Aslyamov general resolvent can be specialized algebraically to the PSD but contains no identified theorem about the two-threshold global-peak topology. The main residual is potential implicit derivability or coverage in a broader general spectrum theorem.",
+      "searches": [
+        "Macroscopic fluctuation-response theory and its use for gene regulatory networks Aslyamov Ptaszynski Esposito finite-frequency reentrant peak 2510.17587",
+        "two-stage gene expression negative feedback mRNA protein stationary power spectral density oscillatory nonzero-frequency resonance sharp threshold exact spectral peak linear noise",
+        "stochastic gene expression feedback oscillatory mRNA spectra overdamped two-stage birth death protein reentrant resonance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aslyamov et al., arXiv:2510.17587v1, Eqs. (6),(25)-(33): generic PSD and gene-specific zero-frequency response.",
+        "Joo and Chauhan, arXiv:1408.4782v1, introductory and Results discussion of real-pole noise-induced peaks in three-node biochemical networks."
+      ],
+      "reasoning": "Aliases include stochastic/coherence resonance, nonmonotonic stationary mRNA power spectrum, band-pass molecular noise, and nonoscillatory OU poles. Real eigenvalues with finite-frequency peaks are already established in larger networks; here the asserted classification is the two-species mRNA-reentrance phase diagram, not the generic possibility of such peaks.",
+      "searches": [
+        "reentrant noise-induced band-pass power spectrum mRNA under increasing negative transcription feedback strength while deterministic eigenvalues remain real and protein power spectrum stays low-pass two species",
+        "stochastic gene expression feedback oscillatory mRNA spectra overdamped two-stage birth death protein reentrant resonance",
+        "Joo Chauhan 1408.4782 real eigenvalues noise induced oscillation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The two thresholds are the first two roots of a newly derived cubic and were cross-checked symbolically and numerically.",
+        "The accessible compared papers give spectral formulas and other feedback criteria, rather than a tabulated pair for this fixed-point mRNA family."
+      ],
+      "reasoning": "No preexisting numerical table of these normalized thresholds or equivalent exact spectral classification was identified in the consulted primary material or actual search results. This negative search is not proof of uniqueness.",
+      "searches": [
+        "exact cubic threshold 2q^3-91q^2+220q-10 gene expression mRNA spectral peak negative feedback linear Langevin",
+        "reentrant noise-induced band-pass power spectrum mRNA under increasing negative transcription feedback strength while deterministic eigenvalues remain real and protein power spectrum stays low-pass two species",
+        "2q^3-91q^2+220q-10 spectrum"
+      ]
+    },
+    "rationale": "The distinct assessed statement is an exactly classified reentrant feedback window for the mRNA/controller PSD of a fixed-operating-point two-species negative-feedback reaction network, despite real negative relaxation eigenvalues. The source already supplies the general PSD resolvent; Gupta--Khammash explicitly supplies the two-species NFB protein/output PSD and its peak criterion, and Joo--Chauhan shows real-eigenvalue spectral peaks for three-species networks. Accordingly neither the general PSD method, protein low-pass subclaim, nor real-eigenvalue noise amplification in itself is claimed as novel. Searches and primary comparisons did not identify published explicit mRNA/controller reentrance with the cubic thresholds. Supplementary work and broad formulas remain material implicit-coverage risks.",
+    "residual_risks": [
+      "Gupta--Khammash supplementary Proposition S4.1 or an uninspected general-controller-spectrum extension could implicitly include the mRNA peak classification.",
+      "Any broader general OU rational-spectrum theorem may subsume the cubic specialization, even without the same parameter values or title.",
+      "Source searches do not establish global mathematical priority; independent review has not occurred.",
+      "The fixed-mean exponential repression curve is a mathematically valid smooth feedback specialization, and its exact numerical thresholds are not universal biological constants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS Gaussian resolvent and source-model structure; gene example explicitly analyzes zero-frequency scaled PSD, not the claimed cubic finite-frequency reentrance.",
+        "evidence": [
+          "arXiv:2510.17587v1, Fig. 2 and Eq. (6): generic finite-frequency PSD; Eq. (30) mRNA zero-frequency noise."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.17587",
+        "material_read": "Eight-page arXiv v1 primary text, especially Eqs. (2),(6),(24)-(33), Fig. 2 and associated discussion, and mathematical appendix; publication stamp 20 October 2025.",
+        "method": "Full-text PDF reading, text inspection and original page-image comparison",
+        "title": "Macroscopic fluctuation-response theory and its use for gene regulatory networks",
+        "trigger": "same two-species mRNA/protein OU theory and exact motivating general PSD"
+      },
+      {
+        "assessment": "COVERS protein/output PSD and its iff nonzero-peak criterion, so the supporting protein low-pass statement is subsumed. Does not explicitly determine feedback-reentrant mRNA/controller peaks; supplementary and general-theory implicit coverage remain risks.",
+        "evidence": [
+          "Nat Commun 13:4305 (2022), Eq. (40) NFB output spectrum; Eq. (41) iff criterion for nonzero-frequency global output maximum.",
+          "DOI:10.1038/s41467-022-31263-x"
+        ],
+        "identifier_or_url": "https://doi.org/10.1038/s41467-022-31263-x",
+        "material_read": "Accessible substantial published-paper text reproducing NFB section, Eqs. (39)-(41), explicit output spectrum and global-maximum criterion, as well as sections on AIF feedback and network spectral methods. Supplementary Proposition S4.1 was cited but its full proof text was not separately inspected.",
+        "method": "Accessible full-paper textual mirror (ResearchGate) and publication/OA bibliographic landing records; publisher and institutional mirrors returned access failures",
+        "title": "Frequency spectra and the color of cellular noise",
+        "trigger": "same two-species negative-feedback NFB topology and possible broader spectral peak theorem"
+      },
+      {
+        "assessment": "COVERS the qualitative real-eigenvalue spectral-resonance concept for three-species networks, not the claimed two-species exactly two-threshold mRNA feedback window.",
+        "evidence": [
+          "arXiv:1408.4782v1, pp. 1-2 and 6-8: three-species networks and real-eigenvalue resonant examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1408.4782",
+        "material_read": "Primary PDF abstract, introduction, three-species model/network framework, Results discussion comparing resonance with real and complex Jacobian eigenvalues, and representative figure descriptions.",
+        "method": "ArXiv primary full-text text extraction with read of the relevant conceptual and model passages",
+        "title": "Design principles of noise-induced oscillation in biochemical reaction networks: II. coupled positive and negative feedback loops",
+        "trigger": "prior noise-driven spectral peaks with real deterministic eigenvalues"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d295eef-f398-4aaa-83c4-3d9425c700da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is a two-stage transcription--translation circuit with two experimentally distinct observables and a natural disparity between mRNA/protein turnover. A fully resolved reentrant band-pass window while deterministic modes stay overdamped separates noise-filter resonance from deterministic spiral relaxation, and warns that increasing feedback does not monotonically enhance spectral peaks. The known protein low-pass component emphasizes observable dependence without claiming independent novelty. Exact feedback boundaries and an open-parameter witness give meaningful structural/experimental targets beyond arbitrary spectral arithmetic.",
+    "status": "PASS"
+  }
+}
