@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A selected edge family dominates the disjointness graph if and only if all two-point covers are selected edges. Cases tau=1,2,>=3 exhaust possibilities. In tau=2 the cover itself must be selected and triangle-freeness forces at least two distinct spokes at each end, leaving exactly the balanced double star by inclusion-minimality. For tau>=3, triangle or 3-matching immediately dominates; otherwise the graph is nonbipartite by König and an odd cycle of length 5 is forced by matching number <=2. Direct deletion witnesses establish minimality of each type. The five counting formulas are orbit-exact. Independent exhaustive calculation checks n=5,6,7 and independent direct template checks n=5,...,9, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cornet–Torres, arXiv:2308.15603v2, Section 4 gives necessary-and-sufficient incidence-occurrence inequalities for arbitrary k-tuple dominating sets of K(n,2). Setting k=1 yields a membership test for every dominating family, so the current criterion is logically within that broad coverage.",
+        "The inspected Section 4, introduction, and available full-text searches do not present the exhaustive five-orbit inclusion-minimal classification, its polynomial, or the upper domination formula."
+      ],
+      "reasoning": "A general membership criterion can always be applied twice to check minimality; therefore it is broader at the predicate level and imposes material novelty risk. The claim here is the stronger explicit all-minimal structural classification and enumerator, requiring a cover-number and matching-number decomposition not supplied by direct substitution. If such a classification is elsewhere deduced from that criterion, publication priority would fail.",
+      "searches": [
+        "k-tuple domination on Kneser graphs Cornet Torres 2023 characterization occurrences minimum dominating sets",
+        "upper domination Kneser graphs KG(n 2) inclusion minimal sets number",
+        "maximal-cardinality inclusion-minimal dominating sets in Kneser graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+      "https://uwspace.uwaterloo.ca/items/162bbbfc-6952-4188-8d4a-e403b81807c4/full",
+      "https://www.dlib.si/details/URN:NBN:SI:doc-G3YP01PE",
+      "https://arxiv.org/html/2308.15603v2",
+      "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/domination.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ivančo–Zelinka classify minimum size-three dominating sets as triangle edge-families or three-edge matchings, and establish gamma=3.",
+        "Gorodezky thesis Chapter 4 Sections 4.1–4.2 investigates the minimum domination-number regime and does not state inclusion-minimal counts.",
+        "Current result additionally classifies full stars, five-cycles, balanced double stars, deriving closed counts and upper domination."
+      ],
+      "reasoning": "The minimum-set theorem implies exactly the z^3 coefficient but neither the complete z^5 layer nor the z^(n-1) layer; for n>=7 these exhibit strictly larger inclusion-minimal solutions. A general dominance membership test logically makes all finite-instance membership decidable but does not, without a nontrivial structural proof, supply a closed all-order enumeration.",
+      "searches": [
+        "Domination in Kneser graphs Ivančo Zelinka 1993 pdf",
+        "Dominating sets in Kneser graphs Gorodezky 2007 thesis pdf",
+        "All inclusion-minimal dominating sets of Petersen graph 27 and Kneser KG(n,2) universal classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "KG(n,2) is the complement of the line graph L(K_n), and selected KG vertices correspond to edges of K_n. An unselected KG vertex is undominated iff its K_n endpoints cover the selected edge family.",
+        "Ivančo–Zelinka (1993), pp. 147–152, establishes minimum domination but does not state a five-type classification of all inclusion-minimal dominating sets."
+      ],
+      "reasoning": "The two-point-cover dual formulation is mathematically equivalent to the domination predicate, but minimum cardinality is a strictly narrower question than inclusion-minimality. No matching complete classification appeared in inspected sources. Recognize that broader incidence-degree membership criteria might logically yield this classification via a further proof.",
+      "searches": [
+        "Kneser graph KG(n,2) five classes of inclusion-minimal dominating sets, stars, cycles, matchings and double stars",
+        "minimal dominating sets Kneser graphs 2",
+        "Domination in Kneser graphs Ivančo Zelinka 1993 pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "SageMath graph/domination reference enumerates the 27 inclusion-minimal dominating sets of the Petersen graph, equivalent to KG(5,2): this checks but covers the first instance.",
+        "Östergård–Shao–Xu (2015), catalog abstract, describes numerical bounds and tables for domination numbers rather than all inclusion-minimal sets. Full article was not materially inspected."
+      ],
+      "reasoning": "The known Petersen count is explicitly credited, not claimed new. Numerical domination-number tables do not determine the enumeration of minimal dominating sets of larger graphs. The inaccessible complete 2015 paper remains a residual risk.",
+      "searches": [
+        "number of minimal dominating sets Petersen graph 27",
+        "domination polynomial Kneser graphs general",
+        "Bounds on the domination number of Kneser graphs 2015 tables"
+      ]
+    },
+    "rationale": "Earlier minimum domination and minimum extremizer papers imply the size-three layer; Sage already has Petersen case 27. Cornet–Torres supplies a broader general domination membership criterion, a real logical-implication risk, but neither the inspected work nor the searched literature supplies the nontrivial five-type inclusion-minimal classification, all-cardinality enumerator, and upper domination for all n>=5. No proof of historical uniqueness is claimed.",
+    "residual_risks": [
+      "The 2023/2024 all-domination membership criterion is logically broader and may be used elsewhere to derive this minimal classification; inspected material does not state it.",
+      "2015 Bounds article full text unavailable: conclusions drawn only from abstract, not a claim about its entire contents.",
+      "Unindexed equivalent classifications under complement-line-graph, irredundance or hypergraph transversal terminology are possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes minimum cardinality and minimum configurations, not all inclusion-minimal configurations",
+        "evidence": "Theorem and discussion identify gamma(KG(n,2))=3 for n>=5 and triangle/matching minima; do not present full five-type enumerator.",
+        "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/126050/MathBohem_118-1993-2_3.pdf",
+        "material_read": "Relevant first result pages including statement/proof of the size-three minimum theorem",
+        "method": "Examined publicly available PDF page images and extracted text",
+        "title": "Domination in Kneser graphs",
+        "trigger": "Direct rank-two ordinary domination and minimum set structure"
+      },
+      {
+        "assessment": "Minimum-domination analysis; no inspected equivalent all inclusion-minimal classification",
+        "evidence": "Chapter 4 discusses domination number and known extremizers; repository explicitly timestamps public availability 2007-08-29.",
+        "identifier_or_url": "https://uwspace.uwaterloo.ca/items/162bbbfc-6952-4188-8d4a-e403b81807c4/full",
+        "material_read": "Public repository metadata, thesis contents and domination-specific Chapter 4 section pages 25–27",
+        "method": "Inspected full thesis PDF pages and repository date fields",
+        "title": "Dominating sets in Kneser graphs",
+        "trigger": "Historical primary treatment of the same graph invariant"
+      },
+      {
+        "assessment": "Abstract describes domination-number bounds/tables, not minimal-family enumerators; incompletely inspected plausible source remains risk",
+        "evidence": "Ars Math. Contemp. 9 (2015) abstract: bounds and updated gamma(n,k) table n<=21, k<=5.",
+        "identifier_or_url": "https://www.dlib.si/details/URN:NBN:SI:doc-G3YP01PE",
+        "material_read": "Catalog metadata and complete accessible abstract only; full paper not inspected",
+        "method": "Read public catalog abstract and source citation",
+        "title": "Bounds on the domination number of Kneser graphs",
+        "trigger": "Potential broader numerical/classificatory coverage"
+      },
+      {
+        "assessment": "Strongest prior conceptual coverage: characterizes membership of all k-tuple dominating sets; does not explicitly classify inclusion-minimal ordinary sets or give enumeration",
+        "evidence": "Section 4 gives incidence-frequency characterization, applying at k=1; full-text search for inclusion-minimal classification found no matching result.",
+        "identifier_or_url": "https://arxiv.org/html/2308.15603v2",
+        "material_read": "Abstract, introduction, entire pertinent Section 4 with membership characterization and application, and term searches in accessible full text",
+        "method": "Read public arXiv HTML manuscript 2308.15603v2",
+        "title": "k-tuple domination on Kneser graphs",
+        "trigger": "Precise all-set membership criterion and potential subsumption of new result"
+      },
+      {
+        "assessment": "Known n=5 count 27, already included as previously covered case",
+        "evidence": "Petersen = KG(5,2), documentation states 27 minimal dominating sets.",
+        "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/domination.html",
+        "material_read": "Documentation example giving count of minimal dominating sets of the Petersen graph",
+        "method": "Read public documentation",
+        "title": "SageMath graph domination documentation",
+        "trigger": "Potential exact finite database of minimal dominating configurations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d12bf12-6372-4a7f-8daa-5c9c3feb9f1e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an infinite classical graph family, the result determines every inclusion-minimal dominating set and its labeled count, distinguishes maximal families of size n-1 from minimum size three, and yields sharp upper domination. These invariants control all inclusionwise irredundant domination choices rather than merely lowest-cost dominating sets. The proof is a structural cover-versus-matching classification, not a substitution or small finite computation.",
+    "status": "PASS"
+  }
+}
