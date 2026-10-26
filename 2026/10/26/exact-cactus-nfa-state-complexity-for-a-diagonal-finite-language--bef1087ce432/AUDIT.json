@@ -1,0 +1,118 @@
+{
+  "claim": "For every integer \\(k\\ge1\\), let \\(\\Sigma_k=\\{a_1,\\ldots,a_k\\}\\) and \\(L_k=\\{a_i a_i:1\\le i\\le k\\}\\). The minimum number of states of an epsilon-free NFA recognizing \\(L_k\\) whose underlying simple transition graph is a bipartite cactus is exactly \\(k+1+\\lceil k/2\\rceil\\), whereas the unrestricted epsilon-free NFA minimum is \\(k+2\\).",
+  "correctness": {
+    "rationale": "For each symbol, any accepting path has a distinct nonfinal middle state. In a cactus graph, a final state cannot serve three middle states because the resulting \\(K_{2,3}\\) subgraph makes edges belong to multiple four-cycles. Thus at least \\(\\lceil k/2\\rceil\\) finals are necessary; the explicit pair-block construction attains the bound and is bipartite. The unrestricted minimum \\(k+2\\) is separately witnessed and lower-bounded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The recent paper's abstract guarantees existence of a bipartite cactus representation but does not provide this minimum state count.",
+        "The undirected-state-graph paper uses symmetric transitions, a different model from the directed epsilon-free NFA considered here."
+      ],
+      "reasoning": "Neither the general existence theorem nor the symmetric-transition characterization dominates the exact graph-restricted state count proved here. General unrestricted union constructions yield \\(k+2\\) states but do not satisfy the cactus restriction when \\(k\\ge3\\).",
+      "searches": [
+        "\"Every Regular Language Has a Bipartite Cactus Automaton\" full text PDF EPTCS",
+        "\"Finite automata with undirected state graphs\" unary NFA cactus",
+        "unary NFA state complexity union two languages cactus transition graph"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.11717 (metadata and abstract; full text not obtained)",
+      "https://doi.org/10.4204/EPTCS.454.9 (open-access publication route attempted; full text not obtained)",
+      "https://doi.org/10.1007/s00236-021-00402-0 (full text inspected)",
+      "https://doi.org/10.1007/3-540-45005-X_14 (metadata/abstract only; full text not obtained)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The unrestricted minimum \\(k+2\\) follows from k distinct middle states plus a start and one shared final state.",
+        "For the restricted lower bound, a final state used by three middle states creates a \\(K_{2,3}\\) subgraph whose edges lie in multiple four-cycles, violating the cactus condition.",
+        "The explicit pair-block construction attains \\(k+1+\\lceil k/2\\rceil\\) states with a bipartite cactus graph."
+      ],
+      "reasoning": "The exact restricted minimum is not implied by the unrestricted union construction or by an existence-only bipartite-cactus theorem; the additional cactus lower bound and matching construction establish the stated formula.",
+      "searches": [
+        "cactus NFA state complexity finite language {aa, bb, cc} bipartite cactus automaton minimum states",
+        "minimal cactus NFA for language {aa,bb,cc} transition graph K2,3 bipartite cactus exact state blowup",
+        "\"Every Regular Language Has a Bipartite Cactus Automaton\" full text PDF EPTCS",
+        "NFA state complexity union of k languages cactus graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The recent bipartite-cactus paper gives an existence theorem for all regular languages, not an exact formula for \\(L_k\\).",
+        "The exact-family web searches did not surface a matching state-minimum formula; absence of a result is not proof of novelty."
+      ],
+      "reasoning": "The present invariant is the exact minimum \\(k+1+\\lceil k/2\\rceil\\) for the specific family \\(L_k\\) under the cactus restriction. No equivalent formulation with this same object and parameter was found in the inspected sources.",
+      "searches": [
+        "cactus NFA state complexity finite language {aa, bb, cc} bipartite cactus automaton minimum states",
+        "minimal cactus NFA for language {aa,bb,cc} transition graph K2,3 bipartite cactus exact state blowup",
+        "state complexity epsilon-free NFA with cactus graph finite language each letter repeated twice",
+        "arXiv:2610.11717",
+        "doi:10.1007/s00236-021-00402-0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The proof is a symbolic argument for every integer \\(k\\ge1\\); no finite table or database is used as the source of the claimed formula."
+      ],
+      "reasoning": "Not applicable as a finite-database or census claim. The targeted search found no matching table, but that negative search is not treated as proof of originality.",
+      "searches": [
+        "cactus NFA state complexity finite language {aa, bb, cc} bipartite cactus automaton minimum states",
+        "finite automata cactus graph state complexity language K2,3 {aa,bb,cc} NFA",
+        "state complexity epsilon-free NFA with cactus graph finite language each letter repeated twice"
+      ]
+    },
+    "rationale": "The recent source establishes existence of bipartite-cactus NFAs, not this exact state-minimum formula. The inspected graph-restricted automata paper studies symmetric transitions and a different language class. Exact-formula searches did not surface a direct match. Residual risk from incompletely inspected general NFA operation literature is retained.",
+    "residual_risks": [
+      "The primary recent paper's full text could not be obtained through arXiv or its open-access EPTCS route; the accessible abstract does not state the exact minimum, but unseen details were not checked.",
+      "The full text of Holzer and Kutrib's general unary NFA operation paper was not obtained. A related general union-state-complexity result may exist, though no evidence of the exact cactus-restricted formula was found.",
+      "The literature search was targeted rather than exhaustive; no claim of universal novelty certification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The accessible abstract establishes existence of a bipartite cactus NFA for every regular language, but supplies no exact minimum for \\(L_k\\). Full-text coverage remains a documented residual risk.",
+        "evidence": [
+          "The abstract states that every regular language has an epsilon-free NFA whose transition graph is a bipartite cactus; it does not state a state-minimum formula for this family."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.11717; https://doi.org/10.4204/EPTCS.454.9",
+        "material_read": "ArXiv metadata and abstract. Attempts to obtain the arXiv HTML/PDF and the EPTCS open-access PDF were unsuccessful; the available institutional full-text route was unavailable.",
+        "method": "Compared the accessible stated theorem and scope against the exact state-minimum claim; did not infer unseen proof details.",
+        "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+        "trigger": "Recent literature on epsilon-free NFAs with bipartite cactus transition graphs."
+      },
+      {
+        "assessment": "Not covering: that paper requires symmetric transitions and its unary nondeterministic model has only parity-tail language forms; the present claim concerns a multi-symbol language and does not impose symmetric transitions.",
+        "evidence": [
+          "The paper defines undirected automata by symmetric transitions and Theorem 2 characterizes their unary languages as parity-tail forms."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00236-021-00402-0",
+        "material_read": "Full text: abstract, definitions in Section 2, and the unary nondeterministic characterization in Section 3.2 (Theorem 2 and proof).",
+        "method": "Compared the transition-model definition and the stated unary language characterization with the present directed NFA model.",
+        "title": "Finite automata with undirected state graphs",
+        "trigger": "Primary literature on graph-restricted finite automata."
+      },
+      {
+        "assessment": "Potentially related to unrestricted union constructions, but the available material does not settle the cactus-restricted exact minimum. This remains a residual risk.",
+        "evidence": [
+          "The abstract describes state complexity of unary language operations, including union, without an accessible statement about cactus transition graphs."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/3-540-45005-X_14",
+        "material_read": "Repository metadata and abstract only; the institutional PDF download attempt failed, so the full text was not read.",
+        "method": "Used only to identify the scope of the related general state-complexity literature; no theorem-level noncoverage conclusion is drawn from the abstract.",
+        "title": "Unary Language Operations and Their Nondeterministic State Complexity",
+        "trigger": "Potentially related general NFA state-complexity results for union."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bef1087c-e432-4cd9-b22f-f08553d03fe1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact parametric state-complexity invariant for a natural finite language family. It quantifies the precise overhead imposed by cactus topology: \\(\\lceil k/2\\rceil\\)-1 states beyond the unrestricted minimum, growing linearly for \\(k\\ge3\\). The matching construction is reusable and the lower bound identifies the structural obstruction.",
+    "status": "PASS"
+  }
+}
