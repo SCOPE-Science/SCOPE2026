@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The global two-input modulus equals the maximum of finitely many permutation operator norms, because sorting is continuous and piecewise permutation-linear on nonempty ordering chambers. The sharp universal ceiling is the square root of the ratio of extreme nonzero eigenvalues of the path Laplacian. Equality requires a permutation from the first positive eigenvector to the top eigenvector. Their coordinate multisets agree for even length, while the former has one zero coordinate and the latter none for odd length. For odd length, rank pairing brings the vectors within \(\pi/(2N)\) coordinatewise, and the exact top-eigenspace defect identity yields the explicit lower bound. The path-crossing argument independently verifies one-input contraction. The standalone checker passed 6,344 finite checks; it is not relied upon for the infinite family.
+
+## Originality
+**PASS (qualified).** The claim is a parity-sensitive **two-input** modulus in homogeneous path-gradient norm, not the classical one-input Pólya–Szegő inequality. Full relevant primary text inspected: Chernozhukov–Fernández-Val–Galichon, *Improving Point and Interval Estimates of Monotone Functions by Rearrangement*, arXiv:0806.4730 (monotone-target loss and confidence intervals); Steinerberger, *Discrete Rearrangements and the Pólya–Szegő Inequality on Graphs*, arXiv:2209.06765 (one-input graph gradient contraction); Gupta, *Discrete Functional Inequalities on Lattice Graphs*, arXiv:2403.10270 (one-input lattice rearrangements). These do not imply the present path spectral saturation/parity theorem. Closest distinct developments include ordinary Euclidean GroupSort norm preservation and finite-star graph-Sobolev two-point sorting. Sources with only abstracts available were treated as unresolved risks, not classified as fully excluded. Literature coverage is necessarily nonexhaustive, so an unindexed equivalent formulation remains possible.
+
+## Value
+**PASS.** Path sorting is a canonical monotone rearrangement. Its individual-energy monotonicity might suggest stable perturbations, yet the global two-input sensitivity grows linearly with path length. Exact parity classification gives a structural obstruction to spectral saturation, and the odd-length comparison proves that this obstruction does not change the leading amplification scale. This identifies a natural conditioning invariant with a complete equality classification and a quantitative odd-length boundary, rather than a cosmetic perturbation of an established formula.
+
+## Limits and closely related statements
+The exact odd-length optimum is not determined. An indexed literature search cannot establish uniqueness. The theorem applies to real unweighted finite paths, homogeneous quadratic first-difference energy, and increasing coordinate sorting; it does not cover general graphs, weights, or other Sobolev exponents. The independent status below is not a certification claim.
+
+Self-review: passed. Independent audit: not yet performed.
