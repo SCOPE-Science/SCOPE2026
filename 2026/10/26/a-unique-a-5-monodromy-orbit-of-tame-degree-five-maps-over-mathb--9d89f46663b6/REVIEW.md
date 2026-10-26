@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** All 1,536 degree-five rational maps were included with coprime numerator and denominator, and critical points were exhausted using two genuinely different algebraic representations. The first tests all irreducible polynomials of possible critical-point degree and their Hasse–Taylor coefficients; the second evaluates points in explicit extensions \(\mathbf F_{16}\) and \(\mathbf F_8\). Both recover exactly the same 60 tame pairs, and the full 36-element two-sided group action gives orbit sizes 6, 18 and 36. The monodromy conclusion uses tame inertia generation and the subgroup structure of \(A_5\). Risks: implementation errors shared at the level of chosen coefficient convention or field-theoretic premises; no independent audit.
+
+**Originality — PASS (qualified).** The source existence theorem does not give degree-five arithmetic counts. Bouw–Wewers establish geometric existence, not an exact \(\mathbf F_2\) orbit. Tang–Fan's cyclic case *already covers* the 24 cyclic maps structurally; those maps are explicitly excluded from the new theorem. Their exceptional-map setting cannot include this nonexceptional \(A_5\) family. Published three-point-cover results do not imply the four-point characteristic-two census. Targeted record searches and full-text comparisons showed no direct or stronger coverage. An unindexed small-field catalogue remains a risk.
+
+**Value — PASS.** A complete arithmetic classification of a natural monodromy stratum answers an exact existence-and-uniqueness question at the smallest finite field, with nontrivial Frobenius ramification orbit structure and a trivial two-sided stabilizer. This is distinct from the known power/Rédei cases and is not an arbitrary coefficient slice. The theorem does not claim a general finite-field count.
+
+Self-review: passed. Independent audit: not yet performed.
