@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For fixed even n, triangular multinomial CLT gives precisely the Gaussian iid-residual representation; neighboring residuals cancel the common sample mean. In the second limit, the centered absolute Gaussian increments and squared individual normals obey a jointly 1-dependent CLT, with variance sigma²=8/3+4(sqrt3-3)/pi and covariance sqrt(2)/sqrt(pi) by exact conditional Gaussian moment calculations. The alternating perturbation moves the folded-normal mean by a²/(2sqrt pi), while random perturbations vanish in L²; the Pearson random cross term is negligible at n^-1/4. The joint Gaussian mean and covariance follow, and Cauchy-Schwarz proves the claimed linear optimum. Finite seeded numerical checks support but do not replace the analytic proof. Boundary: even n, kappa finite nonnegative, N→infinity before n→infinity; no joint-growth or oracle-optimality claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beirlant and Györfi 1994 Theorems 1-2 cover histogram cellwise Lp statistics under fixed-density deviations with growing classes.",
+        "arXiv:2610.17046v1 sections 2-3 and 7 concern uniform-null second moments, not local alternative joint powers.",
+        "Hoel 1946 and Kamat 1953 are cited as classical Gaussian null mean-moving-range results in arXiv:2610.17046 section 1."
+      ],
+      "reasoning": "The closest stronger-looking paper from 1994 concerns the different cellwise statistic and perturbation class, so no implication to the order-sensitive comb statistic follows. Normal null moving-range formulas support sigma but do not determine the alternative Gaussian mean vector. General multinomial Gaussian approximation would require the specific non-smooth folded-mean expansion and two-statistic covariance calculation supplied here.",
+      "searches": [
+        "Joint central limit discrete total variation histogram and Pearson chi-square under contiguous comb alternatives local efficiency optimal test",
+        "Discrete total variation comb goodness of fit adjacent absolute differences bivariate central limit theorem Pearson chi-square local alternatives mean shift variance correlation",
+        "Mean moving range and chi square Gaussian joint covariance shift efficiency noncentral transition",
+        "web: Beirlant Gyorfi Pitman efficiencies Lp goodness of fit tests 1994 full paper",
+        "web: Banić Elezović discrete total variation multinomial part2 variance full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.01465v1 full arXiv HTML",
+      "arXiv:2610.13366v1 full arXiv HTML",
+      "arXiv:2610.17046v1 full arXiv HTML",
+      "Beirlant and Györfi 1994 full PDF pages 223-226",
+      "published-finding corpus semantic searches on six recorded claim/alias/parameter formulations",
+      "accessible prior own ledgers through generation 98 and second part initialization/findings for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.13366 section 1: \"the present paper proves nothing about power\".",
+        "arXiv:2610.17046 section 1: exact uniform-null variance and Gaussian Hoel/Kamat leading constant, no theorem for the locally shifted multinomial joint pair.",
+        "arXiv:2606.01465 section IV-B offers an O(sqrt N) fixed-alternative consistency sketch and simulation, not an n^(-1/4) Gaussian-shift theorem.",
+        "Beirlant–Györfi 1994 pp.223-226 use un-differenced histogram residuals, not adjacent counts."
+      ],
+      "reasoning": "The new mathematical claim needs both the folded-normal mean shift under a period-two perturbation and the cross statistic covariance to identify an optimal negative Pearson weight. Uniform-null mean and variance papers cannot by themselves imply the full alternative joint limit. The 1994 Lp analysis does not transfer by parameter substitution because differentiating the histogram changes the one-dependence and its long-run covariance. It remains possible an older, unlocated mean-moving-range asymptotic power theorem covers some ingredients.",
+      "searches": [
+        "Multinomial discrete total variation comb test alternating deviations asymptotic Gaussian power Pitman efficiency relative Pearson chi-square 8/(pi sigma squared) large bins",
+        "Joint central limit discrete total variation histogram and Pearson chi-square under contiguous comb alternatives local efficiency optimal test",
+        "Banić Elezović Comb Test 2606.01465 2610.13366 variance 2610.17046 local alternatives alternating power",
+        "Discrete total variation comb goodness of fit adjacent absolute differences bivariate central limit theorem Pearson chi-square local alternatives mean shift variance correlation",
+        "Period two multinomial oscillatory uniformity alternative gaussian local power standard deviation DTV Pearson order sensitive statistic 2.42",
+        "Mean moving range and chi square Gaussian joint covariance shift efficiency noncentral transition",
+        "arXiv:2606.01465",
+        "arXiv:2610.13366",
+        "arXiv:2610.17046",
+        "Beirlant Gyorfi 1994 Pitman efficiencies"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.13366 Part 1 section 1 explicitly distinguishes adjacent-difference total variation from classical cellwise L1 distance; no power theorem.",
+        "Beirlant and Györfi 1994, Kybernetika 30 pp.223-226: Lp cellwise residual tests, different from adjacent absolute differences.",
+        "Kamat 1953: mean moving range of normal observations; null calculation is known classical Gaussian theory."
+      ],
+      "reasoning": "Aliases included comb test, mean moving range, mean absolute successive difference, L1 histogram goodness of fit and order-sensitive tests. The 1994 Lp statistic sums |cell error|^p, not |adjacent count difference|. Older Gaussian null covariance ingredients, even if completely known, do not state the specified multinomial alternating-perturbation joint Gaussian shift and optimal negative-weight combination.",
+      "searches": [
+        "Multinomial discrete total variation comb test alternating deviations asymptotic Gaussian power Pitman efficiency relative Pearson chi-square 8/(pi sigma squared) large bins",
+        "Joint central limit discrete total variation histogram and Pearson chi-square under contiguous comb alternatives local efficiency optimal test",
+        "Discrete total variation comb goodness of fit adjacent absolute differences bivariate central limit theorem Pearson chi-square local alternatives mean shift variance correlation",
+        "web: mean absolute successive difference chi-square efficiency gaussian multinomial",
+        "web: Pitman asymptotic efficiency total variation adjacent histogram counts alternating multinomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2606.01465 Section IV and Table I provide simulated power at selected fixed parameter choices, not the closed Gaussian-shift ratio.",
+        "published-finding corpus nearest response to Q[0]: 2026/9/18/SCOPE-multinomial-mode-gaussian-critical-dimension--e6b134ac7b73, a modal probability asymptotic not a power calculation.",
+        "published-finding corpus nearest response to Q[1]: 2026/10/4/SCOPE-a-three-draw-counterexample-to-uniform-probability-extremality-f--72e2dab2ac87, unrelated order-statistic problem."
+      ],
+      "reasoning": "The numerical value 2.4200010864... comes from an analytic covariance and folded-normal expansion and is not a recomputation of a reported power table. The accessible research-record hit summaries and source full texts did not give an equal or stronger exact result; search absence is only risk evidence, not a uniqueness proof.",
+      "searches": [
+        "Multinomial discrete total variation comb test alternating deviations asymptotic Gaussian power Pitman efficiency relative Pearson chi-square 8/(pi sigma squared) large bins",
+        "Banić Elezović Comb Test 2606.01465 2610.13366 variance 2610.17046 local alternatives alternating power",
+        "Period two multinomial oscillatory uniformity alternative gaussian local power standard deviation DTV Pearson order sensitive statistic 2.42",
+        "web: Comb Test histogram uniformity table statistical power 2026",
+        "web: local power total variation adjacent difference Pearson table"
+      ]
+    },
+    "rationale": "Claim-level comparisons with the full 2026 motivating series, original empirical comb test, 1994 histogram Lp efficiency PDF, accessible previous findings and actual published-finding corpus semantic searches found null mean/variance and different cellwise Lp efficiency, but not the specific multinomial comb local-alternative bivariate Gaussian shift or negative Pearson-optimal weight. Residual null-covariance priority risk is not claimed away.",
+    "residual_risks": [
+      "Some classical Gaussian joint moment ingredients could have been written in Hoel 1946 or Kamat 1953; do not claim their null results as new.",
+      "An unlocated older normal moving-range test-power treatment might imply part of the limit; searched related terminology without finding decisive coverage.",
+      "Only an iterated limit is shown; translating numerical coefficients into a simultaneous high-dimensional multinomial sample-size efficiency requires independent uniform approximations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: no power or two-test joint limit; null expectation ingredient is prior art",
+        "evidence": [
+          "section 1 expressly states the paper proves nothing about power",
+          "section 1 discusses period-two comb and Pearson comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13366",
+        "material_read": "full arXiv HTML manuscript including introduction, main expectation conclusions and references",
+        "method": "read primary HTML full text and compare stated null expectation theorem to local-alternative joint theorem",
+        "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+        "trigger": "same noncyclic ordered multinomial DTV and comb-alternative motivation"
+      },
+      {
+        "assessment": "NOT_COVERING: classical Gaussian null variance known; new alternative Gaussian shift and cross-score optimality not given",
+        "evidence": [
+          "section 1 states purpose is null variance",
+          "section 3 connects Gaussian variance to Hoel/Kamat",
+          "section 1 refers to prior empirical comb power"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.17046",
+        "material_read": "full arXiv HTML manuscript, particularly variance decomposition, Gaussian normal-theory leading term, synthesis and bibliography",
+        "method": "read text, locate power and Pearson statements, check variance constant against own Gaussian calculation",
+        "title": "Discrete total variation under the multinomial, Part 2: variance under the uniform null",
+        "trigger": "same statistic and leading sigma squared"
+      },
+      {
+        "assessment": "NOT_COVERING: fixed-alternative consistency and empirical power, no analytic iterated local power or joint optimal score",
+        "evidence": [
+          "section IV-B sketches O(sqrt N) standardized growth for fixed departures",
+          "Table I reports finite simulated power"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.01465",
+        "material_read": "full arXiv HTML, definitions, null calibration, IV-B consistency and IV-C power simulation",
+        "method": "compare period-two alternative formula, theorem level and sample regimes",
+        "title": "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation",
+        "trigger": "the original test and alternation examples"
+      },
+      {
+        "assessment": "NOT_COVERING: sums powers of cellwise errors, not adjacent differences; different perturbation regime",
+        "evidence": [
+          "page 223 defines sum |empirical bin mass - null bin mass|^p",
+          "pages 224-226 establish efficiency for those Lp residual tests"
+        ],
+        "identifier_or_url": "https://dmlcz-proxy.ics.muni.cz/manakin/bitstream/handle/10338.dmlcz/125168/Kybernetika_30-1994-3_3.pdf",
+        "material_read": "PDF pages 223-226 including definitions and both principal theorems, with additional proof material checked",
+        "method": "inspect PDF page screenshots and parsed text; compare statistic and alternative family explicitly",
+        "title": "Pitman efficiencies of Lp-goodness-of-fit tests",
+        "trigger": "plausible old general theorem comparing L1 and chi-square goodness-of-fit tests"
+      },
+      {
+        "assessment": "POSSIBLE PARTIAL COVERAGE: no claim that null covariance is new; older full-text not inspected",
+        "evidence": [
+          "arXiv:2610.17046 section 1 cites Kamat as classical Gaussian mean successive difference source"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/40.1-2.116",
+        "material_read": "bibliographic information and discussion in the full Part 2 primary paper; independent full article inaccessible",
+        "method": "compare cited scope to the shifted-multinomial theorem; preserve limitation",
+        "title": "On the mean successive difference and its ratio to the root mean square",
+        "trigger": "classical normal theory might subsume cross covariance at null"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64fc289d-5380-4f06-9ffa-f9379a757aec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 ordered-bin comb test was experimentally favored over Pearson for alternating departures, but a quantitative limiting power comparison was absent. The exact squared shift gain 2.420001... explains a natural signal-detection regime, while the joint Gaussian law derives a distinct optimal combination with negative Pearson weight. These are interpretable statistical decision facts about a named test with applied motivations, not an arbitrary low-order numerical constant. The theorem also states meaningful limits on generality.",
+    "status": "PASS"
+  }
+}
