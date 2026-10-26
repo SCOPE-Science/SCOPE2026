@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For the paper’s order-one LIMM starter on y'=y, y0=f0=J0=1, the update gives y1=1/(1-h). The printed formulas yield delta2=1/[2(1-h)] and delta3=(2h-1)/[6h(1-h)], so h*delta3 tends to -1/6. Equation (7.4) instead fixes the exact normalized target at y'''(0)/3!=1/6. The included rational-arithmetic script verifies the identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Primary full text, Sections 6–7: the LIMM construction, error estimate (7.5), and startup recipe in Remark 7.2."
+      ],
+      "reasoning": "General divided-difference theory fixes the factorial normalization but does not imply that this specific startup recipe is consistent. The claim is narrower than a general statement about all LIMM methods and does not imply loss of fixed-step convergence.",
+      "searches": [
+        {
+          "query": "LIMM-W variable step size zero stability step ratio order reduction stiff limit"
+        },
+        {
+          "query": "linearly implicit multistep methods stiff order reduction nonautonomous Jacobian W-method stability exact counterexample"
+        }
+      ]
+    },
+    "checked_sources": [
+      "Glandon, Narayanamurthi, and Sandu, arXiv:2011.10685v1, Sections 2–7; especially equations (7.4), (7.5), and Remark 7.2.",
+      "Glandon, Narayanamurthi, and Sandu, SIAM Journal on Scientific Computing 44(6), DOI 10.1137/20M133748X; journal metadata lists MSC 65L04, 65L05, and 65L06."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (7.4) normalizes an order-three divided difference by 3!.",
+        "Remark 7.2 prints the formula (delta2 - J0 f0)/(3h).",
+        "For y'=y and the order-one LIMM starter, exact algebra gives delta2=1/[2(1-h)] and delta3=(2h-1)/[6h(1-h)]."
+      ],
+      "reasoning": "The printed formula yields h*delta3 -> -1/6, whereas the normalized exact target is +1/6. No prior result found in the searches implies this exact contradiction for the LIMM startup formula.",
+      "searches": [
+        {
+          "query": "LIMM first-step divided difference delta^3 error estimator startup formula"
+        },
+        {
+          "query": "linearly implicit multistep method first step local error estimator initialization divided difference Jf"
+        }
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary full text, equation (7.4) and Remark 7.2."
+      ],
+      "reasoning": "The searched aliases and parameterization do not produce the same scalar LIMM startup recurrence or the same 1/h divergence. A generic estimator pathology is not an implication-equivalent statement.",
+      "searches": [
+        {
+          "query": "LIMM first-step divided difference delta^3 error estimator startup formula"
+        },
+        {
+          "query": "linearly implicit multistep method first step local error estimator initialization divided difference Jf"
+        },
+        {
+          "query": "\"delta^3 y\" \"LIMM\" first step"
+        }
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching entry was returned in the targeted search results. The primary paper itself is the decisive source for the printed formula."
+      ],
+      "reasoning": "No separate database or numerical table can settle the symbolic normalization question; the exact comparison is between equations (7.4), (7.5), and Remark 7.2 in the primary full text.",
+      "searches": [
+        {
+          "query": "LIMM first-step divided difference delta^3 error estimator startup formula"
+        },
+        {
+          "query": "\"Linearly Implicit Multistep Methods for Time Integration\" LIMM LIMM-W stability"
+        }
+      ]
+    },
+    "rationale": "The exact claim is a contradiction between the primary paper’s normalized divided-difference definition and its printed startup formula. Targeted literature searches did not locate an implication-equivalent result. The nearest estimator-related result concerns a different method and mechanism; residual risk remains for unindexed literature or a software/erratum correction.",
+    "residual_risks": [
+      "The implementation code and any later erratum were not inspected; software may differ from the printed formula.",
+      "Unindexed literature may contain a similar observation.",
+      "The finding concerns the startup estimate and does not establish failure of the complete adaptive integrator or its fixed-step convergence theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The printed startup third divided difference diverges as -1/(6h), contrary to the paper’s own normalized divided-difference convention. This does not by itself refute the fixed-step convergence theorem.",
+        "evidence": [
+          "First public version date 2020-11-21; primary MSC 65L04 listed in the paper.",
+          "Exact identity: h*delta3=(2h-1)/(6(1-h)) -> -1/6."
+        ],
+        "identifier_or_url": "arXiv:2011.10685v1; DOI:10.1137/20M133748X",
+        "material_read": "Primary full text, Sections 2, 3, 4, 6, and 7; equations (2.4), (4.2), (7.4), (7.5), and Remark 7.2.",
+        "method": "Reconstructed the order-one LIMM coefficients from the paper’s order conditions and sigma(0)=0 choice, substituted the scalar test equation y'=y, and evaluated the printed startup formulas exactly.",
+        "title": "Linearly Implicit Multistep Methods for Time Integration",
+        "trigger": "The paper defines an adaptive error estimator using divided differences and supplies a special first-step initialization in Remark 7.2."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d1aeb78-0aec-42c0-af60-083cde960338",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The startup estimate enters the adaptive step-size and order-selection procedure. Its h^2 scale instead of h^3 is an asymptotic-power error, not a constant-factor discrepancy; the result is useful even though its scope is limited to startup and does not refute the fixed-step convergence theorem.",
+    "status": "PASS"
+  }
+}
