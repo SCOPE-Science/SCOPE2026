@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md: matching-colouring equivalence, equations (1)-(3), complete period-five proof",
+      "verify_polynomial.py and verify_polynomial.out",
+      "verify_edge_cover.py and verify_edge_cover.out",
+      "verify_coloring.py and verify_coloring.out"
+    ],
+    "rationale": "Cubic DIMs are exactly independent-white/1-regular-black colourings; both linear vertex equations are necessary and sufficient. Summation forces 5|n. The matrix determinant equals Phi_5(z)R(z), where R is irreducible modulo 2 and cannot be one of the degree-four cyclotomics; hence every cyclic solution has period five. The outer word has exactly two nonadjacent zeros, giving five rotations, and the associated inner word satisfies the inner equations. Three executed standalone checkers corroborate independently: direct edge exact cover n=7..50, independent cyclic binary-word enumeration n=7..32, and integer-polynomial/length-five exhaustive checks. All claims are for n>=7, with no extrapolation from the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahmoodi et al. 2024, Observation 7: construction for GP(n,2) when 5|n; it does not assert a result for every inner step or for GP(n,3).",
+        "Cardoso et al. 2008: broad spectral/regular-graph statements at the abstract and front matter level; no complete third-step count established by the examined material."
+      ],
+      "reasoning": "Neither family-specific step-two result nor general complexity/bounds implies the exact count five for step three. In particular the families are not uniformly isomorphic: GP(10,3) is bipartite, GP(10,2) has a five-cycle.",
+      "searches": [
+        "Exact number of dominating induced matchings in generalized Petersen P(n,k), \\(P(n,3)\\) and \\(P(n,2)\\), periodic black-white partitions.",
+        "\"generalized Petersen\" \"efficient edge domination\" \"three\"",
+        "\"generalized Petersen\" \"dominating induced matching\" counting",
+        "doi:10.1080/09728600.2024.2342310 Observation 7"
+      ]
+    },
+    "checked_sources": [
+      "Cardoso et al. 2008 DOI 10.1016/j.dam.2008.01.021 (front matter/abstract only)",
+      "Korpelainen et al. 2014 DOI 10.1016/j.jda.2013.11.002 (HTML substantive sections)",
+      "Mahmoodi et al. 2024 DOI 10.1080/09728600.2024.2342310 (HTML substantive sections incl Observation 7)",
+      "Lin et al. arXiv:1301.7602 (abstract)",
+      "published-finding corpus semantic searches for GP(n,3), efficient edge domination, spectral five-periodicity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mahmoodi et al. 2024 establishes existence and size on GP(n,2) for n divisible by five.",
+        "The inner step changes adjacency; GP(10,3) is bipartite, whereas GP(10,2) has an inner five-cycle."
+      ],
+      "reasoning": "The new result is not a corollary of a step-two claim via an equality of labelled edge families or known duality across all relevant n. It classifies a different family, proves an all-n exclusion, and establishes exact number and cyclic patterns.",
+      "searches": [
+        "doi:10.1080/09728600.2024.2342310 Observation 7",
+        "Exact number of dominating induced matchings in generalized Petersen P(n,k), \\(P(n,3)\\) and \\(P(n,2)\\), periodic black-white partitions.",
+        "\"Petersen graphs\" \"dominating induced matchings\" \"P(n,3)\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dominating induced matching equals efficient edge domination / exact edge-neighbourhood cover; black vertices induce a matching and white vertices an independent set (Korpelainen–Lozin–Purcell 2014, Secs. 1–2).",
+        "Mahmoodi–Behmaram–Došlić–Asadi 2024 Definition and Observation 7 cover the same terminology on the different step-two graph."
+      ],
+      "reasoning": "Searches under efficient edge domination, dominating induced matching, black-white partitions, GP(n,3), and P(n,3) found no indexed equivalence. The completed proof applies the standard equivalent formulations, so a covered result would need to fix the third step and imply the five-pattern complete count.",
+      "searches": [
+        "Classifying and counting all dominating induced matchings efficient edge dominating sets in generalized Petersen graphs GP(n,3), exactly five for n divisible by five and zero otherwise, binary black-white coloring periodicity.",
+        "Exact number of dominating induced matchings in generalized Petersen P(n,k), \\(P(n,3)\\) and \\(P(n,2)\\), periodic black-white partitions.",
+        "Spectral characterization of efficient edge domination in cubic generalized Petersen graphs GP(n,3) five periodic patterns.",
+        "\"dominating induced matching\" \"P(n,3)\" \"generalized Petersen\"",
+        "\"dominating induced matching\" \"generalized Petersen\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Focused published-finding corpus queries returned no matching GP(n,3) exact DIM classification among their ranked hits.",
+        "The located GP(n,2) classification is an exact result for a different family; no matching GP(n,3) database table or index entry was found."
+      ],
+      "reasoning": "No exact all-order tabulation, formula, or stronger finite database entry was identified. Search absence is not a proof of novelty and this check alone does not certify global priority.",
+      "searches": [
+        "Classifying and counting all dominating induced matchings efficient edge dominating sets in generalized Petersen graphs GP(n,3), exactly five for n divisible by five and zero otherwise, binary black-white coloring periodicity.",
+        "Exact number of dominating induced matchings in generalized Petersen P(n,k), \\(P(n,3)\\) and \\(P(n,2)\\), periodic black-white partitions.",
+        "Spectral characterization of efficient edge domination in cubic generalized Petersen graphs GP(n,3) five periodic patterns.",
+        "\"GP(n,3)\" \"efficient edge domination\""
+      ]
+    },
+    "rationale": "The closest family-specific source, Mahmoodi et al. (2024) Observation 7, constructs DIMs on GP(n,2) for 5|n, not an exact GP(n,3) census. General 2008 and 2014 work treats regular graph bounds and complexity, without an identified exact all-n third-step classification in the material examined. Targeted published-finding corpus queries and relevant earlier mathematical results revealed no covering equivalence, parameter shift, or stronger theorem. Uniform graph relabelling from the GP(n,2) claim is precluded at n=10 by bipartiteness of GP(10,3) and an odd inner cycle in GP(10,2). Unindexed literature and uninspected older full texts remain residual risks.",
+    "residual_risks": [
+      "Priority is not independently certified; equivalent work may be unindexed or use substantially different terminology.",
+      "2008 general regular-graph paper full text was not obtained after a repository timeout, so its complete coverage cannot be ruled out.",
+      "Other generalized Petersen classifications and computational databases may be incompletely indexed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Constructs GP(n,2) DIM when 5|n, cardinality 3n/5; does not state the GP(n,3) five-pattern classification in examined text",
+        "evidence": [
+          "Observation 7 and proof explicitly use P(n,2) and step-two inner edges",
+          "Section 2 defines general P(n,k) but Section 3 specialization is k=2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2024.2342310",
+        "material_read": "Full HTML article introduction, definitions/preliminary results, Section 3 including Observation 7 and its proof, and adjacent scope",
+        "method": "Rendered open-access HTML primary article",
+        "title": "Dominating induced matchings and other graph parameters",
+        "trigger": "Closest family-specific generalized Petersen DIM proposition"
+      },
+      {
+        "assessment": "General regular-graph theory and spectral necessary condition are described, not an identified explicit GP(n,3) count. No full-text noncoverage inference is made.",
+        "evidence": [
+          "Original front matter records available online 7 March 2008",
+          "Abstract concerns induced matchings, regular-graph spectra and computational complexity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2008.01.021",
+        "material_read": "Article front matter/abstract indexed by repository and bibliographic record; full paper inaccessible after bounded retrieval attempts",
+        "method": "Public repository PDF first-page indexed text and bibliographic metadata",
+        "title": "Efficient edge domination in regular graphs",
+        "trigger": "Earliest exact-dated relevant regular-graph primary background and spectral necessity"
+      },
+      {
+        "assessment": "Establishes general characterization/algorithmic results, not an explicit exact infinite third-step Petersen classification in material inspected",
+        "evidence": [
+          "Sections 1–2 formulate induced matching/independent vertex partitions",
+          "Main findings target forbidden-induced-subgraph complexity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jda.2013.11.002",
+        "material_read": "HTML introduction and preliminary black/white characterization; statements on forbidden-subgraph algorithms",
+        "method": "Publisher HTML primary text",
+        "title": "Dominating induced matchings in graphs without a skew star",
+        "trigger": "General black-white equivalence and potentially broader DIM classification"
+      },
+      {
+        "assessment": "General weighted DIM algorithms; full text not inspected and no global noncoverage claim made",
+        "evidence": [
+          "2013-01-31 arXiv entry gives general algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.7602",
+        "material_read": "Abstract and public arXiv metadata only",
+        "method": "arXiv bibliographic entry",
+        "title": "Exact algorithms for dominating induced matchings",
+        "trigger": "Early public DIM algorithms and existence background"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b7add15-7468-4741-bd50-a6ac795ee79b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact-edge-covering invariant is completely classified for an infinite family of cubic generalized Petersen graphs. The step-three classification supplies a sharp arithmetic existence cutoff, the full labelled solution count, and unique cyclic pattern types. The spectral five-period rigidity is a substantive structural explanation rather than a new notation for 3n/5 cardinality. Known step-two existence does not determine this distinct family.",
+    "risk": "Family-specific result only; no claim of a uniform all-step generalized Petersen theorem or broader algorithmic complexity improvement.",
+    "status": "PASS"
+  }
+}
