@@ -1,0 +1,27 @@
+# Self-review: three-state birth–death Lipschitz amplification
+
+## Correctness — PASS
+
+For the three-state path, two differences are a complete coordinate system for functions modulo constants, and the graph-distance Lipschitz norm becomes the maximum gradient coordinate. Direct calculation gives the irreducible Metzler gradient matrix \(B\), whose exponential is nonnegative, so the exact norm is the larger of its row sums. The squared traceless block is \(\delta^2I\), proving the displayed two-exponential formula and simultaneous extremizer without an unproved positivity assumption. Differentiation yields the precise contractivity criterion and unique positive-time peak when initial amplification is present.
+
+For the new invariant-mass optimization, the decisive nonstandard step is strictly monotone dependence of a gradient row on the *other* edge conductance while the stationary law is fixed. The Duhamel identity and explicit comparison \(E_{21}/E_{22}<\beta\pi_1\), with the positive square-difference identity proved in the result, give this strict sign. The triangular boundary limit produces two exact stationary-mass upper bounds. A two-timescale degeneration of positive conductances proves sharpness and nonattainment. The checker independently corroborates the formula through Markov transition rows and Wasserstein-one transport on the path. Finite comparisons do not substitute for the proof. Risk: these computations apply only to the specified three-state generator and unit graph metric.
+
+## Originality — PASS, subject to historical-indexing uncertainty
+
+The main claimed mathematical advance is the *fixed invariant law* all-conductance, all-time exact sharp Lipschitz envelope and strict conductance monotonicity, not the already-known implication from nonnegative graph curvature to semigroup contraction. Ollivier (arXiv:math/0701886) establishes Wasserstein/coarse-curvature framework. Veysseire (arXiv:1202.0420), especially Theorem 9, derives semigroup Wasserstein estimates from curvature. Münch–Wojciechowski (arXiv:1712.00875), particularly the birth–death and heat-semi-group analyses, gives general graph-curvature formulas and an equivalence between curvature lower bounds and heat Lipschitz decay; it covers the local threshold but does not state an optimum over *all conductance pairs preserving a given invariant law*. These published statements do not imply the strict stationary-mass envelope without additional generator-dependent optimization. Primary preprints were examined, rather than inferring document contents from titles alone.
+
+Searches of published research records included aliases involving three-state birth–death, graph heat semigroups, Wasserstein contraction, invariant distributions, and sharp transient Lipschitz amplification. No returned public record asserted the same fixed-stationary-mass envelope. The closest subject records concerned weighted cycle numerical constants, quantum graph heat envelopes, and unrelated Lipschitz-free metrics; no implication from them to this birth–death optimization was identified. Compared statements for a general unweighted graph-diameter envelope, a pendant clique, and a singly-weighted four-cycle do not cover arbitrary reversible three-state birth–death transition rates with a prescribed invariant distribution. Search non-detection does not demonstrate uniqueness: an uncatalogued exact Dobrushin/Wasserstein calculation or a birth–death coupling source may contain an equivalent formulation. Independent historical verification remains valuable.
+
+## Mathematical value — PASS
+
+Even this minimal reversible birth–death system can exhibit transient loss of graph-distance Lipschitz contractivity despite convergence to equilibrium. Fixing equilibrium masses is natural when comparing Markov dynamics with the same target measure, but varies both the local curvature and the relaxation scale. The exact stationary-mass envelope answers a nontrivial sharp conditioning question: it depends solely on two adjacent equilibrium-mass ratios, is approached through a physically interpretable fast/slow edge separation, and is never attained by any irreducible chain. The strict conductance derivative law explains why a weak bottleneck drives the extremum; it is stronger than a single isolated numerical norm. The quantity is relevant to robustness of Markov smoothing measured in the Wasserstein/Lipschitz dual norm. No claim is made about longer paths or other metrics, and the general dimension-two cap by the diameter alone is not counted as a new contribution.
+
+## Closest literature and limitations
+
+- Ollivier, *Ricci curvature of Markov chains on metric spaces*, arXiv:math/0701886 (2007): mathematical framework; not fixed-invariant-conductance optimization.
+- Veysseire, *Coarse Ricci curvature for continuous-time Markov processes*, arXiv:1202.0420 (2012), Theorem 9: general semigroup contraction estimates from local curvature.
+- Münch–Wojciechowski, *Ollivier Ricci curvature for general graph Laplacians*, arXiv:1712.00875 (2017), Theorem 2.10 and discussion of weighted birth–death chains: covers local curvature/contractivity statement; does not state the new fixed-invariant-mass optimum.
+
+The exact main theorem is restricted to three states, positive conductances, and the unit-edge path metric. No external scientific audit, infinite computer verification, or exhaustive bibliographic uniqueness claim has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
