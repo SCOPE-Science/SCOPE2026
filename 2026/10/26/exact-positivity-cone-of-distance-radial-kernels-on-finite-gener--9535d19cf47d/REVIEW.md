@@ -1,0 +1,11 @@
+# Review of exact radial positivity on generalized quadrangles
+
+**Correctness — PASS.** The incidence matrix gives singular values \(\sqrt{(s+1)(t+1)}\) and \(\sqrt{s+t}\), plus nullspaces. Splitting constant, paired, and unpaired sectors proves exactly two scalar and two two-dimensional PSD tests. The multiplicities add to the entire graph and the distance-exponential determinant factors establish the sharp threshold and ranks. The reproducibility checker verifies the symbolic identities and one independently constructed incidence graph. The general proof, not a scan of parameters, carries the arbitrary-order quantifier.
+
+**Originality — PASS under bounded literature review.** Relevant generalized-geometry thesis material (Huang, 2014), the full-text distance-regular generalized-distance theorem (DeVille, 2017), and a distance-regular survey were inspected. The latter general theorem covers the equal-order distance-regular specialization, not the biregular unequal-order case. The compared nearby mathematical records concern generalized-quadrangle Rips topology and finite Grassmannian sampling, not this five-value positivity cone. Previously published projective-plane and generalized-hexagon incidence results do not imply the full claim. Potential overlooked formulas in coherent-configuration theory are the principal residual risk; a failed search is not proof of uniqueness.
+
+**Value — PASS.** Classifying all real radial covariance profiles for each finite thick generalized quadrangle is a natural harmonic-positivity problem. The block theorem simultaneously determines the complete cone, spectrum and rank without geometry-specific transitivity, and the sharp exponential cutoff answers a continuous family of kernel admissibility questions. The biregular unequal-order scope makes the result more than a restatement of standard distance-regular graph formulas.
+
+**Limitations.** Existence of a generalized quadrangle is a hypothesis, not a consequence. The result does not characterize nonradial positive definite kernels and does not exhaust the literature on bipartite coherent configurations. Independent mathematical validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
