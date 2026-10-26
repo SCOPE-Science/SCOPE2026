@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The structural reduction follows from the hyperelliptic quotient, conjugacy of projective order-three translations, the six-point branch divisor, and the characteristic-three invariant ring. For the decisive global uniqueness assertion, the complete finite set of \(2186\) nonzero binary sextics is partitioned using every element of \(\operatorname{PGL}_2(\mathbf F_3)\). A squarefreeness test accounts for the point at infinity. Arithmetic in \(\mathbf F_3\) and \(\mathbf F_9\) yields \(69\) orbits, \(50\) distinct Weil types, and singleton fibers for all eight named Weil polynomials. The standalone checker is provided and was executed to completion. Scope: no inference from a nonexhaustive finite experiment.
+
+**Originality — PASS, qualified.** An earlier complete \(69\)-class sextic-orbit enumeration, including stabilizer sizes and rational branch/point stratifications, already covers the raw eight-class automorphism subset by a group-theoretic filter. No novelty is asserted for that count, model existence, or the aggregate \(69\)-class census. The differentiated theorem asserts that the eight *Weil polynomials* and their singleton fibers within **all** genus-two arithmetic classes exactly detect this symmetry. Zobernig describes \(3\)-rank strata; Howe–Nart–Ritzenthaler determine which Weil polynomials arise but do not state singleton fibers in the inspected portions. Unindexed or external zeta-refined tables remain a publication-priority risk.
+
+**Value — PASS.** The Weil polynomial normally records a Jacobian isogeny class, not the isomorphism class of its genus-two curve. Here it detects a wild rational automorphism and isolates the curve in each of eight isogeny types. That is a natural arithmetic-Torelli boundary for a characteristic-three symmetry locus. Across all \(69\) genus-two arithmetic classes, only \(50\) distinct Weil types occur, so Weil rigidity is not automatic. The result is a complete natural finite-field classification, not an arbitrary coefficient slice.
+
+Independent validation, particularly of any unindexed genus-two isogeny-class tables, remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
