@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The transition operator is diagonalized by order-three characters; exact TV is two thirds of the eigenvalue modulus to power h times the three-phase cosine maximum. In phase x, the full parameter interval is \\([-\\pi/3,\\pi/3]\\). The outer-region sharp bound and inner-region strict derivative show two and only two minimizers for every \\(h\\ge2\\). The h=1 flat interval, p boundaries, spectral optimum and asymptotics are explicitly proved. Standalone verification passed 60978 numerical cases; finite tests are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao (2004), DOI 10.1137/S0036144503423264, PDF pp. 667 and 669: symmetric transition kernels and SLEM objective.",
+        "Gerencsér, Hendrickx and Van Dooren, Spectral gap of Markov chains on a cycle, five-page paper: asymptotic spectral-gap optimizer and reversible/nonreversible perturbations.",
+        "Gerencsér, arXiv:1905.03223, sections 1–3 and final discussion: extra-edge cycle and large-cycle mixing-time bounds."
+      ],
+      "reasoning": "The target optimizes an exact h-step TV distance over a directed homogeneous three-cycle, not eigenvalue modulus or n-asymptotic mixing time. Symmetric SLEM results do not imply TV argmins, and extra-edge studies do not specialize directly to the two-action triangle kernel.",
+      "searches": [
+        "\"fastest mixing\" \"directed cycle\" \"three\" \"total variation\"",
+        "Sharp discrepancy between spectral radius optimal laziness and finite horizon total variation optimal Bernoulli walk on the directed 3-cycle",
+        "three state Markov chain cycle tuning hold probability minimization finite-step total variation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1905.03223",
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "https://real.mtak.hu/173919/1/cycle_spectral_gap.pdf",
+      "https://arxiv.org/abs/2111.05816",
+      "https://www.cambridge.org/core/journals/journal-of-applied-probability/article/abs/analysis-of-a-nonreversible-markov-chain-speedup-by-a-single-edge/B70F02AFD69E88F65E046E3F25FE27C9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao optimize SLEM for symmetric kernels: spectral optimum is a benchmark, not the TV optimality statement.",
+        "Gerencsér–Hendrickx–Van Dooren analyze general cycle spectral-gap optimization; spectral optimization does not imply finite-horizon TV optimization.",
+        "Gerencsér 2019 adds a random chord and studies scaling of mixing time with graph order.",
+        "Olesker-Taylor–Zanetti 2021 analyzes geometric fastest-mixing bounds, not the phase-detuned three-state family."
+      ],
+      "reasoning": "The prior theories provide context and formulas for spectral criteria, while this theorem locates h-dependent nonspectral exact optima. In particular the unique spectral minimizer p=1/2 is strictly excluded by the theorem for h>=2, so spectral optimality cannot imply this claim.",
+      "searches": [
+        "fastest mixing Markov chain directed triangle total variation horizon",
+        "Spectral gap of Markov chains on a cycle Gerencser Hendrickx Van Dooren",
+        "Analysis of a non-reversible Markov chain speedup by a single edge Gerencser 2019",
+        "Geometric Bounds on the Fastest Mixing Markov Chain 2021"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fourier decomposition identifies the oriented walk law with the binomial residue distribution; no directly covering modular-binomial minimax theorem was identified in the searched records."
+      ],
+      "reasoning": "The equivalence is exact: clockwise displacements after h steps are Binomial(h,p) modulo three. An earlier sharp result in this language would cover the finding even without mentioning Markov chains; the searches did not find one.",
+      "searches": [
+        "\"binomial modulo three\" \"closest to uniform\" mixing",
+        "\"binomial\" \"modulo 3\" \"total variation\" \"optimal\" p",
+        "Modular binomial (mod 3) equidistribution best bias p total variation minimum Fourier angle",
+        "minimum finite-horizon total variation binomial count modulo 3 optimal p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned related finite-Fourier and cyclic-convolution works but not an exact table or explicit optimizer for the binomial mod-three distribution.",
+        "The exact result is indexed analytically by every integer horizon and a continuum of Bernoulli biases, not a finite numeric table."
+      ],
+      "reasoning": "A finite-horizon table would need contain the exact two argmins or a dominating general theorem. Neither was identified; a negative search is not a proof of uniqueness.",
+      "searches": [
+        "Exact finite horizon minimum total variation distance to uniform for Bernoulli binomial count modulo 3, optimizers half plus minus tangent pi over six times horizon, directed 3 cycle",
+        "Minimum total variation of (Binomial(n,p) modulo 3) from uniform distribution at p=1/2+tan(pi/(6n))/(2 sqrt 3)",
+        "directed lazy random walk three cycle finite time total variation optimal laziness versus spectral optimal one half angle oscillations"
+      ]
+    },
+    "rationale": "The exact h-step total-variation minimizers of the oriented three-state lazy walk and their limiting gap against the spectral minimizer are not entailed by the inspected results on symmetric spectral optimization, added-edge nonreversible mixing, or general mixing bounds. Searches also addressed modular binomial formulations and near-optimality aliases. Residual risks include equivalent results in unindexed sources and a related 2011 cycle-mixing paper whose full text was not accessible.",
+    "residual_risks": [
+      "Equivalent binomial-residue approximation or three-state chain optimization may appear in unindexed papers or textbooks.",
+      "Full text of Gerencsér (2011) on mixing times on cycles was not obtained, leaving a specific unresolved priority comparison.",
+      "Some general fastest-mixing sources were read in selected material rather than page-by-page, so historical coverage cannot be certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Symmetric transition constraints and SLEM minimization; does not state directed three-cycle finite-TV optimum in inspected sections",
+        "evidence": [
+          "The paper explicitly fixes \\(P=P^{\\mathsf T}\\) and minimizes the SLEM in its principal formulation."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Abstract and sections 1.1–1.2 of 23-page full PDF, including PDF pages 1 and 3 in visual rendering",
+        "method": "read text and visually inspect selected pages",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "standard fastest-mixing spectral benchmark"
+      },
+      {
+        "assessment": "Finite-cycle spectral-gap and asymptotic-rate optimization, not h-step TV minimization",
+        "evidence": [
+          "The stated objective uses nontrivial eigenvalue moduli and asymptotic mixing rates; finite h-step TV minimizers not identified."
+        ],
+        "identifier_or_url": "https://real.mtak.hu/173919/1/cycle_spectral_gap.pdf",
+        "material_read": "All five pages, including equations for spectral-gap criterion and perturbation regimes",
+        "method": "read full text and visually inspect PDF pages",
+        "title": "Spectral gap of Markov chains on a cycle",
+        "trigger": "same graph family and optimal transition probabilities"
+      },
+      {
+        "assessment": "The transition graph has a random extra edge and its theorem concerns mixing-time scaling on longer cycles, not exact three-state finite-horizon p optimization",
+        "evidence": [
+          "Original arXiv posting May 8, 2019; primary MSC 60J10 in journal record, DOI 10.1017/jpr.2022.88."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.03223",
+        "material_read": "Accessible full-text HTML sections 1–3, main definitions and theorems, and discussion and conclusions",
+        "method": "read mathematical setup, explicit transition kernel, theorem statements and arguments",
+        "title": "Analysis of a non-reversible Markov chain speedup by a single edge",
+        "trigger": "public source in matching Markov-chain field and date cohort"
+      },
+      {
+        "assessment": "Geometric conductance and fastest-mixing bounds, not the closed-form exact finite-TV phase-minimax optimizer",
+        "evidence": [
+          "General bounds apply to distinct optimization setups and do not supply this parameter-specific two-point argmin."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.05816",
+        "material_read": "Full PDF accessible; title, introduction, main theorem statements and concluding pages inspected",
+        "method": "read extracted portions and visual PDF pages 1, 2, 29, and 30",
+        "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+        "trigger": "general fastest-mixing theory that might dominate special case"
+      },
+      {
+        "assessment": "Cannot determine full-text coverage, reported as residual priority risk rather than declaring paper noncovering",
+        "evidence": [
+          "Its cited scope includes bounds on mixing times for cycles; exact three-state finite-horizon optimization was not established from accessible description."
+        ],
+        "identifier_or_url": "B. Gerencsér, Stochastic Processes and their Applications 121 (2011), 2553–2570",
+        "material_read": "Bibliographic record and available abstract-level account; full article not acquired",
+        "method": "searched publicly available preprint and open-access variants; only bibliographic and abstract-level material could be reviewed",
+        "title": "Markov chain mixing time on cycles",
+        "trigger": "earlier strong priority candidate about cycle mixing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e5efd39-850a-40ff-8968-6aa564fbe8d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the complete exact finite-horizon tuning law for the smallest nontrivial oriented cycle and proves a persistent \\(\\sqrt3/2\\) limiting ratio against the unique spectral-optimal parameter. The \\(h^{-1}\\) phase detuning yields a nonvanishing relative gain, illustrating a motivated structural limitation of spectral-only chain tuning rather than an arbitrary finite computation.",
+    "status": "PASS"
+  }
+}
