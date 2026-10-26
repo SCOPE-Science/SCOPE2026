@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every finite connected simple G of order \\(n\\ge3\\), the established two-colour wild identity equals \\(2(n-1)-r(R)-r(B)\\). The optimum over surjective colourings equals 2(n-1) minus the rank of the union of two graphic matroids, because two disjoint optimal forests can be colored oppositely and enlarged while retaining their ranks. The Edmonds–Nash-Williams union formula converts this to maximum partition deficiency exactly (both inequalities are explicitly proved). Binary cycle-space direct-sum dimensions show that upper value n-1 occurs precisely when all cycles are monochromatic, hence iff colour assignments are constant per edge block. An explicit one-edge red colouring attains n-2 when there is a single edge block. Surjective recolouring moves change the wild value by at most 1 and connect the colouring space when \\(|E|\\ge3\\); the \\(|E|=2\\) connected case is treated separately. The claimed maximum-colouring multiplicity is \\(2^{b(G)}-2\\) for b>=2. Exhaustive finite corroboration independently checks 770 labelled connected graphs of orders 3–5 and five six-vertex examples, all their surjective colourings, deficiency endpoints and block multiplicity. No finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Edmonds, Matroid Partition (1968), matroid-union rank formula, as reproduced at https://oldlemon.cs.elte.hu/egres/open/Matroid_union_theorem.",
+        "C. St. J. A. Nash-Williams, Edge-disjoint spanning trees (1961): two-tree packing and partition inequalities.",
+        "A. Dawkins et al., arXiv:2610.22142v1, Theorem 3.3 restricts its full spectrum to complete graphs."
+      ],
+      "reasoning": "Matroid union implies the precise minimum directly after the known two-colour rank identity, so the minimum is not treated as a standalone novelty. The Nash-Williams/Tutte criterion covers zero feasibility, also not novel. Those statements alone do not establish the global upper endpoint, its block-dependent multiplicity, or the absence of intermediate gaps. A stronger published theorem simultaneously treating the full graphic-matroid connectivity range would cover this claim, but none was identified in inspected sources.",
+      "searches": [
+        "two spanning trees minimum edge overlap exact Nash Williams partition deficiency and wild-colored connectivity",
+        "matroid union theorem rank formula two graphic matroids partition crossing edges",
+        "Wild-number attainable two-edge-coloring spectrum for every finite connected graph, no gaps, extremal values governed by two-forest matroid union rank and block decomposition"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.22142v1, full 20-page open PDF",
+      "arxiv:2508.06711v1, full 22-page open PDF",
+      "Edmonds/Nash-Williams matroid-union theorem, accessible theorem statement and cited historical primary reference",
+      "Nash-Williams/Tutte spanning-tree packing criterion cited in 2026 preprint introduction",
+      "previous complete-bipartite special-case theorem, claim-level implication comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Anders et al. 2025 Theorem 6.4(2) supplies the component identity but not its extremal range over all colourings.",
+        "Dawkins et al. 2026 Theorem 3.3 supplies the K_n special case; no theorem there applies to graphs with cut vertices, blocks, sparse arboricity deficiency, or arbitrary graphic-matroid ranks.",
+        "Edmonds 1968 matroid union provides the minimum, not the full set of connectivity-function values."
+      ],
+      "reasoning": "A special-family formula cannot imply the universal quantified statement. The full claim does logically follow by combining known rank facts with the independently proved block-cycle and recolouring lemmas supplied here; the synthesis and complete classification (rather than preexisting isolated ingredients) are assessed as original. A stronger independent result on matroid connectivity that subsumes all these conclusions would change this assessment.",
+      "searches": [
+        "wild number attainable values spectrum all surjective two-edge-colorings any connected graph interval no gaps recoloring",
+        "two-colored graphs wild number spectra arbitrary graphs",
+        "Wild-number attainable two-edge-coloring spectrum for every finite connected graph, no gaps, extremal values governed by two-forest matroid union rank and block decomposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A. Dawkins et al., arXiv:2610.22142v1, §2 Eq. (2) and §3 Theorem 3.3: component formula and complete-graph spectrum only.",
+        "K. Anders et al., arXiv:2508.06711v1, Theorem 6.4(2): two-colour component identity.",
+        "Classical matroid connectivity \\(\\lambda(X)=r(X)+r(E\\setminus X)-r(E)\\) is an exact algebraic rephrasing of \\(n-1-\\operatorname{wld}\\)."
+      ],
+      "reasoning": "A two-colour wild value is exactly the graphic-matroid connectivity function shifted by n-1. This equivalent formulation is acknowledged; it may appear in matroid literature. Neither source examined explicitly asserts its entire attainable range with the partition-rank lower bound, edge-block upper bound, all-gap filling, and exact upper-extremal count for every graphic matroid.",
+      "searches": [
+        "wild number attainable values spectrum all surjective two-edge-colorings any connected graph interval no gaps recoloring",
+        "matroid connectivity function of edge bipartition, exact spectrum of values of lambda(X) for all nontrivial X, maximum matroid union rank",
+        "wild edge coloring number rank sum interval image hypercube graph any graph",
+        "wild number spectrum graphic matroid connectivity function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record matches include published notes on sequence b-spectra, graphic arboricity of joins, and matroid-polytope spectra; these have different invariants.",
+        "A prior individual result for K_{a,b} establishes a complete-bipartite special case, whereas the present claim quantifies over every finite connected simple graph.",
+        "2026 arXiv:2610.22142v1 abstract and §§3–6 restrict their numerical classifications to complete, complete bipartite and their product colouring cases."
+      ],
+      "reasoning": "Neither an exact precomputed table for the arbitrary-graph wild spectrum nor a source stating the exact block extremal-colouring count was found. Because record search is incomplete by nature, this is not a uniqueness certificate.",
+      "searches": [
+        "wild number attainable two-color values arbitrary graph cycle blocks max 2-power count",
+        "unrestricted wild number full spectrum all connected graphs matroid union min deficiency partition 2 coloring edge blocks",
+        "2026 wild graph chromatic spanning tree complete bipartite spectrum"
+      ]
+    },
+    "rationale": "The new claim is the combination of a sharp partition-deficiency minimum, an edge-block-sensitive maximum and multiplicity, and a full gap-free spectrum for every connected graph. The foundational 2025 paper proves the two-colour component identity but not this unrestricted spectrum; the full-text 2026 wild-number preprint proves an unrestricted spectrum for complete graphs and studies complete bipartite graphs and other restricted colourings. A prior specific complete-bipartite-spectrum result is strictly a special case, not an implication in the reverse direction. Classical matroid union directly gives the minimum upon translating ranks and is credited; it does not by itself establish upper endpoint/multiplicity or the full interval. No equivalent all-graph full-spectrum and block-multiplicity theorem was found in the actually inspected sources or search results. Bibliographic completeness, particularly under matroid-connectivity language, is not guaranteed.",
+    "residual_risks": [
+      "The total-graph interval and block-maximum synthesis may exist under the graphic matroid connectivity function (or equivalent branchwidth/connectedness) terminology in sources not surfaced in the searches.",
+      "The matroid-union part of the result is an established implication and carries no separate novelty credit.",
+      "Semantic search results do not prove absence or publication priority; independent bibliographic verification remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its complete-graph unrestricted spectrum is covered and credited. The paper does not assert the present all-connected-graph spectrum, its block-dependent maximum, or maximum-colouring count.",
+        "evidence": "Abstract pp.1–2; Equation (2), p.3; Theorem 3.3, p.4; concluding remarks pp.18–19.",
+        "identifier_or_url": "https://arxiv.org/pdf/2610.22142",
+        "material_read": "20-page full-text PDF; abstract, introductory scope, Section 2, Section 3 Theorem 3.3, Sections 4–6 and references.",
+        "method": "Lawful open arXiv PDF text extraction and visual page inspection.",
+        "title": "Wild number for spanning trees in complete and complete bipartite graphs",
+        "trigger": "Direct topical 2026 source and earliest recent public date."
+      },
+      {
+        "assessment": "General component identity and tree/cycle cases are already known. No general two-colour full spectrum over arbitrary connected base graphs or block multiplicity is stated.",
+        "evidence": "Theorem 6.4(2), p.19; Questions 7.1–7.3, pp.20–21.",
+        "identifier_or_url": "https://arxiv.org/pdf/2508.06711",
+        "material_read": "22-page full-text PDF; especially Sections 2–3, Theorem 6.4, Section 7 open problems.",
+        "method": "Lawful open arXiv PDF text extraction and visual page inspection.",
+        "title": "The wild number of an edge-colored graph",
+        "trigger": "Foundational definition and strongest likely general wild-number result."
+      },
+      {
+        "assessment": "Directly implies the lower endpoint after translating the wild number to rank; does not state colour spectrum, edge-block maximum, or extremal count.",
+        "evidence": "Matroid-union rank formula on the theorem page; references J. Edmonds 1968 and C. St. J. A. Nash-Williams 1967.",
+        "identifier_or_url": "https://oldlemon.cs.elte.hu/egres/open/Matroid_union_theorem",
+        "material_read": "Complete accessible theorem statement and references, not the original 1968 monograph proof.",
+        "method": "Public mathematical theorem reference (text).",
+        "title": "Matroid Union Theorem (Edmonds and Nash-Williams)",
+        "trigger": "Potential stronger coverage of the partition-deficiency endpoint."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "70e766d4-9ce0-4a45-a2b4-aaf0045e8a24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full classification for every connected graph supplies the exact best and worst shared-edge upgrade counts and proves every intermediate requirement attainable. The sharp best-end formula identifies arbitrary multiway partition bottlenecks; the worst-end formula and \\(2^{b(G)}-2\\) count identify the structural role of articulation, bridges, and biconnected blocks. This addresses a naturally studied graph invariant introduced in 2025 and investigated for special families in 2026; it subsumes complete-graph, tree, cycle and complete-bipartite cases without excluding sparse or cut-vertex networks. Even though essential mathematical tools are classical and simple, the complete all-graph attainment theorem and structural multiplicity are motivated and useful as a unified classification, not a renamed single-parameter formula.",
+    "status": "PASS"
+  }
+}
