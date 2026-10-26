@@ -1,0 +1,15 @@
+# Scientific review: fixed-weight Zeckendorf–Niven strata
+
+## Correctness — PASS
+The count is exactly the number of nonconsecutive index subsets of prescribed size whose Fibonacci sum vanishes modulo the same size. The periodic two-state transfer has a determinant with unique constant-order pole, proving eventual quasipolynomiality. An unrestricted-subset logarithmic expansion and inclusion–exclusion of a single adjacent pair establish the two leading coefficients; all configurations with two adjacency constraints contribute two orders lower. The identity \(F_i+F_{i+1}=F_{i+2}\) supplies the specific lower-convolution correction. For weights \(2\)–\(5\), the complete-period transfer has determinant divisible by a power of the weight variable beyond the truncation order. Thus a small-eigenvalue term disappears, and finite exact evaluations determine genuine all-positive-block polynomials. The bundled checker tests independent subset enumeration, transfer counts, and period convolutions. It is finite corroboration, not an infinite proof.
+
+## Originality — PASS, with priority risks
+Lao et al. (arXiv:2606.24006v1, Sections 2–5) establish existence in arithmetic progressions and restrictions on runs. They do not state conditional fixed-weight counts or rational limiting probabilities. Ray and Cooper (2006) prove zero natural density without a verified statement of the conditional fixed-summand strata; their full text was not accessible in the present comparison, so it remains a residual risk. Koloğlu et al. (2011) analyze unconstrained summand-count fluctuations, rather than simultaneous divisibility by the fixed count. Relevant publicly indexed number-sequence records give unstratified membership data. The novel part is not the standard transfer-matrix construction itself but its explicit two-coefficient arithmetic evaluation, the Fibonacci-adjacency identity, and the all-block low-weight classifications. An unknown general theorem on weighted automata could subsume these formulas; independent priority assessment remains necessary.
+
+## Mathematical value — PASS
+Natural density zero for the full set leaves its fixed-weight component behavior undetermined. The theorem computes every fixed stratum through a finite Pisano convolution, proves a structural quasi-polynomial classification, and exposes systematic but nonuniform local divisibility: the first four conditional fractions are \(5/9\), \(85/256\), \(7/27\), and \(1/5\), rather than uniformly \(1/s\). The universal adjacency correction gives the first finite-cutoff deviation and can be reused in more detailed fixed-digit-count problems. Neither the exact small-weight formulas nor the second coefficient is implied by the previously quoted existence, total-density, or Gaussian-weight statements.
+
+## Scope and limitations
+Only fixed weights and Fibonacci cutoffs are covered; no uniformity when the weight grows, unrestricted positive density, or minimal quasipolynomial period is asserted. No independent verification or mathematical priority review has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
