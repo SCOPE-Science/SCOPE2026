@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness (PASS).** Jordan Taylor expansion makes the derivative-divisibility condition necessary and sufficient for diagonalizability; integrating the factored derivative reduces every collision to a nonzero moment functional. Linear hyperplane avoidance proves existence at the largest first-nonzero moment order, while sign changes bound that order. Weighted Jacobi orthogonality supplies an exact infinite-family equality example. Exact finite rational calculations corroborate the formula but are not treated as a proof.
+
+**Originality (PASS, with priority risk).** Chang (arXiv:2510.16901v1, full Section 4 inspected) enumerates admissible operators for fixed polynomials; it does not minimize a polynomial for a fixed operator while preserving all spectral images. Chang (arXiv:2411.11883v1, Sections 1–2 inspected) discusses the functional calculus, not the moment degree or Jacobi extremizers. Hermite interpolation handles arbitrary prescribed interpolation values but does not imply the smaller, configuration-dependent optimum. Targeted published-record searches retrieved no implication-equivalent result. Residual risk: an older polynomial critical-value or osculatory-interpolation formulation could yield the same characterization.
+
+**Mathematical value (PASS).** Avoiding spectral collisions while removing nilpotent Jordan structure is a naturally motivated functional-calculus design constraint. The exact moment-law answers the optimal-degree problem for arbitrary real spectral configurations, exhibits a nontrivial extra obstruction beyond jet-counting, and explains why classical Hermite's upper degree can be attained sharply. The Jacobi family is a structural all-order boundary example, not a small numerical improvement. The result is finite-dimensional and does not address complex spectra.
+
+Self-review: passed. Independent audit: not yet performed.
