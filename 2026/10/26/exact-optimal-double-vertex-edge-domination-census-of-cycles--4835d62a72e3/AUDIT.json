@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For n>=5, each closed edge neighborhood is a length-4 cyclic block. A double-count gives |D|>=ceil(n/2), attained by alternating sets. At minimum size, the necessary and sufficient adjacent gap inequality d_i+d_{i+1}<=4 creates symbols e_i=2-d_i in {-1,0,1}, with e_i+e_{i+1}>=0 and sum e_i in {0,1}. Runs of nonzero signs have excess at least one, forcing either all-zero or full +/- alternation for even n, and one alternating defect run for odd n; the no-zero odd case has a unique ++ seam. Each odd run size gives k anchored gap words and hence n unmarked labeled sets; the even counts are 2 or 6. For n=3,4 all edge neighborhoods are the full vertex set and direct checks establish the same formula. The standalone independently defined actual-graph enumerator confirms all lengths 3..18; the 8-state weighted trace independently confirms counts for 5..80. These finite computations do not substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full accessible 2023 arXiv paper has sections on chordal hardness, tree algorithms, approximation and APX bounds; no theorem there enumerates minimum sets on simple cycles.",
+        "The 2017 original abstract (doi:10.1142/S1793830917500458) emphasizes NP-completeness, general inequalities, trees and unicyclic lower bounds, not an enumerative formula; complete text is not accessible.",
+        "The 2019 paper doi:10.3390/math7111010 describes tree characterizations for equality of domination parameters."
+      ],
+      "reasoning": "A general optimization algorithm or size bound does not imply a closed formula for every minimum solution. The numerical minimum is deliberately not claimed new. The potentially strongest earlier source is 2017 and remains flagged because its full argument could not be inspected.",
+      "searches": [
+        "On k-vertex-edge domination of graph arxiv 2310.07452",
+        "\"Double vertex-edge domination\" \"Krishnakumari\" \"Proposition 14\" cycles",
+        "\"minimum\" \"double vertex-edge dominating sets\" \"cycle\"",
+        "On Two Open Problems on Double Vertex-Edge Domination in Graphs 2019"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1142/S1793830917500458 (2017, original definition; publisher abstract only)",
+      "arxiv:2310.07452 (2023, main accessible 10-page manuscript)",
+      "doi:10.3390/math7111010 (2019, published statements)",
+      "doi:10.33401/fujma.916263 (2021, reverse selected objects)",
+      "2026 published mathematical-result search: cycle cover-free numbers, cycle rooted-product locating-total domination and period-four parity structures; statements not implying this edge-cover census"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The older parameter definition and its general lower bounds can coexist with the elementary cycle optimum ceil(n/2); none of those facts specifies how many optimum subsets exist.",
+        "The 2021 edge-vertex paper doi:10.33401/fujma.916263 concerns a dual-but-nonidentical problem on middle/splitting graphs, so its cycle results do not imply the current count.",
+        "No full-text inspected theorem entails the run classification, two-orbit even dichotomy, or odd family count n floor((n+3)/4)."
+      ],
+      "reasoning": "The scalar minimum is explicitly credited as elementary/possibly known and excluded from originality. Under the checked claims, the complete classified minimum layer adds structural information not implied by bounds, generic algorithms or reverse-incidence domination. The 2017 text-access limit remains material rather than being dismissed.",
+      "searches": [
+        "\"Double vertex-edge domination\" \"cycle\" exact number minimum",
+        "\"2-vertex-edge domination\" \"cycle\" enumeration",
+        "\"Double Edge-Vertex Domination on Middle and Splitting Graphs of Path and Cycle\"",
+        "Minimum 2-vertex-edge dominating sets of cycle graphs, count by residue modulo four and alternating 1,3 gap patterns"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The definition of 2-vertex-edge domination is the same as double vertex-edge domination in doi:10.1142/S1793830917500458 and the k=2 specialization in arxiv:2310.07452.",
+        "On C_n for n>=5, each closed edge neighborhood is a cyclic length-four interval; the property therefore equals the binary sliding-window constraint of at least two ones in every length-four block.",
+        "Relevant 2021 double edge-vertex studies, doi:10.33401/fujma.916263, select edges to protect vertices rather than the vertex-to-edge coverage object here."
+      ],
+      "reasoning": "Rewriting as a cyclic binary four-window covering problem is exact, not an independent novelty argument. The inspected sources cover the parameter and different object variants; no located statement classified the optimum cyclic words with one alternating 1,3 gap defect or counted each family. This comparison retains risk from the inaccessible 2017 complete text and potentially differently labeled binary-word results.",
+      "searches": [
+        "\"double vertex edge domination\" \"cycles\" number",
+        "\"2-vertex-edge domination\" cycle C_n \"sets\"",
+        "\"double vertex-edge domination\" \"minimum sets\" cycle enumeration",
+        "\"cyclic\" \"every four consecutive\" \"at least two\" zeros ones",
+        "Cyclic binary words with each four consecutive positions containing at least two ones, optimal density one-half, exact enumeration of minimum-weight words and gap run structure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact small-number searches did not reveal a matching sequence, graph table or closed enumerator; the OEIS result returned for a numeric fragment was unrelated to graph domination.",
+        "The direct and weighted-trace verification in verify.py independently reproduce counts 3,6,10,2,14,6,27,2,33,... for successive n>=3.",
+        "The published 2017 and 2023 parameter papers identified do not advertise a database or optimum-set enumeration in their accessible statements."
+      ],
+      "reasoning": "The numerical coincidence check is bounded search only, not proof of unrecorded novelty. The claim supplies an all-length proof and structural classification rather than a finite table reconstruction.",
+      "searches": [
+        "\"number of minimum double vertex-edge dominating sets\" cycle",
+        "\"n floor((n+3)/4)\" \"vertex-edge\" cycle",
+        "\"3, 6, 10, 2, 14, 6, 27\" domination",
+        "site:oeis.org \"10, 2, 14, 6, 27\"",
+        "For cycle graphs C_n, k-vertex-edge domination subsets where every four consecutive vertices include at least k selected, exact minimum sets and enumeration for k=2, periodic optimal solutions"
+      ]
+    },
+    "rationale": "The substantive claim is a complete classification, exact labeled count and rotation-orbit census of all minimum double vertex-edge dominating sets of simple cycles, not the readily derived scalar minimum. The fully accessible 2023 primary article treats general complexity and tree algorithms but supplies no such cycle census. The 2017 originating article is not represented as fully inspected: its abstract concerns broad inequalities and tree/unicyclic results, but restricted access is a real priority risk. Search of cycle-specific, double-domination, four-window binary covering, mathematical records and exact numerical signatures found no direct coverage; absence of indexed results is not taken as a uniqueness proof.",
+    "residual_risks": [
+      "The 2017 originating article is directly relevant but its complete text could not be obtained through authorized non-interactive means; a tucked-away cycle statement cannot be conclusively ruled out.",
+      "The equivalent binary four-window covering-word formulation may appear under coding/constraint language in poorly indexed literature; bounded searches do not establish uniqueness.",
+      "No independent external priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the all-minima census on simple cycles: paper focuses NP-completeness, tree optimization and general approximability; cycle-optimum classification is absent from the inspected results.",
+        "evidence": [
+          "arxiv:2310.07452 pp. 1-2 (definition/summary); pp. 4-6 (tree algorithm); pp. 8-10 (APX/conclusion)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.07452",
+        "material_read": "Accessible 10-page manuscript: abstract and full introduction, chordal hardness statement and construction, tree algorithm and reductions, approximation/APX theorem statements, conclusion and references. First two pages additionally viewed as page images.",
+        "method": "Full-text PDF extraction by sections, with first pages inspected visually.",
+        "title": "On k-vertex-edge domination of graph",
+        "trigger": "Exact same condition when k=2 and verified math.CO public source."
+      },
+      {
+        "assessment": "Priority risk: no complete-text noncoverage assertion. Abstract discusses general inequalities, bounds and tree/unicyclic cases; it does not announce an optimum-set enumeration.",
+        "evidence": [
+          "Publisher DOI 10.1142/S1793830917500458, first public 2017-07-11; MSC 05C69."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S1793830917500458",
+        "material_read": "Publisher title, exact publication date, authors, abstract, keywords and MSC; complete PDF unavailable through verified lawful full-text access routes.",
+        "method": "Publisher bibliographic and abstract inspection; attempted official PDF and lawful open-access routes; remaining access restriction recorded.",
+        "title": "Double vertex-edge domination",
+        "trigger": "Foundational 2017 definition and potential general theorem for unicyclic graphs."
+      },
+      {
+        "assessment": "Accessible statements address trees satisfying equality with 2-/total domination, not optimum-set multiplicities of simple cycles.",
+        "evidence": [
+          "Math. 7 (2019), 1010; definitions and Problems 1-2."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math7111010",
+        "material_read": "Open published abstract and introduction statements of its two tree-equality problems; direct current full fetch was rate-limited.",
+        "method": "Open indexed text and stated propositions.",
+        "title": "On Two Open Problems on Double Vertex-Edge Domination in Graphs",
+        "trigger": "Same invariant and potential encompassing graph characterization."
+      },
+      {
+        "assessment": "Different objects: selects edges to dominate vertices, and works on middle/splitting graphs. Does not directly imply vertex-selected double coverage of the original cycle edges.",
+        "evidence": [
+          "Fundamental Journal of Mathematics and Applications 4 (2021), 221-231."
+        ],
+        "identifier_or_url": "https://doi.org/10.33401/fujma.916263",
+        "material_read": "Publisher abstract and available introduction and formal edge-vertex definition.",
+        "method": "Open publisher record and text excerpt.",
+        "title": "Double Edge-Vertex Domination on Middle and Splitting Graphs of Path and Cycle",
+        "trigger": "Title overlaps double domination and cycles and requires direction-of-incidence check."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4835d62a-72e3-4b91-aebd-494f9b8a3077",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum double coverage is a natural redundancy objective for local edge monitoring on ring networks. The exact count, full gap classification and rotation-orbit census determine the entire optimum landscape, not just the known/easy scalar minimum. The exceptional two/six even-count rigidity and odd n floor((n+3)/4) growth are sharp structural phenomena explained by a single allowable alternating defect run. This supports constructing and distinguishing all cheapest deployments and is a motivated infinite-family classification.",
+    "status": "PASS"
+  }
+}
