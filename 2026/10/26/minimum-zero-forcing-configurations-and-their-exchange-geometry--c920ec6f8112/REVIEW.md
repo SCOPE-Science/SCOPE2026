@@ -1,0 +1,11 @@
+# Review of the Petersen-line-graph minimum forcing-set classification
+
+**Correctness (PASS).** The object is specified by disjointness of two-subsets and line-edge incidence, and the legal force is unique-white-neighbor propagation. The exact \(32768\)-mask closure comparison uses independent bit-mask and set-valued implementations. Sizes through \(6\) are exhausted, all \(6435\) size-seven candidates are examined, the full \(S_5\) orbit computation is exhaustive, and all shortest paths of the \(2280\)-vertex exchange graph are computed. The extracted certificate terminated successfully with `VERIFY_OK`. The statements apply only to the specified graph and rule.
+
+**Originality (PASS, conditional on available literature).** The most relevant full-text works concern line-graph families and inequalities (Eroh–Kang–Yi 2012; Erzurumluoğlu–Meagher–Pike 2016), while Hogben et al. 2014 introduce propagation time and mention the underlying Petersen graph. They do not give this graph's complete minimum-set and exchange classification. Checks against accessible related archival claims, research-record queries, and targeted web searches did not identify an equivalent or dominating enumeration. Previously unindexed small-graph tables could still duplicate part of the result.
+
+**Value (PASS).** This is a full classification of optimal edge-indexed initial states of the canonical Petersen graph, not a stand-alone small parameter. It distinguishes \(21\) optimal symmetry types, reveals three distinct forcing-time classes and determines the complete connectivity and geodesic profile of reconfiguration among optimum sets. It supplies an exact benchmark for line-graph propagation and optimal-set exchange processes. No paper-scale or all-graph theorem is claimed.
+
+**Closest literature and limits.** Eroh–Kang–Yi (arXiv:1207.6127) treat line graphs of wheels and bouquets; Erzurumluoğlu–Meagher–Pike (arXiv:1609.05854) provide general comparison bounds; Hogben et al. (arXiv:1410.4191) treat propagation on arbitrary graphs. The present finite census does not follow from those results; possible unindexed tables remain a residual risk. The certificate is reproducible but not externally audited.
+
+Self-review: passed. Independent audit: not yet performed.
