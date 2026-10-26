@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each mixed triple the two equal-side vertices are joined by a two-edge geodesic through the opposite vertex if indices differ, or one opposite same-index pair has distance three and a geodesic passing through the other selected same-side vertex. Pure-side sets cannot contain three vertices on a two-edge geodesic. Exact counting and maximality follow. Direct shortest-path exhaustive verifier agrees for n=3..8; finite enumeration is corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Anand et al., arXiv:1812.08460 Sections 3 and 5: universal characterization, GP number of diameter-three bipartite graphs",
+        "Iršič et al., DOI:10.1007/s00025-024-02133-3 Section 4: general a-partite construction and a=2 formula"
+      ],
+      "reasoning": "Anand et al. implies the maximum size n but does not directly enumerate all GP subsets or classify inclusion-maximal sets. Iršič et al. purports broader polynomial coverage but the a=2 coefficient claim is false and therefore cannot imply the present identity. The new statement does not claim novelty for the GP number or unimodality.",
+      "searches": [
+        "arXiv:1812.08460 bipartite diameter three general position characterization",
+        "arXiv:2401.05696 Section 4 T*(r,a)",
+        "crown graphs general position polynomial site:arxiv.org OR site:sciencedirect.com OR site:link.springer.com"
+      ]
+    },
+    "checked_sources": [
+      "Anand et al., arXiv:1812.08460 (v1 2018-12-20)",
+      "Iršič et al., arXiv:2401.05696 (v1 2024-01-11)",
+      "Iršič et al., Results Math 79 article 110 (2024), DOI:10.1007/s00025-024-02133-3",
+      "\"Lower general position sets in graphs,\" arXiv:2306.09965",
+      "Two-point sequence b-spectrum of crown graphs, published mathematical record (different invariant)",
+      "Published mathematical records on crown-graph and general-position invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Iršič et al. Sect. 4 Eq. for T*(r,2): extra 4 binom(r,2) cubic and binom(r,2) quartic counts",
+        "Anand et al. Theorem 3.1 graph-wide necessary/sufficient condition",
+        "Direct n=3 contradiction with C6, for every n≥3 geodesic case proof"
+      ],
+      "reasoning": "The 2024 result is not a valid stronger statement: it asserts false positive coefficients. The 2019 structural criterion does not assert the exact enumerator or maximal-set counts; the new application requires explicit shortest-path analysis. General-position number n and bipartite upper bounds are prior and explicitly excluded from novelty.",
+      "searches": [
+        "arXiv:2401.05696 T*(r,2) printed general position polynomial",
+        "arXiv:1812.08460 Theorem 3.1 complete characterization bipartite",
+        "maximal general position sets crown graphs exactly bipartition sides and cross pairs gap spectrum 2 n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Anand et al. arXiv:1812.08460 Thm 3.1 (distance-constant components)",
+        "Iršič et al. arXiv:2401.05696 Section 4 describes T*(r,2) as crown graph",
+        "Published mathematical record, Two-point sequence b-spectrum of crown graphs (different sequence-b invariant)"
+      ],
+      "reasoning": "The known universal GP characterization provides a decision criterion, not the claimed closed expression. The named T*(r,2) parameter is literally the same crown graph, but its displayed counting polynomial is incompatible with the geodesic definition. Sequence-b spectrum is a different invariant.",
+      "searches": [
+        "general position polynomial crown graph K_{n,n} minus perfect matching two binomial terms correction Proposition 4.3 T^*(n,2) Iršič Klavžar",
+        "maximal general position sets crown graphs exactly bipartition sides and cross pairs gap spectrum 2 n",
+        "arXiv:2401.05696 T*(r,2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Iršič et al. Table 2 and displayed formula preceding Proposition 4.3, Results Math 79 (2024)",
+        "Exact independently enumerated GP coefficients for n=3..8 in verify_output.txt",
+        "arXiv:2401.05696 initially submitted 2024-01-11"
+      ],
+      "reasoning": "The directly relevant published table and displayed expression predict extraneous mixed triples and quadruples. E.g. at r=3 published cubic/quartic coefficients 14/3 disagree with direct shortest-path census 2/0. No distinct table with the corrected series was identified in the bounded queries.",
+      "searches": [
+        "general position polynomial crown graph K_{n,n} minus perfect matching two binomial terms correction Proposition 4.3 T^*(n,2) Iršič Klavžar",
+        "General Position Polynomials correction Iršič 2024"
+      ]
+    },
+    "rationale": "The 2018/2019 universal GP characterization and 2023 lower-GP work do not supply this exact specialization and maximal spectrum; the directly applicable displayed 2024 formula is demonstrably false, as it predicts 3 four-element GP sets for the 6-cycle whereas none exist. Therefore it does not establish the corrected formula. Actual bibliographic and mathematical-record queries returned related but noncovering invariants; a possible unpublished correction remains a residual risk.",
+    "residual_risks": [
+      "An unindexed erratum or an equivalent corrected enumeration may exist beyond accessible searches.",
+      "The 2024 broader a-partite formula was not repaired for a>2; its remaining cases are outside this theorem.",
+      "All graph-theoretic verification is same-review; independent mathematical audit remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT_SAME_GRAPH_BUT_FALSE_PRINTED_FORMULA; unimodality assertion not challenged",
+        "evidence": [
+          "The article states T*(r,2) is complete bipartite graph minus a perfect matching",
+          "Its displayed formula adds 4 binom(r,2) z^3 and binom(r,2) z^4 to pure-side terms",
+          "At r=3 predicts coefficient z^4 =3 on C6; shortest-path proof shows zero"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+        "material_read": "Full open-access HTML article, particularly Definitions 1.1, Proposition 2.1, Section 4 paragraphs introducing T*(r,a), displayed formula and Proposition 4.3 with Table 2 context",
+        "method": "Direct comparison of the source graph construction and each claimed polynomial coefficient with shortest-path definition and analytic enumeration",
+        "title": "General Position Polynomials",
+        "trigger": "2024 article explicitly treats T*(r,2), exactly the present crown family"
+      },
+      {
+        "assessment": "Initial arXiv submission 11 January 2024; same issue in preprint text",
+        "evidence": [
+          "Submitted Thu Jan 11 06:45:29 2024 UTC",
+          "Section 4 identifies T*(r,2) with the crown"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.05696",
+        "material_read": "arXiv HTML rendered paper Introduction, Definitions and Section 4 T*(r,a) discussion, Proposition 4.3",
+        "method": "Read publication metadata and same-family argument",
+        "title": "General position polynomials (first preprint)",
+        "trigger": "Check first public source date and primary text continuity"
+      },
+      {
+        "assessment": "Background general characterization; does not enumerate crown polynomials in closed form",
+        "evidence": [
+          "Theorem 3.1 is in-transitive distance-constant clique-component characterization",
+          "Bipartite diam=2/3 result concerns maximum cardinality",
+          "First v1 published 20 December 2018"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.08460v2",
+        "material_read": "Sections 2-3, Theorem 3.1 with complete proof, Section 5 scope, plus 2018 public-date metadata",
+        "method": "Compare full theorem implication: general decision characterization versus explicit family polynomial, maximal census and contradictory 2024 formula",
+        "title": "Characterization of general position sets and its applications to cographs and bipartite graphs",
+        "trigger": "Possible general theorem stronger than the proposed crown classification"
+      },
+      {
+        "assessment": "Minimum size two in connected bipartite graphs not treated as new; does not identify both endpoints of crown maximal-set spectrum",
+        "evidence": [
+          "Prior lower-general-position framework and results on bipartite graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.09965",
+        "material_read": "arXiv abstract and selected lower-GP results encountered in search",
+        "method": "Compare minimum maximal cardinality with newly claimed full spectrum and counts",
+        "title": "Lower general position sets in graphs",
+        "trigger": "Prior study of small inclusion-maximal general-position sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bdd1dd2e-6811-4993-b868-5c5dc1aafa77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Corrects a concrete published false enumeration for the infinite T*(r,2) family, with an irreducible C6 discrepancy, and determines the complete maximal-set spectrum with arbitrarily long gaps on connected regular bipartite graphs. The error is substantive and motivates the exact coefficients; the result does not claim new general position number or overturned unimodality.",
+    "status": "PASS"
+  }
+}
