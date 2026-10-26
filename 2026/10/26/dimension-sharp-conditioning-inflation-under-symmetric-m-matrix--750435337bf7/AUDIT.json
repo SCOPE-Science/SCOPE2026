@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The unique positive balancing vector follows from strict convexity and coercivity of one explicit functional. Bounds follow from x_i(Ax)_i=1, the Z-sign inequality, d=x^TAx, and B=I+weighted graph Laplacian. The weighted-star hub/leaf equations give a positive explicit t and q, its invariant eigen-subspaces give the full balanced spectrum, and its limits yield strict nonzero coefficients for all fixed K>1. A high-precision standalone replay checked representative dimensions and couplings but is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Liu–Sidford–Tu Claim 3.8 bounds the diagonal spread by 10q and studies accuracy; it does not state a dimension-order lower bound for balanced spectral conditioning.",
+        "Vladu Theorem 1 gives an iteration-complexity guarantee for computing an approximate scaling, not the star quotient spectrum or lower bound."
+      ],
+      "reasoning": "Existence, uniqueness, efficient computation and coarse spread bounds do not imply that a fixed-condition input must have a balanced matrix with condition growing linearly in dimension. The universal inequality is elementary; the original substantive component is its dimension-sharp spectral obstruction with fixed K and explicit star constants.",
+      "searches": [
+        "symmetric M-matrix scaling star graph bounded matrix condition number divergent diagonal scaling condition Omega square root dimension",
+        "positive definite symmetric M-matrix unit row sum diagonal congruence scaling conditioning amplification star graph spectral condition n",
+        "arxiv:2610.22302 Theorems 1.1, 3.9, Claim 3.8",
+        "arxiv:2504.20619 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.22302 v1 (2026-10-15), inspected pertinent primary PDF material",
+      "arxiv:2504.20619 v1 (2025-04-29), inspected pertinent primary PDF material",
+      "arxiv:1401.5766, abstract only",
+      "Targeted mathematical-literature searches used exact normalization, star scaling, spectral condition amplification and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source algorithm outputs approximate signed congruence row normalization; neither theorem 1.1 nor claim 3.8 bounds lambda_max(XAX) sharply by dimension or constructs a witness.",
+        "James–Langou–Lowery address eigenvector conditioning under a diagonal similarity transformation; the transformation is not a positive symmetric congruence."
+      ],
+      "reasoning": "The lower bound is not a corollary of an algorithmic existence/runtime guarantee or of an unrelated similarity-balancing counterexample. It follows from independent exact hub/leaf scaling and quotient-spectrum analysis; the upper bound comes from the M-matrix signed inequality and graph-Laplacian structure.",
+      "searches": [
+        "symmetric M-matrix scaling star graph bounded matrix condition number divergent diagonal scaling condition Omega square root dimension",
+        "matrix scaling X A X one vector diagonal scaling condition number lower bound hub leaf star graph",
+        "arxiv:2610.22302 Sec. 1 and Claim 3.8",
+        "arxiv:2504.20619 Sec. 1.1",
+        "arxiv:1401.5766 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The signed row-sum equation XAX1=1 is the exact target in arXiv:2610.22302 and arXiv:2504.20619; nonnegative Sinkhorn and similarity balancing use other constraints.",
+        "In the star construction B=I+L has smallest eigenvalue 1, while the other quotient eigenvalue grows as c²m/(1-c²)."
+      ],
+      "reasoning": "We checked the signed congruence formulation and aliases Stieltjes scaling, symmetric M-matrix balancing, unit row sums, weighted star, and graph-Laplacian normalization. Similarity balancing X^{-1}AX and nonnegative Sinkhorn scaling are not mathematically equivalent to XAX with negative offdiagonal entries.",
+      "searches": [
+        "sharp dimension dependence symmetric M matrix Sinkhorn scaling well conditioned star",
+        "matrix scaling X A X one vector diagonal scaling condition number lower bound hub leaf star graph",
+        "web: \"matrix scaling\" \"star graph\" diagonal scaling condition number",
+        "arxiv:2610.22302 Sec. 1, Sec. 3 and App. B",
+        "arxiv:2504.20619 Sec. 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record comparisons found related row-coherence and solver-conditioning results but no record of the exact positive symmetric M-matrix star balancing eigenspectrum.",
+        "The checked two primary papers do not tabulate condition numbers for the balanced weighted-star family."
+      ],
+      "reasoning": "No exact scalar parameters or limiting constants were found in the accessible records examined. Failure to find a table is not a novelty proof, and an older unindexed matrix-equilibration example is the main residual uncertainty.",
+      "searches": [
+        "condition number of diagonal matrix balancing symmetric positive definite Z matrix weighted star hub leaves",
+        "balanced Stieltjes matrix normalized row sums condition number worsens linear in dimension fixed original eigenvalue condition",
+        "web: \"symmetric scaling\" \"worsens condition number\" graph star",
+        "web: \"matrix scaling\" \"condition number\" \"star\" \"symmetric\" scaled"
+      ]
+    },
+    "rationale": "The exact matched dimension-exponent amplification for positive symmetric congruence row-sum scaling, rather than the generic observation that scaling changes conditioning, was not found in the inspected algorithms or checked mathematical research records. The Liu–Sidford–Tu and Vladu theorems guarantee computation of the scaling but do not imply the derived bounded-condition weighted-star spectral formula. A traditional equivalent may exist; it is a listed residual risk.",
+    "residual_risks": [
+      "An older matrix scaling/equilibration text might already give a star-shaped signed congruence obstruction or an equivalent dimension-order condition-number lower bound.",
+      "Not every historical full-text source in the large matrix-balancing literature was exhaustively read; originality awaits independent audit.",
+      "General existence of conditioning deterioration is established background and is explicitly not claimed as novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results concern scaling algorithms and bounds on scaling spread, but do not provide the weighted-star exact balanced spectrum or fixed-input-condition linear dimension growth.",
+        "evidence": [
+          "Theorem 1.1 supplies polylogarithmic algorithmic guarantees; Claim 3.8 asserts kappa(X) <= 10q.",
+          "The article notes matrix scaling is sometimes used for preconditioning but provides no general spectral-improvement guarantee."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.22302",
+        "material_read": "Original v1 PDF: introduction and main results (pp. 1–4), Claim 3.8 and Theorem 3.9 (p. 11), appendix proof of Claim 3.8 (p. 19), inspected text and page images",
+        "method": "Direct arXiv PDF text and screenshot inspection, plus targeted text search for scaling spread and star constructions",
+        "title": "Near-Optimal Parallel M-Matrix Scaling",
+        "trigger": "Identical normalization XAX1=1 and a precision lemma involving diagonal scaling condition number"
+      },
+      {
+        "assessment": "The inspected theorem is an algorithmic iteration bound for scaling. It does not give the exact star condition amplification or sharp dimension order.",
+        "evidence": [
+          "Matrix scaling MS(A,epsilon) asks for XAX1 approximately 1.",
+          "Theorem 1 bounds the number of predictor-corrector iterations, not a spectral condition number of the resulting matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2504.20619",
+        "material_read": "Full original arXiv PDF: introduction, matrix scaling definition (pp. 2–3), main results and Theorem 1 (p. 4), method introduction (pp. 5–6), text searches for star and condition number",
+        "method": "Direct arXiv PDF text and screenshot inspection of pertinent passages",
+        "title": "Breaking the Barrier of Self-Concordant Barriers: Faster Interior Point Methods for M-Matrices",
+        "trigger": "Preceding algorithm for the same signed symmetric M-matrix scaling objective"
+      },
+      {
+        "assessment": "Background warning relates to similarity balancing for nonsymmetric eigenproblems. It neither proves nor rules out the present exact star bounds.",
+        "evidence": [
+          "Abstract reports deteriorated eigenvector accuracy and eigenvalue conditioning in matrix balancing; this is different from signed row-sum congruence scaling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.5766",
+        "material_read": "Abstract and stated transformation context only; full text not read",
+        "method": "Public abstract review and comparison with signed positive congruence problem",
+        "title": "On matrix balancing and eigenvector computation",
+        "trigger": "Older literature documenting possible numerical harm from balancing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75043533-7bf7-4500-9f64-614a0c15a24b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Signed unit-row-sum equilibration is central to algorithms for symmetric M-matrices and sometimes proposed as preconditioning. The proved dimension-order barrier shows that even with input Euclidean condition K held constant, the EXACT requested output must have condition Theta(d) and diagonal-spread Theta(sqrt(d)), sharply delimiting any expectation of dimension-free condition retention. A weighted star is a canonical sparse graph rather than an arbitrary unmotivated numeric slice, and the exact coefficient quantifies the practical tradeoff. No downstream theorem or runtime claim is assumed.",
+    "status": "PASS"
+  }
+}
