@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "XOR-translation reduces any shattered six-set to six weight-two vectors; distance identity proves a center realizing a nonempty trace has weight 0, 2, or 4, hence at most four outside-support positions matter. A complete inductive enumeration of 68 unlabeled 6-edge graphs and all admissible masks yields at most 49/64 patterns. Small d cases and star witnesses checked with exact executable; reduction, not finite extrapolation, proves the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2007.16042v1, Theorem 1.1 and Theorem 4.6, prove open-neighborhood Hamming VC dimension at most three for distance one.",
+        "arxiv:2405.07588v1, Sections 3-6, provide generic closed-neighborhood VC bounds and algorithms; no distance-two Hamming closed formula appears in inspected sections."
+      ],
+      "reasoning": "Neither the first-neighbor result nor general VC algorithms supply a dominating theorem for exact distance-two Hamming sphere traces. General graph algorithms can evaluate finite instances but do not entail the symbolic threshold.",
+      "searches": [
+        "web: VC dimension Hamming spheres exact distance 2 binary hypercube",
+        "web: VC dimension of spheres in Hamming space radius two exact",
+        "published-finding corpus: binary Hamming sphere exact distance 2 shattering VCdim 5 stabilized dimension at least seven"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042v1 (primary full-text relevant section)",
+      "arxiv:2405.07588v1 (primary full-text definitions and main sections)",
+      "published-finding corpus identifier 2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4 (summary only, unrelated invariant)",
+      "own accessible previous claim a9528fa9-0607-4f39-a422-83212b4b4e07 (radius-two closed balls; claim only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2007.16042v1 Theorem 4.6 bounds open neighborhoods of Hamming graphs (distance one) by three.",
+        "arxiv:2405.07588v1 Definition of graph VC dimension in Section 2 is for closed neighborhoods, and Theorem 1 is a hardness construction.",
+        "Prior binary radius-two ball classification stable VC=4 contrasts with sphere stable VC=5; neither fixed-radius-ball shattering classification logically forces the sphere classification."
+      ],
+      "reasoning": "Changing distance=1 to distance=2 changes the underlying graph, and changing distance<=2 to distance=2 changes the family of ranges. Neither operation preserves set-system shattering statements via implication, and the dimension values differ. The present proof uses the weight-two shell and a new six-edge trace kernel.",
+      "searches": [
+        "arxiv:2007.16042v1 Hamming distance-one section 4",
+        "arxiv:2405.07588v1 general closed-neighborhood algorithm sections 2-6",
+        "published-finding corpus: Exact VC dimension of Hamming distance-two spheres in Boolean hypercubes, five-point shattering, edge graph representation of weight-two vectors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact-distance-two binary relation is the open-neighborhood relation of the disjoint union of two halved-cube parity components: https://mathworld.wolfram.com/HalvedCubeGraph.html",
+        "The inspected arXiv:2007.16042v1 Section 4 explicitly treats Hamming-distance-one adjacency, not distance-two adjacency."
+      ],
+      "reasoning": "XOR parity splits the distance-two graph into two halved cubes, yielding an equivalent graph VC formulation on the **disjoint union** (not necessarily on one component because the other parity provides an empty trace). Search of that alias found no matching exact all-dimension shattering theorem. A different graph relation or topology result does not directly imply the present VC classification.",
+      "searches": [
+        "published-finding corpus: Exact VC dimension of Hamming distance-two spheres in Boolean hypercubes, five-point shattering, edge graph representation of weight-two vectors",
+        "published-finding corpus: halved cube graph open neighborhood VC dimension all dimensions half cube 2-distance Boolean hypercube exact 5",
+        "web: \"VC dimension\" \"distance two\" \"hypercube\" sphere",
+        "web: VC-dimension open neighborhoods square hypercube graph distance two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published-finding corpus identifier 2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4 has weight-two-shell positive-definite Turán constant, a different invariant.",
+        "Accessible previous scientific claim a9528fa9-0607-4f39-a422-83212b4b4e07 concerns radius-two balls, not exact distance-two spheres."
+      ],
+      "reasoning": "No exact six-value table or matching graph-type certificate was identified in published-finding corpus or targeted literature. Absence from search is only best-knowledge evidence, not a uniqueness theorem.",
+      "searches": [
+        "published-finding corpus: sphere neighborhoods distance-two graph halved cube VC dimension",
+        "published-finding corpus: exact VC dimension radius-two Boolean Hamming balls and exact distance-two spheres, distinguish equality from inequality, hypercube dimensions",
+        "web: shattering Hamming distance spheres binary fixed radius two"
+      ]
+    },
+    "rationale": "The inspected primary sources handle distance-one open neighborhoods (Adler et al. 2020) or arbitrary-graph closed-neighborhood VC algorithms (Coudert et al. 2024). They do not imply the exact-distance-two sphere classification. Prior exact radius-two ball result is not equivalent and has stable VC dimension four instead of five. published-finding corpus semantic and literal search found no decisive same claim; halved-cube terminology remains residual risk.",
+    "residual_risks": [
+      "Unsearched or differently indexed halved-cube exact open-neighborhood VC results could establish equivalence; no claim of absolute novelty or priority.",
+      "The finite certificate relies on networkx exact graph-isomorphism machinery and should be independently implemented for external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DISTINCT: Hamming graph distance-one adjacency, not exact distance-two shell.",
+        "evidence": [
+          "Theorem 1.1 and Theorem 4.6: VC dimension at most three for distance-one Hamming graph edge relation; Corollary 4.4 describes second-neighborhood graph structure but no VC theorem for it."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Preprint pages 1-5, the Section 4 Hamming graph argument on pages 20-23, including Theorem 4.6; inspected rendered first page and extracted full section text.",
+        "method": "Public arXiv full-text PDF via web reader plus visual screenshot of first page",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Very close Hamming-graph neighborhood VC literature"
+      },
+      {
+        "assessment": "DISTINCT: generic closed-neighborhood VC algorithm and hardness, not an exact halved-cube open-neighborhood classification.",
+        "evidence": [
+          "Section 2 defines graph VC dimension using closed neighborhoods; Theorem 1 gives W[1]-hardness; Section 4 provides general graph-parameter bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+        "material_read": "Preprint abstract, definitions, Sections 3-6 organization and statements/bounds; visually inspected first page.",
+        "method": "Public arXiv full-text PDF via web reader plus visual screenshot of first page",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Potentially dominating general graph VC algorithm or closed-neighborhood result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa804f0c-6690-4ad3-81cd-ec9a2ad5d772",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A full exact dimension-by-dimension classification of a natural distance relation of Hamming association schemes; stable bound 5, threshold d=7, exceptional d=4, and precise separation from the corresponding distance-one relation and distance-at-most-two balls. The finite graph-support kernel is a reusable structural reduction for fixed Hamming shells and provides a motivated combinatorial method.",
+    "status": "PASS"
+  }
+}
