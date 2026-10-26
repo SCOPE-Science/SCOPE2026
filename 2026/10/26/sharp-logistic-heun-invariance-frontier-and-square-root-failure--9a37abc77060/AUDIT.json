@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, proof Steps 1–3",
+      "verify.py: VERIFY_OK 2071"
+    ],
+    "rationale": "Independently derive the normalized polynomial from both Heun stages; exact identities factor output sign and the carrying-capacity gap. The cubic discriminant \\(r^6(r^4-18r^2-27)\\) and local-minimum sign give the sharp lower-output threshold. A separate two-case \\(u=rx\\) inequality proves the upper range bound uniformly below it. At the critical tangency, the two-root Puiseux expansion has nonzero parameter derivative and positive second derivative, proving the width and negative-depth constants. A standalone pure-Python exact-rational verifier passes 2071 checks, supplementary to proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2510.03420 introduces a modified second-order nonstandard numerical scheme with unconditional positivity, distinct from the classical explicit trapezoidal method",
+        "arxiv:2607.19413 explicitly contrasts classical and unconventional integrators."
+      ],
+      "reasoning": "General positive schemes do not dominate an exact parameter classification for classical Heun. General stability-radius or RK positivity principles do not by themselves yield the specific invariant interval nor square-root constant.",
+      "searches": [
+        "logistic Heun explicit trapezoidal method positive invariant carrying capacity all step sizes",
+        "https://arxiv.org/abs/2510.03420",
+        "Runge Kutta Heun logistic equation positivity sharp r= sqrt(9+6 sqrt(3)) invariant interval"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.19413",
+      "arxiv:2510.03420",
+      "https://kauri.readthedocs.io/en/latest/pages/rk.html",
+      "Public indexed findings on Fehlberg RK4(5), Richardson-extrapolated backward Euler, and positive nonstandard integrators (different numerical maps)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grammaticos–Tamizhmani–Willox (2026) states numerical onset around 4.4037; the statement lacks exact radical, universal all-initial-data invariant-interval iff theorem, and square-root law.",
+        "Hoang–Ehrhardt (2025) develops a modified nonstandard method that preserves positivity for all steps; it is not classical Heun."
+      ],
+      "reasoning": "The prior numerical threshold is a near-accurate observation, not a quantified proof of full interval invariance. The exact algebraic constant, uniform upper and lower range bounds, and asymptotic width are not deductions from the source stated results without new analysis; in particular, the upper bound requires a separate global polynomial inequality.",
+      "searches": [
+        "https://arxiv.org/abs/2607.19413",
+        "https://arxiv.org/abs/2510.03420",
+        "\"4.4037\" \"Runge-Kutta\" positivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2607.19413 section 2 gives the exact polynomial and numerical 4.4037, but no formula for r* or bifurcation-width asymptotic in inspected material",
+        "Standard RK2 tableau at https://kauri.readthedocs.io/en/latest/pages/rk.html establishes algorithm identity."
+      ],
+      "reasoning": "The normalized logistic Heun recurrence, improved Euler, and explicit trapezoidal RK2 are the same method; searched these aliases. The source gives the recurrence and approximate threshold, which anticipates location but does not supply the exact if-and-only-if interval result or square-root law.",
+      "searches": [
+        "Runge Kutta Heun logistic equation positivity sharp r= sqrt(9+6 sqrt(3)) invariant interval",
+        "logistic second order Runge Kutta first loss positivity 4.4037 cubic discriminant",
+        "\"4.403669\" logistic Runge Kutta",
+        "\"9+6 sqrt(3)\" Heun logistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed result: Exact error-estimator resonance in the classical Fehlberg RK4(5) pair studies RK4(5) error-estimator zeros on scalar linear dynamics, not the nonlinear Heun logistic range.",
+        "Accessible prior statements concern different integrators or numerical algebra algorithms."
+      ],
+      "reasoning": "No exact invariant-range tabulation of the logistic Heun polynomial was returned. A failure to locate a table is evidence of limited coverage only, not proof of novelty.",
+      "searches": [
+        "2607.19413 Grammaticos Tamizhmani Willox Runge Kutta logistic 4.4037 exact sharp invariant interval square root failure width",
+        "Heun Runge Kutta logistic carrying capacity interval invariance step size sqrt(9+6sqrt3)",
+        "\"4.4037\" \"Runge-Kutta\" positivity"
+      ]
+    },
+    "rationale": "The 2026 primary source prints the same Heun polynomial and numerical loss of positivity near 4.4037, but its inspected relevant section (pp. introductory logistic case and discussion) does not state the exact algebraic parameter, universal fixed-step invariance iff condition, or local square-root failure-width constant. The new claim credits the numerical observation and strengthens it to a uniformly quantified sharp theorem. General positivity-preserving nonstandard integrators concern different maps. Closest indexed findings analyze other numerical schemes or systems; none logically implies the logistic-map classification. Historical-priority risk remains, particularly older exact Heun-logistic bifurcation analyses.",
+    "residual_risks": [
+      "The 2026 motivating paper already reports an approximately matching numerical threshold; the present priority claim is limited to the algebraic if-and-only-if proof and local failure geometry.",
+      "Search cannot exclude an older exact classification in specialist dynamical-systems literature under another alias.",
+      "The full text of arxiv:2510.03420 was not readable in the available channel, although its method is explicitly nonstandard and different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct antecedent: anticipates numerical boundary, not found stating exact radical/invariant interval iff/square-root width.",
+        "evidence": [
+          "Source section 2: logistic RK2 recurrence \\(P_r(x)\\) and positivity loss around 4.4037; sections describe positivity-preserving alternatives."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.19413",
+        "material_read": "Full relevant source text of section 2, including definitions, three maps, fixed-point discussion, and numerical claims for r=4.4 and around 4.4037, together with introduction and subsequent relevant integrator discussion.",
+        "method": "Read accessible arXiv full-text HTML rendering and independently reconstructed the displayed Heun polynomial from the two-stage method.",
+        "title": "On unconventional discretisations",
+        "trigger": "Same explicit logistic Runge–Kutta map and reported positivity-loss value."
+      },
+      {
+        "assessment": "Different modified positive method; abstract does not provide an exact boundary for unmodified Heun. Full text not inspected; residual risk retained.",
+        "evidence": [
+          "The abstract describes generalized nonstandard finite differences with unconditional positivity rather than standard Heun."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.03420",
+        "material_read": "ArXiv bibliographic record and detailed abstract, not the full body; distinct numerical method indicated.",
+        "method": "Checked arXiv record, 2025-10-03 first-public date and its explicit nonstandard-scheme description.",
+        "title": "A Generalized Second-Order Positivity-Preserving Numerical Method for Non-Autonomous Dynamical Systems with Applications",
+        "trigger": "Potential stronger scheme-independent second-order positivity coverage."
+      },
+      {
+        "assessment": "Defines the standard method used; no nonlinear invariant-interval classification.",
+        "evidence": [
+          "Butcher weights \\((1/2,1/2)\\), second-stage coefficient \\(1\\)."
+        ],
+        "identifier_or_url": "https://kauri.readthedocs.io/en/latest/pages/rk.html",
+        "material_read": "Two-stage Heun explicit RK2 tableau and distinction from explicit midpoint.",
+        "method": "Read displayed tableau.",
+        "title": "Heun RK2 tableau",
+        "trigger": "Verify numerical method alias and tableau."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a37abc7-7060-4f51-9b12-c434df015d4c",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "arxiv:2607.19413 motivates the numerically observed threshold",
+      "RESULT.md constructs exact safe interval and failure window"
+    ],
+    "rationale": "An exact biologically admissible timestep is a natural safety invariant for numerical logistic dynamics, not an arbitrary slice. The new result upgrades a previously numerical transition to a sharp all-initial-data/all-iterate if-and-only-if guarantee, and quantifies the square-root birth and linear depth of dangerous initial conditions beyond the safety boundary. This determines a precise positivity step-size restriction for a widely used two-stage integrator and separates nonnegativity, boundedness, and later dynamical behavior.",
+    "status": "PASS"
+  }
+}
