@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "A total endomorphism idempotent fixes its image pointwise; proper connected cycle images are induced arcs, and the complementary path must map via a bounded adjacent-step walk. This bijection proves exact rank counts and parity restrictions. Each proper arc has dihedral stabilizer of order two, acting on walks by reverse order with label complementation; the midpoint conditions yield F exactly, and orbit-stabilizer gives the complete class sizes. The independent brute-force checker directly enumerated all cases n=3..14 and compared all orbit histograms, but no finite test is treated as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dimitrova et al., arXiv:2310.04149v1, Proposition 1.7 and Proposition 1.9; Sections 2–3.",
+        "Lin–Zeng, arXiv:1112.4026, §2, Lemma 5 and §3."
+      ],
+      "reasoning": "The older general formulas supply ingredient path-walk counts and cycle rank constraints, but neither provides fixed-walk counts for the arc reflection or the two dihedral stabilizer strata, so the whole claimed refinement is not directly covered. These standard ingredients are credited, not asserted original.",
+      "searches": [
+        "Dimitrova Fernandes Koppitz Quinteiro On monoids of endomorphisms of a cycle graph idempotents rank count",
+        "idempotents cycle graph endomorphism monoid rank retractions enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.04149v1 (full text)",
+      "arXiv:1112.4026 (full text)",
+      "DOI:10.1016/j.disc.2008.11.022 (abstract only)",
+      "DOI:10.55730/1300-0098.3460 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Michels–Knauer (2009), accessible abstract: counts endomorphism-induced congruence classes and cycle endomorphism cardinalities; full text unavailable.",
+        "Dimitrova et al., arXiv:2310.04149v1, Section 3: equivalence under independent left and right units, not diagonal conjugation."
+      ],
+      "reasoning": "Green equivalence and two-sided unit equivalence do not generally determine diagonal-conjugation stabilizers. The new claim requires distinguishing reflection-fixed versus paired complementary walks. It can be derived using older walk theory plus a new symmetry argument, and no inspected primary result already states that argument or its orbit distribution.",
+      "searches": [
+        "Michels Knauer congruence classes paths cycles idempotent endomorphisms",
+        "retractions cycles idempotent endomorphisms enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2310.04149v1 §§1–3: endomorphism and two-sided-unit equivalence, not conjugation orbit sizes.",
+        "arXiv:1112.4026 §2: path-walk counting, not automorphism action on cycle retractions."
+      ],
+      "reasoning": "Unit conjugacy is graph-automorphism conjugacy. A fixed image arc has a two-element stabilizer; its nontrivial action reverses the complementary walk and complements its image labels. This specific orbit relation is narrower than the two-sided unit equivalence discussed in the 2023 source.",
+      "searches": [
+        "Dihedral conjugacy orbits of idempotent graph endomorphisms of even cycles, reflection fixed retractions",
+        "Conjugation orbits of idempotents in graph endomorphism monoid End(C_n) Burnside reflected walks"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted integer-sequence and theorem-title web searches returned no matching cycle-idempotent conjugacy table.",
+        "Indexed mathematical-record searches for cycle retractions and conjugation returned only mathematically different cycle-graph or automorphism results."
+      ],
+      "reasoning": "Absence of an indexed table is weak negative evidence only. The exact numbers used in the package are proved by the theorem and exhaustively checked at the displayed finite sizes; a hidden table is a residual priority risk.",
+      "searches": [
+        "3 4 8 14 36 83 conjugacy orbit idempotent endomorphisms cycle",
+        "9 25 73 221 685 2157 cycle graph retractions count"
+      ]
+    },
+    "rationale": "The fully inspected 2023 cycle-endomorphism paper classifies elements, total cardinality, regularity and Green relations but not conjugation-orbit multiplicities of idempotent retractions. The inspected 2011 path-homomorphism paper supplies walk/reflection counts but does not determine the action of dihedral automorphisms on retractions. The new central-vertex/central-edge fixed-walk calculation completes an exact orbit/stabilizer classification. Equivalence in a broader inaccessible 2009 text is acknowledged as unresolved risk, not excluded by abstract alone.",
+    "residual_risks": [
+      "The full 2009 Michels–Knauer text was not accessed; an implicit matching dihedral-orbit classification cannot be excluded.",
+      "General graph-retraction counting sources not captured in indexed searches might include an equivalent orbit formula.",
+      "The theorem uses classical path-walk counting; its claimed originality is specifically the exact unit-conjugacy orbit/stabilizer refinement, not that ingredient."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for unit-conjugacy rank/stabilizer spectra; gives relevant underlying monoid and previous element count.",
+        "evidence": [
+          "Proposition 1.7: odd cycles have no nonautomorphism endomorphisms.",
+          "Proposition 1.9: counts all endomorphisms.",
+          "Section 3: equivalence alpha=sigma beta xi with two independent units, not alpha=g beta g^{-1}."
+        ],
+        "identifier_or_url": "arXiv:2310.04149v1; https://arxiv.org/html/2310.04149v1",
+        "material_read": "Full accessible article: introduction, §§1–3; in particular Prop. 1.1, Lemma 1.4, Props. 1.7, 1.9, §2 Green relations, and §3 two-sided unit equivalence.",
+        "method": "Direct HTML full-text reading and term checks for idempotents, conjugacy and endomorphism cardinality.",
+        "title": "On monoids of endomorphisms of a cycle graph",
+        "trigger": "Same cycle endomorphism monoid and unit group"
+      },
+      {
+        "assessment": "PARTIAL_INGREDIENT: supplies general bounded-walk enumeration; not the dihedral conjugation orbit-size classification.",
+        "evidence": [
+          "Lemma 5 counts lattice walks within strip bounds.",
+          "Theorem 3 enumerates path-induced congruences rather than inner cycle-automorphism orbit types."
+        ],
+        "identifier_or_url": "arXiv:1112.4026; https://arxiv.org/abs/1112.4026",
+        "material_read": "Full accessible HTML text, introduction, §2 including Lemma 5 reflection formula, and §3 congruence-class classification.",
+        "method": "Direct HTML reading, implication comparison of path homomorphisms against cycle-retraction conjugacy.",
+        "title": "On the number of congruence classes of paths",
+        "trigger": "Potentially stronger path walk count and reflection formula"
+      },
+      {
+        "assessment": "UNRESOLVED_SOURCE_RISK, cannot exclude implicit same orbit counts from abstract.",
+        "evidence": [
+          "Accessible abstract describes congruence classes of paths and cycles and exact endomorphism cardinalities, but no idempotent conjugation orbit profile."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.disc.2008.11.022",
+        "material_read": "Bibliographic record and abstract only; full article not accessible.",
+        "method": "Searched for preprint and lawful open-access full text; only a bibliographic abstract was obtained.",
+        "title": "The congruence classes of paths and cycles",
+        "trigger": "Earlier cycle-endomorphism classification of possible priority"
+      },
+      {
+        "assessment": "Different monoid: partial distance-preserving bijections versus total graph homomorphisms.",
+        "evidence": [
+          "Abstract describes a monoid of restrictions of dihedral isometries and its presentations, Green relations, cardinality and rank."
+        ],
+        "identifier_or_url": "DOI:10.55730/1300-0098.3460",
+        "material_read": "Publisher abstract and result description; not full text.",
+        "method": "Read bibliographic/publisher abstract and compare underlying definitions.",
+        "title": "On the monoid of partial isometries of a cycle graph",
+        "trigger": "Similar cycle monoid with potentially overlapping dihedral action"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9bdc2aaa-3b2a-484d-a697-d15a5a2c253b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unit-conjugacy orbits of idempotents are a natural intrinsic invariant of finite transformation monoids and are strictly more informative than total idempotent counts, Green classes or simple rank sets. The result determines all orbit-size strata for every cycle, including a nontrivial reflection-fixed versus paired orbit dichotomy, providing a complete infinite-family classification rather than a narrow arbitrary finite sample.",
+    "status": "PASS"
+  }
+}
