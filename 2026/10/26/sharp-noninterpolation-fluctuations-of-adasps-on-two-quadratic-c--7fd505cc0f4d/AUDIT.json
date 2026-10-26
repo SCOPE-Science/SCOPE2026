@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every c>=1 and independent fair +/- clients with x0=0, the original minimum reduces exactly to eta_t=1/(2c sqrt(S_t)). Positive convex-combination steps keep x_t in (-1,1). Martingale concentration and predictable-step comparison establish Ex_t^2=O(t^-1/2), Ex_t^4=O(t^-1) and quantitative S_t-(t+1)/2 bounds. Coupling error to deterministic a_t=1/(sqrt(2)c sqrt(t+1)) has L2 size O(sqrt(log t)/sqrt t), negligible at t^-1/4. A weighted independent-sign CLT and explicit variance integral yield the Gaussian N(0,1/(2sqrt(2)c)) and sharp sqrt(t) Ex_t^2 limit. Exact path enumeration and seeded experiments reproduce finite identities; they are not proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A general stochastic-approximation CLT for deterministic 1/sqrt(n) gains yields only step 6 of the proof, conditional on step-size equivalence.",
+        "DecSPS uses a different denominator; original AdaSPS noninterpolation rate from arxiv:2308.06058 is an upper bound with no sharp distribution."
+      ],
+      "reasoning": "Checked possible dominating formulations: deterministic-gain and averaged stochastic approximation, AdaGrad-Norm, DecSPS, and the originating AdaSPS convergence theorem. None of the inspected actual statements implies the claimed sharp algorithm-specific distribution without the new random-gain coupling. Earlier generic random-step stochastic approximation might potentially cover the special case; residual risk acknowledged.",
+      "searches": [
+        "adaptive stochastic Polyak cumulative square root sum loss linear recursion asymptotic t one quarter central limit",
+        "noninterpolating AdaSPS self-normalized cumulative loss quadratic stochastic Polyak convergence 1 sqrt n lower bound Gaussian central limit",
+        "Adaptive stochastic Polyak accumulated losses self-normalized decreasing step Gaussian central limit sharp lower bound noninterpolating 2023",
+        "arxiv:2405.17834 stochastic approximation deterministic-gain CLTs",
+        "arxiv:2205.04583 DecSPS"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.06058v1 publication 2023-08-11 (full HTML v2 inspected)",
+      "arxiv:2205.04583 abstract and cited DecSPS formula",
+      "arxiv:2405.17834 accessible primary sections",
+      "arxiv:2406.04142 abstract only",
+      "published-finding corpus semantic search responses for nine recorded queries and closest IDs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jiang–Stich: rates O(1/sqrt(n)) with algorithm defined exactly; no positive leading constant and unaveraged Gaussian law in inspected full-text relevant sections.",
+        "Generic fixed-stepsize stochastic approximation: Gaussian covariance of predictable deterministic gain; omits present loss-normalized self-coupling.",
+        "SPS_max clipping result: no loss accumulation."
+      ],
+      "reasoning": "An upper risk bound does not imply the claimed matching lower asymptotic, nor the distribution. A deterministic-gain limit could cover z_n but does not by itself establish x_n-z_n=o_L2(n^-1/4). This implication comparison is substantive but priority risk remains for potentially uninspected broadly phrased random-step limit theorems.",
+      "searches": [
+        "Jiang Stich original AdaSPS two symmetric shifted quadratics exact n to one fourth normal law last iterate variance constant accumulated component loss",
+        "Adaptive stochastic Polyak accumulated losses self-normalized decreasing step Gaussian central limit sharp lower bound noninterpolating 2023",
+        "arxiv:2308.06058v2 §§3.1–3.2 and App. B",
+        "arxiv:2405.17834 main results",
+        "published-finding corpus cited near-neighbor IDs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A nonincreasing current-loss AdaSPS step becomes 1/(2c sqrt(S_t)) on two shifted unit quadratics; the claim is a n^(1/4) last-iterate central limit law and nonzero sqrt(n)-scaled squared-error limit.",
+        "Jiang–Stich arxiv:2308.06058v2 gives this AdaSPS formula, upper bounds and numerical studies, not an identical limit statement in inspected sections."
+      ],
+      "reasoning": "Equivalent names include loss-accumulating SPS, self-normalized Polyak SGD, and stochastic approximation with random gain. An ordinary deterministic-gain CLT alone does not imply the current-sample loss-normalized rule, because its gain correlates with the fresh sign. Proof equations (4), (7), (8), (11) close that gap on the specified family. No identical formulation found in actual searches, but search failure does not establish global uniqueness.",
+      "searches": [
+        "Jiang Stich AdaSPS 2023 asymptotic normality stochastic approximation quadratic noninterpolation t one quarter Gaussian",
+        "AdaSPS Jiang Stich two shifted quadratic component minimizers plus minus one asymptotic fluctuation n quarter normal variance exact noninterpolating",
+        "Jiang Stich original AdaSPS two symmetric shifted quadratics exact n to one fourth normal law last iterate variance constant accumulated component loss",
+        "arxiv:2308.06058v2 §3.1, §3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus near-neighbors listed by concrete IDs are SPS_max clipping, loose-lower-bound SPS, B-adaPG, Padam, and STORM; they solve different recurrence laws."
+      ],
+      "reasoning": "No exact tabulated constant 1/(2 sqrt(2) c) or n^(1/4) Gaussian result on original AdaSPS was recovered. Semantic matching is not an exhaustive database proof, and a database partition alone does not prove novelty.",
+      "searches": [
+        "AdaSPS Jiang Stich 2023 adaptive stochastic Polyak stepsize exact scalar noninterpolating quadratic",
+        "AdaSPS equal curvature noninterpolating two shifted quadratics sharp mean square constant",
+        "loss accumulated gradient adaptivity diminishing stochastic approximation quadratic n to one fourth fluctuations"
+      ]
+    },
+    "rationale": "The fully inspected originating arxiv:2308.06058v2 states AdaSPS and big-O rate results, not this positive asymptotic last-iterate risk constant, associated Gaussian law or rigorous current-sample-gain coupling. Relevant DecSPS, deterministic-gain stochastic approximation and published-finding corpus near-neighbors do not imply the complete statement based on their examined hypotheses. Best-knowledge novelty only; priority risks recorded.",
+    "residual_risks": [
+      "Potential earlier random-step stochastic approximation CLT could specialize to this gain under alternative terminology.",
+      "Full text of arxiv:2406.04142 not examined; full text of arxiv:2205.04583 incompletely read.",
+      "Independent literature-priority verification absent; semantic retrieval and database partitions cannot certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original step formula matches the exact reduction used here; source upper bounds do not give the positive sharp scaled last-iterate constant or a Gaussian n^(1/4) limit for the stated two clients.",
+        "evidence": [
+          "arxiv:2308.06058, §3.1 AdaSPS displayed step; §3.2 Theorem 1 and Corollary 5, Appendix B; first public submission 2023-08-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2308.06058v2",
+        "material_read": "Section 3.1 exact AdaSPS definition, Section 3.2 Theorem 1 / Corollary 5, Sections 1.1 and 5, and appendix proof/navigation.",
+        "method": "Read available full-text HTML, directly compared step formula and theorem conclusions.",
+        "title": "Adaptive SGD with Polyak Stepsize and Line-Search: Robust Convergence and Variance Reduction",
+        "trigger": "Defines precise AdaSPS update and establishes its existing convergence rates."
+      },
+      {
+        "assessment": "DecSPS uses prescribed 1/sqrt(t+1) shrinkage, distinct from the cumulative-loss denominator of original AdaSPS; residual full-text priority risk retained.",
+        "evidence": [
+          "arxiv:2205.04583 abstract",
+          "arxiv:2308.06058v2 §2.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.04583",
+        "material_read": "Accessible abstract and comparison of DecSPS mathematical definition supplied in the AdaSPS source section 2.2; primary full-text inspection limited.",
+        "method": "Read abstract/source comparison and compare update formulas.",
+        "title": "Dynamics of SGD with Stochastic Polyak Stepsizes: Truly Adaptive Variants and Convergence to Exact Solution",
+        "trigger": "Source-cited closely related DecSPS step-size variant."
+      },
+      {
+        "assessment": "Prescribed deterministic gains and averaging theory do not directly prove quantitative equivalence of AdaSPS loss-normalized current-sample gain, although generic deterministic-gain CLT is explicitly acknowledged and used.",
+        "evidence": [
+          "arxiv:2405.17834 main assumptions and results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.17834",
+        "material_read": "Accessible primary full-text introduction, main deterministic-gain results and assumptions; detailed supplemental coverage incomplete.",
+        "method": "Compared assumptions and random predictable/current-sample gain.",
+        "title": "Revisiting Step-Size Assumptions in Stochastic Approximation",
+        "trigger": "Potentially broader stochastic-approximation CLT with 1/sqrt(t) gain."
+      },
+      {
+        "assessment": "Possible related treatment of modified stochastic Polyak steps and momentum, full-text novelty risk remains.",
+        "evidence": [
+          "arxiv:2406.04142 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.04142",
+        "material_read": "Abstract only; available full-text retrieval unsuccessful.",
+        "method": "Abstract-level relevance assessment only, not a claim of whole-document noncoverage.",
+        "title": "Stochastic Polyak Step-sizes and Momentum: Convergence Guarantees and Practical Performance",
+        "trigger": "Closely related stochastic Polyak algorithmic literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fd505cc-0f4d-4218-8f6f-32a0d1a64eea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating paper establishes noninterpolating O(n^-1/2) rates but does not show the rate is attained by its actual adaptive rule. The nonzero exact squared-error constant and n^(1/4) Gaussian fluctuation for a natural simplest strongly convex noninterpolating pair resolve its algorithm-specific sharpness and give a reproducible risk/uncertainty benchmark. Not claimed as a new generic central limit theorem, and its scope is narrowly but naturally motivated by the source rate gap.",
+    "status": "PASS"
+  }
+}
