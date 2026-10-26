@@ -1,0 +1,97 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(k\\ge2\\), the five specified maps on \\(\\mathbb Z/k\\mathbb Z\\times\\{0,1\\}\\) square to the identity. The hidden closure partitions the \\(2k\\) states into exactly \\(k\\) pairs. The two observable reflections compose to a rotation, and conjugates of the pair transposition generate \\(S_k\\). A single additional observable involution adds any chosen missing pair after conjugating by a pair permutation. Consequently all \\(2^k-1\\) nonempty unions are reachable; a permutation carrying an index in the symmetric difference to the accepting index distinguishes any two. Original-state transitivity plus singleton acceptance proves the input is minimal. Exhaustive projected subset minimization for \\(2\\le k\\le10\\) and 4095 direct erasure comparisons independently corroborate the construction; the infinite claim follows from the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2108.06976 Theorem 1 supplies the wider-class numerical upper bound, but its Theorem 2 assumes a nonempty collection of fixed states outside the moved hidden orbits.",
+        "DOI 10.1007/s00236-021-00402-0, Sections 4 and 6 discuss other DUFA operations; the endpoint erasure construction is not one of their theorems."
+      ],
+      "reasoning": "A sharp bound for a larger automaton class does not entail a witness in a narrower involution class. Nor does the existence of a seven-letter arbitrary-permutation witness entail the full-matching five-letter construction. Existing general upper bounds are fully credited.",
+      "searches": [
+        "\"State Complexity of Projection on Languages Recognized by Permutation Automata\" \"alphabet\" \"improve\" 2024",
+        "projection state complexity undirected automata 5 letters 2^k-1 witness fixed-point free hidden involution",
+        "State complexity of erasing a symbol from involution permutation automata, subset construction, dihedral groups"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.06976v1 (2021-08-16)",
+      "DOI:10.1007/s00236-021-00402-0 (first online 2021-05-24)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hoffmann 2021: the general upper bound covers the inequality only; the explicit lower-bound hypothesis excludes the endpoint and the visible letters include cycles of lengths exceeding two.",
+        "Kutrib--Malcher--Schneider 2021: Section 2 imposes same-label edge symmetry, a property not guaranteed by general permutation witnesses."
+      ],
+      "reasoning": "Neither a known upper bound nor a lower bound proved for automata with fixed hidden states logically implies attainment by minimal all-involution automata with no hidden fixed points. The present proof explicitly supplies missing reachability and distinguishability, and nonclosure follows from a noninjective transition of the minimal projected DFA.",
+      "searches": [
+        "projection involution finite automata erasing letter exponentially many states undirected deterministic",
+        "\"projection\" \"involution\" \"finite automata\" language state complexity",
+        "\"undirected automata\" state complexity projection involutions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.06976 Sections 3 and 4 establish epsilon-closure projection by hidden orbits, so the equivalent subset formulation was inspected.",
+        "Kutrib--Malcher--Schneider, DOI 10.1007/s00236-021-00402-0, Section 2 defines deterministic undirected automata as same-letter symmetric transitions."
+      ],
+      "reasoning": "The reformulations as erasure from an involution automaton, a subset determinization with all nonempty hidden-pair unions, and an endpoint restriction of permutation-automaton state complexity were compared. Neither inspected work provides a five-involution endpoint witness; the orbit upper bound alone does not prove attainability under this restriction.",
+      "searches": [
+        "Projection of minimal 2k-state deterministic undirected automata one hidden involution and four visible involutions yields 2^k-1 state DFA",
+        "projection involution finite automata erasing letter exponentially many states undirected deterministic",
+        "Projection (erasing alphabet letters) of deterministic undirected finite automata DUFA involutive letters; state complexity tight, observer properties"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2108.06976, Section 4: upper-bound exponent specializes to \\(k\\) when \\(n=m=2k\\); its stated lower-bound witness has \\(0<2m+1<n\\).",
+        "The queried indexed record closest in topic, Fixed hidden alphabets preserve almost all finite-language projection blow-up, concerns finite languages and not involutive permutation automata."
+      ],
+      "reasoning": "The numerical bound is a known table entry, whereas the fixed-point-free hidden-involution, exactly-five-letter lower-bound witness is the new object. Indexed record title/summary comparisons showed no exact matching endpoint example; this does not prove globally unique priority.",
+      "searches": [
+        "Stefan Hoffmann 2021 projection state complexity permutation automata 2^{n-ceil(m/2)}-1, seven-letter witness, hidden perfect matching even n",
+        "Five-letter involutive automata hidden perfect matching projection achieves 2^(n/2)-1 subset complexity with dihedral or symmetric action",
+        "\"projection\" \"permutation automata\" \"five\" letters witness"
+      ]
+    },
+    "rationale": "Hoffmann (arXiv:2108.06976, Sections 3--4) already established the general upper bound \\(2^{n-\\lceil m/2\\rceil}-1\\), so it is not claimed as new. His seven-letter witness theorem explicitly assumes \\(0<2m+1<n\\) and does not provide the full-matching endpoint \\(m=n=2k\\). The present minimal five-letter, all-involution witness attains this endpoint and exhibits nonclosure of deterministic undirected languages under letter erasure. Kutrib--Malcher--Schneider (2021) defines DUFAs but does not give this projection witness. Indexed searches yielded no implication covering the restricted endpoint. The residual possibility of an unindexed equivalent construction is recorded.",
+    "residual_risks": [
+      "An unindexed or inaccessible construction may already attain the same full-matching bound using involutive letters; the claim is qualified by this remaining literature risk.",
+      "Hoffmann already proved the numerical bound. Originality attaches only to the restricted exact witness and its fixed five-letter alphabet, not to that bound.",
+      "No smallest possible alphabet size or odd-state parameter is established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UPPER_BOUND_ALREADY_KNOWN; RESTRICTED_ENDPOINT_WITNESS_NOT_COVERED",
+        "evidence": "Upper: \\(2^{n-\\lceil m/2\\rceil}-1\\) when \\(m>0\\). Theorem 2: \\(0<2m+1<n\\), seven letters, including visible cycles. Remark 1 asks about reducing alphabet size.",
+        "identifier_or_url": "arXiv:2108.06976 | https://arxiv.org/abs/2108.06976",
+        "material_read": "Primary arXiv full-text HTML, Sections 2--5; in particular Definition 1, the orbit-subset construction, Section 4 upper bound, lower-bound parameter hypotheses, proof sketch, alphabet-size remark, and Section 5 state-partition condition.",
+        "method": "Open-access primary full-text HTML reading and statement-versus-implication comparison.",
+        "title": "State Complexity of Projection on Languages Recognized by Permutation Automata and Commuting Letters",
+        "trigger": "Direct source of the general projection upper bound and the seven-letter witness; potential strongest coverage."
+      },
+      {
+        "assessment": "DEFINED_RESTRICTED_MODEL; NO_EXACT_ERASURE_ENDPOINT_WITNESS",
+        "evidence": "Section 2 defines DUFAs by reversible same-label transitions. Sections 4 and 6 study Boolean operations, concatenation, iteration and reversal, not this alphabet-erasure witness.",
+        "identifier_or_url": "DOI:10.1007/s00236-021-00402-0 | https://link.springer.com/article/10.1007/s00236-021-00402-0",
+        "material_read": "Open-access full-text HTML Sections 2--4 and Section 6, including formal same-letter symmetry definition, unary/binary DUFA classifications and conclusion about operations and unresolved complexities.",
+        "method": "Open-access publisher full-text HTML reading and scoped operation comparison.",
+        "title": "Finite automata with undirected state graphs",
+        "trigger": "Primary definition and operational state complexity of deterministic undirected automata."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54a818a8-9c74-4a51-ae63-4df2547aa3af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Letter erasure is a classical formal-language operation whose deterministic state blow-up measures the cost of hiding transitions. The existing tight permutation-automaton bound left a concrete endpoint gap for its published witnesses, namely every state moved by an erased letter. An explicit all-involution witness sharp at this boundary and uniform over all even state sizes addresses a motivated structural problem: the restricted input machine is minimal, uses a constant alphabet of five letters, yields exactly all nonempty hidden-pair unions, and leaves the restricted language class after erasure. No downstream theorem is assumed; the exact extremal construction and class separation have independent value.",
+    "status": "PASS"
+  }
+}
