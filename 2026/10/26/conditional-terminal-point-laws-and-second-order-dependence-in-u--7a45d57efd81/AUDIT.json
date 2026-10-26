@@ -1,0 +1,168 @@
+{
+  "correctness": {
+    "rationale": "The conditional permutation and directed rooted-forest decomposition is standard. Matrix-tree gives k n^(n-k-1) forests with k fixed cyclic roots; deleting r specified terminal nonroots and reattaching them gives k(n-r)^(n-k-1), hence every factorial moment. Strictly decreasing conditional mean proves finite anticovariance, and an independent one-terminal deletion computes exact covariance. Uniform Rayleigh/Gaussian bounds justify taking the second-order expansion through mixed moments; the occupancy variance establishes the correlation constant. The packaged Python verifier exhaustively counts all n^n functions at n=2,...,7 in exact rational arithmetic and checks every conditional stratum, with numerical larger-n diagnostics; no infinite proof is inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman 2001, Section 3.2, states the conditional forest/permutation decomposition for prescribed cyclic roots, a premise credited and used in the proof.",
+        "Hansen–Jaworski 2010 theorems displayed in the accessible primary pages condition component size on cyclic vertex counts; no displayed result determines indegree-zero count dependence.",
+        "Mylläri 2002 concerns forest leaves under Galton–Watson conditioning, but only the abstract could be read; equivalence of precise conditioning/variables was not established."
+      ],
+      "reasoning": "The forest-volume formula has broader combinatorial coverage and yields the elementary conditional-event counting after a specialization; this ingredient is explicitly prior. The assessed mixed covariance asymptotic additionally needs distributional weighting across random cyclic root counts and a second-order cancellation argument. No inspected broader result was shown to imply those sharp mixed conclusions; full priority checking remains limited by one inaccessible plausible source.",
+      "searches": [
+        "Pitman 2001 random mappings forests conditioning cyclic set Eq 23 24 25",
+        "Hansen Jaworski 2010 Random Mappings with a Given Number of Cyclical Points full PDF",
+        "Mylläri 2002 Limit distributions number of leaves random forest",
+        "Drmota 1995 correlations on strata random mapping"
+      ]
+    },
+    "checked_sources": [
+      "Mutafchiev–Finch 2023, arXiv:2301.13829 (initial public posting 2023-01-31), full HTML mathematical content inspected",
+      "Pitman 2001, Technical Report 593, Sections 2 and 3 (especially conditional cyclic-root decomposition, Equations 23–25), PDF text and pages inspected",
+      "Flajolet–Odlyzko 1990, Random Mapping Statistics, Section 3 and direct-parameter theorem, PDF text and page images inspected",
+      "Hansen–Jaworski 2010, Random Mappings with a Given Number of Cyclical Points, available primary PDF pages 1, 8 and 13 inspected",
+      "Buchanan–Burghart–Wagner–Yin 2026, DOI:10.4230/LIPIcs.AofA.2026.16, sections on terminal closers inspected",
+      "Drmota 1995, DOI:10.1002/rsa.3240060223, publisher abstract and its definition of strata inspected",
+      "Mylläri 2002, DOI:10.1239/aap/1037990959, publisher abstract inspected; full text not accessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mutafchiev–Finch 2023 treats the cycle inside the largest component and its distributional size, not a leaf statistic.",
+        "Pitman 2001 permits deriving the conditional forest law but does not in the inspected material state a covariance asymptotic between count of cyclic vertices and count of indegree-zero vertices.",
+        "Distance-to-cycle strata (Drmota 1995) and the word-order terminal closer (Buchanan et al. 2026) are different observables."
+      ],
+      "reasoning": "Separate literature implications from titles: fixed-root decomposition does imply the initial counting step and is not new; conditioned component-size and cyclic-depth theorems do not identify the indegree-zero statistic; stratum and closer equivalences fail by definition. The new claim is the complete finite conditional law plus strict mixed dependence and sharp second-order limiting constants. An older unstated specialization or stronger general result is a residual historical-priority risk.",
+      "searches": [
+        "arXiv:2301.13829 On the Deepest Cycle of a Random Mapping",
+        "Pitman 2001 technical report 593 Equation 23, 24, 25",
+        "DOI:10.1002/rsa.3240060223 correlations strata",
+        "DOI:10.4230/LIPIcs.AofA.2026.16 terminal closers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flajolet–Odlyzko explicitly define terminal points as vertices without preimages, matching the present indegree-zero definition, but their displayed direct-parameter expectations treat cyclic and terminal points separately.",
+        "Drmota studies distance-to-cycle strata; the number of terminal points (zero indegree) is not a distance-to-cycle stratum.",
+        "The terminal-closer statistic in DOI:10.4230/LIPIcs.AofA.2026.16 counts closures in an ordered word and is not the number of graph vertices without preimages."
+      ],
+      "reasoning": "Searched the exact terminology and its aliases (terminal points, leaves, sources, indegree-zero vertices, periodic/cyclic vertices). The genuinely equivalent terminal-point definition was compared against the available classical theorem; only marginal expectations and single-variable marks were identified there. A different statistic sharing the word terminal is not taken as an equivalent.",
+      "searches": [
+        "\"random mapping\" \"cyclic points\" \"leaves\" \"conditional\"",
+        "\"random mapping\" \"number of terminal nodes\" \"number of cyclic points\" joint",
+        "\"random mappings\" \"cyclic\" \"terminal\" \"covariance\"",
+        "DOI:10.1007/3-540-46885-4_34; DOI:10.1002/rsa.3240060223"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical random-mapping tables of separate means (Flajolet–Odlyzko 1990) are not tables of the conditional leaf count or its mixed covariance.",
+        "Exact small-size checks here are enumerations of functions, not a claim that a preexisting external database lacks a table."
+      ],
+      "reasoning": "Compared the full object, conditioning, and dependent statistic rather than matching a numerical constant. No relevant exact joint table was found in the accessed primary material; this is evidence of limited coverage, not proof of global absence.",
+      "searches": [
+        "\"cyclic points\" \"terminal points\" exact joint distribution random mapping",
+        "\"cyclic points\" \"indegree zero\" conditional covariance random functions",
+        "Random mapping statistics 1990 theorem direct parameters",
+        "Random Mappings with a Given Number of Cyclical Points 2010 component distribution"
+      ]
+    },
+    "rationale": "Accessible primary literature supplies standard uniform rooted-forest conditioning and individual marginal statistics, but no inspected claim covers the complete conditional indegree-zero factorial-moment family together with finite strict sign and its nonzero square-root covariance constant. The accessible close papers address cyclic depths, component sizes, cyclic strata or another terminal-closer statistic; their stated theorems do not entail the mixed terminal-count result as stated. Potential specialization of a general forest enumerator and a nonaccessible forest-leaf paper remain genuine historical priority uncertainties.",
+    "residual_risks": [
+      "The full primary text of Mylläri (2002) was not available; it may contain a related conditional forest-leaf distribution or stronger general theorem.",
+      "Pitman (2001) and older general forest generating-function results imply the counting ingredient and may allow a routine derivation of parts of the conditional law; an equivalent combined asymptotic result might be implicit in older specialization.",
+      "A negative search result and independent finite enumeration do not certify mathematical priority. No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same random mapping model; target statistic is deepest cycle, not conditional terminal count or its covariance with total cyclic points",
+        "evidence": [
+          "Initial submission 2023-01-31, primary MSC 60C05; named statistic deepest-cycle length and associated asymptotic expectation/variance"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.13829",
+        "material_read": "Full-text HTML opening, definitions, theorem statements and proof sections on deepest cycles",
+        "method": "Public arXiv HTML full-text inspection",
+        "title": "On the Deepest Cycle of a Random Mapping",
+        "trigger": "Current uniform functional-graph cycle study, matching sample space and MSC"
+      },
+      {
+        "assessment": "Classical premise of uniform permutation/forest conditional cyclic roots; it does not explicitly present the mixed cyclic/terminal covariance and sharp cancellation in inspected material",
+        "evidence": [
+          "Section 3.2 Equations (23)–(25) provide independence and conditional uniform forests; Equation (5) underpins enumerator"
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/593.pdf",
+        "material_read": "Sections 2, 3.1 and 3.2, especially formulas (18)–(25) and the labeled forest enumerator",
+        "method": "Primary PDF full text and selected page inspection",
+        "title": "Random mappings, forests, and subsets associated with Abel-Cayley-Hurwitz multinomial expansions",
+        "trigger": "Potential general theorem dominating the conditional factorial-moment claim"
+      },
+      {
+        "assessment": "Gives separate cyclic and terminal point expectation schemes, but the inspected material does not state target joint conditional regression or covariance constant",
+        "evidence": [
+          "Theorem 2 lists cyclic node and terminal node expectations separately; its text defines terminal points as zero-preimage nodes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+        "material_read": "Direct Parameters theorem and generating-function analysis in Section 3, PDF pages including 8–11",
+        "method": "Accessible primary PDF textual and page-image inspection",
+        "title": "Random Mapping Statistics",
+        "trigger": "Classical marginal distributions of cyclic and terminal nodes might already include mixed formula"
+      },
+      {
+        "assessment": "Presents conditioned component-size distributions and normalized component ranks, not target joint leaf statistic in inspected material",
+        "evidence": [
+          "Abstract describes the conditioned typical-component size and Poisson–Dirichlet limit; Theorem 1 is a component-size conditional distribution"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+        "material_read": "Primary PDF abstract/introduction; Theorem 1 and its proof on p.348; applications opening p.353",
+        "method": "Accessible primary PDF page images",
+        "title": "Random Mappings with a Given Number of Cyclical Points",
+        "trigger": "Exact conditioning on number of cyclic vertices"
+      },
+      {
+        "assessment": "Terminal closers in words are not indegree-zero vertices of uniform functions; its results do not dominate the conditional leaf theorem",
+        "evidence": [
+          "Defines terminal-closer statistic through ordered word closure, not no-preimage vertices"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.16",
+        "material_read": "Accessible primary PDF sections defining terminal closers, results on multiset permutations and related mappings",
+        "method": "Open-access conference PDF page and text inspection",
+        "title": "On Cycles in Multiset Permutations, Parking Functions, and Related Structures",
+        "trigger": "Potential terminological identification of terminal closers and leaves"
+      },
+      {
+        "assessment": "Joint counts indexed by distance from cycle; indegree-zero vertices differ from distance strata, so the stated object is not the target joint count",
+        "evidence": [
+          "Abstract defines each stratum as vertices at fixed distance from cyclic points"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240060223",
+        "material_read": "Publisher abstract defining vertex distance-to-cycle stratum",
+        "method": "Publisher bibliographic record/abstract only; full text not inspected",
+        "title": "Correlations on the strata of a random mapping",
+        "trigger": "Closest same-topic historical correlation study"
+      },
+      {
+        "assessment": "Historical-priority risk for forest-leaf distributions; insufficient material to exclude an equivalent conditioned formula or downstream implication",
+        "evidence": [
+          "Title and abstract address random-forest leaves; lack of verified full text explicitly retained as risk"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1037990959",
+        "material_read": "Publisher abstract; full text not obtained",
+        "method": "Publisher abstract and open-access search, institutional full-text attempt unavailable",
+        "title": "Limit distributions for the number of leaves in a random forest",
+        "trigger": "Most plausible historic forest-leaf conditional result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a45d57e-fd81-4037-b485-dbac17bb8aae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cyclic vertices and terminal vertices are natural complementary functional-graph observables with distinct scaling. Their conditional relationship displays cancellation of the potentially order-sqrt(n) mean displacement, yielding an exact monotone law and a nonzero square-root covariance constant despite asymptotically vanishing correlation. The sharp mixed result supplies a motivated dependence benchmark not fixed by separate marginal laws; it is not presented as a reproof of the general forest enumerator.",
+    "status": "PASS"
+  }
+}
