@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The exact normalized response, a real exponent strictly above one and all positive budget/scale quantifiers are stated. Differentiation yields the unique inflection point and local threshold. All off-center stationary equations are equivalent to \\(N=Q_p(z)\\) with positive auxiliary parameter. The proof rigorously establishes Q_p strictly increasing from the local threshold to infinity using \\(H(s)=(s\\coth s)'\\), its increasing derivative and strictly decreasing \\(H(s)/s\\); the inequality is independently derived, not assumed. Thus there is no missing off-center critical point. Endpoint signs and symmetry give complete extrema classification, including the flat-at-quadratic-order equality at the local threshold. Direct payoff subtraction gives unique global switch and strict \\(N_{\\mathrm{loc}}<N_{\\mathrm{glob}}\\). A controlled Taylor expansion proves the exponent-independent leading square-root coefficient. Exact the quadratic exponent radicals independently check the barrier. Attached self-contained numerical diagnostics were executed and passed; they are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fazel-Chiang 2005 full manuscript Sec. II and III.B gives convergent global sum-of-squares relaxations for polynomially representable sigmoid utilities, with rational Hill curves admitted.",
+        "Udell-Boyd 2014 full manuscript Abstract, Secs. 2, 6, 7 and Appendix A offers a global branch-and-bound approximate optimization algorithm for generic sigmoids.",
+        "Nachman 2006 full HTML introduction, model and conclusions examines clumped/random/even prey and predator aggregative responses, rather than constrained two-patch identical Hill-III exact global optimization."
+      ],
+      "reasoning": "The algorithmic theorems can calculate or approximate pointwise optima, so the existence of a solver and the comparison of any fixed pair of candidate allocations are covered; no novelty is assigned to these tasks. Neither checked general paper derives a continuum-wide closed-form optimizer phase diagram and strict local/global separation for this rational Hill family. The ecological model is broader biologically but does not specialize to these precise hypotheses without changing predator response and patch constraints; no implication of the present theorem was found in its statements.",
+      "searches": [
+        "identical sigmoidal utility two recipients resource allocation optimal even allocation or all at one convex concave threshold",
+        "optimal two patch sigmoidal functional response sum Holling type III functional response allocation of prey across patches",
+        "sum x^p/(1+x^p) under x+y=N maximum extreme or equal resource allocation theorem",
+        "Network Utility Maximization With Nonconcave Utilities Using Sum-of-Squares Method",
+        "Maximizing a Sum of Sigmoids"
+      ]
+    },
+    "checked_sources": [
+      "Real 1977, DOI 10.1086/283161 (published abstract)",
+      "Fazel and Chiang 2005, DOI 10.1109/CDC.2005.1582432 (complete accessible PDF)",
+      "Nachman 2006, DOI 10.1111/j.1365-2656.2006.01114.x (complete accessible HTML)",
+      "Udell and Boyd 2014, https://stanford.edu/~boyd/papers/pdf/max_sum_sigmoids.pdf (complete accessible PDF)",
+      "Hossie and Murray 2016, DOI 10.1890/15-1535.1 (accessible HTML)",
+      "Accessible previously stated Holling-II population and closed-assay results (claim-level implication comparison)",
+      "Searches of public mathematical findings for full two-patch Hill optimization classification and aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Real 1977, DOI 10.1086/283161, inspected journal abstract: generalized sigmoidal response accounts for Type III feeding, without describing the present allocation classification.",
+        "Nachman 2006, DOI 10.1111/j.1365-2656.2006.01114.x, full HTML abstract/model/results: patchiness and predator aggregation affect consumption, with qualitative switching advantages.",
+        "Hossie-Murray 2016, DOI 10.1890/15-1535.1, inspected HTML: empirical spatial arrangement affects ratio-dependent response shape.",
+        "Fazel-Chiang and Udell-Boyd are exact formulation-level predecessors; they establish computability but the structural theorem is not an immediate stated special case of their abstract convergence assertions."
+      ],
+      "reasoning": "The conclusion is stronger and more specific than previously noted qualitative patchiness effects and rests on fixed identical predators and a generalized Type III response, assumptions not shared by empirical ratio-dependent models. General sigmoid-programming frameworks subsume the optimization task itself, and are credited, but a general solver guarantee does not logically entail the stated explicit threshold formulas and universal splitting law without the separate nonstandard monotonicity and bifurcation proof given here. Potential undiscovered specialized theorems are a material residual risk.",
+      "searches": [
+        "Nachman 2006 patchy predator functional response prey aggregation two patch intake exact crossing.",
+        "Holling type III optimal prey patch allocation aggregated consumption two patches symmetric bifurcation specialization",
+        "The Kinetics of Functional Response Leslie Real 1977",
+        "Spatial arrangement of prey affects the shape of ratio-dependent functional response Hossie Murray 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fazel and Chiang 2005, DOI 10.1109/CDC.2005.1582432, full PDF Sec. III.B Eq. (14), uses the same rational sigmoid family \\(u^n/(a+u^n)\\) in a sum-of-utilities allocation problem.",
+        "Udell and Boyd 2014, full PDF Sec. 2 Eq. (1), develops global optimization of sums of arbitrary S-shaped curves under convex constraints.",
+        "Earlier nearby two-predator feeding-assay and Holling-II claims treat different objective functions and globally concave saturating responses."
+      ],
+      "reasoning": "The normalized two-patch Hill objective is indeed a two-user special case of the general prior sigmoid allocation framework, especially for integer p. This establishes a shared optimization problem, not a prior theorem giving exact global and local thresholds uniformly for every real a real exponent strictly above one, the number and nature of the off-center stationary points, or their universal square-root splitting. Holling-II closed-assay comparisons are dynamical and do not imply the present static convex-then-concave allocation classification.",
+      "searches": [
+        "Maximum of two identical Hill sigmoidal functional response functions x^p/(1+x^p) + (B-x)^p/(1+(B-x)^p) complete bang-bang to equal split transition thresholds local metastability universal square-root",
+        "two patches Holling III sigmoid uptake rate optimal allocation equal split boundary two peaks",
+        "two identical sigmoidal utility functions sum maximizing resource allocation corner equal switch",
+        "Fazel Chiang 2005 network utility maximization rational sigmoid equal utility two agent allocation exact phase transition extremum",
+        "Udell Boyd 2014 maximizing sum sigmoids two identical Hill functions global optimizer first-order clumping equal splitting threshold",
+        "sigmoidal functional response prey spatial allocation two patch total feeding first order discontinuous transition under equal predators"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The object is a two-parameter real continuum of exact functions; no finite benchmark table determines its all-real-p classification.",
+        "Full inspected Fazel-Chiang 2005 and Udell-Boyd 2014 present finite computational benchmarks and algorithms, not parameter-uniform critical-budget tables for this model."
+      ],
+      "reasoning": "This is not an enumeration or a database invariant. A table of finite objective optimizers would not by itself prove the quantified symbolic thresholds, exactly three stationary points, or the onset expansion. Searches did not locate a table giving these facts; that negative search is not treated as a proof of historical uniqueness.",
+      "searches": [
+        "two patch Holling type III optimize prey density allocation maximize combined intake square root 2",
+        "two identical Holling type III patch feeding threshold sqrt2 clumped even budget"
+      ]
+    },
+    "rationale": "Precise statement-level comparison shows directly matching generalized Hill curves and general optimization machinery in prior literature, but does not identify the two exact thresholds and strict separation, complete all-real-p stationary classification, or universal onset coefficient as established results. The claim is only this structural theorem. The preexisting response law, two-patch modeling idea, sum-of-sigmoids optimization class, and pointwise numerical algorithms are expressly not claimed to be original. Remaining historical-coverage risks are named and cannot be ruled out by database searches alone.",
+    "residual_risks": [
+      "A specialized earlier publication may solve exactly the identical-Hill two-patch allocation and provide one or both thresholds despite not being retrieved by the documented searches.",
+      "The general sigmoid optimization algorithms of Fazel-Chiang and Udell-Boyd solve fixed numerical instances, so the global-transition statement should not be presented as a new algorithm or as making the optimization class new.",
+      "The Real 1977 full article could not be read, leaving its complete analytical scope unconfirmed.",
+      "The theorem concerns deterministic equal-size patches and immobile identical predators only; no claim is made for predator-driven redistribution, prey survival, or evolutionary dynamics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the underlying Type III response family but no conclusion about the exact two-patch constrained allocation was established from accessible material; full-text uncertainty remains.",
+        "evidence": [
+          "Journal first-published date 1977-03-01; abstract describes Type II/III generalized allosteric encounter response with parameters F,G,n."
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/283161",
+        "material_read": "Journal bibliographic page and full accessible abstract; full article behind access barrier.",
+        "method": "Publisher journal page and indexed bibliographic abstract read.",
+        "title": "The Kinetics of Functional Response",
+        "trigger": "Earliest foundational publication of generalized sigmoid feeding and source-date eligibility."
+      },
+      {
+        "assessment": "Its global algorithm covers solving the same type of fixed numerical allocation problem. Inspected source does not give the exact symbolic two-threshold phase diagram or all-real-exponent pitchfork result.",
+        "evidence": [
+          "DOI 10.1109/CDC.2005.1582432; Sec. III.B writes rational utilities in the form \\(u^n/(a+u^n)\\).",
+          "Sec. II and conclusions present global SOS optimization schemes, rather than a symbolic two-patch optimizer classification."
+        ],
+        "identifier_or_url": "https://faculty.washington.edu/mfazel/cdc-final2-edit.pdf",
+        "material_read": "Full accessible eight-page manuscript, especially Secs. II, III.B including rational utility Eq. (14), IV and V.",
+        "method": "Publisher-author full PDF read including rendered pages containing Eqs. (12)-(14) and comparison with analytical proof.",
+        "title": "Network Utility Maximization With Nonconcave Utilities Using Sum-of-Squares Method",
+        "trigger": "Same rational Hill sigmoid summed under linear allocation constraints; strongest direct mathematical alternative."
+      },
+      {
+        "assessment": "Qualitative even-vs-clumped feeding advantages appear there, but predator aggregation and stochastic patch occupancy make its hypotheses materially different. The sharp arbitrary-real-exponent fixed-predator optimizer thresholds and stationary bifurcation are not given in inspected text.",
+        "evidence": [
+          "DOI 10.1111/j.1365-2656.2006.01114.x; first published 2006-06-23; summary points 2-8 and model prey/predator distributions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1365-2656.2006.01114.x",
+        "material_read": "Accessible complete HTML article, focusing on summary, introduction, theoretical model, aggregation conditions and relevant results/discussion.",
+        "method": "Read full HTML source sections and compared prey/predator distribution hypotheses and mathematical observables.",
+        "title": "A functional response model of a predator population foraging in a patchy habitat",
+        "trigger": "Likely covering ecological source on prey patchiness and feeding-rate advantages."
+      },
+      {
+        "assessment": "Optimization class and existence of global approximate algorithms are prior. No all-real-p two-identical-Hill phase thresholds or universal square-root critical-point law were identified.",
+        "evidence": [
+          "Manuscript dated 2014-05-05; Sec. 2 Eq. (1) objective sum f_i(x_i) subject to convex constraints, Secs. 6-7 global algorithm."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/max_sum_sigmoids.pdf",
+        "material_read": "Accessible complete 25-page manuscript: abstract, definition in Sec. 2, applications, theoretical bounds and branch-and-bound algorithm, numerical sections and convergence appendix.",
+        "method": "Primary PDF full-text inspection, search for Holling, identical/symmetric splits and explicit thresholds, and rendered pages 1 and 3.",
+        "title": "Maximizing a Sum of Sigmoids",
+        "trigger": "Broader mathematical maximization of sums of sigmoids could dominate the claimed optimizer classification."
+      },
+      {
+        "assessment": "An empirical and ratio-dependent functional-response study; no uniform-in-p analytic fixed-two-patch Hill allocation thresholds.",
+        "evidence": [
+          "DOI 10.1890/15-1535.1; first published 2016-04-08; distinguishes ratio-dependent responses and observed patchiness effects."
+        ],
+        "identifier_or_url": "https://doi.org/10.1890/15-1535.1",
+        "material_read": "Accessible full HTML article with methods, results and discussion on spatial arrangements and ratio dependence.",
+        "method": "Publisher article text inspected and compared objective/assumptions.",
+        "title": "Spatial arrangement of prey affects the shape of ratio-dependent functional response in strongly antagonistic predators",
+        "trigger": "Closest pre-cutoff empirical claim about spatial prey arrangement changing predator intake."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d3ca49d-a7d6-48cb-90ad-61004ca38a61",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shape-constrained ecology problem is natural: fixed total prey spread over exactly two equal-area patches with identical learning/Type III feeding predators. Local curvature predicts an even-split local optimum before that allocation actually surpasses complete clumping globally. Proving the two thresholds strictly separated for all real a real exponent strictly above one, excluding all other stationary points by a nonstandard hyperbolic monotonicity lemma, and deriving a universal square-root bifurcation coefficient supplies a motivated structural classification rather than routine substitution or a narrow arbitrary numerical fact. The discontinuous global switch and exact the quadratic exponent barrier are interpretable mathematical benchmarks. Scope is not expanded to dynamical ecology.",
+    "status": "PASS"
+  }
+}

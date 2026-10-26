@@ -1,0 +1,19 @@
+# Scientific review: two thresholds in two-patch Type III feeding
+
+## Correctness — PASS
+
+For all real \(p>1\), \(K>0\), \(B>0\), the result optimizes precisely the sum of two fixed, identical Hill feeding responses over a compact prey-allocation segment. The derivative is reconstructed explicitly. An exponential-balance parametrization reduces every off-center critical point to a single increasing hyperbolic budget function. A strict elementary inequality for \(H(s)/s\), where \(H(s)=(s\coth s)'\), proves its monotonicity for all real exponents. This gives the complete stationary-point count. Explicit endpoint–center payoff comparison establishes the global threshold, its strict separation from the curvature threshold, and all equality cases. The expansion of the hyperbolic budget at zero proves the universal square-root coefficient. Reproducible randomized diagnostics and the exact quadratic example support but do not replace the proof.
+
+## Originality — PASS with residual risks
+
+Directly relevant antecedents establish sigmoidal feeding, patchy predator–prey effects, and general algorithms for nonconcave sigmoid allocation. Real (1977) supplies the generalized Type III response. Nachman (2006) develops a biologically richer patchy-foraging model without the fixed, two-patch Hill-allocation thresholds. Hossie and Murray (2016) document empirical shape changes rather than the exact allocation extremum count. Fazel and Chiang (2005) explicitly treat rational Hill sigmoids in a general sum-of-utilities optimization program; Udell and Boyd (2014) treat global sum-of-sigmoid optimization more broadly. **These two algorithmic frameworks encompass the pointwise optimization instance**; no claim of inventing this class of problems or of its algorithmic solubility is made. Their inspected theoretical statements do not present a uniform-in-\(p\) exact local/global switch, exactly three interior critical points, or exponent-independent square-root bifurcation law. Accessible same-domain research records and prior claims did not recover those combined statements. Historical priority remains provisional; a specialized prior analytic theorem or uninspected full text might cover them. The Real 1977 paper's full text was inaccessible, and algorithmic frameworks can calculate pointwise optima.
+
+## Mathematical value — PASS
+
+Two-patch functional-response optimization is the smallest model in which ecological prey aggregation competes with sigmoidal feeding saturation. The two provably distinct thresholds and the nonempty regime where equal splitting is locally favored but globally inferior supply a structural mechanism, not just a worked numerical example. The universal square-root law relates the two nearby minima for the entire real Hill family. The exact quadratic onset and finite intake barrier offer interpretable, testable benchmarks. These are substantive mathematically motivated classification results despite the model's minimality. The analysis does not claim that these intake-maximizing prey allocations are evolutionarily favorable or optimal habitat management.
+
+## Boundaries and sources
+
+Proof and diagnostic details appear in RESULT.md and VERIFICATION.md. The closest mathematical comparisons are Fazel–Chiang (2005), DOI 10.1109/CDC.2005.1582432 (accessible complete manuscript), and Udell–Boyd (2014), *Maximizing a Sum of Sigmoids* (accessible complete manuscript). Ecological comparisons are Real (1977), DOI 10.1086/283161 (accessible abstract), Nachman (2006), DOI 10.1111/j.1365-2656.2006.01114.x (accessible article text), and Hossie–Murray (2016), DOI 10.1890/15-1535.1 (accessible article text). Uninspected specialized results remain a priority risk; the proof's scope is the deterministic fixed-predator two-patch objective only.
+
+Self-review: passed. Independent audit: not yet performed.
