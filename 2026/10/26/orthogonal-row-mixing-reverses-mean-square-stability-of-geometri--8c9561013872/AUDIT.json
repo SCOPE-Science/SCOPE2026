@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact A=diag(1/2,sqrt(3)/2), B=QA, Q orthogonal, and source KGSM M=1 beta=2/3 give identical average projector G=diag(1/4,3/4). The original first moments have conjugate-root squared radii 5/6 and 1/2. For the A rare coordinate, W=diag(1/10,1) has mean quadratic increment exceeding W/100 by a PD matrix with first diagonal 2/1125 and determinant 163/1800000. This enforces (101/100)^k augmented second-moment growth, and the auxiliary-to-iterate relation yields adjacent iterate squared-error lower bound 1/41 times that exponential. For B, exact rational C>0 has block determinants 50703/100 and 8191/100, and E(H^T C H)=C-I; the trace 532/5 yields the global mean-square contraction 527/532. The actual standalone verify.py reproduces every exact identity; signs and recurrence inequalities prove infinite-time behavior.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Loizou and Richtarik arXiv:1712.09677 abstract: global nonasymptotic rates for stochastic heavy ball methods under sufficient parameter conditions, not an exact same-Gram row-mixing contrast for KGSM.",
+        "Steinerberger arXiv:2006.16978 and Alderman et al. arXiv:2401.09415: directional and signed-mean Kaczmarz analyses, distinct from opposite covariance stability.",
+        "The published uniform KGSM mean-square frontier fixes A=I_2 and explicitly states it does not classify nonorthogonal systems."
+      ],
+      "reasoning": "No inspected more general result imposes equality of stochastic second-moment operators under left orthogonal mixing. Such equality is false in the explicit projector distributions here. Existing sufficiently-small-momentum or unaccelerated Kaczmarz guarantees do not imply opposite behavior at M=1, beta=2/3.",
+      "searches": [
+        "published-finding corpus: second moment row geometry dependence stochastic accelerated Kaczmarz isospectral matrices variance instability same A transpose A",
+        "published-finding corpus: randomized projection momentum covariance same normal equations different row realizations mean norm stability",
+        "Web: randomized Kaczmarz heavy ball row orthogonal transformation same singular values stability covariance",
+        "arXiv:1712.09677 Loizou Richtarik stochastic momentum L2 convergence"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2401.09415 (source method and signed-error limitation, primary full text)",
+      "https://arxiv.org/abs/2401.09415 (first public 2024-01-17)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209 (complete public RESULT.md)",
+      "https://arxiv.org/abs/1712.09677 (abstract only)",
+      "https://epubs.siam.org/doi/10.1137/24M1633820 (article metadata and primary MSC)",
+      "https://arxiv.org/abs/2006.16978 (background result metadata)",
+      "Accessible private previous claim ledgers p0001_g000075 and p0002_g000056 (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Both candidate matrices have exactly the same A^T A, so the source signed-mean recurrence gives identical stable mean modes; this cannot imply equality of second moments.",
+        "Source KGSM theorem is first-order in error and explicitly distinguishes signed from absolute error.",
+        "Existing exact mean-square model fixes identity rows; its assumptions fail for each member of the new pair as a simultaneous comparison.",
+        "Final same-claim semantic query again returned e15c00248209 as the closest same-method result, whose complete theorem handles only the orthonormal uniform frame; no row-orthogonal covariance stability equivalence was retrieved."
+      ],
+      "reasoning": "The established first-moment result determines E[P], whereas second moments require E[H(P)^T C H(P)] or E[H(P)⊗H(P)]; different row-projector laws can share E[P] while differing at quadratic order. The explicit positive-definite growth/decay matrices are a new implication not derivable from the cited first-moment or uniform-row theorems.",
+      "searches": [
+        "Primary full text arXiv:2401.09415: Theorem 1.1 and equations (9)-(11), Remark 1.1 limitations",
+        "Public record e15c00248209 RESULT.md: Finding, Proof, Relationship to prior work, Limitations",
+        "Web: Kaczmarz row mixing same normal equations stochastic convergence frame fourth moments spectral data",
+        "Web: randomized Kaczmarz orthogonal row transformation not invariant momentum mean squared stability",
+        "published-finding corpus: momentum stochastic Kaczmarz normal matrix invariant expectation versus non-invariant second moment row rotation stable unstable"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.09415v3, eq. (9), Theorem 1.1 and Remark 1.1: expected signed error along singular vectors; not a covariance transformation theorem.",
+        "Published published-finding corpus ID 2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209: exact uniform orthonormal two-row mean-square boundary, full RESULT.md read. Its scope explicitly excludes nonorthogonal frames and other row-sampling laws.",
+        "Accessible own ledgers p0001_g000075 and p0002_g000056: no KGSM or same-Gram row-mixing claim in 129 earlier claim fields."
+      ],
+      "reasoning": "The normal-matrix/signed-mean equivalence is deliberately held constant. The new assertion compares a nonuniform coordinate law with an equal-probability oblique projector law related by left orthogonal mixing. The identified uniform orthonormal stability theorem neither treats these laws nor entails their opposite stability at a common parameter point.",
+      "searches": [
+        "published-finding corpus: randomized Kaczmarz smoothed momentum two linear systems same Gram matrix same singular values different mean square stability rotational row frame fourth moment",
+        "published-finding corpus: KGSM Alderman mean-square stability nonorthogonal tight frame versus coordinate rows same frame operator geometry",
+        "Web: KGSM orthogonal row mixing mean squared error isospectral instability 2024 2025",
+        "Own ledgers: claim-field keyword searches KGSM; geometrically smoothed momentum; row mixing; same Gram; Kaczmarz",
+        "published-finding corpus: KGSM isospectral orthogonally rotated two row systems identical A transpose A but opposite mean square stability beta two thirds M one certificates"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest exact record ID e15c00248209 gives the A=I_2 uniform frontier beta+2(1-beta)M<sqrt(beta+2).",
+        "Other nearby published-finding corpus records include 332a15a5d36f (greedy Kaczmarz coherence) and d549f7251aa1 (two-row cyclic overrelaxation). Neither claims this independent-row KGSM row-representation contrast.",
+        "The actual local latest ledger claims include randomized Kaczmarz topics a617d544, 9556493a, 29b111de and a71a8d8a, but none apply KGSM to two left-orthogonally related same-Gram systems."
+      ],
+      "reasoning": "A stability table for an orthonormal uniform model cannot specify the Lyapunov behavior of two different row-projection ensembles with unequal singular values. The new exact matrices and certificates are not listed in the retrieved records.",
+      "searches": [
+        "published-finding corpus: KGSM Alderman Luikart Marshall 2024 heavy ball momentum random Kaczmarz covariance second moment instability phase transition",
+        "published-finding corpus: smoothed momentum stochastic Kaczmarz expected squared norm variance random coordinate orthogonal system convergence threshold",
+        "Own ledgers: all finding claim fields searched for frame; mean.square; Kaczmarz; KGSM and same Gram"
+      ]
+    },
+    "rationale": "The closest same-method exact result handles only A=I_2 and uniform row selection. Original KGSM theory gives signed directional means; it cannot identify representation-sensitive covariance stability. The new paired orthogonal row mixing, common Gram and mean but opposite mean-square verdicts are a distinct non-implied structural fact. Same-method full-text record and accessible local claim histories compared; risk remains that an equivalent result is described elsewhere under stochastic switched-system or preconditioned row-sampling terminology.",
+    "residual_risks": [
+      "An equivalent isospectral second-moment counterexample might be embedded in more general switched linear systems or momentum Kaczmarz literature under different terminology.",
+      "The 2017 broad momentum paper was read at abstract level only; no whole-document noncoverage is claimed.",
+      "Bibliographic and semantic searches are finite and cannot certify universal novelty; independent review remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS update and signed-mean dependence; does not contain the two-row-mixed covariance stability reversal",
+        "evidence": "Theorem 1.1 controls E<error,v_l>; Remark 1.1 states limits for absolute error.",
+        "identifier_or_url": "https://arxiv.org/html/2401.09415",
+        "material_read": "Methods equations (3), (8)-(11), Theorem 1.1, Corollaries 1.2-1.4, Remark 1.1, and introduction/context on mean vs absolute error",
+        "method": "Full open-access HTML retrieved and sections examined",
+        "title": "Randomized Kaczmarz with geometrically smoothed momentum",
+        "trigger": "Same original algorithm, source parameter range and possible moment implications"
+      },
+      {
+        "assessment": "COVERS only uniform orthonormal model A=I_2; explicitly excludes nonuniform row probabilities and nonorthogonal frames, so it does not cover paired isospectral difference",
+        "evidence": "Scope states A=I_2, independent uniform row sampling; no classification for nonorthogonal matrices or other sampling laws.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-mean-square-stability-frontier-and-a-signed-mean-blind-spo--e15c00248209",
+        "material_read": "Complete RESULT.md: Finding, assumptions, exact covariance recursion, Jury proof, prior-work comparison, limitations",
+        "method": "Authorized public repository read-only fetch",
+        "title": "Exact mean-square stability frontier and a signed-mean blind spot in KGSM",
+        "trigger": "Closest same-method exact second-moment result"
+      },
+      {
+        "assessment": "Plausible background, not asserted whole-document noncoverage; published abstract concerns different heavy-ball/stochastic momentum variants and sufficient rates",
+        "evidence": "Abstract describes a broader family of stochastic heavy ball methods with sufficient nonasymptotic rates.",
+        "identifier_or_url": "https://arxiv.org/abs/1712.09677",
+        "material_read": "Open-access abstract, stated method classes and the general L2 convergence scope; full proof not read",
+        "method": "Open-access abstract read; full-text attempt returned access error",
+        "title": "Momentum and Stochastic Momentum for Stochastic Gradient, Newton, Proximal Point and Subspace Descent Methods",
+        "trigger": "Potential broad momentum L2 convergence result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c956101-3872-4948-afee-649c0575c6e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Left orthogonal row mixing preserves a linear system normal matrix, singular spectrum and signed KGSM dynamics, yet changes actual mean-square convergence into exponential blowup at the identical source-admissible parameter point. This demonstrates a substantive, directly actionable limitation of spectral-only momentum tuning and motivates the full row-projector second moment. The explicit exact Lyapunov and growth matrices give a reusable analytical benchmark beyond simulations or a routine numerical example.",
+    "status": "PASS"
+  }
+}
