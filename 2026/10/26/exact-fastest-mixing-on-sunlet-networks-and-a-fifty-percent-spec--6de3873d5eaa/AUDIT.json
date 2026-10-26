@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For n≥3, all symmetric nonnegative row-stochastic matrices on C_n∘K_1 admit convex dihedral symmetrization without increasing SLEM. Exact two-by-two Fourier blocks show a lower bound from the first positive mode; strict decrease in backbone weight and strict convex minimization in leaf weight yield unique invariant optimizer. Explicit algebra gives a strictly positive gap protecting all negative Fourier eigenmodes for 0<u²≤3/2 and proves the bound attained for every n. Endpoint b=0 is excluded and all allowed boundaries handled. Closed-form 1/3-weight heuristic SLEM follows from mode bounds, then asymptotic gap ratio is 3/2. Standalone verify.py passed exact symbolic identities and dense spectra for all n=3..50, without confusing finite computations with proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:0709.0955 theorem 2.1 and sections 3.1, 5.3.3, 5.3.5",
+        "DOI 10.1007/s00440-023-01257-x general bounds and lazy-chain objective",
+        "DOI 10.1137/S0036144503423264 SDP framework"
+      ],
+      "reasoning": "The SDP and automorphism-averaging algorithms show the value can in principle be computed for each fixed n, but do not supply the universal algebraic optimum, simultaneous all-mode certificate or 3/2 performance ratio. The general bounds paper does not give equality for these graphs. Wheel and pure cycle are not sunlets; a complete-core corona has different core spectrum.",
+      "searches": [
+        "Fastest Mixing Markov Chain on Graphs with Symmetries Boyd Diaconis Parrilo Xiao 2007 cycle wheel pendant leaf corona extension",
+        "Fastest Mixing Markov Chain on a Graph Boyd Diaconis Xiao 2004 cycle pendant leaf network",
+        "Exact fastest mixing on complete-core leaf coronas with explicit SLEM and transition weights and unique invariant optimizer"
+      ]
+    },
+    "checked_sources": [
+      "10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+      "arxiv:0709.0955; https://arxiv.org/pdf/0709.0955",
+      "10.1007/s00440-023-01257-x; https://link.springer.com/article/10.1007/s00440-023-01257-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0709.0955 specializes symmetry averaging to non-sunlet cyclic and wheel families",
+        "DOI 10.1137/S0036144503423264 gives convex SDP and heuristics",
+        "Known complete-core leaf-corona formula concerns K_m∘K_1, not C_n∘K_1"
+      ],
+      "reasoning": "The present universal n-dependent formula is not a corollary of the inspected exact cycle/wheel/complete-core results: pendant eigenmodes and the sparse cyclic Fourier band must both be optimized and the most negative mode controlled, as shown by the separate inequality. General FMMC computation establishes solvability per finite n, not exact closed-form evaluation or asymptotic gain.",
+      "searches": [
+        "global eigenvalue minimax fastest-mixing chain for periodic cycle plus leaf (two-site unit cell) explicit analytical",
+        "Fastest Mixing Markov Chain on Graphs with Symmetries Boyd Diaconis Parrilo Xiao 2007 cycle wheel pendant leaf corona extension",
+        "Fastest Mixing Markov Chain on a Graph Boyd Diaconis Xiao 2004 cycle pendant leaf network",
+        "Exact fastest mixing on complete-core leaf coronas with explicit SLEM and transition weights and unique invariant optimizer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "S_n=C_n∘K_1 also searched as sunlet, pendant cycle, hairy cycle, ring-and-leaf, cycle corona",
+        "DOI 10.1137/S0036144503423264; arxiv:0709.0955"
+      ],
+      "reasoning": "The claim optimizes two-sided SLEM over all symmetric uniformly-stationary chains on a cycle with exactly one leaf per core vertex. Equivalence requires this exact graph, stationary distribution and spectral objective; general mixing-time rates and path/tree results are not logically equivalent.",
+      "searches": [
+        "exact fastest mixing symmetric Markov chain on sunlet graph cycle corona K1 with pendant leaves closed form second largest eigenvalue modulus",
+        "optimal stochastic weights on cycle with one dangling leaf at each cycle node, sunlet graph n-sun, FMMC",
+        "global eigenvalue minimax fastest-mixing chain for periodic cycle plus leaf (two-site unit cell) explicit analytical",
+        "fastest mixing Markov chain on corona graph C_n circle with pendant leaves spectral gap optimal 3/2 improvement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary article tables and examples examined in arxiv:0709.0955 and DOI 10.1137/S0036144503423264",
+        "Targeted terminology searches in their full text did not return sunlet, corona or pendant exact-value tables"
+      ],
+      "reasoning": "No inspected primary exact-value table contains the infinite sunlet family or the proposed weights. A failed table search alone is not a novelty proof.",
+      "searches": [
+        "exact fastest mixing symmetric Markov chain on sunlet graph cycle corona K1 with pendant leaves closed form second largest eigenvalue modulus",
+        "optimal stochastic weights on cycle with one dangling leaf at each cycle node, sunlet graph n-sun, FMMC",
+        "sunlet graph FMMC minimax Fourier eigenvalue pair cycle corona pendant leaf spectral gap"
+      ]
+    },
+    "rationale": "Primary full texts of the foundational 2004 FMMC paper and the 2007 symmetry paper were directly inspected, including the nearest cycle, wheel and cyclic perturbation families; an accessible broad general-bounds paper was also inspected. Actual source/alias searches and overlap comparisons did not reveal an exact all-n optimum on the cycle-with-private-leaves graph, nor an implication from a dominating exact statement. A prior complete-core corona formula differs in graph and spectral structure. This is a best-knowledge originality assessment, not an independence certificate.",
+    "residual_risks": [
+      "Search index coverage and undiscovered literature on pendant-ring Markov chains may contain a result with equivalent formulas.",
+      "A very general unpublished exact FMMC theorem with an implicit sunlet specialization cannot be ruled out; the inspected general convex method by itself supplies no such formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Develops general semidefinite optimization and standard heuristic weights, not a closed-form all-n cycle-with-leaves optimum or gap ratio. General method alone does not imply claimed expressions.",
+        "evidence": [
+          "DOI 10.1137/S0036144503423264",
+          "Published SIAM Review 46 (2004), 667–689"
+        ],
+        "identifier_or_url": "10.1137/S0036144503423264; https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full 23-page author-posted PDF, introductory definitions, objective, algorithms, examples, methods and reference sections; search for sunlet, corona, pendant and cycle",
+        "method": "Primary-author PDF opened and read with targeted internal section and term inspection",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "General symmetric FMMC framework, degree/Metropolis examples, possible corona specialization"
+      },
+      {
+        "assessment": "Contains exact symmetric-graph methods and ordinary-cycle, wheel and different cyclic-bump examples, but no exact sunlet C_n corona K_1 formula or its all-mode optimality certificate. The different graph families do not imply the claim.",
+        "evidence": [
+          "arxiv:0709.0955 first public 2007-09-06",
+          "Symmetry averaging theorem 2.1; cycle section 3.1; wheel section 5.3.3"
+        ],
+        "identifier_or_url": "arxiv:0709.0955; https://arxiv.org/pdf/0709.0955",
+        "material_read": "Full 39-page arXiv PDF; theorem 2.1 and sections 1.1, 3.1, 5.3.3, 5.3.5; targeted internal searches for sunlet, corona and pendant",
+        "method": "Open-arXiv original PDF, inspected exact graph definitions and formula scopes, checked chapter transitions and bibliography",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Automorphism-reduced FMMC can dominate special family formulas; cyclic, wheel and similar graphs"
+      },
+      {
+        "assessment": "Addresses general geometric bounds and lazy-chain/mixing-time characterizations, not exact all-n symmetric SLEM optima for C_n with attached leaves. Cannot imply proposed exact weights or factor.",
+        "evidence": [
+          "DOI 10.1007/s00440-023-01257-x",
+          "Probability Theory and Related Fields 188 (2024)"
+        ],
+        "identifier_or_url": "10.1007/s00440-023-01257-x; https://link.springer.com/article/10.1007/s00440-023-01257-x",
+        "material_read": "Full publicly accessible HTML including assumptions, mixing-time bounds and results; targeted sunlet, corona, pendant search",
+        "method": "Open full primary article HTML and inspect main theorem statements and objective assumptions",
+        "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+        "trigger": "Recent broad results potentially implying exact FMMC optimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6de3873d-5eaa-4669-9793-7db394b94c1a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A cycle with one private pendant state per vertex is a standard sparse ring-with-leaves design; optimizing its uniform-stationary stochastic edge conductances is a natural global FMMC problem. The theorem gives a fully explicit all-size optimum with a nontrivial all-modes global certificate and a uniquely optimal symmetric architecture. Its 50% asymptotic spectral-gap improvement over two standard feasible heuristics quantifies a meaningful performance tradeoff due to pendant bottlenecks; it is not a mere finite-slice computation or special case of the earlier complete-core graph formula.",
+    "status": "PASS"
+  }
+}
