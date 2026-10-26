@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The full 12-state subset transition table follows by checking the eight three-bit majority outputs. Pair-state comparison has exact cardinalities 110,40,24,12,8,4,0 and proves six-symbol suffix synchronization. The six minimal forbidden words are exhaustively obtained at lengths \\(\\le 7\\); synchronization proves that this is the complete unbounded language. The nonnegative 11-state matrix satisfies \\((M^5-2M^4+M^2-I)\\mathbf 1=-e_{15}\\); since state 15 has no incoming arcs this yields the order-five recurrence for all \\(n\\ge1\\). Its exact characteristic polynomial \\(t(t^5+t^2-1)(t^5-2t^4+t^2-1)\\), plus Perron theory and Descartes rule, gives the unique entropy root larger than one. Code replays all critical finite certificates; infinite claims rest on proved induction and matrix arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Kari and S. Taati, arXiv:1311.2319 and https://link.springer.com/article/10.1007/s10955-015-1281-2, §3.1, Theorem 2 bounds factor image entropy and characterizes entropy equality by pre-injectivity.",
+        "Kůrka 2009 describes the known majority-rule maximal attractor, not an evaluated entropy of its first spatial image."
+      ],
+      "reasoning": "General de Bruijn graph constructions and entropy inequalities can lead to a calculation, but a general upper bound \\(h(\\Phi(\\Sigma))\\le\\log 2\\) neither specifies the forbidden words nor implies the algebraic entropy. The published long-time attractor is a smaller subsystem and does not determine the first-image language.",
+      "searches": [
+        "\"Statistical Mechanics of Surjective Cellular Automata\" arxiv 2015 original date",
+        "\"majority\" \"one-step image\" \"cellular automata\" entropy",
+        "\"rule 232\" \"topological entropy\" image shift"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cts.cuni.cz/~kurka/cantor.pdf",
+      "https://doi.org/10.1007/978-0-387-30440-3_556",
+      "https://arxiv.org/abs/1311.2319",
+      "https://link.springer.com/article/10.1007/s10955-015-1281-2",
+      "https://atlas.wolfram.com/01/01/232/01_01_1_232.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kůrka 2009, Example 7: statements concern the maximal attractor and zero entropy of the cellular-automaton/column behavior.",
+        "Kari–Taati, §3.1: general factor-image inequality and Garden-of-Eden criterion, no rule-232 transition-language evaluation."
+      ],
+      "reasoning": "Neither inspected claim implies the six minimal forbidden spatial words, the exact first-image block generating function, or the numerical algebraic entropy without a new finite-state computation. Conversely, the present result is limited to one step and does not improve established attractor statements.",
+      "searches": [
+        "\"rule 232\" \"image\" \"subshift\" entropy",
+        "\"majority\" \"0100010\" cellular automata",
+        "\"Statistical Mechanics of Surjective Cellular Automata\" arxiv 2015 original date"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. Kůrka, Topological Dynamics of Cellular Automata (2009), Example 7, https://www.cts.cuni.cz/~kurka/cantor.pdf, PDF pp. 18–19, computes long-time maximal attractor and column/signal subshifts, not the first image.",
+        "Wolfram Atlas Rule 232, https://atlas.wolfram.com/01/01/232/01_01_1_232.html, confirms only the local majority function."
+      ],
+      "reasoning": "The first spatial image Phi(full shift) is not the eventual attractor intersection of iterated images, nor a column (time trace) shift. Kůrka gives the latter invariants and does not state the six forbidden first-image words or its exact positive spatial shift entropy. No synonym search disclosed an explicit same object with equivalent quantified result.",
+      "searches": [
+        "\"rule 232\" \"image\" \"subshift\" entropy",
+        "\"majority rule\" \"image shift\" \"finite type\"",
+        "\"rule 232\" \"finite type\" \"forbidden\"",
+        "\"majority\" \"0100010\" cellular automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted exact-polynomial, numerical-constant, and forbidden-word searches returned no pertinent exact one-step-image formula.",
+        "The available rule-232 atlas and Kůrka examples do not display an output-image block-count table with the rational generating function."
+      ],
+      "reasoning": "Absence in searches is a limitation of current accessible indexing, not a proof of priority. Direct inspection of the strongest identified treatment did not find an exact table subsuming this result.",
+      "searches": [
+        "\"rule 232\" \"1.784598\"",
+        "\"rule 232\" \"entropy\" \"1.7846\"",
+        "\"majority\" \"x^5\" \"2x^4\" \"entropy\" \"cellular automata\"",
+        "\"232\" \"0100010\" \"1011101\" cellular automata"
+      ]
+    },
+    "rationale": "Accessible sources explain this majority cellular automaton and general factor/attractor theory, but not the exact FIRST-image spatial forbidden-language classification, complete rational block complexity, or degree-five entropy. The distinction from the smaller infinite-time attractor is explicit. Targeted full-claim, synonym, known-number, and literature searches found no dominating theorem; an unindexed evaluated prior computation remains possible.",
+    "residual_risks": [
+      "There may be an exact first-image language calculation for ECA232 in unindexed classification tables or older proceedings; keyword searching and inspection do not prove global priority.",
+      "General finite-state method is established; only the evaluated complete special-case result is claimed as a contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The displayed majority-rule results concern blocking words, maximal attractor, directional signals, and column dynamics. They do not give the first spatial image minimal forbidden set or exact spatial first-image entropy.",
+        "evidence": [
+          "Example 7 explicitly identifies ECA232 majority rule and the maximal attractor; page 19 says column entropy zero but gives no 1-step image formula."
+        ],
+        "identifier_or_url": "https://www.cts.cuni.cz/~kurka/cantor.pdf",
+        "material_read": "PDF pages 18–19 (Example 7 and Figure 9), adjacent discussion of first-image subshifts, with image inspection of page 19 and extracted textual comparison",
+        "method": "Lawfully accessible author PDF, relevant primary sections read and page image examined",
+        "title": "Topological Dynamics of Cellular Automata",
+        "trigger": "Direct same-rule majority cellular automaton and possible image-shift result"
+      },
+      {
+        "assessment": "Contains general factor-image entropy inequality and conservation/pre-injectivity results, not the evaluated non-surjective majority-rule output language.",
+        "evidence": [
+          "Theorem 2: h(image)<=h(source), equality iff pre-injective in the stated SFT setup; this does not determine the image entropy."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.2319",
+        "material_read": "Open-access publisher full-text HTML, especially Introduction, Section 3.1 Theorem 2 and adjacent corollaries",
+        "method": "Primary published open-access mathematical text inspected; arXiv original submission date independently checked",
+        "title": "Statistical Mechanics of Surjective Cellular Automata",
+        "trigger": "Entropy and surjectivity of cellular-automaton image factors"
+      },
+      {
+        "assessment": "Confirms the local rule but does not give the six excluded output words or rational language generating function.",
+        "evidence": [
+          "Majority-of-three local rule, Wolfram code 232."
+        ],
+        "identifier_or_url": "https://atlas.wolfram.com/01/01/232/01_01_1_232.html",
+        "material_read": "The accessible rule property page identifying majority rule 232 and its local formula",
+        "method": "Relevant text and rule identification checked",
+        "title": "Wolfram Atlas: Rule 232 properties",
+        "trigger": "Check local rule name and potential exact known table"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a586763-0f75-453e-98c0-ccc113578023",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first image of the canonical majority ECA is a natural spatial dynamical system. Its complete six-word finite-type presentation with a sharp length-seven memory threshold is a structural classification rather than a small numerical count. Exact all-length complexity and algebraic positive spatial entropy quantify the first-step pattern-information loss, an invariant distinct from the known zero time/column entropy and limit set. The claim is not tied to arbitrary slices or renamed known tables.",
+    "status": "PASS"
+  }
+}
