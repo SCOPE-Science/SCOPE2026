@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Explicit backward equations for all three nonempty states have determinant e1*e2*(C+e1+e2)>0, and direct substitution confirms all mean absorption formulas. The weighted objective has derivative (C+alpha*e1-beta*e2-2u)/denominator and constant strictly negative second derivative, proving the unique projected optimum at all boundaries. A separately implemented standard-library Gaussian solver and rational examples pass 5000 reproducible checks; finite computations are supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Day–Possingham (1995) author-uploaded text §§2–3 provides broad discrete-time patch matrices.",
+        "Ross–Pollett (2009) author-uploaded full text §§2–4 optimizes total homogeneous c versus e; §4 names targeted subset management as further work.",
+        "Etienne–Heesterbeek (2001), DOI 10.1086/321986, publisher abstract reports intervention heuristics; full text inaccessible.",
+        "Frank–Wissel (2002), DOI 10.1086/338991, abstract describes a spatial-heterogeneity approximation."
+      ],
+      "reasoning": "None of the inspected primary material establishes an exact optimizer for fixed u+v with initial-state weights in a continuous-time two-patch chain. The 2001 management study plausibly overlaps and cannot be declared NOT_COVERING from abstract alone; this remains an explicit priority risk.",
+      "searches": [
+        "Etienne Heesterbeek 2001 stochastic winking-patch exact optimal colonization conservation allocation two patches",
+        "Stochastic winking patch asymmetric colonization two patch exact mean extinction time initial state management",
+        "\"Rules of thumb for metapopulation management\" Ross Pollett 2011 pdf",
+        "\"Rules of thumb for conservation\" \"Etienne\" \"pdf\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1006/tpbi.1995.1034; author-uploaded full-text HTML transcription",
+      "MODSIM09 Ross and Pollett 2009; author-uploaded full-text HTML transcription",
+      "doi:10.1086/321986; Chicago publisher abstract and bibliography",
+      "doi:10.1086/338991; PubMed and OpenAlex abstract",
+      "Published mathematical research records checked by the semantic searches documented in four originality comparisons."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ross–Pollett (2009) §4 explicitly separates uniform changes from future targeted changes.",
+        "Etienne–Heesterbeek (2001) publisher abstract gives a different qualitative priority heuristic, not an exact initial-mixture projection formula.",
+        "Day–Possingham (1995) uses discrete annual transitions and computes occupancy and extinction probabilities; the present proof requires solving and optimizing continuous-time mean absorption."
+      ],
+      "reasoning": "For identical mathematical statements a generic finite-state Markov inversion could be specialized, but it does not logically give the strict quadratic and its constrained optimizer without the allocation calculation. Existing general tools are acknowledged, and unresolved exact coverage in inaccessible primary work remains a named limitation.",
+      "searches": [
+        "Two-patch stochastic metapopulation mean extinction time under a fixed total directional colonization-rate budget: optimal allocation and exact threshold from a single initially occupied patch",
+        "Etienne Heesterbeek 2001 stochastic winking-patch exact optimal colonization conservation allocation two patches",
+        "\"optimal\" \"colonization\" \"two-patch\" extinction time stochastic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Markov generator and inverse-mean-hitting-time formulations were checked against Day–Possingham (1995), §2.1–3, DOI 10.1006/tpbi.1995.1034.",
+        "Ross–Pollett (2009) exact mean-extinction-time calculation uses a homogeneous Levins count process, not two directed rates."
+      ],
+      "reasoning": "The proposed invariant is not a new Markov absorption identity; the claimed distinction is a complete unique optimizer and sharp corner/interior transitions for direction-specific rates and arbitrary initial-state mixtures. General inversion methods generate its premises but do not alone state its exact resource-allocation conclusion.",
+      "searches": [
+        "Two-patch stochastic metapopulation mean extinction time under a fixed total directional colonization-rate budget: optimal allocation and exact threshold from a single initially occupied patch",
+        "Finite two-habitat continuous-time colonization extinction Markov chain with asymmetric rescue, optimum split of colonization rates to maximize mean persistence",
+        "Strictly concave mean time to global extinction in a two-patch continuous-time Markov occupancy model under u+v=C directional recolonization budget, optimizer (C+alpha e1-beta e2)/2 projected",
+        "\"two patch\" \"mean extinction time\" \"optimal\" colonization directional asymmetry"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Current semantic results retrieved unrelated ecological dynamical thresholds; closest surfaced entries concern Allee extinction and two-patch SEIR, not this Markov absorption allocation.",
+        "Related two-habitat occupancy and habitat-network survival statements were compared through their mathematical assumptions, not through title matching."
+      ],
+      "reasoning": "No exact table of optimal directed rates or an equivalent threshold was identified. Search absence cannot establish uniqueness; in particular this does not certify the broader literature.",
+      "searches": [
+        "Strictly concave mean time to global extinction in a two-patch continuous-time Markov occupancy model under u+v=C directional recolonization budget, optimizer (C+alpha e1-beta e2)/2 projected",
+        "metapopulation corridor conservation optimal equal split of opposite directed colonization rates starting both patches occupied despite unequal local extinction risks",
+        "Stochastic winking patch asymmetric colonization two patch exact mean extinction time initial state management",
+        "stochastic metapopulation \"initially occupied\" \"asymmetric\" colonization allocation persistence"
+      ]
+    },
+    "rationale": "The claim is the exact initial-state-dependent constrained optimal directional colonization allocation in a continuous-time two-patch chain, not the classical finite Markov absorption method. Inspected Day–Possingham (1995) covers discrete-time transition matrices; Ross–Pollett (2009) optimizes homogeneous rates and explicitly leaves patch targeting as future study. A closely related 2001 conservation paper was accessible only at abstract level, so historical priority is provisional, not asserted with certainty.",
+    "residual_risks": [
+      "The exact contents of Etienne–Heesterbeek (2001), directly relevant to intervention allocation, could not be read in full and may contain an equivalent special case.",
+      "A more general conservation-control theorem or an inaccessible full-text appendix might imply the projector formula.",
+      "The cited discrete-time predecessors and the present continuous-time model must not be conflated; priority remains provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General discrete-time patch-transition construction and calculation, but no observed exact continuous-time fixed-directional-budget optimizer.",
+        "evidence": [
+          "Explicit 2-patch states and asymmetric b_ij colonization in §2.3; discrete annual extinction then colonization, §2.1; expected extinction probability in §3."
+        ],
+        "identifier_or_url": "doi:10.1006/tpbi.1995.1034",
+        "material_read": "Author-uploaded HTML transcription, abstract, sections 2.1–2.3, section 3, and conclusion; two-patch transition matrix described.",
+        "method": "Primary full-text HTML transcription at researchgate.net/publication/256906366_A_Stochastic_Metapopulation_Model_with_Variability_in_Patch_Size_and_Position",
+        "title": "A Stochastic Metapopulation Model with Variability in Patch Size and Position",
+        "trigger": "Directed two-patch colonization with patch-specific extinction in primary historical model"
+      },
+      {
+        "assessment": "Budget is divided between globally homogeneous colonization c and local extinction e; §4 leaves patch-targeted weighted intervention for future work, so it does not directly imply the stated directed split.",
+        "evidence": [
+          "§2 rule R2 and §3 method optimize homogeneous c/e; §4 says targeted subsets and weighted patch changes remain to be explored."
+        ],
+        "identifier_or_url": "MODSIM09 Ross Pollett 1795–1801",
+        "material_read": "Author-uploaded complete-text HTML transcription: model, rules [R1] and [R2], methods, discussion, Appendix.",
+        "method": "Primary full-text HTML transcription at researchgate.net/publication/43511313_Rules_of_thumb_for_metapopulation_management",
+        "title": "Rules of thumb for metapopulation management",
+        "trigger": "Budget-constrained metapopulation management and mean persistence"
+      },
+      {
+        "assessment": "Material originality risk. It discusses direction-specific colonization and mean extinction time, so no whole-document noncoverage inference is made.",
+        "evidence": [
+          "Abstract prioritizes which patch-link colonization probabilities to increase; full text is access-restricted."
+        ],
+        "identifier_or_url": "doi:10.1086/321986",
+        "material_read": "Publisher abstract, publication and access metadata only; full text was not available.",
+        "method": "Chicago publisher article metadata and abstract; lawful open-access and institutional full-text routes were unavailable.",
+        "title": "Rules of Thumb for Conservation of Metapopulations Based on a Stochastic Winking-Patch Model",
+        "trigger": "Closest historical policy paper on colonization/extinction investment"
+      },
+      {
+        "assessment": "Published model-based macroscopic approximation, not inspected as an exact two-directional-rate CTMC optimization; unresolved broader-coverage risk limited by material read.",
+        "evidence": [
+          "Abstract identifies nonlinear regression, aggregation and a formula approximating metapopulation lifetime in heterogeneous landscapes."
+        ],
+        "identifier_or_url": "doi:10.1086/338991",
+        "material_read": "PubMed abstract and bibliographic details only.",
+        "method": "PubMed and OpenAlex bibliographic abstracts",
+        "title": "A Formula for the Mean Lifetime of Metapopulations in Heterogeneous Landscapes",
+        "trigger": "Potential stronger lifetime formula in heterogeneous patch networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76d30637-704b-4642-aee1-ee95443dffcd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Mean global-extinction time is a standard conservation objective and allocating limited, direction-specific corridors is a natural resource problem. The exact optimizer gives a genuine interior-vs-one-way policy boundary driven by initial occupancy and local hazard, and shows the counterintuitive universal equal split from full occupancy despite unequal extinction rates. Unlike a numerical case, it classifies all initial distributions and feasible baseline intervals, with an exact misallocation penalty; it is not claimed for other ecological objectives.",
+    "status": "PASS"
+  }
+}
