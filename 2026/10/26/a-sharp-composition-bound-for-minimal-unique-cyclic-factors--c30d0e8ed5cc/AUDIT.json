@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For any initial letter a, non-nesting injects minimal unique factors into a-starts. For each factor av of length >=2, repeat of suffix v supplies an alternative start, whose predecessor differs from a by uniqueness of av; charges are distinct since coincident starts imply prefix-comparable factors. Singleton case holds for n>=2. For each de Bruijn cycle every order-r factor occurs once and each shorter factor at least twice, attaining the sum. Independent exhaustive checker passed 80,825 words and ten explicit de Bruijn cycles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.3233/FI-2011-536",
+        "https://www.cs.sfu.ca/~jpei/publications/Shortest%20Unique%20Substring%20Queries%20ICDE13.pdf",
+        "https://www.researchgate.net/publication/354033589_Computing_Minimal_Unique_Substrings_for_a_Sliding_Window"
+      ],
+      "reasoning": "Algorithms for all linear or sliding-window minimal unique substrings establish a generic at-most-length bound. A potentially dominating all-alphabet cardinality theorem would need to bound each initial-symbol class in a cyclic word, which the inspected accessible materials do not do. The 2011 full text remains a priority risk.",
+      "searches": [
+        "Minimal uniquely occurring factors of a circular word bounded by complement of the first letter multiplicity via suffix repeat witness injection; alphabet composition",
+        "Nonadaptive shortest unique cyclic substring circular string bounds number of minimal unique factors",
+        "\"minimal unique factors\" \"circular\" \"number\""
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3233/FI-2011-536",
+      "https://www.cs.sfu.ca/~jpei/publications/Shortest%20Unique%20Substring%20Queries%20ICDE13.pdf",
+      "https://125-problems.univ-eiffel.fr/problem59.php",
+      "10.1007/s00453-021-00864-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "doi:10.3233/FI-2011-536",
+        "https://www.cs.sfu.ca/~jpei/publications/Shortest%20Unique%20Substring%20Queries%20ICDE13.pdf",
+        "https://125-problems.univ-eiffel.fr/problem59.php"
+      ],
+      "reasoning": "Prior non-nesting implies M_a <= n_a but not the essential second inequality M_a <= n-n_a. The latter uses an alternative suffix occurrence and a contrasting predecessor. De Bruijn uniqueness implies equality examples, but not the universal upper bound. Linear suffix-array algorithms do not imply it without additional combinatorial reasoning.",
+      "searches": [
+        "Sharp composition-sensitive bound for the number of minimal unique circular substrings of any binary necklace with k ones: 2 min(k,n-k), saturated by de Bruijn sequences",
+        "Minimal uniquely occurring factors of a circular word bounded by complement of the first letter multiplicity via suffix repeat witness injection; alphabet composition",
+        "All cyclic length-r factors of a de Bruijn cycle are minimal unique; number of minimum unique factors compared with letter frequencies",
+        "Nonadaptive shortest unique cyclic substring circular string bounds number of minimal unique factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.3233/FI-2011-536",
+        "https://www.cs.sfu.ca/~jpei/publications/Shortest%20Unique%20Substring%20Queries%20ICDE13.pdf",
+        "https://125-problems.univ-eiffel.fr/problem59.php"
+      ],
+      "reasoning": "Minimum unique substring and minimal unique factor are equivalent names; the existing linear non-nesting property implies only a bound by the number of starts, not the stronger injection into positions with a distinct letter on a circle. No located equivalent circular composition inequality.",
+      "searches": [
+        "Sharp composition-sensitive bound for the number of minimal unique circular substrings of any binary necklace with k ones: 2 min(k,n-k), saturated by de Bruijn sequences",
+        "Minimal uniquely occurring factors of a circular word bounded by complement of the first letter multiplicity via suffix repeat witness injection; alphabet composition",
+        "minimal unique substrings circular bound alphabet frequencies cyclic word",
+        "\"minimal unique substrings\" \"circular\" bound alphabet frequencies cyclic word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://125-problems.univ-eiffel.fr/problem59.php"
+      ],
+      "reasoning": "The educational reference asks about minimal unique factors in de Bruijn words; the elementary equality case is therefore not claimed independently as new. The stated novelty is the per-letter universal upper bound and its optimality, not recomputing a finite de Bruijn table.",
+      "searches": [
+        "All cyclic length-r factors of a de Bruijn cycle are minimal unique; number of minimum unique factors compared with letter frequencies",
+        "\"minimal unique factors\" \"de Bruijn\" number"
+      ]
+    },
+    "rationale": "Published work defines linear minimal unique substrings and their non-nesting property, but the newly established contrast-position injection yields the stronger composition-sensitive cyclic bound not implied by those accessible statements. Targeted scientific searches did not identify equivalent or dominating coverage, while inaccessible full 2011 literature and possible unpublished equivalents remain priority risks.",
+    "residual_risks": [
+      "The complete 2011 Ilie–Smyth article was inaccessible; an equivalent structural bound may occur there or in less searchable cyclic variants.",
+      "Related later works may contain unstated corollaries; database search absence is not a uniqueness proof.",
+      "Full classification of equality cases is not attempted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines linear minimum unique substrings and duality with maximum repeats; abstract does not report the cyclic alphabet-composition bound; complete work not ruled out",
+        "evidence": [
+          "Publisher first published online January 1 2011",
+          "Abstract: linear unique substrings and maximal repeat duality"
+        ],
+        "identifier_or_url": "doi:10.3233/FI-2011-536",
+        "material_read": "Publisher bibliographic metadata, abstract and references; full 2011 article restricted",
+        "method": "Publisher HTML metadata and abstract",
+        "title": "Minimum Unique Substrings and Maximum Repeats",
+        "trigger": "Foundational first definition and possible prior structural bounds"
+      },
+      {
+        "assessment": "The inspected material proves linear-string uniqueness/non-nesting properties, not the cyclic contrasting-symbol charging inequality",
+        "evidence": [
+          "Definitions of MUS and substring uniqueness",
+          "Non-nesting and leftmost-rightmost query constraints"
+        ],
+        "identifier_or_url": "https://www.cs.sfu.ca/~jpei/publications/Shortest%20Unique%20Substring%20Queries%20ICDE13.pdf",
+        "material_read": "Definition and structural constraints in Sections II.A-II.B on pages 2–3 of full author-hosted PDF, plus paper scope and abstract",
+        "method": "Full PDF article, page text and rendered page inspection",
+        "title": "On Shortest Unique Substring Queries",
+        "trigger": "Relevant primary linear-string MUS combinatorial lemmas and possible covering bounds"
+      },
+      {
+        "assessment": "Known de Bruijn example is credited; no cyclic all-alphabet composition-sensitive upper bound in stated material",
+        "evidence": [
+          "Definition and de Bruijn question for linear words"
+        ],
+        "identifier_or_url": "https://125-problems.univ-eiffel.fr/problem59.php",
+        "material_read": "Problem statement, minimal unique factor definition, de Bruijn exercise and references",
+        "method": "Public HTML full problem text",
+        "title": "Minimal Unique Factors (Problem 59)",
+        "trigger": "Known de Bruijn example and terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c30d0e8e-d5cc-4a47-a6fa-94e79fa11bae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The universal per-symbol cardinality constraint is a sharp composition-sensitive refinement of the circumference bound and implies O(k) minimal unique cyclic signatures for an arbitrarily long binary word with only k minority symbols. The injection is structural and an infinite de Bruijn equality family proves optimal coefficient; the fact is not an arbitrary small numerical census.",
+    "status": "PASS"
+  }
+}
