@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every finite graph \\(H\\), the old vertices \\(X\\) selected by an independent dominating set of \\(\\mathtt C(H)\\) form a clique, and subdivision choices are forced to correspond exactly to \\(E(H-X)\\). The sole possible domination obstruction is \\(N_H(v)=X\\) for an old vertex \\(v\\notin X\\). When \\(H=\\mathtt C(G)\\), every subdivision-vertex neighborhood is a nonedge pair and every old-vertex neighborhood contains an isolated subdivision vertex and has size at least two, so no open neighborhood is a clique. Thus every clique gives a unique independent dominating set. Cliques in \\(\\mathtt C(G)\\) consist exhaustively of independent old-vertex subsets, singleton subdivision vertices, and incident old-subdivision pairs. Their multiplicities are respectively \\(a_s(G)\\), \\(m\\), and \\(2m\\), and their sizes are respectively \\(e_s\\), \\(M-1\\), and \\(M-n+2\\), giving the full polynomial. The optimizer classification follows from \\(e_{s+1}-e_s=s+2-n\\), with complete-graph and star boundaries separately handled. A separate standard-library verifier independently enumerated all maximal independent sets in the double central graph for all \\(770\\) connected labelled hosts through five vertices and \\(100\\) seeded six-vertex hosts, finding agreement for \\(21{,}149\\) independent dominating sets. The bounded enumeration is not treated as a proof of the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.16357v1, Theorem 2.12, gives the exact value \\(i(\\mathtt C^2(G))\\) as a function of \\(\\alpha(G)\\), \\(n\\) and \\(m\\).",
+        "Published research record 7dc2104ad847, full RESULT.md, i(C^k(G)) for k>=3.",
+        "arXiv:1808.07369v3 examines the independent domination polynomial but does not state a universal double-central transfer."
+      ],
+      "reasoning": "A minimum-number formula is weaker than all-cardinality enumeration: inputs with equal independence numbers can have different profiles of independent subsets. The higher-iterate result for \\(k\\ge3\\) concerns scalar independent domination, not the polynomial of the second iterate. The proposed transfer applies to every connected input \\(G\\) with \\(|V(G)|\\ge3\\) and, for \\(|V(G)|\\ge4\\), classifies all minimizers. No located broader theorem supplied the same full distribution.",
+      "searches": [
+        "central operation independent domination of iterated central graphs count optimizers independent sets",
+        "minimum independent dominating sets C^2(G) second central graph maximum independence set bijection cardinality number optimal configurations",
+        "\"independent dominating sets\" \"central graph\" polynomial enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.16357v1, full article text and Theorems 2.1 and 2.12.",
+      "Public published result 7dc2104ad847, full RESULT.md.",
+      "arXiv:1808.07369v3, relevant PDF portions and searched full parsed text.",
+      "Targeted primary literature searches for central graph polynomial, second central iterate enumeration, and maximal independent-set formulation.",
+      "Semantic record searches for cliques, double centralization, independent-domination polynomial, and total-count equivalences."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.16357v1, Theorem 2.1 minimizes over clique choices subject to neighborhood corrections; Theorem 2.12 gives \\(i(\\mathtt C^2(G))\\).",
+        "Published record 7dc2104ad847: applies prior scalar formula for i(C²(G)) to derive k>=3 scalar edge-count formula; Limitations: minimum sets not classified.",
+        "Proof here: every clique of \\(\\mathtt C(G)\\) is admissible and three disjoint clique types induce the all-cardinality polynomial."
+      ],
+      "reasoning": "The earlier minimum formula is recovered as the lowest exponent of the new polynomial but does not entail larger exponents or multiplicities. The proved bijection requires all-clique admissibility, a stronger statement than existence of an optimizing clique. The prior \\(k\\ge3\\) edge-count law and the new \\(k=2\\) full polynomial do not imply each other. The older definition of the independent-domination polynomial also does not imply the transfer.",
+      "searches": [
+        "\"independent domination polynomial\" \"central graph\" \"iterated\"",
+        "independent domination polynomial of second iterated central graph in terms of independence polynomial of original graph",
+        "central graphs have no simplicial vertices; second central graph independent domination enumerator clique polynomial transformation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.16357v1, Theorems 2.1 and 2.12 and forced-subdivision choices: the formula is for the minimum, not the full polynomial.",
+        "Public record 7dc2104ad847, full RESULT.md, Theorem on higher iterates with minimum cardinality only.",
+        "arXiv:1808.07369v3, independent domination polynomial defined, studied for other compound graphs."
+      ],
+      "reasoning": "Aliases searched include double central graph, second central iterate, maximal independent-set polynomial of \\(\\mathtt C^2(G)\\), and clique/subdivision enumeration. Existing scalar formulas for \\(i(\\mathtt C^2(G))\\) fix the least exponent alone, not all coefficients or total optimizer counts. The higher-iterate result for \\(k\\ge3\\) does not state a full polynomial for \\(k=2\\). The proved no-clique-neighborhood condition makes all intermediate cliques admissible and yields the exact coefficient correspondence absent from the inspected statements.",
+      "searches": [
+        "independent domination polynomial of second iterated central graph in terms of independence polynomial of original graph",
+        "all independent dominating sets of C(C(G)) biject cliques of C(G), full cardinality enumerator",
+        "central graphs have no simplicial vertices; second central graph independent domination enumerator clique polynomial transformation",
+        "\"central graph\" \"independent domination polynomial\" 2026",
+        "\"second central graph\" \"independent domination polynomial\"",
+        "\"independent domination polynomial\" \"central graph\" \"iterated\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-record semantic search returned higher-iterate minimum-number record 7dc2104ad847 as closest related match, rather than a polynomial/tabulation match.",
+        "Targeted literature searches primarily returned arXiv:2609.16357 and arXiv:1808.07369, whose inspected material covers distinct claims."
+      ],
+      "reasoning": "No exact coefficient table, sequence transform, or universal second-central polynomial was identified in the targeted searches. Missing search hits alone are not taken as novelty proof: implications were compared with the full accessible relevant source statements. Numerical tables are not used to establish the theorem.",
+      "searches": [
+        "independent domination polynomial of second iterated central graph in terms of independence polynomial of original graph",
+        "all independent dominating sets of C(C(G)) biject cliques of C(G), full cardinality enumerator",
+        "\"second central graph\" \"independent domination polynomial\"",
+        "\"number of independent dominating sets\" \"central graph\""
+      ]
+    },
+    "rationale": "The directly relevant arXiv:2609.16357v1 proves exact MINIMUM independent-domination cardinalities for \\(\\mathtt C(G)\\) and \\(\\mathtt C^2(G)\\), not a polynomial counting ALL independent dominating sets or their optimizer multiplicities. The full accessible public result dated 2026-09-17 proves minimum numbers from the third central iterate onward, without minimum-set classification. The foundational polynomial paper arXiv:1808.07369v3 treats different compound graphs; no second-central polynomial was identified in relevant portions and full-text term search. Semantic database searches for double-central enumerators and equivalences found no dominating polynomial theorem. Historical priority remains qualified because this is not an exhaustive review of all mathematical literature.",
+    "residual_risks": [
+      "Older publications may contain an equivalent all-clique central-graph enumeration under different terminology.",
+      "Database/keyword and finite full-text coverage do not guarantee comprehensive historical priority.",
+      "No independent mathematical referee has assessed the novelty claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT scalar minimum \\(i(\\mathtt C^2(G))\\) is covered; complete polynomial and minimizer multiplicities are not stated in the inspected article.",
+        "evidence": "Theorem 2.12 expresses \\(i(\\mathtt C^2(G))\\) using \\(\\alpha(G)\\) and graph order and size, whereas Theorem 2.1 minimizes over clique choices.",
+        "identifier_or_url": "arXiv:2609.16357v1; https://arxiv.org/abs/2609.16357",
+        "material_read": "Accessible complete article HTML including definitions, Theorem 2.1 and its proof, Proposition 2.11, Theorem 2.12 and its proof, results and references.",
+        "method": "Material inspection of article full text and targeted theorem comparisons, not just title/abstract.",
+        "title": "Independent domination in central graphs",
+        "trigger": "Exact same twofold central operator and independent domination parameter; source first posted 2026-09-14."
+      },
+      {
+        "assessment": "The theorem gives the independent-domination minimum for \\(\\mathtt C^k(G)\\) with \\(k\\ge3\\); no all-solution polynomial for the second iterate is asserted.",
+        "evidence": "The theorem gives \\(i(\\mathtt C^k(G))=2|E(\\mathtt C^{k-2}(G))|\\) for \\(k\\ge3\\), and explicitly leaves the minimum sets themselves unclassified.",
+        "identifier_or_url": "public research record 7dc2104ad847 (2026-09-17)",
+        "material_read": "Full published RESULT.md, including theorem, proof, consequences, prior-work comparison and limitations.",
+        "method": "Fetched actual published record content and compared full statements and quantifiers.",
+        "title": "Independent domination of higher iterated central graphs",
+        "trigger": "High-similarity semantic hit on iterated central independent domination."
+      },
+      {
+        "assessment": "Defines polynomial and treats other graph families; no statement corresponding to the double-central-graph transfer located. Incomplete page-by-page reading remains acknowledged.",
+        "evidence": "The paper abstract describes generalized compound graphs; searched text contains no direct central-graph or subdivision match.",
+        "identifier_or_url": "arXiv:1808.07369v3; https://arxiv.org/abs/1808.07369",
+        "material_read": "Abstract, introduction, definitions and multiple portions of source PDF, with full parsed-text search for central and subdivision terminology; not every page read line by line.",
+        "method": "Read accessible PDF pages and run targeted full-document find queries to identify any apparent central-graph coverage.",
+        "title": "On the independent domination polynomial of a graph",
+        "trigger": "Foundational source on the exact same enumerative polynomial."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ae51cdd-3ded-4d77-9549-86310ee35a10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The universal polynomial transfer is the natural exact enumerative counterpart of the recent central-graph independent-domination problem. It computes the entire independent-domination cardinality profile of the second iterate from the ordinary independence polynomial of any connected input, rather than merely giving an extremal scalar. The total-count identity \\(|\\mathcal{ID}(\\mathtt C^2(G))|=\\sum_s a_s(G)+3m\\) holds for every connected input of order at least three. The minimum-set correspondence singles out precisely two motivated exceptions, complete graphs and stars; except for stars, the output degree profile recovers the original independence polynomial. This explains structurally why a natural graph operation preserves enumerative information and addresses a general graph-invariant transformation rather than an arbitrary small case.",
+    "status": "PASS"
+  }
+}
