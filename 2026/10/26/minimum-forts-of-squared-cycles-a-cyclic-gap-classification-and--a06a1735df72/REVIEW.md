@@ -1,0 +1,14 @@
+# Scientific review: minimum forts of squared cycles
+
+**Correctness — PASS.** The four-neighbor rule is equivalent to a local condition on every cyclic gap: lengths at most four, with any four flanked by two ones. The incidence bound on four-gaps versus one-gaps proves \(n\le3|F|\); explicit gap words attain the bound, and the deficit equation \(3\lceil n/3\rceil-n=2b+c-a\) exhausts all equality cases. Counting rooted gap words proves the claimed multiplicity, including the five configurations at ten vertices. A separate verifier directly checks the original definition on 32,695 nonempty subsets for orders six through fourteen and independently examines 3,264,250 subsets of size at most the predicted minimum through order twenty-four. Finite checks are supporting evidence rather than the proof.
+
+**Originality — PASS, with substantial disclosed residual risk.** The complete 2024 primary text on minimal forts [1] gives ordinary cycles and other families, not cycle squares. The 2023 spark result [2] gives a general equivalence and does not enumerate optimizers. Searches of directly relevant published records and mathematical result summaries found no equivalent cyclic-gap classification or exact count. The 2025 circulant failed-zero-forcing paper [3] directly concerns a numerically equivalent invariant, but its full text was inaccessible at the inspected repository. Therefore priority is **not claimed for the failed zero-forcing number**, only for the more detailed classification and number of extremal configurations. An uninspected classification in [3] or unindexed work remains a genuine risk. A statement of the optimum alone cannot imply the number or exceptional geometry of all optima.
+
+**Value — PASS.** Forts are canonical obstructions to zero forcing and determine sparse possible null-vector supports of graph-patterned symmetric matrices. Describing *every* extremal obstruction is substantially stronger than computing just a cardinality, and exposes a nonuniform exceptional class at ten vertices. The cyclic-gap condition is a constructive description of all forts, while the minimum-stratum enumeration has a distinct quadratic arithmetic phase. These features are structurally motivated by the prior fort-enumeration program, not an arbitrary finite slice.
+
+The original 2025 circulant paper's inaccessible body, and possible unindexed equivalent counts, are bibliographic limitations. The theorem does not enumerate all inclusion-minimal forts or address higher cycle powers. The verification program cannot prove the infinite statement by enumeration.
+
+Self-review: passed. Independent audit: not yet performed.
+
+## Sources
+[1] Becker et al., arXiv:2404.05963v1 (2024). [2] Deaett et al., arXiv:2307.00376v2 (2023). [3] Gomez et al., DOI:10.20429/tag.2024.110105 (2025). [4] Johnson et al., DOI:10.3390/appliedmath5020032 (2025).
