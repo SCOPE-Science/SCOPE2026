@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The full target-hitting Laplace transform is derived directly, not inferred from a numerical plot: solve the backward modified Helmholtz equation on both sides of the membrane with an absorbing target and the correct flux-continuity/jump conditions. Its explicit denominator agrees with the published Kay-Giuggioli Eq. (11). Independent exponentially timed global resets yield the standard exact iid-trial renewal formula, which produces the stated F(z,B,eta). The representation (exp(z)-1)/z^2=1/z+integral_0^1(1-t)exp(tz)dt and the sum-of-squares expression for the second derivative of (exp(z)+exp(alpha z))/z prove strict convexity for every admissible z,B,eta. Divergence at both ends gives a unique global minimizer. The implicit-function theorem and exact mixed derivative -2eta(1-2B)exp((1-2B)z) prove the universal midpoint maximum; the exact interface derivative and envelope formula prove strict monotonic decline of the optimized mean. The stand-alone standard-library checker independently verifies boundary matching, renewal, derivatives and optimizer trends in 1,461 deterministic assertions; finite checks are corroboration only. No unscreened/restricted protocol ambiguity remains because reset from both sides is explicitly assumed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "P. C. Bressloff, arXiv:2211.12468 (2022), Diffusion with stochastic resetting screened by a semipermeable interface; https://arxiv.org/abs/2211.12468, Secs. 2-5 (half-line MFPT and Fig. 3: optimal reset rate shifts right as barrier location increases)",
+        "P. C. Bressloff, arXiv:2209.09176 (2022), A probabilistic model of diffusion through a semi-permeable barrier; https://arxiv.org/html/2209.09176v1, Sec. 3 (Fig. 2 and Sec. 3: resets that cross the membrane are forbidden)",
+        "T. Kay and L. Giuggioli, Physical Review Research 4, L032039 (2022), DOI 10.1103/PhysRevResearch.4.L032039, Eq. (11); full OA PDF https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.4.L032039 (no reset)"
+      ],
+      "reasoning": "The closest more general one- and three-dimensional screened-target model is not a dominating theorem: its reset generator has -r loss and a source only outside the membrane, unlike the spatially global r generator. Its published optimal-rate trend is distinct. The earlier snapping-out reset theory focuses on stationarity/relaxation without absorbing-target optimization and forbids cross-membrane reset events. Generic first-passage renewal only recovers F given a Laplace transform and does not itself state or prove monotonic/unimodal barrier-position behavior.",
+      "searches": [
+        "optimal restart rate nonmonotone barrier location maximum midpoint despite mean search time decreasing",
+        "\"permeable interface\" \"resetting\" \"optimal resetting rate\" \"barrier position\"",
+        "diffusion with stochastic resetting screened by a semipermeable interface",
+        "A probabilistic model of diffusion through a semi-permeable barrier"
+      ]
+    },
+    "checked_sources": [
+      "T. Kay and L. Giuggioli, Physical Review Research 4, L032039 (2022), DOI 10.1103/PhysRevResearch.4.L032039, Eq. (11); full OA PDF https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.4.L032039",
+      "P. C. Bressloff, arXiv:2211.12468 (2022), Diffusion with stochastic resetting screened by a semipermeable interface; https://arxiv.org/abs/2211.12468, Secs. 2-5",
+      "P. C. Bressloff, arXiv:2209.09176 (2022), A probabilistic model of diffusion through a semi-permeable barrier; https://arxiv.org/html/2209.09176v1, Sec. 3",
+      "M. R. Evans and S. N. Majumdar, Physical Review Letters 106, 160601 (2011), classical restart background; specific full text not inspected",
+      "Telles Timóteo da Silva (2025), moving-barrier first-passage under resetting, DOI 10.1016/j.cnsns.2025.108732; title and bibliographic evidence only, not full text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kay Eq. (11) is mathematically the same phi(s) proved here and is fully acknowledged as a known premise.",
+        "Bressloff arXiv:2211.12468 Sec. 3 and discussion after Eq. for MFPT: resets are forbidden in target-side compartment and its optimum shifts toward larger rates as barrier moves out.",
+        "Bressloff arXiv:2209.09176 Sec. 3, Fig. 2 explicitly forbids membrane-crossing resets; results are NESS and relaxation."
+      ],
+      "reasoning": "Kay Eq. (11) plus the classical renewal identity permits reconstruction of F, but the new geometric monotonicity and unique universal midpoint optimal-rate maximum require strict convexity and a mixed derivative that neither predecessor proves or states. The half-line screened-reset formula is not a stronger model containing all global-reset protocols, so its parameter trends cannot subsume this theorem. An unlocated broad comparison theorem might yield the final inequality as a corollary; this residual priority risk is disclosed, not mislabeled as verified independence.",
+      "searches": [
+        "Brownian diffusion semipermeable membrane fixed barrier target global Poisson resetting permeability barrier position midpoint optimal resetting rate",
+        "snapping out Brownian diffusion across semipermeable interface resets on both sides universal midpoint optimal rate",
+        "optimal restart rate nonmonotone barrier location maximum midpoint despite mean search time decreasing",
+        "random restart semipermeable membrane total distance barrier at midpoint minimizes mean first passage optimize restart",
+        "T. Kay and L. Giuggioli, Physical Review Research 4, L032039 (2022), DOI 10.1103/PhysRevResearch.4.L032039, Eq. (11); full OA PDF https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.4.L032039",
+        "P. C. Bressloff, arXiv:2211.12468 (2022), Diffusion with stochastic resetting screened by a semipermeable interface; https://arxiv.org/abs/2211.12468, Secs. 2-5",
+        "P. C. Bressloff, arXiv:2209.09176 (2022), A probabilistic model of diffusion through a semi-permeable barrier; https://arxiv.org/html/2209.09176v1, Sec. 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "T. Kay and L. Giuggioli, Physical Review Research 4, L032039 (2022), DOI 10.1103/PhysRevResearch.4.L032039, Eq. (11); full OA PDF https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.4.L032039",
+        "P. C. Bressloff, arXiv:2211.12468 (2022), Diffusion with stochastic resetting screened by a semipermeable interface; https://arxiv.org/abs/2211.12468, Secs. 2-5",
+        "P. C. Bressloff, arXiv:2209.09176 (2022), A probabilistic model of diffusion through a semi-permeable barrier; https://arxiv.org/html/2209.09176v1, Sec. 3"
+      ],
+      "reasoning": "Alternative formulation: minimizing r at a given barrier versus minimizing z=L sqrt(r/D); same positive scaling. The position derivative is equivalently a sign change in F_{zB}; at fixed r it instead has no sign change. The no-reset transform in Kay is an exact premise but has no global reset optimizer. Bressloff 2211.12468 excludes resets after crossing into the interior; Bressloff 2209.09176 explicitly forbids cross-membrane resets. Neither equivalent change of variables nor an outcome described in either source supplies the global-reset midpoint law.",
+      "searches": [
+        "Brownian diffusion semipermeable membrane fixed barrier target global Poisson resetting permeability barrier position midpoint optimal resetting rate",
+        "snapping out Brownian diffusion across semipermeable interface resets on both sides universal midpoint optimal rate",
+        "\"semipermeable\" \"resetting\" \"midpoint\" \"optimal\" barrier",
+        "T. Kay and L. Giuggioli, Physical Review Research 4, L032039 (2022), DOI 10.1103/PhysRevResearch.4.L032039, Eq. (11); full OA PDF https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.4.L032039"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research record searches produced nearby but mathematically distinct boundary/reflection results (for example a Hölder-boundary well-posedness theorem and a subcritical perturbed Brownian boundary-charge theorem).",
+        "Direct paper comparisons: T. Kay and L. Giuggioli, Physical Review Research 4, L032039 (2022), DOI 10.1103/PhysRevResearch.4.L032039, Eq. (11); full OA PDF https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.4.L032039; P. C. Bressloff, arXiv:2211.12468 (2022), Diffusion with stochastic resetting screened by a semipermeable interface; https://arxiv.org/abs/2211.12468, Secs. 2-5; P. C. Bressloff, arXiv:2209.09176 (2022), A probabilistic model of diffusion through a semi-permeable barrier; https://arxiv.org/html/2209.09176v1, Sec. 3"
+      ],
+      "reasoning": "The claim is an exact parameter-continuum geometry theorem, not an entry of a finite database or numerical rate table. No tabulated exact optimizer at all membrane positions was located; more importantly, the precise first-passage model and quantifiers in the checked primary papers do not imply the universal midpoint property. Non-matches alone are not used as proof of uniqueness.",
+      "searches": [
+        "random restart semipermeable membrane total distance barrier at midpoint minimizes mean first passage optimize restart",
+        "stochastic resetting permeable interface",
+        "Brownian first passage resetting barrier",
+        "semipermeable interface mean first passage",
+        "Brownian first passage resetting barrier"
+      ]
+    },
+    "rationale": "The asserted novelty is the entire global-reset geometry theorem: unique optimal rate, strictly unimodal dependence on the interior membrane location with universal midpoint maximizer, and simultaneous strict decrease of the mean first passage time. The no-reset transform is explicitly credited to Kay-Giuggioli, and the ordinary restart-renewal formula is not claimed. Kay-Giuggioli study membrane first passage without global resetting; both highly relevant Bressloff studies use membrane-screened or side-preserving resetting, not resetting to the exterior from both sides. Their reset clock does not produce independent copies of the full target-hitting experiment and hence does not entail the same derivative law. No equivalent or stronger membrane-position optimum was found in the queried published research record or relevant papers; exhaustive scholarly priority, especially via a generalized restart theorem, remains a risk.",
+    "residual_risks": [
+      "The universal midpoint location may be recoverable as a corollary of a broader general theorem for the sensitivity of optimal stochastic restart; the checked literature did not expose such a dominating statement.",
+      "The 2025 moving-barrier article by Telles Timóteo da Silva (DOI 10.1016/j.cnsns.2025.108732) was identified but full text was not available for a direct comparison; its stated moving-barrier setting differs from a fixed semipermeable membrane.",
+      "Search coverage is finite, so this is self-review scholarly originality assessment, not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly supplies no-reset transform; does not investigate global Poisson restart or a restart-rate midpoint location maximum",
+        "evidence": [
+          "Eq. (11) gives 2kappa exp(-L sqrt(s/D)) / (sqrt(Ds)(1+exp(-2b sqrt(s/D)))+2kappa).",
+          "Eq. (14) and discussion treat no-reset MFPT, not the Poisson restart optimum."
+        ],
+        "identifier_or_url": "https://journals.aps.org/prresearch/pdf/10.1103/PhysRevResearch.4.L032039",
+        "material_read": "Six-page open-access PDF including all main pages, Eqs. (2), (9)-(14), Fig. 2, conclusions and references",
+        "method": "Read primary PDF text and inspected page images for Eq. (11), problem geometry and conclusions",
+        "title": "Diffusion through permeable interfaces: Fundamental equations and their application to first-passage and local time statistics",
+        "trigger": "Exact same semipermeable barrier and no-reset target first-passage transform"
+      },
+      {
+        "assessment": "Different generator: Poisson resets only in exterior, suppressed in target-side region; optimal barrier-position trend described as increasing, not a global midpoint maximum",
+        "evidence": [
+          "Sec. 3 explicitly states resetting occurs only for x>b.",
+          "Discussion of Fig. 3 states moving barrier toward reset position shifts its optimum right.",
+          "Sec. 5 describes partially reflected interior component with no resets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.12468",
+        "material_read": "Primary open arXiv full-text presentation, sections 2-5, especially one-dimensional model definition, MFPT derivation, Fig. 3 discussion, and snapping-out construction",
+        "method": "Read arXiv full-text HTML with explicit equation/section comparison",
+        "title": "Diffusion with stochastic resetting screened by a semipermeable interface",
+        "trigger": "Same target/barrier/reset framework with potentially covering optimal-rate claims"
+      },
+      {
+        "assessment": "Resets remain on the same side of the membrane (opposite reset positions ±xi); focus on NESS and relaxation not absorbing-target restart optimization",
+        "evidence": [
+          "Fig. 2 caption: resetting events that cross the membrane are forbidden.",
+          "Sec. 3 states x>=0 resets to +xi and x<=0 resets to -xi.",
+          "Sec. 3.2 analyzes relaxation times rather than target first passage."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2209.09176v1",
+        "material_read": "Primary full-text HTML, introduction; sections 2 and 3 including Fig. 2 and Sec. 3.2; conclusions",
+        "method": "Read equations, resetting protocol definition and principal stationarity/relaxation results",
+        "title": "A probabilistic model of diffusion through a semi-permeable barrier",
+        "trigger": "Closely related earliest membrane resetting framework, possibly allowing global crossing resets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7dde636b-775e-492e-9621-48b742c45b2c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A structural all-parameter optimization theorem for a natural external-restart physical protocol: barrier position improves the mean monotonically but causes a strict, unique nonmonotone dependence in the optimum reset rate, with the peak forced to exactly half the target-reset distance independently of the permeability. The distinction is experimentally meaningful in externally repositioned diffusion searches with permeable compartments, and distinguishes globally imposed relocation from membrane-screened restart models. There is mathematical substance in deriving the interface transform, proving strict convexity and applying mixed/envelope derivatives uniformly; neither a numerical extremum nor mere recomputation of a known formula is the contribution. No arbitrary parameter slice, value-free constant, or unsupported downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
