@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The finite graph has two explicit isomorphic encodings. Enumerating every matching by induction on the first uncovered vertex produces 36 configurations. Exhaustive scanning of all edge deletion sets of sizes 0–5 finds first unique survivors at 4 and 5, 30 versus 6; 240 size-four sets each isolate one of 30 states (8 per state) and each of six remaining states has exactly 22 size-five minimal sets. The independently written LCF program rechecks each matching and every candidate nonmatching subset of sizes 4/5, with corresponding cycle profiles. Both actual standalone programs executed successfully; source files and outputs are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang–Zhang–Lin prove \\(\\operatorname{af}(F)\\ge4\\) for every fullerene and explicitly exhibit four for the dodecahedron.",
+        "Lei–Yeh–Zhang give a planar-bipartite minimax equality; the dodecahedron is not bipartite and their specific example is only a lower bound.",
+        "A later 2017 graph extremal bound was identified by abstract, but no matching-specific table for the dodecahedron was established from it."
+      ],
+      "reasoning": "A theorem establishing a minimum of four for the graph does not imply six matching states need five deletions, nor eight versus 22 minimum certificates. A general extremal bound without equality classification on this graph does not subsume the entire statement.",
+      "searches": [
+        "arXiv:1503.01900v1 Theorems 3.2 and 3.3; Figure 3",
+        "arXiv:1406.3796v1 Theorem 2.6 and dodecahedral example",
+        "Tight upper bound on the maximum anti-forcing numbers of graphs (Shi and Zhang 2017)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.3796v1 (primary PDF)",
+      "arXiv:1503.01900v1 (primary PDF)",
+      "Wolfram MathWorld: Dodecahedral Graph",
+      "Index searches: exact anti-forcing spectrum/poly on dodecahedron/C20",
+      "Published mathematical-record semantic searches for dodecahedral anti-forcing and perfect matching spectra"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 source supplies definitions, \\(\\operatorname{Spec}_f(D)=\\{3\\}\\), and one dodecahedral anti-forcing lower-bound example.",
+        "2015 source proves \\(\\operatorname{af}(D)=4\\), existence but not exact distribution.",
+        "Finite enumeration verifies both the 30 Hamilton-complement class and the six \\((5,5,10)\\)-complement cases with distinct minimum deletion counts."
+      ],
+      "reasoning": "The prior minimum establishes only that all 36 values are at least four and that at least one equals four. It neither implies the upper value five nor fixes any frequency or certificate count. The new result refines an extremal value to a full matching-specific classification.",
+      "searches": [
+        "arXiv:1406.3796v1 pages 4–6",
+        "arXiv:1503.01900v1 Section 3 and Figure 3",
+        "Dodecahedral Graph generalized Petersen and LCF parameter page"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2014 paper explicitly gives the dodecahedron as a minimax counterexample and quotes its ordinary forcing spectrum \\(\\{3\\}\\), not anti-forcing polynomial.",
+        "Targeted searches surfaced no indexed table for the exact matching-wise polynomial."
+      ],
+      "reasoning": "Ordinary forcing (edges inside a matching), anti-forcing (edges outside it), anti-Kekulé deletions (destroy all matchings), and minimum over matchings are different invariants. The new 30/6 distribution is not equivalent to any quoted global minimum.",
+      "searches": [
+        "dodecahedral graph C20 fullerene perfect matchings anti-forcing polynomial spectrum, exact matching-wise anti-forcing numbers",
+        "dodecahedron 20 vertex 36 perfect matchings anti forcing number distribution Fries number enumeration",
+        "fullerene C20 anti-forcing polynomial exact spectrum forcing vs anti forcing",
+        "dodecahedral graph \"anti-forcing\" \"5\" \"4\"",
+        "dodecahedron \"anti-forcing spectrum\" matching 4 5",
+        "arXiv:1406.3796v1 Section 2: anti-forcing spectrum of Dodecahedron"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned dodecahedral matching-complex and other unrelated invariants, not this anti-forcing census.",
+        "Web results located the known 2015 global minimum paper and the 2014 example, but no exact 36-match polynomial."
+      ],
+      "reasoning": "No table examined contains the proposed 30/6 classification. An unindexed or differently keyed computational table remains possible, explicitly recorded as risk; database absence is not a uniqueness proof.",
+      "searches": [
+        "dodecahedron perfect matching anti-forcing polynomial spectrum C20",
+        "C20 \"anti-forcing polynomial\" dodecahedral graph 30 6",
+        "dodecahedral graph \"anti-forcing\" \"5\" \"4\"",
+        "published-finding corpus searches on fullerene C20 matching-wise anti-forcing distributions"
+      ]
+    },
+    "rationale": "The accessible primary anti-forcing papers provide a matching-specific definition, a nonbipartite counterexample involving this graph, and the global lower bound and sharp minimum of four for fullerenes. None provides the complete 36-match anti-forcing distribution, a characterization by complementary two-factor type, or all minimum certificate multiplicities. A new exhaustive calculation supplies these exact non-implied facts. Published equivalence remains a residual risk.",
+    "residual_risks": [
+      "Publication-priority uncertainty: the same 36-state table or deletion certificates could appear in unindexed supplementary data or non-English sources.",
+      "A 2017 general extremal-bound abstract was examined for context but its entire full text was not inspected; no decisive stronger implication was observed.",
+      "Other researcher-generated finite checks have not independently audited this classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the complete \\(30z^4+6z^5\\) distribution; the paper gives only a dodecahedral example with anti-forcing at least four and a forcing spectrum, and a planar-bipartite minimax theorem not applicable to the nonbipartite graph",
+        "evidence": [
+          "arXiv:1406.3796v1, pages 4–6, particularly the paragraph beginning “However, the equality ...” and the dodecahedron example."
+        ],
+        "identifier_or_url": "arXiv:1406.3796v1 | https://arxiv.org/pdf/1406.3796",
+        "material_read": "full introduction and Section 2 through the dodecahedral example (PDF pages 1–6); theorem statements and surrounding proof",
+        "method": "opened primary open-access PDF, inspected definitions, Theorem 2.6 and dodecahedral remark",
+        "title": "Anti-forcing numbers of perfect matchings of graphs",
+        "trigger": "matching-wise definition, dodecahedral counterexample and possible stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the matching-wise polynomial or per-matching minimum anti-forcing set counts. Proves \\(\\operatorname{af}(D)=4\\), which implies only the least exponent and existence of a four-edge set.",
+        "evidence": [
+          "arXiv:1503.01900v1, Theorem 3.2, Figure 3, Theorem 3.3, and later \\(F_{20}\\) construction."
+        ],
+        "identifier_or_url": "arXiv:1503.01900v1 | https://arxiv.org/pdf/1503.01900",
+        "material_read": "introductory definitions, Sections 2–3, Theorem 3.2, Figure 3 and Theorem 3.3; examined the paper’s additional occurrence of \\(F_{20}\\) in its later construction",
+        "method": "opened primary open-access PDF and inspected text and illustrations",
+        "title": "On the anti-forcing number of fullerene graphs",
+        "trigger": "same invariant on all fullerenes including the dodecahedral \\(C_{20}\\)"
+      },
+      {
+        "assessment": "Graph description, not an anti-forcing census. Confirms that the LCF and Petersen representations are appropriate.",
+        "evidence": [
+          "MathWorld states the dodecahedral graph is \\(GP(10,2)\\) and gives the LCF encoding."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/DodecahedralGraph.html",
+        "material_read": "graph definition, generalized Petersen identity and LCF encoding in the reference page",
+        "method": "read reference text",
+        "title": "Dodecahedral Graph",
+        "trigger": "independent graph identity and LCF parameter check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b7df35a9-a68c-4ad0-bd38-83dca7748fdc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dodecahedron is the unique 20-vertex fullerene and a canonical initial case for anti-forcing of molecular Kekulé structures. The literature gives only its graph-level minimum four and a nonplanar counterexample; the natural missing object is the complete profile across all perfect matchings. The classification identifies a six-state structurally exceptional orbit, changes in the number of deletions, and precise minimum-set redundancy (8 versus 22). Those facts supply a reproducible baseline for finer fullerene anti-forcing comparisons and algorithms. It is a coherent natural complete finite classification, not an arbitrary slicing or routine restatement of the known minimum.",
+    "status": "PASS"
+  }
+}

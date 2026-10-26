@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The explicit \(GP(10,2)\) vertex/edge model fixes all conventions. The perfect-matching recurrence is exhaustive by induction on the remaining vertices. Every four- and five-edge deletion is checked, along with smaller sizes, yielding exact first-isolation sizes and multiplicities for all 36 matchings. A separate LCF encoding with an explicit verified isomorphism reproduces the classification. Risks: both implementations are ordinary finite code, not an external proof assistant.
+
+**Originality: PASS (best-knowledge).** Lei–Yeh–Zhang (arXiv:1406.3796v1, Section 2) discuss the dodecahedron as a counterexample to general minimax equality and give a partial lower bound, but do not enumerate its 36 matching-specific anti-forcing numbers. Yang–Zhang–Lin (arXiv:1503.01900v1, Theorems 3.2–3.3 and Figure 3) prove the sharp fullerene minimum of four and provide an example, not the refined \(30z^4+6z^5\) polynomial or minimum-certificate multiplicities. Relevant indexing and mathematical-record searches found no equivalent exact table. Risk: differently indexed, unpublished, or supplemental exact enumerations could cover the claim; failed searches are not a guarantee of priority.
+
+**Value: PASS.** The smallest fullerene is a canonical molecule-derived cubic graph and a baseline case in the anti-forcing literature. Classifying *every* Kekulé structure by the deletion cost, its complementary two-factor and the exact number of minimum deletion certificates distinguishes six structurally exceptional matchings invisible to the known global minimum four. The precise counts can serve as a benchmark for anti-forcing algorithms and comparisons with larger fullerene families. The result is a natural complete finite classification, not a general fullerene theorem.
+
+The target is one mathematical claim, not a package of unrelated invariants. The three axes were assessed against this exact claim, its complete 36-state enumeration, and its dated primary sources. The 2015 lower-bound theorem is credited and is not repackaged as new. Remaining literature-priority uncertainty and lack of independent verification are retained.
+
+Self-review: passed. Independent audit: not yet performed.
