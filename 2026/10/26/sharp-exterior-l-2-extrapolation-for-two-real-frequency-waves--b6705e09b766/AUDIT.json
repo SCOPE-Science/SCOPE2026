@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact fixed-gap Gram matrix is positive definite and yields K_d(x)=2(1-s cos(dx))/(1-s²). For d>=2 the absolute sinc bound makes K<4. For 0<d<2, alternating-sine estimates yield q0<=1-s<=u/6, u=d²<4; F_u(q)=2q(3-2q)-(1-q)u strictly increases on the allowed interval and F_u(q0)=u²(20+10u-u²)/3600>0. This forces K<1+3x² for every |x|>=1. A cos(ht)+3x sin(ht)/h witness tends to the affine polynomial 1+3xt, whose evaluation ratio equals 1+3x²; every fixed positive gap is strictly below, proving nonattainment. The single-frequency case has ratio 1. Exact symbolic identities were verified by the embedded script, numerical checks are supplementary and not relied on as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ruizhe Zhang, arXiv:2607.10501v2, Theorem 1.1 (scale-only uniform bound), Section 5.3 eq. (64) (fixed-frequency Gram formula), Proposition 5.6 (transfer/leverage scale).",
+        "Tamás Erdélyi, arXiv:1602.02315v1, Theorems 2.3–2.6 and their proof; bounds apply to on-interval and endpoint evaluation, not a varying exterior x.",
+        "Zhang Theorem 1.1 controls squared ratios by nonexplicit constants and exponential functions of sparsity and arcosh x; it does not yield the exact polynomial coefficient for k=2."
+      ],
+      "reasoning": "Uniform upper bounds up to multiplicative constants and correct asymptotic growth scales neither fix the exact endpoint value of 4 nor the entire expression 1+3x². The Nikolskii theorem evaluates inside the data interval and is not a dominating exterior statement.",
+      "searches": [
+        "two-frequency sparse Fourier exponential sums sharp continuous L2 extrapolation outside interval 1+3x² confluent limit frequencies coalesce",
+        "arXiv:2607.10501v2 Theorem 1.1 Proposition 5.6",
+        "arXiv:1602.02315v1 Theorems 2.3–2.6",
+        "Estimates outside observation interval exponential polynomial sharp Nikolskii 2 terms"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.10501v2, especially Section 5.3 and Proposition 5.6",
+      "arXiv:1602.02315v1, Theorems 2.3–2.6",
+      "DOI:10.4230/LIPIcs.ICALP.2019.36 (abstract/secondary description only)",
+      "2026/10/4/SCOPE-exact-two-frequency-l-1-concentration-on-every-cyclic-group--aabfaa5078e3 (indexed summary)",
+      "2026/10/11/SCOPE-exact-l-2-to-l-6-nikolskii-constant-for-analytic-quadratics--0b2c2efe6412 (indexed summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ruizhe Zhang, arXiv:2607.10501v2, Theorem 1.1 (scale-only uniform bound), Section 5.3 eq. (64) (fixed-frequency Gram formula), Proposition 5.6 (transfer/leverage scale).",
+        "Tamás Erdélyi, arXiv:1602.02315v1, Theorems 2.3–2.6 and their proof; bounds apply to on-interval and endpoint evaluation, not a varying exterior x.",
+        "Chen–Price, Estimating the Frequency of a Clustered Signal, ICALP 2019, DOI:10.4230/LIPIcs.ICALP.2019.36; official abstract plus description of Lemma 8.5 in Zhang 2026, without full text inspection.",
+        "The fixed-frequency Gram matrix formula specializes to the two-dimensional rational expression K_d(x). A new nontrivial uniform sine estimate is necessary to show sup_d K_d(x)=1+3x², and fixed positive gaps are strictly suboptimal."
+      ],
+      "reasoning": "The Zhang expression is logically sufficient to calculate each fixed-gap score after inversion, but contains no inequality optimizing over arbitrary real gap and no equality classification. Prior coarse bounds do not imply an exact global value by direct substitution. Erdélyi’s endpoint theorem cannot be used at an exterior point x>1 without an additional extrapolation theorem. CP19 is not represented as exhaustively ruled out because its full original was not inspected.",
+      "searches": [
+        "exact sharp extrapolation of two exponential frequencies on [-1,1] point evaluation outside interval reproducing kernel sinc leverage score 1+3x²",
+        "two-frequency sparse Fourier exponential sums sharp continuous L2 extrapolation outside interval 1+3x² confluent limit frequencies coalesce",
+        "arXiv:2607.10501v2 Section 5.3 equation (64) and Proposition 5.6",
+        "arXiv:1602.02315v1 Section 2 Theorem 2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ruizhe Zhang, arXiv:2607.10501v2, Theorem 1.1 (scale-only uniform bound), Section 5.3 eq. (64) (fixed-frequency Gram formula), Proposition 5.6 (transfer/leverage scale).",
+        "Tamás Erdélyi, arXiv:1602.02315v1, Theorems 2.3–2.6 and their proof; bounds apply to on-interval and endpoint evaluation, not a varying exterior x.",
+        "At a fixed gap d the score is 2(1-sinc(d) cos(dx))/(1-sinc(d)^2), an equivalent two-by-two-Gram expression; the new assertion is the supremum over all positive real d, 1+3x^2 for |x|>=1."
+      ],
+      "reasoning": "The exact fixed-gap matrix identity is already in the standard reproducing-kernel framework. The proposed result is not that identity; it requires a uniform sharp inequality in gap d and a proof that equality is approached only as an exhibited collision family, not realized at any positive gap. No inspected source states or establishes that optimized result.",
+      "searches": [
+        "pointwise sharp exterior leverage norm two real frequency exponentials sinc Gram kernel 1+3x squared coalescing frequencies Zhang 2026",
+        "exact sharp extrapolation of two exponential frequencies on [-1,1] point evaluation outside interval reproducing kernel sinc leverage score 1+3x²",
+        "arXiv:2607.10501v2 Section 5.3 equation (64)",
+        "arXiv:1602.02315v1 Theorems 2.3–2.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed Fourier extremal records on finite cyclic groups and three-mode circle coefficient norms concern different domains or functionals from two arbitrary real-frequency exterior evaluation over [-1,1].",
+        "The first indexed result studies L¹ point concentration on a finite cyclic group; the second optimizes L⁶/L² on a three-integer-frequency circle space. Neither indexed summary reports the exterior leverage functional."
+      ],
+      "reasoning": "No directly matching formula, frequency-uniform table or two-atom exterior norm was found in the retrieved indexed records. Finite-group L¹ quantities and circle L⁶/L² inequalities are not equal to the real-interval point-evaluation L² ratio; this database comparison alone cannot establish novelty or exclude an unindexed claim.",
+      "searches": [
+        "pointwise sharp exterior leverage norm two real frequency exponentials sinc Gram kernel 1+3x squared coalescing frequencies Zhang 2026",
+        "evaluation norm Christoffel function span two complex exponentials arbitrary real frequencies extremized by polynomial t",
+        "optimal extrapolation sparse Fourier sums k=2 coefficient 1+3x² Zhang Chen Price Fourier leverage",
+        "finite dimensional exponential polynomial universal two term exterior evaluation sharp L2 interpolation",
+        "2026/10/4/SCOPE-exact-two-frequency-l-1-concentration-on-every-cyclic-group--aabfaa5078e3",
+        "2026/10/11/SCOPE-exact-l-2-to-l-6-nikolskii-constant-for-analytic-quadratics--0b2c2efe6412"
+      ]
+    },
+    "rationale": "Zhang (2026) explicitly defines the exterior leverage functional and gives its fixed-frequency Gram representation, but its theorem only provides unspecified-constant bounds for arbitrary sparsity. The new global maximization at exactly two arbitrary real frequencies and its strict nonattainment are not contained in the inspected statements or relevant sections. Erdélyi (2016) gives interior/endpoint bounds, not the x-dependent exterior optimum. Targeted indexed searches returned no direct or dominating theorem; full literature uniqueness is not asserted.",
+    "residual_risks": [
+      "An unindexed earlier two-exponential extremal inequality or stronger general Christoffel bound could subsume the exact result.",
+      "The Chen–Price 2019 original full text was not available; no whole-document noncoverage conclusion is drawn.",
+      "Indexed record summaries do not substitute for inspecting all highly relevant complete papers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PRIOR_PARTIAL_COVERAGE_ONLY: fixed-frequency Gram and general scale bounds are already present, but no exact optimization over all two-frequency gaps was found in inspected sections.",
+        "evidence": [
+          "Theorem 1.1 uses nonexplicit multiplicative constants for k-sparse extrapolation.",
+          "Section 5.3 equation (64) gives K_Lambda(x)=v*G^-1v for fixed Lambda; Proposition 5.6 gives upper/lower exponential-scale bounds."
+        ],
+        "identifier_or_url": "arXiv:2607.10501v2; https://pdfs.assets.alphaxiv.org/2607.10501v2.pdf",
+        "material_read": "Full-text PDF searchable; inspected title/intro/Theorem 1.1, Section 5.3 equation (64) and Proposition 5.6, Section 7 sharpness discussion, and Appendix A comparison statements; viewed page images of the title and relevant leverage pages.",
+        "method": "Read mathematically relevant sections and equations, compared fixed-frequency identities and global optimization quantifiers.",
+        "title": "Optimal Extrapolation Bounds for Sparse Fourier Sums",
+        "trigger": "The motivating 2026 paper studies precisely exterior leverage of arbitrarily spaced sparse Fourier sums."
+      },
+      {
+        "assessment": "The inspected theorems bound evaluation or suprema on the observation interval and give endpoint lower bounds, not an exact exterior pointwise law for arbitrary real two-frequency sums.",
+        "evidence": [
+          "Theorem 2.3 controls supremum on [0,1] by (πn/2) times L²([0,1]) norm.",
+          "Theorem 2.6 supplies n-scale endpoint lower bound using polynomial collision."
+        ],
+        "identifier_or_url": "arXiv:1602.02315v1; https://arxiv.org/pdf/1602.02315",
+        "material_read": "Introduction, Theorems 2.3–2.6, statements near page 6, and supporting proof around page 19; PDF searched for exterior/outside statements and relevant equations.",
+        "method": "Read primary theorem hypotheses and conclusions, then compared evaluation domain and constants.",
+        "title": "Inequalities for Exponential Sums",
+        "trigger": "Classical sharp Nikolskii theory could dominate the proposed two-wave inequality."
+      },
+      {
+        "assessment": "Published summary concerns less sharp growth bounds; entire paper was not inspected, so a hidden exact case remains a residual priority risk.",
+        "evidence": [
+          "Zhang 2026 introduction attributes a poly(k) exp(O(k² log k delta)) exterior growth estimate to Chen and Price.",
+          "No full-text claim of noncoverage is made."
+        ],
+        "identifier_or_url": "DOI:10.4230/LIPIcs.ICALP.2019.36",
+        "material_read": "Official bibliographic abstract and relevant citation/statement for Lemma 8.5 in Zhang 2026; full primary PDF not retrieved.",
+        "method": "Abstract plus direct description in the newer inspected primary source, not full-article comparison.",
+        "title": "Estimating the Frequency of a Clustered Signal",
+        "trigger": "Older sparse Fourier extrapolation and exterior point bounds."
+      },
+      {
+        "assessment": "Indexed abstracts concern different functionals; no whole-document NOT_COVERING assessment is made.",
+        "evidence": [
+          "Cyclic-group source: two frequencies, L¹ concentration, finite cyclic domain.",
+          "Analytic quadratic source: L²-to-L⁶ norm on integer-circle frequencies, not exterior evaluation."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-two-frequency-l-1-concentration-on-every-cyclic-group--aabfaa5078e3; 2026/10/11/SCOPE-exact-l-2-to-l-6-nikolskii-constant-for-analytic-quadratics--0b2c2efe6412",
+        "material_read": "Retrieved titles and scientific summaries only, not complete papers.",
+        "method": "Compared mathematically stated setting, measure, powers, and evaluation domain in indexed abstracts.",
+        "title": "Published sparse Fourier norm records (indexed summaries)",
+        "trigger": "Potential overlap from formula aliases and two-frequency Fourier extremal statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b6705e09-b766-48bd-85f2-4c467cbcb8b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Zhang 2026 makes exterior sparse-Fourier leverage a natural quantitative invariant for prediction outside sampled intervals but gives only scale-level bounds. The exact k=2 profile 1+3x² solves the first nontrivial unseparated real-frequency case and identifies the decisive frequency-collision extremal mechanism and nonattainment. This is a substantive sharp bound throughout an unbounded continuum of exterior points, not a numerical sample or arbitrary parameter tweak. The restriction to exterior points is mathematically genuine, with a constructed interior counterexample.",
+    "status": "PASS"
+  }
+}

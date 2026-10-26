@@ -1,0 +1,19 @@
+# Scientific review: sharp exterior extrapolation for two real-frequency waves
+
+## Correctness — PASS
+
+The single theorem concerns the exact squared evaluation supremum over nonzero sums with at most two **real** frequencies, complex coefficients, normalized average energy on \([-1,1]\), and \(|x|\ge1\). At fixed positive frequency gap \(d\), the explicit \(2\times2\) positive Gram matrix gives the exact squared norm \(K_d(x)=2(1-s\cos(dx))/(1-s^2)\), with \(s=\sin(d)/d\). The proof divides all gaps at \(d=2\). Large gaps obey \(K_d(x)<4\), while for small gaps an alternating sine estimate and a strictly positive polynomial factorization imply \(K_d(x)<1+3x^2\). The coalescing two-frequency witness converges uniformly to \(1+3xt\) and saturates the bound in the limit. Strictness for every fixed positive gap proves nonattainment; single-frequency sums are covered separately. The supplied checker passes the symbolic factorization, selected kernel values, and witness limits. Finite checks are only corroborative; the analytical argument covers the continuum.
+
+## Originality — PASS, with residual priority risk
+
+Zhang (arXiv:2607.10501, v2, Section 5.3, equation (64)) gives the exact **fixed-frequency** Gram representation, so that step is prior work. Theorem 1.1 and Proposition 5.6 provide general sparse-Fourier extrapolation or leverage bounds up to universal constants and prescribed dependence on \(k\), rather than the optimized exact two-frequency constant \(1+3x^2\) and its nonattainment. Erdélyi (arXiv:1602.02315, Theorems 2.3–2.6) gives inside-window/endpoint Nikolskii bounds, not the exact exterior \(x\)-dependence. Chen–Price (ICALP 2019, Lemma 8.5 as described by Zhang) supplies a growth-scale estimate rather than this statement; its full text was not available for inspection. Indexed Fourier extremal results on finite cyclic groups and coefficient \(L^p\) norms are different objects and do not imply the continuous interval outside-point functional. Multiple targeted database searches found no exact or dominating matching statement. Searches cannot establish absolute novelty, and an equivalent unindexed earlier inequality, particularly in older exponential-polynomial literature, remains the principal risk.
+
+## Value — PASS
+
+Exact pointwise squared amplification from averaged interval energy is a natural **exterior leverage score**, introduced as a central quantity in the motivating 2026 sparse-Fourier extrapolation paper. Even for two waves, frequency collision creates an ill-conditioned Gram basis; it was therefore not a priori clear that the worst exterior amplification equals the degree-one polynomial Christoffel kernel, uniformly over all real gaps. The theorem identifies that coefficient exactly for every exterior point and proves a structurally important nonattainment phenomenon, replacing scale-only bounds by a sharp benchmark for two-component regression or extrapolation. The exterior restriction is substantive: the same proposed law fails in the interval, for example at \(x=0\). No claim is made of extending the exact law to three frequencies or of any application requiring a larger theorem.
+
+## Closest literature and limitations
+
+References: Zhang, *Optimal Extrapolation Bounds for Sparse Fourier Sums*, arXiv:2607.10501v2, Theorem 1.1 and Section 5.3; Erdélyi, *Inequalities for Exponential Sums*, arXiv:1602.02315v1, Theorems 2.3–2.6; Chen and Price, *Estimating the Frequency of a Clustered Signal*, DOI:10.4230/LIPIcs.ICALP.2019.36. The available Chen–Price inspection was limited to official bibliographic/abstract information and its description in Zhang; the original full paper was not compared section by section. The theorem does not classify all near-extremizing sequences, prove a stability gap at finite frequency spacing, or handle interior evaluation. No independent external validation has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
