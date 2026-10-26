@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction from equation (25) of arXiv:2602.15271v1, bounded uniform O(h^2) local defect and discrete Gronwall for the shadow flow, strict scalar monotonicity with checked branch inequalities, and exact 2x2 matrix inversion yield all quantifiers. Independent numerical/rational verification reproduces exact starting defect and the limiting profile; finite tests are not used as proof of global convergence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 error estimate O(h^(min(q+2,p+1)))+O(epsilon) is an upper bound, not an exact asymptotic or equilibrium classification.",
+        "2021 paper analyzes different Patankar updates that preserve original equilibria."
+      ],
+      "reasoning": "An additive O(epsilon) upper bound neither computes the fixed-epsilon limiting flow nor the exact nonzero error or branch thresholds. The earlier equilibrium-preservation statements apply to different formulas and therefore cannot dominate this exact fixed-floor result.",
+      "searches": [
+        "2026 Patankar predictor-corrector eq (25) SDIRK graph Laplacian equilibrium does not preserve original stationary state if epsilon floor exceeds concentrations",
+        "positive conservative integrators numerical steady state spurious equilibria near zero concentration mPDeC threshold correction",
+        "arXiv:2108.07347v1 section 2.7",
+        "arXiv:2602.15271v1 Section 3.5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.15271v1",
+      "arXiv:2108.07347v1",
+      "2026/10/4/SCOPE-a-square-root-step-size-bias-in-the-balanced-implicit-sis-invasi--168b7afadfef",
+      "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+      "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source defines a positive conservative correction and notes epsilon-dependent accuracy.",
+        "New claim proves fixed-epsilon convergence to a different ODE, exact equilibrium phases, and all-h deviation of an exact equilibrium."
+      ],
+      "reasoning": "The source gives neither an if-and-only-if steady-state floor threshold nor a fixed-epsilon shadow-flow identification. Traditional Patankar steady preservation does not imply the opposite behavior of this clipped ratio scheme. A numerical check or source title match is not treated as a proof of noncoverage.",
+      "searches": [
+        "Nurkhametova Gomillion Subrahmanya Sandu Patankar predictor-corrector epsilon floor ratio scaling stationary bias inconsistency modified dynamics two compartment exchange square-root equilibrium",
+        "2026 Patankar predictor-corrector eq (25) SDIRK graph Laplacian equilibrium does not preserve original stationary state if epsilon floor exceeds concentrations",
+        "arXiv:2602.15271v1, equations (25),(34), Remark 3.19",
+        "arXiv:2108.07347v1, section 2.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact correction is a rational resolvent with G times columnwise stage/predictor ratios.",
+        "The first-order expansion is G(phi_epsilon(y)) rather than Gy for fixed epsilon."
+      ],
+      "reasoning": "Explicit searches for shadow dynamics, modified equations, floor thresholds and rare-species equilibrium bias gave no equivalent claim. Replacing the denominator with epsilon amounts to a nonlinear state-dependent vector field, not merely renaming the original equations.",
+      "searches": [
+        "Nurkhametova Gomillion Subrahmanya Sandu Patankar predictor-corrector epsilon floor ratio scaling stationary bias inconsistency modified dynamics two compartment exchange square-root equilibrium",
+        "Patankar correction fixed epsilon denominator floor inconsistent equilibria nonlinear shadow ODE different stationary distribution",
+        "fixed denominator cutoff epsilon in Patankar predictor corrector with clipping and ratio scaling changes vanishing timestep limit to nonlinear transport field species squared over maximum, with square-root stationary equilibrium and phase boundaries",
+        "arXiv:2602.15271v1 equations (21), (25), (34)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published literature-index entries concern stochastic SIS thresholds, Richardson positivity, and BDF2 sign delays rather than this correction formula.",
+        "No relevant published exact table of floor/mass/flux-rate equilibrium branches was identified in inspected sources."
+      ],
+      "reasoning": "This is an analytic continuous parameter classification, not a finite table or arbitrary discrete invariant. Retrieved records did not list an exact database or stronger table covering the same method.",
+      "searches": [
+        "Nurkhametova Gomillion Subrahmanya Sandu Patankar predictor-corrector epsilon floor ratio scaling stationary bias inconsistency modified dynamics two compartment exchange square-root equilibrium",
+        "production destruction graph Laplacian ratio regularization square root stationary mass bias",
+        "fixed denominator cutoff epsilon in Patankar predictor corrector with clipping and ratio scaling changes vanishing timestep limit to nonlinear transport field species squared over maximum, with square-root stationary equilibrium and phase boundaries"
+      ]
+    },
+    "rationale": "Detailed original 2026 full-text method and 2021 related-method comparison, actual published literature-index semantic queries and own-ledger claim checks did not identify a statement implying the exact fixed-floor shadow equation, full equilibrium phase diagram and all-step stationary drift. O(epsilon) in source equation (34) is not the stronger exact result; uncertainty of specialized coverage is disclosed.",
+    "residual_risks": [
+      "A specialized derivation of exact fixed-floor equilibrium bias outside inspected accessible primary sources may exist; database absence is not uniqueness proof.",
+      "Different Patankar correction schemes preserve exact steady states; statements must remain tightly tied to final-only equation (25)."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes positivity/conservation and O(epsilon) error term, recommends epsilon tied to timestep; does not state the exact fixed-epsilon shadow ODE, three-regime two-state equilibrium or all-h equilibrium defect. Distinct quantification and conclusions, not an assertion that its general proof covers a fixed-epsilon convergence result.",
+        "evidence": [
+          "Definition 3.13 scaling has max(predicted component,epsilon) denominator",
+          "Equation (25) final-only correction; SDIRK2 (29)",
+          "Equation (34) includes additive O(epsilon); Remark 3.19 recommends epsilon=O(h^(p+1))"
+        ],
+        "identifier_or_url": "arXiv:2602.15271v1; https://arxiv.org/html/2602.15271v1",
+        "material_read": "Full HTML primary manuscript; especially sections 3.3.1, 3.3.2, 3.4, 3.5, definitions (19),(21), eqs (23),(25),(29),(34), Remark 3.19 and numerical result sections",
+        "method": "Read equations and contextual accuracy and equilibrium statements, compare assumptions and mathematical implications to fixed-floor shadow-limit claim",
+        "title": "A Patankar predictor-corrector approach for positivity-preserving time integration",
+        "trigger": "Exact defining method, cutoff, order and possible direct coverage"
+      },
+      {
+        "assessment": "Analyzes distinct earlier Patankar updates and their equilibrium preservation/near-zero deficiencies. Does not provide fixed floor (25) shadow vector field or the classified parameters; no implication of the new precise theorem.",
+        "evidence": [
+          "Paper discusses equilibrium preservation for the analyzed traditional schemes",
+          "Its step formulas differ from the corrected final-only SDIRK resolvent with fixed max denominator"
+        ],
+        "identifier_or_url": "arXiv:2108.07347v1; https://arxiv.org/abs/2108.07347",
+        "material_read": "Full accessible primary paper; focused sections on small concentrations, preservation of steady states and section 2.7",
+        "method": "Compare the specific update formulas and equilibrium implications with final-only SDIRK correction (25)",
+        "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+        "trigger": "Plausible broader preexisting statement about wrong equilibria and Patankar low-component phenomena"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5248b4dc-450c-459d-9b3b-97d59f4b5cc9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A meaningful well-balancing and timestep-refinement limitation despite exact positivity/conservation; sharp thresholds for when rare species are biased and exact nonzero refinement error. This distinguishes fixed epsilon from the shrink-with-h recommendation and gives a testable design safety boundary, not only a cheap sign observation.",
+    "status": "PASS"
+  }
+}
