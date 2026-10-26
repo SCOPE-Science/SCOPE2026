@@ -1,0 +1,84 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact sample-and-hold flow, obtains exact formulas for the barrier margin and error norm, proves h_i tends to zero for the stated nonzero interior initial conditions, derives E_i(tau_i)/tau_i -> 1, and applies the reciprocal-increment limit to obtain all three asymptotic laws. The verifier checks finite trigger roots only and is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper concerns the exact two-dimensional safety-trigger counterexample and establishes qualitative absence of a positive minimum inter-event time.",
+        "Its proof and figures show the barrier margin approaching zero and event intervals shrinking, but do not state the exact reciprocal-index laws."
+      ],
+      "reasoning": "The inspected primary source does not cover the derived asymptotic rates. The present statement is intentionally restricted to one published counterexample; no claim of a universal event-trigger asymptotic is made.",
+      "searches": [
+        "Search query: safety critical event triggered control input-to-state safe barrier function no MIET asymptotic event times reciprocal index 1/i",
+        "Search query: Taylor Ong Cortes Ames 2020 counterexample h_i inter-event time asymptotic harmonic event count exponential",
+        "Search query: ISSf barrier counterexample radial margin h_i recurrence h_{i+1} h_i minus constant h_i squared"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.06963 (full HTML, relevant sections read)",
+      "DOI:10.1109/LCSYS.2020.3005101 (journal identity for the same work)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior result proves the barrier approaches its boundary and that no positive minimum inter-event time exists; it does not derive h_i ~ 2 rho^3/(sigma i), tau_i ~ 1/i, or t_i ~ log i."
+      ],
+      "reasoning": "The absence of a minimum interval only implies that the infimum of the intervals is zero and does not determine a rate. The new proof uses the exact flow formula and trigger equality to show the reciprocal increment 1/h_{i+1} - 1/h_i tends to sigma/(2 rho^3), which is the decisive additional step.",
+      "searches": [
+        "arXiv:2003.06963, Lemma 1 and discussion following the counterexample",
+        "Search query: exact reciprocal event-time asymptotics for the ISSf barrier counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source defines the same held gain k(x_i)=h_i/2 and trigger 2 rho^3 ||e|| = sigma |h(x)|; its Lemma 1 establishes no MIET and the text notes intervals approach zero."
+      ],
+      "reasoning": "The trigger and state dynamics are equivalent to the source model, but the asymptotic claim is strictly more quantitative than the qualitative no-MIET statement: it fixes the barrier-margin rate, the inter-event coefficient, and the event-time growth law.",
+      "searches": [
+        "arXiv:2003.06963, Sections IV-A and V",
+        "Search query: Taylor Ong Cortes Ames 2020 safety-critical event-triggered control ISSf barrier counterexample asymptotic inter-event times h_i 1/i event count exponential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source provides a qualitative no-MIET lemma and simulation figures for shrinking intervals; it contains no table or database of exact asymptotic coefficients."
+      ],
+      "reasoning": "Not applicable as a database/table comparison: the claim is an analytic asymptotic of a deterministic trajectory, not a lookup-table or empirical-data statement. The relevant full text and figures were inspected directly.",
+      "searches": [
+        "arXiv:2003.06963, full HTML Sections IV-A–V and Figures 1–2",
+        "Search query: Taylor Ong Cortes Ames 2020 safety-critical event-triggered control ISSf barrier counterexample asymptotic inter-event times h_i 1/i event count exponential"
+      ]
+    },
+    "rationale": "The primary paper proves no positive minimum inter-event time and reports intervals tending to zero, but the inspected text does not state the exact reciprocal-index asymptotics or the logarithmic event-time law. Targeted literature searches found no direct equivalent; exhaustive global uniqueness is not claimed.",
+    "residual_risks": [
+      "The literature search is not exhaustive; an uninspected source could contain the same asymptotic refinement.",
+      "The result is specific to the stated counterexample and trigger; generalization to other barriers or plants is not established.",
+      "The finite verifier is corroborative only; the asymptotic conclusion rests on the analytic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant and partially overlapping. It proves the qualitative no-MIET phenomenon but does not state the exact asymptotic rates derived here.",
+        "evidence": [
+          "arXiv:2003.06963, equations (19)–(21), Lemma 1, and the discussion following its proof."
+        ],
+        "identifier_or_url": "arXiv:2003.06963; DOI 10.1109/LCSYS.2020.3005101",
+        "material_read": "Full arXiv HTML, including the exact two-state model, trigger equation, Lemma 1 proof, discussion of shrinking event intervals, proposed alternative trigger, and conclusion; references were not exhaustively read.",
+        "method": "Reconstructed the exact matrix exponential under held gain, the radial barrier evolution, and the trigger residual; compared the source statement with the derived limit laws.",
+        "title": "Safety-Critical Event Triggered Control via Input-to-State Safe Barrier Functions",
+        "trigger": "The paper introduces a safety-trigger counterexample with no positive minimum inter-event time."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5485bdd8-14d0-462a-a4f0-9e4443337fe5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source motivates this counterexample by hardware implementability and lack of a minimum inter-event time. The exact laws quantify the resource cost rather than merely restating failure of a positive lower bound: intervals shrink harmonically, event times grow logarithmically, and event count has logarithmic rate one. The parameter-independent leading interval coefficient is a useful and non-obvious consequence.",
+    "status": "PASS"
+  }
+}
