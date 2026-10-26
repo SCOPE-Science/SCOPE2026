@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The \(L^2\)-Godement theorem applies since the invariant kernel is continuous, square integrable (its squared radial envelope integrates to \(4\pi/3\)), and its explicitly computed spherical transform is integrable against hyperbolic Plancherel measure. Integration by parts using \(-\operatorname{sech}'r=\sinh r\operatorname{sech}^2r\) yields the transform with the stated normalization. A hyperbolic addition identity reduces its sign to the strictly increasing function \(\lambda\coth(\pi\lambda/2)\); this proves the unique cutoff and single negative band, including endpoints. Direct numerical quadrature and exact symbolic simplification support but are not substitutes for the proof.
+
+**Originality — PASS under bounded review.** The inspected 2009 line-kernel result covers only Euclidean translates; the 2014 geodesic-kernel source covers exponential families; the 2023 symmetric-space paper proves positivity for *unmodulated* hyperbolic secant powers and furnishes the underlying transform/criterion, but does not assert the sharp oscillatory frequency interval. Six published-research queries and comparisons with the closest recorded mathematical claims did not identify an equivalent or stronger statement. The closest mathematically related result treats \(e^{-ar}\cos(\omega r)\), whose decay family is not this kernel. Unindexed or differently parameterized literature remains a priority risk; absence of a search hit alone is not a novelty proof.
+
+**Mathematical value — PASS.** The squared hyperbolic-secant profile is a classical soliton kernel and a natural positive-definite hyperbolic envelope. Its sharp stability radius under geodesic oscillation, together with the unique low-frequency negative band that destroys positive definiteness, is a complete, structural covariance-admissibility classification. This is not an arbitrary parameter slice or a bare computation of the already known unmodulated transform.
+
+**Scope and limits.** The proof is exact on curvature-\(-1\) real hyperbolic three-space for this fixed envelope. No classification is asserted for other dimensions or powers. This review does not constitute independent audit or external certification.
+
+Self-review: passed. Independent audit: not yet performed.

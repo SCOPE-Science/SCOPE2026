@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The radial spherical transform is derived by one integration by parts from -sech prime and the classical Fourier cosine transform of sech. Its exact sign reduces to lambda*coth(pi lambda/2)-omega*tanh(pi omega/2); the former is strictly increasing from 2/pi, and the latter strictly increases in omega. This yields all necessary/sufficient regimes, the unique negative-frequency band, and the included endpoint. Continuous L2 norm <=4pi/3, and exponentially integrable spectral transform verify the applicable L2-Godement theorem. Independently evaluated direct integrals at 12 points agree to <5e-28 and symbolic transform addition simplifies to zero.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feragen et al. (2014), Theorems 1-4 and Table 2 discuss Gaussian/Laplacian geodesic exponentials, not sech-squared cosine modulation.",
+        "Da Costa et al. (2023), Theorem 3.1 is a general transform criterion; Appendix B gives positivity of cosh(r)^{-a} at omega=0, but does not evaluate sign of the modulated transform."
+      ],
+      "reasoning": "The general spectral criterion is a tool rather than a theorem implying the explicit sharp omega cutoff without a new transform/sign argument. No stronger inspected family entails the exact cosine-modulated squared-secant region.",
+      "searches": [
+        "cosh decay covariance positive definite hyperbolic space frequency modulation",
+        "sharp bandwidth of cos(omega d) sech^2(d) real hyperbolic 3 space positive definite critical root u tanh u = 1",
+        "hyperbolic Herschel-Maxwell kernel cosh(d)^(-2) with damped harmonic oscillation spectral sign",
+        "arxiv:1411.0296 Theorems 1-4 and table 2"
+      ]
+    },
+    "checked_sources": [
+      "De Marchi and Schaback (2009), Nonstandard Kernels and their Applications, Section 8.4, PDF page 24/physical index 23: real-line squared-secant positive-definite soliton kernel.",
+      "Feragen, Lauze and Hauberg, arXiv:1411.0296 (first public 2014-11-02), full-text searchable PDF; introduction and Theorems 1–4 address geodesic exponential kernels and conditional negative type.",
+      "Da Costa, Mostajeran, Ortega and Said, arXiv:2310.19270 (2023-10-30), searchable PDF, Theorem 3.1, Section 4.2 and Appendix B; unmodulated hyperbolic-secant powers and transform.",
+      "Comparison with related mathematical claims on exponentially damped hyperbolic oscillation and Euclidean squared-secant ambiguity-function zeros.",
+      "Published mathematical finding index, six semantic queries on squared-secant modulation, spherical-transform thresholds and negative frequency intervals; related statements compared by implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Marchi/Schaback prove real-line translation-invariant sech^2 positivity using its Euclidean Fourier transform; no 3D hyperbolic spherical measure or oscillatory parameter.",
+        "Da Costa et al. prove positivity for unmodulated hyperbolic secant powers on H3; omega=0 alone gives no nontrivial positive frequency interval.",
+        "A related exponential-damping classification has envelope e^{-ar}, not sech^2 r, and rational rather than hyperbolic-function transform."
+      ],
+      "reasoning": "Neither Euclidean 1D positivity nor a hyperbolic omega=0 result implies the positive region for omega>0. The previous exponential oscillation calculation uses an inequivalent radial family. The current threshold follows from a new sign reduction to the monotone function lambda*coth(pi lambda/2).",
+      "searches": [
+        "spherical transform oscillatory hyperbolic secant powers cos(omega r) on H3 negative spectrum",
+        "hyperbolic Herschel-Maxwell kernel cosh(d)^(-2) with damped harmonic oscillation spectral sign",
+        "arxiv:2310.19270 Section 4.2 and Appendix B",
+        "De Marchi Schaback 2009 Section 8.4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The known even-power hyperbolic secant transform is strictly positive at omega=0 (da Costa et al., Appendix B); the current frequency modulation shifts two sine-transform arguments and may become negative.",
+        "The related e^{-ar}cos(omega r) classification is not identical to sech^2(r)cos(omega r): the first radial envelope has nonzero derivative at zero while the second has zero derivative at zero."
+      ],
+      "reasoning": "The new spectral transform is a sum of two shifted Fourier-secant terms, not a mere reparameterization of the 2023 gamma-square formula for unmodulated powers. The full threshold and unique low-frequency sign interval are absent from the inspected closest statements.",
+      "searches": [
+        "sharp positive definiteness hyperbolic three-space radial kernel sech squared geodesic distance multiplied by cosine frequency, exact tanh threshold",
+        "spherical transform oscillatory hyperbolic secant powers cos(omega r) on H3 negative spectrum",
+        "arxiv:2310.19270 Appendix B equations B.1-B.3, Proposition B.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Six semantic searches of published mathematical findings examined top-ranked results for the exact squared-secant cosine modulation and frequency cutoff; no matching classification was identified among those results.",
+        "The most closely related recorded statements involve an exponential geodesic envelope or a Euclidean ambiguity function, not the same hyperbolic modulated squared-secant kernel."
+      ],
+      "reasoning": "Matching scientific implications, not simply titles, were compared in the retrieved mathematical statements. Incomplete database coverage is a residual risk; these negative searches are not treated as a proof of novelty.",
+      "searches": [
+        "sharp positive definiteness hyperbolic three-space radial kernel sech squared geodesic distance multiplied by cosine frequency, exact tanh threshold",
+        "sharp bandwidth of cos(omega d) sech^2(d) real hyperbolic 3 space positive definite critical root u tanh u = 1",
+        "modulated hyperbolic secant covariance geodesic cosine frequency threshold spherical Fourier transform",
+        "published mathematical finding index: spherical positive definite hyperbolic secant oscillation"
+      ]
+    },
+    "rationale": "The explicit sharp modulation cutoff and single negative spectral interval are not implied by the inspected same-envelope omega=0 theorem or the archived Euclidean soliton positivity result, nor by the exponential-envelope hyperbolic classification in related recorded mathematical claims; six published-research searches returned no matching published claim. These conclusions are under bounded best-knowledge comparison, not absolute priority proof.",
+    "residual_risks": [
+      "An unindexed or differently parameterized publication may contain the same exact secant-squared cosine result.",
+      "The 2009 source has verified year-only publication evidence, not a verified calendar day; first_public_date is anchored instead by arXiv:1411.0296 public v1 on 2014-11-02.",
+      "General spherical-transform machinery makes computation feasible but does not itself state the sharp cutoff; a previously published worked example not found in available sources could dominate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS real-line squared-secant unmodulated kernel, NOT the geodesic H3 modulated sign threshold.",
+        "evidence": "Section 8.4 describes K(x-y)=sech^2(x-y) and derives positive definiteness from Euclidean Fourier positivity.",
+        "identifier_or_url": "https://drna.padovauniversitypress.it/system/files/papers/Schaback-2009-NKA.pdf",
+        "material_read": "PDF, Section 8.4 and page 24 (physical page index 23), including equation (38) and adjacent explanation; inspected PDF screenshot.",
+        "method": "Primary full-text search, section reading, page image.",
+        "title": "Nonstandard Kernels and their Applications",
+        "trigger": "An archived original source for the squared-secant soliton kernel and its known positive Euclidean Fourier transform."
+      },
+      {
+        "assessment": "NOT_COVERING the hyperbolic secant with geodesic cosine modulation; results address geodesic exponential kernels.",
+        "evidence": "Main theorem list treats exp(-lambda d^q), in particular q=1,2; full-document find returned no cosh or oscillat match.",
+        "identifier_or_url": "arxiv:1411.0296 (https://arxiv.org/pdf/1411.0296)",
+        "material_read": "The 13-page searchable original PDF: abstract, introduction, key theorem statements and tables; full-document searches for cosh and oscillation; opening page screenshot.",
+        "method": "Open primary arXiv PDF, read targeted passages, search entire extracted document for defining-function aliases.",
+        "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+        "trigger": "Archived motivating geodesic-kernel literature with a verified first public date, 2014-11-02."
+      },
+      {
+        "assessment": "COVERS the unmodulated sech^a base at omega=0 and the general spectral criterion, but NOT the sharp cosine-frequency interval or its unique negative band.",
+        "evidence": "Theorem 3.1 gives L2 positivity iff transform nonnegative/integrable; Section 4.2 equations (4.4)-(4.6) give H3 sine-transform pair; Appendix B Proposition B.2 treats (cosh r)^(-a) without cosine modulation.",
+        "identifier_or_url": "arxiv:2310.19270 (https://arxiv.org/pdf/2310.19270)",
+        "material_read": "Theorem 3.1 (PDF p5/index4), Section 4.2 (PDF p6/index5), Section 4.3.2, Appendix B (PDF pp24-25/indices23-24) and their proofs/normalizations, plus full-document targeted searches; page screenshots read.",
+        "method": "Original arXiv PDF full-text search and relevant sections/appendix inspection with screenshots.",
+        "title": "Invariant kernels on Riemannian symmetric spaces: a harmonic-analytic approach",
+        "trigger": "Highly relevant primary spherical-transform criterion and the precise hyperbolic-secant kernel on H3."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf0d803d-be91-4d37-9e40-c0a505ccb588",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the exact admissible oscillation bandwidth of a natural soliton-derived radial kernel after replacing Euclidean distance by geodesic distance on H3. The failure above cutoff is completely localized to one low-frequency spherical band, with an exact transcendental root and no higher-frequency negativity. This structural phase diagram is useful for deciding admissible geodesic covariance models and is not a renaming or unmotivated finite numerical table.",
+    "status": "PASS"
+  }
+}
