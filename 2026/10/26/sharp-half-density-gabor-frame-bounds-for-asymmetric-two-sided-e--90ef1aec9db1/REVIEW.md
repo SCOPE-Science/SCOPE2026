@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness: PASS.** Every parameter is quantified over positive real rates, the window normalization and Zak convention are fixed, and the complete proof reduces sharpness to a strictly monotone frequency coordinate and a unique interior quadratic spatial optimizer. Nonstandard parity identities and the endpoint derivative signs were reconstructed symbolically from the package code, while independent truncated Zak series agree at sampled rates. Remaining risk is an unnoticed analytical transcription error; direct numerical checks cannot independently prove an infinite theorem.
+
+**Originality: PASS, qualified.** The 2013 Kloos–Stöckler full text treats totally positive finite-type frame existence and lower estimates for even two-sided exponentials. The 2014 Kloos full text treats Zak zero uniqueness. Neither inspected theorem implies sharp bounds and all extremal fiber coordinates for two independent asymmetric rates. The closest indexed research record concerns sharp *translation-sampling* bounds of asymmetric exponentials, a distinct operator without the modulation lattice. Residual publication-priority uncertainty remains for nonindexed or unavailable older sources and for equivalent formulations in general Gabor-frame tables.
+
+**Mathematical value: PASS.** Exact frame bounds quantify stable twofold-oversampled time–frequency reconstruction for a standard nonsymmetric exponential generator. The theorem covers the complete two-parameter family, identifies both extremizing fibers without numerical optimization, yields an explicit conditioning ratio, and provides a rate-sensitive shift of the worst fiber. It is not merely a restatement of frame existence or the known even case; no results at other densities are asserted.
+
+Self-review: passed. Independent audit: not yet performed.
