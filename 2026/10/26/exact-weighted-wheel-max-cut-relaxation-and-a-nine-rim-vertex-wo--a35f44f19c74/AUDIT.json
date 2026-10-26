@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Fourier lower bound for the sum of cyclic Gram correlations is globally valid for arbitrary unit vectors, including asymmetric/rank-unbounded feasible SDP solutions. Explicit three-dimensional Fourier vectors attain the exact scalar minimum. Cut enumeration by negative-leaf count gives the integer optimum. Exact quadratic gaps, discriminants and strict algebraic ratio-endpoint comparison prove all n>=3,t>=0 statements. Finite exact-rational and random checks corroborate, not substitute for the derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Laurent--Varvitsiotis (2011) prove a graph-global signed-quadratic Grothendieck constant in terms of girth for K5-minor-free graphs, not the positive-edge Max-Cut SDP/CUT(t).",
+        "Bhardwaj (2026) shows complexity of recognizing exactness for general graphs, with no wheel parameter formula."
+      ],
+      "reasoning": "Graph-global ratios over arbitrary SIGNED objectives differ from the affine normalizations of Max-Cut SDP/CUT with nonnegative weights. General decision hardness and graph-class universal bounds do not logically imply which spoke weight maximizes the ratio for a fixed wheel or the isolated n=3 exactness value.",
+      "searches": [
+        "Semidefinite relaxation maximum cut on weighted cycle with hub (wheel) and odd cycle integrality gap formula",
+        "MaxCut SDP of cones over odd cycles with uniform hub spoke weight and frustrated order",
+        "Laurent--Varvitsiotis arXiv:1106.2735v1 Theorems 3.3 3.4",
+        "Bhardwaj arXiv:2609.03508 SDP exactness"
+      ]
+    },
+    "checked_sources": [
+      "Goemans and Williamson (1995), author full PDF equation (P), https://math.mit.edu/~goemans/PAPERS/maxcut-jacm.pdf",
+      "Laurent and Varvitsiotis (2011), arXiv:1106.2735v1, sections 1–4, https://arxiv.org/html/1106.2735v1",
+      "Ben-Ameur, Glorieux and Neto (2016), Section 5, Table 1 and conclusion, https://www.researchgate.net/publication/305455943_From_Graph_Orientation_to_the_Unweighted_Maximum_Cut",
+      "Rendl, Rinaldi and Wiegele (2007), OA PDF abstract and introduction, https://optimization-online.org/wp-content/uploads/2007/05/1659.pdf",
+      "Delorme and Poljak (1993), metadata/snippets only, doi:10.1016/0012-365X(93)90151-I",
+      "Indexed published mathematical findings on wheel geometry, odd cycles, cut polytopes and SDP optimization (see search topics in the structured comparison fields)",
+      "An available earlier odd-cycle closing-edge perturbation SDP claim; it does not contain hub spokes."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A known earlier odd-cycle closing-edge perturbation result addresses an odd cycle with one closing-edge perturbation, no hub.",
+        "Goemans--Williamson general SDP bounds allow the quadratic program but do not solve the weight-specific wheel family.",
+        "Delorme--Poljak (1993) wheel discussion is a full-text access risk."
+      ],
+      "reasoning": "A result on a perturbed odd cycle cannot imply the cone over that cycle with n uniform hub edges; a John ellipsoid or girth-only graph invariant also cannot recover the SDP edge-weight support value without further constraints. A stronger lifted SDP numerically exact for unit wheels does not imply the value of the weaker basic SDP. The inaccessible early paper could still dominate parts or all of this result, but available evidence does not establish such dominance; residual uncertainty is explicitly retained.",
+      "searches": [
+        "Goemans Williamson max-cut SDP weighted wheel graph with uniform spokes and cycle edges; exact semidefinite optimum and integrality gap threshold for spoke weight",
+        "weighted wheel MaxCut semidefinite program exact wheel cone cycle Goemans Williamson integrality gap",
+        "MaxCut SDP of cones over odd cycles with uniform hub spoke weight and frustrated order",
+        "wheel graph semidefinite maxcut objective rim positive odd parity integer optimum",
+        "arXiv:1106.2735v1 Sections 3–4",
+        "doi:10.1016/0012-365X(93)90151-I",
+        "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes (public indexed finding)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goemans--Williamson (1995) equation (P): weight times (1-vector dot)/2; exactly current SDP.",
+        "Delorme--Poljak (1993) is a plausible spectral-dual formulation of weighted Max-Cut; full text unavailable."
+      ],
+      "reasoning": "The universal spectral inequality is an exact primal support-function computation for a specific dihedrally symmetric signed quadratic program, not merely a new presentation of SDP. The general spectral/eigenvalue dual is equivalent as an optimization framework, but neither its general definition nor accessible literature here supplies the parameter-specific minimizer, full exactness set or nine-rim switch. Earlier eigenvalue-bound wheel calculations remain an identified risk.",
+      "searches": [
+        "Goemans Williamson max-cut SDP weighted wheel graph with uniform spokes and cycle edges; exact semidefinite optimum and integrality gap threshold for spoke weight",
+        "Exact SDP max cut on wheels W_n weight t spokes, unit rim; optimal correlation Fourier modes and maximum cut; spoke threshold",
+        "weighted wheel MaxCut semidefinite program exact wheel cone cycle Goemans Williamson integrality gap",
+        "Goemans--Williamson 1995 equation (P)",
+        "Delorme--Poljak (1993) doi:10.1016/0012-365X(93)90151-I"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ben-Ameur--Glorieux--Neto (2016) Table 1 reports basic SDP0 numerical data for unweighted wheels W5, W8, W10, etc.",
+        "Indexed mathematical findings concern wheel edge-polytope ellipsoids and graph-cut geometry, rather than a wheel Max-Cut SDP parameter table."
+      ],
+      "reasoning": "Several t=1 examples are indeed already tabulated and are explicitly credited. Their finite values do not specify an exact expression for all real t≥0, nor the locations of worst multiplicative ratios across every rim size. No claim is made that those previously tabulated numerical values were unknown.",
+      "searches": [
+        "Exact SDP max cut on wheels W_n weight t spokes, unit rim; optimal correlation Fourier modes and maximum cut; spoke threshold",
+        "wheel graph semidefinite maxcut objective rim positive odd parity integer optimum",
+        "Ben-Ameur--Glorieux--Neto (2016) Section 5 Table 1 wheel instances",
+        "weighted wheel MaxCut semidefinite program exact wheel cone cycle Goemans Williamson integrality gap"
+      ]
+    },
+    "rationale": "Topic-specific searches of published mathematical findings and available predecessor claims returned no logically covering weighted-wheel SDP claim. Read general SDP and Grothendieck theory plus the 2016 paper with numeric t=1 wheel cases. Neither the general framework nor the finite t=1 table entails the all-real-t exactness classification and unique 7-to-9 worst-gap switch. The 1993 Delorme--Poljak paper is an explicitly documented full-text access risk, so this is a qualified self-review originality assessment, not a proof of global literature novelty.",
+    "residual_risks": [
+      "Full text of Delorme and Poljak (1993), a plausible earlier eigenvalue-bound treatment with wheel examples, was inaccessible; it might establish some or all weighted-wheel cases.",
+      "Non-indexed or differently named analytic solutions could exist; search and proof comparison do not certify absolute novelty.",
+      "The 2016 numerical unweighted-wheel SDP values are known and not claimed as new; all-t formulas and switch are the distinctive claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exactly the relaxation optimized here and general guarantees; inspected portions give no spoke-weight-dependent weighted-wheel classification.",
+        "evidence": [
+          "Goemans--Williamson (1995), equation (P) at PDF page 6; introductory pages; wheel-specific formulas not observed in read portions."
+        ],
+        "identifier_or_url": "https://math.mit.edu/~goemans/PAPERS/maxcut-jacm.pdf",
+        "material_read": "Author PDF page 1120 (PDF page 6), the vector-relaxation formulation and surrounding exposition; abstract and introduction.",
+        "method": "Opened full 31-page PDF text and examined PDF page image of the optimization formula.",
+        "title": "Improved Approximation Algorithms for Maximum Cut and Satisfiability Problems Using Semidefinite Programming",
+        "trigger": "Canonical objective and possible general exactness dominance"
+      },
+      {
+        "assessment": "Provides graph-global, all-edge-weight signed quadratic Grothendieck constant formulas and cycle case. Those are different normalizations/objects and do not imply this uniform-spoke positive-weight objective, exactness set or worst-parameter switch.",
+        "evidence": [
+          "arXiv:1106.2735v1, Theorems 3.3–3.4 and Section 4; submission June 10, 2011."
+        ],
+        "identifier_or_url": "arXiv:1106.2735v1",
+        "material_read": "Full accessible HTML text; Sections 1, 2, 3.1, 3.2 and 4, specifically Theorems 3.3 and 3.4, with the introduction and definitions.",
+        "method": "Read arXiv HTML full text, theorem statements and comparisons of signed quadratic objective versus Max-Cut SDP.",
+        "title": "Computing the Grothendieck constant of some graph classes",
+        "trigger": "Potential stronger graph-class integrality result; cycles and K5-minor-free classes include wheel-related graphs"
+      },
+      {
+        "assessment": "The paper reports several basic GW SDP numerical wheel optima at t=1, e.g. W5 value 6.25, and a tighter SDP3 that numerically becomes exact; does not state exact formulas for every uniform spoke weight or maximal ratio switch.",
+        "evidence": [
+          "Ben-Ameur--Glorieux--Neto (2016), Section 5 and Table 1: SDP0 versus strengthened SDP3 on unweighted wheels; conclusion expressly addresses future weighted extensions."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/305455943_From_Graph_Orientation_to_the_Unweighted_Maximum_Cut",
+        "material_read": "Author-uploaded public full-text transcription, Sections 1, 5 and 6, Table 1 at end.",
+        "method": "Examined relevant passages and wheel SDP numeric table in publicly accessible full article text.",
+        "title": "From Graph Orientation to the Unweighted Maximum Cut",
+        "trigger": "Explicit numerical wheel examples could cover the special case at spoke weight one"
+      },
+      {
+        "assessment": "Algorithmic branch-and-bound/tightening; inspected claims are not symbolic optimal-value formulas for weighted wheels.",
+        "evidence": [
+          "Rendl--Rinaldi--Wiegele (2007), abstract and introduction."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2007/05/1659.pdf",
+        "material_read": "Abstract, introductory SDP and cut-polytope optimization exposition.",
+        "method": "Opened lawful OA PDF and examined method description, checking wheel-specific named topics.",
+        "title": "Solving Max-Cut to Optimality by Intersecting Semidefinite and Polyhedral Relaxations",
+        "trigger": "Broader algorithmic SDP literature possibly dominates special graph relaxations"
+      },
+      {
+        "assessment": "Insufficient material to exclude a stronger specialized antecedent; the existence of wheel examples is acknowledged as residual originality risk, not characterized as NOT_COVERING.",
+        "evidence": [
+          "Delorme--Poljak (1993), Discrete Mathematics 111, pp.145–156; search snippet naming wheel examples."
+        ],
+        "identifier_or_url": "doi:10.1016/0012-365X(93)90151-I",
+        "material_read": "Bibliographic metadata and public indexed short text only; complete text not available.",
+        "method": "Searched arXiv and lawful open-access sources and checked public publisher availability; the complete article text could not be obtained.",
+        "title": "The performance of an eigenvalue bound on the max-cut problem in some classes of graphs",
+        "trigger": "Search snippet explicitly mentions wheels with 9 and 10 spokes in a study of a closely related eigenvalue/SDP bound"
+      },
+      {
+        "assessment": "General hardness of recognition does not imply closed-form exactness/ratio for the special one-parameter family.",
+        "evidence": [
+          "Bhardwaj (2026), arXiv:2609.03508, abstract."
+        ],
+        "identifier_or_url": "arXiv:2609.03508",
+        "material_read": "Accessible abstract and theorem-level introductory discussion available online.",
+        "method": "Compared the strong hardness classification and graph constructions to a fixed symmetric wheel family.",
+        "title": "On the Complexity of Recognizing SDP Exactness for the Maximum Cut Problem",
+        "trigger": "Potential general decision result on weighted graph SDP exactness"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a35f44f1-9c74-4134-92fb-11dab9dfd70e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical GW relaxation is a meaningful benchmark. Exact support-function and integer optima for a continuous weighted wheel family identify precise SDP exactness and a genuinely structural, sharp 7-to-9 odd-wheel transition in the maximizer of the integrality gap; not a single unmotivated graph computation. The isolated n=3 exactness point provides a useful boundary case. The scope excludes arbitrary spoke-weight vectors and strengthened relaxations.",
+    "status": "PASS"
+  }
+}
