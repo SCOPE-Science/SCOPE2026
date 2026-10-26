@@ -1,0 +1,96 @@
+{
+  "correctness": {
+    "rationale": "The leaf differences satisfy an exact exponential law, preserving all weighted leaf ranks and forcing the weighted-median endpoints to obey the same hub-driven linear equation. The hub tie-selection is the projection of its current opinion onto the leaf median interval because the hub is an eligible zero-weight candidate. The three sign-invariant linear ODE cases produce the stated formulas and show global consensus for every finite leaf number and every strictly positive weight vector. Exact rational thresholds and independent differential equation residuals were checked with verify.py; the proof is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Han et al., v1, establish existence/uniqueness, convergence and network conditions; those yield consensus for this graph but not the closed-form consensus outcome.",
+        "The v3 revision includes pinning control; it does not state the exact arbitrary weighted-star terminal selection or the sensitivity jump."
+      ],
+      "reasoning": "Strong prior convergence theorems cover convergence on stars, so convergence itself is not claimed original; the only asserted new contribution is the full explicit selection functional together with its discontinuity at a median tie.",
+      "searches": [
+        "arxiv:2404.16318v1 complete III dynamical theory",
+        "arxiv:2404.16318v3 convergence and control sections",
+        "\"median opinion dynamics\" \"star network\" \"consensus\" exact"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.16318v1; full relevant primary text",
+      "arxiv:2404.16318v3; revised primary text",
+      "Web search on exact star/hub weighted-median consensus and influence-weight sensitivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing global convergence allows many possible consensus values but cannot distinguish the three exact formulas.",
+        "Existing fixed-point characterization cannot determine basin selection without dynamical computation.",
+        "The older discrete-time weighted-median literature uses distinct asynchronous or synchronous update mechanisms and cannot imply this continuous-time exact star trajectory."
+      ],
+      "reasoning": "The proof adds a rank-preservation reduction, explicit ODE trajectories, and a discontinuous weight-response at a half-median tie. None is a corollary of the identified general convergence and equilibrium statements alone.",
+      "searches": [
+        "arxiv:2404.16318v1 \"convergence\" \"equilibria\"",
+        "arxiv:2404.16318v3 \"star\"",
+        "\"continuous-time weighted-median\" \"star\" \"consensus\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original v1 model defines the closest-value tie rule and proves convergence, but its general theorems do not give an explicit star selection map.",
+        "The star statement is equivalently the exact equilibrium-selection map with a strict weight-tie discontinuity, not merely existence of consensus."
+      ],
+      "reasoning": "A generic weighted-median fixed-point characterization specifies possible equilibria, whereas the new initial-state-to-limit map and discontinuous dependence on an influence weight are stronger dynamical conclusions. The star reduction and half-weight tie were compared as statements, not title matches.",
+      "searches": [
+        "\"continuous-time weighted-median\" \"star\" \"consensus\"",
+        "\"weighted median\" continuous time \"hub\" \"leaves\" consensus value",
+        "arxiv:2404.16318v1 Definition 1; equilibrium and convergence theorems"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The result is a continuous parameter-dependent dynamical theorem, not an enumerated finite graph invariant; no numerical table can imply the all-size star formula."
+      ],
+      "reasoning": "The exact two-leaf rational example is a witness to the broader proved sensitivity statement, not a recomputation of a pre-existing table. No matching published star consensus table was located in the inspected sources.",
+      "searches": [
+        "\"weighted median social networks star graph opinion consensus closed formula sensitivity threshold 1/2\"",
+        "\"continuous time median opinion dynamical system arbitrary weighted star tie-break center consensus selection\""
+      ]
+    },
+    "rationale": "The v1 primary source proves global existence, convergence and consensus criteria, not an explicit initial-state-to-consensus map for arbitrary weighted stars or discontinuous weight sensitivity. The v3 update and searched related records did not yield an equivalent stronger theorem. Distinct discrete-time opinion convergence results do not imply the continuous-time star formula. Residual possibility of unindexed specialized precedent remains.",
+    "residual_risks": [
+      "A specialized weighted-median star result outside indexed and inspected sources could precede this explicit selection formula.",
+      "The discontinuity depends on permitting the hub opinion as an eligible zero-weight candidate in an exact median tie, matching the cited model; other conventions change the conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_CONVERGENCE_NOT_EXACT_STAR_SELECTION",
+        "evidence": "v1 introduction and dynamical results establish general convergence and characterization, without evaluating all weighted-star consensus values or the tie-response example.",
+        "identifier_or_url": "https://arxiv.org/html/2404.16318v1",
+        "material_read": "Definition 1, model equation, introduction, III main convergence and equilibrium results and discussion; the first public v1 was compared against the proposed explicit star statement.",
+        "method": "Full accessible arXiv HTML relevant sections and theorem statements",
+        "title": "The Continuous-Time Weighted-Median Opinion Dynamics",
+        "trigger": "Exact originating 2024 dynamics, closest potential covering result"
+      },
+      {
+        "assessment": "ADDS_CONTROL_NOT_EXACT_STAR_FORMULA",
+        "evidence": "Updated text discusses global convergence and pinning controllability but does not give the arbitrary weighted-star closed-form limit or weight-tie jump.",
+        "identifier_or_url": "https://arxiv.org/html/2404.16318v3",
+        "material_read": "Model setup and tie-breaking definition, dynamics, main convergence results and further discussion of pinning; relevant sections checked.",
+        "method": "Full accessible arXiv HTML relevant sections and source text comparison",
+        "title": "Modeling, Analysis, and Control of Continuous-Time Weighted-Median Opinion Dynamics",
+        "trigger": "Later revision may strengthen original result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "690019ac-93b9-4684-a065-fcfe9b843a5f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The star is the natural hub-and-spoke test graph for social influence and admits arbitrary positively weighted leaves. The theorem gives a complete and explicit basin-to-consensus selection map for this entire topology, stronger than generic convergence. The half-weight phase boundary demonstrates an order-one jump from infinitesimal influence perturbation without support changes; this is directly relevant to robust interpretation of socially weighted consensus and is neither a mere numerical recomputation nor a parameter renaming.",
+    "status": "PASS"
+  }
+}
