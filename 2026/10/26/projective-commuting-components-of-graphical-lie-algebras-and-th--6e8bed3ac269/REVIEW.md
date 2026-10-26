@@ -1,0 +1,21 @@
+# Scientific review: projective commuting components of graphical Lie algebras
+
+## Correctness — PASS
+
+The edge-bracket coordinates give an exact centralizer criterion: coordinates outside the closed neighborhood are free, while coordinates on each connected component of the support are forced to one common ratio. This proves that projective isolation is equivalent to connected domination, without asymptotic or generic assumptions. The complete-join decomposition across complement components forces all mixed-block projective points to be isolated. Inside each nonsingleton complement component, every nonisolated point reaches a basis point in at most two commuting edges, and the basis points themselves form a connected copy of the complement component. These steps prove every claimed connected component and diameter bound. Support counting gives the sizes, while connected dominating sets of a tree consist exactly of all nonleaves plus optional leaves. The direct bracket verifier reproduced all component partitions in 2,950 labeled finite-field graph configurations. It checks only small prime fields; the all-size, all-prime-power conclusion relies on the written proof.
+
+## Originality — PASS against inspected sources
+
+The closest conceptual source is Sriwongsa (arXiv:2505.00726), which studies the **complementary projective noncommuting graph**. Its Theorem 2.12 already characterizes one-vertex domination, equivalently **isolation in the projective commuting graph**; no originality is claimed for this general isolation criterion. Its connectivity and domination statements do not determine the connected components of the complementary commuting graph. Ha et al. (arXiv:2405.06521) consider **elementwise** commuting graphs and general diameter procedures, not this explicit graph-indexed projective co-component classification. Godoy Molina and Lagos (arXiv:2308.00272) supply the graphical Lie-algebra construction; their focus is ideals, orientation effects, and derivations, not the projective commuting-component census. Chareh Khah Moghaddam et al. (arXiv:2406.15902) investigate elementwise noncommuting graphs. Published cycle-graphical rank and tree-graphical character-degree results concern distinct invariants. The earlier support-centralizer rank relationship can imply the isolation criterion alone, but cannot imply the stated classification of all nontrivial connected components without the new cross-block and connectivity arguments.
+
+Search coverage included the exact combinations of graphical Lie algebra, projective commutation, complement/co-component, connected domination, trees, centralizers, and graph decomposition in both mathematical literature and published mathematical-research records. No claim of globally exhaustive publication priority is made. Residual risk: a renamed formulation of the component theorem could exist in graph-Lie geometry or projective commutation literature beyond the inspected sources.
+
+## Value — PASS
+
+The component classification is an all-graph structural result: it translates the projective commuting geometry of a large family of Lie algebras into the complement-component decomposition of the defining graph, and simultaneously gives exact component sizes through a natural connected-domination enumerator. This is more than an isolated numerical rank calculation. The tree specialization gives a simple field-uniform formula and a direct algebraic observable of the number of leaves, while the star/nonstar split exposes a sharp structural boundary. The result is useful in recognition and calculation of Lie-algebra commuting invariants. It does not claim to reconstruct all trees or determine each nontrivial component's exact internal diameter.
+
+## Sources and limitations
+
+Primary inspected texts: Godoy Molina–Lagos (2023), Ha–Quang–Le–Nguyen (2024), Chareh Khah Moghaddam–Erfanian–Shamsaki (2024), Sriwongsa (2025). Related published mathematical findings about graphical characters, adjoint-rank spectra, and class-two commuting graphs were compared by their mathematical implications. Computations are finite support only and independent external validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
