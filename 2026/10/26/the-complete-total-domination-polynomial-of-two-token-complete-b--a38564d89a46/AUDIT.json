@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "For all m,n>=2, explicit symmetric-difference neighborhoods of the three two-token vertex types give independent necessary-and-sufficient open-neighborhood tests: pure-pair choices edge-cover all rows or all columns; mixed-pair choices occupy all but at most one row and one column. Inclusion-exclusion enumerates each class by size and factorization follows from the bipartition. Minimum supports are classified as minimum edge covers and long-coordinate injective placements; their counts are respectively matching/P3 counts and Stirling surjections. Standalone adjacency-derived coefficientwise comparisons match nine parameter pairs, including five independently brute-forced all-subset graphs. Computation is only a check, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fabila-Monroy and Gómez-Galicia (2025), arXiv:2509.16448, Sections 3–4: ordinary domination of token graphs of stars and complete graphs, not this family-wide total polynomial.",
+        "Chinman et al. (2026), arXiv:2610.28936v1, Sections 3–5: exact ordinary domination and higher-token bounds, no open-neighborhood total-domination theorem.",
+        "Hu et al. (2016), arXiv:1607.00400, published abstract: general reduction methods for total-domination polynomials, especially paths/cycles and trees.",
+        "Carballosa and Wisby (2020), arXiv:2001.07850, abstract: total k-domination on Cartesian products of cliques (rook graphs), which are distinct from two-token graphs of bicliques."
+      ],
+      "reasoning": "General reductions can algorithmically enumerate total dominating sets of an arbitrary finite graph, but do not by themselves assert the explicit all-m,n factorization, multiplicities and comparison. The rook-graph total-domination result concerns the Cartesian product of cliques; that graph has mn vertices, unlike F_2(K_mn) with binomial(m+n,2) vertices. No stronger checked theorem states the claimed formula as a corollary.",
+      "searches": [
+        "Token graphs F2(K_mn) total domination number gamma_t maximum rows columns edge cover",
+        "Total dominating set generating functions bipartite token graph pair configurations row and column edge covers",
+        "Two-token graph F_2(K_{m,n}) complete Laplacian spectrum spanning tree complexity and total domination",
+        "site:arxiv.org \"total domination polynomial\" graph",
+        "\"total domination\" \"token graphs\" \"F_2\" 2026 2025 2024"
+      ]
+    },
+    "checked_sources": [
+      "R. Fabila-Monroy and S. G. Gómez-Galicia, arXiv:2509.16448, first submitted 2025-09-19 (full accessible text).",
+      "N. Chinman et al., arXiv:2610.28936v1, first submitted 2026-10-20 (full accessible text and sampled PDF pages).",
+      "B. Chaluvaraju and V. Chaitra, DOI:10.26713/jims.v6i2.256 (abstract).",
+      "J. Hu et al., arXiv:1607.00400 (abstract).",
+      "W. Carballosa and J. Wisby, arXiv:2001.07850 (abstract).",
+      "Accessible previous exact two-token biclique Laplacian-spectrum claim; a different invariant."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.28936v1 Theorem 1.1 gives only gamma(F_2(K_mn)) in four parameter regimes and defines ordinary closed-neighborhood domination.",
+        "arXiv:2509.16448 Sections 3–4 cover token graphs of stars and complete graphs, not total domination of all K_mn.",
+        "This proof counts every X subset of pure pairs satisfying an edge-cover disjunction and every Y subset of mixed pairs satisfying simultaneous row/column nonemptiness; it establishes coefficientwise polynomial equality."
+      ],
+      "reasoning": "The ordinary-domination theorem cannot determine the all-cardinality total-domination polynomial or its coefficient at the first nonzero degree. The known alpha/gamma values and spectra are not logically sufficient to enumerate open-neighborhood total dominating sets. The new formula also establishes the precise ordinary-versus-total gap using the old gamma theorem with explicit credit.",
+      "searches": [
+        "\"total domination\" \"token graphs\" \"complete bipartite\"",
+        "\"total domination polynomial\" \"token graph\"",
+        "total domination polynomial two-token graph F_2(K_{m,n})"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.16448, Introduction: two-token graphs also appear as symmetric graph powers/double vertex graphs; ordinary domination is defined by closed rather than open neighborhoods.",
+        "arXiv:2610.28936v1, Definitions 2.5 and 2.10 and Theorem 1.1: the same token graph has pure-pair/mixed configuration classes, but the result is ordinary domination.",
+        "The present necessary-and-sufficient conditions: edge cover of at least one underlying class and at most one empty row/column of mixed tokens."
+      ],
+      "reasoning": "Alternative terminology for two-token/symmetric-square graphs, total vs ordinary domination, and edge-cover/incidence-matrix interpretations was searched. The pure/mixed bipartition is a feature of the known token graph, not a novelty claim. Open-neighborhood total domination forces two independent coverage tests; a closed-neighborhood ordinary domination theorem does not state their product polynomial.",
+      "searches": [
+        "Total domination polynomial two-token graph F_2(K_{m,n}) complete bipartite graphs exact size count all total dominating sets",
+        "Token graphs F2(K_mn) total domination number gamma_t maximum rows columns edge cover",
+        "\"total domination\" \"token graphs\" \"complete bipartite\"",
+        "\"total domination polynomial\" \"token graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant arXiv papers and accessible mathematical abstracts provide no table of all coefficients for F_2(K_{m,n}).",
+        "An independent exhaustive graph calculation yields the small instance D_t(F_2(K_{2,2});z)=8z²+16z³+14z⁴+6z⁵+z⁶ and 108 minimum sets for F_2(K_{3,3}).",
+        "Related public records include the two-token biclique Laplacian spectrum; spectra and spanning-tree counts are not a table of total dominating sets."
+      ],
+      "reasoning": "Exact count and polynomial searches used the graph, token, double-vertex, pure/mixed, total-domination and edge-cover descriptions. No matching two-parameter table or exact coefficient source was observed; this is limited negative search evidence and does not assert exhaustive indexing or priority.",
+      "searches": [
+        "total domination polynomial token graph complete bipartite Kmn two token graph",
+        "total dominating sets enumeration token graphs complete bipartite graph",
+        "\"total domination polynomial\" \"graph\" introduction polynomial all total dominating sets",
+        "Total domination polynomial two-token graph F_2(K_{m,n}) complete bipartite graphs exact size count all total dominating sets"
+      ]
+    },
+    "rationale": "2025 token-graph domination work studies stars and complete hosts; October 2026 primary work on the same biclique family derives ordinary, not total, domination. Older papers define total-domination polynomials or give reductions, without an identified full explicit token-biclique factorization. General polynomial computability does not supply the exact all-coefficient formula or minimum-set census. Real primary full texts and actual published-record searches were compared; priority remains open to hidden equivalents.",
+    "residual_risks": [
+      "Older or unindexed sources may have independently obtained the factorization under symmetric-square or hypergraph edge-cover language.",
+      "General total-domination polynomial reductions could subsume the formula after computation; their full detailed texts were not all read.",
+      "The exact-same-family ordinary-domination preprint first appeared 2026-10-20, after the 2026-10-18 scope anchor; it is treated solely as a later comparison, not the dated initiating source.",
+      "No independent mathematical audit or historical priority assessment was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes ordinary domination of star and complete token graph families. No result for the new total-domination polynomial of two-token complete bicliques in its inspected content.",
+        "evidence": [
+          "arXiv:2509.16448, Sections 1, 3 and 4",
+          "first submission September 19, 2025"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.16448",
+        "material_read": "Full HTML text, Introduction, Preliminaries, Sections 3 and 4 and their statements/proofs, through Acknowledgments.",
+        "method": "Read accessible arXiv HTML/text full source and searched the text for total domination, bipartite, and main theorem headings.",
+        "title": "Domination number of Token Graphs",
+        "trigger": "Recent primary work introducing domination questions for token graphs, with stars and complete graphs."
+      },
+      {
+        "assessment": "The theorem computes ordinary domination and higher-token bounds, not the polynomial of open-neighborhood total domination. Its classical value is explicitly credited in the new zero-or-one difference corollary.",
+        "evidence": [
+          "arXiv:2610.28936v1, Theorem 1.1, Definition 2.10 and Sections 3–5",
+          "first submitted October 20, 2026; later than the Sunday 2026-10-18 date anchor, used only as comparison"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.28936v1",
+        "material_read": "Full accessible HTML text, Sections 1–6, Theorem 1.1, Lemmas 2.11–2.12, Sections 3–5 proofs, appendix and references; checked PDF pages 2,4,14 visually.",
+        "method": "Read full primary arXiv HTML, cross-check PDF screenshots, searched within full text for total domination and polynomial.",
+        "title": "The domination number of the k-token graph of the complete bipartite graph K_{m,n}",
+        "trigger": "Exact same two-token biclique family; a plausible dominating prior theorem."
+      },
+      {
+        "assessment": "Defines general total domination polynomial and studies graph operations; cannot exclude an obscure exact formula within unavailable full text.",
+        "evidence": [
+          "B. Chaluvaraju and V. Chaitra, Journal of Informatics and Mathematical Sciences 6 (2014), 416–435"
+        ],
+        "identifier_or_url": "https://doi.org/10.26713/jims.v6i2.256",
+        "material_read": "Accessible journal landing-page abstract, keywords and reference list; full text not obtained.",
+        "method": "Web journal abstract inspection, not a full-paper exclusion test.",
+        "title": "Total Domination Polynomial of A Graph",
+        "trigger": "Foundational definition and possible general polynomial framework."
+      },
+      {
+        "assessment": "Studies reduction formulas and families of paths, cycles and trees, not an explicit result for the present token-biclique family in the abstract; residual risk remains.",
+        "evidence": [
+          "J. Hu et al., arXiv:1607.00400, first public July 1, 2016"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.00400",
+        "material_read": "Accessible original-publication abstract and metadata; full paper was not inspected.",
+        "method": "Abstract comparison only; no assertion of whole-document noncoverage.",
+        "title": "Total domination polynomials of graphs",
+        "trigger": "General reductions for total domination polynomial, possible stronger coverage."
+      },
+      {
+        "assessment": "Studies Cartesian products of complete graphs, a different vertex set and adjacency rule, so its stated results do not cover total domination of F_2(K_mn).",
+        "evidence": [
+          "W. Carballosa and J. Wisby, arXiv:2001.07850 (2020)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.07850",
+        "material_read": "ArXiv abstract and metadata; full paper not read.",
+        "method": "Compare defined graph operation and invariant domains.",
+        "title": "Total k-domination in Cartesian product of complete graphs",
+        "trigger": "A result about total domination with two complete-graph factors, potentially confused with the token graph."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a38564d8-9a46-4d22-8650-1f89a540458a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete all-cardinality enumeration for a natural infinite two-parameter family of token graphs, with two transparent combinatorial factors and complete optimizer classification and multiplicities. It distinguishes ordinary and total domination precisely in the parity/boundary cases. A graph-order-only bound or the published ordinary domination number does not imply the full polynomial.",
+    "status": "PASS"
+  }
+}
