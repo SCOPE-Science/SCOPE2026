@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(m\\ge1\\), the same-spin edge count \\(E=(3m^2+s_As_B+s_As_C+s_Bs_C)/2\\) is minimized exactly by two opposite monochromatic parts. Successively purifying the three parts toward the sign opposite the sum of the remaining magnetizations gives a valid non-increasing path to those minimizers. Ground states are reversible and joined by six monochromatic junctions, yielding one irreducible aperiodic class of \\(6(2^m-1)\\) states and uniform stationarity. Boundary-edge counting gives \\(\\Phi=2/[3(2^m-2)]\\) and a union-bound proof of \\(t_{\\mathrm{mix}}(1/4)\\ge2^{m-1}\\). Kac’s identity gives junction mean return time \\(2^m-1\\). The standalone checker exhaustively verified \\(1\\le m\\le5\\), from \\(8\\) to \\(32768\\) configurations, without replacing the infinite-family proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1011.5119, Proposition 1 and Corollary 1, Sections 3.1, provide general monotone energy and characterize recurrent equal-energy plateaux; Sections 4.1 and 5 analyze cliques, paths, cycles and trees but not the stated balanced complete tripartite chain.",
+        "Indexed scientific result 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 concerns synchronous linear parity updates, not asynchronous nonlinear minority spins.",
+        "arXiv:2102.05279 / 2022 article abstract analyzes finite-positive-temperature heat-bath Glauber dynamics, rather than this specified zero-temperature update."
+      ],
+      "reasoning": "The general potential/energy principles are stronger as to applicability to all graphs but weaker as to the specified quantitative conclusion: they do not assert that every state on K_{m,m,m} can reach its ground shell without uphill steps, that this shell is one class, or that its conductance is exponentially small. The parity automata and positive-temperature models have different transition kernels; their bounds do not subsume the exact present chain.",
+      "searches": [
+        "Web: Stochastic Minority on Graphs Rouquier Regnault Thierry full text tripartite",
+        "Web: complete multipartite Glauber dynamics zero temperature antiferromagnet metastable",
+        "Published-index semantic query: Minority dynamics antiferromagnetic Glauber complete tripartite three communities recurrent ground states frozen central parts",
+        "Published-index semantic query: Sharp period four census complete multipartite parity automata"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1011.5119v1 (open full-text HTML, selected relevant sections)",
+      "arxiv:cond-mat/0105037 (abstract only)",
+      "arxiv:2102.05279 (abstract and journal bibliographic page only)",
+      "Published mathematical research-index semantic searches (multiple targeted variants; closest IDs recorded in check evidence)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry Corollary 1 (arXiv:1011.5119) says no energy decrease can occur along a recurrent path; it does not compute minimum energy for K_{m,m,m}, prove nonminimal states have a decreasing accessible path, count the ground-state class or analyze its mixing.",
+        "Their Theorem 4.1 explicitly classifies the complete graph, not K_{m,m,m}.",
+        "Standard conductance and Kac formulas give general identities; the explicit six-junction structure and 2m crossing-edge computation are new inputs here."
+      ],
+      "reasoning": "The specific theorem is not a restatement of a prior graph-classification result, and it does not follow just by renaming the clique formula. Deduction requires the nontrivial tripartite minimum-equality and accessibility arguments, plus the explicit boundary flow to obtain an exponential lower bound. Prior energy monotonicity is used openly as foundational context rather than claimed as original.",
+      "searches": [
+        "Web: Stochastic Minority on Graphs ar5iv 1011.5119 Section 3.1 corollary recurrent states",
+        "Web: Glauber dynamics balanced tripartite graph metastable Markov chains",
+        "Published-index semantic query: Recurrent class of random single spin minority dynamics on the balanced complete tripartite graph has 6(2^m-1) states, uniform stationary distribution, six hypercubes glued along corners"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rouquier–Regnault–Thierry arXiv:1011.5119, Sections 2 and 3.1: minority update convention, monochromatic-edge energy, and reversibility of energy-flat updates; https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "arXiv:cond-mat/0105037 abstract examines zero-temperature ferromagnetic Ising freezing, not the signed complete-tripartite family.",
+        "Closest indexed mathematical finding 2026/10/11/SCOPE-pendant-loop-threshold-for-discontinuous-chiral-ordering-in-fini--95727938984e concerns finite Markov phases with a different transfer graph."
+      ],
+      "reasoning": "The rule can be interpreted as zero-temperature antiferromagnetic single-site dynamics with tie flips, or a potential-minimizing Boolean game. The general energy identity is known, but the exact equality geometry, six-hypercube communicating set, uniform junction frequency and specified mixing lower bound are not given by the inspected sources. The semantically closest indexed results describe other operators or spaces; none presented an implication to this claim.",
+      "searches": [
+        "Published-index semantic query: Stochastic minority asynchronous anti-ferromagnetic zero-temperature Glauber on balanced complete tripartite graphs K_{m,m,m}; unique recurrent class size 6(2^m-1), uniform stationary",
+        "Published-index semantic query: Recurrent class of random single spin minority dynamics on the balanced complete tripartite graph has 6(2^m-1) states, uniform stationary distribution, six hypercubes glued along corners",
+        "Web: complete tripartite zero temperature Glauber antiferromagnetic",
+        "Web: minority dynamics K_{n,n,n}"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1011.5119 primary source has no table/census for the labelled balanced complete tripartite family in the inspected full-text sections.",
+        "Published scientific-index search results included complete multipartite parity automata and unrelated graph invariants; no indexed exact \\(6(2^m-1)\\) minority-chain count was located."
+      ],
+      "reasoning": "No exact recurrent-state count, junction-mass table or mixing-time bound for this Markov chain was located in the queries performed. Nonappearance is only limited search evidence and is not treated as a uniqueness proof.",
+      "searches": [
+        "Web: \"Stochastic Minority on Graphs\" \"tripartite\"",
+        "Web: \"stochastic minority\" \"complete tripartite\" graphs",
+        "Published-index semantic query: Exponential total variation mixing lower bound 2^(m-1) for zero-temperature anti-ferromagnetic Glauber single-site ties-flip complete tripartite K_{m,m,m}",
+        "Published-index semantic query: Non-bipartite Stochastic Minority graphs complete 3-partite no fixed points single connected recurrent attractor ground-state plateau"
+      ]
+    },
+    "rationale": "Bounded research-index and full-text comparisons with arXiv:1011.5119 found established general potential ideas but no result implying the complete tripartite class size \\(6(2^m-1)\\), its irreducibility, exact stationary junction mass, and the exponential mixing obstruction. Synchronous parity dynamics and positive-temperature heat-bath systems do not dominate this claim. An unindexed exact equivalent remains a residual risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible pre-2016 manuscript specializing zero-temperature minority on equal tripartite graphs could contain equivalent statements.",
+      "Abstract-only related Ising works were not exhaustively compared; the different update regime lessens but does not eliminate broad-method overlap risk.",
+      "The mixing-time bound is a one-sided bottleneck lower estimate; sharp asymptotics are not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_ANTECEDENT_NOT_FULL_COVERAGE",
+        "evidence": [
+          "Definition 2 uses a closed neighborhood with tie retention; odd closed degree here creates open-neighbor tie flips.",
+          "Proposition 1 and Corollary 1 establish energy monotonicity and a general recurrence criterion.",
+          "Theorem 4.1 classifies cliques, not balanced tripartite graphs; the nonbipartite discussion does not provide a matching tripartite census or mixing result."
+        ],
+        "identifier_or_url": "arxiv:1011.5119v1; https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "material_read": "Open full-text HTML lines 0-66 (motivation); 67-128 (definitions, energy, recurrent-state criterion); 138-159 (bipartite tie rule); 240-276 (nonbipartite discussion, clique/cycle theorems); 483-488 (conclusion).",
+        "method": "Primary-author text available as open ar5iv HTML, read material sections, compared definitions and statements to each component of the present claim.",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "Identical update rule, general energy and limit-set criteria, and closest primary source for graph-specific recurrence."
+      },
+      {
+        "assessment": "BACKGROUND_ONLY_NOT_FULLY_INSPECTED",
+        "evidence": [
+          "Ferromagnetic lattice zero-temperature model rather than antiferromagnetic minority dynamics on balanced complete tripartite graphs; no full-text coverage inference is claimed."
+        ],
+        "identifier_or_url": "arxiv:cond-mat/0105037",
+        "material_read": "Abstract only; primary full text not required for a decisive comparison because the interaction sign and lattice topology differ.",
+        "method": "Read indexed arXiv abstract describing ferromagnetic Ising spin freezing on lattices.",
+        "title": "Freezing in Ising Ferromagnets",
+        "trigger": "Possible zero-temperature Glauber nomenclature equivalence."
+      },
+      {
+        "assessment": "DIFFERENT_MARKOV_CHAIN_NOT_FULLY_INSPECTED",
+        "evidence": [
+          "States high-temperature heat-bath cutoff and low-temperature slow-mixing regimes for a different update kernel, not a count of minority-rule recurrent states. No full-text NOT_COVERING conclusion is drawn."
+        ],
+        "identifier_or_url": "arxiv:2102.05279; https://math-mprf.org/journal/articles/id1635/",
+        "material_read": "Abstract and public journal bibliographic page only.",
+        "method": "Compared model assumptions: high-temperature heat-bath Ising versus zero-temperature minority tie-flip.",
+        "title": "Cutoff phenomenon of the Glauber dynamics for the Ising model on complete multipartite graphs in the high temperature regime",
+        "trigger": "Same graph-class terminology and mixing-time object; potential dominating broader coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4639e5e1-dc43-41c6-b279-630a0575a7e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original stochastic minority literature explicitly emphasizes topology-dependent recurrence/convergence, yet nonbipartite cases are less tractable. On the natural complete tripartite octahedral blow-ups, the result identifies all recurrent configurations and the full invariant distribution for every m, and proves an exponential equilibrium bottleneck caused by six rare junctions. This is structurally motivated dynamical content, not an arbitrary numerical slice or known-table recomputation.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Review of the balanced-tripartite stochastic minority classification
+
+**Correctness — PASS.** The exact model is the uniform single-site closed-neighborhood minority update, with ties among the *open* neighbors causing a flip. For part magnetizations \(s_A,s_B,s_C\), the monochromatic-edge energy is \((3m^2+s_As_B+s_As_C+s_Bs_C)/2\). An elementary inequality proves its minimum is \(m^2\), attained precisely with an opposite monochromatic pair. Consecutively purifying the three parts gives a non-increasing path to that minimum for every input. Ground states are six glued Boolean cubes with reversible single-spin transitions, yielding one aperiodic irreducible class of \(6(2^m-1)\) states and uniform stationarity. Direct boundary-edge counting establishes \(t_{\mathrm{mix}}(1/4)\ge2^{m-1}\) for \(m\ge2\). Exhaustive finite validation covers \(m=1,\dots,5\).
+
+**Originality — PASS (bounded best-knowledge).** The model, potential function, and general recurrent-class criterion are known from Rouquier–Regnault–Thierry (2010/2011). Relevant portions of that full text were read, including the model, potential, non-bipartite discussion, and complete-graph results. None of the inspected statements specializes to the exact balanced-tripartite graph geometry, recurrent count, stationary junction mass, or explicit mixing obstruction. Targeted literature and indexed-finding searches found no claim implying all of these. Existing complete-multipartite Ising mixing work uses different heat-bath/temperature regimes. Unindexed or inaccessible equivalent work remains possible.
+
+**Mathematical value — PASS.** The result completes the recurrent-state and invariant-distribution classification of a natural non-bipartite family for the original stochastic minority model. The exact six-hypercube state-space geometry exposes an exponential equilibration bottleneck even though the chain has only one recurrent class; this provides a meaningful quantitative dynamical contrast rather than a count without interpretation.
+
+**Limits.** The mixing bound is one-sided. Only equal three-way parts and the exact tie convention are covered. The general theorem has an analytic proof, while computational verification is finite. The work has not received independent mathematical scrutiny.
+
+Self-review: passed. Independent audit: not yet performed.
