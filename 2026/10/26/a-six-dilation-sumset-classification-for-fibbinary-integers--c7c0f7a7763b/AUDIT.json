@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The finite digit-carry NFA is derived exactly from a+db=n and the no-adjacent-one condition; carry c remains between 0 and d, so every digit path is enumerated. For any canonical positive n, both nonnegative addends have at most the length of n, and final carry zero is necessary and sufficient. The candidate exceptional DFA predicates are explicitly defined for each multiplier and match the stated binary words. The exhaustive BFS product-state counts are 4,6,18,9,41,29 and every outgoing final-one edge is tested for opposite acceptance; n=0 is checked separately. The included source and complete transition table permit exact replay; separate direct enumeration through 10000 agrees but is not the universal proof. The geometric-to-counting-function conversion follows from the exact inequality 4^k <= 3X+7.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dekking arXiv:2105.04959 Theorem 1 studies diagonal sums of zero-positions of a substitution fixed point; concrete theorems include Fibonacci-word/Beatty, Thue-Morse, and von Neumann sets.",
+        "Macfarlane arXiv:2406.12455 partitions the complement of the original fibbinary set, without a theorem for a+6b.",
+        "The general regular-language/finite-automata viewpoint supplies decidability machinery but does not give the six explicit complement sets automatically without a new finite product analysis."
+      ],
+      "reasoning": "Broader additive-language techniques could in principle derive this result, so this is not claimed to be beyond all existing methods. Inspected statement coverage stops at distinct sets or the undilated complement, and no stronger published theorem found includes the exact coefficient-six exception set as an immediate special case.",
+      "searches": [
+        "\"Sumsets and fixed points of substitutions\" fibbinary",
+        "arXiv:2105.04959 Theorem 1 and Theorem 4",
+        "\"fibbinary\" \"additive basis\" sums",
+        "arXiv:2406.12455 complement fibbinary sumset"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2105.04959",
+      "https://arxiv.org/abs/2405.18128",
+      "https://arxiv.org/abs/2406.12455",
+      "https://oeis.org/A003714",
+      "https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=11B13"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2405.18128 relates an index-to-fibbinary map and the Wythoff array, not sums with a second fibbinary addend multiplied by six.",
+        "arXiv:2406.12455 explicitly classifies N\\F, not N\\(F+6F); these are mathematically different complements.",
+        "arXiv:2105.04959 evaluates other sequences’ A+A and does not include the same F or coefficient-six additive relation."
+      ],
+      "reasoning": "Neither an identity for the original set F, nor an identity for its own complement, nor ordinary A+A of a different substitution set logically implies a specific equation for F+6F. The new claim is an exact language equality, established by an independent digit carry construction. A hypothetical general theorem could imply it but no such decisive theorem was located or left unresolved within the inspected set.",
+      "searches": [
+        "arXiv:2405.18128 fibbinary Wythoff array full text",
+        "arXiv:2406.12455 complement fibbinary full text",
+        "arXiv:2105.04959 sumsets substitution full text",
+        "\"fibbinary\" \"6\" \"addition\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A003714 identifies fibbinary integers by avoidance of adjacent binary ones and by reinterpretation of Zeckendorf coefficients.",
+        "arXiv:2405.18128 defines the same digit-restricted set using Fibonacci/Zeckendorf words.",
+        "The new theorem treats arithmetic sums a+db of two elements of that set; binary reversal in the exception-language proof is a digit-reading convention, not a different sequence."
+      ],
+      "reasoning": "Aliases fibbinary, A003714, integers with no adjacent one-bits, independent-set binary words, and their Zeckendorf reindexing were checked. The exception formula is equivalent to canonical binary words 11 or, for k>=3, ordinary words (10)^j10011; neither the object alias nor this reindexing turns the prior Wythoff-array statements into the claimed dilated sumset identities.",
+      "searches": [
+        "\"fibbinary\" \"6\" \"sumset\" missing",
+        "\"A003714\" \"6\" \"sumset\"",
+        "\"fibbinary\" \"sumset\"",
+        "Macfarlane fibbinary arXiv:2405.18128 Section 3",
+        "OEIS A003714 fibbinary bitwise n & (n >> 1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A003714 provides the input fibbinary sequence and the base-two recursion, not a listing of the six exceptional sumsets.",
+        "No returned database entry or exact-sumset table from the actual searched phrases recorded the six-dilation classification."
+      ],
+      "reasoning": "A pre-existing table of fibbinary numbers is insufficient to establish the infinite complement theorem. Failure to discover a matching exception sequence is not proof that no table exists; obscure or unindexed tables remain a risk.",
+      "searches": [
+        "OEIS A003714",
+        "\"3, 19, 83, 339, 1363\" sequence",
+        "\"4^n-7\" \"/3\" OEIS",
+        "\"A003714\" \"6*A003714\"",
+        "\"fibbinary\" \"6\" \"sum\" \"19\""
+      ]
+    },
+    "rationale": "The claims were compared to the original fibbinary sequence A003714, the published fibbinary/Wythoff correspondence (arXiv:2405.18128), the explicit complement of the fibbinary set (arXiv:2406.12455), and a full-text source on sumsets of substitution fixed points (arXiv:2105.04959). Their objects or conclusions do not contain the exact family F+dF for d<=6, especially the coefficient-six excluded progression (4^k-7)/3. Actual external scientific searches for fibbinary sumsets, A003714 with coefficient six, and the candidate exception values did not identify an equivalent arithmetic theorem. Nearby recorded results for Moser-de Bruijn and other automatic sets concern different sets and are not implications. The mathematical mechanism and exceptional language have been directly compared rather than relying on different titles. This is originality within inspected evidence, not proof of universal publication priority.",
+    "residual_risks": [
+      "An unpublished or unindexed calculation might already contain the exact coefficient-six excluded family.",
+      "General automata tools could yield the equality without explicitly publishing its six-dilation numerical specialization; a fully exhaustive priority audit has not been performed.",
+      "This scientific review is not independent external validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: its explicitly treated sets are Beatty/Fibonacci-word indicator positions, Thue-Morse and von Neumann indicator positions, not F+6F",
+        "evidence": [
+          "Theorem 1 translates substitution indicator sums into a two-dimensional substitution; Theorem 2 names the Beatty set; Theorem 4 names the von Neumann zero/one positions.",
+          "No fibbinary-specific coefficient-six statement occurs in the inspected material."
+        ],
+        "identifier_or_url": "arXiv:2105.04959; https://arxiv.org/abs/2105.04959",
+        "material_read": "Public full-text HTML transcription: abstract, introduction, Theorems 1, 2, 4 and their described indicator sets, and document-wide term searches for fibbinary/consecutive",
+        "method": "Direct reading of publicly accessible full-text transcription and targeted within-document searches",
+        "title": "Sumsets and fixed points of substitutions",
+        "trigger": "Closest motivating paper about exact automatic and substitution-defined sumsets"
+      },
+      {
+        "assessment": "NOT_COVERING: the paper proves a correspondence between arrays of fibbinary and Wythoff integers; the word addition appears for Fibonacci indexing, not the proposed dilated fibbinary sumsets",
+        "evidence": [
+          "Its principal identity identifies the image of the Wythoff array under the fibbinary map.",
+          "The paper has no sumset assertion F+6F, and its arithmetical digit-restricted object matches F only."
+        ],
+        "identifier_or_url": "arXiv:2405.18128; https://arxiv.org/abs/2405.18128",
+        "material_read": "HTML full-text paper sections 1, 3 (fibbinary definition), 4 (array theorem), 5 (Wythoff fractal), and search for sumset/addition",
+        "method": "Opened arXiv full-text rendering, read objects and statements, searched the full document",
+        "title": "On the fibbinary numbers and the Wythoff array",
+        "trigger": "Same underlying arithmetic set and natural Fibonacci/Zeckendorf characterization"
+      },
+      {
+        "assessment": "NOT_COVERING: complement of F alone is distinct from complement of F+6F, and the paper proves no mixed-dilation sumset classification",
+        "evidence": [
+          "Main claimed identity is complement(fib)=union Phi_k; secondary odd-fibbinary partition.",
+          "No matching sumset or dilation statement was encountered in inspected material."
+        ],
+        "identifier_or_url": "arXiv:2406.12455; https://arxiv.org/abs/2406.12455",
+        "material_read": "HTML full text: introduction, definitions and complement theorem, sections describing the partition into Phi_k, targeted whole-document searches for sumset and dilation",
+        "method": "Read the arXiv HTML text of its main theorem and scope; within-document exact searches",
+        "title": "On the structure of the complement of the set of fibbinary numbers",
+        "trigger": "Potentially stronger theorem on exactly the complement of the same digit-restricted set"
+      },
+      {
+        "assessment": "OBJECT_COVERING_ONLY: the defining set is known, the six sumset complement identities are not stated in the inspected entry",
+        "evidence": [
+          "The source defines integers without adjacent ones and lists a self-similar recurrence for them.",
+          "No matching six-dilation sumset table is present in the inspected entry."
+        ],
+        "identifier_or_url": "https://oeis.org/A003714",
+        "material_read": "Definition, recursions, references and visible formula/code sections",
+        "method": "Direct OEIS entry reading plus targeted online sequence queries",
+        "title": "OEIS A003714 (Fibbinary numbers)",
+        "trigger": "Exact named input sequence, definitions and potential table overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c7c0f7a7-763b-4aac-9903-60b982e52394",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Fibonacci/Zeckendorf-linked fibbinary integers are a natural digit-restricted zero-density set. Classifying their sums with a small dilated second copy is a substantive additive basis question. The first six dilations reveal four sharply distinct regimes and especially the first nonperiodic sparse infinite exception family at coefficient six, with an exact counting law. This structural characterization is neither a routine finite numerical lookup nor a generic mere statement of decidability; it offers a motivated new arithmetic boundary and an explicit infinite description. No result is claimed for larger coefficients.",
+    "status": "PASS"
+  }
+}
