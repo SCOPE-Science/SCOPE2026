@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The full conditional law follows from signed primitive excursion counts. Catalan convolution normalizes the split; the exact finite formula for Z_{n,k} follows by Lagrange inversion. For any target composition, cyclic preimage counting gives W(y)k(2n-k-1)/[(k+1)(n-k)Z_{n,k}], exactly W(y)/Z_{n,k+1}. A single split proves majorization; 2ab>=2 proves sharp quadratic drop. CHECK.py recomputes exact kernels n<=10 and enumerates all bridges n<=6, with both independent verifications passed; finite tests support rather than replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Serlet (2014) discusses a Galton–Watson forest interpretation (pp. 2–3) but provides an invariance principle under few zeros and a conditioned composition formula, not a tree-split chain.",
+        "Lindell and Holst (2007) studies distributions of the ranked excursion lengths with Kummer-function expressions, not this finite single-split kernel."
+      ],
+      "reasoning": "A general tree-fragmentation theorem could in principle subsume the proposed coupling. Searched plane-tree/Galton–Watson and conditioned-excursion variants; no decisive covering statement identified, so priority outside accessed literature is a residual risk rather than certified exclusion.",
+      "searches": [
+        "\"Catalan\" \"fragmentation\" \"excursions\" random walk",
+        "uniform Galton Watson plane forest conditioned total progeny and number of trees fragmentation coupling splitting trees into two",
+        "doi:10.1239/jap/1197908824",
+        "https://lmbp.uca.fr/~serlet/rwfew.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Csáki and Hu (2003), doi:10.46298/dmtcs.3337",
+      "Lindell and Holst (2007), doi:10.1239/jap/1197908824",
+      "Serlet (2014), doi:10.1007/978-3-319-11970-0_19"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-k composition law logically determines marginal distributions, but a specified Markovian single-coordinate-refining joint law is additional structure that cannot be read off from a marginal formula without a transport proof.",
+        "Previously obtained size-biased one-excursion likelihood-ratio order permits some summed convex expectation inequalities, not vector-wise coupling or longest-excursion stochastic monotonicity."
+      ],
+      "reasoning": "The explicit transition with one split, random cyclic rotation and exact output law proves a stronger, truly multivariate statement. It is not asserted that all scalar Schur-convex moment inequalities are independently novel. No inspected stronger prior result supplies the simultaneous refinement; an undiscovered general fragmentation theorem remains a historical risk.",
+      "searches": [
+        "doi:10.46298/dmtcs.3337",
+        "doi:10.1239/jap/1197908824",
+        "doi:10.1007/978-3-319-11970-0_19",
+        "\"excursion\" \"majorization\" random walk bridges returns coupling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Serlet 2014, displayed equations (5)-(8): fixed-z Catalan product and normalizer, but not a transition between distinct z.",
+        "Lindell and Holst 2007, section 3: renewal/generating-function description of rank statistics, not cross-z splitting."
+      ],
+      "reasoning": "Equivalent formulations sought: random-walk bridge local-time conditioning, Catalan forest fragmentation, positive composition refinement, excursion-size stochastic ordering. Existing single-z laws are the input weights, not a joint splitting coupling across z. Searches found no matching named coupled law, but search absence alone does not prove novelty.",
+      "searches": [
+        "\"Catalan\" \"fragmentation\" \"number of excursions\" coupling random walk bridge",
+        "\"Catalan\" \"forest\" \"fragmentation\" components splitting random forest",
+        "\"excursion\" \"majorization\" random walk bridges returns coupling",
+        "\"Catalan\" \"split\" \"forest\" uniform \"components\" \"cyclic\"",
+        "doi:10.46298/dmtcs.3337",
+        "doi:10.1239/jap/1197908824",
+        "doi:10.1007/978-3-319-11970-0_19"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact coefficients Z_{n,k} and point probabilities are known in Serlet 2014; this work does not claim them as new.",
+        "CHECK.py is a fresh direct finite identity check, not a discovery based on a known table."
+      ],
+      "reasoning": "Known enumerations identify each marginal but do not give a coupling transition matrix across k. No exact published table of the claimed splitting transition was located. The final finding is a constructive all-n theorem, not recomputation of those coefficients.",
+      "searches": [
+        "doi:10.46298/dmtcs.3337",
+        "doi:10.1007/978-3-319-11970-0_19",
+        "\"Catalan\" \"forest\" \"fragmentation\" components splitting random forest"
+      ]
+    },
+    "rationale": "The relevant primary papers derive unconditional ranked-excursion laws (Csáki–Hu; Lindell–Holst) and the precise fixed-return Catalan composition mass (Serlet). Their inspected mathematical statements do not provide the explicit cross-k cyclic one-block fragmentation and simultaneous majorization. Earlier size-biased marginal ordering yields related scalar inequalities but not an all-coordinate samplewise refinement; the present claim is explicitly about the latter. Historical priority against generalized forest fragmentation remains noncertified.",
+    "residual_risks": [
+      "Broader tree-fragmentation and renewal-composition literature may contain a representation equivalent to this exact kernel; priority has not been independently certified.",
+      "A fixed-k Catalan composition mass and some scalar ordering consequences were known; these are explicitly not credited as new findings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS marginal ranked excursions, not conditioning K across an explicit fragmentation",
+        "evidence": "Section 2, Theorem 2.3 recurrence for ranked excursion lengths; joint length/height recurrences; no cross-return-count coupling.",
+        "identifier_or_url": "doi:10.46298/dmtcs.3337",
+        "material_read": "Public complete 8-page PDF; introduction and Theorems 2.1–2.4 and limit distribution sections, especially pp. 45–50",
+        "method": "Read searchable article PDF and visual page inspection",
+        "title": "Lengths and heights of random walk excursions",
+        "trigger": "Primary study of ranked lengths, same random walk"
+      },
+      {
+        "assessment": "COVERS distributional generating functions and Brownian rank limits, not exact k to k+1 coupling",
+        "evidence": "Section 3.1 constructs the generating function of numbers of excursions in length ranges; subsequent sections study limits and distributional formulae.",
+        "identifier_or_url": "doi:10.1239/jap/1197908824",
+        "material_read": "Complete freely accessible 12-page article; introduction, sections 2–4, especially Proposition 3.1 and Corollaries 3.1–3.4",
+        "method": "Read public full-text PDF and visually inspected its generating-function page",
+        "title": "Distributions of the Longest Excursions in a Tied Down Simple Random Walk and in a Brownian Bridge",
+        "trigger": "Tied-down bridge and ranked lengths, closest title/object"
+      },
+      {
+        "assessment": "COVERS conditional composition formula and an asymptotic invariance principle, not one-coordinate splitting across return counts",
+        "evidence": "Formulas (5)–(8) on p. 4 count each excursion tuple with Catalan weights; Theorem 2 is few-return Brownian-excursion limit.",
+        "identifier_or_url": "doi:10.1007/978-3-319-11970-0_19",
+        "material_read": "Author-hosted complete 12-page preprint, all sections inspected; key pp. 2–4 and proofs pp. 5–11",
+        "method": "Read author-hosted PDF and visually inspected p. 4 with explicit Catalan count",
+        "title": "Invariance principle for the random walk conditioned to have few zeros",
+        "trigger": "Exactly same fixed-return conditioning and product law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e9d624e-b83c-4d63-b736-432c4ddc3fa0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural finite-sample conditioning (number of returns to the origin) admits a concrete all-level Markov coupling of entire excursion-length partitions. The samplewise majorization yields all ranked-tail and Schur-convex inequalities from one structural argument and the sharp universal quadratic decrement 2, relevant to duration concentration and bridge pinning. This is neither an arbitrary parameter slice nor a consequence of mere finite enumeration.",
+    "status": "PASS"
+  }
+}
