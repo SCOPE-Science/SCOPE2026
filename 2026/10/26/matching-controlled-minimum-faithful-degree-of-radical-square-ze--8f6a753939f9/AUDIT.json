@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For every faithful module the summed images of incoming arrows at a vertex are annihilated by outgoing arrows because \\(J^2=0\\). Each family of \\(m_{uv}\\) independent arrow maps thus embeds into \\(\\operatorname{Hom}(M_u/S_u,S_v)\\), yielding \\(m_{uv}\\le t_us_v\\) and the sum-dimension lower bound. Conversely any feasible profile gives a faithful unital representation: assign vertex direct sums \\(S_v\\oplus T_v\\), realize distinct parallel arrows by distinct matrix units \\(T_u\\to S_v\\), and note all length-two products vanish. Vertex idempotents and arrow maps act independently. With \\(m_{uv}\\le 2\\), each double-arrow edge is covered by raising its tail quotient or head image dimension from one to two; minimum vertex covers in the separated bipartite graph equal maximum matchings by König. The direct checker independently tested 261 max-two cases and 625 max-four two-vertex cases including loops and cycles; finite tests do not substitute for the complete proof. Boundaries: finite nonempty quivers, arbitrary fields; closed form only multiplicity ≤2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergman, arxiv:1310.5365v1, Theorem 11 is a structural inequality under infinite-field conditions, not an exact least module dimension.",
+        "Bekkert–Drozd, arxiv:0812.4818v1, treat derived representation classification.",
+        "Drozd, arxiv:2602.14171v1, Intro and Sections 1–3 treat species and Auslander–Reiten quivers."
+      ],
+      "reasoning": "The investigated potentially broader algebraic results concern homological representation type, generic minimal faithful modules, and category equivalences, but none examined supplies a number attaining both a universal lower bound and a matrix-unit upper construction for all finite quivers over all fields.",
+      "searches": [
+        "minimal faithful modules over Artinian rings Bergman 2013 Theorem 11",
+        "radical square zero algebra separated quiver faithful representation minimal dimension",
+        "https://arxiv.org/abs/0812.4818",
+        "https://arxiv.org/abs/2602.14171"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0812.4818v1 (examined Introduction, Sections 1–2)",
+      "arxiv:1310.5365v1 (examined Sections 1–2 and 4–5, Theorem 11)",
+      "arxiv:2602.14171v1 (examined Introduction, Sections 1–3)",
+      "Classical König bipartite matching–cover theorem (used, not claimed as new)",
+      "Published separated-quiver self-extension matching result (scientific comparison of a different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bergman 2013 relates top/socle sizes of minimal faithful modules but leaves the exact global embedding dimension uncomputed.",
+        "A published separated-quiver bipartite-matching result concerns self-extension bounds, not faithful actions, and its bound does not imply equality for the new invariant.",
+        "Classical König minimum vertex cover = maximum matching gives only the final combinatorial simplification after deriving faithful-module block constraints."
+      ],
+      "reasoning": "To imply the claim, a prior theorem would need the simultaneous sharp inequalities \\(m_{uv}\\le t_us_v\\), a realizing faithful representation over arbitrary fields, and minimization reducing to matching for multiplicities ≤2. None of the inspected source results provides those three conclusions. A counter-risk is implicit coverage in faithful representation papers not examined.",
+      "searches": [
+        "radical square zero separated quiver bipartite matching faithful dimension",
+        "active separated quiver self extension matching dimension bound",
+        "minimal faithful modules over Artinian rings Bergman",
+        "https://arxiv.org/abs/1310.5365",
+        "https://arxiv.org/abs/0812.4818"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bergman 2013, arxiv:1310.5365v1, Sections 1,2,4,5, especially Theorem 11, supplies a bound involving top/socle dimensions of minimal faithful Artinian modules but no all-quiver least embedding-degree formula in examined sections.",
+        "Bekkert–Drozd 2008, arxiv:0812.4818v1, Introduction and Sections 1–2 describe derived categories and separated-quiver representation machinery, not minimum faithful degrees."
+      ],
+      "reasoning": "Faithful representation degree may appear as minimum faithful module dimension or smallest faithful matrix embedding, so both formulations were compared. A module with no faithful proper submodule or quotient is not equivalent to globally smallest dimension, and the cited top/socle inequality does not force the exact optimization. No matching dominating formula found in inspected text; this search result is not a proof of novelty.",
+      "searches": [
+        "minimum dimension faithful module radical square zero quiver algebra",
+        "minimum faithful matrix representation quiver algebra radical square zero",
+        "minimal dimension unital embedding radical-square-zero algebra parallel arrows",
+        "https://arxiv.org/abs/1310.5365"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The finite checks in verify.py consist of new independent low-order computations, not reliance on an external numerical table.",
+        "No exact full quiver-profile table matching the claimed dimension equation was identified in the searches; absence of a table is not uniqueness evidence."
+      ],
+      "reasoning": "The accepted claim is an all-quiver theorem, so isolated low-order tables cannot imply it unless they encode a general theorem or parameter reduction; the inspected literature did not establish such a domination.",
+      "searches": [
+        "minimal faithful dimension radical square zero quiver specific finite field tables",
+        "minimum faithful module quiver algebra double arrows bipartite matching",
+        "minimal faithful matrix algebra loops parallel arrows rank condition"
+      ]
+    },
+    "rationale": "Direct comparison shows the claim is not implied by the studied radical-square-zero derived-category classifications or Artinian minimal-faithful-module top/socle inequalities. The new result supplies an exact least unital matrix degree for every quiver and every field, including a bipartite maximum-matching formula for bounded arrow multiplicities. A separated-quiver matching result concerning homological self-extension dimension likewise gives no minimum faithful embedding formula. The use of König duality itself is classical. Remaining risk: an implicit earlier faithful-embedding classification may imply this statement.",
+    "residual_risks": [
+      "Older faithful representation/embedding-degree literature may implicitly derive the same quiver formula.",
+      "Specific sections beyond inspected primary material could contain stronger related statements.",
+      "The integer optimization is an exact characterization but not claimed to admit polynomial-time solution at arbitrary arrow multiplicity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected sections: derived-category/representation-type classification does not compute minimum faithful matrix degree. Uninspected remainder is residual priority risk.",
+        "evidence": [
+          "Section 1 quiver and radical-square-zero setup; Section 2 related representation construction, not least faithful degree."
+        ],
+        "identifier_or_url": "arxiv:0812.4818v1; https://arxiv.org/abs/0812.4818",
+        "material_read": "Full available HTML Introduction and Sections 1–2, including initial framework and principal constructions",
+        "method": "Read primary open full text with direct statement/implication comparison",
+        "title": "Derived categories for algebras with radical square zero",
+        "trigger": "Foundational quiver radical-square-zero theory and separated-quiver methods"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected sections; Theorem 11 inequality under an infinite-field hypothesis does not imply all-field exact quiver-matching equality. Historical implicit-reduction risk remains.",
+        "evidence": [
+          "Theorem 11 bounds socle/top quantities of minimal faithful modules rather than determining the minimum possible total vector-space dimension for every quiver."
+        ],
+        "identifier_or_url": "arxiv:1310.5365v1; https://arxiv.org/abs/1310.5365",
+        "material_read": "Primary HTML Sections 1,2,4,5 and Theorem 11",
+        "method": "Compared the quantifiers: locally minimal faithful module versus globally minimal possible dimension, and the top/socle bound versus exact least dimension",
+        "title": "Minimal faithful modules over Artinian rings",
+        "trigger": "Title directly addresses minimal faithful modules; potential broader stronger theorem"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected sections; species and Auslander–Reiten structure do not compute least faithful matrix degree.",
+        "evidence": [
+          "Sections 1–3 focus on categorical correspondences and representation-theoretic structure."
+        ],
+        "identifier_or_url": "arxiv:2602.14171v1; https://arxiv.org/abs/2602.14171",
+        "material_read": "Primary HTML Introduction and Sections 1–3, including the species setup",
+        "method": "Compared actual module invariant and conclusions, not paper title alone",
+        "title": "On representations of algebras with radical square zero",
+        "trigger": "Closely related modern representation theory of the same algebra class"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f6a7539-39f9-45c1-91cf-6b58dcb35fff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Least dimension of a faithful unital linear representation is a natural algebra invariant with independent module-theoretic meaning. The theorem computes it exactly for all radical-square-zero finite quivers and all fields, yields a polynomial-time matching answer for the substantial bounded-parallel-arrow family and explicit minimum-size representations, and shows algebras of dimension \\(2r^2+2r\\) embed into \\(M_{3r}(k)\\). This is a coherent all-parameter structural classification, not an arbitrary small numerical slice or a routine substitution of parameters. Priority risk remains explicitly recorded.",
+    "status": "PASS"
+  }
+}
