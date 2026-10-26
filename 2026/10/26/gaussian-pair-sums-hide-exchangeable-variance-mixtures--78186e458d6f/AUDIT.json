@@ -1,0 +1,111 @@
+{
+  "claim": "For any Borel probability measure \\(\\rho\\) on \\((0,\\tfrac12)\\), let \\(V\\sim\\rho\\) and let \\(Z,\\varepsilon_1,\\varepsilon_2,\\ldots\\) be mutually independent standard normal variables, independent of \\(V\\), and set \\(X_i=\\frac{\\sqrt{1-2V}}{2}Z+\\sqrt V\\,\\varepsilon_i\\). Then \\((X_i)_{i\\ge1}\\) is infinitely exchangeable and \\(X_i+X_j\\sim N(0,1)\\) for every \\(i\\ne j\\), regardless of \\(\\rho\\); its covariance matrix depends on \\(\\rho\\) only through \\(\\mathbb EV\\), while the characteristic function of \\(X_i-X_j\\) is \\(\\int e^{-vt^2}\\rho(dv)\\), which uniquely identifies \\(\\rho\\). If \\(\\rho\\) is nondegenerate, the process is not Gaussian because its marginal fourth cumulant is \\(3\\operatorname{Var}(V)/4>0\\). In particular, \\(\\rho_1=\\delta_{1/4}\\) and \\(\\rho_2=\\tfrac12\\delta_{1/8}+\\tfrac12\\delta_{3/8}\\) yield the same Gaussian pair-sum law and identical covariance matrices, but respectively a Gaussian and a non-Gaussian exchangeable process.",
+  "correctness": {
+    "rationale": "Conditional on \\((V,Z)\\), the sequence is iid Gaussian, hence infinitely exchangeable. Conditional on \\(V\\), each pair sum is \\(N(0,1)\\) because the independent variances add to \\(1-2V+2V=1\\). The marginal variance is \\(\\frac14+\\frac12\\mathbb EV\\) and pair covariance is \\(\\frac14-\\frac12\\mathbb EV\\). The fourth cumulant equals \\(3\\operatorname{Var}(V)/4\\), so it is positive for nondegenerate \\(\\rho\\). The pair-difference characteristic function is the Laplace transform of \\(\\rho\\), which uniquely determines a finite measure on \\([0,1/2]\\). The explicit rational example is checked by the included standard-library script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Newman, arXiv:2610.18992v1, studies finite-marginal determination and rigidity for infinite exchangeable sequences but does not state this pair-sum construction.",
+        "Evans–Zhou, DOI 10.1214/ECP.v4-1000, proves broad nonidentifiability from partial sums and gives a different construction using compactly supported characteristic functions."
+      ],
+      "reasoning": "The general nonidentifiability theme is established and is not claimed as new. The specific contribution is a Gaussian pair-sum law that is constant across an arbitrary mixing law \\(\\rho\\), a covariance-matched Gaussian/non-Gaussian comparison, and a Laplace-transform observable that recovers \\(\\rho\\) within this family. No inspected broader theorem directly implies these exact statements.",
+      "searches": [
+        "exchangeable sequence all pairwise sums are Gaussian but marginal law non-Gaussian random mean variance mixture counterexample",
+        "arXiv:2610.18992v1, Sections 4.3–5.2",
+        "doi:10.1214/ECP.v4-1000, full article"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.25976v1, Theorem 1.1 and Sections 2–3.",
+      "arXiv:2610.18992v1, exchangeable-sequence rigidity and energy-radial sections.",
+      "DOI 10.1214/ECP.v4-1000, full published text."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 Gaussian-rigidity theorem assumes the full two-coordinate vector \\((X_1,X_2)\\) is jointly Gaussian, whereas the constructed pair has a nonzero fourth cumulant in each marginal when \\(\\rho\\) is nondegenerate.",
+        "The 1999 partial-sum result concerns general nonidentifiability and does not give the exact Gaussian sum law or the explicit difference-law identification."
+      ],
+      "reasoning": "The result is a strict weakening-boundary example, not a contradiction or corollary of joint-pair Gaussian rigidity. The explicit two-law comparison shows that the same Gaussian pair-sum distribution and the same exchangeable covariance matrix can correspond to a Gaussian process and a non-Gaussian process.",
+      "searches": [
+        "arXiv:2606.25976v1 Theorem 1.1: jointly Gaussian pair implies Gaussian process",
+        "arXiv:2610.18992v1 exchangeable-sequence rigidity and finite-dimensional identification",
+        "DOI 10.1214/ECP.v4-1000: exchangeable sequences with identical partial-sum distributions",
+        "exchangeable Gaussian rigidity pairwise sum Gaussian projection insufficient joint Gaussianity random variance conditional iid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zheng–Zhou, arXiv:2606.25976v1, Theorem 1.1: joint Gaussianity of \\((X_1,X_2)\\) forces the whole infinite exchangeable sequence to be Gaussian; the theorem concerns the full pair law, not only the sum projection.",
+        "Evans–Zhou, DOI 10.1214/ECP.v4-1000, Section 2: distinct exchangeable sequences can share all partial-sum distributions in a general non-Gaussian counterexample.",
+        "The present conditional Gaussian family has pair-sum characteristic function \\(\\exp(-t^2/2)\\) for every \\(\\rho\\), while pair-difference characteristic function is the Laplace transform of \\(\\rho\\)."
+      ],
+      "reasoning": "Aliases checked included Gaussian pair sum, Gaussian linear projection, exchangeable Gaussian rigidity, random variance mixture, de Finetti directing measure, partial sums, and identifiability. The primary Gaussian-rigidity theorem does not cover the claim because the constructed pair is not jointly Gaussian. The older general partial-sum counterexample does not state or imply the displayed Gaussian-specific family or its covariance-matched Gaussian/non-Gaussian comparison.",
+      "searches": [
+        "exchangeable sequence all pairwise sums are Gaussian but marginal law non-Gaussian random mean variance mixture counterexample",
+        "exchangeable Gaussian rigidity pairwise sum Gaussian projection insufficient joint Gaussianity random variance conditional iid",
+        "Gaussian pair marginal forces infinite exchangeable sequence Gaussian process Newman pair joint Gaussian theorem",
+        "arXiv:2606.25976v1, Theorem 1.1 and Section 3",
+        "doi:10.1214/ECP.v4-1000, Sections 1–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant exact database or finite table exists for this infinite-dimensional family; the statement is analytic and parameterized by an arbitrary probability measure rho."
+      ],
+      "reasoning": "An exact-table comparison is inapplicable to a family of probability measures and characteristic functions. Targeted semantic searches were used for overlap rather than as a proof of novelty.",
+      "searches": [
+        "exchangeable sequence all pairwise sums are Gaussian but marginal law non-Gaussian random mean variance mixture counterexample",
+        "exchangeable Gaussian rigidity pairwise sum Gaussian projection insufficient joint Gaussianity random variance conditional iid",
+        "Gaussian pair marginal forces infinite exchangeable sequence Gaussian process Newman pair joint Gaussian theorem"
+      ]
+    },
+    "rationale": "The general failure of exchangeable-sequence identification from partial sums is prior literature, and the joint-pair Gaussian rigidity theorem is also prior. The originality claim is limited to the explicit all-\\(\\rho\\) Gaussian pair-sum family, the covariance-matched Gaussian/non-Gaussian pair, and exact recovery of \\(\\rho\\) from pair differences. Targeted semantic and literature searches found no direct equivalent; a differently phrased Gaussian random-effects construction remains a residual risk.",
+    "residual_risks": [
+      "A similar conditional-Gaussian random-effects construction may exist under different terminology outside the inspected sources.",
+      "Evans–Zhou already establish general nonidentifiability from all partial-sum laws, so the novelty claim is limited to the exact Gaussian pair-sum family and its covariance-matched comparison.",
+      "The construction does not address whether Gaussian one-dimensional marginals plus a Gaussian pair sum could imply additional rigidity."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant theorem does not cover the construction: it assumes joint Gaussianity of the pair, while the constructed pair is non-Gaussian for nondegenerate \\(\\rho\\).",
+        "evidence": "Theorem 1.1 states that a jointly Gaussian pair in an infinite exchangeable real sequence forces the whole sequence to be Gaussian.",
+        "identifier_or_url": "arXiv:2606.25976v1",
+        "material_read": "Full HTML text, including Theorem 1.1, the de Finetti identities, and the proof reducing joint Gaussianity to the conditional difference law.",
+        "method": "Compared the exact hypotheses and conclusion with the scalar pair-sum hypothesis in the claim.",
+        "title": "Gaussian rigidity for infinite exchangeable sequences",
+        "trigger": "Direct primary result establishing the Gaussian-rigidity boundary."
+      },
+      {
+        "assessment": "Provides closely related context but does not state the pair-sum family or its difference-law identification.",
+        "evidence": "The paper's explicit thresholds concern directing-law identification from finite marginals and energy-radial laws, not Gaussianity of one scalar projection.",
+        "identifier_or_url": "arXiv:2610.18992v1",
+        "material_read": "HTML text of the Gaussian-rigidity, energy-radial, and finite-marginal-identification sections.",
+        "method": "Checked for a stated Gaussian pair-sum criterion or an implication covering the displayed random-effects family.",
+        "title": "On rigidity of infinite exchangeable sequences",
+        "trigger": "Recent primary work on finite-marginal identifiability and exchangeable-sequence rigidity."
+      },
+      {
+        "assessment": "The general identifiability limitation is prior, but the inspected example is different and does not produce this Gaussian pair-sum law or the covariance-matched Gaussian/non-Gaussian pair.",
+        "evidence": "Section 2 uses mixtures of iid laws with compactly supported characteristic functions; Sections 3–4 state recovery results under additional restrictions.",
+        "identifier_or_url": "doi:10.1214/ECP.v4-1000",
+        "material_read": "Full five-page published PDF, including the counterexample and the countable-mixture identifiability theorems.",
+        "method": "Compared the exact sum-law assumptions, mixing class, and counterexample construction.",
+        "title": "Identifiability of exchangeable sequences with identically distributed partial sums",
+        "trigger": "Closest classical work on nonidentifiability of exchangeable sequences from sum observations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78186e45-8d6f-4253-af1a-bac565623cc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family supplies an exact, all-parameter boundary for a natural Gaussianity diagnostic: Gaussianity of each pair sum and the complete second-order covariance structure do not identify whether an infinite exchangeable process is Gaussian. The two explicit laws with equal mean mixing parameter exhibit the failure exactly, with fourth-cumulant gap 3/256. Pair differences provide a natural identifying observable within the family through a unique Laplace transform. This is a reusable structural counterexample rather than a simulation-only result.",
+    "status": "PASS"
+  }
+}
