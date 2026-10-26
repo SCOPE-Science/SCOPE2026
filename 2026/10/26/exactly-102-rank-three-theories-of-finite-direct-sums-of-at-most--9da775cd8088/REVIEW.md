@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The precise domain is a nonempty finite strict poset with one, two, or three components, each a linearly ordered chain; only equality and strict order are visible. The classical seven-point three-round cutoff for monochromatic linear orders, verified against Mwesigye–Truss (2010 online), applies componentwise by a directly proved disjoint-sum strategy. Three-round sentences asking for antichains of size two or three distinguish the different component-count strata. Exact recursive atomic-extension signatures exhaustively classify all \(7+28+84=119\) capped component tuples. The independent unrolled triple-diagram construction agrees on every tuple, giving \(7+27+68=102\) theories, while class minima give \(7,13,19\) as sharp stratum bounds. The packaged code and saved results were run from the specified source paths. No finite observation is used as an infinite proof.
+
+## Originality — PASS (qualified)
+The 2010 online Mwesigye–Truss paper proves the linear-order cutoff and character method, not a direct-sum partial-order census. Abdi's paper on direct sums of chains (2022 preprint, inspected 2025 revision) studies equimorphism/siblings, not bounded first-order theories. The closest comparable prior scientific records concern one-red coloured linear orders, products of two chains as posets, bipartite chain graphs, and counting-refinement distinctions; their claims do not imply this \(102\)-class direct-sum classification, its \(17\) nontrivial parameter mergers, or its sharp \(19\)-point representative ceiling. General compositional methods yield a finite reduction but do not automatically resolve the exact merging pattern. The Siders linear-order paper was accessible at bibliographic/abstract level only; implicit or unindexed priority remains a residual risk.
+
+## Value — PASS
+A direct sum of chains is a basic canonical class of finite posets, with comparability components intrinsic rather than externally labelled. Quantifier depth three interacts nontrivially with component indistinguishability: the evident \(119\) capped length patterns collapse to precisely \(102\) theories, including mergers that do not follow from simply truncating each component. The theorem provides an exact complete classification and a sharp optimal finite representative bound, useful as a small-model benchmark for bounded-depth logic and finite-poset composition. No downstream theorem or classification for more components is asserted.
+
+## Literature and limitations
+Closest directly inspected full texts: Mwesigye–Truss, *Classification of Finite Coloured Linear Orderings*, Order 28 (2011), DOI 10.1007/s11083-010-9178-9 (online 2010); Abdi, *Siblings of Direct Sums of Chains*, arXiv:2209.03477. Siders, *On quantifier-rank equivalence between linear orders*, DOI 10.1016/j.ic.2009.11.006, was checked through bibliographic material and abstract only. Exact rank four, four or more components, and independent scientific validation remain outside the claim. Priority cannot be established conclusively from finite searches.
+
+Self-review: passed. Independent audit: not yet performed.
