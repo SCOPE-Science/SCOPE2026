@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For a fixed length and weight three, the 011,110,001 counts reconstruct all eight three-deck entries using fixed one-count, zero-count, and the first two moments of preceding-zero counts. Equal 011,110 constrain one-position changes to (s,-2s,s). Equal 001 imposes the exact polynomial \\(s(3s-(x-y))=0\\), leaving at most a unique nontrivial involutive twin. Orienting by the larger first gap, the admissible pairs are in bijection with (a,y,s) with y,s>=1 and 0<=a<=n-1-2y-4s; summing choices yields the rational correction. The full proof covers all lengths; packaged verifier independently confirms 66,045 words of lengths 3..36 and series terms 0..140. Finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nilforoushan–Parvaresh prove that the count of binary 3-decks over all binary words grows as the ninth power of length; they do not give the weight-three exact distribution.",
+        "Chrisnata et al. prove the fixed-weight-three order of growth cubic and the first collision, leaving the complete generating function conjectural."
+      ],
+      "reasoning": "The stronger-looking aggregate growth-rate theorem cannot determine exact cardinalities inside the tiny Hamming-weight-three slice. Likewise an algorithm for evaluating a finite-length count or the asymptotic order does not imply the claimed rational generating function or the all-class structural involution.",
+      "searches": [
+        "fixed-weight 3 3-deck conjecture resolved all n 2019",
+        "binary k deck weight three exact distinct classes generating functions conjecture",
+        "https://arxiv.org/abs/2609.23106 §§1,7",
+        "https://arxiv.org/abs/2001.11732 introduction"
+      ]
+    },
+    "checked_sources": [
+      "Chrisnata et al., https://doi.org/10.3934/amc.2021032, full accessible §5.3 including equation before Lemma 24, Theorem 27, Corollary 28, and Conjecture 1",
+      "Lejeune–Rigo–Rosenfeld, https://arxiv.org/abs/2001.11732, general binomial equivalence and two-deck counts",
+      "Nilforoushan–Parvaresh, https://arxiv.org/abs/2609.23106, §1.2–1.4 and §7, all-weight three-deck asymptotic bounds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chrisnata et al. provide the one-dimensional zero-block kernel and a formula for how count 001 varies along its fibers; they derive useful inequalities, a lower bound and then pose the exact rational formula as Conjecture 1.",
+        "The proof herein uses that linear direction but solves its quadratic equality equation exactly, proves each fiber contains at most one nontrivial twin, and counts all pairs with no duplication.",
+        "The 2026 study separates Lyndon-word degrees of freedom and establishes an aggregate exponent, but not this fixed-weight collision classification."
+      ],
+      "reasoning": "The kernel and first collision are antecedents, not an all-length classification. Our theorem logically implies the conjecture, while none of the inspected proven statements logically implies our all-n result. The assertion is limited to best-knowledge originality, not independent priority certification.",
+      "searches": [
+        "D_{3,3}(n) binary scattered length-three deck weight-three generating function conjecture Chrisnata Kiah exact proof",
+        "fixed-weight 3 3-deck conjecture resolved all n 2019",
+        "https://doi.org/10.3934/amc.2021032 §5.3, Conjecture 1",
+        "https://arxiv.org/abs/2609.23106 §1.4 and §7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact rational function is Conjecture 1 rather than a proven theorem in Chrisnata et al. §5.3 (lines corresponding to their printed p.17).",
+        "The relevant equivalent language is fixed-content 3-binomial equivalence; the complete collision partner has swapped inter-one gaps with an integral shift.",
+        "Lejeune–Rigo–Rosenfeld address finite-word binomial equivalence but not this precise fixed-weight-three all-length count in the material inspected."
+      ],
+      "reasoning": "Equality of 3-decks and 3-binomial equivalence are synonymous; equality of the three coordinates 011,110,001 is shown equivalent for fixed weight and length. The source conjecture has the identical numerical implication but provides no all-n proof, so the result constitutes a solution of the conjecture rather than an undisclosed new formula. Related two-deck and short-word results cannot imply it without a new argument.",
+      "searches": [
+        "D_{3,3}(n) binary scattered length-three deck weight-three generating function conjecture Chrisnata Kiah exact proof",
+        "binary ternary binomial equivalence weight 3 length n pair collisions three one spacings",
+        "z^7/((1-z)^2(1-z^2)(1-z^4)) 3-deck generating function",
+        "https://www.researchgate.net/publication/354441361_On_the_number_of_distinct_k_-decks_Enumeration_and_bounds §5.3",
+        "https://arxiv.org/abs/2001.11732"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chrisnata et al. state that the first 20 coefficients match their conjectured function, not that those coefficients prove the infinite function.",
+        "The closest record on adjacent-pair multispectra counts contiguous factors of length two, a different statistic from scattered subsequences of length three."
+      ],
+      "reasoning": "Finite tables or exact finite checks cannot imply an all-length identity without a uniform proof; the contribution supplies that proof. Published adjacent-pair spectra have no direct implication for this three-deck equivalence.",
+      "searches": [
+        "D_{3,3}(n) binary scattered length-three deck weight-three generating function conjecture Chrisnata Kiah exact proof",
+        "z^7/((1-z)^2(1-z^2)(1-z^4)) 3-deck generating function",
+        "https://www.aimsciences.org/article/doi/10.3934/amc.2021032",
+        "2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ]
+    },
+    "rationale": "The central rational generating function is visibly printed as Conjecture 1, supported there only by 20 coefficients, in Chrisnata et al. (first online 2021-08-30). Their §5.3 already gives a zero-block kernel, basic inequalities and the length-seven collision; these are not presented as new. The new proof proves a complete quadratic-root involution classifying every collision pair and derives the conjectured coefficients for all lengths. The 2026 full-deck asymptotic bound treats all Hamming weights together and does not determine the fixed-weight-three distribution. Searches of relevant published records, mathematical literature and the closest accessible preceding findings did not expose an equivalent exact theorem. As in any search, this does not certify worldwide priority; unindexed equivalent results remain a residual risk.",
+    "residual_risks": [
+      "An equivalent full solution under other terminology or in inaccessible/unindexed literature cannot be ruled out by a search.",
+      "No independent scientific audit or external proof verification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Conjecture is explicitly unproved there, with 20 checked coefficients and prior first collision; complete twin involution and all-n proof are not given.",
+        "evidence": [
+          "Source §5.3 Conjecture 1 has exactly \\(\\frac{z^3}{(1-z)^4}-\\frac{z^7}{(1-z)^2(1-z^2)(1-z^4)}\\).",
+          "Source §5.3 proves only order-of-growth and partial injectivity, and records 20 finite coefficients."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/amc.2021032",
+        "material_read": "Full accessible author-posted text, especially §5.3 pp.15–17: zero-block matrix/kernel, Lemma 24, Theorem 27, Corollary 28, Conjecture 1, and concluding comparisons; official article bibliographic data.",
+        "method": "Read mathematical arguments, equation and explicit conjecture in accessible full text; compared implication line by line.",
+        "title": "On the number of distinct k-decks: Enumeration and bounds",
+        "trigger": "Identical generating function appears as Conjecture 1 in the closest primary paper."
+      },
+      {
+        "assessment": "Background on binomial equivalence and distinct 2-decks; no exact all-n fixed-weight-three 3-deck enumeration in examined relevant content.",
+        "evidence": [
+          "Uses equivalent notion of scattered-subword counts but concentrates on distinct general 2-binomial classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+        "material_read": "Abstract, introductory statements and definitions of k-binomial equivalence, and beginning sections covering 2-binomial classes.",
+        "method": "Examined openly accessible arXiv manuscript and compared invariant, alphabet, weight and exactness.",
+        "title": "On the binomial equivalence classes of finite words",
+        "trigger": "Potential broader theorem about k-binomial equivalence on finite words."
+      },
+      {
+        "assessment": "Proves the all-weight asymptotic order and dimensional results, not the exact weight-three enumeration or its gap-swap involution.",
+        "evidence": [
+          "Theorem in introduction states all-weight binary three-deck growth as \\(\\Theta(n^9)\\).",
+          "Remark 7.13 discusses independent parameters without enumerating fixed-weight-three classes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23106",
+        "material_read": "Abstract, §1.2–1.4, definitions and dimension statements, and §7 proof program and final remark 7.13 on Chrisnata parameters.",
+        "method": "Read publicly accessible full HTML sections and compared claims of all-weight growth with fixed-weight exact generating function.",
+        "title": "Improved upper bound on the number of distinct k-decks for any k and alphabet size by counting the independent parameters",
+        "trigger": "Newer 2026 three-deck counting theorem might subsume source conjecture."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61b009fe-fb1e-4213-bd77-067a022d81e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result settles an explicit exact generating-function conjecture by Chrisnata et al. that remained a conjecture in the closest inspected primary work, and gives all exact fixed-weight-three reconstruction-code capacities and a complete collision pairing. The discrepancy beyond the first collision is essential to the natural subsequence reconstruction problem, not an arbitrary finite slice. Unlike a short table or generic bounds, this explains every ambiguity for all block lengths.",
+    "status": "PASS"
+  }
+}
