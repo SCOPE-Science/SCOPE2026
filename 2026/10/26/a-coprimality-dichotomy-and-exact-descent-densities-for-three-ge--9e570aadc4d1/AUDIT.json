@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Derivation reconstructs the triple and double root-of-unity pole coefficients, evaluates the finite Fourier sawtooth sum and its discrete derivative, checks pairwise gcd CRT independence, handles the unit-generator case exactly, and limits claims at zero slopes. A separate exact-arithmetic verifier checks the slope identity across residue classes and representative density patterns.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baldoni et al. Theorem 2.4 computes highest coefficient functions as step polynomials; §§2–4 include Fourier and gcd-poset methods.",
+        "Liu and Xin, arXiv:2406.18955 §4 provides efficient individual P(n) evaluation."
+      ],
+      "reasoning": "The general coefficient algorithm is strong implicit computational coverage and could be applied to recover the periodic slope; however no inspected theorem immediately supplies the sign dichotomy, modular-inverse density, or CRT-positive-density argument, which require analyzing sign of the coefficient functions. This is an explicit residual originality risk.",
+      "searches": [
+        "Integer solutions ax+by+cz=n eventually strictly increasing iff coefficients pairwise coprime; asymptotic frequency negative jumps",
+        "Quasipolynomial nontrivial roots of unity double poles linear fluctuations coin change three generators",
+        "arXiv:1312.7147, Theorem 2.4; PDF text find for \"pole of order\"",
+        "Three-variable denumerant P(a,b,c;n+1)-P(a,b,c;n) sign density, residue class modulo gcd pairs, inverse c modulo gcd(a,b), eventual monotonicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.20899",
+      "arXiv:1312.7147",
+      "arXiv:2406.18955",
+      "arXiv:2404.13989"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Aldrich et al. Theorem C establishes upper and lower quasi-polynomial bounds, insufficient to determine sign of adjacent differences.",
+        "Baldoni et al. Theorems 2.1/2.4 can generate higher coefficient data; the explicit inequalities and inverse-density conclusion are not stated.",
+        "Own record 7c07d355 studies level-set counts for generators a,b,a+b, necessarily pairwise coprime, and efd9019e studies a,a+d,a+2d for odd a, also pairwise coprime."
+      ],
+      "reasoning": "Bounded differences of pointwise upper and lower bounds do not decide adjacent comparisons. Exact coefficient algorithms can indirectly derive signs, but an algorithmic possibility is distinct from the closed classification and exact one-noncoprime-pair density. The two closest own papers do not address nonpairwise-coprime sign oscillation.",
+      "searches": [
+        "For three positive integers a,b,c with gcd(a,b,c)=1 and all at least 2, the denumerant number of solutions ax+by+cz=n is eventually strictly increasing if and only if a,b,c are pairwise coprime; otherwise P(n+1)<P(n) in infinitely many residue classes. Quasipolynomial leading slopes and pairwise gcd obstructions.",
+        "Integer solutions ax+by+cz=n eventually strictly increasing iff coefficients pairwise coprime; asymptotic frequency negative jumps",
+        "coin change counting function eventual monotonicity three coins gcd",
+        "Restricted partition function three generators pairwise coprime eventual positive first differences and density of negative jumps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aldrich et al., arXiv:2610.20899, introduction and §3.2, counts solutions of ax+by+cz=n.",
+        "Baldoni et al., arXiv:1312.7147, Introduction and Theorem 2.1, identifies quasi-polynomial coefficient functions."
+      ],
+      "reasoning": "Equivalent interpretations include numerical-semigroup denumerants, restricted three-part partition functions, and the integral-point count on a moving plane. Direct searches for monotone/eventual-increase/step-sign formulations did not surface the exact all-triples coprimality dichotomy; this absence is not proof of priority.",
+      "searches": [
+        "For three positive integers a,b,c with gcd(a,b,c)=1 and all at least 2, the denumerant number of solutions ax+by+cz=n is eventually strictly increasing if and only if a,b,c are pairwise coprime; otherwise P(n+1)<P(n) in infinitely many residue classes. Quasipolynomial leading slopes and pairwise gcd obstructions.",
+        "Denumerant three variables consecutive differences nonmonotone pairwise gcd sign oscillation asymptotic densities derivative",
+        "restricted partition function denumerant non monotonic consecutive sign changes three numbers gcd",
+        "arXiv:2610.20899 Aldrich Gulbrandsen Keddy Enumerating Integral Points on Triangles in R3 three variable denumerant first differences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Previously published denumerant level-set and arithmetic-progression records concern pairwise-coprime triples; they do not provide an exact nonpairwise-coprime descent density."
+      ],
+      "reasoning": "A finite denumerant table or efficient algorithm could check instances but does not itself supply exact natural densities for every triple. No exact table for the pair-gcd sign laws was identified. No database-search negative result is treated as a novelty proof.",
+      "searches": [
+        "For three positive integers a,b,c with gcd(a,b,c)=1 and all at least 2, the denumerant number of solutions ax+by+cz=n is eventually strictly increasing if and only if a,b,c are pairwise coprime; otherwise P(n+1)<P(n) in infinitely many residue classes. Quasipolynomial leading slopes and pairwise gcd obstructions.",
+        "Denumerant three variables consecutive differences nonmonotone pairwise gcd sign oscillation asymptotic densities derivative",
+        "Integer solutions ax+by+cz=n eventually strictly increasing iff coefficients pairwise coprime; asymptotic frequency negative jumps",
+        "Quasipolynomial nontrivial roots of unity double poles linear fluctuations coin change three generators",
+        "restricted partition function denumerant non monotonic consecutive sign changes three numbers gcd",
+        "denumerant eventually increasing coefficients pairwise coprime numerical semigroup"
+      ]
+    },
+    "rationale": "Closest primary material gives pointwise denumerant bounds (Aldrich et al.) or a general polynomial-coefficient algorithm (Baldoni et al.), not the explicit coprimality sign rigidity and inverse-residue sharp density. Direct implication, aliases, algorithms and prior related findings were compared; a general algorithm can indirectly recover the slopes, so hidden or implicit precedence remains a nonzero risk.",
+    "residual_risks": [
+      "The 2013 step-polynomial coefficient algorithms can compute the relevant slopes and might make parts of this formula a derivable corollary; priority of the explicit sign-density classification requires independent review.",
+      "Unindexed older papers or broad numerical-semigroup theses could contain an equivalent monotonicity criterion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides value bounds, coprime reduction and Frobenius statements but not consecutive-target sign classification.",
+        "evidence": [
+          "§3.2 has three-variable quasi-polynomial upper/lower bounds and pair-gcd modular reduction; no modular-inverse descent density asserted.",
+          "Submission history at https://arxiv.org/abs/2610.20899 confirms 2026-10-14 first release and primary MSC 11D04."
+        ],
+        "identifier_or_url": "arXiv:2610.20899, https://arxiv.org/html/2610.20899v2",
+        "material_read": "abstract, Introduction and Theorems A–C, §3.2 proof and reductions, §4 future directions, references",
+        "method": "full accessible HTML text sections",
+        "title": "Enumerating Integral Points on Triangles in R^3",
+        "trigger": "same three-term equation, classification 11D04, recent bound and Frobenius questions"
+      },
+      {
+        "assessment": "Strong methodological coverage: algorithms compute leading quasipolynomial coefficients, so our slope is indirectly computable. No inspected theorem gives the explicit monotonicity criterion or exact pairwise modular-inverse descent density.",
+        "evidence": [
+          "Theorem 2.1 expresses coefficients by root-of-unity residues; Theorem 2.4 computes highest coefficient functions as step polynomials.",
+          "Lemma 4.3 records pairwise coprimality of maximal gcd components."
+        ],
+        "identifier_or_url": "arXiv:1312.7147, https://webusers.imj-prg.fr/~michele.vergne/publications/coefficientssylvester.pdf",
+        "material_read": "PDF introduction (page 1), §2 pole statements and Theorems 2.1/2.4 (pages 5–7), §4 gcd period discussion (pages 16–17), §5 coefficient-algorithm summary (page 18)",
+        "method": "accessible PDF text in these sections and screenshot of first page",
+        "title": "Coefficients of Sylvester's Denumerant",
+        "trigger": "likely stronger generic periodic-coefficient theorem, root-of-unity double poles"
+      },
+      {
+        "assessment": "Computes P(n) efficiently and uses pairwise-gcd reduction but does not give a closed-form density or monotonicity rigidity statement.",
+        "evidence": [
+          "Abstract and §4 formulate efficient evaluation for prescribed target n rather than the limiting sign of P(n+1)-P(n)."
+        ],
+        "identifier_or_url": "arXiv:2406.18955, https://arxiv.org/html/2406.18955v1",
+        "material_read": "HTML abstract, introduction, §3.1 pair-gcd reductions and §4 algorithm",
+        "method": "full accessible HTML text sections",
+        "title": "A Fast Algorithm for Denumerants with Three Variables",
+        "trigger": "fast exact three-variable representation count; potential algorithmic subsumption"
+      },
+      {
+        "assessment": "Reduction identities address computation, not the three-variable eventual sign distribution.",
+        "evidence": [
+          "Theorems present reduction and evaluation of restricted partition functions without the exact modular descent law."
+        ],
+        "identifier_or_url": "arXiv:2404.13989, https://arxiv.org/html/2404.13989v2",
+        "material_read": "HTML abstract, §1 and statement of Theorem 1.1",
+        "method": "accessible HTML text",
+        "title": "Three Simple Reduction Formulas for the Denumerant Functions",
+        "trigger": "related explicit denumerant reduction identities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9e570aad-c4d1-4577-8e43-00b4e457eea4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves the natural structural question whether representation counts increase with every unit step. It gives an if-and-only-if arithmetic boundary for primitive triples, an exact modular-inverse descent frequency for a broad infinite family, positive-density oscillation when multiple pair gcds occur, and the distinct unit-generator boundary. These facts are not consequences of mere quadratic growth and are relevant to restricted partitions and factorization counts.",
+    "status": "PASS"
+  }
+}
