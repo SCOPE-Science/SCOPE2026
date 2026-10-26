@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "At every subdivision vertex the closed neighborhood has three specified members; hence selected sets cannot omit original vertices from both bipartition classes. When no original is omitted, the selected subdivision vertices are exactly an edge cover. When one side has omissions, every incident subdivision vertex is forced and each remaining original on that side requires an arbitrary nonempty row/column choice. These are disjoint and exhaustive with proved sufficiency. Inclusion-exclusion and the binomial theorem yield the exact polynomial; minimization yields the three-case minimum multiplicity. A direct adjacency-based script exhaustively confirms the full coefficients for seven graphs and exact-arithmetic checks a further 52 parameter pairs. This finite evidence is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Magima–Ragukumar, Theorem 2.19, proves the minimum double domination number of the one-step subdivision of a complete bipartite graph is the sum of the smaller part size and twice the larger; the inspected relevant section does not enumerate all sets.",
+        "Cabrera-Martínez–Estrada-Moreno derive scalar double domination formulas for rooted products, which are not the one-step subdivision operation considered here."
+      ],
+      "reasoning": "A known scalar minimum is a necessary consequence of the polynomial, not a dominating theorem for its coefficients. Neither the rooted-product scalar formulas nor the exact-subdivision existence theorem count all at-least-two subsets of the incidence graph.",
+      "searches": [
+        "\"double domination number\" \"subdivision\" \"complete bipartite\"",
+        "\"double domination\" \"subdivision graph\" \"complete bipartite\"",
+        "DOI:10.7546/nntdm.2024.30.3.640-653 Sections 2.6 and conclusion",
+        "DOI:10.1016/j.dam.2023.06.021 rooted product"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2408.05783 (full primary source)",
+      "DOI:10.7546/nntdm.2024.30.3.640-653 (primary full PDF)",
+      "DOI:10.1016/j.dam.2023.06.021 (conference exposition)",
+      "Akbari–Oboudi edge-cover polynomial (abstract and definition)",
+      "Public searches under double domination, 2-tuple domination, subdivision, incidence graphs and edge-cover aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claimed theorem gives a polynomial whose least nonzero coefficient counts surjections for larger smaller-part sizes and has a special \\(3^q+2q-2\\) value in the two-vertex smaller-part regime.",
+        "The October 2024 subdivision article supplies only the least exponent \\(p+2q\\).",
+        "The known edge-cover polynomial accounts for only the family in which every original vertex is selected."
+      ],
+      "reasoning": "The polynomial implies the scalar minimum, but the converse fails: many different polynomials have the same smallest exponent. The edge-cover polynomial omits disjoint feasible families and thus cannot imply the full result. We exclude both the scalar minimum and the classical edge-cover polynomial from our novelty claim.",
+      "searches": [
+        "arXiv:2408.05783 Theorem 5",
+        "DOI:10.7546/nntdm.2024.30.3.640-653 Theorem 2.19",
+        "Akbari Oboudi edge cover polynomial of a graph",
+        "\"double domination polynomial\" \"subdivision\" \"complete bipartite\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behtoei–Zarifian arXiv:2408.05783 defines *exact* double domination by equality of every closed-neighborhood count to two; its Theorem 5 characterizes existence for subdivision graphs.",
+        "The proposed formula counts every subset with each count at least two; it includes many subsets violating equality."
+      ],
+      "reasoning": "Exact and at-least-two notions differ by their quantifier. A structure theorem only for exact feasible sets neither characterizes nor counts the larger at-least-two family; it cannot imply the proposed full coefficients without additional information.",
+      "searches": [
+        "\"double domination polynomial\" \"subdivision\" \"complete bipartite\"",
+        "\"2-tuple domination polynomial\" \"subdivision\"",
+        "\"k-tuple domination polynomial\" \"subdivision\"",
+        "arXiv:2408.05783 Sections 1–2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Magima–Ragukumar Table 6 records scalar minimum values, not a double-domination coefficient table.",
+        "Akbari–Oboudi study edge-cover polynomials; the all-original-vertices term is an already-known edge-cover invariant, whereas the other two omitted-original families have distinct contributions.",
+        "Relevant public searches did not identify a full double-domination polynomial table for these subdivision graphs."
+      ],
+      "reasoning": "Known edge-cover data alone does not cover all omitted-original configurations; the scalar table does not determine the degree-by-degree counts. Failure to retrieve an equal table is not definitive proof of originality.",
+      "searches": [
+        "\"double domination\" \"incidence graph\" \"complete bipartite\" enumerator",
+        "\"count\" \"double dominating sets\" \"subdivision\" bipartite",
+        "\"edge cover polynomial\" \"complete bipartite\" spanning edge subsets",
+        "DOI:10.7546/nntdm.2024.30.3.640-653 Table 6 and Theorem 2.19"
+      ]
+    },
+    "rationale": "The original two-fold closed-neighborhood polynomial and minimizer multiplicities are not implied by the published efficient-exact subdivision existence theorem, the published scalar minimum, or the classical edge-cover polynomial. Primary text on the same family has been compared. Priority risks from unindexed or implicit equivalent enumerations remain.",
+    "residual_risks": [
+      "Broad or unindexed literature may contain an equivalent full polynomial under two-fold closed-neighborhood covering terminology.",
+      "The edge-cover-paper abstract was available, but this inspection did not establish whole-text noncoverage.",
+      "The original paper on exact double domination concerns a strictly stronger per-vertex equality constraint, so it is not directly the same enumeration; a hidden reduction to other existing identities is still possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper classifies existence of exact double dominating sets, not complete weight counts for at-least-two double dominating subsets on subdivided complete bipartite graphs.",
+        "evidence": [
+          "arXiv PDF pages 1–5 define equality of every closed-neighborhood intersection to two and prove Theorem 5 on subdivision graphs.",
+          "Other sections discuss Mycielskians, middle graphs and complements."
+        ],
+        "identifier_or_url": "arXiv:2408.05783v1; https://arxiv.org/pdf/2408.05783",
+        "material_read": "Full 11-page text: definition, Section 2 Theorem 5 and its proof, related structure sections and references.",
+        "method": "Direct reading of lawfully accessible arXiv full-text PDF.",
+        "title": "Exact double domination in subdivision, Mycielskian and middle graphs",
+        "trigger": "Same subdivision operation and closely named double domination notion; primary literature source with verified public posting date."
+      },
+      {
+        "assessment": "Theorem 2.19 establishes the already-known scalar minimum; no complete enumerator or min-set multiplicity was stated in inspected results.",
+        "evidence": [
+          "PDF pages 10–12 give \\(\\gamma_{\times2}(S(K_{p,q}))=p+2q\\), Table 6, and conclude with the effects of graph operations on scalar numbers.",
+          "Article says online-first 2024-10-25, later than the 2024-08-11 primary source."
+        ],
+        "identifier_or_url": "DOI:10.7546/nntdm.2024.30.3.640-653; https://nntdm.net/papers/nntdm-30/NNTDM-30-3-640-653.pdf",
+        "material_read": "Open-access 14-page PDF, especially introduction, Section 2.6 including Table 6 and Theorems 2.19–2.20, conclusion, bibliography.",
+        "method": "Direct reading of full PDF text and page 11 image, with particular attention to statements and proofs for the complete bipartite subdivision.",
+        "title": "Double domination number of graphs generated from unary products",
+        "trigger": "Exactly the same graph family and double domination minimum; plausible full-count antecedent."
+      },
+      {
+        "assessment": "The rooted product is a different construction; the theorem determines scalar minimum values in terms of factor parameters and cannot enumerate double dominating sets for the proposed subdivisions.",
+        "evidence": [
+          "Theorem 2.1 enumerates six possible expressions for the scalar minimum on rooted products."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.dam.2023.06.021; https://xiiieamd.uca.es/wp-content/uploads/2023/06/Alejandro-Estrada-Moreno.pdf",
+        "material_read": "Four-page public conference exposition, definitions and principal rooted-product theorem with examples.",
+        "method": "Direct reading of accessible academic conference PDF.",
+        "title": "Double domination in rooted product graphs",
+        "trigger": "Possible dominating general double-domination theorem for graph operations."
+      },
+      {
+        "assessment": "The edge-cover polynomial is prior work explicitly reused for one case. Broader potential equivalences in uninspected contents remain an access/comparison risk.",
+        "evidence": [
+          "Abstract introduces the edge-cover polynomial and determines graph families including complete bipartite graphs by that invariant."
+        ],
+        "identifier_or_url": "https://janos.cs.technion.ac.il/COURSES/236603-11/oboudi.pdf",
+        "material_read": "Public abstract and edge-cover polynomial definition and scope summary.",
+        "method": "Search-visible primary-source abstract and definition; no whole-paper noncoverage inference.",
+        "title": "On the edge cover polynomial of a graph",
+        "trigger": "Potential prior enumeration for the all-original-vertices component."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5479a781-148f-47be-ac5b-6e5ce081ef30",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A previously published scalar optimum does not distinguish or count the many feasible double-dominating placements. The new result gives the full distribution and the exact multiplicities of all optimal sets on an infinite two-parameter natural family. Its surjection regime and the exceptional smaller-part-size-two regime explain a concrete structural transition; the theorem combines edge-cover constraints and forced rows/columns without asserting that the classical edge-cover polynomial or the known optimum is new.",
+    "status": "PASS"
+  }
+}
