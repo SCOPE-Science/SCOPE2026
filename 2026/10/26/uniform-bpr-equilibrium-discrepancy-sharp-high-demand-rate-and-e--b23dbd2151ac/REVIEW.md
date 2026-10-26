@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof establishes existence and uniqueness of aggregate loads through the strictly convex Beckmann potential. Two variational inequalities and the scalar inequality \((u^p-v^p)(u-v)\ge|u-v|^{p+1}\) give the uniform perturbation bound with precisely stated norms. Homogeneity and positivity of every resource reachable by a positive-demand commodity yield the sharper singleton rate; a two-link exact equation attains its exponent. Polynomial complementarity and semialgebraic projection prove finite changes to all minimum-cost active-strategy indicators on each demand ray. Numerical tests are only corroborating finite checks.
+
+**Originality — PASS, with priority risk.** The 2023/2024 Cominetti–Dose–Scarsini paper's §6 explicitly leaves BPR region asymptotics open and its Theorems 6/12 address monotonic loads and order-class subregions, rather than a demand-uniform homogeneous comparison or sharp high-demand rate. Their 2021 paper proves finite transitions only for affine single-OD routing, while their 2023 multi-commodity paper treats phase-transition derivatives. The present statement covers a different quantitative comparison and rigorous eventual stabilization for common-exponent polynomial costs in arbitrary finite congestion games. Its ingredients are standard convex analysis and semialgebraic geometry; independent literature priority remains unverified.
+
+**Value — PASS.** The universal additive discrepancy gives demand-scale-independent control of the difference between BPR and monomial equilibrium loads, and the sharp \(t^{-3}\) standard BPR improvement makes its high-traffic accuracy explicit on fixed-proportion singleton demand rays. Eventual nonrecurrence settles a specific consequence identified as open in the motivating paper, while not claiming its stronger multidimensional geometric conjecture. These are structural facts about congestion planning rather than arbitrary numerical slices.
+
+The uniform comparison assumes a common polynomial exponent with strictly positive coefficients. The sharper rate is only for singleton games and its constant depends on demand proportions. Broader prior art may subsume the results; the present assessment is not independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
