@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For each \\(u\\) of valuation \\(s<m\\), the shell of elements \\(b\\) with valuation \\(i\\leq s\\) contributes the same number of solutions to \\(bc=u\\); summing the shells gives \\(H(s)\\). For \\(u=0\\), the nonzero shells and \\(b=0\\) give \\(H(m)\\). The substitution \\(x=2a-t\\) is bijective because \\(2\\) is a unit and converts the determinant equation to the valuation of \\(\\Delta-x^2\\). The explicit cases count every valuation shell; in the even-valuation square case, the two simple roots lift uniquely because their derivative is a unit. Exact exhaustive tests passed for all trace/determinant fibers at \\((p,m)=(3,2),(5,2),(3,3)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The length-two similarity classification is not an all-length formula.",
+        "The fixed-determinant paper counts a one-coefficient marginal, not the joint trace-and-determinant fiber.",
+        "The commutator theorem is an existence statement and does not count characteristic-polynomial fibers."
+      ],
+      "reasoning": "The result extends beyond length two and works in equal and mixed characteristic whenever the residue field has odd order. The cited stronger-looking results address different parameters or only a length-two range, so they do not directly imply the all-length count.",
+      "searches": [
+        "arXiv:1212.6157v1, abstract and section 1: local principal ideal rings of length two",
+        "arXiv:1605.06826v1, abstract and sections 1-3: fixed determinant counts over finite chain rings",
+        "arXiv:1211.6872v1, abstract and sections 3-6: trace-zero commutators over principal ideal rings"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1211.6872v1",
+      "arXiv:1212.6157v1",
+      "arXiv:1605.06826v1",
+      "doi:10.1215/ijm/1255629830",
+      "OEIS A089035",
+      "OEIS A088668"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stasinski proves existence of commutator representations for trace-zero matrices over principal ideal rings, not fiber cardinalities by characteristic polynomial.",
+        "Prasad-Singla-Spallone provide length-two similarity-class and centralizer data.",
+        "Choosuwan-Jitman-Udomkavanich count fixed determinants but not the joint trace/determinant distribution."
+      ],
+      "reasoning": "The stated prior results do not imply the explicit formula for arbitrary length m by their stated conclusions. The proof here supplies the valuation-shell factorization count and the discriminant root-lifting distribution directly.",
+      "searches": [
+        "arXiv:1211.6872v1, abstract and sections 3-6",
+        "arXiv:1212.6157v1, abstract and section 1",
+        "arXiv:1605.06826v1, abstract and sections 1-3",
+        "joint trace determinant distribution of matrices over finite chain rings characteristic polynomial counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Reiner's cited finite-field result is reflected in OEIS A089035 and A088668, which concern specific characteristic polynomials over GF(2).",
+        "Prasad-Singla-Spallone classify similarity classes and centralizers over local principal ideal rings of length two; their stated parameter range is length two.",
+        "No inspected source states a joint trace/determinant formula for every chain length m."
+      ],
+      "reasoning": "The field case and the length-two local-ring case are relevant special cases, but neither gives the displayed all-length formula. The claim is expressed as a count of matrices with a fixed characteristic polynomial, equivalent to fixing trace and determinant; the discriminant valuation and square class give the explicit stratification.",
+      "searches": [
+        "exact number of 2 by 2 matrices over Z/p^2 with fixed trace and determinant discriminant square zero valuation",
+        "joint trace determinant distribution of matrices over finite chain rings characteristic polynomial counts",
+        "matrix characteristic polynomial coefficients distribution over finite local principal ideal rings M2",
+        "arXiv:1212.6157v1, sections 1.1-1.3 on similarity classes over local rings of length two",
+        "Reiner, On the number of matrices with given characteristic polynomial, DOI 10.1215/ijm/1255629830"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected OEIS entries and their Reiner citation are finite-field tables, not all-length chain-ring trace/determinant fibers.",
+        "No exact all-length finite-chain-ring table was located in the searches."
+      ],
+      "reasoning": "An exact table is not needed for the symbolic result; the closest indexed sequences cover particular finite-field characteristic polynomials only and do not dominate the local-ring formula.",
+      "searches": [
+        "OEIS A089035: number of matrices over GF(2) with characteristic polynomial x^n-1",
+        "OEIS A088668: number of matrices over GF(2) with characteristic polynomial x^(n-1)(x-1)",
+        "matrix characteristic polynomial coefficients distribution over finite local principal ideal rings M2"
+      ]
+    },
+    "rationale": "The claim is the joint trace-and-determinant distribution over all finite chain lengths with odd residue field. The inspected literature covers the field case, length-two similarity-class data, fixed-determinant marginals, and commutator existence, but no inspected source states the all-length discriminant-stratified formula. A broader unlocated local-ring generalization remains possible; novelty is not claimed as an absolute literature theorem.",
+    "residual_risks": [
+      "The full text of Reiner (1961) was not retrievable from the available Project Euclid endpoint; an unlocated generalization to finite chain rings remains possible.",
+      "Similarity-class classifications can in principle recover finite-length cases by summing class sizes; the claim is limited to the explicit all-length formula not stated in the inspected sources.",
+      "Finite computational checks cover only three rings of the form Z/p^mZ; the all-chain-ring assertion rests on the proof, especially the valuation-shell and simple-root lifting arguments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant background, but its principal theorem is commutator existence rather than joint trace/determinant counts.",
+        "evidence": "arXiv:1211.6872v1, submitted 2012-11-29; the accessible abstract and main-result statement describe trace-zero commutator existence over PIDs/PIRs.",
+        "identifier_or_url": "https://arxiv.org/abs/1211.6872",
+        "material_read": "Abstract, introduction, and the accessible main-result statement on trace-zero commutators; the full article was not exhaustively read.",
+        "method": "Compared the scope of the matrix-over-PIR results with the exact characteristic-polynomial counting claim.",
+        "title": "Similarity and commutators of matrices over principal ideal rings",
+        "trigger": "Primary matrix-over-principal-ideal-ring literature with permitted primary MSC 15B33; relevant matrix normal forms and ring setting."
+      },
+      {
+        "assessment": "The classification gives a strong length-two comparison, but the displayed theorem is for every length m and is not stated there as a joint trace/determinant formula.",
+        "evidence": "arXiv:1212.6157v1, submitted 2012-12-26; abstract and introduction state the length-two scope and classification of similarity classes/centralizers for n up to four.",
+        "identifier_or_url": "https://arxiv.org/abs/1212.6157",
+        "material_read": "Abstract and Sections 1.1-1.3 of the full HTML text; the stated range n<=4 and length two was checked.",
+        "method": "Compared the coefficient-ring length and the type of invariant counted.",
+        "title": "Similarity of matrices over local rings of length two",
+        "trigger": "Closest local-ring similarity classification, including centralizers and class counts."
+      },
+      {
+        "assessment": "The source counts matrices with a prescribed determinant, but does not state the joint characteristic-polynomial distribution in this claim.",
+        "evidence": "arXiv:1605.06826v1, submitted 2016-05-22; abstract and Section 3.",
+        "identifier_or_url": "https://arxiv.org/abs/1605.06826",
+        "material_read": "Abstract, MSC listing, Introduction, and Sections 2-3 through the fixed-determinant formulas.",
+        "method": "Compared a determinant marginal with the joint trace/determinant fiber.",
+        "title": "Determinants of Matrices over Commutative Finite Principal Ideal Rings",
+        "trigger": "Exact fixed-determinant counts over finite chain rings, a possible stronger coverage of the count."
+      },
+      {
+        "assessment": "The accessible entries concern finite-field cases; the inaccessible full article remains a residual risk for formulations beyond those entries.",
+        "evidence": "OEIS A089035 and A088668 describe counts over GF(2) for specific characteristic polynomials and cite Reiner (1961).",
+        "identifier_or_url": "https://doi.org/10.1215/ijm/1255629830",
+        "material_read": "OEIS A089035 and A088668 citation/summary metadata only; the Project Euclid endpoint returned an iframe-only page, so the article full text was not read.",
+        "method": "Checked the accessible sequence descriptions and citation to determine the stated coefficient-ring scope.",
+        "title": "On the number of matrices with given characteristic polynomial",
+        "trigger": "Highly relevant title for characteristic-polynomial fiber counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83aa1c7c-ebbd-43d6-bf11-19651502536e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The characteristic polynomial is a natural coefficient invariant for two-by-two matrices. This result gives an exact distribution for every finite chain length in odd residue characteristic, distinguishes the even-valuation square/nonsquare boundary, and applies in equal and mixed characteristic. It is a reusable local counting formula rather than a single computed example or a restatement of fixed-determinant counts.",
+    "status": "PASS"
+  }
+}
