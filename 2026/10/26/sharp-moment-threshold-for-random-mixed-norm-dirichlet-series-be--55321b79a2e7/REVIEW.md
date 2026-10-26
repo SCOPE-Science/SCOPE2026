@@ -1,0 +1,11 @@
+# Scientific review — random mixed-norm Dirichlet symbol spaces
+
+**Correctness (C): PASS.** The new Bernoulli-thinning lemma is proved using an explicit second-moment estimate for bounded selectors, Paley--Zygmund, Tonelli, and the Kolmogorov zero--one law. The full-law reverse inclusion then uses independent-copy symmetrization and the precise existing symmetric-law lemma. For \(0<q<2\), an infinite-variance law produces dyadic blocks with summable deterministic mass but almost-surely divergent random energy. The proof accounts for finite coefficient changes, quasi-norm exponents, and absolute convergence of the constructed Dirichlet series on a right half-plane. Published theorems supplying sufficiency, strict embeddings, and the \(q\ge2\) necessity are identified explicitly.
+
+**Originality (O): PASS with named risks.** The arXiv 2026 source establishes an if-and-only-if statement only for \(q\ge4\); for \(q<4\) its Theorems 1.4--1.5 have a gap between necessary and sufficient moments. Its general reverse inclusion additionally assumes a fourth moment. The inspected 2024 source characterizes only canonical coefficient laws. Searches of relevant mathematical research records and aliases found no dominating general-law statement. A related 2026 random-Taylor-series paper was inspected only via its publisher abstract; broader historical literature may contain alternate formulations. No worldwide uniqueness or independent-priority certification is claimed.
+
+**Value (V): PASS.** Exact random coefficient moment thresholds for all \(0<q<4\) resolve an explicitly delineated part of the general-law Littlewood converse problem. The threshold changes at \(q=2\), and the proof constructs a family of counterexamples for every iid infinite-second-moment law. The distribution-free reverse-inclusion lemma is structurally reusable beyond this gap.
+
+**Scope and limitations.** Arbitrary nonconstant iid scalar coefficient laws, \(\alpha>-1\), finite positive exponents, and the Bohr-lift mixed-norm spaces of Dirichlet series. Independent mathematical validation and exhaustive historical-priority assessment remain outstanding. The full Chen--Liu 2026 Taylor-series article was not inspected; its accessible abstract does not imply this Dirichlet statement.
+
+Self-review: passed. Independent audit: not yet performed.
