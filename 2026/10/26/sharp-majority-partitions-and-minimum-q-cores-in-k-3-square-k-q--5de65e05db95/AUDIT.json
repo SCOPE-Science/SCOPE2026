@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Proved a double-incidence inequality around each selected vertex, used a sharp capped-squares majorization bound, resolved equality into complete q-by-two rectangles, and gave explicit optimal partition for even and odd q. Every case q>=4 and all equality constraints are checked. Actual packaged verifier independently checks partitions, all rectangles and direction-population inequalities for q=4..14, and exhaustive q=3 boundary. Finite data support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.27669v2 Proposition 14(i),(ii) and Open problem 2 explicitly give product lower bounds and ask for imbalanced three-/four-dimensional exact numbers.",
+        "arXiv:2609.31674v1 Theorem 1 covers only K_q^{square (2k+1)}; its Section 7 calls for unequal-order analogues."
+      ],
+      "reasoning": "Proposition 14 gives only three colours for the imbalanced (3,q,q) family. Crucially, Lu Lemma 4 for balanced Kq^3 DOES directly imply the induced q-minimum-degree core lower bound 2q: embed K3 in Kq and use f_q(q)=2q. Thus our size lower bound and resulting colour-number upper bound are covered consequences, not novelty. Neither this inequality nor Lu’s balanced optimal partitions produces a q>=4 majority partition attaining floor(3q/2) in (3,q,q), nor classifies all equality cores; Lu §7 specifically requests unequal products.",
+      "searches": [
+        "majority C-coloring of K_3 square K_n square K_n three dimensional Hamming graphs color number 3n/2",
+        "majority C coloring of K3 cartesian Kq cartesian Kq for all q≥4 and smallest induced subgraph minimum degree q",
+        "2609.31674 ZeHua Lu full text majority C colouring balanced Hamming imbalanced K3 Kq"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.27669v2, Proposition 14 and Open problem 2, https://arxiv.org/html/2608.27669v2",
+      "arXiv:2609.31674v1, Theorem 1, Lemma 4 and Section 7, https://arxiv.org/pdf/2609.31674",
+      "Alliance Partition Number in Graphs (2012), publisher abstract https://combinatorialpress.com/ars-articles/volume-103-ars-articles/alliance-partition-number-in-graphs/",
+      "published-finding corpus hit 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5, complete multipartite rather than Cartesian product",
+      "arXiv:2604.20752v1 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bujtás et al., arXiv:2608.27669v2, Proposition 14 and Open problem 2.",
+        "Lu, arXiv:2609.31674v1, Theorem 1, Lemma 4 and concluding Section 7."
+      ],
+      "reasoning": "The previous product theorem supplies only a weak three-colour construction. Lu’s sharp balanced Hamming isoperimetry implies the new domain’s 2q lower bound and hence the upper bound floor(3q/2); these are not asserted as independently novel. Its balanced Hamming partition Kq^3 does not restrict to a partition of K3 square Kq square Kq for q>=4 with the required number of classes; such a restriction requires checking every class and yields no published attaining construction. The new exact equality includes a direct q>=4 partition and a rigid classification/census of all size-2q classes, neither stated in inspected predecessors. The previously addressed q=3 case lies outside the claimed range.",
+      "searches": [
+        "majority C-coloring of K_3 square K_n square K_n three dimensional Hamming graphs color number 3n/2",
+        "defensive alliances and majority C colorings of unequal 3-dimensional Hamming graph K3 box Kq box Kq exact extremal induced minimum degree",
+        "\"Exact majority C-colourings of balanced Hamming graphs and grids\" \"imbalanced\" \"K_3\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.31674v1 page 1 defines the equivalent defensive 0-alliance partition number; its §7 restricts proven Hamming theorem to equal alphabets.",
+        "published-finding corpus hit 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5, complete multipartite rather than Cartesian product"
+      ],
+      "reasoning": "A colour class is a nonempty induced subgraph with minimum degree at least q, equivalently a strong defensive 0-alliance in the 2q-regular graph. The relevant complete-multipartite published-finding corpus record studies a different graph adjacency; graph product and ordinary complete multipartite are not equivalent. No inspected formulation implies the all-q result.",
+      "searches": [
+        "majority C coloring imbalanced Hamming graphs K3 Cartesian Kq Cartesian Kq exact floor(3q/2) q≥3",
+        "minimum induced subgraph degree q in Hamming K3 Kq Kq has 2q vertices rectangle K2 Kq",
+        "defensive alliances and majority C colorings of unequal 3-dimensional Hamming graph K3 box Kq box Kq exact extremal induced minimum degree",
+        "strong defensive alliance partition number Hamming graphs unequal factor complete graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The six published-finding corpus queries returned closest but nonidentical records: 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5 and 2026/9/15/SCOPE024.",
+        "The balanced order-three case appears in the published balanced Hamming results; it is excluded by q>=4."
+      ],
+      "reasoning": "Neither a catalogued database/table nor an equivalent enumerated (3,q,q) majority value was identified in actual queries; this cannot establish global priority. The isolated previously addressed ternary case has been explicitly removed from the new theorem domain.",
+      "searches": [
+        "majority C coloring imbalanced Hamming graphs K3 Cartesian Kq Cartesian Kq exact floor(3q/2) q≥3",
+        "minimum induced subgraph degree q in Hamming K3 Kq Kq has 2q vertices rectangle K2 Kq",
+        "partition Hamming three dimensional boxes into majority induced dense subgraphs rectangular 2 by q",
+        "\"K_3\" \"K_q\" \"K_q\" \"defensive alliance\" partition number"
+      ]
+    },
+    "rationale": "Two primary full texts were inspected with theorem-level comparisons. The 2026 Cartesian-products study explicitly leaves imbalanced three-dimensional Hamming graphs open and provides only a three-colour lower bound here; the 2026 follow-up resolves balanced odd Hamming graphs and expressly identifies unequal-factor products as future questions. Its Lemma 4 does imply the 2q core lower bound via induced embedding; that component is credited as covered, while the attaining partition and equality classification/census are not supplied. Six genuine published-finding corpus queries, historical-claim deduplication, and targeted web searches found no matching exact all-q unequal-factor value or 2q-core classification. Restricted 2012 alliance terminology remains a priority risk; lack of an indexed result is not proof of uniqueness.",
+    "residual_risks": [
+      "A specialized historical defensive-alliance partition formula outside the queried/inspected literature could establish an equivalent result.",
+      "The 2012 alliance-partition paper was available in abstract only; its full text was not inspected.",
+      "Independent historical-priority and proof audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Proposition 14 lower bounds; Open problem 2 explicitly asks for exact imbalanced 3D Hamming values, without q>=4 formula.",
+        "identifier_or_url": "arXiv:2608.27669v2; https://arxiv.org/html/2608.27669v2",
+        "material_read": "HTML full text: definitions in §1, Cartesian product results, Proposition 14 and proof, Open problems 2–3 in §5",
+        "method": "Direct indexed arXiv full-text HTML reading, with theorem and implication comparison",
+        "title": "Majority C-coloring in Cartesian products",
+        "trigger": "Defines the current parameter and explicitly treats 3D Hamming graphs"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Theorem 1 concerns balanced factors only; §7 requests unequal-factor results. Lemma 4 implies the 2q lower bound upon embedding K3 square Kq square Kq as an induced subgraph of Kq cubed; no attainment construction or equality-case census for the imbalanced family is given.",
+        "identifier_or_url": "arXiv:2609.31674v1; https://arxiv.org/pdf/2609.31674",
+        "material_read": "Primary 12-page PDF text: §1 main theorems, §2 Lemma 4, §§3–4 constructions, §7 concluding question; page screenshots 1, 3, 10 (1-based)",
+        "method": "Direct primary PDF page text and visual screenshot inspection",
+        "title": "Exact majority C-colourings of balanced Hamming graphs and grids",
+        "trigger": "Later paper obtains strong balanced Hamming formulas and might dominate the candidate"
+      },
+      {
+        "assessment": "PRIORITY_RISK_LIMITED_ACCESS",
+        "evidence": "Establishes alliance partition parameter, general bounds and regular/tree results, but accessible abstract contains no specific (3,q,q) formula.",
+        "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-103-ars-articles/alliance-partition-number-in-graphs/",
+        "material_read": "Journal landing-page abstract; not complete paper",
+        "method": "Publisher abstract, general results description",
+        "title": "Alliance Partition Number in Graphs",
+        "trigger": "Possible historical renaming of the majority partition problem"
+      },
+      {
+        "assessment": "NOT_DECISIVE",
+        "evidence": "Introduces general parameter and graph-class bounds; no Cartesian 3D unequal-factor family asserted in accessible text.",
+        "identifier_or_url": "arXiv:2604.20752v1; https://arxiv.org/abs/2604.20752",
+        "material_read": "ArXiv abstract only",
+        "method": "Primary metadata and theorem claims from indexed abstract",
+        "title": "Majority C-coloring of graphs",
+        "trigger": "Foundational definition and generic upper bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5de65e05-db95-4e93-8944-85345491b556",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full q>=4 family is an infinite, genuinely imbalanced 3-dimensional Hamming subfamily singled out by a published open problem. It gives the exact maximum majority partition rather than a routine special case of an earlier general formula. Although the 2q bound follows from Lu’s earlier balanced isoperimetric lemma under embedding, the construction attaining the bound on the number of unequal-factor classes and the complete 3q(q+1) equality-case census yield new structural information beyond a known cardinality inequality.",
+    "status": "PASS"
+  }
+}
