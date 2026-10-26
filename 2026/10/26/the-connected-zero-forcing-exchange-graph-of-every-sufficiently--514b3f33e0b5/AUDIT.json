@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Triangle-free cubic structure excludes connected forcing seeds of size at most 3; the exhaustive four-vertex shape classification reduces every minimum seed to P4 or a rung C4. Four explicit forcing waves work for the four symmetry classes. A complete modular table of every three-overlap replacement gives degrees (6,6,8,6), orbit sizes (2n,4n,n,2n), 28n edges, and connectivity through the two straight-path cycles and square connectors. Two separately implemented Python verifiers establish exhaustive checks for 6<=n<=15 and independent symmetry/local checks for 6<=n<=35. Infinite conclusions depend on the written structural proof, not extrapolation.",
+    "risks": [
+      "Manual correctness of the modular exchange table is important, especially at n=6; both checks include that endpoint.",
+      "Finite scripts do not establish the infinite quantifier, which is instead handled by the symbolic orbit and local-case argument."
+    ],
+    "sources": [
+      "RESULT.md, Proof steps 1–5",
+      "bruteforce.py; bruteforce.out",
+      "structural.py; structural.out"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brimkov (arXiv:1607.00658) studies complexity and structural properties of connected forcing, but the text search found no prism/ladder classification.",
+        "Geneson–Haas–Hogben (arXiv:2009.00220) has general token-exchange framework and zero-forcing graphs of forests; the inspected material and full-text queries do not give the circular-ladder case.",
+        "Premodkumar–Dominic–Chacko (2020), Proposition 22 concerns only the optimum cardinality and sample seed."
+      ],
+      "reasoning": "A general theorem about optimum cardinality or unrestricted zero-forcing exchanges cannot imply the exact count, degree profile and connectivity of the different connected subset without further case-specific work. No stronger inspected theorem provides those data.",
+      "searches": [
+        "connected forcing sets prism graph token jumping reconfiguration nine n 28 n",
+        "\"reconfiguration\" \"minimum connected zero forcing\" prism graph",
+        "\"zero forcing reconfiguration\" \"prism\" \"connected\"",
+        "arXiv:1607.00658 full-text query: prism; ladder",
+        "arXiv:2009.00220, Introduction and §§2.1–2.2"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1604.00740",
+      "https://arxiv.org/abs/1607.00658",
+      "https://doi.org/10.28919/jmcs/4446",
+      "https://arxiv.org/abs/2009.00220",
+      "https://oeis.org/A343648"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 22 supplies Z_c(C_n square K_2)=4 and one four-set construction. It does not count connected seeds or describe any exchange edges.",
+        "arXiv:2009.00220 defines Z(G) on minimum unrestricted zero-forcing sets and its displayed examples are paths, cycles and complete graphs.",
+        "Relevant accessible previous local claims about prisms concern independent sets, independent domination, and strong edge colouring; other zero-forcing claims concern different base graphs."
+      ],
+      "reasoning": "The new result implies the known cardinality four in its domain, but that earlier cardinality theorem does not imply this classification or connectedness of the token-exchange graph. There is no implication from reconfiguration of optimum independent sets or other graph parameters to connected zero-forcing seeds.",
+      "searches": [
+        "2020 J. Math. Comput. Sci., Proposition 22 and its proof, https://doi.org/10.28919/jmcs/4446",
+        "arXiv:1604.00740, introduction and preliminary results",
+        "arXiv:2009.00220, introductory definitions and family results",
+        "connected zero forcing set reconfiguration circular ladder prism graphs C_n cartesian K_2 exact enumeration connected 4-sets exchange graph",
+        "Exact minimum connected zero forcing sets of circular ladders and prism graphs: classification into induced 4-vertex paths and squares; nine n sets; token-exchange graph connected 28n edges, degree six or eight."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brimkov–Davila (arXiv:1604.00740) defines connected forcing; the inspected sections do not give a prism configuration-space result.",
+        "Geneson–Haas–Hogben (arXiv:2009.00220, §§1–2.1 and full-text term searches) defines token-jumping for minimum unrestricted zero forcing and treats other base graph examples.",
+        "published-finding corpus closest prism/circular-ladder entries concern Rips complexes, homology or other invariants, not connected zero-forcing exchange."
+      ],
+      "reasoning": "Connected zero-forcing exchange is also phrased as replacement of minimum connected forcing seeds, token jumping on connected zero-forcing sets, or reconfiguration of connected zero-forcing configurations. No inspected source states the four-shape classification and 9n/28n exchange counts. Unrestricted zero-forcing reconfiguration is not equivalent unless the connected subspace is separately determined.",
+      "searches": [
+        "connected zero forcing set reconfiguration circular ladder prism graphs C_n cartesian K_2 exact enumeration connected 4-sets exchange graph",
+        "Exact minimum connected zero forcing sets of circular ladders and prism graphs: classification into induced 4-vertex paths and squares; nine n sets; token-exchange graph connected 28n edges, degree six or eight.",
+        "\"connected zero forcing\" \"prism\" \"reconfiguration\"",
+        "\"connected zero forcing\" \"circular ladder\" configurations",
+        "\"minimum connected zero forcing\" \"reconfiguration\"",
+        "arXiv:2009.00220 full-text query: prism; ladder; connected forcing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted searches returned no named OEIS or published table interpreting 9n as the number of connected minimum zero-forcing seeds in prisms or 28n as their exchange edges.",
+        "The relevant OEIS entry A343648 counts unlabeled graphs by ordinary zero-forcing number, not the number of connected forcing seeds of a fixed labelled graph."
+      ],
+      "reasoning": "The naked integer sequences 9n and 28n have many trivial appearances; only a table with the same labelled graph and connected-zero-forcing interpretation could cover the theorem. No such interpreted table was located; absence in a search does not certify global novelty.",
+      "searches": [
+        "\"connected zero forcing\" \"9n\" prism",
+        "OEIS circular ladder connected zero forcing sets count",
+        "9n connected forcing sets circular ladder minimum",
+        "prism graph number of minimum connected zero forcing sets 9n",
+        "Exact minimum connected zero forcing sets of circular ladders and prism graphs: classification into induced 4-vertex paths and squares; nine n sets; token-exchange graph connected 28n edges, degree six or eight."
+      ]
+    },
+    "rationale": "The same-family paper of Premodkumar–Dominic–Chacko proves only the already-known connected minimum size four and a particular construction. Foundational connected-forcing theory and unrestricted zero-forcing reconfiguration do not imply the new family-specific full four-shape classification, exchange degree law or connectivity. Focused published-finding corpus, literature, equivalent-naming and sequence/table searches found no stronger covering statement. Search limitations remain and priority is not independently certified.",
+    "residual_risks": [
+      "An unindexed or differently titled paper could contain the same labelled-configuration classification.",
+      "The entire text of arXiv:1607.00658 and arXiv:2009.00220 was not read page by page; targeted text searches and pertinent introductory sections were inspected.",
+      "Source priority is best-knowledge only, not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Determines optimum size four and gives a representative seed only; does not enumerate all optimal seeds or their replacement edges",
+        "evidence": [
+          "Proposition 22, page 674: connected zero forcing number four for a circular ladder; witness u1,u2,u3,v1."
+        ],
+        "identifier_or_url": "https://doi.org/10.28919/jmcs/4446",
+        "material_read": "Full Proposition 22 and proof, page 674 (PDF page 19), together with abstract and introduction",
+        "method": "Direct inspection of the publicly accessible journal PDF and its page image",
+        "title": "Connected k-forcing sets of graphs and splitting graphs",
+        "trigger": "Exact same prism family and minimum connected forcing parameter"
+      },
+      {
+        "assessment": "Establishes connected forcing background; inspected text discusses trees, hypercubes, flower snarks rather than the exact prism reconfiguration theorem",
+        "evidence": [
+          "arXiv:1604.00740v1, Introduction/§§2–3 and paper organization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.00740",
+        "material_read": "arXiv HTML abstract, table of contents, Introduction, Preliminaries and beginning of Section 3; not a claim of full-document reading",
+        "method": "Full-text HTML sections and targeted research queries",
+        "title": "Characterizations of the Connected Forcing Number of a Graph",
+        "trigger": "Historical original definition of connected forcing, dated 2016-04-04"
+      },
+      {
+        "assessment": "No covering prism or ladder theorem found in accessible searched material; uninspected text is residual risk",
+        "evidence": [
+          "arXiv:1607.00658v1, abstract, first page; no prism/ladder term matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1607.00658",
+        "material_read": "Abstract and PDF title page; PDF full-text targeted searches for prism and ladder; remainder not read",
+        "method": "Public PDF first-page inspection and keyword searches",
+        "title": "Complexity and Computation of Connected Zero Forcing",
+        "trigger": "Potential broader structural theory of connected zero-forcing sets"
+      },
+      {
+        "assessment": "Different unrestricted configuration space; no exact connected prism case found in inspected sections or matching term searches",
+        "evidence": [
+          "arXiv:2009.00220v1, pages 1–3 and family-example propositions 2.2–2.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.00220",
+        "material_read": "PDF abstract, Introduction and §§2.1–2.2 through introductory examples; whole-PDF searches for prism, ladder, connected forcing",
+        "method": "Public PDF page inspection and exact term search",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Possible stronger reconfiguration theorem using unrestricted minimum zero-forcing sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "514b3f33-e0b5-4ca0-b085-abbbac6c6fee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The published optimum cardinality does not answer how many connected optimal seeds exist or whether all such seeds can be exchanged while retaining optimality and initial connectedness. The complete orbit description, exact 9n count, connectedness and 28n-edge/degree law establish the geometry of the natural constrained configuration space throughout an infinite family of cubic planar graphs. These are structural reconfiguration invariants rather than a routine reproof of the known minimum size.",
+    "risks": [
+      "The family is specially structured; no general reconfiguration algorithm or diameter formula is claimed."
+    ],
+    "sources": [
+      "Premodkumar–Dominic–Chacko (2020), Proposition 22",
+      "Geneson–Haas–Hogben (2020), reconfiguration motivation",
+      "RESULT.md, Proof steps 2–5"
+    ],
+    "status": "PASS"
+  }
+}
