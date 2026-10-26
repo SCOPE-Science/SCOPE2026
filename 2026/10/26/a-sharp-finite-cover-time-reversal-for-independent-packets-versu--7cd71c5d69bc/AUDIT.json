@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For each as-yet-unseen label, conditional incoming probability is exactly 1/m, independently of adaptive outgoing choice, and no outgoing label may be globally unseen. Hence the uncovered-set Markov transition kernel equals iid sampling with replacement on the m initially absent labels; geometric waiting times yield mean, variance, and inclusion-exclusion CDF. In the iid packet model, the hypergeometric novelty has mean rk/n; the (n/r)H_k potential has expected descent at least one and strictly greater at the initial stage if r,m>=2. Boundary cases r=1,m=1 are exact. 2747 exact standard-library assertions passed; finite checks do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1601.04455:definitions and Theorem 3.7",
+        "arxiv:2304.01145:Theorems 2.1,2.3,2.5",
+        "Research-index closest published reset-coupon rate record"
+      ],
+      "reasoning": "The iid structured-coupon theorem assumes independent rounds, which fails for the replacement process. The general Johnson-graph r=s covering theorem counts all r-subsets and hence does not give s=1 for r>1. A reset-coupon rate theorem is not a claim about without-replacement packet transitions. Existing broad coupon bounds might nevertheless imply the harmonic iid mean upper bound; no direct coverage found.",
+      "searches": [
+        "Stationary random walks on Johnson graphs replacing one of r coupons per step. Exact cover time to observe all n individual coupons, harmonic sum expectation and distribution.",
+        "Coverage times invariant under arbitrary adaptive eviction rule with uniform fresh insertion outside the current size r set; coupon collector exact path law",
+        "Sharp finite comparison of Markovian and independent coupon subset collectors with the same packet size, including adaptive eviction and coupon collector path equivalence."
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.01145",
+      "doi:10.1007/s10959-025-01417-w",
+      "arxiv:1601.04455",
+      "Adler and Ross, 2001, author-hosted 10-page full primary PDF, Section 2.3 fixed packet formula",
+      "published balanced non-uniform reset-coupon rate result, distinct model",
+      "prior paired-subset Johnson-walk coverage claim, distinct coverage target",
+      "prior independent packet allocation majorization claim, distinct comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2304.01145 Conj 2.4 and Remark 2.2",
+        "arxiv:1601.04455 independent X_i model",
+        "Adler-Ross 2001 full author PDF",
+        "previous published Johnson walk for pairs",
+        "previous published iid packet scheduling majorization"
+      ],
+      "reasoning": "For fixed r, source Conjecture 2.4 predicts mean asymptotic n log n at s=1; it does not entail the complete law, arbitrary adaptive eviction invariance, or all finite n,r sign changes (particularly reversal at r=n-1). Its iid asymptotic n/r log n likewise cannot establish finite strict inequalities. Own pair-collection result (s=2) is distinct, and own packet-size-majorization result varies packet sizes across independent rounds instead of comparing dependent transitions. Adler-Ross full text has been inspected; its iid subset mean identity is explicitly prior and it does not state the adaptive replacement or sharp sign comparison, while other general results could still subsume the proof.",
+      "searches": [
+        "Coupon collector super-coupons Markovian dependent r-subset adjacent replacement covering all s-subsets exact cover time and fluctuation",
+        "On a generalisation of the coupon collector problem Athreya Mukherjee conjecture 2.4 s equals 1 exact law of Johnson walk total collected coupons",
+        "Finite-sample threshold for expected coupon cover time: independent uniform r-subset packets faster than one-at-a-time Johnson swap walk precisely if r>=2 and n-r>=2; reverse for r=1 or n-r=1."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2304.01145:Conjecture 2.4",
+        "research index semantic searches for Markovian Johnson coupon discovery and adaptive eviction"
+      ],
+      "reasoning": "The relevant alias is the s=1 Johnson-graph walk coupon collection; its discovered-label chain is an ordinary collector despite dependence in packet states. No retrieved result stated the policy-invariant full law or finite comparison. The primary paper conjectures only a leading asymptotic for s=1 and treats r=s separately.",
+      "searches": [
+        "Stationary random walks on Johnson graphs replacing one of r coupons per step. Exact cover time to observe all n individual coupons, harmonic sum expectation and distribution.",
+        "Coupon collector super-coupons Markovian dependent r-subset adjacent replacement covering all s-subsets exact cover time and fluctuation",
+        "Johnson graph Bernoulli Laplacian random walk set replacement coupon discovery process equals classical coupon collector with n-r unseen types; all cover time law Stirling numbers",
+        "On a generalisation of the coupon collector problem Athreya Mukherjee conjecture 2.4 s equals 1 exact law of Johnson walk total collected coupons",
+        "Markovian coupon collectors swapping uniform element of r-subset: independent geometric waiting times and uniform novelty order"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching finite (n,r) sign threshold or exact distribution tables in reviewed sources",
+        "Actual closest research index record IDs listed in checked_sources"
+      ],
+      "reasoning": "The claim holds for all n>r and includes an exact stochastic-process identity and a strict expectation comparison, not isolated table entries. Enumerated values in the checker serve only verification. No exact database of these comparisons was identified.",
+      "searches": [
+        "Finite-sample threshold for expected coupon cover time: independent uniform r-subset packets faster than one-at-a-time Johnson swap walk precisely if r>=2 and n-r>=2; reverse for r=1 or n-r=1.",
+        "Uniform r-subset drawings versus Johnson graph subset replacement coupon cover exact expected times and harmonic drift potential."
+      ]
+    },
+    "rationale": "The 2023 primary Conjecture 2.4 concerns the dependent s-subset coupon collector, proves r=s, and predicts only an asymptotic s=1 mean. Its independent-packet results and a broad 2016 iid study do not imply the policy-invariant exact s=1 law nor the sharp finite all-(n,r) sign reversal. Actual indexed-literature and accessible historical-claim searches found no equivalent all-parameter statement. The older Adler–Ross iid formula is explicitly treated as prior; unidentified general coupon bounds remain residual historical risks.",
+    "residual_risks": [
+      "General older coupon-subset comparisons and superharmonic-drift lemmas could imply the iid expectation inequality without using these exact words.",
+      "Adler and Ross 2001 author-hosted PDF establishes the iid fixed-packet mean formula and credits an earlier source; it does not state the sharp replacement comparison. A more general older theorem could nevertheless imply this comparison.",
+      "Semantic database nonmatches are not a uniqueness proof; independent historical-priority confirmation remains absent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper states dependent-process conjecture and proves only r=s; its s=1 all-parameter distribution and exact finite expectation threshold were not stated in inspected material",
+        "evidence": [
+          "arxiv:2304.01145 Conjecture 2.4, Theorem 2.5, Remark 2.2",
+          "https://link.springer.com/article/10.1007/s10959-025-01417-w sections 2-3"
+        ],
+        "identifier_or_url": "arxiv:2304.01145; https://doi.org/10.1007/s10959-025-01417-w",
+        "material_read": "2023 arXiv PDF introductory model and theorem/conjecture pages including pages 1 and 4; accessible full 2025 article HTML main results, proof section, remark and bibliography",
+        "method": "Read paper text and inspected relevant original PDF pages and accessible publisher HTML; compared stated iid assumptions and r=s proof scope",
+        "title": "On a Generalisation of the Coupon Collector Problem",
+        "trigger": "Exact originating Markovian r-subset process, s=1 specialty, Conjecture 2.4"
+      },
+      {
+        "assessment": "The paper requires independent random subset draws and does not state adaptive Johnson replacement invariance or a sharp finite mean sign threshold",
+        "evidence": [
+          "https://arxiv.org/pdf/1601.04455 Abstract and Sections 1, 3",
+          "Theorem 3.7 uniform exchangeable iid coupons"
+        ],
+        "identifier_or_url": "arxiv:1601.04455",
+        "material_read": "ArXiv full paper text, abstract, problem definition, statement and proof discussion for independent uniform subset packets, Theorem 3.7 and coverage comparison sections",
+        "method": "Inspected original PDF page and searched entire extracted PDF for Markov/adaptive dependencies, with full model and theorem scope comparison",
+        "title": "Speed and concentration of the covering time for structured coupon collectors",
+        "trigger": "Broad possible subsumption by uniform-subset cover-time results"
+      },
+      {
+        "assessment": "Section 2.3 eq. (7) already states the iid fixed-r packet mean (prior result). The entire setup assumes packets are iid; the paper does not discuss adaptive Johnson replacement or the sharp iid-versus-replacement sign threshold. No originality is claimed for its iid formula.",
+        "evidence": [
+          "https://adler.ieor.berkeley.edu/ilans_pubs/coupons_2001.pdf, pp. 737–739, especially Section 2.3 eqs. (7), (8)"
+        ],
+        "identifier_or_url": "Adler and Ross, Journal of Applied Probability (2001), DOI 10.1239/jap/1005091036",
+        "material_read": "Author-hosted 10-page full PDF; material read includes model, Sections 1–2.3 and fixed-packet formula (7) on printed page 739",
+        "method": "After the publisher page timed out, retrieved the author-hosted lawful full primary PDF and read the main model, formulas and relevant sections; screenshot of the explicit iid formula checked",
+        "title": "The Coupon Subset Collection Problem",
+        "trigger": "Older primary subset-collector coverage could subsume iid-packet side"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7cd71c5d-69bc-47ce-ba7c-f336d11fbb01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The work supplies an exact distributional solution of the natural single-coupon specialization of the 2023 dependent-subset cover-time question, robust even under nonanticipating adaptive departures. The same theorem establishes a sharp strict finite n,r boundary contrasting dependent replacement versus independent packets, with reversal in the r=1 and n-r=1 families despite large-n slowdown. The complete threshold is motivated by the original comparison, not an arbitrary parameter slice or numeric improvement.",
+    "status": "PASS"
+  }
+}
