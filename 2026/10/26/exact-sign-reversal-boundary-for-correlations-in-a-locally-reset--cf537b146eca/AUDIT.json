@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md Proof sections 1-4",
+      "check.py exact factorization and convolution checks",
+      "check_output.txt replay output"
+    ],
+    "rationale": "The unique stationary law follows from backward ancestral killing at rate r. Direct generator equations for H and G, the diagonal condition G_0=1, geometric Green-kernel convolution, closed-form rational evaluation, and strict derivative inequalities give the full theorem for every r>0 and -1<=c<=1. An exact SymPy identity/replay and independent truncated convolution comparisons check critical algebra; numerical grids are not substitutes for the analytic proof.",
+    "residual_risks": [
+      "The theorem is annealed and does not classify quenched samplewise covariance signs."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. J. de Oliveira, Phys. Rev. E 67 066101 (2003): voter dynamics with memoryless random noise and Green-function correlations, abstract examined; full text not examined.",
+        "M. Magoni, S. N. Majumdar, G. Schehr, arxiv:2002.04867: whole-system (global) resets in an Ising dynamics, not independently clocked frozen local memories.",
+        "Grange arxiv:2207.08590v6 Sec. 2.3.1-2.3.3: general generator equations but evaluated independent-templated solution."
+      ],
+      "reasoning": "A universal Green-function method can be shared without implying the evaluated Markov-template rate inversion. The closest potentially stronger 2003 linear-Glauber work addresses a different noise protocol; the possible broader quenched-noise result is retained as a scholarly risk.",
+      "searches": [
+        "Linear Glauber model exact stationary two point noise de Oliveira 2003",
+        "voter model local reset to original opinions correlated quenched spatial disorder exact solution",
+        "Ising model with stochastic resetting Magoni Majumdar Schehr arxiv:2002.04867"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.08590v6, Sections 2.1, 2.3 and Discussion (material read)",
+      "doi:10.1103/PhysRevE.67.066101 (abstract only)",
+      "arxiv:2002.04867 (abstract only)",
+      "arxiv:2112.01478 (abstract only; finite-network noisy voter model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published dynamics: stationarity requires H_n sourced by initial covariance and G_0=1; explicit evaluated publication specializes initial covariance to delta_0.",
+        "New calculation: for C_n=c^{|n|} the two Green kernels yield a rational function; derivative factorization gives a unique negative-template threshold and sharp global minimum r_*."
+      ],
+      "reasoning": "The published generator identities imply a solvable boundary-value problem for arbitrary initial covariance, but do not state a stronger general solved boundary classification. The claimed new theorem is the exact evaluated parametric sign boundary and strict uniqueness, not an unqualified assertion that the equations or their Fourier technique are new.",
+      "searches": [
+        "Stochastic resetting voter model Grange 2022 initial spins anti-correlated Markov chain domain wall sign inversion critical resetting rate",
+        "stationary spin correlations voter model local resetting original configuration nearest-neighbor anti-ferromagnet threshold",
+        "voter model under stochastic resetting correlated initial opinions stationary two point function",
+        "arxiv:2207.08590v6 Sec. 2.3 equations (50)-(73) and Discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grange arxiv:2207.08590v6, Sec. 2.3.1-2.3.3: finite-rate equations use initial independent unbiased spins in explicit solution.",
+        "The new claim concerns the sign of an annealed stationary nearest-neighbor covariance for a spatial Markov reset template, not merely a stationary mean or ordinary noise-induced voter correlation."
+      ],
+      "reasoning": "Searched aliases local reset to original opinion, quenched two-state Markov memory, antiferromagnetic reset pattern, adjacent spin anticorrelation and domain-wall inversion. No identified equivalent statement. The zero-template-correlation c=0 specialization is known and not counted new.",
+      "searches": [
+        "Stochastic resetting voter model Grange 2022 initial spins anti-correlated Markov chain domain wall sign inversion critical resetting rate",
+        "one-dimensional voter copying with Poisson local memory resetting to quenched two-state Markov template exact adjacent spin correlation",
+        "voter model under stochastic resetting antiferromagnetic initial conditions domain walls"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked primary article lists independent-template steady-state domain walls, with zero inversion for its c=0 case; no table of anti-correlated Markov templates or unique threshold.",
+        "A target-specific archival search returned unrelated depolarizing/Ising correlation results, not a voter resetting table."
+      ],
+      "reasoning": "No exact table or previously recorded scalar threshold matches r_*=1.446156936667017... for this local-reset Markov-memory voter model. Absence in a search index alone would not prove novelty.",
+      "searches": [
+        "stochastic resetting voter model antiferromagnetic initial condition exact threshold domain wall sign",
+        "Voter model under stochastic resetting arxiv:2207.08590 stationary domain wall equation 73",
+        "MSC2020 82C22 interacting particle systems"
+      ]
+    },
+    "rationale": "The complete inspected source develops local-reset voter kinetic equations and the independent-unbiased initial law, not the Markov-correlated frozen-template nearest-neighbor inversion threshold. The new evaluation and unique sign boundary are not directly given by those formulas, although they use the published equations and elementary Green kernels. Targeted mathematical searches did not uncover a covering evaluated result; this is a self-review priority assessment, not proof of exhaustive novelty.",
+    "residual_risks": [
+      "The full text of the 2003 linear-Glauber paper was not inspected; a general quenched-preference specialization elsewhere could exist.",
+      "Standard coalescing-walk/Green-resolvent identities are known; only the evaluated correlated-template sign boundary and sharp threshold are claimed new.",
+      "Search results are incomplete and independent scholarly priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published evaluated stationary domain-wall law uses independent initially undecided spins; the Markov-correlated template threshold is not presented.",
+        "evidence": [
+          "Eq. (53) explicitly fixes the covariance input to Kronecker delta for the analyzed case.",
+          "Eqs. (57)-(73) solve the resulting independent-template two-point function.",
+          "Discussion states the initially independent case for the closed domain-wall formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.08590v6",
+        "material_read": "Introduction; dynamics definition Sec. 2.1; full derivation of equations (49)-(73) in Sec. 2.3; discussion, higher-dimensional overview and appendix headings.",
+        "method": "Accessible complete primary HTML, direct comparison of reset protocol, source term, initial covariance and evaluated nearest-neighbor observable.",
+        "title": "Voter model under stochastic resetting",
+        "trigger": "Same resetting protocol and first-public source."
+      },
+      {
+        "assessment": "Potentially relevant general technique, but independently imposed memoryless noise is not a frozen correlated reset template; lack of full-text examination leaves residual priority risk.",
+        "evidence": [
+          "Phys. Rev. E 67 066101 abstract describes linear Glauber / noisy voter model and Green-function correlations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.67.066101",
+        "material_read": "Published abstract and bibliographic source page, not full article.",
+        "method": "Abstract/source-page model comparison.",
+        "title": "Linear Glauber model",
+        "trigger": "Potential general stationary voter/noise Green-function coverage."
+      },
+      {
+        "assessment": "Global-reset protocol, unlike the site-independent frozen-memory clocks analyzed here.",
+        "evidence": [
+          "Abstract explicitly states resetting the Ising model to a fixed initial configuration; the protocol is global."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.04867",
+        "material_read": "Primary arXiv abstract only; full article unavailable through tried HTML route.",
+        "method": "Distinguish whole-system reset versus independent per-site reset.",
+        "title": "Ising model with stochastic resetting",
+        "trigger": "Nearby model of resetting to an initial spin configuration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf537b14-6eca-4f07-bd57-83f5caaae5cc",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "Exact universal r_* and unique threshold curve in RESULT.md",
+      "Markov-template physical mechanism and exact domain-wall diagnostic",
+      "Distinct limiting regimes r->0 and r->infinity"
+    ],
+    "rationale": "The published voter-reset model has a solved independent random memory. Correlated frozen memories are natural in spatially structured initial states. Exact control of when local voter imitation loses positive adjacent correlation to anticorrelated memory answers a genuine competition problem: a sharp minimum reset rate across all two-state Markov templates, one and only one inversion for each negative template, and an inverse-correlation asymptotic. This is more than a symbolic variant of the c=0 formula and is directly useful for interpreting domain-wall densities relative to independent-spin baseline.",
+    "residual_risks": [
+      "No thermodynamic phase transition or claim for arbitrary initial memory correlations follows."
+    ],
+    "status": "PASS"
+  }
+}
