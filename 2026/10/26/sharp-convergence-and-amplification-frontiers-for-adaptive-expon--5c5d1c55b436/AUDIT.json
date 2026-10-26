@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "An exact reduction in log covariance produces a bounded orbit for every initial state. Opposite-side two-cycle inequalities exclude every nontrivial period two for H <= 2, so Coppel interval convergence yields s_n -> 1 for every beta > 0. For H < 2, mean multipliers tend to 1-H with modulus < 1, while s=1 witnesses global failure at H >= 2. The supremum mean gain follows from the unique crossing of Hs and beta*s/(s-1). At H=2, the cubic two-step normal form yields the precise sqrt(n) covariance rate, the paired mean multiplier yields n^(-3/2) decay absent finite zero factors, and exact finite capture leads to nondecaying mean oscillations. All boundaries and quantifiers were checked. verify.py passed 1152 numerical assertions; these are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Che et al., arXiv:2601.14855, equations (12)-(15), Theorem 1 (H <= 1, beta <= 1), and Appendix A.1, especially the monotone scalar covariance inequality.",
+        "Baigent et al. (2023), doi:10.1080/10236198.2023.2222855, pp. 2-3, constant-parameter one-dimensional Ricker model and planar extension."
+      ],
+      "reasoning": "The primary theorem assumes H <= 1 and beta <= 1; neither assumption-free cap sizes nor H in (1,2) follow from that proof. The older planar Ricker theorem is on fixed r,s and positive competition constants, and its axis restriction is the unmodified map, not adaptive feedback or Gaussian mean update.",
+      "searches": [
+        "Adaptive exponential integration Gaussian mixture variational inference Che Chen Huang Mao Wang scalar covariance logistic discrete map clipped Ricker sharp global step size stability two 2",
+        "\"adaptive exponential integration\" \"step\" \"2\" \"Gaussian\" covariance"
+      ]
+    },
+    "checked_sources": [
+      "Che et al., arXiv:2601.14855, relevant source HTML theorem, formulas, and Appendix A.1.",
+      "Baigent et al., J. Difference Equ. Appl. 29 (2023), open-access primary PDF, pages 2–5.",
+      "W. A. Coppel, Proc. Cambridge Philos. Soc. 51 (1955), bibliographic primary and corroborated theorem statement.",
+      "published-finding corpus semantic searches for adaptive Gaussian exponential integrator, clipped Ricker map and covariance phase threshold.",
+      "Accessible earlier mathematical result statements, compared by their recoverable claims and implication relationships."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Che et al., arXiv:2601.14855, equations (12)-(15), Theorem 1 (H <= 1, beta <= 1), and Appendix A.1, especially the monotone scalar covariance inequality.",
+        "Baigent et al. (2023), doi:10.1080/10236198.2023.2222855, pp. 2-3, constant-parameter one-dimensional Ricker model and planar extension.",
+        "The exact mean gain is H+beta at s=1+beta/H and the critical mean has nondecaying cycles at s=1."
+      ],
+      "reasoning": "The old sufficient range H <= 1,beta <= 1 is a proper subset of convergence H < 2,beta > 0. The exact H+beta <= 2 all-state mean nonexpansivity condition and generic/exceptional H=2 mean dynamics are neither stated nor implied by the constant-rate Ricker fixed-point convergence theorem.",
+      "searches": [
+        "Adaptive exponential integration Gaussian mixture variational inference Che Chen Huang Mao Wang scalar covariance logistic discrete map clipped Ricker sharp global step size stability two 2",
+        "Scalar covariance iteration s_{k+1}=s_k exp[-h(s_k-1)] Ricker map adaptive clipping step size min(H,beta/abs(s-1)) convergence global stable for H up to 2",
+        "\"Ricker\" \"adaptive\" \"min\" \"step\" globally asymptotically stable covariance Gaussian"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baigent et al. (2023), doi:10.1080/10236198.2023.2222855, pp. 2-3, constant-parameter one-dimensional Ricker model and planar extension.",
+        "Coppel (1955), doi:10.1017/S030500410002990X, classical interval-map no-two-cycle convergence theorem.",
+        "The adaptive numerical map in log coordinates is u -> u - clip(H(expm1(u)),-beta,beta), while the classical Ricker map is fixed-parameter."
+      ],
+      "reasoning": "Conjugating by logarithm exhibits a clipped Ricker map with state-dependent effective step. The classical unmodified Ricker map has the cap parameter absent and supplies the special beta-infinite case, not the finite-beta theorem or the coupled mean classification.",
+      "searches": [
+        "Scalar covariance iteration s_{k+1}=s_k exp[-h(s_k-1)] Ricker map adaptive clipping step size min(H,beta/abs(s-1)) convergence global stable for H up to 2",
+        "\"Ricker\" \"clipped\" \"global stability\" map exponential",
+        "\"Ricker map\" clipped stepsize global convergence period two e^x threshold 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus: 2026/10/4/SCOPE-exact-curvature-clipping-phase-diagram-for-capped-sps-on-scalar--6e87af5006ee",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+        "published-finding corpus: 2026/10/4/SCOPE-a-sharp-online-learning-phase-transition-for-scalar-os-fbs--59ab02ce35b0",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-spectral-stability-budget-and-momentum-cancellation-for-he--d7ec7c84f6a5: a different heavy-ball correction map, no Gaussian covariance."
+      ],
+      "reasoning": "These closest search hits concern scalar SPS clipping of curvature weights, a different STORM memory recursion, and OS-FBS, respectively. None stores the capped Ricker covariance recursion, Gaussian mean multiplier, or these parameter frontiers. Search failure alone does not certify novelty.",
+      "searches": [
+        "Adaptive exponential integration Gaussian mixture variational inference Che Chen Huang Mao Wang scalar covariance logistic discrete map clipped Ricker sharp global step size stability two 2",
+        "Scalar covariance iteration s_{k+1}=s_k exp[-h(s_k-1)] Ricker map adaptive clipping step size min(H,beta/abs(s-1)) convergence global stable for H up to 2",
+        "Exponential Euler variational Gaussian sampling scalar covariance log map clipped exponential cap two step size bifurcation",
+        "Sharp Gaussian adaptive exponential integrator scalar covariance mean simultaneous convergence step cap H beta, exact mean nonexpansive iff H+beta<=2, clipped Ricker globally stable H<2 critical covariance square root rate"
+      ]
+    },
+    "rationale": "The 2026 primary paper proves scalar/matrix deterministic Gaussian convergence under H <= 1 and beta <= 1, not the sharp scalar H < 2 all-beta global convergence and separate H+beta <= 2 monotonic-mean frontier. Classical Ricker results cover a fixed growth rate, so do not imply a globally adaptive clipped map; the classical Coppel theorem is openly used as a method. No mathematically dominating record was found in actual published-finding corpus and prior-claim searches. Historical priority uncertainty remains, especially for older feedback-controlled Ricker models.",
+    "residual_risks": [
+      "Older niche adaptive-Ricker population control or numerical covariance feedback work may contain an equivalent specialized clipped-map stability theorem; the checked primary papers do not establish it.",
+      "The original 1955 Coppel full text was not accessible in this round; the theorem statement was corroborated externally.",
+      "The theorem has only scalar exact-expectation scope; no general-dimensional or stochastic inference conclusion is inferred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source covers H <= 1 and beta <= 1; its scalar monotonicity argument does not handle arbitrary-beta clipped overshoots. It does not state the coupled scalar phase diagram in this finding.",
+        "evidence": [
+          "Che et al., arXiv:2601.14855, equations (12)-(15), Theorem 1 (H <= 1, beta <= 1), and Appendix A.1, especially the monotone scalar covariance inequality.",
+          "https://arxiv.org/abs/2601.14855"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.14855",
+        "material_read": "Full-text HTML: §2.2, §3.1.1 equations (12)–(15), Theorem 1, §3.1.2 Theorem 3, and relevant analytic steps in Appendix A.1.",
+        "method": "Read primary arXiv HTML and compare algebraic scalar update and parameter implications.",
+        "title": "Adaptive Exponential Integration for Stable Gaussian Mixture Black-Box Variational Inference",
+        "trigger": "Direct numerical method and primary claimed convergence theorem."
+      },
+      {
+        "assessment": "It explicitly identifies scalar constant-parameter global convergence at H<=2, which is acknowledged. It does not use state-dependent adaptive time-step clipping or the Gaussian mean recursion, so does not imply the new combined claim.",
+        "evidence": [
+          "Baigent et al. (2023), doi:10.1080/10236198.2023.2222855, pp. 2-3, constant-parameter one-dimensional Ricker model and planar extension.",
+          "https://repository.londonmet.ac.uk/8616/"
+        ],
+        "identifier_or_url": "https://repository.londonmet.ac.uk/8616/",
+        "material_read": "Open-access primary PDF, pages 2–5: fixed scalar axis, planar map definition, discussion of the classical flip threshold, Lyapunov setting; representative page image inspected.",
+        "method": "Read published full-text PDF sections and inspected page 2 image.",
+        "title": "A global picture for the planar Ricker map: convergence to fixed points and identification of the stable/unstable manifolds",
+        "trigger": "Constant-parameter Ricker conjugacy and possible stronger global attractivity theorem."
+      },
+      {
+        "assessment": "The general no-two-cycle convergence result is an explicitly cited classical proof tool, not an independent novelty claim.",
+        "evidence": [
+          "Coppel (1955), doi:10.1017/S030500410002990X, classical interval-map no-two-cycle convergence theorem.",
+          "https://www.cambridge.org/core/journals/mathematical-proceedings-of-the-cambridge-philosophical-society/article/abs/solution-of-equations-by-iteration/CFA2589E2AD470FEBB4B40DFF857C8B1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S030500410002990X",
+        "material_read": "Primary bibliographic record and abstract; theorem statement corroborated in an accessible secondary mathematical exposition, not claimed to be a full reading of the 1955 paper.",
+        "method": "Bibliographic and theorem-statement comparison.",
+        "title": "The solution of equations by iteration",
+        "trigger": "The Coppel interval-map convergence principle is a crucial proof lemma."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c5d1c55-b436-4751-bd8b-7621dec72e70",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise globally convergent parameter region H<2 with no restriction on beta extends the source theoretical guarantee while retaining convergence after transient overshoots. The strictly smaller sharp H+beta<=2 region characterizes all-state one-step mean contraction; its boundary is attained naturally at the cap switch. The critical H=2 regime separates universally convergent covariance from sometimes persistent mean cycles, with quantified generic n^(-1/2) and n^(-3/2) rates. These are motivated numerical stability and parameter-selection facts, not arbitrary sample computations.",
+    "status": "PASS"
+  }
+}
