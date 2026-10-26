@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "A complete partition into \\(A(S)\\) and \\(B(w)\\) normal forms covers every ideal. The minimal-complement rule gives three case-exact transitions, and their disjoint two-, three-, and eight-cycle decomposition accounts for every ideal. The eight-cycle contains two distinct A-states and six distinct B-states; distinct complement-pairs cannot coincide. Three-symbol words give exact 3-cycles by free coordinatewise rotation. An independent direct-bitmask exhaustive verifier enumerated every ideal and cycle at \\(1\\le n\\le8\\); cycle weighted count equals \\(2^n+3^n\\) algebraically for all n. \\(n\\ge2\\) guarantees at least one 8-cycle; proof is not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grinberg–Roby, Electronic J. Combin. 23 (2016) #P1.33, pp. 35–38: Proposition 94 gives level cycle, Propositions 101–105 give period computations",
+        "Dangwal et al. (2022), p.1 explicitly restrict to graph-theoretic trees with one minimal element; \\(P_n\\) has \\(n+1\\) minima, and its dual n minima for \\(n\\ge2\\)",
+        "Striker–Williams, arXiv:1108.1172, develops dynamics on specific structured posets not this star-incidence orbit classification"
+      ],
+      "reasoning": "Potential dominating general statements were checked for hypotheses and conclusions. Period and one designated orbit do not imply remaining orbit multiplicities. Rooted-tree orbit formulas cannot directly apply for \\(n\\ge2\\) because both \\(P_n\\) and its dual fail the unique-minimum hypothesis.",
+      "searches": [
+        "Grinberg Roby skeletal posets star graph exact rowmotion 8 cycles 3 cycles 2 cycles",
+        "graded forest rowmotion orbit decomposition star Hasse tree 2 3 8 exact cycle counts",
+        "Grinberg Roby skeletal posets paper Propositions 94 101 102 103 104 105",
+        "Rowmotion on Rooted Trees Dangwal Sagan Section 3 stars",
+        "Promotion and Rowmotion Striker Williams arXiv:1108.1172"
+      ]
+    },
+    "checked_sources": [
+      "Grinberg and Roby, 2016, journal #P1.33, full PDF §§10–11",
+      "Grinberg and Roby, arXiv:1402.6178 Section 10",
+      "Striker and Williams, arXiv:1108.1172",
+      "Dangwal et al., Rowmotion on Rooted Trees (2022) §§1,3",
+      "OEIS A007689"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One distinguished 3-cycle is known for every graded poset; it appears in our formula as the additive 1",
+        "A period of 24 constrains only the least common multiple, not counts of 2-, 3-, and 8-cycles",
+        "The 2022 rooted-tree classification is not a broader theorem over all orientations of the Hasse tree"
+      ],
+      "reasoning": "The old level orbit and the period are logical consequences of our claim but do not imply its detailed multiplicity distribution. No checked stronger result directly implies all multiplicities for these incidence posets.",
+      "searches": [
+        "Grinberg Roby 2016 Proposition 94 level ideals",
+        "Grinberg Roby 2016 Proposition 101 period identity",
+        "Grinberg Roby arXiv:1402.6178 Proposition 10.20 10.27",
+        "Dangwal et al 2022 Section 1 and Stars Section 3",
+        "rowmotion of vertex-edge incidence poset of star graph K_{1,n}, cycle type 2 3 8, 2^n+3^n ideals",
+        "Grinberg Roby skeletal posets star graph exact rowmotion 8 cycles 3 cycles 2 cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grinberg–Roby (arXiv:1402.6178), Proposition 10.20 and Section 10 state one level orbit and order relations, not the complete cycle profile",
+        "2016 journal Proposition 94 identifies the single level three-cycle; the theorem here explicitly separates it from extra three-cycles"
+      ],
+      "reasoning": "The incidence-poset, graded-forest, rowmotion, antichain-action and ternary-word formulations were compared at the level of orbit multiplicities. Equivalence of rowmotion formulations does not turn published information about period into an explicit multiplicity theorem; the present theorem is strictly stronger than a period-only statement.",
+      "searches": [
+        "rowmotion of vertex-edge incidence poset of star graph K_{1,n}, cycle type 2 3 8, 2^n+3^n ideals",
+        "star poset rowmotion orbits three letter states ternary triples period eight number of orbits",
+        "rowmotion incidence star poset K1n orbit cycle 8 3 2",
+        "arXiv:1402.6178 Section 10 classical rowmotion and level ideals"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A007689 gives only the cardinality formula \\(2^n+3^n\\) and no cycle-type information.",
+        "Grinberg–Roby (2016) Proposition 94 gives the known level three-cycle but does not give nonlevel three-cycle or eight-cycle multiplicities.",
+        "Dangwal et al. (2022), Section 1 and star-tree analysis, requires a unique minimal element, unlike both orientations of the target poset for \\(n\\ge2\\)."
+      ],
+      "reasoning": "A generic count sequence matching the number of ideals was found and explicitly treated as preexisting; no indexed exact table of the three orbit multiplicities was located. A table of total ideal counts cannot determine the cycle decomposition.",
+      "searches": [
+        "\"5, 13, 35, 97, 275, 793\" rowmotion incidence",
+        "site:oeis.org 5 13 35 97 275 793 2315 6817",
+        "OEIS A007689 exact count 2^n+3^n",
+        "rowmotion \"2^n+3^n\" orbits star graph ideals",
+        "star poset rowmotion orbits three letter states ternary triples period eight number of orbits"
+      ]
+    },
+    "rationale": "The primary 2014/2016 full texts establish a general period algorithm for skeletal posets and a universal level three-cycle, but their stated results and inspected sections do not supply the length-by-length orbit multiplicities proved here. The 2022 rooted-tree results assume a unique minimal element, absent in both orientations of this poset for \\(n\\ge2\\). Targeted semantic, exact-expression, and graph-incidence literature searches located no exact equivalent cycle distribution. The known cardinality sequence does not imply orbit structure. Residual risk remains for unindexed computations or stronger undiscovered statements; this is a self-review best-knowledge assessment, not a guarantee of worldwide novelty.",
+    "residual_risks": [
+      "A specialized non-indexed computation may have stated the same orbit-type formulas; internet and semantic search cannot establish exhaustive uniqueness.",
+      "General forest rowmotion constructions may permit recovering this special case by an unpublished or uninspected specialized application, although inspected period-only results do not directly imply it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes finite period methods and one level three-cycle but does not state the target multiplicity distribution",
+        "evidence": [
+          "2016 journal pp. 35–38, Proposition 94 (one three-cycle) and Propositions 101–105 (period)"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p33/pdf/",
+        "material_read": "Full PDF relevant Introduction, Section 10 (skeletal posets), Section 11 (classical rowmotion), pp. 1-4, 26-38; Propositions 94 and 101-105",
+        "method": "Open and read PDF text, review page images including p.35, examine theorem statements and hypotheses",
+        "title": "Iterative properties of birational rowmotion I: generalities and skeletal posets",
+        "trigger": "Primary archive-era literature for classical rowmotion on skeletal graded forests"
+      },
+      {
+        "assessment": "Longer version likewise concerns general cycle of level ideals and period; no target star-incidence cycle-count formula identified",
+        "evidence": [
+          "arXiv:1402.6178, first posted 2014-02-25, Section 10"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.6178",
+        "material_read": "ArXiv HTML abstract and section 10: Proposition 10.20, Proposition 10.27 and neighboring discussion of cycle structure and period",
+        "method": "Read accessible HTML full-text sections and term matches for star and cycle structure",
+        "title": "Iterative properties of birational rowmotion (full arXiv preprint)",
+        "trigger": "Earlier version of the same paper could contain additional results omitted by journal condensation"
+      },
+      {
+        "assessment": "No star-incidence complete cycle multiplicities established in inspected material",
+        "evidence": [
+          "Striker and Williams, 2012, arXiv:1108.1172"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.1172",
+        "material_read": "Introduction and relevant structural sections, from lawful open PDF",
+        "method": "Read primary paper PDF introduction and sample theorem statements",
+        "title": "Promotion and Rowmotion",
+        "trigger": "Foundational predecessor on rowmotion equivalences and orbit combinatorics"
+      },
+      {
+        "assessment": "Requires unique minimal root, which \\(P_n\\) and its dual lack for \\(n\\ge2\\), so does not subsume this result",
+        "evidence": [
+          "Dangwal et al., 2022, p.1, lines stating unique minimal element and later star tilings"
+        ],
+        "identifier_or_url": "https://users.math.msu.edu/users/bsagan/Papers/Old/rrt.pdf",
+        "material_read": "PDF pp.1-2 explicit rootedness definition, Sections 2-3 including star classification",
+        "method": "Read PDF text and screenshots of pp.1,8",
+        "title": "Rowmotion on Rooted Trees",
+        "trigger": "Plausible dominating theorem since the incidence poset Hasse diagram is a graph-theoretic tree"
+      },
+      {
+        "assessment": "The numerical sequence is known; no rowmotion orbit-type claim is thereby established",
+        "evidence": [
+          "OEIS A007689, values 2,5,13,35,97,..."
+        ],
+        "identifier_or_url": "https://oeis.org/A007689",
+        "material_read": "Sequence description, values and references",
+        "method": "Opened web result of OEIS target",
+        "title": "A007689: \\(2^n+3^n\\)",
+        "trigger": "Exact total-ideal numerical sequence matches computed counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6803de11-ff95-4a06-a805-67ae54786446",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The star graph-incidence construction is a canonical graph-to-poset family with exponentially many ideals and a tree Hasse diagram of mixed orientation, outside rooted-tree tiling hypotheses. Full closed-form orbit multiplicities (including all nonlevel cycles) substantially refine general finite-period results and expose why \\(\\operatorname{lcm}(2,3,8)=24\\) arises; cycle counts are natural dynamic invariants rather than an arbitrary numerical slice. The exact infinite-family classification is self-contained and may serve as an explicit test case for mixed-orientation tree rowmotion.",
+    "status": "PASS"
+  }
+}
