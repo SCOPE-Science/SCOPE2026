@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For the explicitly defined 26-vertex incidence graph, same-type distances are 0 or 2, opposite-type distances 1 or 3. A 26-bit separating-mask test exhausts all 657800 seven-subsets (none resolving) and all 1562275 eight-subsets (exactly 9828, all balanced). A separate 13-choose-4 squared incidence-signature implementation obtains exactly the same total and four geometry profiles. Five explicit graph-automorphism generators form a group of order11232; orbit BFS exhausts all 9828 winners with orbit sizes936,1404,1872,5616. Both actual source files were executed and checked. Exact bounded finite proof; no extrapolation beyond PG(2,3).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2012 Theorem 2 and Section 3 explicitly apply classification to q>=23, not q=3. Section 2 page 9 says the q=3 metric dimension is eight.",
+        "Bailey Table 4 gives vertices 26, diameter 3 and metric dimension eight without optimum-set counts.",
+        "2012 small-order semi-resolving remark confirms size six per color class, a known comparison rather than the new classification."
+      ],
+      "reasoning": "The strongest plausible coverage is the 2012 high-order minimum-resolving-set classification, but its hypotheses exclude q=3; it neither supplies this small-order census nor guarantees four automorphism orbits. No stronger theorem found that specializes to the claimed counts.",
+      "searches": [
+        "Héger and Takáts 2012 full article Section 3 and 2017 corrigendum, q>=23 classification",
+        "Bailey 2015 full paper Table 4, PG(2,3) incidence row",
+        "Published-record query: finite projective plane order 3 split resolving sets size 12 vs metric dimension 8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1207.5469",
+      "doi:10.37236/2582",
+      "arxiv:1312.4973",
+      "doi:10.1112/blms/bdq096",
+      "published research record: mixed-dimensional neighborhood-complex homotopy of the ternary projective nonincidence graph",
+      "published research record: scale-two Vietoris--Rips complexes of finite projective-plane incidence graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier source computes the minimum cardinality as eight; new result distinguishes 9,828 sets and four particular orbits in a finite exceptional-order regime.",
+        "The q>=23 structural theorem has an unsatisfied size hypothesis at q=3.",
+        "Bailey 2015 uses set-orbit search to find minimum cardinality but its inspected paper gives no full optimum-orbit census."
+      ],
+      "reasoning": "The present theorem expressly excludes the already known value of metric dimension from priority. The size-eight classification requires either further nontrivial finite geometry or the disclosed exhaustive computation; it does not follow merely from existence of a size-eight basis, from a general incidence criterion, or from the large-q theorem.",
+      "searches": [
+        "arxiv:1207.5469, 2012 article Sections 2–4 and Appendix",
+        "arxiv:1312.4973, Bailey 2015 metric-dimension tables",
+        "Published-record query: minimal resolving sets 4 point and 4 line landmarks of projective plane of order three; four incidence types and automorphism classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full primary 2012 paper translates resolving into incidence conditions but does not report the 9,828 optimum-base multiplicity or the 4 q=3 full-group orbits.",
+        "The new certificate checks the distance-hitting-set and the one-sided incidence-signature characterizations independently."
+      ],
+      "reasoning": "Graph-distance resolving bases, separating incidence signatures of unselected vertices, and distance-mask transversals are equivalent exact formulations. Published defining criteria and the known number eight do not imply the four orbit sizes or count.",
+      "searches": [
+        "Published-record query: minimum metric bases and symmetry orbits of incidence graph of PG(2,3)",
+        "Web search: \"9828\" \"metric dimension\" \"projective\"",
+        "Héger--Takáts 2012, Proposition 7, incidence criteria, pages 3–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bailey 2015 exact table: PG(2,3) incidence graph has 26 vertices, diameter 3 and metric dimension 8; it does not list bases or orbits.",
+        "Héger--Takáts 2012 explicitly supplies q=3 dimension eight without a census.",
+        "No inspected published-record hit had matching exact numbers or incidence-orbit classification."
+      ],
+      "reasoning": "A known scalar graph-invariant table is not an exact database of the 9,828 optimum subsets. Indexed searches did not find a table listing the four class cardinalities. Some unindexed datasets could still exist.",
+      "searches": [
+        "Bailey 2015, Table 4, incidence graph of PG(2,3)",
+        "Web: \"9828\" \"metric dimension\" \"projective\"",
+        "Web: PG(2,3) resolving set number minimal 2012 2015 2023 enumeration",
+        "Published-record query: PG(2,3) 26-vertex incidence graph exact enumeration 9828 minimum metric bases"
+      ]
+    },
+    "rationale": "The full relevant 2012 primary article establishes the q=3 metric dimension eight and only classifies 4q-4 resolving sets for q>=23; Bailey reports only dimension eight in a table. The new claim is the 9,828 count, forced 4+4 balance and four full automorphism orbits with induced incidence geometries. Equivalent formulation and stronger-coverage searches found no matching implication or exact table. Published-record searches did not surface a covering record; absence of hits is not proof of novelty and unindexed prior enumeration remains a stated risk.",
+    "residual_risks": [
+      "A previously unindexed metric-basis enumeration, supplementary data, or author code may contain these exact four orbit counts.",
+      "The literature search is finite and cannot prove universal absence of equivalent published statements.",
+      "The Bailey source focuses on minimum size and uses orbit search; an uninspected ancillary computation could contain more numerical data than the paper itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_DIMENSION_EIGHT_NOT_EXACT_CENSUS",
+        "evidence": "Page 9 states metric dimension eight when q=3. Section 3 and corrigendum classify 4q-4 resolving sets only for q>=23, and no q=3 9828/four-orbit count was found.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v19i4p30/pdf/",
+        "material_read": "Full accessible 23-page PDF extracted text with focused inspection of pages 1–5, 9–11, 18–22, including the 2017 corrigendum and q=3 remark",
+        "method": "Opened published open-access full PDF; searched text for q=3, constructions, computer search and classification; inspected PDF screenshot of page 2",
+        "title": "Resolving Sets and Semi-Resolving Sets in Finite Projective Planes",
+        "trigger": "Same object, explicit small q=3 result, large-order classification"
+      },
+      {
+        "assessment": "ESTABLISHES_DIMENSION_EIGHT_NOT_ORBIT_CENSUS",
+        "evidence": "Table 4 gives 26 vertices, diameter three, metric dimension eight; no total count or orbit structure of all eight-sets appears.",
+        "identifier_or_url": "https://www.math.mun.ca/rbailey00/papers/small.pdf",
+        "material_read": "Accessible full 17-page paper text, introduction and computational method, Table 4 and adjacent table page",
+        "method": "Opened lawful author-hosted full PDF, searched for PG(2,3) and inspected screenshot of table page 8",
+        "title": "The metric dimension of small distance-regular and strongly regular graphs",
+        "trigger": "Exact graph PG(2,3), enumeration using set orbits"
+      },
+      {
+        "assessment": "GENERAL_CONTEXT_ONLY",
+        "evidence": "Surveys relationships of metric dimension and bases; no claimed direct census of PG(2,3).",
+        "identifier_or_url": "https://doi.org/10.1112/blms/bdq096",
+        "material_read": "Public abstract and bibliographic details, not full article",
+        "method": "Searched source metadata and abstract",
+        "title": "Base Size, Metric Dimension and Other Invariants of Groups and Graphs",
+        "trigger": "Terminology and equivalences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5bebb17b-0810-43fe-97eb-337823431f35",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical q=3 dimension-eight fact leaves open the natural classification of all optimal landmark configurations. The 9828 configurations separate into exactly four full projective symmetry types; their forced 4+4 balance and four distinct selected incidence structures are a natural geometric refinement, especially because large-q optimum-set descriptions require q>=23. The known split semi-resolving minimum twelve gives context for why point-line cooperation matters. This provides a reusable exact benchmark for finite-geometric metric identification, not an arbitrary parameter slice or a claim that the known dimension itself is novel.",
+    "status": "PASS"
+  }
+}
