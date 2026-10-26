@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness — PASS.** The explicit conjugacy-class and five-character calculation gives all four nontrivial Fourier eigenvalue families. For admissible exponents the two-dimensional block is nonpositive, and an exact AM–GM bound proves all remaining blocks strictly negative. The two-dimensional block becomes positive immediately above the threshold. Centering proves the exact endpoint rank, while finite-dimensional Gaussian theory proves the all-scale kernel statement. The standalone group-matrix checker passed class counts, all spectral comparisons, and embedding ranks. Numerical checks are not the proof.
+
+**Originality — PASS under bounded review.** The inspected primary full texts of Sánchez (arXiv:1108.0451) and Robertson (arXiv:1302.5790) do not contain the present cube-rotation class calculation or the four-dimensional endpoint nullity. A related icosahedral result has the same exponent, but its domain has no 90-degree turns and cannot cover the cube rotation group by restriction. Searches for exact angle metrics, irreducible-character formulations, positive-type Gaussian covariances, and equivalent rank statements did not identify a dominating result. General finite-metric algorithms are not explicit octahedral classifications. Residual risk: a previously published character-table computation or an unindexed classification could imply the theorem.
+
+**Value — PASS.** Intrinsic angular distance between the 24 orientations preserving a cube is a natural finite rotation-space metric. The exact supremal exponent determines precisely when every Gaussian bandwidth is valid and shows a sharp loss of four Euclidean embedding dimensions, traced to a nontrivial two-dimensional quotient representation. Completing this concrete finite-symmetry case is mathematically informative even without a claim about the full rotation manifold.
+
+Self-review: passed. Independent audit: not yet performed.
