@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Every Q-value is derived from a two-stage absorbing MDP. Solving the downstream odds recurrence gives p_k=p/(p+(1-p)ε^k); downstream values telescope in the upstream odds recursion, yielding exactly R_k=R_0(γ/r)^k[p+(1-p)ε^k]. The sign of the exact adjacent difference gives all parameter cases and the equality boundary; the integer threshold and explicit N-family are checked algebraically. A fractional-part decomposition gives K=log(1/p)/log(1/ε)+O(1) and min q_k=Θ(p^α), 0<α<1. Direct recurrence and closed form matched in 26,460 independent exact-rational grid cases and 744 exact-family steps. Proof covers all integers, not just tested cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brun–Sun arXiv:2610.03642, Theorems 1 and 3: eventual restricted-optimal value and iteration-complexity upper bounds.",
+        "Štrupl et al. arXiv:2107.09088, Corollary 5.1 and Appendix D: asymptotic linear value convergence and one-state finite example.",
+        "Wang et al. arXiv:2609.36945, abstract and §§3–5: long transient for softmax policy-gradient RE(S) on multi-arm bandits; not exact two-stage success-conditioning value-ratio iteration."
+      ],
+      "reasoning": "Convergence and monotone state values do not imply monotonic probabilities of each optimal action or a precise minimum. The softmax-gradient transient is an algorithmically distinct model and does not dominate the exact-form claim.",
+      "searches": [
+        "On the Convergence of Success Conditioning for Policy Optimization Brun Sun arxiv 2610.03642",
+        "Reward-Weighted Regression Converges to a Global Optimum Strupl arxiv 2107.09088",
+        "policy probability of optimal action nonmonotonic despite state value monotonic success conditioning",
+        "Fine-tuning on self-generated and reward-weighted data arxiv:2609.36945"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03642, first public 2026-10-02, §2.1 equations (6)-(7), §§3–6.",
+      "arXiv:2107.09088, original public 2021-07-19, §3, Corollary 5.1, Appendix D.",
+      "arXiv:2601.18175, first public 2026-01-26, §§2–4 and Appendix B.",
+      "arXiv:2609.36945v1, first public 2026-09-29, abstract/intro/§§3–5."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brun–Sun Lemma 1 asserts V_{k+1}≥V_k and Q_{k+1}≥Q_k but no monotone q_k; equation (7) only supplies a general unevaluated product.",
+        "Štrupl et al. prove global convergence rates, not the smallest-time/size suppression profile.",
+        "Russo characterizes local conservatism and policy improvement; a temporarily decreasing probability of a globally optimal action with still-increasing current value is consistent."
+      ],
+      "reasoning": "The accepted statement refines the qualitative guarantees by proving a new transient shape and explicit quantifier: for every N there is an acyclic MDP with fixed γ,r,ε and upstream q_0, fixed optimal Bellman gap, yet N decreasing upstream probabilities and min q<3/2^(N+1). Prior value convergence does not logically give this quantitative counterintuitive phenomenon.",
+      "searches": [
+        "\"success conditioning\" \"upstream\" \"downstream\" \"monotonic\"",
+        "\"reward-weighted regression\" \"delayed reward\" \"policy probability\" decrease then increase",
+        "source: arXiv:2610.03642 equations (6),(7), Lemma 1, Theorem 3",
+        "source: arXiv:2107.09088 Theorem 3.1, Corollary 5.1, Appendix D",
+        "source: arXiv:2601.18175 §4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brun–Sun arXiv:2610.03642, §2.1 equations (6)-(7): exact same policy reweighting and a generic product identity, but no printed two-stage closed odds law or unique trough.",
+        "Štrupl et al. arXiv:2107.09088, §3 equation (3): equivalent reward-weighted-regression update; Appendix D finite example concerns one active decision state.",
+        "Russo arXiv:2601.18175, §2 and Proposition 4.1: one-step success conditioning and trust-region interpretation."
+      ],
+      "reasoning": "The operator itself is not new and is explicitly attributed. Generic reweighting identities specialize algebraically only after a new coupled two-state recursion and integer-turning analysis; the inspected equivalences do not themselves state the transient theorem.",
+      "searches": [
+        "success conditioning two stage MDP delayed reward probability of optimal upstream action first decreases then increases unique minimum telescoping closed form",
+        "reward weighted regression policy optimal action temporarily suppressed exponentially due to delayed reward chain initial exploration tiny",
+        "\"success conditioning\" \"delayed action\" \"nonmonotone\"",
+        "\"reward-weighted regression\" \"optimal action\" \"decrease\" \"MDP\"",
+        "arxiv:2610.03642 equation (6), equation (7); arxiv:2107.09088 equation (3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical source equations are arXiv:2610.03642 (6)-(7) and arXiv:2107.09088 (3); they do not tabulate the stated two-state N-indexed minima.",
+        "The exact family gives q_N=3·2^N/(1+2·4^N+3·2^N); no matching published table or exact formula was found in the inspected primary materials or term searches."
+      ],
+      "reasoning": "The numerical minima are derived by proof and not a database rediscovery. Search failure cannot certify absence; older unindexed formulas remain possible.",
+      "searches": [
+        "\"success conditioning\" \"two-state\" \"minimum\" \"policy\" transient",
+        "\"reward weighted regression\" \"two-stage\" \"optimal\" probability",
+        "\"success conditioning\" odds ratio telescoping downstream value",
+        "\"success conditioning\" action probability \"decrease\" \"increase\" iterations",
+        "two-stage finite MDP reward weighted policy improvement q_k upstream downstream exact recurrence p0 geometric"
+      ]
+    },
+    "rationale": "The contribution is a quantified nonmonotone optimal-action probability and exact delayed-credit transient in a two-stage MDP, not the previously known update or value monotonicity. Statements and coverage of four relevant research papers were compared against the precise claim; full originality still has residual historical-terminology risk.",
+    "residual_risks": [
+      "A logically equivalent constructed example could appear in older EM, reward-weighted regression, multiplicative weights or delayed-credit literature using different terminology.",
+      "Semantic and web retrieval have incomplete coverage; null exact-title queries are not uniqueness proofs.",
+      "No independent priority or full mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same update and broad eventual convergence, but no two-stage probability trough or explicit suppression duration in material inspected.",
+        "evidence": [
+          "Equation (6) defines π_{k+1}=π_k Q_k/V_k.",
+          "Lemma 1 gives nondecreasing V_k,Q_k; Theorem 3 gives polynomial-complexity value bound.",
+          "Equation (7) retains general products of all preceding values."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03642",
+        "material_read": "ArXiv HTML article: abstract, introduction, §2.1 equations (6)-(7), §§3–5 including Lemma 1 and Theorem 3, discussion and conclusion.",
+        "method": "Direct text inspection of displayed formulas, assumptions, statements, and proof summaries.",
+        "title": "On the Convergence of Success Conditioning for Policy Optimization",
+        "trigger": "Current primary source defines exact policy update and convergent value iteration."
+      },
+      {
+        "assessment": "Proves global and asymptotic value convergence; worked finite example has only one nonabsorbing decision state, so does not give a downstream-induced turning profile.",
+        "evidence": [
+          "Theorem 3.1 equation (3) is the identical update.",
+          "Corollary 5.1 bounds asymptotic value error.",
+          "Appendix D Lemma D.1 describes only an initial decision state and goal state."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.09088",
+        "material_read": "ArXiv HTML article: §§3,5–6, Appendix D convergence-order proof and both worked examples.",
+        "method": "Comparison of update (3), finite-state Corollary 5.1, and worked example hypotheses.",
+        "title": "Reward-Weighted Regression Converges to a Global Optimum",
+        "trigger": "Earlier equivalent exact policy update and possible stronger convergence theory."
+      },
+      {
+        "assessment": "Theoretical local interpretation, not multi-iteration chain transient.",
+        "evidence": [
+          "Proposition 4.1 provides one-step χ² trust-region interpretation.",
+          "Example 3.1 demonstrates one-step overconservatism in a bandit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.18175",
+        "material_read": "ArXiv HTML: §§2–4 and Appendix B relevant policy formula/Proposition 4.1 proof.",
+        "method": "Read operator definition, examples, and one-step trust-region theorem.",
+        "title": "Success Conditioning as Policy Improvement: The Optimization Problem Solved by Imitating Success",
+        "trigger": "Foundational one-step policy-improvement characterization."
+      },
+      {
+        "assessment": "Softmax RE(S) gradient steps and multi-arm bandits; does not state the exact two-stage reweighting/turning law.",
+        "evidence": [
+          "Abstract/§3 describes multi-arm bandit softmax RE(S) and long burn-in.",
+          "Section 5 expressly identifies Markov decision processes as a future extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.36945v1",
+        "material_read": "ArXiv HTML: abstract, introduction, algorithm description, §§3–5 statements and passages on slow transients.",
+        "method": "Compared optimized variable, update rule and model class to exact tabular value-ratio iteration.",
+        "title": "Fine-tuning on self-generated and reward-weighted data: Learning dynamics, Convergence rates, and benefits of off-policyness",
+        "trigger": "Nearby reported long-lived low optimal-action probability in reward-guided learning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c574230f-9342-41d8-86a5-1d318160746f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a mathematically significant delayed-credit phenomenon: an action with fixed strictly positive optimal Bellman advantage loses its probability for an arbitrarily prescribed number of exact improvement steps, while both state values strictly rise. The complete two-state classification, exact turn index and deep-trough exponent provide a quantitative limitation not visible in general asymptotic-value convergence. A two-stage chain is the smallest natural nontrivial setting where downstream policy evolution reverses upstream preference; the finding is not a fixed random slice or routine tabulated number. Applications to sampled policy learning are not claimed.",
+    "status": "PASS"
+  }
+}
