@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The monochromatic-output upper bound is exact by counting heavy coordinates; at n=q(k-1) the unique non-heavy vector is F. The q-cycle two-support words are distinct and have pairwise disjoint receiver shadows across groups; F adds at most one parent to at most L-1 cyclic parents. Equality forces L uniquely heavy words per coordinate. Exact standard-library enumeration checks witnesses and tiny full optimizations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kreindel et al. bound pairwise-confusability for unique reconstruction; their q=3, k=3 high-deletion values have L=1 and differ numerically from the formula qL for L>=2.",
+        "The 2016 multiset lattice framework does not provide an exact list-decoding capacity plateau."
+      ],
+      "reasoning": "A stronger result could dominate this claim if it bounded every receiver parent list by L and attained the same qL law for arbitrary q,k,L. The identified theorems use unique decoding and do not provide that implication.",
+      "searches": [
+        "arxiv:2601.05636 §4 general bounds and t=n-1,n-2,n-3",
+        "arxiv:1612.08837 lattice/Sidon bounds",
+        "list-decodable multiset permutation channel high deletion rate survivor length k q-ary n q(k-1)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.05636, version 2 full-text sections relevant to high deletion",
+      "arxiv:1612.08837, original multiset-channel article",
+      "arxiv:2609.26650, list-decodable ordered-deletion comparison",
+      "Published research-record searches on exact multiset deletion capacities and high-deletion list bounds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 multiset paper studies same unordered objects but unique rather than bounded-list recovery.",
+        "The 2026 list-decoding paper treats ordered strings with subsequences, so the receiver hypergraph differs."
+      ],
+      "reasoning": "Neither the same-channel unique result nor ordered-subsequence list-decoding bounds imply the sharp qL+1-to-qL identity and extremal heavy-coordinate saturation for unordered multisets; unindexed coverage is still a risk.",
+      "searches": [
+        "arxiv:2601.05636 §2-§5",
+        "arxiv:2609.26650 definitions and main theorem",
+        "multiset deletion list decoding heavy coordinate qL threshold n q(k-1)",
+        "list-decodable multiset permutation channel high deletion rate survivor length k q-ary n q(k-1)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identified published multiset articles use a vector ordered by symbol counts, but their unique-decodability condition prohibits two parents rather than bounding parents by L>=2.",
+        "The cyclic incidence proof and high-multiplicity profile are not entailed by the exact L=1 results."
+      ],
+      "reasoning": "Equivalent words include unordered-symbol multisets, nonnegative integer compositions, submultiset shadows, high-deletion list codes and q-simplex incidence hypergraphs. No exact L>=2 plateau was found; checking titles alone is insufficient and material relevant sections were compared.",
+      "searches": [
+        "unordered multiset deletion list decoding exact optimum qL+1 at n=q(k-1), qL for n>=q(k-1)+1, list size L",
+        "directed cycle two-support vectors list decodable multiset submultiset codes q symbols L lists threshold heavy coordinate",
+        "arxiv:2601.05636 §2 and §4.2–4.4",
+        "arxiv:1612.08837 multiset-code framework"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible exact tables and indexed records concern the unique-deletion case for q=3,4 or ordered binary list codes.",
+        "No identified exact database states the infinite list L>=2 capacities or equality-profile rigidity."
+      ],
+      "reasoning": "A finite exact table at a few q,k,L cells could overlap examples but cannot by itself imply the all-parameter theorem; no matching closed formula or dominating table was identified.",
+      "searches": [
+        "\"multiset\" \"list decoding\" \"deletions\" codes",
+        "\"multiset\" \"list-decodable\" code deletion",
+        "unordered multiset deletion list decoding exact optimum qL+1 at n=q(k-1), qL for n>=q(k-1)+1, list size L"
+      ]
+    },
+    "rationale": "Materially compared published full text and relevant indexed records for the exact unordered-parent-list capacity, cyclic witness, incidence threshold, and equality rigidity. Same-channel papers restrict to unique decoding, while ordered list-coding results concern different receiver shadows. The new all-parameter L>=2 claim is not implied by identified theorems, subject to unindexed-priority risk.",
+    "residual_risks": [
+      "Theoretical priority can be affected by unpublished, non-indexed, or differently named results in extremal hypergraph packing or multiset communication.",
+      "The theorem applies only in the stated range and is not a full maximizer classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects, but every discussed correcting code is uniquely decodable; no L>=2 parent-list optimum or phase boundary statement was found.",
+        "evidence": "Definition of S_q(n,t) in the introduction requires no two distinct source multisets with a common deletion descendant; Theorem 4 constructs uniquely correcting classes.",
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+        "material_read": "Full accessible HTML: introduction, definitions in §2, main construction §3, bounds and survivor-length special cases §4.2–4.4, concluding benchmarks §5",
+        "method": "Direct section and theorem-level comparison of receiver condition and exact parameter ranges",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Same unordered multiplicity-vector channel; high-deletion subsections and general upper bounds"
+      },
+      {
+        "assessment": "Unique-decoding theory does not give the sharp L>=2 capacity law in this high-deletion scaling.",
+        "evidence": "Lattice/Sidon packing framework enforces unique recovery; does not certify exact qL+1 then qL for arbitrary list size.",
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Accessible full-text introduction and mathematical treatment of multiset-distance and lattice/Sidon-code construction and bounds",
+        "method": "Compare conditions guaranteeing pairwise distinct received shadows against list-sized received shadows",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels With Impairments",
+        "trigger": "Original multiset permutation-channel definitions and possibly stronger upper bounds"
+      },
+      {
+        "assessment": "Studies deletion of positions in ordered strings and does not imply the unordered finite-size optima.",
+        "evidence": "Decoder outputs ordered subsequences, not multiplicity vectors.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.26650",
+        "material_read": "Accessible full-text introduction, list-decoding definition and main lower-bound statements",
+        "method": "Compare ordered-subsequence channel against unordered submultiset parent relation",
+        "title": "Lower Bounds for all List-Decodable Deletion Codes",
+        "trigger": "Potential stronger list-decoding deletion results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "992c1104-31e7-4da3-8937-fb4c02defc74",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Solves a natural unbounded family of exact optimal multiset list-decoding sizes at a sharp one-message threshold, gives uniform constructive witnesses and necessary incidence rigidity, and is not just a small table, textbook restatement or arbitrary variant. The binary-alphabet and shorter-length regimes are honestly excluded.",
+    "status": "PASS"
+  }
+}
