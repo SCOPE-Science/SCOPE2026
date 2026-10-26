@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "An ideal is uniquely a pair (U,F) with U contained in the ten vertex elements and F any subset of the edges induced by U. Minimal-complement rowmotion sends it to (V\\U plus endpoints(E(U)\\F), E(U)\\F). Exact enumeration of all 2^10 vertex masks and all corresponding edge submasks produces 133958 states. The supplied standard-library verifier exhaustively checks the target map and an independently coded upper-to-lower toggle map on all states, recomputes all 6207 cycles using two Petersen graph models, checks the entire 39-entry histogram, verifies each orbit returns to its own start and no states are missed, and evaluates the exact lcm 356800176532800. Two executions ended VERIFY_OK. The result is finite and does not claim an infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grinberg–Roby, journal full text pp. 26–37: the skeletal-poset construction and classical rowmotion-order recursion apply only to recursively grafted/disjoint unions, not the connected Petersen incidence poset.",
+        "Elizalde–Plante–Roby–Sagan, arXiv:2108.12443, §§1–4: the tiling method and explicit orbit theorems are for fence posets whose Hasse diagrams are paths."
+      ],
+      "reasoning": "A connected two-rank skeletal poset formed by a final rank-graft has a whole rank adjacent to the other, whereas in this incidence poset a minimal vertex lies beneath only 3 of the 15 maximal edges and a maximal edge covers only 2 of 10 vertices. Its Hasse diagram has graph cycles and is not a fence. Their general rowmotion definitions do not imply exact counts on this non-skeletal object.",
+      "searches": [
+        "Grinberg Roby 2014 rowmotion skeletal posets 2014 February 25 arxiv",
+        "rowmotion graph incidence poset orbit structure dynamical combinatorics graph",
+        "rowmotion on fences",
+        "arxiv:1402.6178 Sections 10 and 11",
+        "arxiv:2108.12443 Section 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1402.6178 (Grinberg–Roby; initial 2014-02-25)",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p33/pdf/ (full primary text)",
+      "https://arxiv.org/abs/2108.12443 (Elizalde–Plante–Roby–Sagan)",
+      "https://doi.org/10.1112/plms.12251 (Thomas–Williams publisher abstract only)",
+      "https://oeis.org/A395595 (Boolean-lattice rowmotion, different poset)",
+      "Graph 2-cores classify Stong cores of incidence posets (indexed scientific summary, opaque record 2eb6df597d95; different invariant)",
+      "The Petersen graph Morse complex is a wedge of spheres (indexed scientific summary, opaque record 402d43c0c821; different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grinberg–Roby Propositions 71 and 101 give finite-order and equality results for skeletal posets, but the Petersen incidence poset fails the skeletal construction criteria.",
+        "Elizalde et al. Theorem 4.3 and neighboring results address exact orbit lengths of fence posets with a small number of segments, with no Petersen-incidence instance."
+      ],
+      "reasoning": "Neither a general definition of rowmotion nor an inapplicable class theorem calculates the 39 multiplicities. Known conjugacies make formulations equivalent but not the numerical census. The finite computation gives strictly more instance-specific information than the applicable general bijectivity facts.",
+      "searches": [
+        "arxiv:1402.6178 skeletal posets rowmotion",
+        "arxiv:2108.12443 fence posets rowmotion",
+        "rowmotion Petersen graph vertex-edge incidence poset vertex edge poset orbit lengths",
+        "Petersen rowmotion 133958"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grinberg–Roby 2016, §1, explains conjugacy of rowmotion on ideals with the antichain formulation, and identifies related inverse formulations; a change of convention does not produce a new orbit-count problem.",
+        "Elizalde et al., arXiv:2108.12443, pp. 2–3, explicitly gives rowmotion on antichains and on ideals as conjugate permutations."
+      ],
+      "reasoning": "We searched under rowmotion, antichain toggling, opposite-poset convention and graph-incidence language. The requested profile is invariant under the ideal/antichain conjugacy and should be compared as the same numerical claim; no identified indexed record provided the 39-size census under any of these variants.",
+      "searches": [
+        "rowmotion Petersen graph vertex-edge incidence poset vertex edge poset orbit lengths",
+        "rowmotion Petersen incidence",
+        "Grinberg Roby classical rowmotion skeletal posets 2014 1402.6178 rowmotion orbit period"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-parameter web searches did not identify a Petersen-incidence rowmotion table; the returned OEIS A395595 concerns rowmotion on Boolean lattices rather than this 25-element incidence poset.",
+        "The closest indexed subject-overlap records found concerned Morse complexes of the Petersen graph and Stong cores of graph incidence posets, respectively, not rowmotion permutations."
+      ],
+      "reasoning": "Numerical searches use the exact ideal count, exact orbit count, and permutation order, plus graph aliases. A failed database search is not proof of novelty; the remaining risk is an unindexed or differently described finite census.",
+      "searches": [
+        "133958 Petersen rowmotion",
+        "356800176532800 rowmotion Petersen",
+        "Petersen graph incidence poset classical rowmotion 39 orbit lengths 133958 6207 cycles",
+        "Petersen graph incidence poset classical rowmotion 39 orbit lengths 133958 6207 cycles",
+        "rowmotion orbit census order ideals of graph vertex edge incidence poset and fence posets"
+      ]
+    },
+    "rationale": "No source or indexed claim located with the same Petersen-incidence rowmotion multiplicities, under ideal/antichain or dual conventions. Full-text primary results on skeletal posets and fences were compared by hypotheses and do not cover this non-skeletal cyclic poset. A precise unindexed numerical computation remains a novelty risk.",
+    "residual_risks": [
+      "Unindexed or private numerical rowmotion tables could contain this exact orbit census; absence from indexed searches does not establish absolute priority.",
+      "The full text of Thomas–Williams (2019) was not inspected; only its abstract was read. The risk of an incidental example remains, although no title/abstract implication covers the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the applicable concrete theorems assume skeletal posets, whereas the Petersen incidence poset is not skeletal; no explicit orbit census for this graph found.",
+        "evidence": [
+          "Section 10 Definition 69 recursively defines skeletal posets using rank graft and disjoint union.",
+          "Section 11 Proposition 101 compares classical and birational orders only for skeletal posets.",
+          "The text contains no Petersen or incidence named example."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v23i1p33/pdf/",
+        "material_read": "Publisher full-text PDF, 41 pages: introduction and rowmotion definitions (pp. 2–4), skeletal construction and propositions (pp. 26–31), classical rowmotion postscript including Proposition 101 (pp. 32–37); full-document searches for Petersen and incidence returned none.",
+        "method": "Full-text PDF text inspection with page screenshots and targeted terminology searches.",
+        "title": "Iterative properties of birational rowmotion I: generalities and skeletal posets",
+        "trigger": "Most relevant historical primary article: classical rowmotion, general definitions and skeletal-poset period theorems."
+      },
+      {
+        "assessment": "NOT_COVERING: fence Hasse diagrams are paths; Petersen incidence Hasse graph is a cyclic 3-regular graph subdivision.",
+        "evidence": [
+          "Definition on pp. 1–2 restricts objects to fence posets.",
+          "Section 4 exact formulas are for specified fences; no Petersen/incidence text matches."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.12443",
+        "material_read": "Full paper PDF: introduction/definitions (pp. 1–3), tiling model and explicit orbit formulas (pp. 4–8 and 12–19), plus full-document searches for Petersen and incidence.",
+        "method": "ArXiv full-text PDF inspection, page screenshots and targeted full-text searches.",
+        "title": "Rowmotion on fences",
+        "trigger": "Potentially broader orbit-length classification for height-two alternating posets."
+      },
+      {
+        "assessment": "GENERAL_CONTEXT_ONLY: abstract promises structural results on trim lattices and toggles but no specific Petersen-incidence orbit enumeration; residual uncertainty because full text not inspected.",
+        "evidence": [
+          "Abstract discusses generalizations to trim lattices rather than a Petersen-incidence numerical census."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/plms.12251",
+        "material_read": "Publisher abstract and bibliographic metadata only (2019 article); full body was not inspected.",
+        "method": "Publisher abstract inspection.",
+        "title": "Rowmotion in slow motion",
+        "trigger": "General toggle formulation that might imply the claimed orbit census."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d84a065-c789-44d0-a92b-b79fd5ba2b9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Petersen graph is the canonical smallest cubic girth-five cage, and the graph vertex–edge incidence construction is a standard natural height-two poset. Exact rowmotion dynamics of cyclic incidence posets are not supplied by available skeletal/fence formulas. The complete 39-length orbit census reveals 11 distinct prime factors in its order (356800176532800) and 30 longest 192-cycles despite rank two. This gives a reproducible benchmark and a concrete boundary case for expectations about short periods outside skeletal posets; the invariant is motivated independently of the enumeration, not an arbitrary subset or a rephrasing of connectivity.",
+    "status": "PASS"
+  }
+}
