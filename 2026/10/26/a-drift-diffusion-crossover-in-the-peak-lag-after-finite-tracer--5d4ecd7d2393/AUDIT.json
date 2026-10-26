@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every positive distance, dispersion and pulse duration with nonnegative drift, the derivative sign reduces to the sign of a shifted-density logarithmic ratio. That ratio has derivative numerator a quadratic with one positive zero, starts at +infinity and ends negative or at zero from below. Thus it crosses zero once, giving a strict global post-shutoff peak. The shifted density crosses its unimodal mode, making the implicit derivatives well defined and strict. The derived positive-root equation yields the two fixed-drift asymptotics and the uniform scaled crossover without invoking finite enumeration; the standard-library script tests independent numerical instances and records its non-proof limitations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The logarithm of the normalized first-passage density has second derivative -2c/t^3+3/(2t^2), which changes sign; it is not globally log-concave.",
+        "Haselmayr–Efrosinin–Guo 2018, arXiv:1809.09995v1, full text concerns differences of individual arrival times, not uniform-time convolution peaks."
+      ],
+      "reasoning": "Generic log-concave convolution theorems do not directly apply to this density because its log curvature changes sign. Results for differences of two arrivals concern a distinct stochastic observable. A wider translated-density theorem might nevertheless encompass the specific asymptotics and remains a residual risk.",
+      "searches": [
+        "\"general translated inverse Gaussian moving average unique mode positive duration\"",
+        "\"sharp uniqueness downstream flux mode for finite-duration inverse Gaussian input first-passage\"",
+        "\"breakthrough curve finite duration source time of maximum concentration inverse gaussian first passage\""
+      ]
+    },
+    "checked_sources": [
+      "Kreft and Zuber (1978), DOI:10.1016/0009-2509(78)85196-3 (citation and metadata only)",
+      "Yu, Warrick and Conklin (1999), DOI:10.1029/1999WR900225 (abstract)",
+      "Kim, Eckford and Chae (2014), arXiv:1407.5776v1 (selected PDF sections)",
+      "Haselmayr, Efrosinin and Guo (2018), arXiv:1809.09995v1 (full PDF)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu, Warrick and Conklin (1999), DOI:10.1029/1999WR900225, abstract concerns moments of step-input breakthrough curves, not an explicit first-passage finite-shutoff peak theorem.",
+        "Kreft and Zuber (1978), DOI:10.1016/0009-2509(78)85196-3, established the basic flux/resident distinction; full text not obtained.",
+        "Kim, Eckford and Chae (2014), arXiv:1407.5776v1, inspected governing equations and early model discussion concern instantaneous symbols."
+      ],
+      "reasoning": "Step-input moments, impulse arrival kernels and finite-shutoff absorbed flux maxima are not logically equivalent without an additional convolution-and-optimization theorem. The surviving claim adds that theorem and drift crossover, but uninspected archival texts could contain it; no assessment of their unexamined content is invented.",
+      "searches": [
+        "\"Yu Warrick Conklin 1999 A moment method for analyzing breakthrough curves of step inputs\"",
+        "\"Kreft Zuber 1978 physical meaning dispersion equation boundary conditions\"",
+        "\"molecular communication symbol interval optimization drift first hitting time inverse Gaussian 2014\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The finite-source absorption flux is a moving-window integral of an inverse-Gaussian hitting-time density; the claimed peak is precisely an equal-height crossing of its two shifted endpoints.",
+        "Kim–Eckford–Chae 2014, arXiv:1407.5776v1, first-passage kernel for isolated molecular release."
+      ],
+      "reasoning": "Explicitly reduced finite-release flux peaks to equal first-passage densities, including equivalent inverse-Gaussian notation, not just matching titles. The inspected impulse-release model does not give the moving-window peak lag or its asymptotics.",
+      "searches": [
+        "\"finite duration constant rate tracer injection peak arrival time at absorbing boundary advection diffusion\"",
+        "\"finite duration release inverse Gaussian breakthrough downstream time-to-peak log-concavity dispersion groundwater\"",
+        "\"rectangular injection tracer breakthrough peak lag inverse Gaussian tail asymptotic logarithmic long pulse\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tables of the three asymptotic regimes or an identical root equation were identified in the accessible indexed material.",
+        "The reproducibility program tests values but is not a novelty database."
+      ],
+      "reasoning": "This is a continuously parameterized exact root and asymptotic statement rather than a finite invariant or tabulated value. No source examined supplies a stronger exact table; search absence alone is not evidence of novelty.",
+      "searches": [
+        "\"long rectangular pulse peak time advection dispersion first passage published asymptotic logarithm\"",
+        "\"Ogata Banks advection dispersion finite rectangular pulse breakthrough inverse Gaussian first passage density concentration peak monotonicity pulse duration\""
+      ]
+    },
+    "rationale": "The kernel and its integration over release times are prior knowledge. The specific claim is a sharp characterization of the maximum of a finite-duration first-passage flux, its strict parameter sensitivities, and a singular drift-dependent long-release asymptotic including the scaling transition. No inspected whole primary work or record had the same assumptions and implication. An older relevant moment method for step inputs and original dispersion article were not accessible in full, so exact historical priority is not claimed.",
+    "residual_risks": [
+      "The archived Yu–Warrick–Conklin step-input paper and Kreft–Zuber transport derivation were inaccessible as complete texts, so stronger mathematical coverage is not excluded.",
+      "A general theorem on shifted inverse-Gaussian profiles or translated unimodal densities may already imply part of the classification or asymptotics.",
+      "The distinction between absorbing first-passage flux and resident downstream concentration is essential; extending claims across that distinction would be incorrect."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source models impulse-symbol release and channel arrival, not proved finite constant-input peak-lag crossover in inspected material",
+        "evidence": [
+          "2014 arXiv manuscript arXiv:1407.5776v1, equations in opening model sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.5776",
+        "material_read": "PDF first two pages and source governing equations; not represented as whole paper",
+        "method": "Open-access arXiv PDF text and page screenshot",
+        "title": "Symbol Interval Optimization for Molecular Communication with Drift",
+        "trigger": "Identical inverse-Gaussian first-passage kernel in drifting molecular transport"
+      },
+      {
+        "assessment": "Distinct observable: differences of two stochastic hitting times, not a finite constant source and absorbed flux maximum",
+        "evidence": [
+          "arXiv:1809.09995v1, paper body and concluding discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1809.09995",
+        "material_read": "Entire five-page arXiv PDF, including equations and discussion",
+        "method": "PDF text and rendered page inspection",
+        "title": "Distribution of differences between molecular arrival times (Haselmayr–Efrosinin–Guo)",
+        "trigger": "Shared first-passage time density and drift parameters"
+      },
+      {
+        "assessment": "Not possible to exclude an implied finite-input peak statement from the inaccessible full text; material comparison remains incomplete",
+        "evidence": [
+          "Yu–Warrick–Conklin 1999, DOI:10.1029/1999WR900225, publisher page first-published 1999-11-01"
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/1999WR900225",
+        "material_read": "Publication metadata and public abstract only; full paper unavailable",
+        "method": "Publisher bibliographic abstract and attempted lawful institutional retrieval",
+        "title": "A moment method for analyzing breakthrough curves of step inputs",
+        "trigger": "Directly relevant archival finite-step solute breakthrough model"
+      },
+      {
+        "assessment": "Provides prior transport kernel/boundary context; stronger theorem cannot be ruled out without full text",
+        "evidence": [
+          "Kreft–Zuber 1978, Chemical Engineering Science, DOI:10.1016/0009-2509(78)85196-3"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0009-2509(78)85196-3",
+        "material_read": "Bibliographic record and citation of the inverse-Gaussian flux formula; full original text unavailable",
+        "method": "Bibliographic citation tracing and open-source secondary references",
+        "title": "On the physical meaning of the dispersion equation and its solutions for different initial and boundary conditions",
+        "trigger": "Classical flux concentration and boundary formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d4ecd7d-2393-4888-81d7-2e61ce140acd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite-duration contaminant-release response at an absorbing receiver is a natural hydrological transport observable. The theorem determines whether maximum loading occurs after source termination, bounds how lag reacts to added drift and release length, and finds two asymptotically incompatible lag scales and their transition. The cross-regime law and global monotonicity are more than a normalization identity or a routine numerical peak; they are useful for differentiating no-drift and advective pulse monitoring scenarios, with exact model limits stated.",
+    "status": "PASS"
+  }
+}
