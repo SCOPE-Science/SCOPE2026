@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For each of the 2592 family/parameter cases, the generator matrix is built directly over \\(\\mathbb F_{37}\\), its row rank is checked to be 5, and the Euclidean hull dimension is computed as \\(5-\\operatorname{rank}(GG^{\\mathsf T})\\) by exact modular Gaussian elimination. The NMDS filter is the necessary-and-sufficient criterion in Theorems 4.2 and 4.3 of arXiv:2609.17304v1. All 1296 nonzero \\((\\eta,\\delta)\\) pairs are tested for each \\(\\ell\\), the source-paper examples are reproduced, and the checker asserts the complete counts and exceptional lists before returning VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The accessible abstract of arXiv:2604.11350v2 describes Hermitian self-orthogonality and quantum constructions for generalized Roth-Lempel families.",
+        "The accessible abstract of arXiv:2609.20453v1 describes prescribed Galois hull dimensions for generalized Roth-Lempel codes; its full text was not accessible.",
+        "The closest indexed hull records concern different code families or different parameter objects."
+      ],
+      "reasoning": "These works establish that hull dimensions are a studied invariant and could overlap at a broader family level, but the accessible evidence does not show the exact prime-field TRL family, fixed evaluation set, or the complete census for nonzero \\(\\eta,\\delta\\). Because the most plausible broader source was not readable in full, this is a residual risk rather than a proof of noncoverage.",
+      "searches": [
+        "arXiv:2604.11350v2 Generalized Roth-Lempel Codes Hermitian self-orthogonality and quantum constructions",
+        "arXiv:2609.20453v1 Galois Hulls of Generalized Roth-Lempel Codes and Their Applications to EAQECCs",
+        "2026/9/18/SCOPE-grl-galois-hulls-arbitrary-index--313d3312e276",
+        "2026/10/4/SCOPE-complete-monomial-hull-spectrum-of-the-6-3-3-8-extension-in-exam--3e7c22f0ffb4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.17304v1, full text, §§2 and 4, Example 4.4",
+      "arXiv:2604.11350v2, abstract only",
+      "arXiv:2609.20453v1, abstract only",
+      "Focused exact-parameter searches for the TRL [13,5,8] family, Euclidean hull dimension, Gram rank, and LCD status"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source characterizes NMDS membership and gives two examples, but it does not report \\(\\operatorname{rank}(GG^{\\mathsf T})\\) over all nonzero twist pairs.",
+        "The exact census evaluates \\(\\operatorname{rank}(GG^{\\mathsf T})\\) for every pair and lists all NMDS pairs with one-dimensional Euclidean hull."
+      ],
+      "reasoning": "The published NMDS criterion controls minimum distances and column dependencies; it does not fix the Euclidean Gram rank. The new result is the finite parameter-by-parameter hull classification, not a restatement of the NMDS criterion.",
+      "searches": [
+        "arXiv:2609.17304v1 Theorems 4.2 and 4.3, Example 4.4",
+        "arXiv:2604.11350v2 abstract",
+        "arXiv:2609.20453v1 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.17304v1 defines the TRL generator matrix and gives the two boundary NMDS criteria; Example 4.4 supplies two specific parameter pairs.",
+        "The computed invariant is equivalently described as Euclidean hull dimension, nullity of \\(GG^{\\mathsf T}\\), or LCD status when the nullity is zero."
+      ],
+      "reasoning": "The claim was compared under the equivalent formulations Euclidean hull, Gram-matrix rank, and LCD/non-LCD status. The source-paper NMDS statements do not specify these Gram ranks for the complete parameter domain, and the exact exceptional-pair lists add information not implied by the distance parameters.",
+      "searches": [
+        "Twisted Roth-Lempel [13,5,8] NMDS code Euclidean hull dimension 37",
+        "TRL_5,13 alpha={1,...,11} F_37 eta=delta=1 ell=3 or ell=4 Euclidean hull dimension Gram matrix",
+        "arXiv:2609.17304v1 §§2,4, Example 4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching hull census was found in the focused exact-parameter search results.",
+        "The primary source's Example 4.4 lists two NMDS examples and reports primal/dual distances, not Euclidean hull ranks for all scalar pairs.",
+        "The CodeTables discussion in the primary source concerns minimum-distance bounds, not Euclidean hull ranks."
+      ],
+      "reasoning": "No directly applicable public table of Euclidean hull ranks for this finite TRL parameter set was identified. CodeTables is not a hull-rank table, so it cannot settle this invariant.",
+      "searches": [
+        "Twisted Roth-Lempel [13,5,8] NMDS code Euclidean hull dimension 37",
+        "TRL_5,13 alpha={1,...,11} F_37 eta=delta=1 ell=3 or ell=4 Euclidean hull dimension Gram matrix",
+        "arXiv:2609.17304v1 Example 4.4 and Theorems 4.2-4.3"
+      ]
+    },
+    "rationale": "The primary source supplies NMDS criteria and two examples but does not state the exact Euclidean-hull ranks for all nonzero twist pairs in this fixed evaluation set. NMDS parameters alone do not determine \\(\\operatorname{rank}(GG^{\\mathsf T})\\). Focused exact-parameter searches did not identify the same census. Related general GRL hull papers remain a bounded overlap risk because their full text was not accessible.",
+    "residual_risks": [
+      "The full text of arXiv:2609.20453v1 was not accessible; a broader GRL result could contain a related special case not visible in its abstract.",
+      "The full text of arXiv:2604.11350v2 was not retrieved; only its abstract was compared.",
+      "The claim is restricted to \\(\\alpha=\\{1,\\ldots,11\\}\\subset\\mathbb F_{37}\\) and \\(\\ell\\in\\{3,4\\}\\); it does not establish a formula for arbitrary evaluation sets or fields."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Primary source establishes the code family and NMDS filter, but does not state the complete Euclidean-hull census reported here.",
+        "evidence": "arXiv:2609.17304v1, §§2 and 4, Example 4.4.",
+        "identifier_or_url": "https://arxiv.org/html/2609.17304v1",
+        "material_read": "Full HTML text, especially §§2 and 4, Theorems 4.2-4.3, Example 4.4, and conclusion.",
+        "method": "Reconstructed the code definition and generator rows; transcribed the published subset-sum NMDS criteria; independently computed all Gram ranks over \\(\\mathbb F_{37}\\).",
+        "title": "On Twisted Roth-Lempel Codes",
+        "trigger": "Exact family, field, evaluation set, and NMDS criteria for the two boundary twist positions."
+      },
+      {
+        "assessment": "Relevant broader family literature, but available text does not establish whether the precise finite census is covered.",
+        "evidence": "arXiv:2604.11350v2 abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.11350",
+        "material_read": "Abstract only; full HTML was unavailable in the attempted open-access route.",
+        "method": "Compared the abstract's stated Hermitian self-orthogonality and quantum-code scope with the exact Euclidean census claim.",
+        "title": "Generalized Roth-Lempel Codes: NMDS Characterization, Hermitian Self-Orthogonality, and Quantum Constructions",
+        "trigger": "Potentially broader literature on hull and quantum-code properties of related generalized Roth-Lempel families."
+      },
+      {
+        "assessment": "Plausible overlap risk remains; no full-text noncoverage conclusion is asserted.",
+        "evidence": "arXiv:2609.20453v1 abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.20453",
+        "material_read": "Abstract only; full text could not be accessed after open-access attempts.",
+        "method": "Compared the abstract's stated prescribed Galois-hull constructions with the fixed prime-field TRL parameter census.",
+        "title": "Galois Hulls of Generalized Roth-Lempel Codes and Their Applications to EAQECCs",
+        "trigger": "Potentially dominating general hull-construction results for Roth-Lempel-related codes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4844114-0834-449f-ab21-6c6789bd8b25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete, exact parameter-selection map for 2592 code instances. It identifies exactly which NMDS members of two explicit \\([13,5,8]_{37}\\) families are LCD and which have a one-dimensional Euclidean hull. Hull behavior is not determined by NMDS parameters alone and is relevant when selecting classical codes for quantum-code constructions.",
+    "status": "PASS"
+  }
+}
