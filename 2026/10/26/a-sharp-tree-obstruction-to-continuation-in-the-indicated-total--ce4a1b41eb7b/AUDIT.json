@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "All-order strategy proof: unique minimum three-vertex total dominating set {b,c,d}; Dominator forces c,b,d in three ordinary rounds; when f is declared, at most four moves are required, while Staller can avoid the unique three-set for every possible first indication. Sharp six-vertex minimum is proved by a complete, executable Prüfer enumeration of every tree of order 2..6 and exact memoized minimax over every nested declared-set pair, with asserted canonical graph code. Standalone checker executed from its present package paths and reproduced the logged output. Finite tests of r=0..7 are ancillary; all r follow from explicit strategies.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Henning–Rall, arxiv:2310.03506v3, pp.4-5 gives an explicit non-tree continuation counterexample; pp.6-7 gives ordinary-game tree results and a separate tree equality question.",
+        "Brešar et al., arxiv:2310.14647v2, pp.1-3 defines the closed-neighborhood indicated domination game, not indicated total domination."
+      ],
+      "reasoning": "The strongest directly relevant coverage is the general non-continuation phenomenon. Its existential witness does not imply that there exists a tree witness, much less one of minimum possible order unique up to isomorphism, or an all-order family with exactly one pre-dominated vertex. Tree equality results for the ordinary starting game do not control game lengths under declarations.",
+      "searches": [
+        "Web: \"indicated total domination\" \"tree\" \"upper total\" equality 2024 2025 2026",
+        "Web: \"indicated total domination game\" \"trees\" equality 2026",
+        "arxiv:2310.03506v3, Sections 2-3",
+        "published-finding corpus: \"smallest tree counterexamples to continuation principle for indicated total domination game and infinite subdivided claw family\""
+      ]
+    },
+    "checked_sources": [
+      "Henning and Rall, arxiv:2310.03506v3 Section 2 (continuation counterexample), Section 3 (tree game statements), arXiv record initial date 2023-10-05 and primary MSC 05C65",
+      "Brešar, Bujtás, Iršič, Rall, Tuza, arxiv:2310.14647v2 abstract and game definitions",
+      "published-finding corpus queries listed in named comparison checks, including search hit IDs on neighboring but different graph invariants",
+      "Public web searches for total indicated domination, continuation, trees, predomination and related variants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited original example has a six-cycle and two declared vertices, whereas the new examples are trees and have exactly one declared vertex; the original source does not classify least tree order.",
+        "The related indicated-domination paper uses closed neighborhoods, so its conclusions cannot by direct substitution prove claims in the open-neighborhood total game."
+      ],
+      "reasoning": "General failure of continuation is a known statement, not claimed as new. A six-vertex minimal tree obstruction, its uniqueness among all six-vertex trees and all declared-set pairs, and a one-predeclared-vertex connected example at every greater order constitute distinct stronger restrictions and consequences. None is implied solely by existence of a cyclic eight-vertex example.",
+      "searches": [
+        "arxiv:2310.03506v3, Section 2 continuation and Section 3 trees",
+        "arxiv:2310.14647v2, Introduction and definitions",
+        "Web: \"indicated total domination\" \"pre-dominated\" tree failure",
+        "published-finding corpus: \"partial total domination game tree T consisting of five-vertex path with pendant leaf at central vertex, declaring leaf already dominated increases indicated game from three to four\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Henning–Rall, arxiv:2310.03506v3, Section 2 explicitly defines the partially dominated game and displays an eight-vertex example containing a six-cycle and chord; its initial declared set contains two vertices.",
+        "published-finding corpus similarity hits concerned other domination invariants or other tree extremal problems; no retrieved hit had the specific indicated-total-continuation claim."
+      ],
+      "reasoning": "Equivalent wordings include pre-dominated vertices, partially total-dominated graphs, failure of the continuation principle, and indicated total-domination length. The cyclic eight-vertex example establishes general failure, but is neither a tree witness nor a minimal-order tree classification, and says nothing about a one-vertex declaration at every tree order.",
+      "searches": [
+        "published-finding corpus: \"indicated total domination game continuation principle fails on trees: smallest six vertex tree counterexample with one pre-dominated leaf, subdivided claw length two two one\"",
+        "published-finding corpus: \"partial total domination game tree T consisting of five-vertex path with pendant leaf at central vertex, declaring leaf already dominated increases indicated game from three to four\"",
+        "Web: \"indicated total domination\" \"continuation principle\" \"tree\" counterexample",
+        "arxiv:2310.03506v3, Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected arxiv:2310.03506v3 text contains an eight-vertex cyclic witness, not a census of all trees up to order six.",
+        "Retrieved published-finding corpus records closest by subject include 2026/9/20/SCOPE-sharp-paired-total-domination-gap-in-trees--3f4b1c8daebf and 2026/10/4/SCOPE-oriented-tree-general-position-as-a-greene-kleitman-two-family--6e5c41bfd474; these describe other invariants. No exact table of the asserted game obstruction was returned."
+      ],
+      "reasoning": "The new six-vertex classification enumerates precisely all tree isomorphism classes with all nested declared sets. No same-invariant complete table or a stronger classification was identified in the actual searches; the negative search is evidence of limited coverage only, not proof of absolute novelty.",
+      "searches": [
+        "published-finding corpus: \"indicated total domination game exact value and optimal play on corona graphs, threshold graphs, and complete multipartite graphs\"",
+        "published-finding corpus: \"indicated total domination number of caterpillar trees or subdivided stars\"",
+        "published-finding corpus: \"indicated total domination game continuation principle fails on trees: smallest six vertex tree counterexample with one pre-dominated leaf, subdivided claw length two two one\"",
+        "Web: \"indicated total domination\" \"6\" \"tree\" \"continuation\""
+      ]
+    },
+    "rationale": "Original Henning–Rall Section 2 contains an eight-vertex cyclic example with two declared vertices, not a tree or one-vertex sharp boundary. Companion indicated domination uses closed neighborhoods. published-finding corpus records and targeted literature searches did not identify the complete least-order tree classification or all-order one-vertex family. Residual bibliographic uncertainty remains.",
+    "residual_risks": [
+      "A specialized later paper or unindexed note could contain an equivalent smaller tree witness or family despite these searches.",
+      "The six-vertex uniqueness result is a finite exhaustive computer-assisted classification rather than a standalone hand catalog; the source code, exact recurrence and complete output are embedded for checking.",
+      "Independent audit and mathematical validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER specific new assertion: established failure on a graph with cycles, two pre-dominated vertices, not smallest tree or infinite one-vertex family",
+        "evidence": "Section 2 pp.4-5 depicts a six-cycle with chord and two pendant vertices; Section 3 pp.6-7 concerns ordinary-game paths and trees.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.03506 (v3)",
+        "material_read": "full text retrieved; Section 2 pp.4-5 and Sections 1 and 3 pp.1-8 inspected in detail",
+        "method": "lawful arXiv OA PDF full text with relevant page image cross-check",
+        "title": "Indicated total domination game",
+        "trigger": "same invariant and continuation principle; must inspect exact example and tree statements"
+      },
+      {
+        "assessment": "INAPPLICABLE to total game without additional theorem: closed-neighborhood selection and domination",
+        "evidence": "The abstract and definitions on pp.1-3 allow choosing from N[v], and a selected vertex dominates itself, unlike the open-neighborhood game in the new claim.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.14647 (v2)",
+        "material_read": "full text retrieved; abstract and definitions pp.1-4 inspected",
+        "method": "lawful arXiv OA PDF full text",
+        "title": "Indicated domination game",
+        "trigger": "possible alias that might dominate the claimed total-game result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce4a1b41-eb7b-4680-8387-495e24f2557d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The continuation principle is a central tool for graph domination games, and its failure for the indicated total variant is known only in the inspected original via a larger cyclic example with multiple declarations. Establishing that the obstruction exists even on trees, with exactly one pre-dominated vertex, is structurally restrictive; proving the least possible order and uniqueness sharply locates the boundary. The elementary but infinite construction covers every larger tree order and distinguishes predomination monotonicity from the separate ordinary-game tree equality conjecture.",
+    "status": "PASS"
+  }
+}
