@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact model and one-step conditional probabilities are specified. Survival at root degree one is the explicit central binomial p_n. Root/leaf mean recurrences and the mixed-moment identity c_{n+1}=c_n+d_{n+1}-p_n/[2(n-1)] are derived from conditional Bernoulli events, not fitted numerically. Their closed forms satisfy base cases, produce the stated covariance, and a strictly decreasing ratio q_{n+1}/q_n proves the sign for all integers n>=4. Independent variance recurrences and Stirling give the sharp covariance and correlation scales. A standalone Python program exhausts 6,917 degree vectors and checks 2,993 further rational recurrences; finite tests are not treated as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1402.4686, sections 1 and 1.1: finite-dimensional aged-vertex degrees; no expanding empirical leaf-count variable",
+        "arxiv:2602.01021, sections II–IV: joint degree/leafdegree counts for categories and global degree-class covariance, not tagged-age/global-leaves",
+        "doi:10.1002/rsa.3240040204, sections 2–8: different plane-oriented growth law, with root attractiveness one plus outdegree"
+      ],
+      "reasoning": "Global leaf count involves increasing numbers of late-born vertices and is not a fixed-dimensional early-degree observable. The plane-oriented weighting differs even at the seed root. None of the inspected broader theorems supplies the required mixed moment or all-size sign and correlation asymptotic as a corollary.",
+      "searches": [
+        "linear preferential attachment tree first vertex degree versus total degree-one count leaf population positive covariance asymptotic square root [published-finding corpus]",
+        "plane-oriented recursive tree root outdegree total leaves mixed moment bivariate covariance gamma binomial [published-finding corpus]",
+        "preferential attachment degree leaf count covariance exact moment root vertex linear reinforcement [published-finding corpus]"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1012.5550",
+      "arxiv:1402.4686",
+      "arxiv:2602.01021",
+      "doi:10.1002/rsa.3240040204",
+      "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+      "published-finding corpus 2026/10/4/SCOPE-root-attachments-have-an-exact-negative-path-length-profile-in-r--3b3e0426b1ba",
+      "published-finding corpus 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1012.5550, exact BA growth definition and marginal degree profile",
+        "arxiv:1402.4686, theorem scope fixed early-vertex degrees",
+        "arxiv:2602.01021, global degree/leafdegree empirical statistics but no marked initial vertex",
+        "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f: uniform recursive tree covariance (n-2)/(2(n-1))"
+      ],
+      "reasoning": "Separate marginals cannot determine the mixed moment. The earlier uniform recursive-tree root–leaf covariance is O(1), while the present degree-proportional covariance is asymptotic to a positive multiple of sqrt(n), ruling out same mathematical model equivalence. The fixed-early-vertex results and global degree-class results do not automatically determine their mixed finite-size covariance. No known stronger inspected theorem covers the presented formula.",
+      "searches": [
+        "Barabasi Albert preferential attachment tree tagged initial vertex degree aggregate total leaves finite covariance central binomial coefficient n exact [published-finding corpus]",
+        "linear preferential attachment tree first vertex degree versus total degree-one count leaf population positive covariance asymptotic square root [published-finding corpus]",
+        "preferential attachment tree root degree number of leaves covariance joint [web]"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1012.5550: degree-count profile, no tagged-degree/global-leaf mixed moment",
+        "arxiv:1402.4686: fixed finite set of early-vertex degree laws, not a global leaf sum",
+        "published-finding corpus 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f: uniform-attachment covariance remains bounded"
+      ],
+      "reasoning": "The proposed exact joint observable is a tagged initial degree jointly with the growing global count of degree-one vertices. Terms root degree, oldest-vertex degree, initial hub degree, degree-one population and number of leaves were compared. The closest identically named covariance belongs to a different uniform-attachment law and does not imply this degree-proportional value.",
+      "searches": [
+        "Barabasi Albert preferential attachment tree tagged initial vertex degree aggregate total leaves finite covariance central binomial coefficient n exact [published-finding corpus]",
+        "root degree and number of degree one vertices preferential attachment tree mixed moment covariance positive sqrt n decorrelation [published-finding corpus]",
+        "preferential attachment tree root degree number of leaves covariance joint [web]"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest title: 2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f; its reported formula is for uniform attachment",
+        "arxiv:1012.5550 section 1 and degree-profile results; no exact table of joint root/global leaves moments"
+      ],
+      "reasoning": "The actual searches found no direct all-size covariance table or equivalent joint-moment entry. Absence from searched results does not establish uniqueness; the source-specific model and statement comparisons are the substantive basis of this check.",
+      "searches": [
+        "Barabasi Albert preferential attachment tree exact covariance root degree total leaves leaf count first vertex degree 1 [published-finding corpus]",
+        "preferential attachment tree total leaves root vertex degree covariance exact [web]",
+        "root degree and number of degree one vertices preferential attachment tree mixed moment covariance positive sqrt n decorrelation [published-finding corpus]"
+      ]
+    },
+    "rationale": "Closest published and archival sources were compared on observable, process model, and logical implication, including a superficially identical root-degree/global-leaf claim for uniform recursive trees that cannot imply the BA result. An early PORT article was inspected and found to use a distinct root attachment weight. Fixed-dimensional aged-degree theorems and global degree-class covariances do not cover the mixed tagged-root versus extensive leaf-count moment. Historical priority remains a disclosed unresolved risk without decisive contradiction.",
+    "residual_risks": [
+      "An unindexed historical article on tagged-vertex/global-count joint moments could precede this formula; this search does not prove absolute historical priority.",
+      "The article on preferential attachment leaf statistics from 2026 postdates the archive-source cutoff and is considered for overlap only, not as the archival primary source.",
+      "No independent expert audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical linear preferential attachment tree; gives marginal degree-count concentration, not tagged initial degree versus aggregate leaves covariance",
+        "evidence": [
+          "2010-12-26 original public posting",
+          "Introduction: parent chosen proportional to current degree",
+          "Degree-count results control number of vertices at each degree"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1012.5550",
+        "material_read": "Full accessible article in text form, model definition and degree-count conclusions including high-degree concentration; relevant terms reviewed",
+        "method": "Read accessible article and examined model, theorem scope, and pertinent terminology",
+        "title": "Vertices of high degree in the preferential attachment tree",
+        "trigger": "direct original model and possible degree-leaf covariance"
+      },
+      {
+        "assessment": "Handles fixed collections of aged degrees; growing total number of leaves is not among jointly treated variables",
+        "evidence": [
+          "Main introduction and section 1.1",
+          "Theorems on finite-dimensional degree vector limits"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.4686v4",
+        "material_read": "Full accessible HTML, abstract, model, main theorem statements, and discussion of finite-dimensional degree distributions",
+        "method": "Inspected main claims, model-specific definitions, and implication of joint early degrees",
+        "title": "Joint degree distributions of preferential attachment random graphs",
+        "trigger": "plausible theorem on joint degree variables that might dominate the result"
+      },
+      {
+        "assessment": "Treats total leaves and class-level leafdegree statistics, not covariance of a particular initial vertex with global leaves",
+        "evidence": [
+          "Section IV.1: number of leaves",
+          "Section IV.2: degree-one versus degree-two count covariance",
+          "Appendix: further global degree-class moments"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.01021",
+        "material_read": "Accessible full HTML with focus on the results section, section IV, and appendices on leaf counts and degree-class covariances",
+        "method": "Compared tagged initial vertex with variables appearing in exact moment and covariance statements",
+        "title": "Leaves of preferential attachment trees",
+        "trigger": "possible exact mixed moment concerning global leaves and degree"
+      },
+      {
+        "assessment": "Plane-oriented insertion-position weights are outdegree+1; not the current undirected-degree model; no identical tagged-root/global-leaf covariance result",
+        "evidence": [
+          "Section 2: plane-oriented insertion-position model",
+          "Section 2: root outdegree mean and global leaf mean/variance",
+          "Sections 5–8: leaf distributions in branches and global outdegree categories"
+        ],
+        "identifier_or_url": "doi:10.1002/rsa.3240040204",
+        "material_read": "Extracted 26-page article, covering model definitions, theorems on root mean and leaf moments, and sections on branches and global degree counts",
+        "method": "Compared the actual attachment weighting and named moment objects across all sections",
+        "title": "On the Structure of Random Plane-Oriented Recursive Trees and Their Branches",
+        "trigger": "early paper with root outdegree and leaves; potential historical domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c781ead3-cc47-46d6-9f68-c8a65670b2ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dependence of one distinguished early hub on the extensive leaf population is a natural, independently meaningful structural observable of degree-proportional growth. The exact positive all-size sign, square-root increasing covariance, and inverse-square-root decaying correlation provide a non-marginal local/global law and a stark comparison with uniform recursive trees whose analogous covariance stays bounded. No arbitrary parameter slice or table recomputation is needed.",
+    "status": "PASS"
+  }
+}
