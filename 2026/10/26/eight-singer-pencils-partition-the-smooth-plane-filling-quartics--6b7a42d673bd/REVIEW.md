@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness (PASS)
+The claim is for the complete vector space of ternary quartics over \(\mathbf F_2\) vanishing at all seven rational projective points. Homma--Kim's proved matrix criterion reduces geometric smoothness to irreducibility of a cubic characteristic polynomial. The finite matrix proof counts the \(24\) smooth forms and establishes the new cross-Singer exclusion with three explicitly listed seven-element conjugacy orbits. These cover all \(21\) outsider forms and have computed determinant pairs obstructing the smoothness of the sum. The eight embedded-field pencils exhaust the possibilities, yielding unique membership, transitivity, order-\(21\) stabilizers and the no-net corollary. A separate exhaustive Gröbner test on the complete \(255\)-form filling space confirms all \(24\) smooth forms and the eight pencils, over the algebraic closure using three projective affine charts. The programs, inputs, and actual outputs are embedded. No finite sample is being promoted to an infinite assertion.
+
+## Originality (PASS, with priority risk)
+The most relevant primary source is Homma--Kim (arXiv:0903.1918), which **already classifies individual smooth minimum-degree plane-filling curves**. The new theorem does not claim that classification as its contribution. It proves compatibility of pairs under addition, the eight Singer-group pencil decomposition, and a consequent sharp obstruction to higher-dimensional all-smooth filling linear systems, none stated in the inspected source. Asgarli--Ghioca (arXiv:2203.07169) asks about smooth rational pencil members and proves a large-field existence theorem, without classifying this small-field, degree-four extremal filling family. Asgarli--Ghioca (arXiv:2307.03072) addresses higher-degree filling curves. Actual semantic research-record searches and own-ledger overlap comparisons did not identify an equivalent theorem; this is not proof of publication priority. An older group-theoretic matrix-spread classification is a residual risk.
+
+## Value (PASS)
+The result is a natural extremal intersection of two independently motivated requirements: minimum-degree plane filling and simultaneous smoothness of all rational pencil members. It gives the complete additive/projective structure of the family, not just a new numerical curve count: eight unique Singer pencils, a projective normalizer of order \(21\), all three tangent directions at each rational point, and the sharp nonexistence of any all-smooth filling net. These structural statements inform small-field examples in finite-field Bertini theory and arithmetic curve incidence geometry.
+
+## Boundaries
+The eight pencils have only their three rational members asserted smooth. The result does not classify all geometrically smooth quartic pencils, larger fields, higher degrees, or abstract genus-three isomorphism classes. Its proof uses a prior single-curve characterization and an independently tested finite matrix lemma; no earlier contribution is represented as new.
+
+Self-review: passed. Independent audit: not yet performed.
