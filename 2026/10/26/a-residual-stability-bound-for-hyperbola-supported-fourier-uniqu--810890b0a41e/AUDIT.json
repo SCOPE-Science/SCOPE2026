@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The piecewise-linear interpolant has L2 norm at most sqrt(L) times the sample l2 norm and derivative norm at most 2/sqrt(delta) times that norm. Poincare-Wirtinger gives the stated one-sequence inequality, including the regularity upgrade when only the derivative and samples are initially known to be square-integrable. Applying it first to the continuous reciprocal transform yields t psi in L2; applying it to the ordinary transform and combining the two inequalities gives both displayed estimates with the factor 1-alpha beta. The unitary Fourier normalization and both reciprocal norm identities were checked explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu–Townsend, arXiv:2202.04722v1, studies finite periodic trigonometric interpolation and perturbed-grid stability.",
+        "Hedenmalm–Montes-Rodríguez, arXiv:0910.1246v1 and the 2011 Annals paper, treats exact-zero uniqueness for regular lattice crosses."
+      ],
+      "reasoning": "The generic one-sequence interpolation inequality does not itself give the coupled estimate. The reciprocal transform links the two axes and lets the residual-sensitive inequality upgrade regularity before the two estimates are combined.",
+      "searches": [
+        "nonuniform Fourier sampling inequality H1 Sobolev separated nodes max gap interpolation residual values",
+        "arXiv:2202.04722v1, Sections 1 and 2",
+        "arXiv:0910.1246v1, Theorem 1.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.04557v1, Theorem 2 and Section 4.2",
+      "Annals of Mathematics 173 (2011), doi:10.4007/annals.2011.173.3.6",
+      "arXiv:0910.1246v1",
+      "arXiv:2202.04722v1, Sections 1-2",
+      "2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe",
+      "2026/10/11/SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4",
+      "2026/9/18/SCOPE-reciprocal-weight-periodic-paley-wiener-uniqueness--f2771af894de"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 theorem is qualitative: zero samples imply the density is zero in the subcritical regime.",
+        "The 2011 theorem is an exact-zero criterion for regular lattice crosses.",
+        "The 2022 nonuniform-sampling paper treats finite periodic trigonometric grids rather than a reciprocal hyperbola transform."
+      ],
+      "reasoning": "Neither exact-zero theorem provides a norm bound for nonzero residuals. The added interpolation lemma yields explicit residual constants, and the reciprocal-transform identities combine the two axes into the displayed stability estimate. The argument is a quantitative extension of the known proof method; optimality is not claimed.",
+      "searches": [
+        "Radchenko Ramos perturbed lattice crosses Theorem 2 exact-zero H0 uniqueness alpha beta",
+        "Hedenmalm Montes-Rodriguez Heisenberg uniqueness hyperbola lattice cross exact zero alpha beta",
+        "nonuniform Fourier sampling stability residuals reciprocal hyperbola transform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Radchenko–Ramos, arXiv:2410.04557v1, Theorem 2: exact-zero uniqueness for nonuniform sequences when the maximum-gap product is below one.",
+        "The inspected proof uses Poincare–Wirtinger to derive strict norm inequalities from exact zeros; it does not state a residual-error bound.",
+        "Closest indexed recurrence-stability record: 2026/10/11/SCOPE-sharp-energy-norm-stability-for-two-periodic-recurrences--c7d71d470cbe; its object is a two-periodic recurrence, not the Fourier transform of a hyperbola-supported density."
+      ],
+      "reasoning": "The new statement permits nonzero square-summable sample values and quantifies the density norm in terms of both residual sequences. It is not an equivalent reformulation of the zero-data uniqueness statement.",
+      "searches": [
+        "quantitative stability theorem Heisenberg uniqueness pair hyperbola H0 square summable sample errors max gap alpha beta product below one reciprocal transform",
+        "stability estimates for Heisenberg uniqueness pairs hyperbola Klein Gordon lattice cross sample residuals",
+        "arXiv:2410.04557v1, Theorem 2 and Section 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed sampling record concerns shifted sampling for asymmetric two-sided exponentials, not the hyperbola or reciprocal transform.",
+        "The closest indexed Paley–Wiener record concerns periodic weighted uniqueness, not square-summable residuals on a nonuniform hyperbola cross."
+      ],
+      "reasoning": "No exact indexed record for this residual estimate was located. The search is not exhaustive and is not treated as proof of global novelty.",
+      "searches": [
+        "quantitative stability inequality noisy samples Fourier transform lattice cross hyperbola Heisenberg uniqueness pair alpha beta Poincare Wirtinger",
+        "perturbed lattice cross Heisenberg uniqueness pair H0 H2 Poincare Wirtinger gap alpha beta < 1 Radchenko Ramos 2410.04557",
+        "2026/10/11/SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4",
+        "2026/9/18/SCOPE-reciprocal-weight-periodic-paley-wiener-uniqueness--f2771af894de"
+      ]
+    },
+    "rationale": "The inspected exact-zero HUP papers establish uniqueness thresholds but do not state the explicit square-summable residual estimate or the resulting H0-to-weighted-L2 regularity upgrade. The indexed closest records concern different sampling or recurrence problems. The claim is a quantitative strengthening, not a claim to the known uniqueness threshold.",
+    "residual_risks": [
+      "An unindexed source may contain a similar perturbative estimate; the literature search does not certify global novelty.",
+      "The constants are nonsharp, and no bound at the critical boundary alpha beta equals one is established.",
+      "The result is a quantitative extension of a known Poincare-Wirtinger uniqueness proof, not a new uniqueness threshold.",
+      "Independent audit and independent validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves exact-zero uniqueness for the H0 class in the subcritical regime and uses Poincare-Wirtinger to obtain weighted regularity. The inspected theorem and proof do not state the explicit square-summable residual estimate.",
+        "evidence": "arXiv:2410.04557v1, first submitted 2024-10-06; Theorem 2 and Section 4.2.",
+        "identifier_or_url": "arXiv:2410.04557v1",
+        "material_read": "Primary arXiv HTML: abstract, Section 1.2 and Theorem 2, Fourier normalization and function-space definitions in Section 2, the Poincare-Wirtinger inequality, and the proof of Theorem 2 in Section 4.2.",
+        "method": "Direct inspection of the primary full-text HTML and relevant theorem/proof sections.",
+        "title": "Perturbed lattice crosses and Heisenberg uniqueness pairs",
+        "trigger": "Exact primary source for the nonuniform hyperbola cross and the alpha beta threshold."
+      },
+      {
+        "assessment": "Establishes the alpha beta threshold for regular lattice crosses with exact vanishing; it does not provide a residual stability inequality for nonuniform sequences.",
+        "evidence": "Annals of Mathematics 173 (2011), 1507-1527; arXiv:0910.1246v1.",
+        "identifier_or_url": "doi:10.4007/annals.2011.173.3.6; arXiv:0910.1246v1",
+        "material_read": "Official Annals PDF: abstract, definition of HUP, hyperbola setup, and Theorem 1.2.",
+        "method": "Direct inspection of the publisher's full-text PDF at the theorem and setup.",
+        "title": "Heisenberg uniqueness pairs and the Klein-Gordon equation",
+        "trigger": "Foundational exact-zero result for the same hyperbola and lattice-cross geometry."
+      },
+      {
+        "assessment": "Provides stability for finite periodic trigonometric interpolation and quadrature, but does not cover the reciprocal hyperbola transform or the coupled residual estimate here.",
+        "evidence": "arXiv:2202.04722v1, first submitted 2022-02-09.",
+        "identifier_or_url": "arXiv:2202.04722v1",
+        "material_read": "Primary PDF abstract, introduction, and Section 2 on finite periodic perturbed-grid Fourier sampling and Marcinkiewicz-Zygmund inequalities.",
+        "method": "Direct inspection of the primary arXiv PDF.",
+        "title": "On the stability of unevenly spaced samples for interpolation and quadrature",
+        "trigger": "Plausible general antecedent for stability under nonuniform Fourier sampling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "810890b0-a41e-4c55-acd3-fde94b4ad13e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact uniqueness does not quantify the effect of noisy Fourier observations. The estimate gives a finite, explicit density-norm bound in terms of square-summable residuals on both axes, displays deterioration as the sampling product approaches its critical value, and recovers the weighted L2 regularity needed for the estimate. This is useful for quantitative inverse-problem stability; no optimality or endpoint result is claimed.",
+    "status": "PASS"
+  }
+}
