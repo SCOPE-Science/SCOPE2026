@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For all integers \\(n,N\\ge2\\), the pathwise identity \\(2N-T=X_1+X_n+2Z\\) holds without approximation; the pair count \\(W\\) dominates \\(Z\\) and \\(\\mathbb E(W-Z)\\le2(n-1)(N)_3/n^3\\) by ordered factorial moments. Colored sample-pair indicators have exact means \\(1/n\\) and \\(2(n-1)/n^2\\), aggregate \\(q=(3n-2)/n^2\\), and shared-index joint probability \\(s=(9n-10)/n^3\\). Arratia–Goldstein–Gordon Theorem 2 (standard total-variation normalization) gives \\(2(b_1+b_2)\\), with \\(b_1=\\binom N2(2N-3)q^2\\) and \\(b_2=\\binom N2\\,2(N-2)s\\); the original-sampling coupling adds \\(2N/n+2(n-1)(N)_3/n^3\\). This proves the displayed finite joint total-variation bound, which is \\(O(N/n+N^3/n^2)\\) and tends to zero for \\(N=o(n^{2/3})\\). Continuity of Poisson laws and their standard central limit theorem establish all three stated regimes. Exact maximum-variation counts follow from independent sets of interior path bins and Stirling surjections. The provided verification script passed 75,160 finite assertions for all \\(2\\le n\\le6\\), \\(2\\le N\\le5\\); simulations are diagnostic only and do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.17046v1, Introduction and Section 7: primary asymptotic fixes the number of bins and lets observations increase; its exact finite variance identities do not state a simultaneous sparse distributional limit.",
+        "arXiv:2610.13366v1, Introduction and Conclusion: mean formulas, with separate fixed-sample sparse treatment and companion null-law paper described but not identified as available in the inspected material.",
+        "arXiv:2606.01465 gives all finite probabilities algorithmically, but its stated approximations are numerical fits rather than a closed uniform sparse total-variation error.",
+        "A prior proportional-bin-growth variance theorem addresses \\(N/n\\in[a,b]\\) for fixed \\(0<a<b\\); it does not imply the present vanishing-ratio joint Poisson law."
+      ],
+      "reasoning": "General finite-histogram enumerability is stronger computational coverage at each individual finite parameter but does not directly furnish the proved simultaneous Poisson/independence error or the single-sum extreme-event formula. The fixed-bin and positive-ratio limits exclude the sparse birthday scaling. The AGG process theorem covers the abstract colored indicator approximation after model-specific reduction, but not the nonlinear variation reduction or exact extremal counts on its face. An equivalent general theorem hidden in relevant unexamined literature remains a risk.",
+      "searches": [
+        "arXiv:2610.17046",
+        "arXiv:2610.13366",
+        "arXiv:2606.01465",
+        "Banic Elezovic \"sparse regime\" \"separate paper\" multinomial",
+        "Arratia Goldstein Gordon Two Moments Suffice for Poisson Approximations 1989 theorem b1 b2 b3 2 total variation PDF"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.01465, entire relevant text of finite distribution algorithm and application limitations",
+      "arXiv:2610.13366v1, expectation proof, asymptotic scope, conclusion",
+      "arXiv:2610.17046v1, variance theorem scope and exact decomposition",
+      "Arratia--Goldstein--Gordon, Ann. Probab. 17 (1989) 9–25, Theorem 2 and birthday examples",
+      "Arratia--Garibaldi--Kilian (2015/2016), DOI:10.1002/rsa.20591, abstract only",
+      "Relevant published mathematical records on multinomial modes, occupancy collisions and Poisson pair statistics: compared objects and found different invariants in available summaries; no full-document NOT_COVERING inferred"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 of Arratia--Goldstein--Gordon 1989, page 11, implies a two-color Poisson process error using explicit first/second joint pair probabilities; the new proof credits and applies it.",
+        "The new deterministic comparison uses \\(2N-T=X_1+X_n+2Z\\) and bounds the discrepancy between overlaps and adjacent-label pairs by three-draw collisions; these are not results stated in the examined Banić–Elezović manuscripts.",
+        "The published May 2026 Comb Test introduction explicitly distinguishes its finite null algorithm from asymptotic distributional rates, and benchmarks the classical coincidence count without providing the joint independent birthday limit."
+      ],
+      "reasoning": "One cannot infer from the cited variance expansions a total-variation Poisson distribution or joint independence with occupancy collisions, and fixed-n Gaussian analysis is inapplicable. On the other hand, the known AGG theorem covers the hard Poisson approximation step, so originality is limited to the explicit coupling to histogram variation, the finite bound and exact maximum-event counts. A direct statement of the same transformed model in another near-collision source would defeat priority; targeted literature searches did not identify such a statement.",
+      "searches": [
+        "arXiv 2610.17046 sparse occupancy n square root Poisson law adjacent occupied pairs variation",
+        "multinomial histogram total variation sparse bins balls occupancy adjacent collisions Poisson birthday paradox critical sqrt number of bins",
+        "Arratia Goldstein Gordon Two Moments Suffice for Poisson Approximations 1989 theorem b1 b2 b3 2 total variation PDF",
+        "joint Poisson occupancy same bin adjacent bins collision counts independent birthday problem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2606.01465 Section II computes the exact finite law of histogram discrete total variation by dynamic programming; Section III uses beta/gamma fits and does not state a sparse double-Poisson distribution.",
+        "Arratia-Goldstein-Gordon (1989), Theorem 2 gives a general process Poisson approximation from dependency-neighborhood sums; equal-label and adjacent-label indicators are an exact specialization, not a newly invented generic theorem.",
+        "An arXiv/literature query for same-bin and adjacent-bin independent Poisson counts found classical birthday/near-birthday discussions but no examined statement involving the nonlinear histogram statistic and its coupling."
+      ],
+      "reasoning": "The neighboring-bin count is a colored birthday collision count, a known type of rare-pair statistic. The candidate is not presented as a new birthday or Chen-Stein principle: its additional statement concerns the exact nonlinear variation-defect identity with boundary correction, a finite quantitative simultaneous distributional approximation, and exact maximum-variation mass. Classical near-birthday Poisson reasoning supplies the core approximation but does not itself state the variation result. This remains a genuine but relatively close prior-method relationship.",
+      "searches": [
+        "Uniform multinomial ordered histogram discrete total variation 2N minus T Poisson birthday critical N sqrt n adjacent occupied box collisions",
+        "Discrete total variation sparse multinomial birthday transition doubled Poisson deficiency Gaussian limit",
+        "joint Poisson occupancy same bin adjacent bins collision counts independent birthday problem",
+        "arXiv:2606.01465",
+        "arXiv:2610.13366",
+        "arXiv:2610.17046"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Comb Test article contains a recursive finite-parameter dynamic-programming formula for probabilities, not a displayed closed formula for the maximal event nor a uniform joint Poisson approximation.",
+        "The searches for a precomputed exact sparse table or formula recovered no matching explicit bivariate law; non-retrieval alone does not establish originality."
+      ],
+      "reasoning": "The theorem is not a recomputation of individual finite table cells; it supplies a global parameter-uniform bound and scaling limits, plus a concise combinatorial sum for a natural extreme-event probability. Existing exact dynamic programming may evaluate those probabilities separately without giving this concise structural law.",
+      "searches": [
+        "arXiv:2606.01465",
+        "ordered histogram total variation Poisson law 2N-T 2 Poisson lambda asymptotic sparse cells",
+        "Poisson approximation adjacent occupied bins multinomial occupancy geometric edge 2N minus total variation"
+      ]
+    },
+    "rationale": "Three full accessible primary manuscripts on the ordered multinomial DTV statistic were compared at the level of their exact finite recursions, fixed-bin moments and stated asymptotic regimes; none states the new joint sparse law and its explicit finite TV bound or closed extremal mass. Arratia--Goldstein--Gordon 1989 supplies the prior multivariate Poisson approximation and is credited, as is classical same-bin birthday theory. The model-specific pathwise reduction, explicit mixed collision law, and maximum-event enumeration are not asserted as a new generic Stein--Chen theorem. Searches yielded no already-published dominating claim in the inspected sources. The original authors announced further sparse/null-law manuscripts, making historical priority a genuine residual risk rather than proven uniqueness.",
+    "residual_risks": [
+      "The 2026 DTV papers announce separate sparse and full null-distribution manuscripts not identified in bounded accessible searching. Publication of an equivalent birthday-limit theorem would defeat priority.",
+      "The general Arratia--Goldstein--Gordon colored pair-process theorem already covers the underlying rare-pair Poisson step; scientific originality is confined to the specific nonlinear statistic coupling, uniform bound and extremal counts.",
+      "Earlier near-birthday collision literature could contain an equivalent specialization, including work not available beyond its abstract; no comprehensive historical exclusion is claimed.",
+      "An exact dynamic-programming null law for each finite parameter pair was known; the claimed new aspect is the quantitative uniform limiting theorem and concise structural extreme mass, not mere calculability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Computes finite null probabilities using dynamic programming but does not state an explicit simultaneous sparse birthday limit, two-color independence or a Poisson error bound.",
+        "evidence": "Section II-A/B finite recursion, Section III approximation by fitted continuous families, Section IV-B comparison to Paninski coincidence counts, Section V future work.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.01465",
+        "material_read": "Accessible HTML full text: Sections I–III (finite dynamic programming and distribution fitting), IV (power comparisons including ordinary collision count), V (limitations/future sparse weighting).",
+        "method": "Read article text and compared its explicit recursion and approximation domain to the present bivariate total-variation/independence theorem.",
+        "title": "Comb Test: Histogram Uniformity Testing Based on Discrete Total Variation",
+        "trigger": "Exactly the same histogram statistic and its null distribution; plausible dominating finite law."
+      },
+      {
+        "assessment": "The examined result concerns exact expectation and mainly N large relative to n, with separate sparse/null-law papers announced but not located in a bounded public search.",
+        "evidence": "Introduction scope statement, Section 5 limiting regime and concluding passages identifying the companion papers.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.13366",
+        "material_read": "Accessible full HTML: Introduction, main expectation construction, Section 5 large-sample regime, conclusion and references.",
+        "method": "Compared exact mean and asymptotic quantifiers, including references to a separate fixed-N sparse manuscript, against the joint N/n→0 theorem.",
+        "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+        "trigger": "Same probability model and explicit discussion of sparse regimes and future null-distribution work."
+      },
+      {
+        "assessment": "The stated asymptotic is fixed-bin variance, not a joint sparse histogram/collision probability law. The exact finite variance is not a distributional limiting theorem.",
+        "evidence": "Introduction and Section 7 describe variance coefficients and explicitly fix number of bins as observations increase.",
+        "identifier_or_url": "https://arxiv.org/html/2610.17046v1",
+        "material_read": "Full accessible HTML: complete abstract, table of contents, introductory theorem and scope (including exact finite variance), inspected moment decomposition and final theorem summaries.",
+        "method": "Checked hypotheses and limits (fixed bins and increasing observations), finite covariance identities, and relation to proposed sparse joint distribution.",
+        "title": "Discrete total variation under the multinomial, Part 2: variance under the uniform null",
+        "trigger": "Same object, potential stronger probability law; primary motivating recent variance paper."
+      },
+      {
+        "assessment": "Its general process theorem is explicitly used and credited. Model-specific nonlinear variation coupling and maximum-event enumeration are not statements of this general theorem.",
+        "evidence": "Theorem 2, journal page 11; dependency-neighborhood definitions, page 10; birthday examples, pages 14–15.",
+        "identifier_or_url": "https://doi.org/10.1214/aop/1176991491",
+        "material_read": "Author-hosted lawful paper full PDF, pages 9–15 including definition of b1/b2/b3 and Theorems 1 and 2; inspected original printed theorem page visually.",
+        "method": "Read and checked the normalization of total-variation distance, the multivariate process bound and birthday examples.",
+        "title": "Two Moments Suffice for Poisson Approximations: The Chen--Stein Method",
+        "trigger": "General theorem might directly subsume the Poisson approximation and fix the constants used."
+      },
+      {
+        "assessment": "Abstract discusses collision stopping counts, not the exact target claim; full-text overlap cannot be excluded.",
+        "evidence": "2015 publication abstract concerning B(c,n) balls needed for c same-bin collisions.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20591",
+        "material_read": "Accessible bibliographic abstract only; no claim of whole-document exclusion.",
+        "method": "Compared abstract statements on stopping times to the candidate joint fixed-sample histogram-variation statistic.",
+        "title": "Asymptotic distribution for the birthday problem with multiple coincidences, via an embedding of the collision process",
+        "trigger": "Classical birthday-collision results could cover the same-bin marginal or an equivalent limit."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1e8b916-a58e-434b-a1a4-6263e30b4659",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sparse null law of the recently introduced order-sensitive histogram statistic is mathematically motivated because its existing exact dynamic program is costly at large sample sizes and its gamma fit is not a sparse limit theorem. The theorem identifies the natural square-root birthday threshold for its discrete variation defect, gives an explicit distribution-level approximation with absolute uniform error, and establishes the surprising asymptotic independence of order-sensitive variation defects and ordinary birthday collisions from the same data. The exact maximum-mass Stirling formula is a natural tail-calibration invariant. It addresses a distinct non-Gaussian occupancy regime, rather than a one-parameter routine increment or a known table recomputation; no claim of a general downstream testing-power theorem is required or made.",
+    "status": "PASS"
+  }
+}
