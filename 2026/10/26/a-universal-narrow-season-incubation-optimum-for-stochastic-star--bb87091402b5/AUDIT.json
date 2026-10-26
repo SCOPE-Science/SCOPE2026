@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The exact conditional binomial law accounts for the shared recovery clock; the latent-time kernel is continuous with derivative supported positively before a and negatively after a. Its Laplace derivative equals B−A. The ratio A/B increases strictly because its logarithmic derivative compares means of disjoint ordered supports, with opposite endpoint signs. Short-window convergence uses normalized Q_U derivatives, whose support shrinks to zero and yields a unique positive limiting equation. Finite independent forward-equation checks reproduce the conditional formula at selected parameters; they are not used as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General exact rooted-tree SIR/SEIR forward equations cover constant-rate epidemic probability computations.",
+        "Locally tree-like random-graph theorems concern thermodynamic limits, including temporally varying infection rates.",
+        "Deterministic seasonally forced SEIR threshold work studies epidemic invasion."
+      ],
+      "reasoning": "Although the first two models are broader in some dimensions, neither inspected result provides the strict single-crossing optimization, payoff-uniform uniqueness or universal short-pulse limit. A general solver may evaluate the objective without proving the optimization claim.",
+      "searches": [
+        "arxiv:2108.07128v1 full text and discussion",
+        "arxiv:2309.08829v1 full text and theorem statements",
+        "doi:10.3934/mbe.2006.3.161 abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2108.07128",
+      "https://doi.org/10.1007/s00285-022-01854-9",
+      "https://arxiv.org/html/2309.08829v1",
+      "https://doi.org/10.3934/mbe.2006.3.161",
+      "https://doi.org/10.1094/PHYTO-12-10-0338"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new derivative compares a positive derivative kernel on [0,a] against a negative one on [a,b], giving a monotone Laplace ratio.",
+        "The universal limit is the unique solution of an integral equation involving only a and the recovery rate.",
+        "Neither of the two fully inspected primary sources states this optimization or the limiting integral identity."
+      ],
+      "reasoning": "The key implication is not a restatement of an edge-transmissibility or marginal node-state formula: payoff correlations must be handled and strict one-crossing must be proved. Existing derivations can be used as starting premises but are not a published statement of the new theorem.",
+      "searches": [
+        "arxiv:2108.07128v1 Eq 64 rooted-tree exact SEIR",
+        "arxiv:2309.08829v1 time-dependent SIR SEIR",
+        "doi:10.1007/s00285-022-01854-9 Sections 3-4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hall–Siebert derive exact node-state dynamics on a rooted tree from one source; no utility-unimodality or pulsed-incubation optimization in inspected sections.",
+        "Cocomello–Ramanan derive limiting locally tree-like graph dynamics under temporal rates, not finite one-star payoff optimality."
+      ],
+      "reasoning": "Alias and equivalence search included timing of infectious onset, optimal latent progression, finite activity/contact seasons, and time-dependent transmission. Existing rooted-tree exact Markov state formula does not itself state, logically force as an immediate corollary, or explicitly characterize a unique optimum for all monotone utilities.",
+      "searches": [
+        "optimal incubation rate finite transmission window SEIR star unique maximizer latent progression rate",
+        "seasonally pulsed SEIR outbreak size utility star exponential latency recovery optimal progression",
+        "arxiv:2108.07128v1 Sections 2-4",
+        "arxiv:2309.08829v1 Sections 2-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim concerns a continuum of rates and arbitrary monotone final-size payoffs, rather than a pre-tabulated finite enumeration.",
+        "No matching exact formula or classification was identified in the inspected primary references or available topical search results."
+      ],
+      "reasoning": "No known finite table subsumes this quantified structural theorem; absence of a database match is not proof of uniqueness or priority.",
+      "searches": [
+        "optimal incubation rate finite transmission window SEIR star unique maximizer latent progression rate",
+        "seasonally pulsed SEIR outbreak size utility star exponential latency recovery optimal progression",
+        "finite-star SEIR contact pulse exact optimal latent rate threshold probabilities",
+        "single seasonal contact window universal optimal incubation rate"
+      ]
+    },
+    "rationale": "Closest full primary SEIR network sources derive node-state systems, not unique incubation-time optimization for every monotone final-size utility under one finite seasonal transmission pulse, nor the universal narrow-window limit. Direct implication checks distinguish evaluation of an epidemic from proof of a strict all-payoff optimizer. Searches and inspections cannot prove global priority.",
+    "residual_risks": [
+      "Publication search cannot rule out an equivalent or stronger unpublished or differently titled theorem.",
+      "Only accessible abstract and publication description were examined for some broader seasonal/variable-infectivity articles; no whole-document noncoverage inference is made.",
+      "Additional models with piecewise switching transmission and optimized latent times may be described under different vocabulary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest mathematical setting but no finite positive transmission pulse all-utility strict optimum or narrow-pulse limit found in the inspected text.",
+        "evidence": [
+          "arXiv v1 first posted 2021-08-16",
+          "Theorem uses exact node-state ODEs on tree with one initial source and fixed edge/recovery rates",
+          "J. Math. Biol. 86 (2023) doi:10.1007/s00285-022-01854-9, primary 92D30"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.07128",
+        "material_read": "Public full-text arXiv Sections 1-4, equations, discussion and scope; published OA full HTML Sections 2-4 and metadata",
+        "method": "Read full-text structure, exact equation statements, assumptions, conclusions and discussion; compared claimed quantifiers and objective",
+        "title": "Exact solutions and bounds for network SIR and SEIR models using a rooted-tree approximation",
+        "trigger": "Same rooted-tree SEIR object and exact evolution, primary MSC 92D30"
+      },
+      {
+        "assessment": "Time-dependent epidemic limit framework, no observed finite-star single-window global incubation-rate optimum or universal all-utility limit.",
+        "evidence": [
+          "arXiv:2309.08829v1 first public 2023-09-16",
+          "Main result concerns limiting dynamics on locally tree-like graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.08829v1",
+        "material_read": "Full publicly available HTML abstract, introduction, Sections 2-3, main theorem statements and epidemic discussion",
+        "method": "Inspected objects (large locally tree-like random networks), assumptions on rates, theorem conclusions and scope",
+        "title": "Exact description of limiting SIR and SEIR dynamics on locally tree-like graphs",
+        "trigger": "Time-varying infection rates and network SIR/SEIR may dominate a pulse model"
+      },
+      {
+        "assessment": "Addresses deterministic seasonally forced SEIR invasion thresholds. Full-text noncoverage is NOT asserted.",
+        "evidence": [
+          "Publisher abstract states epidemic threshold problem"
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/mbe.2006.3.161",
+        "material_read": "Publisher abstract and accessible bibliographic material, not complete primary text",
+        "method": "Read abstract and scope only",
+        "title": "Epidemic threshold conditions for seasonally forced SEIR models",
+        "trigger": "Seasonal exposure and disease-progression optimization"
+      },
+      {
+        "assessment": "Potential general infectiousness/latent-distribution framework; direct finite-star all-payoff uniqueness not determined from partial access; listed as residual priority risk.",
+        "evidence": [
+          "2012 Phytopathology article on flexible stage durations and infectivity"
+        ],
+        "identifier_or_url": "https://doi.org/10.1094/PHYTO-12-10-0338",
+        "material_read": "Accessible abstract and publication description, not complete primary text",
+        "method": "Read available publication description",
+        "title": "Time-Dependent Infectivity and Flexible Latent and Infectious Periods in Compartmental Models of Plant Disease",
+        "trigger": "Flexible infectious onset and time-dependent infectivity could overlap a timing optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb870914-02b5-4046-be70-c284c75b4498",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact one-crossing theorem addresses an intrinsically motivated tradeoff between exposure lag, pre-season recovery, and missing a season. Uniqueness for every monotone payoff is substantive because correlated leaf infections yield nonlinear final-size utilities. A universal short-pulse optimum independent of contact intensity, number of leaves and reward preferences supplies a robust analytic benchmark. No larger-network or other-distribution extension is claimed.",
+    "status": "PASS"
+  }
+}
