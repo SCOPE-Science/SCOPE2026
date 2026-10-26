@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The cyclotomic exponent of a Gaussian multinomial is the exact floor deficit. The residue bound is attainable for each modulus; this proves every exponent in the polynomial LCM. For primes, the finite set of feasible base-\(p\) carry vectors is closed under coordinatewise maximum, as verified directly from the digit inequalities. This constructs one composition simultaneously maximizing all prime-power exponents, and Legendre's formula proves the specialization identity. The standalone finite checker corroborates small parameters and polynomial evaluations; it does not replace the proof.
+
+**Originality — PASS under inspected evidence.** Guo's 2009 Theorem 2 and Section 3 cover exactly two parts, where exponents are zero or one. Howard's 1974 valuations and generating-function framework address ordinary multinomial coefficient frequencies, but the inspected sections do not supply a Gaussian LCM or the exact specialization identity. Bergman's 2008 arguments concern common divisors, not row LCMs. Directed mathematical-record queries and the accessible prior claim history did not identify equivalent Gaussian multinomial formulas. The remaining risk is unindexed work, plus the possibility of a stronger obscure multinomial valuation theorem that would shorten the integer half of the argument.
+
+**Value — PASS.** This determines a natural, unbounded two-parameter LCM invariant in the polynomial and integer settings. Unlike the two-part case, several cyclotomic powers can accumulate; the carry-lattice construction explains the nonautomatic compatibility between taking polynomial least common multiples and evaluation. The result provides an exact formula, not a tabulation or a mere change of notation.
+
+**Closest work and limits.** Guo (2009), Howard (1974), and Bergman (2008) are the principal comparisons. Individual prime-adic valuation formulas are classical; neither their discovery nor the binomial two-part identity is claimed as new. The result does not cover commutation at numeric \(q\ge2\) or uniqueness of extremizers. Publication priority remains uncertain absent comprehensive indexing.
+
+Self-review: passed. Independent audit: not yet performed.
