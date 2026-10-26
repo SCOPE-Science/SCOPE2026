@@ -1,0 +1,15 @@
+# Scientific review of the finite-parameter sextic pencil
+
+## Correctness — PASS
+On \(X=1\), solving both explicit partial derivatives gives \(v=u^{-4}\), \(\lambda=u^5-u^{-16}\); substituting into the curve equation yields a factored degree-31 polynomial. The degree-seven and degree-nineteen irreducible factors map injectively under \(u\mapsto\lambda\) by a field-degree test. Together with \(u=\pm1\), these give exactly 28 distinct geometric singular parameters, each with one singular point. The Hessian establishes the 27 nodes; the local double tangent and cubic transverse term establish the sole \((2,3)\)-cusp. Bézout and the local singularity types imply geometric integrality, so the normalization genera are 10 and 9. The standalone exact checker reproduces the polynomial and irreducibility certificates and independently checks all rational points of the three rational fibers; an independently written symbolic checker confirms the elimination, local Hessian, and cusp tangent expansion.
+
+## Originality — PASS, with residual risk
+Asgarli–Ghioca (arXiv:2307.03072v1, 2023) define the pencil and give the rational-point smoothness criterion and finite-field computational verification, including \(q=3\). The related known rational-node/cusp analysis covers the two rational bad parameters. These facts do not determine the complete reduced singular-parameter polynomial over the algebraic closure, its two nonrational Frobenius orbits of lengths 7 and 19, the uniqueness of the singularity in each nonrational fiber, or the normalization-genus profile. Searches for equivalent polynomial discriminants and stronger coverage did not locate these assertions. A preexisting unindexed elimination or degeneration calculation remains a residual risk, and a negative search is not a proof of global novelty.
+
+## Mathematical value — PASS
+This computes the complete geometric degeneration profile, rather than a few ground-field specializations, of the specific plane-filling sextic pencil selected in a published small-degree construction. The orbit lengths \(1,1,7,19\) and the one-cusp/twenty-seven-node classification give exact arithmetic and geometric information that can be used in studying degenerations and specialization of its genus-ten curves. The result is a natural complete classification of a one-dimensional family, not an arbitrary selected parameter or routine numerical increment. No assertion is made about the higher-field or higher-degree conjectures.
+
+## Closest literature and limitations
+Primary: Asgarli and Ghioca, *Plane-filling curves of small degree over finite fields*, arXiv:2307.03072v1, Equation (1), Theorem 1.2, Conjecture 1.5, Sections 3–4. The present result is restricted to the finite members of its \(q=3\) pencil and computes the **reduced** parameter locus only; scheme-theoretic discriminant multiplicities and \(\lambda=\infty\) are not determined. These limitations do not affect the stated classification. Independent scientific verification is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
