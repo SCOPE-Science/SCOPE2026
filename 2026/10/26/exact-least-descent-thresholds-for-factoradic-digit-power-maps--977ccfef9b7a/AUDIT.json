@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The convex digitwise objective has its exact maximum at the upper digit for every i<j_r. For each j-th digit a this bound is simultaneously attained at (a+1)j_r!-1. The definition of a_r excludes all higher blocks; the inspected JIS Theorem 1 proves descent above (j_r+1)!, covering the remaining infinite range. The a_r endpoint is a concrete failure. Independent exact-digit computations check all r=2..40 block identities and exhaustive below-old-bound cases r=2..6.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "JIS Theorem 1 covers all r, but concludes only all n >= (j_r+1)! strictly decrease; r=3 has exact cutoff 24 rather than 120.",
+        "Carlson–Goedhart–Harris discusses fixed-point/cycle tables and a sufficient bound but not the sharp first threshold for arbitrary r."
+      ],
+      "reasoning": "Coverage of high integers is not a determination of the exact least boundary; the extra block-wise optimization and boundary witness are not implied by the stated sufficient theorem.",
+      "searches": [
+        "exact maximal nondecreasing integer of factoradic digit-power map, digitwise convexity and sharp descent conductor, sum i^r versus i i!",
+        "Sequences of consecutive factoradic happy numbers Carlson Goedhart Harris theorem 3 and Sanchez Garza Trevino bound refinement"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1912.02044v1",
+      "Journal of Integer Sequences 24 (2021), Article 21.8.5",
+      "OEIS A230319",
+      "Targeted mathematical-record semantic searches with queries stated above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "JIS Theorem 1 plus its Section 4 proves a universal sufficient bound, which is used here solely above that bound.",
+        "A full block-end upper envelope P_r+a^r-a j_r! and an attained witness at (a+1)j_r!-1 yield the new least cutoff."
+      ],
+      "reasoning": "The published proposition excludes failures beyond (j_r+1)! but permits any behavior below it. The new theorem resolves the entire below-bound range, hence does not follow as a stated or immediate special case of the published cutoff.",
+      "searches": [
+        "Enrique Trevino Sánchez Garza 2021 On a Sequence Related to the Factoradic Representation of an Integer optimal threshold bound",
+        "factoradic happy function S_{r,!}(n) exact least threshold n beyond which strictly decreases sum of powers of factorial digits"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carlson–Goedhart–Harris, arXiv:1912.02044v1, Section 2, Theorem 3 states only a sufficient bound for selected exponents.",
+        "Sánchez Garza–Treviño, JIS 24 (2021), Article 21.8.5, Theorem 1 proves the sufficient bound for every exponent."
+      ],
+      "reasoning": "The equivalent description as the largest n with S(n)>=n was compared. Neither inspected source gives that largest integer for all exponents, and the returned mathematical-record candidates described unrelated thresholds.",
+      "searches": [
+        "factoradic happy function S_{r,!}(n) exact least threshold n beyond which strictly decreases sum of powers of factorial digits",
+        "sharp smallest cutoff N where factoradic digit power sum S_{r,!}(n) < n for all n>=N, exact threshold j_r factorial base"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A230319 lists j_r only; Carlson–Goedhart–Harris Table 1 gives fixed points, cycles and the sufficient M_r values.",
+        "The mathematical-record result titled \"A hundred-million-term verification of the factorial-over-three refactorable conjecture\" concerns divisor counts of factorials, not digit-power descent."
+      ],
+      "reasoning": "Neither an index-crossing sequence nor a fixed-point/cycle table determines the exact last n with S(n)>=n; numerical coincidence at an exponent cannot establish all-exponent coverage.",
+      "searches": [
+        "https://oeis.org/A230319",
+        "factorial numeral system digit power sum largest non-descending integer optimal bound (j_r+1)! sharp cutoff"
+      ]
+    },
+    "rationale": "The published universal theorem establishes descent at and above (j_r+1)!, while the new theorem gives the exact smaller cutoff and explicit last-failure witness for every exponent. Source sections were compared at statement-and-implication level; no matching prior theorem was identified in the actual searches. An unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed independent solution or implicit optimization in other works might overlap.",
+      "The new proof relies on the correctness of the published high-range theorem; its statement and proof were inspected, not independently re-proved in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides sufficient eventual-descent bound, fixed-point and cycle data, not exact minimum for all integer exponents",
+        "evidence": [
+          "Section 2 Theorem 3: n>M_e for 2<=e<=4; Table 1 lists M_e=(j_e+1)!-1 and cycles.",
+          "Sections 3-5 focus on consecutive happy numbers and their densities."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1912.02044v1",
+        "material_read": "Full accessible HTML, including definitions, Section 2 Theorem 3 and Table 1, Sections 3-5 and references",
+        "method": "Read mathematical statements, proof boundaries, table columns and later scope",
+        "title": "Sequences of consecutive factoradic happy numbers",
+        "trigger": "Same factorial numeral system and digit-power map"
+      },
+      {
+        "assessment": "Provides high-range sufficient bound used in proof; exact least cutoff not reported",
+        "evidence": [
+          "Theorem 1: S_{r,!}(n)<n whenever n>=(j_r+1)! for all positive r.",
+          "Section 4 demonstrates the strict sufficient inequality; does not optimize all factorial blocks or identify sharp witnesses."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Trevino/trevino6.pdf",
+        "material_read": "Full 13-page primary research PDF; Theorem 1 on page 3, section 4 proof on pages 11-12 and references",
+        "method": "Read parsed PDF text and inspected rendered theorem and proof pages",
+        "title": "On a Sequence Related to the Factoradic Representation of an Integer",
+        "trigger": "General all-exponent factorial-digit descent theorem with identical notation"
+      },
+      {
+        "assessment": "Index sequence only, not the descent-threshold function",
+        "evidence": [
+          "A230319 defines least k with k!>k^n and lists 2,3,4,6,7,8,10,... for n=0,1,2,..."
+        ],
+        "identifier_or_url": "https://oeis.org/A230319",
+        "material_read": "Definition, initial terms, comments, cross-references and programs",
+        "method": "Read accessible sequence entry",
+        "title": "OEIS A230319",
+        "trigger": "Sequence giving the factorial-versus-power crossing index j_r"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "977ccfef-9b7a-4bc5-be5a-a929eb98a55d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least universal one-step descent threshold is a natural trapping-set boundary used to reduce factoradic happy dynamics to finite analysis. The theorem gives its exact value for all exponents, with sharp last-failure witnesses and cases where the older sufficient bound overestimates by factors. This is more than a sample numeric adjustment and does not claim to classify cycles.",
+    "status": "PASS"
+  }
+}
