@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Direct solution of the backward Robin problem, an exact derivative numerator, strict positivity of its derivative across the entire closed allocation interval, opposite endpoint signs, explicit optimizer formula, implicit crossover/monotonicity proof, and independently checked finite-difference and function-only optimizations. The strong-budget expansions at endpoints are proved using exact roots rather than a nonuniform interior expansion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nicolaou–Mulder, DOI 10.1038/s41598-023-49566-4: numerical exterior-body spatial-reactivity optimization for steady diffusional flux, with a related fixed reactivity resource budget.",
+        "The bounded two-endpoint point-start process is eventually absorbed with probability one whenever the total reactivity is positive, so total capture probability cannot distinguish the proposed allocations."
+      ],
+      "reasoning": "A broader spatial-reactivity budget alone does not imply the present objective: mean time to absorption conditioned on a deterministic start. The flux paper optimizes a different steady-state functional and does not give the exact allocation theorem or strong-budget endpoint square-root law in the examined materials.",
+      "searches": [
+        "optimal allocation two partially absorbing radiation boundaries fixed total reactivity Brownian mean first passage time interval",
+        "Robin boundary reaction rates budget optimal splitting mean escape time interval one dimensional diffusion",
+        "A probabilistic algorithm for optimising the steady-state diffusional flux into a partially absorbing body"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:physics/0611251",
+      "arxiv:1301.2489",
+      "doi:10.1038/s41598-023-49566-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Erban–Chapman establishes partial-reaction radiation conditions, necessary forward modeling but not optimized resource allocation.",
+        "Whitehouse–Evans–Majumdar studies partially absorbed diffusion with resetting, not sum-constrained Robin rates at both boundaries.",
+        "Nicolaou–Mulder studies maximum exterior steady flux with variable reactivity, not minimum bounded first-passage time."
+      ],
+      "reasoning": "The known Robin boundary and first-passage formulas motivate a new optimization question but none of the inspected statements entails the all-parameter unique two-wall optimum, the budget-monotonic fraction, or the square-root remote allocation. The claim is specifically these structural consequences under a fixed reactivity sum.",
+      "searches": [
+        "arxiv:physics/0611251 reactive boundary conditions diffusion partial absorption",
+        "arxiv:1301.2489 Effect of Partial Absorption on Diffusion with Resetting",
+        "Nicolaou Mulder 2023 partial absorbing body optimal reactivity flux"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Robin mean problem here has two independently tunable endpoint coefficients constrained by their sum; the Erban–Chapman account derives radiation boundary conditions but not two-endpoint fixed-budget mean-time minimization (arXiv:physics/0611251).",
+        "Whitehouse–Evans–Majumdar arXiv:1301.2489 uses one partially reactive target with resetting; its optimization variable is a resetting protocol."
+      ],
+      "reasoning": "Equivalent radiation/partial-reflection terminology and Robin/local-time formulations were explicitly included. The inspected results do not exhibit the universal interior root or weak/strong fraction crossover. This is evidence of distinct statements, not an assertion of exhaustive priority.",
+      "searches": [
+        "\"Robin\" \"fixed\" \"total\" \"mean first passage\" \"optimization\" boundary",
+        "\"allocation\" \"partial absorption\" \"reaction rates\" \"Brownian\" \"boundary\"",
+        "\"optimal\" \"reactivity\" \"two\" \"ends\" \"interval\" \"diffusion\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching two-boundary budget optimizer or table was found for the exact normalized parameters and observable.",
+        "An explicit polynomial optimality condition and universal asymptotic fractions are proved, rather than imported from a table."
+      ],
+      "reasoning": "The result is a continuous analytic classification, not a finite tabulated invariant. Searches test for exact formula overlap; database absence alone cannot certify uniqueness.",
+      "searches": [
+        "\"optimal\" \"reactivity\" \"two\" \"ends\" \"interval\" \"diffusion\"",
+        "\"Robin\" \"fixed\" \"total\" \"mean first passage\" \"optimization\" boundary"
+      ]
+    },
+    "rationale": "The complete fixed-total-Robin-reactivity unique optimum and its weak/strong allocation laws are not implied by the inspected forward Robin-boundary literature or the separate exterior steady-flux optimization; overlap comparisons include actual searchable records, aliases and stronger-coverage tests. Specialized priority risk remains.",
+    "residual_risks": [
+      "A specialized capture-device, chemical-engineering, or search-theory paper may already derive the exact fixed-sum two-Robin-endpoint theorem under different variable names.",
+      "The closest 2023 exterior-flux study was not fully inspected from PDF; assessment is confined to material actually accessible, although its stated objective is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes radiation/Robin physical modeling, not fixed-sum two-endpoint allocation of mean first-passage time",
+        "evidence": "Erban and Chapman, 2006 arXiv preprint and 2007 journal version, DOI 10.1088/1478-3975/4/1/003.",
+        "identifier_or_url": "arxiv:physics/0611251; https://people.maths.ox.ac.uk/erban/papers/PhysicalBiology.pdf",
+        "material_read": "Preprint introduction, reactive-boundary formulation, and boundary-calibration analysis",
+        "method": "Lawful author-hosted full-text PDF, examined as scientific text and rendered pages",
+        "title": "Realistic boundary conditions for stochastic simulations of reaction-diffusion processes",
+        "trigger": "Same partially reactive radiation boundary law and earliest eligible public foundation"
+      },
+      {
+        "assessment": "Optimizes/compares stochastic resetting with a partial absorber, not two reactivities at fixed sum",
+        "evidence": "Whitehouse, Evans and Majumdar (2013), arXiv:1301.2489, Physical Review E 87, 022118.",
+        "identifier_or_url": "arxiv:1301.2489",
+        "material_read": "Full preprint relevant introduction, Robin-boundary formulation and mean-absorption-time section",
+        "method": "Open preprint full text and inspected PDF pages",
+        "title": "Effect of Partial Absorption on Diffusion with Resetting",
+        "trigger": "Closest first-passage problem combining partial absorption with rate optimization"
+      },
+      {
+        "assessment": "Exterior-body objective maximizes steady capture flux, not finite-interval deterministic-start mean first passage; no strong-budget exact allocation rule identified in available materials",
+        "evidence": "Nicolaou and Mulder, Scientific Reports (2023), DOI 10.1038/s41598-023-49566-4.",
+        "identifier_or_url": "doi:10.1038/s41598-023-49566-4",
+        "material_read": "Substantive publicly accessible search-indexed article discussion, problem formulation, objective and method; complete PDF text not obtained",
+        "method": "Article-indexed full-text sections and abstract, without asserting whole-PDF inspection",
+        "title": "A probabilistic algorithm for optimising the steady-state diffusional flux into a partially absorbing body",
+        "trigger": "Potential broader coverage through spatially varying reactivity and fixed-budget optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "562e72eb-5093-4fb7-b115-7b4412b8b4cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural constrained allocation of a finite partial-reaction budget minimizing absorption time, complete unique interior optimum, strict budget-driven allocation crossover, and nonobvious endpoint phenomenon: strictly positive distant-wall reactivity and square-root growth of its optimal allocation even for a particle starting at the other wall. Both physical meaning and quantitative design consequence are explicit.",
+    "status": "PASS"
+  }
+}
