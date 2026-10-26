@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The six-color partition follows by intersection of named-ground-set stars and the five-element remainder; both independent C++ and Python exhaustive 5-color searches construct exactly 57 triples and 498 disjointness edges and rule out 5-colorings by 122153 complete canonical branches. The independent verifier checks all six dihedral deletion-orbit witnesses and their transport to all 57 vertices. The group symmetry is checked directly, clique number is bounded by ten ground-set labels. No timeout/incomplete enumeration is accepted as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arana et al. (2026), Theorem 1.2 excludes properly contained cycles up to 4k-4; Conjecture 1.3 predicts tightness above that threshold; Theorem 1.4 holds for sufficiently long cycles and explicitly leaves the first cycle-plus-isolate cases open.",
+        "Schrijver (1978) concerns the single-cycle stable Kneser graph, not a cycle with an additional isolated label."
+      ],
+      "reasoning": "The new G has a nine-cycle and an isolate, so it is not itself a cycle or a spanning subgraph of any ten-cycle. The necessary exclusion for cycle length at most eight does not cover nine. The nonexplicit asymptotic bound cannot certify its first length, and the paper has no vertex-deletion classification for this case.",
+      "searches": [
+        "G stable Kneser graph vertex critical when G is disjoint union cycle isolated vertex",
+        "generalized Schrijver graphs vertex critical stable Kneser isolated vertex",
+        "\"The chromatic number of G-stable Kneser graphs\" October 2026 arxiv conjecture tight cycles paths"
+      ]
+    },
+    "checked_sources": [
+      "Arana, Haxell, Kaiser, Stehlík, arXiv:2610.17884, primary full-text web rendering, first submitted 2026-10-13.",
+      "Schrijver, Nieuw Archief voor Wiskunde 26 (1978), 454-461; repository bibliographic record and abstract.",
+      "Schultz, arXiv:1003.5688 (2010), abstract.",
+      "Indexed research-record comparisons: exact graph, vertex criticality, general G-stable Kneser aliases, and first cycle/isolate conjecture; closest returned material concerns unrelated preference-stable coloring, not this disjointness graph."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arana et al. (2026), Introduction, Conjecture 1.3 and Theorem 1.4; their remark specifically notes open finite cases and unspecified computer testing.",
+        "Schrijver (1978) proves vertex criticality for SG(n,k); the present graph H is not SG(10,3)."
+      ],
+      "reasoning": "Theorem 1.4 asserts tightness only after an unspecified size threshold, not at the first n=10 instance; Conjecture 1.3 is not a theorem. A result for the proper induced SG(9,3) has chromatic number five but does not prohibit a five-color extension to triples using an isolate. Schrijver criticality likewise does not settle all deletions in the larger 57-vertex H. No stronger source dominating both new conclusions was located.",
+      "searches": [
+        "\"C_9\" \"K_1\" \"stable Kneser\" 6-chromatic",
+        "\"vertex-critical\" \"G-stable Kneser\" \"isolated\"",
+        "G-stable Kneser graph C_{4k-3} plus one isolated vertex k=3 is vertex critical 6-chromatic chromatic tightness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A. Schrijver, Vertex-critical subgraphs of Kneser-graphs (1978), abstract: critical graphs constructed from single cycles.",
+        "Arana et al., arXiv:2610.17884, Introduction: KG(G,k) as the disjointness graph of independent k-sets."
+      ],
+      "reasoning": "Equivalent interpretation is the induced Kneser subgraph from independent triples of C9 plus K1. This has 57 vertices, not the 50 of SG(10,3), and no known Schrijver single-cycle equivalence implies its exact criticality. A dihedral symmetry relabeling merely permutes the six deletion-orbit classes.",
+      "searches": [
+        "chromatic criticality of generalized Schrijver Kneser graphs on independent triples in graph formed by nine cycle plus isolated vertex",
+        "\"C_9\" \"K_1\" \"stable Kneser\" 6-chromatic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full explicit finite counts 57 vertices, 498 edges, 122153 canonical search states and six vertex-deletion orbits are reproduced by the included sources.",
+        "No matching indexed table or mathematical result was returned by those queries."
+      ],
+      "reasoning": "No exact database/table entry or stronger published result from the actual searches implied both the 6-chromatic bound and criticality. Failed discovery is not proof of priority, and no exhaustive census of every external database is claimed.",
+      "searches": [
+        "\"57\" \"498\" \"Kneser\" \"chromatic\" graph",
+        "\"C9\" \"K1\" \"Kneser\" \"chromatic\" \"3\"",
+        "The 57-vertex 498-edge Kneser graph of independent triples in C9 disjoint union K1 is 6-chromatic vertex-critical; removing any vertex makes it 5-colorable"
+      ]
+    },
+    "rationale": "The 2026 primary paper explicitly treats the cycle-plus-isolate case only asymptotically and conjecturally, not as a finite proven boundary, and does not give the six-orbit vertex-critical certificate. Schrijver 1978 establishes the corresponding chromatic/criticality result for single-cycle stable sets, a different 50-vertex graph. Relevant published-source and database searches found no exact 57-vertex statement. Authors report unspecified earlier computational tests, so unreported prior knowledge remains a genuine risk.",
+    "residual_risks": [
+      "Arana et al. explicitly describe computational tests consistent with their conjecture but do not identify tested parameter instances; the first exact numerical case might have been verified privately or in unindexed supplementary work.",
+      "Not all archival full-text sources of Schrijver-type generalizations were inspected, and search coverage cannot establish absolute historical priority.",
+      "The exhaustive coloring obstruction relies on independently replayable, finite program execution; no externally certified unsatisfiability proof is supplied."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The finite case C9 plus isolated vertex for k=3 and vertex-deletion criticality are not stated as proved. The authors report unspecified computational tests of the conjecture, retained as priority risk.",
+        "evidence": "Introduction Conjecture 1.3 and remark; Theorems 1.2, 1.4; Corollary 2.14; Section 3 proof of Theorem 1.4.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.17884",
+        "material_read": "Public full-text HTML rendering: introduction, stated main results, detailed short-cycle arguments in Section 2, asymptotic argument in Section 3 and the source of the disjoint-cycle lower bound in Section 4; main statements and references checked.",
+        "method": "Direct reading of the primary publicly accessible arXiv full-text rendering, compared theorem hypotheses and quantitative implications.",
+        "title": "The chromatic number of G-stable Kneser graphs",
+        "trigger": "The exact source of the G-stable Kneser definition, sharp cycle threshold and currently open isolated-cycle conjecture."
+      },
+      {
+        "assessment": "Its single-cycle stable Kneser construction does not directly imply criticality for the 57-vertex graph based on a nine-cycle plus isolate. A hidden broader theorem in the unread full text remains a low but real residual risk.",
+        "evidence": "1978 abstract: stable n-subsets of a circuit of order 2n+k yield (k+2)-vertex-critical subgraphs.",
+        "identifier_or_url": "https://research.tue.nl/en/publications/vertex-critical-subgraphs-of-kneser-graphs/",
+        "material_read": "Bibliographic record and publisher/repository abstract; full article not inspected.",
+        "method": "Inspected accessible abstract and verified the stated cycle construction and theorem scope.",
+        "title": "Vertex-critical subgraphs of Kneser-graphs",
+        "trigger": "Classical potential dominating theorem establishing vertex-criticality of Kneser subgraphs."
+      },
+      {
+        "assessment": "Deals with standard stable Kneser graphs from one cycle and equivariant Hom topology, not explicit isolated-cycle criticality.",
+        "evidence": "2010 abstract identifies Schrijver graphs as vertex critical.",
+        "identifier_or_url": "https://arxiv.org/abs/1003.5688",
+        "material_read": "Accessible arXiv abstract, not full paper.",
+        "method": "Compared its stated scope with the disjointness graph defined here.",
+        "title": "The equivariant topology of stable Kneser graphs",
+        "trigger": "Possible broader criticality theorem for variants of Schrijver graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f857792-1140-466f-9b06-f85e47d8fb48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph is the first unresolved cycle-plus-isolate threshold instance for k=3 of an explicit 2026 conjecture: cycle length 9 immediately after the known exclusion at 8. The result proves exact tightness, stronger vertex criticality for every triple, and a natural 3-versus-6 clique/chromatic gap with six-orbit proof data. It resolves a motivated boundary rather than a random isolated computation; the full conjecture is not asserted.",
+    "status": "PASS"
+  }
+}
