@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Full formal EGF is obtained from the published bijection by exact signed-block weights: singleton \\(u\\); for \\(s\\ge2\\), weights \\(t(u^{s-1}+u^s)+(2^{s-1}-2)t^2u^{s-1}\\), and zero-block weights \\(u\\) or \\(tu^z\\); only ascent joins. Direct word enumeration and independent block recurrence agree \\(1\\le n\\le8\\). The all-order proof does not appeal to a finite census.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buck et al., arXiv:2306.13034, Section 3 gives a type-B partition bijection and run counts; no plateau-marked EGF.",
+        "Ma–Ma–Yeh, arXiv:1801.08056, enumerates statistics on the unrestricted Stirling-permutation family.",
+        "Ma–Liu–Yeh–Yeh, arXiv:2506.16438, Section 3.2 uses one singleton minimum, not the flattened run-start condition."
+      ],
+      "reasoning": "An unrestricted trivariate polynomial does not specify its flattened-subclass distribution, and the separately restricted singleton-minimum family is different already at the defining object level. The type-B bijection is a tool used in the proof rather than a stated stronger joint theorem.",
+      "searches": [
+        "flattened Stirling permutations exact number with k runs all k open problem Buck Elder Harris Harry Simpson 2023",
+        "flattened Stirling permutations plateau distributions colored partition 2025 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.13034",
+      "https://arxiv.org/abs/2307.07730",
+      "https://arxiv.org/abs/1801.08056",
+      "https://arxiv.org/abs/2506.16438",
+      "Published mathematical-record summaries on flattened permutations, joint plateaux and bijective reformulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shankar Corollary 10 explicitly gives the u=1 specialization, and Section 7 asks for the further joint distribution.",
+        "Ma–Liu–Yeh–Yeh 2025 Section 3.2 defines words on the multiset with smallest symbol occurring once, not flattened 2-Stirling words."
+      ],
+      "reasoning": "The bivariate formula strictly refines the known descent-only generating function. An arbitrary univariate EGF cannot imply independent plateau exponents; the restricted multi-Eulerian formulas concern a different word class. The statement is motivated by, but not a corollary of, the explicitly published prior statements.",
+      "searches": [
+        "Shankar Corollary 10 flat Eulerian polynomial order 2 e generating function",
+        "Eulerian-type polynomials over Stirling permutations box sorting restricted class least singleton 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "U. Shankar, arXiv:2307.07730, Section 7 question 4 requests joint ascent and plateau statistics on flattened k-Stirling permutations; ascents are complementary to internal descents and plateaux.",
+        "U. Shankar, Corollary 10 recovers precisely the specialization u=1; no joint marker is present."
+      ],
+      "reasoning": "The internal ascent count is 2n-1 minus descent and plateau counts, so ascent–plateau and descent–plateau joint polynomials are equivalent by degree substitution. The closest source records only the descent marginal, which does not determine the joint polynomial.",
+      "searches": [
+        "flattened Stirling permutations joint distribution descents plateaus ascent statistics exponential generating function type B signed set partitions 2023 Shankar",
+        "flattened Stirling permutations plateau ascent bivariate generating function 2024 2025 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shankar, arXiv:2307.07730, concluding Table 1 tabulates flattened counts by runs, not plateau-by-descent joint coefficients.",
+        "The independent coefficient tables in verify.py are generated anew through order eight; closest published tables give marginal run counts."
+      ],
+      "reasoning": "Tabulated marginals and total Dowling counts cannot determine the claimed joint coefficients. No exact matching bivariate table was found in the inspected references or relevant record search; lack of a search hit alone is not novelty proof.",
+      "searches": [
+        "bivariate polynomial B_n(t,u) flattened Stirling permutations number descents and adjacent equalities plateaus",
+        "flattened Stirling permutation ascent plateau statistics distribution joint open problem Shankar"
+      ]
+    },
+    "rationale": "The claimed bivariate distribution is not the known univariate Shankar Corollary 10: it has independent plateau variable u. Direct comparisons with Shankar, Buck, Ma–Ma–Yeh, and Ma–Liu–Yeh–Yeh find no covering joint result on the flattened family; Shankar explicitly poses the joint question. Risk of an unindexed equivalent remains.",
+    "residual_risks": [
+      "An unindexed article, appendix or equivalent specialization may contain the same bivariate EGF, despite accessible direct primary literature and record searches.",
+      "The formula answers only the k=2 case of Shankar’s broader question, not all k."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BIJECTION_AND_MARGINALS_ONLY",
+        "evidence": "Explicit type-B partition bijection and run enumeration, not bivariate descent–plateau series.",
+        "identifier_or_url": "https://arxiv.org/abs/2306.13034",
+        "material_read": "ArXiv abstract and full-text paper, especially bijection/partition encoding and block statistics in Section 3 and supporting later enumerations",
+        "method": "Read OA full text with detailed examination of zero and nonzero blocks; compare stated results",
+        "title": "Flattened Stirling Permutations",
+        "trigger": "Direct source of the bijection and object definition"
+      },
+      {
+        "assessment": "COVERS_UNIVARIATE_DESCENTS_NOT_NEW_BIVARIATE",
+        "evidence": "Corollary 10 has t only and matches u=1; Section 7 question 4 explicitly asks for joint ascent/plateau.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.07730",
+        "material_read": "Full OA paper: main theorem, Corollary 10, Section 6 weighted species, Section 7 question 4 and Table 1",
+        "method": "Read full text and compare polynomial variables and object class, including proof species factors",
+        "title": "Enumeration of flattened k-Stirling permutations with respect to descents",
+        "trigger": "Closest direct stronger follow-up (potential domination)"
+      },
+      {
+        "assessment": "UNRESTRICTED_DIFFERENT_OBJECT",
+        "evidence": "Enumerators sum over all Stirling permutations and use a boundary-normalized ascent/descent convention; do not isolate the flattened subset.",
+        "identifier_or_url": "https://arxiv.org/abs/1801.08056",
+        "material_read": "OA PDF, definition and theorem scope, especially opening sections and unrestricted sample space",
+        "method": "Read PDF and compare classical Stirling versus flattened-subclass condition and boundary conventions",
+        "title": "The Ascent-Plateau Statistics on Stirling Permutations",
+        "trigger": "Possible broader multivariate Stirling polynomial"
+      },
+      {
+        "assessment": "DIFFERENT_RESTRICTED_CLASS",
+        "evidence": "Their restricted multiset has the smallest letter once, while flattened Stirling permutations have all letters twice and an additional global run-start condition.",
+        "identifier_or_url": "https://arxiv.org/abs/2506.16438",
+        "material_read": "OA PDF Section 3.2 including Lemma 11, and Sections 1 and 3.3",
+        "method": "Read PDF main definition and inspect page of Lemma 11 in full image, compare multiset",
+        "title": "Eulerian-type polynomials over Stirling permutations and box sorting algorithm",
+        "trigger": "More recent six-variable statistics on a restricted Stirling family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6787f057-90e6-4da7-be1f-7919e570ac5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete bivariate distribution for the original flattened two-copy Stirling family answers Shankar (2023), Section 7 question 4 for \\(k=2\\), yields all joint ascent/plateau moments and retains the exact known descent specialization. A motivated, nonroutine all-order refinement, not a numerical increment.",
+    "status": "PASS"
+  }
+}
