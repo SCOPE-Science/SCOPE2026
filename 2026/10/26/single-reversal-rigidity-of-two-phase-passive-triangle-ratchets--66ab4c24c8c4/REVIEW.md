@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The theorem is a direct finite-dimensional argument: equal stationary environment occupancy, an invertible four-dimensional mean-zero reduction, the exact quadratic determinant, rank-two control of the adjugate minors, and detailed balance forcing a factor of the switching rate. Positivity and the boundary case at zero switching were checked separately. Exact rational six-state calculations corroborate the example including hidden entropy generation; they are not substituted for the rank argument.
+
+**Originality — PASS (qualified).** The special flat-phase construction falls within familiar minimal-ratchet phenomena, and Lee et al. already exhibit noise-driven current reversals. The claim is instead the global at-most-one reversal theorem for *arbitrary pairs* of strictly reversible three-site phase generators, varying only a single symmetric, position-independent environment-switching rate. Direct comparisons of the full finite-state ratchet works by Jarzynski–Mazonka and Lee et al., and the quasi-steady-state work by Levien–Bressloff, did not identify this uniform all-parameter theorem. This is a best-knowledge literature judgment, not a priority guarantee; generalized hidden coverage in other finite Markov motor papers remains a risk.
+
+**Value — PASS.** The bound is a sharp, parameter-complete obstruction to multiple switching-rate reversals for a natural minimal flashing-ratchet class, and identifies which model assumptions must be abandoned to permit richer direction changes. The exact example shows that a stall need not be thermodynamic equilibrium, a substantive distinction for observing molecular motor currents.
+
+**Closest work and limitations.** Lee et al. (2002/2003) establish noise-induced current in a three-state model; Jarzynski and Mazonka (1999) solve a related discrete ratchet; Levien and Bressloff (2015) derive approximations for flashing-ratchet motion. This classification does not cover site-dependent mode switching, higher-dimensional spatial cycles, or nonequilibrium individual phases. Some less-accessible specialized finite-state motor literature might imply the classification.
+
+Self-review: passed. Independent audit: not yet performed.
