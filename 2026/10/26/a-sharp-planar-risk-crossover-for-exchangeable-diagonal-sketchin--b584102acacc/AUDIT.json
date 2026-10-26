@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction of four independent Rademacher BKS probes and two leave-one-out XDiag probes yields exact all-sign risk formulas. The denominator is a product of strictly positive image norms. The cubic threshold is shown unique by a derivative sign argument. A finite discrete-support continuity argument proves high-dimensional opposite risk advantages. The standalone Python 3 exact-rational verifier passed 1208 assertion families, including complete two-sign-pair enumeration and relevant exact identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2202.02887 treats direct stochastic diagonal estimation and bounds depending on off-diagonal mass.",
+        "arxiv:2201.10684 studies diagonal-estimation bounds and Diag++, not a sharp cross-method two-probe risk criterion.",
+        "Epperly dissertation Chapter 16 shows qualitative regime comparisons on larger synthetic matrices."
+      ],
+      "reasoning": "Existing bounds and comparative experiments do not directly state or imply the exact two-probe Rademacher XDiag risk, the unique cubic boundary for every planar SPD matrix, or the strict non-domination statements. This is not a claim of universally better algorithms.",
+      "searches": [
+        "XDiag XTrace diagonal estimation finite sample variance matrix diagonal Rademacher theoretical comparison",
+        "arxiv:2202.02887 Rademacher diagonal concentration bounds",
+        "arxiv:2201.10684 Diag++ variance comparison",
+        "\"XDiag\" \"diagonal\" \"Rademacher\" variance comparative \"BKS\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.07825 (originating full accessible HTML)",
+      "doi:10.7907/pef3-mg80 (2025 original-author dissertation, relevant chapter and figures)",
+      "arxiv:2202.02887 (baseline estimator theory)",
+      "arxiv:2201.10684 (Diag++ predecessor)",
+      "https://aferro.dynu.net/math/xdiagpp/ (technical exposition)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The originating XDiag method implies unbiasedness using independent held-out probes; that fact is compatible with either positive risk or either cross-method ordering.",
+        "The 2025 dissertation observes a qualitative BKS advantage for flat spectral inputs, but does not establish the universal equal-diagonal strict inequality, the anisotropic unique crossover, or arbitrary-dimensional unbounded opposite ratios."
+      ],
+      "reasoning": "The source method is a prerequisite, not a statement dominating the theorem. Neither unbiasedness nor asymptotic variance reduction implies an exact finite-sample ranking of two particular estimators. The present result supplies those missing quantified comparisons.",
+      "searches": [
+        "arxiv:2301.07825 Eq. XDiag and Section 4.4",
+        "doi:10.7907/pef3-mg80 Sections 16.2 16.4",
+        "\"XDiag\" \"BKS\" two-dimensional variance exact diagonal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2301.07825 Section 2.4 defines leave-one-out XDiag but provides no finite 2x2 closed-form squared-risk phase diagram in the inspected relevant sections.",
+        "Epperly dissertation DOI:10.7907/pef3-mg80 Sections 16.1–16.4 independently derives XDiag and compares empirical performance, including flat-spectrum cases."
+      ],
+      "reasoning": "A generic leave-one-out definition implies the risk expression only after a nontrivial exact sign enumeration; neither the estimator formula nor empirical statements are the same as the explicit necessary-and-sufficient all-SPD-2x2 risk ordering. Equivalent work outside inspected sources remains a risk.",
+      "searches": [
+        "\"XDiag\" \"BKS\" two-dimensional variance exact diagonal",
+        "\"XDiag\" two-by-two exact risk mean square",
+        "\"XDiag\" estimator \"worse than\" diagonal Hutchinson",
+        "arxiv:2301.07825 Section 2.4",
+        "doi:10.7907/pef3-mg80 Chapter 16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined XDiag publication, related dissertation and diagonal-estimation studies contain estimator definitions and empirical graphs, not a reported planar exact-risk table or matching cubic threshold."
+      ],
+      "reasoning": "The finding classifies a continuum of SPD matrices by a polynomial boundary rather than reproducing a known finite numerical table. Absence from consulted sources alone is not conclusive novelty evidence.",
+      "searches": [
+        "\"XDiag\" \"BKS\" two-dimensional variance exact diagonal",
+        "\"XDiag\" diagonal matrices error Rademacher",
+        "\"XDiag\" two-by-two exact risk mean square"
+      ]
+    },
+    "rationale": "The finite-sample squared-risk formula and unique crossover follow by an explicit projector calculation and a strictly monotone cubic comparison. The originating XDiag construction and the older BKS estimator are not claimed. Relevant primary full-text sections and targeted published-source searches showed qualitative regime comparisons, not the exact cubic classification or dimension-independent SPD non-domination.",
+    "residual_risks": [
+      "An equivalent finite-sample risk classification may exist in specialized, unlocated random sketching literature.",
+      "An attempted additional thesis source on diagonal estimation was not fully accessible; available material suggested empirical comparisons, not the exact classification.",
+      "Implementation handling of rank-deficient QR samples is distinct from the ideal conceptual leave-one-out estimator."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Originating XDiag method; no exact target planar risk phase law identified in read sections",
+        "evidence": [
+          "Section 2.4 displayed XDiag estimator and Section 4.4 graph-centrality experiment; Sections 3 and 5 focus on different trace-estimator guarantees."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.07825",
+        "material_read": "Accessible full-text HTML: introduction, XDiag construction (Section 2.4), error-estimation discussion, numerical comparisons (Section 4.4), and relevant theoretical and appendix passages; selected sections inspected rather than claiming every line read",
+        "method": "Consulted primary full-text HTML at targeted formulas, argument passages, and experimental discussion",
+        "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+        "trigger": "Primary definition of XDiag, Rademacher probes, computational budget and qualitative comparisons"
+      },
+      {
+        "assessment": "Provides method and empirical low/high-decay comparisons, not the quantified all-SPD planar sharp risk law",
+        "evidence": [
+          "Equation (16.5) is the conceptual leave-one-out estimator; Figure 16.1 compares empirical maximum relative errors including a flat-spectrum regime."
+        ],
+        "identifier_or_url": "https://tropp.caltech.edu/dissertations/Epp25-Making-Most.pdf",
+        "material_read": "Chapter 16 sections 16.1–16.4: relevant formula passages and results; PDF pages 275 and 279 visually inspected, not a cover-to-cover reading of the full dissertation",
+        "method": "Read searchable PDF text and visually inspected relevant PDF pages 275 and 279",
+        "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+        "trigger": "Original XDiag author thesis explicitly covering two estimators and comparative performance"
+      },
+      {
+        "assessment": "Broad classical diagonal-estimator analysis; no XDiag analysis found in inspected parts",
+        "evidence": [
+          "Sections 1 and 3 analyze conventional Rademacher estimates and dependence on offdiagonal matrix mass."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2202.02887",
+        "material_read": "Accessible full-text HTML: estimator definition, introduction, contribution overview, and relevant Rademacher analysis statements",
+        "method": "Read accessible full HTML source sections and identified the estimator and statements under comparison",
+        "title": "Monte Carlo Methods for Estimating the Diagonal of a Real Symmetric Matrix",
+        "trigger": "Primary analysis of classical Rademacher BKS baseline"
+      },
+      {
+        "assessment": "Diagonal bounds and Diag++ are not a closed planar XDiag-vs-BKS risk ordering",
+        "evidence": [
+          "The paper states Monte Carlo diagonal bound and Diag++ contributions, predating XDiag."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2201.10684",
+        "material_read": "Accessible full-text HTML: introductory estimator formula, diagonal error bounds overview, and improved-algorithm description",
+        "method": "Read accessible HTML source for mathematical scope and algorithmic comparators",
+        "title": "Stochastic diagonal estimation: probabilistic bounds and an improved algorithm",
+        "trigger": "Close improved diagonal-estimation theory, possible stronger bounds"
+      },
+      {
+        "assessment": "General method and qualitative experiments; no matching exact cubic risk law",
+        "evidence": [
+          "Derives the leave-one-out estimator and discusses the memory/computational-cost tradeoff."
+        ],
+        "identifier_or_url": "https://aferro.dynu.net/math/xdiagpp/",
+        "material_read": "Complete accessible article, particularly its XDiag and Hutch++ sections and comparison discussion",
+        "method": "Read complete HTML technical exposition",
+        "title": "Combining XDiag with Hutch++",
+        "trigger": "Technical derivation of XDiag/Hutch++ and practical comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b584102a-cacc-446a-9045-2326e8b25ff4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At equal matvec cost, an exact two-dimensional classification distinguishes spectral anisotropy and correlation strength and provides a sharp one-crossing criterion for when deflation-based diagonal estimation is worthwhile. Both methods have arbitrarily severe relative risk failures on strictly positive-definite high-dimensional inputs, so no uniform dominance can be inferred from their unbiasedness or broad experimental rankings. The result is a substantive boundary for algorithm selection, though not a general-purpose complexity theorem.",
+    "status": "PASS"
+  }
+}
