@@ -1,0 +1,189 @@
+{
+  "correctness": {
+    "rationale": "The crucial fiber lemma is derived exactly: a degree-at-most-two vertex participates in at most one triangle; every base coloring has a nonempty connected admissible fiber; fibers of adjacent base colorings intersect because disjoint forced singleton fibers require changing both triangle neighbors at once. Induction therefore connects all valid colorings. A legal path to the global complement crosses a balanced red count, proving the parity-sharp bound for every graph order. Direct case classifications prove the six-isolated-state 3-degenerate obstruction, and the two cube plus two connector graph structure, state polynomial and diameter for books. The complete direct finite program separately checked 26,342 labelled 2-degenerate graphs of orders up to six, eight book instances and nine obstruction instances; those tests do not replace the infinite arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "SWAT 2026 proceedings, DOI:10.4230/LIPIcs.SWAT.2026.33, first publicly dated 2026-06-08: main discrepancy theorems address planar triangulations rather than balanced no-monochromatic-triangle colorings of arbitrary 2-degenerate graphs.",
+        "Arevalo Loyola–Biniaz–Bose–Shermer (2026), arXiv:2609.31574v1: discrepancy bounds for plane triangulations, with a linear-order general upper bound and discussion of local minimum states; no all-states connectivity for 2-degenerate graphs.",
+        "Karpiński–Piecuch (2021), arXiv:2110.04606: planar existence for no-monochromatic-triangle coloring, not balanced existence or reconfiguration.",
+        "Bartier–Bousquet–Heinrich (2020), arXiv:2012.11459, abstract: proper multi-color recoloring of treewidth-two graphs, not weak two-color triangle constraints.",
+        "Cranston–Mahmoud (2025), arXiv:2509.16123, abstract: equitable proper coloring with three or more colors; this is a stronger per-edge constraint but with different palette sizes.",
+        "Debrohim–Sasaki–Nunes (2026), arXiv:2608.26006, abstract/introduction: reconfigures colored polygon triangulations by diagonal flips, with at least three colors; the graph and operation change.",
+        "Asayama–Matsumoto (2022) proves balanced two-colorability for three-colorable triangulations, covering an older balancedness special case but not a reconfiguration graph theorem."
+      ],
+      "reasoning": "A broad existence theorem for planar no-monochromatic-triangle colorings does not imply all feasible two-colorings are mutually reachable. A discrepancy bound for arbitrary triangulations cannot entail the parity-optimal bound for 2-degenerate graphs by restriction unless it already reaches parity, which the cited bound does not. Proper-coloring reconfiguration and triangulation-flip reconfiguration have different state spaces and adjacency, so do not subsume this claim. An older balancedness theorem already covers three-colorable triangulations as a balance-only case, so the novelty claim is restricted to all-states connectivity and the explicit reconfiguration classification.",
+      "searches": [
+        "Polychromatic 2-colorings with Bounded Discrepancy for Triangulations 2026",
+        "Recoloring graphs of treewidth 2 2012.11459",
+        "Equitably Coloring Planar and Outerplanar Graphs 2509.16123",
+        "Cyclically Colored Triangulations Enumeration and Connectedness of Reconfiguration Graphs 2608.26006"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.4230/LIPIcs.SWAT.2026.33 https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SWAT.2026.33 (public 2026-06-08)",
+      "arXiv:2609.31574v1 https://arxiv.org/html/2609.31574v1",
+      "arXiv:1710.07132 https://arxiv.org/abs/1710.07132",
+      "arXiv:2110.04606 https://arxiv.org/html/2110.04606",
+      "arXiv:2608.26006 https://arxiv.org/abs/2608.26006",
+      "arXiv:2012.11459 https://arxiv.org/abs/2012.11459 (abstract)",
+      "arXiv:2509.16123 https://arxiv.org/abs/2509.16123 (abstract)",
+      "DOI:10.1007/s00373-021-02420-8 https://doi.org/10.1007/s00373-021-02420-8 (public abstract of 2022 paper)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the 2017 and 2021 primary papers the demonstrated consequence is existence of feasible colorings. Their cited statements do not control the solution graph.",
+        "The 2026 triangulation paper treats no-monochromatic-face colorings and quantitative discrepancy, but no displayed theorem specializes to connectedness of all no-monochromatic-triangle assignments on arbitrary 2-degenerate graphs.",
+        "The internal argument uses a two-neighbor fiber intersection property that is specific to the degeneracy-two elimination step; the explicit degeneracy-three counterexample shows it is a genuine threshold.",
+        "The existence of a proper 3-coloring already implies the balanced no-monochromatic-triangle corollary by splitting one independent color class. Hence the balance statement is treated as a proven consequence, not independently original."
+      ],
+      "reasoning": "Neither prior balancedness nor proper three-colorability implies connectivity of *all* valid two-colorings under one-vertex flips. The fiber-intersection induction proves precisely that extra statement for 2-degenerate graphs, with a 3-degenerate disconnected counterexample. The balance corollary alone was known or easily derivable. The remaining open historical-risk is a generic constraint-reconfiguration theorem already implying the full fiber connectivity lemma.",
+      "searches": [
+        "Every 2-degenerate graph: connected solution graph of 2-colorings with no monochromatic triangle, single-vertex flips, optimally balanced classes",
+        "Sharp threshold between 2-degenerate and 3-degenerate graphs for balanced triangle-bichromatic 2-colorings",
+        "outerplanar graph every triangle nonmonochromatic equitable 2-coloring",
+        "arXiv:2609.31574v1 face coloring discrepancy main theorem",
+        "arXiv:1710.07132 outerplanar theorem 10 and recoloring algorithm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karpiński–Piecuch (2017), arXiv:1710.07132, Theorem 10 and proof: efficient existence for outerplanar graphs, not a connected solution graph or an exact balance constraint.",
+        "Karpiński–Piecuch (2021), arXiv:2110.04606, Introduction and Theorem 3.3: two-coloring existence for planar graphs, not an optimal discrepancy theorem.",
+        "The triangle hypergraph formulation is exactly equivalent by definition to forbidding monochromatic graph triangles.",
+        "The SWAT 2026 full proceedings edition is publicly dated 2026-06-08 and has the same broad discrepancy theme; neither it nor the later arXiv version states the present reconfiguration theorem.",
+        "Asayama–Matsumoto (2022), DOI:10.1007/s00373-021-02420-8, abstract: all three-colorable triangulations admit a balanced polychromatic two-coloring; this older balance-only result is fully credited."
+      ],
+      "reasoning": "Names such as no-monochromatic-triangle coloring, triangle-free 2-coloring, and Property-B coloring of the triangle hypergraph describe the same feasible assignments. The cited exact feasibility theorems establish existence in selected classes; existence does not imply a legal one-vertex-flip path joining all states, nor the existence of a nearly equally sized solution. Searches and inspected sections yielded no equivalent connectivity-plus-balance result. Balancedness by itself also follows for any properly three-colorable host by fixing two proper color classes opposite and freely allocating the third; it is not an originality claim. No such argument implies connectivity of every legal coloring.",
+      "searches": [
+        "2-degenerate graphs triangle-free 2-coloring without monochromatic triangles reconfiguration",
+        "property B triangle hypergraph connected solution graph single vertex flips",
+        "arXiv:1710.07132 triangle-free coloring outerplanar balance reconfiguration",
+        "polychromatic two-coloring triangulations balanced outerplanar discrepancy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The book-family counts and graph structure are derived from the two hub-color cases directly, without consulting any imported database sequence.",
+        "No exact book-reconfiguration table with the same move and coloring convention appeared among the inspected primary sources or the actual research-record search results."
+      ],
+      "reasoning": "No source inspected supplied the state count, polynomial, or graph diameter as a previously tabulated invariant. The two hypercubes and two linking two-edge paths provide a complete finite-state explanation. Absence from the inspected results is not proof of unique discovery.",
+      "searches": [
+        "Exact reconfiguration graph of property-B triangle hypergraph in 2-degenerate host, book K2 joined independent vertices",
+        "2-coloring without monochromatic triangle recoloring single vertex book graph diameter",
+        "book graph triangle hypergraph independent-set join colorings polynomial",
+        "connected reconfiguration of proper property B coloring 3 uniform hypergraph triangle 2-tree under single vertex recoloring"
+      ]
+    },
+    "rationale": "The main new claim is that every legal triangle-bichromatic two-coloring of a 2-degenerate graph lies in one single-vertex-flip component, with explicit sharp 3-degenerate obstruction and book reconfiguration census. Inspected prior triangle-coloring and discrepancy papers did not assert this complete solution-space structure. Balanced colorability alone is deliberately not claimed as new: it is known for three-colorable triangulations (Asayama–Matsumoto 2022) and follows easily from splitting a proper three-coloring into two classes. The original structural connectivity assertion and exact book-state graph were not found under actual primary and research-record searches. General NAE constraint-reconfiguration literature remains a priority risk.",
+    "residual_risks": [
+      "Generic Boolean constraint-satisfaction/NAE-hypergraph reconfiguration literature may contain an unnamed equivalent low-elimination-degree connectivity theorem.",
+      "Earlier balanced polychromatic colorings of outerplanar triangulations may have been proved under a different name; this would narrow the novelty of the balance corollary but not automatically the general reconfiguration theorem.",
+      "Only abstract-level access was used for two tangential comparative sources; their full arguments were not asserted to be excluded.",
+      "The 2022 Asayama–Matsumoto paper was inspected at abstract level; its balancedness result is explicitly treated as prior, while an unseen full-text reconfiguration claim would require fresh evaluation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its bounds for planar triangulations neither assert nor imply parity-optimal balanced coloring and state-graph connectivity for all 2-degenerate graphs. No outerplanar or degeneracy-two specialized theorem was located.",
+        "evidence": [
+          "DOI:10.4230/LIPIcs.SWAT.2026.33, Abstract, Sections 1, 3 and 4."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol370-swat2026/html/LIPIcs.SWAT.2026.33/LIPIcs.SWAT.2026.33.html",
+        "material_read": "Public conference proceedings HTML text, main theorems, definitions and linear-time recoloring section.",
+        "method": "Compared each stated discrepancy bound, local-minimality concept and its class assumptions against fixed-graph all-state connectivity and optimal imbalance for 2-degenerate graphs.",
+        "title": "Polychromatic 2-Colorings with Bounded Discrepancy for Triangulations (SWAT 2026 proceedings edition)",
+        "trigger": "Earliest verified public edition of the direct motivating primary paper, dated 2026-06-08."
+      },
+      {
+        "assessment": "It studies general triangulations and nonoptimal discrepancy bounds; no displayed all-states connectivity or parity-optimal 2-degenerate theorem was found.",
+        "evidence": [
+          "arXiv:2609.31574v1, abstract and Sections 1, 3, 4 (Theorems 4 and 5)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.31574v1",
+        "material_read": "Public 2026-09-25 HTML full text, including abstract, definitions, discrepancy theorems, local-minimality/recoloring section and conclusions.",
+        "method": "Compared its discrepancy claims and local changes to the claimed all-states single-vertex connectivity and degeneracy-two specialization.",
+        "title": "Polychromatic 2-colorings with Bounded Discrepancy for Triangulations",
+        "trigger": "Same two-color no-monochromatic-face constraint and balanced discrepancy objective."
+      },
+      {
+        "assessment": "Establishes existence/efficient search for selected classes; inspected statement does not contain all-solution connectedness or equitable two-color classes.",
+        "evidence": [
+          "arXiv:1710.07132, Introduction and Section 4.1, Theorem 10."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.07132",
+        "material_read": "Parsed public full text, especially definition, structural bounds, tractable-classes section, Theorem 10 and proof.",
+        "method": "Compared the existence statement, scope and proof with connectivity, balancing and the sharp 3-degenerate example.",
+        "title": "On vertex coloring without monochromatic triangles",
+        "trigger": "Exact equivalent graph-triangle feasibility convention and outerplanar baseline."
+      },
+      {
+        "assessment": "Broader existence does not entail the sharper balance or reconfiguration statement.",
+        "evidence": [
+          "arXiv:2110.04606, Introduction, Section 3, Theorem 3.3 and Conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.04606",
+        "material_read": "Public HTML text, introduction, Algorithms I–III, main theorem and conclusions.",
+        "method": "Distinguished existence algorithm on planar graphs from connectivity over all legal two-colorings, including nonplanar 2-degenerate graphs.",
+        "title": "Linear-time algorithm for vertex 2-coloring without monochromatic triangles on planar graphs",
+        "trigger": "Broader planar existence theorem with the same no-monochromatic-triangle constraint."
+      },
+      {
+        "assessment": "Its flip/twist state graph is not the fixed-host Property-B vertex-recoloring graph.",
+        "evidence": [
+          "arXiv:2608.26006, abstract and introduction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.26006",
+        "material_read": "Public abstract and introductory problem and reconfiguration-rule description; no claim of reviewing every proof.",
+        "method": "Compared the objects (triangulations versus fixed graph vertex assignments), colors and move (diagonal flip versus one vertex recolored).",
+        "title": "Cyclically Colored Triangulations: Enumeration and Connectedness of Reconfiguration Graphs",
+        "trigger": "Title refers to connected colored-triangulation reconfiguration."
+      },
+      {
+        "assessment": "Different admissible colorings and palette size; cannot assert covering from the abstract.",
+        "evidence": [
+          "arXiv:2012.11459, abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.11459",
+        "material_read": "Public abstract and theorem summary only.",
+        "method": "Compared proper five-color edge constraints with weak two-color triangle constraints.",
+        "title": "Recoloring graphs of treewidth 2",
+        "trigger": "Nearest reconfiguration result for low-treewidth graphs."
+      },
+      {
+        "assessment": "A different, usually stronger local constraint with at least three colors; not an implication of this result.",
+        "evidence": [
+          "arXiv:2509.16123, abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.16123",
+        "material_read": "Public abstract only; no claim of full-paper examination.",
+        "method": "Compared equitable proper color classes (each edge bichromatic) with the two-color condition on triangles only.",
+        "title": "Equitably Coloring Planar and Outerplanar Graphs",
+        "trigger": "Possible broad equitable-coloring coverage."
+      },
+      {
+        "assessment": "Balancedness for three-colorable triangulations is explicit prior coverage. The abstract does not assert all-state connectivity; full text remains uninspected, a bounded historical-risk.",
+        "evidence": [
+          "Asayama–Matsumoto, Graphs and Combinatorics 38 (2022), article 16, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-021-02420-8",
+        "material_read": "Public abstract and bibliographic/description material; full mathematical text not inspected.",
+        "method": "Compared the precise abstract theorem for three-colorable triangulations to the balance consequence; treated the older balance result as covered rather than claiming it original.",
+        "title": "Balanced Polychromatic 2-Coloring of Triangulations",
+        "trigger": "Earliest central balanced polychromatic two-coloring work, potentially covering the balance corollary."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b59bd676-63ba-4755-9622-435dacd06fed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The principal structural theorem controls *the entire solution space* of a natural no-monochromatic-triangle coloring constraint: from any feasible coloring to any other there is a valid one-vertex-flip path, on every 2-degenerate graph. This is not supplied by previously known balancedness/existence, which we credit. The sharp 3-degenerate family collapses into six isolated states and arbitrary imbalance, showing where local fiber intersections fail; the precise book-family state graph, graph diameter and polynomial provide a nontrivial full reconfiguration census. The parity balance follows as a transparent corollary rather than an independently novel claim.",
+    "status": "PASS"
+  }
+}
