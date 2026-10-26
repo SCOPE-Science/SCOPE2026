@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For each finite connected graph realization, the expected update matrix has a positive-definite grounded Laplacian and a unique harmonic limit. Series-parallel reduction gives the exact shortcut endpoint a(t) and piecewise linear profile; direct algebra verifies strict Jensen bias and all-vertex absolute sum, including bridge parity. Sending L/H to zero and Lp to c produces phi(c), and the graph is shortcut-free with probability 1-p tending to one. Independent exact-rational Laplacian elimination and formula checks passed all 1,124 assertions in the included program. This does not assert almost-sure convergence of individual gossip trajectories.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2301.05352, Assumption 4.1 and Theorem 4.3 require strong expected-degree/anchoring conditions; the present bounded-degree family violates these hypotheses.",
+        "arXiv:2409.05063, Introduction and main-result statement study partially stubborn FJ agents, rather than fixed-stubborn asynchronous gossip (https://arxiv.org/pdf/2409.05063).",
+        "arXiv:2205.14784, Introduction and transient results concern a weighted-community model, not a single sampled Bernoulli shortcut (https://arxiv.org/pdf/2205.14784)."
+      ],
+      "reasoning": "Published strong-degree concentration cannot subsume an explicit nonconcentrating sparse family lying outside its hypotheses. Partial-stubbornness and transient dynamic theorems address different objects or time regimes. The resistor-series/parallel formula is classical but no inspected source supplies this graph-averaging threshold.",
+      "searches": [
+        "gossip with stubborn agents single random edge expected graph counterexample sparse bridge",
+        "Concentration in Gossip Opinion Dynamics over Random Graphs Theorem 4.3 Assumption 4.1 minimum expected degree",
+        "On final opinions Friedkin Johnsen random graphs partially stubborn community concentration Theorem 1 2024",
+        "shorted path gossip stubborn agents phase transition rare long-range link expectation network"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2301.05352",
+      "https://arxiv.org/pdf/1009.2653",
+      "https://arxiv.org/pdf/2205.14784",
+      "https://arxiv.org/pdf/2409.05063",
+      "https://epubs.siam.org/doi/abs/10.1137/23M1545823",
+      "https://weizmann.elsevierpure.com/en/publications/submean-variance-bound-for-effective-resistance-of-random-electri/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2301.05352 establishes conditional/expected-graph means and concentration under large expected degrees, not the claimed asymptotic discrepancy outside those conditions.",
+        "arXiv:1009.2653 establishes fixed-graph harmonic representation and highly fluid limit, not Bernoulli-network mean-graph comparison.",
+        "arXiv:2205.14784 establishes transient concentration regimes for a differently parameterized deterministic weighted two-community graph.",
+        "arXiv:2409.05063 addresses a partially stubborn, synchronous Friedkin–Johnsen mechanism."
+      ],
+      "reasoning": "The special family is a valid instance of fixed-graph harmonic theory and of the random-graph setup, but its critical probability scale and nonvanishing population-averaged mean-profile gap are not corollaries of the published concentration conclusions because the requisite connectivity assumptions are absent. No examined main theorem covers both exact finite comparison and long-detour crossover.",
+      "searches": [
+        "arxiv 2301.05352 random graph gossip expected graph exact harmonic and hypotheses",
+        "arxiv 1009.2653 expected stationary harmonic opinion stubborn agents",
+        "arxiv 2205.14784 transient behavior gossip community structure",
+        "arxiv 2409.05063 Friedkin Johnsen random graph partially stubborn final opinions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1009.2653, introduction and harmonic mean characterization in Sections 1 and 4 (https://arxiv.org/pdf/1009.2653).",
+        "arXiv:2301.05352, model (2.5)-(2.8), pp. 6-8 (https://arxiv.org/pdf/2301.05352)."
+      ],
+      "reasoning": "A harmonic Dirichlet solution is an equivalent description of the limiting expected opinion; the general representation is explicitly credited. The proposed claim instead compares two distinct orders of network averaging and harmonic solving, quantifies a strictly positive Bernoulli bias, and determines a sharp two-length-scale crossover. General equivalence of harmonic and expected-gossip descriptions does not itself provide this exact parametric crossover.",
+      "searches": [
+        "quenched annealed gossip stubborn opinions random graph",
+        "annealed versus quenched expected final opinions sparse graphs stubborn leaders large disagreement single shortcut",
+        "random conductance network harmonic extension annealed quenched discrepancy Bernoulli edges expected conductance",
+        "arxiv:1009.2653 harmonic opinion stationary random walk"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A nearest indexed scientific result concerns gain tuning for deterministic fading-memory consensus, not Bernoulli shortcut bias.",
+        "Another indexed result concerns switching times in a bounded-confidence system, not an expected-network approximation."
+      ],
+      "reasoning": "This is a continuum asymptotic and exact analytic formula, not a finite catalogue invariant. No exact table with these quantities or all-vertex rare-shortcut limits was found in the searched records; absence of a database hit is not proof of novelty.",
+      "searches": [
+        "rare bridge Bernoulli random edge expected graph harmonic opinions sharp probability length scaling",
+        "stubborn agents gossip opinion dynamics random graph expected graph long time harmonic rare bridge",
+        "Xing Johansson 2023 concentration gossip opinion random graphs sparse connected path rare shortcut expected graph not concentrated"
+      ]
+    },
+    "rationale": "The inspected primary papers prove harmonic stationary expectations, strong-connectivity concentration for random gossip, community transient behavior, and partial-stubbornness Friedkin-Johnsen concentration. Their precise implications do not include the finite single-shortcut Jensen discrepancy or the critical limit for expected-versus-realized long-time opinions on a connected sparse path with a long detour. The sharp macroscopic all-vertex threshold and its proof were additionally compared against searchable mathematical research records for equivalent formulations. General circuit-reduction literature is an acknowledged ingredient and remains a residual publication-priority risk.",
+    "residual_risks": [
+      "The classical electrical-network literature may contain the same single-link annealed/quenched formula or a dominating abstract perturbation identity not discovered by the queries.",
+      "A differently named sparse-network counterexample with the same macroscopic threshold may be unindexed or inaccessible.",
+      "Search hits and inspected specific paper sections do not prove global publication uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the underlying network randomization and comparison, but no rare-bridge exact phase law; sparse family violates Assumption 4.1 degree conditions.",
+        "evidence": [
+          "Equations (2.5)–(2.8) characterize mean opinions by grounded Laplacians.",
+          "Assumption 4.1 requires minimum expected stubborn degree exceeding 8 log n or a strong spectral lower bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.05352",
+        "material_read": "Full-text PDF: Introduction, Sections 2.1–2.4 and 4.1 (model equations, assumptions, Theorem 4.3 and remarks); searched for explicit counterexample",
+        "method": "Direct examination of mathematical definitions and main theorem hypotheses",
+        "title": "Concentration in Gossip Opinion Dynamics over Random Graphs",
+        "trigger": "Same stochastic gossip mechanism and expected-graph comparison"
+      },
+      {
+        "assessment": "General harmonic representation is prior art, but no topological Bernoulli shortcut comparison or critical scale is identified.",
+        "evidence": [
+          "Introduction identifies stationary mean as harmonic function with fixed stubborn boundaries.",
+          "Main themes are persistent disagreement and homogeneous influence on highly fluid networks."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1009.2653",
+        "material_read": "Full-text PDF: Abstract, Introduction and stated structure of fixed-network first-moment theorems",
+        "method": "Compared harmonic representation and limiting claims",
+        "title": "Opinion fluctuations and disagreement in social networks",
+        "trigger": "Potential stronger general fixed-graph harmonic and fluctuation result"
+      },
+      {
+        "assessment": "The investigated transitions concern finite-time community opinion clustering in a weighted two-community graph; they do not imply a quenched-versus-annealed long-detour stationary mean gap.",
+        "evidence": [
+          "Abstract and contribution state transient second-moment concentration under community edge-strength separation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.14784",
+        "material_read": "Full-text PDF: Abstract and Introduction, Sections 1.1–1.2 identifying models and theorems",
+        "method": "Compared time regime, structural assumptions, and claimed transitions",
+        "title": "Transient Behavior of Gossip Opinion Dynamics with Community Structure",
+        "trigger": "Possible phase transition in the same gossip model"
+      },
+      {
+        "assessment": "Different FJ update law with partially stubborn individuals and high-connectivity concentration assumptions; not covering the fixed-endpoint rare-bridge threshold.",
+        "evidence": [
+          "Introduction explicitly distinguishes FJ dynamics with partly stubborn agents from prior stochastic gossip results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.05063",
+        "material_read": "Full-text PDF: Abstract, Introduction, model definition and stated concentration results",
+        "method": "Compared update law, stubbornness regime, and expected-graph conclusions",
+        "title": "On final opinions of the Friedkin-Johnsen model over random graphs with partially stubborn community",
+        "trigger": "Related random-graph expected-network final-opinion approximation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "624d90e8-4091-4858-9b5a-a26cc350ba4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Expected-graph substitution is widely used to model large random social networks. This result supplies a sharp, scale-robust boundary in a fully connected sparse family where even a vanishing-probability additional tie changes expected-network predictions for a positive fraction of all people. The exact limiting error phi(c)/2 (up to 1/4) quantifies macroscopic failure and explains the practical need for connectivity hypotheses, beyond a trivial single-node Jensen inequality.",
+    "status": "PASS"
+  }
+}
