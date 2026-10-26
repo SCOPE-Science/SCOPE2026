@@ -1,0 +1,130 @@
+{
+  "claim": "Let \\(\\varphi(t)=2^{1/4}e^{-\\pi t^2}\\), \\(T_d\\varphi(t)=\\varphi(t-d)\\), and \\(f_\\pm=\\varphi\\pm iT_{1/a}\\varphi\\). For \\(a>0\\), integer \\(m\\ge1\\), and irrational \\(\\varepsilon\\to0\\) with \\(0<|\\varepsilon|<1/2\\), set \\(b_\\varepsilon=a(m+\\varepsilon)\\), \\(\\Lambda_\\varepsilon=a\\mathbb Z\\cup b_\\varepsilon\\mathbb Z\\), and let \\(\\Delta_\\varepsilon\\) be the square-summed linewise \\(L^2(dx)\\) discrepancy between \\(|\\mathcal Gf_+|\\) and \\(|\\mathcal Gf_-|\\) on \\(\\mathbb R\\times\\Lambda_\\varepsilon\\), where \\(\\mathcal G\\) is the normalized Gaussian Gabor transform. Then \\(\\operatorname{dist}_{\\mathrm{phase}}(f_+,f_-)=2\\sqrt{1-e^{-\\pi/(2a^2)}}>0\\) and \\(\\Delta_\\varepsilon=C(a,m)|\\varepsilon|+o(|\\varepsilon|)\\), where \\(C(a,m)=2\\pi\\sqrt{I(a)\\sum_{k\\in\\mathbb Z}k^2e^{-\\pi m^2a^2k^2}}\\), \\(I(a)=\\int_{\\mathbb R}e^{-\\pi x^2}\\frac{\\rho_a(x)^2}{1+\\rho_a(x)^2}\\,dx\\), and \\(\\rho_a(x)=e^{\\pi x/a-\\pi/(2a^2)}\\). For irrational \\(\\varepsilon\\), \\(\\Lambda_\\varepsilon\\) is not contained in any arithmetic progression, so the associated parallel-line measurements uniquely determine every \\(L^2(\\mathbb R)\\) signal up to global phase; nevertheless this explicit non-equivalent pair has discrepancy tending linearly to zero as the grid spacings approach commensurability.",
+  "correctness": {
+    "rationale": "The explicit transform identity, exact phase distance, rationalized pointwise limit, and integrable/summable domination prove the asymptotic. The embedded finite numerical stress test agrees with the analytical coefficient and is not used to justify the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alaifari–Bartolucci–Steinerberger–Wellershoff (2024), Theorem 10 and discussion §4.3: general counterexamples connect sampled uniqueness and stability, but the inspected discussion does not state this two-grid asymptotic.",
+        "The inspected 2024 stability paper gives broader instability context, but not the present parameterized line-grid coefficient."
+      ],
+      "reasoning": "The broader literature shows that stability is a substantive issue, so the new claim is assessed as a specific geometric sensitivity law rather than as a claim that instability exists in general.",
+      "searches": [
+        "Gabor phase retrieval stability irrational line sets near arithmetic progression two incommensurate parallel line families",
+        "phase retrieval exact asymptotic near commensurate sampling lattices Gabor transform magnitude",
+        "Alaifari Wellershoff arithmetic progression stability sampled Gabor line grids",
+        "DOI 10.1007/s43670-023-00079-1; DOI 10.1016/j.acha.2019.09.003"
+      ]
+    },
+    "checked_sources": [
+      {
+        "first_public_date": "2020-10-02",
+        "identifier": "arXiv:2010.01078",
+        "relevance": "Explicit ambiguity pair and transform formula.",
+        "title": "Phase retrieval from sampled Gabor transform magnitudes: Counterexamples"
+      },
+      {
+        "first_public_date": "2024-08-13",
+        "identifier": "DOI 10.1112/blms.13134",
+        "relevance": "Exact uniqueness criterion for parallel-line level sets.",
+        "title": "Arithmetic progressions and holomorphic phase retrieval"
+      },
+      {
+        "identifier": "DOI 10.1007/s43670-023-00079-1",
+        "relevance": "Broader uniqueness/stability comparison.",
+        "title": "On the connection between uniqueness from samples and stability in Gabor phase retrieval"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known pair gives exact equality on a single arithmetic line family; the present proof computes its discrepancy on the added grid.",
+        "The known criterion establishes injectivity for irrational spacing ratios but gives no quantitative rate as the ratio tends to an integer."
+      ],
+      "reasoning": "The first-order coefficient requires a new parameterized comparison and dominated-convergence calculation. It is not implied by exact uniqueness alone, nor by a general statement that infinite-dimensional phase retrieval can be unstable.",
+      "searches": [
+        "DOI 10.1007/s00041-021-09901-7, equations (15)–(18)",
+        "DOI 10.1112/blms.13134, Theorems 1.1–1.2",
+        "DOI 10.1007/s43670-023-00079-1, Theorem 10 and §4.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alaifari–Wellershoff, Lemma 2 and equations (15)–(18): an explicit pair has equal Gabor magnitudes on one arithmetic family of parallel lines.",
+        "Liehr, Theorems 1.1–1.2: a parallel-line level set is a uniqueness set precisely when its level set is not contained in an arithmetic progression."
+      ],
+      "reasoning": "These formulations settle the exact uniqueness/nonuniqueness dichotomy. The current claim is the additional limit of the specified data discrepancy for the fixed ambiguity pair; it is not the uniqueness theorem itself.",
+      "searches": [
+        "Gabor phase retrieval union of two noncommensurate lattices of parallel lines uniqueness for all L2 signals",
+        "entire functions determined up to constant by modulus on three horizontal lines incommensurate vertical spacings",
+        "multiple line sampling uniqueness phase retrieval Bargmann transform irrational line spacing",
+        "arXiv:2010.01078; Theorem 1.2 of DOI 10.1112/blms.13134"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary papers provide the explicit pair and the uniqueness criterion, but no table or formula for the coefficient \\(C(a,m)\\).",
+        "No finite numerical table is relevant to the continuous integral/series limit; the claim is verified analytically."
+      ],
+      "reasoning": "A finite database/table is not the natural object for this analytic asymptotic. The relevant exact comparison is theorem-level literature, which was inspected.",
+      "searches": [
+        "phase retrieval exact asymptotic near commensurate sampling lattices Gabor transform magnitude",
+        "Gabor phase retrieval stability irrational line sets near arithmetic progression two incommensurate parallel line families",
+        "arXiv:2010.01078; DOI 10.1112/blms.13134"
+      ]
+    },
+    "rationale": "Best-knowledge literature comparison supports a distinct quantitative refinement: the inspected sources separately give a one-grid ambiguity pair, the exact uniqueness criterion, and general instability results, but do not state the near-commensurate two-grid first-order coefficient.",
+    "residual_risks": [
+      "The theorem is a quantitative refinement built from known formulas; an unlocated source could state an equivalent near-resonance coefficient.",
+      "No exhaustive guarantee of global literature priority is claimed.",
+      "The asymptotic applies to the stated pair and linewise L2 metric only; it is not an optimal stability theorem for all signals."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the ambiguity pair and its exact transform formula, but not the two-grid near-resonance asymptotic.",
+        "evidence": [
+          "The source states equality on R × aZ and gives |G f±| = exp(-π(x²+ω²)/2)|1 ± iρa(x)exp(-iπω/a)|."
+        ],
+        "identifier_or_url": "arXiv:2010.01078; DOI 10.1007/s00041-021-09901-7",
+        "material_read": "Full accessible article text, Lemma 2 and equations (15)–(18) in §3.1, including the transform formula and zero-set argument.",
+        "method": "Read the primary text and substitute the normalized Gaussian pair into the formula; then derive the added-grid discrepancy directly.",
+        "title": "Phase retrieval from sampled Gabor transform magnitudes: Counterexamples",
+        "trigger": "Needed an explicit non-equivalent Gaussian pair with exact magnitude agreement on one line grid."
+      },
+      {
+        "assessment": "Covers the uniqueness half: aZ ∪ bZ is not contained in an arithmetic progression when b/a is irrational. It does not provide the discrepancy asymptotic.",
+        "evidence": [
+          "Theorem 1.2 states that R × Λ is a Gabor phase-retrieval uniqueness set exactly when Λ is not contained in an arithmetic progression."
+        ],
+        "identifier_or_url": "DOI 10.1112/blms.13134",
+        "material_read": "Full accessible article text, Theorem 1.1, Theorem 1.2, and the proof discussion of arithmetic progressions.",
+        "method": "Compare the exact line-level set with the theorem's necessary-and-sufficient condition.",
+        "title": "Arithmetic progressions and holomorphic phase retrieval",
+        "trigger": "Needed to verify that irrationally perturbed union grids are uniqueness sets."
+      },
+      {
+        "assessment": "Provides broader context on sampled uniqueness versus stability, but the inspected text does not give the first-order coefficient for this union of line grids.",
+        "evidence": [
+          "Theorem 10 treats a single arithmetic family of lines; §4.3 discusses possible global stability extensions without the current coefficient."
+        ],
+        "identifier_or_url": "DOI 10.1007/s43670-023-00079-1",
+        "material_read": "Full accessible article text, the definition of the weighted Poincaré constant, Theorem 10, and discussion §4.3.",
+        "method": "Compare its parameterized counterexamples and stability discussion with the fixed-pair two-grid limit.",
+        "title": "On the connection between uniqueness from samples and stability in Gabor phase retrieval",
+        "trigger": "Needed a comparison with known quantitative stability/instability results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61bea58e-44b1-4553-a352-b3fdf175697f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact coefficient quantifies how an injective line-sampling geometry can approach a non-injective arithmetic configuration while a fixed signal pair remains separated. This is a motivated stability-design invariant, not just a restatement of uniqueness.",
+    "status": "PASS"
+  }
+}
