@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary complex symmetric trace-free A=B+iC, Gaussian quadratic-form cumulants give the exact fourth-moment numerator 4|tr A^2|^2+8t^2+32r+16s with r=||A^2||_F^2 and s=tr((AA*)^2). Direct trace expansion yields r+s=2tr(B^2+C^2)^2. Subtracting 2(n+2)/(n+6) times squared L2 gives the asserted exact nonnegative three-term identity in every n>=2. Equality forces A^2=0 and B^2=C^2=t/(2n)I; invertible anticommuting real symmetric involutions require even n and reduce orthogonally to the block Clifford pair, which realizes equality. A separate standard-library integer-polynomial moment enumerator, verify.py, checked 84 complete cases including four exact equality examples; finite checks are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dai–Feng–Tikhonov arxiv:1408.1877v1, Introduction and Theorem 1.1: sharp asymptotic order of SUPREMA of Lq/Lp for degree tending to infinity; real-valued convention.",
+        "Speckbacher–Hrycak arxiv:1909.01670v1, Introduction and Theorem 3.3 description: upper concentration over spatial subsets for degree-bandlimited functions; not a global L4 minimum in a fixed eigenspace.",
+        "Flock–Stovall arxiv:2204.10361v1, introduction and Theorems 1.1–1.2: compactness/existence for Fourier EXTENSION extremizers in Euclidean output norm, not input-sphere fourth-moment minima."
+      ],
+      "reasoning": "The inspected broader analytic results bound different quantities, and neither a spatial-concentration upper bound nor asymptotic upper reverse Hölder norm yields the claimed finite-degree universal lower bound and all equality cases.",
+      "searches": [
+        "spherical harmonic quadratic minimum fourth moment even n sharp 2(n+2)/(n+6) sum of squares trace A squared",
+        "lower reverse Hölder complex harmonic quadratics sphere Clifford system equality",
+        "arxiv:1408.1877v1 reverse Holder spherical harmonic asymptotics",
+        "arxiv:1909.01670v1 spherical harmonic concentration large sieve"
+      ]
+    },
+    "checked_sources": [
+      "public published-finding corpus record d4106097159f (full RESULT.md read)",
+      "arxiv:1909.01670v1 (2019-09-04), full-text introduction and principal results read",
+      "arxiv:2204.10361v1 (2022-04-21), HTML introduction and theorem statements read",
+      "arxiv:1408.1877v1 (2014-08-06), full-text introduction and theorem read",
+      "Stanton–Weinstein 1981 DOI 10.1017/S0305004100058229 (publisher abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The maximum theorem only establishes norm4^4 <= K^4 norm2^4; the candidate establishes norm4^4 >= 2(n+2)/(n+6) norm2^4 in even n, with an explicit equality orbit.",
+        "The candidate has a three-term nonnegative tensor deficit; no such lower defect appears in the inspected maximum theorem.",
+        "Stanton–Weinstein accessible abstract proves highest-weight LOCAL MAXIMALITY; the accessible part contains no lower bound statement.",
+        "The 2022 extension paper operates on functions mapped by an oscillatory integral into Euclidean space, rather than on the input harmonic Y itself."
+      ],
+      "reasoning": "The inequalities concern different endpoints and their equality geometries do not match. The candidate is not a formal corollary, duality reduction, special case, or parameter substitution of the checked statements. A stronger covering invariant theorem outside searched sources remains a residual risk.",
+      "searches": [
+        "published-finding corpus exact source: public published-finding corpus record d4106097159f: Sharp L4/L2 norm and extremizers for degree-two spherical harmonics",
+        "arxiv:2204.10361v1 Theorems 1.1–1.2",
+        "arxiv:1408.1877v1 Theorem 1.1",
+        "Stanton–Weinstein 1981 Cambridge abstract local maximum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus record d4106097159f gives the sharp UPPER L4/L2 coefficient for complex degree-two spherical harmonics and classifies real-zonal upper extremizers; its full RESULT.md was read.",
+        "The candidate is a LOWER fourth-moment ratio and an identity for the deficit involving a square-zero complex symmetric tensor and the scalarity of B^2+C^2.",
+        "Keyword searches for complex quadratic L4 minima, nilpotent symmetric quadratic matrices, anticommuting symmetric Clifford pairs and the exact coefficient did not identify a matching theorem."
+      ],
+      "reasoning": "A sharp upper operator constant cannot, without an additional theorem, give a sharp lower fourth moment. The upper result is not logically equivalent to a lower inequality; its real-zonal equality condition is disjoint from the present nonzero square-zero complex tensor equality class. A reformulation in invariant matrix theory remains a risk.",
+      "searches": [
+        "sharp lower quartic norm complex degree-two spherical harmonics even dimensions Clifford quadrics fourth moment",
+        "complex quadratic spherical harmonics flat L4 minimum tracefree tensor nilpotent Clifford even dimension 2(n+2)/(n+6)",
+        "minimum fourth moment on sphere quadratic eigenfunctions anticommuting symmetric Clifford matrices",
+        "published-finding corpus semantic search: minimum fourth moment complex degree two spherical harmonics S3 S4 sharp lower L4 concentration traceless symmetric matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top match d4106097159f inspected in full: exact upper fourth-moment sharp theorem, no lower coefficient or square-zero deficit.",
+        "published-finding corpus neighboring hits concern other Fourier spectra, polynomial coefficients, and unrelated normalized moments; no identified entry has the n-even lower constant or the Clifford-form equality orbit.",
+        "No external exact numerical table for the target all-even dimensional invariant was identified in the performed searches."
+      ],
+      "reasoning": "The claim is quantified over all even dimensions and is not an entry in a known finite table; a negative database search is not proof of novelty. The nearest exact fourth-moment theorem covers the opposite endpoint.",
+      "searches": [
+        "sharp lower quartic norm complex degree-two spherical harmonics even dimensions Clifford quadrics fourth moment",
+        "complex quadratic spherical harmonics flat L4 minimum tracefree tensor nilpotent Clifford even dimension 2(n+2)/(n+6)",
+        "spherical harmonic quadratic minimum fourth moment even n sharp 2(n+2)/(n+6) sum of squares trace A squared",
+        "minimum fourth moment complex degree two spherical harmonics S3 S4 sharp lower L4 concentration traceless symmetric matrix"
+      ]
+    },
+    "rationale": "The exact same-degree closest full result d4106097159f proves an UPPER fourth-moment constant, not the proposed LOWER constant/Clifford equality orbit. The eligible 2019 concentration and 2022 Fourier-extension papers have different quantities. The 2014 reverse-Hölder theorem treats upper ratios asymptotically in harmonic degree. Actual published-finding corpus and external alias searches did not identify the lower tensor identity. Best knowledge only; prior invariant-theory expressions are a live residual risk.",
+    "residual_risks": [
+      "Equivalent sharp lower fourth-moment results may appear under isotropic quadratic-form, matrix cumulant, symmetric Clifford-pair, or invariant-theory language not recovered by semantic/keyword searches.",
+      "The full 1981 Stanton–Weinstein article was not read; its accessible abstract only describes local maximization.",
+      "No external expert priority or independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: sharp upper endpoint and real zonal maximizers, not the lower Clifford endpoint.",
+        "evidence": "Its theorem states ||Y||4 <= K_n ||Y||2; its complex proof averages real projections to obtain an upper bound, and it gives no lower-deficit identity.",
+        "identifier_or_url": "public published-finding corpus record d4106097159f (2026-09-20)",
+        "material_read": "Entire RESULT.md, including theorem, Gaussian moment proof, complex extremizers, references and limitations.",
+        "method": "Fetched public source full text and compared both inequality directions, domains and equality cases.",
+        "title": "Sharp L4/L2 norm and extremizers for degree-two spherical harmonics",
+        "trigger": "Exact same harmonic degree and ambient-dimension scope: decisive upper-versus-lower comparison."
+      },
+      {
+        "assessment": "NOT_COVERING: controls mass on measurable spatial subsets via Nyquist density, not sharp L4 flatness of degree-two complex eigenfunctions.",
+        "evidence": "Main displayed estimates (3) and (6) bound lambda_S^p(Omega) by B_L rho(Omega,L).",
+        "identifier_or_url": "arxiv:1909.01670v1; https://arxiv.org/abs/1909.01670",
+        "material_read": "Full-text Introduction 1.1–1.2, statements of main concentration bounds and beginning of technical preliminaries.",
+        "method": "Read arXiv full-text HTML/text and compared its concentration quotient to the global quartic moment quotient.",
+        "title": "Concentration estimates for band-limited spherical harmonics expansions via the large sieve principle",
+        "trigger": "Seed spherical harmonic concentration article with verified verified public date."
+      },
+      {
+        "assessment": "NOT_COVERING: treats existence/compactness for Fourier extension extrema, not degree-two input harmonic lower fourth moments.",
+        "evidence": "The extension E maps Lp(S^d) to Lq(R^{d+1}); its Theorems 1.1–1.2 classify extremizing sequences for this distinct operator.",
+        "identifier_or_url": "arxiv:2204.10361v1; https://arxiv.org/html/2204.10361v1",
+        "material_read": "HTML Abstract, Introduction, Theorems 1.1 and 1.2 and definitions of extension/restriction norms.",
+        "method": "Read arXiv HTML and compared operator, domains, exponents and extremal questions.",
+        "title": "On extremizing sequences for adjoint Fourier restriction to the sphere",
+        "trigger": "Primary MSC 42B20 treatment of spherical extremizers from the eligible public-source period."
+      },
+      {
+        "assessment": "NOT_COVERING: asymptotic upper reverse-Hölder estimates; does not provide exact finite degree-two complex lower constants.",
+        "evidence": "The stated main quantity is sup_{Y_n} ||Y_n||_q / ||Y_n||_p as n tends to infinity.",
+        "identifier_or_url": "arxiv:1408.1877v1; https://arxiv.org/abs/1408.1877",
+        "material_read": "Full-text Introduction, Theorem 1.1, Corollary 1.2, and statement of asymptotic scope.",
+        "method": "Read accessible full text and compared SUP over harmonic eigenfunctions with INF in fixed degree two.",
+        "title": "Reverse Hölder's inequality for spherical harmonics",
+        "trigger": "Relevant possibly dominating older spherical-harmonic moment estimates."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY: reports highest-weight local maximization, not sufficient to rule out all possible older coverage.",
+        "evidence": "Publisher abstract describes local maximization by highest-weight harmonics.",
+        "identifier_or_url": "Stanton–Weinstein (1981), DOI 10.1017/S0305004100058229",
+        "material_read": "Cambridge Core abstract and bibliographic entry; full article not verified.",
+        "method": "Inspected publisher abstract, did not infer content of inaccessible full paper.",
+        "title": "On the L4 norm of spherical harmonics",
+        "trigger": "Classical exact L4 spherical harmonic extremizer literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c177fd6-d9cc-4823-8603-13c5b96ef734",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp minimal L4 energy relative to L2 energy measures deterministic flatness of quadratic spherical eigenfunctions. The theorem supplies an all-even-dimension exact endpoint, a quantitative three-square stability certificate, a complete canonical equality orbit, and a parity obstruction to equality in odd ambient dimension. The improvement over Jensen and the distinct lower endpoint are mathematically motivated rather than an arbitrary numerical slice; odd-dimension optimal values remain unclaimed.",
+    "status": "PASS"
+  }
+}
