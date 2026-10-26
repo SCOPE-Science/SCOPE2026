@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Centrality in the reduced power monoid is equivalent to commutation with every two-point subset containing the identity. Taking complements converts these tests into two explicit intersection identities. Rotation tests force the missing reflection elements to form either an empty set or a coset of a subgroup because the odd-order kernel permits division by two. Reflection tests then force the missing rotations to lie in that subgroup and form an inverse-closed set. This proves both necessity and sufficiency; distinct cosets and inverse pairs yield the count. The provided exhaustive small-case verifier is corroboration, not an infinite proof.
+
+**Originality — PASS with residual risk.** Actual searches over indexed mathematical findings and relevant primary literature investigated central elements, reduced power monoids, dihedral kernels, and equivalent coset/inversion and subgroup-lattice formulations. Closest power-monoid papers treat definitions, automorphisms, and categorical representations rather than the center; the closely named group-power-semigroup paper emphasizes embeddability but was available only in preview. Indexed dihedral power-graph and subgroup-commutativity results concern different operations and cannot imply the center formula. Unindexed equivalents remain possible, and the inaccessible full-text comparison is a named risk.
+
+**Mathematical value — PASS.** The reduced power monoid differs sharply from its unreduced analogue, whose center is simply the set of nonempty conjugation-invariant subsets. A complete classification and exact subgroup-lattice enumeration over an infinite natural noncommutative family clarifies this difference and separates kernels of equal order. The formula does not rest on a narrowly chosen example or an arbitrary cutoff.
+
+**Scope and limitations.** The finite odd-order abelian assumption is used essentially. Only the specified center is classified; the case of even-order kernels remains open here. Self-review and finite exhaustive tests do not constitute independent audit. Publication overlap remains subject to later literature review, especially any unavailable full-text results on group power semigroups.
+
+Self-review: passed. Independent audit: not yet performed.
