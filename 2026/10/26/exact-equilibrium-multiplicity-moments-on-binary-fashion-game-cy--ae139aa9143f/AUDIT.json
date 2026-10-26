@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "Every cyclic XOR edge pattern corresponds to 2 actions exactly when parity is even; at each vertex C forbids two disagreements and R forbids two agreements. The trace plus signed trace is the parity projection. Tensorized trace products give moments by independence. The 4x4 matrices have the stated exact monic characteristic polynomials, and their eigenvalue power traces yield the formulas. Strict spectral inequalities prove exponential relative variance. A standalone standard-library checker independently enumerated action and edge solutions for 1016 type words up to length 9; exactly checked the moments for every type word up to 12; derived characteristic polynomials from Newton identities and compared the closed forms at 75-digit precision. Finite tests support but do not replace the arbitrary-length proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://doi.org/10.1088/1742-5468/2016/02/023203 (statistical mechanics; full text unavailable)",
+        "https://doi.org/10.1007/s11424-016-5057-9 (algorithm to find PNE)",
+        "https://arxiv.org/html/2606.06625v1 (unidirectional cycles, one upstream neighbor)"
+      ],
+      "reasoning": "A general exact annealed equilibrium count/second-moment theorem on arbitrary graph families would dominate the present formulas; no such theorem was established by inspected material. Generic PNE enumeration for each fixed type word can in principle compute a given finite case, but does not assert or immediately imply the explicit all-size annealed spectral identities without the new parity-tensor analysis. The older random-network statistical-mechanics text remains an explicit unresolved priority risk rather than being labelled noncovering.",
+      "searches": [
+        "\"Statistical mechanics of the fashion game on random networks\" \"entropy\" number equilibria",
+        "\"The computation of Nash equilibrium in fashion games via semi-tensor product method\" 2019 counting Nash equilibria",
+        "\"fashion game\" \"number of equilibria\" cycle random types",
+        "https://arxiv.org/html/2606.06625v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.05932v1",
+      "https://arxiv.org/html/2607.10997v1",
+      "https://doi.org/10.1016/j.disopt.2020.100606",
+      "https://arxiv.org/html/2606.06625v1",
+      "https://doi.org/10.1007/s11424-016-5057-9",
+      "https://doi.org/10.1088/1742-5468/2016/02/023203",
+      "Cao and Yang, Theoretical Computer Science 540–541 (2014), 169–181"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.1016/j.disopt.2020.100606 (old zero-PNE theorem reproduced)",
+        "https://arxiv.org/html/2607.05932v1 (Section 4 evaluates frequencies of strategies, not equilibrium multiplicity)",
+        "https://arxiv.org/html/2607.10997v1 (explicit m≥3 qualifier for rings)",
+        "https://arxiv.org/html/2606.06625v1 (dependency H_i(s_{i-1},s_i), not both neighbors)"
+      ],
+      "reasoning": "The exact existence event depends only on whether the type word alternates with a parity obstruction; knowing this event does not determine the equilibrium count among feasible words, let alone its first and second moments. Frequencies of players selecting a strategy in equilibria are different observables from the number of equilibria. A directed single-predecessor game omits the pairwise left/right tie that generates the present transfer matrices.",
+      "searches": [
+        "\"fashion game\" cycle alternating \"Nash equilibria\" probability",
+        "Cao Sanchez Zhang network games with heterogeneous players July 2026 2607.05932 cycles equilibria",
+        "Pei Cao Zhang Network games with three types players 2607.10997 2026 ring equilibrium",
+        "https://arxiv.org/html/2606.06625v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://doi.org/10.1016/j.disopt.2020.100606 (Theorem 1.3 states zero-versus-nonzero)",
+        "https://arxiv.org/html/2607.05932v1 (binary network model, strategy frequencies)",
+        "https://doi.org/10.1007/s11424-016-5057-9 (instancewise equilibrium computations)"
+      ],
+      "reasoning": "Equivalences considered include spin/globally complemented action profiles, XOR edge disagreement vectors, a parity-projected transfer trace, spin-chain partition functions, and annealed moments of the zero-temperature solution count. Only existence and generic computation were identified, not this explicit pair of moment identities or their leading growth comparison.",
+      "searches": [
+        "\"fashion game\" \"equilibrium\" \"second moment\" ring",
+        "\"fashion game\" \"mean number\" \"Nash equilibria\"",
+        "exact first second moment Nash equilibrium counts binary conformist rebel random ring cycle eigenvalues sqrt17",
+        "\"fashion game\" cycle alternating \"Nash equilibria\" probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://doi.org/10.1016/j.disopt.2020.100606 (binary ring satisfaction/existence rather than moment tables)",
+        "https://arxiv.org/html/2607.10997v1 (Section 4.2 addresses three or more strategies)"
+      ],
+      "reasoning": "Looked for an exact OEIS-like census, a transfer partition function table, and closed second-moment spectra, not simply identical titles or radical constants. No applicable table with these statistics was encountered. Limited access to two older original papers prevents claiming a complete census of publication.",
+      "searches": [
+        "\"fashion game\" cycle number of pure Nash equilibria variance random conformist rebel types second moment",
+        "\"fashion game\" \"mean number\" \"Nash equilibria\"",
+        "annealed second moment number Nash equilibria random two-type undirected cycle",
+        "Exact equilibrium-multiplicity moments on binary fashion-game cycles"
+      ]
+    },
+    "rationale": "Under the accessible record, the exact two full moments and the exponential relative-variance asymptotic for independently fairly typed undirected cycles are not implied by published existence theorems, numerical strategy-frequency methods, satisfaction optimization, or directed-cycle classifications. Earlier random-network statistical mechanics and generic instancewise equilibrium enumeration are genuine residual risks because full original texts were not obtained. Search failure alone was not taken as novelty proof; domain and implication comparisons were performed.",
+    "residual_risks": [
+      "Full 2016 Sun statistical-mechanics text was not accessed; its random-network theory might conceal a specialization to fixed cycle annealed moments.",
+      "Full 2016 Guo–Wang equilibrium-computation article and 2014 Cao–Yang source were not accessed; only abstracts and a reproduced theorem were compared.",
+      "Unindexed or differently named equilibrium-counting results could establish the same transfer or spectral identities."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Existence in sparse random graphs and frequencies of actions among players, not moments of the number of different equilibria over fair independent types on a fixed ring.",
+        "evidence": "Sections 2–4 and random-network Theorem 3; first arXiv posting 2026-07-07.",
+        "identifier_or_url": "https://arxiv.org/html/2607.05932v1",
+        "material_read": "Full HTML: introduction, formal model, equilibrium theorems, random-network proof appendix, and strategy-frequency approximation sections.",
+        "method": "Examined mathematical objects, randomization, and outputs of the actual theorems and supplements.",
+        "title": "Network games with heterogeneous players",
+        "trigger": "Recent broad binary conformist–rebel–stubborn model with probabilistic equilibrium existence and outcome predictions"
+      },
+      {
+        "assessment": "Section 4.2 explicitly restricts rings to at least three strategies, deferring the binary case to existing work; no fair random two-moment equilibrium-count law.",
+        "evidence": "Section 4.2 ring setup and Theorem 4; first posting 2026-07-13.",
+        "identifier_or_url": "https://arxiv.org/html/2607.10997v1",
+        "material_read": "Full HTML: model, general existence proofs, complete-network discussion, and all of Section 4.2 (line and ring).",
+        "method": "Compared number of strategies, topology, theorem quantifiers, and whether outcomes are counts of equilibria or action frequencies.",
+        "title": "Network games with three types of players",
+        "trigger": "Paper explicitly analyzes rings and strategy distributions in a three-type extension."
+      },
+      {
+        "assessment": "Exact nonexistence classification is established and explicitly credited to 2014 work. The paper studies optimal minimum payoffs, not the present cardinality moments.",
+        "evidence": "Theorem 1.3 credited to Cao–Yang 2014; 2020 paper Sections 1 and 2.",
+        "identifier_or_url": "https://doi.org/10.1016/j.disopt.2020.100606",
+        "material_read": "Accessible full article HTML: definitions, introduction, cited original existence Theorem 1.3, easy-case cycle section, and discussion.",
+        "method": "Compared its satisfaction-optimization invariant and preexisting zero-equilibrium criterion against moments of cardinality across random type words.",
+        "title": "Fashion game on graphs",
+        "trigger": "Same binary C/R model and exact cyclic-game prior theorem."
+      },
+      {
+        "assessment": "The directed graph has one-sided payoffs and is not a reduction covering the undirected two-neighbor random-type moment law.",
+        "evidence": "Definition 1 local payoff H_i(s_{i-1},s_i) and Section 8 classification of 0/1/2 pure equilibria for directed robust systems.",
+        "identifier_or_url": "https://arxiv.org/html/2606.06625v1",
+        "material_read": "Full HTML on directed unilateral-dependency model, Sections 2, 6, 8 and explicit stability table.",
+        "method": "Contrasted payoff dependence on one upstream neighbor with undirected cycle two-neighbor best response; checked what the parity condition classifies.",
+        "title": "N-Player Binary Games with Unidirectional Dependencies: Cycle Robustness and Induced Indifference",
+        "trigger": "Recent directed-cycle classification explicitly involving Nash-equilibrium cardinalities and parity."
+      },
+      {
+        "assessment": "The abstract describes instancewise verification and equilibrium-finding, not exact random-cycle moments. Full text remains a residual priority risk.",
+        "evidence": "Guo–Wang (2016) original journal abstract.",
+        "identifier_or_url": "https://doi.org/10.1007/s11424-016-5057-9",
+        "material_read": "Bibliographic information and original abstract; complete article not inspected.",
+        "method": "Compared stated algorithmic output against all-size analytic moments under fair random types, without treating the abstract as full-text coverage.",
+        "title": "The computation of Nash equilibrium in fashion games via semi-tensor product method",
+        "trigger": "Generic algorithm may enumerate all PNE in related games."
+      },
+      {
+        "assessment": "Accessible description emphasizes satisfaction proportions and the phase of existence on random networks. The exact-cycle two-moment result cannot be ruled out in uninspected content; this is the largest literature risk.",
+        "evidence": "Sun (2016), Journal of Statistical Mechanics 023203, DOI as identified.",
+        "identifier_or_url": "https://doi.org/10.1088/1742-5468/2016/02/023203",
+        "material_read": "Bibliography and abstract-level summaries only; complete text was not accessible.",
+        "method": "Compared bibliographic scope, model (random network vs fixed cycle), and stated observables; no whole-document noncoverage inference made.",
+        "title": "Statistical mechanics of the fashion game on random networks",
+        "trigger": "Statistical-mechanics approach to randomized fashion games could conceivably contain general count formulas."
+      },
+      {
+        "assessment": "The original zero-equilibrium theorem is prior and explicitly excluded from novelty. An uninspected larger counting theorem remains a possible source of overlap.",
+        "evidence": "Shen–Lin (2020), Theorem 1.3.",
+        "identifier_or_url": "Cao and Yang, Theoretical Computer Science 540–541 (2014), 169–181",
+        "material_read": "Statement of the original cycle theorem reproduced as Theorem 1.3 in the fully accessible Shen–Lin 2020 article; original full text not available.",
+        "method": "Accepted only the reproduced specific existence theorem as prior coverage; no assertion about all original sections.",
+        "title": "The fashion game: Network extension of Matching Pennies",
+        "trigger": "Original cyclic existence/nonexistence theorem, also potentially more general closed enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae139aa9-143f-47d0-9abb-cb1d234fb30a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of simultaneously stable assignments is a natural selection-multiplicity observable in heterogeneous network games, complementary to existence. The exact two-moment formulas identify a genuinely nonconcentrating annealed equilibrium landscape: exponentially vanishing probability of no pure equilibrium (known) coexists with exponentially growing coefficient of variation squared (new). This phase-sensitive result is not a textbook restatement of the known alternating obstruction, does not require a downstream theorem, and motivates further study of typical equilibrium counts and selection.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Scientific review of exact equilibrium-multiplicity moments
+
+## Correctness
+**PASS.** On an undirected cycle each player's two neighbors determine a simple forbidden adjacent-edge pair; conformists prohibit two disagreements, rebels prohibit two agreements. The parity of the edge disagreement vector determines whether it is the image of a binary action profile; all realizable edge vectors have exactly two action preimages. The two cyclic traces enforce this parity and count without overcounting. Independent site-type averaging produces the claimed first and second transfer-matrix traces. Exact characteristic identities yield all roots with multiplicity, and the strict spectral comparison yields the limiting relative variance. The standalone checker independently enumerated \(1016\) small type configurations in both action and edge representations and checked exact aggregate moments through \(n=12\). The general result rests on the displayed proof, not the finite tests.
+
+## Originality
+**PASS subject to publication priority.** Cao and Yang's cycle theorem, quoted by Shen and Lin (2020), decides equilibrium *existence* but does not give the cardinality random variable's moments. The 2026 network papers establish equilibrium conditions or equilibrium **strategy frequencies**, not the number of distinct labeled equilibria averaged over types. The 2020 satisfaction-optimization article and the 2016 equilibrium-finding algorithm address different output quantities. The 2026 directed unidirectional cycle paper addresses a different dependency graph. A relevant older statistical-mechanics paper on random networks could be inspected at abstract/bibliographic level but not in complete text, and unpublished, unindexed or differently formulated moment formulas remain possible.
+
+## Value
+**PASS.** Two separate statistical questions are often conflated: whether any stable action profile exists and how many stable action profiles a typical or average instance possesses. A sharp existing binary-cycle theorem settles the first under independent types; the present exact spectral moment law answers a natural quantitative multiplicity question and proves the substantive surprise that relative variance grows exponentially even as equilibrium failure becomes exponentially rare. This matters for stochastic equilibrium selection and for interpreting average equilibrium counts in heterogeneous network games. No general-network or unequal-type probability statement is asserted.
+
+## Literature and limits
+The most closely related accessible complete works are Cao–Sánchez–Zhang (2026), Pei–Cao–Zhang (2026), Shen–Lin (2020), and Sánchez-Sáez–Odishelidze–Criado-Aldeanueva (2026). Earlier articles by Cao–Yang (2014), Guo–Wang (2016), and Sun (2016) are relevant. The specialized 2016 random-network statistical-mechanics text was not available in full, creating a stated publication-priority limitation. The result is a non-independent scientific review of the precise fair binary cycle model.
+
+Self-review: passed. Independent audit: not yet performed.
