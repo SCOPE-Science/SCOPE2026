@@ -1,0 +1,65 @@
+# Finite modal exchangeability on rooted \(\mathsf{S4}\) bouquets: exact observable and hidden dimensions
+
+## Finding
+Fix integers \(k\geq0\), \(t\geq1\), and \(s\geq1\), and put \(q=2^k\). Let \(F_{t,s}\) be the rooted reflexive transitive Kripke frame consisting of a root \(r\) and \(t\) pairwise disjoint terminal clusters, each of size \(s\). The root accesses every world; each cluster is internally universally accessible; there are no other accessibility arrows. Put
+\[
+N_{q,s}=\sum_{j=1}^{\min(q,s)}\binom qj,\qquad H_{q,s}=\binom{s+q-1}{q-1}.
+\]
+For valuations of \(k\) propositional variables, the following is an exact, joint classification.
+
+**Theorem (observable/hidden finite credal dimensions).** The number of different complete ordinary-modal theories at the designated root is
+\[
+M_{k,t,s}=q\sum_{j=1}^{\min(t,N_{q,s})}\binom{N_{q,s}}j.
+\]
+Every root theory is determined by formulas of modal depth at most two. The convex polytope of all probability measures on valuations invariant under frame automorphisms fixing the root is a simplex having exactly
+\[
+E_{k,t,s}=q\binom{t+H_{q,s}-1}{H_{q,s}-1}
+\]
+extreme points. Two such measures agree on the probability of **every** modal formula evaluated at the root precisely when they induce the same probability distribution on the \(M_{k,t,s}\) root theories. Therefore the attainable modal-observation distributions form the full \((M_{k,t,s}-1)\)-simplex, whereas the invariant-prior simplex has dimension \(E_{k,t,s}-1\). The affine dimension invisible to all modal root observations is exactly \(E_{k,t,s}-M_{k,t,s}\).
+
+This loss is strictly positive **if and only if** \[(k\geq1)\wedge((s\geq3)\vee(t\geq3)).\] In particular, the first hidden invariant-prior distinctions within this bouquet family occur on just four worlds. When \(k=0\), depth zero suffices; when \(k\geq1\), the depth-two bound is sharp except for \((t,s)=(1,1)\), where the sharp depth is one. For fixed \(k\geq1\) and \(s\geq1\), as \(t\to\infty\), the observable number stabilizes at \(q(2^{N_{q,s}}-1)\), while \(E_{k,t,s}\sim q t^{H_{q,s}-1}/(H_{q,s}-1)!\).
+
+## Assumptions and scope
+The language is the **ordinary classical propositional modal language** with \(k\) primitive propositional variables and one normal modality \(\Box\), interpreted by the reflexive accessibility relation of \(F_{t,s}\); \(\Diamond\) abbreviates \(\neg\Box\neg\). There are no counting, graded, global or hybrid modalities, no world names, and no direct observations of valuations away from the designated root. All probability measures are arbitrary measures on the finite valuation set, subject only to invariance under the stabilizer of \(r\). No stochastic independence is assumed. “Same observable probabilities” means equality for all modal formulas evaluated at \(r\), not equality of all probabilities of subsets of the valuation set.
+
+A complete propositional colour is a truth assignment to the \(k\) primitive variables; the colour set \(Q\) has size \(q\). For each nonempty terminal cluster \(C_i\), write \(S_i\subseteq Q\) for the set of colours occurring on it. The root colour is \(a\in Q\). Write \(\mathcal H=\{S_1,\ldots,S_t\}\), where repeated supports are suppressed. In particular \(1\leq|S_i|\leq\min(q,s)\) and \(1\leq|\mathcal H|\leq t\).
+
+## Proof
+**Step 1: Modal classification by support families.** If two rooted valuations have the same root colour \(a\) and the same set \(\mathcal H\) of distinct terminal-cluster supports, relate their roots and also relate terminal worlds having the same colour and belonging to clusters with the same support. This is a bisimulation: any successor inside a terminal cluster is matched by a successor with the same colour in the paired cluster, and any successor of either root is matched either by the other root or by a world in a cluster with the same support. Thus every modal formula agrees at the roots.
+
+For the converse and the depth bound, let \(P_b\) denote the depth-zero conjunction specifying precisely colour \(b\). For each nonempty \(S\subseteq Q\), define the depth-one formula
+\[
+\delta_S=\bigwedge_{b\in S}\Diamond P_b\;\wedge\;\Box\Bigl(\bigvee_{b\in S}P_b\Bigr).
+\]
+At a terminal world of cluster \(C_i\), \(\delta_S\) holds precisely when \(S_i=S\). At the root, \(\delta_S\) holds precisely when \(S=T:=\{a\}\cup\bigcup\mathcal H\), the set of colours appearing anywhere in the frame. The formula \(P_a\wedge\delta_T\) identifies \(a\) and \(T\) using depth at most one.
+
+Given this identified \(a,T\), one can detect for each feasible \(S\) whether \(S\in\mathcal H\) using depth at most two. For \(S\neq T\), the formula \(\Diamond\delta_S\) works, since the root itself fails \(\delta_S\). For \(S=T\) with a colour \(b\in T\setminus\{a\}\), use \(\Diamond(P_b\wedge\delta_T)\): a witness cannot be the root, and exists exactly when a terminal cluster has support \(T\). If \(T=\{a\}\), every terminal cluster has support \(\{a\}\) because \(t\geq1\). Consequently each possible pair \((a,\mathcal H)\) is characterized by a finite Boolean combination of depth-at-most-two formulas, and different pairs are modally distinguishable. This proves equivalence of complete modal theories with equality of \((a,\mathcal H)\), and proves the depth bound.
+
+There are exactly \(N_{q,s}\) feasible nonempty support sets \(S\), because an \(s\)-world cluster can exhibit exactly any set of between one and \(\min(q,s)\) colours. Any nonempty collection \(\mathcal H\) of at most \(t\) feasible supports is realizable: assign one cluster to each member and duplicate an arbitrary member in remaining clusters. Independent choice of the root colour gives \(M_{k,t,s}\).
+
+**Step 2: Sharp depth.** Depth zero sees only \(a\). Depth one sees exactly \((a,T)\), because successor depth-zero colours form the single set \(T\). Every \(T\ni a\) with \(|T\setminus\{a\}|\leq ts\) is realizable, so the exact depth-one count is
+\[
+q\sum_{j=0}^{\min(q-1,ts)}\binom{q-1}{j}.
+\]
+When \(q=1\), every valuation is identical and depth zero suffices. When \(q\geq2\), \(t=s=1\) permits exactly one terminal colour, and the pair \((a,T)\) determines it: depth one is sufficient and depth zero is not. If \(s\geq2\), choose distinct colours \(a,b\), and compare (i) a terminal cluster consisting only of \(b\)-worlds with (ii) a cluster containing both \(a,b\), filling any other clusters entirely with \(a\). The resulting valuations have the same \((a,T)\), but different \(\mathcal H\). If instead \(s=1,t\geq2\), compare one \(b\)-coloured terminal and \(t-1\) terminals of colour \(a\) against \(t\) terminals all of colour \(b\). Again \((a,T)\) is unchanged but \(\mathcal H\) differs. Thus depth one is insufficient in every other case, proving sharpness.
+
+**Step 3: Invariant-prior simplex.** Every automorphism fixing the root permutes the terminal clusters arbitrarily and permutes worlds arbitrarily within each cluster. Conversely, each such permutation is an automorphism, so the stabilizer is \(S_s\wr S_t\). A valuation orbit is determined by its root colour and the **multiset** of \(t\) terminal-cluster colour histograms. A histogram is a weak composition of \(s\) into \(q\) parts, so there are exactly \(H_{q,s}\) histogram types. Multisets of \(t\) elements from these types are counted by \(\binom{t+H_{q,s}-1}{H_{q,s}-1}\). The number of valuation orbits is therefore \(E_{k,t,s}\).
+
+For any finite group acting on a finite set, a probability distribution is invariant exactly when it assigns equal mass to all points in each group orbit. Every invariant measure is uniquely a convex combination of the orbit-uniform measures, so these are the \(E_{k,t,s}\) vertices of a simplex. A modal formula at the root has constant truth value on each root-theory class \((a,\mathcal H)\), and every such class is definable by a depth-two formula from Step 1. Hence a pair of invariant priors agrees on **all** root-modal formula probabilities if and only if the priors assign the same total mass to each of the \(M_{k,t,s}\) classes. Every probability distribution on the latter classes can be obtained by mixing one orbit-uniform measure for each class. Thus the observable image is the full \((M_{k,t,s}-1)\)-simplex, and the affine kernel within the probability hyperplane has dimension \(E_{k,t,s}-M_{k,t,s}\).
+
+**Step 4: Exact onset and growth.** When \(q=1\), only one colour histogram and one support are possible, giving \(E=M=1\). Assume \(q\geq2\). For \(s=1,2\), a support determines its cluster histogram uniquely. If also \(t=1,2\), a set of supports determines the multiset of exactly \(t\) supports uniquely, so valuation orbits and root-modal classes coincide. If \(s\geq3\), two histograms \((s-1,1)\) and \((1,s-1)\) supported on two fixed colours coincide only when \(s=2\); for \(s\geq3\) they are distinct yet have the same support. Holding all other clusters and the root fixed exhibits two valuation orbits in one root theory. If \(t\geq3\), choose two feasible distinct support types and use cluster-support multiplicities \((t-1,1)\) and \((t-2,2)\), giving different valuation orbits with the same set of supports; this works for all \(s\geq1\). These arguments prove the strict-gap criterion. The smallest possible frame with a gap in this bouquet family has four worlds, e.g. \((t,s)=(1,3)\) or \((3,1)\).
+
+For fixed \(q,s\), all nonempty collections of feasible support types become possible once \(t\geq N_{q,s}\), giving the constant \(M=q(2^{N_{q,s}}-1)\). For \(q\geq2\), \(H_{q,s}\geq2\), and the binomial-polynomial asymptotic gives \(E\sim q t^{H_{q,s}-1}/(H_{q,s}-1)!\).
+
+## Verification
+An exact brute-force enumeration of raw valuations over fourteen small parameter triples computes modal-depth signatures through depth four, terminal-support families, and centered-automorphism orbit histograms. It verifies the stated counts, saturation by depth two, and equalities \(E=M\) or inequalities \(E>M\) on all tested cases. For example, with one propositional atom and three two-world terminal clusters, the rank-depth counts \((2,4,14,14,14)\) and the orbit count \(20\) agree with \(M=14,E=20\); with a single three-world terminal cluster the counts are \((2,4,6,6,6)\), with \(E=8\). The included standard-library script `s4_bouquet_check.py` can be run using `python3 s4_bouquet_check.py`, and prints `BOUQUET_MODAL_CREDAL_FINITE_OK` on successful completion. The finite checks are not a proof for arbitrary parameters; the combinatorial and bisimulation arguments above supply that proof.
+
+## Relationship to prior work
+Zantedeschi's 2026 paper introduces centered modal exchangeability (automorphism-stabilizer invariance) and derives general orbit-dependent representations, including the finite-orbit qualification to de Finetti's infinite-orbit theorem. It does not state these exact finite-invariant-prior dimensions, modal observational quotient counts, sharp depth cutoff, or the four-world identifiability threshold. Dawar and Otto's 2009 analysis establishes the general role of bisimulation and modal expressive power over finite rooted and transitive frames; our claim does **not** re-prove that framework, but computes the exact finite quotient and probability-simplex fibers in a particular natural family. The orbit enumeration uses classical multiset counting and is not claimed as a new group-enumeration technique. For singleton terminal clusters and sufficiently many clusters, the observable cardinality specializes to the already-known height-two partial-order modal count; that covered special case is not claimed new. The current contribution concerns the joint finite invariant-prior/observable quotient and its strict gap with nontrivial clusters or sufficiently many repetitions. An exact earlier finite-bouquet census under other terminology remains a priority risk.
+
+## Limitations
+The theorem is restricted to finite frames with one distinguished universal root and equal-size mutually isolated terminal equivalence clusters. The result concerns ordinary modal observations **only at the root**; direct counting of worlds, formulas with world names or global access, graded modalities, or observations at marked terminal worlds may separate the hidden invariant priors. It does not assert an infinite de Finetti representation for finite orbits. The no-earlier-coverage assessment is provisional: published specialized modal enumeration or symmetry/identifiability work may contain an equivalent result under different terminology.
+
+## References
+1. D. Zantedeschi, *A Modal de Finetti Theorem: Exchangeability under S4 and S5*, arXiv:2603.27547v1 (first submitted 29 March 2026); revised as *Modal Exchangeability: Centered Symmetry and the Credal Architecture of Kripke Frames*, arXiv:2603.27547v2. https://arxiv.org/abs/2603.27547 .
+2. A. Dawar and M. Otto, *Modal characterisation theorems over special classes of frames*, Annals of Pure and Applied Logic 161 (2009), 1–42, DOI:10.1016/j.apal.2009.04.002. Open copy: https://www.cl.cam.ac.uk/~ad260/papers/apal09.pdf .
