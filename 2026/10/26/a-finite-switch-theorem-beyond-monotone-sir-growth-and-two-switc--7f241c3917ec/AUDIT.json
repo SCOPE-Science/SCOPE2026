@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "PMP normality from transversal exit, λI positive at exit and at most one upward zero, weighted switching Θ with Θ prime=μλI SI G, exact Rolle bound q+1. Verified explicit inequalities and terminal tangency exclusion show one G zero for each benchmark.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grigorieva–Khailov–Korobeinikov (2015) DOI:10.3934/proc.2015.0549 abstract describes fixed-terminal infected-level minimization and generalized Rolle estimates.",
+        "Grigorieva–Khailov–Korobeinikov (2016) DOI:10.1051/mmnp/201611407 abstract describes terminal infection rather than minimal first threshold hitting time.",
+        "Hynd–Ikpe–Pendleton arxiv:2008.12744 Sections 1–2 fix beta and gamma as constants."
+      ],
+      "reasoning": "General zero-count principles are historical, not novel as tools. These earlier control theorems optimize different terminal functionals and/or hold only for constant incidence, and their stated results do not imply a q+1 switch budget for nonlinear state-dependent SIR first-exit time. Full historical PDFs remained inaccessible, so unrecognized stronger lemmas are an explicit residual risk.",
+      "searches": [
+        "time-optimal vaccination state-dependent SIR beta exp(3I-1.5S) and power-law transmission, prove every optimal bang-bang at most two switches 1→0→1 under one G sign change, excludes singular arcs",
+        "Pontryagin switching function integrating factor derivative product infected costate lambda_I G, count zeros of G along decreasing susceptible trajectory; switching budget q+1 and terminal full vaccination",
+        "Grigorieva Khailov Korobeinikov 2015 optimal control epidemic varying populations switching zero Rolle",
+        "Optimal Control for a SIR Epidemic Model with Nonlinear Incidence Rate Grigorieva 2016"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.23095v1 Sections 3–6 (primary public HTML)",
+      "arxiv:1706.04447 primary PDF pages 1–7",
+      "arxiv:2008.12744 primary PDF opening and state equations",
+      "DOI:10.3934/proc.2015.0549 official abstract",
+      "DOI:10.1051/mmnp/201611407 indexing abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.23095: costate sign dichotomy is proved under global G>0 via a separate exit lemma; its outside-G cases are numerical only.",
+        "arxiv:1706.04447: constant beta,gamma imply positive G; state-dependent B,C do not satisfy this premise.",
+        "arxiv:2008.12744: beta and gamma are constant, so no crossing G; this does not subsume the claim."
+      ],
+      "reasoning": "Existing one-switch conclusions require G>0 or constant parameters and are inapplicable when G changes sign. Here proof replaces that hypothesis by finite temporal zero counts and verifies terminal transversality for the explicit two test cases; thus neither a literal restatement nor a corollary under prior hypotheses.",
+      "searches": [
+        "state-dependent SIR minimum eradication time bound switches by number of zeros of susceptible derivative of net growth G, monotone susceptible and one costate sign change",
+        "2026 arxiv 2610.23095 time optimal vaccination exponential transmission beta0 exp(alpha I - sigma S), gamma0+cI; optimal at most two bang bang changes even outside G>0",
+        "arxiv:2610.23095 Lemma 6, Theorem 1, Section 6.5",
+        "arxiv:1706.04447 Theorem 2",
+        "arxiv:2008.12744 Introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.23095 Section 3.6 proves q=0 only with global G>0, and Section 6.5 explicitly declines finite-switch classification when G changes sign.",
+        "arxiv:1706.04447 §§2–3 has constant-rate SIR and one-switch optimum."
+      ],
+      "reasoning": "A possible equivalent is a bound on zeros of a switched costate-weighted derivative. The source identity alone contains the ingredients, but its theorem does not count G zeros, and its examples have one G crossing not globally positive. The general q+1 bound and two benchmark corollaries are not restatements of the q=0 theorem.",
+      "searches": [
+        "Park Jang Kim 2026 time-optimal vaccination state-dependent SIR if G changes sign once at susceptible threshold, at most two switches full vaccination at terminal; Pontryagin switching function finite zeros count",
+        "state-dependent SIR minimum eradication time bound switches by number of zeros of susceptible derivative of net growth G, monotone susceptible and one costate sign change",
+        "Pontryagin switching function integrating factor derivative product infected costate lambda_I G, count zeros of G along decreasing susceptible trajectory; switching budget q+1 and terminal full vaccination",
+        "arxiv:2610.23095 Sections 3.4–3.6, 6.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Table 9 reports only two-switch numerical candidates and numerical timing gaps; Section 6.5 expressly says unrestricted optimal structure remains unknown.",
+        "Direct research-record queries returned unrelated SIR equilibrium and Pontryagin correction records; no exact switching-budget result."
+      ],
+      "reasoning": "A computed two-switch candidate is not a table establishing an exhaustive two-switch optimal class. The new argument proves completeness of this class, not the numerical candidate optimality, and makes no claim of unique first discovery from the database query.",
+      "searches": [
+        "Park Jang Kim 2026 time-optimal vaccination state-dependent SIR if G changes sign once at susceptible threshold, at most two switches full vaccination at terminal; Pontryagin switching function finite zeros count",
+        "2026 arxiv 2610.23095 time optimal vaccination exponential transmission beta0 exp(alpha I - sigma S), gamma0+cI; optimal at most two bang bang changes even outside G>0",
+        "time-optimal vaccination state-dependent SIR beta exp(3I-1.5S) and power-law transmission, prove every optimal bang-bang at most two switches 1→0→1 under one G sign change, excludes singular arcs",
+        "arxiv:2610.23095 Table 9, Section 6.5"
+      ]
+    },
+    "rationale": "Source 2026 explicitly leaves unrestricted optimum outside global G>0 unknown, with singular arcs possible. Existing constant-rate one-switch theorems cannot cover benchmark G crossings. Earlier fixed-terminal count papers use similar tools but do not state this first-exit bound in accessible evidence; full historical works inaccessible and residual uncertainty documented.",
+    "residual_risks": [
+      "Unindexed or inaccessible older epidemic-control literature may contain the general zero-count bound, especially generalized Rolle-based results for other objectives.",
+      "No verified global minimization over the two switching times; numerical source comparisons cannot establish necessity of two switches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlying PMP identities and at-most-one infected-costate zero already known; no q+1 zero budget or analytical exhaustive two-switch result; explicitly calls unrestricted optimum unresolved.",
+        "evidence": [
+          "arxiv:2610.23095v1 Sections 3.4–3.6, 6.1 Remark 20, 6.5 Table 9 and its caveats"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.23095v1",
+        "material_read": "Public full-text HTML sections on Assumptions 1–2, Section 3.4–3.6 proof, Section 6.1 formulas and Section 6.5 discussion and tables",
+        "method": "Primary mathematical statement and proof inspection, direct comparison of PMP identities and optimal-control scope",
+        "title": "Time-optimal vaccination in state-dependent SIR models: a single switch criterion and numerical examples outside its regime",
+        "trigger": "same optimal control equations, exact numerical parameter sets and G sign question"
+      },
+      {
+        "assessment": "Applies to constant rates and establishes 0-to-full single switch, not variable-G q+1 or explicit B,C.",
+        "evidence": [
+          "arxiv:1706.04447 pages 1, 4–7"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1706.04447",
+        "material_read": "Abstract, model and optimality theorem on PDF pages 1–7, with visual inspection of page 6",
+        "method": "Original PDF extracted text and PDF-page visual review",
+        "title": "Time-optimal control strategies in SIR epidemic models",
+        "trigger": "classical one-switch time-minimum precedent"
+      },
+      {
+        "assessment": "The stated beta,gamma parameters are constant; cannot directly cover variable-G benchmark case.",
+        "evidence": [
+          "arxiv:2008.12744 introduction and eq. (1.2)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2008.12744",
+        "material_read": "Primary PDF title, introduction and controlled model on PDF pages 1–4",
+        "method": "Full-text PDF initial sections and mathematical model inspected",
+        "title": "An eradication time problem for the SIR model",
+        "trigger": "related 2021 time-to-threshold vaccination theory"
+      },
+      {
+        "assessment": "Different fixed-terminal infection objective; potentially related general zero-count methods, full source unavailable.",
+        "evidence": [
+          "DOI 10.3934/proc.2015.0549 official abstract"
+        ],
+        "identifier_or_url": "https://www.aimsciences.org/article/doi/10.3934/proc.2015.0549",
+        "material_read": "Official publisher abstract, bibliographic metadata and references; attempted full-text PDF unsuccessful",
+        "method": "Abstract-model comparison, attempted official PDF retrieval",
+        "title": "Optimal control for an epidemic in populations of varying size",
+        "trigger": "historical epidemic switching-zero-count result, generalized Rolle"
+      },
+      {
+        "assessment": "Minimizes infection at prescribed final time, rather than first-threshold time; a possible older implicit switching principle remains an access risk.",
+        "evidence": [
+          "DOI 10.1051/mmnp/201611407 abstract: fixed terminal infection minimization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1051/mmnp/201611407",
+        "material_read": "Publisher-linked indexing abstract and bibliographic metadata; open PDF inaccessible or timed out",
+        "method": "Primary abstract and attempted open full text",
+        "title": "Optimal Control for a SIR Epidemic Model with Nonlinear Incidence Rate",
+        "trigger": "older nonlinear-incidence SIR count of bang-bang switches"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f241c39-17ec-4975-8411-cff620720d38",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source explicitly leaves singular arcs/unrestricted structure open for its two G-changing benchmark examples. This result analytically excludes singular and chattering arcs and proves that searching at most two times is complete for all optimal controls, beyond one-switch structural hypotheses.",
+    "status": "PASS"
+  }
+}
