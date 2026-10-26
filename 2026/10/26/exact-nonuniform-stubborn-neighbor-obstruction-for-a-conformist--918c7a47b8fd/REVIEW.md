@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The two payoff comparisons reduce to \(p_i+\mathbf1_{\{i=b\}}\) for the conformist and the minimization of \(q_i+\mathbf1_{\{i=a\}}\) for the rebel. If the rebel has two or more tied minimum-count actions all belonging to the conformist's maximum-count set, every purported equilibrium is impossible: a rebel best response must be in that minimum set, forcing the conformist to copy it, after which the rebel must switch to another minimum. Conversely, a minimum action outside the conformist maxima yields a discordant equilibrium; when the minimum action is unique and is a conformist maximum, copying it yields an equilibrium. The argument uses integrality to handle exactly one neighbor's contribution and covers all ties and zero counts. Direct exhaustive integer checks in `verify.py` passed 8,395 configurations; they are supplementary, not a substitute for the proof.
+
+## Originality — PASS (provisional priority)
+The closest primary paper, Pei–Cao–Zhang (2026), has a uniformly distributed pinned-neighbor obstruction \(M^*\), while the present claim gives the exact general criterion for arbitrary pinned counts, its constructive converse for the two-hub network, and a nonuniform example beyond its tree theorem's \(m>\Delta\) hypothesis. Cao–Sánchez–Zhang (2026) precedes this with a binary balanced obstruction, also already included in the specialization. The authors' star classification has only one strategic hub and is not implication-equivalent. Targeted searches for biased matching-pennies variants and graph-game obstruction conditions found no claim covering the displayed general statement. The research literature is large and historical priority is not independently certified.
+
+## Mathematical value — PASS
+The two-hub obstruction is a natural local building block for equilibrium nonexistence in networks with three behavioral types. Giving an if-and-only-if criterion for arbitrary nonuniform stubborn influences fills the gap between a sufficient balanced obstruction and an open general tree regime identified by the source. The set-inclusion condition depends only on extremal count sets, provides explicit equilibrium constructions on the solvable side, and produces new certificates for larger networks without a global equilibrium computation. Its three-action, two-hub example has flexible degrees two and three, neither in the original balanced-motif congruence class. The result is local, not a global network classification.
+
+Self-review: passed. Independent audit: not yet performed.
