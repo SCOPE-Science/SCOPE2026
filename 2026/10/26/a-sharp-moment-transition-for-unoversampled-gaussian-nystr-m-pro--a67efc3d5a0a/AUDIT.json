@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Projection residual decomposes orthogonally; independent Gaussian tests produce the exact normal/chi-square factor and circular angle. Student density establishes q-th moment iff q<k; beta integrals and boundary-layer substitutions establish all leading constants and the exact q=2 identity. A standalone independently implemented finite matrix identity/quadrature diagnostic was executed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2409.06384, algorithm and oversampling assumptions",
+        "arXiv:2302.12761, Theorem 9 and hypotheses",
+        "arXiv:2009.11392, Theorem 3.2 and pseudoinverse projection treatment",
+        "arXiv:0909.4061, Gaussian range finder and oversampling bounds"
+      ],
+      "reasoning": "The primary integration analysis requires positive oversampling; the parameter-dependent Nyström mean-square identity imposes stronger right/left sketch sizes. Neither theorem has hypotheses covering right sketch dimension one with p=0, so they cannot be substituted to deduce the claimed exact risk.",
+      "searches": [
+        "Randomized low-rank Runge-Kutta generalized Nystrom exact sign covariance Gaussian sketches small matrices",
+        "Randomized low rank Runge Kutta idealized projection on A(t)=diag(1,t) square root step error when right oversampling zero",
+        "Exact expected squared Frobenius error generalized Nystrom for rank one unoversampled right Gaussian sketch nearly rank one diagonal singular values (1,h) equals h",
+        "arXiv:2302.12761 Theorem 9",
+        "arXiv:2409.06384 moment bounds"
+      ]
+    },
+    "checked_sources": [
+      "Randomized low-rank Runge–Kutta methods; https://arxiv.org/abs/2409.06384",
+      "Fast and stable randomized low-rank matrix approximation; https://arxiv.org/abs/2009.11392",
+      "Randomized low-rank approximation of parameter-dependent matrices; https://arxiv.org/abs/2302.12761",
+      "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions; https://arxiv.org/abs/0909.4061"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2409.06384, algorithm and oversampling assumptions",
+        "arXiv:2302.12761, Theorem 9 and hypotheses",
+        "arXiv:2009.11392, Theorem 3.2 and pseudoinverse projection treatment",
+        "arXiv:0909.4061, Gaussian range finder and oversampling bounds",
+        "Accessible earlier local findings on sketched exponential action, PSD Nyström preconditioning, and delayed low-rank methods."
+      ],
+      "reasoning": "The earlier two-sided Nyström structural results do not imply the p=0 right-sketch error risk; the Student law for a one-vector Ritz scalar has a different estimator and denominator. The published oversampled error estimates cannot cover this unsampled-rank, exact h-dependent distribution by specialization. Classical Gaussian ratio identities help derive but do not explicitly cover the joint rank-one matrix approximation statement.",
+      "searches": [
+        "Generalized Nystrom two by two diagonal (1,h) rank one one right Gaussian sketch error mean squared equals h not h squared; left sketch Student t oversampling threshold",
+        "Exact expected squared Frobenius error generalized Nystrom for rank one unoversampled right Gaussian sketch nearly rank one diagonal singular values (1,h) equals h",
+        "arXiv:2302.12761 Theorem 9",
+        "arXiv:2009.11392 Theorem 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2409.06384, algorithm and oversampling assumptions",
+        "arXiv:2302.12761, Theorem 9 and hypotheses",
+        "arXiv:2009.11392, Theorem 3.2 and pseudoinverse projection treatment"
+      ],
+      "reasoning": "Reformulated as a two-singular-value exact Frobenius error law, a Student/chi-square multiplicative factor, and a moment-integrability threshold. The Student variable itself is standard; these sources and returned records did not identify a theorem giving the coupled angular law for one right Gaussian direction.",
+      "searches": [
+        "generalized Nystrom randomized low rank approximation second moment infinite variance square Gaussian denominator",
+        "Generalized Nystrom two by two diagonal (1,h) rank one one right Gaussian sketch error mean squared equals h not h squared; left sketch Student t oversampling threshold",
+        "Generalized Nystrom Gaussian sketches rank one spectral gap rare event square root Frobenius risk h log(1/h) moment transition",
+        "arXiv:2009.11392"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical research search hits 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee and 2026/10/11/SCOPE-first-order-critical-window-singular-spectra-of-nilpotent-shift--ad9e67002c01 concern different objects.",
+        "Closest accessible prior claims 79a6cc28-b936-46ba-ad41-d55bcaf31636 and 1347e7d4-9a8c-4ce3-8999-c88665c1de44 concern sketched exponential actions or PSD preconditioners."
+      ],
+      "reasoning": "Searches for the exact diagonal two-singular-value error, Gaussian ratio and moment-spectrum wording returned no matching table or closed formula in the examined result set. A negative search is not proof of absolute novelty.",
+      "searches": [
+        "Exact Frobenius risk rank one generalized Nystrom 2x2 diagonal anisotropic Gaussian sketches left oversampling inverse chi square",
+        "Exact expected squared Frobenius error generalized Nystrom for rank one unoversampled right Gaussian sketch nearly rank one diagonal singular values (1,h) equals h",
+        "Generalized Nystrom Gaussian sketches rank one spectral gap rare event square root Frobenius risk h log(1/h) moment transition"
+      ]
+    },
+    "rationale": "The exact unoversampled two-singular-value error law and h-dependent moment frontier are not implied by the examined positive-oversampling Nyström theorems. The Gaussian Student ratio mechanism and oblique projection are prior knowledge, explicitly credited; novelty remains a best-knowledge inference subject to classical coverage risk.",
+    "residual_risks": [
+      "An undiscovered classical two-singular-value Gaussian range-finder risk identity could subsume the exact angular factor or its h-dependence.",
+      "The bibliographic comparison is best-knowledge and cannot establish absolute novelty; exact source edition and technical hypothesis differences merit independent examination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published positive-oversampling assumptions do not directly cover the exact unoversampled right sketch and two-singular-value moment transition; the algorithm is explicitly credited.",
+        "evidence": [
+          "Lam–Ceruti–Kressner, arXiv:2409.06384, generalized Nyström projection formula and convergence assumptions; source first submitted 2024-09-10."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.06384",
+        "material_read": "The accessible full-text method definitions, randomized approximation equations and main assumptions on sketch sizes and moment estimates; original posting date cross-checked against the version metadata.",
+        "method": "Read the mathematical method and theorem hypotheses in the openly available arXiv rendering; compared dimension and oversampling assumptions to the one-column Gaussian case.",
+        "title": "Randomized low-rank Runge–Kutta methods",
+        "trigger": "Source of the randomized projection integrator and generalized Nyström stage map"
+      },
+      {
+        "assessment": "Projection and Gaussian inverse ideas predate this claim; the identified bounds do not state the exact singular-gap moment law under the present sample widths.",
+        "evidence": [
+          "Nakatsukasa, arXiv:2009.11392, generalized Nyström scheme and Theorem 3.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.11392",
+        "material_read": "The accessible mathematical discussion of generalized Nyström, pseudoinverse/stabilization, and error bounds including Theorem 3.2.",
+        "method": "Compared exact problem geometry, target rank, and required oversampling with the present rank-one right sketch.",
+        "title": "Fast and stable randomized low-rank matrix approximation",
+        "trigger": "Classical generalized Nyström oblique projections and stabilization"
+      },
+      {
+        "assessment": "Theorem 9 estimates oversampled mean-square risk; its stated rank/oversampling hypotheses do not directly imply this exact one-vector law, its q-spectrum, or sharp h transition.",
+        "evidence": [
+          "Kressner–Lam, arXiv:2302.12761, Theorem 9 and sampling assumptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.12761",
+        "material_read": "Full accessible analysis of fixed Gaussian sketches and the mean-square generalized Nyström error, particularly Theorem 9 and its dimension conditions.",
+        "method": "Checked matrix-domain target rank and positive right/left oversampling in the theorem against the rank-one p=0 setting here.",
+        "title": "Randomized low-rank approximation of parameter-dependent matrices",
+        "trigger": "Closest mean-square generalized Nyström approximation theorem"
+      },
+      {
+        "assessment": "Its analysis motivates the mechanism but is not an exact identity for two singular values with the independent generalized Nyström left sketch.",
+        "evidence": [
+          "Halko–Martinsson–Tropp, arXiv:0909.4061, Gaussian range finder oversampling error analysis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+        "material_read": "Gaussian range finding error analysis, inverse Gaussian norm factors, and oversampling assumptions.",
+        "method": "Compared known Gaussian inverse-moment requirements and error bounds with the proposed exact distribution for one sampled right vector.",
+        "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+        "trigger": "Classical Gaussian range finder and oversampling effects"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a67efc3d-5a0a-47e3-8f50-1236194ea4a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete natural sharp rank-one right-sketch classification quantifies a square-root mean-square accuracy barrier and logarithmic first-moment transition which persists under arbitrary left oversampling. The effect occurs on a smooth constant-forcing matrix differential problem and materially distinguishes pathwise and averaged consistency.",
+    "status": "PASS"
+  }
+}
