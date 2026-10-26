@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+For fixed tree \(T\), the isolated-vertex indicator at \(v\) forces the \(d_v\) incident edges to be absent, leaving the other edges independent. The conditional-mean calculation yields \(\operatorname{Cov}(I,M)=-\tfrac12\sum_v d_v2^{-d_v}\). The tree degree-sum identity is equivalent to a complete unbounded knapsack representation with positive hub profit \(g(d)=1/2-d2^{-d}\) and cost \(d-1\). All stated replacement moves preserve cost and strictly improve hub profit, eliminating degrees three and seven or more, degree-two vertices and excess degree-four/six hubs. The residual bounded integer problem reduces by exact algebra to minimizing \(a+3c\) across eight possible pairs, proving every residue case and the full equality classification. Prüfer construction proves realizability of every listed degree multiset. Independent exact arithmetic checks of all tree degree profiles through order sixteen, complete retention enumeration for every profile through order ten, and the integer dynamic program through order 120 agree with the proof. Computation is corroboration, not an infinite-order certificate.
+
+## Originality — PASS within inspected evidence
+
+The first public arXiv version of Berzunza–Cai–Holmgren (arXiv:1902.08109, 2019-02-21) addresses giant-cluster fluctuations for random split trees and regular trees, at a size-dependent supercritical retention parameter; its main setting does not cover fixed finite-tree, fair-percolation isolated-vertex/retained-edge covariance extrema. Betken (arXiv:1910.02668, 2019-10-07) concerns isolated-vertex CLTs in a growing preferential-attachment model, not this tree optimization. These primary texts were inspected beyond abstracts, including their introductions and main-theorem settings. The closest published research-record search hits involving tree degrees and percolation concern other statistics or graph models. Searches for covariance aliases, degree-index reformulations, and potential dominating general tree-degree optimizations did not locate the exact piecewise covariance optimum or its equality classes. These negative searches do not prove uniqueness or historical priority. Generic vertex-degree index methods and earlier obscure notes are residual risks.
+
+## Mathematical value — PASS
+
+The dependence between deleted/retained edges and isolated vertices is a natural bond-percolation observable. Its sharp finite-size extremization is not simply path-versus-star: optimal tree hosts have degree-five branching, with two distinct competing maximizer degree multisets in one congruence class. The proof explains this through a discrete exchange calculus and produces a complete, exact classification of all maximizing degree profiles at every tree order. The four-residue structure offers a reproducible benchmark for dependence sensitivity to the host-tree topology; no generalization to all bond probabilities is claimed.
+
+## Closest literature, limitations, and risk
+
+Berzunza–Cai–Holmgren, *The fluctuations of the giant cluster for percolation on random split trees* (arXiv:1902.08109); Betken, *A central limit theorem for the number of isolated vertices in a preferential attachment random graph* (arXiv:1910.02668). The fixed-host covariance identity is elementary and not itself asserted as a novel method. The accepted scientific claim is the complete fair-retention, fixed-order sharp extremum and residue-class equality characterization. Historical-priority uncertainty remains for possibly equivalent graph-degree-index optimization theorems that might imply this result after a change of objective. A potentially related general degree-index source was accessible only in limited summary form and is not used to assert exclusion. Only fair bond percolation on a fixed simple tree is proved.
+
+Self-review: passed. Independent audit: not yet performed.
