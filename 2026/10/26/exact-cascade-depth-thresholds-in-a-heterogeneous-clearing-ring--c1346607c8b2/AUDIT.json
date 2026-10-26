@@ -1,0 +1,103 @@
+{
+  "claim": "For the Eisenberg–Noe clearing model on a directed \\(n\\)-bank ring with unit nominal liabilities, edge shares \\(0<\\lambda_i<1\\), and strictly positive baseline slacks \\(s_i=x_i+\\lambda_{i-1}-1\\), a single shock \\(\\sigma\\) to bank \\(0\\) has exact cascade thresholds \\(\\tau_0=s_0\\) and \\(\\tau_k=s_0+\\sum_{j=1}^{k}\\frac{s_j}{\\prod_{i=0}^{j-1}\\lambda_i}\\) for \\(1\\le k\\le n-1\\): exactly \\(k+1\\) consecutive banks default when \\(\\tau_k<\\sigma\\le\\tau_{k+1}\\) for \\(0\\le k\\le n-2\\), and all \\(n\\) default when \\(\\sigma>\\tau_{n-1}\\), subject to \\(0\\le\\sigma\\le x_0\\).",
+  "correctness": {
+    "rationale": "The clearing equations reduce exactly to a contractive deficit recurrence. Back-substitution gives \\(\\tau_k\\), strict positive slacks make the thresholds increasing, and the all-default cyclic branch has positive slope because the product of edge shares is below one. The exact-rational example verifies both a partial cascade and a full cascade.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eboli et al. (2022), section 3.2, DOI 10.1007/s10436-022-00416-9, gives first and extreme final thresholds for its ring loss-flow model and notes the intermediate-threshold tractability limitation."
+      ],
+      "reasoning": "The 2022 source uses a loss-flow/loss-given-default model and considers shock allocations that differ from the single-shock proportional-payment model here. It motivates the value of intermediate thresholds but does not dominate or imply this exact heterogeneous EN formula.",
+      "searches": [
+        "financial network directed cycle exact cascade depth threshold product of liabilities",
+        "Eisenberg Noe ring network single shock heterogeneous external assets liability shares exact default cascade sequence thresholds",
+        "Eboli et al. (2022), sections 3.1–3.2, DOI 10.1007/s10436-022-00416-9"
+      ]
+    },
+    "checked_sources": [
+      "Eisenberg & Noe (2001), Systemic Risk in Financial Systems, DOI 10.1287/mnsc.47.2.236.9835.",
+      "Eboli et al. (2022), Connectivity, centralisation and robustness-yet-fragility of interbank networks, DOI 10.1007/s10436-022-00416-9."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eisenberg & Noe (2001) establishes the general clearing map and default-wave algorithm but does not give the closed-form sequence.",
+        "Eboli et al. (2022) explicitly limits its analytic ring characterization to selected thresholds in a different loss-flow model."
+      ],
+      "reasoning": "The threshold formula follows by back-substituting the exact deficit recurrence, with the cyclic closure handled separately at the all-default boundary. It is more specific than existence/uniqueness or a default-wave algorithm; no inspected source states the same all-k formula for this model. Absolute novelty is not claimed.",
+      "searches": [
+        "Eisenberg Noe heterogeneous directed cycle default cascade threshold slack products",
+        "Eisenberg Noe 2001 clearing payments existence uniqueness default cascade threshold explicit formula cycle",
+        "Eisenberg Noe ring network single shock heterogeneous external assets liability shares exact default cascade sequence thresholds",
+        "Eisenberg & Noe (2001), DOI 10.1287/mnsc.47.2.236.9835",
+        "Eboli et al. (2022), DOI 10.1007/s10436-022-00416-9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eisenberg & Noe (2001), Definition 1 and fixed-point clearing equation, pp. 239–240, DOI 10.1287/mnsc.47.2.236.9835."
+      ],
+      "reasoning": "The inspected source gives the general proportional-clearing equations and a sequential-default algorithm. It does not state the explicit threshold sequence \\(\\tau_k\\) for a heterogeneous unilateral ring. The formula is derived from those equations, rather than presented as a new clearing framework.",
+      "searches": [
+        "Eisenberg Noe heterogeneous directed cycle default cascade threshold slack products",
+        "Eisenberg Noe 2001 clearing payments existence uniqueness default cascade threshold explicit formula cycle",
+        "Eisenberg & Noe (2001), DOI 10.1287/mnsc.47.2.236.9835"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest search hits were a financial ODE equilibrium-index result and general cycle/network results; neither states a clearing-ring cascade threshold sequence. No exact matching record was identified."
+      ],
+      "reasoning": "Searches used aliases for clearing payments, unilateral rings, intermediate contagion thresholds, and shock-depth profiles. A failed or empty search is not proof of novelty; the positive comparison rests on inspected primary literature and the explicit distinction in model and statement.",
+      "searches": [
+        "ring interbank network intermediate contagion thresholds single primary default heterogenous banks exact formula",
+        "cycle financial clearing payments deficit recurrence weighted directed cycle threshold profile",
+        "cascade depth thresholds financial network single bank shock ring Eisenberg Noe",
+        "unilateral ring financial network intermediate contagion threshold payment vector single shocked bank",
+        "Eisenberg Noe clearing payments ring shock slack sequence threshold formula"
+      ]
+    },
+    "rationale": "The inspected source gives the general proportional-clearing equations and a sequential-default algorithm. It does not state the explicit threshold sequence \\(\\tau_k\\) for a heterogeneous unilateral ring. The formula is derived from those equations, rather than presented as a new clearing framework.\nThe 2022 source uses a loss-flow/loss-given-default model and considers shock allocations that differ from the single-shock proportional-payment model here. It motivates the value of intermediate thresholds but does not dominate or imply this exact heterogeneous EN formula.\nSearches used aliases for clearing payments, unilateral rings, intermediate contagion thresholds, and shock-depth profiles. A failed or empty search is not proof of novelty; the positive comparison rests on inspected primary literature and the explicit distinction in model and statement.\nThe threshold formula follows by back-substituting the exact deficit recurrence, with the cyclic closure handled separately at the all-default boundary. It is more specific than existence/uniqueness or a default-wave algorithm; no inspected source states the same all-k formula for this model. Absolute novelty is not claimed.",
+    "residual_risks": [
+      "The general Eisenberg–Noe clearing equations contain this model, so a specialist may regard the closed-form profile as an elementary but previously unstated consequence; independent literature review remains necessary.",
+      "Eboli (2019), DOI 10.1016/j.jedc.2019.04.007, is a related flow-network paper identified through the later literature; its full text was not inspected in this run, and it remains a residual comparison risk.",
+      "Search absence is not proof of novelty; no independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general model contains the present ring as a case, but the inspected theorem statements do not give the explicit heterogeneous single-shock threshold sequence.",
+        "evidence": [
+          "DOI 10.1287/mnsc.47.2.236.9835, pp. 239–244."
+        ],
+        "identifier_or_url": "DOI: 10.1287/mnsc.47.2.236.9835",
+        "material_read": "Full text: Definition 1 and fixed-point characterization, pp. 239–240; fictitious-default algorithm and default-wave interpretation, pp. 243–244.",
+        "method": "Compared the stated clearing equation and sequential-default procedure with the ring deficit recurrence; derived the threshold increments by exact back-substitution.",
+        "title": "Systemic Risk in Financial Systems",
+        "trigger": "Primary source for proportional clearing and default waves."
+      },
+      {
+        "assessment": "The paper uses a loss-flow/loss-given-default model, and says intermediate ring thresholds are not analytically characterized there. It is related motivation, not an equivalent statement or proof of the present formula.",
+        "evidence": [
+          "DOI 10.1007/s10436-022-00416-9, section 3.2."
+        ],
+        "identifier_or_url": "DOI: 10.1007/s10436-022-00416-9",
+        "material_read": "Full text, sections 3.1–3.2, especially the ring-network discussion and stated analytic limits.",
+        "method": "Compared the model equations, shock structure, and the exact set of thresholds characterized.",
+        "title": "Connectivity, centralisation and robustness-yet-fragility of interbank networks",
+        "trigger": "Closest inspected published work on ring-network contagion thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c1346607-c8b2-4f20-ad9b-f7efb9424699",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The threshold sequence is a natural exact invariant for reverse stress testing: it gives every cascade-depth boundary for a localized shock in a heterogeneous ring, rather than only a first threshold or a full-collapse threshold. The intermediate-depth question is explicitly motivated in the inspected ring-network literature, while the model and scope here are stated separately.",
+    "status": "PASS"
+  }
+}
