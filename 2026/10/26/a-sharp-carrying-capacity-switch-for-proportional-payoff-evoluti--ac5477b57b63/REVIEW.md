@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The exact logarithmic partial fraction identity yields a first integral of the full three-variable ODE. A positive lower bound on per-capita population growth before saturation proves exponential convergence to carrying capacity. Strict decrease of cooperator fraction and the resource log-odds equation give the complete capacity trichotomy, including its nonhyperbolic critical case. The exact calibration is checked symbolically, and a separate integration of the original ODE corroborates the regimes.
+
+**Originality — PASS, with literature residual risk.** The motivating published work already identifies finite-capacity rescue qualitatively and contains nonisolated equilibrium segments, so those phenomena are not proposed as new. Its accessible original full text does not state the class-wide closed-form capacity threshold, the invariance with respect to ecological feedback rates, or the exact population-size turning rule. The closest other capacity-related studies treat stochastic switching or spatial community feedback models. Relevant semantic searches identified no equivalent theorem; unindexed literature and incompletely read related papers remain risks.
+
+**Mathematical value — PASS.** The result converts a numerical ecological policy question into an exact boundary valid for all strictly positive Prisoner's-dilemma matrices in the natural class where resource changes all payoffs proportionally. The sharp critical state and feedback-rate independence provide testable mathematical predictions; the theorem also identifies the unique resource apex directly from population size. The restriction to proportional matrices is essential and explicitly stated, rather than silently assuming universal coverage.
+
+**Scope and limits.** Deterministic well-mixed continuous-time model, strict positive Prisoner's-dilemma payoffs, positive proportional environmental endpoint matrices, finite fixed carrying capacity greater than initial population, and interior initial fractions. General payoff-matrix deformation and demographic noise are not covered. Symbolic and numerical tests support but do not establish claims beyond the analytical proof.
+
+Self-review: passed. Independent audit: not yet performed.
