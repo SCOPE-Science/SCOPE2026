@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The vertex-case partition gives exact D, with double-counted singleton/singleton intersections subtracted and single-side whole sets added. Symbolic degree-three minor proves negative log-concavity for all n>=13, and the exact finite coefficient formula yields a complete 11-order positive certificate. A standard log-concavity-preserving convolution proves total domination LC; known monotonic probability coupling and an exact middle/tail count prove strict unimodality for all n>=4. Standalone direct subset enumeration for n=2..7 and finite all-coefficient checks corroborate but are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Omar, arXiv:2601.14494v1, Perspective 3, proves threshold-graph ordinary domination log-concavity; crowns for n >= 3 have induced C_4 (n >= 4) or C_6 (n=3) and are not threshold.",
+        "Beaton-Brown 2020 normalized d_k / binomial order monotonicity establishes left half increase, not full log-concavity.",
+        "Shyama-Anil Kumar 2019 Theorem 2.17 establishes total domination D_t=((1+t)^n-1-nt)^2, not ordinary domination D."
+      ],
+      "reasoning": "None of the inspected broader theorems implies an exact ordinary-coefficient log-concavity boundary for matching-deleted bicliques. Known total domination is a genuinely different selection criterion and neither its polynomial identity nor its log-concavity settles the ordinary coefficients.",
+      "searches": [
+        "domination polynomial crown graph K n n minus perfect matching log concave unimodality roots coefficient",
+        "2026 paper New Perspectives on Unimodality of Domination Polynomials threshold graphs split graphs result",
+        "2026 graph invariants exact enumerations minimum locating dominating sets cubic graphs Cartesian products"
+      ]
+    },
+    "checked_sources": [
+      "Mohamed Omar (2026), arXiv:2601.14494v1, HTML full text",
+      "Alina Du, Steven Heilman, Greta Panova (2026), arXiv:2605.02193v1, HTML full text",
+      "Shyama M. P. and Anil Kumar V. (2019), Total Domination Stable Graphs, Theorem 2.17 PDF",
+      "Iain Beaton and Jason I. Brown (2020), arXiv:2012.11813 abstract and statements quoted by Omar",
+      "Brown and Tufts (2014), publisher abstract; full text not accessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shyama-Anil Kumar (2019), Theorem 2.17: D_t(Cr_n,t)=((1+t)^n-1-nt)^2.",
+        "Omar (2026), arXiv:2601.14494v1, proves threshold-graph log-concavity and describes general coefficient monotonicity.",
+        "Du-Heilman-Panova (2026), arXiv:2605.02193v1, constructs non-log-concave dominating-set sequences for different graph classes.",
+        "Brown-Tufts (2014), DOI 10.1007/s00373-013-1306-z, abstract on domination-root loci; full text could not be inspected."
+      ],
+      "reasoning": "The 2019 exact total-domination enumerator covers the positive comparator only; it neither classifies ordinary dominating sets nor forces degree-3 ordinary minors. Omar and Beaton-Brown provide left-half unimodality tools, not a crown-family LC result. The new ordinary polynomial formula, integer phase boundary, and strict-unimodal contrast on positive support remain non-implied by the inspected material. Brown-Tufts is a specifically named historical priority uncertainty.",
+      "searches": [
+        "2026 graph domination isolation packing lower packing number complete multipartite graphs exact formulas structural classification",
+        "total dominating polynomial bipartite cocktail party crown graph log concavity versus ordinary domination",
+        "Brown Tufts domination roots bipartite cocktail party graphs explicit domination polynomial",
+        "dominating sets crown graphs log-concavity phase transition regular vertex-transitive bipartite graph n13"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The crown graph is the matching-deleted complete bipartite graph, alternatively called bipartite cocktail party graph or K_n tensor K_2 (MathWorld Crown Graph).",
+        "Omar, arXiv:2601.14494v1, defines ordinary domination polynomial but does not discuss crown graphs; Du et al., arXiv:2605.02193v1, discusses other non-log-concave examples."
+      ],
+      "reasoning": "These graph isomorphisms preserve the ordinary domination polynomial and the inequality d_3^2 >= d_2 d_4. Searching all three graph names and polynomial coefficient terminology located no statement implying the threshold 12/13; different vocabulary alone is not a proof of novelty.",
+      "searches": [
+        "\"crown graph\" \"domination polynomial\" \"log-concavity\"",
+        "\"bipartite cocktail party\" \"domination polynomial\" unimodal",
+        "\"K_n\" \"tensor\" \"K_2\" \"domination polynomial\"",
+        "ordinary domination polynomial bipartite cocktail party crown graph log concavity exact cutoff n 12 13 strong unimodality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published research record on restrained-dominating-set profile of crown graphs counts a stricter variant rather than all dominating sets.",
+        "Published recent studies of crown graphs cover other invariants such as odd chromatic number or representation number; no exact ordinary domination coefficient table or 12/13 cutoff was located.",
+        "The present finite minor table is obtained from the displayed binomial formula and independently recreated in verify.py."
+      ],
+      "reasoning": "An ordinary-domination coefficient table or exact formula in an older source, if found, could subsume the enumerator; none in the checked accessible sources states or directly derives the sharp log-concavity classification. The threshold claim is a quantified statement about all n, not a list of tested examples.",
+      "searches": [
+        "domination polynomial complete bipartite graph minus perfect matching crown graphs",
+        "\"domination polynomial\" \"crown graph\" generating function",
+        "Crown graph domination polynomial d2=n d3=2n(n-1) d4= n^2(n-1)^2/4 + n(n-1)(n-2) not log concave n 13"
+      ]
+    },
+    "rationale": "Omar (arXiv:2601.14494v1) proves log-concavity for threshold graphs, whereas crowns with n >= 3 are not threshold graphs; the general Beaton-Brown monotonicity applies to unimodality rather than the sharp ordinary log-concavity cutoff. The 2019 total-domination polynomial is explicitly acknowledged and proves a different enumerator. Other accessible graph non-log-concavity results do not imply this exact crown-family cutoff. Related published research records treat restrained, rather than ordinary, domination or unrelated graph invariants. Multiple alias/implication searches yielded no equivalence, with residual Brown-Tufts full-text risk stated.",
+    "residual_risks": [
+      "A historical source on domination roots (Brown and Tufts 2014) has not been examined in full; it could include an earlier ordinary crown polynomial or implication.",
+      "Searches across alternate graph names may miss old tabulations or differently indexed sequences.",
+      "Independent human proof and literature-priority verification have not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering this exact claim.",
+        "evidence": "The documented log-concavity application is to threshold graphs and the broad coefficient tools do not supply the sharp crown cutoff.",
+        "identifier_or_url": "https://arxiv.org/html/2601.14494v1",
+        "material_read": "First-version abstract and introduction; normalized ratios; hypergraph coefficient formulas; total positivity and threshold graph sections.",
+        "method": "Accessible full-text HTML, searching references to matching deletion, crowns and bipartite cocktail party graphs.",
+        "title": "New Perspectives on the Unimodality of Domination Polynomials",
+        "trigger": "Recent primary source posing graph domination coefficient-shape questions; primary MSC 05C31."
+      },
+      {
+        "assessment": "Not covering this exact crown-graph phase boundary.",
+        "evidence": "The considered examples are unrelated to the matching-deleted balanced bipartite family and do not state the ordinary/total contrast.",
+        "identifier_or_url": "https://arxiv.org/html/2605.02193v1",
+        "material_read": "Full-text introduction and families/counterexample discussions; terminology checks for bipartite and crown graphs.",
+        "method": "Accessible arXiv HTML sections with in-document searching.",
+        "title": "Trees and Graphs with Non Log-concave Dominating Set Sequence via AI Tools",
+        "trigger": "Strongly relevant 2026 non-log-concavity construction paper."
+      },
+      {
+        "assessment": "Covers the total-domination factor, not the ordinary-domination phase boundary.",
+        "evidence": "Theorem 2.17 states D_t(B_n,t)=((1+t)^n-nt-1)^2 and characterizes sets with at least two selected vertices in each part.",
+        "identifier_or_url": "https://fs.unm.edu/IJMC/TotalDominationStableGraphs.pdf",
+        "material_read": "Pages describing bipartite cocktail party graph and Theorem 2.17 with its proof.",
+        "method": "PDF text extraction and inspection of theorem and proof; screenshot retrieval was unsuccessful.",
+        "title": "Total Domination Stable Graphs",
+        "trigger": "Primary earlier result on the same graph family and a closely related polynomial."
+      },
+      {
+        "assessment": "Priority risk; no whole-document noncoverage conclusion.",
+        "evidence": "Accessible abstract concerns roots, and specifically limiting roots of complete bipartite graphs, but does not confirm or exclude a crown-graph ordinary polynomial identity.",
+        "identifier_or_url": "https://doi.org/10.1007/s00373-013-1306-z",
+        "material_read": "Publisher abstract and bibliographic description only; full text inaccessible.",
+        "method": "Publisher abstract and search for lawful accessible versions; attempted institutional/open copy could not be opened.",
+        "title": "On the Roots of Domination Polynomials",
+        "trigger": "2014 work on domination root behavior cited as related to bipartite cocktail party graphs."
+      },
+      {
+        "assessment": "Provides a unimodality ingredient, not the log-concavity cutoff.",
+        "evidence": "Known increasing normalized coefficients are applied as a credited ingredient to obtain strict left-side monotonicity.",
+        "identifier_or_url": "https://arxiv.org/abs/2012.11813",
+        "material_read": "Abstract and related statements quoted and detailed in Omar 2026.",
+        "method": "Open-access abstract plus direct comparison with the cited normalized-probability inequality.",
+        "title": "On the Unimodality of Domination Polynomials",
+        "trigger": "Baseline general coefficient-ratio monotonicity and classes with unimodal domination polynomial."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d6778d8-bf31-42b5-84b8-d8020fa5eac5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives an exact sharp family-wide LC phase transition at n=13 in ordinary domination, despite strict unimodality on positive support, on connected regular vertex-transitive bipartite graphs. It reveals a clean separation from total-domination coefficient behavior on identical graphs. The structural enumerator explains the phenomenon and attaches a mathematically motivated finite cutoff to an active research topic in graph-polynomial coefficient shapes; it is not a random finite invariant or title-only variant.",
+    "status": "PASS"
+  }
+}
