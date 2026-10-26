@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "One-step two-node trapezoidal exponentiation reduces exactly to u_{k+1}=c e^{-u_k} and predictor u0>W0(c). Its continuous increasing second iterate has monotone bounded even subsequences; the strictly monotone c(d) cycle parametrization proves the unique-cycle/no-cycle dichotomy. The repelling derivative W0(c)^2>1 excludes convergence to the fixed point above e. A third-order expansion of T^2 at c=e proves the signed sqrt(k) law. The threshold equations and the strict carrying-capacity-safe interval follow from Lambert W and the strict logarithm inequality. The standalone program independently checks 13321 deterministic finite assertions; these tests are corroborative rather than infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pezzella, arXiv:2606.29523v1, Theorems 4.1 and 5.7 bound order for finite sweeps and small step sizes; Section 5.2 studies contractivity of collocation maps, not global convergence of the correction iteration at fixed h.",
+        "Micalizzi–Torlo arXiv:2608.23919 concerns IMEX and interpolation-based efficient deferred correction rather than this positive two-node exponential sweep."
+      ],
+      "reasoning": "Existing broad analyses of positive finite-sweep corrections and algebraically stable collocation do not imply all-k Picard-sweep convergence, particularly at fixed supercritical h where a stable primitive cycle exists. No stronger theorem encompassing this exact phase diagram was found in the inspected primary text.",
+      "searches": [
+        "Stable Positive Integral Deferred Correction SPIDeC positive dynamical systems exact positivity and contraction",
+        "\"Stable Positive Integral Deferred Correction\" divergence correction sweeps limit 2-cycle",
+        "\"SPIDeC\" logistic Gauss Lobatto \"correction\" cycle",
+        "Pezzella Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems scalar logistic correction Gauss Lobatto 2026"
+      ]
+    },
+    "checked_sources": [
+      "Pezzella, arXiv:2606.29523v1, Eq. (3) and Sections 2, 3.1, 4, 5.2, 6 (material inspected).",
+      "Micalizzi and Torlo, arXiv:2608.23919 (abstract/summary only).",
+      "Published claim ID 2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b",
+      "Published claim ID 2026/10/4/SCOPE-exact-relaxation-resonance-in-a-classical-forward-backward-sweep--c5af20416eac",
+      "Published claim ID 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pezzella arXiv:2606.29523v1, Eq. (3), Section 4 and Section 5.2: positive finite corrections, local truncation results and collocation contractivity.",
+        "Published result 2026/10/4/SCOPE-exact-relaxation-resonance-in-a-classical-forward-backward-sweep--c5af20416eac has a linear sweep multiplier, unlike a logistic exponential collocation correction.",
+        "Micalizzi–Torlo arXiv:2608.23919 studies IMEX interpolation-based correction, not the two-node positive exponential map."
+      ],
+      "reasoning": "Unconditional positivity cannot imply convergence or an invariant upper bound, nor do finite-sweep local error estimates imply fixed-step convergence as correction count grows. The identified published two-cycles use different operators, and the algorithmic results do not logically dominate this classification.",
+      "searches": [
+        "Stable Positive Integral Deferred Correction SPIDeC positive dynamical systems exact positivity and contraction",
+        "SPIDeC Gauss Lobatto two-node trapezoidal logistic exponential deferred correction Picard sweep limit nonconvergence period two threshold h=2",
+        "nonlinear exponential trapezoidal implicit logistic Picard iteration x_{k+1}=A exp(-b x_k) flip bifurcation period two Lambert W threshold",
+        "positive integral deferred correction sweeps bounded invariant interval logistic blowup large time steps",
+        "Pezzella SPIDeC two-node Gauss-Lobatto logistic correction-sweep iterative exponential map threshold convergence period two; distinguish conservative exchange one-sweep mass inflation 9d0cd78d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-step logarithmic stage iteration is exactly T(u)=c exp(-u), which is not the standard Ricker population map T(u)=c u exp(-u).",
+        "Pezzella arXiv:2606.29523v1 Eq. (3), Section 2, gives the underlying explicit-in-sweep recurrence but not this exact scalar phase diagram."
+      ],
+      "reasoning": "The method reduces to a classical decreasing exponential map, making equivalence with general scalar iteration theory plausible. Searches for the exact map and its 2-cycle found no prior published specialized statement including the SPIDeC stepsize map, invariant-box gap, critical sweep rate and uniform h=2 frontier. General fixed-point contraction bounds are not complete sharp phase classifications.",
+      "searches": [
+        "SPIDeC Gauss Lobatto two-node trapezoidal logistic exponential deferred correction Picard sweep limit nonconvergence period two threshold h=2",
+        "nonlinear exponential trapezoidal implicit logistic Picard iteration x_{k+1}=A exp(-b x_k) flip bifurcation period two Lambert W threshold",
+        "\"x(n+1)=a exp(-x(n)) globally attracting 2-cycle threshold e\"",
+        "\"fixed point iteration x= c exp(-x) period two threshold e convergence\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result 2026/10/11/SCOPE-global-signed-and-logarithmic-critical-relaxation-in-a-positive--741941f8eb7b analyzes a distinct positive rational map.",
+        "Published result 2026/10/4/SCOPE-exact-relaxation-resonance-in-a-classical-forward-backward-sweep--c5af20416eac concerns a linear optimal-control sweep resonance, not a logistic positive integral correction."
+      ],
+      "reasoning": "No searched published record supplies the exact method-specific logistic correction-count frontier or invariant-box-safe period-two interval. Searches do not prove uniqueness, and older specialized scalar iteration literature remains a risk.",
+      "searches": [
+        "SPIDeC Gauss Lobatto two-node trapezoidal logistic exponential deferred correction Picard sweep limit nonconvergence period two threshold h=2",
+        "nonlinear exponential trapezoidal implicit logistic Picard iteration x_{k+1}=A exp(-b x_k) flip bifurcation period two Lambert W threshold",
+        "positive integral deferred correction sweeps bounded invariant interval logistic blowup large time steps"
+      ]
+    },
+    "rationale": "Primary full-text comparison: the 2026 SPIDeC method derives Eq. (3), finite-sweep positivity and small-step order/contractivity estimates, but does not state or imply the exact all-sweep scalar logistic threshold, period-two attractor and carrying-capacity-safe divergence window. Published-result semantic searches found different positivity barriers and distinct iterative mappings. Residual classical-iteration priority risk is disclosed.",
+    "residual_risks": [
+      "The decreasing exponential iteration T(u)=c exp(-u) is classical and may have been treated in earlier iterative-method or biological-model literature under a different title.",
+      "No exhaustive full-text review of every historical scalar Picard/Volterra iteration monograph has been performed.",
+      "The distinct IMEX deferred-correction source was compared from its abstract, not certified as fully NOT_COVERING."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_METHOD_NOT_FOUND_TO_CONTAIN_CLAIM",
+        "evidence": [
+          "Eq. (3) specifies the predictor and explicit-in-sweep exponentiated quadrature correction.",
+          "Theorem 4.1 handles finite-sweep local truncation error and small h; Theorem 5.7 uses Nk<=M and local collocation estimates.",
+          "Section 5.2 gives collocation logarithmic contractivity for algebraically stable node choices and discusses the special two-node Lobatto case, but not the exact logistic sweep flip threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.29523",
+        "material_read": "Complete accessible web full-text in HTML, with substantive scrutiny of Eq. (3), Sections 2, 3.1, 4 and 5.2, including Theorems 3.6, 4.1, 5.5, 5.7 and numerical experiments.",
+        "method": "Read primary arXiv HTML presentation and mathematical formulas; compared sweep-count and fixed-step quantifiers and contraction assumptions.",
+        "title": "Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems",
+        "trigger": "Exact originating method, two-node Gauss–Lobatto specialization, possible fixed-point and convergence theorems"
+      },
+      {
+        "assessment": "DIFFERENT_ALGORITHMIC_FAMILY_ON_AVAILABLE_MATERIAL",
+        "evidence": [
+          "The accessible summary describes efficient interpolation-based IMEX DeC with p-adaptivity and numerical stability plots, not the scalar exponential SPIDeC sweep map."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.23919",
+        "material_read": "Abstract and public summary only.",
+        "method": "Compared the stated IMEX/interpolation algorithmic scope against exponentiated positive two-node corrections; did not infer full-document absence.",
+        "title": "New Efficient Implicit-Explicit Deferred Correction methods",
+        "trigger": "Potential broader deferred-correction theory from a 2026 numerical methods paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90014a76-00e9-4ee4-b8dd-e0a007d4251d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A concrete method-selection gap: unconditional positive finite corrections do not guarantee that adding sweeps converges to the collocation solution. The exact fixed-a threshold, uniform h=2 frontier, attracting two-cycle and open window of sweep failure with a valid collocation endpoint quantify this failure and the high-correction regime in the smallest natural nontrivial Gauss–Lobatto case. The critical sweep-rate quantifies computational slowdowns even at the boundary. This is a complete parameter classification, not an arbitrary numerical instance or a routine finite table.",
+    "status": "PASS"
+  }
+}
