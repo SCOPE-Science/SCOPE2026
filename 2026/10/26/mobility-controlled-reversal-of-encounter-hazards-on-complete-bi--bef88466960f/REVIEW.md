@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The full-state process is lumpable into three transient classes with generator displayed in RESULT.md. The first-step equations give exact rational Laplace transforms. Positive diagonal symmetrizability and an explicit secular equation order the three poles; the residue signs establish all hazard shapes. The sole potential subtlety—uniqueness of a peak when the starting part is faster—is resolved by a strictly decreasing two-exponential expression for the sign of the hazard derivative, with positive initial slope and negative asymptotic limit. At rate equality the middle pole cancels, and monotonicity remains strict. The recorded full ordered-pair checker provides 426 exact-rational transform comparisons and 18 spectral sample classifications; the infinite-family conclusion rests on proof.
+
+## Originality — PASS, with residual bibliographic risk
+Zhang–Tan–Krishnamachari (arXiv:1408.2005v1, relevant pages 1–5) treat homogeneous discrete-time regular-graph meeting means, not site-dependent continuous-time rates or hazards. Ohwa (DOI:10.1186/s40736-015-0016-2, sections 1–4) derives general meeting-time transform methods and evaluates stars, cycles and complete graphs with *walker-specific* rather than *location-dependent* rates; the present complete bipartite coefficient signs and shape threshold were not found in that inspected text. Relevant earlier phase-type hazard work considers general absorbing chains, but did not establish this identified topological and mobility equivalence in inspected sections. A closely related homogeneous-rate balanced-multipartite result gives increasing same-part and decreasing different-part hazards, but no faster-part unimodal regime. The literature search cannot rule out every unlocated general phase-type theorem or specialized collision study; independent bibliographic audit remains needed.
+
+## Mathematical value — PASS
+Exact hazard shape is a sharper observable than mean encounter time. The all-size theorem isolates a single *kinetic*, not geometric, criterion—the ordering of residence-time rates—that creates or removes a unique finite-time peak. The criterion is universal for every positive pair of part sizes, separates all three start geometries, and supplies the full Laplace transforms. The answer can guide interpretation of encounter/first-reaction waiting times on mobility-heterogeneous two-community networks, without asserting broader impact unproved by the result.
+
+## Residual risks and limitations
+The broad phase-type and reliability literature may contain stronger general hazard-sign criteria from which this family follows; precise historical priority is therefore not guaranteed. Initial site rates are tied to the occupied part, not to the identity of the walker. All finite-state checks are corroborative; the complete analytic proof carries the infinite-size and all-rate conclusions. General graphs and more than two walkers are outside scope.
+
+Self-review: passed. Independent audit: not yet performed.
