@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructs the three Laplacian invariant subspaces (leaf differences, clique differences, three-class quotient), giving gap min{c,a+(n-1)b,mu_-}. Concavity and orbit averaging cover arbitrary nonnegative asymmetric competitors. Unit-gap normalization yields a strict convex G(a) with derivative n/2-m^2(n-1)/((n+m)a-(m+1))^2 and unique threshold m=sqrt(n(n-1)/2). The optimal conductances meet every eigenvalue constraint; the all-optima zero-support claim follows from nonnegative orbit averaging; the opposite direction follows from the strictly inferior star-only budget. Included verify.py passed 1,779 matrix, cost, spectrum, threshold and nonsymmetric-sample checks, which are supplementary to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd show algebraic-connectivity convexity and symmetry reductions for graph families but do not compute a multiple-pendant-clique edge-budget optimum in the inspected methods and discussion.",
+        "Sun et al. analyze general semidefinite duality with explicit path and cycle examples, but the inspected examples contain no pineapple specialization.",
+        "A previously established optimal clique with leaves at *distinct* hub vertices is not this same-hub graph."
+      ],
+      "reasoning": "The general SDP and symmetry methods can be applied to a pineapple graph, but their published general statements are not a stronger closed-form graph-family theorem entailing the threshold. Different attachment patterns have different quotient spectra and do not imply the stated criterion by graph isomorphism, parameter substitution, or edge deletion.",
+      "searches": [
+        "\"pineapple graph\" \"fastest mixing\" optimal weights Laplacian clique leaves common vertex",
+        "spectral gap conductance budget clique complete graph several pendant leaves same hub threshold edges zero",
+        "doi:10.1016/j.laa.2006.03.006",
+        "doi:10.1137/S0036144504443821"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/j.laa.2006.03.006",
+      "doi:10.1137/S0036144504443821",
+      "arxiv:1511.08674",
+      "Published indexed scientific result: Exact curvature-distortion number of pineapple graphs",
+      "Earlier exact network design claims for two leaves on distinct clique vertices, hub-leaf wheel graphs, and uniform leaf coronas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. characterize the FMMP objective as an SDP but their examples are a small graph, paths and cycles.",
+        "Ghosh–Boyd provide upper-bound convexity results for Laplacians of graph families; the scope and decision variables differ from this fully weighted fixed-topology optimization.",
+        "Topcu–Sorgun–Haemers address only adjacency cospectrality on the same unweighted topology, which cannot determine the optimal Laplacian under free edge weights."
+      ],
+      "reasoning": "Even though the general SDP framework guarantees solvability in principle, no theorem inspected directly implies the piecewise expression D_{n,m}, construction of a_*,b_*,c_*, or the universal deletion of non-hub clique edges for m>=S_n. The exact support statement additionally requires a uniqueness-of-averaged-orbit argument not present as this special case in those sources.",
+      "searches": [
+        "fastest mixing Markov process on graph convex SDP Sun Boyd Xiao Diaconis",
+        "Ghosh Boyd upper bounds algebraic connectivity via convex optimization",
+        "\"pineapple graph\" \"fastest mixing\" optimal weights Laplacian clique leaves common vertex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A pineapple graph is the coalescence of K_n and a star at one hub (Topcu–Sorgun–Haemers, arxiv:1511.08674, introduction).",
+        "Continuous-time fastest mixing with a linear total-rate constraint maximizes the same weighted Laplacian second eigenvalue (Sun et al., doi:10.1137/S0036144504443821, Sections 1–2)."
+      ],
+      "reasoning": "Aliases checked include pineapple graph, clique coalesced with a star, K_n with multiple pendant leaves at one vertex, absolute algebraic connectivity, spectral gap, continuous-time fastest mixing and sum-conductance design. The known general optimization definition is equivalent as an objective but does not supply the particular formula and support threshold. No direct formula match was found in inspected material.",
+      "searches": [
+        "\"pineapple graph\" \"fastest mixing\" optimal weights Laplacian clique leaves common vertex",
+        "optimal weighted algebraic connectivity pineapple graph clique star pendant leaves conductance budget",
+        "arxiv:1511.08674",
+        "doi:10.1137/S0036144504443821"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed same-graph result is titled \"Exact curvature-distortion number of pineapple graphs\" and concerns Lin–Lu–Yau curvature, not the second Laplacian eigenvalue. Its full text was not accessible.",
+        "Topcu–Sorgun–Haemers give an adjacency characteristic polynomial and cospectral classifications, not a table of optimized conductance budgets."
+      ],
+      "reasoning": "No exact tabulation or database covering D_{n,m} and the clique support cutoff was identified in the bounded searches. This is a search result only, not evidence of an exhaustive census or priority.",
+      "searches": [
+        "\"pineapple graph\" \"fastest mixing\" optimal weights Laplacian clique leaves common vertex",
+        "equivalence pineapple graph K_n joined star spectral gap optimization quadratic cost",
+        "pineapple graph SDP optimal spectral gap weights clique star",
+        "On the spectral characterization of pineapple graphs arxiv:1511.08674"
+      ]
+    },
+    "rationale": "The exact arbitrary-conductance pineapple optimum and its threshold m=sqrt(n(n-1)/2) are not stated or obtained as graph-family corollaries by the inspected primary works. Sun et al. give a general semidefinite formulation and cases for paths/cycles; Ghosh–Boyd give convex and symmetry bounds; Topcu–Sorgun–Haemers study the adjacency spectrum and cospectrality of pineapple graphs rather than optimized Laplacian eigenvalues. Available closely related network-design claims have different attachment patterns. Searches and comparisons cannot prove novelty; specialized prior coverage remains a residual risk.",
+    "residual_risks": [
+      "Not all specialized journals and nonindexed theses were searched; an earlier explicit pineapple optimization remains possible.",
+      "The indexed same-graph curvature-distortion result was available only as a summary; no claim about its full-paper contents is made.",
+      "Partial reading of the two broad general-optimization papers could miss an unindexed implicit special case; their inspected explicit examples differ."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General analytic method and bounds but no identified same-hub multiple-pendant conductance formula; relevant generality remains a comparison risk",
+        "evidence": [
+          "Available online May 5, 2006 on PDF title page",
+          "Abstract discusses graph-family algebraic-connectivity bounds from symmetry, not the particular weighted pineapple budget"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "PDF title/abstract, introduction, connection to graph Laplacian convexity, and searchable occurrences for pendant/star; complete 15-page document not systematically reviewed",
+        "method": "Author-hosted open-access PDF, rendered first page and searchable text",
+        "title": "Upper bounds on algebraic connectivity via convex optimization",
+        "trigger": "General symmetry and Laplacian-concavity methods might imply the family formula"
+      },
+      {
+        "assessment": "Objective agrees but case results do not state the pineapple graph optimum or the edge-screening threshold",
+        "evidence": [
+          "Section 1 defines weighted Laplacian and budgeted rate optimization",
+          "Section 5 contains small-graph, path and cycle examples; no matched pineapple example"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Title/abstract and model on pages 1–2, optimality conditions on page 11, path/cycle examples in pages 14–17, plus keyword checks; not every paragraph of all 19 pages",
+        "method": "Author-hosted open-access PDF, rendered pages 1 and 11, searchable text of examples",
+        "title": "The fastest mixing Markov process on a graph and a connection to a maximum variance unfolding problem",
+        "trigger": "Exact same objective and most plausible broader framework"
+      },
+      {
+        "assessment": "The inspected definitions, statements and proofs address adjacency cospectrality, not arbitrary-conductance Laplacian spectral-gap optimization",
+        "evidence": [
+          "Introduction defines K_n with multiple leaves on one vertex",
+          "Theorem 3.2 concerns adjacency spectral determination when exactly two leaves are attached"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.08674",
+        "material_read": "ArXiv abstract, topology definition, quotient adjacency spectrum, cospectral constructions, and theorem for two leaves, with rendered PDF title and theorem pages",
+        "method": "Open-access arXiv text and PDF; first public version recorded November 27, 2015",
+        "title": "On the spectral characterization of pineapple graphs",
+        "trigger": "Exactly the same graph family and parameters"
+      },
+      {
+        "assessment": "Named objective is curvature-distortion rather than weighted Laplacian second-eigenvalue maximization; no full-document noncoverage assertion is made",
+        "evidence": [
+          "Indexed summary gives a Lin–Lu–Yau curvature-distortion threshold and adjustment of hub-incident clique edges, not the conductance-budget spectral gap"
+        ],
+        "identifier_or_url": "Published indexed result titled Exact curvature-distortion number of pineapple graphs",
+        "material_read": "Published indexed title and short scientific summary only; full text access attempt failed",
+        "method": "Semantic finding-index result and unsuccessful public text retrieval",
+        "title": "Exact curvature-distortion number of pineapple graphs",
+        "trigger": "Closest indexed exact result sharing the pineapple graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae270e2a-1dc0-49c0-850c-cb050b3581ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The pineapple graph is a standard natural coalescence of a complete graph and star. Its fixed-budget optimal mixing design has a previously nonobvious competition between clique reinforcement and terminal servicing. The exact two-parameter cutoff m=sqrt(n(n-1)/2) decides when every optimizer discards an entire edge orbit. It provides a globally valid analytical design rule and avoids solving a semidefinite program for each (n,m).",
+    "status": "PASS"
+  }
+}
