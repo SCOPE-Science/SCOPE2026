@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For each j, the exact density follows from Catalan counts of paths with j-1 births and j deaths and 2j-1 independent exponential holding times. Given count and total duration, jump order and normalized holding times have a parameter-independent uniform Catalan/Dirichlet kernel, proving full-path equivalence. A generalized ballot convolution gives the joint sufficient-statistic law, hence the exact NP risk series. Conditional L-1 sign changes prove strict total-variation improvements against either marginal. Expectations of N-1 and T give the exact KL formula and conditional-Gamma gap; score variance gives Fisher information. An iid score CLT and Taylor expansion yield local testing error; monotonic KL yields the sharp expected covert-insertion constant. Critical finite identities were checked by 125 passing standalone numerical/integer tests (see verification_output.txt); neither unbounded summation nor limit assertions rely on finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1287/opre.9.3.402 (Takacs 1961), abstract: joint busy-period length and customer-count distribution for broad queues.",
+        "doi:10.1155/2019/7398658, §1: prior joint-law work by Prabhu acknowledged; §§2-3 derive count-only distributions.",
+        "arxiv:2610.13911v1, §IV: separate-observation information comparison.",
+        "Asanjarani, Nazarathy and Taylor, arxiv:2012.14614v1, §3.1 full text: trajectory data likelihood reduces to event counts and exposure/stopping time."
+      ],
+      "reasoning": "Clarke's classical full-trajectory M/M/1 likelihood covers the general sufficiency ingredient, and Takacs/Prabhu cover busy-period joint laws. Their combination with Neyman--Pearson theory gives a route to derive the new theorem, so those foundations are fully acknowledged. The specific sharp two-channel finite risk, strict comparison across both marginal channels, and operational constant are absent from the inspected publications. This is a potential implication by elementary composition of older theory, but not established in a located stronger theorem.",
+      "searches": [
+        "\"joint distribution\" \"busy period\" \"number of customers\" \"duration\" conditional",
+        "Prabhu joint busy period count duration gamma conditional 2N-1 exponential rate lambda mu",
+        "\"The Probability Law of the Busy Period for Two Types of Queuing Processes\" Takács pdf full text 1961",
+        "continuous time birth death process stopped absorption sufficient statistic total births integrated occupation time Fisher information exponential likelihood",
+        "A Survey of Parameter and State Estimation in Queues Clarke 1957 sufficient statistics M/M/1 full observation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13911v1 full-text §§I-V, appendices; first public 2026-10-09",
+      "doi:10.1155/2019/7398658 open full text",
+      "doi:10.1287/opre.9.3.402 abstract only",
+      "doi:10.1109/LCOMM.2020.3038191 abstract only",
+      "Targeted searches for queue busy-period joint information, conditional-Gamma aliases, full-path sufficiency, finite Neyman-Pearson testing, and prior covered formula collections",
+      "Asanjarani--Nazarathy--Taylor (2020/2021), arxiv:2012.14614v1, §§2.2-2.4 and 3.1/3.4, full-text arxiv HTML, classical M/M/1 trajectory likelihood and busy-period inference."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.13911v1, Intro/§III: two channels are individually disclosed; §IV uses a parameter-independent conditional-duration assertion.",
+        "Under exact queue dynamics, conditional duration given a single completed service is Exp(lambda+mu), so the paired experiment cannot be reduced to a parameter-free duration randomization of the count-only record.",
+        "doi:10.1109/LCOMM.2020.3038191, bibliographic abstract: count OR duration observation, not simultaneous pair; full text inaccessible.",
+        "Clarke (1957), as summarized in Asanjarani--Nazarathy--Taylor (2020/21) §3.1: generic full-path sufficiency is already known; the claimed added outputs concern optimal paired-monitoring hypothesis testing and covert asymptotics."
+      ],
+      "reasoning": "The source 2026 separate-statistic statements do not imply the paired exact risk by pure specialization; a different joint observation law and likelihood calculation is needed. Clarke-style general stopped-process path sufficiency subsumes the sufficiency *part*, and the classical joint law supplies another premise, but neither inspected result explicitly subsumes the quantified strict two-marginal comparison and exact paired covert constant. Claims of novelty are confined to this substantive analytic combination, not classical input lemmas.",
+      "searches": [
+        "\"covert queueing\" \"busy period\" \"duration\" \"number\" \"joint\"",
+        "\"covert queueing\" \"both\" \"statistics\" simultaneously",
+        "\"busy periods\" \"two statistics\" \"joint\" \"hypothesis testing\"",
+        "Yardi Bodas 2020 covert queueing busy period statistic IEEE PDF IIITB",
+        "\"A Covert Queueing Problem With Busy Period Statistic\" pdf Yardi Bodas filetype:pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.13911v1, Sections II-IV: counts or duration separately; no joint detection theorem.",
+        "doi:10.1155/2019/7398658, Sections 2-3: count PGF and service-count distribution, not full joint testing.",
+        "No matching inferential statement in checked results from the scientific query set.",
+        "arxiv:2012.14614v1, survey §3.1: Clarke (1957) M/M/1 stopped full-trajectory likelihood is summarized by counts and observation end time; this already implies generic path sufficiency."
+      ],
+      "reasoning": "Aliases such as within-busy arrival-rate inference, full-path sufficient summary, Gamma-Catalan likelihood, and optimal hypothesis testing were compared. The classical count-duration distribution is a probabilistic input; no inspected document states the exact paired experiment and detection-risk conclusion. The equivalent classical *sufficiency* formulation is explicitly prior art. It does not by itself supply the paired busy-period error probabilities, strict power comparisons or local covert constants; these are the asserted addition.",
+      "searches": [
+        "\"busy period\" \"count\" \"duration\" \"KL divergence\"",
+        "\"busy-period\" \"likelihood ratio\" \"count\" \"duration\" queue covert",
+        "\"M/M/1\" \"busy period\" \"Fisher information\" \"joint\"",
+        "M/M/1 busy period joint number customers and length sufficient statistic exact binary hypothesis test optimal likelihood ratio finite n Erlang Catalan",
+        "Asanjarani Nazarathy Taylor 2021 survey parameter state estimation queues full path sufficient statistic M/M/1 busy period"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2610.13911v1 reports marginal constants and plots, not the paired finite-sample risk coefficients.",
+        "doi:10.1155/2019/7398658 Tables: service-count distributions for queue families, not the paired Neyman-Pearson ROC."
+      ],
+      "reasoning": "The exact count-weight sequence is a known generalized Catalan/ballot form, but its Gamma-cutoff sum for the paired optimal test and the strict full-path inference equivalence were not found in the checked tables or formula collections. Absence of a match alone is not treated as proof of novelty.",
+      "searches": [
+        "\"busy period\" \"count\" \"duration\" \"KL divergence\"",
+        "\"busy-period\" \"likelihood ratio\" \"count\" \"duration\" queue covert",
+        "\"covert queueing\" \"busy period\" \"duration\" \"number\" \"joint\""
+      ]
+    },
+    "rationale": "The 2026 primary full text treats busy-period counts and durations as separate monitoring channels. The classic 1957 stopped-queue likelihood (as documented by the full-text 2020/21 Asanjarani--Nazarathy--Taylor survey) already supplies the general idea of path sufficiency, and the Takacs/Prabhu joint-law literature supplies the joint probabilistic kernel. These are explicitly credited, not claimed new. Compared with those stronger premises, the specific new claimed joint-monitoring outcome is the exact finite NP error series, strict detection-power separation from both marginal reports for all k, the closed information gain and the sharp covert queueing constant, none stated in the inspected relevant primary documents. Residual priority risk remains for earlier specialised inferential work not inspected in full.",
+    "residual_risks": [
+      "The complete Takacs (1961) joint-distribution paper and Yardi--Bodas (2020) precursor were not available for direct full-text exclusion of specialized inferential results.",
+      "Classical stopped birth--death exponential-family/sufficiency theory supplies general machinery; an unlocated earlier explicit queue-specific detection theorem may exist.",
+      "Finite numerical comparison does not prove absolute convergence or local asymptotics; those rely on the stated analytic argument.",
+      "No independent expert/third-party validation has been performed.",
+      "Clarke 1957 and related historical stopped-sampling work imply ordinary path sufficiency; the research value must rest on the sharp *paired* finite and local testing consequences, and an unstated broader risk theorem is not excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Individually released counts or durations, not jointly released pair or the optimal finite paired test; its §IV conditional-duration factorization is not used.",
+        "evidence": [
+          "§II equations (1)-(3) give count and duration marginals",
+          "§III Theorems 1-2 compare separate constants",
+          "§IV equations (42)-(45) discuss a purported parameter-independent conditional channel"
+        ],
+        "identifier_or_url": "arxiv:2610.13911v1; https://arxiv.org/html/2610.13911v1",
+        "material_read": "Complete open-access 13-page source (statements, §§I-V, Appendix A and separate-observation formulas); source PDF and HTML examined.",
+        "method": "Primary full-text mathematical comparison of observation sigma-fields, likelihoods and KL parameters.",
+        "title": "Fundamental Limits of Covert queueing under Busy-Period Observations",
+        "trigger": "Same M/M/1 covert-insertion problem with busy-period statistics and marginal KL constants."
+      },
+      {
+        "assessment": "Derives number-served distributions and moments; no explicit paired-data finite hypothesis test, full-path equivalence, or covert insertion limit.",
+        "evidence": [
+          "§1 credits Prabhu with joint length-count distributions",
+          "§2.2 uses Lagrange inversion",
+          "§3.1 covers exponential-service count law"
+        ],
+        "identifier_or_url": "doi:10.1155/2019/7398658",
+        "material_read": "Open-access article introduction, model §§2.1-2.3, exponential-specialization §3.1, conclusion and references.",
+        "method": "Primary full-text comparison of variables and exact mathematical outputs.",
+        "title": "Analytically Explicit Results for the Distribution of the Number of Customers Served during a Busy Period for Special Cases of the M/G/1 Queue",
+        "trigger": "Explicit classical busy-period count laws and references to joint-law work."
+      },
+      {
+        "assessment": "Historical joint distribution is established prior art, and equivalent specialized inferential developments cannot be ruled out from abstract alone.",
+        "evidence": [
+          "1961 Operations Research 9(3), 402-407 abstract explicitly states the joint busy-period law",
+          "Full text remained unavailable"
+        ],
+        "identifier_or_url": "doi:10.1287/opre.9.3.402",
+        "material_read": "Bibliographic abstract only; full manuscript not accessed.",
+        "method": "Title/abstract and follow-up references; full-text access attempted after no lawful open full text was identified.",
+        "title": "The Probability Law of the Busy Period for Two Types of Queuing Processes",
+        "trigger": "Historical broad result on joint length-count busy-period distribution."
+      },
+      {
+        "assessment": "Abstract describes choosing count or duration separately; paired-data inferential detail remains inaccessible.",
+        "evidence": [
+          "2020 publication abstract explicitly says either statistic",
+          "Author research index points to publisher article; full access unavailable"
+        ],
+        "identifier_or_url": "doi:10.1109/LCOMM.2020.3038191",
+        "material_read": "Publisher bibliographic abstract and author-index entry; PDF could not be read.",
+        "method": "Abstract-level scope comparison and lawful open-access location attempts.",
+        "title": "A Covert Queueing Problem With Busy Period Statistic",
+        "trigger": "Direct predecessor of 2026 covert busy-period observation model."
+      },
+      {
+        "assessment": "COVERS the bare full-path sufficiency ingredient (already classic); does NOT present the exact paired finite NP series, simultaneous strict two-marginal improvement or paired covert constant.",
+        "evidence": "§3.1 explicitly discusses the known M/M/1 likelihood based on event counts and time of last completion; §3.4 discusses busy-period-based estimation without a paired exact detection theorem.",
+        "identifier_or_url": "arxiv:2012.14614v1; https://arxiv.org/abs/2012.14614",
+        "material_read": "Open HTML full paper, §§2.2-2.4, §§3.1 and 3.4, focusing on busy-period definitions, the Clarke 1957 likelihood and inference from complete queue trajectories.",
+        "method": "Search and inspect the source full text; compare count/exposure likelihood sufficient-statistic claims directly with the proposed theorem.",
+        "title": "A Survey of Parameter and State Estimation in Queues",
+        "trigger": "Classical stronger coverage: whether M/M/1 full-path likelihood sufficiency already implied pair sufficiency"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "564baccd-2345-43ae-b417-0f5ce91d08fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A newly studied covert queueing model exposes either count or duration, naturally raising what changes when both are revealed. The exact full-path-equivalence theorem is a structural optimal-data-compression result for arrival-rate inference. Its strict all-finite-sample TV improvement quantifies the privacy consequence of the pair, and its explicit optimal-error series and KL covert constant give actionable mathematical quantities without requiring observers to see individual jumps. It is not a gratuitous fixed-parameter calculation or a mere renaming of the classical busy-period distribution.",
+    "status": "PASS"
+  }
+}
