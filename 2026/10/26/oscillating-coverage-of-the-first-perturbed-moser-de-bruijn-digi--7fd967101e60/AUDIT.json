@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Residues 0,1,6,7 are pairwise distinct modulo four; the lowest-differing-digit argument is a complete uniqueness proof. All twelve transitions of the three-state base-four carry automaton were checked by direct digit substitution. Its matrix yields a_L=4^L/2, b_L=(4^L+2)/3 and, with one high digit, exactly 2a_L+b_L=(4^(L+1)+2)/3. Hence two different limiting counting ratios prove absence of natural density. Direct independent enumeration and carry testing for n<131072 corroborate the derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peter (2003) proves a general existence criterion for automatic-sequence density, without any displayed application to the coefficient-six Moser sumset in available abstract. Heuberger–Kropf–Prodinger (2015), introduction pp.1–4, handles general transducer output sums and generic automatic sequences, without this specialized digital sumset. Nathanson (2010), Section 3, proves classical coefficient-two coverage."
+      ],
+      "reasoning": "General automata frameworks could in principle imply the qualitative density assertion once this new concrete three-state automaton is constructed and evaluated, so implicit prior coverage is a residual risk; none of the reviewed statements determines the exact two exceptional cutoff values for this specific set without that evaluation.",
+      "searches": [
+        "\"Moser-de Bruijn\" \"6\" \"density\" sumset",
+        "\"Manfred Peter\" \"asymptotic distribution of elements in automatic sequences\" pdf",
+        "\"Moser de Bruijn\" \"sumset\" \"density\" six",
+        "base four Cantor digit set C={digits 0,1} weighted sum C+6C parity finite automaton oscillatory counting"
+      ]
+    },
+    "checked_sources": [
+      "N. G. de Bruijn (1964), signed decomposition and good-pair classification, full-text PDF pages 537–546.",
+      "M. B. Nathanson (2010), Cassels Bases, Raikov–Stöhr section on complementary digits and coefficient-two bases.",
+      "OEIS A000695, sequence, signed dated comments, references and related entries.",
+      "OEIS A126684, union of original and doubled digit set.",
+      "M. Peter (2003), automatic-sequence density criterion, publisher abstract and bibliography (full paper not retrieved).",
+      "C. Heuberger, S. Kropf and H. Prodinger (2015), full-text introductory framework, abstract, and text search for Moser/Cantor (no match).",
+      "Published 2026 paper on oscillating sumsets, CRT-modular construction not the Moser digital family (title/summary comparison)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "De Bruijn (1964), pp. 537–546, evaluates signed decompositions Ms_1−2Ns_2 of all integers using a good-pair graph, not positive partial coverage for coefficient six. Nathanson (2010), pp. 262–264, gives exact complementary-digit splitting for M+2M. Peter (2003) has a generic automatic-sequence density criterion. A distinct CRT-based oscillating-sumset construction (2026) concerns another set and another sumset operation."
+      ],
+      "reasoning": "The two classical complete-representation claims do not imply the explicit coefficient-six counts. The general criterion applies to arbitrary automatic sets only after specifying and analyzing an automaton, whereas the present theorem establishes an exact new instance; the strongest residual risk is an implicit earlier application of such a general theorem.",
+      "searches": [
+        "\"Moser de Bruijn\" \"6\" \"representation\" \"sum\"",
+        "Raikov Stohr base weighted sumsets perturbed coefficients representation without collisions density",
+        "Moser de Bruijn A000695 sumset A+6A counting function has no natural density exact 1/2 2/3 subsequences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The generating-function coefficient formulation is ∏(1+z^(4^j))(1+z^(6*4^j)), with 0–1 coefficients from injectivity. OEIS A000695 names the underlying set; no checked OEIS page expresses the coefficient-six positive sumset. De Bruijn 1964, p. 537, defines the distinct signed expression Ms_1−2Ns_2."
+      ],
+      "reasoning": "Replacing digit-pair sums by product-series coefficients, by a finite automaton, or by the zero/nonzero representation function gives equivalent formulations; no located source states either explicit cutoff identity for any equivalent form. The known signed complete-decomposition problem is not equivalent to this restricted positive sumset.",
+      "searches": [
+        "\"Moser-de Bruijn\" \"6A\" \"A\" sumset",
+        "\"A000695\" \"6*A000695\"",
+        "\"Moser de Bruijn\" \"6\" \"asymptotic density\"",
+        "Moser-de Bruijn sums of distinct powers of four 6-times weighted sumset unique representation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000695 lists 0,1,4,5,16,17,... (the original set), not the weighted sumset. OEIS A126684 lists M ∪ 2M and its additive-basis significance; it is not M+6M. No checked OEIS table or indexed result displayed the coefficient-six weighted sequence 0,1,4,5,6,7,10,11,... or its cutoff-count formulas."
+      ],
+      "reasoning": "The indexed objects differ on their first few terms and their operations, so the available exact tables do not dominate or reproduce the new infinite counting claim. Search non-retrieval is not a proof that no relevant database record exists.",
+      "searches": [
+        "\"0, 1, 4, 5, 6, 7, 10, 11, 16, 17, 20, 21, 22, 23\" sum",
+        "\"A000695\" \"6\" \"density\"",
+        "\"A000695\" \"6*A000695\"",
+        "\"Moser-de Bruijn\" \"2/3\" \"1/2\""
+      ]
+    },
+    "rationale": "The 1964 signed good-pair theorem and classical coefficient-two decomposition have different domains/conclusions. The explicitly evaluated weighted coefficient-six carry automaton, two cutoff formulas and ensuing nonexistence of density were not found in primary texts, OEIS or targeted research-index comparisons. Generic automatic-density machinery is acknowledged as prior methodological coverage, and unindexed/implicit specialization remains a real residual risk.",
+    "residual_risks": [
+      "An implicit application of the general automatic-sequence density criterion might already imply qualitative nonconvergence without explicitly naming M+6M.",
+      "An unindexed OEIS sequence or unavailable full text may contain the same two cutoff formulas.",
+      "The source date identifies a precisely dated 2001 public OEIS comment; the mathematical digit set originated decades earlier, but a precise earliest public calendar day for the original historic papers was not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_DOMAIN",
+        "evidence": "Page 537 sets x=Ms_1−2Ns_2 for all x∈Z, with M,N odd in good pairs; no positive M+6M counting claim. Theorem 1–3 characterize special signed good pairs.",
+        "identifier_or_url": "https://pure.tue.nl/ws/files/2084140/597531.pdf",
+        "material_read": "Complete publisher PDF, pages 537–546, introductory signed definition, good-pair tables, three theorems and bibliography",
+        "method": "Full-page inspection including page images",
+        "title": "Some Direct Decompositions of the Set of Integers",
+        "trigger": "Same Moser digit set and possible stronger uniqueness statements"
+      },
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING",
+        "evidence": "A_0=M and A_1=2M form the coefficient-two complete basis; coefficient-six weighted partial coverage is not presented.",
+        "identifier_or_url": "https://www.theoryofnumbers.com/melnathanson/pdfs/nath2010-138.pdf",
+        "material_read": "Section 3 on Raikov–Stöhr, including theorem and h=2 formulas, plus introduction",
+        "method": "Publisher PDF text and previously inspected page images",
+        "title": "Cassels Bases",
+        "trigger": "Classical canonical additive digit basis possibly subsumes result"
+      },
+      {
+        "assessment": "SOURCE_OF_OBJECT_NOT_CLAIM",
+        "evidence": "Entry states M is sums of distinct powers of four and coefficient-two complete unique decomposition, without coefficient-six cutoff-count identities.",
+        "identifier_or_url": "https://oeis.org/A000695",
+        "material_read": "Definition, first terms, comments including Feb 07 2001, references and associated sequences",
+        "method": "Live OEIS entry",
+        "title": "OEIS A000695",
+        "trigger": "Exact table, aliases, original sequence and historical date"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT",
+        "evidence": "A126684 is M∪2M, whose double sum is all nonnegative integers; it is not M+6M.",
+        "identifier_or_url": "https://oeis.org/A126684",
+        "material_read": "Definition, initial terms and relationship with A000695",
+        "method": "Live OEIS search result and entry content",
+        "title": "OEIS A126684",
+        "trigger": "Possible exact alternative sumset record"
+      },
+      {
+        "assessment": "GENERIC_COVERAGE_RISK",
+        "evidence": "Provides necessary/sufficient criterion for density of a symbol in automatic sequences but no named Moser coefficient-six specialization in available material.",
+        "identifier_or_url": "https://doi.org/10.1016/S0304-3975(02)00587-X",
+        "material_read": "Publisher abstract, bibliographic description and keywords; full text inaccessible in this review",
+        "method": "Publisher and bibliographic search",
+        "title": "The Asymptotic Distribution of Elements in Automatic Sequences",
+        "trigger": "General theorem might cover nonexistence of natural density"
+      },
+      {
+        "assessment": "GENERAL_TECHNIQUE_NOT_EXPLICIT_CLAIM",
+        "evidence": "General transducer output and expectation theory includes automatic sequences but no Moser/Cantor discussion; result concerns a distinct explicit zero-output acceptance automaton.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p19/pdf/",
+        "material_read": "Abstract and introductory sections pages 1–4, indexed full-text search for Moser and Cantor",
+        "method": "Lawfully accessible publisher PDF text and first-page screenshot",
+        "title": "Output Sum of Transducers: Limiting Distribution and Periodic Fluctuation",
+        "trigger": "General transfer-matrix fluctuation theorem could imply count law"
+      },
+      {
+        "assessment": "DIFFERENT_CONSTRUCTION_NOT_IMPLYING",
+        "evidence": "Uses CRT union in Leonetti construction to control A+A lower-density profile, unlike coefficient-six weighted sum of the Moser digital set.",
+        "identifier_or_url": "A sharper density profile for oscillating sumsets (published 2026-09-18)",
+        "material_read": "Published title and summary only",
+        "method": "Research-index abstract/statement comparison",
+        "title": "A sharper density profile for oscillating sumsets",
+        "trigger": "Result on nonconvergent sumset densities under analogous wording"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fd96710-1e60-4af1-b9ba-326a91b52b04",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Six is the smallest weight exceeding the canonical coefficient two that preserves distinct one-place digit residues, hence it is a naturally motivated first perturbation. The proved coexistence of unique pair representations and two different positive asymptotic counting ratios characterizes a genuine failure of natural density for a standard sparse digital additive set, not an arbitrary finite slice or a known-table recomputation.",
+    "status": "PASS"
+  }
+}
