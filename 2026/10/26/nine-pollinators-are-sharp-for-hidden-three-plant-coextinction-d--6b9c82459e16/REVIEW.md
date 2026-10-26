@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The probabilities follow by counting surviving pairs in complements. The precise integer parameter search, its completeness bounds and all three nine-pollinator incidence decompositions are stated in the proof and checked by exact arithmetic in `verify.py`. The ten-pollinator exclusion follows from the forced opposite-size pair types and the impossibility of a three-vertex two-coloring with every edge bichromatic. The program only certifies finite enumerations; algebra proves the incidence classification conditional on them.
+
+**Originality — PASS, with limitations.** The ecological source model of random loss without replacement appears in Memmott, Waser and Price (2004). Classical probability supplies pairwise-but-not-mutual independence examples, and existing two-plant co-survival formulas supply the pairwise probability expression. Neither alone states the sharp nine-pollinator boundary, the complete three-way incidence classification, the no-unused-pollinator uniqueness result, and the ten-pollinator exclusion. Actual searches found no equivalent statement. Exact combinatorial-equivalence coverage in older independence literature remains a residual risk; the inspection of one related paper was not possible in full.
+
+**Value — PASS.** The first nontrivial quota of two surviving pollinators has a sharp lower network size at which every pairwise extinction-risk comparison can look independent while a community-wide outcome is constrained. The complete minimal realization explains how a three-plant system can make total collapse impossible although every plant individually has nonzero extinction risk. This is a precise boundary of pairwise-risk summaries, not a relabeling of the familiar independent-bits counterexample: it imposes a common uniformly sampled two-element survivor set and fixed bipartite incidence.
+
+A previously established two-species fixed-quota covariance identity is the nearest general coverage, but it does not classify realizable independent triples or the third-order extinction distribution. Empirical accuracy, heterogeneous extinction selection and other survival quotas are outside scope. No independent validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
