@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The positive finite-depth constant-vorticity dispersion relation yields an explicit stationary selector. A positive partial-fraction expansion for \(x\coth x\) proves its exact strict monotonicity and hence the all-parameter result; Taylor expansions and large-argument inversion establish the limiting constants. The bundled standalone verification tests these steps numerically, without treating finite samples as infinite proof. The signs and shear convention are specified in the result.
+
+**Originality — PASS within the inspected comparison, with residual risk.** Ellingsen and Brevik (arXiv:1311.1073, equations 33–35 and section 5.1) already derived the dispersion and stated qualitative deep-water motion of the minimum wavenumber with shear. Gao, Milewski and Wang (2021, equation 13) derived the finite-depth shear-dependent Bond threshold and plotted the minimum. Neither of those facts is new. The distinct assessed statement combines a rigorous global strict finite-depth order over all admissible shear strengths with a universal dimensionless near-critical coefficient, a three-term weak-capillarity singular expansion (including its zero constant term), and the \(2/3\) strong-shear law. Primary accessible literature and related archived claims were compared by implication, not title alone. Equivalent earlier asymptotics may exist in literature not fully indexed or inspected.
+
+**Value — PASS.** The wavenumber at the phase-speed minimum singles out a physically meaningful linear wavepacket scale. The theorem provides quantitative parameter selection and sharp asymptotic limits across capillarity and signed shear, beyond plots or the known yes/no threshold. It does not claim new nonlinear wave existence or experimentally verified behavior.
+
+Self-review: passed. Independent audit: not yet performed.
