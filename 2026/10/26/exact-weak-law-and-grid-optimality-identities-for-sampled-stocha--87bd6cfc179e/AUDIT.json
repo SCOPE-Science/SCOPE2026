@@ -1,0 +1,126 @@
+{
+  "claim": "For \\(T>0\\), let \\(0=t_0<\\cdots<t_N=T\\) be a partition with widths \\(h_i=t_{i+1}-t_i>0\\), let \\(A_i\\) be IID real actions independent of a Brownian motion \\(W\\), and set \\(Z=A^2\\), \\(q=\\mathbb E Z<\\infty\\). On interval \\([t_i,t_{i+1})\\), the sampled model is \\(dX_t^\\pi=A_i\\,dW_t\\), while the aggregated model is \\(d\\widetilde X_t=\\sqrt q\\,dW_t\\), both started at zero. With \\(\\ell(s)=\\mathbb E e^{-sZ}\\), their terminal characteristic functions are \\(\\mathbb E e^{iuX_T^\\pi}=\\prod_i\\ell(u^2h_i/2)\\) and \\(\\mathbb E e^{iu\\widetilde X_T}=e^{-u^2qT/2}\\). For every \\(u\\ne0\\), the sampled characteristic function is strictly larger than the aggregated one exactly when \\(Z\\) is nonconstant; the entire process laws agree exactly when \\(A^2\\) is almost surely constant, even if the common-Brownian strong error is nonzero. For fixed \\(N,T\\), the uniform partition uniquely minimizes the characteristic-function excess at every \\(u\\ne0\\) when \\(Z\\) is nonconstant. If \\(\\mathbb E A^4<\\infty\\), the exact fourth-moment excess is \\(3\\operatorname{Var}(A^2)\\sum_i h_i^2\\), uniquely minimized by the uniform grid at \\(3T^2\\operatorname{Var}(A^2)/N\\). More generally, for each \\(k\\ge1\\) with \\(\\mathbb E|A|^{2k}<\\infty\\), the terminal even moment of order \\(2k\\) is minimized by the uniform grid. For \\(f\\in C_b^6\\), \\(q>0\\), and \\(\\mathbb E Z^3<\\infty\\), the weak-bias expansion is \\(\\mathbb E f(X_T^\\pi)-\\mathbb E f(\\widetilde X_T)=\\frac{\\operatorname{Var}(Z)}8\\left(\\sum_i h_i^2\\right)\\mathbb E f^{(4)}(\\widetilde X_T)+R_\\pi\\), with \\(|R_\\pi|\\le\\|f^{(6)}\\|_\\infty\\mathbb E|\\sum_i h_i(Z_i-q)|^3/48\\).",
+  "correctness": {
+    "rationale": "Conditioning on the IID actions yields the exact Gaussian variance mixture \\(V_\\pi=\\sum_i h_iZ_i\\). Jensen gives the strict characteristic-function comparison and its equality condition. Strict convexity of \\(s\\mapsto\\log\\mathbb E[e^{-sZ}]\\) proves the uniform-grid minimum. Conditional Gaussian moments give the exact fourth-moment identity; symmetry, convexity, and majorization prove the all-even-moment minimization. Taylor expansion of \\(H(v)=\\mathbb E[f(\\sqrt vG)]\\), with \\(H''(v)=\frac14\\mathbb E[f^{(4)}(\\sqrt vG)]\\) and \\(\\|H'''\\|_\\infty\\le\\|f^{(6)}\\|_\\infty/8\\), gives the stated weak-bias coefficient and remainder. The deterministic script was run and passed its listed finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jia–Ouyang–Zhang establish a first-order weak bound for sufficiently regular coefficients and show nonvanishing strong error under controlled volatility; their standard-Gaussian fourth-moment illustration is estimated numerically.",
+        "Bender–Tran Thuan cover a broader randomized controlled-diffusion/jump model via a grid-sampling limit SDE.",
+        "Szpruch–Treetanthiploet–Zhang use an uncontrolled deterministic diffusion in the main LQ setup and discuss controlled diffusion separately."
+      ],
+      "reasoning": "The prior works are broader in model or learning framework, but the inspected statements do not imply the exact finite-grid characteristic-function inequality, the if-and-only-if weak-law criterion, or the explicit partition-dependent coefficient. The present claim is narrower and does not replace their general convergence results.",
+      "searches": [
+        "discretely sampled stochastic policies continuous-time reinforcement learning exact first-order weak bias coefficient generator variance random drift volatility sampled each interval",
+        "arXiv:2503.09981v1 §§4.1.1, 4.3, 4.4",
+        "arXiv:2409.17200v1 §§2.1–2.4",
+        "arXiv:2208.04466v3 §2.5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2503.09981v1, §§4.1.1, 4.3, 4.4",
+      "arXiv:2409.17200v1, §§2.1–2.4",
+      "arXiv:2208.04466v3, §§2.1, 2.3, 2.5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The weak-rate theorem bounds the order but does not supply the displayed leading coefficient for this model.",
+        "Example 4.7 establishes a strong-error obstruction, which does not determine the weak terminal law; fixed-magnitude random signs give equal process laws while their common-Brownian strong error can remain nonzero.",
+        "The random-measure limit result concerns a limiting SDE, not the exact finite-grid product formula."
+      ],
+      "reasoning": "The claim does not assert a new general majorization theorem. It applies conditional Gaussian calculations and the standard symmetric-convex argument to the specific sampled controlled-volatility model, producing an exact law, an equality classification, and a leading weak-error coefficient not implied by the cited rate bounds.",
+      "searches": [
+        "exact error identities and optimal time-grid design for piecewise-constant approximations of stochastic optimal control, including quadratic Brownian models",
+        "weak error expansion for random piecewise-constant stochastic policy execution constant coefficients drift volatility sampled each interval",
+        "arXiv:2503.09981v1 §§4.1.1, 4.3–4.4",
+        "arXiv:2409.17200v1 §2.3",
+        "arXiv:2208.04466v3 §§2.3, 2.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conditioning on actions gives a Gaussian scale mixture with random variance \\(V_\\pi=\\sum_i h_iZ_i\\); its characteristic function is the product of the Laplace transforms of \\(Z\\).",
+        "A closest returned discretization-bias record concerns a different Langevin integrator; no exact sampled-policy equivalence was returned."
+      ],
+      "reasoning": "The Gaussian-mixture and weighted-sum formulations are equivalent ways to express the same finite-grid law and are not claimed as new abstract principles. The exact formula, strict equality criterion, and payoff-specific coefficient are stated for the control-execution model and are not present in the inspected relevant sections of the primary sources.",
+      "searches": [
+        "discretely sampled stochastic policies continuous-time reinforcement learning exact first-order weak bias coefficient generator variance random drift volatility sampled each interval",
+        "weak error expansion for random piecewise-constant stochastic policy execution constant coefficients drift volatility sampled each interval",
+        "operator variance E[L_a squared] minus (E L_a)^2 weak approximation random generator sampling policy",
+        "uniform partition exact characteristic function controlled volatility stochastic policy sampling Gaussian mixture weighted chi-square fourth moment bias",
+        "policy execution controlled diffusion characteristic function weighted chi-square uniform grid weak error exact even moments",
+        "time-discretized stochastic policy volatility randomization terminal law moment bias sampling grid optimization",
+        "arXiv:2503.09981v1 §§4.3–4.4",
+        "arXiv:2409.17200v1 §§2.1–2.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The three targeted semantic searches returned no exact matching finding; closest returned items concern unrelated discretization bias, optimizer covariance, and fourth-moment problems.",
+        "The primary paper's §4.4 describes a Monte Carlo illustration with 50,000 samples for the fourth-moment difference rather than an exact closed-form table."
+      ],
+      "reasoning": "No exact database or published table for this terminal law was identified in the sources actually queried. The search index is semantic rather than exhaustive; absence of a hit is not treated as proof of novelty. The included deterministic script checks selected algebraic consequences of the exact formulas.",
+      "searches": [
+        "arXiv:2503.09981 terminal fourth moment controlled volatility sampled policy exact formula",
+        "piecewise constant controlled diffusion policy sampling characteristic function moment exact uniform partition",
+        "sample policy volatility randomization exact weak bias terminal distribution characteristic function",
+        "arXiv:2503.09981v1 §4.4"
+      ]
+    },
+    "rationale": "The originality claim is deliberately narrow: an exact finite-grid law and weak-bias coefficient for the state-independent controlled-volatility model, plus the associated weak-law equality criterion. Relevant primary papers were read at the sections that establish weak-rate, strong-error, and policy-execution results. Targeted semantic searches returned no exact match for the statement, but the conclusion remains scoped because classical Gaussian-mixture and majorization principles are acknowledged and the literature search is not exhaustive.",
+    "residual_risks": [
+      "The literature search is bounded; an uninspected source may contain the same conditional-Gaussian calculation or an equivalent weighted-sum result.",
+      "Classical convex-order and Gaussian-mixture facts cover parts of the derivation; the originality claim is limited to the exact control-execution specialization and its combined consequences.",
+      "The theorem does not extend as stated to state-dependent actions, controlled drift, jumps, or vector-valued systems.",
+      "The pointwise characteristic-function comparison is not a stochastic-order assertion for arbitrary terminal payoffs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant. The paper proves general weak convergence rates and gives a nonvanishing strong-error example under controlled volatility. The inspected sections use Monte Carlo for the fourth-moment illustration but do not state the exact finite-grid characteristic function, partition optimum, or leading weak-bias coefficient here claimed.",
+        "evidence": [
+          "arXiv:2503.09981v1, §§4.1.1, 4.3 (Example 4.7), 4.4; first submitted 2025-03-13."
+        ],
+        "identifier_or_url": "arXiv:2503.09981v1",
+        "material_read": "Abstract and introduction; §4.1.1 first-order weak-rate statement; §4.3 Example 4.7; §4.4 numerical illustration, including the fourth-moment comparison for a standard Gaussian policy.",
+        "method": "Read the arXiv HTML full text at the cited sections and compared the exact objects, assumptions, and outputs with the claim.",
+        "title": "Accuracy of Discretely Sampled Stochastic Policies in Continuous-time Reinforcement Learning",
+        "trigger": "Direct primary source for sampled-policy weak error and the controlled-volatility illustration."
+      },
+      {
+        "assessment": "Broader model and limiting framework, including controlled diffusion and jumps. The inspected sections concern a limit SDE and random-measure representation, not the exact finite-grid terminal characteristic function or the stated grid-dependent moment coefficient.",
+        "evidence": [
+          "arXiv:2409.17200v1, §§2.1–2.4, Example 2.13; first submitted 2024-09-25."
+        ],
+        "identifier_or_url": "arXiv:2409.17200v1",
+        "material_read": "Abstract; §§2.1–2.4; Example 2.13 and the comparison with the exploratory SDE.",
+        "method": "Read the arXiv HTML sections on the controlled SDE, random-measure formulation, and grid-sampling limit.",
+        "title": "A random measure approach to reinforcement learning in continuous time",
+        "trigger": "Related general treatment of randomized policies with controlled diffusion and grid sampling."
+      },
+      {
+        "assessment": "Relevant but not covering the present model: the main LQ setup has deterministic uncontrolled diffusion, and §2.5 treats controlled diffusion as a separate problem-dependent case. It does not imply the present exact controlled-volatility terminal-law identity.",
+        "evidence": [
+          "arXiv:2208.04466v3, §§2.1, 2.3, 2.5; first submitted 2022-08-08; MSC list includes 93E35."
+        ],
+        "identifier_or_url": "arXiv:2208.04466v3",
+        "material_read": "Abstract; §2.1 model assumptions; §2.3 execution of Gaussian relaxed policy; §2.5 discussion of controlled diffusion.",
+        "method": "Read the arXiv HTML full text at the model, execution, and controlled-diffusion discussion sections.",
+        "title": "Optimal scheduling of entropy regulariser for continuous-time linear-quadratic reinforcement learning",
+        "trigger": "Earlier primary literature on execution of Gaussian stochastic policies and grid-size error."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "87bd6cfc-179e-4ec9-897c-9da8c839668e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result converts a recent numerical fourth-moment comparison for sampled controlled volatility into an exact benchmark, supplies the leading weak-bias coefficient for smooth terminal tests, and distinguishes distributional equivalence from strong error. The partition-dependent factor gives a concrete sampling-design criterion across all Fourier frequencies and even moments. The model scope and non-claims are explicit.",
+    "status": "PASS"
+  }
+}
