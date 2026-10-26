@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Identical-pair degeneracy gives exact factor 2N(N-1); direct triangular-overlap integration yields equation (1), matching known scalar variance at s=t and 134 program checks. Common Brownian white-noise Fourier modes give simultaneous exponentially weighted expansion. Uniform coefficient O(epsilon^2), bounded normalized second moments, and Lyapunov sum of cubes O(sqrt epsilon) establish every Cramer–Wold limit. Common KMT bridge with O_P(log N) discrepancy and condition sqrt(N)epsilon/log N -> infinity controls both coupling remainders. No functional tightness is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1706.01074, Theorem 1: leading covariance rank one from random total point count in growing windows",
+        "doi:10.1051/ps/2012027, pp. 1-4: two-dimensional fixed-distance, growing-square Poisson models",
+        "arxiv:2610.11687v1, Theorem 1: each length separately"
+      ],
+      "reasoning": "A general Gaussian CLT can include correlated scales, but the inspected growing-window theorems do not dominate the count-conditioned, one-dimensional shrinking-window law after its leading count fluctuation cancels. The cited 2026 scalar theorem cannot determine its cross-length coupling solely from scalar marginals.",
+      "searches": [
+        "\"Ripley's K\" multiscale central limit covariance uniform binomial process",
+        "\"multi-scale\" \"pair correlation\" \"Gaussian\" \"Poisson\" \"covariance\"",
+        "arxiv:1706.01074 scaled empirical K-function Theorem 1 and (15)-(17)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.11687v1",
+      "https://arxiv.org/html/2504.00708v1",
+      "https://arxiv.org/abs/1706.01074",
+      "https://numdam.org/item/10.1051/ps/2012027.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary 2026 source Corollary 1 establishes an exponential sum in distribution separately for each length; identifying common Fourier noise and proving a joint shrinking-length CLT requires additional reasoning",
+        "Heinrich 2017 principal scaling theorem is a common point-count Gaussian factor, not the non-rank-one kernel displayed here",
+        "Lang–Marcon 2013 studies planar Poisson K-statistics on increasing squares with fixed distances"
+      ],
+      "reasoning": "Neither the scalar law nor the reviewed general point-process results state or straightforwardly imply the particular fixed-count shrinking-circle cross-scale Gaussian covariance. The result uses the shared Brownian white-noise Fourier coefficients, Lyapunov triangular-array bounds, and simultaneous KMT error control.",
+      "searches": [
+        "arxiv:2610.11687v1 Theorem 1 Corollary 1 Lemma 4",
+        "arxiv:1706.01074 Theorem 1",
+        "doi:10.1051/ps/2012027 multiscale covariance theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.11687v1, full HTML Sections 1, 3, 5, and 6: one-length exponential expansion and variance, no cross-length theorem",
+        "doi:10.1051/ps/2012027, PDF pp. 1-4: planar Ripley pair-count multiscale covariance, different observable and asymptotic"
+      ],
+      "reasoning": "The circular number variance is a smoothed pair-distance U-statistic; this alias motivates comparison with Ripley K-functions, not an assumption that different titles imply novelty. The reviewed results do not provide the stated circle cross-window polynomial or logarithmic stationary limit.",
+      "searches": [
+        "\"number variance\" \"two scales\" \"covariance\" \"i.i.d.\" circle",
+        "\"number variance\" \"joint\" \"correlation\" \"random points\" uniform circle",
+        "\"number variance\" \"joint\" \"window lengths\" \"random points\" torus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2610.11687v1, equations for individual eigenweights and one-window variance; no table of cross-window covariances",
+        "A full-grid exact rational identity was independently derived rather than taken from a published table"
+      ],
+      "reasoning": "The exact two-length covariance is algebraically reducible to a pair-overlap integral, but was not found tabulated in inspected relevant sources. A failed search does not establish uniqueness; the value is paired with the genuinely joint asymptotic law.",
+      "searches": [
+        "\"number variance\" \"multi-scale\" \"Gaussian\" \"torus\" random points",
+        "\"integrated square\" \"increment\" \"Brownian bridge\" central limit small h",
+        "\"circular discrepancy\" \"window\" covariance random uniform points"
+      ]
+    },
+    "rationale": "The full October 2026 primary text states marginal exponential-series laws and a single-length variance, but no joint covariance or universal finite-dimensional log-scale limit. The fixed-sample degenerate pair kernel and second-chaos normalization differ from the reviewed growing-domain Ripley K results. The simultaneous shared-noise argument supplies non-implied dependence information. Risk: unlocated earlier integrated-K/periodic discrepancy specializations.",
+    "residual_risks": [
+      "The same covariance kernel could occur in older periodic-discrepancy or integrated Ripley K-function literature under different names.",
+      "The sufficient strong-approximation rate is not optimized.",
+      "Finite-dimensional convergence does not by itself justify functional maxima or a simultaneous scan threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal number-variance distribution and one-length variance; the cross-length formula and joint mesoscopic f.d.d. law are not stated",
+        "evidence": [
+          "Theorem 1 gives one s at a time; Lemma 4 gives a scalar variance",
+          "Section 6 yields Var(V_N(s))=2N(N-1)(2s^3/3-s^4)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11687v1",
+        "material_read": "Full HTML theorem statements and sections on KMT approximation, bridge KL series, one-window moments and finite-N U-statistic variance; equations (4)-(18)",
+        "method": "Read HTML text and compared theorem quantifiers and covariance scope",
+        "title": "On the asymptotic behavior of the number variance of random points on the unit torus",
+        "trigger": "Exact same statistic and most relevant October 2026 source"
+      },
+      {
+        "assessment": "Arithmetic dilates and almost-sure asymptotics, not iid uniform cross-window covariance or joint CLT",
+        "evidence": [
+          "Theorems 1.1 and 1.3 concern almost every alpha for deterministic integer sequences"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2504.00708v1",
+        "material_read": "Abstract, introduction, Theorem 1.1, Theorem 1.3, Section 6 description and random-point discussion",
+        "method": "Read arXiv full HTML sections",
+        "title": "Almost sure asymptotics for the number variance of dilations of integer sequences",
+        "trigger": "Direct predecessor of primary number variance problem"
+      },
+      {
+        "assessment": "Rank-one count-fluctuation limit for increasing windows with random point counts; no fixed-count log-stationary kernel",
+        "evidence": [
+          "Theorem 1 G_B(r)=2 lambda |B| r^d N(0,sigma^2) common across scales"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.01074",
+        "material_read": "Introduction and Theorem 1 including (14)-(18) and covariance description",
+        "method": "Read full arXiv HTML rendering and check count-fluctuation limiting factor",
+        "title": "Asymptotic Goodness-of-Fit Tests for Point Processes Based on Scaled Empirical K-Functions",
+        "trigger": "Strong related multiscale point process and possible dominating theorem"
+      },
+      {
+        "assessment": "A closely related multiscale K-statistic result in a planar Poisson growing-square, fixed-distance regime, not the circle number-variance log-scale limit; historical risk remains",
+        "evidence": [
+          "Introduction describes growing squares and fixed radii, with random Poisson point count and planar K statistics"
+        ],
+        "identifier_or_url": "https://numdam.org/item/10.1051/ps/2012027.pdf",
+        "material_read": "PDF pages 1-4: abstract, motivation, observation regime, definition of statistics; later theorem signaled in introduction",
+        "method": "Read machine-extracted PDF text and inspect actual page 2 image",
+        "title": "Testing randomness of spatial point patterns with the Ripley statistic",
+        "trigger": "Closest explicit historical multiscale covariance and joint Gaussian study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4477ed45-6251-445e-89d2-ed65ffe07267",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Number variance is used as a scale-dependent pseudo-randomness diagnostic, yet separate marginal calibrations do not quantify dependence of simultaneous windows. The exact all-N cross-length covariance and stationary log-scale Gaussian kernel provide a natural multiscale calibration object, distinguish nearby from well-separated scales, and exhibit a non-rank-one universal dependence law. This is not simply a single-length variance substitution; it resolves the joint law needed for finite multi-scale inference, without claiming a full process theorem.",
+    "status": "PASS"
+  }
+}
