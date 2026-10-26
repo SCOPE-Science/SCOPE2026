@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For any shattered five-set, the all-positive radius-two witness translates all five vectors into the weight-at-most-two layer; their support is at most ten. Outside-support ones in a center decrease effective radius by an integer 0,1,2, and centers with more than two such ones yield the empty trace, also realizable in the 10-dimensional enlarged system. This proves reduction to the 56-point, 3072-parameter finite problem. The exhaustive mask-splitting algorithm enumerates every shattered sorted subset (heredity guarantees no five-set is skipped) and yields counts for sizes two through five of 1540,27720,49830,0. Explicit exhaustive trace tables witness three points in dimension four and four in dimension five; the small-dimensional cases and padding establish the claimed piecewise formula. The package verifier was executed successfully. The result is computer-assisted, not a hand proof of the finite lemma.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2206.13254, Introduction and Section 5, treats sample compression on graph classes including cube-free median graphs, not exact fixed-radius-two VC dimensions of cubes of unbounded dimension.",
+        "arXiv:2405.07588, Introduction and algorithmic results, gives general computation methods rather than the family-wise formula.",
+        "Bousquet--Thomassé (2015), DOI:10.1016/j.disc.2015.05.026, studies distance-VC theory and broad graph classes."
+      ],
+      "reasoning": "No inspected stronger coverage establishes the stated constant four. An algorithm which could compute any individual finite graph is not an all-parameter theorem; broad distance-VC dimension bounds and sample compression existence do not determine this exact fixed-radius value.",
+      "searches": [
+        "VC dimension graph balls all radii hypercube Bousquet Thomassé",
+        "Sample compression schemes for balls in graphs hypercube VC dimension radius two theorem 2023",
+        "VC dimension radius two Hamming ball graph powers exact classification"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042",
+      "arXiv:2405.07588",
+      "arXiv:2206.13254",
+      "DOI:10.1016/j.disc.2015.05.026 (metadata/abstract only)",
+      "DOI:10.1016/j.jda.2011.10.002 (HTML overview only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2007.16042, Theorem 4.6 bounds VC dimension of *open distance-one* neighborhoods; Theorem 4.7 identifies parameter thresholds for that edge relation.",
+        "arXiv:2405.07588 studies algorithms for a given graph, not an exact radius-two cube-square family classification.",
+        "arXiv:2206.13254 studies compression and states high-dimensional median-graph ball questions remain open."
+      ],
+      "reasoning": "The assertion for open distance-one adjacency neither contains nor implies exact shattering for closed balls of distance at most two; both the relation and quantifier scope differ. Algorithmic computability and compression results do not give the four-level dimension formula.",
+      "searches": [
+        "Adler Benediktsson Macpherson Hamming graph VC density Theorem 4.6 arXiv 2007.16042",
+        "Practical Computation of Graph VC-Dimension arXiv:2405.07588",
+        "Sample compression schemes for balls in graphs arXiv:2206.13254"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The radius-two balls on the binary cube are exactly closed neighborhoods of the square of the cube graph.",
+        "arXiv:2007.16042, Sections 1 and 4, defines Hamming edge relation by Hamming distance exactly one, not distance at most two."
+      ],
+      "reasoning": "Alias searches covered squared hypercube neighborhoods, fixed-distance Hamming ball traces and Boolean cube shattering. The located Hamming-graph theorem uses different ranges, so agreement in the underlying vertex universe does not imply the claim.",
+      "searches": [
+        "\"VC dimension\" \"Hamming balls\" radius cube binary shattering fixed",
+        "\"VC-dimension\" \"Hamming\" \"radius 2\" binary cube",
+        "\"VC dimension\" radius 2 Hamming balls hypercube exact \"4\"",
+        "closed neighborhoods hypercube square graph VC dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table matching the piecewise values was identified in the searched published sources and bibliographic records.",
+        "The finite counts for the enlarged ten-coordinate auxiliary system are recomputed by attached verify.py rather than imported from a table."
+      ],
+      "reasoning": "The searches were for the actual metric-ball trace invariant, including graph-square aliases and exact values. Absence of an index match is treated only as limited evidence, never as a proof of uniqueness.",
+      "searches": [
+        "\"Hamming balls\" \"VC dimension\" discrete cube radius two",
+        "\"VC dimension\" \"Hamming balls\" radius cube binary shattering fixed",
+        "VC dimension Q_d squared graph closed neighborhoods",
+        "radius two binary Hamming ball VC dimension five impossible via finite support kernel ten coordinates"
+      ]
+    },
+    "rationale": "The sharp all-dimension fixed-radius-two classification is not implied by the identified primary results on open distance-one neighborhoods, general graph VC algorithms, or sample compression. Actual full-text comparisons find no equality or stronger claim for this set system. A residual risk remains that fixed-radius Hamming-ball literature indexed under different terminology contains an equivalent result; novelty is not independently certified.",
+    "residual_risks": [
+      "An equivalent exact theorem may exist under Hamming ball shattering, graph-square VC dimension, error-correcting learning, or fixed-radius neighborhood terminology.",
+      "The computer-assisted ten-coordinate finite certificate has been replayed locally but not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the distance-at-most-two closed-ball claim; proved the distance-one open edge relation and its VC density",
+        "evidence": "arXiv:2007.16042 Section 4 Theorem 4.6 and 4.7; distinction stated in Section 1",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Abstract, introduction and main theorem; Section 4 Lemmas 4.1--4.5, Theorems 4.6--4.8, and worked trace table",
+        "method": "read arXiv open PDF text and inspect displayed pages",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "same Hamming cube and VC invariant; plausible broad coverage"
+      },
+      {
+        "assessment": "NO_EQUIVALENT_RESULT_IDENTIFIED in the inspected abstract, definitions, introduction and algorithmic contributions; remaining sections not exhaustively reviewed",
+        "evidence": "arXiv:2405.07588 Introduction and algorithmic aims",
+        "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+        "material_read": "Abstract, Introduction, problem definition and stated algorithmic contributions",
+        "method": "read arXiv open PDF text and inspect title/abstract and introduction",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "closed-neighborhood VC dimension including graph squares"
+      },
+      {
+        "assessment": "NO_EQUIVALENT_RESULT_IDENTIFIED in the inspected introduction, scope, cube-free median-graph section and conclusion",
+        "evidence": "arXiv:2206.13254 Introduction, Section 5 and concluding discussion",
+        "identifier_or_url": "https://arxiv.org/pdf/2206.13254",
+        "material_read": "Abstract, introduction, scope of results and Section 5 high-dimensional/cube-free median-graph discussion",
+        "method": "read arXiv open PDF text",
+        "title": "Sample compression schemes for balls in graphs",
+        "trigger": "fixed-radius graph balls and learning motivation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a9528fa9-0607-4f39-a422-83212b4b4e07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The radius-two ball concept class is the next natural distance relation after the Hamming-graph radius-one neighborhoods. Its exact dimension is a fundamental complexity invariant for metric range sampling and logical shattering. The all-dimension ceiling of four with the non-monotone small-dimensional jump from 1 to 3 to 4 is not a routine corollary of the distance-one result, and the finite support reduction supplies a reusable obstruction method. The target is an infinite family, not a sporadic parameter or arbitrary search window.",
+    "status": "PASS"
+  }
+}
