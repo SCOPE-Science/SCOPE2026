@@ -1,0 +1,186 @@
+{
+  "correctness": {
+    "rationale": "For every positive wet-decay and dry-recovery parameter, the two wet flow integrals and affine dry recovery map compose exactly to normalized excess uptake \\(2-b-bac-(1-b)(a+c)\\). At a fixed positive gap, strict AM–GM gives the unique equal wet split. Differentiation of the resulting objective gives \\(G_T'(\\delta)=A[-\\eta-z+bB(z)]\\) and \\(G_T''(\\delta)=-A[(kz/2)(1-bB_z)+hbB]\\), with \\(B=z(1-z)+r(1-z)^2\\) and \\(B_z=1-2z-2r(1-z)<1\\). Thus strict concavity and the negative terminal-gap derivative are global. At zero gap the derivative is \\(A[r(1-z)^2-z^2-\\eta]\\), which rises strictly with the horizon and crosses zero once exactly when \\(r>\\eta\\), giving the explicit critical horizon. Positive horizon derivative and negative gap derivative of the first-order condition establish monotone optimal rest; that equation bounds the rest above by \\(h^{-1}\\log(r/\\eta)\\) and identifies its limit. The implicit function theorem gives the linear onset coefficient. A standalone reproducible standard-library program checks 3,000 parameter cases, separate quadrature, derivatives, an exact logarithmic benchmark and asymptotics. Universal assertions rest on the displayed inequalities, not the random tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://ascelibrary.org/doi/abs/10.1061/JRCEA4.0000988",
+        "https://onlinelibrary.wiley.com/doi/10.1002/ird.1674",
+        "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019WR025221",
+        "doi:10.13031/2013.36054"
+      ],
+      "reasoning": "General optimal-control and pulse-sequencing techniques may encompass finite switching problems, but generic existence principles, numerical optimizers and standard Pontryagin switching conditions alone do not state the explicit global fixed-horizon threshold, unique optimizer, saturation formula or onset coefficient. Karmeli–Peri describes pulse-design parameters for several cycles; Dadhich considers time to apply a prescribed dose. No inspected broader source provides a result that implies this entire theorem without a new analysis. Residual specialized coverage remains possible.",
+      "searches": [
+        "intermittent rain hydrology Horton recovery optimal off duration total infiltration threshold",
+        "exact optimal on-off period irrigation Horton infiltration recovery exponential water infiltrated maximize time",
+        "intermittent infiltration maximum cumulative uptake optimal dry hiatus wetting pulses",
+        "irrigation optimal wet dry switching two pulses closed form"
+      ]
+    },
+    "checked_sources": [
+      "https://acsess.onlinelibrary.wiley.com/doi/abs/10.2136/sssaj1941.036159950005000C0075x",
+      "https://www.hydrocouple.org/openswmm.engine/d9/de6/hydrology_ref_ch4_infiltration.html",
+      "https://www.researchgate.net/publication/223041145_Determination_of_ponding_time_and_number_of_on-off_cycles_for_sprinkler_irrigation_applications",
+      "https://ascelibrary.org/doi/abs/10.1061/JRCEA4.0000988",
+      "https://elibrary.asabe.org/abstract.asp?aid=36054&conf=t&confalias=&issue=3&orgconf=t1976%5D&redir=%5Bvolume%3D19&redir=aid%3D36054&redirType=toc_journals.asp&t=2",
+      "https://onlinelibrary.wiley.com/doi/10.1002/ird.1674",
+      "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019WR025221",
+      "published mathematical record search: Horton infiltration exponential capacity recovery intermittent rainfall dry gap optimal equal pulses duty cycle maximize infiltration fixed horizon",
+      "published mathematical record search: Horton infiltration pulsed irrigation optimal rest interval two wet periods exponential recovery",
+      "published mathematical record search: Horton exponential wet decay dry recovery two equal rain spells optimal time gap sharp horizon threshold",
+      "published mathematical record search: soil infiltration capacity exponential decay recovery optimal irrigation pulse split threshold"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.researchgate.net/publication/223041145_Determination_of_ponding_time_and_number_of_on-off_cycles_for_sprinkler_irrigation_applications",
+        "https://www.hydrocouple.org/openswmm.engine/d9/de6/hydrology_ref_ch4_infiltration.html",
+        "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019WR025221",
+        "https://onlinelibrary.wiley.com/doi/10.1002/ird.1674",
+        "https://elibrary.asabe.org/abstract.asp?aid=36054&conf=t&confalias=&issue=3&orgconf=t1976%5D&redir=%5Bvolume%3D19&redir=aid%3D36054&redirType=toc_journals.asp&t=2"
+      ],
+      "reasoning": "Gençoğlan et al. determine ponding times and numbers/lengths of on cycles to meet a specified water depth, without analyzing an independently selectable dry recovery gap at fixed terminal clock time. The OpenSWMM documentation gives wet and dry state equations but no optimization theorem. Assouline derives single-event rate/duration relationships to prevent runoff, not capacity-saturated recovery scheduling. Dadhich treats cycle time saving for fixed dose: overlap cannot be decisively excluded without full text but its stated optimization differs. An earlier Green–Ampt temporal rearrangement theorem compares equimeasurable rainfall patterns with cumulative infiltration state and no drying regeneration, so neither its state equation nor its dominance ordering implies the present rest-threshold result. This implication comparison is about domains, objective functions and quantifiers, not matching titles.",
+      "searches": [
+        "Horton exponential wet decay dry recovery two equal rain spells optimal time gap sharp horizon threshold",
+        "Horton infiltration capacity drying recovery two-storm pulse optimal water infiltration",
+        "Green Ampt rainfall rearrangement infiltration optimal storm ordering with recovery",
+        "James Larson 1976 Modeling infiltration and redistribution of soil water during intermittent application full text pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.hydrocouple.org/openswmm.engine/d9/de6/hydrology_ref_ch4_infiltration.html",
+        "https://www.researchgate.net/publication/223041145_Determination_of_ponding_time_and_number_of_on-off_cycles_for_sprinkler_irrigation_applications",
+        "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019WR025221",
+        "doi:10.1016/j.agwat.2004.08.001",
+        "doi:10.1029/2019WR025221"
+      ],
+      "reasoning": "In the equivalent switched-affine-state formulation, wet excess capacity is multiplied by an exponential decay while dry recovery is an exponential affine map; the objective is the integral of capacity on exactly two wet intervals. A pulse-irrigation model with a fixed dose, fixed rainfall level below capacity, no recovery state, or arbitrarily many cycles does not imply the asserted unique one-gap horizon policy. The inspected published material gives the individual flows, ponding-time estimates or single-event dose/rate design, but does not state the joint concavity and critical horizon. Such equivalences were searched at the statement and state-space level.",
+      "searches": [
+        "Horton infiltration exponential capacity recovery intermittent rainfall dry gap optimal equal pulses duty cycle maximize infiltration fixed horizon",
+        "Horton infiltration pulsed irrigation optimal rest interval two wet periods exponential recovery",
+        "Horton exponential wet decay dry recovery two equal rain spells optimal time gap sharp horizon threshold",
+        "Horton infiltration off period dry recovery optimal scheduling pulse irrigation mathematics theoretical optimal rest duration",
+        "two-stage pulsed irrigation infiltration optimized wet-off-wet fixed horizon threshold decay recovery exponential"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://www.hydrocouple.org/openswmm.engine/d9/de6/hydrology_ref_ch4_infiltration.html",
+        "https://www.researchgate.net/publication/223041145_Determination_of_ponding_time_and_number_of_on-off_cycles_for_sprinkler_irrigation_applications",
+        "doi:10.1002/ird.1674"
+      ],
+      "reasoning": "The claimed invariant is a continuous optimization transition depending on two dimensionless ratios and a horizon, not a fixed parameter-table entry. Published Horton-parameter tables are estimates of capacities/decay constants, not exact optimal wet/rest schedules. Semantic searches of mathematical records for Horton gap/rest/threshold and Green–Ampt rainfall sequencing found no matching complete threshold table; lack of an entry is not a proof of novelty.",
+      "searches": [
+        "soil infiltration capacity exponential decay recovery optimal irrigation pulse split threshold",
+        "Horton infiltration capacity drying recovery two-storm pulse optimal water infiltration",
+        "Green Ampt rainfall rearrangement infiltration optimal storm ordering with recovery",
+        "Green Ampt rainfall rearrangement infiltration optimal storm ordering with recovery"
+      ]
+    },
+    "rationale": "The originality claim is limited to the complete fixed-horizon, one-gap, two-pulse capacity-recovery classification: unique equal wet splits for any positive gap, global strict gap concavity, exact necessary-and-sufficient horizon threshold, increasing finite-saturating optimal rest and sharp linear onset. Wet Horton decay, dry exponential recovery, and intermittent sprinkler operation are prior art. Full primary material inspected for Gençoğlan et al. (2005) and Assouline (2019) addresses ponding/cycle counts and fixed-dose rate design rather than this freely optimized fixed-clock recovery gap. Accessible excerpts of Dadhich et al. (2012), Karmeli–Peri (1974) and James–Larson (1976) have other stated objectives, but uninspected full texts and broader optimal-control theorems leave acknowledged priority risk. Actual mathematical-record searches yielded no theorem covering the joint conclusion; absent results are not treated as uniqueness proof.",
+    "residual_risks": [
+      "Potential historical coverage in uninspected full texts of Dadhich et al. (2012), James and Larson (1976), or Karmeli and Peri (1974).",
+      "An unlocated broader switched linear-system or optimal-control theorem might imply part of the classification after specialization; novelty of that deduction is not independently certified.",
+      "The finding is mathematically exact for a narrow empirical model and does not establish a physically general soil infiltration policy."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior art for the infiltration modeling family; not represented as a full-text exclusion of present optimization theorem.",
+        "evidence": [
+          "First published 1941-01-01",
+          "doi:10.2136/sssaj1941.036159950005000C0075x"
+        ],
+        "identifier_or_url": "https://acsess.onlinelibrary.wiley.com/doi/abs/10.2136/sssaj1941.036159950005000C0075x",
+        "material_read": "Publisher first-publication date, bibliographic details and available abstract; full original article not retrieved.",
+        "method": "Publisher bibliographic and abstract page.",
+        "title": "An Approach Toward a Physical Interpretation of Infiltration-Capacity",
+        "trigger": "Foundational wet infiltration capacity model and archival public-date source."
+      },
+      {
+        "assessment": "Contains both established differential laws and simulations, but no global joint two-wet-segment, freely chosen rest-time theorem.",
+        "evidence": [
+          "Section 4.2.1 exponential wet decline",
+          "Section 4.2.2 exponential recovery during dry periods"
+        ],
+        "identifier_or_url": "https://www.hydrocouple.org/openswmm.engine/d9/de6/hydrology_ref_ch4_infiltration.html",
+        "material_read": "Complete accessible chapter with special attention to sections 4.2.1 and 4.2.2, equations (4-1) to (4-8), simulation procedure and parameter tables.",
+        "method": "Read section text and equations in openly accessible HTML.",
+        "title": "OpenSWMM Engine: Chapter 4 Infiltration",
+        "trigger": "Directly displays exponentially decaying Horton wet capacity and recovering dry capacity."
+      },
+      {
+        "assessment": "Finds cycles and ponding times for specified water demands, not the stated if-and-only-if horizon criterion or strictly concave rest-time optimum.",
+        "evidence": [
+          "doi:10.1016/j.agwat.2004.08.001",
+          "Section 2.4 eqs (13)–(14) fixes total on-time via irrigation water depth/rate"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/223041145_Determination_of_ponding_time_and_number_of_on-off_cycles_for_sprinkler_irrigation_applications",
+        "material_read": "Author-available complete manuscript, including sections 2.3, 2.4, 3, equations (4)–(14), tables and conclusions.",
+        "method": "Read available full text and directly compare its fixed-dose ponding-time and cycle-count objective with the fixed-horizon, free-recovery-gap objective.",
+        "title": "Determination of ponding time and number of on–off cycles for sprinkler irrigation applications",
+        "trigger": "Uses Horton infiltration and explicitly studies cycles, strongest direct hydrology predecessor."
+      },
+      {
+        "assessment": "Optimizes dose/rate choices and limiting runoff; does not derive the threshold or the limit of the two-pulse recovered-capacity optimum.",
+        "evidence": [
+          "doi:10.1029/2019WR025221",
+          "Section 4 designs irrigation rate and duration from capacity curves"
+        ],
+        "identifier_or_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019WR025221",
+        "material_read": "Accessible complete article in HTML, sections 2 through 4, diagrams and conclusions.",
+        "method": "Read mathematical design goal and scope and compared the variable dose/rate design with free internal dry gap.",
+        "title": "A Simple Method to Design Irrigation Rate and Duration and Improve Water Use Efficiency",
+        "trigger": "Modern full-text irrigation optimization based on infiltration capacity."
+      },
+      {
+        "assessment": "Describes practical repeated on/off cycles and parameter choices; full statement-level exclusion is not possible without the body.",
+        "evidence": [
+          "doi:10.1061/JRCEA4.0000988",
+          "Abstract describes 5–10 cycles and low mean application rate"
+        ],
+        "identifier_or_url": "https://ascelibrary.org/doi/abs/10.1061/JRCEA4.0000988",
+        "material_read": "Publisher bibliographic page and abstract; no complete article text.",
+        "method": "Abstract-based objective and assumptions comparison only.",
+        "title": "Basic Principles of Pulse Irrigation",
+        "trigger": "Early pulse-irrigation principles and multiple-cycle scheduling."
+      },
+      {
+        "assessment": "Studies time savings for a prescribed irrigation depth using variable application rates. An exact overlap in the inaccessible body remains a genuine risk, although its stated objective is materially different.",
+        "evidence": [
+          "doi:10.1002/ird.1674",
+          "First published 2012-08-27; abstract describes target 10-cm depth and sprinkler pressure"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/ird.1674",
+        "material_read": "Publisher abstract, publication information and references only; primary full body unavailable despite publicly accessible and open-access source attempts.",
+        "method": "Compared the actual published abstract objective and source references with exact fixed-time uptake claim; did not label unread body as not covering.",
+        "title": "Saving Time in Sprinkler Irrigation Application through Cyclic Operation: A Theoretical Approach",
+        "trigger": "Explicit theoretical optimization over on/off operation, plausible overlap."
+      },
+      {
+        "assessment": "Redistribution-focused soil-water model rather than a specified single exponential capacity state; priority risk remains for any hidden special-case result.",
+        "evidence": [
+          "doi:10.13031/2013.36054",
+          "1976, Transactions of the ASAE 19(3):482–488"
+        ],
+        "identifier_or_url": "https://elibrary.asabe.org/abstract.asp?aid=36054&conf=t&confalias=&issue=3&orgconf=t1976%5D&redir=%5Bvolume%3D19&redir=aid%3D36054&redirType=toc_journals.asp&t=2",
+        "material_read": "Publisher bibliographic page and accessible abstract only; complete paper unavailable.",
+        "method": "Compared model type, physical state, and published objectives at abstract level; no assertion about unread lemmas.",
+        "title": "Modeling Infiltration and Redistribution of Soil Water During Intermittent Application",
+        "trigger": "Early mathematically modeled intermittent rain with between-event water redistribution."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afe826b3-be72-4993-ae75-11e1aca0305f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural resource-allocation decision trades recovery of infiltration capacity against wet exposure lost during the hiatus. Optimizing both wet durations and the single gap under a terminal horizon gives an exact criterion \\(hA>kf_c\\) for whether a beneficial gap can ever exist, a separate sharp horizon threshold for when it does, global uniqueness, an explicit finite long-horizon rest cap and linear critical response. These address structurally meaningful questions in a standard hydrology approximation, supplying benchmarks for numerical pulsed-irrigation models. The value does not depend on a new general control theorem or experimental validation; the restricted two-pulse regime and nonimplication for multicycle schedules are explicit.",
+    "status": "PASS"
+  }
+}
