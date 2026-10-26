@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every \\(0<q<1\\) and integer \\(n\\ge1\\), the proof reconstructs the Bloch matrix and its sharp singular-value lower bounds. At \\(n=2\\), intersecting transverse planes force a singular value \\(q^2\\); the determinant fixes the product of the other two, and arithmetic--geometric mean gives \\(2q+q^2\\), achieved by a quarter-turn. At \\(n\\ge3\\), the determinant yields \\(3q^{2n/3}\\). The explicit feasible \\(SO(3)\\) rotation has eigenvalues \\(q^{2/3}\\) and \\(q^{2/3}e^{\\pm2\\pi i/n}\\), so its Bloch matrix has exact power \\(q^{2n/3}I_3\\) by distinct-root diagonalizability. The construction explicitly proves its feasibility inequalities. Every such rotation is implemented by a qubit unitary. The established unital-qubit entanglement-breaking criterion \\(\\|A^n\\|_*\\le1\\) then gives sharp inclusive thresholds. The verification program completed 1673 numerical consistency assertions at finitely many parameters and depths; the general statement rests on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhat–Dey–Saha theorem 6.11 gives necessary and sufficient eventual breaking of an already selected unital channel, without a sharp depth-noise-control threshold.",
+        "Lami–Giovannetti Eq. (7) gives an EB membership test for an arbitrary unital qubit channel, not the value of the minimum nuclear norm of its nth rotating-dephasing power.",
+        "Sakuldee–Rudnicki (2023), abstract: broad witness-based bounds on EB times of Lindblad dynamics, not the specific exact optimizer."
+      ],
+      "reasoning": "General classification and norm criteria provide tools used in the proof but do not themselves imply the exact optimal objective without the new realization of the equality case. Existing experimental filter theorems have the opposite optimization quantifier (protecting entanglement), and do not dominate the stated minimizing-control problem.",
+      "searches": [
+        "eventually entanglement breaking unital qubit channel cyclic axes optimal noise threshold 3^{-1/(2m)}",
+        "Exact optimal nuclear norm for n-fold rotating qubit dephasing channel: inf over unitary conjugations of ||(diag(q,q,1)R)^n||_1 = 3 q^(2n/3) for n>=3, achieved by rotation with characteristic polynomial roots q^(2/3) times nth roots 1 exp(±2pi i/n); sharp entanglement-breaking threshold",
+        "\"entanglement breaking\" \"phase damping\" \"n\" \"rotation\" repeated channel threshold",
+        "qubit rotating dephasing channels optimal entanglement breaking time Bloch three dimensional singular product AM GM",
+        "arXiv:2609.24168",
+        "arXiv:1411.2517",
+        "minimum over rotations of Schatten trace norm of powers of anisotropic contraction diag(q,q,1) R; quantum entanglement breaking indices exact"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.24168 (primary full HTML, first public 2026-09-21; MSC 81P40)",
+      "arXiv:1411.2517 (primary full text/PDF)",
+      "arXiv:1707.00161 (primary full HTML)",
+      "arXiv:2604.08587 (primary full HTML, distinct fixed-axis setting)",
+      "Sakuldee & Rudnicki, Phys. Rev. A 107, 022430 (2023), abstract-level general time bounds",
+      "Published research-index results for actual queries retained in originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At n=2, a forced singular value q² gives min 2q+q²; this is not the n≥3 determinant equality.",
+        "At n≥3, the equality is attained by a nontrivial Rodrigues rotation tuned to three distinct nth-root eigenvalues of DR, yielding (DR)^n=q^{2n/3}I.",
+        "Bhat–Dey–Saha theorem 6.11 does not prescribe such Bloch roots; Lami–Giovannetti Eq. (7) only judges an already constructed output channel."
+      ],
+      "reasoning": "The prior criteria determine whether a given channel breaks entanglement but do not logically force attainment of the determinant lower bound by a rotation reused at each step. This constructive existence and the exact n=2 obstruction are the new implications. A more general matrix-root realizability theorem not retrieved could subsume these ideas; this remains a residual risk.",
+      "searches": [
+        "Exact optimal nuclear norm for n-fold rotating qubit dephasing channel: inf over unitary conjugations of ||(diag(q,q,1)R)^n||_1 = 3 q^(2n/3) for n>=3, achieved by rotation with characteristic polynomial roots q^(2/3) times nth roots 1 exp(±2pi i/n); sharp entanglement-breaking threshold",
+        "eventually entanglement breaking unital qubit channel cyclic axes optimal noise threshold 3^{-1/(2m)}",
+        "arXiv:2609.24168",
+        "qubit dephasing operator DR with D=diag(q,q,1), construct R in SO(3) satisfying (DR)^n=q^{2n/3} I, using eigenvalues q^{2/3} nth roots of unity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.24168 theorem 6.11: eventual-EB characterization; Example 5.11: ordinary dephasing is not 2-copositive.",
+        "arXiv:1707.00161 Secs. I–II: repeated rotated qubit dephasing with unitary amendment; no arbitrary-depth optimal isotropic power.",
+        "Direct proof: the exact Bloch singular sum after repeated rotated dephasing equals an achievable determinant lower bound for every n≥3."
+      ],
+      "reasoning": "Formulations as qubit Bloch singular-value optimization, channel-root isotropization, repeated phase damping with a reused rotation, a depolarizing power, and sharp finite entanglement-breaking indices were compared. Matching subject words are not enough: each cited source lacks the quantified statement min over one fixed U for every n and matching construction.",
+      "searches": [
+        "Optimal entanglement-breaking threshold for repeated qubit phase damping with intermediate unitary rotations; Pauli-axis cyclic permutation gives depolarizing map in three steps and sharp dimension independent determinant bound",
+        "qubit entanglement breaking dephasing rotation cyclic Clifford three-fold composition threshold 1/sqrt3 singular values Bloch",
+        "Exact optimal nuclear norm for n-fold rotating qubit dephasing channel: inf over unitary conjugations of ||(diag(q,q,1)R)^n||_1 = 3 q^(2n/3) for n>=3, achieved by rotation with characteristic polynomial roots q^(2/3) times nth roots 1 exp(±2pi i/n); sharp entanglement-breaking threshold",
+        "\"phase damping\" \"rotation\" \"depolarizing\" \"three\" qubit channels",
+        "Sharp exact threshold for entanglement breaking for the channel (dephasing q then identical unitary U) to the n-th power; global optimum over U equals 3q^{2n/3} for n>=3; repeated fixed rotation isotropizes to depolarizing channel",
+        "qubit dephasing operator DR with D=diag(q,q,1), construct R in SO(3) satisfying (DR)^n=q^{2n/3} I, using eigenvalues q^{2/3} nth roots of unity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried published research-index records did not return an exact table for F_n(q) or the depth-n threshold 3^{-3/(2n)}.",
+        "Closest published indexed mathematical record, “Exact privacy–Choi concurrence tradeoff for unital qubit channels” (2026-10-04), treats a different static privacy-constrained Choi objective.",
+        "The independent source arXiv:1411.2517 gives the unital EB criterion in Eq. (7), not the candidate parameterized optimizer table."
+      ],
+      "reasoning": "The claim is neither a known exact table entry located in accessible sources nor a finite recomputation. The all-n formula is derived analytically; absence of a table is not asserted as proof of absolute novelty.",
+      "searches": [
+        "Optimal entanglement-breaking threshold for repeated qubit phase damping with intermediate unitary rotations; Pauli-axis cyclic permutation gives depolarizing map in three steps and sharp dimension independent determinant bound",
+        "Exact optimal nuclear norm for n-fold rotating qubit dephasing channel: inf over unitary conjugations of ||(diag(q,q,1)R)^n||_1 = 3 q^(2n/3) for n>=3, achieved by rotation with characteristic polynomial roots q^(2/3) times nth roots 1 exp(±2pi i/n); sharp entanglement-breaking threshold",
+        "simulating depolarizing channel repeated identical dephasing and unitary rotation qubit",
+        "Sharp exact threshold for entanglement breaking for the channel (dephasing q then identical unitary U) to the n-th power; global optimum over U equals 3q^{2n/3} for n>=3; repeated fixed rotation isotropizes to depolarizing channel"
+      ]
+    },
+    "rationale": "Primary full-text comparison of Bhat–Dey–Saha (2026), arXiv:2609.24168, Theorem 6.11 and Example 5.11; Lami–Giovannetti (2014/2015), arXiv:1411.2517, Equation (7) and Definition 1; and Cuevas et al. (2017), arXiv:1707.00161, Sections I–II, did not reveal the exact minimum over a reused rotation or an arbitrary-depth depolarizing equality construction. These established results respectively provide a general eventual-breaking characterization, a qubit EB membership test, and a protection-oriented two-step experiment. The optimized complete formula is not an immediate implication of those tools without proving an appropriate realizing rotation. Priority is assessed to best knowledge with residual reduction risk; no independent certification has been performed.",
+    "residual_risks": [
+      "An unlocated general theorem on isotropizing powers of 3x3 contractions with singular values (q,q,1) could imply the construction.",
+      "The published index search is ranked and cannot establish mathematical uniqueness or exhaustive literature coverage.",
+      "Independent priority verification is not performed; the theorem is assessed at best knowledge from inspected sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General eventual-breaking characterization; the all-depth minimization over one reused rotation and explicit depolarizing equality are not stated in inspected sections.",
+        "evidence": [
+          "Theorem 6.11 characterizes a fixed channel using peripheral eigenvector commutation.",
+          "Example 5.11 establishes non-2-copositivity of ordinary finite-strength dephasing."
+        ],
+        "identifier_or_url": "arXiv:2609.24168, https://arxiv.org/abs/2609.24168",
+        "material_read": "Full-text HTML: abstract/introduction, sections on mixed twisted dephasing, Example 5.11, Theorem 6.11 and related examples, and stated implications.",
+        "method": "Read accessible primary full text and compare hypotheses, quantified conclusions, and examples.",
+        "title": "A complete characterization of eventually entanglement breaking unital quantum channels",
+        "trigger": "Most recent direct characterization of eventual entanglement breaking for unital quantum channels, with a dephasing example."
+      },
+      {
+        "assessment": "Supplies the EB iff Bloch nuclear norm ≤1 tool; its indices optimize protection via filters, not this minimum and constructive isotropic equality for prescribed depth.",
+        "evidence": [
+          "Equation (7) states the necessary/sufficient unital-qubit Schatten-1 condition.",
+          "Equations (9)–(12) define direct and filtered indices with worst-case preservation filters."
+        ],
+        "identifier_or_url": "arXiv:1411.2517, https://arxiv.org/abs/1411.2517",
+        "material_read": "Primary 19-page text including section II, Eq. (7), Definitions 1, and sections on unitary/nonunitary filtering; first-page PDF visual inspection.",
+        "method": "Read full-text sections and inspected the primary PDF. Compared whether filtering quantifiers cover repeated identical destroying rotation.",
+        "title": "Entanglement-Breaking Indices",
+        "trigger": "Canonical definitions and strongest plausible general qubit EB index coverage."
+      },
+      {
+        "assessment": "Studies two-use experimental unitary amendment to preserve transmission; does not give all-n minimum over one reused rotation.",
+        "evidence": [
+          "Equations (2)–(3) compare an EB two-use channel with a non-EB filtered alternative.",
+          "Equations (4)–(7) define rotated phase damping."
+        ],
+        "identifier_or_url": "arXiv:1707.00161, https://arxiv.org/abs/1707.00161",
+        "material_read": "Accessible primary full text, introduction and equations (1)–(9), experimental model and findings.",
+        "method": "Direct statement and parameter/quantifier comparison.",
+        "title": "Amending entanglement-breaking channels via intermediate unitary operations",
+        "trigger": "Exactly the same experimental family of rotated phase damping and repeated applications."
+      },
+      {
+        "assessment": "Fixed-basis finite-strength dephasing remains non-EB; no contradiction because the candidate actively rotates the damping axes between steps.",
+        "evidence": [
+          "The negative Choi partial-transpose eigenvalue for ordinary finite dephasing is nonzero at finite strength."
+        ],
+        "identifier_or_url": "arXiv:2604.08587, https://arxiv.org/html/2604.08587v3",
+        "material_read": "Accessible full HTML discussion of Choi partial transpose, exact negative eigenvalue and numerical threshold artifacts.",
+        "method": "Read full text; separate unchanged-axis semigroup claims from coherently rotated discrete steps.",
+        "title": "Markovian dephasing has no entanglement-breaking threshold, and a fixed tolerance will report one anyway",
+        "trigger": "Possible obstruction to finite-step EB under finite dephasing."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8e247c0a-93d2-4ac7-9584-0072efea2b6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp finite-depth optimal entanglement-breaking control of repeated dephasing is a natural experimentally implementable design invariant. A time-homogeneous rotation realizes an exact isotropic depolarizing power at every prescribed depth \\(n\\ge3\\), providing a surprising equality in a determinant/nuclear-norm bound; \\(n=2\\) instead has a structurally forced singular direction and a different threshold. These are a complete parameterized classification with realizable controls, not isolated data or a textbook restatement. The known unchanged-axis dephasing obstruction highlights the nontrivial role of rotation.",
+    "status": "PASS"
+  }
+}
