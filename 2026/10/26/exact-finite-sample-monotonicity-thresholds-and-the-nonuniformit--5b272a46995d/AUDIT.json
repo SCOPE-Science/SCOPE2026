@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The jump-to-slope matrix H=B(I+lambda D2^T D2)^(-1)U is nonnegative exactly when every monotone input is sent to a monotone output. Exact rational-function factorizations give the cutoffs 1/6, 7/10 and (14+sqrt(181))/15. The four-point sharp decrease follows from the unique negative corner entry and the derivative 1-12lambda-92lambda^2. A perturbation at lambda=0 proves failure for small positive strength at every length >=4; affine-projector convergence gives eventual positivity for each fixed length. Fourier coefficients of h(theta)=[1+lambda(2-2cos theta)^2]^-1 have zero second moment, nontrivial spectrum and exponential decay, forcing a negative coefficient. Boundary-residual convergence of finite resolvents transfers the associated decreasing step output to sufficiently long finite samples for each fixed lambda>0. Rational inversion tests and optional finite numerical checks passed (VERIFY_OK).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McElroy 2006 Research Report RRS2006-09, sections 2-4, especially Eq. (19), gives infinite-filter spectral factors and oscillatory weight formulas.",
+        "de Jong and Sakarya 2016 DOI:10.1162/REST_a_00523 abstract gives a finite-sample representation and a large-strength approximation; full text inaccessible."
+      ],
+      "reasoning": "General formulas for filter coefficients can be inputs to the present sign computations but do not as stated supply the global cone-positivity thresholds for n=4,5,6 or evaluate the worst n=4 monotonicity defect. The combination may implicitly dominate portions of the work; this risk is not resolved by an abstract-level comparison.",
+      "searches": [
+        "Inverse biharmonic regularization matrix (I+lambda D2^T D2) monotone data nonmonotone smooth output, negative convolution kernels.",
+        "'The Econometrics of the Hodrick-Prescott Filter' pdf de Jong Sakarya 2016",
+        "Exact Formulas for the Hodrick-Prescott Filter McElroy 2006"
+      ]
+    },
+    "checked_sources": [
+      "https://www.census.gov/content/dam/Census/library/working-papers/2006/adrm/rrs2006-09.pdf",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6/RESULT.md",
+      "https://doi.org/10.1021/ac034173t",
+      "https://doi.org/10.1137/0915069",
+      "https://doi.org/10.1162/REST_a_00523"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published 2026 published-finding corpus finding proves range failure already at n=3 for p=2; the present n=3 theorem proves monotone-output order preservation at every lambda.",
+        "McElroy 2006 Eq. (19) identifies oscillatory infinite filter weights but not the finite-n order restoration transition.",
+        "Wood 1994 solves a shape-constrained spline fitting problem rather than verifying exact unconstrained filter parameter cutoffs."
+      ],
+      "reasoning": "The range theorem neither implies nor is contradicted by the order theorem; both may be true for the same fit. Exact infinite weights partly motivate the global no-uniform-strength obstruction, but the present Fourier moment and finite boundary transfer establish an explicit implication for all finite lengths. Broad matrix representations do not state the evaluated finite phase boundaries; their possible implicit sufficiency is the principal overlap uncertainty.",
+      "searches": [
+        "Whittaker Henderson second difference penalized least squares Hodrick Prescott filter monotone shape preservation smoothing lambda threshold matrix inverse.",
+        "Exact threshold for monotonicity preservation of Whittaker smoothing on four equally spaced data points, and loss of positivity for long grids.",
+        "published-finding corpus full RESULT.md: 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published range-preservation study: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+        "Wood 1994 DOI:10.1137/0915069 is a constrained monotone smoother rather than a classification of the unconstrained WH operator."
+      ],
+      "reasoning": "Order preservation means H>=0 on the nonnegative jump cone; it does not mean nonnegative smoothing weights or preservation of the original pointwise data range. In dimension three H is entrywise nonnegative for every lambda, whereas the published range theorem constructs negative outputs from nonnegative monotone data for every lambda>0. Therefore the statements are not equivalent.",
+      "searches": [
+        "Whittaker Henderson second difference penalized least squares Hodrick Prescott filter monotone shape preservation smoothing lambda threshold matrix inverse.",
+        "Hodrick Prescott filter monotonicity '7/10' '1/6' sample",
+        "2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No indexed source/result in targeted published-finding corpus and web returns tabulated these n=4,5,6 exact restoration boundaries or the sharp four-point defect.",
+        "Closest published-finding corpus identifier: 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+      ],
+      "reasoning": "No exact table with these parameters was located. Negative search is not proof of novelty, so the residual risk of an unindexed table or a derived sign consequence remains explicitly recorded.",
+      "searches": [
+        "Exact threshold for monotonicity preservation of Whittaker smoothing on four equally spaced data points, and loss of positivity for long grids.",
+        "Whittaker smoother preserves monotone sequence large lambda threshold sample length",
+        "Hodrick Prescott filter monotonicity '7/10' '1/6' sample"
+      ]
+    },
+    "rationale": "The motivating primary literature defines finite Whittaker/Hodrick-Prescott resolvents and derives spectral/filter weights, but the inspected claims do not evaluate order preservation on the cone of monotone data, its first sharp finite-sample restoration cutoffs, the exact four-point adjacent-drop extremum, or the absence of a uniform positive restoring strength. The closest indexed published published-finding corpus theorem classifies input-range preservation, which is distinct: three-point smoothing preserves fitted order at all strengths yet violates input range at positive strengths. Implicit consequences of existing complete weight formulas and an inaccessible 2016 full text remain genuine originality risks.",
+    "residual_risks": [
+      "The 2016 de Jong–Sakarya primary full text could not be read; its finite-sample filter representation may implicitly entail some sign classifications.",
+      "The 2003 Eilers and 1994 Wood papers were accessed via abstracts rather than complete texts.",
+      "A complete filter-weight formula may imply the displayed finite-sample thresholds after specialization and nontrivial sign checking even if no published theorem states them.",
+      "Search-based failure to locate an equivalent table is not an originality proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not equivalent: range versus fitted-order; no finite-n smoothing-strength order thresholds in the read result.",
+        "evidence": "Its p=2 minimal n=3 witness maps (0,0,1) to a vector with a negative first coordinate, yet the fitted vector stays increasing, as follows from the n=3 jump matrix.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6/RESULT.md",
+        "material_read": "Complete RESULT.md sections: finding, proof, verification, relationship and limitations",
+        "method": "Full published research result read and compared by input-output quantifiers",
+        "title": "Only first-difference Whittaker–Henderson smoothing is universally range-preserving",
+        "trigger": "High semantic similarity for the same smoothing family and monotone input class"
+      },
+      {
+        "assessment": "Provides known bi-infinite weights and oscillatory side lobes, but no inspected finite-length monotone jump-cone classification.",
+        "evidence": "2006 report pp. 2, 7–9: weights expressed via roots and sine factors; the present finite-n cutoffs are not part of its stated exact results.",
+        "identifier_or_url": "https://www.census.gov/content/dam/Census/library/working-papers/2006/adrm/rrs2006-09.pdf",
+        "material_read": "Full-text PDF mathematical introduction and Sections 2–4, including Eq. (19) and discussion of side-lobe behavior; page images inspected",
+        "method": "Open U.S. Census Bureau PDF text and visual page inspection",
+        "title": "Exact Formulas for the Hodrick-Prescott Filter",
+        "trigger": "Exact spectral factorization and potential implicit coverage of infinite negative filter weights"
+      },
+      {
+        "assessment": "Establishes the smoothing formulation and applications; full-text coverage of the claimed phase boundaries is unresolved.",
+        "evidence": "Publisher first-online date 2003-05-30; abstract discusses penalized least-squares smoother but not monotone-output cutoffs.",
+        "identifier_or_url": "https://doi.org/10.1021/ac034173t",
+        "material_read": "Publisher abstract, publication history and bibliographic information; full paper paywalled",
+        "method": "Publisher page and lawful open-access/arXiv search",
+        "title": "A Perfect Smoother",
+        "trigger": "Foundational 2003 paper for penalized second-difference smoothing"
+      },
+      {
+        "assessment": "Constrained monotone spline fitting, not an exact unconstrained WH resolvent sign classification; unexamined details remain a general risk.",
+        "evidence": "The abstract says linear sufficient monotonicity conditions are imposed with quadratic programming.",
+        "identifier_or_url": "https://doi.org/10.1137/0915069",
+        "material_read": "Publisher abstract and University of Edinburgh bibliographic/abstract record; full text not obtained",
+        "method": "Scientific abstract and bibliographic comparison",
+        "title": "Monotonic Smoothing Splines Fitted by Cross Validation",
+        "trigger": "Most relevant older explicit work on enforcing monotonicity in smoothing"
+      },
+      {
+        "assessment": "Important unresolved overlap: paper derives finite-sample representation, potentially allowing recovery of exact signs, but no whole-document NOT_COVERING judgment is made.",
+        "evidence": "Available abstract describes finite-sample symmetric weighted averages with boundary adjustments, and a large-smoothing approximation.",
+        "identifier_or_url": "https://doi.org/10.1162/REST_a_00523",
+        "material_read": "Abstract and institutional record; full text unavailable from arXiv/OA/publisher routes and institutional retrieval",
+        "method": "Cross-site arXiv and OA search, publisher/abstract comparison, institutional full-text request attempt",
+        "title": "The Econometrics of the Hodrick-Prescott Filter",
+        "trigger": "2016 exact finite-sample HP representation is a plausible implication-dominating source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b272a46-995d-443b-973a-d4f893f8641e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For unconstrained trend smoothing, keeping the ordering of observed monotone data is a substantive shape-stability property independent of range preservation. The complete first nontrivial parameter classifications, attained sharp adjacent-drop bound, and rigorous no-uniform-strength obstruction provide natural safety boundaries for fixed-length and varying-length data rather than an unmotivated isolated numerical constant.",
+    "status": "PASS"
+  }
+}
