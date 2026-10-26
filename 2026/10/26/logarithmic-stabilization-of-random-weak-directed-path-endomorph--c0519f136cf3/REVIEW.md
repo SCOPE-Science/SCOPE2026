@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof characterizes fixed points via a monotone displacement function, identifies the eventual clipping map, proves the two extremal shifts are the unique maps with index \(n-1\), and reduces conditional endpoint hitting times to two fair Bernoulli-prefix iterations. A uniform Hoeffding bound controls every relevant prefix simultaneously and yields polynomial relative-error concentration. The random cutoff has exponential tails, supplying uniform integrability and all positive-moment convergence. Exhaustive independent checks for \(2\le n\le11\) agree with all finite structural statements. This is a self-review, not an independent certification.
+
+**Originality — PASS with residual priority risk.** The 2013 full-contraction study proves the fixed-point enumeration and total count, while the 2021 directed-path paper proves monoid generators, regularity, and idempotent classification. Their examined main statements and proofs do not supply the asymptotic exponent for self-powers of a uniform random element. The claim is not that the published static counts are new; its uniform Bernoulli-prefix reduction, sharp \(\log_2 n\) stabilization law, and moment statement are distinct. A possible earlier dynamical formulation outside searched algebra literature remains a documented risk.
+
+**Value — PASS.** Stabilization time is a natural dynamical parameter for iteration in a finite transformation monoid. The result establishes a strong, quantitatively sharp separation between the two extremal \(n-1\)-step translations and the typical \(\log_2 n\)-step trajectory, with an explicit exact source of the logarithmic constant and a nontrivial concentration/moment conclusion. Static counts of rank, idempotents, or fixed points by themselves do not determine this iteration-time law.
+
+**Closest literature and limitations.** Adeshola–Umar, arXiv:1303.7428, Corollaries 2.9–2.10, supplies the known fixed-interval length tail; Fernandes–Paulista, arXiv:2112.13427, covers the full weak-path monoid and its idempotents and generators. Neither examined full text states the claimed random power-stabilization law. Priority cannot be guaranteed from finite search. Computations cover only finite small sizes, not the limiting theorem.
+
+Self-review: passed. Independent audit: not yet performed.
