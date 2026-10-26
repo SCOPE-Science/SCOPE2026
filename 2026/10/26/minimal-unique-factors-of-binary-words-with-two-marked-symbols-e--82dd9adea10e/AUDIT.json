@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The proof partitions every possible minimal unique factor by its count of 1 symbols (0, 1, or 2). Only a unique longest positive zero run gives a zero-only MUS; one-1 factors are precisely two shortest distinguishing flanks, unless the flank zero factor is already unique; two-1 factors have the unique minimal candidate 1 0^b 1, qualifying exactly when both outer zero gaps dominate the middle gap. The four disjoint forms exhaust all minimal unique factors. Sharp four-factor witnesses and the iff condition follow from these exact criteria. A disjoint case analysis counts sizes 1 and 2; a gap-shift parametrization counts size 4; subtraction gives size 3. Algebraic simplification of the four generating functions and coefficient asymptotics completes the all-length proof. The independently written brute-force occurrence enumerator checked the entire MUS sets for 8436 gap triples with total zero length at most 35, as well as the generating functions to degree 35 and witnesses. This finite experiment is supportive, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI 10.4230/LIPIcs.MFCS.2016.69, full text: Lemma 7, |MUS| <= 2m-1 for m runs; Lemma 8, uniquely longest run is an MUS",
+        "DOI 10.3233/FI-2011-536, accessible title and abstract: foundational repeat duality and optimal computation"
+      ],
+      "reasoning": "The known run bound yields at most 9 for a two-marker binary word (at most five runs); it does not imply the sharp constant 4 or the equality cases or generating functions. Lemma 8 covers only the zero-run candidate, not the distinctive one-1 and two-1 factors. A linear-time algorithm for individual strings cannot by itself be identified with the explicit all-length classification or distributions.",
+      "searches": [
+        "2016 Shortest Unique Substring Queries on Run-Length Encoded Strings Mieno Inenaga Bannai Takeda PDF Lemma 7 Lemma 8",
+        "2014 2015 shortest unique substring minimal unique factors run length encoding maximal count bound 2m-1 paper",
+        "Minimum Unique Substrings and Maximum Repeats Ilie Smyth 2011 PDF",
+        "minimal unique substrings of a string maximum number fixed low Hamming weight two"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.MFCS.2016.69 (full primary text)",
+      "doi:10.3233/FI-2011-536 (publisher abstract and indexed excerpt only)",
+      "arxiv:1909.02804 (abstract and associated open introduction)",
+      "Published mathematical-record semantic searches for the precise four-factor formula and aliases, actual query strings recorded above",
+      "Accessible earlier related claims about sparse minimal absent factors, period-doubling minimal unique factors, and adjacent-pair observation distributions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mieno et al. 2016 Lemma 7 and Lemma 8, full primary PDF",
+        "Ilie--Smyth 2011 foundational definition and general algorithms, accessible abstract",
+        "Mieno et al. 2019 arXiv:1909.02804 and accessible subsequent article introduction: sliding-window dynamics"
+      ],
+      "reasoning": "Generic MUS computation, general run-count upper bounds, and sliding-window changes do not state the exact sparse binary factor forms, bounded value 4, joint cardinality generating functions, or asymptotic one-third extremal density. Minimal absent factors require non-occurrence and cannot be substituted for minimally unique occurring factors. Resulted claim is not being credited for the established unique-run lemma or generic MUS notion.",
+      "searches": [
+        "two-one binary minimal unique substrings sparse text MUS density",
+        "shortest unique substring sparse string two occurrences character",
+        "Minimal Unique Substrings and Minimal Absent Words in a Sliding Window arxiv 1909.02804"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "L. Ilie and W. F. Smyth (2011), DOI 10.3233/FI-2011-536: minimum unique substrings and maximum repeats, abstract and bibliographic materials",
+        "T. Mieno et al. (2016), DOI 10.4230/LIPIcs.MFCS.2016.69: complete 11-page full-text examination, especially Sections 2, 4"
+      ],
+      "reasoning": "Aliases 'minimum unique substring', 'minimal unique substring', 'minimal unique factor', and 'two-marker/weight-two sparse string' refer to the same potential claim. The accessible sources introduce the predicate or algorithmic treatment, not the precise four-factor list and its distribution. Generic computation is not an explicit theorem giving these counts. Search nonmatches are not by themselves a novelty proof.",
+      "searches": [
+        "Minimal unique substring (MUS) of binary weight-two words exact four-factor theorem distribution by gaps 0^a 1 0^b 1 0^c",
+        "Minimal unique factors two one bits 0^a 1 0^b 1 0^c unique substring set bound four and distribution.",
+        "exact number minimal unique substrings binary word Hamming weight two 0^a 1 0^b 1 0^c"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DOI 10.4230/LIPIcs.MFCS.2016.69: computational framework and run-bound statements, no table for two-one cardinality distributions",
+        "DOI 10.3233/FI-2011-536: bibliographic and abstract evidence only; possible table or specialized corollary unverified"
+      ],
+      "reasoning": "The inspected full primary treatment has no table covering the sharp constant-four count or the four rational functions. The 2011 complete paper was inaccessible, so the negative database comparison is qualified rather than overstated.",
+      "searches": [
+        "Exactly one third of binary words containing two ones have four minimal unique substrings; rational generating function (1-z)(1-z^2)(1-z^3)",
+        "Minimum unique substrings for two-one finite words sparse text exact enumerator generating functions",
+        "binary word exactly two ones minimal unique substrings classification counting minimal unique substrings zero runs"
+      ]
+    },
+    "rationale": "A focused check of published scientific records, accessible earlier claims and primary literature found generic minimum-unique-substring algorithms and the run-bound 2m-1, but no statement equivalent to the exact four-MUS sharp bound, complete four-type factor description and all-length rational spectrum for two-1 binary strings. The 2016 primary full text treats run-based MUS algorithms and proves Lemmas 7 and 8; these do not cover the enumerated sparse-family claim. The 2011 foundation's full text was unavailable and remains a genuine residual priority risk. This is a best-evidence self-review, not proof of global uniqueness.",
+    "residual_risks": [
+      "The full 2011 founding treatment could not be inspected; a weight-two special case or equivalent enumeration may be present there.",
+      "Unindexed or non-English sparse-word MUS work could contain an earlier equivalent classification.",
+      "Some later adjacent literature was checked only by abstracts/introduction, not all full texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proves generic |MUS| <= 2m-1 and unique-maximal-run criterion, not the sparse two-one four-case distribution.",
+        "evidence": [
+          "Section 2.2: MUS definition",
+          "Section 4.1, Lemma 7: |MUS| <= 2m-1",
+          "Section 4.2.1, Lemma 8: unique longest run"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2016.69",
+        "material_read": "Complete open-access 11-page PDF text, including Sections 1-6 and Lemmas 7-8; visual verification of pages 3, 5, 7, 8.",
+        "method": "Full-text inspection and page-image review of definitions, run bounds, and MUS construction proof.",
+        "title": "Shortest Unique Substring Queries on Run-Length Encoded Strings",
+        "trigger": "Closest full primary work controlling MUS cardinality by a sparsity measure (number of runs)."
+      },
+      {
+        "assessment": "MATERIAL_LIMITED: foundational definition and generic algorithms supported, but no full-document noncoverage conclusion can be drawn.",
+        "evidence": [
+          "Publisher records first published online 2011-01-01",
+          "Abstract describes duality to maximum repeats and several optimal algorithms; no fixed-weight theorem in accessible text"
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FI-2011-536",
+        "material_read": "Publisher bibliographic page, abstract, author-paper indexed excerpt; full paper inaccessible.",
+        "method": "Attempted author-hosted lawful PDF and alternative openly accessible source; examined publisher title and abstract; full-text retrieval unavailable.",
+        "title": "Minimum Unique Substrings and Maximum Repeats",
+        "trigger": "Original foundational treatment of the exact predicate in this theorem."
+      },
+      {
+        "assessment": "LIMITED: concerns sliding-window computation rather than the exact two-marker distribution; no whole-document exclusion is asserted.",
+        "evidence": [
+          "arXiv:1909.02804 abstract: sliding-window MUS and minimal-absent-word updates",
+          "Related journal introduction: MUS definition and dependence of shortest-unique-substring queries"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.02804",
+        "material_read": "Abstract and related freely available journal introduction/definitions; full preprint not reviewed in this comparison.",
+        "method": "Read abstract, scope, and definitions of sliding-window MUS problem.",
+        "title": "Minimal Unique Substrings and Minimal Absent Words in a Sliding Window",
+        "trigger": "Later primary extension studying MUS behavior and minimal absent words."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82dd9ade-a10e-4f64-9a75-584aa7bfc459",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural, all-length, completely classified sparse binary class has an exact set-valued MUS description, sharp constant-four cardinality regardless of background length, and full rational cardinality enumerators. MUSs underpin shortest-unique-substring indexing; sparse marker strings supply a meaningful model for long repetitive backgrounds. The sharp bound improves the generic 2m-1 run-bound implication (which gives at most 9 here), and the one-third limiting extremal proportion quantifies typical sparse-word behavior. This is more than correct computation or an arbitrary finite instance. The claim is deliberately restricted to an intrinsically defined natural family and does not assert broader significance without evidence.",
+    "status": "PASS"
+  }
+}
