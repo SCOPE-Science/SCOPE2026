@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Every oriented edge subset F is VC-shattered precisely when its undirected graph is a forest, by cyclic-orientation obstruction and topological extension. K2,3 has exactly 3^3+3^3-2^3=46 acyclic orientation concepts and hence no depth-six shattered tree; certificate.json is a 31-node complete depth-five tree with 32 pairwise different valid witnesses, checked by graph-topological-sort Python and independent C++ cycle logic. Acyclic-orientation product decomposition over bridges, elementary Littlestone product additivity and VC forest rank prove the exact unbounded family. Both original verifiers were executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pradeep–Nachum–Gastpar arXiv:2206.13257, Section III-B, establishes general online mistake bound/LD characterization, but no graph-specific extremal values.",
+        "Walker arXiv:2203.12211, Corollaries 1.7 and 1.10, provides general Sauer–Shelah analogues but no sharp connected planar subcubic graph classification.",
+        "Earlier accessible complete-pair comparison-class record af575227-dd97-4f3b-98c1-974fe8119247 gives dimensions for total orders on K_n; restriction to K2,3 does not follow as equality from those dimensions."
+      ],
+      "reasoning": "The universal graph forest-VC identity and product lemma are not presented as new by themselves; the explicit strict base case plus bounded-degree connected amplification is the claim requiring coverage. Complete-graph orientation results do not imply equality of Littlestone dimensions after projecting onto a proper edge subset.",
+      "searches": [
+        "online learning acyclic orientations mistake bound graph edges sequential orientations",
+        "fixed graph acyclic orientation pairwise ordering concepts orientation online dimension",
+        "VC dimension acyclic orientations forests and online dimension separation",
+        "2022 \"VC dimension\" \"Littlestone dimension\" acyclic graphs orientations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2203.12211",
+      "arXiv:2206.13257",
+      "arXiv:0904.1229",
+      "DOI:10.4230/LIPIcs.ITCS.2023.85",
+      "published record ID 3d0efd785163",
+      "local prior comparison claim af575227-dd97-4f3b-98c1-974fe8119247"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pikhurko, Finding an Unknown Acyclic Orientation of a Given Graph, introduction pp.121–123: c(G) is the minimizing algorithm’s worst-case number of edge tests to identify orientation.",
+        "Walker, Tree Dimension and the Sauer–Shelah Dichotomy, §1.1: shattering versus Littlestone dimension are defined for general set systems; no graph identity supplied.",
+        "Public record published record ID 3d0efd785163 concerns a unique-source/out-branching existence property, not an online dimension."
+      ],
+      "reasoning": "Neither c(G) lower bounds, generic cardinality upper bounds, nor total-order full-query dimensions imply a binary tree with 32 distinct compatible acyclic-orientation witnesses under only six fixed edge coordinates. Our finite certificate is a new mathematical comparison target and the bridge factorization yields exact subcubic connected families.",
+      "searches": [
+        "Finding an Unknown Acyclic Orientation of a Given Graph full text c(G) Pikhurko",
+        "Littlestone dimension equivalence relations partitions pair equality membership Bell numbers adaptive shattering",
+        "\"VC dimension\" \"acyclic orientations\" forest"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Walker (arXiv:2203.12211), Sections 1.1 definitions and dimension consequences, treats general binary shattering but not edge-direction restrictions.",
+        "Pikhurko (arXiv:0904.1229), introduction and Theorems 1.1-1.2, considers active exact identification c(G), not realizable mistake-tree depth."
+      ],
+      "reasoning": "Searches cover alternate naming as thicket dimension, online mistake dimension, oriented-edge comparison class, and graph orientation learning. The closest mathematical setup is acyclic edge orientation, but its active testing parameter is not equivalent to Littlestone dimension: long one-sided identification search need not yield a complete balanced shattered tree.",
+      "searches": [
+        "Littlestone dimension acyclic orientations of graph edge membership exact K2,3",
+        "thicket dimension acyclic orientations planar bipartite complete bipartite orientation",
+        "\"Littlestone dimension\" \"acyclic orientations\" graphs",
+        "VC dimension acyclic orientations set partitions pairwise queries Bell"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search of published research index produced a record about non-separating out-branchings of acyclic K3,n orientations (published record ID 3d0efd785163), not a VC/Littlestone table.",
+        "Pikhurko 2009 discusses acyclic orientation c(G) and its hardness/upper bounds; inspected text gives no six-edge shattering table."
+      ],
+      "reasoning": "No source inspected gives the exact 46-orientation, 5-round depth-five certificate as a precomputed learning-dimension entry, nor exact values (5s-1,6s-1) for connected subcubic amplifiers. Absence from search alone is not proof of novelty.",
+      "searches": [
+        "acyclic orientations of complete bipartite K2,3 VC dimension 4 Littlestone dimension 5",
+        "Littlestone dimension acyclic orientations of graph edge membership exact K2,3",
+        "connected planar subcubic bipartite graphs unbounded gap VC and Littlestone dimensions of acyclic orientation concepts"
+      ]
+    },
+    "rationale": "Bounded exact-claim and stronger-implication searches found no public result proving Ldim(A(K2,3))=5 or the difference s on connected planar subcubic bipartite graphs. Earlier acyclic-orientation identification research concerns a different minimax objective, and general tree/VC/Littlestone results do not imply the explicit witness and exact amplification. Historical priority is not certified.",
+    "residual_risks": [
+      "Priority search is bounded; unindexed equivalent graph-orientation online-learning results may exist.",
+      "The 2023 generic complexity paper was assessed from abstract rather than complete text, but no decisive unresolved direct-coverage comparison was identified.",
+      "The nearby published K3,n orientation record was available only at summary level and a full-body comparison remains outstanding.",
+      "Older exact-identification work is not an online mistake-bound result; a hidden deeper connection not detected by the searches remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected relevant material",
+        "evidence": "The results concern abstract binary leaf sets and generic shatter-function bounds, not edge directions of acyclic K2,3.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+        "material_read": "Rendered preprint §§1–1.2, definitions 1.4–1.9, theorems 1.3 and corollaries 1.7/1.10",
+        "method": "Full-text HTML sections and theorem comparison",
+        "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+        "trigger": "Direct 2022 source for formal combinatorial VC/Littlestone tree definitions and implications"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected relevant material",
+        "evidence": "Section III-B defines mistake trees and optimal realizable mistake bounds; work concerns information complexity, not graph orientation classes.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.13257",
+        "material_read": "Rendered full-text Introduction, III-B and main theorem descriptions, including online mistake-tree definition",
+        "method": "Full-text HTML targeted sections",
+        "title": "Finite Littlestone Dimension Implies Finite Information Complexity",
+        "trigger": "Littlestone mistake-bound characterization and general statistical-learning context"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE, no implication identified",
+        "evidence": "The c(G) game terminates on unique identification of the orientation; its minimax objective is not a complete all-branches mistake-tree depth.",
+        "identifier_or_url": "https://pikhurko.github.io/E/Pikhurko10cpc.pdf",
+        "material_read": "PDF pages 1–3 (zero-index 0–2), overall text searched for Littlestone and mistake; inspected definitions and Theorems 1.1–1.2",
+        "method": "Opened primary PDF, inspected actual page images and text, comparison of game objectives",
+        "title": "Finding an Unknown Acyclic Orientation of a Given Graph",
+        "trigger": "Exactly matching acyclic-orientation and edge-query object, plausible source for stronger coverage"
+      },
+      {
+        "assessment": "INSPECTED_ABSTRACT_ONLY, no specific value seen; limited coverage inference",
+        "evidence": "Abstract concerns approximation hardness for explicit concept classes, not the exact acyclic orientation VC/Ldim gap.",
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.85",
+        "material_read": "Published article abstract and publication metadata",
+        "method": "Publisher-indexed abstract only",
+        "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+        "trigger": "Potentially dominating general computation result"
+      },
+      {
+        "assessment": "ABSTRACT_ONLY distinct stated invariant; residual possibility of other source material",
+        "evidence": "The retrieved description classifies unique-source out-branchings under canonical orientation codes rather than shattering dimensions.",
+        "identifier_or_url": "published record ID 3d0efd785163",
+        "material_read": "Title and summary from indexed research record; full body unavailable",
+        "method": "Semantic record inspection",
+        "title": "Exact non-separating out-branchings in acyclic orientations of K3,n",
+        "trigger": "Nearby published research record on acyclic bipartite orientations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7bda4d1-e443-46c5-9724-f2cd3c787f88",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp first separation at five vertices among bipartite graph orientation classes is tied to a genuine structural transition from pseudoforests to two overlapping cycles. A 46-word explicit tree demonstrates the nontrivial adaptive advantage, while bridge additivity amplifies it to arbitrary gap s on connected planar bipartite maximum-degree-three graphs. This is a natural infinite structural separation, not an arbitrary table entry or a routine restatement of the VC forest rank.",
+    "status": "PASS"
+  }
+}
