@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Full exhaustive stable-matching enumeration of all (n!)^(2n) complete strict profiles for n=1,2,3, including both argopt sets, gives exact counts. Correctness of enumeration follows by one-to-one enumeration of preference-list permutations and matchings, and direct equivalence of the implemented blocking-pair test and definition. The 4x4 witness is independently recomputed across all 24 bijections. Exact integer arithmetic only; no inference beyond the finite domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2609.02354v1 Section 3 solves arbitrary-n Nash stable matching optimization but does not assert compatibility with rank-sum minima",
+        "published research record 57631882a89b handles min-regret, not Nash",
+        "published research record c67e0358daf3 covers rank-maximality, not Nash"
+      ],
+      "reasoning": "The existence of polynomial algorithms separately optimizing Nash product and egalitarian cost does not imply coincidence or nested argopt sets. Different comparator objectives neither dominate nor subsume the Nash statement.",
+      "searches": [
+        "smallest number agents fair stable matching Nash social welfare versus egalitarian exact divergence three couples exhaustive census",
+        "Nash social welfare of stable matching versus egalitarian minimum rank three by three common optimum exact census",
+        "maximum Nash social welfare stable marriage minimum total ranks sharp conflict 4 by 4 instance"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.02354v1",
+      "arxiv:2001.10875",
+      "published research record 57631882a89b",
+      "published research record c67e0358daf3",
+      "published research record 8fdd6836ad87",
+      "published research record 58b281ed93c1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.02354v1 theorem on correctness of Nash-stable optimization algorithm",
+        "published research record 57631882a89b first conflict egalitarian/minimum-regret at four pairs",
+        "published research record 8fdd6836ad87 first conflict egalitarian/sex-equal at three pairs"
+      ],
+      "reasoning": "Prior optimization algorithms can return individually optimal matchings but do not constrain intersections of optimal sets. The min-regret four-pair threshold resembles the numerical cutoff but does not imply it, as the regret objective differs. Sex-equal differs at three pairs and cannot cover the Nash containment.",
+      "searches": [
+        "Nash welfare optimal stable marriage egalitarian incompatible first occurs four couples 3x3 exhaustive",
+        "Nash social welfare of stable matching versus egalitarian minimum rank three by three common optimum exact census",
+        "Nash product of rank-induced utilities egalitarian stable marriage n=3 Nash optimal set contained in egalitarian optimum 4x4 separation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2609.02354v1 defines the log-equivalent product optimum; its general algorithm does not give the n<=3 argopt implication",
+        "Record 57631882a89b compares egalitarian with minimum-regret instead"
+      ],
+      "reasoning": "A weighted sum of logarithms of rank-induced utilities gives the same Nash optimum, but standard rotation-poset weighted optimization has no automatic equivalence to minimum rank sum. Direct comparisons establish a different finite-domain containment property.",
+      "searches": [
+        "stable marriage Nash optimal stable matching egalitarian rank objective first disagreement complete classification three agents",
+        "Nash product of rank-induced utilities egalitarian stable marriage n=3 Nash optimal set contained in egalitarian optimum 4x4 separation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published research record 58b281ed93c1 counts stable-match cardinalities of three-by-three profiles but not Nash/egalitarian optimizer relation",
+        "published research record c67e0358daf3 has 2928 cases of rank-maximal/egalitarian strict containment but counts a different optimizer"
+      ],
+      "reasoning": "The complete 46,656 profile space is a known domain; the listed records contain different statistics. A numerical coincidence of 2,928 with a rank-maximal incidence is not a statement-level implication.",
+      "searches": [
+        "smallest number agents fair stable matching Nash social welfare versus egalitarian exact divergence three couples exhaustive census",
+        "stable marriage Nash optimal stable matching egalitarian rank objective first disagreement complete classification three agents",
+        "Nash product of rank-induced utilities egalitarian stable marriage n=3 Nash optimal set contained in egalitarian optimum 4x4 separation"
+      ]
+    },
+    "rationale": "The primary 2026 source derives Nash-optimal algorithms and empirical comparisons but not the exact smallest market size at which the Nash and egalitarian optimum sets separate. Searches of published research record and related primary literature identified sharp size results for other fairness functions, none of which imply Nash-product argopt containment for all strict three-pair instances. Residual historical-priority risk remains.",
+    "residual_risks": [
+      "A different historical publication could imply the exact small-market Nash/egalitarian optimizer containment under another name.",
+      "Highly relevant neighboring published research record items compared at summary level rather than full manuscript; the objective differences are explicit, but unstated consequences are not ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same Nash product but does not establish the claimed sharp 3/4-pair relation",
+        "evidence": [
+          "arxiv:2609.02354v1 lines on zero-index rank utility, Theorem 2, conclusion and future fairness guarantees"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.02354",
+        "material_read": "Full accessible arXiv HTML text, emphasizing Section 2 model and utility definitions, Section 3 algorithm/theorem, Sections 4–6 empirical comparison and conclusions, and references",
+        "method": "Read accessible full text, examined theorem statements and search for small-market exact results",
+        "title": "Fair Stable Matching: A Nash Social Welfare Approach",
+        "trigger": "Defines Nash-optimal stable matching and directly compares with egalitarian criterion"
+      },
+      {
+        "assessment": "Non-covering on accessible statement; manuscript full text not fetched",
+        "evidence": [
+          "Record summary explicitly specifies minimum regret, not rank-induced Nash product"
+        ],
+        "identifier_or_url": "published-record:57631882a89b",
+        "material_read": "published research record published title and complete summary only",
+        "method": "Compared objective definitions and stated implications in the available research-record summary",
+        "title": "Sharp coincidence boundary for egalitarian and minimum-regret stable marriage",
+        "trigger": "Similar threshold four pairs"
+      },
+      {
+        "assessment": "No claimed Nash-product cutoff in accessible abstract",
+        "evidence": [
+          "Abstract addresses regret equal and min-regret sum"
+        ],
+        "identifier_or_url": "arxiv:2001.10875",
+        "material_read": "Open-access abstract and bibliographic summary",
+        "method": "Compared named regret-equal and min-regret-sum objectives to Nash/egalitarian",
+        "title": "Algorithms for new types of fair stable matchings",
+        "trigger": "Established matching fairness criteria"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a4f1b95-ac69-4781-9919-f667f4f3bc62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp first conflict between the recently introduced rank-induced Nash welfare stable-matching objective and classical egalitarian stable matching directly addresses the source’s fairness-comparison gap. The complete three-pair incidence table is the maximal domain where inclusion universally holds and gives an exact benchmark; the four-pair witness certifies an unavoidable fairness tradeoff, not an arbitrary slice.",
+    "status": "PASS"
+  }
+}
