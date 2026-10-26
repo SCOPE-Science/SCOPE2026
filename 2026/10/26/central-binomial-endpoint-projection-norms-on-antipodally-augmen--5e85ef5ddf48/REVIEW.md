@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The quotient-Cayley representation is explicitly isomorphic to the antipodally augmented binary cube and its coordinate generators are edge-transitive. The finite Fourier diagonalization of its Laplacian, exact beta-integral potential and strict potential monotonicity justify every absolute-value sign. Counting ordinary and antipodal edge currents yields respectively \(n/2\) and the central-binomial correction; binomial-majority cancellation proves the parity plateau. The trace formula fixes the cycle-projection diagonal correction. Exact-rational character and grounded-Laplacian computations agree independently in tested dimensions. Neither computational sampling nor an unverified numerical pattern is used to assert the all-dimensions theorem.
+
+**Originality — PASS, with bibliographic risk.** Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582, first posted 2023-05-21), sections 2.6–2.7, calculate the ordinary Hamming-cube projection, not the antipodally augmented graph or its central-binomial correction. Boutin et al. (arXiv:2110.04154, section 5 and Tables 1–2) study graph symmetries, not Banach endpoint projection norms. Indexed research-record comparisons located folded-cube topological and Walsh free-space projection work but no mathematically covering statement for canonical edge cut–cycle norms on the augmented family. Small folded examples are encompassed by familiar graph classes and are excluded from the novelty range. The possibility of a differently phrased formula in older electrical-network or projection literature remains.
+
+**Value — PASS.** The claim gives a complete exact infinite-family classification of two canonical Banach operator norms for an important antipodal augmentation of a cube. It quantifies the norm increase under a natural perfect-matching insertion, identifies an unexpected paired-parity plateau, and obtains the sharp central-binomial finite-size correction. The result goes beyond re-evaluating an isolated small graph and has a natural comparison benchmark: the established ordinary-cube formula.
+
+**Scope.** Orthogonal edge-space cut–cycle projections over the reals only; no optimality among arbitrary projections, no weighted generalization and no independent external audit are asserted.
+
+Self-review: passed. Independent audit: not yet performed.
