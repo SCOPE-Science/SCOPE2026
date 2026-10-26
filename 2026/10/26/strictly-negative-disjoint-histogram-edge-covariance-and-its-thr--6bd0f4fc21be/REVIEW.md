@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+Exact within-pair binomial conditioning converts the covariance into that of two monotone folded-walk expectations of negatively associated binomial block totals. An independent-copy covariance identity and the positive probability of the two extreme block totals establish a *strict* finite-sample inequality even when the two blocks exhaust all categories. The four asymptotic formulas follow from fixed-bias exponential concentration, an unbiased central-binomial asymptotic, binomial fourth-moment Taylor bounds in \(L^2\), and the exact identity \(\operatorname{Cov}(K,L)=-Nuv\). The standard-library verification script supplied with this work passed 72 exact rational finite-size comparisons. These checks are illustrative, not exhaustive proof.
+
+## Originality — PASS (bounded literature assessment)
+The closest direct result is Banić–Elezović Part 2, arXiv:2610.17046v1, which proves \(-1/(\pi m)\) for the uniform multinomial law; this is the balanced special case of the present formula. Part 1 arXiv:2610.13366v1 supplies the known conditional-binomial mechanism. A 1985 general multinomial negative-dependence theorem concerns stochastic ordering of totals and does not provide the three folded-edge covariance orders and coefficients. Targeted comparisons against mathematical research records and recoverable previous claim statements found no direct statement of this full arbitrary-probability three-phase classification. The authors identify general-reference variance Part 4 as in preparation; its future content and implicit results elsewhere remain genuine coverage risks.
+
+## Mathematical value — PASS
+Disjoint edge terms are the least visible contribution to the variance of ordered-histogram total variation. The uniform-null literature isolates a nonzero constant covariance despite zero raw-edge covariance. The result identifies what survives away from uniformity: strict finite-sample repulsion plus two additional fluctuation orders triggered by exact balance of individual cell pairs. These are structural boundaries for uncentered nonuniform histograms, useful in variance decompositions and in deciding when Gaussian approximations miss a surviving constant. The analysis is not a claim about the centered general-reference statistic or an arbitrary high-dimensional covariance matrix.
+
+Self-review: passed. Independent audit: not yet performed.

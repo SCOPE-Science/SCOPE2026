@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on disjoint pair totals gives Cov(g_theta(K),g_phi(L)). The increment g_theta(k+1)-g_theta(k)=delta E sgn(S_k)+P(S_k=0) is nonnegative by a monotone coupling to fair signs. Conditional L given K=k is Bin(N-k,v/(1-u)), so h(k)=E[g_phi(L)|K=k] is decreasing and the extreme total pairs force strict negative covariance for every N. Stirling and Chernoff imply L2 binomial local-linearizations with slopes 1/sqrt(2 pi N u) for balanced pairs, and |delta| for biased pairs. Multiplication by Cov(K,L)=-Nuv gives each leading coefficient; all remainder bounds fit the stated order. The included standard-library code passed 72 exact rational finite checks in six profiles. Finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.17046v1 abstract, Section 4.4, conclusion: assumes uniform multinomial cell probabilities and gives a constant disjoint covariance.",
+        "arXiv:2610.17046v1 references: Parts 3 and 4 for general reference distributions are in preparation, not available in the cited document.",
+        "arXiv:2610.13366v1 Section 2.3: within-pair binomial conditioning for a uniform reference; no covariance phase classification.",
+        "Published published-finding corpus result 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166: occupied-box indicator precision matrices, not folded differences."
+      ],
+      "reasoning": "Published uniform-null variance results cannot imply the arbitrary-profile asymptotic alternatives solely from their theorem statements; a fresh monotone conditional-walk and L2 local-linearization argument supplies the nonuniform coefficients. Stronger possible coverage by not-yet-public general-reference papers cannot be ruled out, and no priority is claimed over their eventual results. Other generic multinomial negative-dependence results cover block-total ordering but not the exact three phase coefficients.",
+      "searches": [
+        "published-finding corpus: nonuniform multinomial pairwise disjoint edge absolute differences covariance asymptotic three phase N sqrt N constant depending equality p1=p2 and p3=p4",
+        "published-finding corpus: multinomial conditional binomial random walk absolute Skellam pair disjoint mean absolute differences asymptotic covariance",
+        "Web: Banic Elezovic discrete total variation multinomial Part 4 nonuniform covariance disjoint pairs absolute values 2026",
+        "arXiv:2610.17046v1 bibliography references [5],[6] and concluding scope"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.17046v1 (public 2026-10-12)",
+      "arXiv:2610.13366v1 (public 2026-10-09)",
+      "Block–Savits–Shaked (1985) bibliographic abstract (full text not accessed)",
+      "Published published-finding corpus record 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d",
+      "Published published-finding corpus record 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166",
+      "Recoverable claim statements in current same-topic local historical ledger, through generation 40 (40 prior findings)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uniform source: a=b=0 and u=v=2/m yields -sqrt(uv)/(2pi)=-1/(pi m), exactly its known theorem.",
+        "Generic multinomial negative regression gives covariance inequalities for monotone functions of disjoint block totals; |X2-X1| is not coordinatewise monotone in (X1,X2), so within-block conditioning is required.",
+        "Source Part 2 conditions each pair to a symmetric walk; the current proof includes arbitrary biased paired walks and distinguishes their exponential-vs-square-root folded means."
+      ],
+      "reasoning": "Uniform specialization is prior art, not novel. The additional two positive-drift scaling regimes and the universal all-profile strict sign require a different quantified hypothesis and are not logically implied by a theorem restricted to uniform probabilities. Stochastic ordering plus the known folded-walk asymptotic can give a derivation, so novelty rests on the integrated sharp classification and coefficients rather than on any individual standard lemma.",
+      "searches": [
+        "arXiv:2610.17046v1 Theorem 4.6, Sections 4.1 and 4.4, Remarks 4.7 and references",
+        "arXiv:2610.13366v1 Section 2.3",
+        "Block Savits Shaked (1985) A concept of negative dependence using stochastic ordering, abstract",
+        "published-finding corpus: covariance absolute differences of independent multinomial disjoint pairs negative dependence delta method balanced counts square root rates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.17046v1 Theorem 4.6: for equal probabilities the covariance is -1/(pi m)+O(1/N); the fixed-profile claim here specializes to that formula.",
+        "Block, Savits and Shaked (1985), abstract: multinomial counts satisfy negative dependence by stochastic ordering; contrast absolute values are not monotone in the original coordinates.",
+        "Published published-finding corpus result 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d: transition indicators of fixed-composition binary runs, not uncentered multinomial absolute count contrasts."
+      ],
+      "reasoning": "The closest equivalent statement in the uniform regime is acknowledged as covered, not new. The present claim also treats arbitrary unequal cell masses, proves exact all-N strict sign, and identifies N, sqrt(N), constant asymptotic orders with new parameter coefficients. General block-count negative stochastic order is a tool for the sign but does not itself state the full nonlinear asymptotic classification. No same claim appeared in the searches.",
+      "searches": [
+        "published-finding corpus: two disjoint multinomial adjacent edge absolute differences covariance universally strictly negative under arbitrary nonuniform cell probabilities",
+        "published-finding corpus: joint binomial counts conditional absolute biased random walks exact negative covariance plus finite sample any size",
+        "Web: covariance multinomial counts absolute differences between disjoint pairs negative dependence always",
+        "arXiv:2610.17046v1 Sections 2.2, 4.1, 4.4: uniform multinomial folded-walk covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.17046v1 Theorem 4.6 and its four-bin endpoint: uniform -1/(pi m) is an existing exact limiting constant, included here as covered specialization.",
+        "arXiv:2610.13366v1 provides binomial folded mean expansions, but not the nonuniform disjoint covariance and its parameter-dependent scaling cases.",
+        "Targeted published-finding corpus records did not return a table of the three coefficients -uvab, -vb sqrt(u/(2pi)), and -sqrt(uv)/(2pi)."
+      ],
+      "reasoning": "This result is an all-profile theorem rather than a recomputation of the known uniform table; direct exact rational examples are verification, not its main mathematical claim. Search absence alone is not a novelty certificate.",
+      "searches": [
+        "published-finding corpus: folded binomial random walk expectation conditional multinomial disjoint pairs covariance when p1=p2 only",
+        "published-finding corpus: discrete total variation multinomial Part 2 variance uniform null nonuniform pair disjoint absolute differences covariance O sqrt N limit",
+        "arXiv:2610.17046v1 Sections 4 and 8 tables and formulas",
+        "arXiv:2610.13366v1 Sections 3 and 5 moments"
+      ]
+    },
+    "rationale": "The main published source, arXiv:2610.17046v1 Theorem 4.6, covers only uniform probabilities and its constant -1/(pi m), correctly acknowledged as a special case. arXiv:2610.13366v1 supplies the known conditional split but not the covariance. General multinomial negative-dependence ordering can yield components of the sign argument, not the three-order sharp asymptotic classification with all profile parameters. Targeted mathematical-record and web comparisons found no directly covering full theorem. Planned general-reference variance work is unavailable, and implicit coverage elsewhere remains a risk.",
+    "residual_risks": [
+      "Part 4 of the Banić–Elezović series is listed as in preparation and was not publicly accessible; its eventual general-reference discussion might include related calculations.",
+      "The full text of Block–Savits–Shaked (1985) was not accessible during this comparison; a stronger unreported folded-contrast consequence cannot be excluded.",
+      "A semantically equivalent parameter-phase theorem may exist implicitly in older folded-binomial, de-Poissonization, or nonlinear negative-association literature. Search absence alone is not proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers uniform-pair special case -1/(pi m), not an all-profile strict sign or nonuniform three-order theorem. Parts 3-4 are only announced as in preparation.",
+        "evidence": [
+          "Theorem 4.6 assumes p_i=1/m; equation (4.8) gives -1/(pi m)+O(N^-1).",
+          "Section 4.1 relies on unbiased within-pair walks, while unequal cells require biased walks.",
+          "Conclusion explicitly assigns general-reference variance to a future Part 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.17046v1",
+        "material_read": "Abstract; Introduction; Section 2.2 on conditional splits; Sections 4.1 and 4.4 on disjoint skeleton and covariance; Sections 8 and Conclusion; references [5]-[7].",
+        "method": "Read the original publicly accessible arXiv HTML mathematical text and formulas, including Theorem 4.6 and Remark 4.7.",
+        "title": "Discrete total variation under the multinomial, Part 2: variance under the uniform null",
+        "trigger": "Same two disjoint absolute histogram-edge contrasts, exact uniform constant."
+      },
+      {
+        "assessment": "Provides uniform first moments only, not nonuniform disjoint covariance phase limits.",
+        "evidence": [
+          "MSC primary 60C05 for Part 1; Part 2 primary 60F05; Part 1 gives conditioning, not a two-edge covariance."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13366v1",
+        "material_read": "Abstract; Introduction; Sections 2.2-2.3 on multinomial marginals and binomial conditioning; Section 5 asymptotic-moment context.",
+        "method": "Read original publicly accessible arXiv HTML text.",
+        "title": "Discrete total variation under the multinomial, Part 1: expectation under the uniform null",
+        "trigger": "Provenance of binomial splitting and folded-walk mean expansion."
+      },
+      {
+        "assessment": "Provides negative stochastic-order dependence for multinomial vectors; an implicit stronger folded-contrast statement in the full paper remains an access/coverage risk.",
+        "evidence": [
+          "Abstract explicitly lists multinomial negative dependence and closure properties; no nonlinear folded-edge coefficients appear in the accessible abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0167-7152(85)90029-X",
+        "material_read": "Publisher-indexed bibliographic abstract accessible through EconPapers; full text not obtained.",
+        "method": "Read indexed abstract, title and bibliographic record (not full paper).",
+        "title": "A concept of negative dependence using stochastic ordering",
+        "trigger": "Possible stronger general multinomial dependence order covering strict negativity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6bd0f4fc-21be-4fa4-93bc-6836c2e1cfd2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The previously identified disjoint-edge covariance survives at constant order in a uniform multinomial histogram despite uncorrelated raw increments. For arbitrary fixed probabilities this theorem proves strict negative finite-sample covariance and discovers two higher-order asymptotic regimes with sharp coefficients, separated exactly by local pair-balance equalities. These regimes matter in covariance decompositions for uncentered ordered-histogram total variation and cannot be substituted by the existing single uniform constant. The result does not claim an effect for centered nonuniform reference statistics or adjacent edges.",
+    "status": "PASS"
+  }
+}
