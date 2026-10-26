@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** Every one of the 45 states, 120 moves, 990 unordered pairs of states, 148995 candidate four-landmark subsets, and 1221759 candidate five-landmark subsets is covered by a complete deterministic enumeration. The bit-mask equivalence to the metric-resolving definition is exact. The certificate additionally verifies every induced symmetry automorphism, all orbit sizes, and the complete three-separated clique census. A replay from the standalone source returned the asserted values. The argument proves only the finite graph stated, without extrapolating to a family.
+
+**Originality — PASS, with residual risk.** Semantic comparison was made against the accessible foundational 2005 symmetric-square paper, the 2009 token-graph paper, Bailey–Cameron's 2011 treatment of underlying Petersen/Johnson/Kneser resolving sets, and the 2025 supertoken paper's general metric statements. These address different invariants, underlying graphs, or a collision-allowing construction; none supplies the specific 45-state metric-basis count, induced-orbit histogram, or maximally separated bases. Searches of published research records for the numerical claim, equivalent two-particle formulation, and resolving-set terminology did not reveal covering statements. Search incompleteness and unindexed earlier computations remain a genuine risk.
+
+**Value — PASS.** Resolving sets are the exact minimum number of reference configurations needed to locate two indistinguishable particles by transition-distance readings. The complete count of optimal placements and their symmetry stratification gives a finite benchmark in an established network-identification invariant. The extra separation result is structurally motivated by wanting landmarks far apart: maximal three-separated packings have size five and every such optimal packing resolves the entire configuration space. The rare, distinguished 6- and 24-element symmetry orbits make this more than an unstructured scalar recomputation.
+
+**Limitations and integrity.** The result depends on a complete reproducible finite enumeration and makes no claim of an infinite theorem, independent priority certificate, or full-automorphism classification. Potential unindexed exact enumeration remains an originality risk.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Complete exhaustive BFS distance matrix for all 45 vertices, then exact 990-pair bit-mask union for all 148995 four-sets and 1221759 five-sets; 120 induced label permutations checked as automorphisms; orbit cover and every 3-separated clique enumerated. Verified package source runs and all asserted integer outcomes match. No infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1112/blms/bdq096, Corollary 3.33 and text for K(5,2), proves dim(Petersen)=3.",
+        "doi:10.61091/um123-02, Section 4, proves general upper bounds for collision-allowing supertoken graphs and no Petersen-token exact value."
+      ],
+      "reasoning": "The metric dimension of the underlying Petersen/Kneser graph is not a bound sharp enough to give the dimension of its two-token graph. Collision-allowing supertoken results do not directly cover a collision-forbidden graph with fewer states.",
+      "searches": [
+        "two token graph of Petersen metric dimension minimum resolving set five landmarks",
+        "metric dimension k-token graphs generalized Petersen exact 2022",
+        "metric dimension token graph F2(Petersen)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0507251",
+      "arxiv:0910.4774",
+      "doi:10.1112/blms/bdq096",
+      "doi:10.61091/um123-02",
+      "published-finding corpus closest: 2026/10/11/SCOPE-two-particle-petersen-configuration-homology-as-an-s-5-module--2bac82e0590d",
+      "published-finding corpus closest: 2026/10/4/SCOPE-resolving-sets-and-the-resolving-polynomial-of-chain-graphs--30553b031b4a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0910.4774 Sections 2–7: token-graph order, size, connectivity, diameter, cliques, coloring and Hamiltonicity.",
+        "arxiv:math/0507251 Sections 1–10: spectral symmetric-square results.",
+        "Bailey–Cameron 2011: metric dimension of the original Petersen graph rather than its symmetric square."
+      ],
+      "reasoning": "Knowing a 45-vertex symmetric-square construction, its spectral constraints, or a dimension-three basis of the ten-vertex underlying Petersen graph does not specify a 45-state five-configuration resolving set, still less the number of such sets or their orbit counts. The new claim is a different, non-implied exact invariant.",
+      "searches": [
+        "distance resolving two-token Petersen graph metric basis",
+        "two token graph of Petersen metric dimension minimum resolving set five landmarks",
+        "metric dimension token graphs Petersen graph 2 token graph resolving sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:math/0507251 defines the same ordinary collision-free two-token graph as a symmetric square.",
+        "arxiv:0910.4774 defines it as the token graph.",
+        "Search did not show a 45-state resolving-basis theorem under these aliases."
+      ],
+      "reasoning": "The ordinary symmetric square and F_2(Petersen) refer to the same vertex and edge object; this was used as an overlap query alias. Neither inspected original paper gives the metric-basis counts or separation orbit theorem.",
+      "searches": [
+        "metric dimension 2-token graph Petersen configuration resolving set graph",
+        "distance resolving two-token Petersen graph metric basis",
+        "F_2(Petersen) metric dimension 5 number 189540 metric bases S5 orbits 1627",
+        "metric dimension token graphs Petersen graph 2 token graph resolving sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible prior-claim ledgers yielded no exact 189540/1627 resolving-basis census for this object.",
+        "published-finding corpus results were closest to chain-graph resolving polynomials and two-particle Petersen homology; neither counts distance-resolving bases."
+      ],
+      "reasoning": "Targeted exact-number and terminology searches found no covering table. Index incompleteness does not establish absolute novelty; the precise queries and nearby hits are recorded.",
+      "searches": [
+        "F_2(Petersen) metric dimension 5 number 189540 metric bases S5 orbits 1627",
+        "token graph Petersen metric resolving orbit size 6 24 30 60 120",
+        "resolving polynomials of two token graphs Petersen symmetric square",
+        "metric dimension token graphs Petersen graph 2 token graph resolving sets"
+      ]
+    },
+    "rationale": "The inspected original symmetric-square and token-graph papers do not treat the metric-basis enumeration of \\(F_2(\\operatorname{KG}(5,2))\\); Bailey–Cameron obtains dimension 3 for the underlying Petersen graph, not for its 45-vertex two-token graph. The supertoken 2025 graph admits collisions, so its general metric bounds do not imply this exact census. Actual published-finding corpus semantic queries found related but non-covering entries. Residual risk of unindexed computations is retained.",
+    "residual_risks": [
+      "An unindexed or unpublished prior computation may already give the same finite metric-basis count.",
+      "The complete published literature cannot be certified exhaustive from semantic web and database searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING as to exact resolving-set enumeration",
+        "evidence": [
+          "arxiv:math/0507251, PDF pp.1–4, §1 and §2; focus on spectra and walk generating functions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0507251",
+        "material_read": "abstract, introduction, definition, main spectral theorems and section headings relevant to claimed coverage",
+        "method": "original arXiv PDF extracted text, searched and inspected page image",
+        "title": "Symmetric Squares of Graphs",
+        "trigger": "same two-token graph construction and spectral analysis"
+      },
+      {
+        "assessment": "NOT_COVERING as to Petersen resolving bases",
+        "evidence": [
+          "arxiv:0910.4774, pp.1–4, §1–3, contribution inventory lists other invariants"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0910.4774",
+        "material_read": "abstract, introduction, defining properties, contribution list, connectivity and diameter section, remainder section titles",
+        "method": "original arXiv PDF text and first/last page image",
+        "title": "Token Graphs",
+        "trigger": "identical graph under token terminology"
+      },
+      {
+        "assessment": "NOT_COVERING: underlying Kneser graph has metric dimension 3, not the token graph",
+        "evidence": [
+          "Bailey–Cameron, preprint pp.10–11, 25, Corollary 3.33 and special K(5,2) case"
+        ],
+        "identifier_or_url": "https://maths.qmul.ac.uk/~pjc/preprints/bsod.pdf",
+        "material_read": "relevant Petersen/Johnson/Kneser graph sections, Corollary 3.33, and comparison with group base size",
+        "method": "author preprint PDF, relevant pages extracted and page 25 image viewed",
+        "title": "Base size, metric dimension and other invariants of groups and graphs",
+        "trigger": "closest primary metric-dimension result for the Petersen graph"
+      },
+      {
+        "assessment": "NOT_COVERING for the ordinary collision-free Petersen two-token metric census",
+        "evidence": [
+          "Baskoro et al. (2025), pp.19–31, Definition §3 and Theorem 4.4 concerning supertoken graphs"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/um/Volume%20123/on-some-metric-properties-of-supertoken-graphs.pdf",
+        "material_read": "abstract, introduction, §3 definitions and §4 stated bounds including Theorem 4.4",
+        "method": "publisher open-access PDF extracted full-page text; page image unavailable owing to redirect loop",
+        "title": "On some metric properties of supertoken graphs",
+        "trigger": "metric dimension and token graph terminology in directly relevant later literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9adb00cd-f2f8-49ff-8e69-0b5a5e27650b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact minimum sensor-placement census for collision-free two-particle motion on the canonical Petersen graph, plus a sharp optimal-spatial-separation classification: 30 maximal 5-packings all resolve and form only two symmetry types. This exact invariant supports benchmark placement and reconfiguration problems, beyond a routine graph-order calculation.",
+    "status": "PASS"
+  }
+}
