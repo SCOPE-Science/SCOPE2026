@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "Complete proof: constant completion count (n-1)! proves uniform marked-cycle size; conjugation by (i i+1), i>=2, preserves the length and reverses the adjacent comparison except the two exact-image configurations, whose conditional probabilities coincide. Conditioning on successor of 1 and the complement yields the exact q(n,k) four-case law; summing gives covariance (n²−3n+4)/(4n(n−1)). The included standard-library exact-rational program exhaustively verifies all cases n=3,...,9 with 336 assertions, independently reconstructing marked cycle length. Finite verification is supplementary to unrestricted proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reutenauer, Number of Permutations with Given Descent Set and Cycle Structure (1989): scanned first page and a theorem page inspected.",
+        "Diaconis–McGrath–Pitman, Riffle shuffles, cycles, and descents (1995): abstract describes joint total cycle type and number of descents; complete original was not accessible.",
+        "Elizalde–Troyka, arxiv:1710.05103v3 Corollary 4.2: the complete descent set of a single n-cycle on positions [n-2] has an S_(n-1) descent-set distribution."
+      ],
+      "reasoning": "An identity for every labelled marked-cycle length and descent index is finer than unmarked cycle type and total descent number. Nonetheless fully general symmetric-function refinements or hidden bijections in old articles could imply it; the inaccessible full text remains a specific priority risk. No inference of noncoverage from an abstract alone. The stronger n-cycle descent-set theorem from Elizalde–Troyka fully covers the n-cycle k=n slice (and joint subsets of [n-2]) but does not condition on intermediate marked-cycle sizes. This known stronger partial coverage is expressly excluded from new contribution.",
+      "searches": [
+        "Permutation Eulerian descents cycles Gessel Reutenauer fixed cycle lengths conditional distribution",
+        "independence random permutation length of cycle containing 1 and descent indicator at position 2, 3, ...; probability exactly 1/2; first descent probability n/(2(n-1)) conditioned intermediate cycle length",
+        "doi:10.1007/BF01294457",
+        "slc:B21h-1989",
+        "arxiv:1710.05103v3 Corollary 4.2, Theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/9712240",
+      "https://arxiv.org/html/2001.00654v2",
+      "https://www.mat.univie.ac.at/~slc/s/sc21reutenauer.pdf",
+      "https://doi.org/10.1007/BF01294457",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+      "https://arxiv.org/html/1710.05103v3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7.1 in Gessel–Zhuang, arxiv:2001.00654v2, gives unmarked type enumerations.",
+        "Boundary localization of fixed-point–descent dependence in a uniform permutation (2026), full RESULT.md: K=1 behavior only.",
+        "Linear inversion-gap profile for cycle count in a uniform random permutation (2026), full RESULT.md: total cycle-count statistic.",
+        "Elizalde–Troyka, arxiv:1710.05103v3, Corollary 4.2: full K=n descent-set marginal in first n-2 sites; stronger than the new single-indicator K=n subcase only."
+      ],
+      "reasoning": "The new claim is a conditional Bernoulli law for each interior index, a sharp four-case first-site law and a K–descent covariance. None of the inspected prior theorems implies the marked-cycle result without a genuinely additional position-resolved orbit argument. The original proof supplies this via conjugation fixing label 1 and marked-cycle completion. Unknown earlier refinements are residual risks. The single-cycle k=n row is not novel as a separate statement, being subsumed by Elizalde–Troyka; the contribution is the full marked-length conditioning for 2<=k<n plus the four-piece k-profile and covariance concentration, not the known n-cycle marginal.",
+      "searches": [
+        "Uniform random permutation length of the cycle containing 1 conditioned on one-line descent indicator at position i; all descents after first are independent of root cycle length; conditional expectation descents plateau",
+        "Joint distribution of descents and cycle containing a distinguished element in uniform random permutations, exact covariance and conditional first descent",
+        "Local descents of uniform permutations independent of length of distinguished cycle, especially first position",
+        "Permutation Eulerian descents cycles Gessel Reutenauer fixed cycle lengths conditional distribution",
+        "independence random permutation length of cycle containing 1 and descent indicator at position 2, 3, ...; probability exactly 1/2; first descent probability n/(2(n-1)) conditioned intermediate cycle length",
+        "cycle containing minimum element one and descent process of permutation; sitewise Bernoulli independence all sites except left endpoint",
+        "conditional descent count mean by size of cycle containing one is piecewise constant k=3,...,n-1",
+        "random permutation length of cycle containing distinguished 1 joint descents position first 1/2 conditional",
+        "Gessel Reutenauer descent set specified cycle type marked cycle length 1",
+        "arxiv:1710.05103v3 Corollary 4.2, Theorem 3.1",
+        "marked cycle containing label 1 length K independent of adjacent descent indicators D_i for all i >=2, conditional Bernoulli half, first position conditional probability plateau n/(2(n-1))",
+        "permutation descent-set given length of cycle containing 1, k=2 to n-1, conditional first descent covariance K with ordinary descent count",
+        "cycle length of 1 versus Eulerian statistic descents exact conditional expectation constant intermediate cycle lengths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fulman, The combinatorics of biased riffle shuffles, arxiv:math/9712240, §3 corollary 1: cycle-type/descent-set enumeration after shuffles.",
+        "Gessel–Zhuang, Plethystic formulas for permutation enumeration, arxiv:2001.00654v2, Theorem 7.1: conjugacy-class cycle type/descent statistics."
+      ],
+      "reasoning": "A conjugacy-class cycle-type statistic and a marked orbit-length statistic are different: cycle type forgets the distinguished symbol and a one-line descent event is not conjugacy-invariant. Neither inspected result encodes the conditional probability of a specified-position descent given the orbit size of label 1. Searches for orbit length/marked-cycle conditional independence and the first-site plateau found no equivalent statement. Lack of a hit cannot certify historical novelty.",
+      "searches": [
+        "Uniform random permutation length of the cycle containing 1 conditioned on one-line descent indicator at position i; all descents after first are independent of root cycle length; conditional expectation descents plateau",
+        "Joint distribution of descents and cycle containing a distinguished element in uniform random permutations, exact covariance and conditional first descent",
+        "Local descents of uniform permutations independent of length of distinguished cycle, especially first position",
+        "arxiv:math/9712240 §3-5",
+        "arxiv:2001.00654v2 §7",
+        "arxiv:1710.05103v3 Corollary 4.2, Theorem 3.1",
+        "marked cycle containing label 1 length K independent of adjacent descent indicators D_i for all i >=2, conditional Bernoulli half, first position conditional probability plateau n/(2(n-1))",
+        "permutation descent-set given length of cycle containing 1, k=2 to n-1, conditional first descent covariance K with ordinary descent count",
+        "cycle length of 1 versus Eulerian statistic descents exact conditional expectation constant intermediate cycle lengths"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boundary localization of fixed-point–descent dependence in a uniform permutation, RESULT.md: exact fixed-point indicator by descent-position covariance.",
+        "Linear inversion-gap profile for cycle count in a uniform random permutation, RESULT.md: covariance of total cycle count with an inversion indicator."
+      ],
+      "reasoning": "The nearest published position-resolved theorem treats the indicator of a fixed point at a specified site, at most a k=1-type event. The other counts all cycles and inversion gaps rather than the orbit length of 1. Neither contains a table for all conditional marked-orbit sizes and all adjacent descent indices.",
+      "searches": [
+        "cycle containing minimum element one and descent process of permutation; sitewise Bernoulli independence all sites except left endpoint",
+        "conditional descent count mean by size of cycle containing one is piecewise constant k=3,...,n-1",
+        "published-finding corpus 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "published-finding corpus 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+      ]
+    },
+    "rationale": "Compared the actual implication of unmarked cycle-type/descent formulas in Fulman, Gessel–Zhuang and Reutenauer, plus published position-resolved fixed-point/descent and total-cycle/inversion results, with the marked orbit length conditional law. The specific symbol-containing orbit statistic is lost upon conjugacy-class aggregation and the existing fixed-point relation treats only an exceptional slice. Distinct four-regime dependence not located, subject to explicit historical risks. Elizalde–Troyka (arxiv:1710.05103v3, Corollary 4.2) already gives a stronger single-cycle K=n descent-set result, but not the all-K marked orbit law; this known slice is not claimed separately.",
+    "residual_risks": [
+      "An earlier marking/refinement of Gessel–Reutenauer cycle-descent generating functions may imply or reexpress the result.",
+      "The complete text of Diaconis–McGrath–Pitman (1995) could not be inspected; abstract alone cannot rule out coverage.",
+      "Reutenauer (1989) scanned source inspected only on selected pages; an equivalent consequence elsewhere remains possible.",
+      "Additional independent historical priority verification is not performed.",
+      "Known full K=n descent-set law of Elizalde–Troyka strictly subsumes a slice of this result; distinct value and originality rest on the all-intermediate marked lengths and the first-site conditional profile."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General shuffle and unmarked cycle-type results; no directly equivalent conditional marked-orbit length/site law located in inspected content",
+        "evidence": "Fulman, arxiv:math/9712240, Sections 3–5.",
+        "identifier_or_url": "https://arxiv.org/abs/math/9712240",
+        "material_read": "Available full-text HTML, Sections 3–5 and associated theorem statements and contexts; not a claim of exhaustive line-by-line reading of the entire article",
+        "method": "Read primary HTML results relevant to cycle-type and descent dependence",
+        "title": "The combinatorics of biased riffle shuffles",
+        "trigger": "Joint cycle structure and descent statistics; dated 1997-12-09"
+      },
+      {
+        "assessment": "Records unmarked conjugacy-cycle-type and descent refinements; does not directly state the marked-cycle conditional sitewise law",
+        "evidence": "Gessel–Zhuang arxiv:2001.00654v2, §7, Theorem 7.1.",
+        "identifier_or_url": "https://arxiv.org/html/2001.00654v2",
+        "material_read": "HTML Sections 1 and 7, including Theorem 7.1 and surrounding discussion; not every section exhaustively read",
+        "method": "Read primary arXiv HTML relevant theorem statements and scope",
+        "title": "Plethystic formulas for permutation enumeration",
+        "trigger": "Strong general enumeration of descents jointly with cycle structure"
+      },
+      {
+        "assessment": "Formulation concerns unmarked cycle structure and descent sets; not proof of absence elsewhere in paper",
+        "evidence": "Reutenauer (1989), scanned pages 1 and 5.",
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/s/sc21reutenauer.pdf",
+        "material_read": "First page and page containing central theorem from scanned article; other pages not exhaustively inspected",
+        "method": "Inspected rendered PDF pages",
+        "title": "Number of Permutations with Given Descent Set and Cycle Structure",
+        "trigger": "Classical closest exact cycle type/descent-set enumeration"
+      },
+      {
+        "assessment": "No full-text exclusion possible; substantive historical-priority risk",
+        "evidence": "Diaconis, McGrath, Pitman (1995), abstract: cycle type and number of descents.",
+        "identifier_or_url": "https://doi.org/10.1007/BF01294457",
+        "material_read": "Bibliographic abstract and primary publication metadata only; full text unavailable",
+        "method": "Public abstract and authorized access route attempted after open-access attempts",
+        "title": "Riffle shuffles, cycles, and descents",
+        "trigger": "1995 paper closely related to joint cycles and descents"
+      },
+      {
+        "assessment": "Controls one fixed-point indicator, not conditional orbit length k≥2; cannot imply four-regime marked-cycle law",
+        "evidence": "published-finding corpus publication, RESULT.md equations (1)–(8).",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "material_read": "Complete RESULT.md text, including theorem and proof",
+        "method": "Read public repository result statement and proof",
+        "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+        "trigger": "Closest published local fixed-point/descent identity"
+      },
+      {
+        "assessment": "Total cycle count and inversion indicators, not marked cycle length and conditional descents",
+        "evidence": "published-finding corpus publication, RESULT.md equations (1)–(5).",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "material_read": "Complete RESULT.md text, including proof and restrictions",
+        "method": "Read public repository result statement and proof",
+        "title": "Linear inversion-gap profile for cycle count in a uniform random permutation",
+        "trigger": "Published cycle-count/inversion covariance might dominate local dependence"
+      },
+      {
+        "assessment": "Its corollary 4.2 classifies full descent-set distribution for n-cycles restricted to first n-2 positions, explicitly subsuming part of the k=n row; it does not handle 2<=k<n marked-cycle lengths or first-site formula across k",
+        "evidence": "Elizalde and Troyka, arxiv:1710.05103v3, Corollary 4.2 and Theorem 3.1.",
+        "identifier_or_url": "https://arxiv.org/html/1710.05103v3",
+        "material_read": "HTML Introduction, Theorem 2.7, Theorem 3.1, Corollary 4.2 and Section 5 statements/contexts; not the whole document line by line",
+        "method": "Read primary HTML theorem statements and central proof contexts",
+        "title": "Exact and asymptotic enumeration of cyclic permutations according to descent set",
+        "trigger": "Full n-cycle subcase k=n has known entire descent-set enumerations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "71995a0e-cdd6-479b-ba25-4692048cb5e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single fine global marked-orbit statistic exerts all its linear influence on one local descent coordinate while every later coordinate remains conditionally fair across every orbit length. The boundary is exact, the first-site law splits into four natural regimes and yields positive covariance tending 1/4. This supplies a structural probabilistic feature not captured by marginal Eulerian enumerations or aggregate cycle counts, useful in local/global permutation dependence comparisons.",
+    "status": "PASS"
+  }
+}
