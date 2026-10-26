@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Exact Legendre generating identity and Laplace integral give the omitted-tail formula. Uniform convergence for fixed z yields J0(z), the full Poisson kernel yields one-half, and the alternating series gives J0(4)<-1/3. The signs transfer to a rigorous one-sided radius inequality. Finite checks are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reusken (2026), Lemma 11 proves the leading obstruction for odd N only. Remark 7.3 explicitly states the d>=3 even-degree technique is unavailable there.",
+        "Reusken (2026), Corollary 12 supplies an all-degree sufficient positivity bound with deficit of order at most 3 log N/N, which does not imply the new even-degree lower obstruction."
+      ],
+      "reasoning": "A sufficient bound for kernel nonnegativity cannot establish negativity at the claimed fixed angle; the prior odd subsequence theorem does not imply the even subsequence or the loglog correction.",
+      "searches": [
+        "Reusken spherical harmonics maximal positivity radius even odd degree 2026 Bessel",
+        "truncated Poisson kernel spherical harmonics 3 dimension even truncation near antipode Bessel J0 positivity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13540v1, full relevant sections",
+      "arxiv:2511.01616v1, full relevant sections",
+      "classical Legendre--Bessel edge limit reference",
+      "Related mathematical records on spherical Fourier projections and harmonic Poisson operators (distinct operators)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Reusken (2025) restricts the treated spectral boundary problem to d=2 Fourier spaces on discs.",
+        "Reusken (2026), Lemma 11 uses t=-1 and odd degrees in d=3; Remark 7.3 explicitly leaves the even case distinguished.",
+        "Classical Legendre generating and Bessel integral identities are tools; their existence alone does not record the specific r=1-(2 log N-log log N+c)/N signed profile."
+      ],
+      "reasoning": "The new fixed angular N^-1 boundary layer is mathematically different from the 2025 planar result, and supplies a strictly stronger implication than the 2026 odd-degree-only obstruction.",
+      "searches": [
+        "\"Analysis of a Schwarz-Fourier domain decomposition method\" Reusken 2025 Poisson kernel positivity",
+        "Reusken maximum principle spherical harmonics truncated Poisson even degrees asymptotic Bessel J0 negative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The maximum-principle equivalence is explicit in Reusken (2026), equations (4.5)--(4.6), Section 5.",
+        "The fixed-angle expression is equivalent to positivity of the signed truncated Legendre Poisson kernel, rather than a numerical experiment on a different discretization."
+      ],
+      "reasoning": "The kernel-positivity/max-principle formulation is the same mathematical object in the source; the new asymptotic gives a signed coefficient in the angular scale z/N not quantified by the source.",
+      "searches": [
+        "\"On a maximum principle in discretization with spherical harmonics\" Reusken 2610.13540 even N",
+        "finite Legendre expansion Poisson kernel partial sums positivity sphere near antipode Mehler Heine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper tabulates numerical approximations only through finite degrees, with a least-squares parity fit in Section 8.",
+        "No exact finite tabulation implies the limiting Bessel coefficient and critical logarithm-of-logarithm profile without an analytic argument."
+      ],
+      "reasoning": "This is an asymptotic analytic statement for all sufficiently large degrees, not recovery of a database entry or a finite numerical table.",
+      "searches": [
+        "Legendre degree N even Poisson kernel antipodal angle 4/N logarithm logarithm asymptotic",
+        "\"On a maximum principle in discretization with spherical harmonics\" 2610.13540 even N"
+      ]
+    },
+    "rationale": "Reusken 2026 proves the d=3 logarithmic obstruction only for odd truncation degrees, notes that the even case is untreated, and provides no loglog critical-angle profile. Reusken 2025 treats planar Fourier truncations. Targeted mathematical-record and primary-literature comparisons yielded no dominating same-object result, subject to residual bibliographic risk.",
+    "residual_risks": [
+      "Historical or unindexed studies of truncated three-dimensional Poisson kernels may have equivalent angular asymptotics.",
+      "The stated constant from z=4 is a chosen witness, not proved globally optimal.",
+      "No independent review has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers same object, odd-degree leading obstruction and sufficient all-degree bound but not the even-degree Bessel obstruction or the refined fixed-angle loglog profile",
+        "evidence": [
+          "equations (4.5)--(4.6), (5.2), (7.19); Lemma 11 and Remark 7.3; Sections 8 numerical fitting"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13540v1",
+        "material_read": "Sections 1, 4, 5, 7.1, 7.2, 8, references; Lemma 11, Remark 7.3, Corollary 12 and numerical parity fitting",
+        "method": "Full-text HTML section and equation inspection",
+        "title": "On a maximum principle in discretization with spherical harmonics",
+        "trigger": "Same projected Poisson kernel and d=3 maximal positivity radius"
+      },
+      {
+        "assessment": "Two-dimensional disc Fourier truncations; no three-dimensional Legendre antipodal parity law",
+        "evidence": [
+          "introduction; Sections 4 and 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.01616v1",
+        "material_read": "Abstract, introduction and Sections 4--5, focusing on dimensional and Fourier scope",
+        "method": "Full-text HTML section inspection",
+        "title": "Analysis of a Schwarz-Fourier domain decomposition method",
+        "trigger": "Prior paper cited by the motivating source for maximum-principle analysis"
+      },
+      {
+        "assessment": "Classical polynomial edge asymptotic but does not contain the signed logarithmic Poisson truncation/radius statement",
+        "evidence": [
+          "Legendre P_n(cos(z/n)) to J_0(z) limit"
+        ],
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Mehler%E2%80%93Heine_formula",
+        "material_read": "Legendre limiting formula and explanatory scope",
+        "method": "Reference-page text inspection",
+        "title": "Mehler--Heine formula",
+        "trigger": "Check possible stronger special-function coverage of Bessel edge limits"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a90b874-a471-4f26-a5c8-e742731bec6e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The same kernel determines maximum-principle preservation for exact 3D spherical-harmonic discretization. A cited recent source separates even and odd degrees and leaves the even obstruction unproved; the result analytically closes that parity gap and exposes the loglog-scale balance with explicit negative direction. It is not just a finite computation or reparameterization.",
+    "status": "PASS"
+  }
+}
