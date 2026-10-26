@@ -1,0 +1,11 @@
+# Review of the sharp Dicke-ring spectral relaxation law
+
+**Correctness — PASS.** The normalized rates are physical on the entire stated family; the exact cyclic determinant and partial-fraction moments are derived. A local analytic inverse locates the winding-one pair; strict modulus/argument monotonicity proves global subdominant ordering near the unit circle. The fourth-moment coefficient and error estimate determine the claimed two-term asymptotic. The finite standard-library verifier passed, but is only supporting evidence for the infinite proof.
+
+**Originality — PASS, best-knowledge.** The closest paper is Linck and Bernardes, arXiv:2608.07695v1, especially Eqs. (47)–(52). That source already has the same characteristic equation and an approximate leading gap; its small-jump justification does not apply at the admissibility boundary, where some jump probabilities equal one. The present exact spectral ordering, negative fourth-moment correction and logarithmic circulation/relaxation separation are not stated there. Searches of published mathematical records and related primary literature did not reveal stronger coverage. Earlier general cyclic Markov methods are not claimed as new. An uninspected or unindexed stronger theorem remains a risk.
+
+**Value — PASS.** The bound treats the physically relevant growing-size boundary rather than a fixed-control sequence that eventually becomes inadmissible. It quantifies the precise loss of mixing efficiency even at maximal allowed collective rates and identifies the first systematic correction to the source's leading approximation. This is a motivated quantitative spectral theorem, not a parameter renaming.
+
+**Closest literature and limits.** Linck–Bernardes arXiv:2608.07695v1 gives the core Dicke-state protocol and a heuristic leading gap. Related linear open-walk and introductory OQW papers were inspected only at abstract level, not exhaustively. The result concerns the ring's measured-position Markov matrix and worst-start position mixing; it is not a universal quantum preparation-fidelity estimate, and no matching upper bound on total-variation mixing time is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
