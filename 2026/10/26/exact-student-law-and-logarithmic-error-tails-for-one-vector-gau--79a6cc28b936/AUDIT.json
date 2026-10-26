@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact one-vector sketched Galerkin formula is reduced to alpha+rho Z/chi_ell using Gaussian orthogonal invariance, with Z independent standard normal and chi_ell independent radius. The normalized ratio has the standard Student t law and an explicit positive density. Density integration gives the sharp log-tail constant for the approximation; fixed exact solution and reverse triangle give the same constant for actual error. Exponential integrability against polynomial density fails for every p>0. The eigendirection case is exactly solved. No finite enumeration is used to establish an infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel–Schweitzer 2022 notes possible instability from a sketched Ritz value with negative real part but does not quantify unconditional error moments.",
+        "Palitta–Schweitzer–Simoncini 2023 discusses outlying spurious Ritz and approximation convergence in larger spaces, under embedding conditions; the specific one-vector conditional suppression argument does not establish the stated unconditional law.",
+        "Bergermann 2026 analyzes deterministic row-subset sketches, not iid Gaussian unconditional moments."
+      ],
+      "reasoning": "The earlier high-probability and deterministic error bounds require successful embedding hypotheses or address other sketch laws. Such implications do not force finiteness, nor prove the exact log-tail of unconditional Gaussian errors. The novel claim has narrower Krylov dimension but a different probabilistic quantifier.",
+      "searches": [
+        "One-vector Gaussian sketched Arnoldi method approximate e^{-tA}b exponentially distributed Student t Rayleigh quotient infinite expectation despite positive definite A",
+        "arXiv:2208.11447 Sections 2.2,2.3",
+        "arXiv:2306.06481 Sections 6 and 7",
+        "arXiv:2604.07158 Sections 2.2 and 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.11447v1",
+      "arXiv:2212.12758v1",
+      "arXiv:2306.06481v1",
+      "arXiv:2604.07158v1",
+      "accessible ledger: 4d4499d4-83d1-491b-a845-e340a7548c84 (sketched GMRES(1))",
+      "published-finding corpus: 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8",
+      "Student t density and tail standard identities"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 2022: negative sketched Ritz is possible; neither distribution nor moment behavior follows without Gaussian regression.",
+        "Source 2023: suppression of effects of spurious eigenvalues is discussed for growing Krylov dimensions and conditioning; does not rule out the one-vector unconditioned outlier contribution.",
+        "Own sketched-GMRES finding uses alpha=(s^Tr)/(s^TAr), with one-row re-drawn sketches, not exponential of a same-sketch Rayleigh ratio.",
+        "Published two-step Lanczos positivity deals with deterministic standard Krylov projection, not Gaussian sketch tails."
+      ],
+      "reasoning": "The new theorem strengthens a qualitative possibility into a sharp distributional unconditional phenomenon for a specific established randomized method; it is not a mere corollary of existing numerical stability bounds or previously recorded different-method moment divergences.",
+      "searches": [
+        "arXiv:2208.11447 Section 2.3 Eq. 9 and negative Ritz discussion",
+        "arXiv:2306.06481 Section 7",
+        "accessible ledger finding 4d4499d4-83d1-491b-a845-e340a7548c84",
+        "published-finding corpus 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-vector sFOM reduces exactly to exp(-t times a ratio of Gaussian inner products).",
+        "The Student ratio law is standard probability; the algorithm-specific consequence is an exact logarithmic error tail and the moment divergence.",
+        "No matching theorem appears in the inspected source sections."
+      ],
+      "reasoning": "A general ratio-of-normal-and-chi representation is mathematically equivalent to the claimed Ritz law but, by itself, is not a prior numerical-method result. Checked formulations included sketched Galerkin, sketched FOM, and sketched Arnoldi. Residual risk remains for work written in different probabilistic language.",
+      "searches": [
+        "sketched FOM Gaussian sketch infinite expected error matrix exponential Student t",
+        "sketched Ritz Rayleigh quotient Student t law Laplace transform infinite mean exponential matrix function",
+        "sketched Rayleigh quotient student t gaussian",
+        "arXiv:2208.11447 Section 2.3",
+        "arXiv:2306.06481 Sections 4, 6, 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record searches returned adjacent Student-distribution, Lanczos-positivity, sketched-GMRES, and Gaussian-moment results, not an exact Student law for the one-vector Gaussian-sketched FOM exponential.",
+        "The accessible current-week ledger contains a one-row sketched GMRES(1) infinite residual-moment result and a two-step rational Krylov positivity result; both operators differ from the present compression."
+      ],
+      "reasoning": "No exact database/table entry was identified that states the specific sFOM law and error tail. A non-match alone cannot certify uniqueness. Past ledger titles/claims were used only to assess overlap.",
+      "searches": [
+        "sketched FOM Gaussian sketch infinite expected error matrix exponential Student t",
+        "Gaussian ratios Krylov matrix exponential moment divergence",
+        "randomized Krylov sketched Rayleigh quotient Student t distribution negative Ritz values exponential"
+      ]
+    },
+    "rationale": "The relevant papers define the same sketched matrix-function projection and recognize outlying spurious Ritz values, but their inspected analyses do not directly state the exact unconditioned Student distribution, logarithmic actual-error tail, or all-positive-moment divergence for one-vector Gaussian sketches. The methods are different from the closest recorded sketched-GMRES and Lanczos results. Search absence alone is not novelty proof, and priority risk remains.",
+    "residual_risks": [
+      "An equivalent one-column result may exist in random-embedding, random-design or sketched eigenvalue literature with different terminology.",
+      "The source 2022 and source 2023 contain qualitative outlier-instability ingredients, so priority of the method-specific precise theorem requires further specialist verification.",
+      "Search and accessible full-text comparison do not cover every manuscript or later revision."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces exact sketched projection and qualitative possible instability, not the proposed Student law and all-moment/error-tail theorem",
+        "evidence": [
+          "v1 source date 2022-08-24",
+          "Section 2.2 Corollary 2.3 and Section 2.3 Eq. (9) and warning near lines 190–195"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.11447",
+        "material_read": "Abstract, Introduction, Section 2 (including algorithm, Eq. 8), Section 2.3 (error analysis and negative Ritz warning), implementation scope",
+        "method": "accessible arXiv full-text HTML/text inspected",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Originating sketched FOM and explicit negative Ritz warning"
+      },
+      {
+        "assessment": "Presents related sketched approximation and convergence tools, not a one-vector Gaussian Student law or logarithmic error tail",
+        "evidence": [
+          "v1 source date 2022-12-24",
+          "Sections 2–5 discuss randomized compression and stability conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.12758",
+        "material_read": "Abstract; Introduction; Krylov basis constructions; method and comparison descriptions; convergence and numerical-experiment commentary",
+        "method": "accessible arXiv full-text HTML/text inspected",
+        "title": "Speeding up Krylov subspace methods for computing f(A)b via randomization",
+        "trigger": "Related equivalent randomized Krylov compression method"
+      },
+      {
+        "assessment": "Outlier/eigenvector analysis distinct from unconditional Gaussian law at dimension one; no directly covering tail or moment claim identified",
+        "evidence": [
+          "v1 source date 2023-06-10",
+          "Section 4 Eq. (13) sketched approximation",
+          "Section 7 discusses outlying spurious eigenvalues and their contribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.06481",
+        "material_read": "Introduction; Sections 2–4 (sketched Arnoldi, Eq. 13); Sections 5–7 (rank-one matrices, outlying eigenvalue suppression, error analysis); concluding implementation discussion",
+        "method": "accessible arXiv full-text HTML/text inspected",
+        "title": "Sketched and truncated polynomial Krylov methods: Evaluation of matrix functions",
+        "trigger": "Direct newer theoretical analysis of sketched Ritz outliers and sketched matrix exponentials"
+      },
+      {
+        "assessment": "Focuses on deterministic row subset selection and embedding-quality bounds, not unconditional Gaussian moment law",
+        "evidence": [
+          "v1 source date 2026-04-08",
+          "Section 2.2 Eq. (9) same sketched FOM",
+          "Section 5.1 row-selection changes sketch distribution"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.07158v1",
+        "material_read": "Abstract; Introduction; Section 2 including Section 2.2 sFOM Eq. (9); Section 3 embedding analysis; Section 5.1 deterministic method",
+        "method": "accessible arXiv HTML full text inspected",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Newer potentially dominating matrix-function sketching theory and probability-one embedding proposals"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79a6cc28-b936-46ba-ad41-d55bcaf31636",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source algorithm is used for expensive matrix-function actions and relies on high-probability embeddings. Exact sharp Student and logarithmic-error-tail laws reveal a real risk-management gap: even large finite oversampling gives no unconditional positive error moments when the initial vector is not an eigenvector, although typical sketched embeddings may succeed. This is a numerical structure/probabilistic reliability boundary, not a textbook-only restatement of the Student density.",
+    "status": "PASS"
+  }
+}
