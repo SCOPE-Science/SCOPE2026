@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For exactly three candidates, strong nonnesting forces unique disjoint singleton and pair. Exact PAV comparisons and strict integer inequalities give v-w,u-w>=3 and q-p,r-p>=2, so n>=e+3p+3w+t+10. Equality forces exactly q=r=2,u=v=3 and p=w=t=e=0. Direct scores yield singleton 6 vs 5,5, and pair 10 vs 19/2,19/2. Exhaustive 19,448-profile check corroborates, but the proof is algebraic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manurangsi–Sornat prove concavity of optimized Thiele objective for voter intervals.",
+        "Schünke analyzes Pareto optimality for approval-based committees."
+      ],
+      "reasoning": "Neither theorem requires set-valued PAV argmax committees for sizes 1 and 2 to be nested: concavity is about numerical optimal values, Pareto optimality is a weaker property.",
+      "searches": [
+        "Voter Interval family concave optimal Thiele score but winner sets not nested across committee size",
+        "interval coverage Thiele concave score function house monotonicity optimal committee nested chain counterexample",
+        "arXiv:2604.05953v1 theorem 5",
+        "arXiv:2605.30490v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.08826, sections 5 and 13.4",
+      "arXiv:2604.05953v1, introduction and theorem 5",
+      "arXiv:2605.30490v1, introductory statements",
+      "Published mathematical findings: semantic searches on house monotonicity, PAV and Thiele rules"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Janson §13.4: 12 AB, 12 AC, 10 B, 10 C (44 voters), a strict disjoint-optimum example.",
+        "Present equality case: 3 AB, 3 AC, 2 B, 2 C (10 voters), unique orbit plus universal lower bound."
+      ],
+      "reasoning": "A larger example proves existence, not optimality of ten; concavity of optimal score values cannot force an argmax nesting contradiction. No inspected prior theorem logically implies the universal n>=10 lower bound or unique extremizer.",
+      "searches": [
+        "arXiv:1611.08826 §13.4",
+        "voter interval PAV proportional approval voting optimal winning committees nonnested house monotonicity failure minimum voters three candidates",
+        "Manurangsi Sornat voter interval Thiele 2026 committee monotonicity obstruction example"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson §5: Thiele optimization not house monotone, smaller example relies on tie-breaking.",
+        "The theorem instead requires all 1- and 2-seat optima disjoint and classifies a sharp minimum."
+      ],
+      "reasoning": "House monotonicity failure with some tie-breaking is strictly weaker. The 4-voter illustration does not dominate a 10-voter tie-independent minimum.",
+      "searches": [
+        "Thiele optimization PAV house monotonicity 3 candidates ten voters smallest tie-free paradox unique profile",
+        "Proportional Approval Voting 1-to-2 seat switch: one winner A, two winners BC, ten voters, 3 AB, 3 AC, 2 B, 2 C",
+        "arXiv:1611.08826 §5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published Janson example uses 44 voters, not a sharp census of ten-voter examples.",
+        "The exact 19,448-profile local enumeration yields only three minimal labeled patterns and verifies algebraic classification."
+      ],
+      "reasoning": "No exact table or database returned by searches contains the same cutoff and complete frontier. Failed search is not a proof of priority.",
+      "searches": [
+        "Thiele optimization PAV house monotonicity 3 candidates ten voters smallest tie-free paradox unique profile",
+        "Proportional Approval Voting 1-to-2 seat switch: one winner A, two winners BC, ten voters, 3 AB, 3 AC, 2 B, 2 C",
+        "voter interval PAV proportional approval voting optimal winning committees nonnested house monotonicity failure minimum voters three candidates"
+      ]
+    },
+    "rationale": "Known PAV house nonmonotonicity is NOT claimed new: Janson section 5 gives a 4-voter tie-dependent example and section 13.4 a 44-voter tie-independent example. Neither inspected treatment establishes the exact 10-voter tie-independent minimum and unique orbit. Interval Thiele concavity does not imply nested maximizers. Targeted semantic and primary-source comparisons found no dominating bound or equivalent classification; residual historical-priority risk remains.",
+    "residual_risks": [
+      "Historical or unindexed voting literature might already establish the n=10 tie-independent bound or equivalent integer classification.",
+      "The primary literature inspections are targeted; uninspected portions of peripheral sources are not certified not to cover the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides prior instances of nonnesting, including the same qualitative ballot pattern, but no claimed minimum ten or classification of that minimum in inspected material. Crucial to attribute discovery of nonmonotonicity to prior work.",
+        "evidence": [
+          "Janson, arXiv:1611.08826, §§5 and 13.4; 12 AB, 12 AC, 10 B, 10 C example"
+        ],
+        "identifier_or_url": "arXiv:1611.08826",
+        "material_read": "PDF and relevant original sections 5 and 13.4, especially the 4-voter tie-dependent and 44-voter tie-independent examples",
+        "method": "Read PDF source statements and examples, compared number of voters, candidate set, tie behavior and logical implication",
+        "title": "Phragmén's and Thiele's Election Methods",
+        "trigger": "Earlier explicit Thiele/PAV house monotonicity counterexamples"
+      },
+      {
+        "assessment": "Does not infer nested PAV maximizing sets from concavity of optimal score values; ten-voter interval witness separates the two notions. No minimum-size rigidity claim found in relevant inspected sections.",
+        "evidence": [
+          "Manurangsi–Sornat arXiv:2604.05953v1, theorem 5 and definitions"
+        ],
+        "identifier_or_url": "arXiv:2604.05953v1",
+        "material_read": "Original PDF introduction and theorem 5 with supporting definitions and surrounding discussion",
+        "method": "Read primary text and contrasted concavity of optimal values with nesting of committee maximizers",
+        "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+        "trigger": "2026 voter-interval Thiele analysis and objective concavity"
+      },
+      {
+        "assessment": "Pareto monotonicity cannot imply nesting of PAV argmax; relevant statements inspect a different property, not same minimum voter number. Full-document exclusion is not claimed.",
+        "evidence": [
+          "Schünke arXiv:2605.30490v1, abstract and related statements"
+        ],
+        "identifier_or_url": "arXiv:2605.30490v1",
+        "material_read": "Primary preprint abstract, statements and related introductory definitions",
+        "method": "Compared Pareto-optimality with stronger harmonic-PAV score maximization",
+        "title": "Pareto Optimality in Approval-Based Multiwinner Voting",
+        "trigger": "Related monotonicity statements for Pareto-optimal committee families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "671629f4-08c9-4201-a3a8-90219a373d66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Robust house monotonicity is a natural election criterion, and tie-independent minimal electorate is a meaningful invariant. The theorem supplies the exact first-failure point, fully classifies extremizers, and shows even voter-interval structure and concave value functions do not entail nested optimal committees. This goes beyond reproducing Janson’s already-known qualitative counterexample.",
+    "status": "PASS"
+  }
+}
