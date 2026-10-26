@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For every 0<a<1 and every nondecreasing data vector, the increment decomposition is an exact convex combination of two constant vectors and three step vectors. The terminal and central step interpolants are explicit cubics, whose entire closed-interval extrema are determined from exactly differentiated polynomials. Their negative and positive excursions are E(a) and H(a), giving the exact global defect max(E,H). Strict increase of E and strict decrease of H on (0,1), together with opposite endpoint limits, proves the unique minimizer at their crossing. verify.py on the actual package path passes symbolic identities and exact rational square-root sign checks at 0.4458209224 and 0.4458209226; random tests are neither needed nor represented as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berrut–Trefethen treat barycentric evaluation, point sets, convergence and Lebesgue constants rather than monotone-data minimax.",
+        "Fritsch–Carlson publisher abstract concerns constructing monotone piecewise Hermite cubic interpolants, not an ordinary cubic Lagrange interpolant at variable nonuniform nodes.",
+        "Results for equally spaced and Chebyshev–Lobatto four-node cubic interpolation cover isolated grid selections and therefore do not dominate the continuum optimization."
+      ],
+      "reasoning": "Standard interpolation stability might give upper bounds for all data, but does not give the exact cone-restricted range overshoot, two step-dependent branches or unique minimax interior-node ratio. A piecewise shape-preserving algorithm changes the interpolation operator and is not a stronger theorem on the unmodified four-point cubic.",
+      "searches": [
+        "Optimal placement of two interior nodes symmetric polynomial cubic interpolation minimizing range violation for monotone sequences; comparison Chebyshev Lobatto versus equally spaced",
+        "Sharp range overshoot norm for monotone data under Clenshaw Curtis Chebyshev Gauss Lobatto Lagrange interpolation, exact all degrees and phase transitions",
+        "minimum maximum overshoot polynomial interpolation monotone data symmetric four nodes",
+        "Berrut–Trefethen (2004) section 9.1, DOI 10.1137/S0036144502417715",
+        "Fritsch–Carlson (1980) DOI 10.1137/0717021"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144502417715 (full public PDF sections 2, 5, 9)",
+      "published-finding corpus:2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445 (complete RESULT.md)",
+      "doi:10.1137/0717021 (publisher abstract only)",
+      "previously documented fixed-grid result baeb9a8a-01c8-4198-9ee8-59cce4865494 (claim/title deduplication only)",
+      "published-finding corpus query results for symmetric nonuniform four-point monotone interpolation",
+      "Search results for nonuniform cubic Lagrange monotone overshoot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published equal-grid result explicitly says it has no claim on nonuniform grids; its sharp value sqrt(3)/27 applies only to a central interval.",
+        "The present theorem specializes to the known exact Chebyshev–Lobatto full-interval value at a=1/2, but this specialization does not invert to recover the minimizer a*.",
+        "The standard Lebesgue constant controls arbitrary sign patterns, not the restricted ordered data polytope and its exact extrema."
+      ],
+      "reasoning": "The present parameter-family theorem subsumes fixed-grid full-interval instances, while the earlier isolated instances do not imply it. The previously published central-cell theorem has even a different evaluation domain, and the Hermite shape-preserving theory concerns a different interpolation rule. No checked stronger prior statement dominates the claim.",
+      "searches": [
+        "Published published-finding corpus record 2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445",
+        "Fixed-grid technical results baeb9a8a-01c8-4198-9ee8-59cce4865494 and the closest four-node and range-bounded interpolation entries",
+        "Sharp range of monotone data for variable four-node Lagrange interpolation and exact function of internal node a",
+        "Berrut–Trefethen 2004 sections 2, 5, 9"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Berrut–Trefethen 2004 eq. (2.1) describes cardinal-polynomial interpolation; section 5 lists Chebyshev nodes, section 9.1 defines the full unrestricted Lebesgue norm; neither imposes the bounded monotone data cone.",
+        "The complete RESULT.md of 2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445 explicitly restricts the claimed range to the middle interval of four equally spaced nodes, and explicitly excludes nonuniform nodes.",
+        "The previously available fixed-grid mathematical result baeb9a8a-01c8-4198-9ee8-59cce4865494 concerns the Chebyshev–Lobatto parameter a=1/2."
+      ],
+      "reasoning": "The monotone data cone is the convex hull of three steps and constants. The unrestricted Lebesgue norm of a cardinal system and the local middle-cell range defect are different optimization functionals, so neither implies the exact full-interval two-branch function Delta(a) and unique global minimax a*. A single known a=1/2 value cannot determine the minimizing a across (0,1).",
+      "searches": [
+        "Minimax symmetric four-point Lagrange cubic interpolation nodes [-1,-a,a,1] for bounded monotone data: exact sharp overshoot minimizing parameter when endpoint step and central step defects balance",
+        "Sharp range of monotone data for variable four-node Lagrange interpolation and exact function of internal node a",
+        "published-finding corpus record 2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445",
+        "monotone data \"optimal nodes\" \"overshoot\" Lagrange cubic 4 point interpolation",
+        "\"nonuniform\" \"cubic Lagrange\" \"overshoot\" monotone nodes",
+        "Monotone data cubic Lagrange interpolation with symmetric four nodes [-1,-a,a,1], exact sharp full-interval envelope max of endpoint-step and central-step overshoot; minimax a=0.4458209225 and bound 0.1296867734",
+        "Unique optimal symmetric four-node placement for bounded monotone cubic polynomial interpolation, balance of central step and terminal step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest database entries returned four-point Floater–Hormann, four-point equal-grid central-cell Lagrange, and natural cubic spline defects rather than the exact symmetric endpoint-fixed Lagrange minimax.",
+        "No inspected source supplied the unique crossing a* near 0.4458209225 or the full Delta(a) formula."
+      ],
+      "reasoning": "Finite-degree quantities could appear in unindexed interpolation tables; search failure cannot establish novelty. The relevant indexed database and inspected accessible primary results did not contain this exact continuum sharp node-placement calculation.",
+      "searches": [
+        "Minimax symmetric four-point Lagrange cubic interpolation nodes [-1,-a,a,1] for bounded monotone data: exact sharp overshoot minimizing parameter when endpoint step and central step defects balance",
+        "Optimal placement of two interior nodes symmetric polynomial cubic interpolation minimizing range violation for monotone sequences; comparison Chebyshev Lobatto versus equally spaced",
+        "Sharp range of monotone data for variable four-node Lagrange interpolation and exact function of internal node a",
+        "monotone data \"optimal nodes\" \"overshoot\" Lagrange cubic 4 point interpolation",
+        "minimum maximum overshoot polynomial interpolation monotone data symmetric four nodes",
+        "\"minimax\" \"monotone data\" \"Lagrange interpolation\" nodes",
+        "\"nonuniform\" \"cubic Lagrange\" \"overshoot\" monotone nodes",
+        "published-finding corpus search exact symmetric inner-node parameter and monotone overshoot",
+        "Monotone data cubic Lagrange interpolation with symmetric four nodes [-1,-a,a,1], exact sharp full-interval envelope max of endpoint-step and central-step overshoot; minimax a=0.4458209225 and bound 0.1296867734",
+        "Unique optimal symmetric four-node placement for bounded monotone cubic polynomial interpolation, balance of central step and terminal step"
+      ]
+    },
+    "rationale": "The claim optimizes across every symmetric interior-node parameter, rather than reporting a preselected Chebyshev or equispaced grid. Published prior evidence found concerns Lebesgue stability of polynomial interpolation, different shape-preserving Hermite rules, or a fixed uniform-node central-cell range constant. The accessible fixed Chebyshev–Lobatto result gives one parameter value, not the full envelope or optimal balancing point. Literature coverage is bounded, so unknown equivalences in older tables remain a residual risk.",
+    "residual_risks": [
+      "Older non-indexed interpolation or computer algebra tables may have minimized the same four-node symmetric monotone overshoot without this terminology.",
+      "Fritsch–Carlson 1980 full paper was not inspected; its described Hermite method is not the same Lagrange operator, but incidental algebra cannot be entirely excluded.",
+      "No claim on asymmetric four-node grids or global interpolation at higher degrees.",
+      "Final exact-number published-finding corpus queries returned the earlier uniform-central-cell and Floater–Hormann findings as closest matches, not an equivalent minimax symmetric Lagrange theorem; semantic search incompleteness remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers interpolation representation, fixed Chebyshev nodes and unrestricted Lebesgue stability, but contains no identified monotone-cone range minimax on a variable four-node symmetric grid.",
+        "evidence": [
+          "DOI 10.1137/S0036144502417715; 2004 electronic publication date explicitly printed on page 501; section 5 formulas (5.3),(5.4); section 9.1 Eq. (9.1)."
+        ],
+        "identifier_or_url": "https://people.maths.ox.ac.uk/trefethen/barycentric.pdf",
+        "material_read": "Public full PDF available; inspected pages 501–503, section 5 on Chebyshev points, section 9.1 on Lebesgue norms, with PDF page images for 501 and 511 and searches through the whole parsed 17-page document.",
+        "method": "Full-text PDF retrieval, textual section examination and visual page screenshots",
+        "title": "Barycentric Lagrange Interpolation",
+        "trigger": "Natural primary baseline for symmetric Chebyshev nodes, cardinal interpolation and conventional stability norm"
+      },
+      {
+        "assessment": "The claim is confined to the middle cell of a uniform grid. It explicitly excludes nonuniform ratios and endpoint cells, so it does not determine the full-interval parametric function or minimax node ratio.",
+        "evidence": [
+          "Named result first paragraph: four equally spaced nodes, central cell only, constant sqrt(3)/27; Assumptions and scope explicitly exclude nonuniform nodes."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445/RESULT.md",
+        "material_read": "Complete RESULTS.md text covering scope, complete proof, relationship and limitations.",
+        "method": "Read-only public repository file retrieval",
+        "title": "Sharp monotone range defect of uniform four-point cubic Lagrange interpolation",
+        "trigger": "Same degree and monotone data cone; plausible exact stronger formula"
+      },
+      {
+        "assessment": "Concerns Hermite interpolation with derivative choices to preserve monotonicity, mathematically different from the unique global Lagrange cubic for fixed four nodes. Abstract alone cannot rule out incidental equivalent algebra inside the paper.",
+        "evidence": [
+          "1980 SIAM J. Numer. Anal. 17(2), 238–246; abstract states necessary and sufficient conditions for a cubic to be monotone and construction of piecewise interpolant."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0717021",
+        "material_read": "Publisher abstract; no full text examined.",
+        "method": "SIAM publisher article record",
+        "title": "Monotone Piecewise Cubic Interpolation",
+        "trigger": "The classic shape-preserving cubic literature might dominate an overshoot calculation"
+      },
+      {
+        "assessment": "Fixed a=1/2 case is implied by the new parametric expression; it does not prove unique optimum among variable a.",
+        "evidence": [
+          "Claim/title identifies four-node Chebyshev–Lobatto fixed grid and defect (10+7 sqrt(7))/162."
+        ],
+        "identifier_or_url": "previously available Chebyshev–Lobatto fixed-grid result; identifier baeb9a8a-01c8-4198-9ee8-59cce4865494",
+        "material_read": "Claim statement and fixed-grid formula were available for scientific overlap comparison; the underlying proof was not reassessed.",
+        "method": "Claim-level mathematical comparison with a previously documented fixed-grid theorem.",
+        "title": "Sharp monotone range of four-node Chebyshev–Lobatto cubic interpolation",
+        "trigger": "Exact same Chebyshev point set at one parameter value"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f9a4d5c-7ee7-4996-a90e-e39746d53493",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Choosing a node set to minimize worst-case escape from a known monotone bounded input range is a natural interpolation design problem. The sharp universal optimum, mechanism switch between terminal-step and center-step witnesses, and strict improvement over standard Chebyshev–Lobatto (0.17605) and equally spaced grids (0.25171) are substantively motivated and not a mere restatement of a fixed-grid computation. The exact sharp finite invariant is useful even without claims for asymmetric grids or more nodes.",
+    "status": "PASS"
+  }
+}
