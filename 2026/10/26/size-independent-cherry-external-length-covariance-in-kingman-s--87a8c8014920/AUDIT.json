@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each abstract state (b,k), three exhaustive pair-selection transitions with exact probabilities change the singleton count by 0, 1 or 2 and the cherry count by one precisely for a two-singleton merger. Independent Exp(k(k-1)/2) holding times give a b*T_k external-length increment. First-moment formulas f=b(b-1)/(3(k-1)), g=2b/k and the law-of-total-covariance recurrence yield a rational closed K(b,k). Explicit base k=3 with b<=2, separate exception k=b=3, and the all-k induction prove K(n,n)=-2/9 for n>=4 and zero for n=2,3. Finite exact comparisons (2201 states) and 56700 enumerated labeled histories at n=7 corroborate but are not used as infinite proof. Rate convention, sign and boundaries audited.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson–Kersting Proposition 6 gives first- and second-order urn-count process moments, and Theorem 7 gives time reversal; it does not report a covariance involving the number of two-black mergers.",
+        "Wu–Choi Theorem 3.2 and Corollary 2 give cherry/pitchfork recursion, mean and cherry variance; no waiting-time or total external-length variable enters its theorem.",
+        "Steel–Mooers (arXiv:0910.5240) computes mean pendant and internal length in a pure-birth Yule model, whose waiting time has rate proportional to lineage count rather than to its number of unordered pairs."
+      ],
+      "reasoning": "A complete known transition kernel can in principle determine arbitrary mixed functionals, but the claimed evaluation is not an immediate specialization of any inspected explicit moment theorem. Different birth-clock normalizations cannot dominate the present coalescent-time covariance. The proof must compute a new cross-moment recurrence and exhibit cancellation to the exact constant.",
+      "searches": [
+        "published-finding corpus: Yule Harding Kingman cherry count total pendant branch length correlation covariance 2/9",
+        "published-finding corpus: coalescent urn number of black-black mergers and cumulative number of black balls covariance",
+        "Web: Kingman coalescent number of cherries total external length covariance",
+        "Web: Yule-Harding Kingman cherries pendant length joint distribution covariance"
+      ]
+    },
+    "checked_sources": [
+      "Janson–Kersting (2010 preprint), arXiv:1004.5011, relevant accessible full-text sections of the urn and branch-length analysis.",
+      "Wu–Choi (2015 preprint), arXiv:1508.03139, relevant accessible HTML material on tree models and count/covariance results.",
+      "Steel–Mooers (2009 preprint), arXiv:0910.5240, accessible HTML model and mean-length derivations.",
+      "published-finding corpus semantic records for exact -2/9, cherries, singleton-singleton mergers, pendant/external length and phylogenetic tree statistics.",
+      "Accessible own research ledger of 103 finding claims, including the one forest-coalescence-related claim; not a cherry/external-length result."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu–Choi Corollary 2: E(cherries)=n/3 and Var(cherries)=2n/45 for suitable n; neither determines the covariance with a different, metric variable.",
+        "Janson–Kersting provides moments and reversibility for the ancestry urn and total external branch length, and their transition mechanism permits the present argument but does not state the mixed moment.",
+        "The present theorem supplies K(b,k)=-2b(b-1)(3k-2b-2)/[9k(k-1)(k-2)], which is strictly negative in all nontrivial partial states and takes the constant -2/9 on the full-tree diagonal."
+      ],
+      "reasoning": "Neither marginal variance nor the joint distribution of cherries with pitchforks implies this new metric cross-covariance. Existing urn transition probabilities are premises from which an original closed-form moment evaluation can be proved; the result is not just renaming a displayed prior theorem. No decisive stronger prior statement was located.",
+      "searches": [
+        "published-finding corpus: joint mixed moment of cherry count and total external length in Kingman coalescent",
+        "published-finding corpus: phylogenetic cherry count external branch length cross moment",
+        "Web: Kingman coalescent cherries external branch lengths mixed moment cherries total external length joint",
+        "Web: covariance cherry count external branch length coalescent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson and Kersting (arXiv:1004.5011), sections 1–3, use the black/red urn for original-singleton versus merged ancestral lineages and study total external branch length; a black–black event is exactly a cherry creation but their discussed statistics do not include its count jointly with length.",
+        "Wu and Choi (arXiv:1508.03139), sections 2–3, define cherries as two-leaf fringe subtrees and derive joint laws with pitchfork counts, not length-weighted Kingman moments."
+      ],
+      "reasoning": "The aliases cherry, sister-leaf pair, two-singleton merger and two-pronged internal node denote the same topology event; external, terminal and pendant branch length denote the metric variable. The checked articles provide the separate building blocks but no evaluated size-independent mixed covariance or full b,k kernel.",
+      "searches": [
+        "published-finding corpus: Kingman coalescent exact covariance number of cherries (two leaf sister pairs) and sum of external branch lengths equals minus 2/9 independent of number of leaves",
+        "published-finding corpus: Yule Harding Kingman ranked tree pair of pendant sister leaves number cherry vs external total length correlation exact",
+        "Web: \"number of cherries\" \"external length\" \"covariance\" coalescent",
+        "Web: \"cherry\" \"external branch length\" \"coalescent\" correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected record matches the exact constant -2/9 for cherry count versus external-branch length; nearest semantic records were random recursive tree degree/path-length correlations with different tree distributions and statistics.",
+        "Wu–Choi tables and formulas concern cherry/pitchfork counts; Janson–Kersting formulas concern external-branch lengths and lineage states, not the requested cross-tabulation."
+      ],
+      "reasoning": "The search found no directly tabulated bivariate cherry/length covariance. This is limited negative database evidence, not an exhaustive proof that no earlier table exists.",
+      "searches": [
+        "published-finding corpus: random coalescent trees cherries external length covariance n 4 2/9",
+        "published-finding corpus: Fu Li external branch length cherry count coalescent statistics",
+        "published-finding corpus: In Kingman coalescent trees the covariance between cherry count (sibling singleton pair mergers) and sum of external pendant branch lengths is exactly -2/9 for all n at least four",
+        "Web: coalescent number cherries total external length negative two ninths",
+        "Web: cherries external branches total length covariance Yule-Harding Kingman coalescent cherry length 2/9"
+      ]
+    },
+    "rationale": "The accessible primary literature supplies cherry count moments and Kingman external-length process moments separately, but not the evaluated mixed covariance or closed partial-state kernel; repeated published-finding corpus searches for aliases, exact constant and broader results found only mathematically non-dominating similarities. Priority remains uncertain: exhaustive global absence is neither claimed nor inferred from failed searches.",
+    "residual_risks": [
+      "A historical paper using an unstated synonym, numerical table or a less accessible theorem could contain the same mixed moment; current searches and inspections cannot certify global priority.",
+      "Some newer broad covariance literature was accessible only at abstract or search-summary level and is not claimed to have been fully inspected. Its apparent scope does not explicitly include cherry counts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the underlying coalescent urn and metric moments, but no explicit number-of-cherries/external-length mixed covariance; the new cross-moment recurrence is separate.",
+        "evidence": [
+          "Section 2 models black original singleton and red internal lineage mergers and proves process reversibility; §3 gives covariances of per-level branch-loss counts.",
+          "No occurrence of the term cherry in the inspected text; this is corroborative only, since synonyms were analyzed."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1004.5011",
+        "material_read": "Accessible full-text rendering inspected at Introduction §1, urn process and Proposition 6/Theorem 7 in §2, external-length moment formulas in §§3–5, and the introduction to §6.",
+        "method": "Read accessible arXiv full-text rendering and searched within it for cherries, covariances, urn transitions and external branch count.",
+        "title": "The external lengths in Kingman's coalescent",
+        "trigger": "Closest primary work on the same random coalescent external-length statistic and black/red ancestry dynamics."
+      },
+      {
+        "assessment": "Derives count/count joint moments and marginal cherry statistics; external waiting-time lengths do not enter the inspected results.",
+        "evidence": [
+          "Corollary 2 states cherry mean n/3 and variance 2n/45; Proposition 3 computes cherry/pitchfork covariance -n/45.",
+          "Theorem 3.2 concerns test functions of cherry/pitchfork counts, not a coalescent metric statistic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1508.03139v1",
+        "material_read": "Accessible full arXiv HTML inspected at cherry and YHK model definitions (§2), cherry/pitchfork recursions and cherry mean/variance formulas (§3), and the stated PDA/comparison scope (§§4–6).",
+        "method": "Read published preprint HTML and examined Theorem 3.2, Proposition 2, Corollary 2 and Proposition 3; searched for branch-length variables.",
+        "title": "On joint subtree distributions under two evolutionary models",
+        "trigger": "Closest primary full text for the exact cherry count, synonymous two-leaf fringe subtrees, and Yule–Harding–Kingman tree model."
+      },
+      {
+        "assessment": "Inapplicable to the exact Kingman rate-one-per-pair covariance because its Yule pure-birth waiting rate is proportional to the number of lineages and it treats mean lengths rather than cherry/length covariance.",
+        "evidence": [
+          "Section 1 states lineage speciation rate lambda; Section 2 gives mean pendant/interior edge length under a distinct sampling convention."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0910.5240v1",
+        "material_read": "Accessible arXiv HTML examined at the model and rate assumptions (§1), mean edge-length recursions and Theorem 1 (§2), and the stated remaining section scopes.",
+        "method": "Read model, rate normalization, and pendant-length recursions; compared assumptions.",
+        "title": "Expected length of pendant and interior edges of a Yule tree",
+        "trigger": "Historical synonym match for pendant lengths and Yule tree statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "87a8c801-4920-4d0c-a989-960022eab250",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cherries quantify local sister-pair topology while external length quantifies terminal genealogical time: both are standard, biologically interpretable, non-arbitrary observables. Their covariance is an unexpected exact sample-size-independent negative constant for every n>=4, despite opposing marginal-variance scales; a universal partial-state covariance kernel and a sharp n=3 boundary explain the phenomenon. The derived logarithmically vanishing correlation supplies additional structural insight rather than a tiny numerical improvement. The result is not a recomputation of the marginal cherry or external-length distributions.",
+    "status": "PASS"
+  }
+}
