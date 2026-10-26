@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The greedy binary arch index is the matching number of unequal-adjacency path edges. Removing edge j of a transition chain of length ell reduces its ceiling(ell/2) matching number exactly when ell and j are odd. This yields the exact number of bad cuts and stability condition. Even transition chains tile uniquely into pairs, except the all-ones even circle with two pairings; trace([[1,1],[u,0]]^n) with a correction and two binary integrations proves the full coefficient formula. The self-contained verifier separately enumerated all 524286 binary words through n=18 and full subsequence sets through n=9, with exact integer agreement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2003.04629v1, Sections 4–5 and Lemma 20",
+        "arXiv:2104.09063v1, Sections 3–4 and conclusion",
+        "arXiv:2304.11932v1, Sections 3–4 and conclusion"
+      ],
+      "reasoning": "General-alphabet circular index and repetition results do not enumerate all binary words for which every rotation simultaneously attains the circular maximum. The matching approach uses a binary-specific unequal-adjacency simplification absent from these general statements.",
+      "searches": [
+        "universality index all rotations min max binary word cyclic universality",
+        "arch factorization rotation k universality circular words",
+        "\"conjugate\" \"circular universality\" minimum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.04629v1",
+      "arXiv:2104.09063v1",
+      "arXiv:2304.11932v1",
+      "OEIS:A000032"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barker et al. prove at most one arch of difference from a best rotation, not a count of origins achieving the best",
+        "Schnoebelen–Veron Lemma 3.4 also bounds conjugate differences by one",
+        "Earlier binary circular-maximum enumeration concerns the maximum over cuts, not equality of that maximum with every cut or a bad-cut count"
+      ],
+      "reasoning": "A maximum alone does not determine the minimum over cuts; the new chain-edge analysis identifies when deleting each cyclic edge leaves matching number unchanged, and the transfer calculation counts precisely those words. This is an additional structural argument rather than relabeling of an existing extremal value.",
+      "searches": [
+        "\"all rotations\" \"universality index\" binary words",
+        "\"universality index\" \"Lucas\" binary rotations",
+        "minimum over cyclic rotations of subsequence universality index binary words gap maximum 1 essential matching edges exact enumeration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2003.04629v1, Lemma 20 addresses best-versus-individual rotations",
+        "arXiv:2304.11932v1, Lemma 3.4 bounds differences of conjugates by one"
+      ],
+      "reasoning": "The central property was also searched under invariance of the arch index across all conjugates and absence of essential matching edges in cyclic transition graphs. Neither cited lemma describes the complete family with equality at every cut. Existing cyclic-index bounds are strictly weaker than the classification and refined count.",
+      "searches": [
+        "\"all rotations\" \"universality index\" binary words",
+        "\"conjugates\" \"same universality index\" scattered",
+        "minimum cyclic shift scattered subsequence universality index rotational robust universality binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000032 is the Lucas sequence and records matching counts for cycles; it is used only as a classical enumerator, not represented as a new numerical sequence",
+        "The computed cut-robust totals at lengths 1..18 are 2,4,8,12,22,34,58,92,152,244,398,642,1042,1684,2728,4412,7142,11554"
+      ],
+      "reasoning": "Known cycle matching polynomials supply the coefficients, but without the newly proved correspondence to equality of all rotation universality indexes they do not assert the scientific theorem. The exact classical sequence is explicitly acknowledged.",
+      "searches": [
+        "site:oeis.org \"2, 4, 8, 12, 22, 34\"",
+        "number binary circular words all 1 runs even Lucas",
+        "https://oeis.org/A000032"
+      ]
+    },
+    "rationale": "Inspected foundational circular-universality results give the one-arch bound and algorithms, but not a criterion for equality at every cyclic cut or the corresponding all-indexed-word Lucas enumeration. Classical Lucas counts for matchings of cycles do not identify which original binary words have cut-independent subsequence universality. A separate earlier cyclic-maximum count likewise does not determine the minimum without the essential-edge classification. Equivalent statements in unindexed work are a residual risk.",
+    "residual_risks": [
+      "Equivalent rotation-stability formulation may be embedded in unindexed combinatorics-on-words or automata research.",
+      "The 2024 Koß dissertation on subsequences was identified but full text could not be accessed in this session; no NOT_COVERING claim is made about it.",
+      "The matching-polynomial enumeration is classical; uniqueness of the interpretation has not been independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes one-arch circular bound and general algorithms, but no all-cuts binary stability class or Lucas counts",
+        "evidence": [
+          "arXiv:2003.04629v1, pp. 2–3 and 13–14, Lemma 20"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Abstract, introduction and contributions, Section 4 treatment of circular universality including Lemma 20, and discussion of general enumeration scope",
+        "method": "Accessible full preprint PDF, extracted text plus visual inspection of a relevant page",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational definition and circular-rotation comparison; possible direct coverage"
+      },
+      {
+        "assessment": "Addresses repetition growth, remainder chains, and circular-index algorithms, not all-cuts equality enumeration",
+        "evidence": [
+          "arXiv:2104.09063v1, pp. 1–5, 11–12, 18–19"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.09063",
+        "material_read": "Abstract/introduction, Section 3 and relevant Section 4 statements and conclusion, including Lemma 11 and Corollary 30",
+        "method": "Accessible full preprint PDF, extracted text and page-zero visual inspection",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Main follow-up paper on circular universality and remainders"
+      },
+      {
+        "assessment": "States the known ±1 bound for conjugates, but does not classify or enumerate invariant binary necklaces/words",
+        "evidence": [
+          "arXiv:2304.11932v1, pp. 2, 4–7, 12, Lemma 3.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+        "material_read": "Abstract, introduction, Section 3 arch functions and Lemma 3.4, Section 4 algorithm and conclusion",
+        "method": "Accessible full preprint PDF, text extraction and page-one visual inspection",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "Plausibly dominating theorem for conjugate indexes"
+      },
+      {
+        "assessment": "Matches the transfer-polynomial counting sequence but does not assign the all-cuts subword universality interpretation",
+        "evidence": [
+          "OEIS A000032 entry, comments on cycle matchings"
+        ],
+        "identifier_or_url": "https://oeis.org/A000032",
+        "material_read": "Definition, initial terms, remarks equating Lucas numbers and matchings of cycles",
+        "method": "Webpage text",
+        "title": "OEIS A000032 — Lucas numbers",
+        "trigger": "Check exact database coverage and stronger matchings interpretations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f6baa3d-ff67-4b1a-975e-2f02e1f9f371",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Subsequence universality of a circular string can depend on where reading begins. The result completely classifies cut-robust binary words, gives an exact number of harmful cut positions for every word, and the full length-and-index joint enumeration; the exponentially vanishing robust fraction quantifies a natural origin-ambiguity issue. This goes beyond a tiny finite parameter gain or a bare known-sequence recomputation.",
+    "status": "PASS"
+  }
+}
