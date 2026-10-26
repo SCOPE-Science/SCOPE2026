@@ -1,0 +1,131 @@
+{
+  "claim_to_evidence": {
+    "computational_checks": "The standalone independent enumeration checks all naturally labeled posets up to six vertices (5231 distinct closure relations in all orders one through six) with exact exhaustive Littlestone recurrence, width and threshold rigidity. A second arithmetic loop checks balanced threshold formulas for \\(1\\le w\\le10\\) and \\(w\\le K<30\\).",
+    "critical_proof_steps": [
+      "Chain of length l has exactly l+1 prefixes and adaptive depth \\(\\lfloor\\log_2(\\ell+1)\\rfloor\\).",
+      "Disjoint-query Cartesian products have additive adaptive depth, proved by a version-space potential induction.",
+      "Dilworth w-chain partition injects J(P) into a product of chain-prefix hypothesis families; sum of integer ranks upper bounds Ldim.",
+      "Balancing the positive integer ranks k_i at sum K gives minimum order \\(N_w(K)\\)=\\(2^q(w+r)-w\\).",
+      "At minimum order there are at most \\(2^K\\) prefix tuples; a shattered depth-K tree needs \\(2^K\\) distinct ideals. Equality means all tuples occur, ruling out all cross-chain relations and proving uniqueness.",
+      "Adding one global minimum gives a connected example attaining K; adding new global top elements pads every n without lowering K.",
+      "Antichains are precisely the potentially shattered fixed query sets, proving \\(\\operatorname{VCdim}=w\\)."
+    ],
+    "exact_domain": "All finite nonempty partially ordered sets P with Boolean concepts the indicators of all lower ideals, including empty, queried by membership of individual ground elements. Width \\(w\\ge1\\), requested adaptive depth \\(K\\ge w\\); connected threshold only \\(w\\ge2\\).",
+    "unproved_limits": "No theorem characterizes all larger nonminimal extremizers or all connected minimum-order isomorphism types; the finite enumeration is not an exhaustive verification of all posets. Historical absolute priority and independent audit are not established."
+  },
+  "correctness": {
+    "rationale": "The proof gives exact integer quantifiers \\(w\\ge1\\), \\(K\\ge w\\) and P finite nonempty. Dilworth yields w nonempty chains, each ideal determines a valid prefix tuple, and monotonicity plus proved disjoint-domain product additivity bounds the online rank by the sum of the chain ranks. A chain of length l has exactly l+1 prefix ideals and online rank \\(\\lfloor\\log_2(\\ell+1)\\rfloor\\), proved by recursive binary splitting. The integer exchange argument minimizes sum (\\(2^{k_i}-1\\)) at balanced positive k_i and yields \\(N_w(K)\\). At equality there are at most \\(2^K\\) prefix tuples and at least \\(2^K\\) distinct witnesses, so every prefix tuple must occur; this forbids any relation between distinct chains and proves the unique isomorphism type. Adding a global minimum proves the one-extra-vertex connected bound for \\(w\\ge2\\), and adding universally maximal elements extends sharpness to every \\(n\\ge w\\). VC dimension=width follows exactly from antichain shattering. The independent finite program computes rank recurrences on all 5231 naturally labeled posets through six vertices (1+2+7+40+357+4824=5231) and checks threshold and uniqueness. The finite check is corroboration; the unrestricted proof is structural.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi--Golowich--Kumar--Manurangsi (2021), Proposition 3, bounds the Littlestone dimension of pointwise Boolean compositions on a shared query domain by \\(O(kd\\log k)\\).",
+        "Guingona--Kolesnikov--Nierwinski--Soucy (2021), Theorem 3.10, computes dimensions for zero sets of nonzero linear combinations."
+      ],
+      "reasoning": "Neither theorem identifies the ideal-membership hypotheses of all finite posets, gives an exact w,K threshold in the cardinality of P, or constrains equality to disjoint chains. The shared-domain Boolean aggregation of Ghazi et al. differs from the disjoint-domain Cartesian product used in the proof.",
+      "searches": [
+        "VC dimension Littlestone dimension antimatroids convex geometries ideal families partially ordered sets",
+        "online mistake bound learning ideals of posets width chain decomposition",
+        "arxiv:2109.04805 Theorem 3.10",
+        "pmlr:132:ghazi21a Proposition 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1807.02865v1 / later version Section 4.1",
+      "pmlr:132:ghazi21a Proposition 3",
+      "arxiv:2109.04805v1 Theorems 3.10 and 5.6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 3 in Ghazi et al. is asymptotic and concerns the same-domain Boolean aggregate \\(G(H_1,\\ldots,H_k)\\).",
+        "Section 4.1 of Liu--Weselcouch describes the embedding of J(P) into N^2 for width-two posets.",
+        "Theorem 3.10 of Guingona et al. is an exact equality for linear zero sets, which do not in general coincide with poset ideals."
+      ],
+      "reasoning": "The primary theorem implies three new quantitative statements absent from the comparison sources: exact minimum order \\(N_w(K)\\), unique extremal isomorphism type there, and exact connected minimum \\(N_w(K)\\)+1. Neither inspected theorem has premises broad enough to imply all three as stated. The weaker information bound floor(log2 \\(|\\mathcal J(P)|\\)) cannot force an attained complete tree for every subclass of chain-prefix products.",
+      "searches": [
+        "Connectivity tax: minimum connected poset width w Littlestone dimension K is one more than disjoint chains extremal length",
+        "Littlestone dimension order ideals poset width exact extremal chain 2^k",
+        "pmlr:132:ghazi21a Proposition 3",
+        "arxiv:1807.02865 Section 4.1",
+        "arxiv:2109.04805 Theorem 3.10"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu--Weselcouch, arXiv:1807.02865v2, Section 4.1 pp.12-17, embeds width-two ideal lattices in the integer plane to study quasisymmetric partition generating functions.",
+        "The inspected 2018 preprint contains no Littlestone terminology or exact mistake-tree threshold theorem."
+      ],
+      "reasoning": "Replacing order ideals by their chain-prefix tuples is an equivalent representation of the concept class but does not equate the adaptive depth with log of the number of ideal tuples. The exact threshold and every equality case are proved here using independent rank bounds plus forced fullness of the prefix box.",
+      "searches": [
+        "Littlestone dimension of order ideals of a finite poset; exact adaptive membership shattering for distributive lattices, chains and rooted trees",
+        "thicket dimension ideals poset chain partition bound",
+        "Sharp minimum number N = 2^q(w+r)-w of elements in a width-w finite poset whose order-ideal concept class has Littlestone dimension >= wq+r; only extremal posets are disjoint unions of balanced length (2^q-1) chains",
+        "arxiv:1807.02865 section 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Liu--Weselcouch, Section 4.1, classifies generating functions for width-two posets, not first orders at which each adaptive depth is possible.",
+        "The independently generated small-poset check has no status as a prior published table."
+      ],
+      "reasoning": "No checked exact dimension table or database provides all first thresholds or the unique extremal posets. A table of counts of order ideals, if available, cannot alone certify adaptive tree realizability or the rigidity implication without further proof.",
+      "searches": [
+        "Order ideal shattering, mistake bounds of bounded-width posets, chain decomposition sharp threshold, uniqueness and rigidity at minimum size",
+        "arxiv:1807.02865 Section 4.1",
+        "Littlestone dimension concept class order ideals poset membership queries formula optimal decision tree poset ideals"
+      ]
+    },
+    "rationale": "Targeted exact-formula, poset-ideal, chain-product and online-shattering searches found no prior implication establishing simultaneously the all-width exact threshold, unique minimum-order extremizers, fixed-order maximum, and sharp connected one-element surcharge. Liu--Weselcouch study order-ideal lattice embeddings and P-partition generating functions; Ghazi et al. give coarse closure bounds for same-domain pointwise aggregations; Guingona et al. characterize unrelated linear zero-set concept classes. Classical chain decomposition and finite-class counting are used as ingredients, but do not by themselves state the classification or rigidity. Absolute historical priority is not asserted.",
+    "residual_risks": [
+      "An older or unindexed specialist work may already formulate the same sharp bounded-width order-ideal learning threshold under alternate terminology such as mistake-tree rank, adversarial membership search, or thicket dimension.",
+      "A more general theorem on product subclasses of chain thresholds might imply the result even without naming posets. No exhaustive historical-priority claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the proposed exact adaptive shattering threshold: studies P-partition functions and embedding of J(P) into a product of two chains.",
+        "evidence": [
+          "arXiv:1807.02865v1 July 8 2018; PDF Section 4.1, pp.12-17: J(P) embedded into N^2; no Littlestone occurrence in searchable PDF."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1807.02865",
+        "material_read": "ArXiv submission history and abstract, PDF Section 4.1 pages 12-13, the Section 4.1 discussion visible in the indexed PDF through page 17, targeted whole-document term search for Littlestone",
+        "method": "Open-access arXiv PDF read together with rendered page 12 screenshot and full-text search",
+        "title": "P-Partition Generating Function Equivalence of Naturally Labeled Posets",
+        "trigger": "Order-ideal lattice representation of width-two posets might already imply the threshold or rigidity"
+      },
+      {
+        "assessment": "NOT_COVERING: proves asymptotic closure bounds under Boolean pointwise aggregation, not exact disjoint-domain product ranks and poset extremizer rigidity.",
+        "evidence": [
+          "PMLR 132 (2021), pp.1-4, Proposition 3: Ldim(G(H_1,...,H_k))=O(kd log k) on common X."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "PDF abstract, introduction, related work, definitions and Proposition 3 with its stated domain and bound, plus whole-text searches for poset/chain/disjoint",
+        "method": "Lawful open-access PMLR PDF read and rendered pages 1 and 3",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "General closure theorem might subsume the exact chain-factor upper bound"
+      },
+      {
+        "assessment": "NOT_COVERING: exact results concern zero sets of linear combinations, rather than ideal-membership classes of arbitrary posets.",
+        "evidence": [
+          "arXiv:2109.04805v1 September 10 2021, Theorem 3.10 and Theorem 5.6."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Full open-access arXiv HTML text searched for posets/ideals and read introduction, Section 2 definitions, Theorem 3.10 and its proof, Section 5 Theorem 5.6, conclusion",
+        "method": "ArXiv HTML full-text read and targeted term/theorem inspection",
+        "title": "Littlestone and VC-dimension of Families of Zero Sets",
+        "trigger": "Possible stronger exact equality of static and adaptive dimensions in an encompassing family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8dbb434-ca63-4a0c-bf1f-8a00fdc081a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact, natural two-parameter extremal and rigidity theorem for order-ideal membership classes: every (width \\(w\\), target adaptive depth \\(K\\)) has a sharp first feasible cardinality, and at that cardinality one completely classified isomorphism type. Connectivity has exactly one element of overhead and all fixed-size maxima follow. Since VC dimension of ideals is identically w, the result computes the largest possible adaptive-versus-static gap under both width and order constraints. This structural precision and uniqueness extend beyond a mere count or routine finite example; no arbitrary slice, external application, or conjectural future theorem is needed for value.",
+    "status": "PASS"
+  }
+}
