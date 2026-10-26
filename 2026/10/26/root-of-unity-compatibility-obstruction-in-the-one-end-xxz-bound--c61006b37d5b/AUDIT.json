@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "From the published recurrence, q=i gives [x]_i=sin(pi x/2), a_0=cos(pi s/2), and a_1=sin(pi s/2). The j=0 equation gives u_1=a_0/g. The j=1 equation loses its u_2 term because [2]_i=0 and therefore requires g^2 sin(pi s)=a_0a_1=sin(pi s)/2. Under sin(pi s) nonzero this is exactly g^2=1/2; at equality u_2 is not determined by that equation. The explicit example s=i log(3)/pi, gamma=2, g=1 satisfies the representation relation and violates compatibility.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yao et al. (2025), pp. 3–4, identify rational anisotropies Delta/J=cos(l pi/m), including the free-fermion point, and report finite bond dimension in a weak-dissipation regime for their different MPS construction.",
+        "Miao–Lamers–Pasquier (2021) concern the Q operator and transfer-matrix spectrum at roots of unity, not the specific one-end boundary recurrence."
+      ],
+      "reasoning": "The older special-field construction shows that alternative MPS treatments may exist; it does not imply that the Popkov–Prosen recurrence with u_0=1 is forward-well-posed. The finding is deliberately limited to that recurrence and does not claim failure of the physical NESS.",
+      "searches": [
+        "Hidden Time Reversal in Driven XXZ Spin Chains: Exact Solutions and New Dissipative Phase Transitions, DOI:10.1103/PhysRevLett.134.130404",
+        "root-of-unity XXZ boundary driven chain exact NESS auxiliary representation",
+        "arXiv:2012.10224"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "Primary full text read; Eq. (14) directly supports the recurrence used in the proof.",
+        "identifier": "arXiv:2604.16102v1 / DOI:10.1103/2cq3-66ny"
+      },
+      {
+        "assessment": "Primary full text read; relevant rational-anisotropy context, but different MPS construction.",
+        "identifier": "DOI:10.1103/PhysRevLett.134.130404"
+      },
+      {
+        "assessment": "Abstract only; root-of-unity spectral representation background; full-text coverage unresolved.",
+        "identifier": "arXiv:2012.10224"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Popkov–Prosen state that the recurrence is well defined apart from zero field or a z-axis field, but the coefficient [2]_i vanishes for q=i.",
+        "The two equations at j=0,1 force g^2=1/2 whenever sin(pi s) is nonzero; for g=1 and s=i log(3)/pi, the representation relation gives gamma=2 and compatibility fails.",
+        "Yao et al. show a distinct finite-bond-dimension construction at rational anisotropies in a weak-dissipation regime; this does not resolve the printed recurrence's compatibility condition."
+      ],
+      "reasoning": "The new implication is a precise obstruction to using the published forward recurrence as written at a standard root-of-unity point. It does not assert that no exact steady state exists.",
+      "searches": [
+        "Popkov–Prosen (2026), Eq. (14) and discussion following Eq. (14)",
+        "Yao et al. (2025), rational-anisotropy discussion",
+        "arXiv:2012.10224 root-of-unity Q operator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Popkov–Prosen Eq. (14) has forward coefficient (g^+/2)[j+1]_q and initial data u_{-1}=0, u_0=1.",
+        "At q=i, [x]_i=sin(pi x/2), so [2]_i=0; direct substitution yields (g^2-1/2)sin(pi s)=0 for g^+=g^-=g and g_z=0."
+      ],
+      "reasoning": "The claim is not a restatement of a general root-of-unity truncation theorem: it is the exact compatibility condition produced by the specific normalized recurrence in the one-end NESS construction.",
+      "searches": [
+        "XXZ root of unity q-number boundary recurrence one-end driven XXZ chain arbitrary boundary field singular representation",
+        "root-of-unity anisotropy XXZ matrix product nonequilibrium steady state auxiliary representation q-number recurrence boundary field",
+        "XXZ boundary driven chain root of unity quantum group representation truncation exact steady state",
+        "Popkov Prosen 2026 one-end driven XXZ recurrence root of unity q=[j+1] vanishes",
+        "Popkov–Prosen (2026), Eq. (14), arXiv:2604.16102v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records were unrelated scalar recurrences, quantum graphs, and finite-geometry spectral problems; no returned record addressed the same XXZ boundary recurrence.",
+        "There is no finite invariant table applicable to the two-step compatibility equation."
+      ],
+      "reasoning": "This is an algebraic compatibility condition rather than a tabulated finite invariant. Non-detection in semantic search is not treated as proof of novelty.",
+      "searches": [
+        "XXZ root-of-unity boundary recurrence",
+        "root-of-unity anisotropy XXZ matrix product NESS",
+        "Popkov Prosen 2026 recurrence q-number zero"
+      ]
+    },
+    "rationale": "The claim is narrowly the compatibility obstruction for the specific normalized one-end XXZ boundary recurrence at q=i. The directly relevant 2026 source gives the recurrence but does not state this condition; the inspected 2025 special-field construction and root-of-unity spectral literature do not establish this same recurrence condition in the material checked. Broader novelty is not claimed.",
+    "residual_risks": [
+      "Other root-of-unity XXZ auxiliary representations may imply or independently state this compatibility condition; the full text of arXiv:2012.10224 was not inspected.",
+      "The result does not settle whether a different normalization, a finite-dimensional representation, or a limiting construction provides the NESS at the excluded parameters.",
+      "Novelty is limited to the exact compatibility obstruction for the printed recurrence; it is not a claim that root-of-unity singularities themselves are new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the exact recurrence. Its printed generic well-posedness statement does not account for the vanishing coefficient [2]_i in this specialization.",
+        "evidence": "Popkov–Prosen (2026), Eq. (14), pp. 2–3; DOI:10.1103/2cq3-66ny.",
+        "identifier_or_url": "arXiv:2604.16102v1; DOI:10.1103/2cq3-66ny",
+        "material_read": "Full three-page open-access Physical Review B PDF, including Eq. (14) and the discussion immediately following it.",
+        "method": "Read the recurrence, q-number definition, representation relation, and stated exceptions; substitute q=i and g^+=g^-=g, g_z=0 symbolically.",
+        "title": "Exact steady state of a one-end driven XXZ spin chain with boundary field",
+        "trigger": "Direct source for the boundary recurrence and its stated parameter exceptions."
+      },
+      {
+        "assessment": "The paper establishes the relevance of rational anisotropies and the free-fermion point, and discusses a different doubled-chain MPS. It does not state the compatibility condition for Eq. (14).",
+        "evidence": "Yao et al. (2025), pp. 3–4, especially the discussion of Delta/J=cos(l pi/m) and Delta=0; DOI:10.1103/PhysRevLett.134.130404.",
+        "identifier_or_url": "DOI:10.1103/PhysRevLett.134.130404",
+        "material_read": "Full six-page open-access Physical Review Letters PDF, especially the rational-anisotropy and free-fermion discussion on pp. 3–4.",
+        "method": "Compare model, anisotropy parameters, boundary field orientation, and the stated MPS construction with the claimed recurrence obstruction.",
+        "title": "Hidden time reversal in driven XXZ spin chains: Exact solutions and new dissipative phase transitions",
+        "trigger": "Closest prior special-field XXZ steady-state construction cited by Popkov–Prosen."
+      },
+      {
+        "assessment": "It confirms that root-of-unity truncation is established background, but the available material does not show coverage of the exact one-end NESS compatibility equation. This remains a residual risk, not a claim of NOT_COVERING based on full-text inspection.",
+        "evidence": "Miao, Lamers, and Pasquier, arXiv:2012.10224; abstract-level comparison only.",
+        "identifier_or_url": "arXiv:2012.10224; SciPost Physics 11, 067 (2021)",
+        "material_read": "Abstract and bibliographic record only; full text was not inspected in this run.",
+        "method": "Compare stated scope (Q operator, transfer-matrix spectrum, truncated fusion/Wronskian relations) with the specific driven NESS recurrence.",
+        "title": "On the Q operator and the spectrum of the XXZ model at root of unity",
+        "trigger": "Relevant root-of-unity auxiliary-representation background."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c61006b3-7d5b-4e67-b288-41baa4c95eea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The free-fermion point is a standard XXZ regime, and rational anisotropies are known to have special auxiliary-space behavior. The exact compatibility condition identifies when a widely stated generic recurrence cannot be advanced from u_0=1 without additional treatment. This is a concrete, motivated boundary case; it does not overclaim nonexistence of a steady state.",
+    "status": "PASS"
+  }
+}
