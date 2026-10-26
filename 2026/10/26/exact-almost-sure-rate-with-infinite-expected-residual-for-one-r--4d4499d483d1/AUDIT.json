@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact diagonalized residual identity yields a new uniform perpendicular direction every time; the logarithmic norm increments after startup are integrable and one-dependent, permitting an even/odd strong law. Two elementary logarithmic circle integrals supply the asserted Lyapunov exponent. Conditioning on a non-eigenvector residual, the ratio of independent Gaussian coordinates has infinite p-moment for p≥1; that remains true at every iteration. The symbolic program checks the update identity and corroborates the angular formula; finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2111.00113v1 Sections 3.2–3.5",
+        "arxiv:2302.07466v1 Gaussian subspace embedding theory",
+        "arxiv:2311.14206v1 restarted GMRES projector and convergence sections"
+      ],
+      "reasoning": "The inspected general results require good subspace embeddings or give alternative projection update rates, and hence do not dominate the deliberately underdetermined, freshly resampled rank-one test sketch law. A preceding correction-direction line-search theorem changes the search direction instead of the test functional and gives a different rate.",
+      "searches": [
+        "GMRES sketch Krylov convergence estimates subspace embedding",
+        "randomized residual direction line search Gaussian test vs Gaussian correction planar exact Lyapunov log growth"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2111.00113",
+      "https://arxiv.org/abs/2302.07466",
+      "https://arxiv.org/abs/2311.14206"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nakatsukasa–Tropp sketched least-squares and embedding guarantees",
+        "Burke–Güttel–Soodhalter sketched restarted GMRES and residual convergence",
+        "Previous Gaussian Galerkin moment threshold, exact residual line-search exponent, and true-residual GMRES(1) bounds"
+      ],
+      "reasoning": "The central result is the joint almost-sure exact exponent and infinite first-and-higher residual moments of the repeatedly redrawn one-row TEST sketch. A heavy tail for one solve does not imply its sample-path rate. Previously reported rates for exact residual minimization or random correction directions concern different projection laws.",
+      "searches": [
+        "one-row sketch GMRES restarted every iteration exact almost-sure Lyapunov exponent log abs eigenvalue difference over sum despite infinite expected true residual",
+        "randomized residual direction line search Gaussian test vs Gaussian correction planar exact Lyapunov log growth",
+        "one dimensional random projection GMRES(1) new sketch every step mean square diverges"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2111.00113v1, sketched minimum residual equation",
+        "arxiv:2311.14206v1, sketched projector formula and restarted residual comparison"
+      ],
+      "reasoning": "A one-step Gaussian test sketch imposes a random hyperplane constraint on the residual rather than minimizing its actual Euclidean norm. The resulting direction equals the perpendicular of the Gaussian row, yielding a direction-reset property absent from the compared deterministic and correction-direction methods.",
+      "searches": [
+        "Gaussian Petrov Galerkin rank-one resampled one-row sketch GMRES(1) Lyapunov exponent",
+        "one-row sketch GMRES restarted every iteration exact almost-sure Lyapunov exponent log abs eigenvalue difference over sum despite infinite expected true residual"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked published mathematical-record results for stochastic GMRES(1), random sketch Gauss–Seidel, and Gaussian Krylov moment barriers",
+        "Closest known Galerkin single-solve heavy-tail results do not give multi-step Lyapunov rate"
+      ],
+      "reasoning": "No exact rate or finite-dimensional table covering this distributional recurrence appeared in the searched records. This negative search is only best-knowledge evidence and not a proof of uniqueness.",
+      "searches": [
+        "sketched GMRES(1) one scalar Gaussian measurement per restart 2x2 SPD optimal Richardson factor",
+        "unsafeguarded sketched minimal residual two eigenvalue system infinite first moment almost sure convergence"
+      ]
+    },
+    "rationale": "The exactly computed Lyapunov exponent for independently resampled scalar test sketches and simultaneous divergence of all positive-time moments is not implied by the inspected sketched-GMRES analyses, previous Gaussian correction-direction minimization, deterministic optimal Richardson rate, or Gaussian Galerkin single-solve moment laws.",
+    "residual_risks": [
+      "A conceptually equivalent result could be recorded under random Möbius products, randomly projected Richardson, or random hyperplane iterations in literature not inspected.",
+      "The same numerical rate is classical for optimally tuned deterministic Richardson, but equality of rates is not identity of algorithms; that coincidence alone is not presented as novelty.",
+      "The infinite-moment observation alone is implied by a Gaussian reciprocal pole and is not presented as a standalone new theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives the motivating sketched linear system algorithm and accurate-sketch theory, not one-row independently redrawn asymptotic laws",
+        "evidence": [
+          "arxiv:2111.00113v1, Section 3 and equations defining sketched residual minimization"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.00113",
+        "material_read": "Open full-text PDF, definition of sketched residual in the linear-system section and the corresponding embedding discussion",
+        "method": "Read text and inspect PDF relevant pages and equation context",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Original sketched residual minimization and embedding hypotheses"
+      },
+      {
+        "assessment": "Orthogonal projection sketching with embedding or quasioptimality; no rank-one refreshed test-sketch Lyapunov exponent found in inspected material",
+        "evidence": [
+          "arxiv:2302.07466v1, randomized projection and embedding theory"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.07466",
+        "material_read": "Open PDF mathematical preliminaries, randomized orthogonal projection/sketch embedding assumptions and convergence discussion",
+        "method": "Read full-text excerpts and inspect PDF page",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Possible general randomized projection theorem covering the claim"
+      },
+      {
+        "assessment": "Projector characterization and bounds under sketch embedding; no theorem for fresh one-row scalar sketch at every step or its infinite-moment pathwise separation found",
+        "evidence": [
+          "arxiv:2311.14206v1, sections 3–4 and sketched residual convergence discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.14206",
+        "material_read": "Open full-text PDF, sketched GMRES definition and algorithm, sketch projector theorem and residual-convergence sections",
+        "method": "Read equations, theorem contexts and inspected PDF page",
+        "title": "GMRES with Randomized Sketching and Deflated Restarting",
+        "trigger": "Closest named sketched restarted GMRES projector and convergence literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d4499d4-83d1-491b-a845-e340a7548c84",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves a natural sharp underembedding question for sketched residual solvers: unexpectedly, the worst possible first-and-higher residual moments coexist with the exact stable optimal Richardson pathwise rate in the definite planar case. It exposes a concrete mismatch between mean-risk and typical convergence outside the subspace-embedding regime, with a structural proof rather than one numerical example.",
+    "status": "PASS"
+  }
+}
