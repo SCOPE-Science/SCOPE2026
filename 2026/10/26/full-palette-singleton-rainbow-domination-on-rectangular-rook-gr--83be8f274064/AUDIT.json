@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Independent uncolored cells are a partial permutation. Exactly two colored intermediates serve each pair of uncolored cells, forcing a proper coloring of the doubled complete graph; all other neighbors occur in just one uncolored neighborhood, making the condition sufficient. The doubled clique edge-chromatic indices follow from matching-size lower bounds and exact one-factorization/near-factorization constructions. The parity and rectangular gap threshold, all coefficients and minimum values then follow for all 2<=m<=n; code checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lange (2026) proves generic lower bound from independence and exact formulas for cycles, Möbius ladders and cycle prisms; the generic rook bound gives only mn-m.",
+        "Žerovnik (2026) treats path-by-cycle cylinders with 3 labels, unlike K_m square K_n with degree-sized palette.",
+        "Achour arXiv:2608.07956 abstract links restricted independent rainbow domination on subdivision graphs with edge colorings, but the graphs and optimization are different."
+      ],
+      "reasoning": "Neither the ordinary independent-set lower bound nor restricted-family exact formulas forces attainability or failure on near-square rook products. The doubled clique index supplies extra shared-neighbor constraints. A separately published general theorem covering all matching supports has not been identified.",
+      "searches": [
+        "Rainbow k domination exact singleton-color 2q minus 2 domination of rook graphs Cartesian product K_q square K_q, parity q even odd",
+        "Singleton rainbow domination number full degree in Hamming graphs K_n cartesian K_n, rainbow neighborhood coloring and maximum independent set",
+        "arXiv:2610.06906v1, sections 3,5,6",
+        "doi:10.3390/math14162917",
+        "arXiv:2608.07956"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.06906v1",
+      "JIS-2024-24.3.7",
+      "doi:10.3390/math14162917",
+      "arXiv:2608.07956",
+      "published-finding corpus: All 2-rainbow dominating functions of complete multipartite graphs (published-finding corpus, 2026-10-04)",
+      "published-finding corpus: Neighborhood complexes of two-row rook graphs (published-finding corpus, 2026-10-11)",
+      "published-finding corpus: Integral and equivariant homology of three-cut complexes of rook graphs (published-finding corpus, 2026-10-11)",
+      "published-finding corpus: Exact rainbow connection of Dirac cycle powers (published-finding corpus, 2026-10-04)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lange Proposition 4: full-degree singleton rainbow weight is at least graph order minus independence number; for R_{m,n} gives mn-m.",
+        "Mertens ordinary domination counts placements that dominate empty cells, with no requirement that every empty cell sees every distinct color.",
+        "For odd m and n=m or m+1, doubled clique 2K_m has edge-chromatic index 2m, exceeding degree m+n-2 and yielding a strict +1 gap."
+      ],
+      "reasoning": "The earlier generic inequality does not exclude equality on odd square and near-square rook graphs. Conversely it does not classify every smaller matching as realizable. The new proof supplies both strict obstruction and matching constructions, so is not a corollary of the cited main results.",
+      "searches": [
+        "arXiv:2610.06906v1, section 3 Proposition 4 and sections 5,6, appendices",
+        "JIS-2024-24.3.7, sections 1-5",
+        "Every independent set of rook graph K_m square K_n can be the uncolored set of a singleton rainbow (m+n-2)-dominating function except full nonattacking rook placements when smaller dimension is odd and larger dimension at most one greater; doubled complete graph edge chromatic index",
+        "Rainbow neighborhood distinct colors at all uncolored rook squares equivalent to proper edge coloring 2K_k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Piotr Lange, arXiv:2610.06906v1 sections 2,3,5 and appendices distinguishes singleton functions from multi-label functions; no rook graph support classification there.",
+        "Mertens, JIS 27 (2024) Article 24.3.7 enumerates ordinary dominating rook sets, not forbidden uncolored supports.",
+        "published-finding corpus nearest: 2-rainbow complete multipartite functions concern a two-color requirement and a nonrook family."
+      ],
+      "reasoning": "The equivalent formulation is a rainbow transversal-coloring problem on rook-board complements: coloring all cells except a partial permutation so each absent position sees every degree label exactly once. Pairwise shared neighborhoods reduce it to the proper edge-coloring of doubled cliques. The searched records do not state this equivalence or the exceptional maximum support threshold.",
+      "searches": [
+        "Every independent set of rook graph K_m square K_n can be the uncolored set of a singleton rainbow (m+n-2)-dominating function except full nonattacking rook placements when smaller dimension is odd and larger dimension at most one greater; doubled complete graph edge chromatic index",
+        "Rook graph full-degree rainbow dominating set minimum mn-min(m,n) or plus 1 parity odd near square; count valid uncolored supports polynomial sum binomial products",
+        "Rainbow neighborhood distinct colors at all uncolored rook squares equivalent to proper edge coloring 2K_k",
+        "singleton rainbow domination K_m square K_n rook graph 2026",
+        "\"singleton rainbow\" \"rook\" graph product domination",
+        "arXiv:2610.06906v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mertens 2024 rook domination polynomial enumerates ordinary dominating sets, whose lower-degree coefficients and support meanings differ.",
+        "published-finding corpus rook graph hits returned neighborhood/three-cut homology or other invariants, not the present singleton-rainbow support table."
+      ],
+      "reasoning": "The new polynomial counts nonattacking, color-feasible uncolored placements; it coincides with the standard rook/independence polynomial when the exception indicator vanishes, and otherwise differs by deletion of precisely the maximum-size matching coefficient. It is distinct from Mertens's ordinary dominating-set polynomial and from any checked rainbow-support table. The conditional subtraction, not the classical rook coefficients, is the substantive enumeration contribution.",
+      "searches": [
+        "Rook graph full-degree rainbow dominating set minimum mn-min(m,n) or plus 1 parity odd near square; count valid uncolored supports polynomial sum binomial products",
+        "Mertens Domination Polynomial of the Rook Graph Journal of Integer Sequences 2024 24.3.7",
+        "JIS-2024-24.3.7",
+        "arXiv:2610.06906v1"
+      ]
+    },
+    "rationale": "The checked October 2026 same-parameter paper and older rook domination polynomial do not imply the exceptional nonattacking-support obstruction or the complete support realizability theorem. Ordinary matching coefficients are known; their conditional removal on odd near-square boards and associated minimum-weight correction are the substantive claims. No covering published-finding corpus record found; equivalent unindexed literature remains a residual risk.",
+    "residual_risks": [
+      "A mathematically equivalent full-degree singleton rainbow rook-graph result could exist under a nonindexed or alternative coloring formulation.",
+      "The full text of Achour arXiv:2608.07956 was not available in this run; its indexed abstract concerns different graphs and a different constrained parameter.",
+      "No independent expert priority verification was performed.",
+      "The 2026 cylindrical paper was read for substantial same-parameter definitions/results but its full bibliography was not exhaustively re-evaluated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same definition and general bound, but cycle, Möbius-ladder and prism applications do not give rook classification or support polynomial.",
+        "evidence": [
+          "arXiv:2610.06906v1 sections 2,3,5,6; Proposition 4; appendices A-C"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.06906v1",
+        "material_read": "Full accessible HTML through definitions, general bounds, selected regular-family theorem statements/proofs, generalized Petersen section and appendices",
+        "method": "Read public arXiv HTML and cross-checked results and covered graph classes",
+        "title": "Complexity, Bounds, and Exact Algorithms for Rainbow k-Domination in Regular Graphs",
+        "trigger": "Same singleton domination definition in regular graphs and October 2026 source date"
+      },
+      {
+        "assessment": "Counts ordinary dominating rook configurations, not singleton rainbow feasible uncolored configurations.",
+        "evidence": [
+          "Mertens JIS 27 (2024), Article 24.3.7, equations (1)-(3), definitions and main counting derivation"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf",
+        "material_read": "Full accessible ten-page article read: definitions, recurrence, main polynomial proof, tables, conclusions and references; relevant displayed mathematical pages visually inspected",
+        "method": "Read primary publisher PDF text and inspected first and third page renders",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same rook graph, polynomial of vertex sets"
+      },
+      {
+        "assessment": "Fixed three colors on products of paths and cycles, not degree-sized palettes on products of complete graphs.",
+        "evidence": [
+          "Žerovnik, Mathematics 14 (2026), 2917, preliminaries and bounds"
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/14/16/2917",
+        "material_read": "Public abstract and substantial mathematical methods and statements in accessible page text; full systematic bibliography not read",
+        "method": "Read online journal page and its theorem/methodology passages",
+        "title": "On Singleton 3-Rainbow Domination of Cylindrical Graphs",
+        "trigger": "Same singleton domination model in a Cartesian graph family"
+      },
+      {
+        "assessment": "Generalized prism/subdivision graph NP-hardness and edge-coloring correspondence do not assert rook matching support classification; full text uninspected.",
+        "evidence": [
+          "Achour, arXiv:2608.07956, indexed abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.07956",
+        "material_read": "Abstract and public record only; full paper fetch unavailable",
+        "method": "Inspected indexed abstract and compared stated family and parameter",
+        "title": "A Degree Threshold for Independent Domination in Generalized Prisms",
+        "trigger": "Edge-coloring reductions in rainbow-independent domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "83be8f27-4064-41f5-aa05-2bb7a632c17c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides a natural complete infinite-family classification and all-support enumerator for the same novel singleton rainbow parameter, not just an easy numerical bound. The overfull doubled-clique obstruction creates a sharp parity/aspect-ratio regime where generic alpha-based lower bounds fail, with explicit constructive realizability in every other case. It can guide larger neighborhood-conflict studies, while remaining a self-contained valuable exact result.",
+    "status": "PASS"
+  }
+}
