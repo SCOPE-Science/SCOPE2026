@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact factorial moments lead to R_j. The uniform all-j bound |R_j-1+δ(j)_2/2| <= K_t j^4/r² is proved by small-index logarithmic inequalities and large-index domination. Absolutely convergent factorial-moment inversion gives the explicit global signed ell-one remainder; reverse triangle inequality and Poisson moment continuity give the positive sharp TV constant and completion correction. Exact rational independent-group enumeration matches small distributions and verification script reproduces finite sample checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldstein–Reinert, Theorem 2.1, covers unequal fixed-cardinality random subsets and implies a first-order O(1/r) bound; exact sharp coefficient is not provided.",
+        "Hwang–Zacharovas (2011), abstract: uniform Poisson approximation for independent Bernoulli sums, which does not directly include dependent fixed-size subset intersections."
+      ],
+      "reasoning": "The 2005 model is strictly broader in subset-size parameters but only provides a weaker TV bound. General Charlier and Poisson-expansion methods may reduce the proof effort, but a covering dependent-set expansion was not established from the inspected material; see residual risk.",
+      "searches": [
+        "Goldstein Reinert Poisson subset numbers refinement sharp constant second Charlier",
+        "Hwang Zacharovas uniform asymptotics Poisson approximation Poisson-binomial distribution pdf",
+        "Barbour 1987 asymptotic expansions in the Poisson limit theorem dependent indicators factorial moments poisson charlier"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.07485 (full paper sections and theorem hypotheses)",
+      "doi:10.1017/jpr.2023.6 (full article HTML)",
+      "Goldstein–Reinert 2005 author manuscript (main result and exact finite discussion)",
+      "doi:10.1137/S0040585X97984784 (abstract only)",
+      "doi:10.1080/15326349.2026.2669925 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Betken–Thäle arXiv:2202.07485 theorem 3: fixed s and k=(n/s)(log n+x); our regime fixes k=t and s=n-r_n.",
+        "Goldstein–Reinert 2005 theorem 2.1: dTV upper bound from coupling, not an asymptotic equality.",
+        "Published finding on Poisson-binomial cumulant effective-trial bounds: independent Bernoulli cumulant bounds, not uniform fixed-size subset intersections.",
+        "Published finding on balanced nonuniform reset coupon rates: reset coupon collector with catastrophes, not t independent large groups."
+      ],
+      "reasoning": "Neither quoted theorem implies the signed O(r^-2) remainder or positive sharp limit constant. The exact same object is already known, so priority rests solely on the stronger quantitative conclusion, not on introducing the intersection representation.",
+      "searches": [
+        "number of uncovered coupons in independent nearly complete group draws; first order Poisson Charlier correction with n(r/n)^t limit constant and exact total variation constant",
+        "intersection count independent random fixed size subsets exact signed Poisson-Charlier expansion second factorial cumulant and sharp total variation coefficient",
+        "2023 Betken Thale group drawings uncovered coupons batch size n-r fixed t draws and Poisson total variation asymptotic",
+        "Goldstein Reinert Poisson subset numbers refinement sharp constant second Charlier"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goldstein–Reinert 2005 author manuscript, Theorem 2.1: same subset intersection variable and explicit TV upper bound, not a signed expansion.",
+        "Betken–Thäle arXiv:2202.07485 §2: coupon group drawings, but fixed package size and k proportional to n log n."
+      ],
+      "reasoning": "The missing-coupon count equals intersection size of independent omitted fixed-cardinality sets, so both formulations were searched. The closest identical-object theorem gives a vanishing upper bound, not the signed correction with quadratic remainder or exact coefficient.",
+      "searches": [
+        "Sharp first-order total variation asymptotics for Poisson approximation to intersection of independent uniformly chosen fixed-cardinality subsets; Poisson-Charlier expansion, second factorial cumulant",
+        "Group coupon collector with batch size n-r approaching n, missing coupon count, exact Poisson-Charlier correction and sharp total variation constant",
+        "Poisson Charlier expansion random sets intersection count sharp first order TV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Goldstein–Reinert §3 discusses exact subset-number probabilities from earlier 2004 work; those finite probabilities do not tabulate this uniform signed expansion or its sharp TV coefficient.",
+        "Published mathematical finding on Poisson asymptotics for uniform set partitions concerns independent partitions and shared vertex pairs, a different random object."
+      ],
+      "reasoning": "Finite exact inclusion-exclusion formulas can in principle yield the present coefficients, but neither a table of these critical-regime coefficients nor a result implying them without additional analysis was located.",
+      "searches": [
+        "intersection count independent random fixed size subsets exact signed Poisson-Charlier expansion second factorial cumulant and sharp total variation coefficient",
+        "Goldstein Reinert 2006 Poisson subset numbers first order expansion and exact variation constant"
+      ]
+    },
+    "rationale": "The closest same-object manuscript, Goldstein–Reinert (2005/2006), establishes only a Poisson limit and a nonsharp TV bound for random-set intersections. Betken–Thäle (arXiv 2022) handles different batch/time scaling. The explicit second-Charlier signed estimate with quadratic-order uniform remainder and consequent sharp variation coefficient was not in inspected relevant results; possible general-expansion subsumption remains a disclosed priority risk.",
+    "residual_risks": [
+      "Classical general Poisson–Charlier expansions may imply the present signed estimate after a specialization; no accessible theorem matching this dependent random-subset regime was verified.",
+      "Full text of the 2011 Hwang–Zacharovas comparison paper was not inspected.",
+      "The 2026 near-complete-group study was inaccessible beyond abstract; its exact focus is expected completion time, not certified noncoverage.",
+      "A failed published-finding corpus search is not mathematical proof of historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover fixed-round, n-r package critical Poisson–Charlier expansion.",
+        "evidence": [
+          "arXiv:2202.07485, pp.1–3, theorem 3; journal DOI:10.1017/jpr.2023.6, §2 theorem 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.07485",
+        "material_read": "Abstract, model in §1, stated limit theorems in §2, hypotheses and reference discussion.",
+        "method": "Public arXiv version text and first-page image; journal full HTML consulted.",
+        "title": "Approaching the coupon collector’s problem with group drawings via Stein’s method",
+        "trigger": "Exact group-drawing model and verified primary MSC 60C05; earliest version 15 February 2022."
+      },
+      {
+        "assessment": "Covers Poisson limit and nonsharp TV upper bound, not the claimed signed expansion or sharp constant.",
+        "evidence": [
+          "Goldstein–Reinert (2005/2006), Theorem 2.1, eqs. (9)–(11), §3."
+        ],
+        "identifier_or_url": "https://www.stats.ox.ac.uk/~reinert/papers/poissonsubset.pdf",
+        "material_read": "Definition and factorial expectations, Theorem 2.1 including explicit inequalities (9)–(11), proof argument, §3 exact-probability discussion.",
+        "method": "Open-author manuscript full text, including rendered theorem page.",
+        "title": "Total Variation Distance for Poisson Subset Numbers",
+        "trigger": "Exact same dependent intersection size under independent fixed-cardinality draws."
+      },
+      {
+        "assessment": "Independent-indicator setting differs, but a generic technique could conceivably specialize; NOT asserted to be noncovering without full text.",
+        "evidence": [
+          "Hwang–Zacharovas (2011), abstract; full-text comparison outstanding."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/S0040585X97984784",
+        "material_read": "Abstract, keywords, bibliography, and methodological scope only; full text not accessed.",
+        "method": "Public abstract/metadata inspection.",
+        "title": "Uniform Asymptotics of Poisson Approximation to the Poisson-Binomial Distribution",
+        "trigger": "Potentially dominating sharp Poisson–Charlier variation expansions."
+      },
+      {
+        "assessment": "No full-document noncoverage conclusion; potential comparison risk retained.",
+        "evidence": [
+          "2026 publisher abstract describes three package-size regimes and expected completion time."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/15326349.2026.2669925",
+        "material_read": "Accessible abstract only, which studies expected number of rounds; full HTML fetch denied.",
+        "method": "Publisher search snippet and abstract; full-text access attempted.",
+        "title": "Asymptotic results for uniform group drawing in the coupon collector’s problem",
+        "trigger": "Explicitly considers packages very close to all n types."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f667a27-993c-4b1a-914b-4415ab5d013d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural fixed-round critical covering window has nontrivial chance of complete collection; the work supplies the exact leading discrepancy to Poisson calibration and a uniform explicit finite-n signed law. The crucial 1/n term matters when t>2 and can dominate the O(r^-2) remainder. This improves the quality and interpretation of an established approximation for a standard combinatorial-probability object.",
+    "status": "PASS"
+  }
+}
