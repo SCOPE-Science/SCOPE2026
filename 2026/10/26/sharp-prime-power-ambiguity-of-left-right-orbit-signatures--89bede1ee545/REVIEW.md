@@ -1,0 +1,11 @@
+# Review: sharp prime-power ambiguity of left-right orbit signatures
+
+**Correctness — PASS.** The unique negative return of the second-smallest point forces every admissible multiplier to satisfy \((u-1)t_0\equiv0\pmod{p^k}\), bounding the number by \(p^{k-1}\). For the digit-reversal cycle, the first altered base-\(p\) digit determines every comparison sign; units congruent to \(1\pmod p\) preserve that digit at all phases and times. Both inclusions and boundary cases are handled in the proof. A standalone finite program checks the construction and exhaustively enumerates all cyclic permutations at sizes \(4\), \(8\), and \(9\); these checks are not an infinite proof.
+
+**Originality — PASS under inspected evidence.** Fuhrmann, Gröger, and Passeggi (arXiv:2610.07435v1, Section 2) prove prime-cycle reconstruction and acknowledge composite examples; neither statement supplies the optimal all-prime-power number of indistinguishable generating powers. The closest published indexed finding improves prime-length reconstruction time, not the composite multiplicity. Related cyclic arithmetic and digit-reversal aliases were queried. Priority under unexamined terminology is a residual risk, and an indexed summary is not a whole-document inspection.
+
+**Value — PASS.** The sharp \(N/p\) ambiguity, universal second-smallest-point obstruction, and explicit digit-reversal extremizer quantify a natural information-loss boundary for complete orbit comparison data, motivated by the distinction between prime and composite periods in interval-map rigidity. The theorem is intentionally limited to power-related permutations, a mathematically coherent invariant; it neither counts all unrelated consistent cycles nor extrapolates to arbitrary continuous maps.
+
+**Closest literature and limitations.** Primary: *Period spectrum and rigidity of interval maps*, arXiv:2610.07435v1, Section 2, Lemma 2.1 and Figure 2. A related indexed finding on quadratic-time prime reconstruction has only prime-length scope. The all-prime-power multiplicity may have a historical p-adic order-pattern antecedent not located by the queries. No independent human validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
