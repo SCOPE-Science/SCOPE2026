@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every 2<=k<=n-2 the primitive normal rays at each k-subset vertex form one n-ray circuit with two signs of sizes k and n-k. The two triangulations have cones obtained by omitting one ray, whose n-1 signed coordinate rays are integral bases. All proper faces are smooth, so choices glue independently and smallness excludes new rays. Toric support heights on the 2n original rays give circuit bends sum_{j in B}(a_j+b_j)-sum_i b_i, exactly the k-subset-sum arrangement. Relative strict convexity and ampleness of the projective target make the chamber criterion necessary and sufficient. The Gorenstein test is the sum-zero dual lattice equation. The standalone exact checker verifies local determinants and independently evaluates 46 and 332 using the Whitney-Zaslavsky formula; general conclusions follow from proofs, not enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feichtner--Sturmfels arXiv:math/0411260 provides general matroid fan refinements.",
+        "Wang--Yu arXiv:1707.04581 covers arbitrary hypersimplex ranks and cohomological invariants.",
+        "Historical general capped-box normal-fan singular strata cover the local determinantal inputs but not global small resolutions."
+      ],
+      "reasoning": "The closest broad toric statements give structural cone descriptions or cohomology, not the count of complete smooth small fans or coherence of all local choices. General circuit-flip theory is a proof tool, but its application simultaneously to all isolated hypersimplex cones and the precise chamber criterion is the proposed claim.",
+      "searches": [
+        "normal fan hypersimplex Delta(k,n) toric variety isolated rank-one determinantal cones binomial many singular points independent two small crepant resolutions each 2^(binomial(n,k)) choices",
+        "uniform matroid generic torus orbit closure in Grassmannian Q factorial small modifications toric Q-factorializations thresholds subset sum sign patterns",
+        "regular triangulations dual hypersimplex local circuit free sum simplices subdivisions chambers k-uniform threshold arrangement",
+        "hypersimplex normal fan resolutions toric GIT chamber resonance arrangement equal subset sums",
+        "\"generic torus orbit closure\" \"threshold graph\" resolutions"
+      ]
+    },
+    "checked_sources": [
+      "Feichtner--Sturmfels, arXiv:math/0411260, §§2 and 6 (historical matroid polytope/normal-fan setting)",
+      "Wang--Yu, arXiv:1707.04581, §§1--3 (torus orbit closure, normal-fan face structure, Chow invariants)",
+      "Deshpande--Menon--Singh, arXiv:2103.03865 and ECA 2021 §§1 and 3, Table 1 (threshold arrangement regions, values 46 and 332)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The local rank-one matrix-cone description and its singularities follow from known hypersimplex toric geometry.",
+        "Wang--Yu §§1--3: singular family and cohomological computations, no small-resolution enumeration.",
+        "Deshpande--Menon--Singh §§1,3/Table 1: arrangement regions, not toric resolutions."
+      ],
+      "reasoning": "The union of published input facts suggests the new theorem after applying an additional global fan and support-function argument, but no inspected result states or immediately implies the necessary-and-sufficient correspondence between *all* toric small resolutions and coherent subset-sum orientations. No novelty claim is made for the antecedent local facts, the general criterion for toric support functions, or the known chamber numbers.",
+      "searches": [
+        "normal fan hypersimplex Delta(k,n) toric variety isolated rank-one determinantal cones binomial many singular points independent two small crepant resolutions each 2^(binomial(n,k)) choices",
+        "toric normal fan hypersimplex 4 2 octahedron six conifold singularities 64 small resolutions 46 projective",
+        "regular triangulations dual hypersimplex local circuit free sum simplices subdivisions chambers k-uniform threshold arrangement",
+        "projective smooth small resolutions normal fan hypersimplex degree k n, independent circuit subdivisions, labelled threshold graphs projectivity 46 332",
+        "\"hypersimplex\" \"small resolutions\" projective",
+        "\"dual hypersimplex\" \"resolution\" \"projective\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The toric variety is also a generic Grassmannian torus-orbit closure (Wang--Yu arXiv:1707.04581).",
+        "The rank-two projectivity arrangement is the labeled-threshold-graph arrangement (Deshpande--Menon--Singh arXiv:2103.03865)."
+      ],
+      "reasoning": "Checked the exact target under dual hypersimplex, generic Grassmannian torus closure, secondary-fan circuit subdivision, toric small resolutions, and threshold-graph chamber aliases. The threshold-arrangement result covers the chamber count, but not the toric classification or geometry-to-combinatorics identification.",
+      "searches": [
+        "uniform matroid generic torus orbit closure in Grassmannian Q factorial small modifications toric Q-factorializations thresholds subset sum sign patterns",
+        "regular triangulations dual hypersimplex local circuit free sum simplices subdivisions chambers k-uniform threshold arrangement",
+        "projective smooth small resolutions normal fan hypersimplex degree k n, independent circuit subdivisions, labelled threshold graphs projectivity 46 332",
+        "\"dual hypersimplex\" \"resolution\" \"projective\"",
+        "\"hypersimplex\" \"threshold graphs\" \"small resolutions\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Deshpande--Menon--Singh 2021 Table 1 records 46 and 332 for the threshold arrangement.",
+        "An exact independent Whitney-subset chamber check yields 46 and 332."
+      ],
+      "reasoning": "The integers 46 and 332 are **not** claimed new as arrangement counts. The equal counts of projective resolutions are a geometric identification not given by the known table; the total counts 64 and 1024 arise from toric fan choices.",
+      "searches": [
+        "toric normal fan hypersimplex 4 2 octahedron six conifold singularities 64 small resolutions 46 projective",
+        "projective smooth small resolutions normal fan hypersimplex degree k n, independent circuit subdivisions, labelled threshold graphs projectivity 46 332",
+        "hypersimplex normal fan resolutions toric GIT chamber resonance arrangement equal subset sums"
+      ]
+    },
+    "rationale": "The newly isolated statement is the global count of smooth torus-equivariant small resolutions over all hypersimplex normal-fan varieties and its if-and-only-if projectivity criterion via a subset-sum arrangement. Historical work already gives rank-one cone singularities and Gorenstein behavior; these inputs are not claimed new. Wang--Yu supplies this exact toric family but addresses cohomology, while Deshpande--Menon--Singh supplies the threshold arrangement and the already-known 46/332 counts without their toric-resolution interpretation. Literature searches and available historical claims revealed no implication that encompasses the new global classification. Secondary-fan reformulations remain a material residual risk.",
+    "residual_risks": [
+      "A secondary-fan, Mori-dream-space, or variation-of-GIT source not identified here may already state an equivalent geometric chamber classification.",
+      "General toric circuit subdivision techniques make the argument short; the novelty lies in the exact natural family and the global criterion, not those standard tools.",
+      "Current comparison covers accessible primary material and available historical records, not every possible earlier work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides normal-fan and matroid-polytope foundation but not the all-rank small-resolution choice count or the projectivity hyperplane arrangement.",
+        "evidence": [
+          "arXiv preprint originally submitted 2004-11-11",
+          "Sections discuss matroid polytopes, Bergman fans and compactifications; claims concern different fan refinements."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0411260",
+        "material_read": "Introduction; the matroid-polytope and toric/compactification discussions (§§2,6) and main paper structure",
+        "method": "Read accessible primary arXiv text; searched core terms and compared statements",
+        "title": "Matroid polytopes, nested sets and Bergman fans",
+        "trigger": "Oldest verified preprint grounding hypersimplex and matroid normal-fan geometry"
+      },
+      {
+        "assessment": "Identifies the target as generic Grassmannian torus-orbit closure, studies its toric h-vectors and Chow cohomology; it does not state the small-resolution classification or projectivity chamber equivalence.",
+        "evidence": [
+          "The introduction explicitly identifies X(k,n) as the toric variety of the normal fan of the hypersimplex.",
+          "The theorems determine h-vectors and Chow cohomology, not small resolutions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1707.04581",
+        "material_read": "Full accessible text §§1--3, including Lemma 2.1 and the Chow-Betti analysis; searched for resolution and smoothness discussions",
+        "method": "Direct reading of primary arXiv HTML full text and full-text term searches",
+        "title": "Toric h-vectors and Chow Betti Numbers of Dual Hypersimplices",
+        "trigger": "Exact same projective toric variety and normal fan in all ranks"
+      },
+      {
+        "assessment": "Already proves the classical chamber correspondence with labeled threshold graphs and records 46 and 332. Does not identify the chambers as projective resolutions of hypersimplex toric varieties.",
+        "evidence": [
+          "Section 1, lines defining x_i+x_j=0, relates regions to labeled threshold graphs.",
+          "Table 1 records 46 chambers at n=4 and 332 at n=5."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.03865",
+        "material_read": "Full introductory definitions and main theorem, §3, Table 1 of the published 2021 PDF, and the later explanation of the threshold-graph bijection",
+        "method": "Read the primary published PDF with page screenshot of first page and text for §§1 and 3",
+        "title": "A Combinatorial Statistic for Labeled Threshold Graphs",
+        "trigger": "Exact same chamber arrangement when k=2, and the numerical counts 46 and 332"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "baead43d-bea9-4de3-9de6-8bdfd2667153",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete birational-geometric classification for a natural infinite family (generic torus orbit closures in Grassmannians). It distinguishes projective from nonprojective smooth small resolutions, provides exact finite counts and a general chamber counting mechanism, identifies all exceptional fibers, and for k=2 connects toric birational models to labeled threshold graphs. In particular 18 of 64 small resolutions of the octahedral hypersimplex toric threefold are provably nonprojective. This structural projectivity boundary is not merely re-evaluating an existing table.",
+    "status": "PASS"
+  }
+}
