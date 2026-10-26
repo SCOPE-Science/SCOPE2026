@@ -1,0 +1,11 @@
+# Scientific review: finite-agenda Borda displacement
+
+**Correctness: PASS.** The inequality \((r+1)d<r(m-1)\) is forced by the position of at least \(r+1\) peaks on the median side and by the maximum \(m-1\) rank gap for the remaining voters. An explicit two-ballot-type single-peaked profile has score gaps \((r+1)a-y>0\) against every more extreme rival and wins against every less extreme rival; the sharp integer conversion and minimal-electorate corollary follow. Recomputed exact examples and all checks in `verify.py` and `certificate.json` agree. There is no appeal to finite checks for the infinite parameter statement.
+
+**Originality: PASS, with bibliographic risk.** Black's median theorem is prior; Feld–Grofman already identify finite-agenda Borda–Condorcet separation but do not bound its maximum axis distance for every electorate and agenda size. Klamler studies distance in ranking/profile space, while Mousseau–Surugue–Wilczynski study outcomes under distributions over single-peaked ballots. Public mathematical research records on voting discrepancies were queried for equivalent, stronger, or tabulated coverage. No checked statement implies the exact two-parameter sharp formula and construction. A differently termed old extremal theorem remains possible; this review is not a priority certificate.
+
+**Value: PASS.** The quantity is a directly interpretable worst-case ideological displacement between a majoritarian median decision and a prominent aggregate-rank rule, not a hand-picked example. It determines the complete sharp dependence on agenda size and electorate size, including the exact \(2m-1\)-voter threshold for almost-maximal displacement. This quantifies the finite-agenda fragility emphasized in earlier spatial Borda studies, despite the classical continuous-domain coincidence.
+
+**Limits.** The result assumes unique Borda winners, odd electorates, strict single-peaked preferences, a common ordered finite agenda, and candidate-index distance; correlated cardinal policy distances or different rules are outside scope. Historical bibliographic completeness and independent audit remain unresolved.
+
+Self-review: passed. Independent audit: not yet performed.
