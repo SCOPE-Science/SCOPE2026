@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on a collision-free prefix of length b yields exactly b observed coupon types, hence E[cover time|first collision after b]=b+m H_(m-b). Summing covariance against the tail indicators for the first-collision time (including the m+1 endpoint) yields the strictly negative finite sum. Independently, conditioning on the actual first-collision index b yields b plus independent geometric waiting stages and a strict first-order stochastic ordering, with m+1 handled separately. Gaussian domination for b up to m/2 and exponentially small survival for b>m/2 justify the Riemann-sum limit -sqrt(pi/8). Rayleigh moment convergence and the exact variance of independent geometric collection stages give the m-scaled correlation constant. A standalone exact-rational verifier cross-checks two genuinely different covariance recurrences for all m=2..60, and 1947 rational identities/inequalities; this is supplemental to the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "O'Neill (2022), doi:10.1007/s11009-022-09966-x, develops occupancy-threshold waiting times via independent geometric stages.",
+        "Pósfai (2010), arXiv:1006.3531v1, studies marginal coupon completion and independent geometric decomposition.",
+        "Flajolet–Gardy–Thimonier (1987), INRIA RR-0720, present general combinatorial techniques for separate stopping distributions.",
+        "Holst (1986), doi:10.2307/1403255: available abstract describes a unified Poisson embedding for generic birthday and collector occupancy stopping times and their exact/asymptotic single-threshold laws; source text inaccessible."
+      ],
+      "reasoning": "A broad occupancy-threshold theorem determines additional waiting time given the present occupied count but does not automatically yield the joint law conditioned on the random first-collision time. The first collision event includes a repeated draw and creates an m+1 boundary state; converting known occupancy stages into an exact covariance and its sharp asymptotic is additional reasoning not stated in the examined material. General source methods could potentially imply the theorem if applied to the mixed pair, but their inspected published results do not already cover its statement. Holst (1986) is a plausible broader source: generic urn hitting-time distributions do not imply a paired birthday/coverage covariance without a joint construction, but its inaccessible main text leaves an explicit historical-priority risk.",
+      "searches": [
+        "Conditioned on first repeated coupon time b, full coupon collection completion time stochastically decreases in b, geometric decomposition",
+        "first collision time and coupon cover time Rayleigh Gumbel asymptotic covariance dependence",
+        "joint first birthday repeat and full coupon coverage exact regression stochastic domination",
+        "O'Neill negative occupancy coupon collector geometric waiting time conditional occupied bins",
+        "Holst 1986 On Birthday Collectors Occupancy and Other Classical Urn Problems full text pdf arxiv",
+        "Holst 1986 International Statistical Review 54 15 27 PDF JSTOR DOI 10.2307/1403255"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet, Gardy, Thimonier, INRIA RR-0720 (1987), HAL inria-00075832 (digital deposit 2006-05-24), Sections 3 and 4",
+      "Pósfai arXiv:1006.3531v1, introduction and coupon waiting-time decomposition",
+      "Gardy, Occupancy urn models in analysis of algorithms, birthday/coupon sections",
+      "O'Neill, doi:10.1007/s11009-022-09966-x, occupancy-threshold geometric decomposition",
+      "published-finding corpus ID public finding 4b975bda1dac (successive species-discovery covariance) (semantic summary, not full document)",
+      "published-finding corpus ID public finding 0e6fb380867b (four-key collision envelope) (semantic summary, not full document)",
+      "published-finding corpus ID public finding 7b9ca5a2ebed (balanced nonuniform reset coupon rates) (semantic summary, not full document)",
+      "Holst (1986), doi:10.2307/1403255 (title and abstract only; original full text inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "RR-0720 explicitly separates birthday and coupon analysis; the marginal means are not sufficient to infer the cross-covariance.",
+        "O'Neill provides the coupon geometric increment component already credited in the proof.",
+        "published-finding corpus nearest public finding 7b9ca5a2ebed (balanced nonuniform reset coupon rates) treats reset coupon collectors with heterogeneity penalties, a distinct process.",
+        "published-finding corpus public finding 0c331de546b4 (pairwise-independent occupancy reduction) treats pairwise independent occupancy collision probabilities, not the iid all-type completion time.",
+        "Holst 1986 abstract defines a stopping problem until k urn categories have reached m occurrences, which encompasses classical birthday and coupon times separately, but the abstract does not state a joint mixed moment."
+      ],
+      "reasoning": "Known geometric stages and collision survival jointly permit computation, but the separately stated marginal theorems have no implication specifying their covariance. The exhibited tail-sum argument is the bridge: E[C 1_{B>b}] is obtained only after conditioning on the collision-free prefix. The sharp sqrt(m) cancellation and inverse-m correlation require full joint calculation and normalization. The identified published-finding corpus records concern different stopping objects or dependence hypotheses, so neither dominates this exact iid pair theorem.",
+      "searches": [
+        "coupon collector cover time first repeat birthday collision covariance negative dependence",
+        "Conditioned on first repeated coupon time b, full coupon collection completion time stochastically decreases in b, geometric decomposition",
+        "first collision time and coupon cover time Rayleigh Gumbel asymptotic covariance dependence",
+        "joint first birthday repeat and full coupon coverage exact regression stochastic domination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical first-repeat time also called birthday collision time; complete sampling also called cover/collection time.",
+        "RR-0720 Sections 3–4 provide birthday and coupon formulations separately. The inspected text does not give a joint covariance or monotone regression statement.",
+        "published-finding corpus occupancy proximity: public finding 4b975bda1dac (successive species-discovery covariance) concerns one-step discovery indicators, not the first-collision/last-discovery stopping-time pair.",
+        "Under standard Poisson embedding, first repeated coupon is the minimum across types of second-arrival times and coverage is the maximum of their first-arrival times; passing back to discrete draw indices is nontrivial."
+      ],
+      "reasoning": "Both first collision and first repeat refer to B, and last discovery and complete cover refer to C. Marginal birthday survival and coupon completion waiting-time laws do not specify their dependence. The new formula is a mixed expectation of B and C, with a strict conditional order across each possible B. No equivalent statement surfaced in queried records or examined primary sections; incomplete historical coverage remains a limitation. An alternative Poisson/Erlang representation uses the minimum of second arrival times and maximum of first arrival times on common independent Poisson streams. Search of this dual representation did not yield a directly matching covariance identity; knowing separate gamma extreme-value laws does not by itself give the joint discrete-time mixed moment.",
+      "searches": [
+        "coupon collector cover time first repeat birthday collision covariance negative dependence",
+        "birthday paradox first collision time coupon collector complete collection time covariance",
+        "coupon collector hitting all types given first duplicate time",
+        "Uniform coupon collector first repeated type birthday collision B and complete cover collection C have strictly negative covariance asymptotic sqrt(m) constant sqrt(pi/8)",
+        "minimum second arrival time maximum first arrival time Poisson coupon collector birthday joint covariance",
+        "Poissonized coupon collection max first arrivals versus min second arrival covariance de-Poissonization",
+        "Erlang gamma order statistics minimum second event maximum first event joint birthday coupon times"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent rational calculations give covariance at m=2,3,4 equal to -1/2,-8/9,-37/32 respectively.",
+        "published-finding corpus search: public finding 0e6fb380867b (four-key collision envelope) studies an injective-prefix probability envelope under three-wise independent hashing, not the full collection time.",
+        "No exact table of mixed birthday–coverage covariance was encountered in the targeted searches."
+      ],
+      "reasoning": "Collision-free-prefix tables are not equivalent to the joint covariance of two stopping times, and the birthday marginal cannot recover a covariance without the conditional coverage law. Negative searches are not evidence of unique priority; the disclosed old-literature risk persists.",
+      "searches": [
+        "Uniform coupon collector first repeated type birthday collision B and complete cover collection C have strictly negative covariance asymptotic sqrt(m) constant sqrt(pi/8)",
+        "\"first repeat\" \"coupon collector\" \"covariance\"",
+        "\"birthday\" \"coupon\" \"first repetition\" \"collection\" \"correlation\"",
+        "\"-8/9\" \"-37/32\" coupon covariance birthday"
+      ]
+    },
+    "rationale": "The motivating classical literature establishes the separate first-repeat/birthday and coupon-completion marginal laws and the independent geometric-stage construction, but the inspected primary sections do not state or logically imply the quantitative joint dependence theorem: first-collision-index-conditioned stochastic order, exact strictly negative covariance, and the sharp inverse-m correlation rate. Multiple targeted semantic searches yielded adjacent but different occupancy and birthday statements, none with matching joint objects and quantifiers. The claim uses known marginal tools; the contribution lies in deriving their nontrivial joint mixed-moment law. This is a best-knowledge priority judgment, with residual risk of an equivalent uninspected old occupancy result. Holst (1986) is a highly relevant general birthday/coupon framework whose original full text was inaccessible; the abstract appears to study generic single stopping times, not this paired mixed moment, but historical coverage is not asserted.",
+    "residual_risks": [
+      "Historical priority might be affected by older joint birthday/coupon occupancy work outside inspected primary sections or unavailable scans.",
+      "Several adjacent published-finding corpus sources were compared using returned semantic summaries and not asserted to have been read in full; none surfaced a decisive closer title requiring further comparison.",
+      "The theorem depends crucially on uniform independent sampling; its covariance sign may behave differently in heterogeneous models.",
+      "Holst (1986), doi:10.2307/1403255, original full text inaccessible despite arXiv/open-access searches and an unsuccessful authorized institutional attempt. Its generality makes possible uninspected joint treatment a notable priority risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal birthday and coupon results, not the specified mixed covariance/conditional order in the sections inspected; remaining chapters not asserted to be fully excluded.",
+        "evidence": [
+          "Report dated 1987, archival copy front matter reports HAL submission 2006-05-24.",
+          "Sections 3 and 4 discuss first collisions and full collection individually."
+        ],
+        "identifier_or_url": "INRIA RR-0720 (1987); HAL inria-00075832; https://ftpmirror.your.org/pub/misc/bitsavers/pdf/stanford/Stanford_CS_TR_Collection_2025-12-12/PDF/pdf/RR-0720-ocr.pdf",
+        "material_read": "Front matter and the directly relevant birthday and coupon sections, including Theorem 1/Corollary 2 and Theorem 2/Corollary 3; PDF page images and parsed text.",
+        "method": "Inspected accessible lawful full report scan, read relevant theorem statements and supporting discussions.",
+        "title": "Birthday paradox, coupon collectors, caching algorithms and self-organizing search",
+        "trigger": "Both named sampling problems occur in one historical primary text."
+      },
+      {
+        "assessment": "Develops marginal coupon-completion approximations and independently geometric stages; no exact birthday–collection covariance located in inspected passages.",
+        "evidence": [
+          "Coupon waiting time expressed as sum of geometric stages; marginal approximation theorems."
+        ],
+        "identifier_or_url": "arXiv:1006.3531v1 (2010-06-17); https://arxiv.org/pdf/1006.3531",
+        "material_read": "Introduction, model description, geometric waiting-time decomposition, selected chapter descriptions; checked key terms in full extracted document.",
+        "method": "Inspected open-access arXiv PDF and page images and searched topic-specific phrases.",
+        "title": "Approximation Theorems Related to the Coupon Collector's Problem",
+        "trigger": "Potential general strong joint limit or marginal collection theorem."
+      },
+      {
+        "assessment": "Birthday and coupon questions discussed as separate occupancy statistics; no matching first-repetition-to-full-cover regression or sharp covariance found in inspected material.",
+        "evidence": [
+          "Classical occupancy-stage presentations and birthday stopping criteria."
+        ],
+        "identifier_or_url": "https://danielegardy.github.io/SourcesPubli/survey_alloc_aleatoires.pdf",
+        "material_read": "Introduction and birthday/coupon problem sections; keyword-located relevant text and a page-image check.",
+        "method": "Read web-accessible PDF extraction and relevant displayed formulas.",
+        "title": "Occupancy urn models in analysis of algorithms",
+        "trigger": "Survey might include the joint birthday/coverage statistic under occupancy terminology."
+      },
+      {
+        "assessment": "General occupancy-threshold waiting-time laws are prior foundations, but not an explicitly equivalent B,C joint covariance/sign/asymptotic statement.",
+        "evidence": [
+          "Independent geometric occupancy-stage waiting times are established background, used without novelty claim."
+        ],
+        "identifier_or_url": "doi:10.1007/s11009-022-09966-x; https://link.springer.com/article/10.1007/s11009-022-09966-x",
+        "material_read": "Open publisher HTML of introductory and principal occupancy/decomposition sections, with in-page searches for first repeat, joint and covariance.",
+        "method": "Read accessible full-text HTML and compared event definitions and quantifiers.",
+        "title": "An Examination of the Negative Occupancy Distribution and the Coupon-Collector Distribution",
+        "trigger": "Potential broader occupancy-threshold theorem that might subsume conditional coverage statements."
+      },
+      {
+        "assessment": "Abstract appears to develop a unified family of single stopping-time marginals, but original results/appendices remain unread. Material is insufficient for NOT_COVERING; historical-priority residual risk explicitly retained.",
+        "evidence": [
+          "DOI 10.2307/1403255 and 1986 International Statistical Review 54(1):15–27.",
+          "Abstract: unified Poisson process embedding for waiting until k urn types reach prescribed multiplicity; exact and asymptotic results."
+        ],
+        "identifier_or_url": "Holst (1986), doi:10.2307/1403255; https://doi.org/10.2307/1403255",
+        "material_read": "Bibliographic publisher/author abstract describing Poisson embedding, the general single stopping-time definition and exact/asymptotic results; original full text not obtained.",
+        "method": "Searched author-title arXiv and open-access sources; then requested authorized institutional access, which was unavailable. Compared precise abstract scope, not unviewed theorems.",
+        "title": "On Birthday, Collectors', Occupancy and Other Classical Urn Problems",
+        "trigger": "Historical unified treatment of both birthday and coupon-collection problems is a plausible dominating theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d2870e1-472b-4e91-b981-5f46be8d9df7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "First birthday collision and the full coupon collection time are canonical stopping times of the same occupancy path. Their usual marginal scales (sqrt(m) and m log(m)) alone give no cross-dependence information. The theorem supplies an all-size strict stochastic ordering, a manifest-sign exact mixed-moment formula and an unusual rate m^(-1) of correlation with a sharp explicit constant; the conditional-mean profile explains the cancellation. These are structurally meaningful quantitative joint facts, not an arbitrary parameter slice or a recomputation of one classical marginal table.",
+    "status": "PASS"
+  }
+}
