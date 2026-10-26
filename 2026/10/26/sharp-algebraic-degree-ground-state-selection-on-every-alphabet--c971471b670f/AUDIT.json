@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For each N>=3 the two overlapping directed cycles imply det(tI-K)=t^N-t-1. Explicit positive left and right Perron vectors yield all stationary measures for B=I+exp(-beta)K; off-diagonal probabilities vanish and exactly N fixed point ground states remain. The chosen cylinder mass rationally recovers the Perron root; Selmer irreducibility gives degree N. Finite matrix exponential scaling gives generator rho(Q-I). A standalone script passed 54 exact determinant samples and 58 dimension tests, supplementary to the analytical proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jenkinson–Pollicott arXiv:2610.19990v1 lines 149–157: algebraic degree <= number of length-one states, no attainment example",
+        "Chazottes–Gambaudo–Ugalde arXiv:0903.1212v3 abstract, main theorem and §6.2: general renormalization and a four-state example"
+      ],
+      "reasoning": "The 2026 bound is one-sided; the 2011 renormalization algorithm applies to any given primitive finite graph and could reproduce its limiting masses, but does not alone imply existence of irreducible degree N for every N. The explicit graph + Selmer irreducibility supplies precisely the missing all-size attainment.",
+      "searches": [
+        "arxiv 2610.19990 sharpness degree algebraic",
+        "Brémont Jenkinson Pollicott zero-temperature equilibrium cylinder algebraic degree bound sharp attainment arbitrary degree graph SFT x^n-x-1",
+        "zero-temperature Gibbs measures algebraic probabilities arbitrary high degree sharp number of symbols locally constant potentials Markov subshift"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.19990v1",
+      "arXiv:0903.1212v3",
+      "Garibaldi–Thieullen 2012 OA PDF",
+      "Selmer 1956 via Keith Conrad PDF",
+      "published-finding corpus semantic matches and competing 2026 SFT research, no direct equivalence observed"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.19990v1, Corollary in Section 3 (upper bound only)",
+        "arXiv:0903.1212v3, pp.14–15 (four-symbol irrational barycenter and Perron selection)",
+        "Keith Conrad, Irreducibility of x^n-x-1, Theorem 1.1 (arithmetic input, no dynamics)"
+      ],
+      "reasoning": "The claimed implication is a lower attainment, restricted to all maximizing measures fixed, together with exact metastable jump scaling. Upper bounds and isolated irrational examples do not imply it; Selmer does not provide a dynamics construction. The general Perron selection formula is credited and is not claimed as original.",
+      "searches": [
+        "sharp degree N algebraic zero-temperature cylinder values for every N using Selmer x^N-x-1 and fixed ground states",
+        "mixing edge shift self loops zero energy transitions equal energy Perron stationary distribution temperature independent limiting ground state degree n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.19990v1, §3 Corollary",
+        "arXiv:0903.1212v3, §6.2",
+        "Garibaldi–Thieullen (2012), §§6.1–6.3"
+      ],
+      "reasoning": "Compared nearest-neighbor Gibbs ground-state selection, Perron/Parry stationary laws and zero-temperature renormalized adjacency formulations. The general principle that equal-cost rare transitions select a Perron distribution is known, but a uniform dimension-sharp fixed-state Selmer realization was not identified.",
+      "searches": [
+        "Brémont Jenkinson Pollicott zero-temperature equilibrium cylinder algebraic degree bound sharp attainment arbitrary degree graph SFT x^n-x-1",
+        "zero-temperature Gibbs measures algebraic probabilities arbitrary high degree sharp number of symbols locally constant potentials Markov subshift",
+        "mixing edge shift self loops zero energy transitions equal energy Perron stationary distribution temperature independent limiting ground state degree n",
+        "zero-temperature Gibbs measures algebraic probabilities arbitrary high degree sharp number of symbols locally constant potentials Markov subshift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ranked search: nearest returned 2026/10/11/SCOPE-a-two-parameter-robust-cone-of-sturmian-maximizing-potentials--551b149cc657 (unrelated robust Sturmian maximization)",
+        "published-finding corpus ranked search: nearest returned 2026/10/11/SCOPE-perron-entropy-flux-and-a-four-site-reversal-of-numerical-radius--f0c0ea797e57 (unrelated weighted-shift matrix)"
+      ],
+      "reasoning": "Neither returned mathematical claim counts zero-temperature cylinder degree or attains its alphabet-size bound. No database or exact-table record containing the Selmer family was located; absence is only search evidence and not an abstract novelty proof.",
+      "searches": [
+        "sharp degree N algebraic zero-temperature cylinder values for every N using Selmer x^N-x-1 and fixed ground states",
+        "arbitrarily large algebraic degree ground state weights all fixed points locally constant potential mixing subshift Perron root"
+      ]
+    },
+    "rationale": "The 2026 Jenkinson-Pollicott paper proves a degree upper bound but supplies no uniform sharpness family with N fixed ground states. The 2011 Chazottes-Gambaudo-Ugalde §6.2 proves an irrational example at four symbols via a different graph and provides a general algorithm, not the explicit all-size Selmer family. Garibaldi-Thieullen §6.1–6.3 give three-state Puiseux cases. Current published-finding corpus and targeted external queries returned no implication-equivalent all-N sharpness construction, though general Perron methods imply the computation for any specified graph. Priority under other terminology is a genuine risk.",
+    "residual_risks": [
+      "Perron stationary distributions and the rare-transition reduction are standard; priority risk concerns whether this particular uniform Selmer family appeared elsewhere under equivalent graph or Gibbs notation.",
+      "published-finding corpus is not exhaustive and queried full-text material can have unindexed formulations.",
+      "The proof invokes the classical Selmer irreducibility theorem rather than reproving it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UPPER_BOUND_NOT_ATTAINMENT",
+        "evidence": [
+          "arXiv v1 dated 2026-10-14",
+          "Corollary at HTML lines 149–157 explicitly states degree at most N"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19990v1",
+        "material_read": "Abstract, Introduction, hypotheses and Corollary in §3, with the derivation and references",
+        "method": "Read lawful full HTML preprint, including numbered formulas and Corollary",
+        "title": "An elementary proof of Brémont’s theorem on the convergence of equilibrium measures at temperature zero",
+        "trigger": "Motivating explicit algebraic degree bound for length-one cylinders"
+      },
+      {
+        "assessment": "GENERAL_METHOD_KNOWN_NO_EXPLICIT_ALL_N_FAMILY_FOUND",
+        "evidence": [
+          "§6.2 explicitly gives four-state irrational barycenter from root of t^4-4t^2-2t+1",
+          "§6.3 five-state example and general renormalization context"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0903.1212",
+        "material_read": "Introduction, abstract, §§6.1–6.3 including tables/graphs of four and five state examples, Appendix A Perron statements",
+        "method": "Read lawful OA full PDF text and visually inspected pp.14–15",
+        "title": "Zero-temperature limit of one-dimensional Gibbs states via renormalization",
+        "trigger": "Plausible earlier full-graph finite-alphabet selection and irrational barycenters"
+      },
+      {
+        "assessment": "LOW_DIMENSIONAL_CASES_NOT_ALL_N",
+        "evidence": [
+          "§6.1 first matrix is 3-by-3 and classifies two irreducible components",
+          "§6.2 and §6.3 continue three-state cases"
+        ],
+        "identifier_or_url": "https://www.math.u-bordeaux.fr/~pthieull/Recherche/Publications/Garibaldi_Thieullen2012_01.pdf",
+        "material_read": "Source introduction and Sections 6.1–6.3, detailed three-state transfer matrix regimes",
+        "method": "Read author-hosted lawful OA full PDF text and inspected mathematical formulas",
+        "title": "Description of Some Ground States by Puiseux Techniques",
+        "trigger": "Cited earlier Puiseux construction potentially dominating selection law"
+      },
+      {
+        "assessment": "SUPPORTS_IRREDUCIBILITY",
+        "evidence": [
+          "Theorem 1.1: for all n>=2, x^n-x-1 irreducible over Q"
+        ],
+        "identifier_or_url": "https://kconrad.math.uconn.edu/blurbs/ringtheory/irredselmerpoly.pdf",
+        "material_read": "Theorem 1.1 and explanation of algebraic proof, with explicit attribution to Selmer 1956",
+        "method": "Read full lawful PDF and inspected first page containing Selmer theorem",
+        "title": "Irreducibility of x^n-x-1",
+        "trigger": "Critical all-dimension irreducibility input"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c971471b-670f-4314-a12b-3ae9fc888b4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating corollary leaves the bound unattained on the page; this construction proves sharpness in each dimension N>=3 in the strong class of 0/-1 nearest-neighbor potentials with exactly N fixed maximizing orbits. Its all-temperature stationary masses and exact continuous-time jump-clock scaling explain the algebraic selection mechanism. This is a structurally natural parameter family, not a single arbitrary finite calculation, a mere title change, or a routine special case of the cited numerical example.",
+    "status": "PASS"
+  }
+}
