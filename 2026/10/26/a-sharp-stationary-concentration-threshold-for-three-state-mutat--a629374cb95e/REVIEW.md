@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+
+The flow decomposition is exhaustive: fixing both zero diagonal and stationary marginals leaves one conserved oriented current. Solving its six edges establishes the exact admissible interval. The quadratic characteristic polynomial follows from the two triangle determinant terms; reversibility of the zero-current matrix forces \(g\ge0\). The key identity \(J^2-g=qr(4-9p)\) is algebraically checked, and the real/complex spectral-modulus formulas are monotone on either side of the discriminant boundary. Consequently all minimizing currents, both branches of the sharp optimum, and the nonuniform Jordan exception follow without numerical extrapolation. Exact rational checks (93,708 counted) independently corroborate intermediate identities. Limit: neither finite checks nor spectral optimization prove fastest finite-time mixing.
+
+## Originality — PASS, qualified
+
+The motivating paper introduces exactly the zero-diagonal mutation kernel and stationary law but establishes Q-process and branching results rather than fixed-invariant spectral optimization. Ran–Teng (2024, Proposition 6) already classify zero-diagonal three-state spectra without fixing \(\pi\); the general trace-derived \(1/2\) bound is known, and the new distinction is its attainability for prescribed \(\pi\) exactly through \(p=4/9\), and all minimizers. Kirkland (2023) studies prescribed-\(\pi\) stochastic spectra without the zero-diagonal restriction and reversible three-state cases. Boyd–Diaconis–Xiao treat symmetric/reversible fast-mixing kernels with self-loop allowances, while the plateau minimizers here are nonreversible/defective except for the uniform law. Guerry's related three-state complex-spectra paper concerns stochastic roots/embeddability according to its institutional abstract; its full body could not be retrieved, leaving an explicit literature risk. Semantic searches of published mathematical records for the flow parametrization, threshold \(4/9\), eigenvalue discriminant and fixed-stationary nonreversible optimization produced no covering entry. Neither a failed search nor field partition is a proof of uniqueness; the claim is assessed only on recoverable evidence.
+
+## Mathematical value — PASS
+
+Mutation models force a strict zero diagonal, preventing standard lazification. The result determines a natural complete inverse-spectral design question for all stationary three-allele compositions and gives a sharp concentration transition separating attainable optimal spectral rate, complex eigenvalues, and unavoidable slower convergence. Explicit extremizers and the Jordan caveat prevent conflating exponential spectral rate with finite-time mixing. This is a motivated exact classification of an infinite parameter family, not an arbitrary finite matrix example.
+
+## Closest sources and residual limitations
+
+Blancas–Fittipaldi–Hernández-Torres (2026), §2.2, supplies the constrained mutation-kernel setting, not its sharp spectrum. Ran–Teng (2024), Proposition 6, covers the unrestricted-stationary no-diagonal eigenvalue region; Kirkland (2023) covers prescribed-stationary but self-loops-allowed eigenvalue regions and reversible three-state special cases; neither supplies their intersection optimization. Verbeken–Ginis (2026) treat directed cycles with holding. Boyd–Diaconis–Xiao (2004), introduction and optimization formulation, covers symmetric/reversible variants. Guerry (2022) has same dimension and complex spectra, but only abstract access; institutional PDF failed access and the authorized alternative required manually established network access. Related reversible comparison results of Fill–Kahn (2011) are structurally distinct. A prior equivalent classification in old stochastic-matrix literature remains possible. The scope does not cover the boundary \(p=1/2\), finite-time total-variation minima, or higher dimensions.
+
+Self-review: passed. Independent audit: not yet performed.
