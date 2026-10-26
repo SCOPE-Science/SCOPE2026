@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The energy-eigenstate transition graph is two commuting flip channels; the known global Lindblad stationary currents, independently reproduced using an explicit 4-state rate generator, factor into g p q (p-q)[omega_- G(omega_-/(2T))-omega_+ G(omega_+/(2T))]/2. phi'(z)>0 and phi''(z)>0 show -x U'/U strictly increasing and positive; since U decreases, -x G'/G increases. Thus the ratio of the two factors strictly increases in inverse temperature. Its high- and low-temperature limits are omega_-/omega_+<1 and infinity, proving exactly one crossing. The standard-library independent rate solver passed 175 parameter checks and one root example. No numerical test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fogedby 2023 presents explicit global two-qubit heat currents consistent with the second law, with no full-scale rectification crossing theorem.",
+        "Khandelwal et al. 2022 optimize heat-current/rectification Pareto fronts for one qubit, weak detuned local two-qubit and strong resonant global two-qubit devices.",
+        "Zhang et al. 2009 establish reversals in anisotropic spin chains under magnetic-field and temperature tuning, without this fixed-ratio unique-crossing classification."
+      ],
+      "reasoning": "Known broader current formulas permit this specialized case but do not themselves imply one unique scale inversion without the new monotonicity argument. Earlier reversal phenomena in other models are not excluded or credited as new.",
+      "searches": [
+        "arxiv:2301.13544 global two-qubit transport expressions",
+        "arxiv:2208.10809 Khandelwal et al. device B/C sections",
+        "web: reversal of thermal rectification quantum systems spin chains Zhang Yan Wu Wang Li 2009",
+        "published-finding corpus: thermal diode two qubits equal system bath coupling direction inversion low to high bath temperature"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2106.02891 (full text)",
+      "arxiv:2301.13544 (full text)",
+      "arxiv:2208.10809 (full text)",
+      "doi:10.1103/PhysRevB.80.172301 (abstract)",
+      "published-finding corpus targeted query searches as specified in prior checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Upadhyay Eq.26 contains a difference of two positive competing frequency terms, not a positivity theorem over all temperatures. Their Sec IV.2 describes detuning as determining rectification direction.",
+        "The derivative sign for the competing ratio H(x)=(-xU'/U)/(1+pqU) and its strictly ordered values at both Bohr frequencies is required for uniqueness."
+      ],
+      "reasoning": "The new statement is not simply an energy-gap parameter substitution or a same-paper corollary asserting a previously proved bound; it proves a universal single root in a continuous thermodynamic control variable, settling competing contributions and delimiting the detuning-only narrative. If previously known unrestricted formulas contained a proved monotonicity comparison, this claim would be covered; no such comparison was found in the inspected full texts.",
+      "searches": [
+        "Upadhyay et al. 2021 heat rectification Eq.26 and sign paragraph",
+        "Fogedby 2023 global heat current formula for the two dressed Bohr transitions",
+        "Khandelwal et al. 2022 2-qubit heat-rectifier device models"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Upadhyay 2021 Eq (26) writes opposing dressed-frequency contributions; Sec IV.2 asserts detuning controls sign; its DM interaction reduces by local phase rotation to the present hopping amplitude.",
+        "No published-finding corpus hits identified a common-temperature fixed-ratio unique-crossing theorem."
+      ],
+      "reasoning": "Local phase equivalence makes the 2021 paper the strongest direct comparison, not an inapplicable difference in Hamiltonian name. Its exact current formula algebraically contains the crossing but the displayed numerical/qualitative statements do not establish the theorem's strict one-root global monotonicity; the paper's sign interpretation is not the proved conclusion.",
+      "searches": [
+        "published-finding corpus: Unique temperature scale heat rectification sign reversal detuned exchange coupled qubits equal flat bosonic reservoirs global master equation two frequencies",
+        "published-finding corpus: Coupled-qubit thermal diode critical common temperature unique rectification zero fixed ratio hot cold bath",
+        "web: thermal rectification sign inversion temperature scale two qubit Dzyaloshinskii Moriya rectification direction changes absolute temperature",
+        "arxiv:2106.02891 Eqs (18),(26), Sec IV.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned thermally related but non-covering entanglement and teleportation findings, including 2026/10/4/SCOPE-corrected-magnetic-field-phase-diagram-for-the-anisotropic-xy-dm--573ba2d494d5 and 2026/10/4/SCOPE-lambert-w-collapse-law-at-the-xx-chain-teleportation-boundary--291f9e051fce."
+      ],
+      "reasoning": "The searches do not establish global uniqueness, but no equivalent tabulated threshold or theorem appears in the inspected records. The inversion temperature is defined implicitly; no unsupported closed numeric universal constant is claimed.",
+      "searches": [
+        "published-finding corpus: Upadhyay Naseem Marathe Dzyaloshinskii Moriya two qubit rectification changes sign absolute temperature scale competing excitation channels",
+        "published-finding corpus: Fogedby 2301.13544 heat currents qubit systems thermal rectification varying both bath temperatures",
+        "published-finding corpus: open quantum dynamics local Lindblad two qubits thermal current rectification bound optimal coupling"
+      ]
+    },
+    "rationale": "The published global current identities and detuning-induced rectification are prior results and explicitly credited. The new statement is an exact, unique inversion in the common absolute temperature scale at every fixed hot/cold temperature ratio, proved by a global monotonicity comparison between competing frequencies. Upadhyay et al. describe detuning as fixing the sign despite displaying opposing terms; Fogedby derives transport but not the universal crossing, and Khandelwal et al. optimize device performance in different regimes. Novelty remains conditional on no unidentified equivalent treatment.",
+    "residual_risks": [
+      "An equivalent one-crossing monotonicity argument in an unindexed or uninspected later study may exist.",
+      "The scalar theorem relies on equality and spectral flatness of bath rates; physically structured spectra need not exhibit this behavior.",
+      "Full text for the 2009 spin-chain comparator was not inspected, so it is not classified as definitively non-covering from an abstract alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source; contains same current formula and asserts detuning-controlled polarity, but no strict unique inversion across fixed-ratio temperature scaling; cannot claim current formula itself as new",
+        "evidence": [
+          "Eqs (18),(26) and Sec IV.2 lines 164–213",
+          "arxiv first posted 2021-06-05"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2106.02891v3",
+        "material_read": "Sections II–IV, Sec IV.2 heat-current/rectification Eqs (18),(24),(26), Fig 5 explanation, Appendices A/B transition structure",
+        "method": "Read full accessible arXiv HTML, compared model and implications of both dressed-frequency terms",
+        "title": "Heat rectification by two qubits coupled with Dzyaloshinskii–Moriya interaction",
+        "trigger": "Locally phase-equivalent Hamiltonian and same two bosonic transport channels"
+      },
+      {
+        "assessment": "Known current expressions and positivity; does not state fixed-ratio single temperature-crossing classification",
+        "evidence": [
+          "Eqs (138)–(139) and text about heat currents/second law",
+          "arxiv first posted 2023-01-31"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.13544",
+        "material_read": "Full arXiv HTML rendering: coupled-qubit Hamiltonian, eigenvectors, secular dissipators, steady-state heat flux Eqs 138–139, thermodynamic discussion",
+        "method": "Read accessible arXiv full text HTML and compared stationary current formula and subject of the main result",
+        "title": "Heat currents in qubit systems",
+        "trigger": "Global heat master equation for exchange-coupled qubits with two baths"
+      },
+      {
+        "assessment": "Device B weak detuned local, device C strong resonant global; no unique polarity-scale theorem for current assumptions",
+        "evidence": [
+          "Sections Device B and Device C, 2022 preprint published 2022-08-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.10809",
+        "material_read": "Full accessible preprint HTML sections and formulas for devices A/B/C, current–rectification Pareto objectives and physical regimes",
+        "method": "Read and compared models and objective to fixed-temperature-ratio global detuned qubit problem",
+        "title": "Characterizing the performance of heat rectifiers",
+        "trigger": "Directly related spin-boson thermal rectifier benchmarking"
+      },
+      {
+        "assessment": "Shows prior reversal by temperature and field; not evidence of the present all-ratios unique crossing in a two-qubit globally secular model",
+        "evidence": [
+          "2009 abstract describes reversal under magnetic-field and bath-temperature tuning"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevB.80.172301",
+        "material_read": "Publisher abstract and metadata (not full text)",
+        "method": "Compared explicitly stated abstract scope of anisotropic Heisenberg chains",
+        "title": "Reversal of thermal rectification in quantum systems",
+        "trigger": "Earlier known inversion phenomena could dominate general novelty claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "79a26670-fc04-4763-9fa8-b2c05bc2c28b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a universal exact once-only thermal polarity inversion at fixed frequency detuning, interaction and bath temperature ratio, a meaningful operational boundary between two dominant dressed transport channels; it determines the full qualitative direction diagram and makes a single scalar calibration equation, not a contrived finite parameter enumeration.",
+    "status": "PASS"
+  }
+}
