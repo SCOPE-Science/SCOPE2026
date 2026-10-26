@@ -1,0 +1,112 @@
+{
+  "claim": "For the seven-exponential third-order commutator-free Magnus method (3.19) of Blanes, Iserles, and Macnamara, there exists a single bounded \\(C^3\\) time-dependent three-state Markov generator \\(A(t)\\) and initial state \\(y(0)=e_1\\) such that, for every \\(n\\ge1\\), the method's one-step output at step \\(h_n=10^{-1}100^{-(n-1)}\\) has third coordinate \\(\\widehat y_3(h_n)=[C-\\exp(c s_n)-c\\exp(-s_n)]/C<0\\), where \\(s_n=h_n^5/2\\), \\(C=2\\sqrt3/3\\), and \\(c=C-1>0\\). The exact ODE solution remains in the probability simplex, while \\(\\widehat y_3(h_n)=-c h_n^{10}/8+O(h_n^{15})\\), so the positivity failure does not contradict third-order convergence.",
+  "correctness": {
+    "rationale": "The proof explicitly defines the fixed generator, verifies graph-Laplacian signs and zero column sums, proves C^3 regularity, separates the method's sampling nodes, derives the exact two-exponential output, and proves the third coordinate is negative for every s_n>0. The exact flow remains nonnegative and mass-preserving. The high-precision script is supplementary, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The eight-state Padé result concerns a different rational end-step map on constant generators.",
+        "The SSP-SDIRK2 and Crank–Nicolson results concern different methods and different positivity frontiers.",
+        "The 2020 commutator-free Magnus paper discusses a fourth-order two-exponential method, not the seven-exponential third-order method (3.19)."
+      ],
+      "reasoning": "No closest result found covers or implies the exact three-state, time-dependent, fixed-C^3 witness for method (3.19). The comparison is about mathematical statements and method parameters, not titles alone.",
+      "searches": [
+        "fixed smooth time-dependent continuous-time Markov generator third-order commutator-free Magnus seven-exponential positivity loss for arbitrarily small step sizes",
+        "arXiv:2102.08242, section 3.5",
+        "DOI 10.1051/m2an/2022042, formulas (3.18)–(3.19)",
+        "DOI 10.21914/anziamj.v61i0.15169, section 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.08242, full text, section 3.5",
+      "DOI 10.1051/m2an/2022042, published full text",
+      "DOI 10.21914/anziamj.v61i0.15169, full text, section 3",
+      "A literature-index search returned related positivity-barrier records for Padé, Crank–Nicolson, and SSP-SDIRK methods; these concern different algorithms.",
+      "Prior claim records were compared for overlapping methods and mathematical statements; no equivalent claim was recovered."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blanes–Iserles–Macnamara explicitly require the weighted combinations of sampled graph Laplacians to remain graph Laplacians for guaranteed positivity, and note beta<0 means this is not assured.",
+        "The earlier fourth-order method paper explains that negative weighted combinations may break the graph-Laplacian sign pattern, but it studies a different scheme."
+      ],
+      "reasoning": "The prior caveat identifies a possible mechanism but does not establish strict negativity for a fixed bounded C^3 generator at arbitrarily small steps. The present derivation supplies that missing explicit construction and exact formula.",
+      "searches": [
+        "arXiv:2102.08242, section 3.5, equations (3.18)–(3.19)",
+        "DOI 10.1051/m2an/2022042, full text, section 3.5",
+        "DOI 10.21914/anziamj.v61i0.15169, full text, section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary article's equations (3.18)–(3.19) use the same coefficients alpha=1/2+sqrt(3)/3 and beta=1/2-sqrt(3)/3 and explicitly state that positivity is conditional.",
+        "The exact closed form derived in RESULT.md gives a negative third coordinate for every s>0; the cited primary text does not state this fixed-generator sequence result."
+      ],
+      "reasoning": "The claim is not just the generic observation that beta is negative. It constructs one bounded C^3 generator and proves strict negativity at a sequence h_n tending to zero, with an exact formula. No searched equivalent formulation was found; absence from search results is not novelty proof.",
+      "searches": [
+        "third order commutator-free Magnus integrator positivity preserving graph Laplacian negative combination alpha beta explicit counterexample",
+        "nonautonomous Markov generator commutator-free exponential integrator produces negative component for every positive step size",
+        "Blanes Iserles Macnamara 2022 positivity preserving ODE third order method conditional positivity counterexample",
+        "fixed smooth time-dependent continuous-time Markov generator third-order commutator-free Magnus seven-exponential positivity loss for arbitrarily small step sizes",
+        "published full text: Blanes–Iserles–Macnamara, section 3.5, equations (3.18)–(3.19)",
+        "published full text: MacNamara–Blanes–Iserles, section 3, equations (6)–(8)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The semantic findings index returned related positivity results for Padé, Crank–Nicolson, and SSP-SDIRK methods but no matching seven-exponential Magnus witness.",
+        "Prior claim records available for deduplication were compared for mentions of Magnus methods, graph Laplacians, commutator-free schemes, and Markov generators; no overlapping claim was found."
+      ],
+      "reasoning": "There is no exact numerical table applicable to this analytic construction. The nearest indexed records are listed above; an index partition cannot establish global uniqueness.",
+      "searches": [
+        "third order commutator-free Magnus integrator positivity preserving graph Laplacian negative combination alpha beta explicit counterexample",
+        "nonautonomous Markov generator commutator-free exponential integrator produces negative component for every positive step size",
+        "Blanes Iserles Macnamara 2022 positivity preserving ODE third order method conditional positivity counterexample",
+        "fixed smooth time-dependent continuous-time Markov generator third-order commutator-free Magnus seven-exponential positivity loss for arbitrarily small step sizes"
+      ]
+    },
+    "rationale": "The primary article states a conditional positivity requirement but does not provide the fixed bounded C^3 generator, the arbitrarily-small step sequence, or the exact negative-coordinate formula established here. Searches surfaced nearby positivity barriers for different methods; they do not imply this result. This is a best-knowledge originality judgment, not a proof that no unindexed equivalent exists.",
+    "residual_risks": [
+      "A broader literature search may reveal an unindexed equivalent construction; novelty is not established by search failure.",
+      "The witness is deliberately constructed and the negative coordinate is O(h_n^10), so practical significance for a specific application is not quantified.",
+      "The result establishes exact nonpositivity failure, not instability or loss of third-order convergence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The article acknowledges conditional positivity but does not state the constructed fixed C^3 generator or the exact arbitrarily-small-step negative-coordinate formula.",
+        "evidence": [
+          "arXiv:2102.08242, section 3.5",
+          "DOI 10.1051/m2an/2022042, equations (3.18)–(3.19)"
+        ],
+        "identifier_or_url": "arXiv:2102.08242; DOI 10.1051/m2an/2022042",
+        "material_read": "Full text, section 3.5 and formulas (3.18)–(3.19), including the discussion of beta<0 and the required graph-Laplacian combinations.",
+        "method": "Reconstructed the eight sampling nodes and the last two exponential factors; compared the new fixed-generator statement with the paper's stated condition.",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Exact method, coefficients, sample nodes, and conditional-positivity caveat are central to the claim."
+      },
+      {
+        "assessment": "Related background and a known warning about negative weighted combinations; the method and claim are different, so it does not imply the present formula.",
+        "evidence": [
+          "DOI 10.21914/anziamj.v61i0.15169, section 3"
+        ],
+        "identifier_or_url": "DOI 10.21914/anziamj.v61i0.15169",
+        "material_read": "Full text, section 3 and formulas (6)–(8).",
+        "method": "Compared the fourth-order two-exponential method and its weighted-generator condition with the distinct seven-exponential method (3.19).",
+        "title": "Simulation of bimolecular reactions: Numerical challenges with the graph Laplacian",
+        "trigger": "Earlier closely related work on time-dependent Markov generators and commutator-free Magnus methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3051036-529f-4bad-a670-663c714ef27b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity is a hard invariant for Markov and population models. A fixed bounded C^3 generator that defeats positivity at arbitrarily small steps clarifies that the method's conditional caveat cannot be replaced by a universal small-step guarantee based only on boundedness and C^3 regularity. The defect is O(h_n^10), so the result is not a claim of practical instability or loss of convergence order.",
+    "status": "PASS"
+  }
+}
