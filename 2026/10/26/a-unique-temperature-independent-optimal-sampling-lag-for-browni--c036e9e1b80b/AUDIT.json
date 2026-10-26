@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For all 0<|u|<1, Tx,Ty>0 distinct, stationary Lyapunov solution gives Sigma, detSigma=d>0 and exact cross-covariance Sigma e^{At}. Wick expansion yields E Q=Delta e^{-t}sinh(ut) and Var Q=2d(1-e^{-2t})+(E Q)^2. SNR maximization reduces to F=sinh²(vt)/(e^{2t}-1). Strict negative derivative of G=v coth(vt)(1-e^{-2t}), with end limits 2 and v, proves unique global optimizer; strict increasing dependence on v follows by implicit differentiation, while q=e^{-2t} identity proves log near-critical behavior. Separate exact derivative establishes SNR optimum precedes maximum mean signed chord. Reproducible checker on packaged path passed 716 numeric/symbolic consistency assertions and independent Gaussian quadrature; finite assertions are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2212.12022 builds long-time large deviations for time-integrated linear diffusion observables.",
+        "arXiv:2307.06245 treats full integrated stochastic area and associated fluctuation relations."
+      ],
+      "reasoning": "General techniques for OU covariance and Gaussian products could imply the finite-lag formulas with further calculations, but coverage requires prior explicit mathematical implication of the unique optimizer, bath-temperature independence and limiting laws. The inspected large-deviation theorems concern different functionals and limiting regimes, so neither supplies such an implication.",
+      "searches": [
+        "mathematical physics Brownian gyrator stochastic thermodynamics exact occupation time fluctuation generating function in harmonic trap",
+        "two-dimensional stationary Ornstein Uhlenbeck lagged signed area determinant covariance optimal lag",
+        "arxiv:2212.12022",
+        "arxiv:2307.06245"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.05248",
+      "arxiv:2307.06245",
+      "arxiv:2212.12022",
+      "Targeted semantic searches, scientific title/formula searches and source comparisons",
+      "Related mathematical claims on two-temperature covariance parameter optimization and a different rotational activity statistic"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published Euler-step two-dimensional gyrator result is a discrete update; it does not use the exact propagator e^{At} to derive this stationary two-time covariance ratio.",
+        "A related prior parameter-optimization result for the same two-temperature harmonic coupling maximizes the amplitude of unstandardized lagged cross-covariance or chooses coupling strength; it does not optimize variance-normalized signed chord over lag.",
+        "Published dynamical-area papers integrate position increments along the whole trajectory, unlike the endpoint-only two-observation determinant."
+      ],
+      "reasoning": "Although standard stationary covariance and Isserlis identities imply the exact pairwise variance once applied, the prior statements checked do not logically establish the unique strictly coupled sampling optimum or its asymptotics. Optimizing absolute means or model coupling and optimizing a ratio of mean to its standard deviation are different problems; this work explicitly proves their optimal lags differ.",
+      "searches": [
+        "arxiv:2307.05248 Section 6 supplementary S11-S16 optimal discretization",
+        "arxiv:2307.06245 stochastic area definition",
+        "two-dimensional stationary Ornstein Uhlenbeck lagged signed area determinant covariance optimal lag"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2307.05248 Section 6 and supplemental Eqs (S11)-(S16) employ a discretized Euler-step noise rather than the stationary exact Ornstein-Uhlenbeck lag propagator.",
+        "arXiv:2307.06245 treats path-integrated stochastic area; exact one-chord standardized lag appears nowhere in inspected model/results/appendix."
+      ],
+      "reasoning": "Time-integrated stochastic-area optimization and finite-step Euler ratio can have different noise and signal laws. This result needs the exact covariance at two observation times and a strict global root argument, not a change of names.",
+      "searches": [
+        "\"Brownian gyrator\" \"optimal sampling interval\" \"optimal time lag\"",
+        "\"Brownian gyrator\" \"signal to noise\" \"discretization time\"",
+        "Brownian gyrator unique optimal sampling lag for observable chord area finite time covariance signal to noise temperature independent",
+        "arxiv:2307.05248"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned nearest indexed records include sampling-lag extrema for hidden scalar OU correlations and sampling determinants for arithmetic-spectrum deterministic flows; neither has the Brownian-gyrator current object.",
+        "No candidate indexed table containing this exact scalar optimizer, temperature cancellation and logarithmic critical scaling was found."
+      ],
+      "reasoning": "A failed database search is not a uniqueness proof. The mathematically relevant comparisons were performed by functional type and quantifiers, not just by numeric agreement.",
+      "searches": [
+        "Brownian gyrator angular momentum chord X(0)Y(t)-Y(0)X(t) variance signal noise maximum sampling interval",
+        "Brownian gyrator unique optimal sampling lag for observable chord area finite time covariance signal to noise temperature independent",
+        "\"Brownian gyrator\" \"unique\" \"sampling lag\""
+      ]
+    },
+    "rationale": "The motivating primary manuscript develops Brownian-gyrator finite-step circulation fluctuations and raises the question of optimal observation step, but its Euler-step construction does not determine the continuous-time finite-chord standardized maximum, uniqueness, bath-temperature independence, strict separation from maximum unstandardized signal, or near-instability scaling. Two other inspected primary manuscripts focus on time-integrated area and time-integrated observables rather than a pairwise signed determinant. Closest related mathematical statements optimize different physical parameters/observables; no implication furnishing this simultaneous package of statements was identified. Unknown broader Gaussian-bilinear sampling results remain a residual priority risk, not a proven uniqueness assertion.",
+    "residual_risks": [
+      "Equivalent results in a broader Gaussian bilinear sampling or statistical experimental-design literature may remain unlocated.",
+      "An exact analytical proof of uniqueness is new to the inspected materials, not an independently audited priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest source: standard OU model and Euler-step observation study; does not exhibit exact finite-lag SNR root or unique temperature-independent optimizer and coupling limit",
+        "evidence": "Eq. (1), discussion in Sec. 6, supplementary Eqs. (S11)-(S16).",
+        "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+        "material_read": "16-page preprint including main Langevin model, section on sampling/discretization, full supplementary finite-step equations (S11)-(S16) and related fluctuation discussion",
+        "method": "Read the publicly accessible PDF including equations and supplementary sections and compared model/time discretization and observable definitions",
+        "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+        "trigger": "Same stationary two-temperature gyrator and explicit optimum-discretization conjectural discussion"
+      },
+      {
+        "assessment": "Studies time-integrated oriented area and its long-time fluctuations; does not give optimum lag for a single two-position chord",
+        "evidence": "Stochastic-area path-integral definition and major results, especially Sec. VI.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.06245",
+        "material_read": "Full open-access PDF definitions, large-deviation results, gyrator/irreversibility section and appendices",
+        "method": "Read the open PDF and checked observable definitions and stated results against endpoint signed chord",
+        "title": "Large deviations of the stochastic area for linear diffusions",
+        "trigger": "Possible stronger result for circulation observables in linear diffusions"
+      },
+      {
+        "assessment": "No statement implying the precise unique finite-lag SNR optimizer; standard linear-diffusion tools remain acknowledged background",
+        "evidence": "Model and additive dynamical observable definitions and long-time large-deviation statements.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.12022",
+        "material_read": "Open PDF main mathematical scope and dynamical/time-integrated observables, including principal formulas",
+        "method": "Read open manuscript and compared its asymptotic integrated functionals to the finite-lag two-snapshot object",
+        "title": "Dynamical large deviations of linear diffusions",
+        "trigger": "General linear-diffusion results potentially dominating current fluctuation calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c036e9e1-b80b-4303-9ae1-d2e8412d20ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary Brownian gyrator experiment/model literature explicitly raises a choice of optimal discretization interval because very short and very long observations yield a weak circulation signal. This exact finite-chord theorem replaces an unsolved qualitative experimental choice with a unique computable lag, gives unexpected independence from temperature imbalance, and separates the optimum from both maximum raw signal and near-instability time scales. The logarithmic divergence near critical coupling is structurally motivated by the drift spectral gap. No claim of optimal total-record inference or of a paper-sized contribution is necessary to this concrete quantitative result.",
+    "status": "PASS"
+  }
+}
