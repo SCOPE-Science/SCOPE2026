@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The cavity reduction follows from the normalized excess-degree and remaining-duration generating functions in Clegg and Gross (2026). The independent symbolic derivative identities in `check.py` verify the coefficients of the expansion at the continuous and tricritical thresholds. Crucially, the proof gives an exact strict negativity identity for the derivative of the logarithmic slope of the fixed-point map. This globally limits its derivative to one peak, so the root count is a theorem rather than a finite numerical observation. Monotonicity in mean contact degree yields the unique fold, and the explicit cubic coefficient is strictly negative at the critical parameter. Bounds: statements concern the scalar mean-field cavity fixed points only; finite random graphs and unrelated ecological dynamics are not covered.
+
+## Originality — PASS, with residual priority risk
+The most directly related inspected primary text, Clegg and Gross, *Temporal Structure Mediates the Robustness and Collapse of Plant–Pollinator Networks* (arXiv:2604.07347v1, full arXiv HTML), introduces the model and displays the qualitative continuous/discontinuous transition and a bistable region. Those are not presented as novel here. Its inspected main text does not give the exact critical mean period, full root-count theorem, no-extra-root proof, or critical amplitude. The related Clegg–Gross microbiome work (arXiv:2412.05212 / PNAS 2025, full lawful PMC article) calculates a cusp at a different two-degree parameter configuration for a different equation; its cusp and generic fold theory do not imply this model's explicit critical active period. Searches for the model by source title, equation structure, aliases, critical values, and bifurcation terminology did not yield an equivalent result in accessible research records. This is affirmative statement-level comparison, not a claim that search failure proves uniqueness. Residual historical priority risk remains from inaccessible supplementary material and other unindexed work.
+
+## Mathematical value — PASS
+The source's ecological phase diagram is qualitative, and it is mathematically and ecologically consequential to know the unique active-period boundary where continuous plant–pollinator establishment gives way to sudden collapse and hysteresis. The exact value, complete no-hidden-branch result, and sharp linear-versus-square-root onset exponents allow a direct quantitative interpretation of the temporal bottleneck. These facts are not merely an arbitrary evaluation of a numerical parameter, nor a restatement of the source's existence of folds.
+
+## Scientific limits
+No assertion of independent verification, proof for finite random network realizations, or global uniqueness across unrelated degree distributions is made. The spinodal itself is defined by an exact implicit tangency system and only a numerical example is given. Search results do not conclusively exclude all earlier formulations, and inspection of the motivating article's supplementary material remains a priority limitation.
+
+Self-review: passed. Independent audit: not yet performed.
