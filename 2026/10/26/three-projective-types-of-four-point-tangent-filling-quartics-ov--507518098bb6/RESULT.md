@@ -1,0 +1,39 @@
+# Three projective types of four-point tangent-filling quartics over \(\mathbf F_3\)
+
+## Finding
+Let \(C\subset\mathbf P^2_{\mathbf F_3}\) be a geometrically smooth plane quartic. Call \(C\) tangent-filling when the tangent lines at all its rational points cover \(\mathbf P^2(\mathbf F_3)\). If \(C\) is tangent-filling, then \(\#C(\mathbf F_3)\ge4\). Equality is attained by exactly \(3042\) scalar-normalized quartic equations in fixed homogeneous coordinates. Those curves form **exactly three** orbits under \(\operatorname{PGL}_3(\mathbf F_3)\), with orbit sizes \(234,936,1872\) and stabilizers of orders \(24,6,3\), respectively.
+
+For every equality case, its four rational points are precisely the four rational points on one rational line. Its four rational tangent lines are the complete pencil through a unique rational point \(P\) **outside** the curve and outside that four-point line. In particular the equality configurations are collinear on the curve side and concurrent on the dual tangent side. Explicit representatives are
+\[
+\begin{aligned}
+F_1 &= X^4+YZ^3-Y^3Z,\\
+F_2 &= X^4+X^2Y^2+YZ^3-Y^3Z,\\
+F_3 &= 2X^4+X^3Y+X^2Y^2+YZ^3-Y^3Z.
+\end{aligned}
+\]
+All coefficients are in \(\mathbf F_3\); these formulas represent different projective equivalence classes over the base field.
+
+## Assumptions and scope
+Equations are nonzero homogeneous degree-four forms in \(\mathbf F_3[X,Y,Z]\), identified under nonzero scalar multiplication; fix each equation by making its first nonzero coefficient \(1\) in the monomial ordering \((X^iY^jZ^{4-i-j})_{0\le i\le4,0\le j\le4-i}\). Geometrically smooth means smooth after base change to an algebraic closure; it is not enough to have no singular rational point. The classification concerns projective automorphisms over \(\mathbf F_3\), not abstract isomorphism over an algebraic closure.
+
+## Proof
+**Covering lemma.** Every rational line in \(\mathbf P^2(\mathbf F_3)\) contains four of its thirteen points. Three lines cover at most ten points. If four distinct lines cover all thirteen points, they must pass through one common point \(P\): the first two meet at \(P\) and cover seven; the third can add three points only if both intersections with the first two equal \(P\); the fourth similarly meets the preceding union at \(P\) only. Thus any equality case has precisely four distinct rational tangent lines, the full pencil through a unique center \(P\). Each tangent line is used exactly once because only four rational curve points are present.
+
+**Exact exhaustion with fixed center.** Projective transitivity permits fixing \(P=[1:0:0]\). The pencil consists of \(Z=0\), \(Y=0\), \(Y+Z=0\) and \(Y+2Z=0\). On each line, choose its tangent contact among the three off-center rational points, or choose \(P\) as the contact on exactly one line. There are \(3^4+4\cdot3^3=189\) labeled contact patterns. If the desired line is \(bY+cZ=0\) and contact is \(Q\), the homogeneous gradient \(\nabla F(Q)\) must be proportional to \((0,b,c)\). This is imposed by the two linear equations \(F_X(Q)=0\) and \(cF_Y(Q)-bF_Z(Q)=0\); Euler's relation \(4F(Q)=XF_X(Q)+YF_Y(Q)+ZF_Z(Q)\) supplies \(F(Q)=0\). Each of the 189 resulting linear systems has rank exactly eight in the 15-dimensional coefficient space; hence all its forms are covered by \(3^7\) coefficient vectors. Using exact arithmetic, enumerate them and retain only those whose rational zero set consists of exactly the prescribed four points, with nonzero gradients defining four distinct pencil lines that cover all thirteen rational plane points. After scalar normalization this yields exactly **378 candidate forms**, including every possible equality case centered at \(P\).
+
+**Geometric smoothness.** Test all 378 candidates on the three affine patches \(X=1\), \(Y=1\), \(Z=1\). On a patch, compute over \(\mathbf F_3\) a reduced Gröbner basis of the three partial derivatives of \(F\). Their homogeneous common zero scheme is empty precisely when the ideal on every patch is the unit ideal; the projective Euler relation (degree four is nonzero in characteristic three) ensures the gradient vanishing points are singular points of \(F=0\). This exact algebraic-closure criterion accepts **234** forms and rejects **144**. Thus these are precisely the geometrically smooth equality curves with this fixed center.
+
+**Orbit structure and geometric form.** The stabilizer of \(P\) in \(\operatorname{PGL}_3(\mathbf F_3)\) consists of \(432\) normalized matrices with first column \((1,0,0)^t\). Its explicit substitution action on the 15-dimensional quartic coefficient space partitions the 234 accepted forms into orbits of sizes \(18,72,144\). Direct representative calculations give the three displayed equations; each has exactly the four points on \(X=0\) and its tangent lines are the four pencil lines through \(P\). Because this property is projectively invariant, all 234 fixed-center forms have collinear rational point sets and a center not on the curve. Since the center is unique and the full projective group acts transitively on thirteen centers, multiplying the fixed-center orbit sizes by thirteen gives \(234,936,1872\) and total \(3042\). The full projective stabilizer orders are \(432/18=24\), \(432/72=6\), and \(432/144=3\). This proves the claim.
+
+## Verification
+The package provides fully specified exhaustive scripts: `enumerate_tangent_quartics.py` generates all 378 normalized fixed-center candidates from 189 rank-eight linear systems; `check_geometric_smoothness.py` performs exact unit-ideal tests on the necessary affine charts (at most 1134, with early rejection after a failed chart), obtaining 234 geometrically smooth forms; `classify_projective_orbits.py` constructs the full 432-element point stabilizer and all three orbits. The file `orbits.json` lists all 234 smooth fixed-center normalized coefficients, partitioned by orbit. A separate pure-Python `verify_representatives.py` checks rational zero sets and tangent-line coverage of each representative without relying on Gröbner calculations. The outputs of those runs are included. Run in this order in the package directory using Python 3 with NumPy and SymPy.
+
+## Relationship to prior work
+Asgarli and Ghioca introduced the tangent-filling condition, studied large-field degree obstructions, and constructed Hermitian and other examples. Their inspected introduction, theorems, and example sections do not classify smooth genus-three quartics with the minimum number of rational tangent contacts over \(\mathbf F_3\). Dolgachev and Martin classify possible automorphism groups of smooth plane quartics over algebraically closed fields of odd characteristic, including characteristic-three normal forms. That geometric classification does not determine the rational tangent-cover property, the number of fixed-coordinate forms, or the three \(\mathbf F_3\)-projective orbits in this theorem; those statements require the separate finite-field incidence and exact smoothness calculations given here.
+
+## Limitations
+The result is for quartics over \(\mathbf F_3\) and equality at four rational points only, not an enumeration of tangent-filling quartics with larger rational point sets. Projective equivalence over \(\mathbf F_3\) is not identified with geometric isomorphism or equality of full geometric automorphism groups. The exact algorithms are not an independent human audit. Earlier unindexed computational classifications remain a bibliographic priority risk.
+
+## References
+Shamil Asgarli and Dragos Ghioca, *Tangent-filling plane curves over finite fields*, arXiv:2302.13420 (first public 2023-02-26), Section 1 and Section 3.
+Igor Dolgachev and Gebhard Martin, *Automorphisms of del Pezzo surfaces in odd characteristic*, arXiv:2303.16170 (first public 2023-03-28), Section 4 and Table 1 (geometric automorphism classification).
