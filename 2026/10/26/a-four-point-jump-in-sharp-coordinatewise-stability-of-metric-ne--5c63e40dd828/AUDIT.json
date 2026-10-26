@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For any polyhedral cone face the metric projector is locally its span projector. Complete exact rational enumeration of all 4096 triangle normal subsets bounds every such row sum by 8/5 (and all 8 subsets by 4/3 for three points). The positive input pair and explicit KKT multipliers prove sharpness for both real and positive input domains. Attached checker executed with all assertions passing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deza–Goldengorin–Pasechnik, arXiv:math/0306049 section 3.1.2: the four-point metric cone equals the cut cone and has seven cut rays and a large isometry group. It does not give the cross-norm Lipschitz constant of its nearest-point projection.",
+        "General Hilbert-space nonexpansiveness gives Euclidean contraction; switching to the six-dimensional maximum norm only yields a coarse factor bounded by sqrt(6), not the asserted 8/5."
+      ],
+      "reasoning": "Cone isometries, face combinatorics and Hilbert nonexpansiveness are genuinely broader geometric facts but do not mathematically dominate the exact edgewise sharp constant without additional face-projection computations.",
+      "searches": [
+        "Euclidean metric cone four points nearest metric operator sensitivity sharp Lipschitz",
+        "four vertex metric nearness semimetric triangle inequality projection local Jacobian stability exact",
+        "metric nearness optimization metric cone triangles Brickell Dhillon Sra Tropp 2008",
+        "metric cone Lipschitz constant projection",
+        "projection onto metric cone norm infinity distance matrix denoising Lipschitz constants"
+      ]
+    },
+    "checked_sources": [
+      "https://www.cs.utexas.edu/ftp/techreports/tr04-22.pdf",
+      "https://www.cs.utexas.edu/users/inderjit/public_papers/metric-simax.pdf",
+      "https://arxiv.org/html/math/0306049v1",
+      "https://proceedings.neurips.cc/paper/2004/hash/4ebccfb3e317c7789f04f7a558df4537-Abstract.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2004 report proves existence and develops iterative projection over triangle constraints; its equation for individual halfspace orthogonal projection is not a global operator Lipschitz calculation.",
+        "The 2008 paper formulates the same least-squares objective and uses dual KKT equations, but sections 1–3, 7 and appendix address algorithms, variations and APSP.",
+        "The 2003 four-point cone work gives the isometry group and extreme rays but no analysis of the metric projection map."
+      ],
+      "reasoning": "If a prior result established a sharper or equal cross-norm Lipschitz bound and attained it, the new claim would be covered; the inspected sources do not do so. The current result adds a complete exact face-normal enumeration and two-input equality witness.",
+      "searches": [
+        "Euclidean projection onto metric cone of four points, triangular inequalities, exact infinity norm Lipschitz, active sets, metric nearness stability",
+        "triangle inequality least squares 3 4 point metric cone active face projection sensitivity",
+        "metric nearness problem Euclidean projection triangle inequalities metric cone algorithm exact stability 2004 2014",
+        "metric nearness sensitivity perturbation projection",
+        "source: https://www.cs.utexas.edu/ftp/techreports/tr04-22.pdf",
+        "source: https://www.cs.utexas.edu/users/inderjit/public_papers/metric-simax.pdf",
+        "source: https://arxiv.org/html/math/0306049v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dhillon–Sra–Tropp, TR-04-22, sections 3–4: the same Euclidean nearest metric problem is formulated, with a triangle-fixing algorithm, but not an input-to-output edgewise perturbation constant.",
+        "Brickell–Dhillon–Sra–Tropp 2008, sections 2–3: Euclidean nearness and KKT structure, no exact modulus 8/5 in the inspected relevant derivations."
+      ],
+      "reasoning": "Metric repair, projection on the finite semimetric cone, triangle fixing, and nearest pseudometric are the same object, but iterative computation of one minimizer does not imply the optimal Lipschitz modulus of the entire projection map. Searches of these aliases showed no equivalent four-point modulus.",
+      "searches": [
+        "Euclidean projection onto metric cone of four points, triangular inequalities, exact infinity norm Lipschitz, active sets, metric nearness stability",
+        "metric nearness semimetric cone projection four points sharp coordinatewise perturbation constant",
+        "sharp 8/5 four-point metric cone nearest Euclidean pseudometric Lipschitz infinity",
+        "metric nearness problem Euclidean projection triangle inequalities metric cone algorithm exact stability 2004 2014",
+        "nearest metric matrix projection Euclidean norm Lipschitz infinity perturbation metric cone four points",
+        "four point metric cone projection Euclidean exact Lipschitz infinity metric nearness robust metric repair"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Deza–Goldengorin–Pasechnik section 3.1.2 explicitly tabulates seven extreme cut rays; that table is not a table of orthogonal projector row sums."
+      ],
+      "reasoning": "The geometric cone generators and known distance-repair algorithms do not state a sharp cross-norm projection constant. No identical table or implication was located in queried publications or accessible prior claims.",
+      "searches": [
+        "sharp 8/5 four-point metric cone nearest Euclidean pseudometric Lipschitz infinity",
+        "metric repair four-point dissimilarity matrix perturbation amplification projected Euclidean nearness",
+        "triangle inequality least squares 3 4 point metric cone active face projection sensitivity",
+        "four point metric cone Euclidean projection explicit 4 point formula"
+      ]
+    },
+    "rationale": "Exact four-point sharp infinity-norm Lipschitz modulus and positive-input equality witness were not found in comparisons with primary metric-nearness papers and primary metric-cone geometry. The algorithmic and cone-geometric baselines are acknowledged; historical priority is provisional.",
+    "residual_risks": [
+      "An older four-point distance-repair or polyhedral-cone sensitivity calculation could state the same modulus in different vocabulary; the literature search is broad but not exhaustive.",
+      "The method is a finite exact classification. It does not justify extrapolation to five or more points or weighted fitting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same object and fit norm but addresses optimization procedures, not four-point max-norm stability",
+        "evidence": [
+          "Dated September 10, 2004 on report p.1.",
+          "Sections 3–4 give the triangle constraints and row-action metric repair; later sections discuss applications and algorithms."
+        ],
+        "identifier_or_url": "https://www.cs.utexas.edu/ftp/techreports/tr04-22.pdf",
+        "material_read": "Title/date/abstract, introduction, sections 2–4 equations and algorithm, sections 4.4–7 and references",
+        "method": "Accessible full-text PDF extraction and page inspection",
+        "title": "Triangle Fixing Algorithms for the Metric Nearness Problem",
+        "trigger": "Foundational dated technical report for the identical Euclidean nearness problem"
+      },
+      {
+        "assessment": "Defines same Euclidean objective and triangle fixing algorithms; no sharp edgewise perturbation modulus in the examined main statements",
+        "evidence": [
+          "Sections 2.1 and 3.1 formulate Euclidean metric nearness and KKT iteration.",
+          "Section 7 and Appendix discuss applications, variants, and APSP, not cross-norm stability."
+        ],
+        "identifier_or_url": "https://www.cs.utexas.edu/users/inderjit/public_papers/metric-simax.pdf",
+        "material_read": "Pages 375–381, 392–395, including sections 1–3, 7 and appendix relevant to optimization, plus sections 4–6 descriptions",
+        "method": "Full-text public PDF, searchable text and selected rendered pages",
+        "title": "The Metric Nearness Problem",
+        "trigger": "Expanded original peer-reviewed source on the identical problem"
+      },
+      {
+        "assessment": "Gives isometries, facets and rays but not the nonlinear Euclidean nearest-cone operator modulus",
+        "evidence": [
+          "Section 3.1.2 lists the seven rays and the symmetry group Sym(3) x Sym(4).",
+          "No theorem about the sharp edgewise Lipschitz constant 8/5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0306049v1",
+        "material_read": "Complete HTML text, particularly theorem 1 and section 3.1.2 (Met_4 = Cut_4; seven extreme rays)",
+        "method": "Open-access full-text HTML arXiv version",
+        "title": "The isometries of the cut, metric and hypermetric cones",
+        "trigger": "Highly pertinent first-principles study of four-point metric-cone structure and possible stronger coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c63e40d-d828-43d7-8d18-5981aba8095b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite four-point metric cone is the first genuinely multi-triangle distance-restoration case. Sharp independent-entry error amplification controls robustness of repaired distances; it exceeds the single-triangle bound and is attained for positive measurement data. This motivated exact small-dimension invariant is not merely a recomputation of metric-cone rays or the optimization algorithm.",
+    "status": "PASS"
+  }
+}
