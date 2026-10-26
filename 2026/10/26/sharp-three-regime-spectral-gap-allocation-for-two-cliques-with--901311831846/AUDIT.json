@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For all integers k≥2,u≥1 and B>0, λ2 is the concave Rayleigh minimum, so averaging arbitrary edge weights over graph automorphisms preserves global optimality. The four Laplacian invariant pieces are exhausted and give λ2=min{μ_-, ka+ud+kb}, where μ_- is the smaller root of μ²−(nd+2kb)μ+2k²bd=0 and is strictly below kd. To attain λ>0 with kd=λ(1+t), the least cross weight b0=λ[((n/k)(1+t)−1)]/(2kt); replacing any excess cross weight with an equal increase in within-gateway a reduces budget, proving the exact F(t) budget formula. The involution t↦1/(2t) and the derivative of its active branch establish a unique three-regime minimizer. Symmetry averaging and nonnegativity extend the forced-zero and positive-total support statements to every asymmetric optimum. `VERIFY.py` passed 189 full-eigenvalue/budget graph cases and 2430 unrestricted asymmetric samples, plus symbolic reduced characteristic and differentiation identities. Finite tests do not prove all-parameter assertions; the analytic proof does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh & Boyd (2006) establish concavity/symmetrization and derive an edge-count constrained cut upper bound and block symmetry examples; their variables and constraints differ from the present four orbit weights paid from one total conductance budget.",
+        "Cambridge 2024 article explicitly defines L(w) as sum of unit intralayer contributions plus variable interlayer weights in equation (1), and its appendix optimizes those interlayer weights.",
+        "Shakeri 2015 equation (2) similarly uses fixed L1 and L2 with only W variable."
+      ],
+      "reasoning": "General SDP solvability or a universal cut upper bound does not supply the exact value, optimal edge classes, nor forced support for a particular graph family. Relevant full-text equations and appendices were compared, not just titles.",
+      "searches": [
+        "\"all edge weights\" \"interlayer\" \"intralayer\" \"algebraic connectivity\" optimal",
+        "\"algebraic connectivity\" \"two cliques\" \"complete bipartite\" optimize edge weights",
+        "doi:10.1016/j.laa.2006.03.006 §§2–3, Appendix",
+        "doi:10.1017/nws.2024.9 §§2–6, Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+      "https://arxiv.org/html/1510.06785v1",
+      "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 preprint optimizes a diagonal W among one-to-one cross links with fixed L1,L2, whereas the new result optimizes all intra- and interlayer conductances simultaneously.",
+        "The 2024 paper treats k-to-k bipartite interconnections but fixes intralayer edge weights to one; its general SDP does not state or imply the three-phase co-design optimum.",
+        "The matching-bridge graph is a strict spanning subgraph of the biclique-gateway graph and can yield strictly less spectral gap under the same budget."
+      ],
+      "reasoning": "Neither a formula for a fixed-intralayer feasible set nor the value of its matching-edge subgraph implies the joint edge-budget optimum or its all-optima support classes. The present claim is a special *instance* of general SDP optimization methodology, but is not a restatement of an existing evaluated theorem.",
+      "searches": [
+        "Maximizing Algebraic Connectivity in Interconnected Networks arXiv 1510.06785 full text",
+        "The art of interconnections achieving maximum algebraic connectivity in multilayer networks full text",
+        "Three phase diagram optimal sparse internal clique edges gateway biclique bridge conductances under total budget spectral gap"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shakeri et al. (2015), arXiv:1510.06785v1, §§1–3 and supplemental theorem: the cross layer is a diagonal one-to-one weight matrix W and L1,L2 are fixed.",
+        "Tavasoli et al. (2024), DOI 10.1017/nws.2024.9, §§2–6 and Appendix A: W is a cross-layer design parameter; the within-layer Laplacians are not design variables.",
+        "The invariant cross-gateway eigenvalue for the complete biclique is ka+ud+kb, unlike the matched-pair eigenmodes; k² versus k cross edges change the feasible set."
+      ],
+      "reasoning": "Queries used spectral-gap, algebraic-connectivity, Fiedler eigenvalue, complete biclique gateway, and all-edge budget synonyms; no source with equivalent finite-dimensional feasible set and three-regime exact formula was identified. Two-layer fixed-intralayer models cannot be substituted for full co-design.",
+      "searches": [
+        "Exact maximum Fiedler eigenvalue weighted two cliques K_n connected by K_{k,k} cross biclique, optimizing all intralayer and interlayer edge weights",
+        "Optimal edge-budget algebraic connectivity of two equal cliques joined by all-to-all connections between k marked vertices on each side (biclique gateway), three regimes with internal gateway edges zero or positive",
+        "\"two cliques\" \"biclique\" \"algebraic connectivity\" weights optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-result searches returned clique partition/cover and unrelated bipartite spectral graph studies, not a table evaluating the present edge-budget optimum.",
+        "The matching-bridge comparator at k=5,u=2 is strictly smaller than 2/23 and requires a positive within-gateway clique class; the current claim concerns the full biclique, not a replay of a matching table."
+      ],
+      "reasoning": "Exact-parameter and graph-structure aliases were sought. No exact database/table result for the four-class biclique-gateway allocation was located. Non-detection is not a proof that none exists.",
+      "searches": [
+        "Optimal edge-budget algebraic connectivity of two equal cliques joined by all-to-all connections between k marked vertices on each side (biclique gateway), three regimes with internal gateway edges zero or positive",
+        "Exact maximum Fiedler eigenvalue weighted two cliques K_n connected by K_{k,k} cross biclique, optimizing all intralayer and interlayer edge weights",
+        "Three phase diagram optimal sparse internal clique edges gateway biclique bridge conductances under total budget spectral gap",
+        "\"K_{k,k}\" \"algebraic connectivity\" \"clique\" optimal weights"
+      ]
+    },
+    "rationale": "The exact joint intra- and interlayer conductance-budget optimum, its three k/u phases, and universally forced edge-class deletion were not found in inspected overlapping literature. The 2006 general convex/symmetry framework yields methods and bounds but does not state this formula. The 2015 and 2024 multilayer sources hold within-layer weights fixed and optimize the cross-layer system; their claims do not imply jointly optimal intralayer support. The closely related matching-gateway calculation concerns only k cross edges and cannot dominate the complete k²-edge gateway: at k=5,u=2, unit budget, this result gives 2/23 versus about 0.0769326244 for the matching graph, with opposite within-gateway support. Search limitations remain.",
+    "residual_risks": [
+      "A specialized, unindexed graph-optimization theorem may contain the same exact gateway family and hence dominate the claimed originality.",
+      "Some search results were index summaries rather than full primary papers; none was taken as decisive evidence of noncoverage.",
+      "No external mathematical referee or independent verification has evaluated this claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_COVERAGE",
+        "evidence": "Equations (7)–(9) derive group averaging; §3.2 constraints (18) bound cuts with fixed intra-class maxima, unlike a shared budget on all four gateway-specific edge orbits.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eigbounds_laplacian.pdf",
+        "material_read": "Abstract, §2 group-symmetrization proof, §3.2 small-cut optimization, §§3.3–3.4 structured block graphs, and Appendix exact spectral decompositions.",
+        "method": "Inspected readable primary full-text PDF, mathematics and relevant page renderings, including the spectral appendix.",
+        "title": "Upper bounds on algebraic connectivity via convex optimization",
+        "trigger": "General graph family spectral-gap convexity and symmetry may subsume the claim."
+      },
+      {
+        "assessment": "FIXED_INTRA_ONE_TO_ONE_ONLY",
+        "evidence": "Equation (2) expresses block fixed L1 and L2 plus diagonal cross W, so all intralayer edge weights are parameters rather than budget-controlled decision variables.",
+        "identifier_or_url": "https://arxiv.org/html/1510.06785v1",
+        "material_read": "arXiv v1 main article, equations (1)–(10), theorems 1–3, discussion, and supplemental theorem 4 and proof.",
+        "method": "Inspected complete accessible arXiv HTML and its mathematical supplemental section.",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "2015 primary article analyzes optimal weights on two interconnected networks."
+      },
+      {
+        "assessment": "INTERLAYER_ONLY_NOT_JOINT_BUDGET",
+        "evidence": "Equation (1) sums fixed unit intralayer links and variable W only for E3; the present theorem optimizes both the within-layer and between-layer edges.",
+        "identifier_or_url": "https://www.cambridge.org/core/journals/network-science/article/art-of-interconnections-achieving-maximum-algebraic-connectivity-in-multilayer-networks/67B428A634B2BF0741AFD0B350F8AB4E",
+        "material_read": "Open full text §§2–7, equations (1)–(6), k-to-k discussion and figures, Appendix A proof and Appendix C/D spectral optimization examples.",
+        "method": "Inspected publicly readable complete article sections and technical appendices.",
+        "title": "The art of interconnections: Achieving maximum algebraic connectivity in multilayer networks",
+        "trigger": "2024 full article explicitly treats k-to-k bipartite interconnection patterns."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "90131183-1846-4466-adc6-5c336448890e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two fully connected communities joined through a limited all-to-all gateway are a standard structural motif for consensus and diffusion design. The exact global optimum simultaneously prices internal clique links and cross links; it gives three genuinely different analytic regimes separated by two explicit thresholds, including mandatory deletion of entire edge orbits by every optimizer and a sharp reversal to strictly positive aggregate within-gateway spending. At k=7,u=1 and k=8,u=1 the structure changes, so the thresholds are realized in the natural integer domain. Strict comparison with the matching-only gateway at k=5,u=2 establishes that the complete gateway changes both the exact optimum and the support policy, rather than producing a routine parameter substitution.",
+    "status": "PASS"
+  }
+}
