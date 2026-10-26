@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The bijective two-temporal-column transfer construction proves P_n=tr(T^n S) for every n>=3, with no extrapolation from sampled widths. Exact integer matrix computations reproduce the cyclic SCC list, swap action and invariant/anti-invariant characteristic polynomials. Algebraic identification of polynomial roots gives the Lucas formulas. A separate rung-propagation argument gives Q_n. All 5,592,384 labelled configurations for widths 3 through 11 were also directly checked by a second update implementation; this finite enumeration is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini et al. arXiv:1405.2486 introduces majority processes and proves convergence/unanimity statements; it quotes the classical period-two theorem, not a Möbius-ladder orbit enumeration.",
+        "Turau arXiv:2202.01580 sections 1-4 characterize fixed points/2-cycles of trees.",
+        "Agur et al., Discrete Mathematics 70 (1988), pp.295-302, defines one-dimensional cyclic majority using self plus two ring neighbors and counts cyclic words without isolated bits."
+      ],
+      "reasoning": "The cited general period theorem guarantees allowable periods but cannot determine P_n. The tree classification does not include cubic cyclic ladders. Agur gives the old fixed-word expression used for Q_n but not any Möbius-ladder period-two census; the different neighborhood rule and crossed seam are essential.",
+      "searches": [
+        "Convergence unanimity disagreement majority dynamics unimodular random graphs arxiv 1405.2486",
+        "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees arxiv 2202.01580",
+        "The number of fixed points of the majority rule Agur Fraenkel Klein 1988"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1405.2486",
+      "https://arxiv.org/abs/2202.01580",
+      "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+      "https://doi.org/10.1016/S0012-365X(97)00086-1",
+      "https://opensiuc.lib.siu.edu/math_articles/93/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible earlier circular-prism result gives 64 recurrent states at four rungs; the present crossed-seam Möbius graph gives 48.",
+        "At width three the Möbius ladder is K_{3,3}, whereas the untwisted three-rung prism is a pair of triangles joined by a matching.",
+        "Published general majority dynamics imply eventual 1/2 periodicity and published cyclic-word enumeration implies Q_n but neither numerically implies P_n."
+      ],
+      "reasoning": "The even/odd factorization of tr(T^n S) depends on an explicit nontrivial row-swap operator; tr(T^n) for an untwisted prism omits this operator. Distinct state counts rule out treating the graph family as an immediate isomorphic or parameter-substitution instance of the prism formula.",
+      "searches": [
+        "Exact recurrent-state census majority dynamics circular prisms Lucas numbers L_n fixed point 2-cycle",
+        "Fixed points and 2-cycles synchronous dynamic coloring graphs cycles ladders Turau Agur number of fixed points majority rule",
+        "Moebius ladders recurrent binary majority dynamics exact Lucas squares"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Searches yielded graph-homology and Möbius-ladder structure results, but no same-rule fixed-or-two-cycle expression; arXiv:1405.2486 studies different convergence questions.",
+        "The exact tested Möbius-ladder recurrent counts at widths 3-6 are 4,48,144,326 and differ from the known untwisted prism counts."
+      ],
+      "reasoning": "Alternative descriptions as stable majority colorings, two-cycles, reciprocal fixed configurations of the induced Boolean map, and swap-twisted transfer traces were compared. In contrast to general period-two existence, the trace factorization gives a width-dependent number. No searched result demonstrated an equivalent all-width enumeration.",
+      "searches": [
+        "majority dynamics Moebius ladder M_{2n} exact periodic points fixed points Lucas L_n 2-cycles",
+        "Möbius ladder majority dynamics fixed points two cycles attractors",
+        "majority update Möbius ladder recurrence L_2n cosine parity square number of recurrent configurations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No covering table was identified by the available sequence/title searches. The direct OEIS structured lookup was inaccessible, so this is not a complete database comparison.",
+        "McSorley, Discrete Mathematics 184 (1998), pp.137-164, abstract says it counts several Möbius-ladder structures but gives no majority-dynamics count in the abstract."
+      ],
+      "reasoning": "Numerical sequence coincidence is not sufficient to establish or rule out prior coverage. The available graph-enumeration abstract leaves a residual risk; no positive evidence was found that its tables cover F^2(x)=x with majority update.",
+      "searches": [
+        "4 48 144 326 900 2208 5476 number sequence",
+        "Lucas numbers Möbius ladder majority fixed points cycles",
+        "Counting Structures in the Möbius Ladder John McSorley 1998",
+        "https://oeis.org/search?q=4%2C48%2C144%2C326%2C900&fmt=json"
+      ]
+    },
+    "rationale": "The new claim is the complete period-dividing-two Möbius-ladder count and its width-parity square identity; earlier results cover at most-two-period convergence, the cyclic no-isolated-symbol count, majority dynamics on random graphs/trees, or distinct untwisted prisms. Exact twisted boundary analysis is not an implication of these statements. A plausible 1998 broad combinatorial enumeration is inaccessible in full text and remains a named residual risk.",
+    "residual_risks": [
+      "McSorley 1998 full text was not retrievable through accessible repositories/institutional channel; cannot rule out an equivalent graph-state counting table.",
+      "An unindexed synonym or older unpublished calculation may independently contain the same twisted majority formula.",
+      "A direct exact OEIS API lookup was inaccessible; absence of a search hit is not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical/structural convergence background, no all-width Möbius-ladder census in accessible primary text.",
+        "evidence": [
+          "arXiv abstract and sections 1-2, Theorem 1.1 and Theorems 1-4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Accessible primary full-text HTML: introduction, definitions, period-two theorem, random-graph statements, and sections of weighted-majority proof; word search over the complete HTML for Möbius, ladder and counting.",
+        "method": "Read the text and searched the full-text rendering for graph-family and exact-enumeration terminology.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Original majority-dynamics preprint with verified 2014-05-11 first posting"
+      },
+      {
+        "assessment": "Results are principally tree-specific; Möbius ladders contain cycles and lie outside the proven tree class.",
+        "evidence": [
+          "arXiv sections 1,2,3 and 4, including Theorem 3 for trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+        "material_read": "Full-text HTML sections 1-4 (motivation, state of the art, precise graph setup, tree bijection).",
+        "method": "Inspected definitions and explicit scope of its central statements.",
+        "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+        "trigger": "Direct treatment of same update rule and exact attractors"
+      },
+      {
+        "assessment": "Explicitly anticipates Q_n as a cyclic word count, but its self-inclusive nearest-neighbor rule does not enumerate Möbius-ladder two-cycles.",
+        "evidence": [
+          "Agur, Fraenkel and Klein, Discrete Mathematics 70 (1988), pp.295-302."
+        ],
+        "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+        "material_read": "Primary PDF pages 295-296, 298, 301-302 (screenshot inspection).",
+        "method": "Read local rule, fixed-word theorem, proof and conclusion.",
+        "title": "The number of fixed points of the majority rule",
+        "trigger": "Possible direct pre-existing Lucas formula"
+      },
+      {
+        "assessment": "No inference of noncoverage is made from the abstract; genuine residual risk.",
+        "evidence": [
+          "McSorley, Discrete Mathematics 184 (1998), pp.137-164; abstract mentions counts of many graph structures without specifying majority attractors."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(97)00086-1",
+        "material_read": "Publisher/repository abstracts only; full text not retrieved (repository PDF access denied; institutional access connection unavailable).",
+        "method": "Checked institutional and open-access routes after title/publication search.",
+        "title": "Counting structures in the Möbius ladder",
+        "trigger": "Broad prior exact enumeration on the identical graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c29df10-b6bd-4ee4-85a3-0a4d3f14cd8e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact period-dividing-two state and primitive two-cycle counts of a natural infinite cubic vertex-transitive graph family, with the odd-width square identity versus even-width Lucas-square corrections caused by the crossed boundary. The precise attractor census is not determined by the known eventual-period bound or the known no-isolated-bit fixed-word count. It is relevant as an exact recurrent-state capacity statistic for Boolean majority networks; no stronger downstream consequence is asserted.",
+    "status": "PASS"
+  }
+}
