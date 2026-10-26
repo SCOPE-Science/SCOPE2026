@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Derive exact Student regression law, SPD Lanczos cofactor nonvanishing, rank-one Sherman–Morrison Galerkin pole and orthogonal energy identity; transverse integration gives Galerkin p<1 and sharp R^-1 tail. Residual orthogonality and full-column-rank Student perturbation give minimal-residual p<ell-k+1. Actual standalone checker tests rational equations, direct solves, normalizations and positive-definite witnesses; finite checks cannot prove infinite moments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2302.07466 establishes high-probability quasi-optimality when a subspace embedding succeeds.",
+        "arxiv:2111.00113 analyzes randomized least-squares residual approximation with conditional embedding guarantees."
+      ],
+      "reasoning": "Those high-probability comparisons do not imply finite or infinite unconditional error moments and do not dominate the sharp moment and tail conclusions. Standard Student regression can yield part of the proof but is not an already-stated all-Krylov-rank solver frontier.",
+      "searches": [
+        "\"sketched Galerkin SPD linear system Gaussian sketches infinite mean energy norm error Cauchy tails\"",
+        "\"randomized Petrov-Galerkin infinite first moment for symmetric positive definite linear system any Krylov dimension\"",
+        "arxiv:2111.00113 sections 1 and 3",
+        "arxiv:2302.07466 theorem 3.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.07466",
+      "arxiv:2208.11447",
+      "arxiv:2111.00113",
+      "arxiv:1803.02602"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Güttel–Schweitzer use the original FOM and GMRES sketch formulas; here exact Gaussian distribution is derived rather than assumed.",
+        "High-probability sketch success theorems control performance on embedding events, not the entire Gaussian probability space.",
+        "The all-rank Galerkin pole is noncancelling because of the strictly nonzero Lanczos tridiagonal inverse corner; the residual least-squares coefficient is instead a full-rank multivariate Student perturbation."
+      ],
+      "reasoning": "Stated construction formula does not automatically state sharp moments, especially the nonremovable hyperplane pole and exact tail constant. No searched primary claim or stronger implication was identified that already provides the complete theorem.",
+      "searches": [
+        "arxiv:2208.11447 sketched FOM GMRES formulas",
+        "arxiv:2302.07466 sketched Galerkin theorem 3.1",
+        "arxiv:1803.02602 proposition 4.1",
+        "\"sketched FOM versus sketched GMRES sharp p moment existence threshold oversampling ell minus k plus one Gaussian\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same projected equation is sketched Galerkin/Petrov–Galerkin and may be called randomized FOM; arXiv:2302.07466 and arXiv:1803.02602 spell out its finite-dimensional construction.",
+        "Both Galerkin and FOM labels were compared through the actual normal equations; inspected passages discuss embedding bounds rather than the unconditional Student hyperplane pole."
+      ],
+      "reasoning": "Renaming the projected method does not constitute originality. The new claim compares exact p-moment implications for every nonterminal SPD Krylov rank; no equivalently quantified tail theorem appears in the inspected sections. An uninspected specialized article could still contain a reformulation.",
+      "searches": [
+        "\"sketched FOM\" \"Cauchy\" \"tail\"",
+        "\"randomized Galerkin\" \"heavy tail\" linear systems",
+        "\"Gaussian sketch\" \"FOM\" \"Cauchy\" residual solver moment",
+        "arxiv:2302.07466 sections 3–5",
+        "arxiv:1803.02602 section 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-literature searches yielded the numerical projection constructions but no exact moment-threshold table for this solver pair.",
+        "The classification concerns an infinite family of positive real orders, not a finite tabulated numerical invariant."
+      ],
+      "reasoning": "A failure to locate a table does not establish uniqueness. Existing Gaussian-regression tables alone lack the Galerkin hyperplane pole, nonterminal Lanczos condition, and comparison with minimal residual.",
+      "searches": [
+        "\"sketched FOM\" \"infinite expectation\" random gaussian",
+        "\"randomized FOM\" \"infinite\" \"moment\" error",
+        "\"sketched\" \"GMRES\" \"moments\" \"Gaussian\" \"FOM\""
+      ]
+    },
+    "rationale": "Full-text comparison with four relevant methodological sources found the schemes, Gaussian sketch guarantees, and numerical instability discussion, not the exact unconditional arbitrary-p moment separation across all nonterminal SPD Lanczos ranks, nor the positive hyperplane-tail constant. Gaussian regression/Student and projection formulas are treated as established ingredients, not novel. Specialist precedent remains a residual risk.",
+    "residual_risks": [
+      "An equivalent statement could exist in specialized regression-based random projection or Petrov–Galerkin literature not surfaced by the searches.",
+      "Closest primary research was inspected in pertinent sections but not every subsequent revision or all papers citing it; external priority confirmation remains necessary.",
+      "No independent scientific audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and bounds randomized projections and reports occasional spikes; no exact arbitrary-moment frontier or sharp unconditional tail constant in inspected material",
+        "evidence": [
+          "arxiv:2302.07466, §§2–5 and Theorem 3.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.07466v3",
+        "material_read": "Introduction; projected-equation construction in Sections 2–3; Theorem 3.1 and associated bounds; discussion and numerical comparisons in Sections 4–5",
+        "method": "Full HTML sectional and equation review",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Direct original method and instability claims"
+      },
+      {
+        "assessment": "Provides method matrices and projected formulas, not the unconditional error-integrability theorem",
+        "evidence": [
+          "arxiv:2208.11447, sketched FOM/GMRES equations"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.11447",
+        "material_read": "Sketched FOM and GMRES formulas and accompanying discussions",
+        "method": "Available full HTML mathematical sections",
+        "title": "Randomized Sketching for Krylov Approximations of Large-Scale Matrix Functions",
+        "trigger": "Closest sketched FOM/GMRES algebraic formulations"
+      },
+      {
+        "assessment": "High-probability error guarantees, no identified matching moment-spectrum for this pair",
+        "evidence": [
+          "arxiv:2111.00113, §3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.00113v2",
+        "material_read": "Introduction and Section 3 randomized residual solver and accuracy discussion",
+        "method": "Available full HTML mathematical sections",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Possible stronger randomized least-squares coverage"
+      },
+      {
+        "assessment": "Contains sketched Galerkin and conditional quasi-optimality under subspace embeddings; no unconditional moment classification",
+        "evidence": [
+          "arxiv:1803.02602, §4.1 and Proposition 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1803.02602v4",
+        "material_read": "Introduction, §2.1, §4.1 (sketched Galerkin definition and Proposition 4.1), and numerical comparison §6; searches for moment/expectation",
+        "method": "Full HTML subsection examination",
+        "title": "Randomized Linear Algebra for Model Reduction. Part I: Galerkin Methods and Error Estimation",
+        "trigger": "Possible equivalent sketched Galerkin name and stronger projection bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8e6624cf-650a-4370-a17c-2f649a1549d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact integrability classification makes a consequential method-choice distinction at equal sketches, exposing why arbitrarily strong high-probability success statements do not deliver a finite unconditional mean for unsafeguarded Galerkin. The arbitrary-p thresholds, all-Krylov-step scope and sharp positive tail coefficient are motivated methodological diagnostics, not a textbook substitution or arbitrary finite table.",
+    "status": "PASS"
+  }
+}
