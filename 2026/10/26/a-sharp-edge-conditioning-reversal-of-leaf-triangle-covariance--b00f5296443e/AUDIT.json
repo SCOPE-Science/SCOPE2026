@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Conditional hypergeometric counting reconstructs both expectations and the mixed moment exactly. Algebra gives the unique real sign zero strictly between n and n+1 for n>=5, with boundary m<3 and high m handled separately. The independent-edge covariance and sparse expansion follow from independent edges and explicit asymptotics. All 34 brute-force edge strata up to n=6, 6948 additional exact sign checks, and four sparse-limit diagnostics passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson (1990), DOI:10.1002/rsa.3240010103, available abstract focuses on asymptotic counts of copies of fixed graphs, with dense-edge regimes; full text not obtained.",
+        "Janson (2006) Section 4 establishes joint limits among fixed vertex-degree counts, not a finite mixed moment with a triangle count.",
+        "Goldstein (2010) focuses on Berry–Esseen bounds for a single degree count in G(n,p)."
+      ],
+      "reasoning": "The degree-one indicator constrains absence of all but one of n-1 edges, so it is not a fixed-size subgraph-occurrence count and is not directly subsumed by an asymptotic theorem for fixed motifs. No inspected broader theorem forces the all-n sign diagram or gives the exact sparse covariance limit. Historical sources could contain additional uninspected results; this is recorded as a risk.",
+      "searches": [
+        "Svante Janson 1990 A functional limit theorem for random graphs applications to subgraph count statistics pdf",
+        "A functional limit theorem for random graphs with applications to subgraph count statistics Janson 1990 open access pdf full text",
+        "mixed moments of counts small subgraphs and vertices fixed degree G(n,m) joint distribution",
+        "G(n,m) joint asymptotic normal number degree one vertices triangles covariance fixed edges Janson",
+        "General joint subgraph and degree count covariance G(n,m) graph motif triangle leaf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/math/0605642",
+      "https://arxiv.org/pdf/1005.4390",
+      "https://doi.org/10.1002/rsa.3240010103",
+      "https://doi.org/10.1002/rsa.10113",
+      "2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+      "b697d874-a3af-4ccd-8987-105dd32c7140",
+      "4925f451-1eb3-4700-b705-19a9e6eabfcf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For a fixed triangle, conditional degree-one probability is zero on its vertices and hypergeometric on the other n-3 vertices: this explicit mixed conditional probability is the new calculation.",
+        "Janson 2006, Section 4, treats degree-degree covariance, while the new statement treats degree-triangle covariance.",
+        "Janson 1990 abstract concerns fixed-subgraph count CLTs; the relevant full text is unavailable and cannot establish noncoverage."
+      ],
+      "reasoning": "No inspected statement, even after elementary parameter relabeling or passing to corollaries, implies the sharp integer boundary m=n+1 or the opposing G(n,p) sign. A general hypergeometric conditioning principle is only the method used for a new mixed observable, not itself a prior formula for this claim.",
+      "searches": [
+        "G(n,m) joint asymptotic normal number degree one vertices triangles covariance fixed edges Janson",
+        "covariance triangle and degree distribution counts random graph fixed number of edges",
+        "random graph covariance triangles pendant vertices sign independent edge conditional",
+        "conditional covariance triangle count degree count edge number random graphs positive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Janson 2006, arxiv:math/0605642, Section 4 treats vertex-degree counts under fixed-edge conditioning, without triangle observables.",
+        "Goldstein 2010, arxiv:1005.4390, Section 2 treats count of vertices of prescribed degree without triangle cross-moments.",
+        "published-finding corpus search returned graph component–triangle and recursive-tree degree–leaf studies, but no matching pair of observables."
+      ],
+      "reasoning": "Equivalent phrasings include pendant-vertex count, degree-one count, leaf count, triangle/3-cycle motif count, fixed-edge edge-conditioned graph, and uniform graph process at a fixed edge count. The inspected statements do not identify this covariance or its exact n-versus-n+1 sign boundary.",
+      "searches": [
+        "In fixed-edge Erdős–Rényi random graph G(n,m), exact covariance and sign of triangle count and number of degree-one vertices (leaves)",
+        "random graph G(n,m) covariance triangles degree one vertices number leaves random graph",
+        "G(n,m) correlation number degree one vertices triangles sign changing exact covariance",
+        "triangles leaves covariance random graph fixed edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result b697d874-a3af-4ccd-8987-105dd32c7140 counts isolated-edge connected components, not all degree-one vertices, and its cutoff is different.",
+        "Published result 4925f451-1eb3-4700-b705-19a9e6eabfcf counts induced open paths against triangles, not leaves.",
+        "published-finding corpus 2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174 concerns connected-component count versus triangles under independent-edge percolation."
+      ],
+      "reasoning": "These closest records do not give a table or an exact fixed-edge degree-one/triangle covariance. Component counts, isolated-edge components, and induced open paths differ structurally from the degree-one vertex count: they cannot determine it, and their covariance identities do not directly imply its sign.",
+      "searches": [
+        "Fixed edge random graph G(n,m) triangle count and leaf degree-one vertex count covariance flips from negative to positive exactly between m=n and m=n+1",
+        "A threshold at average degree two for correlation between triangles and pendant degree one vertices of Erdős Rényi graph conditioned on edge count",
+        "In Erdős Rényi random graphs, covariance of number of leaves (degree one vertices) and number of triangles is strictly negative in G(n,p) but flips from negative to positive in G(n,m) exactly at m=n+1, with sparse limit 8 c^3(c-1) exp(-2c)",
+        "b697d874-a3af-4ccd-8987-105dd32c7140",
+        "4925f451-1eb3-4700-b705-19a9e6eabfcf"
+      ]
+    },
+    "rationale": "Accessible primary full-text comparisons, multiple scientific literature searches, searches of published mathematical findings, and overlap comparison against the available earlier claims did not exhibit the exact degree-one/triangle covariance, its fixed-edge integer sign switch, or the independent-edge contrast. Closest isolated-edge component covariance is not an implication: it omits pendant leaves in larger components. Janson 1990 full-text unavailability is explicitly a historical-priority residual risk, not evidence of global uniqueness.",
+    "residual_risks": [
+      "Historical novelty is not independently certified; unpublished or obscure prior derivations may exist.",
+      "Janson (1990) full paper was unavailable despite lawful access attempts; its abstract cannot justify a full-document NOT_COVERING assessment.",
+      "The numerical experiments do not independently prove formulas outside checked sizes; correctness relies on analytic argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides degree-count central limit information, not a triangle–leaf mixed covariance or finite edge-count sign reversal.",
+        "evidence": [
+          "Theorem 4.1 describes asymptotic joint degree-count limits in G(n,p) and G(n,m).",
+          "Section 4 does not specify mixed covariance with triangle counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0605642",
+        "material_read": "Full introduction, main theorem and Section 4 on vertex-degree counts and associated references (pp. 1–10 and bibliography).",
+        "method": "Direct reading of full publicly accessible manuscript, including displayed theorem and conditioning comparison.",
+        "title": "Monotonicity, asymptotic normality and vertex degrees in random graphs",
+        "trigger": "Primary accessible fixed-edge degree-count source; verified first public arXiv date 2006-05-24"
+      },
+      {
+        "assessment": "Bounds univariate degree-count normal approximation in independent-edge graphs; no fixed-edge triangle mixed moment.",
+        "evidence": [
+          "Theorem on normal approximation to count of vertices of a given degree in G(n,p)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1005.4390",
+        "material_read": "Introduction and degree-count model/theorem sections in the public manuscript and text representation.",
+        "method": "Read publicly accessible PDF and structured full-text rendition.",
+        "title": "A Berry–Esseen bound with applications to vertex degree counts in the Erdős–Rényi random graph",
+        "trigger": "Plausible broad degree-count distribution theorem"
+      },
+      {
+        "assessment": "Abstract covers subgraph-count asymptotics rather than exact sparse degree-one–triangle covariance; definitive full-document noncoverage is not asserted.",
+        "evidence": [
+          "Publisher abstract specifies a class of fixed subgraph copy counts and asymptotic distributions in dense fixed-edge models.",
+          "Complete paper inaccessible, so possible stronger methodological results remain unverified."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+        "material_read": "Publisher abstract, bibliographic information, and comparison to later references; full text not obtained.",
+        "method": "Searched arXiv and open-access versions and inspected publisher abstract; attempted lawful full-text retrieval without success.",
+        "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+        "trigger": "Plausible stronger count-statistic framework in fixed-edge random graphs"
+      },
+      {
+        "assessment": "Tail concentration of triangle count alone; no substantiated coverage of the two-count covariance.",
+        "evidence": [
+          "The visible abstract focuses on triangle-count upper tails and martingale inequalities."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.10113",
+        "material_read": "Publisher abstract and visible article summary; full text not obtained.",
+        "method": "Inspected publisher metadata and article abstract.",
+        "title": "Divide and conquer martingales and the number of triangles in a random graph",
+        "trigger": "Primary triangle-count concentration work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b00f5296-443e-4511-9507-ffbffda948dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete exact finite-size dependence classification between local leaves and global triangle motifs under fixed-edge sampling, with a sharp m=n+1 transition for all n>=5 and opposite sign under independent-edge sampling, isolates an interpretable model-conditioning reversal. The precise sparse covariance limit crosses zero at average degree two (m/n=1), providing a useful benchmark for degree–motif dependence in random-network null models. This contrast and uniform cutoff are not a mere normalization or arbitrary finite parameter slice.",
+    "status": "PASS"
+  }
+}
