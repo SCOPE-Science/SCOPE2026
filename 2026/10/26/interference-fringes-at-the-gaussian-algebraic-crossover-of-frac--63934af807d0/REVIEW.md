@@ -1,0 +1,15 @@
+# Scientific review: Gaussian–algebraic fractional packet crossover
+
+## Correctness
+**PASS.** The claim refers to a normalized Gaussian momentum envelope and the self-adjoint multiplier \(|P|^\alpha\), with fixed positive time, explicitly centered spatial positions and uniform compact-parameter error. The proof obtains the first parameter variation with a Fourier power/logarithm identity and bounds the second variation by a uniform dyadic integration-by-parts estimate. The implicit centering cancels the nontrivial amplitude exactly; the Gaussian complex phase then yields interference and its sharp limit superior and inferior. Thirty-eight numerical assertions from the packaged verification program corroborate the Fourier normalization, order derivative, crossover error decrease, and algebraic tail coefficient. Numerical checks are not the proof of any infinite limit.
+
+## Originality
+**PASS on currently inspected evidence, not independently certified.** Antar–Bakırtaş–Horikis, DOI 10.1017/jnw.2026.10049, demonstrate an algebraic exponent and a qualitative near-classical crossover for *nonlinear amplified similaritons*, and contain a free-packet illustration, but no exact moving Gaussian/wing amplitude or phase law. Solaimani (2025), DOI 10.1038/s41598-025-87001-y, studies scattering and wave-packet splitting; Zhang et al. (2016), DOI 10.1038/srep23645, concentrate on the order-one dispersion endpoint. Bednorz–Łochowski–Martynek, arXiv:1802.00612, provide stable-distribution tail comparisons up to constants, not an oscillatory Schrödinger probability ratio. Index and literature queries did not identify equivalent or logically dominating formulations. Possible coverage by a general complex Fourier boundary-layer theorem is the main outstanding originality risk.
+
+## Value
+**PASS.** A fractional wave packet has an algebraic remote wing at each nonintegral order, while its Gaussian classical-limit packet does not. An order limit at fixed position therefore hides a noncommuting spatial limit. The theorem resolves where these contributions become comparable, including the logarithmic secondary term, an explicit centering constant and the observable constructive/destructive interference envelopes. The infinite-contrast oscillation of the normalized density is physically more informative than an exponent-only tail statement and can guide the spatial extent needed to resolve fractional dispersion. The result is restricted to the free linear model and is not advertised as a nonlinear scattering theorem.
+
+## Sources and limitations
+Primary motivating full text: Antar–Bakırtaş–Horikis (online 2026-10-14), DOI 10.1017/jnw.2026.10049. Compared full-text sources: Solaimani (2025), DOI 10.1038/s41598-025-87001-y; Zhang et al. (2016), DOI 10.1038/srep23645; Bednorz–Łochowski–Martynek (2018), arXiv:1802.00612. Work at zero propagation time, growing time, higher dimensions, general input envelopes and nonlinear gain remains unproved. A broader unlocated asymptotic result remains a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
