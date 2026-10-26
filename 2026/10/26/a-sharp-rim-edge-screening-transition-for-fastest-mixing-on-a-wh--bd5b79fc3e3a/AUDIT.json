@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Concavity and symmetry reduce all weights without losing unrestricted optimality. The rim Fourier eigenvalues and 3-dimensional quotient eigenvalue quadratic were reconstructed. The normalized gap constraint has the exact feasible section c>=f_m(a) for a>2/(m+2), with least rim weight max(0,(1-a)/delta_m). The strictly convex scalar cost has a unique minimizer: interior for m=3,4,5 and boundary a=1 for m>=6. Averaging of arbitrary optima and nonnegativity give zero every rim edge at m>=6. Exact symbolic derivative and closed-form cost identities checked; 468 finite numerical comparisons independently assembled but do not constitute infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. (2006), sections on formulation, SDP duality and worked paths/cycles.",
+        "Boyd et al. (2007), wheel section addressing discrete-time mixing without the extra hub leaf.",
+        "Berman–Förster (2005), change of algebraic connectivity when a pendant-edge weight tends to infinity, not fixed-total-budget optimization."
+      ],
+      "reasoning": "The cited general techniques do have the optimization setting and symmetry principles, but an algorithm for all graphs is not an explicit theorem asserting the graph-specific rim-support transition. The pendant-edge work optimizes no spoke/rim budget. The wheel section addresses an unaugmented wheel and a different objective.",
+      "searches": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "https://emis.de/ft/15363",
+        "weighted graph algebraic connectivity optimal edge conductances trees lollipop barbell exact semidefinite design"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+      "https://emis.de/ft/15363",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. (2006) general spectral-gap SDP includes this graph as an instance but leaves the specialized algebra to be done.",
+        "Boyd et al. (2007) unaugmented wheel lacks pendant bottleneck and has a different time-discretization objective.",
+        "Published 2026 wheel symmetric-edge polytope claim concerns ellipsoid contact geometry, not fastest-mixing conductance allocation."
+      ],
+      "reasoning": "Special-case inclusion in a general optimization framework is not a published closed-form consequence; none of the inspected primary statements gives the explicit phase transition, closed optimal cost and rigidity for arbitrary asymmetric weights. The existence of a potential reduction is acknowledged but there is no decisive prior implication identified.",
+      "searches": [
+        "cone over cycle with additional pendant hub vertex total edge budget weighted Laplacian optimal algebraic connectivity",
+        "spectral gap optimization wheel hub leaf cycle base 90C22",
+        "hub base budget phase transition graph cone fastest mixing",
+        "2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006) formula for optimum continuous-time spectral gap in a weighted graph; wheel-with-leaf graph not identified as a solved case.",
+        "Boyd et al. (2007) treats symmetric discrete-time SLEM, whereas the present objective is a continuous-time Laplacian gap with a pendant leaf."
+      ],
+      "reasoning": "Equivalent formulations searched include fastest continuous-time mixing, weighted algebraic connectivity, graph spectral-gap maximization and a hub cone over a cycle-plus-isolate. These are the same objective under budget normalization. The found general convex framework neither reports nor directly implies the specific scalar optimum and all-optimizer support theorem without the new spectral calculation.",
+      "searches": [
+        "wheel graph with one pendant vertex attached at center hub algebraic connectivity optimal total edge conductance budget rim edges vanish threshold six",
+        "weighted wheel with extra hub leaf exact fastest mixing continuous time spectral gap rim spoke pendant conductances",
+        "cone over cycle with additional pendant hub vertex total edge budget weighted Laplacian optimal algebraic connectivity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus published item 39d62ea47ea0 concerns a wheel symmetric-edge-polytope minimum ellipsoid, not this weighted Laplacian objective.",
+        "Earlier mathematical findings on an unaugmented wheel, a connected-base cone, and a clique with two leaves have different graph families or objectives and do not state the present budget allocation."
+      ],
+      "reasoning": "The precise graph, conductance budget and optimizer support were compared against accessible prior finding summaries and related named works. No table of the corresponding \\(D_m\\) or exact screening at six rim vertices was found. Search incompleteness remains explicitly recognized.",
+      "searches": [
+        "wheel graph with one pendant vertex attached at center hub algebraic connectivity optimal total edge conductance budget rim edges vanish threshold six",
+        "optimal spectral gap wheel graph pendant leaf star-only edge screening rim weights maximum variance unfolding",
+        "fastest continuous time mixing wheel graph pendant at hub ring edge conductance zero m>=6",
+        "2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+        "2026/10/4/SCOPE-exact-curvature-distortion-number-of-pineapple-graphs--de350c5f72a5",
+        "2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680"
+      ]
+    },
+    "rationale": "Compared the actual fixed-budget continuous-time Laplacian gap and all-optimum support claim against the general source, the discrete-time unaugmented wheel, pendant-edge connectivity results, public records and accessible historical claims. No implication-equivalent prior statement located. Specialized earlier coverage remains a qualified risk.",
+    "residual_risks": [
+      "A specialized earlier spectral-design treatment of wheels with a hub-attached leaf may escape semantic retrieval or use a different graph name.",
+      "Archived literature records are incomplete and published summary comparisons are narrower than entire source articles; general spectral optimization algorithms may have documented special cases not located.",
+      "Publication dates identify publicly verified source evidence, not an assertion of historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework and variational duality cover the optimization *problem* but do not report the wheel-plus-hub-leaf solution or rim-screening threshold.",
+        "evidence": "Sun et al., SIAM Review 48 (2006), PDF title/date and examples.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full-text searchable 19-page PDF; inspected title/date page 1, theoretical primal/dual discussion around page 11, and examples near pages 15–16; searched for wheel and pendant terminology.",
+        "method": "Original PDF full-text inspection and page-image confirmation.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Nearest exact continuous-time, edge-budget spectral-gap formulation."
+      },
+      {
+        "assessment": "Symmetric discrete-time fastest-mixing chain on the unaugmented wheel, not the continuous-time wheel plus one leaf with free total edge weight budget.",
+        "evidence": "Boyd et al., arXiv:0709.0955 (2007), wheel section.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full-text searchable PDF; inspected initial page and wheel-specific pages around 22–23 and compared objectives and graph construction.",
+        "method": "Original PDF full-text inspection and page-image confirmation.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Plausible stronger symmetry result with a wheel example."
+      },
+      {
+        "assessment": "Studies limiting algebraic connectivity when a pendant edge becomes heavy on a tree, not full budgeted wheel conductance allocation.",
+        "evidence": "Berman and Förster, Electronic Journal of Linear Algebra 13 (2005).",
+        "identifier_or_url": "https://emis.de/ft/15363",
+        "material_read": "Original PDF title and introductory theorem pages inspected.",
+        "method": "Open full PDF inspection with page-image confirmation.",
+        "title": "Algebraic Connectivity of Trees with a Pendant Edge of Infinite Weight",
+        "trigger": "Possible pendant-edge eigenvalue obstruction."
+      },
+      {
+        "assessment": "Different object (minimum-volume ellipsoid of a symmetric edge polytope), no pendant leaf, and no reported spectral-gap-budget support screening. Not treated as a whole-document negative inspection.",
+        "evidence": "Public record 39d62ea47ea0, published summary.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+        "material_read": "Published title and claim summary only, not the full source proof.",
+        "method": "Semantic mathematical record search and summary comparison.",
+        "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+        "trigger": "Closest retrieved published mathematical finding containing a wheel and an optimal edge-weight parameter."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd5b79fc-3e3a-4ed2-8dac-bd661b4dfa6d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a canonical ring-with-hub network and a physically motivated spare hub leaf, the theorem gives explicit globally optimal conductances and a sharp support-screening transition at six rim vertices, including a rigidity statement for every asymmetric optimum. A generic SDP does not itself communicate this closed-form design law; the exact cutoff is a meaningful natural structural invariant.",
+    "status": "PASS"
+  }
+}
