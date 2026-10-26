@@ -1,0 +1,15 @@
+# Scientific review: six wild \(A_2\) singularities in the quartic \(\mathcal Z\) family
+
+## Correctness — PASS
+The homogeneous derivative equations first exclude the line \(u=v=0\) and all parameters \(q\ne0\) using squarefreeness of \(g\). At each of the two roots of \(q\), the exact factorization \(F=w^3+sH\) reduces the singular-support equation to a separable monic cubic, producing exactly three points. The completed coordinate change \(\xi=H\), with nonzero \(\partial H/\partial x\), yields \(F=w^3+s\xi\) exactly. This proves both rational-double-point type \(A_2\) and the characteristic-three Jacobian scheme \(k[[w]]/(w^3)\), length three per point (total eighteen). The \(\mathbb F_{27}\) witness has six points in two Frobenius triples in an exhaustive finite-field test, consistent with the general proof. No finite census is used as a substitute for the algebraic argument.
+
+## Originality — PASS, with stated risk
+Rams–Schütt, arXiv:1303.1304v1, §7 equation (7.2), study the same equation only in characteristics other than \(2,3\). Their smoothness and elliptic-fibre conclusions cannot imply a singular-scheme classification in characteristic \(3\); the displayed characteristic-three gradient and exact wild \(A_2\) local model are additional. Rams–Schütt's arXiv:1409.7485 concerns smooth quartics and lines, rather than singularities of this parameter family. Veniani (DOI:10.1007/s00229-021-01284-9) treats singular K3 quartics, but no equivalent \(\mathcal Z\)-family formula appears in the inspected discussion and examples. Katsura–Schütt arXiv:2604.25227v1 describes abstract \(6A_2\) divisibility configurations, without identifying this parameter family or its Jacobian scheme. Searches of mathematical records and prior accessible claims found no identical or stronger statement; this is a best-knowledge originality judgment, not a uniqueness proof. Specialized historical computations remain a residual risk.
+
+## Value — PASS
+The source family is a standard six-dimensional locus in the geometry of quartic surfaces with a distinguished line, and the published analysis expressly omits characteristic \(3\). The result classifies a nonempty open bad-characteristic specialization uniformly, including its actual singular support, normal local equations, K3 exceptional chains, and nonreduced Jacobian length. The distinction between six geometric singular points and scheme length eighteen is intrinsically wild and not visible from point counting. The result is not offered as a full classification of every degenerate member or as a line census.
+
+## Limitations
+The parameter conditions are essential; they do not include all degenerations. The proof concerns the embedded quartic and its Jacobian singular subscheme. The stated conditional classification is established by local polynomial algebra and an explicit open witness; only the explicit \(\mathbb F_3\)-model is checked by complete finite-field enumeration. An independent external audit is absent.
+
+Self-review: passed. Independent audit: not yet performed.
