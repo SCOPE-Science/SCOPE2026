@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The weak-descent bijection counts every subsequence embedding in a repeated increasing-permutation block, including the boundary cases for the empty target and for a source with a single block. The lower bound on weak descents is attained by a periodic permutation prefix, and a strictly improving length argument eliminates incomplete target cycles for source repetitions at least two. Strict log-concavity follows from a ratio whose positive factors strictly decrease; the bivariate generating function follows from a negative-binomial sum. The positive simple dominant pole and an interior Stirling saddle give the asserted rate and logarithmic correction. Actual independent finite dynamic-programming checks and generating-function recurrences agree. The rate of minimal subword entropy is **bounded above**, not determined exactly.
+
+## Originality — PASS, subject to literature uncertainty
+The closest direct predecessor is Fang's binary alternating-word analysis: the \(q=2\) case is already published, as is general rationality for any fixed periodic pair. Fang's all-alphabet bound is \(\frac12\log_2(1+\sqrt2)\), whereas the new complete \(q\ge3\) classification and bound \(\log_2\beta_q\) are more specific and strictly stronger for every such alphabet size. Menon and Singh vary the binary source word while fixing a target, a distinct optimization. Bukh and Saatashvili (2025) obtain substantially different optimal-rate bounds using alternating permutations; their large-alphabet asymptotics may dominate the bound here for sufficiently large alphabets, but do not yield the exact maximizing targets or counts for the source built from one repeated permutation. No covering many-letter extremal statement was found in the inspected primary literature or searched mathematical records. Older generalized binomial-coefficient literature remains a residual risk.
+
+## Mathematical value — PASS
+This is an exact characterization of **every** most frequent target in an infinite natural class of many-letter periodic source words, not a finite table or a restatement of binary results. Its strict logarithmic concavity identifies all ties and its entropy consequence supplies a quantitative improvement for each alphabet size at least three in an existing optimization question. The true minimum entropy rates remain unknown; no claim is made that the constructed-family upper bound dominates all later large-alphabet estimates.
+
+Self-review: passed. Independent audit: not yet performed.

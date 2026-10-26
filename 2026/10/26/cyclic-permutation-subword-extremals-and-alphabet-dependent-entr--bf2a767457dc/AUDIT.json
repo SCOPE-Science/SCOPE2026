@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "For each target, increasing source positions correspond bijectively to a copy-index sequence constrained at each weak descent; removing the cumulative weak descents yields a stars-and-bars binomial formula. Optimal target lengths are complete q-blocks when m>=2, and equality forces the precise repeated permutation. Explicit consecutive coefficient ratios prove strict log-concavity. A negative-binomial sum proves the rational GF, whose unique simple positive pole supplies the exponential constant, and Stirling with the unique interior saddle proves the negative one-half logarithmic correction. Checks of independent DP enumerations and exact finite generating-function coefficients completed successfully; no infinite proof rests on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fang 2025, Corollary 4.5: generic q>=2 bound 1/2 log2(1+sqrt(2)), obtained from a binary source.",
+        "Fang 2025, Proposition 4.8: exact asymptotic for q=2 alternating source, not q>=3.",
+        "Bukh–Saatashvili 2025 Theorem 2: sharp large-alphabet scale of the globally minimal subsequence multiplicity, via changing permutations, without a fixed cyclic-source maximizer classification."
+      ],
+      "reasoning": "Later Bukh–Saatashvili asymptotics can improve the GLOBAL bound when q is sufficiently large, and that fact limits the rate-bound priority claim. Neither their global result nor Fang’s bound establishes the new exact fixed-source classification, coefficient formula, or strict log-concavity for every q>=3.",
+      "searches": [
+        "Wenjie Fang 2024 Maximal Number of Subword Occurrences in a Word ternary or k-ary periodic cyclic permutation extension Proposition 4.6",
+        "subsequence frequency in words Menon Singh 2024 permutation periodic word most frequent subsequence",
+        "Fang arXiv:2406.02971v3 Theorem 4.4 Corollary 4.5 and Proposition 4.8",
+        "Bukh Saatashvili arXiv:2509.22619 Theorem 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.02971v1 (2024-06-05)",
+      "doi:10.4230/LIPIcs.AofA.2024.3 (2024)",
+      "arXiv:2406.02971v3 (2025 expansion)",
+      "arXiv:2306.07870 (Menon and Singh, 2023)",
+      "arXiv:2509.22619 (Bukh and Saatashvili, 2025)",
+      "Published mathematical finding records, including the closest public record identifiers compared in originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fang 2024 Theorem 4.8 provides only rationality of the generating function for arbitrary fixed w,v; it does not identify the maximizing target for arbitrary q-letter cycles.",
+        "Fang’s binary binomial coefficient b_{m,r}=binom(m+r,2r) is exactly the known q=2 member, whereas new result b_{m,r}=binom(m+(q-1)r,qr) holds for all q>=3 and is shown globally maximal over all targets.",
+        "Bukh–Saatashvili construct q-letter words from an eight-cycle of non-identical permutations, for general global upper bounds; this does not imply the exact structure of maximizers for repetitions of ONE permutation."
+      ],
+      "reasoning": "The claimed full target optimization requires the weak-descent bijection and a structural forced-permutation argument absent from inspected prior general rationality and global entropy papers. A generic bound on the global minimum does not classify the fixed source word. Thus no checked result implies the q>=3 all-target claim; some rate-bound implications are deliberately credited to prior and later work.",
+      "searches": [
+        "Fang AofA 2024 Proposition 4.6 and Theorem 4.8",
+        "Fang 2025 arXiv:2406.02971v3 Propositions 4.6–4.8, Corollary 4.5",
+        "Bukh–Saatashvili arXiv:2509.22619 Theorems 1–2 and Section 4",
+        "Maximum occurrences of a scattered subsequence in cyclic permutation word (012...q−1)^m, exact binomial m+(q−1)r choose qr, most frequent subword all alphabet sizes",
+        "Subword entropy q-letter periodic word each symbol once cyclic repeated; upper bound root beta^q-beta^(q-1)-1",
+        "Wenjie Fang 2024 Maximal Number of Subword Occurrences in a Word ternary or k-ary periodic cyclic permutation extension Proposition 4.6",
+        "subsequence frequency in words Menon Singh 2024 permutation periodic word most frequent subsequence",
+        "repeated permutation word 012 012 012 maximum scattered subsequence occurrences entropy weak descent binomial formula",
+        "strictly log concave most frequent subwords repeated q-letter increasing permutation factor entropy bound beta root",
+        "cyclic permutations repeated words binomial subword coefficients rational generating function alphabet three"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fang arXiv:2406.02971v3 Proposition 4.6–4.8 treats (01)^m: it is precisely the q=2 specialization of the new binomial identity.",
+        "For any permutation of distinct letters, relabeling reduces the source word to increasing-order q-cycle.",
+        "Bukh–Saatashvili arXiv:2509.22619, Section 4 uses alternating distinct permutations to bound the global minimum; it is not the one-permutation repeated source."
+      ],
+      "reasoning": "The binary specialization and alphabet permutations are not counted as novel. The genuinely new assertion fixes q>=3 and classifies every maximizing target, not merely establishing existence or a rational generating function for a single prescribed target.",
+      "searches": [
+        "Maximum occurrences of a scattered subsequence in cyclic permutation word (012...q−1)^m, exact binomial m+(q−1)r choose qr, most frequent subword all alphabet sizes",
+        "Subword entropy q-letter periodic word each symbol once cyclic repeated; upper bound root beta^q-beta^(q-1)-1",
+        "Fang 2025 arXiv:2406.02971v3 Sections 4.2 and 4.4",
+        "Bukh–Saatashvili 2025 arXiv:2509.22619 Section 4",
+        "repeated permutation word 012 012 012 maximum scattered subsequence occurrences entropy weak descent binomial formula",
+        "strictly log concave most frequent subwords repeated q-letter increasing permutation factor entropy bound beta root",
+        "cyclic permutations repeated words binomial subword coefficients rational generating function alphabet three"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus research records most closely returned general binary subsequence-universality and unrelated substring statistics, without the all-q repeated permutation occurrence formula.",
+        "Fang 2025 Tables 1–2 concern binary global entropy minimizers to length 40, not a q>=3 source of repeated permutations.",
+        "The verified exact coefficients are derived by a bijection; an external sequence-table uniqueness claim is not asserted."
+      ],
+      "reasoning": "Queries sought the explicit binomial coefficients, permutation-cycle alias, and entropy-root polynomial; no exact published record/table directly matching this joint q>=3 theorem was observed. Failure to locate a table is not treated as a proof of absence.",
+      "searches": [
+        "Maximum occurrences of a scattered subsequence in cyclic permutation word (012...q−1)^m, exact binomial m+(q−1)r choose qr, most frequent subword all alphabet sizes",
+        "Subword entropy q-letter periodic word each symbol once cyclic repeated; upper bound root beta^q-beta^(q-1)-1",
+        "Wenjie Fang 2024 Maximal Number of Subword Occurrences in a Word ternary or k-ary periodic cyclic permutation extension Proposition 4.6",
+        "subsequence frequency in words Menon Singh 2024 permutation periodic word most frequent subsequence",
+        "cyclic word most frequent subsequence k letters repeated",
+        "subword entropy ternary repeated permutation",
+        "repeated permutation word 012 012 012 maximum scattered subsequence occurrences entropy weak descent binomial formula",
+        "strictly log concave most frequent subwords repeated q-letter increasing permutation factor entropy bound beta root",
+        "cyclic permutations repeated words binomial subword coefficients rational generating function alphabet three"
+      ]
+    },
+    "rationale": "Direct primary-text comparison with Fang (2024 AofA and expanded 2025, Sections 3–4), Menon–Singh (2023), and Bukh–Saatashvili (2025) distinguishes the new fixed many-letter cyclic-source all-target classification from the previously covered binary alternating case, general rationality for fixed periodic source-target pairs, binary source optimization, and global large-alphabet bounds. No inspected source or searched research record implies the exact q>=3 maximizer classification. The constructed rate bound is a strict improvement over Fang’s particular all-alphabet upper bound but may be superseded by later constructions for large q; that limitation is explicit.",
+    "residual_risks": [
+      "The repeated-permutation weak-descent count may have an equivalent formulation in older generalized binomial coefficients or lattice-path literature not captured by title/semantic search.",
+      "Fang’s all-alphabet upper bound is not necessarily the sharpest available for large q because Bukh and Saatashvili provide improved asymptotic information; no such supremacy is claimed.",
+      "The originality conclusion rests on inspected accessible publications and searchable records, not an exhaustive proof of uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Binary q=2 extremal and generic alphabet bound already covered. No q>=3 exact classification in examined paper.",
+        "evidence": [
+          "AofA 2024 pp. 3:7–3:8, Corollary 4.5 and Propositions 4.6–4.7; Theorem 4.8"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol302-aofa2024/LIPIcs.AofA.2024.3/LIPIcs.AofA.2024.3.pdf",
+        "material_read": "Abstract; full definition and bounds Sections 2–3; Section 4 on binary families, particularly Corollary 4.5 and Proposition 4.6, and generalized periodic rationality Theorem 4.8; relevant PDF page images",
+        "method": "Open-access 12-page primary PDF text and targeted page-image inspection",
+        "title": "Maximal Number of Subword Occurrences in a Word (2024 conference)",
+        "trigger": "First public focal research and primary q=2 predecessor"
+      },
+      {
+        "assessment": "General rationality and q=2 family explicitly present; all-target repeated q-permutation classification not present in checked sections.",
+        "evidence": [
+          "Section 4.2 Propositions 4.6–4.8; Corollary 4.5; Theorem 4.8 in 2024 version"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.02971v3",
+        "material_read": "Definitions, full Sections 3–4 on bounds, most frequent targets, and generating functions, especially Section 4.2 and discussion of q-ary bounds",
+        "method": "Open-access primary HTML full text with section and proposition comparisons",
+        "title": "Maximal number of subword occurrences in a word (expanded 2025)",
+        "trigger": "Possible stronger or updated coverage of the new q>=3 statement"
+      },
+      {
+        "assessment": "Optimizes binary source frequency of prescribed low-run targets, unlike the new q>=3 fixed source and free target.",
+        "evidence": [
+          "arXiv:2306.07870 abstract and primary results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07870",
+        "material_read": "Abstract and core source-vs-target formulation and relevant discussed results",
+        "method": "Author manuscript abstract and sections inspected from accessible primary text",
+        "title": "Subsequence frequency in binary words",
+        "trigger": "Possible use of subsequence-multiplicity optimization"
+      },
+      {
+        "assessment": "Large-alphabet global-rate estimates may supersede the new family’s rate upper bound for large q; no exact repeated single-permutation target classification.",
+        "evidence": [
+          "Theorem 2, Section 4.1–4.2, arXiv:2509.22619"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.22619",
+        "material_read": "Introduction, Theorems 1–2, Section 4 permutation construction, and proof framework for a global upper bound",
+        "method": "Open-access primary HTML full text, targeted Section 4 and introduction inspection",
+        "title": "Most frequent subsequences in a word",
+        "trigger": "Later comprehensive global extremal theorem potentially dominating a rate bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf2a7674-57dc-480b-8ac7-4a3ad9ecefad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For every alphabet size q>=3 this determines the entire, not merely one, set of most frequent subsequences for a canonical balanced periodic source, including all possible ties and its complete bivariate occurrence generating function. The structural rigidity converts a well-motivated combinatorics-on-words extremal problem into an explicit alphabet-dependent asymptotic, improving Fang’s all-alphabet bound at q=3 by about 0.0843 bits per symbol. The result does not pretend to compute the exact global minimum and acknowledges later stronger large-alphabet global estimates.",
+    "status": "PASS"
+  }
+}
