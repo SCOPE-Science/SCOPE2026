@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Under the explicit finite uniform coloring model, the pair and vertex sums are deterministic or explicitly size-biased. Permutation symmetry limits the edge covariance to the three Johnson pair modules; an incidence-matrix calculation and the trace produce both eigenvalues. The zero cycle-type eigenvalue is characterized with a direct \(0\)-\(1\) additive graph lemma; the positive-semidefinite kernel then yields the complete graph classification. The independent exhaustive exact-rational checker covered all compositions of orders 4–8 and all graphs of orders 4–5. The finite checks corroborate, rather than replace, the analytic proof.
+
+**Originality — PASS, subject to disclosed historical risk.** Bhattacharya–Diaconis–Mukherjee (2017) and Bhattacharya–Mukherjee (2017) work with independent vertex colors, so their conclusions do not imply the variance under conditioning on a fixed color histogram. Filmus–Lindzey (2022) and the published uniform-set-partition Fourier-projector result supply overlapping equal-block representation structure but do not state arbitrary-composition covariance eigenvalues or the complete classification of graphs with zero monochromatic-edge variance. The shared pair-module concept is credited, not claimed. A broad combinatorial randomization identity might still imply the variance formula, and no independent priority audit has occurred.
+
+**Value — PASS.** Under prescribed color counts, the rank changes sharply with class-size balance and the presence of a single exceptional vertex. The resulting complete zero-variance classification distinguishes regular, star/complement-star, and generic graph statistics and supplies a closed variance formula usable in permutation/randomization testing. It is not merely a numerical table or a reparameterization of an iid coloring moment.
+
+**Limits.** No full distribution, concentration inequality, asymptotic normality, or independence statement follows from the variance. Established uniform-partition Fourier decompositions account for one equal-block special-case module. Historical novelty remains independently unverified.
+
+Self-review: passed. Independent audit: not yet performed.
