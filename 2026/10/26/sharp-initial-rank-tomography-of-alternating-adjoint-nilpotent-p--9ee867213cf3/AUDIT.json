@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "PASS: SVD conjugation by alternating left/right singular-vector unitaries turns every T or T* edge into the same diagonal singular-value matrix, making the path a direct sum of scaled scalar Jordan shifts. Phase rotation gives theta-independent real-part eigenvalues consisting of singular values times all m cosine eigenvalues. The Li–Sze half-plane theorem yields exactly the stated disks or empty sets, including zeros and negative thresholds. A counting induction recovers each next singular value from the first K ordered positive products, with ties and zeros handled by multiplicities. Diagonal inputs whose last singular values are two different positive numbers below the smallest observed cosine product prove K-1 insufficient. The standalone check passed 268 finite tests, supplementary to proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gau–Wu (2012), Theorem 1, uses the initial ranks through floor(n/2)+1 of a general n-by-n matrix to characterize Kippenhahn polynomials.",
+        "Audeh–Kittaneh–Moradi (2026), Corollary 2.1, fixes only the rank-one numerical radius of the alternating path."
+      ],
+      "reasoning": "For an md-by-md path the general Kippenhahn cutoff is floor(md/2)+1, while the new cutoff is (d-1)floor(m/2)+1; the former theorem does not imply the shorter inverse threshold, nor its optimality. The recent path formula provides only the largest singular value.",
+      "searches": [
+        "Recover the complete singular value spectrum of T from a minimal initial segment of higher rank numerical range disks of alternating T and T* nilpotent block paths; sharp sample number (d-1)floor(m/2)+1",
+        "Inverse singular spectrum and optimal partial higher rank numerical range tomography for a direct sum of scaled Jordan blocks; ordered products cosine singular values",
+        "arXiv:1208.1333v1",
+        "arXiv:2610.15242v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.15242v1 (focal original full relevant text)",
+      "arXiv:1004.3751v1 (full text)",
+      "arXiv:1208.1333v1 (full relevant theory)",
+      "arXiv:1908.05692v3 (primary PDF relevant sections)",
+      "Relevant indexed mathematical claims found by targeted semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Audeh–Kittaneh–Moradi (2026), Corollary 2.1: rank-one radius equals the largest singular value multiplied by the leading cosine.",
+        "Gaaya (2010), Theorems 2.1 and 2.3: one Jordan-block higher-rank disks and general nilpotent compression upper bounds.",
+        "Gau–Wu (2012), Theorem 1: a longer general-matrix chain determines a Kippenhahn polynomial.",
+        "Argerami–Mustafa (2019), Sections 3–4: higher-rank ranges for a different Jordan-plus-scalar block class."
+      ],
+      "reasoning": "None of these inspected implications supplies both the exact sorted-product compression spectrum and the sharp (d-1)floor(m/2)+1 inverse cutoff with matching indistinguishable input matrices. The matrix decomposition is standard, but the rank-minimal recovery information threshold is a separate statement.",
+      "searches": [
+        "Higher rank numerical range exact disks of alternating T T star nilpotent block paths, singular values direct sums of scaled Jordan blocks, higher rank k radii ordered eigenvalues of Jacobi matrices and code compression",
+        "Recover the complete singular value spectrum of T from a minimal initial segment of higher rank numerical range disks of alternating T and T* nilpotent block paths; sharp sample number (d-1)floor(m/2)+1",
+        "Inverse singular spectrum and optimal partial higher rank numerical range tomography for a direct sum of scaled Jordan blocks; ordered products cosine singular values",
+        "Measurement count to determine matrix singular values using rank k numerical ranges of block shifts and Jordan nilpotent matrices",
+        "Alternating adjoint block nilpotent path matrix N_m(T) higher rank k numerical ranges equal disk of kth sorted singular value times cosine; recover every singular value from sharp first (d-1) floor(m/2)+1 rank numerical ranges, inverse tomography",
+        "\"alternating T T* block operator nilpotent path unitary equivalent singular values Jordan higher rank numerical range\"",
+        "\"higher rank numerical ranges weighted nilpotent Jordan block rank k disk cos eigenvalues Li Sze\"",
+        "\"singular values uniquely determined higher rank numerical ranges block matrices inverse numerical range Jordan singular values\"",
+        "\"sharp number higher rank numerical ranges determine singular values rank k initial sequence nilpotent\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaaya (2010), Theorem 2.1, gives higher-rank disks for a single unweighted shift; Theorem 2.3 gives nilpotent-contraction upper disks, not inverse spectral uniqueness.",
+        "Argerami–Mustafa (2019), Sections 3–4, analyze a Jordan-like scalar-summand family rather than scaled Jordan direct sums."
+      ],
+      "reasoning": "The path is unitarily equivalent to a sum of singular-value-scaled Jordan shifts. The complete compression disks can be derived from older single-shift formulas and Li–Sze, but the decisive assertion is the optimal shorter initial-rank recovery threshold. No inspected equivalent inverse theorem for arbitrary singular-value multisets was found.",
+      "searches": [
+        "Higher rank numerical range exact disks of alternating T T star nilpotent block paths, singular values direct sums of scaled Jordan blocks, higher rank k radii ordered eigenvalues of Jacobi matrices and code compression",
+        "Alternating adjoint block nilpotent path matrix N_m(T) higher rank k numerical ranges equal disk of kth sorted singular value times cosine; recover every singular value from sharp first (d-1) floor(m/2)+1 rank numerical ranges, inverse tomography",
+        "\"alternating T T* block operator nilpotent path unitary equivalent singular values Jordan higher rank numerical range\"",
+        "\"higher rank numerical ranges weighted nilpotent Jordan block rank k disk cos eigenvalues Li Sze\"",
+        "arXiv:1004.3751v1",
+        "arXiv:1908.05692v3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted indexed records concerned Jordan norm pencils, nilpotent shift resolvents and unrelated singular-value profiles, without the alternating-path minimum prefix.",
+        "No checked source provides a table or complete classification of initial-rank singular-spectrum recovery for this family."
+      ],
+      "reasoning": "The claim is uniform for every positive integer path length and block dimension, including arbitrary real singular parameters. It is not an isolated numerical table entry. A negative index search is not evidence of absolute novelty.",
+      "searches": [
+        "Measurement count to determine matrix singular values using rank k numerical ranges of block shifts and Jordan nilpotent matrices",
+        "Alternating adjoint block nilpotent path matrix N_m(T) higher rank k numerical ranges equal disk of kth sorted singular value times cosine; recover every singular value from sharp first (d-1) floor(m/2)+1 rank numerical ranges, inverse tomography",
+        "\"singular values uniquely determined higher rank numerical ranges block matrices inverse numerical range Jordan singular values\""
+      ]
+    },
+    "rationale": "PASS (best-knowledge): the exact 2026 path source establishes only rank-one data. Gaaya gives unweighted single-shift higher-rank ranges; Gau–Wu gives a general Kippenhahn cutoff that is longer than the new optimal specialized cutoff; Argerami–Mustafa treat Jordan-plus-scalar families. Targeted indexed and primary searches found no covering statement of sharp initial-prefix singular-value recovery. General index absence alone is not a uniqueness proof and unindexed literature remains a priority risk.",
+    "residual_risks": [
+      "A prior unindexed result may formulate an equivalent inverse threshold for scaled Jordan direct sums or rank-k compression spectra.",
+      "No independent priority audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes only the rank-one numerical radius on the same family, not rank-k disks or minimum inverse sample count.",
+        "evidence": [
+          "arXiv:2610.15242v1, Corollary 2.1 and introduction; first public 2026-10-11"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15242v1",
+        "material_read": "Abstract, introductory formulation, full relevant block-path corollary and proof, mathematical statements and references",
+        "method": "Accessible primary open HTML text",
+        "title": "Integral Representations and Sharp Numerical Radius Inequalities for Hilbert Space Operators",
+        "trigger": "Exact focal alternating-adjoint path and norm identity"
+      },
+      {
+        "assessment": "Exact disks for unweighted Jordan shifts and upper bounds for contractions, not the sharp inverse singular-value cutoff for scaled direct sums.",
+        "evidence": [
+          "arXiv:1004.3751v1, Theorems 2.1 and 2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1004.3751v1",
+        "material_read": "Full available paper: definitions, Theorem 2.1, Theorem 2.3 and proofs, ending references",
+        "method": "Accessible primary open HTML text",
+        "title": "On the higher rank numerical range of the shift operator",
+        "trigger": "Plausible stronger general nilpotent higher-rank coverage"
+      },
+      {
+        "assessment": "Provides a longer general-matrix rank chain for Kippenhahn-polynomial identification; not the shorter sharp singular-value tomography threshold here.",
+        "evidence": [
+          "arXiv:1208.1333v1, Theorem 1 and discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1208.1333v1",
+        "material_read": "Primary open HTML: abstract, Theorem 1, surrounding discussion of cutoff and its sharpness for arbitrary matrices",
+        "method": "Accessible primary open HTML text",
+        "title": "Higher-rank Numerical Ranges and Kippenhahn Polynomials",
+        "trigger": "Potential general inverse theorem dominating specialized prefix length"
+      },
+      {
+        "assessment": "Treats a Jordan-like block combined with scalar blocks; different object and inverse parameters, without the alternating-adjoint path minimum-rank threshold.",
+        "evidence": [
+          "arXiv:1908.05692v3, Sections 3–4 and inverse remarks"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1908.05692",
+        "material_read": "Primary PDF introduction, relevant Sections 3–4, discussion of inverse rigidity, and references; inspected original PDF page visually",
+        "method": "Accessible full PDF text and page image",
+        "title": "Higher Rank Numerical Ranges of Jordan-Like Matrices",
+        "trigger": "Similar higher-rank disks and earlier inverse rigidity for Jordan-like matrix families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ee86721-3cf3-4ac5-a446-944c05089872",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "PASS: identifies the minimum number of higher-rank compression measurements needed to reconstruct every singular value, uniform over all dimensions and arbitrary complex input matrices. The matching indistinguishable pairs establish an exact information threshold, motivated by recovering spectral data lost in a recent rank-one formula. This is a natural inverse classification rather than an arbitrary finite table or mere reformulation of an old sharp bound.",
+    "status": "PASS"
+  }
+}
