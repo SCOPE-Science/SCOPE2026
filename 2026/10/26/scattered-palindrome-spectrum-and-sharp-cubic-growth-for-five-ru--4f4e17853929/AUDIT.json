@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Every scattered palindromic string of a five-run binary word has 1, 3 or 5 constant runs. The proof partitions these cases and uses min(A,B)=E to avoid overlap in the 0-1-0 family, yielding the full polynomial and exact total. The cubic term E*T*c is bounded by n^3/108 via AM–GM on 2E,2T,c with total at most n. The other terms are O(n^2), and (m,m,2m,m,m) attains the coefficient. Equality rigidity follows from stability of AM–GM and vanishing unused length; all boundary hypotheses are positive. Independent finite enumeration of all distinct subsequences matches the entire polynomial for 1024 tuples (1..4), with length 5..30 finite extrema tested. These finite tests are corroborative, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahalingam–Pandoh Theorem 3.6 characterizes the lower-extreme, Sections 4–5 bound arbitrary-word counts with exponential-scale inequalities and a support-conditioned alphabet bound, but do not assign counts to run parameters.",
+        "Holub–Saari Theorems 1–4 address minimal palindromic length, reverse reconstruction and the extension MP-ratio.",
+        "Müllner–Ryzhikov prove longest-subsequence bounds, which do not determine how many different subsequences there are."
+      ],
+      "reasoning": "A general scalar upper bound is numerically broader in domain but does not imply this exact restricted value; length and reconstruction theorems do not determine cardinality by length. The new polynomial and rigidity are neither their corollaries nor instances of stronger formulas visible in these sources.",
+      "searches": [
+        "Counting scattered palindromes in a finite word 2021 arXiv:2108.02729 Section 4 Section 5; Fibonacci maximum",
+        "Palindromic Subsequences in Finite Words arXiv:1901.07502 complete text",
+        "On highly palindromic words DOI:10.1016/j.dam.2008.03.039 pages 1-9",
+        "scattered palindromic subwords five block binary 0^a 1^b 0^c 1^d 0^e exact generating polynomial",
+        "distinct palindrome subsequences 5 runs sharp cubic growth 1/108 normalized pattern 1 1 2 1 1",
+        "run-length bounded 68R15 palindromic subsequences five runs n cubed coefficient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.02729",
+      "arXiv:1901.07502",
+      "doi:10.1016/j.dam.2008.03.039",
+      "OEIS:A330127",
+      "OEIS:A137397",
+      "Published finding: Exact binary closed-rich maxima at lengths 25–27",
+      "Published finding: Exact binary two-PAL2 code sizes through length eight"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proposed formula computes every coefficient of a fixed five-run length spectrum, whereas arXiv:2108.02729 gives no such coefficient-level result.",
+        "The new extremal rigidity gives the unique normalized run pattern (1,1,2,1,1)/6; no comparable run-constrained extremal theorem appears in the inspected primary works."
+      ],
+      "reasoning": "Neither equality of titles/parameter counts nor loose bounds could imply the result: knowing a longest palindromic subsequence length, or a universal exponential ceiling, leaves the number of distinct palindromes undetermined. Contiguous closed-factor and all-subsequence counts also do not imply this five-run palindrome-specific generating polynomial.",
+      "searches": [
+        "exact number of distinct palindromic scattered subsequences in binary words with four or five alternating runs and extremal run lengths",
+        "five-run binary words 0^a1^b0^c1^d0^e number of distinct scattered palindromic subsequences formula cubic n^3/108",
+        "scattered palindromic subwords bounded number runs 5 exact extremal number count",
+        "scattered palindromic subwords five block binary 0^a 1^b 0^c 1^d 0^e exact generating polynomial",
+        "distinct palindrome subsequences 5 runs sharp cubic growth 1/108 normalized pattern 1 1 2 1 1",
+        "run-length bounded 68R15 palindromic subsequences five runs n cubed coefficient",
+        "exact database table maximum distinct scattered palindrome strings by binary run count and length",
+        "Counting scattered palindromes in a finite word (Mahalingam Pandoh) arXiv:2108.02729; section 3 minimum and section 4 maximum, section 5 support-conditioned conjecture and theorem",
+        "On highly palindromic words (Holub Saari) author-hosted full manuscript DOI 10.1016/j.dam.2008.03.039, Theorems 1–4",
+        "Palindromic Subsequences in Finite Words arXiv:1901.07502, introduction, circular problems and Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.02729, definitions Section 2 and results Sections 3–5; no fixed five-run length polynomial.",
+        "DOI 10.1016/j.dam.2008.03.039, pp. 1–8, reconstruction and extension-ratio theorems.",
+        "arXiv:1901.07502, Sections 1–3, longest-subsequence inequalities."
+      ],
+      "reasoning": "Under aliases scattered palindromic subword, palindromic subsequence, distinct subsequence-palindrome, block/run-length binary word and full length-spectrum, the actual inspected propositions treat different invariants or substantially coarser extrema. No equivalent five-run coefficient formula or sharp 1/108 regime was found. Search failure alone does not establish global novelty.",
+      "searches": [
+        "exact number of distinct palindromic scattered subsequences in binary words with four or five alternating runs and extremal run lengths",
+        "five-run binary words 0^a1^b0^c1^d0^e number of distinct scattered palindromic subsequences formula cubic n^3/108",
+        "scattered palindromic subwords bounded number runs 5 exact extremal number count",
+        "scattered palindromic subwords five block binary 0^a 1^b 0^c 1^d 0^e exact generating polynomial",
+        "Counting scattered palindromes in a finite word (Mahalingam Pandoh) arXiv:2108.02729; section 3 minimum and section 4 maximum, section 5 support-conditioned conjecture and theorem",
+        "On highly palindromic words (Holub Saari) author-hosted full manuscript DOI 10.1016/j.dam.2008.03.039, Theorems 1–4",
+        "Palindromic Subsequences in Finite Words arXiv:1901.07502, introduction, circular problems and Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic hits include Published finding: Exact binary closed-rich maxima at lengths 25–27 and Published finding: Exact binary two-PAL2 code sizes through length eight, which are different invariants.",
+        "OEIS searches surfaced A330127 (contiguous palindromic factor restrictions) and A137397 (contiguous palindromes of binary representations); neither tabulates the five-run scattered palindrome maximum or polynomial."
+      ],
+      "reasoning": "Checked database identifiers concern contiguous palindromes or channel code sizes, not the distinct noncontiguous palindrome spectrum. The finite table produced by the verification program is test data, not an identified external published table.",
+      "searches": [
+        "scattered palindromic subwords five block binary 0^a 1^b 0^c 1^d 0^e exact generating polynomial",
+        "exact database table maximum distinct scattered palindrome strings by binary run count and length",
+        "OEIS 9 12 15 20 25 30 37 44 52 palindromic subsequences binary five runs",
+        "OEIS maximum number of distinct scattered palindromic subsequences binary five runs"
+      ]
+    },
+    "rationale": "Primary full texts arXiv:2108.02729, arXiv:1901.07502, and Holub–Saari DOI:10.1016/j.dam.2008.03.039 treat general distinct-palindrome bounds, longest subsequences, or reconstruction, not exact five-run length spectra or the sharp run-rigidity coefficient. Targeted published-record, OEIS, primary literature show no equivalent or dominating statement; a residual possibility of unindexed specialization is disclosed.",
+    "residual_risks": [
+      "A published or unpublished derivation under unrelated terminology could independently contain the same exact five-run polynomial or coefficient.",
+      "Semantic database results are not a proof of exhaustive literature coverage; very old print-only or unindexed bounded-run specializations remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact five-run spectrum or sharp fixed-run cubic coefficient",
+        "evidence": "Section 3 gives universal lower bound and block-word equality; Section 4 Fibonacci-type upper bound; Section 5 support-conditioned alphabet maximum. Five-run length polynomial absent from inspected theorem statements.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+        "material_read": "arXiv rendered primary text: abstract, definitions, Sections 3–5 including Theorems 3.3, 3.6, 5.4 and conjectured bound; searched text for run and binary",
+        "method": "Section-by-section text inspection and theorem comparison",
+        "title": "Counting scattered palindromes in a finite word",
+        "trigger": "Same invariant, primary 2021 counting paper"
+      },
+      {
+        "assessment": "NOT_COVERING the requested enumeration by five run lengths",
+        "evidence": "Main claims concern subpalindrome-set reconstruction up to reversal, longest subpalindrome length, and MP-extension ratio; no five-run distinct-palindrome count.",
+        "identifier_or_url": "https://www.karlin.mff.cuni.cz/~holub/soubory/subpal.pdf",
+        "material_read": "Nine-page author-hosted paper: abstract, definitions, Theorems 1–4, reconstruction, extension-ratio main results and references; examined pages 1,4,9 visually",
+        "method": "Extracted paper text and sampled PDF page screenshots including the statements",
+        "title": "On highly palindromic words",
+        "trigger": "Earlier primary work with same scattered palindrome object"
+      },
+      {
+        "assessment": "NOT_COVERING distinct scattered palindromic counts for five-run linear words",
+        "evidence": "The quantity optimized is length of a longest palindrome or antipalindrome, not the number of distinct palindromic subsequences.",
+        "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+        "material_read": "Rendered arXiv primary text: definitions, Sections 1–3, length extremals, Theorem 13 and construction",
+        "method": "Opened full article text and reviewed the theorem and proof passages on circular and linear palindromes",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Plausible same-object title and binary circular extremal theorems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f4e1785-3929-4e90-8812-d2a4985d3525",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The five-run restriction is a mathematically natural first cubic-degree threshold, not an arbitrary numerical slice: four-run words cannot realize a five-run palindromic subsequence and have O(n^2) distinct palindromes, while five-run words achieve Theta(n^3). The complete length-spectrum classification and sharp asymptotic constant with unique limiting run proportions resolve the structural extremal question at this threshold. No unproved downstream application is claimed.",
+    "status": "PASS"
+  }
+}
