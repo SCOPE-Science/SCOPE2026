@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The exact model is specified with positive parameters and mode-reset convention. Published first-passage transforms are converted with p=1/tau_D and q=1/tau_v; the reset renewal map is strictly decreasing in the no-reset success transform. The symbolic identities P(h)=-pq(r+q)/(Dv²)<0 and P(K)=qr(r+q)(v²-D(r+q))/(Dv⁴) show distinct real positive exponents and classify the sign of the two-exponential difference. A strictly increasing exponential ratio gives exactly one crossing iff v²>D(q+r); otherwise no crossing. At the low-rate endpoint c_- has order sqrt(r) and at the critical endpoint order (r_c-r), yielding the asserted logarithmic ratios; continuity proves reentrant preference. The included SymPy program checked identities, representative sign orderings and endpoint limits. No finite experiment is used as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bénichou et al., Rev. Mod. Phys. 83, 81 (2011), abstract: general alternating detection/non-detection strategies.",
+        "Evans, Majumdar, Schehr, J. Phys. A 53, 193001 (2020), abstract: general stochastic-resetting renewal and optimal first passage.",
+        "Flaquer-Galmés et al. (2024), section III: the exact specialization to the present three-state mechanism."
+      ],
+      "reasoning": "The earlier general reviews cover the physical model class and renewal approach; neither establishes this model-specific phase boundary. The source paper provides stronger raw parameter-dependent transform information, but its pointwise transform formulas are not a published global distance-ordering theorem; no independent theorem dominating the global sign statement was located.",
+      "searches": [
+        "\"Intermittent search strategies\" Bénichou Loverdo Moreau Voituriez",
+        "\"Stochastic Resetting and Applications\" Evans Majumdar Schehr renewal mean first passage",
+        "\"intermittent random walks\" \"relocation initial\" \"diffusive initial\" crossing mean first arrival"
+      ]
+    },
+    "checked_sources": [
+      "Flaquer-Galmés, Campos, Méndez (2024), arXiv:2401.16849 and Phys. Rev. E 109 034103: primary exact transforms and reset renewal, full manuscript checked.",
+      "Bénichou et al. (2011), Rev. Mod. Phys. 83 81: publisher abstract and general context.",
+      "Evans, Majumdar, Schehr (2020), J. Phys. A 53 193001: abstract and general renewal context."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original 2024 work, equations (22), (25), (35)–(41): full first-arrival transforms, renewal mean expression, and large-distance ratio.",
+        "The two polynomial identities in RESULT.md prove a global one-crossing theorem and its p-independent parameter threshold; endpoint expansions prove two distinct logarithmic divergences."
+      ],
+      "reasoning": "A formula for each separate mean implies values of the difference at given parameters, but the prior paper does not provide a theorem guaranteeing its global single sign reversal or absence, does not identify v²=D(q+r) as the exact universal search-mode frontier, and does not derive the two endpoint logarithmic coefficients. The new claim is the global ordering/classification, not a rederivation of the prior transforms. The exact expressions are close prior art and should be checked for alternative published interpretations.",
+      "searches": [
+        "\"Flaquer Galmés Campos Méndez\" intermittent resetting \"initial mode\" search comparison",
+        "\"ballistic initialization\" \"diffusive\" \"resetting\" \"crossover\"",
+        "\"intermittent search\" \"logarithmic\" \"crossover distance\" resetting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flaquer-Galmés, Campos, Méndez, Phys. Rev. E 109, 034103 (2024), full text, equations (22), (25), (35)–(41) and discussion of the two initial modes."
+      ],
+      "reasoning": "The source gives exact Laplace-transformed detection probabilities for each initial mode and discusses different means. It does not formulate or establish a unique distance of reversal, a necessary-and-sufficient v²>D(q+r) criterion, or two logarithmically divergent distance boundaries. An exact published expression makes these properties derivable but does not itself state the global comparison or its proof; that implicit derivability is a residual novelty risk.",
+      "searches": [
+        "\"intermittent random walks under stochastic resetting\" \"critical distance\" \"initial\" ballistic diffusion",
+        "\"Flaquer-Galmés\" \"initial condition\" threshold mean first arrival distance",
+        "\"initial phase\" \"ballistic\" \"diffusive\" \"resetting\" \"advantage\" search time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original paper numerically maps the mean-first-arrival optimization in Figures 8–11 separately for the two initial modes. It reports no exact table of pairwise initial-mode preference as a function of target distance and resetting rate."
+      ],
+      "reasoning": "Neither the inspected source tables and figure captions nor targeted title/phrase searches supplied an already-tabulated critical speed or crossing-distance classification. Negative searches are not proof of absence, so equivalent unindexed computations remain a risk.",
+      "searches": [
+        "\"Flaquer-Galmés\" \"initial condition\" \"critical\" ballistic diffusion mean first passage",
+        "\"intermittent random walks under stochastic resetting\" crossover search-mode phase",
+        "\"initial-mode\" \"first arrival\" \"switching\" \"resetting\""
+      ]
+    },
+    "rationale": "The motivating 2024 paper owns the exact transforms and renewal formula, and its discussion covers initial-mode effects and mean-time optimization. The candidate is an additional global comparative theorem, identifying a rate-independent switching parameter cancellation, an exact one-crossing distance criterion and both logarithmic reentrant endpoints. Primary full text was checked against the explicit claim, and targeted outside searches and prior claim comparison did not locate a dominating statement. Risk remains from the fact that the global theorem is extractable algebraically from the raw published transforms and from unindexed work.",
+    "residual_risks": [
+      "The comparison is algebraically implicit in the published full mean-time formulas; an interpretation or earlier derivation of this inequality could remove novelty.",
+      "Secondary reviews were assessed at abstract/overview level, not exhaustively inspected in full.",
+      "Searches and indexed records cannot establish worldwide priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_AND_CLOSEST_NOT_EXPLICITLY_COVERING",
+        "evidence": [
+          "First public version arXiv:2401.16849, 2024-01-30; source equations (22),(25),(35)-(41) provide the transforms and asymptotic ratio, without the exact one-crossing theorem or both logarithmic endpoints."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.16849",
+        "material_read": "Full arXiv HTML manuscript sections II, III (including III.3–III.5), conclusion, and Appendix A. Equations (19)–(25), (35)–(41) and Figures 6–11 were compared to the new statement.",
+        "method": "Read exact equations and inspect their distinct-mode mean comparison; independently substitute switching rates and factor their difference.",
+        "title": "Intermittent random walks under stochastic resetting",
+        "trigger": "Identical symmetric three-state intermittent model, original two-state first-arrival transform formulas and Poisson reset renewal."
+      },
+      {
+        "assessment": "CLOSEST_SAME_MODEL_FORMULAS_WITHOUT_EXPLICIT_GLOBAL_ORDER_THEOREM",
+        "evidence": [
+          "Physical Review E 109, 034103 (2024), source text and figures; original paper optimizes switching rates for each starting mode rather than comparing global distance-order regimes."
+        ],
+        "identifier_or_url": "https://webs.uab.cat/vmendez/wp-content/uploads/sites/97/2024/03/127.pdf",
+        "material_read": "Published 11-page full-text PDF; checked pages 1–2 and detailed figures/equations on pages 4, 6–9, textual matches for crossover, initial modes and comparisons, and full arXiv manuscript as cross-check.",
+        "method": "Direct article/PDF inspection of exact formulas and optimization discussion, particularly Figures 6–11 and equations (22),(25),(35)–(41).",
+        "title": "Intermittent random walks under stochastic resetting",
+        "trigger": "Inspect published primary full-text presentation, figures and possible hidden comparison statements."
+      },
+      {
+        "assessment": "GENERAL_CONTEXT_NOT_DECISIVE_FULL_TEXT",
+        "evidence": [
+          "Bénichou et al., Rev. Mod. Phys. 83, 81 (2011), intermittent local detection and rapid blind phases."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.83.81",
+        "material_read": "Publisher abstract and bibliographic description; no claimed full-paper inspection.",
+        "method": "Contextual abstract comparison of model, mechanism, and objectives.",
+        "title": "Intermittent search strategies",
+        "trigger": "Potential broader intermittency optimal-search result with nondetecting ballistic stages."
+      },
+      {
+        "assessment": "GENERAL_RENEWAL_KNOWN_NOT_A_FULL_TEXT_EXCLUSION",
+        "evidence": [
+          "Evans, Majumdar, Schehr, J. Phys. A 53, 193001 (2020), standard first-passage resetting formulas."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab7cfe",
+        "material_read": "Publication abstract and overview, not the entire 68-page review.",
+        "method": "Checked coverage of renewal identity and general resetting first passage; no exact three-mode parameter frontier was observed in inspected material.",
+        "title": "Stochastic Resetting and Applications",
+        "trigger": "Possible general reset-renewal theorem covering all mean first-passage comparisons."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b9801ff5-04de-45d1-9b7b-4b550e3bd072",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Which initial motion mode should be selected to minimize target-detection time is a physically motivated decision question in intermittent search. The theorem gives an exact sharp speed/reset boundary independent of one switching rate, proves that at most one target distance switches the better initial mode, and identifies logarithmically diverging distance scales at both ends of an advantageous reset-rate window. This is a global mechanism/phase diagram rather than an arbitrary numerical cut or routine derivative; the reentrant rate preference is a qualitative new use of the closed-form first-passage solution.",
+    "status": "PASS"
+  }
+}
