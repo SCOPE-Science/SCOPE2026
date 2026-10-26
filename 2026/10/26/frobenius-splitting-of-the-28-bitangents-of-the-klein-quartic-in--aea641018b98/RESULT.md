@@ -1,0 +1,29 @@
+# Frobenius splitting of the 28 bitangents of the Klein quartic in characteristic five
+## Finding
+For the smooth genus-three plane curve \(C:\ X^3Y+Y^3Z+Z^3X=0\) over \(\mathbf F_5\), the 28 geometric bitangent lines have Frobenius orbit lengths \(1,3,6,6,6,6\). Exactly one bitangent is defined over \(\mathbf F_5\), namely \(X+Y+Z=0\). Its two contact points are defined over \(\mathbf F_{25}\), not over \(\mathbf F_5\). For each of the other 27 bitangents, both distinct geometric contact points are defined over the same minimal extension as their line. Thus all 28 bitangents and all contact points are defined over \(\mathbf F_{5^6}\), and no smaller extension contains all the lines. For each positive integer \(n\), the number of lines defined over \(\mathbf F_{5^n}\) is \(1+3\mathbf1_{3\mid n}+24\mathbf1_{6\mid n}\).
+## Assumptions and scope
+A geometric bitangent is a geometric projective line whose scheme-theoretic intersection with \(C\) is twice an effective degree-two divisor. This includes hyperflexes a priori; the explicit squarefree contact discriminants below show that all 28 lines found have two distinct contact points. All field-of-definition statements refer to the displayed integral model reduced modulo five, not to arbitrary twists. Exponents are usual polynomial exponents.
+## Proof
+In characteristic five the partial derivatives are \(3X^2Y+Z^3\), \(X^3+3Y^2Z\), and \(Y^3+3Z^2X\). There is no projective common zero with a zero coordinate. At a common zero with nonzero coordinates, multiplying the three equations implies \(1=(-3)^3=3\) in \(\mathbf F_5\), absurd. The plane quartic is smooth, so the classical characteristic-not-two bitangent count is exactly 28.
+
+For the affine dual chart \(Z=uX+vY\), the restricted binary quartic has coefficients \((A,B,C,D,E)=(u^3,1+3u^2v,3uv^2,u+v^3,v)\). When \(A\ne0\), it is a scalar multiple of a quadratic square exactly when
+\[P=8A^2D-B(4AC-B^2)=0,\qquad Q=64A^3E-(4AC-B^2)^2=0.\]
+Indeed the first three coefficients force, up to scaling, a quadratic with middle coefficient \(B/(2A)\) and constant coefficient \((4AC-B^2)/(8A^2)\), and the final two conditions are precisely \(P=Q=0\). If \(u=0\), then \(A=0\) but \(B=1\), which cannot be a binary quartic square (a square without an \(X^4\) term also lacks its \(X^3Y\) term).
+
+The reduced lexicographic Gröbner basis of \((P,Q,wu-1)\) over \(\mathbf F_5\), with ordering \(w,v,u\), is
+\[w+u^{27}+u^{20}+2u^{13}-2u^6,\quad v+u^{26},\quad H(u)=u^{28}+u^{21}+2u^{14}-2u^7+1.\]
+The monic polynomial \(H\) is squarefree and its complete irreducible factor degrees are \(1,3,6,6,6,6\). This produces 28 different geometric bitangents in the chart; the classical upper count of 28 rules out any others in the omitted dual chart. Since the coefficients lie in \(\mathbf F_5\), irreducible factor degrees give the Frobenius orbit lengths.
+
+For each factor, use \(v=-u^{26}\) in the residue field and put \(\beta=B/(2A)\), \(\gamma=(4AC-B^2)/(8A^2)\). The contact divisor is cut out by \(X^2+\beta XY+\gamma Y^2\); its discriminant is \(\Delta=2(B^2-AC)/A^2\). The exact Euler criterion \(\Delta^{(5^d-1)/2}\) in the residue ring of each irreducible factor of degree \(d\) equals \(-1\) for \(d=1\), and \(+1\) for \(d=3\) and each \(d=6\). These values are nonzero, proving that contact points are distinct, and that the rational line has a conjugate quadratic pair whereas all others split over their own fields of definition.
+
+The degree-one factor is \(u+1\), with \(v=-u^{26}=-1\), hence \(Z=-X-Y\). Direct substitution gives \(F(X,Y,-X-Y)=-(X^2+XY+Y^2)^2\). The quadratic discriminant is \(1-4=2\), nonsquare in \(\mathbf F_5\), confirming the exceptional contact-field assertion. The largest factor degree and its irreducibility prove minimality of the sixth extension for the full bitangent configuration.
+## Verification
+Run `python verify_klein.py` with SymPy to rederive the saturated Gröbner basis, squarefreeness, irreducible degrees, independent resultant, and Euler contact tests. Run `python verify_rational.py` using only the standard library to exhaust the 31 rational dual lines and independently find the unique rational bitangent. `expected_output.txt` records the checked results. The calculations operate in exact polynomial rings and finite residue fields, with no numerical approximation.
+## Relationship to prior work
+Bethea--Brazelton (first arXiv version October 11, 2024) determine automorphism-group orbit decompositions of 28 bitangents of symmetric quartics over characteristic zero; their Klein-quartic automorphism orbit is transitive. That geometric symmetry orbit is not the arithmetic Frobenius decomposition over \(\mathbf F_5\). Elkies explicitly identifies \(X+Y+Z=0\) as a complex bitangent of the Klein quartic, but does not give the six finite-field Frobenius orbit lengths or the contact-field distinction in the inspected text. The classical configuration paper of Jeurissen--van Os--Steenbrink is a priority risk; its complete text was not available for direct comparison.
+## Limitations
+The statement concerns only this displayed quartic over characteristic five and its arithmetic field extensions, not twists, characteristic zero, or a general family. The underlying existence of 28 bitangents and the rational line equation are classical. No claim of worldwide novelty certification or independent mathematical audit is made.
+## References
+- C. Bethea and T. Brazelton, *Bitangents to symmetric quartics*, arXiv:2410.09242 (first posted 2024-10-11), https://arxiv.org/abs/2410.09242.
+- N. D. Elkies, *The Klein Quartic in Number Theory*, in *The Eightfold Way* (1999), pp. 51--101, especially pp. 65--66, https://library.slmath.org/books/Book35/files/elkies.pdf.
+- R. Jeurissen, T. van Os and J. Steenbrink, *The configuration of bitangents of the Klein curve*, Discrete Mathematics 132 (1994), 83--96 (full text not inspected).
