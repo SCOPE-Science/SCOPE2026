@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The stationary same-active-run overlap gives C_W(s)=v^2 exp(-|s|)/2 independent of copula. Exponential renewal arguments justify cumulant growth as derivatives of the unique analytic root of E exp(-lambda T)cosh(kvU)=1; an explicit fourth-order Taylor expansion yields the raw-moment coefficient. The mixed exponential-logarithm beta integrals, zeta constants, strict rational sign certificate, and linear threshold were independently checked by exact or high-precision assertions in the packaged CHECK.py. Boundary and stationarity limitations are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Datta et al. analyze arbitrary individual run and turn distributions and second-order predictions; their model specification supplies distinct marginal renewal kernels.",
+        "Santra et al. page 2 and equation (47) explicitly factor phase-specific kernels; equations (51)-(54) concern independently switched phases.",
+        "Niemann and Kantz provide general dependent-CTRW multipoint methods according to their abstract; full text was not accessible."
+      ],
+      "reasoning": "General coupled-CTRW renewal transforms do subsume the *method* and potentially cover the cycle law at a high level; the precise theorem requires an evaluated dependence interpolation, an exact all-lag second-order invariance argument, and a unique fourth-cumulant sign threshold, none found stated in accessible primary material. Residual risk of an implicit or explicit earlier specialization is retained.",
+      "searches": [
+        "arXiv:2406.15277; run turn arbitrary waiting distributions diffusion",
+        "arXiv:2408.16643; full switching characteristic function fourth cumulant",
+        "doi:10.1103/PhysRevE.78.051104; joint probability multipoint dependent CTRW"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.15277, model and transport sections",
+      "arXiv:2408.16643, switching derivation and active/passive cumulant sections",
+      "PhysRevE.78.051104 journal abstract (full text inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Datta et al. provide second-order motion tools but do not establish opposite higher cumulants under fixed entire MSD.",
+        "Santra et al. compute other four-cumulant regimes and exact switch transforms with individually sampled durations.",
+        "Niemann–Kantz considers general dependent CTRWs, raising priority uncertainty; only its abstract was accessible."
+      ],
+      "reasoning": "Fixing all run/rest marginals and the *whole* stationary covariance makes the two models second-order equivalent; the sign of their fourth cumulant depends on within-cycle mixed moments, which the marginal-only results do not determine. A general transform can mathematically generate this coefficient, but does not by itself assert the evaluated existence or sharp threshold without the beta-integral computation.",
+      "searches": [
+        "arXiv:2406.15277; velocity autocorrelation independent of rest statistics",
+        "arXiv:2408.16643; phase-switching kernel products",
+        "doi:10.1103/PhysRevE.78.051104; dependent waiting jumps multi-point moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Datta et al. treat velocity correlations and MSD for sampled run/turn margins; relevant model and results sections II, IV, V inspected.",
+        "Santra et al. equation (47) has a product of phase-specific switching transforms and develops higher cumulants for independent phase dynamics and Poisson phase switching.",
+        "Niemann–Kantz abstract describes dependent jump/waiting-time examples but not this explicit equal-MSD opposite-sign example."
+      ],
+      "reasoning": "The first two papers have similar velocity-switching objects but lack a cycle-level pair copula as a parameter; their high-order cumulant results cannot imply the calculated zeta(3) threshold by renaming their independent waiting times. The third is a broad transform framework that could enable derivation, not verified to state the explicit counterexample.",
+      "searches": [
+        "arXiv:2406.15277; exact same-MSD intermittency fourth-cumulant copula",
+        "arXiv:2408.16643; joint run/passive sojourn length correlation cumulants",
+        "doi:10.1103/PhysRevE.78.051104; dependent waiting and spatial-step joint laws"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The selected primary full texts contain analytic functions, not catalogued tabulations of this copula family.",
+        "No exact value or table involving the mixing constant 24/(pi^2+12 zeta(3)) appeared in inspected relevant source sections."
+      ],
+      "reasoning": "The result is a structural sign-crossover and observational equivalence theorem, not a single potentially listed numerical invariant. Absence of a database hit is not treated as proof of uniqueness.",
+      "searches": [
+        "identical velocity autocorrelation exponential run rest copula fourth cumulant opposite signs",
+        "arXiv:2406.15277, arXiv:2408.16643; fourth cumulant matching MSD parameters",
+        "paired exponential durations zeta(3) critical fourth cumulant renewal reward"
+      ]
+    },
+    "rationale": "The evaluated counterexample is not the generic renewal equation: its two exactly matched exponential marginals and *entire* velocity covariance/mean-square displacement coexist with opposite long-time fourth cumulant signs, with a rigorously evaluated zeta(3) copula threshold. Datta 2024 and Santra et al. 2024 construct independent phase-duration transport laws; no direct parameter choice there gives correlated within-cycle times. Niemann and Kantz 2008 address dependent jump/wait CTRWs broadly, so they are acknowledged and priority uncertainty is retained, but the accessible description does not establish this exact isocovariant sign reversal.",
+    "residual_risks": [
+      "Niemann and Kantz 2008 full text was not accessed; an equivalent evaluated dependence example could be contained there or in related dependent-CTRW literature.",
+      "General renewal-reward/large-deviation formula covers the framework, so the originality claim is restricted to the exact equal-MSD opposite-sign exponential-copula theorem and threshold.",
+      "Independent scholarly priority review was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_COPULA_CLAIM: treats separately specified run/turn time distributions and two-time transport, not the evaluated sign-crossover joint copula family",
+        "evidence": "Sections II and IV-V specify run/turn renewal waiting-time marginals and analyze covariance/MSD and diffusion. First arXiv version posted 2024-06-21.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.15277",
+        "material_read": "Full accessible article text, especially introduction, model (Section II), velocity autocorrelation (Section IV) and equilibrium predictions (Section V)",
+        "method": "Read first public arXiv original source through HTML text with model and equation comparisons",
+        "title": "The random walk of intermittently self-propelled particles",
+        "trigger": "Same active run/turn model with arbitrary duration marginal laws and MSD results"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_COPULA_CLAIM: phase-specific switching kernels factor in equation (47); no joint run/rest copula dependence in the evaluated models",
+        "evidence": "Equation (47) separates Poisson active/passive switching factors; section 4.2 computes higher cumulants for that product model. First arXiv version 2024-08-29.",
+        "identifier_or_url": "https://arxiv.org/pdf/2408.16643",
+        "material_read": "Accessible primary PDF: introduction, switching-convolution derivation pages 1–2, equations (45)–(54) and relevant discussion pages 6–7; appendix equation context checked",
+        "method": "Read extracted primary PDF pages and inspected relevant page image",
+        "title": "Dynamics of switching processes: general results and applications to intermittent active motion",
+        "trigger": "Fourth-cumulant calculation for intermittent active/passive phases"
+      },
+      {
+        "assessment": "PLAUSIBLE_BROADER_FRAMEWORK_NOT_DECISIVELY_EXCLUDED; general multipoint methods cover dependent CTRWs but exact same-MSD sign-flip example not established from accessible material",
+        "evidence": "2008 abstract explicitly mentions examples with dependent jump size and waiting-time distribution, so priority risk is material.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.78.051104",
+        "material_read": "Journal abstract, author/title/DOI/publication metadata only; full primary PDF not accessed",
+        "method": "Searched arXiv and lawful open-access web versions, then inspected publisher abstract and indexing record",
+        "title": "Joint probability distributions and multipoint correlations of the continuous-time random walk",
+        "trigger": "Potential general dominating theory for dependent jump/wait distributions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3d499e4-efd1-402b-9705-cac65c79f31d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Active/rest dependence naturally arises in run-trap intermittent motion. This construction proves second-order indistinguishability at every observation lag while the leading non-Gaussian asymptotic coefficient crosses a unique exactly calculated threshold; different dependences become identifiable only through higher-order transport information. This is a structural observation-equivalence boundary and motivated exact classification, not merely a parameter substitution.",
+    "status": "PASS"
+  }
+}
