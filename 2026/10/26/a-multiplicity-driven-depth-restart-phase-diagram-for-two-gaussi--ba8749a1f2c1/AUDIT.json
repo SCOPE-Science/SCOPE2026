@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The normalized-gain rule selects the minimum Gaussian tail/leading ratio exactly. The ratio law is half-Cauchy for trailing dimension one and a chi-square/Gaussian mixture for trailing dimension two, yielding the four CDFs. Arctangent inversion and strict endpoint asymptotics establish the exact two-dimensional contrast criterion and attained nontrivial minimum. A positive-sides squaring argument establishes the exact unique three-dimensional tolerance threshold. No numerical minimization or finite experiment is used as proof of the universal statements; `verify.py` reproduces consistency checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tropp–Webber (2023) section 2 considers block size and multiplication count, but its displayed algorithms and mean-square rank-error bounds differ from best-normalized-gain single-ray selection.",
+        "Wang–Zhang–Zhang (2015), introduction and methods, concerns spectral error of randomized block Lanczos and power iteration, not the exact two-probe selection CDF."
+      ],
+      "reasoning": "General Gaussian spectral-filter or block-Krylov error estimates do not entail the signed difference between two specified scalar success curves at all angular tolerances without a stronger stochastic statement. Such a stronger source has not been identified.",
+      "searches": [
+        "arXiv:2306.12418v1",
+        "arXiv:1508.06429",
+        "randomized power iteration multi start tradeoff depth versus width two Gaussian vectors arctan"
+      ]
+    },
+    "checked_sources": [
+      "Tropp and Webber, arXiv:2306.12418v1, sections 1–2.4 and selected theory",
+      "Del Corso, SIAM J Matrix Anal Appl 1997 open manuscript introduction and random-start discussion",
+      "Wang, Zhang, Zhang, arXiv:1508.06429, introduction and method comparison",
+      "Kuczyński and Woźniakowski, 1992, bibliographic abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 survey defines Gaussian-depth/breadth algorithms and emphasizes operator-product budget, while reporting rank-approximation mean-square errors, not full angular-success CDF differences for gain-selected two starts.",
+        "Del Corso derives bounds and rates for a random-start eigenvector; the theorem fixes an observable best-of-two independent-gain restart competitor absent from that framing.",
+        "2015 block Lanczos work analyzes a different retained-subspace algorithm that can combine multiple vectors, rather than choose only a single ray by normalized gain."
+      ],
+      "reasoning": "The cited works motivate and sometimes yield pieces of the proof, but no theorem therein was found to imply the full sharp two-policy distinction, particularly the reentrant contrast regime versus the single dimension-three boundary. Newness is restricted to that comparison, not the elementary probability distributions.",
+      "searches": [
+        "arXiv:2306.12418v1 section 2.1–2.4",
+        "doi:10.1137/S0895479895296689 introduction and error discussion",
+        "arXiv:1508.06429 introduction block power and Lanczos",
+        "randomized power method versus multiple random start vectors budget eigenvector angle success probability spectral gap multiplicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Del Corso (1997), especially introduction and random-start eigenvector error discussion, addresses one power-method start and eigenvalue-ratio/multiplicity dependence; the present theorem compares two different randomized selection policies.",
+        "Tropp and Webber (2023), section 2.1–2.4, discuss Gaussian subspace iteration and block breadth, using relative low-rank approximation error rather than the stated one-ray two-policy angular-success ordering."
+      ],
+      "reasoning": "Single-start angular-error formulas can imply the depth CDF, and independent-probe order statistics give the restart CDF. Neither ingredient by itself implies the sharp comparison as a quantified phase diagram. No mathematically equivalent joint policy statement was located in the inspected material; an independently undiscovered equivalent remains possible.",
+      "searches": [
+        "two independent Gaussian probe restart eigenvector power method matrix vector cost tolerance Cauchy arctangent crossover",
+        "power method versus random restarts two matrix vector multiplications exact success probability crossover arctan condition number",
+        "doi:10.1137/S0895479895296689"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant exact two-policy success table or documented contrast minimizer was identified among inspected primary research sources.",
+        "Classical Cauchy and Gaussian norm ratios are standard distributional inputs, not a previously asserted two-policy decision table."
+      ],
+      "reasoning": "The result is an analytic classification, not a finite enumerated table. Standard ratio distribution tables provide the ingredients but not the proposed algorithm comparison; the possibility of an equivalent textbook exercise remains a residual originality risk.",
+      "searches": [
+        "two matvec budget power iteration versus random restarts Gaussian two dimensional eigenvector approximation sharp tolerance crossover Cauchy",
+        "two dimensional Gaussian power method random restarts crossover accuracy probability",
+        "doi:10.1137/S0895479895296689"
+      ]
+    },
+    "rationale": "Best-knowledge originality is limited to the complete comparative angular-success phase diagram for the specific fixed-two-product policies, including two-dimensional reentrance and its disappearance with trailing multiplicity two. Pre-existing Gaussian power iteration, ratio/multiplicity sensitivity, basic Cauchy/chi-square laws, and breadth/depth approximations are explicitly credited. Relevant full-text sections, published research summaries, and semantic mathematical comparisons did not uncover a covering theorem; equivalence under multistart order-statistics terminology remains a residual risk.",
+    "residual_risks": [
+      "Potential older exact comparison from unindexed multistart, order-statistic or random-start eigenvector literature.",
+      "Classical 1992 eigenvalue paper was accessible as abstract only, not full text; an unseen discussion cannot be excluded.",
+      "Results are intentionally restricted to two specified policies and two trailing multiplicities; broader guarantees are not asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related framework and general comparison, but distinct block rank-error objective and no identified gain-selected two-start angular-success phase theorem.",
+        "evidence": [
+          "Tropp–Webber (2023), section 2.1 power/subspace Gaussian probes; section 2.2 cost tradeoffs; section 2.4 mean-square rank errors."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.12418",
+        "material_read": "Full abstract and sections 1, 2.1–2.4 including Gaussian-start formulas, multiplication costs, comparisons and rank-error performance statements; inspected page images.",
+        "method": "Open full lawful arXiv PDF text; inspect page images and compare algorithm definitions and error target.",
+        "title": "Randomized Algorithms for Low-Rank Matrix Approximation: Design, Analysis, and Applications",
+        "trigger": "Primary source defining Gaussian probe breadth–depth under matrix-product budgets."
+      },
+      {
+        "assessment": "Covers one randomized power start and ratio/multiplicity role, but no discovered normalized-gain best-of-two versus double-depth exact angular comparison.",
+        "evidence": [
+          "Del Corso (1997), journal manuscript pp. 913–915, random-start eigenvector error scope and ratio dependence."
+        ],
+        "identifier_or_url": "https://arpi.unipi.it/retrieve/e0d6c928-17b1-fcf8-e053-d805fe0aa794/SML000913.pdf",
+        "material_read": "Abstract, introduction, randomized angular error and spectral-gap/multiplicity discussion; viewed page images.",
+        "method": "Read full accessible journal manuscript PDF in relevant portions, including introduction/page 914.",
+        "title": "Estimating an Eigenvector by the Power Method with a Random Start",
+        "trigger": "Strongest older single-vector power analysis could imply the single-start component."
+      },
+      {
+        "assessment": "The retained block/Krylov subspaces and their matrix approximation bounds differ from selection of one normalized-gain winner from independent starts. No covering full-success law located in read material.",
+        "evidence": [
+          "Wang–Zhang–Zhang (2015), sections 1–2 and comparative block-size and spectral-error discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.06429",
+        "material_read": "Abstract, introduction and methodological discussion of simultaneous subspace iteration/block Lanczos; inspected page images.",
+        "method": "Read open arXiv PDF relevant introductory and methodology material, including page 2.",
+        "title": "Improved Analyses of the Randomized Power Method and Block Lanczos Method",
+        "trigger": "Potential broader analysis comparing iteration depth with multiple Gaussian starting probes."
+      },
+      {
+        "assessment": "Abstract covers random-start eigenvalue estimation, not the exact policy comparison. This limited inspection cannot exclude a relevant discussion in unavailable full text.",
+        "evidence": [
+          "Kuczyński–Woźniakowski (1992) publisher abstract and classical random-start eigenvalue focus."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0613066",
+        "material_read": "Publisher abstract, scope and bibliographic information; full text not accessible in inspected route.",
+        "method": "Publisher abstract and bibliographic page, not the complete paper.",
+        "title": "Estimating the Largest Eigenvalue by the Power and Lanczos Algorithms with a Random Start",
+        "trigger": "Classical randomized power and Lanczos spectral-gap guarantees."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba8749a1-f2c1-42a8-9e75-c2fa368143de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two matrix–vector policies spend the same strictly defined operator-product budget. Their success comparison is not monotone in tolerance in two dimensions: fresh probes can outperform at both extremes while the deeper probe wins in between. Adding one trailing direction changes the phase topology to a single exact threshold. This is a motivated structural depth-versus-breadth stability boundary for randomized eigenvector approximation; it does not claim to optimize all two-query algorithms.",
+    "status": "PASS"
+  }
+}
