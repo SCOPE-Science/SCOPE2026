@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The exact counting identities and algebra are explicitly proved in RESULT.md for every even total \\(q\\ge6\\); the \\(q=4\\) regular exception is enumerated. Each compatible triple of prescribed disjoint matching pairs has probability 1/[(q-1)(q-3)(q-5)], yielding the mixed moment. Subtraction and regular specialization reconstruct the theorem. The standalone standard-library program exhaustively matches exact moments for all 701 tested profiles and performs 2223 rational assertions; finite validation is supplementary, not the unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janson Section 7 gives joint asymptotic Poisson approximation for loop and parallel-edge counts under hypotheses on degree profiles.",
+        "Angel et al. Theorem 1.4 supplies total-variation approximation and Section 3 computes pairwise indicator contributions and bounds their absolute sums."
+      ],
+      "reasoning": "Quantitative distributional Poisson approximations can bound mixed dependence but do not yield an exact signed finite covariance or its sharp reversal at degree two. The inspected source statements are thus not broader theorems explicitly implying this signed classification. Unexamined stronger general results remain a priority risk.",
+      "searches": [
+        "\"configuration model loop count double edge count negatively correlated positively correlated 2 regular 3 regular\"",
+        "\"finite n exact joint moments loops double edges Bollobas configuration model\"",
+        "arXiv:math/0609802v1 Section 7",
+        "arXiv:1603.07172v1 Theorem 1.4 and Section 3"
+      ]
+    },
+    "checked_sources": [
+      "https://users.monash.edu.au/~nwormald/papers/regsurvey.pdf",
+      "https://arxiv.org/abs/math/0609802",
+      "https://arxiv.org/abs/1603.07172"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.6 of Wormald and the cited Poisson limits concern convergence in distribution, which permits either finite covariance sign.",
+        "Angel et al. use absolute covariance summands in total-variation estimates. Their indicator representation resembles the present proof but the signed sum and exact sign split are not asserted in the inspected text."
+      ],
+      "reasoning": "The contribution is exact joint-moment accounting and the regular degree-classification. Limiting laws and unsigned bounds alone do not imply it. A direct algebraic derivation from earlier indicator expressions may be possible, so priority is qualified rather than asserted conclusively.",
+      "searches": [
+        "Wormald 1999 Theorem 2.6 asymptotic independence of loops and double edges",
+        "arXiv:math/0609802v1 Section 7 independent Poisson",
+        "arXiv:1603.07172v1 Section 3 indicator covariance bounds",
+        "\"finite n exact joint moments loops double edges Bollobas configuration model\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two indicators correspond to the loop count and count of unordered pairs of parallel edges in the configuration model. Angel et al. Section 3.1 uses individual internal-half-edge pair indicators and double-edge indicators, matching these definitions.",
+        "Wormald Theorem 2.6 gives asymptotic independent Poisson laws for short cycles in regular pairings; no signed finite moment comparison appears in the inspected theorem and nearby discussion."
+      ],
+      "reasoning": "Equivalent vocabulary is loops versus self-loops and double edges versus unordered parallel-edge pairs, with triple edges counted three times; this convention was checked. Asymptotic independence is not an identity for finite mixed moments and cannot fix the sign of their vanishing covariance.",
+      "searches": [
+        "\"covariance loops double edges configuration model random regular graph\"",
+        "\"correlation loops double edges pairing model regular multigraph\"",
+        "Wormald 1999 Theorem 2.6, https://users.monash.edu.au/~nwormald/papers/regsurvey.pdf",
+        "Angel et al. 2016 Section 3.1, https://arxiv.org/abs/1603.07172"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected published theorem statements emphasize limiting laws, not a finite covariance table by group degree.",
+        "The exact test computations in verify.py were independently obtained from labeled-pairing enumeration, rather than transcribed from a published table."
+      ],
+      "reasoning": "No matching all-degree signed finite covariance table was located in the inspected primary sources or focused literature searches. Lack of search hits cannot establish absolute priority.",
+      "searches": [
+        "\"covariance between number of loops and number of parallel edge pairs in pairing model\"",
+        "\"covariance loops double edges configuration model random regular graph\"",
+        "Wormald 1999, Theorem 2.6",
+        "Angel et al. 2016, Section 3, equations near (3.9)"
+      ]
+    },
+    "rationale": "Compared with the actual original primary sections on loops and double-edge pairs, where the closest known statements establish Poisson independence limits or total-variation estimates, not the signed finite covariance formula or its degree-two sign reversal. Publication priority remains qualified; the indicator-sum method of Angel et al. is a material possible implicit derivation.",
+    "residual_risks": [
+      "A general published mixed-moment formula or a simple consequence of an older indicator-count identity might already imply the exact expression without stating it.",
+      "A comprehensive historical literature search and independent publication-priority audit have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ASYMPTOTIC_COVERAGE_ONLY",
+        "evidence": "Asymptotically independent Poisson counts are reported; no finite signed covariance or degree-two sign boundary in inspected material.",
+        "identifier_or_url": "https://users.monash.edu.au/~nwormald/papers/regsurvey.pdf",
+        "material_read": "Section 2.3 Theorem 2.6 and adjoining remarks, Section 2.4 relevant estimates; original PDF page images inspected",
+        "method": "Full-text sections and rendered PDF page inspection",
+        "title": "Models of Random Regular Graphs",
+        "trigger": "Classical regular configuration model and loop/double-edge joint statistics"
+      },
+      {
+        "assessment": "ASYMPTOTIC_COVERAGE_ONLY",
+        "evidence": "Asymptotic independent-Poisson law is compatible with either finite-sign covariance; the exact formula is not stated in the inspected discussion.",
+        "identifier_or_url": "arXiv:math/0609802v1; https://arxiv.org/abs/math/0609802",
+        "material_read": "Accessible full HTML/text Sections 1, 5, and 7, especially Section 7 on Poisson approximation",
+        "method": "Primary open-text section inspection",
+        "title": "The Probability That a Random Multigraph Is Simple",
+        "trigger": "Joint loop and parallel-edge count limit laws for prescribed degree sequences"
+      },
+      {
+        "assessment": "INDICATOR_METHOD_CLOSEST_NOT_EXPLICIT_SIGN",
+        "evidence": "The source derives Poisson approximation and bounds using sums of absolute pair-indicator covariances, rather than the exact signed aggregate covariance and regular-degree sign classification.",
+        "identifier_or_url": "arXiv:1603.07172v1; https://arxiv.org/abs/1603.07172",
+        "material_read": "Original PDF title/abstract and rendered pages 1, 4, 10, 13, 14 (zero-index PDF pages 0,3,9,12,13); Theorem 1.4 and Section 3 covariance analysis",
+        "method": "PDF page-image plus extracted text inspection",
+        "title": "Limit Laws for Self-Loops and Multiple Edges in the Configuration Model",
+        "trigger": "Most relevant finite indicator decomposition for precisely the two count statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bb0aaf4-e210-4662-bcb6-934df6865f0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The loop/double-edge defect interaction is a fundamental finite-sample diagnostic of the pairing model. Its covariance reverses sign sharply at regular degree two versus at least three and changes asymptotic order (\\(v^{-2}\\) versus \\(v^{-1}\\)), features not visible from limiting independent-Poisson laws. Every admissible regular size is classified, and an exact irregular-degree profile identity is provided. This is a meaningful structural dependence distinction rather than a small unmotivated numerical extension.",
+    "status": "PASS"
+  }
+}
