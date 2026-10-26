@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "All right quotients are classified by residual length and number of remaining marked symbols. The one-marker prefix domain is exactly two integer rectangles; all possible quotient identifications are exhausted and give min((h-ell)^2,(ell+1)^2) paired collapses. The case a=b and n=2 is explicitly covered. Independent trie minimization verified 300 parameter pairs and direct quotient enumeration verified 45 pairs. Finite checks are corroborative; deductive proof handles all a,b>=0.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jirásková–Krausová (2010), Theorem 5, yields a worst-case upper bound over prefix-free input DFAs, not precise complexity for one two-marker conjugacy orbit.",
+        "Gabric–Holub–Shallit (2019), Theorems 3 and 4, give general upper bound and global equality characterization, which need not be equalities for sparse words."
+      ],
+      "reasoning": "A general worst-case bound or a condition characterizing maximal source words does not determine per-gap residual identifications for all sparse words. The present formula can be substantially below the unrestricted maximum.",
+      "searches": [
+        "\"Generalized de Bruijn Words and the State Complexity of Conjugate Sets\" binary words two ones state complexity",
+        "arxiv:1008.1662",
+        "doi:10.1007/978-3-642-38536-0_22"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1051/ita:2007038 (metadata+abstract only)",
+      "arxiv:1008.1662 (full text)",
+      "arxiv:1903.05442 (full author PDF)",
+      "doi:10.1007/978-3-642-38536-0_22 (abstract only)",
+      "OEIS A316936 (database entry)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2007 cyclic-shift article discusses general operation complexity on arbitrary regular languages and asymptotic bounds.",
+        "2010 prefix-free paper gives tight worst-case bounds, not composition-specific quotient classes.",
+        "2019 Section 3 uses a trie bound and characterizes words achieving the maximum; it does not state or imply equality with a fixed-gap formula."
+      ],
+      "reasoning": "Although cyclic shifts of a singleton are a special case of earlier operation-level results, the published broader statements give upper limits rather than exact values for every input, and no explicit two-marker complete-DFA identity was observed in inspected full text. Earlier equivalent hidden special cases remain a risk.",
+      "searches": [
+        "doi:10.1051/ita:2007038",
+        "arxiv:1903.05442",
+        "arxiv:1008.1662",
+        "\"State complexity of cyclic shift\" Jirásková Okhotin 2007 pdf",
+        "Jirasek Jiraskova cyclic shift prefix free languages 2013 pdf state complexity full"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gabric–Holub–Shallit (2019) defines C(w) and sc(C(w)), equivalent to a conjugate-set complete DFA; its Section 3 analyzes global maxima, not an exact law for each two-marker pair.",
+        "Myhill–Nerode right quotients are the same invariant as minimal complete DFA states."
+      ],
+      "reasoning": "The fixed-composition DFA claim was compared to conjugate-set, cyclic-shift, quotient-complexity, and necklace descriptions. The same abstract operation appears in prior work, but a result for a supremum over source words does not imply the all-instance two-gap formula or its collision threshold.",
+      "searches": [
+        "DFA states conjugates of word \"two 1s\" rotations exact",
+        "minimal automaton for circular shifts two one binary necklace gap parameter",
+        "arxiv:1903.05442"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A316936 is indexed by total length and records only the unrestricted maximum.",
+        "Gabric–Holub–Shallit (2019) tables likewise give unrestricted maxima and generalized-de-Bruijn exemplars, not a two-gap matrix."
+      ],
+      "reasoning": "Existing numeric tables for maxima over all binary words cannot recover the exact two-parameter family, and the particular collision-count law was not located.",
+      "searches": [
+        "OEIS A316936 state complexity conjugates binary word",
+        "\"cyclic\" \"two ones\" \"states\" \"conjugates\" minimal DFA",
+        "DFA states conjugates of word \"two 1s\" rotations exact"
+      ]
+    },
+    "rationale": "General operation bounds and the unrestricted maximum-conjugacy theorem do not give per-word equalities throughout a two-marker family. The explicit saturated collision law is structurally distinct. No equivalent statement appeared in inspected primary full texts or targeted scholarly searches, though inaccessible historical texts and terminological aliases are residual risks.",
+    "residual_risks": [
+      "Full original 2007 cyclic-shift paper not inspected; no claim of full-text noncoverage.",
+      "Complete 2013 prefix-free chapter not inspected.",
+      "An earlier equivalent formula under different words or in supplemental material may exist; negative searches are not a proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General-state-complexity bounds, not a located per-singleton two-marker formula; full-text coverage not established",
+        "evidence": [
+          "Published online 2007-12-13; primary MSC 68Q45.",
+          "Abstract describes alphabet-sensitive operation-level lower bounds and NFA bound."
+        ],
+        "identifier_or_url": "doi:10.1051/ita:2007038",
+        "material_read": "Publisher abstract, publication metadata and mathematical subject classification; full article not accessed",
+        "method": "publisher and open bibliographic records",
+        "title": "State complexity of cyclic shift",
+        "trigger": "Earliest foundational cyclic-shift state-complexity work"
+      },
+      {
+        "assessment": "Gives tight worst-case bound for arbitrary prefix-free input DFAs; no per-two-marker conjugate language classification",
+        "evidence": [
+          "Theorem 5 bounds cyclic shift via a union of several concatenation automata.",
+          "Its alphabet-six tightness witness is not an exact two-marker formula."
+        ],
+        "identifier_or_url": "arxiv:1008.1662",
+        "material_read": "Full eight-page arXiv article, especially Section 2 Theorem 5 on cyclic shift and supporting construction",
+        "method": "arXiv open full-text inspection and PDF page inspection",
+        "title": "Complexity in Prefix-Free Regular Languages",
+        "trigger": "A singleton language is prefix-free, so a stronger general result could dominate the proposed result"
+      },
+      {
+        "assessment": "Unrestricted maximum over source words and its generalized-de-Bruijn equality case, not an explicit exact two-gap result for all sparse words",
+        "evidence": [
+          "Section 3 Theorem 3 gives a generic upper bound.",
+          "Corollary 1 and Theorem 4 identify global maximum and maximizing words."
+        ],
+        "identifier_or_url": "arxiv:1903.05442",
+        "material_read": "Full ten-page publicly accessible author PDF, especially definition of C(w), Section 3 Theorems 3/4 and Corollary 1, maximum construction and table",
+        "method": "primary PDF full-text and page-image inspection",
+        "title": "Generalized de Bruijn Words and the State Complexity of Conjugate Sets",
+        "trigger": "Exactly same finite conjugacy-language object and minimal complete automaton invariant"
+      },
+      {
+        "assessment": "Reports alphabet-dependent worst-case bounds; possible uninspected special cases remain a risk",
+        "evidence": [
+          "Available abstract discusses upper bound parameterized by input DFA size and witness alphabets."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-642-38536-0_22",
+        "material_read": "Abstract and bibliographic metadata; complete proceedings chapter not accessed",
+        "method": "scholarly publication abstract",
+        "title": "Cyclic Shift on Prefix-Free Languages",
+        "trigger": "Same operation restricted to prefix-free languages, including singletons"
+      },
+      {
+        "assessment": "Gives only the maximum over all binary words of each length, no fixed-composition classification",
+        "evidence": [
+          "Title explicitly says maximum state complexity of C(w) over length-n binary words."
+        ],
+        "identifier_or_url": "https://oeis.org/A316936",
+        "material_read": "Sequence title, comments, reference and formula for unrestricted maxima",
+        "method": "online sequence entry inspection",
+        "title": "OEIS A316936",
+        "trigger": "Potential exact precomputed table or dominance by published maximum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54dda94b-79aa-4fff-96dd-b43f876f7071",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines a natural infinite fixed-content family of minimal automata for cyclic pattern recognition; every nonnegative two-gap parameter is covered with an exact expression. The saturation of collision identifications at h>=2ell+1 is a meaningful structural boundary rather than a tabulated isolated case.",
+    "status": "PASS"
+  }
+}
