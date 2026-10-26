@@ -1,0 +1,106 @@
+{
+  "claim": "In an Eisenberg–Noe star clearing network with \\(m\\ge1\\) targets, unit outside assets, equal initial net worth \\(x\\in(0,1/(m+1))\\) for every bank, and a source whose liabilities are entirely interbank and split equally among the targets, let independent primary loss shocks share survival function \\(S\\) and be capped at the unit outside-asset value. If \\(S(0)=1\\) and \\(\\log S\\) is convex on \\([0,(m+1)x]\\), then the probability that a shock to the source alone defaults all targets is \\(S((m+1)x)\\ge S(x)^{m+1}\\), the probability that all banks default through independent direct shocks. The inequality is strict when \\(\\log S\\) is strictly convex on the relevant interval; in particular, every non-degenerate mixture of exponential rates gives strict inequality at every feasible threshold, while a pure exponential law gives equality.",
+  "correctness": {
+    "rationale": "The star liability construction makes the cascade event exactly \\(\\{X_0>(m+1)x\\}\\); the cap is inactive at this threshold. Independent direct defaults have probability \\(S(x)^{m+1}\\). Convexity of \\(\\log S\\) and \\(\\log S(0)=0\\) yield \\(S((m+1)x)\\ge S(x)^{m+1}\\), strictly for strict convexity. The two-rate witness has exact gap \\(\\tfrac14(e^{-1/5}-e^{-2})^2>0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 2/Corollary 3 assume IFR for the weak-contagion result.",
+        "Section 3.3 discusses Pareto-like tails at sufficiently large thresholds.",
+        "The 2016 preprint orders aggregate losses across models regardless of shock distribution."
+      ],
+      "reasoning": "The claim covers a distinct shock-shape regime (log-convex survival) and all feasible equal-net-worth thresholds; the survey result concerns aggregate loss ordering and does not dominate this probability comparison.",
+      "searches": [
+        "OFR-WP-13-09, Theorem 2, Corollary 3, and Section 3.3",
+        "arXiv:1608.07831, main text lines 87-96"
+      ]
+    },
+    "checked_sources": [
+      "Glasserman and Young, OFR Working Paper 13-09 (first public version 2013-06-21), full text inspected.",
+      "Glasserman and Young, Journal of Banking & Finance 50 (2015), 383-399, DOI 10.1016/j.jbankfin.2014.02.006.",
+      "Visentin, Battiston, and D’Errico, Rethinking Financial Contagion, arXiv:1608.07831 (first posted 2016-08-28), main text inspected.",
+      "Eisenberg and Noe, Systemic Risk in Financial Systems, Management Science 47(2) (2001), DOI 10.1287/mnsc.47.2.236.9835, model reference; its full text was not inspected in this run."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Glasserman–Young (2013 working-paper version; later DOI 10.1016/j.jbankfin.2014.02.006) proves weak contagion under IFR conditions and describes the exponential case as a borderline equality.",
+        "The same paper notes strong contagion for Pareto-like tails at sufficiently large levels, not all-threshold light-tailed exponential mixtures.",
+        "Visentin–Battiston–D’Errico (arXiv:1608.07831) concerns aggregate systemic-loss ordering, not the probability comparison here."
+      ],
+      "reasoning": "No inspected primary statement implies the exact strict inequality for every feasible threshold under a non-degenerate exponential-rate mixture. The proof relies on strict convexity of log survival and an exact star liability construction. Residual risk remains that a specialized reliability/financial-network paper contains an equivalent application.",
+      "searches": [
+        "OFR-WP-13-09, Proposition 1, Theorem 2, Corollary 3, Proposition 2",
+        "arXiv:1608.07831, Introduction and Section 3",
+        "Search queries: \"financial network\" \"mixture of exponentials\" decreasing failure rate contagion probability | \"Glasserman Young\" DFR mixture exponential contagion weak IFR Corollary 3 | log-convex survival mixture of exponentials financial contagion all thresholds equal outside assets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Glasserman–Young compare \\(\\mathbb P(Y_0>x_0+\\sum_j x_j/\\beta_0)\\) with product survival probabilities under IFR assumptions.",
+        "For equal thresholds and \\(\\beta_0=1\\), the new statement is \\(S((m+1)x)\\ge S(x)^{m+1}\\) under log-convex survival."
+      ],
+      "reasoning": "The formulations are algebraically equivalent only after imposing the explicitly constructed star network and equal thresholds. The prior IFR result does not imply the reversed log-convex-survival inequality.",
+      "searches": [
+        "\"financial network\" \"mixture of exponentials\" decreasing failure rate contagion probability",
+        "\"Glasserman Young\" DFR mixture exponential contagion weak IFR Corollary 3",
+        "log-convex survival mixture of exponentials financial contagion all thresholds equal outside assets",
+        "OFR-WP-13-09, Section 3.3, Theorem 2 and Corollary 3",
+        "arXiv:1608.07831, Introduction and Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No finite database or tabulated census is relevant to this analytic inequality."
+      ],
+      "reasoning": "The claim is proved for a continuum of thresholds and every integer \\(m\\); table lookup cannot establish or refute the general statement. Literature searches returned no directly matching published result; closest surfaced sources were unrelated.",
+      "searches": [
+        "\"financial network\" \"mixture of exponentials\" decreasing failure rate contagion probability",
+        "\"Glasserman Young\" DFR mixture exponential contagion weak IFR Corollary 3",
+        "log-convex survival mixture of exponentials financial contagion all thresholds equal outside assets"
+      ]
+    },
+    "rationale": "The inspected primary source treats IFR shocks and notes Pareto-like heavy-tail reversal only asymptotically; the stated all-threshold log-convex-survival consequence for a clearing star is not implied by those results. The closest survey compares aggregate loss ordering, not this event-probability comparison.",
+    "residual_risks": [
+      "The convexity inequality is standard and may have been applied to the same star-clearing probability comparison in specialized reliability or financial mathematics literature not found in the searches.",
+      "The supplementary information of arXiv:1608.07831 was not inspected; the main text treats aggregate loss ordering rather than the event-probability comparison.",
+      "No empirical calibration is claimed; real bank shock distributions may be dependent and may not have log-convex survival."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the claim. Its weak-contagion theorem assumes IFR shocks; its heavy-tail reversal is asymptotic. It identifies pure exponential shocks as a borderline case, but does not state the strict all-feasible-threshold result for non-degenerate exponential-rate mixtures or general log-convex survival.",
+        "evidence": [
+          "PDF pp. 12-18, especially Theorem 2/Corollary 3 and the discussion at pp. 17-18."
+        ],
+        "identifier_or_url": "OFR Working Paper 13-09; https://www.financialresearch.gov/working-papers/files/OFRwp0009_GlassermanYoung_HowLikelyContagionFinancialNetworks.pdf; DOI 10.1016/j.jbankfin.2014.02.006",
+        "material_read": "Full-text PDF: Section 3.1 Proposition 1; Section 3.2 Theorem 1 and Corollary 1; Section 3.3 Theorem 2, Corollary 3, and the discussion of exponential and Pareto-like shocks.",
+        "method": "Compared the exact probability expressions, shock-shape assumptions, equal-outside-assets corollary, and threshold ranges.",
+        "title": "How Likely Is Contagion in Financial Networks?",
+        "trigger": "The closest source for the definition of weak contagion and comparison of cascade probability with independent direct defaults."
+      },
+      {
+        "assessment": "Not covering: it orders aggregate equity-loss measures across models, while the present claim compares two event probabilities in one clearing model. Supplementary material was not read, so a narrow residual risk remains.",
+        "evidence": [
+          "arXiv abstract and main text, especially lines 4-7 and 87-96 of the HTML rendering."
+        ],
+        "identifier_or_url": "arXiv:1608.07831; https://arxiv.org/abs/1608.07831",
+        "material_read": "Abstract, introduction, general framework, and main-text Section 3 on ordering systemic losses; supplementary derivations were not inspected.",
+        "method": "Compared the measured quantity and scope of its distribution-independent ordering statements with the current event-probability claim.",
+        "title": "Rethinking Financial Contagion",
+        "trigger": "A broad pre-cutoff survey/reformulation of contagion models that could dominate a claimed financial-network result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "49a66e29-944c-449e-9576-29c3c4703964",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-feasible-threshold result identifies a sharp boundary between homogeneous exponential shocks (equality) and non-degenerate exponential-rate mixtures (strict strong contagion), extending the published IFR and asymptotic Pareto-tail comparisons to a light-tailed heterogeneous-shock class. It clarifies a model-relevant probability comparison without claiming empirical or aggregate-loss conclusions.",
+    "status": "PASS"
+  }
+}
