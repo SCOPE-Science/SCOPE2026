@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For symmetric 2x2 errors J-conjugation is a Frobenius-self-adjoint involution with both eigenmodes; applying three inner stages yields the stated cubic g3. The resulting two scalar quadratic factors have exact sum/difference/derivatives, which prove the unique global optimum for α in every real interval. Symbolic identities and reproducible direct recurrences in bundled checker passed; finite tests do not establish the universal claim alone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "He et al., Theorem 2 supplies a general convergence spectral-radius condition, and Remark 2 explicitly treats l>2 tuning as higher-degree future work.",
+        "Tian et al. (2020), DOI 10.1016/j.jfranklin.2020.02.026, abstract describes convergence conditions and comparisons for coupled continuous Markovian jump Lyapunov equations; full text not obtained.",
+        "Chen et al., DOI 10.1007/s11075-025-02019-7, abstract concerns a one-parameter explicit iteration rather than the same three-inner-step algorithm."
+      ],
+      "reasoning": "General rate expressions, convergence conditions and optimization proposals do not supply the exact minimizer and phase transitions. The Tian paper is a plausible incomplete comparison, recorded as risk rather than falsely declared noncovering.",
+      "searches": [
+        "stochastic Lyapunov inner outer iteration polynomial minimax optimal alpha three inner sweeps real nonnegative spectrum",
+        "higher-step Smith inner-outer iteration Lyapunov matrix equation finite spectral termination optimum parameter",
+        "\"A multi-step Smith-inner-outer iteration algorithm\" PDF 2020 Tian Wang Dong Liu",
+        "\"Explicit iterative algorithm with optimal tuning parameter for stochastic Lyapunov matrix equation\" full text"
+      ]
+    },
+    "checked_sources": [
+      "He et al. 2026 arXiv:2607.00451 full eight-page primary preprint",
+      "Chen et al. 2025 online, DOI 10.1007/s11075-025-02019-7, author abstract and bibliographic entry",
+      "Tian et al. 2020, DOI 10.1016/j.jfranklin.2020.02.026, title and abstract",
+      "Relevant published mathematical research records and related summaries",
+      "Earlier mathematical claims in related numerical methods"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "He et al. print the polynomial g_{α,l} and the argmin setup but state higher-degree optimal parameter determination as future work.",
+        "The new proof uses the sign-sensitive eigenmode sum/difference, constrained equioscillation and stationary-point transition, giving α thresholds 2/5 and 1/2 and an r^4 weak-coupling rate."
+      ],
+      "reasoning": "The present result is a solved exact minimax theorem for a concrete physically realizable two-mode instance; it is not an assertion that the general polynomial expression is new. Older general acceleration theory may dominate achievable rates outside the restricted one-parameter family, but does not establish its restricted optimum.",
+      "searches": [
+        "An Inner-Outer Iteration Algorithm with Optimal Parameters for Stochastic Lyapunov Matrix Equation He Su Wang Chen 2026 higher inner steps l=3 convergence spectral tuning",
+        "three-stage stochastic Lyapunov matrix equation iteration two eigenvalue equioscillation parameter phase diagram",
+        "arxiv:2607.00451 Remark 2, Section 4, equations (12),(18)",
+        "DOI 10.1016/j.jfranklin.2020.02.026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "He et al. eqs. (12), (14), (18) give the iteration polynomial, not the l=3 optimized operator for ±r.",
+        "The closest retrieved record 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 concerns two-stage Richardson with stagewise safety, a different polynomial and constraints."
+      ],
+      "reasoning": "The Lyapunov swap map has eigenvalues ±r, so its norm optimization can be written as minimax of two scalar cubic eigenvalue polynomials. The published general formula implies the optimization *problem* but not its solved global three-regime α minimizer. Richardson products and general Chebyshev polynomials are not the fixed three-inner-step Smith family.",
+      "searches": [
+        "An Inner-Outer Iteration Algorithm with Optimal Parameters for Stochastic Lyapunov Matrix Equation He Su Wang Chen 2026 higher inner steps l=3 convergence spectral tuning",
+        "three inner steps Smith inner outer stochastic Lyapunov two state swap eigenspectrum ±r sharp optimal parameter 2/5 1/2",
+        "\"inner outer\" stochastic Lyapunov \"three\" \"optimal\" parameter spectral",
+        "arxiv:2607.00451 eqs. 12/14/18"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No close mathematical-record match for stochastic Lyapunov three-stage α thresholds; nearest IDs include 2026/10/11/SCOPE-exact-minimax-relaxation-for-the-operatorname-ut-2-projection-me--0a5e4bc2be28 and 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56, both different algorithms.",
+        "Other considered mathematical claims concern different numerical schemes rather than a stochastic Lyapunov Smith inner–outer optimal parameter."
+      ],
+      "reasoning": "Neither the numerical table in He et al. (which only reports a tuned case l=2), the returned mathematical-record summaries, nor other relevant scientific statements examined exhibits the present two-transition minimax law. Search absence is not a proof of novelty.",
+      "searches": [
+        "three inner steps Smith inner outer stochastic Lyapunov two state swap eigenspectrum ±r sharp optimal parameter 2/5 1/2",
+        "optimal alpha three-step Lyapunov Smith inner outer r spectrum positive negative threshold two fifths half exact minimax",
+        "three step Lyapunov Smith optimal parameter 2/5 1/2",
+        "\"inner-outer\" \"Lyapunov\" \"optimal\" \"l=3\" overrelaxation"
+      ]
+    },
+    "rationale": "The closest full primary work supplies g_{α,l} and an optimization setup, but analyzes l=2 explicitly and leaves higher l tuning open. A new complete three-region l=3 signed-spectrum minimax proof distinguishes this claim from polynomial substitution. Relevant mathematical-record and earlier-claim searches found no same-claim implication; older inaccessible multi-step Smith literature remains specifically noted.",
+    "residual_risks": [
+      "Full text of Tian et al. 2020 was unavailable; an unobserved equivalent parameter analysis may exist.",
+      "Complete Chen et al. 2025 text was inaccessible, although its abstract specifies a different update.",
+      "The result is restricted to the source algorithm with exactly three inner stages and a single fixed tuning parameter; more general acceleration polynomials can outperform it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS recurrence and spectral polynomial; DOES NOT STATE the l=3 signed-pair optimal tuning with 2/5 and 1/2 transitions; paper explicitly leaves l>2 optimization for future work",
+        "evidence": [
+          "arXiv:2607.00451, pp. 3–6, equations (12),(14),(18), Remark 2 lines 679–691 and Section 4 lines 692–744"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2607.00451",
+        "material_read": "Eight-page primary preprint full text, including algorithm (12), equations (14)/(18), Theorems 2/4/5, Remark 2, Section 4 and cited references",
+        "method": "Read rendered full-PDF text and inspected the algorithm page visually",
+        "title": "An Inner-Outer Iteration Algorithm with Optimal Parameters for Stochastic Lyapunov Matrix Equation",
+        "trigger": "Direct motivating 2026 stochastic Lyapunov algorithm and parameter objective"
+      },
+      {
+        "assessment": "UNKNOWN whether any full-text result subsumes the present special-case optimizer; abstract mentions convergence and comparison, not an l=3 signed-spectrum closed form",
+        "evidence": [
+          "DOI:10.1016/j.jfranklin.2020.02.026; J. Franklin Inst. 357 (2020), 3656–3679; bibliographic abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jfranklin.2020.02.026",
+        "material_read": "Title, 2020 journal metadata and author abstract only; complete manuscript inaccessible",
+        "method": "Searched arXiv, open-access copies, author-title and DOI; complete manuscript unavailable",
+        "title": "A multi-step Smith-inner-outer iteration algorithm for solving coupled continuous Markovian jump Lyapunov matrix equations",
+        "trigger": "Closest older multi-step Smith inner–outer algorithm, possible polynomial reduction"
+      },
+      {
+        "assessment": "Abstract describes a distinct explicitly updated one-parameter recurrence; its full-text comparison with the three-inner-step constrained law remains incomplete",
+        "evidence": [
+          "DOI:10.1007/s11075-025-02019-7; Numerical Algorithms 101 (2026), 679–702; author publication entry"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s11075-025-02019-7",
+        "material_read": "Author bibliographic entry and full abstract only; complete manuscript unavailable in accessible session",
+        "method": "Searched arXiv, author publication page and open-access sources",
+        "title": "Explicit iterative algorithm with optimal tuning parameter for stochastic Lyapunov matrix equation",
+        "trigger": "Closest same-application one-parameter explicit iteration, with optimized tuning"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80b32841-99f4-4ee0-87e7-08950c68ebd0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A positive stochastic Lyapunov map already admits a negative error eigenmode in the minimal two-state swapping system. The exact l=3 optimal parameter responds to those signed modes with sharp r=2/5 and r=1/2 transitions, and achieves one higher asymptotic power than unrelaxed Smith for small r. This is a motivated, complete finite-dimensional rate classification rather than arbitrary substitution or a small unsupported numerical gain.",
+    "status": "PASS"
+  }
+}
