@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary n>=2 and 2<=k<=n, conditional pi(i)=i image-sampling gives per-subset probability K_{i,r}/(n-1)_{k-1}; counting K_{i,r} subsets yields B/(k-1)! times sum of squared hypergeometric ranks. Subtract B/k!, multiply by 1/n and use Vandermonde to get the sum-of-squares formula. Endpoint and strict binomial log-concavity give all strict signs; beta integrals and a central-binomial convolution yield the fixed-k limit. Exact arithmetic replay from the embedded verify.py passed 2814 comparisons including all 46232 permutations n=2..8. Finite checks supplement, not prove, the all-n theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hossein–Starr arxiv:2301.00125 derives generating functions for Pinsky second moment of Z, not a joint moment with F.",
+        "published-finding corpus result 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495 treats local descent indicators, not global increasing k-subsequences.",
+        "published-finding corpus result 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 treats inversions and partial correlations, not fixed-point/nonconsecutive-subsequence covariance."
+      ],
+      "reasoning": "Neither marginal second moments of Z nor moments of local descent/inversion statistics mathematically determine the mixed moment with fixed points. The inspected stronger-looking papers have different observables and thus no proven implication.",
+      "searches": [
+        "published-finding corpus: plane oriented recursive trees root degree leaves covariance exact distribution joint",
+        "published-finding corpus: fixed point count and nonconsecutive increasing pattern 12..k occurrence covariance",
+        "published-finding corpus: Pinsky subsequence size biased measure mu n k expected number of fixed points exact",
+        "web: fixed points classical pattern occurrences permutation expectation joint monotone",
+        "arxiv:2301.00125, 35-page PDF introduction and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "Pinsky arxiv:math/0407353, initial 2004-07-21, inspected arXiv PDF",
+      "Diaconis–Evans–Graham Berkeley Report 822 (2013), OA PDF inspected",
+      "Hossein–Starr arxiv:2301.00125 (2023), OA PDF inspected",
+      "Lifschitz–Pittel, JCTA 31 (1981), bibliographic metadata only",
+      "published-finding corpus searches listed in all four named originality checks",
+      "Archived mathematical claims located by identifier, compared only for statement overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pinsky establishes mean C(n,k)/k!, second moments, size bias and a TV asymptotic, none giving the sign of E_mu[F]-1 or the exact local decomposition.",
+        "Berkeley Report 822 identifies the distribution of a set of consecutive-successions with a set of fixed points; equidistribution of this marginal set is not a statement about its joint law with Z.",
+        "Hossein–Starr studies Z second moment without a fixed-point observable."
+      ],
+      "reasoning": "The new formula requires explicitly conditioning on pi(i)=i, counting image ranks, and summing squares of conditional position-rank probabilities. Prior marginal, consecutive, and second-moment results are logically insufficient, although older inaccessible literature leaves historical priority uncertain.",
+      "searches": [
+        "arxiv:math/0407353 pp.1-6 and full-text fixed-point search",
+        "Berkeley Report 822 pp.1-3 and search \"increasing subsequence\"",
+        "arxiv:2301.00125 abstract, pp.1-3, conclusion",
+        "published-finding corpus: Pinsky subsequence size biased measure mu n k expected number of fixed points exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pinsky arxiv:math/0407353 pp.1-4 introduces Z and its size-biased law but studies E[Z^2] and TV; full PDF find for \"fixed\" returns no occurrence.",
+        "Diaconis–Evans–Graham Berkeley Report 822 pp.1-3 covers fixed points and *consecutive* unseparated pairs, not all length-k subsequences.",
+        "Previously recorded claim 1576564e-de3a-486f-a64f-08e3d90a48a5 concerns only consecutive permutation rank-pattern counts."
+      ],
+      "reasoning": "An equivalent claim requires covariance between fixed-point indicators and nonconsecutive monotone-subsequence count, or the expected fixed-point count under exactly the Z-biased law. Pinsky defines that law but does not state this cross-moment in inspected portions; local/consecutive-pattern formulas are not implications.",
+      "searches": [
+        "published-finding corpus: fixed points number of increasing subsequences of length k uniform random permutation exact covariance positive",
+        "published-finding corpus: chi-square rank distribution fixed points monotone subsequences permutations Pinsky",
+        "web: \"fixed points\" \"increasing subsequences\" \"covariance\" permutation",
+        "arxiv:math/0407353, 23-page full-text search \"fixed\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible prior claim 1576564e-de3a-486f-a64f-08e3d90a48a5 gives fixed-point covariance with consecutive rank-pattern occurrences; classical subsequences here range over all k-element position subsets.",
+        "The published-finding corpus ranked results returned boundary-localization of fixed-point/descent dependence and fixed-point pattern-avoidance censuses, not a positive rank-dispersion formula across all n,k."
+      ],
+      "reasoning": "Consecutive occurrences are indexed by O(n) windows, whereas Z is indexed by C(n,k) arbitrary subsets. Their covariance formulas cannot be substituted for one another, and no exact accessible table for the present mixed observable was found.",
+      "searches": [
+        "published-finding corpus: fixed points number of increasing subsequences of length k uniform random permutation exact covariance positive",
+        "published-finding corpus: monotone classical permutation pattern increasing 123 covariance count fixed points nonconsecutive",
+        "published-finding corpus: hypergeometric rank distribution fixed point indicator positively correlated monotone subsequence count",
+        "archived mathematical claim text search: increasing subsequen|fixed point|monotone subsequen"
+      ]
+    },
+    "rationale": "The measured object is the cross-moment of fixed-point indicators and the count of nonconsecutive increasing length-k subsequences. Pinsky arxiv:math/0407353 defines Z and mu but reports Z mean/variance and TV, not this local squared-rank identity. Hossein–Starr extends the Z second moment, and Diaconis–Evans–Graham concerns consecutive unseparated pairs. The closest accessible comparison claims concern consecutive rank patterns, descents, or inversions. The 1981 Lifschitz–Pittel full text remained unavailable, so earlier priority remains a named limitation.",
+    "residual_risks": [
+      "Lifschitz–Pittel (1981) original full text could not be inspected; a stronger historical mixed-moment result cannot be excluded.",
+      "Semantic search does not establish global novelty; an unknown alternative formulation of the joint fixed-point/monotone-subsequence moment may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same basic objects Z and size-biased mu, but no observed fixed-point cross-moment or local positivity theorem. Literature definitions are antecedent, not new discoveries.",
+        "evidence": "arxiv:math/0407353 pp.1-4 equations (1.1), (1.3), Proposition 2; no full-text match for \"fixed\".",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0407353",
+        "material_read": "PDF abstract, introduction and definition of Z and mu (pp.1-6), Proposition 2 and relevant proof layout; searched complete 23-page extracted text for fixed-point terminology",
+        "method": "public arXiv PDF full-text extraction with page screenshots and term search",
+        "title": "Law of large numbers for increasing subsequences of random permutations and an approximation result for the uniform measure",
+        "trigger": "Same subsequence count and exact size-biased measure; potential dominating theorem"
+      },
+      {
+        "assessment": "Equidistribution of adjacent-successions with fixed point subsets, no coverage of nonconsecutive subsequence count Z",
+        "evidence": "Berkeley Report 822 Theorem 1.1 pp.2-3.",
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/unseparated_pairs.pdf",
+        "material_read": "Full abstract, introduction pp.1-3, Theorem 1.1, and document-wide search for increasing subsequence",
+        "method": "authorized OA PDF inspected via text and screenshot",
+        "title": "Unseparated pairs and fixed points in random permutations",
+        "trigger": "Potential fixed-point/monotone adjacency equivalence"
+      },
+      {
+        "assessment": "Develops Z second-moment generating function, not mixed moment with F; no covering theorem identified.",
+        "evidence": "arxiv:2301.00125 abstract, Sec.1 and Sec.5.",
+        "identifier_or_url": "https://arxiv.org/pdf/2301.00125",
+        "material_read": "Abstract, definitions in Sections 1.1-1.3 and Section 5 summary; checked PDF text for fixed-point terminology, mathematical content refers to analytic fixed points rather than permutation count",
+        "method": "OA arXiv PDF extraction and page-2 screenshot",
+        "title": "Generating Function for Pinsky's Combinatorial Second Moment Formula for the Generalized Ulam Problem",
+        "trigger": "Later full-text paper on potentially stronger Z moment theory"
+      },
+      {
+        "assessment": "Not classified NOT_COVERING; full-text priority uncertainty remains. The verified Pinsky discussion attributes work on the total count Z, not this fixed-point cross-moment.",
+        "evidence": "Pinsky arxiv:math/0407353 p.6 historical references; DBLP bibliographic record.",
+        "identifier_or_url": "Lifschitz & Pittel, Journal of Combinatorial Theory, Series A 31 (1981), 1-20",
+        "material_read": "Bibliographic metadata and Pinsky discussion only; complete original unavailable",
+        "method": "open-access and arXiv searches did not locate the full text; lawful institutional access did not return readable text",
+        "title": "The Number of Increasing Subsequences of the Random Permutation",
+        "trigger": "Foundational directly plausible predecessor for Z and its moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74c814f0-6015-4e66-8a1a-287cd2eaae01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pinsky introduced a natural size bias by nonconsecutive monotone subsequence counts; the theorem measures the previously unquantified fixed-point mean response, proves nonnegativity at every position and exact exceptional equality, and represents the signal as hypergeometric rank dispersion. The asymptotic covariance scale and constant at every fixed k and the complete range through k=n are structural information not implied by the marginal formula or a routine change of parameters. Full stochastic domination and k-growing asymptotics are not claimed.",
+    "status": "PASS"
+  }
+}

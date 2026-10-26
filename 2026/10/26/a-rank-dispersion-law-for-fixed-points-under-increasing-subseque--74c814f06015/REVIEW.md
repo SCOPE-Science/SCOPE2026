@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The claim uses a uniform permutation and all nonconsecutive increasing subsequences of each length \(2\le k\le n\). Conditioning on \(\pi(i)=i\), a subsequence avoiding \(i\) retains increasing probability \(1/k!\). A subsequence containing \(i\) has a rank-specific hypergeometric probability, and summing its possible positions produces the exact squared-rank expression. Vandermonde normalization and Cauchy–Schwarz give nonnegativity; strict log-concavity isolates the only equality case, a central position for a two-element subsequence. The fixed-\(k\) asymptotic follows by a uniform binomial approximation, beta integrals and a central-binomial convolution. Exact exhaustive checks of \(46{,}232\) permutations and \(2{,}814\) finite identities agree with the analytic proof. Limitation: the infinite theorem is not inferred from finite enumeration.
+
+## Originality — PASS (priority not independently established)
+The checked Pinsky paper, arXiv:math/0407353, defines the same subsequence count and its size-biased distribution but studies variance and total-variation approximation rather than fixed-point cross-moments. Hossein–Starr, arXiv:2301.00125, treats the Pinsky second-moment generating function. Diaconis–Evans–Graham's Berkeley Report 822 concerns fixed points and consecutive unseparated pairs, not arbitrary increasing subsequences. The closest accessible comparison findings concern individual fixed points versus local descents or consecutive permutation-pattern counts; their implication statements do not cover this rank-dispersion formula. The older Lifschitz–Pittel 1981 paper on increasing-subsequence counts was not accessible in complete form and creates residual priority risk. A negative search is not a uniqueness proof.
+
+## Mathematical value — PASS
+The result quantifies a previously unspecified marginal consequence of Pinsky's monotone-subsequence size-bias construction. It proves a sign at *each* fixed position, not only after aggregation, and identifies the exceptional middle position exactly. The squared-rank representation explains the dependence structurally rather than giving an isolated rational number. It also specifies the sharp order and constant of the cross-moment for every fixed subsequence length, thereby measuring the response of a natural permutation statistic to a classical change of measure. Only a mean shift is established; full stochastic domination and growing-length asymptotics remain open here.
+
+Self-review: passed. Independent audit: not yet performed.
