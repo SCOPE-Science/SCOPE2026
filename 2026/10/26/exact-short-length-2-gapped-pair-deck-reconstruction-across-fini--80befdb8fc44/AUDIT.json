@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The direct definition and independent streaming update give identical signatures on all 123032 words over alphabets of size 2 through 5 at lengths one through seven. Exhaustive binary lists establish no ambiguity at lengths 3-5, 3 double fibers at length 6 with 3 occurrences of each symbol, and 10 at length 7 with at least two occurrences of each symbol. Equality of q-ary decks survives every binary indicator projection. Any changed q-ary symbol must then occur at least twice for length 7, forcing at most three changed symbols and at most five total used symbols; for length 6 two changed symbols of frequency 3 exhaust all positions. The exhaustive five-letter length-7 census (78125 words) therefore closes the infinite-alphabet quantifier. All its fibers have size at most two; exactly ten use each pair and fifteen each triple, with none on larger support. The capacity count is one representative per fiber. The packaged standard-library verifier runs to the reported pass sentinel.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golm et al. arXiv:2201.12671v2 Sections I–IV establish general threshold bounds and constructions for binary gapped decks; their table records G(2)=6.",
+        "Chrisnata et al. DOI 10.3934/amc.2021032 counts different fixed-length ungapped subsequence decks, not nonadjacent ordered pairs."
+      ],
+      "reasoning": "A theorem that every binary word up to length five reconstructs does not fix length-six and length-seven collision multiplicities or arbitrary-q support classes. The inspected general constructions do not count full q-ary short fibers. The ordinary ungapped observation is distinct, so its broader length coverage does not imply this formula.",
+      "searches": [
+        "\"gapped k-deck\" \"G(2)\" exact 6",
+        "\"2-gapped\" \"2-deck\" \"six\" strings reconstruction",
+        "finite length two-gapped pair-deck equality alphabet projection small n reconstruction capacity"
+      ]
+    },
+    "checked_sources": [
+      "Golm, Nahvi, Gabrys, Milenkovic, The Gapped k-Deck Problem, arXiv:2201.12671v2 (2022).",
+      "Chrisnata et al., On the number of distinct k-decks: Enumeration and bounds, DOI 10.3934/amc.2021032 (2021/2023).",
+      "Gabrys and Milenkovic, Unique Reconstruction of Coded Strings from Multiset Substring Spectra, arXiv:1804.04548v2 (2019).",
+      "Published mathematical records on exact binary adjacent-pair multispectra, length-limited composition reconstruction, and single-deletion confusability, compared by claim implication rather than title."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A published adjacent-pair multiset formula counts contiguous windows of length two, while this observation counts all pairs with index gap at least two.",
+        "A published binary length-limited composition reconstruction formula records prefix and suffix compositions, not index-separated ordered-pair counts.",
+        "Gabrys–Milenkovic arXiv:1804.04548v2 studies multisets of contiguous substrings; its observable is different."
+      ],
+      "reasoning": "The prior adjacent-pair, prefix-suffix-composition, and contiguous-substring metrics cannot yield the nonadjacent-pair fiber counts solely by substituting n or q. Knowing the first collision length supplies no implication about multiplicity per alphabet triple or absence of four-symbol collisions. No stronger claim covering the same readout and parameter range was found in inspected sources.",
+      "searches": [
+        "gapped 2-deck pair subsequence gap at least 2 exact first collision length classification binary q-ary",
+        "insertion-deletion reconstruction set of subsequences run-constrained words exact minimal collisions",
+        "finite length two-gapped pair-deck equality alphabet projection small n reconstruction capacity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Golm–Nahvi–Gabrys–Milenkovic, arXiv:2201.12671, defines gapped decks as all subsequences of lengths up to k, and reports the known binary G(2)=6.",
+        "The present object is the multiset of singletons and position-separated ordered pairs, not the exact-two-only deck; the source distinguishes these observables explicitly."
+      ],
+      "reasoning": "Definitions were mapped exactly to the s=2, k=2 full gapped deck; the binary first-collision threshold is prior work. The 2/3-symbol support-resolved full short-length fiber distribution is not present in the inspected source; a mere title mismatch was not relied upon.",
+      "searches": [
+        "\"gapped 2-deck\" \"length 6\" reconstructible",
+        "\"2-gapped\" \"2-deck\" \"6\" collisions",
+        "\"multiset of nonadjacent pairs\" string reconstruction \"gapped\"",
+        "Complete collision classification binary nonadjacent two-subsequence deck 6 7 words first ambiguity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source paper has a numerical table of first binary collision thresholds G(k), not a table of full q-ary two-deck image cardinalities.",
+        "The finite checker certifies 3, 10 and 15 support-normalized double-fiber counts, not taken from a published table."
+      ],
+      "reasoning": "Searches did not identify an exact prior table of short two-gapped-deck image cardinalities; this is not, by itself, a uniqueness proof. The checked source table reports a different invariant.",
+      "searches": [
+        "Exact q-ary reconstruction spectrum for 2-gapped subsequence decks of lengths up to seven: n=6 q^6 - 3 binom(q,2) and n=7 q^7 - 10 binom(q,2) - 15 binom(q,3), binary-only and ternary-only collisions",
+        "2-gapped k-deck length six word count length seven mixed-alphabet binary ternary first collisions",
+        "\"32, 61, 118\" sequence strings"
+      ]
+    },
+    "rationale": "The source paper explicitly reports the binary threshold G(2)=6, which is credited. The new claim is the exact full alphabet-uniform fiber/capacity spectrum at lengths 1-7, especially 15 length-seven double fibers per unordered three-symbol support and the support cutoff. The inspected source sections concern collision thresholds and asymptotic constructions, without counting all q-ary short fibers; distinct ungapped-deck or contiguous-substring formulas do not imply the gapped-pair counts. Database comparisons identified related different-readout results rather than a covering statement. An unindexed equivalent enumeration remains a residual risk.",
+    "residual_risks": [
+      "An equivalent short gapped-deck census could exist under another terminology or in unindexed literature; search failure does not prove absence.",
+      "The Chrisnata et al. complete source was not inspected; its documented abstract concerns an ungapped invariant, but any supplemental material was not searched.",
+      "The binary G(2)=6 threshold and its sample colliding words are explicitly previously known, not new claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Binary G(2)=6 and an example are known, but neither arbitrary-q short-deck image counts nor the support-refined length-seven classification are established.",
+        "evidence": [
+          "Source defines B^(k) as lengths up to k with index separation at least two in its displayed definition (1), and distinguishes it from D^(k).",
+          "Its numerical table lists exact binary G(k)=6,13,24 for k=2,3,4 and gives no per-fiber enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2201.12671v2",
+        "material_read": "Accessible original-paper HTML: abstract, complete definitions in Section II, construction proofs and numerical threshold table through Section IV, and reference list.",
+        "method": "Read the full HTML source by section and compared definitions, table invariant, and implications of threshold results against the exact q-ary length-seven fiber census.",
+        "title": "The Gapped k-Deck Problem",
+        "trigger": "Defines precisely the nonadjacent full gapped deck and gives initial binary values; strongest coverage candidate."
+      },
+      {
+        "assessment": "Enumerates ungapped subsequence decks, not the exact index-separated-pair decks here. Full article was not materially inspected, recorded as residual accessibility limit.",
+        "evidence": [
+          "The ordinary k-deck consists of all length-k subsequences without the nonadjacent index restriction."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/amc.2021032",
+        "material_read": "Accessible paper landing-page abstract, scope and bibliographic information; full paper not read in this comparison.",
+        "method": "Compared the described plain k-deck observable against the gapped up-to-two-deck and checked the source paper citation.",
+        "title": "On the number of distinct k-decks: Enumeration and bounds",
+        "trigger": "Title explicitly suggests a distinct deck count and could dominate the claimed cardinality."
+      },
+      {
+        "assessment": "Different observation: its contiguous substrings have adjacent positions, whereas the theorem requires skipping at least one position between pair entries.",
+        "evidence": [
+          "The stated molecular-storage reconstruction model is based on multiset substring spectra, not gapped two-subsequence decks."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1804.04548v2",
+        "material_read": "Accessible article HTML abstract, introduction and definitions, including the readout model.",
+        "method": "Compared contiguous substring-spectrum definition with nonadjacent ordered-subsequence spectrum.",
+        "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+        "trigger": "Could contain a dominating general reconstruction-code size formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80befdb8-fc44-4dcb-85ec-da6afd738aae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant N_q(n) is the exact maximum size of a distinguishable q-ary reconstruction code from skipped-position two-subsequence readouts, a natural short-read DNA/data-storage statistic. The proof gives a complete nontrivial length-seven fiber classification for every alphabet, with the first genuinely ternary collision count and a finite support bound that prevents an unjustified extrapolation from binary values. It is a complete structural finite-length boundary, not an isolated convenient numerical slice; it does not claim a longer-length asymptotic.",
+    "status": "PASS"
+  }
+}
