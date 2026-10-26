@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The coefficient extraction is exact from the Motzkin generating function. All j>=k convolution terms vanish 3-adically. Kummer carry counting gives v3(C_{3^k-j-2})>=k-j for every 1<=j<k, including special j=1,2,3 and the high-digit argument for j>=4; hence all j>=1 terms vanish modulo 3^k. Lucas and the exact Catalan identity give the surviving j=0 term as -3^(k-1) mod 3^k, proving v3=k-1. The finite arithmetic verification is not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krattenthaler and Müller provide a construction for any fixed modulus 3^k, with explicit small-modulus results; a uniform formula as k grows is not stated in the inspected section.",
+        "Kohen states results modulo an odd prime, rather than unbounded powers of 3."
+      ],
+      "reasoning": "Computability modulo each fixed prime power is insufficient by itself to imply an explicit value for every variable modulus on 3^k-3. The prime-modulus symmetry alone cannot provide the exact k-1 valuation.",
+      "searches": [
+        "\"Motzkin numbers\" \"3-adic valuations\" Rowland Yassawi Krattenthaler Mueller",
+        "\"Motzkin\" \"unbounded\" \"valuation\"",
+        "Krattenthaler and Müller arXiv:1308.2856 Section 7 Motzkin mod 3^k",
+        "Kohen arXiv:2411.03681 Motzkin symmetry modulo p"
+      ]
+    },
+    "checked_sources": [
+      "Rowland–Yassawi, arXiv:1310.8635, Section 3.3",
+      "Krattenthaler–Müller, arXiv:1308.2856, Section 7",
+      "Kohen, arXiv:2411.03681, prime-modulus symmetry",
+      "OEIS A393215"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rowland and Yassawi pose unboundedness itself as an open question, whereas the new claim proves a stronger exact formula on a subsequence.",
+        "The later Kohen prime-modulus formula concerns p prime, so substitution p=3^k with k>=2 is not allowed.",
+        "The K–M constructive fixed-modulus method can in principle compute individual test cases but does not state a uniform theorem across all k."
+      ],
+      "reasoning": "The proposed theorem implies the unboundedness part of the cited open question; the located earlier statements do not imply its nonzero residues at 3^{k-1} modulo 3^k for unbounded k.",
+      "searches": [
+        "Rowland and Yassawi, Section 3.3, Open Question 3.15",
+        "Krattenthaler and Müller, Section 7, Theorems on fixed 3-power congruences",
+        "Kohen, Motzkin symmetry for indices p-3-n modulo prime p"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rowland and Yassawi, Open Question 3.15, asks whether the Motzkin 3-adic valuation sequence is unbounded, without exhibiting the target formula.",
+        "Target is the explicit identity at indices 3^k-3 for all k>=2, not merely unboundedness."
+      ],
+      "reasoning": "An exact valuation on a stated infinite subsequence implies unboundedness; it is not equivalent to fixed-modulus automaton computability. No matching formulation was found in inspected materials.",
+      "searches": [
+        "\"Motzkin\" \"3^k - 3\" valuations",
+        "\"Motzkin\" \"3^n-3\" \"3-adic\"",
+        "\"Motzkin numbers\" \"valuation\" \"3-adic\" 2025 2026",
+        "\"M_{3^k-3}\" Motzkin",
+        "Rowland and Yassawi 2015 Open Question 3.15; arXiv:1310.8635"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A393215 asks whether M(m-3) is congruent to (-3)^((m-3)/2) modulo composite m; it is a different congruence, not the target valuation for m=3^k.",
+        "Targeted literature and sequence searches did not show an exact table or identity matching the claim."
+      ],
+      "reasoning": "The OEIS condition has a different right-hand side (and list membership is not equivalent to the present formula). Absence of a search hit is not proof of absolute uniqueness.",
+      "searches": [
+        "\"Motzkin\" \"3^k-3\" congruence -magic",
+        "\"M(3^k-3)\" Motzkin",
+        "OEIS A393215 Motzkin k-3 composite congruence",
+        "\"Motzkin\" \"3-regular\" valuations unbounded 2025"
+      ]
+    },
+    "rationale": "The cited 2015 Open Question 3.15 explicitly asks for unbounded Motzkin 3-adic valuations. Targeted primary comparisons with a 2013 fixed-modulus method and a 2026 modulo-prime symmetry did not cover the stated growing-modulus congruence. This is a bounded originality assessment, not a uniqueness guarantee.",
+    "residual_risks": [
+      "A later unindexed proof might already resolve part of Question 3.15.",
+      "Available fixed-modulus automaton algorithms could potentially yield alternate derivations, but no uniform all-k implication was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicitly leaves unboundedness open; does not state an exact formula on 3^k-3.",
+        "evidence": [
+          "Section 3.2, Motzkin generating polynomial",
+          "Section 3.3, Open Question 3.15, printed p. 19"
+        ],
+        "identifier_or_url": "arXiv:1310.8635v1; doi:10.5802/jtnb.901; https://ericrowland.github.io/papers/Automatic_congruences_for_diagonals_of_rational_functions.pdf",
+        "material_read": "Full original PDF obtained; contents/intro, Section 3.2 on Motzkin numbers, Section 3.3 and the precise printed Open Question 3.15 inspected on page 19.",
+        "method": "Read the source statement and adjacent valuation theorem, and checked the mathematical implication of the proposed formula.",
+        "title": "Automatic congruences for diagonals of rational functions",
+        "trigger": "Direct published question about unbounded 3-adic valuations of Motzkin numbers."
+      },
+      {
+        "assessment": "Does not print or immediately imply the formula on 3^k-3; formal computational overlap is acknowledged.",
+        "evidence": [
+          "Section 7, Motzkin congruences modulo powers of 3",
+          "General fixed-modulus method"
+        ],
+        "identifier_or_url": "arXiv:1308.2856; https://arxiv.org/abs/1308.2856",
+        "material_read": "Open-access arXiv text; Motzkin-specific Section 7 and congruence statements were examined.",
+        "method": "Compared a fixed-modulus constructive theorem against exact simultaneous variable-index and variable-modulus valuations.",
+        "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+        "trigger": "Older general method may dominate fixed-prime-power congruences."
+      },
+      {
+        "assessment": "Prime-modulus statement does not imply valuation k-1 modulo unbounded powers of 3.",
+        "evidence": [
+          "Abstract, main p-modulus symmetry statement"
+        ],
+        "identifier_or_url": "arXiv:2411.03681; https://math.colgate.edu/~integers/aa22/aa22.pdf",
+        "material_read": "Open full PDF; abstract and main symmetry theorem and its prime-modulus hypotheses inspected.",
+        "method": "Checked variable p is a prime, not p=3^k for k>=2; compared mod p to mod 3^k.",
+        "title": "Density and symmetry in the generalized Motzkin numbers modulo p",
+        "trigger": "Recent primary work using same Motzkin indices p-3-n."
+      },
+      {
+        "assessment": "Different congruence and no implication of present exact valuations.",
+        "evidence": [
+          "Definition and initial terms of OEIS A393215"
+        ],
+        "identifier_or_url": "https://oeis.org/A393215",
+        "material_read": "Full sequence entry, definition, initial values, references and update history.",
+        "method": "Compared modulus and exponent of the stated congruence for odd composites.",
+        "title": "OEIS A393215",
+        "trigger": "Related composite-index congruence for M(m-3)."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6b902618-9ab4-4e86-b186-c069cb331c71",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This directly resolves an explicitly posed and motivated unboundedness question, not an arbitrary finite slice: it produces exact, arbitrarily large valuations at natural ternary-radix indices. The carry mechanism is structural and infinitely uniform. The 3-regularity problem is expressly left open.",
+    "status": "PASS"
+  }
+}
