@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The three-state backward equations, two outgoing boundary conditions and reflection symmetry uniquely identify the transform. Near zero the hyperbolic expressions are analytic in the Laplace parameter. Taylor expansion gives the exact first two moments; the derivative factorization and Descartes' one-change argument establish the global threshold classification. `verify.py` reproduced the moment identities, tested 30 transforms by high-precision differentiation, and sampled 150,000 trajectories across five parameter choices. These computations corroborate the exact proof rather than establish it.
+
+**Originality — PASS, with residual risk.** The complete Grange–Yuan source was inspected for its generator model, exit/mean result scope, and explicit final suggestion to extend to variance. Li et al. prove coefficient-of-variation results for a different two-state instantaneous-flip model and transition-path conditioning; Sun et al. prove time/position moment formulas under harmonic confinement rather than absorption. Semantic records and searches for the finite-tumble variance threshold did not identify direct coverage. The precise finite-tumble transition and exact full-exit variance are the claim, not the inherited equations. Remaining risk: a more general Markov-modulated fluid queue first-passage theory might imply this classification without naming the physical model.
+
+**Value — PASS.** The Brownian first-exit reference \(\operatorname{CV}^2=2/3\) is a canonical quantitative benchmark for dispersion. The sharp rate ratio \(\varphi/\gamma=1/2\) separates qualitatively different dependences on confinement length, and the unique crossing length is explicit. This supplies interpretable experimental/kinetic information that mean exit time alone does not provide, with both finite and asymptotic interval regimes covered.
+
+The claim concerns the initially tumbling centered particle only; neither drift nor other boundary conditions are asserted. Priority outside inspected sources remains a residual risk, and computational experiments do not establish the all-parameter result.
+
+Self-review: passed. Independent audit: not yet performed.

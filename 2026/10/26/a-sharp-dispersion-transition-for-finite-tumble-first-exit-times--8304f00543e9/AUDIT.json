@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The 3-state Markov backward-generator equations with outgoing ballistic boundary conditions reduce by reflection to a 2nd-order scalar ODE. Its explicit solution gives a positive Laplace transform for the centered initial tumble state. Taylor expansion at zero yields the displayed mean and variance. Exact polynomial identities imply the CV-squared shift relative to 2/3 and its derivative cubic. For p<=1/2 the derivative is strictly negative; for p>1/2 Descartes sign variation gives one and only one positive derivative root, and the explicit benchmark-crossing polynomial has one positive root. Exit occurs almost surely with exponential moments by geometric domination of successful outward run intervals. Standalone verify.py reports five symbolic identities, 60 transform derivative comparisons, and ten seeded trajectory moment comparisons; these checks are supplementary rather than proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2509.11308v1: general drifted equations and first moments, not a second-moment phase diagram",
+        "arXiv:2409.00578v2: finite tumble but harmonic trap and position moments, not interval first exit",
+        "arXiv:2102.11787: two-state motion with stochastically gated target; nonmonotone first-hitting fluctuation in rate, not this model or interval-length criticality",
+        "arXiv:2209.07293: two-state run-tumble and partially absorbing boundaries"
+      ],
+      "reasoning": "Broader Markov-modulated fluid queue theory may contain first-passage transforms from which these equations follow, but retrieved source results did not cover the specific sharp p=1/2 coefficient-of-variation classification. Such implicit domination remains a residual risk; a source title alone is never used to rule out coverage.",
+      "searches": [
+        "run-and-tumble particle exponentially distributed finite tumble time full exit time coefficient of variation on finite interval",
+        "exact exit time variance three velocity plus zero finite tumble rate exponential centered interval gamma Brownian active particle",
+        "finite tumble duration run tumble first passage time variance coefficient variation finite interval 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2509.11308v1 (primary preprint full relevant text)",
+      "DOI:10.1088/1751-8121/ade5db (primary full-text HTML pertinent model and transition-path sections)",
+      "arXiv:2409.00578v2 (primary full relevant HTML)",
+      "arXiv:1506.08046v1 (abstract only)",
+      "arXiv:2102.11787 (abstract only)",
+      "DOI:10.1088/1751-8121/ae7c41 (2026 published revision metadata)",
+      "Published result: sharp variance envelope for stopping under memoryless catastrophe (2026)",
+      "Published result: creeping and overshoot in compound-Poisson stage calibration (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source first-moment expressions and backward equations determine the model, but they do not logically determine the second moment or its sign changes without solving additional Laplace orders",
+        "Li et al. 2025 instantaneous two-state transition paths do not imply finite-tumble full-exit variance",
+        "The new identity Q(x,p)-2/3=-4[(2p-1)((p+2)x^2+2x)-1]/(3M^2) proves a sign reversal not stated in compared sources"
+      ],
+      "reasoning": "The source generator is shared and naturally implies an ODE resolvent after further derivation; this is acknowledged. The specific second-order transform differentiation, polynomial factorization, full parameter-range sign argument, and explicit crossing threshold are not a corollary of the published first mean alone. No claim of methodological novelty is made.",
+      "searches": [
+        "three state run and tumble finite tumble duration finite absorbing interval zero drift exact Laplace transform first passage time variance",
+        "Grange Yuan 2509.11308 unbiased finite interval first passage Laplace transform moments exit time",
+        "sharp phi gamma half run-and-tumble three state finite tumble positive coefficient variation absorption interval transition monotonic nonmonotonic",
+        "Grange Yuan 2509.11308 second first passage time moment coefficient of variation p=1/2 threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2509.11308v1: three-state finite-duration tumble model, exit probabilities and conditional means on absorbing interval",
+        "DOI:10.1088/1751-8121/ade5db: coefficient of variation for two-velocity transition paths"
+      ],
+      "reasoning": "The compared object is an initially tumbling particle exiting either endpoint, with coefficient of variation as a function of interval half-width. Transition paths conditional on endpoint passage and instantaneous two-state flips are not equivalent stochastic stopping variables. Searching by renewal, Laplace exit time and coefficient of variation aliases did not uncover equivalent statements.",
+      "searches": [
+        "three state run and tumble finite tumble duration finite absorbing interval zero drift exact Laplace transform first passage time variance",
+        "run-and-tumble particle exponentially distributed finite tumble time full exit time coefficient of variation on finite interval",
+        "sharp phi gamma half run-and-tumble three state finite tumble positive coefficient variation absorption interval transition monotonic nonmonotonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published sharp dispersion frontier for stopping under memoryless catastrophe concerns discrete restart, not the three-state first-exit law",
+        "A published compound-Poisson threshold-creeping stage result concerns overshoot, not finite-tumble exit-time dispersion",
+        "Source arXiv:2509.11308v1 contains complete model but only lower first moments"
+      ],
+      "reasoning": "Results-table and exact coefficient searches using finite tumble, full exit-time Laplace transform and p=1/2 threshold found no table of the same two moments or monotonicity classification. An unsuccessful search does not establish uniqueness.",
+      "searches": [
+        "Grange Yuan 2509.11308 unbiased finite interval first passage Laplace transform moments exit time",
+        "Grange Yuan 2509.11308 second first passage time moment coefficient of variation p=1/2 threshold",
+        "run and tumble particle finite tumble coefficient of variation first passage time variance sharp threshold"
+      ]
+    },
+    "rationale": "The original paper establishes the same finite-tumble 3-velocity model, derives exit probabilities and conditional means, and proposes studying first-passage variance; it does not state a closed centered-full-exit variance or the sharp tumble-rate dispersion bifurcation. Relevant two-state transition-path work and finite-tumble harmonic-confinement moment work have inapplicable state spaces or observables. The exact full-exit Laplace transform plus the global p=1/2 monotonicity classification are assessed jointly. Classical backward-ODE methods and Descartes rule are not claimed as original.",
+    "residual_risks": [
+      "A general Markov-additive or finite-state fluid-queue first-passage theorem could subsume the exact Laplace transform or dispersion phase diagram under parameter reduction, even absent matching terminology.",
+      "Not every indexed or published record is exhaustively searchable; abstracts and selected sections do not support whole-document exclusion for all related papers.",
+      "The shared three-state generator permits the claim by further computation, so independent evaluation is required to decide publication-level originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_MODEL_AND_FIRST_MOMENTS_NOT_EXPLICIT_NEW_SECOND_MOMENT_CLASSIFICATION",
+        "evidence": [
+          "arXiv:2509.11308v1 Sections 2-5 and conclusion discuss exit probabilities and conditional means",
+          "Preprint v1 submitted 2025-09-14 14:57:36 UTC"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.11308v1",
+        "material_read": "Accessible full preprint HTML: introduction, model transition rates, forward/backward Laplace evolution equations, exit and mean solution sections, conclusion on variance as future investigation; also v1 publication metadata",
+        "method": "Read mathematical derivations and result statements in primary text; compare stopping observable and moment order",
+        "title": "Mean first-passage time of a run-and-tumble particle with exponentially-distributed tumble duration in the presence of a drift",
+        "trigger": "Exact same three-state finite-duration tumble model and absorbing interval; potential complete coverage"
+      },
+      {
+        "assessment": "DIFFERENT_TWO_STATE_MODEL_AND_CONDITIONING",
+        "evidence": [
+          "Two ±velocity states rather than positive-duration zero tumble",
+          "Transition-path duration differs from unconditioned either-endpoint exit"
+        ],
+        "identifier_or_url": "DOI:10.1088/1751-8121/ade5db",
+        "material_read": "Accessible full-text HTML portions: model equations, transition-path definition, conclusions and relevant Appendix C; publisher PDF retrieval not completed",
+        "method": "Compared velocity-state generator and conditional transition path to full first exit from center",
+        "title": "Transition path properties of a run and tumble particle subjected to an external potential",
+        "trigger": "Explicit transition-path coefficient of variation for an active particle"
+      },
+      {
+        "assessment": "HARMONIC_SPATIAL_MOMENTS_NOT_ABSORBING_EXIT_TIME",
+        "evidence": [
+          "Harmonic trapping without first absorption at two finite endpoints"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.00578v2",
+        "material_read": "Accessible full HTML introduction, generator/model and exact stationary moment scope",
+        "method": "Compared confinement and observable rather than terminology",
+        "title": "Exact moments for a run and tumble particle in a harmonic trap with a finite tumble time",
+        "trigger": "Same finite-duration tumble mechanism and exact moments"
+      },
+      {
+        "assessment": "PARTIAL_REVIEW_TWO_STATE_LIMIT_NOT_DECISIVE",
+        "evidence": [
+          "Classic RTP switching model lacks an independent positive-duration 0 tumble"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1506.08046v1",
+        "material_read": "Abstract and accessible bibliographic summary; full text not established in this inspection",
+        "method": "Compare number of velocity states and finite stopped-time geometry",
+        "title": "First-passage time of run-and-tumble particles",
+        "trigger": "Classical benchmark for two-state exit times"
+      },
+      {
+        "assessment": "RELATED_PHENOMENON_NOT_IDENTICAL_CLAIM",
+        "evidence": [
+          "The work varies target-switching or particle tumbling rates in two-state RTP with gated absorption",
+          "Current theorem varies symmetric interval width for positive-duration 0-state tumbles"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.11787",
+        "material_read": "Abstract and publication result summary, not full text",
+        "method": "Compare target gating, velocity states and varied parameter",
+        "title": "First hitting times between a run-and-tumble particle and a stochastically-gated target",
+        "trigger": "Existing nonmonotonic coefficient-of-variation phenomena in active first-passage models"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8304f005-43e9-4c6b-a6de-b65206ed3d71",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The variance-to-mean-square ratio for a canonical finite-duration tumble transport process distinguishes two genuinely different confinement-length regimes at the sharp rate ratio phi/gamma=1/2. At or below threshold dispersion is uniformly above the Brownian benchmark; above threshold it crosses below, has a unique optimum and returns to the benchmark. A physically explicit crossing length enables testable time-fluctuation predictions; conditional first means from previous work cannot describe this global dispersion reversal. Both the exact distribution transform and the phase classification have mathematically motivated use.",
+    "status": "PASS"
+  }
+}
