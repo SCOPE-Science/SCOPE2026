@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For each coordinate vertex the sum of the four selected-neighbor indicators is exactly one if and only if the eight successor bits are the indicated Boolean values. Every toroidal code corresponds bijectively to an initial ordered-column pair fixed by t forward iterations. The provided integer-only verifier checks all 65,536 ordered states, finds 1,156 defined edges, and exhaustively identifies four directed cycles of length 4 and sixteen of length 8. Functional-graph traversal is exhaustive and counts 4*4+16*8 fixed states when 8 divides t, 4*4 when 4 but not 8 divides t, and zero otherwise. A separate direct exact-neighborhood-cover algorithm independently verifies the six finite test lengths 3,4,5,6,8,12 (0,16,0,0,144,16). The infinite-range statement follows from the finite-state bijection, not numerical extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuziak–Peterin–Yero (2014) Theorem 5.2 characterizes parallel existence, Conjecture 5.3 proposes all EOD torus existence, Theorem 5.5 treats only r=3,5,6,7 and Proposition 5.4 r=4.",
+        "Kraner Šumenjak et al. (arXiv:1508.04029, Section 2) repeat the same conjecture and older results, with no circumference-eight resolution."
+      ],
+      "reasoning": "The general conjecture, if it had been proved elsewhere, would imply the yes/no criterion but still not the exact 16/144 census or period structure. No such stronger published covering theorem was identified in the actual searches; failure of retrieval cannot establish uniqueness.",
+      "searches": [
+        "Kuziak Peterin Yero 2014 torus conjecture efficient open domination width eight",
+        "open neighborhood exact dominating sets toroidal grid 8 by n 4 divides n",
+        "\"total perfect codes\" \"torus\" characterization",
+        "\"efficient open domination\" torus conjecture \"C_8\" \"C_9\"",
+        "\"efficient open domination\" \"toroidal grid\" conjecture false"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0711.4343 (dated abstract; full text inaccessible)",
+      "DOI:10.46298/dmtcs.1267 (relevant full PDF examined)",
+      "arXiv:1508.04029 (full accessible HTML examined)",
+      "mathematical-result-index query: efficient open domination total perfect code toroidal grid Cartesian product cycles exact enumeration width eight",
+      "mathematical-result-index query: efficient open domination total perfect codes C8 Cartesian product cycle torus C8 square Cn number 16 144 period eight",
+      "mathematical-result-index query: Kuziak Peterin Yero 2014 torus conjecture efficient open domination width eight",
+      "mathematical-result-index query: open neighborhood exact dominating sets toroidal grid 8 by n 4 divides n",
+      "mathematical-result-index query: total perfect code toroidal grid 8x8 classification 144"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2014 full text p.116 explicitly says its conjecture is settled for r in {3,4,5,6,7}, omitting r=8.",
+        "Dejter 2007/2008 Theorem as reported in 2014 and 2016 has hypothesis/conclusion parallel EOD only; it supplies an 8-by-4k construction but does not exclude nonparallel configurations on 8-by-(4k+2), and does not count all sets."
+      ],
+      "reasoning": "The strict converse for the eight-row torus and the exact cycle census are not corollaries of the accessible narrower existence theorem or of the parallel-code existence characterization. The 2016 article treats Cartesian products with other second factors and repeats the unproved general torus statement.",
+      "searches": [
+        "\"Conjecture 5.3\" efficient open domination graph products",
+        "\"C_8\" \"total perfect codes\" \"toroidal\"",
+        "Kuziak Peterin Yero 2014 torus conjecture efficient open domination width eight",
+        "efficient open domination total perfect codes C8 Cartesian product cycle torus C8 square Cn number 16 144 period eight"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dejter (arXiv:0711.4343) uses total perfect codes; Kuziak–Peterin–Yero (DMTCS 2014, pp.105-120) explicitly identify the names efficient open domination, total perfect codes and exact transversals.",
+        "These concepts correspond to exactly-one-open-neighbor vertex codes; the exact width-eight counts and periods are absent from the accessible 2014 and 2016 full treatments."
+      ],
+      "reasoning": "Aliases were normalized by the same open-neighborhood exact-cover definition. Existing published statements about a parallel code do not imply that nonparallel codes cannot exist or count all codes; the present result includes both types.",
+      "searches": [
+        "efficient open domination total perfect code toroidal grid Cartesian product cycles exact enumeration width eight",
+        "efficient open domination total perfect codes C8 Cartesian product cycle torus C8 square Cn number 16 144 period eight",
+        "\"C_8\" \"efficient open dominating\" \"C_t\"",
+        "\"C8\" \"efficient open domination\" torus",
+        "\"total perfect code\" \"C_8\" \"C_8\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-result index query returned nearby toroidal-grid neighborhood homology and cut-complex findings, not total perfect codes. Closest inspected record identifier: 737edf71bc86, concerning Lovasz neighborhood complexes, not exact open-neighborhood partitions.",
+        "No exact census source was located for 8-by-t torus codes in the searched literature."
+      ],
+      "reasoning": "Graph neighborhood complexes encode simplicial topology, not vertex sets whose open neighborhoods partition all vertices. No searched table gave the 16/144 labeled profile; database search failure alone is not a proof of novelty.",
+      "searches": [
+        "total perfect code toroidal grid 8x8 classification 144",
+        "\"144\" \"efficient open domination\" torus",
+        "\"eight\" \"torus\" \"total perfect codes\" graph",
+        "efficient open domination total perfect code toroidal grid Cartesian product cycles exact enumeration width eight"
+      ]
+    },
+    "rationale": "The 2007/2008 source gives parallel total-perfect-code existence; the fully inspected 2014 primary Section 5.1 explicitly leaves first factor eight untreated in its toroidal existence conjecture, proving only first factor 3 through 7. The 2015/2016 primary article explicitly restates that status. The present result addresses all EOD sets, not just parallel ones, and gives a full two-period classification and labeled count. Targeted literature and mathematical-record queries for the exact problem, aliases and stronger toroidal characterizations identified no covering result. The uninspected 2007/2008 full text and later/unindexed work remain originality risks.",
+    "residual_risks": [
+      "The entire 2007/2008 foundational paper was not read; its abstract and subsequent primary statements are not substitutes for its complete text.",
+      "A later or unindexed proof of the entire conjecture or of the precise width-eight census may exist despite targeted searches; novelty and priority have not been independently certified.",
+      "Exhaustive state classification relies on executable finite certificate and self-review replay; no external audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The available description is restricted to parallel codes and their partitions. Whole-document absence of an all-code width-eight classification cannot be certified from these limited materials.",
+        "evidence": [
+          "https://arxiv.org/abs/0711.4343",
+          "https://arxiv.symmetricfunctions.com/paper/0711.4343v4",
+          "Kuziak–Peterin–Yero 2014 Theorem 5.2 and Šumenjak et al. 2016 Theorem 2.2 summarize its precise parallel-code existence conclusion."
+        ],
+        "identifier_or_url": "arXiv:0711.4343",
+        "material_read": "Initial dated abstract, bibliographic description, and statements attributed to this source by later full-text primary publications; full original paper inaccessible after arXiv and official open-journal retrieval attempts",
+        "method": "arXiv abstract and dated public index; comparison against the 2014 and 2016 primary full-text treatments; full-text request did not complete",
+        "title": "Perfect domination in regular grid graphs",
+        "trigger": "2007/2008 origin of parallel total perfect codes on cycle products; earliest public source"
+      },
+      {
+        "assessment": "Does not cover width 8; explicitly claims width cases through 7, and only parallel codes generally.",
+        "evidence": [
+          "https://dmtcs.episciences.org/1267/pdf",
+          "Conjecture 5.3 and Theorem 5.5, journal p.116, as printed in official PDF."
+        ],
+        "identifier_or_url": "DOI:10.46298/dmtcs.1267",
+        "material_read": "Open PDF, including definition and observations on pages 105-107 and entire relevant Section 5.1 (pages 115-117), with page-116 visual verification",
+        "method": "Official DMTCS open PDF text and page image; inspected Theorem 5.2, Conjecture 5.3, Proposition 5.4 and Theorem 5.5",
+        "title": "Efficient open domination in graph products",
+        "trigger": "Directly motivating toroidal conjecture and exact prior width coverage"
+      },
+      {
+        "assessment": "Restates 2014 conjecture as Conjecture 2.4; does not settle circumference 8 and studies different factor families in its main theorems.",
+        "evidence": [
+          "https://arxiv.org/abs/1508.04029",
+          "Conjecture 2.4, Theorem 2.2 and Proposition 2.3 in Section 2."
+        ],
+        "identifier_or_url": "arXiv:1508.04029",
+        "material_read": "Accessible full HTML introduction, prior results Section 2 and product-factor classification Sections 3-4; targeted search for C8",
+        "method": "Public arXiv full-text HTML and within-source textual search",
+        "title": "Partitioning the vertex set of G to make G square H an efficient open domination graph",
+        "trigger": "Later full primary paper potentially strengthening earlier Cartesian-product statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b944bf2d-f736-44f1-a0ed-8b00dc5783f6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Circumference eight is the first factor not covered by the explicitly posed 2014 torus conjecture and its proved width-3-through-7 cases. The result resolves that exact first unhandled infinite slice, shows all its total perfect codes are forced to period 4 or 8, and determines the complete exact labeled counting function for all t. These are structural limits on two-dimensional perfect-neighborhood tilings rather than an arbitrary small-parameter recomputation; no general-conjecture resolution is asserted.",
+    "status": "PASS"
+  }
+}
