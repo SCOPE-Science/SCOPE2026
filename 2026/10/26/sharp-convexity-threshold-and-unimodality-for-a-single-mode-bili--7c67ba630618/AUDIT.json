@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For the normalized eigenmode, the state equation is scalar and gives y(c)=F/(kappa+c) phi. The derivatives are exact. q'(t)=6F(2F-Dt)/t^5 proves the threshold, including equality. On F-Dt>0, R is positive and strictly decreasing; on F-Dt<=0, j'>0. This proves the all-parameter unique-minimizer statement. The rational checker independently confirms the example lambda=1/1000<1/64 with j''(3)=-117/8000 and a derivative sign change bracketed by c=0.99 and c=0.999.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang-Wang-Zhou analyze the full PDE-constrained problem and derive a posteriori error estimators and local optimality conditions.",
+        "Bersetche-Fuica-Otarola-Quero analyze general first- and second-order optimality conditions and finite-element discretizations for bilinear fractional control."
+      ],
+      "reasoning": "These papers are broader in model scope but do not state a theorem that implies the claimed exact scalar global convexity threshold and unimodality for every lambda>0. Their local sufficient conditions do not classify the reduced objective's curvature on the entire interval. The current claim does not generalize their results to arbitrary controls.",
+      "searches": [
+        "arXiv:2310.05059v1, Sections 1, 4, and 5",
+        "arXiv:2301.13058, Sections 4.3.1-4.3.3 and Theorems 4.9, 4.11, 4.13",
+        "published-finding corpus query: fractional Laplacian bilinear optimal control scalar constant-control eigenmode"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.05059v1 (full-text sections on model, optimality conditions, and estimators)",
+      "arXiv:2301.13058 (introduction and targeted second-order optimality sections)",
+      "published-finding corpus semantic records returned by the four exact-claim queries above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior papers give the state equation (-Delta)^s y+uy=f, the quadratic control cost, a projection formula, and local second-order conditions.",
+        "The new proof derives j''=lambda-q(t), maximizes q exactly, and separately proves that j' has at most one negative-to-positive crossing."
+      ],
+      "reasoning": "A local second-order condition at a candidate optimum is not an iff criterion for strict convexity on the entire admissible interval. Nor does it imply uniqueness of the global minimizer for every positive lambda in the nonconvex regime. The exact global statements therefore require the additional one-dimensional argument supplied here.",
+      "searches": [
+        "arXiv:2310.05059v1, model and optimality sections",
+        "arXiv:2301.13058, reduced objective and second-order optimality sections",
+        "published-finding corpus query: sharp regularization threshold for global convexity of scalar reduced objective in bilinear optimal control"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The retrieved records concerned scalar splitting stability, proximal algorithms, and other optimization thresholds; none stated the reduced objective F/(kappa+c)-D or the q(t) threshold for a bilinear PDE-control eigenmode.",
+        "The full extracted text of arXiv:2310.05059v1 gives the PDE model, control bounds, projection formula, and local second-order condition, but does not state the exact one-mode global convexity threshold.",
+        "The inspected sections of arXiv:2301.13058 discuss general reduced-cost first- and second-order conditions and discretization, not the exact one-mode threshold plus global unimodality result."
+      ],
+      "reasoning": "The comparison is about mathematical implications, not title overlap. The general first-order and local second-order conditions do not by themselves yield the explicit maximum of q over the whole admissible interval or show that every positive regularization gives a unique global minimizer. The proof supplies those additional global statements. A search failure is not treated as proof of novelty.",
+      "searches": [
+        "published-finding corpus query: single eigenmode bilinear optimal control fractional Laplacian scalar reduced objective unique stationary point unimodal",
+        "published-finding corpus query: bilinear elliptic optimal control one-dimensional control-to-state map nonconvex multiple local minima scalar quadratic regularization",
+        "published-finding corpus query: fractional Laplacian bilinear control projection formula reduced cost Hessian second order sufficient optimality",
+        "published-finding corpus query: sharp regularization threshold for global convexity of scalar reduced objective in bilinear optimal control"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact database or standard table for this continuous-parameter scalar reduced-cost threshold is applicable; the retrieved nearest records concern different algorithms or objective functions."
+      ],
+      "reasoning": "The threshold is an explicit formula derived from the maximum of q(t) on a closed interval, not a lookup-table value. published-finding corpus's nearest matches were compared for actual theorem implication and were not treated as proof of absence.",
+      "searches": [
+        "published-finding corpus query: single-mode reduced objective regularization convexity threshold",
+        "published-finding corpus query: sharp regularization threshold for global convexity of scalar reduced objective in bilinear optimal control",
+        "published-finding corpus query: regularization parameter sharp global convexity threshold single eigenmode bilinear control objective"
+      ]
+    },
+    "rationale": "The exact global convexity threshold and the separate all-regularization unimodality classification were not found in the inspected literature or retrieved mathematical records. The claim is narrower than the general PDE-control theory and does not assert novelty of the model, first-order conditions, or second-order optimality framework.",
+    "residual_risks": [
+      "A notation-different publication may state the same one-dimensional threshold without using the phrase single-mode bilinear control; searches cannot prove global novelty.",
+      "The theorem is intentionally restricted to positive amplitudes, constant controls, and a single eigenmode; it does not characterize the full spatially varying PDE-control problem.",
+      "The rational script checks one example only; the universal claims rest on the analytic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING: establishes the general PDE model and local optimality/error-estimation framework, but no exact constant-control eigenmode global convexity threshold or all-regularization unimodality theorem was found in the inspected material.",
+        "evidence": [
+          "arXiv:2310.05059v1, lines 11-40 and 160-220: model, control bounds, projection formula, and second-order condition.",
+          "arXiv:2310.05059v1, lines 249-320: a posteriori estimator analysis."
+        ],
+        "identifier_or_url": "arXiv:2310.05059v1",
+        "material_read": "Parsed full-text sections inspected: introduction/model; Section 4 first- and second-order optimality conditions; Section 5 a posteriori error analysis. The model equation, admissible interval, projection formula, and second-order condition were read; the paper was not treated as if every line had been audited.",
+        "method": "Read the arXiv full-text extraction and targeted sections; compared the exact reduced objective and global quantifiers with the stated theorems.",
+        "title": "Adaptive finite element approximation of bilinear optimal control with fractional Laplacian",
+        "trigger": "Same fractional bilinear PDE-control model, quadratic regularization, bounded coefficient control, and numerical optimal-control motivation."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: the paper supplies general reduced-cost and local second-order theory and discretization results; no exact global threshold for the restricted one-mode objective was located in the inspected sections.",
+        "evidence": [
+          "arXiv:2301.13058, lines 18-28: bilinear fractional-control model and control bounds.",
+          "arXiv:2301.13058, Section 4.3, Theorems 4.9, 4.11, and 4.13: reduced-cost smoothness and local second-order conditions."
+        ],
+        "identifier_or_url": "arXiv:2301.13058",
+        "material_read": "Parsed full-text introduction and targeted Section 4.3 on second-order necessary/sufficient conditions, including the statements of Theorems 4.9, 4.11, and 4.13; not every section was read line-by-line.",
+        "method": "Read the arXiv full-text extraction and used targeted searches for reduced-cost derivatives and second-order conditions.",
+        "title": "Bilinear optimal control for the fractional Laplacian: analysis and discretization",
+        "trigger": "Earlier primary work on the same class of fractional bilinear-control problems and second-order optimality conditions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c67ba63-0618-4f99-8378-54dbd5bc4b37",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating bilinear-control literature emphasizes nonconvex reduced objectives and local second-order tests. The sharp threshold gives a practical regularization calibration for a canonical exact eigenmode benchmark, while the unimodality theorem shows that loss of convexity does not necessarily mean multiple minima. This is a natural solver-verification test, not a claim about the full PDE landscape.",
+    "status": "PASS"
+  }
+}
