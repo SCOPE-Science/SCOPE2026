@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The positive-density parametrization is monotone, and the derivative of the exact current has a fifth-degree numerator with precisely one positive root by Descartes' rule. A singular implicit-function expansion gives the two transport orders. The correlation statement follows from the exact transfer-eigenvalue ratio; for fixed density the terms \(s\) and \(1/(qs)\) have the same leading order. The symbolic/numerical checker independently validates the critical algebra and coefficients in 67 groups. These tests supplement, not replace, the full proof.
+
+**Originality — PASS, with identified derivative-result risk.** The complete stationary current and exact correlation transfer matrix are already present in Ngoc–Nhung–Thi (arXiv:2606.01568v1). Their fixed-density limiting current does not supply the optimizing density, uniqueness, the singular \(q^{-1/3}\) boundary layer, its second-order coefficients, or the optimizing correlation-length crossover. Their reported fixed-density correlation coefficient differs from the one obtained from their own exact eigenvalue ratio except at half filling. The main priority risk is that a general strong-coupling lattice-gas optimization theorem or an unindexed follow-up may imply the same formulas. A related 2025 token-driven TASEP study uses distinct local dynamics.
+
+**Value — PASS.** Optimizing cooperative current drives the density to the fully occupied edge on a quantitatively new scale; this is not captured by sending recovery rate to infinity at a fixed filling. At that optimum, the clustering scale has a different exponent from its fixed-density behavior; its diverging length is exactly counterbalanced by a vanishing covariance amplitude, so integrated susceptibility tends to one. Correcting the fixed-density correlation prefactor is essential for quantitative transport interpretation, particularly away from half filling.
+
+The theorem applies only to the thermodynamic stationary model, not a simultaneous finite-size limit. The new results use prior exact thermodynamic formulas as hypotheses; they do not establish an independently derived stationary measure. External priority and independent validation remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

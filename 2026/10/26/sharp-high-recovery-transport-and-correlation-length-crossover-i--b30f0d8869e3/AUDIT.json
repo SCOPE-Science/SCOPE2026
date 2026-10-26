@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Starting from the verified current and transfer-matrix expressions in arXiv:2606.01568v1, the positive stationary density parameter strictly increases with s. The exact current derivative has a quintic numerator whose coefficient list has exactly one sign change for each \\(q>0\\), proving one global maximum. The unique positive root has the nondegenerate scaling limit s/\\(q^{-1/3}\\) -> 2^(1/3), enabling two-order implicit-function expansions of vacancy and maximum current. The exactly simplified eigenvalue ratio gives the fixed-density correlation prefactor and the optimized correlation length. The packaged checker passed 67 symbolic and numerical assertion groups; numerical tests are corroboration, not the infinite proof. The same Markov two-point covariance geometric series yields the finite limiting susceptibility at the maximizing density.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.01568v1 Section III and Appendix B (exact stationary current and two-eigenvalue transfer matrix)",
+        "Kavčič–Tkačik, Phys. Rev. E 111, 054122 (2025), DOI: 10.1103/PhysRevE.111.054122, models a different token-enabled TASEP."
+      ],
+      "reasoning": "The founding paper contains stronger raw data (the exact all-density current), which is explicitly used, but no theorem covering optimization across densities jointly with recovery strength or the correct general-density correlation coefficient. A generic strong-coupling Ising asymptotic could reproduce the fixed-density correlation coefficient but not the tandem-process current optimization without further model-specific work.",
+      "searches": [
+        "cooperative exclusion optimal density strong recovery q scaling",
+        "Tandem Exclusion Process maximal current strong recovery optimal density asymptotic",
+        "lattice gas nearest neighbor Gibbs correlation length fixed density sqrt(q rho(1-rho)) Ising"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.01568v1",
+      "doi:10.1103/PhysRevE.111.054122",
+      "AMS MSC2020 class 82C22: interacting particle systems in time-dependent statistical mechanics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.01568v1 Theorem 4: J(rho,q) exactly, plus pointwise J -> alpha*rho for each fixed rho.",
+        "arXiv:2606.01568v1 Eq. (19): xi claimed asymptotic to one-half sqrt(q(1-rho)/rho); Eq. (18) yields the different exact ratio.",
+        "Phys. Rev. E 111, 054122 concerns token-binding kinetics and has no 110->101->011 cooperative transition sequence."
+      ],
+      "reasoning": "Taking q to infinity at each fixed rho is not uniform as rho approaches 1: the limiting alpha*rho has no interior maximizer, while finite-q J vanishes at rho=1. The original current formula therefore does not itself assert the global optimum or its sharp boundary layer. The \\(q^{-1/3}\\) exponent, unique optimizer for all q, and \\(q^{1/3}\\) optimized correlation scale require a nonuniform asymptotic and polynomial-root analysis. The fixed-rho coefficient follows by retaining both same-order terms in the exact eigenvalue ratio; the source published coefficient is correct only at half filling.",
+      "searches": [
+        "Tandem Exclusion Process maximal current strong recovery optimal density asymptotic",
+        "Tandem Exclusion Process q beta alpha strong recovery current maximizing density q^(-1/3) boundary layer",
+        "token-driven totally asymmetric simple exclusion process maximal current density strong recovery"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ngoc–Nhung–Thi, arXiv:2606.01568v1, Eqs. (10)–(12), (17)–(19)",
+        "Its stationary current has an exact rational s-parametrization; q-dependent global density optimization is a new quantified statement."
+      ],
+      "reasoning": "The source rational current is algebraically equivalent to the starting formula here and is credited in full. Searches did not locate an explicit published equivalence for the uniqueness quintic, moving optimal density, second-order asymptotic, or optimized correlation scale. The current expression determines these consequences in principle but does not state or prove them.",
+      "searches": [
+        "Tandem Exclusion Process maximal current strong recovery optimal density asymptotic",
+        "tandem exclusion process q beta alpha strong recovery maximal current optimizing density q^(-1/3) boundary layer",
+        "tandem exclusion current density q exponent one third asymptotics stationary correlations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2606.01568v1 gives closed-form J(rho,q), not a tabulated optimal-density asymptotic.",
+        "No matching mathematical research-record result was returned for the explicit tandem optimizing claim; unrelated records were excluded by object and implication."
+      ],
+      "reasoning": "Searches targeted exact constants and matching q,density parameters rather than title alone. The source figures show selected current curves, not the singular limiting optimum; the exact current expression remains the closest published source.",
+      "searches": [
+        "2606.01568 tandem exclusion model maximal throughput density strong recovery beta/alpha cluster length asymptotics",
+        "cooperative exclusion lattice ant tandem current maximum high recovery rate density approaches one asymptotic q one third",
+        "Tandem Exclusion Process arxiv 2606.01568 density maximizer high q asymptotic j_max"
+      ]
+    },
+    "rationale": "The founding paper gives stationary current and correlation eigenvalues but states only the fixed-density strong-recovery current limit and its general-density correlation-length coefficient. It does not identify the unique global density optimum, derive its \\(q^{-1/3}\\) boundary layer or second-order expansion, or obtain the optimized \\(q^{1/3}\\) clustering law. The stated fixed-density coefficient in its Eq. (19) does not follow from its own exact Eq. (18) except at \\(\\rho=1/2\\). Distinct token-driven transport results provide comparisons but do not entail this stationary tandem model. The exact current and transfer-matrix formulas themselves are conceded as prior art; general implicit coverage remains a residual risk. The finite optimized susceptibility and its nontrivial compensation of diverging correlation length are included in the same singular asymptotic theorem.",
+    "residual_risks": [
+      "The main paper supplies exact all-q/all-density current and transfer eigenvalues, so the new results are analytic consequences of these established formulas; a broader prior theorem might already contain their optimized consequences.",
+      "A strong-coupling nearest-neighbor Gibbs/Ising expansion may already imply the corrected fixed-density correlation coefficient; independent historical priority was not established.",
+      "Unindexed follow-up results on tandem transport may contain the same nonuniform boundary layer.",
+      "No independent review or external certification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_BASE_IDENTITIES; nonuniform optimizing limit not reported; Eq. (19) fixed-density coefficient inconsistent with Eq. (18) except rho=1/2",
+        "evidence": [
+          "arXiv:2606.01568v1, Section III.1 says rho*>1/2 and J->alpha*rho at fixed rho",
+          "Section III.2 Eq. (19) asserts half sqrt(q(1-rho)/rho)",
+          "Appendix B identifies lambda+=1+s and z=s(1+s)/(1+qs)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.01568",
+        "material_read": "Abstract, Sections I–IV, Appendix A and Appendix B including stationary measure, current equation, transfer matrix, eigenvalues, density equation and asymptotic discussion",
+        "method": "Accessible full-text HTML with direct checks of Eqs. (10)–(12), (17)–(19), (22)–(24), (31)–(38)",
+        "title": "Tandem Exclusion Process",
+        "trigger": "Identical process, exact current law, density maximum and published correlation-length limit"
+      },
+      {
+        "assessment": "RELATED_BUT_DISTINCT; no asserted whole-document negative search; token binding and independent hops differ from 110/101 tandem transitions",
+        "evidence": [
+          "Phys. Rev. E 111, 054122 (2025), Sections I–II: token binding/unbinding independent kinetic variables and standard exclusion hopping",
+          "No derivation of the same tandem stationary transfer-matrix formula in material read"
+        ],
+        "identifier_or_url": "https://pub.ista.ac.at/~gtkacik/PRE_TASEP.pdf",
+        "material_read": "Title/abstract, introduction and ring model description, formulas and discussions on current-density dependence; selected later sections on token supply and maximal current",
+        "method": "Accessible PDF extracted text and page-1 image inspection",
+        "title": "Token-driven totally asymmetric simple exclusion processes",
+        "trigger": "Potential broader rate-dependent cooperative exclusion current maximization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b30f0d88-69e3-4cb4-a95b-a3e1b2405dcd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimal current for strong recovery is controlled by a noncommuting high-density boundary layer; its vacancy fraction and transport defect share a sharp \\(q^{-1/3}\\) scale with explicit next-order constants. This directly quantifies throughput design and demonstrates that optimizing density changes cluster-size scaling from \\(q^{1/2}\\) at fixed density to \\(q^{1/3}\\). The correction of the published correlation prefactor has observable density dependence and, for example, changes the rho=1/5 leading prediction by a factor 2.5. The result is more than a single numerical example or a trivial fixed-parameter substitution. Despite a diverging optimal correlation length the integrated covariance tends to a finite universal value, a useful fluctuation-versus-correlation distinction.",
+    "status": "PASS"
+  }
+}
