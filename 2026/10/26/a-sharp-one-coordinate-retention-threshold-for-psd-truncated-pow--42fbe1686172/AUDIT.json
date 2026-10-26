@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For B>=0 with B<=qI, B²<=qB. Restricting a test vector to at most m-1 positions and lower-bounding the remaining m-k coordinates gives h<= q s/(s²+m-k), whose maximum is <=q sqrt(m-1)/m. Rank-one block B=q J_m/m attains equality. Keeping the first entry strictly above m-th tail guarantees survival, while a tail-to-leading ratio contracts by q each update. The exact counterexample at and below the boundary is an absorbing wrong-eigenvector state. Exact fraction and randomized tests are supplementary, not infinite verification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hajlasz–Musco–Weare–Webber 2026 proves a general sufficient budget conditional on overlap and spectral ratio; this does not give the tight threshold or failure below it.",
+        "Yuan–Zhang 2013 analysis is perturbation-based."
+      ],
+      "reasoning": "The existing approximation bounds cover broader eigenvector sparsity but under sufficient budget/initialization restrictions. Generality of hypotheses alone does not yield the claimed sharp frontier, and their bounds do not resolve the matching negative direction.",
+      "searches": [
+        "Dimension-independent eigenvalue approximation for sparse matrices Hajlasz Musco Weare Webber truncated power method 2026 arxiv 2610.14620 top m 1-sparse eigenvector",
+        "Yuan Zhang truncated power method sparse PCA support recovery hard thresholding one sparse eigenvector minimum overlap positivity spectral radius",
+        "truncated power method support preservation threshold sparse rank one eigenvector exact",
+        "arxiv:2610.14620v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.14620v1, original HTML inspected",
+      "Yuan and Zhang, JMLR 2013 PDF algorithm and theorem inspected",
+      "2016 hard thresholding pursuit indexed abstract",
+      "Related publicly indexed mathematical findings compared by statement (identifiers retained in private research metadata only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 sparse power guarantee: sufficient approximation after sufficiently many iterations and large prescribed budget.",
+        "2013 sparse PCA algorithm and theorem: update is comparable, but no universal leading-coordinate retention iff overlap > sharp threshold.",
+        "The explicit q J_m/m block demonstrates a matching forbidden side and equality tie case."
+      ],
+      "reasoning": "This work proves universal retention/convergence above theta_m and a sharp PSD counterexample below, while prior theorems either use stricter sufficient regimes or different methods; neither inspected statement entails the new sharp dichotomy.",
+      "searches": [
+        "Dimension-independent eigenvalue approximation for sparse matrices Hajlasz Musco Weare Webber truncated power method 2026 arxiv 2610.14620 top m 1-sparse eigenvector",
+        "Exact sharp overlap threshold alpha^2 > q^2(m-1)/(m^2+q^2(m-1)) for hard-thresholded power method on positive semidefinite matrix with 1-sparse dominant eigenvector",
+        "Hard thresholded power iteration spectral gap positive semidefinite rank-one competitor one-sparse top eigenvector lost in one step support size m despite initial support m",
+        "Yuan Zhang truncated power method sparse PCA support recovery hard thresholding one sparse eigenvector minimum overlap positivity spectral radius",
+        "hard thresholding power iteration one sparse leading eigenvector exact sharp overlap threshold positive semidefinite support loss",
+        "truncated power method support preservation threshold sparse rank one eigenvector exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yuan and Zhang (2013): sparse eigenpair recovery under perturbation assumptions, no universal one-coordinate order-statistic threshold found in inspected theorem.",
+        "The rank-one PSD block extremizes the proposed inequality and produces an invariant wrong eigenspace."
+      ],
+      "reasoning": "Examined equivalent support recovery / sparsistency terminology and hard-thresholding power iteration. General recovery statements with restrictive perturbation hypotheses neither provide nor imply the sharp necessary-and-sufficient tie-independent threshold across the entire stipulated PSD class.",
+      "searches": [
+        "Exact sharp overlap threshold alpha^2 > q^2(m-1)/(m^2+q^2(m-1)) for hard-thresholded power method on positive semidefinite matrix with 1-sparse dominant eigenvector",
+        "Hard thresholded power iteration spectral gap positive semidefinite rank-one competitor one-sparse top eigenvector lost in one step support size m despite initial support m",
+        "hard thresholding power iteration one sparse leading eigenvector exact sharp overlap threshold positive semidefinite support loss",
+        "https://www.jmlr.org/papers/v14/yuan13a.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Broader sparse-power literature and published numerical-method records inspected in this run address different algorithms or objects; no exact table for the stated one-coordinate threshold was identified."
+      ],
+      "reasoning": "No identified numerical table or published theorem gives this all-m exact scalar threshold. Retrieved records are not equivalent claims. Absence of a hit is not independent novelty certification.",
+      "searches": [
+        "Exact sharp overlap threshold alpha^2 > q^2(m-1)/(m^2+q^2(m-1)) for hard-thresholded power method on positive semidefinite matrix with 1-sparse dominant eigenvector",
+        "Hard thresholded power iteration spectral gap positive semidefinite rank-one competitor one-sparse top eigenvector lost in one step support size m despite initial support m",
+        "hard thresholding power iteration one sparse leading eigenvector exact sharp overlap threshold positive semidefinite support loss",
+        "truncated power method support preservation threshold sparse rank one eigenvector exact",
+        "arxiv:2610.14620v1",
+        "https://www.jmlr.org/papers/v14/yuan13a.html"
+      ]
+    },
+    "rationale": "Originality assessment compares exact theorem implication, not names. Full relevant 2026 source and foundational 2013 primary theorem inspected. No identified theorem implies the exact m-th PSD order-statistic constant and its matching universal support-loss construction. Published semantic record hits concern different algorithms or operators; non-exhaustiveness and alias risk remain explicitly recorded.",
+    "residual_risks": [
+      "Older sparse-PCA support identification papers may encode an equivalent optimal overlap inequality under a different parametrization.",
+      "Generality beyond exactly one-sparse top eigenvectors and PSD tails has not been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stated exact retention threshold: general sufficient approximation with large budget; no matching first-coordinate order-statistic sharpness or PSD trap theorem in inspected results.",
+        "evidence": [
+          "arxiv:2610.14620v1, theorem 1, sparsified power iteration sufficient budget, and submatrix-selection discussion"
+        ],
+        "identifier_or_url": "arXiv:2610.14620v1, https://arxiv.org/abs/2610.14620",
+        "material_read": "Full open-access HTML main theorem, sparsified power update and its sufficient-budget hypothesis, and the distinct submatrix-selection counterexample section.",
+        "method": "Read the original paper discussion and primary theorem and compare the hypotheses and conclusions, not just its abstract.",
+        "title": "Dimension-independent eigenvalue approximation for sparse matrices",
+        "trigger": "same algorithmic family, sparse power approximation, dimension-free truncation guarantees"
+      },
+      {
+        "assessment": "NOT_COVERING this exact universal condition and matching trap; supplies algorithm and sufficient recovery analysis on different assumptions.",
+        "evidence": [
+          "Yuan and Zhang, JMLR 14 (2013), pp. 899–925, algorithm 1 and theorem 4"
+        ],
+        "identifier_or_url": "https://www.jmlr.org/papers/v14/yuan13a.html",
+        "material_read": "Full-text PDF algorithm and recovery theorem, including algorithm statement and perturbation hypotheses, plus journal abstract.",
+        "method": "Read primary PDF relevant algorithm and theorem sections; compared global exact PSD-overlap threshold against their perturbation-based conditions.",
+        "title": "Truncated Power Method for Sparse Eigenvalue Problems",
+        "trigger": "introduces the identical hard-thresholded power iteration"
+      },
+      {
+        "assessment": "Different nonlinear least-squares sparse optimization method; not the same spectral iteration or sharp PSD rank-one-tail threshold.",
+        "evidence": [
+          "NeurIPS 2016 abstract, sparse recovery for hard-thresholding pursuit"
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper/6432-exact-recovery-of-hard-thresholding-pursuit.pdf",
+        "material_read": "Title, abstract and method introduction available in search-indexed source.",
+        "method": "Compared the optimization objective and update (gradient thresholding for sparse regression) to eigenvector multiplication and hard thresholding.",
+        "title": "Exact Recovery of Hard Thresholding Pursuit",
+        "trigger": "hard-thresholding support-recovery keyword overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42fbe168-6172-45b6-8ec0-b49eba0e24fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact support-retention frontier resolves a genuine failure mode of hard-thresholded eigensolvers: even an exact one-sparse dominant eigenvector can be irretrievably discarded by a single iteration despite nonzero initial overlap. The full sharp m- and q-dependent threshold, all-iteration guarantee and rank-one PSD trapping family together provide meaningful structural insight beyond a routine lemma or isolated finite counterexample.",
+    "status": "PASS"
+  }
+}
