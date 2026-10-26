@@ -1,0 +1,9 @@
+# Review
+
+**Correctness — PASS.** The claim is unambiguously strict path minimization for the random-order greedy maximal independent-set *expectation* of finite trees, not distributional domination or strict KC monotonicity of the expectation. The proof starts with non-strict KC results of Krivelevich–Mészáros–Michaeli–Shikhelman, proves the sole zero of the path subadditivity gap is at two arms of length two, checks the exceptional spider interior term exactly, and obtains a strictly raised auxiliary \(\nu\) at the first KC step. Subsequent monotonicity and the known first-arrival lower bound transfer it to the mean. The supplied rational verifier checks fresh independent small cases. Risk: reliance on cited KC poset and nonnegative interior-sum theorems, read in full source rather than re-proved here.
+
+**Originality — PASS on inspected evidence, not certified historical priority.** The closest primary source is arXiv:1907.07216 (initial 2019), full Section 8. It explicitly proves path minimality only non-strictly and states uniqueness was not obtained by its proof. The new strict spider argument supplies the missing equality classification; it is not merely restating their Theorem 1.4. Searches included strict KC, random sequential adsorption, paths as unique minimizers, and semantic research-record comparisons. Risk: an independent later uniqueness proof outside accessible indexed sources is possible.
+
+**Mathematical value — PASS.** It closes a natural equality question explicitly raised in the foundational paper for random greedy independent sets on trees, distinguishing all non-path trees for every order, with a short structural strictness criterion. This is a genuine equality classification rather than a parameter renaming or numerical census.
+
+Self-review: passed. Independent audit: not yet performed.
