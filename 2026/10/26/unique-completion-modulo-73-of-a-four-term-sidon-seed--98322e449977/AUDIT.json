@@ -1,0 +1,114 @@
+{
+  "claim": "Let \\(A=\\{1,2,4,8\\}\\subset\\mathbb Z\\) and \\(B=\\{1,2,4,8,16,32,37,55,64\\}\\subset\\mathbb Z/73\\mathbb Z\\). Among all cyclic \\((73,9,1)\\) perfect difference sets modulo \\(73\\), exactly one contains \\(A\\), namely \\(B\\); equivalently, exactly one affine image \\(uB+v\\) contains \\(A\\).",
+  "correctness": {
+    "rationale": "The exact checker verifies the PDS property of B, the affine stabilizer and orbit size, the complete signature census of all 126 four-subsets of B, and the unique containing image. The only non-computational premise is the cited published classification of all cyclic (73,9,1) PDSs as one affine orbit; that premise is explicitly identified rather than presented as newly proved.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Niu’s accessible full text states Hall’s affine-orbit classification for prime-power q<=40 and reports direct verification that all 584 PDSs in Z_73 lie in the orbit.",
+        "The affine group has 5256 maps; the exact stabilizer calculation gives orbit size 584."
+      ],
+      "reasoning": "The broader classification makes the finite orbit count complete for modulus 73. It does not identify which orbit elements contain the particular seed, so it does not subsume the new containment count.",
+      "searches": [
+        "Hall 1947 cyclic projective planes affine classification order 8 perfect difference sets",
+        "arXiv:2604.25214 §2.1 all 584 PDSs in Z_73 lie in the Singer affine orbit",
+        "published-finding corpus query: cyclic difference sets parameters (73,9,1) classification Singer difference sets order 8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.19804v1 — full HTML inspected for the seed and explicit modulus-73 completion",
+      "arXiv:2604.25214v1 — full HTML inspected for the 584-element affine orbit and the order-8 classification premise",
+      "published-finding corpus closest record 2026/10/4/SCOPE-exact-evaluation-of-s-1-4-and-the-eight-term-extremals--e0dfeeac2337 — related affine-orbit census, different object",
+      "published-finding corpus closest record 2026/10/4/SCOPE-the-length-73-bch-counterexample-has-exactly-876-minimum-words-i--56614ff965ae — same modulus, different coding invariant",
+      "published-finding corpus closest record 2026/10/11/SCOPE-sharp-fourth-moment-extension-and-exact-deficit-for-finite-abeli--f000b50fe5d9 — related difference-set/Fourier invariant, not seed containment"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 paper establishes the seed’s failure for prime-order PDSs and notes its explicit extension modulo 73.",
+        "The 2026 paper reports the full affine orbit of 584 PDSs modulo 73 and tests other four-element seeds, but does not state that this seed has exactly one completion at modulus 73."
+      ],
+      "reasoning": "Existence of B does not imply uniqueness. The total count 584 does not imply the containment multiplicity. The new exact signature census and stabilizer calculation show that precisely one distinct PDS in the complete orbit contains A.",
+      "searches": [
+        "arXiv:2510.19804v1 Theorem 8 and the explicit perfect difference set modulo 73",
+        "arXiv:2604.25214v1 §§2.1, 3.2 and the 584-set affine orbit",
+        "published-finding corpus query: unique completion of {1,2,4,8} to perfect difference set modulo 73"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alexeev–Mixon explicitly give B={1,2,4,8,16,32,37,55,64} as a perfect difference set modulo 73 containing the seed, but do not state uniqueness.",
+        "Niu states that all 584 perfect difference sets in Z_73 lie in the Singer affine orbit, and confirms that the seed extends at q=8; no exact seed-containment multiplicity is stated."
+      ],
+      "reasoning": "The formulation as a unique containing (73,9,1) cyclic difference set is equivalent to a unique affine-orbit image containing A, once the published orbit-completeness premise is applied. The exact containment multiplicity is not implied by the mere existence of B or by the total orbit size.",
+      "searches": [
+        "published-finding corpus query: exact count affine images of Singer difference set modulo 73 containing the Sidon seed {1,2,4,8}",
+        "published-finding corpus query: unique completion of {1,2,4,8} to perfect difference set modulo 73",
+        "published-finding corpus query: number of perfect difference sets in Z_73 containing {1,2,4,8}",
+        "Web query: perfect difference set {1,2,4,8} modulo 73 unique extension",
+        "arXiv:2510.19804v1, Theorem 8 and discussion of the modulus-73 example",
+        "arXiv:2604.25214v1, §§2.1 and 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected published table states the number of (73,9,1) difference sets containing this seed.",
+        "The new standalone checker enumerates all 126 four-subsets of B and all 5256 affine maps, obtaining one distinct containing PDS."
+      ],
+      "reasoning": "Generic difference-set and coding tables describe related structures but do not provide the specific seed-containment count. The embedded exact computation fills that narrowly defined table entry; the search absence is not itself evidence of novelty.",
+      "searches": [
+        "published table of (73,9,1) perfect difference sets containing {1,2,4,8}",
+        "published-finding corpus query: number of perfect difference sets in Z_73 containing {1,2,4,8}",
+        "published-finding corpus nearest results: exact evaluation of s_1(4); length-73 BCH minimum words; fourth-moment difference-set extension"
+      ]
+    },
+    "rationale": "The exact seed-containment count is not stated in the inspected sources. Alexeev–Mixon provide the seed and one completion; Niu provides the complete affine-orbit classification/count for modulus 73. The finite orbit-intersection count is an additional exact statement, with a reproducible checker.",
+    "residual_risks": [
+      "Hall’s original 1947 full text was not directly accessible in the search session; the relevant classification was checked in Niu’s full text.",
+      "An unindexed table or code-derived prior count of the same seed-containment multiplicity may exist.",
+      "The embedded verifier does not independently reprove the published assertion that every (73,9,1) PDS lies in the Singer affine orbit.",
+      "Independent audit and independent validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the existence of B and the prime-order non-extension statement, but not uniqueness among all PDSs modulo 73.",
+        "evidence": "arXiv:2510.19804v1, Theorem 8 and the explicit modulus-73 remark.",
+        "identifier_or_url": "https://arxiv.org/abs/2510.19804",
+        "material_read": "Accessible full HTML; definitions of Sidon and perfect difference sets, Theorem 8, and the discussion identifying B modulo 73.",
+        "method": "Read the mathematical statements and reconstructed the seed/modulus relationship; no reliance on abstract snippets alone.",
+        "title": "Forbidden Sidon subsets of perfect difference sets, featuring a human-assisted proof",
+        "trigger": "Primary source for the seed {1,2,4,8} and its known extension modulo 73."
+      },
+      {
+        "assessment": "Provides the completeness premise for the affine orbit and confirms the seed’s extension, but does not state the unique-containment count.",
+        "evidence": "arXiv:2604.25214v1, especially §2.1 and §3.2.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.25214",
+        "material_read": "Accessible full HTML; §§2.1–2.2, 3.2–3.3, and the stated enumeration of 584 PDSs in Z_73.",
+        "method": "Checked the explicit affine-orbit statement and distinguished it from the seed-containment multiplicity computed here.",
+        "title": "Empirical evidence for size-4 counterexamples to Erdős’s Sidon-extension conjecture",
+        "trigger": "Primary follow-up for the classification and count of perfect difference sets modulo 73."
+      },
+      {
+        "assessment": "The classification premise is supported by Niu’s explicit statement; direct inspection of Hall’s original proof remains an access limitation.",
+        "evidence": "Hall, Duke Math. J. 14 (1947), 1079–1090; arXiv:2604.25214v1, §2.1.",
+        "identifier_or_url": "https://doi.org/10.1215/S0012-7094-47-01482-8",
+        "material_read": "Original full text was not directly accessible; the theorem’s role and the order-8 conclusion were checked in Niu’s accessible full text.",
+        "method": "Bounded search for the original paper and verification against the later primary source that states the relevant order-8 classification.",
+        "title": "Cyclic projective planes",
+        "trigger": "Original classification reference cited for the affine-orbit premise."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98322e44-9977-4e4a-a8bd-846e7c6d76ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The seed is a specifically motivated boundary case in the Sidon-extension literature: a known four-term Sidon seed that fails prime-order extension but has an explicit modulus-73 extension. Its exact completion multiplicity measures rigidity of this exceptional extension and is not implied by existence of one witness or by the total count of 584 PDSs. The result is deliberately limited to this natural seed and modulus.",
+    "status": "PASS"
+  }
+}
