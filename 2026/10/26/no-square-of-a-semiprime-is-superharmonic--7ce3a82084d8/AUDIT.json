@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For p<q, tau(p^2q^2)=9 and sigma factors as Phi_3(p)Phi_3(q). Exact valuations nu_3(Phi_3(r)) in {0,1}, the order-three condition for other prime divisors, and the inequality Phi_3(p)/3 < p^2 < q^2 force p=13, q=61 after p=2 and p=3 are handled; Phi_3(61)=3*13*97 excludes that pair. All primes and positive exponents k are covered without computational extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pollack–Pomerance 2012 §5.2 gives a global upper counting bound for superharmonic integers, not an exact two-prime exponent exclusion.",
+        "Luca 2004 addresses the stricter rad(sigma(n)) | rad(n) support condition; its full text was inaccessible, so implications from more general results are unresolved.",
+        "An accessible published mathematical finding classifies superharmonic 2^a p with squarefree odd part, not (pq)^2."
+      ],
+      "reasoning": "A theorem on prime-perfect or prime-deficient integers need not cover this family: sigma(p^2q^2) can contain an extra prime 3 supplied by tau(n), even though 3 need not divide n. The even family 2^a p excludes a different exponent profile. An unseen result specifically allowing the 3 could dominate and is recorded as a risk.",
+      "searches": [
+        "Florian Luca 2004 prime factors of sigma(n) among prime factors n",
+        "Pollack Pomerance 2012 prime-perfect numbers superharmonic section 5.2",
+        "Graeme L. Cohen superharmonic numbers two prime factors exponent (2,2) impossibility, cyclotomic sigma(p^2)=p^2+p+1"
+      ]
+    },
+    "checked_sources": [
+      "G. L. Cohen, Superharmonic numbers (2008 online / 2009 journal), DOI 10.1090/S0025-5718-08-02147-9",
+      "P. Pollack and C. Pomerance, Prime-perfect numbers (2012), especially Section 5.2",
+      "F. Luca, On numbers n for which the prime factors of sigma(n) are among those of n (2004), bibliographic only",
+      "OEIS A152573 (index minima; not a universal square-semiprime table)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cohen 2008 Theorem 5(i) excludes odd squarefree n, whereas n=(pq)^2 is not squarefree.",
+        "Cohen 2008 explicitly notes difficulty extending the harmonic two-prime theorem to superharmonic numbers.",
+        "The even 2^a p theorem treats a prime odd part, whereas the present theorem treats an odd part that is a prime square or product of two prime squares."
+      ],
+      "reasoning": "The published conclusions concern different hypotheses or much broader asymptotic counts. Neither the squarefree obstruction nor the 2^a p classification logically implies the absence of p^2q^2. No stronger directly covering statement was located in accessible full text, but uniqueness is not established by a search failure.",
+      "searches": [
+        "Cohen Superharmonic numbers 2008 Theorem 5 odd squarefree",
+        "prime-perfect two distinct prime factors Pomerance",
+        "superharmonic numbers with prime odd part are even perfect",
+        "odd numbers p^2 q^2 where all prime factors of sigma(n) divide n tau(n), complete classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cohen 2008 §2: superharmonic means sigma(n) divides n^k tau(n) for some k; here tau(p^2 q^2)=9, so rad(sigma(n)) divides 3pq is necessary.",
+        "The present theorem proves the stronger failure of that necessary support restriction for all distinct primes."
+      ],
+      "reasoning": "Equivalence search included both superharmonic terminology and the more general cyclotomic prime-support form. The inspected primary theorem gives only a necessary support test and does not assert its impossibility for all semiprime squares.",
+      "searches": [
+        "\"superharmonic\" \"odd\" \"p^2 q^2\"",
+        "\"superharmonic numbers\" \"two distinct prime factors\"",
+        "prime support of sigma(p^2 q^2) contained in 3pq",
+        "odd superharmonic numbers of shape p squared times q squared for distinct odd primes; no such number; sigma(n) divides n^k tau(n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A152573 is an index-minimum table, not an exhaustive all-primes two-square family.",
+        "Direct prime-support enumeration over 45753 pairs with p,q <=2000 is supplemental and not a published proof."
+      ],
+      "reasoning": "A table of small superharmonic numbers, or an observed absence of small p^2q^2, cannot establish the universal theorem; the proof supplies the missing infinite-prime exclusion.",
+      "searches": [
+        "OEIS A152573 smallest superharmonic number with index n",
+        "\"superharmonic numbers\" \"p^2 q^2\"",
+        "square semiprime superharmonic sigma tau"
+      ]
+    },
+    "rationale": "The exact prime-support impossibility for the complete exponent vector (2,2) is not implied by the inspected squarefree or even-prime-cofactor theorems. The 2008 paper explicitly describes the broader two-prime problem; the 2012 paper proves counting estimates, not this universal exclusion. Residual risk remains from inaccessible literature and possible general cyclotomic-support results.",
+    "residual_risks": [
+      "Luca (2004) full text could contain a stronger corollary involving the exceptional prime 3; not inspected.",
+      "Other general theorems on smooth cyclotomic values or restricted prime-support sigma could imply this special case without using the same terminology.",
+      "Public database and literature searches are not exhaustive uniqueness certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found relevant necessary conditions but no theorem excluding all semiprime squares",
+        "evidence": [
+          "Theorem 1, pages 422–423, prime-support restriction",
+          "Theorem 5, pages 425–426, odd squarefree restriction",
+          "Page 423 states difficulty for two distinct prime factors"
+        ],
+        "identifier_or_url": "https://opus.lib.uts.edu.au/bitstream/10453/8271/1/2008007907OK.pdf",
+        "material_read": "Full 9-page primary PDF: definition, Theorems 1, 2, 5, corollary, and concluding discussion",
+        "method": "Primary PDF page text plus visual inspection of the relevant Theorem 1 page",
+        "title": "Superharmonic numbers",
+        "trigger": "Original definition, prime-support criterion, restrictions on odd superharmonic numbers and stated two-prime difficulty"
+      },
+      {
+        "assessment": "Global counting theorem for superharmonic integers and stricter prime-support variants; no (2,2) universal exclusion observed",
+        "evidence": [
+          "Section 5.2, theorem 5.5 asymptotic counting bound",
+          "Introduction distinguishes prime-perfect rad(n)=rad(sigma(n))"
+        ],
+        "identifier_or_url": "https://www.pollack-math.net/pperfs16.pdf",
+        "material_read": "Introduction, definitions and Section 5.2, pages 15–17 of 20-page PDF",
+        "method": "Primary PDF text inspected for hypotheses and theorem implications",
+        "title": "Prime-perfect numbers",
+        "trigger": "Potential broader coverage through multiplicative prime-support and superharmonic section"
+      },
+      {
+        "assessment": "The named support restriction is strictly narrower than the current necessary condition allowing factor 3, but uninspected stronger consequences remain possible",
+        "evidence": [
+          "Published 2004 Results in Mathematics 45, 79–87; published title states stricter support condition"
+        ],
+        "identifier_or_url": "doi:10.1007/BF03322999",
+        "material_read": "Bibliographic records and abstracts only; full text unavailable",
+        "method": "Searched arXiv/preprint and lawful open-access full text; only published bibliographic descriptions were accessible.",
+        "title": "On numbers n for which the prime factors of sigma(n) are among the prime factors of n",
+        "trigger": "Potentially related stronger prime-support classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ce3a820-84d8-47fc-a0fd-c87229259331",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The square of a semiprime is a natural complete exponent profile within the unresolved problem of odd and two-prime-support superharmonic numbers. The result excludes an entire infinite nonsquarefree layer, not a finite numerical range; the forcing of precisely three intermediate pairs illustrates a reusable small-prime cyclotomic-support obstruction. The claim is restricted to this structural boundary and does not assert a general solution.",
+    "status": "PASS"
+  }
+}
