@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Every finite degree-three genus-one cover can be embedded by the complete degree-three line bundle as a smooth cubic projected from a rational exterior center. Since the characteristic is seven, eliminating the quadratic term in the fiber variable is valid. The six rational branch points may be normalized by a target automorphism, and the discriminant identity is exactly \(3Q^3+R^2=\kappa(X^6-Y^6)\). Both independently organized exhaustive enumerations checked all \(7^7=823543\) coefficient septuples; there are twelve forms, six each for \(\kappa=3\) and \(\kappa=4\). The change of fiber coordinate gives two fixed-target classes, and exchanging target coordinates gives one unmarked class. Smoothness, branching and the exact rational point count of thirteen are separately established. Scope is explicit; computation is finite and exhaustive, not a claim about all characteristics.
+
+## Originality — PASS
+Agostini et al., arXiv:2205.11287 (first posted 2022-05-23), study generic forty-solution plane cubic branch recovery and real fibers. Their inspected theorem, discriminant formulation and examples do not state or imply without special arithmetic computation the exact two-class rational fiber for the six-point configuration over \(\mathbb F_7\), its unmarked uniqueness, or the maximal source point count. Weir's 2013 thesis provides a general enumeration approach for cubic function fields of a prescribed discriminant and tabulates aggregated counts; its inspected material does not give the particular coefficient classification. Neither a topical research-record search nor a literature search identified equivalent explicit coverage. Risks: unpublished output of older prescribed-discriminant algorithms, unindexed finite-field tables, or a hidden reformulation in classical cubic-cover theory.
+
+## Mathematical value — PASS
+Six distinct rational branch points are the maximal possible rational simple-branch configuration for a genus-one trigonal cover by tame Riemann–Hurwitz. The projective line over the seven-element field has only eight rational points, making the six-point branch configuration canonical up to target automorphism. The result completely classifies its arithmetic Hurwitz fiber, exposes the difference between marking the target and not marking it, and forces a maximal thirteen-point elliptic source. The answer is a natural complete arithmetic classification, not an arbitrary coefficient slice or another small-field recomputation of a published table.
+
+## Related literature and limits
+Primary comparison: D. Agostini et al., *Recovery of Plane Curves from Branch Points*, arXiv:2205.11287, Sections 1–4 and published article. Broad discriminant-extension comparison: C. Weir, *Constructing and Tabulating Dihedral Function Fields*, 2013, Chapters 3–4 and 6. The finding does not classify covers with nonsplit or repeated branch places and does not assert a new generic Hurwitz number. An earlier nonpublic exact prescribed-discriminant output would affect priority and should be checked independently.
+
+Self-review: passed. Independent audit: not yet performed.
