@@ -1,0 +1,15 @@
+# Scientific review: exact stability envelopes for orthogonal-subspace descent
+
+## Correctness — PASS
+The centered difference on a quadratic equals a directional derivative exactly. The Haar projector second moment follows from a beta-distributed diagonal entry plus idempotence. Diagonal variances obey a closed, strictly positive linear recursion; the Perron transition occurs at an explicitly derived scalar rank-one secular root. Strict monotonicity proves uniqueness, all-step necessity and sufficiency, while positivity handles all nonzero deterministic initial states. The strict convexity of \(s/(2-a\eta s)\) yields exact Jensen/majorization extremizers with equality classification. Boundary parameters \(k=d\), \(\mu<L\), and endpoint traces have been distinguished. The standalone checker passed 2,171 rational/numerical tests; it is corroboration, not a proof of the universal statements.
+
+## Originality — PASS, with priority risk
+Song et al. (2026), arXiv:2604.14669v1, give a general fourth-moment covariance operator and examples for single spherical or independent Gaussian directions; they do not present the exact rank-\(k\) orthogonal secular equation or trace-constrained extremal spectra. Kozak et al. (2021), arXiv:2107.03941, provide the identical subspace algorithm with the general sufficient step \(2k/(dL)\), not its anisotropic necessary-and-sufficient threshold. Ghosh et al. (2026), arXiv:2609.18416v1, provide subspace convergence estimates. The closest accessible published mathematical record, `d9ecf263b248`, proves exact Haar moments and sparse objective stationarity bounds; it **does** cover the Haar-moment ingredient, but **does not** imply the stated sharp fixed-spectrum root and extremizers as a theorem without additional covariance and majorization arguments. Textual searches for alternative names, positive rank-one resolvents, random projected gradients, mean-square stability and Schur-concave steps did not identify a stronger published covering statement. A historical equivalent may remain; searches are not proof of universal novelty.
+
+## Mathematical value — PASS
+Trace and top curvature are practical stability summaries highlighted in Song et al.; exact strong-convexity endpoints additionally identify the spectral range. The theorem gives the best and worst possible mean-square-stable step consistent with these summaries, with true equality examples, and demonstrates a genuine spread-sensitive gap even when all those statistics coincide. It also replaces a sufficient-only generic constant-step criterion by an exact sharp anisotropic test. This is not merely rederiving a classical Haar moment or rescaling gradient descent.
+
+## Limits
+Fixed SPD quadratic, real independent Haar rank-\(k\) samples, exact arithmetic, expected squared error. Finite computations do not certify infinite-dimensional or general nonlinear conclusions. Historical generalized-sketch priority remains a residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
