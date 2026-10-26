@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For all n>=3, the unobserved line-graph vertices after the domination step are precisely the edges of K_U, U the isolated endpoints of the chosen edges. If |U|>=3, every observed vertex has 0 or |U|-1>=2 unobserved neighbors and no force is possible; if |U|=2, a single force suffices. This proves the exact iff criterion. Inclusion-exclusion over U yields the full polynomial. Removing an edge changes isolation by exactly the number of its degree-one endpoints, proving the exhaustive one-isolate matching and two-isolate star-forest classification. Matching/path enumeration and the labeled exponential formula yield all minimum and minimal-set coefficients; upper and lower extrema follow by counting covered vertices/components. Direct-definition finite enumeration for n=3,...,7 covered 2,131,016 masks, and independent exact polynomial arithmetic tested n=3,...,14. These computations do not substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lu-Mao-Wang, arXiv:1808.02613v1, prove a bound for connected 4-regular claw-free graphs; J(n,2) has degree 2(n-2), so the theorem applies only at n=4.",
+        "Brimkov et al. 2018 give threshold-graph polynomials; J(n,2) contains an induced 4-cycle for n>=4 and hence is not threshold.",
+        "Power Domination Reconfiguration, DOI:10.1007/s44007-025-00187-5, discusses minimal-set/reconfiguration principles but its relevant Sections 3 and 5 do not classify L(K_n).",
+        "The later line-graph fault-tolerance paper (DOI:10.1038/s41598-026-54352-z) studies lifting PMU configurations and resilience, with no J(n,2) all-subset or all-minimal-set enumeration in its inspected pertinent results."
+      ],
+      "reasoning": "The general results do not dominate this theorem. Bounds for special regularity or generic reconfiguration definitions cannot determine every coefficient of a polynomial or every inclusion-minimal sensor set on the infinite family. The threshold-graph algorithm is inapplicable because the subject contains induced C4.",
+      "searches": [
+        "\"power domination\" \"Johnson graph\" \"J(n,2)\"",
+        "\"power domination\" \"line graphs\" complete graphs polynomial theorem",
+        "power domination in regular claw-free graphs arXiv:1808.02613",
+        "Power Domination Reconfiguration doi:10.1007/s44007-025-00187-5",
+        "Fault-tolerance amplification in line graphs s41598-026-54352-z"
+      ]
+    },
+    "checked_sources": [
+      "Brimkov et al., arXiv:1805.10984v1, source full relevant HTML",
+      "Lu, Mao and Wang, arXiv:1808.02613v1 / DOI:10.1016/j.dam.2020.03.055",
+      "Anitha and Rajasingh, DOI:10.1007/978-3-030-01123-9_61, source PDF figures and definition",
+      "Power Domination Reconfiguration, DOI:10.1007/s44007-025-00187-5, source relevant HTML",
+      "Line-graph fault-tolerance amplification, DOI:10.1038/s41598-026-54352-z, source relevant HTML",
+      "Semantic mathematical research records searched under J(n,2), L(K_n), triangular graph, power-domination polynomial, matchings, star forests"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brimkov et al. 2018, Proposition 20 treats complete/path/cycle/wheel/star/corona families, Theorem 22 treats threshold graphs, none gives a general formula for L(K_n).",
+        "The generic criterion that a superset of a power-dominating set remains so and the definition of the polynomial are used but do not imply the explicit coefficients.",
+        "Nearer published work on claw-free graphs provides degree-specific upper bounds and does not enumerate all sensor configurations; the 2019 'triangle graph' is different."
+      ],
+      "reasoning": "Even if the minimum cardinality or individual small cases were known, neither implies the full all-subset criterion or its star-forest inclusion-minimal structure. No examined theorem's hypotheses and conclusions contain the claimed full family as a corollary. The risk of unindexed equivalent work is separately retained.",
+      "searches": [
+        "Power domination polynomials of graphs arXiv 1805.10984 Proposition 20 Theorem 22",
+        "Power domination in regular claw-free graphs 2018 n/5 bound",
+        "Power Domination Reconfiguration minimal power dominating sets line graph complete graph",
+        "published-finding corpus semantic search: Johnson graph J(n,2) entire power domination polynomial sum of graph edge cover counts",
+        "published-finding corpus semantic search: minimal power dominating sets triangular graph L(K_n) star forests matchings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The triangular graph on 2-subsets is J(n,2)=L(K_n); isolated original endpoints are the parameter controlling monitoring.",
+        "Anitha-Rajasingh, Definition 4 and Figure 1, instead build 'triangle graph' TG_n from a triangle of hexagons, with n^2+4n+1 vertices (2019, DOI:10.1007/978-3-030-01123-9_61).",
+        "Brimkov et al., arXiv:1805.10984v1, Secs. 1-4, define the full power-domination polynomial but do not give the J(n,2) edge-support criterion."
+      ],
+      "reasoning": "The aliases triangular graph, two-subset Johnson graph and line graph of a complete graph were explicitly compared at the level of adjacency and vertex sets. The hexagon-based 'triangle graph' is nonisomorphic in general; the other inspected mathematical sources either define the invariant or treat different families, not an equivalent formula.",
+      "searches": [
+        "power domination polynomial triangular graph Johnson graph J(n,2) line graph complete graph edge support full vertex cover",
+        "power domination sets of line graphs complete graph L(K_n) all placement edge cover",
+        "\"power domination\" \"line graph of the complete graph\"",
+        "\"power domination\" \"triangular graph\" vertices two-subsets",
+        "arXiv:1805.10984v1; arXiv:1808.02613v1; DOI:10.1007/978-3-030-01123-9_61"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Brimkov et al. 2018, beginning of Sec. 4, state an exhaustive computation of power-domination polynomials for graphs on fewer than ten vertices.",
+        "J(3,2) has three vertices and J(4,2) has six, so these two individual small graphs are within that finite database; J(5,2) has ten vertices and is outside it.",
+        "No covering coefficient table or formula for all n>=3 appeared in the inspected primary source or research-record hits."
+      ],
+      "reasoning": "The small cases may be present in a known table and are not separately asserted original. A table restricted to graphs of order below ten cannot imply the infinite polynomial, the degree-essential star forest classification, or the unbounded upper-minimal gap without further theorem.",
+      "searches": [
+        "arXiv:1805.10984v1 Section 4 graph computational enumeration fewer than ten vertices",
+        "power domination polynomial triangular graph Johnson graph J(n,2)",
+        "minimum power dominating sets triangular graphs matching star forest enumeration"
+      ]
+    },
+    "rationale": "Relevant arXiv/published full-text material and the research-record search did not show a prior statement implying the complete all-set criterion, star-forest minimal family, and polynomial for J(n,2)=L(K_n). The 2018 general power-domination polynomial paper lists different explicit families and small-graph computational tables; the 2018 claw-free result is a 4-regular bound; the apparently similar 'triangle graph' 2019 source concerns a hexagon lattice, not a Johnson graph. There remains a bounded risk of unindexed specialized equivalents.",
+    "residual_risks": [
+      "Specialist literature not indexed in the searched sources might contain an equivalent formulation under edge-sensor or line-graph terminology.",
+      "Existing data for small graphs, notably n=3 and n=4, are not novel individually.",
+      "The research records search is retrieval evidence, not a proof of mathematical priority; independent bibliographic check remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines invariant and reports graph data for fewer than ten vertices; gives no infinite triangular-graph polynomial or star-forest minimal classification in inspected material.",
+        "evidence": [
+          "Sec. 4 Proposition 20 enumerates complete graphs, paths, cycles, wheels, stars and certain coronas; Theorem 22 gives a threshold algorithm.",
+          "Sec. 4 reports brute-force polynomials for all graphs with fewer than ten vertices; this covers only n=3,4 instances of L(K_n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1805.10984v1",
+        "material_read": "ArXiv HTML, introduction, structural/decomposition theorems, Sec. 4 explicit families and threshold algorithm, Sec. 4.1 polynomial uniqueness, and related discussion through Sec. 5; searches for 'triangular' and 'line graph'.",
+        "method": "Read publicly accessible primary paper HTML with section and term inspections.",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "Foundational polynomial paper; potential complete prior coverage or small-graph table."
+      },
+      {
+        "assessment": "Main stated sharp bound is specific to connected 4-regular claw-free graphs; not a family-wide equality, polynomial or minimal-set enumeration for L(K_n).",
+        "evidence": [
+          "Theorem 1.3 concerns degree exactly four; L(K_n) has degree 2(n-2), equal to four only for n=4.",
+          "First arXiv version posted 2018-08-08."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2020.03.055",
+        "material_read": "Full public abstract/introduction, main Theorem 1.3 statement, specific regularity hypotheses and surrounding construction, with arXiv metadata 1808.02613v1.",
+        "method": "Read primary publisher HTML and arXiv bibliographic record.",
+        "title": "Power domination in regular claw-free graphs",
+        "trigger": "Line graphs are claw-free; a stronger theorem might cover all triangular graphs."
+      },
+      {
+        "assessment": "The article's triangular hexagonal network TG_n is different from the triangular graph J(n,2)=L(K_n).",
+        "evidence": [
+          "Definition 4 builds n rows of hexagons and Fig. 1 illustrates the planar network.",
+          "The article counts n^2+4n+1 vertices, as opposed to binomial(n,2) of J(n,2)."
+        ],
+        "identifier_or_url": "https://ir.vistas.ac.in/id/eprint/8090/1/Prof.AnithaPaper.pdf",
+        "material_read": "Author-provided ten-page PDF, pages 2-4 (PDF page indices 1-3) including graph definition, theorem statement and network figure; pages 3-4 visually checked.",
+        "method": "Read primary PDF text and inspect page images displaying the hexagon construction and graph.",
+        "title": "Power Domination Parameters in Honeycomb-Like Networks",
+        "trigger": "Paper uses ambiguous 'triangle graph' terminology and claims a power-domination formula."
+      },
+      {
+        "assessment": "Reconfiguration methods and examples for complete, bipartite, path, cycle and wheel graphs do not state the triangular-graph enumeration or star-forest criterion.",
+        "evidence": [
+          "Sec. 5.1 lists complete, complete-bipartite, path, cycle and wheel families; it does not list L(K_n).",
+          "No occurrences of 'line graph', 'Johnson' or 'triangular' appeared in searched text."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s44007-025-00187-5",
+        "material_read": "Accessible publisher HTML, relevant Secs. 3 and 5, minimal-set principles, and explicit graph families.",
+        "method": "Read primary text and searched 'line graph', 'Johnson' and 'triangular'.",
+        "title": "Power Domination Reconfiguration",
+        "trigger": "Directly related work about minimal power dominating sets and maximal sizes."
+      },
+      {
+        "assessment": "Discusses a construction lifting power dominating sets from G to L(G) and resilience bounds; examined content does not entail the exact enumerator or all-minimal-set classification of L(K_n).",
+        "evidence": [
+          "Theorem 2.1 constructs a power dominating set of L(G) from a power dominating set of G, not an iff classification of all PDS.",
+          "Targeted searches did not locate polynomial, L(K_n) or triangular graph in the available page."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41598-026-54352-z",
+        "material_read": "Accessible primary full-text excerpt around Theorem 2.1 and targeted checks for complete graphs, L(K_n), polynomial and triangular graphs.",
+        "method": "Read primary publisher HTML excerpt and term searches.",
+        "title": "Fault-tolerance amplification in line graphs: a framework for resilient PMU placement in power networks",
+        "trigger": "Possible more general prior treatment of power domination on line graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b7c1b689-a10e-46d7-8238-17d3c9f5b939",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Power monitoring on line graphs of complete networks is a natural graph-family problem, and the full placement distribution is a well-motivated refinement of a minimum parameter. The exact zero-or-one-step propagation boundary, complete all-set polynomial, exhaustive matching/star-forest inclusion-minimal family, closed minimum count, unbounded difference between upper and lower minimal cardinalities, and maximal-failure classification offer reusable structure for counting and robustness decisions. These statements require more than the generic definition, a preexisting finite table, or a lone textbook matching count. The result is intentionally restricted to J(n,2), not unsupported generalizations.",
+    "status": "PASS"
+  }
+}
