@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "Complete deterministic enumeration checks every nonempty subset of each explicitly defined 16-vertex graph for connected domination, and all single-vertex replacements for selected-set sizes four, five and six. Exact BFS computes every component and all-source distances at size five. Both Python and separately written C++ sources reproduce the counts and distances; additionally, the optimum-Shrikhande-claw characterization and rook bipartite support/tree orientation argument independently explain the core structures. The result is strictly finite and does not substitute finite sampling for an infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Caro–West–Yuster (2000, publisher online 2006) proves bounds for connected dominating sets and maximum-leaf spanning trees; MSC 05C69.",
+        "Chandran et al., arXiv:1010.2296, derives rainbow-connection bounds from connected domination and addresses special graph classes, not the two exact Cayley/rook reconfiguration graphs.",
+        "Lokshtanov et al., IPEC 2020, investigates complexity of connected dominating set reconfiguration with token addition/removal (PDF, introduction and preliminaries), not exact fixed-k jump graphs."
+      ],
+      "reasoning": "The more general cited results control domination sizes, rainbow coloring bounds, or the computational complexity of a different move model; none mathematically forces a classification of all exact-k connected dominating sets in either graph or their TJ distances. Strongly regular cospectrality itself fixes local pair-intersection counts but not connected dominating set dynamics.",
+      "searches": [
+        "\"connected domination\" \"Shrikhande\" \"rook\"",
+        "\"Shrikhande\" \"maximum leaf\" spanning tree",
+        "\"connected dominating set reconfiguration\" \"rook graph\"",
+        "doi:10.1137/S0895480199353780",
+        "arxiv:1010.2296",
+        "doi:10.4230/LIPIcs.IPEC.2020.24"
+      ]
+    },
+    "checked_sources": [
+      "https://epubs.siam.org/doi/10.1137/S0895480199353780",
+      "https://arxiv.org/abs/1010.2296",
+      "https://arxiv.org/abs/1401.5714",
+      "https://doi.org/10.4230/LIPIcs.IPEC.2020.24",
+      "https://www.researchgate.net/publication/269518541_PBIB_designs_and_association_scheme_arising_from_minimum_total_dominating_sets_of_non_square_lattice_graph",
+      "Research index: 2026-10-11 independence complexes of Shrikhande and rook graphs (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The accessible 2013 abstract discusses minimum total domination and PBIB designs. Its individual claims are not used as a premise for connected-domination classification; the full paper remained inaccessible.",
+        "Suzuki et al. 2014: the transformation is adding or deleting one vertex, not a cardinality-preserving exchange between connected dominating sets.",
+        "Lokshtanov et al. 2020: complexity hardness and planar kernels for CDS-R under TAR, with no specific Shrikhande/rook classification in the inspected paper sections.",
+        "Previously available pair comparisons based on independence complexes concern topological invariants of independent vertex sets, not dominating backbones.",
+        "Previously recorded exact exchange results for identifying codes on the same Shrikhande/rook pair concern resolving signatures, not connected domination. Previously recorded induced-matching exchanges on the pair manipulate edges, and previous two-token independence results concern another configuration universe; these do not imply the current connected-backbone reconfiguration thresholds."
+      ],
+      "reasoning": "Minimum total domination and connected domination impose distinct feasibility requirements, so the accessible 2013 abstract does not by itself imply exact five- and six-vertex connected CDS token-jump metrics. TAR complexity classifications and independence-complex homotopy types likewise do not determine this exchange graph without instance-specific analysis. Existing exact exchange classifications on the same graph pair were compared by feasible-set definition and adjacency rule: identifying-code signature separation, induced edge matchings, and independent configurations in two-token graphs are distinct from connected-dominating vertex sets. Their exact counts and reachability properties are not logically transferable.",
+      "searches": [
+        "Shirkol Shekharappa Gudgeri 2013 minimum total dominating sets Shrikhande PBIB",
+        "arxiv:1401.5714 sections 1-3",
+        "doi:10.4230/LIPIcs.IPEC.2020.24 sections 1-4",
+        "\"Shrikhande\" \"minimum connected dominating\" reconfiguration",
+        "Minimum connected dominating sets and single-vertex exchange reconfiguration graph of the Shrikhande graph versus the four-by-four rook graph, two strongly regular cospectral graphs with parameters (16,6,2,2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Caro–West–Yuster identifies connected domination with the nonleaf vertices of spanning trees and maximization of leaves.",
+        "Suzuki–Mouawad–Nishimura arXiv:1401.5714, sections 1–3, defines ordinary domination reconfiguration using one add/delete at a time; the present problem instead fixes set cardinality and imposes connectedness.",
+        "The 16-vertex rook graph is the line graph of K_{4,4}; here its connected dominating sets are connected edge sets covering a complete row or complete column side."
+      ],
+      "reasoning": "The equivalent maximum-leaf/backbone, rook line-graph, strongly regular, and fixed-cardinality token-jump descriptions were compared mathematically. Their scalar values or general reachability frameworks do not determine the claimed 672/384 configuration graphs, the two-component rook separation, or exact diameters. No theorem with equivalent assumptions and conclusion was located.",
+      "searches": [
+        "Minimum connected dominating sets and single-vertex exchange reconfiguration graph of the Shrikhande graph versus the four-by-four rook graph, two strongly regular cospectral graphs with parameters (16,6,2,2)",
+        "Connected domination, maximum leaf spanning trees, reconfiguration geometry of the Shrikhande and lattice L2(4) graphs",
+        "\"Shrikhande\" \"connected dominating set\" \"reconfiguration\" token jumping",
+        "\"connected dominating\" \"maximum-leaf spanning tree\" \"Shrikhande\"",
+        "\"rook graph\" \"connected domination\" \"token jumping\"",
+        "arxiv:1401.5714"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram GraphData documentation lists scalar connected domination polynomials and minimum-connected-dominating-set functions; such scalar tables might subsume some individual counts, which are not asserted as independently novel.",
+        "The closest indexed result on the Shrikhande/rook pair concerns homotopy types of independence complexes, not connected domination exchange paths.",
+        "A 2013 article on Shrikhande minimum total domination and PBIB designs was located by its abstract; its objective does not directly specify the present connected-domination exchange graph."
+      ],
+      "reasoning": "Even if state counts or minimum connected domination numbers appear in a database, those scalar invariants do not imply the two different exact first mixing layers, the 192+192 component split, the five-set distances or the six-set rook connectivity. No exact exchange adjacency database or published table for these facts was identified; absence of results is not used as proof of novelty.",
+      "searches": [
+        "\"Shrikhande\" \"connected dominating sets\" 32",
+        "\"Shrikhande\" \"reconfiguration\" \"dominating\"",
+        "\"rook graph\" \"connected dominating\" \"reconfiguration\" token jumping",
+        "Wolfram GraphData ConnectedDominationPolynomial MinimumConnectedDominatingSets",
+        "Exact one-vertex-replacement graph of connected dominating sets of the Shrikhande graph and 4-by-4 rook graph: minimum size 4 with 32 and 8 isolated; five-element connected backbones 672 connected diameter 5 versus 384 in two components diameter 7; six-element rook backbones connected"
+      ]
+    },
+    "rationale": "The claim is the exact fixed-cardinality token-jump exchange and metric classification for connected dominating backbones of the Shrikhande and 4-by-4 rook graphs, including a sharp connectivity-threshold discrepancy. General connected domination bounds, ordinary domination reconfiguration under token addition/removal, the complexity of connected-domination reconfiguration, total-domination design counts and published independence-complex comparisons do not imply these exact five- and six-set exchange graphs. No directly covering record was found in the reported searches; this is best-knowledge originality only, not a certification of global uniqueness.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier result could already establish the exact connected domination reconfiguration graphs or equivalent maximum-leaf backbone moves.",
+      "The complete 2013 Shrikhande total-domination paper and the complete publisher text of Caro–West–Yuster were not inspected. Their accessible stated results are different, but uninspected appendices or remarks remain unverified.",
+      "An existing graph database could contain some scalar counts; individual counts are not asserted to be novel apart from the combined exact exchange-threshold and distance classification.",
+      "Only self-review has been performed; external mathematical referee review or independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies foundational definitions and graph-wide bounds; no instance-specific TJ exchange metric asserted in accessible material. The complete text was not inspected.",
+        "evidence": [
+          "Publisher page states gamma_c(G)=n minus maximum leaf count and MSC 05C69.",
+          "Publisher history lists Published online 1 August 2006."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/S0895480199353780",
+        "material_read": "Publisher title, abstract, bibliographic information, public online date, MSC listing and source scope",
+        "method": "publisher HTML",
+        "title": "Connected Domination and Spanning Trees with Many Leaves",
+        "trigger": "Foundational primary source on maximum-leaf/CDS equivalence and MSC classification"
+      },
+      {
+        "assessment": "Uses connected dominating sets to derive rainbow connectivity bounds; no exchange-graph classification of the Shrikhande/rook pair in inspected sections.",
+        "evidence": [
+          "First arXiv posting 2010-10-12.",
+          "Definitions state connected k-step domination; results bound rainbow connection number."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1010.2296",
+        "material_read": "Full HTML-rendered introduction, preliminaries, definition 2 and section 2 main theorems",
+        "method": "arXiv rendered full text",
+        "title": "Rainbow Connection Number and Connected Dominating Sets",
+        "trigger": "Verified archival public source on connected domination"
+      },
+      {
+        "assessment": "Investigates add/remove steps for ordinary dominating sets rather than fixed-cardinality token jumps of connected sets. No same-instance Shrikhande/rook result found in the searchable full text.",
+        "evidence": [
+          "Submitted 2014-01-22.",
+          "Definition D_k(G) has sets of cardinality at most k and edges for adding or deleting a vertex."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1401.5714",
+        "material_read": "Full HTML-rendered introduction, formal problem definition, Theorem 3.1, and descriptions of sections 4 and 5",
+        "method": "arXiv full text rendered as HTML",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Closest older literature on domination reconfiguration and reachability"
+      },
+      {
+        "assessment": "Analyzes connected domination under token addition/removal and complexity classes; no exact finite Shrikhande/rook fixed-cardinality exchange theorem in inspected material.",
+        "evidence": [
+          "Introduction defines TAR as one-token addition/removal with size bounded by k.",
+          "The main theorems concern W[1]-hardness on degenerate graphs and planar kernels."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2020.24",
+        "material_read": "Publisher PDF pages 1–4 including figure and model definition, plus relevant complexity and core sections and searched complete document text for Shrikhande and rook",
+        "method": "publisher OA PDF, inspected page screenshots and text",
+        "title": "On the Parameterized Complexity of Reconfiguration of Connected Dominating Sets",
+        "trigger": "Same objective class, plausibly stronger coverage"
+      },
+      {
+        "assessment": "This article addresses minimum total domination and associated designs, not the same reconfiguration invariant. Its complete text is inaccessible, and no claim about uninspected results or its classification is made.",
+        "evidence": [
+          "The accessible abstract reports an analysis of minimum total dominating sets and associated PBIB designs; the complete article was not read.",
+          "Complete source not verified as read."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/269518541_PBIB_designs_and_association_scheme_arising_from_minimum_total_dominating_sets_of_non_square_lattice_graph",
+        "material_read": "The authors' abstract and bibliographic details only; attempted publisher PDF failed to open",
+        "method": "public abstract; attempted PDF via source link; no full-text reading",
+        "title": "PBIB designs and association scheme arising from minimum total dominating sets of non square lattice graph",
+        "trigger": "Most plausible same-graph domination paper"
+      },
+      {
+        "assessment": "Independence complex homotopy is a different invariant, without a known implication to the claimed exchange graph. The full page was not inspected and no full-document assessment is claimed.",
+        "evidence": [
+          "The published abstract gives wedge-of-two-sphere homotopy types 23 versus 15, not connected domination."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187",
+        "material_read": "Published title and semantic research abstract only; full external page was inaccessible",
+        "method": "semantic record lookup and URL access attempt",
+        "title": "Independence complexes of the Shrikhande and four-by-four rook graphs have different sphere-wedge homotopy types",
+        "trigger": "Closest accessible indexed record using the same graph pair"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c843ae9f-f832-43cd-a58c-3578b51c7328",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph pair is a canonical obstruction to uniqueness from the parameters (16,6,2,2) and common spectrum. Connected dominating sets are routing/maximum-leaf spanning tree backbones; their exact fixed-cardinality reconfiguration threshold is a natural measure of whether optimal backbones can be updated locally. The two graphs have equal optimum size but different thresholds (5 versus 6) and sharply different five-set exchange components and diameters, a distinction not implied by the scalar optimum, spectra or basic counts. This is a structural comparative finite benchmark, not an arbitrary chosen slice.",
+    "status": "PASS"
+  }
+}
