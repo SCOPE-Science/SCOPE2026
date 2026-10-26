@@ -1,0 +1,15 @@
+# Scientific review — paired types in the four-clique-free homogeneous graph
+
+## Correctness — PASS
+The claim explicitly counts complete types of ordered, distinct vertices outside a finite parameter set. Conant's quantifier-elimination and Henson's homogeneity/universality permit replacing types by finite induced labelled extensions. The exhaustive case split on the new edge excludes every possible four-clique: one-new-vertex cliques correspond to triangles in individual neighborhoods, and two-new-vertex cliques correspond to edges in their common neighborhood. On bipartite parameters all individual neighborhoods are admissible and the three-choice count outside the independent intersection is exact. For complexity, each clone-blowup remains bipartite and transforms the independence polynomial by substitution; the rational nodes are distinct, and polynomial interpolation recovers the bipartite independent-set count with polynomial output bit size. The enclosed checker independently validates the local diagram and interpolation identities. The computations do not constitute an infinite proof.
+
+## Originality — PASS, qualified
+Henson (1971) proves universal homogeneity and extension conditions, not this counting formula. Conant (2014), Sections 3–5, treats realizability and forking/dividing of graph types, not the number of pair types or bipartite exact-counting complexity. Provan and Ball (1983) give the prior hardness of bipartite vertex-cover counting used in the reduction. A published exact one-type theorem for the Henson family proves general-input hardness through a join construction; its restricted bipartite parameter input has elementary one-type count and does not imply the new two-type hardness. Searches for the joint-neighborhood, weighted independence-polynomial, and two-type bipartite claims did not locate an equivalent or dominating result. Novelty is qualified by potential unindexed or unpublished specialized work; no independent publication-priority certification is asserted.
+
+## Mathematical value — PASS
+This identifies a natural arity threshold: every finite bipartite parameter graph has exactly \(2^n\) nonalgebraic single-point types, yet exact counting of ordered distinct pair types is \(\#\mathrm P\)-complete on the same input class. The compatibility constraint is an independence polynomial at a specific positive activity, and the result gives both a general exact formula and a uniform complexity theorem rather than an arbitrary finite slice or textbook substitution. It is relevant to finite-parameter type spectra and the computational complexity of homogeneous structures.
+
+## Scope and risks
+The hardness is exact under polynomial-time Turing reductions, not approximate hardness or a single-query reduction. Only ordered distinct pairs outside the parameters are counted. The overlap search is bounded, not a proof of absolute novelty. No independent scientific audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
