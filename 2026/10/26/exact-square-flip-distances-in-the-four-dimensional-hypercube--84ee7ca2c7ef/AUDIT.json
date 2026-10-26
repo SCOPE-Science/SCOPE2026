@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Finite proof by exhaustive recursions on sixteen vertices, two independent matching enumerations and adjacency constructions, 264 exact BFS runs, and 384 symmetry maps. A packaged verifier replays all integer checks. The BFS layers certify shortest distances, 12 antipodal pairs, and three length-four antipodal components; no infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hartarsky, Lichev and Toninelli, arXiv:2304.10930, Theorem 6, gives bound (d-1)2^{d-1} with alternating cycles of length up to 4d-4.",
+        "Klivans and Saldanha, DOI 10.5802/alco.205, Example 2.2 describes components, not geodesic diameter."
+      ],
+      "reasoning": "The longer-cycle switching graph can have shorter routes and is connected even in dimensions where the square-only graph is disconnected; its upper bound 24 at d=4 gives no exact radius/diameter 7/8 or all-pairs distances within the square-flip component. No stronger exact theorem seen in the relevant primary texts.",
+      "searches": [
+        "Q4 perfect matching flip graph connected components 9 and largest 264",
+        "The 4-dimensional hypercube Q4 perfect matching square-flip reconfiguration graph has diameter 8 and antipodal graph 3 disjoint 4-cycles within its 264-tiling component",
+        "Local dimer dynamics in higher dimensions Theorem 6 diameter"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/070697288 (full preprint)",
+      "doi:10.5802/alco.205 (full text)",
+      "arxiv:2304.10930 (full text)",
+      "2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098 (record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fink, DOI 10.1137/070697288, matching graph allows Hamilton-cycle exchanges, unlike local 4-cycle exchanges.",
+        "Klivans and Saldanha 2022, Example 2.2 and Remark 8.2, prove components and twist of the frozen states.",
+        "Hartarsky et al. 2023, Theorem 6, uses switches along longer alternating cycles."
+      ],
+      "reasoning": "None of these cited theorems or enumerated data imply exactly 12 diametral pairs in the 264-vertex local-flip component or the three-C4 antipodal decomposition. Fink adjacency is different, the 2022 component theorem is strictly weaker for this metric, and the 2023 bound concerns another move set.",
+      "searches": [
+        "The 4-dimensional hypercube Q4 perfect matching square-flip reconfiguration graph has diameter 8 and antipodal graph 3 disjoint 4-cycles within its 264-tiling component",
+        "four-dimensional cube domino tiling flip graph 264 exact diameter distance",
+        "hypercube Q4 perfect matching plaquette flip graph diameter 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klivans and Saldanha 2022, Example 2.2: tilings of [0,2]^4 correspond to perfect matchings of Q4 and flips are square swaps; 272 states, 264 non-frozen and eight frozen.",
+        "Hartarsky et al. 2023 use dimer-configuration graphs with parameter for maximum allowed alternating-cycle length."
+      ],
+      "reasoning": "The tiling and perfect-matching formulations describe the same 4-cycle move graph. No retrieved exact shortest-move distribution or antipodal decomposition implies the claimed counts; component sizes alone do not determine distances.",
+      "searches": [
+        "square-flip graph of perfect matchings of the four-dimensional hypercube Q4, eight isolated frozen matchings, one 264-vertex component",
+        "4-dimensional cube domino tilings 2 by 2 plaquette flips non-ergodicity isolated dimer coverings",
+        "exact flip-distance distribution Q4 264 domino tilings 768 2640 6032 9360 9504 5296 1104 12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 publication already includes an exact table-equivalent for the total 272 states and nine component sizes; those numbers are excluded from novelty.",
+        "Related published published-finding corpus record 2026/10/4/SCOPE-complete-prescribed-difference-matching-multiplicity-spectrum-in--d86ded899098 counts prescribed edge-direction multiplicities, not pairwise flip geodesics."
+      ],
+      "reasoning": "A match-count or component-size table cannot imply an exact metric distribution. Searches with the exact eight integer counts found no matching complete distance table. This is not a claim that all literature is searchable.",
+      "searches": [
+        "exact flip-distance distribution Q4 264 domino tilings 768 2640 6032 9360 9504 5296 1104 12",
+        "Klivans Saldanha 4 dimensional hypercube 264 flips diameter 8 shortest paths 2022"
+      ]
+    },
+    "rationale": "The exact metric refinement is not implied by Klivans and Saldanha 2022 component counts (which are credited), Fink 2009 uses Hamiltonian-cycle rather than square moves, and Hartarsky et al. 2023 uses longer alternating cycles. Full-text inspections and actual research-record searches found no covering metric census; plausible unindexed supplementary data remains an explicit risk.",
+    "residual_risks": [
+      "The 2022 authors note supplementary computation code; it was not exhaustively inspected for unpublished distance tables.",
+      "Unindexed or inaccessible earlier exact 264-component distance computations cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior coverage of 272 tilings, nine components, 264 giant, eight frozen; no geodesic data found in paper",
+        "evidence": "Example 2.2 reports 272 tilings and nine components; one component 264 and eight singleton. The paper has no statement of diameter.",
+        "identifier_or_url": "https://www.numdam.org/item/10.5802/alco.205.pdf",
+        "material_read": "Full 24-page primary text, especially Example 2.2, Remark 8.2, methods note at p167, and general theorems; text search for diameter",
+        "method": "Read full-text searchable PDF and inspect relevant figure/page",
+        "title": "Domino tilings and flips in dimensions 4 and higher",
+        "trigger": "Identical cube, local move and 264-component count"
+      },
+      {
+        "assessment": "Move set permits cycles longer than four; bounds cannot imply exact local four-cycle distances",
+        "evidence": "Theorem 6 permits alternating cycles length up to 4d-4 and has diameter <=(d-1)2^(d-1).",
+        "identifier_or_url": "https://arxiv.org/pdf/2304.10930",
+        "material_read": "15-page preprint, notably Theorems 5–7 and proof of Theorem 6",
+        "method": "Read full-text PDF, inspect theorem statements and cycle-length restrictions",
+        "title": "Local dimer dynamics in higher dimensions",
+        "trigger": "Potential stronger hypercube dimer diameter theorem"
+      },
+      {
+        "assessment": "Non-equivalent flip moves; its connectivity result does not cover four-cycle-only distances",
+        "evidence": "Theorem 14 shows matching graph connected using a Hamiltonian-cycle exchange adjacency distinct from square flips.",
+        "identifier_or_url": "https://kam.mff.cuni.cz/~fink/publications/kreweras2.pdf",
+        "material_read": "11-page full primary preprint, including definition and Theorem 14",
+        "method": "Read full-text and confirm adjacency notion through Hamiltonian-cycle unions",
+        "title": "Connectivity of Matching Graph of Hypercube",
+        "trigger": "Archive-age foundational hypercube matching reconfiguration result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "84ee7ca2-c7ef-4a52-8993-3c2ec5b05bb4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest four-dimensional domino box already exhibits frozen components, making its unique non-frozen sector a natural quantitative reconfiguration benchmark. Exact shortest-move diameter, all-pairs distance distribution, and structured exceptional antipodes distinguish rigorous dynamical complexity from known component counts; these are motivated finite invariants, not arbitrary subsets.",
+    "status": "PASS"
+  }
+}
