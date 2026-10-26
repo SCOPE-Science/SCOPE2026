@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 and 0<delta<1, H=(1-delta)I+delta 11^T is SPD. Coordinate best response minimizes Phi=e^THe; an explicit initial ellipsoid makes every possible subsequent update interior. The identities S'= (1-delta)(S-e_i) and Q'=Q-e_i^2+delta^2(S-e_i)^2 give the exact two-moment recursion after averaging uniform independent choices. The two eigenvalues are distinct and in (0,1); the Perron coefficient is positive for any initial nonzero error because F_1>sigma F_0. The near-delta-one and large-n expansions follow from the characteristic equation. Independently implemented direct rational enumeration tested 14,744 update-index strings with 145 assertions; tests do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2602.15986v1 Theorem 3 and §3.2.2: pathwise probabilistic stability and clique simulations, but no exact expected squared-Euclidean error formula.",
+        "arXiv:1506.03296v5 Theorem 8: a general expected squared B-norm contraction inequality, not equality for complete-network Euclidean loss.",
+        "arXiv:2609.15605v1 abstract: general asynchronous delayed expected-rate bounds."
+      ],
+      "reasoning": "Generic stability and upper contraction-rate results cover the process qualitatively but do not derive or imply the sharp Euclidean expectation sequence or population and critical constants by simply restricting their statements. The exact moment identity is stronger for this symmetric instance while narrower in graph and locality.",
+      "searches": [
+        "Complete-graph symmetric network public goods linear best responses uniformly asynchronous; exact mean-square convergence spectral radius and large population asymptotic",
+        "\"Convergence rates of random-order best-response dynamics in public good games on networks\" complete cliques exact mean square second moment closure",
+        "web: \"best response\" \"clique\" \"mean square\" rate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.15986v1 full HTML §§2–3 and appendix",
+      "arXiv:1506.03296v5 full HTML §§3–4",
+      "arXiv:2609.15605 abstract; full-text accessibility limited",
+      "Published study Exact delay-distribution law for two-coordinate randomized Gauss–Seidel (2026) (semantic record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2602.15986v1 Theorem 3 provides a pathwise asymptotic scaling with factor 1-(1-delta)/n when the minimum clique eigenvalue is -1; it does not bound exact second moments sufficiently to identify the Perron root.",
+        "arXiv:1506.03296v5 Theorem 8 bounds E[||error||_B^2] by a spectral rate; the inequality may be strict and B is a method metric, unlike the exact Euclidean recursion.",
+        "Published study Exact delay-distribution law for two-coordinate randomized Gauss–Seidel (2026) is in a different two-coordinate setting."
+      ],
+      "reasoning": "An almost-sure or expected-iterate rate does not fix E||error||_2^2 without controlling trajectory-dependent second moments; generic upper bounds do not imply equality or sharpness for every perturbation. The specific two-moment symmetry reduction and strictly positive slow-mode coefficient are additional deductions not present in compared prior statements.",
+      "searches": [
+        "\"Convergence rates of random-order best-response dynamics in public good games on networks\" complete cliques exact mean square second moment closure",
+        "\"randomized Gauss Seidel\" \"compound symmetry\" exact mean square convergence rate 2x2 recursion",
+        "web: \"random best response\" \"complete graph\" \"mean square\" exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1506.03296v5 §3.4, §§4.3–4.4 treats randomized coordinate descent equivalences and expected-squared-norm upper bound, not closed two-moment evolution.",
+        "Published study Exact delay-distribution law for two-coordinate randomized Gauss–Seidel (2026) is restricted to a two-coordinate, bounded-delay model with scalar recurrence."
+      ],
+      "reasoning": "Best-response is the coordinate minimizer for SPD H. Therefore search included randomized Gauss-Seidel, coordinate descent, complete graph and compound symmetry rather than title-only matching. General equivalence of updates does not imply the explicit all-n Euclidean second-moment law; the two-coordinate delay recurrence does not cover n>=3 cliques.",
+      "searches": [
+        "\"randomized Gauss Seidel\" \"compound symmetry\" exact mean square convergence rate 2x2 recursion",
+        "\"equicorrelated\" \"randomized coordinate descent\" exact mean square convergence rate eigenvalue",
+        "web: \"randomized Gauss Seidel\" \"compound symmetry\" exact mean square convergence",
+        "web: \"randomized coordinate descent\" \"compound symmetry\" second moment exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved mathematical-results records included no matching complete-network second-moment closed form or table for this game.",
+        "The motivating paper gives numerical convergence-time figures for cliques, not an exact error-moment table."
+      ],
+      "reasoning": "The claim is a universal analytic recurrence for continuous parameters and every integer n>=3, not a finite database entry; direct search found no tabulated exact special case. Absence from a database alone does not demonstrate priority.",
+      "searches": [
+        "\"complete graph\" \"random best response\" \"squared\" error expected decay",
+        "two-moment closure square sum and sum squares for random single-coordinate linear best response on complete graph",
+        "web: \"two-dimensional\" \"moments\" \"randomized\" \"Gauss Seidel\" complete graph"
+      ]
+    },
+    "rationale": "The 2026 motivating network-game paper treats this specific best-response mechanism, obtains general pathwise probabilistic stability and simulated clique slowdown, but not this exact Euclidean expected squared norm evolution. The 2015 general randomized coordinate-descent theorem gives expected-squared-norm upper bounds and exact mean iterates, not the model-specific exact second moments or sharp factor. A 2026 asynchronous study provides bounds in a delayed general model. Searches for the claim and equivalent numerical-algorithm terminology did not recover stronger coverage. This is best-knowledge priority, not absolute proof of novelty.",
+    "residual_risks": [
+      "Unindexed previous exact compound-symmetry second-moment calculations may establish the same formula or a broader closed-form result.",
+      "The full text of Carson–Ma (arXiv:2609.15605) was not reliably accessible, so absence of this exact specialization there is assessed only from abstracted scope; further human literature review is advisable.",
+      "No independent subject-matter audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same dynamical object and empirical phenomenon; exact expected-square recurrence, universal sharp Perron rate, and its critical coefficients are not asserted.",
+        "evidence": [
+          "arXiv:2602.15986v1 §2.1 payoff/best response; §2.2 Theorem 3; §3.2.2 Figure 19 and clique discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.15986v1",
+        "material_read": "Full accessible arXiv HTML; specifically Introduction, Sections 2.1–2.3, Theorem 3, §3.2.2 and appendix stability discussions.",
+        "method": "Read mathematical model and theorem statements, clique passage, and searched full HTML for second-moment and expected-squared terminology.",
+        "title": "Convergence rates of random-order best-response dynamics in public good games on networks",
+        "trigger": "Exactly the same game, update law, and numerical clique slowdown."
+      },
+      {
+        "assessment": "The generic algorithmic inclusion is prior; the named bounds do not determine exact E||error||_2^2 or sharp clique-specific coefficients.",
+        "evidence": [
+          "arXiv:1506.03296v5 §4.4 Theorem 8, equation (42), which is an inequality; §4.3 exact evolution of the expected iterate."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1506.03296v5",
+        "material_read": "Full accessible HTML; Sections 3.4, 4.2, 4.3, 4.4, including the full Theorem 8 and its proof.",
+        "method": "Compared its exact mean-iterate formula and B-norm error-contraction inequality with the exact Euclidean two-moment recurrence.",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "A broad randomized coordinate-descent theory could dominate the claim via a known second-moment theorem."
+      },
+      {
+        "assessment": "Describes delay-dependent convergence bounds, not a stated exact n>=3 complete-network Euclidean second-moment identity. Unread full text remains an explicit priority risk.",
+        "evidence": [
+          "arXiv:2609.15605 abstract: general expected linear convergence bound dependent on delay and communication pattern."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.15605",
+        "material_read": "Accessible arXiv abstract and descriptive research listing; full-text access not reliably available in this execution.",
+        "method": "Compared publicly accessible abstracted theorem scope; attempted arXiv HTML (not retrievable).",
+        "title": "Asynchronous Jacobi and randomized Gauss–Seidel methods in shared and distributed memory: A unified convergence-rate analysis",
+        "trigger": "Contemporary general Gauss–Seidel convergence theory could contain a sharper special-case result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ca343ee-e007-4105-87a9-3ae654613fbf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 network-game investigation documents slowly converging cliques but lacks an exact expected squared-error law. The explicit 2x2 closure and strictly positive Perron coefficient produce a sharp rate for every nonzero local direction, with exact critical and population scaling constants; this is a natural analytically testable benchmark for stochastic convergence diagnostics. It is more than a generic contraction estimate but intentionally claims no broad solver theorem.",
+    "status": "PASS"
+  }
+}
