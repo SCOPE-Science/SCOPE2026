@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For each multiplicity s in {0,1,2}, the nested layer indicators u(s)=1_{s>=1},v(s)=1_{s=2} satisfy min(s,t)=u(s)u(t)+v(s)v(t) modulo 2. Each eligible family has row Gram matrix identity over F2, so size k<=2n. If k=2n, both square Gram matrices are identity, contradicting the column support identity U_i·V_i=V_i·V_i. If k=2n-1, the one-dimensional orthogonal complement has norm one and yields R^T R=I+zz^T; the same column identity forces z=(0^n,1^n), requiring n odd. Hence for even n k<=2n-2. Explicit size-six and size-ten witnesses satisfy every parity condition. Exact maxima at n<=5 follow from exhaustive maximal-clique enumeration over all odd vectors in {0,1,2}^n; independent software cross-check matched exact counts. The general lower bound uses disjoint-support unions of proven examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bukh--Chao--Zheng arxiv:2509.00586v2, Theorems 1.1--1.3 treat ordinary subsets modulo composite integers, not repeated-multiplicity minima",
+        "Shankar arxiv:2607.23117 abstract describes intersection of common lattice-path edges, not coordinatewise multiset minimum",
+        "Banerjee--Dewan arxiv:2610.21636v1 Theorem 1 gives E_m(n), maximal even-self-intersection multiset families"
+      ],
+      "reasoning": "The broader results use different objects and hypotheses. The composite-modulus set case does not cover parity on nested two-layer subsets with odd self-intersections; for modulus two its standard elementary estimate is 2n rather than the sharp correction. The path results do not establish an implication to general multiset vectors.",
+      "searches": [
+        "\"Oddtown\" \"multiplicity\" \"multisets\" pairwise intersection even",
+        "The Oddtown problem modulo a composite number 2509.00586 theorem",
+        "Oddtown and eventown theorems for lattice paths 2607.23117 abstract",
+        "published-finding corpus: multiset Oddtown family 2-bounded multisets n=4 n=6 2n-2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.21636v1",
+      "arxiv:2509.00586v2",
+      "arxiv:2607.23117 abstract",
+      "Sudakov--Vieira SIAM 2018 abstract",
+      "Berlekamp 1969 classical Oddtown via cited sources",
+      "published mathematical-record searches for Oddtown multiset and nested-prefix equivalents"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.21636v1 Theorem 1 solves maximum E_m(n) with even diagonal intersections",
+        "arxiv:2509.00586v2 Introduction defines l-Oddtown of sets with modulus l (Theorems 1.1--1.3 concern composite l)",
+        "Classical Berlekamp oddtown bound on 2n binary ground elements is k<=2n"
+      ],
+      "reasoning": "The established even-member theorem does not imply an odd-member maximum. Binary Oddtown implies only k<=2n; the new proof derives the sharper even-n k<=2n-2 from nesting, and the certified examples establish first small exact values and a >n asymptotic lower bound. Published source statements checked do not subsume these three components.",
+      "searches": [
+        "arxiv:2610.21636v1 full text Theorem 1 and sections 2-3",
+        "arxiv:2509.00586v2 full text Introduction and Theorems 1.1-1.3",
+        "published-finding corpus: Oddtown families of bounded multisets minimum intersection parity vectors multiplicities odd cardinality maximum size 2 bounded 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.21636v1 defines min-intersection on bounded multiset vectors but explicitly studies even-self-intersection Eventown",
+        "arxiv:2509.00586v2, Sec. 1 defines subset intersection modulo an integer, not the two-layer constrained problem",
+        "Targeted mathematical-record searches returned no statement about two-bounded multiset Oddtown or the claimed sequence"
+      ],
+      "reasoning": "The set-binary expansion of a two-bounded multiset is an injective map to subsets of a ground set of size 2n, but its images obey a nested-pair support constraint. Ordinary binary Oddtown only bounds the number of these images by 2n, whereas the theorem strengthens that to 2n-2 for even n and exhibits large constrained families. Merely matching the word Oddtown does not imply equivalence.",
+      "searches": [
+        "\"Oddtown\" \"multisets\" \"minimum\" \"odd\" intersection",
+        "\"Oddtown\" \"multiset\" min intersection parity",
+        "published-finding corpus: Oddtown families of bounded multisets minimum intersection parity vectors multiplicities odd cardinality maximum size 2 bounded 2026",
+        "published-finding corpus: odd-intersection parity nested prefix vectors orthonormal systems F_2 multiple copies"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No found indexed exact-value table of O_2(1)..O_2(6) under coordinatewise-minimum intersections",
+        "Known table-like primary result is the Eventown formula E_m(n) in arxiv:2610.21636v1, with different diagonal parity"
+      ],
+      "reasoning": "The exhaustive-clique table is for odd-self-intersection multiset families. The source paper's numerical Eventown tables/formula use even diagonal parity and cannot equal or dominate this one.",
+      "searches": [
+        "\"oddtown\" \"2-bounded\" multisets",
+        "\"Oddtown problem\" \"bounded multisets\" cardinality odd",
+        "published-finding corpus: multiset Oddtown family 2-bounded multisets n=4 n=6 2n-2"
+      ]
+    },
+    "rationale": "The anchored 2026 Eventown paper establishes an even-self-intersection theorem, not the odd-self-intersection analogue. Classical subset Oddtown gives only a 2n bound after the two-layer embedding. Other checked sources concern distinct composite-modulus set intersections or common edges of lattice paths. The new sharp even-order defect, first-six maxima, and asymptotic five-thirds lower construction are not implied by those statements. Remaining possible equivalent terminology and unindexed literature are acknowledged; priority is not independently certified.",
+    "residual_risks": [
+      "Full text of Shankar arxiv:2607.23117 not accessed; apparent object difference established from abstract only",
+      "Full text of Sudakov--Vieira (2018) not accessed; its abstract does not suggest direct coverage",
+      "An unindexed equivalent formulation of the two-layer constraint or stronger nonstandard binary Oddtown theorem may exist",
+      "No independent bibliographic-priority certification"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines exact multiset minimum, but analyzes even diagonal Eventown; no Oddtown two-bounded maxima, projection obstruction, or listed witnesses",
+        "evidence": [
+          "Definition in Sec. 1.1, Theorem 1 in Sec. 1.2, proofs in Secs. 2-3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21636v1",
+        "material_read": "Introduction, definitions, Theorem 1 and its equality classification, detailed lemmas and final proof through conclusion; sections and appendices listed on full HTML page",
+        "method": "Read primary arXiv open HTML text",
+        "title": "An Eventown Result for Multisets",
+        "trigger": "Closest current primary source defining the same bounded-multiset intersection operation"
+      },
+      {
+        "assessment": "Concerns sets and composite-modulus intersection restrictions; its exact stated theorems do not cover multiplicity-minimum parity, and binary set reduction yields weaker 2n bound",
+        "evidence": [
+          "Sec. 1 and Theorems 1.1--1.3 explicitly define set families mod composite integers"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.00586v2",
+        "material_read": "Primary full-text introduction, exact problem definitions, theorems and start of proof; remaining sections not inspected",
+        "method": "Read primary arXiv open HTML statements and introductory proof",
+        "title": "The Oddtown problem modulo a composite number",
+        "trigger": "Potentially stronger Oddtown bound under alternative congruence language"
+      },
+      {
+        "assessment": "Uses common path-edge intersections rather than multiset minima; unseen details remain a residual risk",
+        "evidence": [
+          "arxiv:2607.23117 abstract states northeast lattice paths and intersection defined by shared edges"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.23117",
+        "material_read": "Abstract and indexed problem summary only; full paper unavailable during this comparison",
+        "method": "Read bibliographic abstract and comparison summary",
+        "title": "Oddtown and eventown theorems for lattice paths",
+        "trigger": "Nearby Oddtown analogues potentially subsuming constrained binary encodings"
+      },
+      {
+        "assessment": "Investigates k-wise Eventown and defect l-Oddtown on ordinary sets, not the stated two-bounded minimum-multiset extremum; full article not inspected",
+        "evidence": [
+          "SIAM J. Discrete Math. 32 (2018), abstract"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/16M1100666",
+        "material_read": "Public abstract and bibliographic description only",
+        "method": "Read primary journal abstract",
+        "title": "Two Remarks on Eventown and Oddtown Problems",
+        "trigger": "Standard higher-intersection and defect variants of Oddtown"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "972d45c8-eb78-44b1-a78c-939ce3278605",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest genuinely multiset extension of the classical Oddtown problem behaves qualitatively differently. The determination of the first six exact values identifies n=4 as the minimal breakdown of the bound n, the projection argument supplies a sharp structural upper bound for every even n and exact n=6, and disjoint-block constructions give asymptotic ratio at least 5/3. Each is motivated by the parity dual to the newly solved multiset Eventown problem. This is not an arbitrary parameter slice or only a machine-certified computation; a general mathematical obstruction and infinite lower construction accompany the finite sharpness cases.",
+    "status": "PASS"
+  }
+}
