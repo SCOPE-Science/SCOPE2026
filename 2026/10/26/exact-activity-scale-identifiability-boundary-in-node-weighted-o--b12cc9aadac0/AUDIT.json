@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Starting from the published two-stage sampling rule, conditioning on the first vertex class gives two probability laws \\(Q_A\\) and \\(Q_B\\). A classwise scaling changes only their mixture coefficient, proving the exact total-variation identity. Positivity and graph connectivity give weighted biregularity as the exact equality criterion. A missing bipartite edge supplies a nonzero polynomial witness, proving universal invariance only for complete bipartite graphs and a Lebesgue-null exceptional set elsewhere. Pairwise symmetric opinion updates depend only on the unordered-edge sequence, yielding trajectory-law invariance. The exact-rational checker passed 465 finite graph/edge checks; those do not replace the universal analytic arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Porter analyzes simulations on complete, random and empirical graphs with fixed heterogeneous node weights, not an exact bipartite inverse problem.",
+        "Alizadeh–Cioffi-Revilla studies timing schemes and different repulsive opinion updates.",
+        "Sîrbu et al. use opinion-similarity-dependent partner selection on a mean-field graph, not the Li–Porter fixed-weight neighborhood rule."
+      ],
+      "reasoning": "The strongest plausible source is the original unrestricted node-weighted selection model; its generality gives the starting definition but its reported numerical fragmentation/convergence results do not derive the universal graph iff criterion, total variation response or generic measure-zero exception. The other inspected models change the sampling kernel and therefore do not imply the specific identities.",
+      "searches": [
+        "arXiv:2206.09490v2, sections II.1–II.2, IV, V.2, V.4, V.5",
+        "doi:10.18564/jasss.2733, model and activation-regime sections",
+        "doi:10.1371/journal.pone.0213246, model and discussion sections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.09490v1 (first submission 2022-06-19)",
+      "https://arxiv.org/html/2206.09490v2",
+      "https://www.jasss.org/18/3/8.html",
+      "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0213246"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier paper explicitly defines the vertex/neighbor weight probabilities, with no results on observational equivalence after collapsing pair orientation.",
+        "All added steps depend on conditioning by bipartition, quantifying the difference in total variation, proving the biclique universal criterion, and a nonzero-polynomial exceptional-set argument."
+      ],
+      "reasoning": "The theorem follows mathematically from the published model definition, but not from the earlier statements about typical simulation behavior. It is not a restatement of an existing stronger theorem or a title/parameter-matched special case in the inspected scientific material. Residual possibility of an unindexed general Markov-kernel identifiability lemma is explicitly acknowledged.",
+      "searches": [
+        "\"Li\" \"Porter\" \"identifiability\" \"node-weight\" opinion",
+        "\"node-activity selection on complete bipartite graphs\" invariant",
+        "\"selects a node\" \"weight\" \"neighbor\" \"edge\" \"bipartite\" probability",
+        "arXiv:2206.09490v2, equation (2)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Porter Eq. (2) gives the two-stage weight-proportional vertex and neighbor sampling rule.",
+        "The inspected paper contains no star example and no activity-identifiability calculation.",
+        "Algebraic conditional-edge formulations were checked against weighted-neighbor and bipartite scale terminology."
+      ],
+      "reasoning": "The alternate phrasing as unordered-edge symmetrization or bipartition mass rescaling is equivalent to the asserted conditional-mixture theorem, not to a simple change of variable in a stated earlier theorem. The parent model gives a base formula, while the new claim classifies the invariant graph family and generic exceptional sets.",
+      "searches": [
+        "\"node-weighted\" \"complete bipartite\" \"Deffuant\" \"edge\"",
+        "\"node weighted\" \"bipartite\" \"interaction\" \"invariant\" scaling",
+        "arXiv:2206.09490v2, Section II.2 and Conclusions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Li–Porter Tables 1–3 list simulated network classes, weight distributions, and observed trends, not the edge-law inverse-image classification.",
+        "This is a continuum of positive vertex weights on arbitrary finite connected bipartite graphs; no finite numerical table could alone establish its universality."
+      ],
+      "reasoning": "Neither the inspected numerical tables nor the targeted searches yielded an exact universal identity or a catalog of the required invariance classes. This is a functional/probabilistic identity rather than an unreported entry in a natural finite lookup table.",
+      "searches": [
+        "\"node-weighted\" \"complete bipartite\" \"Deffuant\" \"edge\"",
+        "\"vertex\" \"neighbor\" \"weight\" \"identifiability\" \"edge selection\" network",
+        "arXiv:2206.09490v2, Tables 1–3"
+      ]
+    },
+    "rationale": "The earliest source defines the model and reports computational convergence and fragmentation trends, not the unconditional edge-mixture law or the exact activity-scale identifiability boundary. Inspected earlier activation and opinion-bias papers use different mechanisms. The new complete graph iff criterion, generic identifiability exception, and exact TV response are not stated or implied by a stronger theorem in the inspected material; residual possible broader general Markov-kernel coverage remains a priority risk.",
+    "residual_risks": [
+      "A generic identifiability theorem for symmetrized weighted random walks could subsume the complete-bipartite criterion under a different name.",
+      "Unindexed or inaccessible manuscripts on inversion of two-stage edge samplers were not exhaustively ruled out.",
+      "No independent publication-priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_SAME_KERNEL_BUT_NO_IDENTIFIABILITY_THEOREM",
+        "evidence": "Section II.2 equation (2); Section V.2 on dependence on node degree; Section V.4 on edge-based selection; Section V.5 about node influence as future work.",
+        "identifier_or_url": "https://arxiv.org/html/2206.09490v2",
+        "material_read": "Original model Section II including equation (2), model/graph specifications and tables, simulation sections and discussion subsections on node weights and edge selection",
+        "method": "Full open HTML with targeted text search of star, identifiability, and conclusion paragraphs",
+        "title": "A bounded-confidence model of opinion dynamics with heterogeneous node-activity levels",
+        "trigger": "Identical two-stage node-weight selection and bounded-confidence updates"
+      },
+      {
+        "assessment": "DIFFERENT_KERNEL_NOT_COVERING",
+        "evidence": "Defines random, uniform and Poisson activation for two-dimensional bounded-confidence with rejection, not degree-normalized neighbor selection.",
+        "identifier_or_url": "https://www.jasss.org/18/3/8.html",
+        "material_read": "Abstract, model, sections 2 and 3 on activation, comparisons and discussion",
+        "method": "Open-access full HTML read with navigation through activation schemes",
+        "title": "Activation Regimes in Opinion Dynamics: Comparing Asynchronous Updating Schemes",
+        "trigger": "Plausible earlier generalized nonuniform activation"
+      },
+      {
+        "assessment": "DIFFERENT_OPINION_DEPENDENT_SAMPLING_KERNEL",
+        "evidence": "Model section chooses second partner by opinion distance on an initially complete network; no fixed graph-based neighbor-weight law.",
+        "identifier_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0213246",
+        "material_read": "Open-access full article sections describing the model, pair sampling and results/discussion",
+        "method": "Full HTML with targeted model-section reading and comparison",
+        "title": "Algorithmic bias amplifies opinion fragmentation and polarization: A bounded confidence model",
+        "trigger": "Prior heterogeneous interaction selection in a DW-type model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b12cc9aa-dac0-48ff-9562-a79e8f25cb3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The node-weighted opinion model explicitly treats weights as measurable heterogeneities in activity. The theorem identifies exactly when a whole population-class activity scale is invisible to all unordered interaction and opinion observations, gives the precise sensitivity at other profiles, classifies exceptional weighted-biregular configurations, and quantifies what extra knowledge can restore identifiability. These are natural structural and inverse-modeling questions, and the iff classification extends to every connected bipartite graph rather than a narrow enumeration.",
+    "status": "PASS"
+  }
+}
