@@ -1,0 +1,179 @@
+{
+  "correctness": {
+    "rationale": "Every uniform matching on ordered ranks is equally likely under n independent continuous endpoint pairs. Conditional crossing and nesting means f_C=2ℓ(1−ℓ) and f_N=ℓ²+2u(1−v) give centered first projections with exactly diagonal covariance I_2/45 by integration against density 2 on 0<u<v<1. Exact canonical Hoeffding kernel variance is 8/45 and cross covariance −1/9, giving Var(C)=Var(N)=n(n−1)(n+3)/45, Cov(C,N)=−n(n−1)/18 and the displayed full covariance using C+N+A=binom(n,2). Degenerate variance O(n²) is negligible at n^(3/2) scale; bounded iid vector CLT yields independent N(0,1/45) coordinates. A newly executed checker verified 146,683 exact assertions and symbolic identities. The unrestricted limit rests on the analytic proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Féray treats the same uniform pair-partition model but explicitly only the univariate crossing statistic; multivariate weighted-dependency tools require the mixed variance computation.",
+        "Paguyo and Arenas-Velilla–Arizmendi–Paguyo provide a one-coordinate crossing CLT.",
+        "Kasraoui–Zeng has a stronger exact distribution for all n but no analyzed joint Gaussian limit."
+      ],
+      "reasoning": "A known full bivariate generating series mathematically determines all finite distributions but does not by itself state the nontrivial independent Gaussian asymptotics. Generic multivariate U-statistic CLTs can prove a joint Gaussian AFTER determining the new orthogonality and nondegenerate covariance; those generic methods are standard, not claimed as contributions. No stronger inspected theorem with these objects and joint scaling immediately implies the independent-limit statement without those calculations.",
+      "searches": [
+        "Chern Diaconis Kane Rhoades \"Central limit theorem for some set partition statistics\" crossing nesting joint normal vector multivariate",
+        "https://arxiv.org/pdf/1605.03836 Section 6",
+        "https://arxiv.org/html/2104.01134v2 Theorem 1.1",
+        "https://arxiv.org/abs/2308.11570 matching application",
+        "https://arxiv.org/pdf/math/0601081 Proposition 3.8"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.11570",
+      "https://arxiv.org/html/2104.01134v2",
+      "https://arxiv.org/pdf/math/0601081",
+      "https://iti.mff.cuni.cz/series/2005/251.pdf",
+      "Khare, Lorentz and Yan, Moments of matching statistics, Journal of Combinatorics 8 (2017), 1–27",
+      "https://arxiv.org/pdf/1605.03836",
+      "https://arxiv.org/abs/math/0501230",
+      "https://arxiv.org/abs/1111.0269"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Féray, Paguyo, and Arenas-Velilla–Arizmendi–Paguyo prove a single crossing-count CLT, not the two-coordinate independent limit.",
+        "The 2006 generating function already determines finite laws but omits the first-order projected covariance calculation and the independent bivariate Gaussian limit.",
+        "The direct new proof identifies the zero mixed first-projection integral, producing a covariance gap of order n^2 versus individual order-n^3 variances."
+      ],
+      "reasoning": "Univariate marginal normality is insufficient to imply joint independence. The exact known joint finite generating function similarly does not supply a stated, analyzed joint limit. The new integral identity proves the needed asymptotic covariance and a fully nondegenerate bivariate Gaussian CLT; both logical ingredients matter. Historical priority remains provisional until independent literature scrutiny.",
+      "searches": [
+        "Joint Gaussian limit for crossing and nesting 2-pattern counts in uniformly random perfect matchings, Hoeffding projection orthogonality",
+        "\"crossings\" \"nestings\" \"asymptotically independent\" \"matchings\" counts",
+        "https://arxiv.org/pdf/1605.03836 Section 6",
+        "https://arxiv.org/pdf/math/0601081 Proposition 3.8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kasraoui–Zeng Proposition 3.8 provides the exact joint generating distribution, hence genuinely broader finite-size coverage.",
+        "Klazar Corollary 1.4 proves pair-count joint swapping symmetry only.",
+        "Baik–Jenkins arXiv:1111.0269 concerns maximal crossing/nesting sizes with different normalization and law."
+      ],
+      "reasoning": "The *full finite law* is not original; extraction of its finite second moments is treated as supporting calculation. The proposed additional statement is specifically the two-dimensional, nondegenerate independent Gaussian limit for total crossing/nesting PAIR COUNTS and its explicit zero leading mixed projection, not a new finite bivariate generating law or maximal-size claim.",
+      "searches": [
+        "\"crossings\" \"nestings\" \"bivariate normal\" chord diagrams",
+        "\"crossings\" \"nestings\" \"asymptotically independent\" \"matchings\" counts",
+        "Uniform random perfect matchings number of crossings and nestings joint asymptotic independence bivariate normal covariance negative 5 over 2(n+3)",
+        "https://arxiv.org/pdf/math/0601081 Proposition 3.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The earlier exact bivariate generating function is an exact database for finite coefficients; it must be credited as such.",
+        "No inspected source states the extracted −5/[2(n+3)] correlation in simplified form or its Gaussian independence consequence.",
+        "No equivalent joint-Gaussian entry was identified in the actual semantic scientific-result queries."
+      ],
+      "reasoning": "The exact finite covariance is not used as a standalone originality argument, because a prior explicit generating function subsumes it in principle. The additional independently Gaussian limiting pair is neither a tabulated joint-law coefficient nor the finite swapping symmetry. Absence from searches alone is not regarded as uniqueness proof.",
+      "searches": [
+        "\"crossings\" \"nestings\" \"covariance\" \"matchings\" \"random\"",
+        "\"crossings\" \"nestings\" \"bivariate normal\" chord diagrams",
+        "Kasraoui Zeng 2006 bivariate generating function crossing nesting covariance CLT",
+        "Random chord diagrams total numbers of crossing chord pairs and nesting chord pairs are asymptotically independent Gaussian after n^(3/2) scaling; exact correlation -5/[2(n+3)]",
+        "https://arxiv.org/pdf/math/0601081 Proposition 3.8"
+      ]
+    },
+    "rationale": "The 2005–2006 primary literature already determines the complete finite bivariate crossing–nesting generating distribution; the finite covariance simplification is a derived evaluation, not a standalone discovery. The 2017 matching moment calculus and 2018/2021/2023 single-crossing CLTs are also credited. The distinct contribution accepted is the explicit independent two-coordinate Gaussian limit at the n^(3/2) scale, established via vanishing first-projection cross covariance, together with a proof not present in the inspected primary statements. Searches checked statement-level equivalents and possible stronger results, not merely titles. General multivariate CLT machinery is credited as standard and is not itself novel.",
+    "residual_risks": [
+      "Kasraoui–Zeng gives an exact bivariate generating series; a separate asymptotic analysis of that known formula might have established the same independent limit but was not found.",
+      "Generic multivariate weighted-dependency or U-statistic limit frameworks may furnish alternate proofs once orthogonality is computed; their existence alone does not state the explicit result.",
+      "Search coverage cannot exclude unindexed, differently phrased, or inaccessible older work; definitive scientific priority requires independent expertise."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRONG PRIOR COVERAGE OF ALL FINITE BIVARIATE DISTRIBUTIONS: the continued fraction determines finite mixed moments in principle. It does not state a Gaussian joint limit or the first-projection independence mechanism. The finite covariance is treated as a derived formula, not independent priority.",
+        "evidence": [
+          "Proposition 3.8 gives the generating function for L_n(p,q)=sum_matching p^{cr} q^{ne}.",
+          "Theorem 1.2 and Corollary 1.4 give swapping symmetry.",
+          "No normal/asymptotic or covariance theorem appears in the inspected contents."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0601081",
+        "material_read": "Original 12-page PDF, Introduction including Theorem 1.2 and Corollaries 1.4–1.5, and Section 3.2 including Proposition 3.8, matching generating function and displayed initial coefficients.",
+        "method": "Read accessible primary PDF text and visually inspected page 3 displaying the crossing–nesting involution.",
+        "title": "Distribution of crossings, nestings and alignments of two edges in matchings and partitions",
+        "trigger": "An exact bivariate generating series could dominate finite covariance calculations and possibly bear on the joint limit."
+      },
+      {
+        "assessment": "Establishes exchange symmetry of crossing–nesting pair-count distributions, not the specified Gaussian joint limit or orthogonal first-projection identity.",
+        "evidence": [
+          "Corollary 1.4 states P(cr=k,ne=l)=P(cr=l,ne=k).",
+          "Section 1 distinguishes counts of pairs from maximal nesting/crossing size."
+        ],
+        "identifier_or_url": "https://iti.mff.cuni.cz/series/2005/251.pdf",
+        "material_read": "Original PDF introduction, Theorem 1.2, Corollaries 1.3–1.4 and discussion of counting distributions.",
+        "method": "Read accessible original PDF parsed text including statements, assumptions and examples.",
+        "title": "On identities concerning the numbers of crossings and nestings of two edges in matchings",
+        "trigger": "Same two edge-pair statistics and joint symmetry on uniform perfect matchings."
+      },
+      {
+        "assessment": "General formula enables mixed-moment calculations and covers marginal variance, but it does not assert the two-coordinate independent Gaussian limit.",
+        "evidence": [
+          "Section 4 contains explicit individual second moments for crossing and nesting counts.",
+          "Theorem 3.1 supplies general product-moment structure."
+        ],
+        "identifier_or_url": "Journal of Combinatorics 8 (2017), 1–27; original primary PDF",
+        "material_read": "Original article PDF sections 1, 3 and 4, including Theorem 3.1 and the explicit marginal second moments.",
+        "method": "Read primary PDF text with accompanying displayed formulas.",
+        "title": "Moments of matching statistics",
+        "trigger": "A general method for moments of matching pattern statistics might subsume the finite formulas."
+      },
+      {
+        "assessment": "Shows crossing-count univariate CLT and a general method permitting multivariate extensions with additional work; no nesting statistic occurs in the inspected text, and no stated joint crossing–nesting limit or explicit orthogonal projection follows without analysis.",
+        "evidence": [
+          "Introduction says the uniform pair-partition example treats crossings only.",
+          "Section 6 derives a crossing CLT; Appendix B estimates its variance."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1605.03836",
+        "material_read": "Primary 57-page PDF abstract, Introduction 1.2.1, Section 6 including Theorem 6.5, and Appendix B.1.",
+        "method": "Read primary PDF relevant statements, hypotheses, crossing application and variance appendix.",
+        "title": "Weighted dependency graphs",
+        "trigger": "General central limit machinery for uniform pair partitions could dominate the joint theorem."
+      },
+      {
+        "assessment": "Provides univariate crossing Gaussian and Poisson number of simple chords, not number of nesting pairs or bivariate independence.",
+        "evidence": [
+          "Theorem 1.1 is a CLT for crossing count alone.",
+          "Theorem 1.2 is Poisson convergence for simple/adjacent chords, distinct from nesting pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.01134v2",
+        "material_read": "Accessible full article text, introduction, statements of Theorems 1.1–1.3, proof sections and further discussion.",
+        "method": "Read lawful full HTML primary text.",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Directly treats Gaussian crossings of uniform chord diagrams."
+      },
+      {
+        "assessment": "Proves Gaussian approximation for crossing count of randomly embedded graphs, including matchings; does not state a Gaussian limit jointly with nesting pair-count or show orthogonal projected kernels.",
+        "evidence": [
+          "arXiv version submitted 2023-08-22.",
+          "Abstract and matching application state univariate crossing-count CLTs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.11570",
+        "material_read": "Accessible original article full HTML text, introduction, model definitions, and relevant random-matching sections and applications.",
+        "method": "Read primary preprint text and verified the arXiv first-public record dated 2023-08-22.",
+        "title": "Central limit theorem for crossings in randomly embedded graphs",
+        "trigger": "Dated 2023 primary motivating CLT for crossing number of random matchings."
+      },
+      {
+        "assessment": "Symmetry of maximal crossing and nesting sizes is not the Gaussian limit for total crossing/nesting PAIRS. Where the result discusses joint symmetry, that finite symmetry is already acknowledged.",
+        "evidence": [
+          "Definitions distinguish k-crossing (set of k mutually crossing arcs) from total crossing pairs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0501230",
+        "material_read": "Primary full-text introduction and definitions of crossing/nesting numbers and maximal crossing/nesting families.",
+        "method": "Read original preprint statements and their definitions.",
+        "title": "Crossings and nestings of matchings and partitions",
+        "trigger": "Plausibly similar title requiring disambiguation of crossing and nesting statistics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf757197-bf3c-4166-b0ed-b24d8b1d44c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Crossing, nesting and alignment counts partition all pairs of chords, so joint dependence is a natural structural question. Both crossing and nesting have order-n³ variance, yet their order-n² negative finite covariance vanishes upon normalization; orthogonality of the leading projections explains a nonobvious independent bivariate Gaussian limit. The complete three-coordinate fluctuation law follows from the conservation identity and gives interpretable covariance geometry. This is more than a routine renaming or isolated finite table calculation.",
+    "status": "PASS"
+  }
+}
