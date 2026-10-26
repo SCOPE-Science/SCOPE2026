@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Concatenation identity (1) is exact for all words. All reachable states fall into three exceptional, one-future-one, or multiple-one residuals; each is explicitly reachable. The suffix \\(0^d1\\) separates deficit indices, and \\(1\\,0^{t-2q}1\\) separates distinct residual parameters sharing a deficit, proving minimality. Arithmetic gives \\(\\sum_{t=1}^k\\lfloor t/2\rfloor=\\lfloor k^2/4\rfloor\\). Separate automaton minimization for \\(1\\le k\\le60\\) and 24,570 direct word-level tests corroborate, but infinite validity rests on proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mansour et al. (2019), Sections 2.2–2.3, construct automata and rational enumerators for general patterns.",
+        "Renard et al. (2024) give Parikh matrix identities and deformations, not automaton minimization."
+      ],
+      "reasoning": "More general *construction* of a finite automaton is not a statement of its smallest state count; an explicit derivation could in principle yield this result, but the inspected primary sources do not provide the specific classification or its sharp count. Risk of a different broad minimization theorem remains.",
+      "searches": [
+        "exact-count versus threshold-count automata for scattered pattern 01: quadratic state complexity with ceil(k/2) correction",
+        "https://arxiv.org/abs/1905.05646",
+        "\"number of occurrences\" \"01\" \"state complexity\" \"scattered\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1905.05646",
+      "https://arxiv.org/abs/1705.08270",
+      "https://arxiv.org/abs/2402.05657",
+      "https://arxiv.org/abs/2402.05838",
+      "published-finding corpus searches for exact-k scattered-01 minimal DFA and alternate terminologies"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mansour et al. (2019), equation (4), compared with exact membership relation; their examples concentrate on r=1 and pattern families.",
+        "Leroy et al. (2017) define binomial coefficients and analyze Pascal arrays; Renard et al. (2024) analyze q-Parikh matrices.",
+        "Renard et al. (2024), arXiv:2402.05838 Section 6.2, minimize a finite-field congruence language, not integer exact-count equality."
+      ],
+      "reasoning": "The literal equality-language state count is not implied by the original enumerative identities alone. The new proof identifies all collapses needed for the exact-count quotient; established binomial identities justify the update rule but not that exact minimization. The relationship to a previously studied occurrence-threshold problem was compared: equality is neither the same language nor the same residual partition.",
+      "searches": [
+        "Minimal deterministic automaton state complexity exact k scattered occurrences of the binary subsequence 01, Myhill Nerode residual counting languages",
+        "https://arxiv.org/abs/1905.05646",
+        "https://arxiv.org/abs/1705.08270",
+        "https://arxiv.org/abs/2402.05657",
+        "https://arxiv.org/abs/2402.05838"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mansour et al. (2019), Section 2.2: their relation distinguishes all counts m<=r, not just membership at m=r.",
+        "This claim classifies equality-language left quotients by exactly one allowed future one versus at least two."
+      ],
+      "reasoning": "A full count-vector continuation congruence can be strictly finer than the minimal recognizer for the exact target: a prefix with deficit smaller than its zero count is already rejecting, while lower-count comparisons may still differ. The two notions are not equivalent merely because both accept exact-count languages.",
+      "searches": [
+        "Minimal deterministic automaton state complexity exact k scattered occurrences of the binary subsequence 01, Myhill Nerode residual counting languages",
+        "the language of binary words containing exactly k occurrences of scattered pattern 01; minimal automaton has floor(k²/4)+ceil(k/2)+3 states",
+        "https://arxiv.org/abs/1905.05646"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-k DFA state-size sequence or quotient table was located in performed literature searches.",
+        "Small cases \\(1\\le k\\le60\\) were recomputed from raw counter transitions by direct minimization."
+      ],
+      "reasoning": "No known-table recomputation was used as proof of originality. Negative search evidence is limited and does not establish uniqueness of the formula.",
+      "searches": [
+        "the language of binary words containing exactly k occurrences of scattered pattern 01; minimal automaton has floor(k²/4)+ceil(k/2)+3 states",
+        "\"exactly\" \"subsequence 01\" \"minimal automaton\" states",
+        "\"number of occurrences\" \"01\" \"state complexity\" \"scattered\""
+      ]
+    },
+    "rationale": "The paper of Mansour, Rastegar, Roitershtein (2019, Section 2.2, equivalence (4)) studies pattern occurrence-count automata under a finer equivalence recording all counts up to r. The present exact-k Myhill–Nerode quotient collapses these finer classes; the inspected article develops enumerators/asymptotics, not the claimed closed minimal-state formula. Other inspected primary articles concern word binomial coefficients, their deformations, and polynomial-congruence languages rather than this exact integer-equality language. published-finding corpus searches found no direct statement, but weak search recall and possible implicit specializations are disclosed.",
+    "residual_risks": [
+      "An equivalent exact-k result might be derived implicitly from a general automaton congruence or unindexed paper.",
+      "Search ranking did not reliably surface the related occurrence-threshold result; therefore search absence is not taken as novelty proof.",
+      "The general prior work supplies a finite automaton method, so incremental derivability should be considered in later independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact-k minimal-state formula: finer all-low-count equivalence for enumeration, not minimal membership quotient",
+        "evidence": [
+          "arXiv:1905.05646 initial public 2019-05-14",
+          "Section 2.2 relation (4), finite automaton definition and Examples 2.3–2.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.05646",
+        "material_read": "Original full accessible arXiv manuscript, introduction, Section 2.2 including formula (4), Lemma 2.1, Definition 2.2, Examples 2.3–2.6, Section 2.3; text search for minimality and section map",
+        "method": "Full-text arXiv HTML plus corresponding original PDF examination",
+        "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+        "trigger": "Direct same-object paper on scattered pattern occurrence counting and finite automata"
+      },
+      {
+        "assessment": "NOT_COVERING exact-k minimal DFA quotient; analyses binomial coefficients and Pascal-array geometry",
+        "evidence": [
+          "arXiv:1705.08270 public 2017-05-23",
+          "Introduction Definition 1 and ensuing array/section theory"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1705.08270",
+        "material_read": "Original arXiv full text introduction/definitions and sections on generalized Pascal arrays and modular counting",
+        "method": "Full-text arXiv HTML and original PDF beginning/section inspection",
+        "title": "Generalized Pascal triangle for binomial coefficients of words",
+        "trigger": "Foundational source for scattered pattern occurrence counts and the word-binomial interpretation"
+      },
+      {
+        "assessment": "NOT_COVERING exact-k DFA state complexity; focuses on deformations, identities and sequences",
+        "evidence": [
+          "arXiv:2402.05657 public 2024-02-08",
+          "Sections 1 and related discussion of deformed counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05657",
+        "material_read": "Original arXiv article introduction, main topics and section text on q-binomial coefficients and Parikh matrices; automata text search",
+        "method": "Full-text arXiv HTML and PDF opening/section inspection",
+        "title": "q-Parikh Matrices and q-deformed binomial coefficients of words",
+        "trigger": "Potential broader Parikh-matrix coverage of scattered-pair count languages"
+      },
+      {
+        "assessment": "NOT_COVERING: finite-field polynomial congruence and permutation automata, not a fixed positive integer scattered-pair count equality language",
+        "evidence": [
+          "arXiv:2402.05838 public 2024-02-08",
+          "Section 6.2 defines L_{01,R,q²+1} modulo a polynomial and a 16-state minimization figure"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05838",
+        "material_read": "Original accessible arXiv HTML including Section 6.2 and Fig. 3 description, identifying the modulus and state type",
+        "method": "Full-text HTML section inspection, following the original arXiv source",
+        "title": "Introducing q-deformed binomial coefficients of words",
+        "trigger": "A relevant figure named a minimal automaton of a language with 01 in its notation, requiring distinction from integer equality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57b8c72a-e562-4ecf-a9c8-441319c4a295",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Recognizers for exactly \\(k\\) scattered occurrences are a natural parametric family of regular counting languages. The result gives a complete explicit quotient and sharp state complexity for all k, including the non-obvious collapse of many distinct prefix count states into one-future-one residuals and a linear correction to the quadratic term. The structural classification is useful as a benchmark for automaton minimization and exact-frequency language construction, without claiming a generic higher-alphabet result.",
+    "status": "PASS"
+  }
+}
