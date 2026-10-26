@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For 2 and 4 and 8 edges, elementary degree and two-row interpolation lemmas give induced exact half. For 16 edges, absence of a star/two-row/degree-subset witness reduces both ordered positive-degree partitions to P or Q; two independent source programs enumerate all 57,786 admissible 0-1 incidence matrices, independently verify attainable count eight, and print matching counts (906,6720,6720,43440). Graphs with arbitrary isolated vertices and other sizes are covered by the mathematical reduction and hypothesis-subclass monotonicity. The upper bound is the \\(2^d\\) leaf count. All computations were replayed from this package’s actual verifier source files, not logs alone.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi et al. Proposition 2.3 proves O(kd log k) for arbitrary Boolean aggregation, without edge-count-specific sharp values. Alon et al. Lemma 4.1 guarantees all induced edge counts at most the size of one nonisolated bipartition side; the remaining P/Q degree cases have sides of size 5 or 6, below target 8."
+      ],
+      "reasoning": "Neither strong general statement implies the 16-edge half splitting in the finite residual degree patterns; they address different parameters.",
+      "searches": [
+        "arxiv:2007.03668v1 Near-tight closure bounds for Littlestone and threshold dimensions",
+        "Alon Krivelevich Sudakov Induced Subgraphs of Prescribed Size Lemma 4.1"
+      ]
+    },
+    "checked_sources": [
+      "Ghazi et al. arXiv:2007.03668v1 (2020), sections 1-2",
+      "Alon--Krivelevich--Sudakov (2003), Induced Subgraphs of Prescribed Size, section 4",
+      "MathOverflow 111684 (2012), question and five visible answers",
+      "Targeted searches of published mathematical findings for bipartite half-edge and Littlestone claims",
+      "An earlier finite theorem on edge-conjunction classes for graphs with at most seven vertices (claim comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 MathOverflow question is open-ended, not an answer. Ghazi et al. general Boolean aggregation closure bound is not sharp enough to force floor log2 m. The earlier seven-vertex census only ranges over graphs with <=7 vertices, whereas the theorem applies to graphs with any finite vertex order."
+      ],
+      "reasoning": "The new implication requires a 16-to-8 splitting lemma. General closures, older graph counts, and a posed problem do not establish that lemma.",
+      "searches": [
+        "published-finding corpus two-variable edge containment hypotheses Littlestone graph 16 edges",
+        "MathOverflow Does every bipartite graph with 512 edges have induced 256 edges",
+        "2020 Ghazi Golowich Kumar Manurangsi proposition 2.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A query U selects precisely the edges induced by U; for a bipartite graph this is a selected-row-and-column submatrix. MathOverflow 111684 explicitly poses the \\(2^k\\)-to-\\(2^{k-1}\\) graph problem for arbitrary k, not the 16-edge case as a proved result."
+      ],
+      "reasoning": "The half-edge statement is equivalent to the 16-edge first-query half split. The full depth-four claim also uses recursive 8/4/2-edge splitting. The older question is a broader question, not a theorem covering the case.",
+      "searches": [
+        "every bipartite graph with 16 edges has vertex induced subgraph with exactly 8 edges",
+        "bipartite adjacency matrix 16 ones row column selected submatrix exactly eight ones",
+        "MathOverflow 111684 2012 question 512 edges 256 induced"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record searches returned mathematically related bipartite graph invariants and rectangular systems but no directly equivalent 16-edge splitting theorem. A previously recorded finite result for all graphs with at most seven vertices classifies different finite ground sets and does not imply an unbounded-vertex bipartite assertion."
+      ],
+      "reasoning": "No inspected table or published result subsumes the bounded-edge theorem, but searches do not establish absolute priority.",
+      "searches": [
+        "published mathematical findings: bipartite graph 16 edges induced subgraph 8 edges",
+        "published mathematical findings: edge-conjunction hypotheses bipartite 31 edges Littlestone dimension",
+        "finite graph edge-conjunction claims through seven vertices"
+      ]
+    },
+    "rationale": "The exact 16-to-8 bipartite induced-edge splitting assertion and its consequence Ldim=floor(log2 |E|) for every bipartite graph with 1..31 edges were compared by implication against directly relevant published general closure work (Ghazi et al., 2020, full arXiv v1 sections 1-2), the bipartite induced-subgraph interpolation lemma (Alon et al., 2003, full PDF section 4), the older 2012 half-edge question and its displayed answers, an earlier finite graph-classification claim, and published-record searches. No inspected result proves the finite 16-edge bipartite statement, although residual historical priority risk remains.",
+    "residual_risks": [
+      "Uninspected older finite combinatorics literature may contain an equivalent 16-edge result.",
+      "The 2012 broader dyadic induced-edge question is not resolved by the present 16-edge case.",
+      "Semantic search coverage is imperfect; nonmatching titles may contain the same finite observation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Proposition 2.3 concerns O(kd log k), not any exact induced-half-edge or 16-edge classification.",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.03668",
+        "material_read": "Full seven-page arXiv text surveyed; introduction and section 2 definitions, Proposition 2.3, proof and main bounds read directly.",
+        "method": "Full-text PDF lines and page-2 visual inspection, with searches for bipartite and conjunction",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "Direct 2020 parent framework for Boolean aggregation and Littlestone dimension"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": "Lemma 4.1 shows attainable edge counts to |A| if all A vertices have positive degrees; residual matrices have at most six positive-degree vertices per side, below eight.",
+        "identifier_or_url": "https://people.math.ethz.ch/~sudakovb/aks-induced.pdf",
+        "material_read": "13-page PDF navigated, section 4 and Lemma 4.1 read with page-7 visual inspection; context and theorem references inspected.",
+        "method": "PDF primary full-text section matching relevant invariant, with screenshot",
+        "title": "Induced Subgraphs of Prescribed Size",
+        "trigger": "Potential dominating result on induced edges"
+      },
+      {
+        "assessment": "OPEN_QUESTION_NOT_PROOF",
+        "evidence": "Question posed November 6, 2012, for general \\(2^k\\) edges; visible replies do not prove 16-to-8.",
+        "identifier_or_url": "https://mathoverflow.net/questions/111684/does-every-bipartite-graph-with-512-edges-have-an-induced-subgraph-with-256-edge",
+        "material_read": "Question, all five displayed answers, and relevant comments read, including counterexample attempts and partial regimes.",
+        "method": "Full accessible discussion page and textual comparison",
+        "title": "Does every bipartite graph with 512 edges have an induced subgraph with 256 edges?",
+        "trigger": "Direct earlier open question on powers-of-two bipartite half-edge splitting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "632d0832-b644-4513-beb0-b737522f5ef3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the first bipartite dyadic split not dispatched by 2/4/8-edge elementary cases, the 16-to-8 theorem closes a natural finite threshold in the historical dyadic induced-subgraph question and determines the entire consequent next optimal online-learning interval 16..31. Unlike arbitrary table recomputation, it combines an all-graphs structural reduction with a complete bounded residual census and a sharp learning-theoretic consequence. No general statement for >=32 is implied.",
+    "status": "PASS"
+  }
+}

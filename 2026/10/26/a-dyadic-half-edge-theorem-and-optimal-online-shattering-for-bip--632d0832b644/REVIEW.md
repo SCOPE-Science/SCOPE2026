@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The endpoint-containment concept system has one distinct hypothesis per edge. A two-row interpolation lemma, integer-partition exhaustion, and a complete check of 57,786 residual binary incidence matrices prove the 16-to-8 induced-edge split. Two separate compiled/interpreted implementations yield matching counts, and the recursive two-branch proof derives the exact Littlestone dimension for every bipartite graph with 1--31 edges. Only the computational finite residue, not arbitrary finite graphs, is exhaustively enumerated.
+
+**Originality: PASS (subject to publication-priority risk).** General Boolean-aggregation Littlestone bounds (Ghazi et al., arXiv:2007.03668, section 2) do not imply exact dyadic saturation for this graph-constrained family. Alon--Krivelevich--Sudakov's 2003 bipartite interpolation lemma only guarantees induced edge counts through the number of positive-degree vertices in one side, leaving the 5- or 6-vertex residual profiles uncovered. MathOverflow question 111684 explicitly poses the wider dyadic-half question but offers no verified proof for the 16-edge case. The earlier seven-vertex graph classification does not cover arbitrarily large bipartite graphs. Existing uninspected publications could still establish the finite case.
+
+**Value: PASS.** The 16-to-8 theorem resolves the first bipartite dyadic split that is not disposed of by elementary 2-, 4-, and 8-edge arguments, and identifies the complete next interval of information-optimal online learning sizes, through 31 edges. The threshold has structural motivation from the dyadic induced-edge problem and is not an arbitrary restricted graph census. The result neither closes the general problem nor extends its exact formula beyond the stated edge range.
+
+Self-review: passed. Independent audit: not yet performed.
