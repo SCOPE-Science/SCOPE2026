@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Derives renewed hitting means for left, right, and either endpoint using ODE Laplace transforms; includes visited-set-preserving inclusion-exclusion. Hyperbolic algebra gives F_c(t), whose derivative numerator P_c(w) has leading coefficient 3-4c^2<0 and constant (c^2-1)^2>0, hence exactly one positive root yielding only an interior maximum. Boundary/midpoint difference factors as (c-1)(2c^2-c-2)/c and proves the unique global transition. P_c(1)=5(c^2-1)^2-1 and P_c(c^2)=1-2c^2 prove local morphology. Standard-library checker passed 7159 deterministic comparisons incl. independent Linn-Lawley formula. No reliance on finite enumeration for theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Linn--Lawley provide broad finite-dimension cover-time asymptotics and the exact all-position confined Brownian mean, but their optimization discussion is with respect to resetting RATE, not site.",
+        "Mendez et al. analyze randomized reset positions for a single target, not complete reflected-interval cover."
+      ],
+      "reasoning": "No published broader result inspected was found to explicitly or immediately classify fixed-rate optimal reset sites for two-endpoint cover with this threshold. The earlier complete mean formula is the strongest prior coverage and is called out rather than ignored.",
+      "searches": [
+        "published-finding corpus: Brownian cover time reset location optimization boundary midpoint phase transition cosh arccosh sqrt 17",
+        "web: \"cover time\" \"reset position\" \"midpoint\" boundaries Brownian Poisson",
+        "arXiv:2406.12154v2 sections 2 and 4.1",
+        "arXiv:2401.01125"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.12154v2 Section 4.1 equation (38), full relevant mathematical passage and PDF image",
+      "arXiv:2605.31207v1 Section III equation (21), PDF image, conclusion",
+      "arXiv:2401.01125 abstract",
+      "published-finding corpus search outputs for three exact stated queries, 35 hits each",
+      "Web searches for reset location/starting point and boundary-versus-center phase transition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Linn--Lawley's equation (38) already determines M_r(x) for all asymmetric intervals, hence the input to the new optimization theorem is prior art.",
+        "Ghosh--Sabhapandit equation (21) studies only x=L/2, with optimal RESET RATE rho about 1.76976, unlike the claimed site SWITCH rate about 0.53708.",
+        "The sign-polynomial P_c(w) and exact all-site argmin/shape crossing were not present in inspected sections."
+      ],
+      "reasoning": "Raw mean formulas and rate optimization are covered. The stronger global design assertion is not simply midpoint specialization or the standard renewal identity: it requires excluding all interior minima, solving exact crossing, and classifying metastable center. Given that general formula implies the optimizer by further analysis, possibility of implicit coverage by other papers remains substantive.",
+      "searches": [
+        "arXiv:2406.12154v2 page 13 equation (38), page 11-14 section 4.1",
+        "arXiv:2605.31207v1 pages 2-6 section III",
+        "web: \"cover times with stochastic resetting\" optimize starting point reflecting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The asymmetric mean formula of Linn--Lawley equation (38) equals the full mean expression (1) after translation and algebra; numerical comparison across 1600+ parameters agrees.",
+        "The 2026 midpoint model fixes both start and reset location at the center."
+      ],
+      "reasoning": "The earlier exact formula fully covers the value function, so that formula is explicitly removed from novelty. The claimed new site-design theorem is a global optimization over all x with unique algebraic crossing and spinodal, not an asserted new mean formula. This is a nontrivial consequence rather than a direct restatement; implicit coverage remains a priority risk.",
+      "searches": [
+        "published-finding corpus: For a reflected Brownian searcher on an interval with Poisson resetting to its starting point, the globally optimal reset/start position for mean cover time jumps discontinuously between a boundary and the midpoint at a critical dimensionless rate.",
+        "web: Brownian interval cover time \"optimal resetting position\" location phase transition",
+        "arXiv:2406.12154v2 section 4.1 eq (38)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus hit 2026/9/17/SCOPE-critical-elephant-cover-time-profile--b2b4f7c61f17 concerns a critical elephant walk, not this reflected reset-site design problem.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-renewal-protocol-optimum-for-first-detection-on-the-fully--1683e0413749 optimizes detection probe timing on a quantum model; no relevant database table observed."
+      ],
+      "reasoning": "No exact corresponding database record or precomputed parameter table emerged in the actual searches; database absence alone is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: cover time search with resetting at variable spatial target, two absorbing endpoints, optimal restart position",
+        "published-finding corpus: For a reflected Brownian searcher on an interval with Poisson resetting to its starting point, the globally optimal reset/start position for mean cover time jumps discontinuously between a boundary and the midpoint at a critical dimensionless rate.",
+        "web: \"cover time\" \"cosh\" \"sqrt 17\" resetting"
+      ]
+    },
+    "rationale": "Not new: the exact asymmetric Brownian mean cover-time formula already follows from Linn--Lawley (2025; equation 38) and midpoint rate optimization is in Ghosh--Sabhapandit (2026). New claim is the complete global reset-site optimizer classification at fixed r, exact threefold transition, and distinct local shape threshold, requiring a continuum derivative sign proof and not stated by closest texts examined. Plausible implicit derivation from existing formula remains a material priority risk.",
+    "residual_risks": [
+      "The main input, exact asymmetric mean as a function of location, was published previously. The optimizer classification may be seen as an implicit consequence and may already appear in unlocated treatments.",
+      "The randomized-reset-position first-passage paper was inspected at abstract level only; it concerns a different target task but broader methodology might apply.",
+      "Novelty search is not a proof of priority, and no independent specialist audit was done."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact mean function for arbitrary reset site is prior; does not state optimal-site jump, exact crossover or midpoint local threshold in inspected passages.",
+        "evidence": [
+          "Section 4.1 constrained search equation (38), page 14",
+          "Section 2 optimization of reset RATE, equation (7)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2406.12154",
+        "material_read": "Section 2 definitions/main results, Sections 3 and 4.1 including equations 27-38, equation 38 on PDF page 14, nearby figure and optimization discussion",
+        "method": "Read arXiv full text passages and PDF page image of equation (38); independent implementation cross-checked",
+        "title": "Cover times with stochastic resetting",
+        "trigger": "Primary exact asymmetric reflected search with resets; strongest prior equivalence"
+      },
+      {
+        "assessment": "Reports fixed midpoint cover time and optimizes reset RATE rho≈1.76976, not reset site; eq (21) is midpoint specialization of prior asymmetric formula.",
+        "evidence": [
+          "PDF p4 equation (21) and (24)",
+          "PDF p6 conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.31207",
+        "material_read": "Introduction, fixed-midpoint model, Section III formulas (18)-(26), conclusion, PDF page 4",
+        "method": "Read arXiv PDF text and equation-page image",
+        "title": "Cover time statistics of one-dimensional Brownian motion under stochastic resetting",
+        "trigger": "2026 motivating paper for fixed midpoint reflected cover with Poisson resetting"
+      },
+      {
+        "assessment": "One target and distributed reset points rather than covering two reflecting boundaries; full text not inspected, residual scope uncertainty.",
+        "evidence": [
+          "Abstract addresses single-target MFPT with distributed reset point"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+        "material_read": "Abstract and bibliographic summary",
+        "method": "Inspected arXiv abstract",
+        "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+        "trigger": "Possible broader optimal reset-position theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58df6685-81e9-4496-ba74-7ea9db6e070f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At fixed physical reset rate, where to reset to minimize complete coverage time is a natural design question in one-dimensional exploration. The theorem gives an all-location global classification and closed algebraic jump threshold, rules out intermediate optima, and proves a separate local threshold at which the central site becomes a metastable design. These are structural and experimental/numerical predictions beyond evaluation of an already known single parameter formula.",
+    "status": "PASS"
+  }
+}
