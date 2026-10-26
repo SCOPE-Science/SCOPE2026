@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The independent uniform-within-color matching coupling proves C_a+C_b <=st C_(a+b). Deletion proves monotone C_m <=st C_(m+1). Conditioning on any isolated chord splits the rest into independent arcs, so its conditional crossing distribution is dominated by the unconditioned one. Summation over all candidate isolated chords gives Cov(I_n,g(C_n))<=0 for any increasing g, with strictness when g strictly increasing. Exact first moments and oriented-arc counting give the covariance sum and a Vandermonde ratio bound gives the asymptotic expansion. The bundled program passed 1037 exact assertions, including full matching enumeration through n=7; infinite claims rely on the written proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flajolet–Noy Theorems 1–3 give marginal component and crossing moments and asymptotic laws; their analyzed generating functions do not state a crossing/isolate Palm ordering.",
+        "Acan–Pittel arXiv:1406.2867v2 analyzes a regime conditioned on total crossings of order n log n; that setting does not imply the uniform-measure all-n isolation-weighted inequality.",
+        "Random-pairing crossing variance formulas apply to crossings alone and do not bound the entire conditional crossing distribution."
+      ],
+      "reasoning": "A theorem for all increasing transforms is stronger than a single negative covariance. Published marginal distributions, fixed-small-crossing enumeration and asymptotic component-limit laws do not by themselves entail finite-sample stochastic order under isolate size bias. The random two-color coupling supplies the missing comparison.",
+      "searches": [
+        "published-finding corpus: Palm distribution of crossings size biased by isolated chords, stochastic dominance random matchings, arbitrary arc cut, chord diagrams",
+        "published-finding corpus: Sum of independent crossing counts of two random matchings stochastically bounded by crossing count of larger uniformly random matching under coloring coupling",
+        "Flajolet-Noy-2000-INRIA-RR3914 Sections 1-2 (full primary PDF) and Acan-Pittel-arXiv-1406.2867v2 introduction/component-size sections",
+        "web: random chord diagram isolated vertices degree distribution Acan 2015 arxiv"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet and Noy, INRIA RR3914, 2000 (primary full text)",
+      "Acan, arXiv:1501.01489v1, 2015 (primary full text)",
+      "Acan and Pittel, arXiv:1406.2867v2, 2014 (primary full text excerpts)",
+      "Paguyo, arXiv:2104.01134v2, 2023 (primary full text excerpts)",
+      "published-finding corpus exact and semantic searches for covariance, Palm bias, isolated chord, crossing, and colored submatchings",
+      "Accessible own ledger claims through generation g000061, duplicate check only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Noy component and crossing statistics use separate generating functions in inspected sections; no joint monotonicity theorem was found.",
+        "Paguyo uses size-bias couplings separately for crossing count and simple-chord count to obtain approximation bounds; these conclusions do not force monotone dependence between all isolated chords and crossing count.",
+        "Own result for mixed crossing–nesting configurations describes a different statistic and does not imply the present isolation-weighted stochastic order."
+      ],
+      "reasoning": "Neither a crossing marginal central limit theorem nor a Poisson limit for isolated/simple chords determines finite joint dependence. The claimed law applies to all nondecreasing observables and its proof needs an explicit submatching deletion coupling. An undiscovered broad bivariate generating-function result is a residual risk rather than evidence of coverage.",
+      "searches": [
+        "published-finding corpus: Uniform random matchings chords crossing nesting higher order pattern count covariances and exact finite-size signs",
+        "published-finding corpus: Random perfect matchings chords, expected crossing number conditional on a noncrossing isolated chord enclosing k chords; splitting at isolated chord.",
+        "Flajolet-Noy-2000-INRIA-RR3914 Section 1 component generating function and Section 2 crossing moments",
+        "Paguyo-arXiv-2104.01134v2 crossing and simple-chord main results and coupling sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan arXiv:1501.01489v1 treats degree and isolation structures, with no matching all-increasing-function covariance asserted in inspected Sections 2-3.",
+        "Paguyo arXiv:2104.01134v2 treats the crossings Gaussian limit and the simple-chord Poisson approximation separately.",
+        "published-finding corpus retrieved endpoint-degree/distance regression in Cayley trees (published research record on negative degree-distance regression in Cayley trees), which has different probability space and statistic."
+      ],
+      "reasoning": "Isolated chords are degree-zero vertices of the chord intersection graph. The relevant equivalent claim is a stochastic comparison of the crossing-count Palm law weighted by isolated vertices, not merely covariance of ordinary crossing and nesting motifs. No inspected statement provides that comparison; the closest positive structural analog concerns random trees and cannot be specialized to chord diagrams.",
+      "searches": [
+        "published-finding corpus: Uniform random chord diagram circle graph, exact covariance between number of crossings (edges) and isolated chords (vertices of degree zero), two-sided split conditional crossing deficit.",
+        "published-finding corpus: Negative covariance stochastic monotone association between total crossings and isolated vertices in uniform random chord intersection graphs, for all increasing test functions.",
+        "web: \"chord diagrams\" \"isolated chords\" \"crossings\" \"covariance\"",
+        "arXiv:1501.01489v1 Section 2-3 and arXiv:2104.01134v2 Sections 1-3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Touchard–Riordan marginal crossing polynomial and Flajolet–Noy crossing moments do not tabulate the joint crossing/isolates Palm ordering.",
+        "Accessible own-claim overlap: Exact opposite covariance signs for crossings and higher-order nestings in random matchings (fa2feb4e-1b4); its second statistic counts higher-order crossing or nesting configurations, not degree-zero chords.",
+        "Current claim includes every n>=2, a stochastic functional inequality and a closed sum; finite direct enumeration here is a consistency check, not a novelty database."
+      ],
+      "reasoning": "Exact small-n coefficients and marginal tables could be used to recompute individual covariance values but cannot cover a stochastic order for every n and every increasing test function. The existing own result does not determine isolates or imply the marked-isolate coupling.",
+      "searches": [
+        "published-finding corpus: Finite size joint moments of isolated chord count and crossings count, correlation negative, asymptotic linear covariance.",
+        "web: \"random chord diagram\" \"isolated chords\" \"number of crossings\" joint",
+        "Flajolet-Noy-2000-INRIA-RR3914 Theorem 3 and Acan-arXiv-1501.01489v1 Section 3",
+        "own ledger 2026-10_week3 p0001_g000061 accessible claims/titles"
+      ]
+    },
+    "rationale": "No observed source or recovered own claim states an isolated-chord Palm stochastic ordering of total crossing count for all finite n and all nondecreasing tests. Existing sources provide separate marginal moments, limit laws, or sparse crossing conditioning, and are not implication-wise stronger. Closest own finding concerns higher-order crossing/nesting motif counts rather than isolated chords. Historical priority remains provisional.",
+    "residual_risks": [
+      "Historical-priority search might miss a general joint crossing/components generating function implying this particular Palm ordering.",
+      "An older thesis on random chord diagrams could contain an equivalent marked-isolation coupling not located in the accessible literature.",
+      "Independent scientific audit has not been performed; finite checks do not establish novelty or the unrestricted proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides marginal laws and component structure, no stated isolate-weighted crossing stochastic order in relevant sections",
+        "evidence": [
+          "Report dated March 4, 2000; Theorem 1 component moments; Theorem 3 crossings moments and asymptotic Gaussian limit (pp. 5-10 of report PDF)."
+        ],
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "Report introduction, component generating functions, Theorems 1-2, crossing Theorem 3 and proof discussion, original 2000 full-text PDF",
+        "method": "Primary PDF text and displayed section inspection",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "Foundational component and crossing distributions may subsume new joint claim"
+      },
+      {
+        "assessment": "Relevant exact model and asymptotic isolation facts but no observed mixed crossing/isolation stochastic order in inspected sections",
+        "evidence": [
+          "arXiv:1501.01489v1, Jan 7, 2015; primary classification 60C05 on page 1; Section 3 Theorem 3.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.01489",
+        "material_read": "Full preprint accessible; abstract, introduction, chord-degree Section 2 and monolithic Section 3 including Theorem 3.2 and Lemma 3.3 inspected",
+        "method": "Primary preprint PDF text and page image inspection",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Exact chord isolation and degrees in the same model"
+      },
+      {
+        "assessment": "Crossing-conditioned sparse regime and giant-component results do not state or imply all-n uniform crossing-count Palm dominance",
+        "evidence": [
+          "arXiv:1406.2867v2 introduction states conditioning on m crossings with m/n log n finite, not uniform all-crossings ordering."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1406.2867",
+        "material_read": "Abstract, introduction, outline and component-size counting excerpts inspected in 42-page primary preprint",
+        "method": "Primary preprint PDF text searches and relevant excerpts",
+        "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+        "trigger": "Possibly dominating crossing-conditioned component theorem"
+      },
+      {
+        "assessment": "Independent marginal approximation theorems do not claim finite stochastic covariance ordering of crossing count weighted by all isolated chords",
+        "evidence": [
+          "arXiv:2104.01134v2 pp. 1-3; Theorem 1.1 crossing-normal error; Theorem 1.2 simple-chord Poisson error."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01134",
+        "material_read": "Abstract, main Theorems 1.1-1.3, crossing size-bias Section 2 and simple-chord Section 3 excerpts inspected",
+        "method": "Primary preprint full-text passages inspected",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "Modern size-bias analysis of crossings and simple chords could dominate joint claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3a36bf6-da89-4c29-8d4f-b98256b7b6a9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The random chord intersection graph has natural edge count C_n and isolate count I_n. A universal negative covariance for every increasing transform of C_n is a distribution-wide joint dependence property beyond marginal laws and much more informative than a scalar covariance. The isolate split creates an exact k-dependent crossing deficit and quantitative n/3-scale covariance, identifying a geometric suppression mechanism and enabling model-specific comparison bounds.",
+    "status": "PASS"
+  }
+}
