@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The statement and proof use the unweighted categorical adjacency rule and canonical Euclidean edge projections. The four orthogonal Laplacian eigenspaces give a unique normalized edge-source potential, and the nine-level coarea computation exhausts the graph's edge-current absolute values for every integer parameter pair. Strict inequalities establishing the level order apply at all boundaries \(a,b\ge3\); the tied-height case has zero gaps and is harmless. The complementary projection norm follows from its exact diagonal and symmetric edge transitivity. A polynomial with manifestly nonnegative coefficients proves the sharp strict global bound; the fixed-factor limit proves sharpness. The accompanying exact checker confirms the coarea identity algebraically and tests 100 cases, including three independently inverted graph Laplacians. These checks do not replace the general proof.
+
+## Originality — PASS, with identified uncertainty
+The closest relevant primary work is Dilworth–Kutzarova–Ostrovskii (2023), especially the sections on Cartesian Hamming graphs and the Hamming cube. Their projections act on edge sets for one-coordinate changes, whereas the present tensor/categorical product uses two-coordinate changes. Their results do not give the displayed formula or the asymmetric current sign regimes. Foster-Greenwood–Uhl (2024) explicitly treats direct products of complete graphs as generalized Hamming graphs, but studies resolving sets and metric dimension, not endpoint cut/cycle projections. The equal-size specialization sits within the strongly regular setting; this is acknowledged rather than claimed independently novel. The unequal-size two-parameter classification and its sharp global bound are not implied by that specialization. Bibliographic search cannot exclude equivalent formulations in less-indexed network theory.
+
+## Mathematical value — PASS
+The invariant is an intrinsic Banach endpoint norm of a geometrically natural graph Hodge decomposition. The classification covers all two-factor categorical products rather than an arbitrarily selected list or finite table, and its unequal-factor correction is a genuine absolute-value sign reversal not seen from eigenvalues alone. The exact unattained universal suprema and contrasting limits with one factor fixed versus both growing give interpretable quantitative structure. The value claim is confined to these exact invariants and does not assume broader consequences.
+
+## Scientific limitations
+Only canonical orthogonal projections on real unweighted two-factor categorical graph products are covered. No minimality among all nonorthogonal projections, complex variants or arbitrary graph products is asserted. The 2023 and 2024 primary sources were compared at relevant theorem/section level; less-indexed electrically equivalent treatments remain a residual originality risk. No independent audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
