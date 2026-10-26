@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact Gaussian-tail identity and uniform remainder |E_L(xi)|<=1/(4L^2) control the oscillatory boundary layer in C^1. Global Fourier Gaussian-minus-tail comparison proves no earlier zeros; one full oscillation produces a sign change beyond the onset. The exceptional double phase is determined by two scalar equations and is proven to be the first limiting tangency. Fixed-cutoff integration by parts yields eventually one simple zero per sine lobe. High-precision quadrature and exact-error-function replay give independent finite checks, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lonke proves Re erf(L+i xi/2)>0 when |xi|<=2L for L>0. Its equation (4) bounds erfc outside, and is relevant to one-sided zero exclusion.",
+        "Ross--Fiddy--Nieto-Vesperinas (1980) online extract illustrates a complex zero plot for a finite Gaussian Fourier transform but does not provide accessible onset asymptotics."
+      ],
+      "reasoning": "The sector theorem is strictly weaker than a matching first positive root and its phase-dependent limiting profile. A tail inequality may imply much of our lower bound, but the upper root existence, phase equation, and exceptional tangency are not its corollaries. The 1980 paper is not cleared in full, so a priority uncertainty is retained.",
+      "searches": [
+        "the real part of complementary error function Lonke 2021",
+        "finite Fourier transform of Gaussian inverse scattering Ross Fiddy Nieto-Vesperinas 1980",
+        "arxiv:2101.07369 full text, Proposition 1 and inequality (4)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2101.07369 (full available text)",
+      "arxiv:1309.0055v2 (inspected sections and search)",
+      "NIST DLMF 7.13(i)-(ii)",
+      "Tallis 1961 Wiley publisher abstract",
+      "Ross--Fiddy--Nieto-Vesperinas 1980 online extracted passages"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Csordas Sections 1,3,4 concern Laguerre inequalities, admissible kernels and general Fourier zeros, without a hard-truncation first-zero scale.",
+        "Tallis 1961 abstract identifies moment-generating functions for truncated normal laws, not a first-zero asymptotic.",
+        "Lonke 2021 provides a quantitative sector inequality relevant to the lower bound but no onset root construction.",
+        "Ross--Fiddy--Nieto-Vesperinas 1980 partial text shows Gaussian finite-transform zeros in inverse scattering, creating residual risk."
+      ],
+      "reasoning": "A known transform formula plus a qualitative zero-free sector does not logically entail the existence of zeros within O(1/L) of the logarithmic onset or the phase-specific first root limit. Generic finite-transform zero plots neither certify nor refute the scale. Since older full text was inaccessible, equivalence to an old result cannot be ruled out conclusively.",
+      "searches": [
+        "Csordas arXiv:1309.0055 full text Fourier zeros positive definite kernels",
+        "Tallis 1961 moment generating truncated multi-normal distribution",
+        "Ross Fiddy Nieto-Vesperinas 1980 inverse scattering finite Fourier transform gaussian zero figures",
+        "arxiv 2101.07369 real part complementary error function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Finite Fourier transform equals sqrt(pi) exp(-xi^2/4) Re erf(L+i xi/2) (exact Gaussian integration).",
+        "Lonke arXiv:2101.07369, Proposition 1 and proof, yields sector nonvanishing of Re erf."
+      ],
+      "reasoning": "Aliases include symmetric doubly truncated normal characteristic functions, real-part complex-error-function nodal curves, and hard-window Gaussian Fourier leakage. The actual novelty claim is first-zero onset beyond the known zero-free sector, not the classical error-function transform identity.",
+      "searches": [
+        "symmetric truncated normal distribution characteristic function first zero large truncation asymptotics",
+        "Fourier transform of e^{-x^2} indicator [-L,L] first zero 2L (log L)/L",
+        "Y. Lonke, arXiv:2101.07369, full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "DLMF 7.13(i)-(ii) tabulates complex zeros of erf and erfc and their asymptotics; neither table concerns real zeros of Re erf on a moving vertical line."
+      ],
+      "reasoning": "The parameter L is a vertical-line real part, and the equation is Re erf(L+i xi/2)=0, not erf(z)=0. Therefore the tabulated complex zero coordinates do not imply the first real Fourier-zero law.",
+      "searches": [
+        "NIST DLMF 7.13 zeros erf erfc tables asymptotic",
+        "truncated Gaussian Fourier transform first zero asymptotic",
+        "DLMF section 7.13 inspected"
+      ]
+    },
+    "rationale": "The strongest directly relevant inspected full text, Lonke (2021), yields a zero-free sector and an error-function bound but does not establish a first-zero upper bound, a logarithmic onset limit, or its phase-dependent first-root classification. DLMF lists zeros of erf and erfc, a different equation. The older Gaussian finite-transform literature remains a genuine historical priority risk and no exhaustive novelty proof is claimed.",
+    "residual_risks": [
+      "Full 1980 inverse-scattering chapter unavailable; it concerns the same finite Gaussian transform and may contain earlier equivalent asymptotics.",
+      "Full Tallis 1961 article unavailable, leaving a historical mathematical-content gap.",
+      "An unindexed first-zero asymptotic in optical signal processing or probability may exist; semantic search is not a uniqueness proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_DOMINATING",
+        "evidence": "Proposition 1 supplies |xi|<=2L real-Fourier nonvanishing via Re erf positivity, but not the first-zero logarithmic upper bound or phase-resolved threshold.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.07369",
+        "material_read": "Full available HTML text, proposition and complete proof including bound (4)",
+        "method": "Read arXiv full HTML text",
+        "title": "The real part of the complementary error function",
+        "trigger": "Same real-part error function and possible zero-free coverage"
+      },
+      {
+        "assessment": "BACKGROUND_NOT_COVERING_CLAIM",
+        "evidence": "Examined topics are positive definite kernels and Laguerre inequalities; no hard-cutoff Gaussian first-positive-zero asymptotic identified.",
+        "identifier_or_url": "https://arxiv.org/html/1309.0055v2",
+        "material_read": "Full accessible HTML document searched for truncation and Gaussian; introduction, zero inequalities and Gaussian examples in Section 3 inspected",
+        "method": "Read arXiv HTML and targeted in-document search",
+        "title": "Fourier transforms of positive definite kernels and the Riemann ξ-Function",
+        "trigger": "Classical framework for real Fourier zeros of positive kernels"
+      },
+      {
+        "assessment": "DIFFERENT_ZERO_EQUATION",
+        "evidence": "Tables cover erf(z)=0 or erfc(z)=0, not Re erf(L+i xi/2)=0.",
+        "identifier_or_url": "https://dlmf.nist.gov/7.13",
+        "material_read": "Subsections (i)-(ii), tables 7.13.1 and 7.13.2, associated expansions",
+        "method": "Read official HTML section",
+        "title": "NIST Digital Library of Mathematical Functions, §7.13",
+        "trigger": "Potential exact zero table or dominating special-function asymptotics"
+      },
+      {
+        "assessment": "INCOMPLETE_INSPECTION_PRIORITY_RISK",
+        "evidence": "Summary states multivariate truncated normal MGF and moments; full formulas and any zero arguments could not be checked.",
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1961.tb00408.x",
+        "material_read": "Publisher metadata, summary/abstract and references only; PDF redirected to abstract and full article unavailable",
+        "method": "Read publisher abstract; attempted publisher PDF retrieval",
+        "title": "The Moment Generating Function of the Truncated Multi-Normal Distribution",
+        "trigger": "Exact same probability distribution and potential transform formulas"
+      },
+      {
+        "assessment": "INCOMPLETE_INSPECTION_PRIORITY_RISK",
+        "evidence": "Existing finite-Gaussian-transform zero illustrations are clear precedent; no complete text was available to exclude the same asymptotic result.",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-81472-3_2",
+        "material_read": "Online public extracted passages and descriptions of figures; full original document not retrievable",
+        "method": "Searched chapter and inspected publicly exposed passages and figure description",
+        "title": "The Inverse Scattering Problem in Structural Determinations",
+        "trigger": "A 1980 chapter depicts complex zeros of the finite Fourier transform of a Gaussian"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9bc85e9-44fb-459d-b71a-37e89618aa4b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp, natural first-real-zero threshold for a hard-windowed Gaussian is essential to distinguishing a practical Gaussian approximation from its nominally zero-free full transform. The logarithmic boundary layer and nontrivial phase-selected microscopic first-root map locate the actual cancellation onset; a unique exceptional quadratic tangency produces a structurally meaningful boundary case. The result goes beyond finite checks and beyond previously known simple sector nonvanishing.",
+    "status": "PASS"
+  }
+}
