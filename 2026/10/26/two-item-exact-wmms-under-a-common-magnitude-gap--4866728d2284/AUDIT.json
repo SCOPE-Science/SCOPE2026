@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the WMMS upper bound from the weighted average of normalized partition values, evaluates the two split partitions when both singleton values are positive, and treats the remaining sign cases separately. In the all-negative case, after relabeling so the first entitlement is at least the second, the exact values are negative the minimum of 2 and the entitlement ratio, and negative the minimum of 1 and twice the reciprocal ratio. No numerical search is used to prove the universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Teh, arXiv:2609.01580v2, Proposition 4.7: a three-item no-exact-WMMS instance exists for every r>1 over the value set consisting of minus one, one, and r.",
+        "Aziz–Chan–Li, arXiv:1906.07602v1, Lemma 3: a two-agent/two-item counterexample exists for unrestricted chore valuations; the singleton magnitudes are not all the same."
+      ],
+      "reasoning": "The result does not contradict the known general two-item chore failure: that example uses unequal negative magnitudes, excluded here. It also does not extend the recent three-item counterexample to a broader domain; it proves the exact lower item-count boundary only for the specified value class.",
+      "searches": [
+        "weighted maximin share WMMS fair allocation mixed manna common negative magnitude arbitrary positive singleton values exact allocation",
+        "weighted maximin share exact allocation two agents two items mixed manna counterexample three items",
+        "two-agent two-item weighted maximin share allocation mixed goods chores exact WMMS"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.01580v1 (first public version dated 2026-09-01); v2 full text inspected for Proposition 4.7.",
+      "arXiv:1906.07602v1 (2019), full text inspected for the two-item chore counterexample.",
+      "arXiv:2608.20033v1 (2026-08-20), abstract inspected only; model is temporal and not a direct comparator.",
+      "A bounded semantic literature search covered exact-claim wording, aliases, two-item/two-agent WMMS, mixed manna, and the three-item counterexample; no WMMS-specific close record was returned."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Teh (2026), arXiv:2609.01580v2, lines 1284-1318: the three-item construction has agent 2's WMMS equal to twice r and agent 1's WMMS positive, so any allocation meeting W2 leaves agent 1 below W1.",
+        "Aziz–Chan–Li (2019), arXiv:1906.07602v1, lines 317-404: the two-item chore example uses unequal negative singleton magnitudes and therefore is not where each singleton value is minus one or at least one."
+      ],
+      "reasoning": "The primary recent paper establishes failure at three items but does not establish existence at two. The older paper prevents any unrestricted two-item claim, yet its counterexample falls outside the present assumptions. The case proof in RESULT.md fills this precise restricted gap; the three-item construction then makes the item count sharp.",
+      "searches": [
+        "arXiv 2609.01580 Weighted Fair Division of Indivisible Mixed Manna Proposition 4.7 two-agent three-item no exact WMMS allocation",
+        "weighted maximin share mixed manna exact allocation two agents arbitrary positive weights negative positive valuations",
+        "arXiv:2609.01580v2 full text, WMMS definition and Proposition 4.7",
+        "arXiv:1906.07602v1 full text, Section 4, Lemma 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A bounded semantic literature search returned unrelated social-choice records and no WMMS-specific exact table; this is evidence of search coverage only, not proof of novelty.",
+        "Teh, arXiv:2609.01580v2, WMMS definition and Proposition 4.7; full text read at the definition and three-item construction.",
+        "Aziz–Chan–Li, arXiv:1906.07602v1, Section 4; full text read for the two-item chore counterexample."
+      ],
+      "reasoning": "The standard WMMS definition is used without changing normalization or entitlement labels. No retrieved record states an equivalent two-item theorem for the common-negative-magnitude, positive-gap class. The exact-match searches are evidence of a bounded search only, not a proof of novelty.",
+      "searches": [
+        "two agents two indivisible items weighted maximin share WMMS exact allocation mixed manna all valuations signs",
+        "two-agent two-item mixed manna weighted maximin share fairness existence arbitrary entitlements additive valuations",
+        "exact weighted maximin share allocation two agents two items valuations -1 positive values at least 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A bounded semantic literature search returned unrelated social-choice records and no WMMS-specific exact table; this is evidence of search coverage only, not proof of novelty.",
+        "The proof quantifies over all positive real entitlement ratios and all singleton values where each singleton value is minus one or at least one, so a finite table is not an applicable proof source."
+      ],
+      "reasoning": "Not applicable as a database/table claim. The included finite script is a reproducibility sanity check only; the universal result is established analytically.",
+      "searches": [
+        "minimal number of items counterexample exact weighted maximin share mixed goods chores two agents three items",
+        "exact weighted maximin share allocation two agents two items valuations -1 positive values at least 1"
+      ]
+    },
+    "rationale": "The claim is a restricted two-item existence theorem and item-minimality corollary for the recent three-item mixed-manna obstruction. The inspected sources do not state this restricted theorem; the older two-item chore counterexample uses valuations outside the claimed domain. Residual risk from unindexed literature is explicit.",
+    "residual_risks": [
+      "A theorem in an unindexed or differently worded source may already imply the restricted two-item statement; semantic search is not a novelty proof.",
+      "The result is limited to exactly two agents and two items, additive valuations, positive entitlements, and singleton values where singleton values are minus one or at least one.",
+      "The 2019 chore counterexample demonstrates that relaxing the valuation restriction can destroy exact WMMS even with two items.",
+      "The finite verification script covers only the finite alphabet consisting of minus one, one, and two and seven rational entitlement ratios; it is not the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the three-item obstruction but not the restricted two-item existence theorem.",
+        "evidence": "The paper computes agent 2's WMMS as twice r and proves agent 1's WMMS is positive, and shows that every allocation meeting agent 2's threshold leaves agent 1 with -1 or 0.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.01580",
+        "material_read": "Yes: arXiv abstract and full text, including the WMMS definition and Proposition 4.7 proof (PDF lines 1284-1318).",
+        "method": "Reconstructed the target WMMS threshold and the allocation obstruction from the explicit entitlement and valuation table.",
+        "title": "Weighted Fair Division of Indivisible Mixed Manna",
+        "trigger": "Primary source states a three-item no-exact-WMMS construction for every r>1 over the same discrete value alphabet."
+      },
+      {
+        "assessment": "Important boundary risk but not covering: its all-chore example uses unequal negative magnitudes, outside the current hypothesis.",
+        "evidence": "The displayed example uses agent 1 values -3/4 and -1/4 and agent 2 values -1/2 and -1/2, rather than values where singleton values are minus one or at least one.",
+        "identifier_or_url": "https://arxiv.org/abs/1906.07602",
+        "material_read": "Yes: full text, WMMS definition and Section 4/Lemma 3 (PDF lines 317-404).",
+        "method": "Compared the actual singleton values and entitlement ratio with the present valuation domain.",
+        "title": "Weighted Maxmin Fair Share Allocation of Indivisible Chores",
+        "trigger": "A prior two-agent/two-item counterexample could appear to dominate any item-minimality claim."
+      },
+      {
+        "assessment": "Not a close coverage candidate: its main object is temporal EF1 and temporal MMS, not static weighted MMS under the present valuation domain.",
+        "evidence": "The abstract specifies irrevocable arrivals and TEF1 after every round; it does not state the static two-item WMMS theorem.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.20033",
+        "material_read": "Abstract and bibliographic page only; full text was not used as evidence.",
+        "method": "Compared the stated temporal fairness objective and round-by-round allocation model with the static two-item WMMS claim.",
+        "title": "Temporal Fair Division of Indivisible Mixed Manna: Tractable Settings",
+        "trigger": "A recent paper on mixed manna and maximin-share terminology appeared in the search results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4866728d-2284-4b29-8d7e-4e3567cd2a21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem proves a sharp minimal-item boundary for a recent three-item counterexample in a motivated fairness problem. It distinguishes a true three-item obstruction from known two-item failures that depend on a broader valuation class; this is a precise structural boundary, not a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
