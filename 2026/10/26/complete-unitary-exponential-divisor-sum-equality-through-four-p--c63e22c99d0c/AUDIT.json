@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The local prime-power formulas give strict opposite inequalities for exponent one versus exponent at least two, leaving precisely p^2 q, p^3 q, and p q r^2 when Omega<=4. For the first two patterns, equality forces p-1|2 and yields only 20 and 45 after checking primality. For p<q both singleton primes and r squared, the equality forces r<p<q, q|r^2+1, p|q+1, and t(k+1)=r-1 with t=(r^2+1)/q and k=(q+1)/p>=2. Then t|gcd(r-1,r^2+1)|2; r=2 is impossible; for odd r, t=2 and r-3|12 force r=7 and q=25, contradiction. This covers all prime values without a size bound. Standard-library exact finite enumeration checks 737448 low-Omega integers through 10^6 and 2262 primes in the necessary-factor reduction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full RESULT.md of public record 59314f8e910e, The first 49 exponent layers of the unitary–exponential divisor-sum equality: strictly n=p^a q",
+        "arXiv:1405.7597, introduction and main theorem sections concern exponential/infinitary divisor-function mean values and extremal orders"
+      ],
+      "reasoning": "The closest two-prime theorem covers p^a q for 2<=a<=49 and therefore implies the p^2 q and p^3 q parts but contains no integers with three distinct prime factors. Asymptotic mean-value or inequality results in the examined sources do not forbid equality in the p q r^2 shape.",
+      "searches": [
+        "unitary exponential divisor sum equality p^a q prime cofactor exponent 2^k",
+        "classification equality sigma star sigma exponential integers with Omega at most four",
+        "Trudgian unitary exponential divisor equality Omega(n) four prime factors p q r^2"
+      ]
+    },
+    "checked_sources": [
+      "Trudgian, arXiv:1312.4615, conclusion and examples",
+      "OEIS A236474, entry and examples",
+      "Minculete 2013, a note about exponential divisors, theorem 2.1",
+      "Lelechenko arXiv:1405.7597, relevant definitions and main results",
+      "Public research record 59314f8e910e, complete RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1312.4615 full introduction, conclusion, example list and posed infinitude question",
+        "Public record 59314f8e910e, entire RESULT.md: theorem restricted to p^a q with one singleton prime",
+        "Minculete, A note about properties of exponential divisors (2013), PDF intro and Theorem 2.1: comparisons involving tau rather than this equality classification"
+      ],
+      "reasoning": "Trudgian gives the problem and examples but no bounded-Omega exclusion. The 2026 two-prime theorem handles at most two distinct prime factors; a result solely on p^a q cannot imply nonexistence for p q r^2. The local prime-power inequalities determine possible exponent patterns but leave the three-prime pattern undetermined, which is resolved by a new modular divisibility argument.",
+      "searches": [
+        "classification of equality between unitary and exponential divisor sums for integers with at most four prime factors counted with multiplicity; no p q r squared solutions; 20 and 45 only",
+        "unitary exponential divisor sums equality one squared prime two primes exponent one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1312.4615 (conclusion, equality examples and open infinitude question)",
+        "OEIS A236474, listed equality terms and comments"
+      ],
+      "reasoning": "An equivalent version is that no p q r^2 with pairwise distinct primes gives equality, together with the elementary two-prime exponent-2 and exponent-3 classifications. None of the inspected sources states this universal three-prime obstruction. Finite tables do not imply it.",
+      "searches": [
+        "\"unitary\" \"exponential\" \"pqr^2\" equality",
+        "\"sigma*\" \"sigma(e)\" \"p q r^2\" equality",
+        "unitary exponential divisor sums equal no numbers with three prime divisors multiplicity pattern (2,1,1)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A236474 explicitly contains 1, 20, 45, 320, 6615 and larger entries but labels later terms as of unknown position",
+        "Trudgian 2013 paper reports exactly five known examples below 10^9, not an all-size exclusion"
+      ],
+      "reasoning": "The OEIS table is a source of known equality examples and normalization, but its known terms and position uncertainty cannot certify an infinite exclusion theorem. The present claim is not an unmentioned extra term or a table recitation: it excludes every high-magnitude potential solution with Omega<=4.",
+      "searches": [
+        "OEIS A236474 unitary exponential equality 20 45 320 6615",
+        "no numbers of form p q r squared sigma star sigma exponential equal"
+      ]
+    },
+    "rationale": "The motivating preprint explicitly asks whether sigma-star equals sigma-exponential infinitely often and lists sparse equality values; its statement is not a complete low-Omega classification. A relevant 2026 two-prime exponent-layer result proves the p^a q cases but does not contain or imply the three-distinct-prime obstruction. OEIS A236474 is a list of known examples, not a covering bound. The Minculete and Lelechenko works inspect related divisor functions without the claimed equality classification. Searches for the p q r^2 obstruction and low-Omega variants found no dominating statement. Residual risk from unlocated equivalent literature is acknowledged.",
+    "residual_risks": [
+      "An equivalent all-size p q r^2 exclusion or Omega<=4 classification may exist in unlocated printed or unpublished literature.",
+      "Search ranking and the finite scope of inspected papers cannot establish global uniqueness; independent expert validation is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the complete low-Omega equality classification",
+        "evidence": "Conclusion reports five examples up to 10^9 and asks if infinitely many equality values exist.",
+        "identifier_or_url": "https://arxiv.org/html/1312.4615",
+        "material_read": "Introduction sections and local formulas; conclusion including both open questions and the known equality examples; references and PDF page cross-check",
+        "method": "Full-text arXiv HTML with PDF screenshot",
+        "title": "The sum of the unitary divisor function",
+        "trigger": "Original public problem concerning equality of the two divisor sums"
+      },
+      {
+        "assessment": "Covers only p^a q and thus not the three-prime p q r^2 shape",
+        "evidence": "Finding quantifies p,q distinct primes and 2<=a<=49; Limitations explicitly restrict to singleton cofactor of two-prime support.",
+        "identifier_or_url": "public record 59314f8e910e",
+        "material_read": "Entire RESULT.md, including Finding, Assumptions, Proof, Relationship to prior work and Limitations",
+        "method": "Fetched public scientific record full-text",
+        "title": "The first 49 exponent layers of the unitary–exponential divisor-sum equality",
+        "trigger": "Closest published exact equality classification"
+      },
+      {
+        "assessment": "A non-exhaustive table of values, not a theorem excluding p q r^2",
+        "evidence": "Entry lists 20 and 45 among several values and says positions of additional known values are unknown.",
+        "identifier_or_url": "https://oeis.org/A236474",
+        "material_read": "Definition, listed terms, comments, links, examples and chronology",
+        "method": "OEIS entry page",
+        "title": "A236474: Numbers whose sum of unitary divisors equals the sum of exponential divisors",
+        "trigger": "Exact-value database of the same equality"
+      },
+      {
+        "assessment": "Main classification is a divisor-count identity; no same unitary/exponential divisor-sum equality theorem in material inspected",
+        "evidence": "Theorem 2.1 solves tau(n)=tau^(e)(n) tau*(n), a different object.",
+        "identifier_or_url": "https://www.naturalspublishing.com/download.asp?ArtcID=2200",
+        "material_read": "Introduction and main Theorem 2.1 with proof on PDF pages 1-2",
+        "method": "Publisher-hosted PDF text and page screenshot",
+        "title": "A note about properties of exponential divisors",
+        "trigger": "Related early comparison inequalities between unitary and exponential divisor functions"
+      },
+      {
+        "assessment": "Not a complete equality classification on bounded prime support",
+        "evidence": "Abstract and sections emphasize mean values, estimates, and infinitary/exponential divisor variants.",
+        "identifier_or_url": "https://arxiv.org/html/1405.7597v2",
+        "material_read": "Introduction, definitions and main theorem sections on E sigma, with contents and references",
+        "method": "Open-access arXiv HTML text",
+        "title": "Exponential and infinitary divisors",
+        "trigger": "Closest 2014 general treatment of exponential-divisor arithmetic functions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c63e22c9-9d0c-4d99-90a7-b6d5d14b2181",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated natural complete classification by Omega, the total prime-factor count, for the published unitary–exponential divisor-sum equality problem. Omega=4 is the first complexity level admitting a nonsquarefree integer with three distinct prime supports; the fresh p q r^2 obstruction is structurally nontrivial and not a renamed two-prime corollary. It determines the complete equality set at that level, with a universal proof independent of numerical cutoffs. It does not claim to resolve the global infinitude question.",
+    "status": "PASS"
+  }
+}
