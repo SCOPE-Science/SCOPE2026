@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For any non-overlapping weight-three code, distinct cyclic rotation orbits are full length n and disjoint, giving n|C| <= binomial(n,3). For the explicit h=ceil(n/3) construction, only prefixes ending at its first or second internal one could meet a suffix (all suffixes end 1). At the first, i_u+j_v >= n-1 precludes a sole terminal one; at the second, the suffix contains all three ones while the prefix contains exactly two. Exact summation over j gives the floor bound in each residue class mod 3, while counting periodic words gives the primitive-necklace transversal. Independent finite brute overlap/orbit comparisons n=4..16 and arithmetic tests n=4..100000 succeeded. No infinite premise relies on those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn 2013/2015 treats n-divides-q and short n=2,3, not all binary n with weight 3.",
+        "Stanovnik–Moškon–Mraz 2024 gives unrestricted optimization and finite q,n data, but no weight-three theorem."
+      ],
+      "reasoning": "Even if unrestricted optimal sizes are known for individual lengths, they do not imply a restricted optimum equal to the cyclic-orbit bound for every length; the candidate supplies a new lower-bound construction and its explicit orbit-coverage property.",
+      "searches": [
+        "cross-bifix-free non-overlapping binary constant weight two codes exact maximum cardinality frame synchronization",
+        "binary cross-bifix-free codes constrained number of ones weight 2 classification",
+        "non-overlapping cross bifix-free codes constant composition weight 3",
+        "arxiv:1303.1026 Construction 2 Theorem 4",
+        "doi:10.1007/s10623-023-01344-z maximum unrestricted codes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.0236 (2012 public version; relevant complete sections examined)",
+      "arxiv:1303.1026 (2013 public version; main constructions/bounds examined)",
+      "doi:10.1007/s10623-023-01344-z (2024 full-text HTML, relevant constructions/results)",
+      "Research record identifier e8e2fd1a9e7a (published 2026-09-20)",
+      "Research record identifier effa1409f1ac (published 2026-09-17)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known cyclic-shift packing gives at most binomial(n,3)/n, but not attainment.",
+        "Existing fixed-prefix/run constructions lack the two-threshold code selection used here; the source statements provide neither the exact weight-three maximum nor the primitive-orbit transversal."
+      ],
+      "reasoning": "The claim includes an all-length matching lower bound and a perfect primitive-orbit representative system; these do not follow from a general cyclic upper bound or any cited unrestricted construction theorem. Some individual small n are subsumed by full-code optima, which is expressly acknowledged.",
+      "searches": [
+        "non-overlapping cross bifix-free codes constant composition weight 3",
+        "exact cross-bifix-free binary constant Hamming weight three maximum floor((n-1)(n-2)/6) cyclic rotation bound",
+        "arxiv:1209.0236 Theorem 3.1",
+        "arxiv:1303.1026 Construction 1 2",
+        "2024 In search of maximum non-overlapping codes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned exact all-length weight-three construction under cross-bifix-free, non-overlapping, mutually uncorrelated or necklace-transversal terminology.",
+        "Reviewed arxiv:1209.0236 and arxiv:1303.1026 and 2024 full text using their definitions of strong cross-bifix-freeness."
+      ],
+      "reasoning": "The candidate is a fixed-composition extremum, equivalently a non-overlapping transversal through every aperiodic weight-three necklace; general comma-free / unrestricted non-overlap codes are different mathematical statements.",
+      "searches": [
+        "exact cross-bifix-free binary constant Hamming weight three maximum floor((n-1)(n-2)/6) cyclic rotation bound",
+        "weight-three non-overlapping codes primitive necklaces representative all aperiodic necklaces optimal",
+        "\"weight three\" \"cross-bifix-free\" codewords",
+        "\"constant-weight\" \"cross-bifix-free\" maximum size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A retrieved research record (identifier e8e2fd1a9e7a) computes unrestricted length-five sizes, not length-variable weight-three sizes.",
+        "Chee et al. 2012 PDF Table I gives unrestricted binary sizes for n up to 16 and is not a constant-composition table."
+      ],
+      "reasoning": "The length-five constrained numerical consequence may be inferred from the known unrestricted length-five maximum, but this small case cannot establish the all-n formula, construction, or primitive-necklace partition.",
+      "searches": [
+        "exact cross-bifix-free binary constant Hamming weight three maximum floor((n-1)(n-2)/6) cyclic rotation bound",
+        "weight-three non-overlapping codes primitive necklaces representative all aperiodic necklaces optimal",
+        "\"constant weight\" \"non-overlapping codes\" binary",
+        "\"weight 3\" \"non-overlapping\" \"code\" binary prefix",
+        "published-finding corpus search q=non-overlapping cross bifix-free codes constant composition weight 3"
+      ]
+    },
+    "rationale": "Directly relevant original arXiv full texts (Chee et al. 2012 and Blackburn 2013) and later unrestricted optimization work were inspected at their definitions, core constructions and theorems; actual published-finding corpus and scholarly searches for fixed-weight, alternative terms and the exact formula did not identify an all-n weight-three theorem. The rotation packing bound alone is not attainment, and small unrestricted exact values do not imply the infinite constrained construction. Residual risk remains from specialized or unindexed literature; no uniqueness or priority certification is asserted.",
+    "residual_risks": [
+      "No claim of exhaustive bibliographic coverage, including older hard-to-index synchronization literature or unpublished weight-specific constructions.",
+      "Exact small-n numerical components may follow from known unrestricted optimum tables, notably length five; the novelty is the all-length constrained attainment and explicit rotation-transversal statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No all-length weight-three constrained optimum or primitive-necklace transversal identified; construction fixes a long zero prefix and forbids subsequent long zero runs, unlike the two-index region here.",
+        "evidence": [
+          "arxiv:1209.0236, sections 2–4 and Table I; its general code cardinality estimates do not imply constant-weight optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.0236",
+        "material_read": "Abstract and introduction, definitions, construction and proof in section 3, finite cardinality comparison table, and asymptotic claim in section 4.",
+        "method": "Opened full-text open-access arXiv PDF and examined its relevant passages and page images.",
+        "title": "Cross-Bifix-Free Codes Within a Constant Factor of Optimality",
+        "trigger": "Foundational original cross-bifix-free construction from 2012, prior to cutoff."
+      },
+      {
+        "assessment": "Addresses general q-ary code size and exact n=2,3 or n-divides-q cases. It does not impose Hamming weight three or give all-length constrained cardinality; its cyclic packing principle alone is only an upper bound.",
+        "evidence": [
+          "arxiv:1303.1026, Construction 1, Construction 2, Theorems 4, 6, 7."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1303.1026",
+        "material_read": "Introduction, upper bounds, Section 3 constructions 1/2 and Theorem 4, and Section 4 exact small-blocklength results; searched full textual PDF for weight and necklace.",
+        "method": "Opened full-text arXiv PDF; examined mathematical statements, hypotheses and page images, and searched within full document.",
+        "title": "Non-overlapping codes",
+        "trigger": "Core general constructions and bounds that could subsume the candidate."
+      },
+      {
+        "assessment": "Unrestricted code cardinalities and numerical optima do not determine a sharp weight-three restriction for all blocklengths; no explicit statement of the candidate formula found.",
+        "evidence": [
+          "DOI:10.1007/s10623-023-01344-z, sections 1–2, 4–6."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10623-023-01344-z",
+        "material_read": "Introduction, definitions, construction review, exact-results scope, optimization discussion and conclusions; full-text search for fixed weight and necklace.",
+        "method": "Read accessible publisher full-text HTML, inspected named constructions and classifications.",
+        "title": "In search of maximum non-overlapping codes",
+        "trigger": "Recent OA full text optimizes general non-overlapping codes and could dominate constrained case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f7e9b76-6ee0-4858-9ef7-cc678dcab8e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Non-overlapping codes support unambiguous synchronization, and fixing Hamming weight models a strict pulse/composition budget. The result solves an exact maximum-cardinality problem for every blocklength, attaining a universal cyclic-volume bound even when nonprimitive necklaces exist. Its constructive perfect transversal for every primitive weight-three necklace exposes a structural saturation phenomenon, stronger than enumeration of finitely many cases and not a textbook substitution of unrestricted code size.",
+    "status": "PASS"
+  }
+}
