@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "C PASS. The Petersen graph is represented canonically as KG(5,2), with 10 vertices, 15 undirected edges and exactly 2^15=32768 complete bit-mask orientations. The packaged verifier checks all masks with Kahn peeling and a separate depth-first cycle detector, giving 16680 acyclic states (independently agreeing with the published chromatic polynomial at -1). It generates precisely the legal source/sink single-vertex flips, verifies acyclicity and adjacency reversal of all edges, then enumerates every click component. A BFS rooted at EVERY one of 16680 states visits its entire component and gives all pair distances. Independently for each reachable ordered pair, the potential-median formula of the published general theorem reproduces the BFS distance. The component size histogram sums to all 16680 states; the pair histogram sums to the exact component binomial sum 235080. All 120 induced S5 automorphisms are constructed and applied to component IDs; their nine orbits are exhaustively enumerated. The separate known 168 S5 orbits on individual orientations and 704 orientations with specified unique source are independently checked. The reversal claim is verified by flipping all 15 bits for representative orientations. These are complete finite computations, not extrapolations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aichholzer et al., arXiv:1902.06103 §5 and Theorem 10, prove constructive monotone flip paths for acyclic c-orientations with a chosen fixed root; no Petersen table appears in text search.",
+        "Published graph-flex geodesic result (2026) proves a general component criterion and median-potential formula for acyclic orientations; its inspected proof does not present a Petersen enumeration, component sizes or symmetry-group census.",
+        "Petersen-specific click diameters 5 and 6 were computed by exhaustive BFS and independently matched by potential distances for every reachable ordered pair."
+      ],
+      "reasoning": "The general theorems subsume the *availability of a method* for determining reachability and distances on this class of orientation graphs; a claim that such a formula is new would be covered, and is not made. The exact finite enumerator, 704-component partition by size and diameter, nine S5-orbits and exceptional reversal pairing are not supplied by those theorems without additional Petersen-specific exhaustive work.",
+      "searches": [
+        "acyclic orientation source sink flip graph Petersen graph connected components and diameters",
+        "source-to-sink equivalences graphs general geodesic median potential",
+        "Aichholzer Cardinal Huynh Knauer Mütze Steiner Vogtenhuber vertex flip orientations Theorem 10",
+        "published source: A complete cycle-anchor invariant and geodesic formula for graph flexes, RESULT.md"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0711.1140, November 2007, original click-equivalence and kappa theorem",
+      "Macauley & Mortveit, EJC 18 (2011) #P197, doi:10.37236/684",
+      "Cameron, Orbital combinatorics slides, April 2015, Petersen orientations",
+      "arxiv:1902.06103, vertex-flip distances",
+      "Published mathematical research: A complete cycle-anchor invariant and geodesic formula for graph flexes (2026)",
+      "SageMath graph-theory documentation, Petersen Tutte polynomial"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Macauley–Mortveit (2007), §4, gives global kappa formula but no example of Petersen component geometry (full document text searched).",
+        "Macauley–Mortveit (2011), relevant theorem and invariant prove general equivalence-class structure; no Petersen graph occurrence was found in document text.",
+        "Aichholzer et al. (2019) and the published 2026 flex geodesic result provide broad distance technology, but neither computes the component-size or S5-action statistics here.",
+        "The full finite computation in verify_click_petersen.py explicitly checks all 32768 masks, all 16680 reachable-state BFS roots, and all 120 S5 automorphisms; thus the refined claim does not rest on a mere failed title search."
+      ],
+      "reasoning": "Prior formulas *permit* computation of some quantities but do not state nor by mere parameter substitution yield the entire component-size and automorphism-orbit census. The refined result is not the known number 704, nor the known number 168 of orientation orbits. No found source logically implies the nine orbit types without a new graph-specific enumeration. Residual unindexed-table risk is acknowledged.",
+      "searches": [
+        "Petersen graph source sink clicking orientation equivalence classes 704 diameter 6",
+        "Petersen acyclic orientations source sink flip graph component symmetry orbit reversal",
+        "arxiv:0711.1140 full text Petersen diameter class size",
+        "EJC 18 P197 full text Petersen diameter",
+        "Petersen graph click graph nine automorphism orbits"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Macauley–Mortveit (arXiv:0711.1140), pp.2 and 8, identify source-to-sink click-equivalence with Coxeter-element conjugation and classes counted by Tutte T(1,0).",
+        "Macauley–Mortveit (EJC 18 P197, 2011), §§1–3, classify equivalence with a combinatorial invariant in general; the inspected full-text search has no Petersen-specific instance.",
+        "The new result is an explicit labeled component *distribution* and its full S5 symmetry refinement, not a new notion of equivalence."
+      ],
+      "reasoning": "These formulations represent the same equivalence classes. Their general equivalence and counting theory is prior art. Neither their class-count theorem nor their abstract invariant includes the stated eight size strata, nine component-symmetry orbits, global arrow-reversal split or componentwise exact diameters for the Petersen graph.",
+      "searches": [
+        "source-to-sink clicks acyclic orientations Petersen graph click equivalence orbit sizes",
+        "Petersen graph acyclic orientations Coxeter element conjugacy classes Tutte T(1,0)",
+        "toric posets Petersen graph orbit size stratification source-to-sink conversion",
+        "arxiv:0711.1140 pp.2,7-8 and arxiv:2011 EJC P197 text search Petersen, diameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sage graph-theory Tutte-polynomial documentation displays the complete Petersen Tutte polynomial. Its terms without y sum to 704 at (1,0).",
+        "P. J. Cameron, Orbital combinatorics (April 2015), slides 14–15, gives 16,680 acyclic Petersen orientations and 168 orbits on individual orientations under S5.",
+        "Published 2007 and 2011 click-equivalence papers give kappa(G)=T_G(1,0), hence 704 classes is implied by known Petersen Tutte data.",
+        "Searches for the exact eight size values and click-component graph metrics did not locate a published table of the stated distribution."
+      ],
+      "reasoning": "The 704 class count, 16680 state count, and 168 raw-orientation orbit count are known or immediately implied, and are used only as independent checks. The claimed nine orbits are on components, unlike the known 168 orbits on individual orientations. Neither a Tutte-polynomial coefficient table nor raw-orientation orbit count determines class sizes, diameters or the reversal-twinned orbit types.",
+      "searches": [
+        "Petersen graph Tutte polynomial T(1,0) 704",
+        "Petersen graph acyclic orientations 16680 704",
+        "Petersen source-to-sink 21 28 38 50 66 component sizes",
+        "Petersen acyclic orientations 168 isomorphism classes Cameron 2015"
+      ]
+    },
+    "rationale": "O PASS at best knowledge for the refined finite claim, with residual unindexed-census risk. The underlying general click-equivalence count, its Coxeter connection, Petersen 16680 orientations, Petersen 704 equivalence classes, and generic vertex-flip median distance formula are already covered and explicitly excluded from novelty. The complete size-by-diameter distribution, nine Petersen automorphism-orbits on *click components*, and the pair of size-21 automorphism-inequivalent classes exchanged by global arrow reversal are different mathematical data. Full material comparisons were made with relevant Macauley–Mortveit 2007 and 2011 texts, Cameron's 2015 Petersen counts, Aichholzer et al. 2019, the published graph-flex general theorem, and the explicit Petersen Tutte polynomial. published-finding corpus and literature searches did not identify an equivalent numerical or symmetry census. This is not a claim that failed searches prove uniqueness.",
+    "residual_risks": [
+      "The exact finite census could exist in unindexed old theses, code attachments, or unpublished tables; no search proves novelty.",
+      "General abstract click-class invariants and exact pairwise flip formulas are prior work; any claim of a new general algorithm would be covered.",
+      "All presented evidence is self-review analysis, not independent peer verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the general class count kappa(G)=T_G(1,0) and click equivalence; NOT the Petersen component metrics or nine S5 component-orbit types.",
+        "evidence": "Theorem 1, Proposition 11 and §4; no Petersen, class-size or diameter hit in the nine-page full-text index.",
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1140",
+        "material_read": "Full nine-page PDF text located; pp.1–3 and 7–9 (definitions, Theorem 1, Proposition 11, cycle signatures, §4), and document-wide text search for Petersen, diameter and class size.",
+        "method": "Primary lawful arXiv PDF text and page-image inspection.",
+        "title": "On Enumeration of Conjugacy Classes of Coxeter Elements",
+        "trigger": "Defining paper for click-equivalence and Tutte evaluation."
+      },
+      {
+        "assessment": "COVERS abstract invariants and conjugacy correspondence; no explicit Petersen class-size or diameter census.",
+        "evidence": "PDF pp.1–4 definitions and statements, no Petersen/diameter in full-text search.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v18i1p197/pdf/",
+        "material_read": "Eighteen-page primary PDF: introduction, abstract, definition of admissible sequences and class invariant, the class-count theorem, full-text queries for Petersen and diameter.",
+        "method": "Lawful journal open PDF with page-image and text inspection.",
+        "title": "Posets from Admissible Coxeter Sequences",
+        "trigger": "Same class equivalence, stronger invariant and possible near-matching coverage."
+      },
+      {
+        "assessment": "COVERS 16680 acyclic orientations and 168 ordinary orientation S5 orbits; distinct from nine *click-component* orbits.",
+        "evidence": "Pages 14–15 explicitly give 16680 and 168. No source/sink click classification provided.",
+        "identifier_or_url": "https://cameroncounts.github.io/web/talks/15/pcc.pdf",
+        "material_read": "April 2015 conference slide deck, specifically pages 11–16 concerning Petersen chromatic and acyclic orientation orbits; full-text click query.",
+        "method": "Open PDF text and page images (pp.14 and 15).",
+        "title": "Orbital combinatorics",
+        "trigger": "Potential direct Petersen acyclic orientation orbit table."
+      },
+      {
+        "assessment": "COVERS general monotone flip paths, not the Petersen class size, automorphism orbits or diameter table.",
+        "evidence": "Theorem 10 in PDF p.15; no occurrence of Petersen in full text.",
+        "identifier_or_url": "https://arxiv.org/pdf/1902.06103",
+        "material_read": "Twenty-two-page arXiv text, introductory definitions and §5/Theorem 10 with proof, document search for Petersen.",
+        "method": "ArXiv full-text PDF and page-image inspection.",
+        "title": "Flip distances between graph orientations",
+        "trigger": "General distance algorithm for orientations by vertex flips."
+      },
+      {
+        "assessment": "COVERS general criterion and exact pair-distance formula; does not enumerate Petersen components, their nine S5 orbit types or reversal pairing. The packaged verifier checks its acyclic median formula pairwise.",
+        "evidence": "Finding and Proof sections on potential ℓ_1 median distance for acyclic orientations; no Petersen-specific census.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-complete-cycle-anchor-invariant-and-geodesic-formula-for-graph--adc90e8a9935",
+        "material_read": "Complete public RESULT.md, including exact median-potential distance formula, complete proof, prior-work comparison and limitations.",
+        "method": "Read published Markdown source in public mathematical research repository.",
+        "title": "A complete cycle-anchor invariant and geodesic formula for graph flexes",
+        "trigger": "Very relevant general stronger metric theorem found in mathematical record search."
+      },
+      {
+        "assessment": "COVERS total 704 click classes by known kappa=T(1,0); does not determine the refined claim.",
+        "evidence": "Coefficient sum of all pure powers of x equals 704.",
+        "identifier_or_url": "https://doc-gitlab.sagemath.org/html/en/reference/graphs/sage/graphs/tutte_polynomial.html",
+        "material_read": "Displayed complete Petersen Tutte polynomial and evaluation examples.",
+        "method": "Read public documentation webpage.",
+        "title": "Tutte polynomial graph theory documentation",
+        "trigger": "Exact database or polynomial table implying total component count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51913061-66b5-48ae-a2c8-76132c9f4a26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "V PASS. The graph is the canonical nonbipartite cubic Petersen graph; source/sink conversions are a long-studied natural equivalence of acyclic orientations, with direct connections to Coxeter conjugacy and toric posets. The Tutte polynomial counts classes but loses all internal metric and symmetry information. The exact component-size/diameter census and complete S5 orbit decomposition recover previously unspecified geometric and representation data; especially, two twenty-one-state component families are indistinguishable by size, degree and distance statistics but are inequivalent under Aut(P) and are exchanged by global reversal. This is a natural finite exact classification of a motivated object, not an arbitrary slice or trivial restatement of a known coefficient.",
+    "status": "PASS"
+  }
+}
