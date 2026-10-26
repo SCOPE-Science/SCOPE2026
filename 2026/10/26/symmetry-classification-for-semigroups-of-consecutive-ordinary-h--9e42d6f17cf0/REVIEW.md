@@ -1,0 +1,15 @@
+# Research assessment: consecutive ordinary hexagonal semigroups
+
+## Correctness
+**PASS.** The three pairwise gcd identities follow by factoring consecutive hexagonal numbers. The interval inequality shows that any gluing at index \(n\ge122\) would need exactly \(d\) reduced generators and hence an impossible fractional interpolation; its arithmetic condition \(8n+6\mid d\) contradicts the explicit gcd bound. For the remaining indices, the gcd formulas and the inequality \(a\le d(c-a)\) leave twenty-four concrete candidate pair/index combinations. Each has an explicit modular-inverse residue certificate; only six indices admit gluings or a redundant generator. The ordinary published three-generator symmetry criterion yields the classification. The standalone checker also independently computes the genus and Frobenius number by Apéry shortest paths for every \(2\le n\le121\), corroborating every boundary and exceptional case.
+
+## Originality
+**PASS, with residual literature risk.** OEIS A069758 (Sapko, 2002) gives the Frobenius sequence and initial values without classifying symmetry; Fel (arXiv:0803.1606) gives the general gluing characterization, not the specialized hexagonal index list. The exact list, the index-18 exception, the bounded reduction to twenty-four arithmetic cases, and the accompanying genus values do not follow as stated from the inspected sources without new computations and bounding arguments. Literature searches for ordinary consecutive hexagonal numerical-semigroup symmetry and aliases found no directly identical result. Research on centered star/polygonal triples addresses different generating numbers. A separately known finite-cutoff principle for polygonal triples is conceptually related but does not establish this exact classification. The residual risk is an unlocated equivalent calculation or stronger published specialization; the absence of indexed results is not a uniqueness proof.
+
+## Mathematical value
+**PASS.** Symmetry is a natural structural invariant of numerical semigroups because it exactly characterizes equality \(2g=F+1\) and, for three minimal generators, the complete-intersection case. The ordinary hexagonal Frobenius sequence has been tabulated since 2002 without this exact symmetry profile. The six-index classification closes the entire infinite family, explains why a late exception occurs at \(n=18\), and quantitatively strengthens a mere finite-possibilities bound to a sharp last exceptional index. This is an exact natural classification, not a renaming, an arbitrary slice, or a recomputation of the published Frobenius table.
+
+## Limits
+The published gluing criterion is used as an input; the contribution is its exact specialization. The theorem does not treat centered hexagonal numbers or different polygonal orders. The code checks a finite certificate and independent invariants; the universal exclusion uses the analytical inequality. Equivalent work may exist in unindexed literature. No independent mathematical audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
