@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The proof derives E1'(x)=-e^{-x}/x, proves h'(x)=h(x)(h(x)/x-1)>0 from E1(x)<e^{-x}/x, obtains d log R/d log x=h(x)-h(x/c)>0, establishes the endpoint range (1,∞), and computes the inverse relative condition number and its late-time asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zech et al. (2016) treat heterogeneous transmissivity and multiple spatial observations, with reliability depending on observation placement; they do not state this homogeneous ratio condition number."
+      ],
+      "reasoning": "The heterogeneous inverse-estimation framework is broader in parameter count and physical complexity, but it does not imply the exact one-dimensional derivative identity or its small-x asymptotic. The claim is intentionally restricted to the homogeneous Theis submodel.",
+      "searches": [
+        "groundwater Theis model structural identifiability diffusivity transmissivity two time observations exact uniqueness",
+        "",
+        ""
+      ]
+    },
+    "checked_sources": [
+      "Theis (1935), DOI 10.1029/TR016i002p00519, full text inspected",
+      "Zech et al. (2016), DOI 10.1002/2015WR018509, relevant full-text sections inspected",
+      "published-finding corpus semantic search: actual Theis/E1 ratio and parameter-identifiability queries listed above"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theis (1935) explicitly covers theoretical sufficiency of two observations and warns about heterogeneity and delayed drainage. Zech et al. (2016) cover inverse estimation in heterogeneous fields and observation-placement effects. Neither inspected text states κ_rel=1/[h(x)-h(x/c)] or κ_rel~log(c)/(R-1)^2."
+      ],
+      "reasoning": "Prior work implies the model equation and theoretical identifiability, but not the exact relative conditioning law as stated in the inspected material. The new claim is limited to this quantitative conditioning refinement; no absolute novelty guarantee is made.",
+      "searches": [
+        "",
+        "",
+        "",
+        "",
+        "Theis well function E1 ratio E1(x/c)/E1(x) strict monotonicity parameter identification from two times",
+        "groundwater Theis model structural identifiability diffusivity transmissivity two time observations exact uniqueness",
+        "ratio of exponential integral well functions monotonic Theis drawdown parameter estimation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theis (1935) gives s(t)=Q/(4πT) E1(r²S/(4Tt)) and states that two observations theoretically suffice; the ratio reduction R(x)=E1(x/c)/E1(x) follows algebraically.",
+        "published-finding corpus exact-ratio searches returned no Theis/E1 condition-number result; closest results were unrelated special-function or model-identifiability findings."
+      ],
+      "reasoning": "The ratio formulation is equivalent to the classic Theis two-time inverse map, so structural identifiability is prior-covered. The specific relative condition-number identity is an additional differential property of that map, not a claim of a new drawdown model.",
+      "searches": [
+        "Theis well function E1 ratio E1(x/c)/E1(x) strict monotonicity parameter identification from two times",
+        "groundwater Theis model structural identifiability diffusivity transmissivity two time observations exact uniqueness",
+        "ratio of exponential integral well functions monotonic Theis drawdown parameter estimation",
+        "",
+        ""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search result IDs: 2026/10/11/SCOPE-second-order-small-parameter-law-for-the-koumandos-ruscheweyh-cr--b8cdb0e0d1d9; 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e; 2026/10/11/SCOPE-stationary-marginal-identifiability-of-both-parameters-in-the-ri--0978127eead6; 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739."
+      ],
+      "reasoning": "published-finding corpus's semantic search index was queried with the actual Theis/E1 ratio, structural-identifiability, and monotonicity formulations. The closest returned records are unrelated; this is useful overlap evidence but not a proof of novelty.",
+      "searches": [
+        "Theis well function E1 ratio E1(x/c)/E1(x) strict monotonicity parameter identification from two times",
+        "groundwater Theis model structural identifiability diffusivity transmissivity two time observations exact uniqueness",
+        "ratio of exponential integral well functions monotonic Theis drawdown parameter estimation",
+        "MSC 86A15 earthquake aftershock Omori law exact mathematical threshold finite observation window",
+        "MSC 86A10 groundwater well drawdown exact parameter identifiability theorem",
+        "MSC 86A20 atmospheric chemistry deposition mathematical formula exact threshold"
+      ]
+    },
+    "rationale": "Theis (1935) covers the underlying model and theoretical two-observation sufficiency, but the inspected text does not state the exact condition-number identity or its asymptotic in terms of R-1. Zech et al. (2016) address heterogeneous inverse estimation and spatial sampling, not this one-dimensional homogeneous ratio sensitivity. Residual risk from other hydrologic sensitivity analyses remains explicit.",
+    "residual_risks": [
+      "Other groundwater inverse-problem papers may derive equivalent sensitivity or conditioning statements not found in the bounded search.",
+      "Theis's theoretical two-observation sufficiency is prior art; the claim must remain limited to the exact condition-number law.",
+      "Field data may violate homogeneous-aquifer, constant-rate, infinite-domain, and exact-observation assumptions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the model and theoretical two-observation sufficiency, but the inspected text does not state the relative condition-number identity or the late-time quadratic divergence in the ratio gap.",
+        "evidence": [
+          "Theis (1935), DOI 10.1029/TR016i002p00519; USGS-hosted full text, especially pp. 2–3 and 6–7."
+        ],
+        "identifier_or_url": "https://water.usgs.gov/ogw/pubs/Theis-1935.pdf",
+        "material_read": "Full accessible PDF: derivation of the exponential-integral drawdown formula (PDF pp. 2–3), assumptions and model scope (PDF p. 4), and discussion that two observations theoretically suffice alongside practical caveats (PDF pp. 6–7).",
+        "method": "Compared the source's equation and identifiability statement against the exact ratio derivative and condition-number claim.",
+        "title": "The relation between the lowering of the piezometric surface and the rate and duration of discharge of a well using ground-water storage",
+        "trigger": "Primary source for the Theis drawdown law and the classical two-observation inverse problem."
+      },
+      {
+        "assessment": "Relevant practical context but does not cover the same homogeneous model reduction or exact relative condition-number formula; it estimates additional heterogeneity parameters using multiple spatial locations.",
+        "evidence": [
+          "Zech et al. (2016), Water Resources Research 52, 6156–6170, DOI 10.1002/2015WR018509."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/2015WR018509",
+        "material_read": "Accessible full-text page: abstract, introduction, inverse-parameter-estimation section 3.2, sampling strategy section 3.3, and conclusions.",
+        "method": "Compared the studied heterogeneous-transmissivity inverse problem and reported sensitivity to measurement location against the homogeneous single-radius two-time ratio map.",
+        "title": "Extending Theis’ solution: Using transient pumping tests to estimate parameters of aquifer heterogeneity",
+        "trigger": "Highly relevant inverse-estimation study extending the Theis model and discussing measurement placement and reliability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b9fde66f-e6c0-429f-b71c-b05049c0788d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact asymptotic κ_rel~log(c)/(R−1)^2 quantifies how the classical two-observation inverse becomes unstable as the drawdown ratio approaches one. This supplies a specific, model-based reason to avoid treating theoretical identifiability as practical reliability and gives a direct warning about late-time observation pairs.",
+    "status": "PASS"
+  }
+}
