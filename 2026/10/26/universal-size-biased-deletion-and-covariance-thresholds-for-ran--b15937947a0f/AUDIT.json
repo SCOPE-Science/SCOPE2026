@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "A connected marked component of order s>=r forces every crossing hyperedge absent but leaves all hyperedges in the complement independent. Because the marked component contains no isolates, its weighted Palm isolate law is exactly I_(n-s). Direct counting of ordered isolated tuples proves all mixed factorial moments, and the covariance follows by subtracting n q^binom(n-1,r-1). Factoring a positive multiplier makes the crossover unique and strict; the log quotient is strictly increasing in s while the binomial-increment mean is nonincreasing. The asymptotic expansions use explicit binomial coefficients and bounded s. The included executable checker independently verifies 44 edge-count/component-size strata in 69,872 enumerated configurations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Last, Nestmann and Schulte, arXiv:1808.01203, Sections 1–3: component-count covariance in a Poisson-vertex random connection model; the authors explicitly distinguish it from fixed-n Erdős–Rényi graphs.",
+        "De Ambroggio and Roberts, arXiv:2101.05358, Theorem 1.1 and Sections 3–4: near-critical tails obtained by ballot and exploration tools.",
+        "Cooley et al., arXiv:1810.08107, Theorem 1.3 and Sections 2–4: maximal high-order component sizes and hypertree bounds."
+      ],
+      "reasoning": "The Poisson-vertex results are not directly a theorem on a fixed set of n vertices and independent r-sets; exploration tail bounds do not imply a full weighted isolate Palm distribution. Standard branching thresholds support scale interpretation but do not imply the exact finite covariance thresholds.",
+      "searches": [
+        "Random hypergraph component-count Palm size bias isolates expectation isolated vertices giant component connectivity threshold",
+        "Strictly increasing covariance-zero parameter p_s for isolates versus s-component counts in binomial r-uniform random hypergraph, interpolates giant component branching threshold and connectivity threshold",
+        "\"covariance matrix\" \"tree components\" random graph Janson",
+        "random hypergraph component counts joint central limit theorem covariance isolated vertices hypertrees"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2101.05358",
+      "arxiv:1810.08107",
+      "arxiv:1808.01203",
+      "DOI:10.1002/rsa.3240010306 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pittel (1990) gives limiting covariance functions for random-graph tree census and therefore covers or strongly implies the ordinary-graph fixed-size leading covariance, which is treated only as a consistency relation here.",
+        "A related graph-percolation isolated-vertex versus two-vertex-component covariance statement is a specialization on regular hosts and does not imply the weighted moments for all component sizes in r-uniform hypergraphs with r>=3.",
+        "Last–Nestmann–Schulte (2018), arXiv:1808.01203, uses Poisson intensity and connection kernel rather than a homogeneous fixed vertex set of hyperedges."
+      ],
+      "reasoning": "The final claim includes a weighted finite-n size-bias distributional identity and strictly increasing all-size zeros, not only a special small-component covariance formula or its asymptotic. It is not a corollary of the quoted results as stated, although an older general factorial-moment/Palm identity may subsume it and is a material remaining risk.",
+      "searches": [
+        "Erdos Renyi G(n,p) covariance between isolated vertices and components with s vertices changes sign at p=1-(1-s/n)^(1/s), independent of shape",
+        "\"covariance\" \"tree components\" random graph Janson",
+        "\"Pittel\" \"tree census\" \"covariance\" formula 1990",
+        "\"Pittel\" \"tree census\" \"covariance\" formula 1990",
+        "\"random connection model\" \"covariance\" component count Poisson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pittel, On tree census and the giant component in sparse random graphs (1990), DOI 10.1002/rsa.3240010306: a joint Gaussian limit for tree component counts, including isolates, is described in the publisher abstract.",
+        "The component-weighted isolate law may equivalently be written E[Z_s g(I_n)] = E[Z_s] E[g(I_(n-s))], and this formula is directly proved rather than inferred from an approximate CLT."
+      ],
+      "reasoning": "The ordinary-graph fixed-s tree covariance asymptotic is very plausibly contained in Pittel; only the exact distributional marked deletion across r>=3 and arbitrary internal component filters, plus finite size-ordered zeros and near-spanning endpoint, remain as the scoped candidate. No exact equivalent was found among inspected accessible primary material.",
+      "searches": [
+        "Exact finite n binomial random hypergraph covariance of isolated vertex count with number of connected components of size s, universal sign transition at p=1-((n-s)/n)^(1/(binom(n-1,r-1)-binom(n-s-1,r-1)))",
+        "Erdos Renyi G(n,p) covariance between isolated vertices and components with s vertices changes sign at p=1-(1-s/n)^(1/s), independent of shape",
+        "Exact component-size-bias deletion identity in binomial r-uniform hypergraph: weighting by s-vertex connected component leaves independent H_r(n-s,p), resulting factorial mixed moments of isolated vertex count",
+        "\"number of isolated vertices\" \"number of components of size\" covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No table with p_*(n,r,s) or a shape-universal finite hypergraph weighted factorial-moment identity was surfaced in the searched public research summaries.",
+        "A closely related finite two-vertex-component covariance calculation for regular graph percolation hosts and a different graph component–triangle covariance identity concern distinct statements and do not cover the r-uniform all-size weighted deletion law."
+      ],
+      "reasoning": "Comparisons use quantifiers and implications, not just matching titles. Failure to locate an entry is not evidence of mathematical uniqueness, so residual literature priority is explicitly retained.",
+      "searches": [
+        "Exact finite n binomial random hypergraph covariance of isolated vertex count with number of connected components of size s, universal sign transition at p=1-((n-s)/n)^(1/(binom(n-1,r-1)-binom(n-s-1,r-1)))",
+        "Exact component-size-bias deletion identity in binomial r-uniform hypergraph: weighting by s-vertex connected component leaves independent H_r(n-s,p), resulting factorial mixed moments of isolated vertex count",
+        "Strictly increasing covariance-zero parameter p_s for isolates versus s-component counts in binomial r-uniform random hypergraph, interpolates giant component branching threshold and connectivity threshold",
+        "\"covariance\" \"isolated vertices\" \"components\" random hypergraph",
+        "\"covariance\" \"component counts\" \"random graph\" Erdős Rényi 2018 2020"
+      ]
+    },
+    "rationale": "The proposed new part is the exact finite-n fixed-vertex r-uniform hypergraph marked-component deletion law together with the universal, size-monotone sign-crossover hierarchy. Pittel already treats limiting tree-component covariances in ordinary sparse graphs, so their leading r=2 fixed-s case is expressly not claimed novel. Relevant full-text passages on random-graph exploration, hypergraph component exploration, and Poisson-vertex component covariance do not display this package of exact statements. Search absence is only best-knowledge evidence, and older general Palm identities remain a real priority risk.",
+    "residual_risks": [
+      "Pittel (1990) full text inaccessible: stronger finite general formulas may appear in that paper, beyond the abstract.",
+      "Classical combinatorial Palm/disintegration arguments can imply the deletion identity implicitly even if the exact hierarchy is not stated.",
+      "No claim of independence of scientific review; further literature or human priority review may change originality assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides near-critical component-size tail bounds and exploration proofs, not in inspected passages the finite isolate versus marked component covariance or hypergraph deletion identity.",
+        "evidence": "Theorem 1.1 on probabilities of large components; Section 3 explores a component by independent binomial increments.",
+        "identifier_or_url": "arxiv:2101.05358",
+        "material_read": "ArXiv full-text PDF: title/abstract, Introduction and related work, Theorem 1.1, selected portions of Sections 3–4, and targeted covariance/isolation term searches",
+        "method": "Readable full-text PDF passages and within-document searches",
+        "title": "Unusually large components in near-critical Erdős–Rényi graphs via ballot theorems",
+        "trigger": "2021 random-graph component threshold paper with verified primary MSC 60C05"
+      },
+      {
+        "assessment": "Uses j-connected component search and branching-process bounds; does not present an inspected exact joint isolate/component size-bias identity.",
+        "evidence": "Theorem 1.3 and Lemma 3.1 bound subcritical j-component sizes by branching-process coupling.",
+        "identifier_or_url": "arxiv:1810.08107",
+        "material_read": "ArXiv full-text PDF: abstract, introduction, Theorem 1.3, selected passages from Sections 2–4, and searched covariance/isolation terms",
+        "method": "Readable PDF text and targeted searches",
+        "title": "Subcritical random hypergraphs, high-order components, and hypertrees",
+        "trigger": "Natural broader component and hypertree framework in independent-edge uniform hypergraphs"
+      },
+      {
+        "assessment": "The underlying vertex set is Poisson rather than fixed, the edges are pairs rather than arbitrary uniform r-sets, and the introduction explicitly says it does not include the fixed-n Erdős–Rényi graph.",
+        "evidence": "Section 1 states it includes geometric graphs but not the Erdős–Rényi random graph; Section 3 gives Poisson component intensities.",
+        "identifier_or_url": "arxiv:1808.01203",
+        "material_read": "ArXiv full-text PDF: Sections 1–3 introduction, theorems and model definition, and first/second component-count moment formulas around Proposition 3.1",
+        "method": "Readable primary full-text PDF passages and targeted term searches",
+        "title": "The random connection model and functions of edge-marked Poisson processes: second order properties and normal approximation",
+        "trigger": "Closest general component-count second-moment theory"
+      },
+      {
+        "assessment": "Its limiting covariance function likely implies the r=2 fixed-size asymptotic, so that portion is not asserted novel; the exact all-r finite deletion and size-threshold ordering could not be checked against full text.",
+        "evidence": "Publisher abstract states multivariate Gaussian convergence for all tree-component counts with model-dependent covariance functions.",
+        "identifier_or_url": "DOI:10.1002/rsa.3240010306",
+        "material_read": "Publisher abstract and reference metadata; full PDF unavailable following open-access and institutional-access attempts",
+        "method": "Publisher abstract and lawful-access attempts, no assertion of full-document inspection",
+        "title": "On tree census and the giant component in sparse random graphs",
+        "trigger": "Direct historical threat: ordinary-graph joint tree-component covariance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1593794-7a0f-4e79-948a-503a628dc316",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-motif, all-component-size classification makes a nontrivial qualitative statement: many structurally different connected component statistics have exactly the same covariance-zero point, and these points are strictly ordered by size. The exact deletion law also supplies arbitrary higher mixed factorial moments, enabling covariance calculations without cataloguing internal hypergraph types. Its endpoint scales interpolate between two natural random-hypergraph transitions, with no assertion that p_* itself is a sharp giant/connectivity threshold.",
+    "status": "PASS"
+  }
+}
