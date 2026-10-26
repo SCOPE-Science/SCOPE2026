@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Möbius inclusion exclusion verified against brute subset enumeration through n=14. Complete proof treats mod2 and mod3, odd modulus via Dirichlet's theorem and multiplicative order, mod4 via prime and prime square, and reduces all remaining moduli. Exact modular verifier passed 725 prime-family witness instances and 118 mod6 cases; finite data are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DOI:10.1515/INTEG.2009.015 states f(n), not Phi(n), nonperiodic modulo primes except three",
+        "DOI:10.1142/S1793042116500962 Theorem 9 gives sign alternation D-Phi, not modular classification"
+      ],
+      "reasoning": "The 2009 f result is potentially adjacent via Phi(n+1)=2 Delta f; only a stronger eventual version would imply the odd-prime portion, and the full 2009 text was inaccessible. It does not directly cover mod4 and mod9, or the exact full list of positive moduli. This is a priority risk, not a fabricated exclusion.",
+      "searches": [
+        "Nonperiodicity of Phi(n) relatively prime subset count modulo all primes ell>=5, Pongsriiam 2013 open question 3.5",
+        "The Number of Relatively Prime Subsets of Ayad Kihel 2009 nonperiodic modulo primes",
+        "Local behaviors of the number of relatively prime sets Theorem 9 modular periodicity"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1306.4891v1",
+      "JIS:11(2008):08.5.5",
+      "DOI:10.1142/S1793042116500962 (author full text)",
+      "DOI:10.1515/INTEG.2009.015 (abstract only)",
+      "OEIS:A038199"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2013 primary source calls the Phi prime-periodicity question open",
+        "2008 primary text derives Mobius formula",
+        "2015 primary full-text pages covering Theorem 9 compare signs of D and Phi"
+      ],
+      "reasoning": "The new conclusion has quantifiers for every modulus and arbitrary proposed period. None of these inspected results states that conclusion; 2009 prior f result may imply one portion only if its stronger eventual-nonperiodic formulation can be established.",
+      "searches": [
+        "Pongsriiam 1306.4891 2013 open question 3.5 D(n) Phi(n) periodic modulo prime",
+        "Ayad Kihel 2008 on subsets relatively prime to an integer pdf phi function formula",
+        "Pongsriiam local behaviors 2015 Theorem 9 D(n) Phi(n) sign"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1306.4891v1, p.11 Question 3.5 asks modular periodicity",
+        "OEIS:A038199 supplies same Phi via Möbius inversion"
+      ],
+      "reasoning": "Aliases Phi of subsets, gcd-coprime subset count, OEIS A038199 and its equivalent binary primitive-necklace count were sought. The generating formula is known but does not by itself assert periodicity classification.",
+      "searches": [
+        "Pongsriiam Phi(n) modulo prime p is periodic if and only if p=2 or 3, proof Dirichlet primes n and nq",
+        "phi(n)=sum_{d|n}mu(d)(2^{n/d}-1) modulo q never periodic for primes q>3",
+        "Pongsriiam Question 3.5 periodic modulo prime Phi(n) 2013"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A038199 entries and formulas show Phi sequence but no periodicity theorem"
+      ],
+      "reasoning": "The recurrence and initial values alone are not a proof of the nonperiodicity claims for every period and modulus.",
+      "searches": [
+        "OEIS A038199 relatively prime sets phi(n) periodic modulo m",
+        "A038199 row sums Mobius transform binary primitive necklace count modulus 6 periodic"
+      ]
+    },
+    "rationale": "2013 originating paper poses periodicity of Phi modulo primes as Question 3.5; 2008 full text derives counts but no periodic classification; 2015 author full text addresses D-Phi signs; distinct 2009 theorem concerns f(n), with caveat about stronger versions. OEIS A038199 only provides values and inversion. Exact all-moduli if-and-only-if is not an implication of the inspected sources alone. Residual 2009 full-text risk is explicit.",
+    "residual_risks": [
+      "Full 2009 Ayad–Kihel paper inaccessible. Its stronger possible eventual-nonperiodicity result for f may imply part of the odd-prime Phi conclusion via finite differences; this implication has not been conclusively excluded.",
+      "Unindexed follow-up literature may contain an equivalent all-moduli classification; search failure is not proof of novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines Phi, asks whether D and Phi are periodic modulo primes; does not answer",
+        "evidence": [
+          "arXiv:1306.4891v1 p.11 questions 3.1–3.5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1306.4891",
+        "material_read": "Abstract, preliminary Mobius identities, and final Comments/Open Questions p.11 (Question 3.5)",
+        "method": "Read arXiv full text and inspected page image",
+        "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+        "trigger": "Exact originating question"
+      },
+      {
+        "assessment": "Provides formulas on arithmetic progressions and subset counts, no eventual-periodicity classification",
+        "evidence": [
+          "JIS 11 (2008), 08.5.5, pp.1–4"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Ayad/ayad3.pdf",
+        "material_read": "All four-page article; equations (1),(2),(4),(6) and discussion",
+        "method": "Read author journal PDF via web",
+        "title": "On the Number of Subsets Relatively Prime to an Integer",
+        "trigger": "Earlier counting identities could subsume theorem"
+      },
+      {
+        "assessment": "Establishes sign alternation of D-Phi, not claimed modular periodicity",
+        "evidence": [
+          "Theorem 9 and equations (9)–(15), Section 3.1"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/287391047_Local_behaviors_of_the_number_of_relatively_prime_sets",
+        "material_read": "Author-posted full text: abstract, introduction, Theorem 9 and proof, relevant search for periodic/modulo",
+        "method": "Read author-provided full-text HTML",
+        "title": "Local Behaviors of the Number of Relatively Prime Sets",
+        "trigger": "Follow-up by same author"
+      },
+      {
+        "assessment": "Adjacent f theorem may imply modular Phi results under a stronger eventual formulation; unresolved priority risk",
+        "evidence": [
+          "2009 abstract states f is nonperiodic mod primes except three"
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/INTEG.2009.015",
+        "material_read": "Publisher bibliographic abstract only; full text inaccessible",
+        "method": "Read publisher abstract and bibliographic citations; no unsupported whole-document judgment",
+        "title": "The Number of Relatively Prime Subsets of {1, 2, ..., n}",
+        "trigger": "Known f modulo prime nonperiodicity and finite-difference relation"
+      },
+      {
+        "assessment": "No all-moduli modular-periodicity classification recorded",
+        "evidence": [
+          "OEIS A038199 formula a(n)=sum mu(n/d)(2^d-1)"
+        ],
+        "identifier_or_url": "https://oeis.org/A038199",
+        "material_read": "Initial terms, formulas, references, comments",
+        "method": "Read live OEIS page",
+        "title": "OEIS A038199",
+        "trigger": "Exact sequence database potentially lists theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d000cc3e-4ecc-42e8-94ca-4a61cdc850e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete if-and-only-if classification of a natural established arithmetic subset-counting function, resolving the Phi branch of Pongsriiam 2013 Question 3.5 for all primes and all composite moduli. It determines all exceptional moduli and constructs witnesses to rule out any proposed eventual period. This is a natural exact invariant and published problem, not an arbitrary small numerical slice.",
+    "status": "PASS"
+  }
+}
