@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For hub value zero (one), rim update is AND (OR) of its two cycle neighbors. Two iterations with a constant hub reduce to x_i x_{i-2} x_{i+2} (or its color complement), forcing step-two parity components to be constant, and give two unanimous fixed states plus exactly two fixed-hub two-cycle orbits on even rims. For an alternating hub, the first step is A and the second C; C(A(x))_i=x_i(x_{i-2} OR x_{i+2}). The hub changes 0 to 1 exactly when 2a>n and returns exactly when 2b<n. This yields an if-and-only-if no-isolated-one condition and a bijection to exactly B_n hub-flipping orbits. Cyclic-run compositions give G_l and its odd/even step-two product, with marked-run factor l/r. A symmetric weighted-spin Lyapunov descent with odd local fields excludes longer eventual periods. An injective 110/1100 block construction proves B_n>=2^(n/12) for every n>=96. Python direct graph updates over 262112 configurations n=4..16 and independent word enumeration check the new formulas, but do not replace these finite-to-infinite arguments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2302.06760v1, Sections 2,5 and Appendix: cycle graph and general stabilization; no wheel two-cycle census",
+        "arxiv:2202.01580v1, Sections 4-5: tree-only characterization",
+        "arxiv:2205.08972v1, Section 1: local radius-r CA restricted to one-dimensional periodic rings"
+      ],
+      "reasoning": "A general symmetric-threshold period-2 theorem covers the periodicity *bound*, explicitly treated as known. The more specific claimed wheel classification and exponential hub-flipping family do not follow directly from any cited general count. The friendship-graph claim concerns a windmill built from triangles, not wheels with one long rim cycle.",
+      "searches": [
+        "binary majority dynamics wheel graphs periodic configurations enumeration",
+        "fixed and two cycle counts for majority threshold dynamics on wheel graph with tie retention",
+        "majority dynamics wheel graph fixed point counting configurations hub cycle threshold 2022 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2202.01580v1",
+      "https://arxiv.org/html/2302.06760v1",
+      "https://arxiv.org/abs/2205.08972",
+      "https://www.maths.bris.ac.uk/R/web/classifications/MSC.html",
+      "published-finding corpus semantic published-research index, seven wheel-majority queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "prior result 1ccea1e6-441f-4da2-a952-fb158ca18635 studies stochastic fair-coin tie-breaking and five-vertex stochastic terminal classes, not deterministic wheel orbits",
+        "prior result 6882fd08-f78e-4b9f-9397-f156d6c7584e gives friendship graph basins with different topology",
+        "prior result fd43919b-6e53-4e7f-a1f3-7c74a64df198 gives cyclic rim majority fixed-state coefficients without universal hub",
+        "arxiv:2302.06760v1 has a general period bound and cycle-specific counts but lacks wheel-specific oscillator enumeration"
+      ],
+      "reasoning": "The new claim is neither a restatement of a known period-2 theorem nor a specialization of tree, bare-cycle, or friendship-graph counts: adding a universal hub changes every rim local update from a two-neighbor tie-retaining rule to a three-neighbor strict majority. Deriving the alternating-hub AND/OR composition and its binomial enumeration is essential.",
+      "searches": [
+        "center rim wheel network threshold majority all stable configurations and oscillations",
+        "complete fixed-point and 2-cycle classification wheel graph synchronous open-neighborhood binary majority hub spins",
+        "\"wheel graph\" \"majority\" \"fixed points\" opinion dynamics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2202.01580v1, sections 3-5: tree fixed/two-cycles; no wheel topology",
+        "arxiv:2205.08972v1, introduction and majority radius-r definitions: ring local self-inclusive interaction, no hub",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7: parity automata, not majority rule"
+      ],
+      "reasoning": "Aliases checked included hub/rim, periodic configurations, synchronous threshold dynamics, stable and oscillating majority. Threshold-network equivalences establish eventual period at most two, not the specific wheel rim classifications or counts. Parity automata use mod-two linear behavior, so neither their dynamics nor orbit counts imply majority-based wheel results.",
+      "searches": [
+        "wheel graph synchronous majority with tie retention exactly two fixed points and 2-cycles oscillating hub majority",
+        "complete fixed-point and 2-cycle classification wheel graph synchronous open-neighborhood binary majority hub spins",
+        "\"wheel graph\" \"majority\" \"2-cycle\" dynamics",
+        "\"wheel\" \"majority\" \"fixed points\" opinion dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2: cover-free families, not opinion dynamics",
+        "accessible prior results fd43919b-6e53-4e7f-a1f3-7c74a64df198 and 6882fd08-f78e-4b9f-9397-f156d6c7584e: exact cycle and friendship counts",
+        "No found exact wheel majority 2-cycle table in the inspected primary articles"
+      ],
+      "reasoning": "Cycle-majority run polynomials are not directly the wheel hub-flipping count: the wheel imposes a second-step cycle graph and two strict hub-vote inequalities. Neither the published search hits nor the accessible prior research contain an identical table or polynomial, but failure to locate such a table is not a proof of novelty.",
+      "searches": [
+        "wheel graph majority dynamics hub flipping binomial cycle run exact count two-step graph",
+        "opinion dynamics on wheel graphs exact oscillation count binomial runs",
+        "\"wheel graph\" \"majority model\" stable colorings"
+      ]
+    },
+    "rationale": "The full-text accessible related articles analyze tree fixed/two-cycles (Turau 2022), cyclic-ring majority stable states and random-majority variants (Zehmakan 2023), and self-inclusive one-dimensional radius-r cellular automata (Nakar and Ron 2022). None states a full wheel-network binomial orbit census or implies it without a new global-hub-specific reduction. Previously available claims for labeled cycles, friendship graphs, and random-majority five-node phenomena do not dominate the exact deterministic wheel statement. Seven actual semantic research-record searches and three primary full-text comparisons returned no claim of matching scope; residual bibliographic uncertainty is explicit. Classical period-two bounds and run counting are not claimed novel.",
+    "residual_risks": [
+      "Unindexed older threshold automata literature may have equivalent wheel-specific enumeration under different terminology.",
+      "Search result ranking is not an exhaustive proof of originality.",
+      "Additional published articles not obtained as full text might contain the exact wheel formula; the inspected highly relevant sources did not.",
+      "Attractor counts are not basin frequencies and no such implication is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for wheels: all main counting results explicitly restricted to trees; graph cycle in every wheel precludes applying its tree bijections directly. Its general period bound is prior background.",
+        "evidence": [
+          "https://arxiv.org/html/2202.01580v1, Sections 3-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2202.01580v1",
+        "material_read": "Full-text sections 1-4 (definitions and fixed-point construction), Section 5 introduction, Section 5.2/5.3 and block-tree characterization",
+        "method": "primary author-provided arXiv HTML, inspected full-text relevant sections",
+        "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+        "trigger": "same majority/tie convention, periodic states and exact counting"
+      },
+      {
+        "assessment": "NOT_COVERING: stable coloring enumeration and exact dynamics specialize to bare cycles, not wheel hub oscillations; general graph period-2 statement does not enumerate attractors.",
+        "evidence": [
+          "https://arxiv.org/html/2302.06760v1, Sections 2 and 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.06760v1",
+        "material_read": "Full-text abstract, Sections 1-2, periodicity results, Section 4, Section 5 and Appendix section headings",
+        "method": "primary arXiv HTML full text, searched for wheel and inspected relevant material",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "deterministic tie-retention majority on cycles; closest social-network stability literature"
+      },
+      {
+        "assessment": "NOT_COVERING as directly stated: self-inclusive fixed-radius cyclic cellular automata, not a universal hub with a changing global majority; equivalent partial reformulation could remain unindexed.",
+        "evidence": [
+          "https://arxiv.org/abs/2205.08972, first public posting May 18 2022"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "Accessible complete paper text through indexed full text: introduction, rules, periodicity definitions, discussion of structural local-radius results",
+        "method": "open full-text and search document for wheel terminology and update-model descriptions",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "structural two-cycles of cyclic majority automata might imply wheel case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d7650f4-183c-4d06-b5f4-76145dc07c9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An infinite exact classification and coefficient-formula enumeration of natural deterministic opinion dynamics on centralized wheel networks, plus explicit exponential abundance of reversing-hub attractors, resolves a motivatable dynamical distinction: a hub eliminates all but two fixed points while preserving exponentially many oscillatory behaviors. Published bare-cycle models support the contrast; no downstream theorem is needed because exact recurrent-state structure is the natural object. The finite table verifies rather than motivates the result; neither a tiny parameter increment nor a stand-alone computational count is claimed.",
+    "status": "PASS"
+  }
+}
