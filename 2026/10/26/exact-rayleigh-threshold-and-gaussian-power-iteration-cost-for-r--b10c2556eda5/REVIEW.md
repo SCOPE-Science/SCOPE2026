@@ -1,0 +1,15 @@
+# Scientific review: spectral preconditioner usefulness threshold
+
+## Correctness — PASS
+An invariant two-plane and the matrix determinant lemma give exact extreme eigenvalue trace \(T=\kappa+1-\gamma+\gamma r\) and product \(\kappa r\). The intermediate eigenvalues equal one and lie between the extremes. This reduces the objective-energy contraction to a one-variable rational expression; differentiation proves the unique globally optimal rank-one scaling and the strict Rayleigh midpoint boundary. Gaussian chi-square independence proves the exact beta law, and the law of large numbers proves the dimension transition. A standalone rational checker evaluates 3,088 algebraic/optimality cases, with four additional seeded probabilistic comparisons. These tests are corroboration, not an infinite proof.
+
+## Originality — PASS (best-knowledge assessment)
+Doikov--Stich--Jaggi's 2024 spectral-preconditioning paper includes the low-rank inverse-Hessian template, Rayleigh coefficients and power eigenvector estimation, but its Sections 3, 6, 7 and appendix focus on error-dependent convergence guarantees, not an exact *necessity and sufficiency* Rayleigh cutoff for optimally tuned correction on spiked spectra or the beta-law Gaussian selection transition. Kahl--Rittich's deflated CG estimates concern an A-orthogonal projection with zero deflated eigenvalues, not the positive-rank-one scaled gradient map. Qu et al.'s diagonal preconditioner optimization has a different feasible class. Published-research record comparisons for rank-one updates, eigenvector angle, midpoint threshold, power-init selection and equivalence aliases found no statement covering their conjunction. An equivalent formula under older rank-one condition-number minimization or Gaussian spiked-model terminology remains a material residual risk; independent priority assessment has not been performed.
+
+## Value — PASS
+The result answers a motivated safeguard and power-budget question raised by inexact spectral preconditioning: when does spending computation on an approximate top-eigenvector actually enable a faster tuned gradient step? It supplies a dimension-independent, exact half-energy cutoff, implementable regularization based only on the Rayleigh score, a proof that no nontrivial rank-one correction helps below the boundary, and a finite-dimensional Gaussian success probability with a sharp logarithmic-in-dimension cost transition. This goes beyond normalization checks or merely validating a two-dimensional numerical example.
+
+## Closest literature and limits
+Doikov--Stich--Jaggi (arXiv:2402.04843, Sections 3, 6--7); Kahl--Rittich (arXiv:1209.1963, Sections 3--4); Qu et al. (arXiv:2209.00809, Section 1 and diagonal-preconditioning formulation). The result does not cover nonflat spectra, finite precision, random Hessian estimation, or the published paper's separately fixed step-size rule. Source searches cannot exclude an unindexed equivalent formula. No independent scientific review or certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

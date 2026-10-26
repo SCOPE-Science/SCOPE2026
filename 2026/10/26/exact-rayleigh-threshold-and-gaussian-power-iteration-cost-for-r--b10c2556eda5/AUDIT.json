@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact trace/determinant of the two active eigenvalues, location of any n-2 unit eigenvalues, optimally tuned step and unique derivative-sign minimizer are reconstructed in RESULT.md. Strict midpoint boundaries and endpoints included. Independent Gaussian chi-square ratio yields beta law; law of large numbers and Slutsky yield dimension threshold. verify.py successfully checked 3088 exact finite cases and 4 Gaussian frequencies. Finite checking is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1209.1963 Section 4.2 controls effective condition number of a singular deflated operator",
+        "arxiv:2209.00809 explicitly restricts optimizer to diagonal scalings",
+        "arxiv:2402.04843 Theorem 6.1 gives convergence complexity with spectral approximation error"
+      ],
+      "reasoning": "Deflated conjugate gradients, diagonal scaling and error-bound spectral gradient methods have different admissible operators/parameters. Their reported general bounds do not compute the exact optimizer in the present positive rank-one family or determine the stochastic phase transition. A more general unlocated rank-one optimization theorem remains possible.",
+      "searches": [
+        "deflation approximate eigenvectors effective condition number perturbation Kahl Rittich arxiv 1209.1963",
+        "general optimal preconditioning condition number low rank corrections survey",
+        "arxiv 2209.00809 optimal diagonal preconditioning"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2402.04843v1",
+      "https://proceedings.mlr.press/v235/doikov24a.html",
+      "arxiv:1209.1963",
+      "arxiv:2209.00809"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Doikov et al. estimate the spectral preconditioner with power iterations and prove convergence-rate bounds",
+        "Kahl--Rittich consider A-orthogonal deflation projections",
+        "The proof here solves a distinct constrained one-parameter eigen-scaling minimax and then an exact Gaussian selection law"
+      ],
+      "reasoning": "Doikov et al. supply the algorithmic motivation but neither a necessary/sufficient midpoint criterion nor a Gaussian success probability. Kahl--Rittich cannot be applied as-is because the operator and rate metric differ. The new statement does not claim a contradiction of those papers or the originality of standard power-iteration and beta-distribution components.",
+      "searches": [
+        "arxiv 2402.04843 Section 3 Section 6 Section 7 power method spectral preconditioning",
+        "arxiv 1209.1963 exact effective condition number approximate eigenspace deflation",
+        "sharp Rayleigh quotient threshold rank-one spectral preconditioner positive spike Hessian optimal regularization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2402.04843, Section 3 rank-one spectral Hessian template",
+        "arxiv:1209.1963, Sections 3-4 projection-based deflation",
+        "finite-dimensional operator identity derived in RESULT.md"
+      ],
+      "reasoning": "Reformulations via the two extreme eigenvalues, via an angle below 45 degrees, and via the Rayleigh midpoint were compared with spectral-Hessian, deflation and preconditioning statements. The closest works do not report this optimized rank-one positive inverse-spectral scaling nor the linked Gaussian power-init event. General spectral calculus alone does not state the necessary-and-sufficient boundary without the specialized minimization.",
+      "searches": [
+        "rank-one spectral preconditioner eigenvector misalignment Rayleigh quotient optimal correction",
+        "two eigenvalue inexact eigenvector spectral preconditioning oracle optimal damping Rayleigh quotient phase transition",
+        "optimal rank-one shifted Hessian preconditioner two eigenvalue spike Rayleigh score half threshold condition number minimax"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or claimed formula was found in the inspected primary texts or targeted records",
+        "The new finite-dimensional probability is derived from an explicit chi-square ratio"
+      ],
+      "reasoning": "The new claim is a continuous all-dimensional classification, not a finite list in a table. The beta CDF is a standard distribution identity, explicitly credited as such; its connection to the rank-one usefulness cutoff and high-dimensional power iteration is the claimed application. Absence of a table is not taken as proof of novelty.",
+      "searches": [
+        "Gaussian power iteration probability useful spectral preconditioner Rayleigh quotient threshold exact beta spiked matrix",
+        "published literature: rank one preconditioner principal angle 45 degree threshold",
+        "published literature: approximate top eigenvector preconditioner misalignment condition number threshold"
+      ]
+    },
+    "rationale": "Best-knowledge comparison with full text of Doikov--Stich--Jaggi, Kahl--Rittich and Qu et al., targeted published-literature searches, research-record searches, and accessible own-claim overlap checks identifies no mathematical statement implying the exact Rayleigh midpoint criterion, optimal rank-one strength and Gaussian dimension-threshold conjunction. Possible unindexed exact rank-one condition-number solution remains a stated risk; no independent priority judgment.",
+    "residual_risks": [
+      "An older rank-one secular-equation/preconditioner-optimization result could imply the deterministic cutoff under another vocabulary.",
+      "General exact Gaussian eigenvector-accuracy results could subsume the chi-square calculation; the beta identity itself is standard.",
+      "Source searches and self-review are not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "RELATED_NOT_COVERING: main algorithm, error bounds and power-iteration implementation given, but not the exact optimized rank-one cutoff and beta-law event",
+        "evidence": [
+          "Sections 3 and 7 give H=sum a_i v_i v_i^T and orthogonal-iteration procedure; Section 6 contains error-dependent strong-convexity convergence bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.04843",
+        "material_read": "Full preprint searchable text and pages 1, 3-8, 9 and relevant method/convergence/power iteration sections; Sections 3, 6, 7, experimental description and appendix method references",
+        "method": "arXiv public PDF textual/visual examination and section-specific search",
+        "title": "Spectral Preconditioning for Gradient Methods on Graded Non-convex Functions",
+        "trigger": "Same rank-one positive spectral Hessian and inexact top eigenvectors; motivating paper"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: singular projection-deflation geometry and estimates, not positive rank-one inverse-Hessian scalar optimizer or stochastic selection",
+        "evidence": [
+          "Sections 3.2-3.3 derive bounds on deflated effective condition number; Section 4.2 analyzes approximate eigenvectors"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.1963",
+        "material_read": "Full arXiv HTML text, especially Sections 2-4 and inexact-deflation comparison, searched throughout for conditioning and principal angles",
+        "method": "Open-access original paper HTML text/section analysis",
+        "title": "The Deflated Conjugate Gradient Method: Convergence, Perturbation and Accuracy",
+        "trigger": "Most plausible approximate-eigenvector conditioning antecedent"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: optimal diagonal scaling is not the rotated rank-one family, nor Gaussian power-init event",
+        "evidence": [
+          "The feasibility set is explicitly one-sided or two-sided diagonal scaling with SDP/quasiconvex algorithms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "Full arXiv HTML, abstract and Sections 1 and 2 method/feasible class plus matching-term search",
+        "method": "Open-access original paper HTML text/section analysis",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Possible broader optimization of condition number"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b10c2556-eda5-4999-ad5a-c6f5b2132034",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact implementable Rayleigh-score safeguard identifies when approximate top-eigenvector correction is provably useful versus always harmful within the rank-one spectral template. Unique optimized strength, sharp convergence factor and all-dimensional beta-law power-budget crossover give a meaningful analysis of eigenvector estimation costs for a motivating 2024 spectral-preconditioning method, not merely a textbook normalization test.",
+    "status": "PASS"
+  }
+}
