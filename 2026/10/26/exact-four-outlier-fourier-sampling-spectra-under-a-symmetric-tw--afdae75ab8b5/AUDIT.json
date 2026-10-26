@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Direct unitary Fourier change of basis produces the block triangular matrix [[A,B],[0,I]] with A=[[a,b],[b,a]], row Gram BB* fixed by norms and c. Orthogonal parity diagonalization gives the exact two quadratic factors and N-4 unit entries. a>b>0 proves invertibility for all permitted parameters. The midpoint Dirichlet derivative yields K_N exactly, the odd small eigenvalue has even eta expansion, and the even high eigenvalue yields C_N. The checker independently constructs 40 full Gram matrices, all matching to 1.38e-14, and tests four asymptotic coefficients. Finite tests are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kunis–Nagel, DOI:10.1007/s11075-020-00974-x, section 3, Theorem 3.6 bounds condition numbers by 4/tau under oversampling rho>=6 and remarks generic inverse-gap growth; it supplies neither a critical-square-grid exact spectrum nor the claimed leading coefficient.",
+        "Chen–Lin–Zhang, arXiv:2608.21960 abstract, promises nearly optimal smallest-singular-value bounds under clustering and grid perturbation; full text was not read, so exact special-case coverage is a residual risk.",
+        "Batenkov–Demanet–Goldman–Yomdin, DOI:10.1137/18M1212197, provides cluster-dependent lower singular-value bounds, not the identified four-eigenvalue formulas in the accessible abstract."
+      ],
+      "reasoning": "The prior broad theorems establish the exponent of inverse-separation instability; that exponent is explicitly not claimed novel. The present critical square matrix has sample count equal to band dimension, outside the rho>=6 regime of the inspected Kunis–Nagel bound. An inaccessible plausible full paper is named and remains a publication-priority risk, rather than being falsely labeled noncovering.",
+      "searches": [
+        "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes Kunis Nagel arXiv:1812.08645",
+        "The Smallest Singular Value of Nonuniform Fourier Matrices arXiv:2608.21960",
+        "Conditioning of Partial Nonuniform Fourier Matrices with Clustered Nodes DOI:10.1137/18M1212197"
+      ]
+    },
+    "checked_sources": [
+      "Kunis and Potts arXiv:math/0702019",
+      "Austin and Trefethen arXiv:1612.04018",
+      "Kunis and Nagel arXiv:1812.08645 / DOI:10.1007/s11075-020-00974-x",
+      "Chen, Lin, Zhang arXiv:2608.21960 (abstract only)",
+      "Batenkov et al. DOI:10.1137/18M1212197 (abstract and repository record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kunis–Potts theorem 4.10 exactly diagonalizes equispaced circulant kernel matrices. A two-node displacement breaks circulant symmetry, and the old formula does not return its four perturbed eigenvalues.",
+        "Austin–Trefethen (arXiv:1612.04018) establishes interpolation and quadrature stability under arbitrary bounded perturbations; its inspected preprint text states estimates rather than an exact singular spectrum in the symmetric two-move case.",
+        "Kunis–Nagel theorem 3.6 gives inequalities 1/tau <= cond <=4/tau under separation and oversampling hypotheses, which cannot imply an equality coefficient C_N or its universal limit."
+      ],
+      "reasoning": "A general bound on extremal eigenvalues does not imply the exact four values, their multiplicities, or the sharp 1.189303... condition-number prefactor. The present proof computes them by a specialized symmetry reduction. The novelty claim excludes generic separation instability, Fourier unitarity and Dirichlet cardinal interpolation.",
+      "searches": [
+        "Stability Results for Scattered Data Interpolation by Trigonometric Polynomials 2007 localised kernel bounds equispaced",
+        "Trigonometric Interpolation and Quadrature in Perturbed Points 2016 preprint",
+        "Kunis Nagel 2020 article full text condition number pair colliding spectral estimates"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kunis–Potts (2007), arXiv:math/0702019, derives nonuniform trigonometric kernel Gram matrices and uniform-grid circulant spectra, but the examined sections do not diagonalize the present two-node noncirculant displacement.",
+        "The explicit unitary-basis row replacement reduces to two parity quadratic factors; the displayed coefficients require the specialized symmetric perturbation."
+      ],
+      "reasoning": "The relevant equivalent formulation is a two-row-replaced unitary DFT or a square trigonometric Vandermonde with two symmetric off-grid samples. General kernel formulas and Fourier unitarity are prior inputs. The claimed contribution is the explicit four-root multiset and exact collision constants; no inspected source states them.",
+      "searches": [
+        "exact all singular values of square Fourier Vandermonde matrix when two neighboring roots of unity move symmetrically toward midpoint Dirichlet kernel parity decomposition four exceptional eigenvalues",
+        "Fourier matrix perturbing two rows Vandermonde condition number exact singular values symmetrically shifted sampling",
+        "arXiv:math/0702019, sections 2 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical research-record searches returned related but different finite-cycle Riesz bounds for three frequency characters and finite Fourier-minor singularity classifications, rather than the present pairwise off-grid perturbation spectrum.",
+        "The accessible mathematical literature comparisons focused on exact Fourier/Vandermonde singular spectra, neighboring off-grid nodes, and sharp gap coefficients; no direct matching formula was identified."
+      ],
+      "reasoning": "Neither a matching recorded formula nor an identical small-gap coefficient was found in searched public mathematical records. This is an evidence-limited comparison, not a proof of uniqueness or historical priority.",
+      "searches": [
+        "two adjacent moved equispaced trigonometric sampling nodes symmetric inward perturbation exact Fourier Vandermonde condition number",
+        "universal high bandwidth sinc limit eigenvalues two moved nearest neighbor equispaced Fourier interpolation matrix",
+        "equispaced Fourier grid two perturbed nodes singular spectrum Dirichlet kernel closed form"
+      ]
+    },
+    "rationale": "The four-root entire Gram spectrum and exact leading coefficients for symmetric two-node collision at critical square Nyquist density were not identified in searched published mathematical records or inspected source theorem statements. Known Dirichlet/circulant formulas and generic inverse-gap exponents are explicitly prior. Relevant 2026 full text remains inaccessible and is a substantial publication-priority risk.",
+    "residual_risks": [
+      "The full Chen–Lin–Zhang 2026 paper was not accessible, and its specialized results may subsume this symmetric case.",
+      "Full historical searches cannot rule out an equivalent two-node trigonometric interpolation calculation not indexed under the searched terminology.",
+      "The paper of Austin–Trefethen was available as a parsed supplement and abstract; not all main-article text was inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_SPECIFIC_CLAIM",
+        "evidence": "General separation bounds and circulant exact spectra; no exact symmetric two-node off-grid factorization in relevant theorem statements.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0702019",
+        "material_read": "Accessible parsed full article, introduction and sections 2 and 4, including theorem 4.1, corollary 4.3 and theorem 4.10",
+        "method": "Read rendered article text and compared assumptions, matrix class and conclusions",
+        "title": "Stability Results for Scattered Data Interpolation by Trigonometric Polynomials",
+        "trigger": "Archive-period foundational analysis of nonequispaced Fourier interpolation and equispaced circulant spectra"
+      },
+      {
+        "assessment": "PRIOR_GENERAL_INVERSE_GAP_RATE_NOT_EXACT_CRITICAL_GRID_SPECTRUM",
+        "evidence": "Condition-number inequalities and inverse-gap order at oversampling, without a four-level exact square-grid formula.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-020-00974-x",
+        "material_read": "Open-access full article, theorem 3.6, remarks 3.7–3.8, section 4 comparison and conditions rho >=6",
+        "method": "Inspected full HTML text, theorem hypotheses and proof bounds",
+        "title": "On the condition number of Vandermonde matrices with pairs of nearly-colliding nodes",
+        "trigger": "Closely related cluster-conditioning exponent and possible stronger result"
+      },
+      {
+        "assessment": "INSPECTED_MATERIAL_NOT_COVERING; MAIN_ARTICLE_COMPARISON_LIMITED",
+        "evidence": "General perturbed-grid interpolation Lebesgue bounds; no exact two-node Fourier Gram spectrum in the material inspected.",
+        "identifier_or_url": "https://arxiv.org/abs/1612.04018",
+        "material_read": "Abstract and accessible parsed supplementary proof of the Lebesgue interpolation bound, including perturbed-grid setup and cardinal-function estimates",
+        "method": "Read available article record and supplementary sections and searched singular-spectrum terminology",
+        "title": "Trigonometric Interpolation and Quadrature in Perturbed Points",
+        "trigger": "Perturbed uniform-grid interpolation and quadrature may cover symmetric perturbations"
+      },
+      {
+        "assessment": "PLAUSIBLE_PRIOR_WITH_UNRESOLVED_FULL_TEXT",
+        "evidence": "Abstract claims nearly optimal bounds for clustered nodes and grid perturbations, not the exact four-level expression; no full-document exclusion is asserted.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.21960",
+        "material_read": "Bibliographic record and abstract only; full text inaccessible through available source interfaces",
+        "method": "Checked accessible scholarly abstract and attempted full-text access",
+        "title": "The Smallest Singular Value of Nonuniform Fourier Matrices",
+        "trigger": "Very recent closely related lower singular-value results for off-grid nodes"
+      },
+      {
+        "assessment": "BROAD_BOUNDS_ONLY_IN_INSPECTED_MATERIAL",
+        "evidence": "The accessible summary describes sharp lower bounds governed by cluster cardinality, not explicit full square matrix spectra.",
+        "identifier_or_url": "https://doi.org/10.1137/18M1212197",
+        "material_read": "Article metadata and detailed abstract; open-access repository listing found but full article not read",
+        "method": "Compared declared conclusion and hypotheses",
+        "title": "Conditioning of Partial Nonuniform Fourier Matrices with Clustered Nodes",
+        "trigger": "General conditioning theory for clustered off-grid frequencies"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afdae75a-b8b5-473a-8a04-6973980d2d0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the critical square Fourier sampling density, a physically natural two-neighbor collision is a controlled superresolution test. The theorem classifies every spectral direction rather than only providing a generic conditioning inequality, isolates just four exceptional levels in arbitrarily large matrices, and computes a sharp matrix-size-dependent inverse-gap coefficient with nontrivial universal limit. The precise noise-amplification prefactor is useful where general oversampled cluster theorems are inapplicable; the result is not an arbitrary finite parameter tabulation.",
+    "status": "PASS"
+  }
+}
