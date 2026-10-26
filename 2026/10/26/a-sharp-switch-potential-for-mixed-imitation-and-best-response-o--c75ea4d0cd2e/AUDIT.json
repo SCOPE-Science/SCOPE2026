@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and cases verified algebraically. With \\(a=R-T>0\\), \\(b=P-S>0\\), and \\(t=(n-1)b/(a+b)\\), a current \\(A\\) best responder has advantage \\((a+b)(k-1-t)\\) and current \\(B\\) has \\((a+b)(k-t)\\). Across imitating agents the payoffs differ by \\((a+b)(k-w)\\) with \\(w\\) strictly between \\(t\\) and \\(t+1\\). Thus \\(k<h\\) only decreases, \\(k>h\\) only increases, and boundary switches at \\(k=h\\) increase \\(|k-h|\\) from zero. Endpoint singleton cases and all ties are explicitly checked. The potential is at most \\(n-1\\), proving finitely many switches; fairness implies eventual absorption. Exact equilibrium classification and sharpness are shown. Executed standalone integer/rational regression covers 5700 parameter/type cases, 171120 states, 945888 activations. Finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hasheminejad–Ramazi (2023) prove convergence on paths, rings, starlike graphs and sparse trees, explicitly leaving other topologies open.",
+        "Le–Rajaee–Ramazi (2022) derive stability and invariant-set results for a heterogeneous population with a different global update convention.",
+        "Ramazi–Riehl–Cao (2016) cover populations of best responders rather than hybrid updates."
+      ],
+      "reasoning": "The broader named graph theorem does not contain complete graphs for n >= 4. The 2022 heterogeneous aggregate results do not directly imply a neighbor-excluding, all-activation strict hinge potential and sharp \\(n-1\\) real-switch bound. An unknown stronger theorem could still cover the claim.",
+      "searches": [
+        "Equilibration of Coordinating Imitation and Best-Response Dynamics Hasheminejad Ramazi 2023 sparse trees network potential",
+        "clique homogeneous opponent-coordinating two strategies heterogeneous imitation and best-response updaters payoff-tie mixed equilibria",
+        "arXiv:2306.03243v1, sections 2–4 and conclusions",
+        "arXiv:2202.04782v1, introduction, model, equilibrium and invariant-set sections",
+        "DOI:10.1073/pnas.1610244113"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2306.03243",
+      "https://arxiv.org/pdf/2202.04782",
+      "https://arxiv.org/pdf/2006.03438",
+      "https://doi.org/10.1073/pnas.1610244113",
+      "https://arxiv.org/abs/2110.10036"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating sparse-tree section-count potential cannot be specialized to dense complete graphs with four or more vertices.",
+        "The 2022 global-payoff aggregate population framework does not use exactly the neighbors-only payoff and comparator of the present process.",
+        "Raducha–San Miguel compare homogeneous pure update rules, rather than arbitrary heterogeneous fixed mixtures."
+      ],
+      "reasoning": "Existing convergence for all imitators or all best responders does not logically imply convergence for an arbitrary mixture. Prior clique mean-field statements for pure rules do not bound every real switch under all fair activation orders. The new proof gives that missing implication under homogeneous neighbor-only hypotheses.",
+      "searches": [
+        "Equilibration of Coordinating Imitation and Best-Response Dynamics Hasheminejad Ramazi 2023 sparse trees network potential",
+        "clique homogeneous opponent-coordinating two strategies heterogeneous imitation and best-response updaters payoff-tie mixed equilibria",
+        "arXiv:2306.03243v1: Theorem 3.1 and conclusion",
+        "arXiv:2202.04782v1: model and later stability results",
+        "arXiv:2110.10036: abstract and model comparisons"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 model has neighbors-only cumulative current payoff and counterfactual neighbor-based best response, and establishes the sparse-tree section-count potential.",
+        "The 2022 aggregate model counts interactions with all population members including self and adopts a population-wide imitation comparator.",
+        "The complete-network hinge potential requires identical payoff matrices and the exact opponent-coordination inequalities."
+      ],
+      "reasoning": "Simple count thresholds in other convention models are not an equivalent theorem: self-play alters comparison cutoffs and singleton imitation, and an exact strict monotone potential and optimal update bound must still be established in the neighbor-only process. No equivalent statement identified in inspected sources; publication priority remains uncertain.",
+      "searches": [
+        "coordinating best-response imitation dynamics mixed populations arbitrary persistent activation graph non-equilibration cycle counterexample",
+        "mixed imitative best response game network persistent activation cycle payoff matrix coordination game",
+        "complete graph mixed best-response imitation coordination homogeneous shared payoff matrix arbitrary persistent sequential activation finite consensus at most n-1 switches",
+        "arXiv:2306.03243v1 (model and sections 3–4)",
+        "arXiv:2202.04782v1 (models equations 2.1–2.4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating primary paper enumerates network classes and proposes a potential-function problem, not an exact count table for complete-graph mixed dynamics.",
+        "Exact n=4 mixed absorbing-state construction in the present proof follows directly from displayed payoff equalities."
+      ],
+      "reasoning": "The result is an arbitrary-n structural theorem and sharp uniform switching bound, not a table lookup. No exact published database result or stronger tabulated family identified.",
+      "searches": [
+        "coordinating best-response imitation dynamics mixed populations arbitrary persistent activation graph non-equilibration cycle counterexample",
+        "complete graph mixed best-response imitation coordination homogeneous shared payoff matrix arbitrary persistent sequential activation finite consensus at most n-1 switches",
+        "well mixed coordination population hybrid imitators best responders convergence payoff threshold single critical count",
+        "arXiv:2306.03243v1, theorem statements and examples",
+        "arXiv:2006.03438, model/results"
+      ]
+    },
+    "rationale": "The motivating full preprint proves section-count convergence for paths and sparse trees and leaves other graph topologies open. Other inspected published primary models address global/self-inclusive aggregate payoff conventions or pure update rules. Comparisons are statement-level; the present strict hinge potential, exact fair-schedule result, and sharp switching bound were not implied by inspected results, but global publication priority is not certified.",
+    "residual_risks": [
+      "There may exist an unlocated stronger result for homogeneous well-mixed hybrid imitation/BR populations, especially in self-inclusive variants with a transfer argument.",
+      "The 2022 mixed aggregate-population paper has wider population classifications, but their precise self-interaction, comparator, and admissibility conventions differ; novelty concerns the exact neighbor-only strict-switch theorem.",
+      "2016 and 2021 comparison sources were only partly inspected, as described; they are not decisive sources for the specific mixed process.",
+      "No independent review is available."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest exact update convention; proves sparse-tree result but not the complete-graph strict hinge potential",
+        "evidence": "Eq. (1) opponent coordination; Eq. (2) neighboring-earner imitation; Eq. (3) best response; Theorem 3.1 sparse-tree equilibration; concluding open network-topology problem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2306.03243",
+        "material_read": "10-page accessible preprint: model definitions and update equations on pp. 1–3; theorem for sparse trees and convergence arguments on pp. 3–9; concluding limitation on p. 10",
+        "method": "Inspected extracted full text, relevant page images, theorem statements and conclusion",
+        "title": "Equilibration of Coordinating Imitation and Best-Response Dynamics",
+        "trigger": "Exact originating update rule and open topology problem"
+      },
+      {
+        "assessment": "Closely related but counts n population interactions including self; imitators compare highest population earners globally; neither model exactly matches the neighbor-only protocol",
+        "evidence": "Page 3 model payoff uses n agents including self and p. 4 model Eq. (2.4) selects population-wide maximum.",
+        "identifier_or_url": "https://arxiv.org/pdf/2202.04782",
+        "material_read": "38-page full text, introduction, model equations (2.1)–(2.4), equilibrium/stability and invariant-set discussions and theorem context",
+        "method": "Inspected indexed full text and page image of model, compared payoff normalization and comparator sets",
+        "title": "Heterogeneous Mixed Populations of Coordinating, Anticoordinating, and Imitating Individuals",
+        "trigger": "Plausible stronger population-wide mixed-update convergence/equilibrium classification"
+      },
+      {
+        "assessment": "All-imitator analysis, not mixed fixed imitative/best-response populations; different self-comparison conventions",
+        "evidence": "Model and theorem statements explicitly focus on imitation.",
+        "identifier_or_url": "https://arxiv.org/pdf/2006.03438",
+        "material_read": "Full 14-page accessible preprint and model/results discussed",
+        "method": "Inspected model and theorem coverage",
+        "title": "Evolutionary Matrix-Game Dynamics Under Imitation in Heterogeneous Populations",
+        "trigger": "Possible all-imitator covering limit"
+      },
+      {
+        "assessment": "All-best-response only, not a theorem for arbitrary mixed imitation/coordinating types",
+        "evidence": "Paper explicitly studies coordinating/nonconforming agents under asynchronous best response; general bound scales with graph edge count.",
+        "identifier_or_url": "https://doi.org/10.1073/pnas.1610244113",
+        "material_read": "Published abstract and accessible theorem discussion; full article not exhaustively read",
+        "method": "Read primary publication landing abstract and compared process classes",
+        "title": "Networks of conforming or nonconforming individuals tend to reach satisfactory decisions",
+        "trigger": "Broad convergence and switch-count results for coordination networks"
+      },
+      {
+        "assessment": "Analyzes pure BR and unconditional imitation rules and their differing mean-field behavior, not an arbitrary fixed mixture with the strict per-switch hinge potential",
+        "evidence": "The abstract separates replicator, best-response and unconditional imitation analyses.",
+        "identifier_or_url": "https://arxiv.org/abs/2110.10036",
+        "material_read": "Full abstract and available indexed paper description; not a complete full-text theorem inspection",
+        "method": "Compared explored update classes and claimed limits",
+        "title": "Coordination and equilibrium selection in games: the role of local effects",
+        "trigger": "Complete-graph coordination under imitation and best response"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c75ea4d0-cd2e-41c8-b978-26960d3b79b7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete graph is the natural dense counterpart of the 2023 sparse-tree open-topology question. A one-dimensional globally strict potential for arbitrary mixtures gives genuinely uniform finite switch complexity and full consensus when at least one BR is present, while exactly classifying exceptional pure-imitator absorbing coexistence. The optimal \\(n-1\\) switch length exhibits the value of that precise bound, not just code reproducibility.",
+    "status": "PASS"
+  }
+}
