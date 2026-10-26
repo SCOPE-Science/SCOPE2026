@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For a specified k-cycle, the weighted Laplacian minor for forests with k designated roots is the diagonal-minus-rank-one matrix and has determinant (sum_root x) X^(s-1). Setting root weights to one gives occupancy of s nonroot bins under s-1 iid uniform throws into n bins, so the exact inclusion–exclusion/coefficient formula follows. At fixed leaf count r, the coefficient expansion has leading term the displayed fixed-degree polynomial leading term, uniformly for y=k/n in the admissible lattice; multiply by the falling factorial and normalize the resulting Riemann sum to obtain the beta-square distribution. Exactly 455 exact formula comparisons plus 34 independent raw graph-enumeration joint-cell comparisons passed. Finite checks do not prove the asymptotic theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Noy et al. arxiv:2003.03552 formula (8): the unmarked unicyclic generating function, unmarked by leaf count",
+        "Janson 2003 Cambridge abstract: cycles and unicyclic component sizes in G(n,n/2 ±s), not fixed-r label-count regime"
+      ],
+      "reasoning": "The unmarked EGF can be extended by a leaf marker in principle, and such an extension might dominate the exact enumeration. No inspected claim or explicit coefficient asymptotic for fixed r was identified. This is an originality risk rather than evidence of noncoverage by an inaccessible entire text.",
+      "searches": [
+        "arxiv:2003.03552 unicyclic rooted-tree generating function",
+        "doi:10.1017/S0963548302005412 Janson cycles and unicyclic components",
+        "unicyclic labelled graphs conditioned number leaves cycle length distribution uniform"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1311.1987",
+      "arxiv:2003.03552",
+      "doi:10.1017/S0963548302005412",
+      "published-finding corpus semantic results for four specific unicyclic/forest/cycle-length queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhang–Zhang pp.1–4 and section descriptions study individual-graph extremizers under fixed (n,r,k), not class cardinalities",
+        "Noy et al. pp.1–4 give a cycle-rooted-tree decomposition plus sparse random-graph component-count limits",
+        "Exact counting relies additionally on a leaf-marked rooted-forest determinant and fixed-degree coefficient expansion, neither located as a stated conclusion in those sources"
+      ],
+      "reasoning": "The target limit does not follow immediately from the cited unmarked EGF alone without a leaf marker and coefficient analysis. A general multivariate enumeration could imply it, so historical priority is provisional rather than categorical.",
+      "searches": [
+        "arxiv:1311.1987 Laplacian coefficients unicyclic number leaves girth",
+        "arxiv:2003.03552 Cycles of Given Lengths in Unicyclic Components in Sparse Random Graphs",
+        "Connected functional digraph one directed cycle specified number indegree zero vertices distribution cycle length leaves conditional"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1311.1987, introduction pp.1–4: fixed-girth/leaf classes, Laplacian extremal comparisons",
+        "arxiv:2003.03552, introduction and section 2 pp.1–4: rooted-tree EGF and unicyclic components in a fixed-edge random-graph model",
+        "published-finding corpus semantic queries (matched records mainly about unrelated unicyclic extremal invariants, forests and Cayley-tree dependence)"
+      ],
+      "reasoning": "The same graph parameters girth k and leaf count r appear in Zhang–Zhang, but their claim is a partial order of Laplacian coefficients for individual graphs, not a uniform distribution or counting law. Noy et al. give the unmarked unicyclic EGF, not a fixed-leaf joint law or squared-beta conditional limit. In a functional digraph formulation, the sought law is also a conditional cycle-length law at fixed indegree-zero count; the semantic search found no corresponding identified result.",
+      "searches": [
+        "Unicyclic random labelled graph conditioned exactly l leaves: cycle length asymptotic Beta squared beta one half l, attached rooted forest",
+        "Connected functional digraph one directed cycle specified number indegree zero vertices distribution cycle length leaves conditional",
+        "Uniform cycle length given exactly one pendant vertex unicyclic graph number leaves",
+        "arxiv:1311.1987",
+        "arxiv:2003.03552"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantically similar records contain a range of unicyclic graph and tree statements, but no identified count indexed jointly by (cycle length, leaf count)",
+        "Independent enumerations n=4..7 are newly computed checks, not external uniqueness evidence"
+      ],
+      "reasoning": "No database/table explicitly tabulating the all-size conditional probabilities or the Beta-square limit was found. Matching unrelated invariant tables or limited searches are not proof of novelty.",
+      "searches": [
+        "Unicyclic random labelled graph conditioned exactly l leaves: cycle length asymptotic Beta squared beta one half l, attached rooted forest",
+        "uniform unicyclic labeled graph one leaf uniform cycle length",
+        "random graph unicyclic fixed number pendant vertices enumeration"
+      ]
+    },
+    "rationale": "Relevant source full texts address distinct problems: Zhang–Zhang (arXiv:1311.1987) optimize Laplacian coefficients for fixed leaf count and girth, Noy et al. (arXiv:2003.03552) study counts of unicyclic components by cycle length in G(n,M) regimes. Janson (2003) studies random graph cycle and component sizes; full text inaccessible. The present all-r finite joint enumeration and conditional squared-beta limit were not found in the examined statements or published-record searches; older general multivariate formulas may still imply them. The known tree-cycle decomposition and matrix-tree theorem are not asserted original.",
+    "residual_risks": [
+      "Full text of Janson (2003) not accessible, so a definitive absence claim is not made.",
+      "Older multivariate rooted-tree enumeration or random mapping theorems might subsume the exact law or limiting distribution.",
+      "Semantic search of published records cannot establish universal uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Actual assertions are Laplacian coefficient poset extremals and edge transformations; no identified all-size joint class enumeration or conditional beta limit",
+        "evidence": [
+          "arxiv:1311.1987 pp.1–4 definitions U_{n,l}^g, conjecture, and extremal treatment"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1311.1987",
+        "material_read": "Abstract, introduction, definitions and section 2 start (pp.1–4), plus full-text searches for counting/enumerating",
+        "method": "Publisher-independent arXiv PDF text and visual inspection",
+        "title": "Laplacian coefficients of unicyclic graphs with the number of leaves and girth",
+        "trigger": "Same objects and conditioning parameters n, leaves and girth"
+      },
+      {
+        "assessment": "G(n,M) count of unicyclic components with prescribed allowed cycle lengths; the unmarked EGF does not condition on component leaf count",
+        "evidence": [
+          "arxiv:2003.03552 formula (8) for W0(x) and theorem 1.1 for G(n,M) component counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.03552",
+        "material_read": "Abstract, introduction, section 2 generating functions and section 3 start (pp.1–4); full-document text searches for leaves and pendant vertices",
+        "method": "ArXiv full PDF text and visual inspection",
+        "title": "Cycles of Given Lengths in Unicyclic Components in Sparse Random Graphs",
+        "trigger": "Unicyclic graph cycle-length enumeration and rooted-tree composition"
+      },
+      {
+        "assessment": "Not classified as NOT_COVERING; inaccessible full text leaves residual priority risk. The available abstract concerns unconditioned random graphs near their critical point.",
+        "evidence": [
+          "Cambridge Core title, abstract and online first-publication date 2003-01-28"
+        ],
+        "identifier_or_url": "doi:10.1017/S0963548302005412",
+        "material_read": "Cambridge Core abstract and metadata only; full paper unavailable",
+        "method": "Publisher abstract and bibliographic inspection",
+        "title": "Cycles and Unicyclic Components in Random Graphs",
+        "trigger": "Primary probability literature on unicyclic component cycle sizes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9cb289ab-d93a-4e2c-81f0-567cb65c8c66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cycle length and leaf count are two intrinsic graph-shape observables in the canonical connected unicyclic model. Conditioning on few leaves is a natural rare-structure regime; the result supplies exact finite (n,k,r) counts, surprising exact uniformity for one leaf, and a coherent family of Beta(1/2,r) laws for the squared cycle fraction across all fixed r. Its density (1-y^2)^(r-1) explicitly records how the leaf constraint alters global cycle geometry. This is a motivated conditional-law classification, not just a computed table or an unmotivated special graph.",
+    "status": "PASS"
+  }
+}
