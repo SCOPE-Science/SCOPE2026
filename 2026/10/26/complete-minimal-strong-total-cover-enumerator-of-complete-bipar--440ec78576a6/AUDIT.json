@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed cover definitions and edge/vertex inequalities; four disjoint cases classify every minimal cover. In nondegenerate case mandatory omitted-rectangle edges and essential selected vertices give binomial weights. In one-sided degenerate case exactly one selected edge per omitted vertex and the corresponding function must be nonconstant; each such cover has size m+n. All vertices is one final cover. Algebra gives the complete polynomial, min coefficient, exact support and top gap. The packaged verifier exhaustively and independently enumerates all labelled vertex-edge subsets for seven cases including 3x4 (2^19 masks), matching every coefficient. Infinite conclusions rely on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 12 gives only m+n-1, Claim 13 confines inclusionwise minimal covers to degenerate/nondegenerate-canonical/all-vertex types.",
+        "Castelo–Defrain–Gomes discuss algorithms for enumerating minimal dominating sets in chordal bipartite graphs, not this coefficient formula."
+      ],
+      "reasoning": "The initiating paper covers the canonical nondegenerate classification and minimum objective, which are explicitly not treated as novel; it does not classify degenerate minimal covers by nonconstant functions or derive all coefficients and unbounded gaps. The algorithmic enumeration abstract does not imply a closed polynomial.",
+      "searches": [
+        "arxiv:2610.23312v1 PDF pp. 8-10 Proposition 12 Claim 13",
+        "\"Enumerating minimal dominating sets and variants in chordal bipartite graphs\" abstract",
+        "\"strong total cover\" \"generating polynomial\" graph"
+      ]
+    },
+    "checked_sources": [
+      "Aprile–Ferrarini arXiv:2610.23312v1, pp. 1-10 and conclusion",
+      "Castelo–Defrain–Gomes 2025 abstract on minimal dominating set enumeration",
+      "published-finding corpus record 2026/10/4/SCOPE-secure-total-domination-polynomial-of-complete-multipartite-grap--03760d8f9284 (summary; distinct predicate)",
+      "published-finding corpus record 2026/10/4/SCOPE-neighborhood-total-2-domination-polynomial-of-complete-multipart--0527708bbf3a (summary; distinct predicate)",
+      "Own prior scientific claim 3b0a0b22-13f8-45ee-b50d-7d637e6f3fe6 (rook hosts)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known m+n-1 cardinality is a minimum only and cannot determine how many minimal sets of each size exist.",
+        "Known canonical trichotomy allows the present count only after additional characterization of degenerate minimal covers; it does not assert terminal size gaps.",
+        "Earlier rook-graph statement enumerates minimum strong covers for a different graph family."
+      ],
+      "reasoning": "The submitted exact polynomial is stronger than the known minimum and extends the canonical trichotomy by classifying degenerates. There is no demonstrated prior statement whose implications cover the full claim. Some basic nondegenerate structure is deliberately credited as known.",
+      "searches": [
+        "arxiv:2610.23312v1 Proposition 3 Proposition 12 Claim 13",
+        "2026/10/4/SCOPE-secure-total-domination-polynomial-of-complete-multipartite-grap--03760d8f9284",
+        "3b0a0b22-13f8-45ee-b50d-7d637e6f3fe6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aprile–Ferrarini Proposition 3 identifies strong total covers of G with dominating sets of the incidence graph I(G).",
+        "The present polynomial consequently enumerates minimal dominating sets of I(K_{m,n}); source paper proves equivalence, not the polynomial."
+      ],
+      "reasoning": "The structural bijection is acknowledged; exact rank coefficients and terminal missing-size intervals are not deduced from equivalence alone without the four-case classification.",
+      "searches": [
+        "\"minimal dominating sets\" \"subdivision graph\" \"complete bipartite\"",
+        "\"minimal domination polynomial\" \"subdivision\" \"complete bipartite\"",
+        "arxiv:2610.23312v1 Proposition 3; PDF pp. 4-5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest titled records concern secure total domination, neighborhood total 2-domination, and vertex-cover objectives, not strong total covering.",
+        "No matching sequence/table recording all minimal-cover coefficients for K_{m,n} was identified."
+      ],
+      "reasoning": "These searches found no exact chart or table. This is limited negative evidence and not a proof of novelty; a table under another terminology remains possible.",
+      "searches": [
+        "strong total cover polynomial complete bipartite graph all covering sets enumeration canonical bicliques cardinality coefficients minimum count",
+        "minimum strong total covers K_{m,n} counting minimum solutions biclique nondegenerate canonical cardinality",
+        "\"incidence graph\" \"complete bipartite\" \"minimal dominating sets\" polynomial"
+      ]
+    },
+    "rationale": "Compared the same-host original primary PDF Proposition 12 and Claim 13 (minimum m+n-1 and canonical nondegenerate structure), plus the incidence-graph equivalence; these are explicitly credited. The present claimed new content is the complete polynomial including a nonconstant-function census of degenerate minimal covers, a precise multiplicity of minima, and unbounded size gaps. Queried four actual semantic mathematical-record searches and targeted web aliases; the closest different domination/covering records and own rook-graph result do not imply the claim. Search may miss earlier subdivisions under alternate terminology.",
+    "residual_risks": [
+      "Equivalent minimal domination polynomials of subdivision graphs could have appeared under different terminology.",
+      "Castelo–Defrain–Gomes full text was not compared to the specific graph family; accessible abstract does not suggest a matching formula.",
+      "The original 2026 preprint references earlier public conference abstracts of the problem; prepublication communications could contain unpublished counting facts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers definition, minimum, and canonical nondegenerate case; does not state complete minimal-cover polynomial or degenerate minimal-map census.",
+        "evidence": [
+          "Proposition 12: beta*_T(K_{m,n})=m+n-1, p.9.",
+          "Claim 13 three categories and nondegenerate canonical argument, pp.9-10.",
+          "Conclusion describes algorithmic/polyhedral results, not cardinality enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.23312",
+        "material_read": "Full abstract, introductory definitions, Proposition 3, Proposition 12, Claim 13 and its proof, Section 3.2 weighted algorithm, Section 5 conclusion; primary PDF pp. 1-10 and 28 with rendered pp. 9-10.",
+        "method": "Primary arXiv PDF text extraction and rendered-page inspection",
+        "title": "The Strong Total Cover Problem",
+        "trigger": "Same host and invariant; must compare exact propositions and appendices"
+      },
+      {
+        "assessment": "Algorithmic polynomial-delay enumeration of chordal bipartite graphs, without an explicit formula for the present subdivided biclique family shown in the abstract; full-text comparison remains a residual historical-priority risk.",
+        "evidence": [
+          "Abstract describes polynomial delay and space enumeration, not an exact distribution."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/389207538_Enumerating_minimal_dominating_sets_and_variants_in_chordal_bipartite_graphs",
+        "material_read": "Title and abstract only",
+        "method": "Search-result abstract inspection",
+        "title": "Enumerating minimal dominating sets and variants in chordal bipartite graphs",
+        "trigger": "Possible broader enumeration theorem under incidence-graph duality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "440ec785-76a6-48b4-b396-d917d50cb1e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise object is the complete inclusionwise-minimal strong-total-cover distribution on complete bicliques, equivalently the minimal domination spectrum of their incidence subdivisions. It extends an important new covering invariant from a known minimum bound and partial structural trichotomy to a full two-parameter coefficient formula and degenerate-case classification. Most notably, it proves arbitrarily long terminal gaps among sizes of inclusionwise minimal dominating sets in a natural family, with a unique largest set; this structural spectrum phenomenon, unlike the known cardinality minimum, has intrinsic graph-theoretic interest.",
+    "status": "PASS"
+  }
+}
