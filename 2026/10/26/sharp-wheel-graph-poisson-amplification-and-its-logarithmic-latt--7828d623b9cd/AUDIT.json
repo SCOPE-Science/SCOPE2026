@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Orthogonal decomposition yields a complete explicit wheel pseudoinverse and correct nullspace normalization. Each induced endpoint norm is an absolute row/column sum; the rim/hub comparison is strict except for the four-vertex complete-graph case, and sign inputs attain equality. Periodization and exponential tail estimates yield a uniform O(m^-2) phase expansion; convex phase minimum, equal endpoints and dense logarithmic phases imply the exact accumulation interval. Finite independent rational and Fourier checker passes 2,336 checks; all infinite quantifiers are analytically justified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ipsen--Mallik 2022 explicitly covers the full Green operator and hence dominates the kernel calculation.",
+        "A previous cycle Green-norm theorem gives an exact endpoint Green norm for cycles; a previous rook-graph Poisson result covers rook graphs.",
+        "A previous wheel edge-gradient result is an edge operator with other input/output dimensions."
+      ],
+      "reasoning": "Prior Green-kernel formulas provide the entries, but not the nontrivial large-size sign-support classification and phase accumulation theorem. Nearby graph families and edge-gradient operators cannot be specialized to the same wheel vertex norm; a formal derivation from the older matrix formula is provided as new asymptotic analysis.",
+      "searches": [
+        "l-infinity to l-infinity Green function norm for complete join of vertex and cycle, threshold log m",
+        "norm of inverse graph Laplacian for apex cycle and wheel graphs, graph Poisson stability",
+        "Incidence and Laplacian matrices of wheel graphs and their inverses arXiv:2201.02579"
+      ]
+    },
+    "checked_sources": [
+      "Yang 2012 six-page wheel resistance PDF, Theorem 2.6 and hitting times (public date 2012-01-01).",
+      "Ipsen--Mallik 2022 arXiv:2201.02579 relevant full pseudoinverse/circulant inverse sections (public v1 2022).",
+      "Zhang--Yang 2006 DOI:10.1002/qua.21068 publisher abstract/metadata only.",
+      "Published mathematical records on wheel-edge geometry and cycle Green operators compared by mathematical implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior work determines exact Green entries and related resistances.",
+        "New derivation combines row-zero-sum positivity support with q-adic geometric tails to find (log m)/m scale, nonconstant continuous periodic phase and exact limitset."
+      ],
+      "reasoning": "The finite matrix identity is an acknowledged corollary of prior explicit kernel work; it is not independently used as the main novelty. The asymptotic phase theorem is not provided by a uniform spectral formula without a further sign-transition analysis. Distinct finite graph projection norms in earlier graph results do not logically imply the wheel Poisson phase law.",
+      "searches": [
+        "Ipsen--Mallik 2022 full arXiv PDF: Theorem 3.6 and Corollary 3.3",
+        "Yang 2012 full PDF: Theorem 2.6 and 3.2--3.4",
+        "Green operator wheel graph Laplacian spectral pseudoinverse l1 norm and logarithmic phase correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ipsen--Mallik Theorem 3.6 gives Green entries, not an induced sharp norm theorem.",
+        "Yang 2012 gives wheel resistance entries, which can be related to Green values but not their absolute-row cutoff.",
+        "A previous wheel edge-gradient result is a wheel edge-gradient projection, not vertex Poisson inversion."
+      ],
+      "reasoning": "Resistance distance determines Green entries by double-centering; this equivalence is credited. However optimizing the absolute-row sum over a threshold of exponentially decaying coefficients and proving uniform log-periodic corrections are not statements in the inspected equivalent descriptions. No direct norm-phase equivalence was found.",
+      "searches": [
+        "Sharp l-infinity operator norm of Laplacian Moore Penrose inverse wheel graph with hub and rim, Green function norm asymptotic log n over n",
+        "Green operator wheel graph Laplacian spectral pseudoinverse l1 norm and logarithmic phase correction",
+        "wheel graph Laplacian pseudoinverse maximum absolute row sum l infinity exact asymptotic",
+        "wheel graph Laplacian Moore Penrose inverse row sum absolute inverse infinity norm Green function"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record searches returned distinct results on wheel edge-polytope ellipsoids and cycle numerical-radius Green Hessians, neither recording the proposed norm invariant.",
+        "No wheel Poisson sup-norm or logarithmic phase table was observed in the inspected source/database results."
+      ],
+      "reasoning": "Search results are not a proof of global uniqueness; database scan returned no exact parameters/norm with matching domain, and historical gaps and unindexed specialist literature remain possible.",
+      "searches": [
+        "Sharp l-infinity operator norm of Laplacian Moore Penrose inverse wheel graph with hub and rim, Green function norm asymptotic log n over n",
+        "Green operator wheel graph Laplacian spectral pseudoinverse l1 norm and logarithmic phase correction",
+        "wheel graph Green function sharp operator norm logarithmic periodic asymptotic",
+        "Wheel graph Poisson equation sharp maximum norm Green pseudoinverse Fibonacci decay threshold negative row entries"
+      ]
+    },
+    "rationale": "Specific sign-tail and lattice-phase claims were compared against the full wheel-pseudoinverse formula of Ipsen--Mallik (2022), the wheel resistance results of Yang (2012), previous Green/edge-gradient publications and multiple scientific record searches. The exact Green kernel is explicitly treated as prior; neither inspected primary statement includes the sharp log-periodic norm defect or its full accumulation range. Residual historical uncertainty remains.",
+    "residual_risks": [
+      "Ipsen--Mallik 2022 already has the complete wheel Green kernel; judging the phase theorem as more than a straightforward derivation requires independent expert appraisal.",
+      "The specialist weighted-wheel Kirchhoff-index literature (2008) was not read in full; it may contain related asymptotic calculations.",
+      "An indexed 2025 article on graph joins and inaccessible sources using maximum-principle or Green Lebesgue-constant terminology could affect historical priority.",
+      "Semantic retrieval of records is non-exhaustive; lack of matches is not a uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers wheel resistance distances and hitting/commute/cover times, but does not state induced norms of the centered Poisson inverse, sign tails, or logarithmic norm phases.",
+        "evidence": [
+          "Yang (2012), Theorem 2.6 determines resistance distances; Theorems 3.2--3.4 concern random-walk hitting and cover times."
+        ],
+        "identifier_or_url": "https://www.naturalspublishing.com/files/published/90uo7hk8rzs133.pdf",
+        "material_read": "Six-page PDF: abstract/introduction, resistance recurrence and Theorem 2.6, hitting and cover-time sections, references.",
+        "method": "Read extracted PDF text and visually inspected pages 1 and 4 of the six-page PDF.",
+        "title": "Simple random walks on wheel graphs",
+        "trigger": "Direct wheel resistance and Green-related formulas from the archive period."
+      },
+      {
+        "assessment": "Provides the complete Moore--Penrose inverse and associated kernel coefficients. This earlier result is explicitly credited; no operator absolute-row norm, log-size sign threshold, or lattice phase is presented in the inspected primary result. Finite kernel construction is fully prior.",
+        "evidence": [
+          "Ipsen and Mallik (2022), Corollary 3.3 and Theorem 3.6 show B inverse and wheel L pseudoinverse; no norm or asymptotic theorem appears in the paper."
+        ],
+        "identifier_or_url": "arXiv:2201.02579",
+        "material_read": "Abstract/introduction, pages 13--18 on inverse circulant coefficients, Corollary 3.3, Theorem 3.6 and its proof, references.",
+        "method": "Read full relevant sections of accessible arXiv PDF and visually inspected pages 16--17 (zero-index 15,16).",
+        "title": "Incidence and Laplacian matrices of wheel graphs and their inverses",
+        "trigger": "Exact potentially dominating primary full-text formula for the same wheel Green matrix."
+      },
+      {
+        "assessment": "The published scope is circulant graphs, notably cycles and Möbius ladders; the wheel is not circulant. Abstract-level comparison cannot establish that its full text lacks the claimed norm.",
+        "evidence": [
+          "Zhang and Yang, publisher page, first-public date 2006-09-05 and abstract listing special circulant families."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/qua.21068",
+        "material_read": "Public publisher abstract, description, publication history and bibliography; complete publisher text not inspected.",
+        "method": "Reviewed accessible publisher metadata and abstract.",
+        "title": "Resistance distance and Kirchhoff index in circulant graphs",
+        "trigger": "Archive-period circulant resistance formula potentially allowing known Green expressions."
+      },
+      {
+        "assessment": "Plausible earlier source for Green/resistance identities; coverage of the *sharp endpoint norm and log-phase* is unresolved, recorded as residual risk rather than deemed absent.",
+        "evidence": [
+          "Indexed summary describes Kirchhoff indices and asymptotics for weighted wheel networks, not endpoint operator norms."
+        ],
+        "identifier_or_url": "https://globethesis.com/?t=2120360245980881",
+        "material_read": "Search-visible thesis description and indexed journal-title metadata only; no full thesis or article was read.",
+        "method": "Searched for freely available text; found indexed abstract/metadata but not accessible primary full text.",
+        "title": "Kirchhoff index of weighted wheel graphs W_n(a,b)",
+        "trigger": "Specialist weighted-wheel resistance/Kirchhoff index that might include additional wheel formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7828d623-b9cd-4ff6-bd27-574ef31087cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural Poisson stability invariant of an important graph family exhibits a sharp logarithmic approach to its limiting amplification, plus a nonconstant second-order lattice phase and an exact continuum of subsequential limits. The behavior differs structurally from known cycle Green norms, and requires a discrete exponentially moving sign boundary; not a mere numeric entry calculation or renamed kernel.",
+    "status": "PASS"
+  }
+}
