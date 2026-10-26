@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Exact centered flux gives the cubic ODE, the positive backward Euler root is unique, and direct symbolic factorization of F^2-z gives the complete global increasing-map phase portrait and unique 2-cycle. At T=4 the third-order jet -2v^3 rigorously yields jv_j^2 ->1/2. The fixed point damping multiplier has the stated sharp uniform local stability boundary. Exact algebra and finite checks in verify.py were reproduced.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Botchev, arXiv:2610.14884v1, section 4, equations (6)-(10).",
+        "published-finding corpus global positive rational map record Global signed and logarithmic critical relaxation in a positive rational flip map"
+      ],
+      "reasoning": "General fixed-point and order-reversing-map theory implies qualitative convergence alternatives, but without mapping the discretization and deriving the exact T=4, multiplier 4/T and critical coefficient it does not entail the complete quantitative claim. The published-finding corpus rational-map record concerns a different rational discretization at threshold tau=2.",
+      "searches": [
+        "Picard fixed point iteration backward Euler cubic dissipative reaction y'=-y^3 sharp timestep threshold 4 period two cycle",
+        "implicit Euler nonlinear diffusion Picard lagged diffusivity iteration period two bifurcation large timestep cubic reaction",
+        "lagged diffusivity Picard iteration one interior point nonlinear heat u_t=(u squared u_x)_x sharp time step bound global attracting two cycle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.14884v1 (full HTML, section 4)",
+      "https://mathworld.wolfram.com/PicardIteration.html (public introductory summary)",
+      "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+      "Global signed and logarithmic critical relaxation in a positive rational flip map",
+      "Exact relaxation resonance in a classical forward-backward sweep counterexample",
+      "A unique inverse-power two-cycle and its sharp stability boundary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source nonlinear heat equation and frozen iteration: arXiv:2610.14884v1 sec. 4 eqs. (6),(7),(10).",
+        "published-finding corpus old relaxation record Exact relaxation resonance in a classical forward-backward sweep counterexample"
+      ],
+      "reasoning": "The source proves no result about this one-node nonlinear solver recurrence. The relaxation record studies a linear forward-backward sweep and different threshold; it does not imply the nonlinear heat map. Established fixed-point theory is background and remains a residual risk for specialized quantitative comparison.",
+      "searches": [
+        "2026 numerical time integrators invariant preservation exponential integrator positivity stabilization sharp counterexample",
+        "implicit Euler nonlinear diffusion Picard lagged diffusivity iteration period two bifurcation large timestep cubic reaction",
+        "lagged diffusivity Picard iteration one interior point nonlinear heat u_t=(u squared u_x)_x sharp time step bound global attracting two cycle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Botchev, arXiv:2610.14884v1, equation (10), specialized to scalar coefficient A(y)=y^2/(2h^2).",
+        "published-finding corpus inverse-power cycle record A unique inverse-power two-cycle and its sharp stability boundary"
+      ],
+      "reasoning": "A Hill-type rational map can arise after rescaling. The retrieved inverse-power map adds b/x^p rather than the bounded decreasing reciprocal quadratic 1/(1+Tx^2). The exact one-cell solver normalization and bifurcation are compared, not merely the paper titles.",
+      "searches": [
+        "two-cycle scalar nonlinear lagged diffusivity Picard iteration inverse 1+tau x squared",
+        "\"1/(1+T x^2)\" Picard nonlinear heat equation two-cycle threshold T=4 critical slowing",
+        "scalar rational map x next=1/(1+t x squared) attracting period two multiplier 4/t n inverse square root critical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returns related positivity of backward Euler and fixed-point oscillation records, including Richardson acceleration creates a sharp positivity barrier for backward Euler"
+      ],
+      "reasoning": "The one-cell exact threshold and coefficients were not found as a matching published database entry or table. This negative search is not considered proof of uniqueness.",
+      "searches": [
+        "\"1/(1+T x^2)\" Picard nonlinear heat equation two-cycle threshold T=4 critical slowing",
+        "lagged diffusivity Picard iteration one interior point nonlinear heat u_t=(u squared u_x)_x sharp time step bound global attracting two cycle"
+      ]
+    },
+    "rationale": "Literature-led numerical-method specialization: the 2026 arXiv source identifies a quadratic-conductivity nonlinear heat equation and its frozen-coefficient iteration but not the complete one-cell nonlinear solver bifurcation, exact cycle, marginal rate and damping frontier. published-finding corpus related records address different update maps; broader difference-map coverage remains a genuine bibliographic risk.",
+    "residual_risks": [
+      "Some earlier specialized rational Hill-map or one-cell nonlinear diffusion analysis could contain an equivalent numerical threshold; negative searches do not prove novelty.",
+      "The prior book on nonlinear iteration cited as [20] in the motivating paper was not independently inspected in full.",
+      "Source large-grid face conductivity is not asserted identical to the explicit arithmetic-interface convention used here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The scalar specialization is compatible with the source class, but the exact one-cell cycle law and critical coefficients are not given.",
+        "evidence": [
+          "Section 4 equation (6) k(u)=u^2, equation (7) y′=-A(y)y+g, equation (10) y^(m+1)=(I+tau A(y^(m)))^-1[y^n+tau g]."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.14884v1",
+        "material_read": "Full accessible 2026 manuscript HTML, with detailed reading of introduction and section 4 (equations 6-10, experiments, conclusions).",
+        "method": "Primary arXiv full-text inspection and comparison of the stated mathematical update against the one-cell specialization.",
+        "title": "Are implicit schemes needed in adaptive time stepping for PDEs?",
+        "trigger": "Exact nonlinear heat operator and frozen-coefficient iterative equation."
+      },
+      {
+        "assessment": "Generic fixed-point background; no checked claim covering the exact heat threshold.",
+        "evidence": [
+          "Defines x_(n+1)=g(x_n) and the local iteration interpretation."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/PicardIteration.html",
+        "material_read": "Public summary definition and background, not a theorem covering the specialized map.",
+        "method": "Public source page summary review.",
+        "title": "Picard Iteration",
+        "trigger": "Potential general fixed-point results covering the recurrence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ca81ba20-6d67-4e2b-b96a-f18f080ff439",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete minimal-grid classification of when a practical positivity-preserving lagged linear solve fails to compute an implicit dissipative PDE step, with exact threshold, globally attracting spurious oscillation, critical slowing rate and sharp local damping recommendation; the criterion addresses a concrete nonlinear solver reliability problem.",
+    "status": "PASS"
+  }
+}
