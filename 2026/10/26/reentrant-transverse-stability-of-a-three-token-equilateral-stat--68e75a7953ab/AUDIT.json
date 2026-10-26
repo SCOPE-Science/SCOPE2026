@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Fully reconstructed angular Jacobian on three S1 tokens yields eigenvalues 1 and (1-hL)/(1-hK) twice. The softmax derivative and normalization are explicit, global denominators stay >=1-h, and a scalar exact identity reduces stability to hS<2. Direct derivative of S proves a unique maximum; finite checker independently differentiates map numerically in both transverse directions over 72 parameter pairs. Critical boundaries are explicitly declared only linearly neutral.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Altafini requires a simple positive dominant eigenvalue; V=-I has only negative eigenvalues.",
+        "Gao--Yang--Chen set a_ii=0; here a_ii=e^(beta)/(e^(beta)+2e^(-beta/2))>0."
+      ],
+      "reasoning": "A more general covering theorem would need to allow negative scalar value maps and positive self weights, and determine their sharpness-dependent equilateral shape spectrum. The inspected named results do not.",
+      "searches": [
+        "arXiv:2610.13518v1 equilibrium stability and value-matrix assumptions",
+        "arXiv:2609.28448v1 regular polygon eigenvalues and attention diagonal",
+        "two-token self-attention negative value matrix antipodal stable two-cycle sharp step size phase transition",
+        "equilateral regular simplex repulsive softmax attention with self edges stability multiplier e^(3 beta/2)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13518v1",
+      "arXiv:2609.28448v1",
+      "Published mathematical-record search index using six source/alias queries",
+      "Prior existing mathematical-claim records compared by object and statement"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original source: full attention but positive dominant value spectrum; present V=-I excluded.",
+        "Closest repulsive source: negative value but masked self-interaction; present self-interaction included."
+      ],
+      "reasoning": "Neither paper has all hypotheses needed to instantiate this model. Replacing A_ii=0 by positive self weight changes K, L and the sign of the stability inequality; citing generic regular-polygon flip results does not imply precisely two sharpness thresholds.",
+      "searches": [
+        "arXiv:2610.13518v1",
+        "arXiv:2609.28448v1",
+        "three token full softmax self-attention negative scalar value -I equilateral triangle reentrant linear stability fixed flip orbit sharpness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mathematical-record queries retrieved repulsive oscillator triangles, optimizer two-cycles and unrelated geometric phase transitions, without the same normalized full-softmax three-token map.",
+        "arXiv:2609.28448 uses diagonal-masked repulsive attention; its negative-value angular formulas are not equivalent to full attention."
+      ],
+      "reasoning": "Equivalent statements would give a nonmonotone shape multiplier crossing -1 twice as beta varies for some fixed 0<h<1; nearby returned phenomena have different state maps or exclude self edges.",
+      "searches": [
+        "negative value self-attention two tokens sphere normalization period two bifurcation angular separation invariant",
+        "discrete normalized self attention anti-alignment period two invariant angle softmax",
+        "three token full softmax self-attention negative scalar value -I equilateral triangle reentrant linear stability fixed flip orbit sharpness",
+        "self-attention three equal angles normalized discrete-time negative value reentrant stability fixed-point to sign-flip three-cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned mathematical record/tabulation of the exact two beta thresholds beta_±(h), hcrit approximately 0.98691401035, for this fully unmasked map."
+      ],
+      "reasoning": "The claim is a continuous-parameter analytic phase portrait rather than a finite lookup table. Checked for equivalent explicit spectral tabulation; no covering one identified.",
+      "searches": [
+        "three token full softmax self-attention negative scalar value -I equilateral triangle reentrant linear stability fixed flip orbit sharpness",
+        "self-attention three equal angles normalized discrete-time negative value reentrant stability fixed-point to sign-flip three-cycle",
+        "equilateral regular simplex repulsive softmax attention with self edges stability multiplier e^(3 beta/2)"
+      ]
+    },
+    "rationale": "Compared exact shape spectrum, fixed-point regime and sharpness-dependent double crossing to both nearest full unmasked positive-value and closest repulsive diagonal-masked primary sources. Their respective hypotheses and normalization structures cannot logically imply the claimed unmasked negative-value reentrance. Targeted Mathematical-record searches and prior existing claims did not reveal the same statement; absence of records is not a proof of absolute novelty.",
+    "residual_risks": [
+      "An equivalent all-temperature full-attention three-token equilateral stability result may occur in research under alternative parametrization or terminology.",
+      "The analogous diagonal-masked paper is close, making mistaken model-equivalence a priority concern; comparison hinges on A_ii=0 versus A_ii>0.",
+      "Numerical checks sample finitely many parameters; all-parameter conclusions rely on the analytic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The stated hypothesis that the symmetric value matrix has a simple positive dominant eigenvalue excludes -I, so its consensus classifications do not imply this negative-value 3-token reentrance.",
+        "evidence": [
+          "arXiv:2610.13518v1, assumption on simple positive dominant value eigenvalue and its equilibrium classification",
+          "Submitted 2026-10-09 per arXiv entry"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13518v1",
+        "material_read": "Abstract, definitions of attention/update, equilibrium assumptions and principal-eigenvalue stability results in the available 16-page HTML version",
+        "method": "Read accessible primary HTML and compared the value-spectrum assumptions to V=-I and the full equilateral shape spectrum",
+        "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+        "trigger": "Discrete normalized full self-attention and equilibrium stability for the same class of model"
+      },
+      {
+        "assessment": "Diagonal masking changes the softmax field and its Jacobian. Their masked regular-polygon flip results do not supply this full-self-edge sharpness reentrance or the equation for S(beta).",
+        "evidence": [
+          "arXiv:2609.28448v1, planar repulsive model explicitly has A_ii=0",
+          "Submitted 2026-09-23; treatment of regular polygons and flip instabilities"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.28448",
+        "material_read": "Accessible full primary HTML, model definition including A_ii=0 and the planar polygon/flip and cluster sections",
+        "method": "Directly contrasted diagonal-masked attention weights and their linearization with fully unmasked attention including the self weight p",
+        "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+        "trigger": "Closest apparent match: V=-I, planar regular polygon, stability and flip dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68e75a79-53ab-4a9b-9389-8cc5099f1240",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three planar unit tokens form the smallest noncollinear regular configuration with full self attention, hence a natural minimal model. The unexpected reentrant loss and restoration of linear transverse stability under stronger attention sharpness is quantified by an exact nonempty step interval and two finite critical sharpnesses; this is a structural phase boundary, not a routine numeric special case.",
+    "status": "PASS"
+  }
+}
