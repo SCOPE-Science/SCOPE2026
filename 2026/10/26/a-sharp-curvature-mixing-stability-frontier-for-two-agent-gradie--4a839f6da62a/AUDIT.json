@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Original updates reduce exactly to the displayed three-state matrix under the gradient-sum invariant. Symbolic code checks the characteristic cubic, all Schur factors, and full-rank initialized-state controllability; the Schur reduction and sign-monotonicity argument prove all strict regimes. At equality the quadratic factor is a unit-circle pair. The cyclicity determinant lambda-1 closes the gap between abstract matrix instability and actual initialized primal trajectories; finite eigenvalue tests are diagnostics only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al. provide a general sufficient heterogeneous certificate, which does not supply necessity for the fixed canonical beta=1 two-agent setting.",
+        "Tian et al. have exact worst-case rate theorems for DIGing and AugDGM, not the locally added gradient increment iteration."
+      ],
+      "reasoning": "Checked whether broad convergence guarantees or worst-case rate bounds mathematically dominate the entire necessary-and-sufficient boundary; they do not because the exact algorithm update and/or quantified property differs. The special homogeneous case is covered and not independently claimed.",
+      "searches": [
+        "adaptive distributed gradient tracking 2608.03548 homogeneous negative eigenvalue mixing matrix optimal normalized stepsize anti-consensus",
+        "gradient tracking homogeneous W negative eigenvalue lambda_N competing lambda_2 exact optimal stepsize root radius",
+        "Wang Ballotta Carli Iannelli Cao Schenato 2026 distributed gradient tracking two agents heterogeneous curvature arbitrary communication mixing eigenvalue exact cubic Schur stability stepsize",
+        "arxiv:2608.03548v1 Section IV",
+        "arxiv:2607.23601v1 Sections 3–4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.03548v1, relevant full HTML sections II–IV",
+      "arxiv:2607.23601v1, full HTML algorithm definitions/theorems/proof sections",
+      "published scientific finding 4bef30512fd6, full recoverable claim and indexed summary",
+      "current-week historical claims through g000083 (overlap only)",
+      "prior-week historical claims through 2026-10 week2 g000130 (targeted exact searches)",
+      "week1 and Sep week4 historical claim sets (overlap only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Complete-graph beta=1 proves optimality only when lambda=0; it does not characterize lambda<0 and d≠0.",
+        "Homogeneous sign-aware exact optimality sets d=0 and varies beta; this claim fixes beta=1 and varies both signed lambda and d."
+      ],
+      "reasoning": "The new strict necessary-and-sufficient phase diagram contains nonzero d and negative lambda regimes that are neither special cases of the known homogeneous claims nor consequences of sufficient bounds. The d=0 endpoint of this result is acknowledged as covered background.",
+      "searches": [
+        "arxiv:2608.03548v1 Section III-A optimal beta=1 and IV heterogeneous certificate",
+        "published-finding corpus:2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "Wang Ballotta Carli Iannelli Cao Schenato 2026 distributed gradient tracking two agents heterogeneous curvature arbitrary communication mixing eigenvalue exact cubic Schur stability stepsize"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The original gradient-tracking source gives an explicit reduced A(beta) but not the specialized J(lambda,d^2) threshold.",
+        "Tian et al. show distinct tracker-update orders; homogeneous graph-mode formulas lack coupled curvature mismatch."
+      ],
+      "reasoning": "Compared the actual primal/tracker update placements, reduced matrix, scalar roots, and initialization constraint. A shared acronym does not make the distinct gradient-tracker updates equivalent.",
+      "searches": [
+        "two agent scalar quadratic gradient tracking heterogeneous h1 h2 centralized optimal reciprocal average curvature step size Schur stability golden ratio mixing eigenvalue phase diagram",
+        "gradient tracking two-node heterogeneity 1/3 negative eigenvalue mixing cubic Jury step alpha 1/mean curvature",
+        "Wang Ballotta Carli Iannelli Cao Schenato 2608.03548 exact heterogeneous two-agent critical curvature imbalance",
+        "arxiv:2608.03548v1 equations (2),(8)",
+        "arxiv:2607.23601v1 equations (2),(3)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus matched the homogeneous-curvature tuning finding 4bef30512fd6 and other distinct distributed and stochastic methods, but no indexed exact two-agent curvature threshold.",
+        "Accessible own prior claims in the latest current-week part and three historical weeks were searched for the primary source and gradient-tracking claims."
+      ],
+      "reasoning": "The exact J(lambda,u) boundary, radical threshold, and unit-circle equality were compared by statement and implications, not merely title. Search failure does not prove absolute uniqueness; recorded as a residual risk.",
+      "searches": [
+        "two agent scalar quadratic gradient tracking heterogeneous h1 h2 centralized optimal reciprocal average curvature step size Schur stability golden ratio mixing eigenvalue phase diagram",
+        "gradient tracking two-node heterogeneity 1/3 negative eigenvalue mixing cubic Jury step alpha 1/mean curvature",
+        "Wang Ballotta Carli Iannelli Cao Schenato 2608.03548 exact heterogeneous two-agent critical curvature imbalance",
+        "published-finding corpus semantic search: sharp two-agent heterogeneous gradient tracking Schur cubic mixing curvature",
+        "published record 4bef30512fd6"
+      ]
+    },
+    "rationale": "Exact polynomial and sharp nonzero-curvature-mismatch two-agent phase diagram at the independently motivated complete-graph-optimal beta=1 were not covered by the inspected source sections or published closest homogeneous result. Prior general sufficient certificates and different algorithm worst-case results do not imply the necessary-and-sufficient heterogeneous threshold; incomplete external full text of one published result is acknowledged.",
+    "residual_risks": [
+      "The full external GitHub repository package for published finding 4bef30512fd6 was not retrievable; comparison used its indexed description and full recoverable claim.",
+      "Unindexed older literature on exactly the same tracker update might already derive an equivalent two-agent mismatch criterion; searching does not establish absolute novelty.",
+      "The new result is an exact specialization of a matrix already supplied in Wang et al.; originality concerns the phase diagram and initialization-sensitive necessity, not the matrix itself."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The general reduced matrix is given; the exact two-agent beta=1 heterogeneous Schur phase diagram and its necessity for initialized primal trajectories are not stated.",
+        "evidence": [
+          "arXiv:2608.03548v1 Section II-A equations (2a),(2b), II-B equation (8), III-A equation (11), IV-A certificate",
+          "arxiv first public 2026-08-04"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.03548v1",
+        "material_read": "HTML full relevant sections II, III, IV: equations (2),(3),(8),(11), special and heterogeneous regime proofs/claims; inspected available text beyond abstract",
+        "method": "Direct full-text HTML inspection of definitions, transformation, exact special-case theorem and general certificate",
+        "title": "Adaptive Stepsizes With Certified Convergence in Distributed Gradient Tracking With Quadratic Costs",
+        "trigger": "Same precise algorithm, scalar quadratics, and heterogeneity"
+      },
+      {
+        "assessment": "DIGing and AugDGM dynamics differ at the tracker update or primal update and their sharp class-level worst-case result is not the fixed two-agent heterogeneous matrix considered here.",
+        "evidence": [
+          "arXiv:2607.23601v1 equations (2),(3), Theorems 1–2 and Section 4",
+          "arxiv first public 2026-07-26"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.23601",
+        "material_read": "Full-text HTML introduction equations (2),(3), assumptions, main Theorems 1–2, Sections 4.1–4.3 and supporting appendices/proof recurrences",
+        "method": "Direct full-text HTML inspection of update order, modal transfer functions and optimization quantifiers",
+        "title": "Exact Worst-case Convergence Rates of Distributed Gradient Tracking Methods",
+        "trigger": "Closest exact-rate distributed gradient-tracking theory"
+      },
+      {
+        "assessment": "Covers d=0 optimizing beta but does not dominate fixed beta=1, nonzero d exact region. Repository full-text access remains a residual risk.",
+        "evidence": [
+          "published published-finding corpus scientific finding ID 4bef30512fd6",
+          "claim is explicitly restricted to homogeneous curvature and beta optimized"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-sign-aware-graph-specific-tuning-for-homogeneous-distribut--4bef30512fd6",
+        "material_read": "Full archived finding claim with homogeneous assumption, optimal beta and exact negative-endpoint formula; published record summary; remote repository page inaccessible",
+        "method": "Compared recoverable mathematical statement and its parameter quantifiers with heterogeneous cubic",
+        "title": "Exact sign-aware graph-specific tuning for homogeneous distributed gradient tracking",
+        "trigger": "published-finding corpus semantic overlap with negative network eigenvalue and source arXiv:2608.03548"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4a839f6d-a62a-479e-8cd9-fc6403f4a7a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source identifies beta=1 as optimally fast for complete mixing; determining whether the same aggressive, operationally natural step remains convergent with non-complete two-node mixing and heterogeneous local curvature is a motivated structural question. The exact 1/3 negative-spectrum threshold, heterogeneity radical boundary and golden-ratio terminal threshold quantify distinct mixing/curvature interactions, including a sharp all-initializations nonconvergence witness at equality. This is not a renamed scalar stability computation: it characterizes the physically initialized network algorithm across its entire two-parameter class.",
+    "status": "PASS"
+  }
+}
