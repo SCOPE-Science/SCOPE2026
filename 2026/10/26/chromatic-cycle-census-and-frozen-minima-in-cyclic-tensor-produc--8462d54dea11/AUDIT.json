@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "From independent domination, each product-cycle fiber is empty, one color, or all colors. The exact local conditions give \\(f\\) full, \\(s\\) singleton, \\(e\\) empty with \\(e\\le2f+s/2\\), hence \\(|S|\\ge2k+(q-2)f\\). For \\(q\\ge3\\) all minima of size \\(2k\\) have \\(f=0\\); equality demands one empty fiber in each triple and pairs of equal-colored singletons whose consecutive colors differ. The count is \\(3\\operatorname{tr}((J_q-I_q)^k)\\), eigenvalues \\(q-1\\) and \\(-1\\). Different phase zero sets require at least \\(k\\ge2\\) token replacements; fixed-phase color changes require replacing two vertices in a run, so no one-token jump. Standalone code checks the original graph definition exhaustively for \\(C_6\\times K_3\\), \\(C_6\\times K_4\\), \\(C_9\\times K_3\\) (all subsets through optimum size), and word counts and token isolation for seven cases. Infinite claim rests on proof, not computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuenzel--Rall 2022 full text: Lemma 4 and general four conditions in Section 3, Proposition 6(c) and Table 2; the scalar minimum is \\(2k\\) for \\(C_{3k}\\times K_q\\).",
+        "Brewster--Mynhardt--Teshima 2023 scope explicitly restricted to i-graphs of paths and cycles, not their categorical products.",
+        "Bednarz 2021 Theorem 10 counts (2-d)-kernels for \\(C_n\\times K_m\\): their least size \\(n\\) contrasts with ordinary \\(i(C_{3k}\\times K_q)=2k\\)."
+      ],
+      "reasoning": "The general four-condition labeling theorem is the strongest partial coverage. It does not give the all-optimizer equality classification, the closed q-color multiplicity or the isolation in a token-jump reconfiguration graph. Extracting those assertions requires the new equality-case run-count argument. The (2-d)-kernel result is not a stronger statement about ordinary independent dominating sets because of the two-neighbor requirement.",
+      "searches": [
+        "Kuenzel Rall 2022 Proposition 6 independent domination of cycles times complete graphs, enumerating optimal label patterns modular 3",
+        "\"On Independent Domination in Direct Products\" \"Proposition 6\"",
+        "\"The i-Graphs of Paths and Cycles\" tensor product independent dominating"
+      ]
+    },
+    "checked_sources": [
+      "Kuenzel and Rall, On Independent Domination in Direct Products, arxiv:2203.12397v1 (full relevant preprint section 3).",
+      "Brewster, Mynhardt and Teshima, The i-Graphs of Paths and Cycles, arxiv:2303.08190v1 (original abstract).",
+      "Bednarz, On (2-d)-Kernels in the Tensor Product of Graphs, DOI 10.3390/sym13020230 (indexed definition and theorem; not full HTML).",
+      "OEIS A397751 (number of minimum independent dominating sets of ordinary cycles, not products).",
+      "A cube-deletion transition for minimum-independent-domination reconfiguration of shallow spiders (different original graph family).",
+      "Indexed mathematical research result on independence-complex homology of C_7 × K_4; different property and finite parameter."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited 2022 universal weak-partition criteria classify which labels are legal but do not state their equality-case shape or count for \\(C_{3k}\\).",
+        "The 2023 i-Graphs paper treats paths/cycles as original graphs, not categorical products.",
+        "Closest indexed result \"A torsion-free mixed-dimensional sphere wedge for the seven-cycle categorical product with four colors\" concerns a homotopy type of an independence complex in one case and no enumeration of minimum maximal independent sets.",
+        "The earlier result \"A cube-deletion transition for minimum-independent-domination reconfiguration of shallow spiders\" concerns subdivided-star trees, not categorical cycle products; neither its configuration formula nor its i-graph statement implies this theorem."
+      ],
+      "reasoning": "Neither the direct product scalar bound, the broader weak-partition feasibility lemma, the unrelated i-graph classifications, nor the topology of a single product explicitly entails the new sharp equality rigidity and complete reconfiguration assertion without substantive additional extremal analysis. No stronger published covering statement was identified; novelty is not claimed solely on search absence.",
+      "searches": [
+        "token jumping reconfiguration graph of minimum maximal independent sets of tensor products C_{3k} × K_q has isolated vertices and no edges",
+        "C_{3r} tensor K_s minimal maximal independent sets three-phase 110 220 pattern count 3 chromatic polynomial C_r frozen token slide i-graph",
+        "\"minimum maximal independent sets\" \"cycle\" \"complete graph\" \"count\" tensor",
+        "\"i-graph\" \"direct product\" \"cycle\" \"complete\" independent domination reconfiguration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For finite simple graphs independent dominating = inclusion-maximal independent; tensor/categorical/direct graph product all designate the same adjacency here (Kuenzel--Rall 2022, Section 3).",
+        "The complete-graph fiber-state description appears as Lemma 4 and conditions 1--4 of arXiv:2203.12397v1."
+      ],
+      "reasoning": "These are genuine aliases and common structural tools. The claimed count is for all optimizers and its reconfiguration graph, not merely the existence, optimization value or general feasibility conditions of the known formulation.",
+      "searches": [
+        "maximal independent sets independent dominating sets of the categorical direct tensor product of a cycle C_n and complete graph K_q; all-cardinality polynomial, layer patterns of empty singleton full cliques",
+        "independent domination polynomial and maximal independent set enumeration for C_n × K_m using transfer matrices",
+        "\"C_m × K_n\" \"number\" \"minimum independent dominating sets\"",
+        "\"cycle\" \"complete graph\" \"number of independent dominating sets\" direct product"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A397751 explicitly tabulates the number of minimum independent dominating sets of single cycles, not their tensor products.",
+        "Kuenzel--Rall 2022 Table 1 lists minimum sizes for small products; Table 2 displays optimal examples, not counts of all optimizers."
+      ],
+      "reasoning": "No exact table or indexed formula for the claimed \\(C_{3k}\\times K_q\\) optimizer multiplicity was located. A scalar minimum table is not a count and a chromatic polynomial identity on an auxiliary cycle is not already a census of optimizer vertex sets in the product.",
+      "searches": [
+        "OEIS 18 18 54 90 198 minimum independent dominating set direct product cycle triangle",
+        "\"C_6\" \"K_3\" \"18\" \"independent dominating\"",
+        "minimum independent dominating sets C_{3k} × K_q exact number three times chromatic polynomial of cycle length k, proper q colorings, 3((q-1)^k + (-1)^k(q-1))"
+      ]
+    },
+    "rationale": "Full-text comparison to Kuenzel--Rall arXiv:2203.12397v1 identifies their Lemma 4, general necessary/sufficient weak-partition description, Proposition 6(c), and constructions of optimal labelings. Those establish the scalar minimum and global general framework. The exact classification of ALL minima at length divisible by three, chromatic cycle multiplicity, and no-single-token-jump reconfiguration are absent from the inspected material, and require an equality-case bound and pairwise-difference argument. The 2023 i-graph article treats individual paths and cycles, not their tensor product; the 2021 two-dominating kernel enumeration is a different stronger predicate with a different minimum size. Actual indexed-result and prior-claim searches found no exact covering statement. Residual priority risk: unindexed or differently formulated literature.",
+    "residual_risks": [
+      "Priority not independently certified; differently worded enumeration of optimal independent dominating sets may exist in unindexed literature.",
+      "Bednarz full article HTML inaccessible , but inspected indexed theorem and independent 2-domination definition do not match ordinary independent domination.",
+      "The general weak-partition lemma and scalar independent domination number were already published; the novelty assessment pertains only to exact optimal multiplicity and token-jump frozen landscape."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known general fiber representation and minimum size fully credited; no complete optimum multiplicity or frozen token-jump structure in inspected claims.",
+        "evidence": "Accessible full text at lines 239--274, 316--364, 375--465 in the inspected preprint; original arxiv first public 2022-03-23.",
+        "identifier_or_url": "https://www.researchgate.net/publication/359435461_On_independent_domination_in_direct_products ; arxiv:2203.12397v1",
+        "material_read": "Full-text section 3, including Lemma 4, necessary and sufficient conditions 1--4, Proposition 6(c), the table of optimum constructions and proof; also abstract and stated scope.",
+        "method": "Accessible full preprint text in HTML; compared all four fiber conditions and scalar minimum with the new count and reconfiguration.",
+        "title": "On Independent Domination in Direct Products",
+        "trigger": "Same graph family and known exact independent domination number."
+      },
+      {
+        "assessment": "Studies reconfiguration of individual paths/cycles, not categorical products of cycles and complete graphs.",
+        "evidence": "arxiv:2303.08190v1; first public 2023-03-14.",
+        "identifier_or_url": "https://arxiv.org/abs/2303.08190",
+        "material_read": "Original abstract and explicit problem and graph-family scope; full body not inspected.",
+        "method": "Preprint bibliographic abstract and subject comparison.",
+        "title": "The i-Graphs of Paths and Cycles",
+        "trigger": "Directly relevant minimum-independent-domination reconfiguration concept."
+      },
+      {
+        "assessment": "Different invariant: independent 2-dominating kernels require two selected neighbors for each omitted vertex and have least size n, versus ordinary independent domination \\(2n/3\\) here.",
+        "evidence": "Symmetry 13 (2021), 230, Theorem 10; exact prior predicate and numerical bounds visible in retrieved text.",
+        "identifier_or_url": "https://doi.org/10.3390/sym13020230",
+        "material_read": "Indexed open article passages including definition of independent two-dominating kernel and Theorem 10 for C_n × K_m; whole article HTML was inaccessible (unavailable).",
+        "method": "Open-access search passages and semantic comparison of the two domination predicates; alternate XML full-text access attempted.",
+        "title": "On (2-d)-Kernels in the Tensor Product of Graphs",
+        "trigger": "Potential exact enumeration on the same product graph family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8462d54d-ea11-460b-ad52-51fe75d5fff1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Directly addresses the natural optimizer multiplicity and minimum-solution reconfiguration questions motivated by the established independent domination number and i-graph literature. The theorem supplies a uniform closed exponential count for every alphabet size \\(q\\ge3\\), a rigid extremal equality classification, and an infinite family of isolated minima despite many solutions. The residue-three restriction is dictated by exact tiling equality, not an arbitrary finite slice; these are not merely the old scalar minimum or a relabeling of a published table.",
+    "status": "PASS"
+  }
+}
