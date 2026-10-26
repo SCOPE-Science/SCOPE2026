@@ -1,0 +1,115 @@
+{
+  "claim": "For every integer \\(d\\ge 2\\) and every \\(\\kappa\\ge1\\), let \\(C\\in\\mathbb R^{d\\times d}\\) be symmetric positive definite, with \\(\\lambda_{\\max}(C)=1\\) and \\(\\lambda_{\\min}(C)=1/\\kappa\\). On the isotropic quadratic \\(f(x)=\\|x\\|_2^2/2\\) with known optimum zero, apply one step of the exact LCD3 local-curvature projection using the constant admissible lower-curvature matrix \\(C\\). Set \\(\\varphi=(1+\\sqrt5)/2\\), \\(u_{\\kappa}=\\min\\{\\varphi^{-1},\\sqrt{1-1/\\kappa}\\}\\), and \\(F(u)=u^2(1-u)/(1+u)\\). Then the *sharp*, dimension-independent one-step objective amplification is \\(\\sup_{x\\ne0}f(x^+)/f(x)=\\kappa F(u_{\\kappa})\\), and a maximizer always lies in the sum of the extreme eigenspaces of \\(C\\). For \\(\\kappa\\ge\\varphi\\), this equals \\((5\\sqrt5-11)\\kappa/2\\). Consequently, the objective is nonincreasing for every initial vector if and only if \\(\\kappa\\le(11+5\\sqrt5)/2\\). For each larger \\(\\kappa\\), an explicit two-dimensional extreme-eigenvector mixture gives a strict objective increase. This is a one-step classification under a fixed curvature normalization, not an assertion of divergence or failure of LCD3 to converge.",
+  "correctness": {
+    "rationale": "C is an admissible lower-curvature mapping because C<=I<=C+(1-1/kappa)I. The exact LCD3 formula gives ratio 1-2 alpha m1+alpha^2 m2 with alpha=1-sqrt(1-1/m1). The spectral chord lambda^2<=(kappa+1)lambda-kappa is exact at endpoints and realizable for every mean; substituting u=sqrt(1-1/m1) gives kappa*u^2*(1-u)/(1+u). Its derivative 2u(1-u-u^2)/(1+u)^2 gives the golden maximizer and exact threshold. Two eigendirections attain equality for each kappa. Reproducible verify.py checks both branches and witnesses, but proof does not depend on finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/abs/2310.02093 abstract and original PDF: stochastic preconditioned Polyak step rather than LCD3 square-root projection.",
+        "Published finding \"Sharp one-step objective frontier for scaled Polyak steps on SPD quadratics\" reports a different objective law for a different iteration.",
+        "Published finding \"A three-mode perturbation threshold for two-step Euclidean steepest descent\" concerns a different recurrence."
+      ],
+      "reasoning": "The closest published sharp Polyak frontier uses a scalar rescaling and the quadratic spectral condition number, not an anisotropic admissible local lower-curvature matrix inserted into the LCD3 projection. A theorem on that algorithm cannot imply the stated 11.090... frontier without a reduction; none exists in the checked formulas. The original full paper treats LCD2/LCD1 convergence and the Hessian-matched LCD3 special case, not the lower-curvature mismatch.",
+      "searches": [
+        "preconditioned Polyak stepsize quadratic sharp worst one-step objective amplification underestimates Hessian golden ratio",
+        "Local Curvature Descent LCD3 constant local curvature metric projection isotropic quadratic function objective increase threshold golden ratio",
+        "variable metric Polyak step function value nonmonotone steepest descent golden ratio constant"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2405.16574v1",
+      "https://proceedings.neurips.cc/paper_files/paper/2025/file/107aaa54d9481515e981e332e2e115b1-Paper-Conference.pdf",
+      "https://arxiv.org/abs/2310.02093",
+      "https://arxiv.org/abs/2405.16574",
+      "Indexed published finding: Sharp one-step objective frontier for scaled Polyak steps on SPD quadratics (title and abstract-sized summary only)",
+      "Indexed published finding: Sharp condition-number frontier for objective descent in core LARS (title and abstract-sized summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://proceedings.neurips.cc/paper_files/paper/2025/file/107aaa54d9481515e981e332e2e115b1-Paper-Conference.pdf Appendix D.2 computes f-fstar=1/2||grad f||^2_Cinverse only when C=Hessian; then the scalar coefficient is 1 and Newton solves in one step.",
+        "https://arxiv.org/html/2405.16574v1 Assumption 2.1 allows lower C strictly below Hessian.",
+        "The published scaled-Polyak objective-frontier result has a different functional update."
+      ],
+      "reasoning": "For the paper's C=I quadratic special case, kappa=1 and the present envelope gives zero, consistent with the published Newton result. For C strictly anisotropic below I the identity f-fstar=1/2||grad||^2_Cinverse fails, and no published proof inspected implies an exact worst-direction bound, extremizers, or the iff threshold. Thus the novel statement is not a corollary of the cited Hessian-matched theorem.",
+      "searches": [
+        "LCD3 Local Curvature Descent sharp one-step Euclidean quadratic objective amplification metric spectrum golden ratio",
+        "preconditioned Polyak stepsize quadratic sharp worst one-step objective amplification underestimates Hessian golden ratio",
+        "Richtarik Giancola Yadav LCD3 stability divergence convex quadratic underestimating curvature matrix 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2405.16574v1 §3.3 and Appendix C.1 give the LCD3 square-root metric step and note absence of general convergence proof.",
+        "https://proceedings.neurips.cc/paper_files/paper/2025/file/107aaa54d9481515e981e332e2e115b1-Paper-Conference.pdf §3.3 and Appendix D.2 give the same formula and a Newton reduction only for curvature equal to the quadratic Hessian."
+      ],
+      "reasoning": "Compared the source update itself (not just title): its normalization is x^T C^{-1}x, not x^T x, and the proposed object is the exact supremum of Euclidean quadratic ratios over all x and d. The accessible original and final sections do not state this supremum or the golden-ratio monotonicity frontier. Ellipsoid-projection terminology could conceal an independent equivalence, recorded as residual risk.",
+      "searches": [
+        "LCD3 Local Curvature Descent sharp one-step Euclidean quadratic objective amplification metric spectrum golden ratio",
+        "localization ellipsoid metric projection quadratic exact worst objective ratio condition 11.09",
+        "Richtarik Giancola Lubczyk Yadav LCD3 constant under-curvature matrix objective increase counterexample",
+        "\"local curvature descent\" \"golden ratio\" LCD3",
+        "\"local curvature descent\" \"non-monotone\" \"quadratic\" metric"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed published findings on scaled Polyak objective monotonicity, core LARS and two-step steepest descent summarize different algorithms; direct title/parameter lookup and web queries for 11.09/LCD3 gave no matching table.",
+        "MSC2020 database 90C25 classifies convex programming; it does not contain numerical LCD3 performance tables."
+      ],
+      "reasoning": "The claim is a continuous all-dimensional exact envelope, not a discrete database entry. No checked accessible mathematical table reports the same LCD3 envelope; database search failure alone does not prove novelty.",
+      "searches": [
+        "LCD3 Local Curvature Descent sharp one-step Euclidean quadratic objective amplification metric spectrum golden ratio",
+        "localization ellipsoid metric projection quadratic exact worst objective ratio condition 11.09",
+        "Richtarik Giancola Lubczyk Yadav LCD3 constant under-curvature matrix objective increase counterexample"
+      ]
+    },
+    "rationale": "The 2024 original and 2025 final LCD3 primary full texts introduce the method, but published quadratic Newton special cases use C=Hessian, whereas this theorem ranges over all normalized strict lower bounds and identifies a sharp worst-direction objective envelope. Related published Polyak/frontier findings treat different update maps. Best-knowledge literature and published-record searches located no implication covering the present claim; residual equivalence risk remains, not a uniqueness certification.",
+    "residual_risks": [
+      "Possible equivalent analysis of weighted projection onto ellipsoids under an older algorithm name; literature search is not exhaustive.",
+      "Additional published mathematical-record listings were compared through indexed title and summary; the full text of those entries was not accessible, so no whole-document non-coverage is inferred from those snippets.",
+      "Results are conditional on the stated normalized constant C; changing normalization can invalidate an extrapolation of the threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact LCD3 root and metric projection; its quadratic one-step convergence assumes curvature Hessian equality. No sharp under-curvature objective amplification theorem in the read material.",
+        "evidence": "arXiv:2405.16574v1 §§2–4 and Appendix C.1–C.2; §3.3 explicitly says it does not provide general LCD3 convergence.",
+        "identifier_or_url": "https://arxiv.org/html/2405.16574v1",
+        "material_read": "Full relevant primary sections: Assumption 2.1, §3.1–3.3, §4, Appendix C.1–C.2 (including quadratic Newton example), paper references.",
+        "method": "Opened complete public arXiv HTML; cross-checked LCD3 and localization equations against rendered PDF pages.",
+        "title": "Local Curvature Descent: Squeezing More Curvature out of Standard and Polyak Gradient Descent, arXiv v1",
+        "trigger": "Exact algorithm defining the candidate and earliest publicly dated source"
+      },
+      {
+        "assessment": "Same LCD3 update and general theory restricted to LCD1/LCD2; Appendix D.2 only proves Newton behavior for exact Hessian-matched least squares. No coverage of the arbitrary strict curvature lower-bound frontier.",
+        "evidence": "NeurIPS 2025 §3.3 states no LCD3 convergence theorem; Appendix D.2 displays C=Hessian equality explicitly.",
+        "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2025/file/107aaa54d9481515e981e332e2e115b1-Paper-Conference.pdf",
+        "material_read": "§§2–4 including LCD3 equation on PDF page 5, full Appendix D.1–D.2 on PDF pages 23–24, references and experiments discussion of LCD3.",
+        "method": "Opened publisher-hosted open PDF, inspected extracted text and screenshots of pages 5 and 24.",
+        "title": "Local Curvature Descent: Squeezing More Curvature out of Standard and Polyak GD, NeurIPS 2025",
+        "trigger": "Final updated primary full text might cover the proposed bound"
+      },
+      {
+        "assessment": "Studies stochastic preconditioned Polyak steps with a distinct coefficient; not a closed-form projection with LCD3 square-root damping and no LCD3 exact envelope.",
+        "evidence": "arXiv:2310.02093v1 (first posted 2023-10-03); related-work discussion of arXiv:2405.16574v1.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.02093",
+        "material_read": "Abstract, algorithm/method section and relevant equations in the openly accessible 2023 preprint PDF.",
+        "method": "Opened arXiv abstract and PDF; inspected the preconditioned stochastic step rule.",
+        "title": "Stochastic Gradient Descent with Preconditioned Polyak Step-size",
+        "trigger": "Primary older preconditioned Polyak literature cited as closest analogue by the original LCD3 paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb244709-289a-4003-951a-c8e8e7807e6e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a motivated algorithmic boundary for the published LCD3 method, whose general stability/convergence theory is absent. Gives a sharp all-dimensional spectral envelope and a necessary-and-sufficient universal one-step monotonicity threshold with explicit extremizers and unbounded objective overshoot even though the objective Hessian is the identity. Shows a structural Euclidean-versus-curvature-metric contrast with LCD2. This is more than a cheap validity check or a manually chosen isolated example.",
+    "status": "PASS"
+  }
+}
