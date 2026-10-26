@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Explicit finite matroid definitions and quantifiers; dual independence iff a basis avoids a set; augmentation extends any chosen independent subset within a complementary basis; Edmonds minmax and the exact dual rank identity give the VC value; deletion/contraction partition minimizers give a one-unit smaller minor; induction yields Ldim <= VC. Direct finite verification checks all 498 labeled matroids through 5 elements and 336 seeded binary linear matroids, comparing four independently evaluated invariants. Limits of computation distinguished from proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chase, Freitag and Reyzin, arXiv:2310.04812v1, Sections 2 and 4: general query-learning and compression results, without matroid base classes.",
+        "Merino, Mütze and Williams, DOI:10.4230/LIPIcs.FUN.2022.22, Sections 1.1-1.3: exhaustive exchange Gray codes and oracle costs, not dimension of adaptive membership trees."
+      ],
+      "reasoning": "Checked whether more general learning or basis-enumeration theorems would directly imply the claimed equality. The inspected statements have different query models or objectives and do not give either the matroid dual-rank formula for Littlestone dimension or the exact deletion/contraction split.",
+      "searches": [
+        "online learning matroid base concept class VC Littlestone dimension equal",
+        "matroid basis online shattering dimension learning",
+        "Littlestone matroid intersection",
+        "arxiv:2310.04812v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.10765v1",
+      "doi:10.4230/LIPIcs.FUN.2022.22",
+      "arxiv:2310.04812v1",
+      "arxiv:2109.04805v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chakrabarty et al., arXiv:1911.10765v1: Edmonds minimax theorem gives the static optimization but contains neither VC nor Littlestone terminology.",
+        "Guingona et al., arXiv:2109.04805v1: their concept family consists of zero sets of linear combinations and does not include arbitrary nonrepresentable matroid basis-incidence classes by statement.",
+        "Merino et al., DOI:10.4230/LIPIcs.FUN.2022.22: all-bases listing via exchanges does not bound online mistake trees."
+      ],
+      "reasoning": "Even with the known static rank min–max expression, the online dimension could in principle exceed VC dimension. The new minor-potential identity proves that it cannot for any matroid and even controls the smaller version-space dimension for each nonconstant element query. None of the inspected prior statements supplies that step.",
+      "searches": [
+        "arxiv:1911.10765v1",
+        "arxiv:2109.04805v1",
+        "doi:10.4230/LIPIcs.FUN.2022.22"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chakrabarty et al., arXiv:1911.10765v1, rank-oracle Introduction: min–max value for common independent sets, no Littlestone dimension or shattering formulation.",
+        "Guingona et al., arXiv:2109.04805v1, Theorem 3.10: equality for zero sets of linear combinations, not matroid-basis indicators."
+      ],
+      "reasoning": "The terminology of thicket dimension, primal/dual coindependence, and online basis membership was explicitly checked. The matroid-intersection min–max identity by itself does not control adaptive shattering; the added query-by-query minor partition is the substantive statement.",
+      "searches": [
+        "Littlestone dimension matroid bases equality VC dimension theorem",
+        "Matroid basis incidence hypothesis family has VC dimension equal Littlestone dimension, equal maximum common independent set of a matroid and its dual",
+        "thicket dimension of set of bases of a matroid equality maximum independent coindependent",
+        "matroid bases VC dimension Littlestone online learning adaptive membership spanning trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible mathematical research-record matches led to matroid basis polytopes, base-exchange enumeration, and intersection optimization, not an exact table or universal theorem for the specified shattering invariants.",
+        "All 498 matroid base families on ground sets of cardinality at most five were directly generated from the basis-exchange axiom, not obtained by reproducing an existing table."
+      ],
+      "reasoning": "The result is an all-finite-matroids identity rather than a known finite catalogue; the quantitative computation is supporting evidence. A search failure is not used as uniqueness proof.",
+      "searches": [
+        "matroid bases Littlestone VC-dimension equality",
+        "VC dimension basis hypergraph of matroid matroid intersection",
+        "minimum 2rank(A)-size(A) plus corank equals online shattering depth of matroid base family",
+        "Matroid basis incidence hypothesis family has VC dimension equal Littlestone dimension, equal maximum common independent set of a matroid and its dual"
+      ]
+    },
+    "rationale": "Direct comparison with 2019 matroid intersection, 2022 basis-exchange enumeration, 2021 zero-set dimension equality and 2023 general query-learning results reveals no claim covering the universal matroid-basis Littlestone equality or the every-nonconstant-coordinate minor identity. Separate record searches for aliases, thicket dimension and primal-dual rank formulas found related but different invariants. Priority outside inspected material remains an explicit risk.",
+    "residual_risks": [
+      "A historically earlier or unindexed matroid basis online-shattering formulation may exist under terminology not captured by the queries.",
+      "Related publicly indexed matroid-polytope records were available at title/summary level only when repository text could not be retrieved; their described invariants are different, but absence of full text limits a definitive priority claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STATIC_MINMAX_PRIOR_ONLY",
+        "evidence": "Introduction rank-oracle discussion gives max common independent cardinality as min of rank sums and polynomial algorithms; no online basis-class dimension statement appears.",
+        "identifier_or_url": "https://arxiv.org/html/1911.10765v1",
+        "material_read": "Introduction, matroid theory and rank-oracle sections including the explicit Edmonds minimum formula, plus full-text checks for Littlestone, VC, and shattering",
+        "method": "Primary open-access HTML and within-document text examination",
+        "title": "Faster Matroid Intersection",
+        "trigger": "Potentially dominating primal-dual rank min–max for any matroid"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT",
+        "evidence": "Algorithms enumerate bases by one-element exchanges and discuss independence/coindependence oracles; no dimension equality or shattering theorem is stated.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol226-fun2022/LIPIcs.FUN.2022.22/LIPIcs.FUN.2022.22.pdf",
+        "material_read": "PDF pages 1-4, introduction and new-results sections including the central basis-exchange algorithm, plus full-document searches for Littlestone, VC, and shattering",
+        "method": "Primary publisher open-access PDF, visual inspection and extracted-text searches",
+        "title": "All Your bases Are Belong to Us: Listing All Bases of a Matroid by Greedy Exchanges",
+        "trigger": "Potentially general basis enumeration and oracle algorithm encompassing the claimed basis class"
+      },
+      {
+        "assessment": "GENERAL_CONTEXT_NOT_COVERING",
+        "evidence": "Focus on equivalence queries with counterexamples and compression; no matroid basis class, primal-dual rank formula, or exact every-element split.",
+        "identifier_or_url": "https://arxiv.org/html/2310.04812v1",
+        "material_read": "Sections 1, 2 and 4 including the general dimension-drop lemma and query-learning/compression results; matroid keyword search",
+        "method": "Primary open-access HTML, mathematical statement comparison",
+        "title": "Applications of Littlestone dimension to query learning and to compression",
+        "trigger": "Broader general theorem on Littlestone dimension under queries might dominate matroid special case"
+      },
+      {
+        "assessment": "DIFFERENT_CONCEPT_FAMILY",
+        "evidence": "Theorem 3.10 concerns zero sets of nontrivial linear combinations of independent functions, rather than basis-incidence concepts of arbitrary matroids.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+        "material_read": "Full-text introduction, main theorem statements, and definition of zero-set family; matroid keyword search",
+        "method": "Primary arXiv accessible full-text rendering",
+        "title": "Littlestone and VC-dimension of families of zero sets",
+        "trigger": "Strongest closely analogous equal-VC-and-Littlestone theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46139283-07d1-403c-85d9-153b899bf9ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A universal exact equality across all finite matroid-basis indicator classes links static and adaptive learning capacities to a polynomially computable matroid-intersection invariant, with an exact dimension drop for every nonconstant query. The graphic specialization computes the optimal realizable edge-membership mistake bound for spanning tree hypotheses as a maximum forest whose removal preserves connectivity. This structural combination is not a routine renaming or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
