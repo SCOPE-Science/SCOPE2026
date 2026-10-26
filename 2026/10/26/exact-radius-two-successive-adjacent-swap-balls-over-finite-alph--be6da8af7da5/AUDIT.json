@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The proof distinguishes output change-support cases: zero swap, one swap, two disjoint swaps and overlapping cyclic triple rotations; all contributions are disjoint and the local formula is exact for every q,n. Exact boundary-variable identity yields sharp binary threshold and small cases; direct count attains nonbinary bound. A standalone full-cube checker independently verifies 19,394 center strings, rational averages, extremizers and boundary identity. Finite checks are not substituted for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2509.06692, Proposition 5 gives a two-sided inequality for two-phase ball sizes.",
+        "arXiv:2509.06692, Proposition 6 computes the mean for disjoint simultaneous batches, not for overlapping two-swap outputs."
+      ],
+      "reasoning": "The broader general-r bounds do not specialize to equality at radius two. Proposition 6 covers a different error model: overlapping actions create the additional exact h+d term, which affects both mean and sharp maxima.",
+      "searches": [
+        "Bounds on Codes Correcting Transpositions of Consecutive Symbols Proposition 5 Proposition 6 average transposition balls",
+        "exact q-ary mean number of words reachable in at most two sequential adjacent transpositions",
+        "sharp maximum size radius two successive adjacent-swap ball over binary words alternating words length n"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2509.06692 (full primary text, Sections 1--2, 4)",
+      "arxiv:1905.02752 (full HTML primary, Sections 1--4)",
+      "Nearby indexed finding: exact inverse-ball law for one zero deletion and one adjacent transposition (different channel and inverse invariant)",
+      "Nearby indexed finding: complete extremal census of Kendall-tau permutation codes at length six and distance ten (different fixed-length optimization)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] itself notes the difficulty of exact ball characterization (Section 2) and presents bounds for nonmetric two-phase balls, whereas the current claim is a full equality at radius two.",
+        "Source [2] establishes that adjacent swap distance on strings extends permutation Kendall tau distance, not the enumeration of fixed-radius neighborhoods."
+      ],
+      "reasoning": "Neither source contains a stronger result covering all q-ary center-specific radius-two balls, their mean, and the binary/nonbinary extremizers; the known n-distinct permutation ball upper bound is a special case and does not settle attainability using only three letters or binary optimum.",
+      "searches": [
+        "arxiv:2509.06692 Section 2 Proposition 4 Proposition 5 Proposition 6",
+        "Kendall Tau Sequence Distance Extending Kendall Tau from Ranks to Sequences Section 3",
+        "radius-two Kendall ball word all length-three factors distinct ternary achieves permutation-size ball"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cicirello arXiv:1905.02752 defines the minimum consecutive-swap distance on sequences with repetitions and develops computation algorithms.",
+        "Kovačević--Goyal--Kiah arXiv:2509.06692 Section 1.2 defines successive swapping and the distinct two-phase ball."
+      ],
+      "reasoning": "Both notions match the radius-two reachability objects here, but neither inspected section states the local exact ball formula, rational average or extremizer classes. The two-phase relation agrees with successive swaps at total radius two; an equality of metrics for all radii is not claimed.",
+      "searches": [
+        "Kendall tau sequence distance repeated symbol adjacent transpositions radius two volume",
+        "successive adjacent swaps radius 2 ball size equal letters all distinct triples two step",
+        "arxiv:1905.02752 Sections 3.2--3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-result searches returned nearby findings on Kendall permutation-code extremal enumeration and mixed deletion-plus-transposition inverse balls, not the present q-ary adjacent-swap radius-two volumes."
+      ],
+      "reasoning": "The identified finite Kendall-permutation-code classification and mixed-error inverse-list formulas address different numerical invariants/metrics, and their claims imply neither the exact all-length local volume formula nor the extremizer classes. Search coverage is not proof of absolute absence.",
+      "searches": [
+        "center-specific radius two Kendall adjacent transposition sphere q-ary strings local triples length two average",
+        "count of strings at distance 2 under Kendall tau sequence metric using local triples distinct symbols",
+        "exact average size radius two ball successive adjacent transpositions on q-ary strings repeated symbols Kendall metric length n"
+      ]
+    },
+    "rationale": "Material comparison of arXiv:2509.06692 Sections 1--2, Propositions 4--6 and arXiv:1905.02752 Sections 2--4 finds bounds/algorithms but no equality and extremizer classification for the two-successive-swap neighborhood. Indexed scientific comparisons searched same objects, aliases and stronger coverage; nearby indexed claims involve different invariants. Unindexed equivalent work remains a risk.",
+    "residual_risks": [
+      "Searches and inspected indexed sources do not exhaust unpublished or unindexed equivalent calculations.",
+      "Higher-radius structural statements are not implied by this radius-two theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Section 1.2 defines the relevant successive error ball. Section 2 bounds two-stage balls but does not state an exact radius-two cardinality, mean or extremizer classification. Proposition 6 is about the one-batch disjoint model.",
+        "evidence": [
+          "Definition B^(s) in Section 1.2 and the relationship to bar B.",
+          "Proposition 5 inequality (15) for bar B and Proposition 6 average formula (19) for disjoint exact-error balls."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.06692",
+        "material_read": "Full accessible text, introduction Sections 1.1, 1.2, 1.4; Section 2 Propositions 3--6, proofs, equations (12)--(25); Section 4 motivation and scope.",
+        "method": "Read primary scientific full text and compared set definitions, quantifiers, explicit inequalities and distinct average formulas.",
+        "title": "Bounds on Codes Correcting Transpositions of Consecutive Symbols",
+        "trigger": "Same finite alphabet, disjoint/successive swap models and two-stage ball; plausible stronger coverage"
+      },
+      {
+        "assessment": "Defines and computes successive-adjacent-swap distance on general sequences; does not derive exact ball volumes or full classifications of maximum-volume centers.",
+        "evidence": [
+          "Section 3.2: metric equals minimum adjacent swaps.",
+          "Section 3.3: two O(n log n) distance algorithms, not counts of all near words."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1905.02752v3",
+        "material_read": "Full HTML sections 1--3, especially Sections 2.5, 3.2 and 3.3 with the distance definition, proof and two algorithms; contents and Section 4 experimental focus.",
+        "method": "Read accessible primary paper and compared theorem targets and proof outputs.",
+        "title": "Kendall Tau Sequence Distance: Extending Kendall Tau from Ranks to Sequences",
+        "trigger": "Potential equivalent distance on strings with repeated letters"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be6da8af-7da5-4713-a435-fa0fb6fd9e62",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact local volume formula resolves a concrete nonuniform-error-ball enumeration explicitly motivated by the recent study of adjacent-transposition codes. Its exact q-ary mean can be used in finite-radius coding bounds; sharp maxima and complete extremizer classifications show the structural binary/nonbinary divide. This goes beyond a single arbitrary finite census or elementary renaming.",
+    "status": "PASS"
+  }
+}
