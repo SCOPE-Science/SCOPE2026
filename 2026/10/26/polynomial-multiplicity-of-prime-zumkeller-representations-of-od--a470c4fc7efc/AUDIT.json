@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Explicit half-divisor partition of K=2^t p; coprime-product partition; coprime residue n-K modulo M=2pK; Linnik with L=5 and M<=4p^3; for delta<1/15, q+K=o(n) uniformly; prime-number-theorem dyadic count; bounded <=floor(1/delta) prime-support collisions. All steps and boundary quantifiers checked and reconstructible. No numerical experiment is substituted for a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li (2026), Lemma 3.1, asserts one representation when a prescribed prime p avoids n beyond a threshold O(p^{3L}); Theorem 1.2 only bounds the exceptional density.",
+        "Somu–Kukla–Tran (2023), Proposition 4.12 covers specified residue classes modulo 18; Conjecture 4.20 explicitly leaves odd classes not resolved."
+      ],
+      "reasoning": "Prior one-parameter existence does not directly state any count of distinct representations, and prior density bounds do not force representation of every sufficiently large odd integer. The new simultaneous prime-parameter packing step and bounded-collision proof are additional. The result does not strengthen the earlier results for even n or exact small odd n.",
+      "searches": [
+        "arXiv:2610.19574 prime Zumkeller number additive exception odd representation multiplicity",
+        "Somu Kukla Tran Conjecture 4.20 all odd greater than 8 not 21 prime plus Zumkeller theorem",
+        "The Density and Quantitative Upper Bound of Integers Not Expressible as the Sum of a Prime and a Zumkeller Number odd case refinement",
+        "Theorem 1.2 Lemma 3.1 Li 2026",
+        "Somu Kukla Tran 2023 Proposition 4.12 Theorem 4.19 Conjecture 4.20"
+      ]
+    },
+    "checked_sources": [
+      "Li (2026), arXiv:2610.19574v1, Lemma 3.1, Section 3, and Theorem 1.2.",
+      "Somu–Kukla–Tran (2023), arXiv:2310.14149v2, Proposition 4.12, Theorem 4.19, Conjecture 4.20.",
+      "Matomäki–Merikoski–Teräväinen (2024), arXiv:2401.17570, introduction: Linnik exponent 5.",
+      "OEIS A368082 (prime plus Zumkeller indicator, not representation multiplicities).",
+      "https://teorth.github.io/optimizationproblems/constants/65a.html",
+      "https://oeis.org/A368082",
+      "Published result: Exact Zumkeller partition counts for the family of two-power times a prime (2026)",
+      "Published result: Exact Zumkeller partition multiplicity in the upper two-prime strip (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published Li Lemma 3.1 uses each fixed p and yields a threshold O(p^{3L}); Theorem 1.2 counts exceptional integers rather than simultaneous prime-sum representations.",
+        "Published Somu–Kukla–Tran Conjecture 4.20 predicts all odd n>8, n!=21 and remains unproved there.",
+        "The new proof counts prime parameters in a dyadic interval and controls up to floor(1/delta) collisions per summand."
+      ],
+      "reasoning": "The seed property and Linnik input are fully covered by the literature and expressly credited. Neither existing statement contains the new pointwise growing representation count; obtaining it requires an independent multiplicity argument. The result implies only the sufficiently-large part of the 2023 exact conjecture, not its full finite threshold.",
+      "searches": [
+        "arXiv:2610.19574 prime Zumkeller number additive exception odd representation multiplicity",
+        "Somu Kukla Tran Conjecture 4.20 all odd greater than 8 not 21 prime plus Zumkeller theorem",
+        "The Density and Quantitative Upper Bound of Integers Not Expressible as the Sum of a Prime and a Zumkeller Number odd case refinement",
+        "arXiv:2610.19574v1 Section 3 proof",
+        "arXiv:2310.14149v2 Conjecture 4.20"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching representation-multiplicity or eventual odd parity covering theorem in targeted retrieved literature or relevant mathematical research records.",
+        "Somu–Kukla–Tran (2023), Conjecture 4.20, states an explicit all-odd conjecture and leaves a residue class open."
+      ],
+      "reasoning": "Rephrased the new statement as polynomial pointwise additive-representation multiplicity and as finiteness of odd exceptions; no logically equivalent established theorem was found. Mere unsuccessful search is not a proof of novelty.",
+      "searches": [
+        "For every sufficiently large odd n, at least n^epsilon/log n representations as prime plus Zumkeller number, Linnik prime p not dividing n",
+        "Quantitative number of representations of odd integers as sum of a prime and Zumkeller number using Linnik theorem",
+        "Prime Zumkeller decompositions exceptional odd integers finite and representation multiplicity",
+        "OEIS A368082 prime plus Zumkeller count representations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A368082 tabulates whether n has at least one representation, not asymptotic pointwise multiplicity.",
+        "The nearest published partition-count studies concern equal-sum partitions of one Zumkeller number, a different counting problem."
+      ],
+      "reasoning": "A finite binary representability table cannot imply the all-large-n polynomial lower bound; divisor-partition counts are not additive representation counts.",
+      "searches": [
+        "Quantitative number of representations of odd integers as sum of a prime and Zumkeller number using Linnik theorem",
+        "Prime Zumkeller decompositions exceptional odd integers finite and representation multiplicity",
+        "OEIS A368082 prime plus Zumkeller sequence"
+      ]
+    },
+    "rationale": "The primary 2026 proof yields one representation for one eligible odd-prime parameter, not a polynomial lower bound on the number of distinct representations for each odd n. The new prime-support collision bound upgrades simultaneous Linnik constructions into a pointwise multiplicity theorem; 2023 Conjecture 4.20 remained a conjecture in the inspected primary text. Actual targeted semantic and textual searches yielded no stronger covering theorem. Implicit prior derivation remains an explicit residual risk.",
+    "residual_risks": [
+      "The relatively short amplification could have been implicit but unstated in older, not fully searchable work.",
+      "The original Xylouris dissertation was not read in full; exponent 5 was checked in a modern reference guide citing a 2024 primary mathematical paper.",
+      "This does not verify or settle the finitely many low-n cases in the 2023 exact conjecture."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Single p-threshold and global density upper bound established; neither counts simultaneous distinct decompositions. Uniform modulus arithmetic independently reconstructed.",
+        "evidence": [
+          "Lemma 3.1 states N_p=O(p^{3L}) and one representation for n odd not divisible by p.",
+          "Theorem 1.2 states alpha(x)=O(x/(loglog x)^A), and proof counts odd exception set with one p~x^{1/(3L+1)}."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19574v1",
+        "material_read": "Introduction/Theorem 1.2; Preliminaries Lemmas 2.1, 2.2, 2.4; full Lemma 3.1 proof; Section 3 theorem proof including odd case",
+        "method": "Accessible arXiv HTML full-text sections, source-to-claim implication comparison",
+        "title": "The Density and Quantitative Upper Bound of Integers Not Expressible as the Sum of a Prime and a Zumkeller Number",
+        "trigger": "Same sum, same prime parameter, and strongest apparent coverage"
+      },
+      {
+        "assessment": "Explicit classes covered; odd class 3 modulo 18 remains conjectural in 2023. No pointwise multiplicity theorem.",
+        "evidence": [
+          "Proposition 4.12 covers listed classes modulo 18.",
+          "Conjecture 4.20 predicts all odd integers above 8 except 21 are prime+Zumkeller; Theorem 4.19 constructs infinite even exceptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.14149v2",
+        "material_read": "Abstract, Introduction, core Zumkeller closure lemma, Section 4 Proposition 4.12, Theorem 4.19 and Conjectures 4.20–4.21",
+        "method": "Accessible arXiv HTML full-text sections with exact theorem and conjecture comparison",
+        "title": "Some Results on Zumkeller Numbers",
+        "trigger": "Origin of the additive conjecture and possible earlier parity coverage"
+      },
+      {
+        "assessment": "Supports uniform Linnik estimate with L=5, explicitly attributed to original work and 2024 source.",
+        "evidence": [
+          "Xylouris dissertation exponent L=5 cited in Matomäki–Merikoski–Teräväinen arXiv:2401.17570 introduction."
+        ],
+        "identifier_or_url": "https://teorth.github.io/optimizationproblems/constants/65a.html",
+        "material_read": "Definition, reported best admissible upper bound, references to Xylouris and Matomäki–Merikoski–Teräväinen",
+        "method": "Read reference compilation and its displayed source quotations, not claimed as reading the full Xylouris dissertation",
+        "title": "Linnik’s constant: verified reference guide",
+        "trigger": "Unconditional availability of the numerical exponent 5"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a470c4fc-7efc-4e40-9065-22fe9d8505cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Every sufficiently large odd n is shown to have polynomially many distinct prime+Zumkeller representations, a pointwise result strictly stronger in parity coverage than Li 2026 density bounds and materially addressing the 2023 Somu–Kukla–Tran conjecture. The dyadic simultaneous-parameter method and bounded prime-support overlap give a natural quantitative structural advance; exact small threshold and optimal exponent remain open.",
+    "status": "PASS"
+  }
+}
