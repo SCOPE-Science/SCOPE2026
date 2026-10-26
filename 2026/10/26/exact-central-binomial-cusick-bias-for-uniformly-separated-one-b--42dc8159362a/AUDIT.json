@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact identity s2(n+t)=s2(n)+h-K; the gap at least h+1 implies any carry bridging injections already contributes more than h carries. Independent length-(h+1) binary windows give independent truncated geometric chains on the event K<=h. The negative binomial symmetry gives exact central-binomial probability. Finite exact-fraction automaton tests run on the embedded verifier agree for h=1..6 and three admissible spacings each, but the algebraic coupling proves all h>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cheng 2026: c_t>=1/2+2^(-2h-1), no equality for all isolated supports",
+        "Cheng 2026 later paper: infimum bias as h->infty of order (log h/h)^(3/2), a different regime",
+        "Sobolewski-Spiegelhofer 2024 gives a decomposition applicable to all shifts and develops at most two one-blocks in detail"
+      ],
+      "reasoning": "General algorithms can compute each instance in principle; they do not establish the h-uniform symbolic simplification and finite h+1 spacing threshold without an additional independence lemma. The closest two-block calculations potentially subsume only h=1,2, explicitly excluded from the originality domain.",
+      "searches": [
+        "arXiv:2606.23398 uniform Cusick bound",
+        "arXiv:2608.25899 fixed-weight extremal asymptotics",
+        "arXiv:2411.07779 correlation decomposition general recurrences",
+        "web: Cusick well separated blocks central binomial coefficient"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.23398 §1/§3",
+      "arXiv:2608.25899 §1/§9",
+      "arXiv:2411.07779 §§1/3/6",
+      "published-finding corpus semantic searches for Cusick exact binomial stabilization and aliases",
+      "Accessible previous research claims in current-week records scanned for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 theorem gives a general decomposition, but relevant corollaries do not explicitly state the uniform h-variable threshold or plateau",
+        "2026 strict-bias lower bound is weaker than the exact evaluated bias",
+        "2026 fixed-weight extremal minimum asymptotics do not determine a non-extremal sparse-support family"
+      ],
+      "reasoning": "General recurrence machinery yields per-shift computational determination, whereas this statement is a nontrivial uniform simplification for all dimensions h>=3; support-gap independence and negative-binomial reduction require an extra argument. Residual risk of equivalent general theorem remains.",
+      "searches": [
+        "arXiv:2411.07779 Theorem 4 general decomposition",
+        "arXiv:2606.23398 Theorem 1.1",
+        "arXiv:2608.25899 Theorems 1.1-1.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2411.07779: decomposition of binary correlation measures and two-block analysis; no stated h>=3 finite-gap central-binomial theorem in examined relevant sections",
+        "arXiv:2606.23398: universal strict bias and recursively computed measures, not a support-gap invariance theorem",
+        "No direct equivalent published-finding corpus record among query results"
+      ],
+      "reasoning": "Counting carries is equivalent to binary digit-sum difference via s2(n+t)=s2(n)+h-K; the claim controls the exact event K<=h for all well-separated supports, which the identified general existence/bias theorems do not directly assert.",
+      "searches": [
+        "Cusick sum-of-digits c_t exact rational c_(2^k+1) equals 11/16 for k>=3 and c_5=5/8",
+        "Cusick's conjecture binary two ones separated zeros same density 11/16 0.6875 digit sum correlation",
+        "web: \"Cusick\" \"11/16\" \"2^k+1\"",
+        "arXiv:2411.07779 §§3,6",
+        "arXiv:2606.23398 §§1,3,6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact indexed table of the h>=3 plateau identified",
+        "The program checks weights 3 through 6 but finite checks alone cannot establish new values for arbitrary h"
+      ],
+      "reasoning": "A table indexed by individual shifts does not itself encode a fixed-gap theorem for arbitrary h. Unknown unindexed tables are an explicit residual priority risk.",
+      "searches": [
+        "Cusick sum-of-digits c_t exact rational c_(2^k+1) equals 11/16 for k>=3 and c_5=5/8",
+        "Cusick's conjecture binary two ones separated zeros same density 11/16 0.6875 digit sum correlation",
+        "web: digit sum 2^k+1 probability 11/16",
+        "published-finding corpus semantic search Cusick central binomial two ones"
+      ]
+    },
+    "rationale": "This unbounded-Hamming-weight, position-independent exact finite-gap plateau is not stated by the inspected relevant primary theorem statements and specialized sections. The 2024 decomposition studies at most two one-blocks and general recurrences; the 2026 first-exit theorem gives a lower bound for all shifts; the 2026 extremal theorem concerns minimal possible biases. None states the exact central-binomial plateau uniformly for all h>=3. Existing recurrences imply individual computability, so potential special-case priority remains a documented risk.",
+    "residual_risks": [
+      "A less-indexed specialized formula for shifts with arbitrarily well-separated nonzero binary digits may predate these sources.",
+      "General correlation-measure decompositions could imply the formula after symbolic simplification; independent literature priority review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_RECURRENCES_WITHOUT_IDENTIFIED_EXACT_GAP_PLATEAU",
+        "evidence": [
+          "Theorem 1.1 gives c_t>=1/2+2^(-2s2(t)-1)",
+          "§3 gives exact recurrences for correlation measures"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.23398",
+        "material_read": "Abstract and primary manuscript text at §1 Theorem 1.1 and §§2–3 recurrence definitions, descriptions of §§4–6",
+        "method": "read publicly accessible arXiv HTML scientific statements and indicated proof structure",
+        "title": "A first-exit proof of Cusick's sum-of-digits conjecture",
+        "trigger": "Main recent predecessor proving universal strict Cusick bias, plus general correlation recurrences"
+      },
+      {
+        "assessment": "EXTREMAL_BIAS_DIFFERENT_FROM_EXACT_POSITION_INVARIANCE",
+        "evidence": [
+          "Minimum bias ~ (log_2 h/h)^(3/2)/(2sqrt(pi))",
+          "§9 treats an infinite isolated-zero model, not the proposed finite-gap support theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.25899",
+        "material_read": "Abstract and §§1,6,9 relevant main and isolated-block results, including Theorems 1.1–1.2",
+        "method": "read arXiv full-text HTML through inspected relevant displayed statements and searches",
+        "title": "Sharp extremal asymptotics for Cusick's sum-of-digits bias at fixed Hamming weight",
+        "trigger": "Strong fixed-weight coverage could subsume the candidate"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK_AND_TWO_BLOCK_SPECIAL_CASES",
+        "evidence": [
+          "The abstract explicitly studies at most two blocks in detail",
+          "The general decomposition and binomial identities are recognized as antecedents"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.07779",
+        "material_read": "Abstract, introduction, main theorem context, §3.1 decompositions and §§6.1–6.2 isolated-block formulas",
+        "method": "read arXiv HTML text and searched for separations, two-block coverage and binomial formulas",
+        "title": "Decomposing the sum-of-digits correlation measure",
+        "trigger": "Original major decomposition and special low-block computations are plausible prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "42dc8159-362a-45f5-8316-bec84c447d6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite-gap stabilization is a motivated structural law of digit-sum translation: for arbitrary h>=3, the infinitely many supports with large gaps collapse to one exact bias, with a universal central-binomial formula and nontrivial h^(-1/2) behavior. This is not a one-instance table, a narrow arbitrary slice, or merely a known lower bound. It separates the sparse-support bias regime from the extremal fixed-weight regime of Cheng (2026), and supplies a reusable carry-chain separation principle.",
+    "status": "PASS"
+  }
+}
