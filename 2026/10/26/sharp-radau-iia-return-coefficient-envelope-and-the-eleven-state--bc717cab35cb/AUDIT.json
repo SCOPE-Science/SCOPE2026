@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The weighted spectral theorem gives nonnegative diagonal projection weights totalling \\(1-\\pi_i\\) outside the simple constant eigenmode. Direct differentiation proves the exact global scalar minimum m; the lower bound follows. Equality if and only if the centered coordinate lies in one decay eigenspace, equivalent by detailed balance to \\(q_{ij}=c\\pi_j\\) for every j≠i. Reset generators attain the bound. Algebra gives \\(\\pi_*=(2-\\sqrt3)/3\\); uniform \\(\\pi=1/n\\) yields the exact 11/12 threshold. Every n-vertex unit-weight cone has a hub eigenvalue n, with a strictly negative exact hub coefficient at \\(h=3/4\\) for n≥12. Executed exact rational-matrix checker on 81 reversible-state cases plus 4 cone graphs; finite checks only corroborate the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb, Shu, Tadmor, SIAM Review 43 (2001) 89-112, DOI 10.1137/S003614450036757X, published online 2001-02-02, pp. 89-90 and 107-111, Section 6. The main treatment concerns method-level SSP guarantees and implicit RK restrictions.",
+        "Blanes, Iserles, Macnamara, ESAIM M2AN 56 (2022) 1843-1870, DOI 10.1051/m2an/2022042, pp. 1843-1847, graph-Laplacian framework and positivity barriers. Treats construction of different positivity-preserving integrators and order barriers.",
+        "published-finding corpus nearest: 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 concerns SSP-SDIRK2(2), not Radau IIA."
+      ],
+      "reasoning": "No reviewed general theorem provides a reversible stationary-mass lower envelope for this specific completed third-order Radau map. SSP order barriers rule out universal *entrywise* positivity but do not supply the optimal diagonal-specific mass threshold, equality condition or sharp state-count witness.",
+      "searches": [
+        "two stage Radau IIA diffusion strongly regular graphs complete multipartite rook graph positivity timestep reentrant",
+        "Radau IIA [1/2] Padé matrix rational function positivity regular graph 3 eigenvalues nonnegative graph heat",
+        "Radau IIA positivity preservation graph Laplacian Markov chain rational approximation strong stability preserving 2000",
+        "Blanes Iserles Macnamara positivity preserving methods for ordinary differential equations with graph Laplacian structure arxiv"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb, Shu, Tadmor, SIAM Review 43 (2001) 89-112, DOI 10.1137/S003614450036757X, published online 2001-02-02, pp. 89-90 and 107-111, Section 6.",
+      "Blanes, Iserles, Macnamara, ESAIM M2AN 56 (2022) 1843-1870, DOI 10.1051/m2an/2022042, pp. 1843-1847, graph-Laplacian framework and positivity barriers.",
+      "Accessible earlier specialized Radau-graph result 69d675da-c0d5-42d1-8b77-a9ec42c172f5: q-by-q rook-graph diagonal phase, with first failure at 16 vertices.",
+      "Accessible earlier specialized Radau-graph result 093b06a0-3097-44d1-a31e-1fea203899a2: hypercube dimension 4, 16 vertices, has negative diagonal.",
+      "Accessible earlier specialized Radau-graph result 79ccecc6-7e03-4030-87be-c97c936f5301: graph-distance-five off-diagonal sign, not return coefficient.",
+      "Accessible earlier specialized Radau-graph result 8c0d50ef-8119-4cad-9204-e557b9dc3205: balanced equal-part complete multipartite family.",
+      "1999 Hairer–Wanner Radau-method paper, DOI 10.1016/S0377-0427(99)00134-X (relevant sections read).",
+      "published-finding corpus search source IDs 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7, 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a, 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab.",
+      "Final published-finding corpus queries on universal 11/12-state reversible diagonal bound, [1/2] Padé return coefficient, and twelve-vertex star produced nearest but noncovering entries: 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a (different method), 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab (different Padé order), and 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7 (SSP-SDIRK2)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Accessible earlier specialized Radau-graph result 69d675da-c0d5-42d1-8b77-a9ec42c172f5: q-by-q rook-graph diagonal phase, with first failure at 16 vertices.",
+        "Accessible earlier specialized Radau-graph result 093b06a0-3097-44d1-a31e-1fea203899a2: hypercube dimension 4, 16 vertices, has negative diagonal.",
+        "Accessible earlier specialized Radau-graph result 79ccecc6-7e03-4030-87be-c97c936f5301: graph-distance-five off-diagonal sign, not return coefficient.",
+        "Accessible earlier specialized Radau-graph result 8c0d50ef-8119-4cad-9204-e557b9dc3205: balanced equal-part complete multipartite family."
+      ],
+      "reasoning": "A negative diagonal on a 16-state hypercube or rook graph does not imply optimal state count twelve or strict positivity of every diagonal for all graphs up to eleven vertices. Negative distance-five off-diagonal entries prove something orthogonal. Balanced multipartite formulas do not cover arbitrary reversible stationary distributions nor characterize equality generators. New proof independently establishes premises without relying on those records.",
+      "searches": [
+        "two stage Radau IIA diffusion strongly regular graphs complete multipartite rook graph positivity timestep reentrant",
+        "Radau IIA universal 11 vertices diagonal stochastic diffusion minimum diagonal entry - positivity 12-state",
+        "Accessible prior claims: 093b06a0-3097-44d1-a31e-1fea203899a2; 8c0d50ef-8119-4cad-9204-e557b9dc3205; 79ccecc6-7e03-4030-87be-c97c936f5301; 69d675da-c0d5-42d1-8b77-a9ec42c172f5",
+        "sharp universal diagonal bound third order two stage Radau IIA reversible Markov stationary probability 11 states 12 states",
+        "return probability coefficient Padé [1/2] Radau IIA step exact minimum stationary mass reset chain"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 1999 Hairer–Wanner article gives the third-order Radau IIA scalar rational stability function in Padé form, rather than a reversible-generator extremal diagonal theorem.",
+        "Gottlieb, Shu, Tadmor, SIAM Review 43 (2001) 89-112, DOI 10.1137/S003614450036757X, published online 2001-02-02, pp. 89-90 and 107-111, Section 6.",
+        "Blanes, Iserles, Macnamara, ESAIM M2AN 56 (2022) 1843-1870, DOI 10.1051/m2an/2022042, pp. 1843-1847, graph-Laplacian framework and positivity barriers."
+      ],
+      "reasoning": "Replacing Laplacian notation by a row Markov generator yields the same completed [1/2] Padé map. None of the inspected primary texts or ranked findings states the sharp lower envelope π_i+(1-π_i)m, its exact equality generator, or the eleven-vertex graph boundary. The scalar factor alone does not assert the new operator extremal/equality classification.",
+      "searches": [
+        "Radau IIA [1/2] Padé matrix rational function positivity regular graph 3 eigenvalues nonnegative graph heat",
+        "two stage Radau IIA diagonal entries graph heat diffusion min diagonal 3 sqrt3",
+        "rational stability function (6-2z)/(6+4z+z^2) diagonal positivity threshold graph order",
+        "\"Radau IIA\" \"3+3 sqrt(3)\" positivity",
+        "Stiff differential equations solved by Radau methods Hairer Wanner equation 16",
+        "return probability coefficient Padé [1/2] Radau IIA step exact minimum stationary mass reset chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible earlier specialized Radau-graph result 69d675da-c0d5-42d1-8b77-a9ec42c172f5: q-by-q rook-graph diagonal phase, with first failure at 16 vertices.",
+        "Accessible earlier specialized Radau-graph result 093b06a0-3097-44d1-a31e-1fea203899a2: hypercube dimension 4, 16 vertices, has negative diagonal.",
+        "published-finding corpus nearest: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab concerns the fourth-order Gauss [2/2] method, not the Radau [1/2] map.",
+        "No indexed exact eleven-state reversible diagonal bound surfaced in the actual searches; absence is not a proof of novelty."
+      ],
+      "reasoning": "Graph-family examples are not an exhaustive sharp bound over all reversible generators with prescribed stationary mass. The present result proves the global extremal value by a spectral-weight inequality and characterizes equality. Exact-table overlap not identified, but unindexed or unpublished tables remain a residual risk.",
+      "searches": [
+        "Radau IIA universal 11 vertices diagonal stochastic diffusion minimum diagonal entry - positivity 12-state",
+        "two stage Radau IIA diagonal entries graph heat diffusion min diagonal 3 sqrt3",
+        "rational stability function (6-2z)/(6+4z+z^2) diagonal positivity threshold graph order",
+        "\"Radau IIA\" \"11\" \"12\" state positivity",
+        "Radau IIA return probability diagonal negativity complete graph Markov chain numerical integration threshold",
+        "sharp universal diagonal bound third order two stage Radau IIA reversible Markov stationary probability 11 states 12 states",
+        "twelve vertices negative diagonal radau iiA star graph 3/4"
+      ]
+    },
+    "rationale": "Targeted actual published-finding corpus searches, accessible earlier claim comparisons, and pertinent primary full-text passages did not reveal a mathematically dominating optimal reversible diagonal stationary-mass envelope, exact equality generator characterization, and all-graph eleven-state cutoff. General SSP impossibility does not imply these quantitative diagonal results; specialized graph-family formulas and off-diagonal failures do not imply the sharp universal result. Risks include unindexed specialized literature and the fact that the proof uses standard spectral machinery.",
+    "residual_risks": [
+      "The published-finding corpus index is not exhaustive of mathematical publications, and absence of a matching search hit is not a proof of originality.",
+      "Other publications may give spectral functional-calculus bounds under different terminology; reviewed major primary sources do not appear to do so.",
+      "No independent reviewer has yet assessed the proof or novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives method-level SSP theory, not the stationary-weight extremal diagonal bound or equality characterization.",
+        "evidence": "Published electronically 2001-02-02 explicitly on printed p.89; §6.2, printed pp.109-110, addresses nonexistence of unconditionally SSP RK of order >1.",
+        "identifier_or_url": "https://math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf",
+        "material_read": "Title, electronic publication-date footnote, introduction, pages 107-110 and Section 6 on implicit SSP Runge–Kutta order limitations.",
+        "method": "Full-text author-hosted PDF opened, relevant lines and PDF page images read.",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Primary archival numerical-stability reference and verified first-public date for the methodological context"
+      },
+      {
+        "assessment": "Develops alternative high-order positivity-preserving integrators and discusses barriers; inspected material does not present a Radau IIA diagonal stationary-mass law.",
+        "evidence": "Printed pp.1844-1847 set up graph Laplacian and the general RK positivity problem; text search for Radau did not find a matching passage.",
+        "identifier_or_url": "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+        "material_read": "Abstract, printed pp.1843-1847, graph-Laplacian definition and discussion of classical RK positivity barrier; searched the available full-text for Radau.",
+        "method": "Primary author-hosted PDF opened, page image and parsed sections inspected; full-text term search.",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Graph-Laplacian-structured positivity methods and possible broader general theorem"
+      },
+      {
+        "assessment": "Gives scalar method function and A-stability. The inspected sections do not settle sharp reversible diagonal return coefficients; other historical details remain unreviewed.",
+        "evidence": "Section 3.1 explicitly presents Radau IIA Padé stability factors; article concerns stiff integration implementations and scalar stability.",
+        "identifier_or_url": "https://doi.org/10.1016/S0377-0427(99)00134-X",
+        "material_read": "Web-rendered primary article, introduction and Sections 1 and 3, especially third-order Radau IIA stability rational function and A-stability discussion.",
+        "method": "Viewed primary publisher full article text; relevant equations and sections read, not a claim of exhaustive full-paper negative search.",
+        "title": "Stiff differential equations solved by Radau methods",
+        "trigger": "Original Radau-specific stability-function and method analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc717cab-35cb-4a0c-b3f5-efe9e67ff662",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural sharp minimax answer to a concrete numerical-safety question: can an otherwise spectrally stable third-order implicit step assign negative weight to remaining at the initial state? The optimum is determined solely by stationary mass, not other rates; all equality cases at a fixed state are classified. The exact 11/12 graph-size boundary and topology-independent cone witnesses are complete finite cutoffs with direct applicability to return-coefficient diagnostics. It explicitly distinguishes this issue from off-diagonal negativity; the result is not a random small example or an unmotivated parameter tweak.",
+    "status": "PASS"
+  }
+}
