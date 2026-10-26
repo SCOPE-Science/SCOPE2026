@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The finite-field Lagrange interpolation zero-count is used only below degree threshold; all higher intersection terms correctly vanish. Two nested inclusion–exclusion calculations give the full histogram. Extremal construction and equality counting use the exact degree bound and disjoint roots, and the probability moments plus Chebyshev establish the limit. A standalone verifier exhaustively checked 113 small parameter grids with exact arithmetic, including both boundary cases and the extremal-count formula; no finite sample is substituted for the infinite proof.
+
+**Originality — PASS with substantive residual risk.** The originating October 2026 RS-tagging paper proves the uniform worst-case bound and tests errors for some fixed tasks, not the full fixed-cardinality task population or its exact extremal multiplicities and typical-error law. Kaplan's higher tuple-support framework and classical MDS enumerators are acknowledged: these form general machinery that may allow derivation of the present formula; the precise task-conditioned, distinct-subset closed law and asymptotic calibration were not located. Liu and collaborators count supports of linear subcodes, a different ensemble from arbitrary fixed-size task sets. A direct equivalent in older or unindexed literature remains possible, and priority has not been independently certified.
+
+**Value — PASS.** Fixed-size Boolean tasks are a natural test ensemble for the recently studied tagging scheme. The complete finite parameter law, exact extremal populations and typical-versus-worst asymptotic gap quantify the conservatism of a central design bound without relying on numerical simulations. This is not a claim of improved worst-case code parameters, nor does it describe deterministic task families.
+
+Self-review: passed. Independent audit: not yet performed.
