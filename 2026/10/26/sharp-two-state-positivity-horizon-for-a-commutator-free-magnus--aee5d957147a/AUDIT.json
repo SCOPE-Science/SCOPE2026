@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For all common-rate two-state generators, direct multiplication gives \\(Q(a,b)Q(c,d)=-(a+b)Q(c,d)\\); hence each exponential is affine in its generator and the ordered product has the exact form proved in RESULT.md. The two off-diagonal entries have sum \\(1-e^{-hs}<1\\), so entrywise nonnegativity is equivalent to two explicit off-diagonal inequalities. The positive coefficient stays positive, while the other changes sign exactly at \\(hs=2\\log(7+4\\sqrt3)\\). Reversed one-way generators establish necessity and small positive perturbations establish irreducible sharpness. Beyond the cutoff, the inequalities reduce to the two necessary-and-sufficient rate-ratio bounds. The standalone verifier checks algebraic identities over \\(\\mathbb Q(\\sqrt3)\\) and 4096 seeded numerical instances, but finite tests do not replace universal proof. Quantifiers and boundaries: \\(h>0\\), \\(s>0\\), \\(a_j,b_j\\ge0\\), with \\(a_j+b_j=s\\) for both matrices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hofstätter--Koch, Theorem 2.1, arXiv:1709.08473v2: impossibility for order >=5 under strictly positive coefficient sums.",
+        "Blanes--Iserles--Macnamara, arXiv:2102.08242v2 p. 16: negative beta and a sufficient graph-Laplacian test."
+      ],
+      "reasoning": "The fifth-order barrier applies to a different class/condition and has no finite-step positivity implication for the two-state, third-order, two-exponential endpoint. The original sufficient graph-Laplacian condition can fail for every positive step even while the complete endpoint remains nonnegative.",
+      "searches": [
+        "nonpositive internal exponential stages positive endpoint third order Magnus two-state continuous-time Markov matrices product",
+        "positivity preservation commutator free Magnus exponential integrator two state Markov negative coefficients exact positivity step size threshold",
+        "Non-satisfiability of a positivity condition for commutator-free exponential integrators of order higher than four"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.08242v2, Sec. 3.5, eqs. (3.18)--(3.19), conclusion, and numerical-results discussion",
+      "DOI 10.1051/m2an/2022042, bibliographic and MSC information",
+      "arXiv:1709.08473v2, complete accessible arXiv HTML and Theorem 2.1",
+      "Mathematical-research search results on Padé-Markov, SSP-SDIRK and Crank--Nicolson positivity, compared by operator and hypotheses",
+      "Targeted web searches for negative Magnus stages, equal-rate two-state generators, exact coefficient ratio and logarithmic horizons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blanes--Iserles--Macnamara, (3.18) and subsequent text: internal matrices retaining generator structure imply positivity; not a converse, and it does not cover non-generator stages.",
+        "Blanes--Iserles--Macnamara, conclusion: quantitative almost-positivity for commutator-free schemes is highlighted for further investigation.",
+        "Hofstätter--Koch, Theorem 2.1: a real-coefficient order ceiling under a parabolic positive-sum condition."
+      ],
+      "reasoning": "The new theorem establishes nonnegative products when both separate stage exponentials are nonpositive, plus a sharp universal if-and-only-if horizon and exact per-pair supercritical criterion. None follows from a sufficient factor-positivity condition or from an order-five impossibility theorem. Related Padé, Runge--Kutta and Lanczos threshold records concern different maps and cannot dominate this claim.",
+      "searches": [
+        "Blanes Iserles Macnamara 3.18 commutator free Magnus two state equal exit rate graph Laplacian positivity exact 2 log (7+4sqrt3) threshold",
+        "nonpositive internal exponential stages positive endpoint third order Magnus two-state continuous-time Markov matrices product",
+        "arxiv:2102.08242v2",
+        "arxiv:1709.08473v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blanes--Iserles--Macnamara, arXiv:2102.08242v2, section 3.5 (3.18)--(3.19): two ordered exponentials and a sufficient internal-generator criterion.",
+        "Hofstätter--Koch, arXiv:1709.08473v2, equations (2)--(4): a different positivity notion for parabolic operators."
+      ],
+      "reasoning": "Two-state CTMC is also termed a conservative graph Laplacian or binary population exchange; searches under those formulations found no exact end-product threshold. Similar terminology about positive coefficients refers to positivity of exponential generators, and does not imply endpoint cancellation.",
+      "searches": [
+        "Blanes Iserles Macnamara 3.18 commutator free Magnus two state equal exit rate graph Laplacian positivity exact 2 log (7+4sqrt3) threshold",
+        "commutator-free Magnus positivity preserving Markov chains two state matrix product stage negative coefficients",
+        "\"commutator-free\" \"two-state\" \"positivity\" Markov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source explicitly prints the ratio \\(\\alpha/|\\beta|=7+4\\sqrt3\\) but does not tabulate exact two-state endpoint positivity horizons.",
+        "Indexed related works include Padé-Markov, SSP-SDIRK, and Lanczos positivity frontiers, not the stated endpoint matrix."
+      ],
+      "reasoning": "The printed coefficient ratio does not by itself determine a product-positivity horizon. No covering explicit numerical cutoff, phase table or same-operator exact formula was found in the checked material.",
+      "searches": [
+        "Blanes Iserles Macnamara 3.18 commutator free Magnus two state equal exit rate graph Laplacian positivity exact 2 log (7+4sqrt3) threshold",
+        "commutator free exponential Magnus integrator conditional positivity two-state equal column sums sharp exponential threshold",
+        "\"7+4 sqrt(3)\" \"Magnus\" \"positivity\" threshold"
+      ]
+    },
+    "rationale": "The motivating primary paper gives the same endpoint coefficients and only an easy sufficient test requiring nonnegative internal generators; it does not show the sharp two-state endpoint threshold or the complete rate-ratio classification. The second relevant primary article gives an order barrier for a different coefficient-sum positivity notion, not Markov endpoint entrywise positivity. Targeted searches of equivalent coefficients, two-state generators, negative internal exponentials and explicit logarithmic thresholds did not identify a statement implying this theorem. A surviving priority risk remains from general positivity theory of switched Markov products. This is a best-knowledge novelty determination, not independent validation.",
+    "residual_risks": [
+      "An earlier general treatment of products of signed two-state Markov exponentials might imply these formulas under different language; search and inspected literature do not exclude every such treatment.",
+      "The dated earliest preprint v1 and the inspected v2 contain different abstracts; the explicit formula is verified in v2, and its appearance in v1 has not been independently established.",
+      "This theorem concerns only the prescribed endpoint factor map, not the attainable stage pairs of a specific nonlinear seven-exponential implementation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "METHOD_DEFINITION_AND_MOTIVATION_NOT_COVERING_THE_NEW_SHARP_ENDPOINT_RESULT",
+        "evidence": [
+          "Exact alpha and beta and exponent order on PDF page 15.",
+          "The paper only gives a sufficient criterion when the weighted matrices are Laplacians.",
+          "Page 26 asks to quantify almost-positivity and does not state the present two-state classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.08242",
+        "material_read": "Complete relevant high-order method derivation, formula (3.18) on PDF pages 14--15; the discussion of conditional positivity immediately after; experiment description pages 19--22; the open-problem conclusion on page 26; title and primary MSC page 0.",
+        "method": "Author-supplied open arXiv PDF, textual extraction with direct visual verification of formulas on page 15",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Exact same seven-exponential Magnus algorithm, equation (3.18), and explicit negative coefficient"
+      },
+      {
+        "assessment": "DIFFERENT_POSITIVITY_NOTION_AND_HIGHER_ORDER_RANGE; DOES_NOT_IMPLY_CLAIM",
+        "evidence": [
+          "Theorem 2.1 only excludes orders at least 5 with all positive coefficient sums.",
+          "No two-state Markov product threshold or negative-stage endpoint recovery in that theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1709.08473v2",
+        "material_read": "Abstract, introduction defining parabolic positivity condition (4), Section 2 and Theorem 2.1 statement and proof outline, and paper references.",
+        "method": "Full open arXiv HTML, relevant mathematical definitions and theorem materially read",
+        "title": "Non-satisfiability of a positivity condition for commutator-free exponential integrators of order higher than four",
+        "trigger": "Potentially stronger positivity barrier for commutator-free Magnus methods"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aee5d957-147a-4247-9240-ac5fe2be9f72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary article singles out quantifying near-positivity for commutator-free schemes as an open methodological issue. Two-state Markov exchange with equal total rates is a natural basic class where both generator orientations can vary independently while the relaxation timescale is fixed. An exact sharp universal endpoint positivity threshold and a complete beyond-threshold rate condition identify when non-generator internal stages can still deliver a valid stochastic update; the irreducible counterexample proves the boundary is real. This goes beyond a parameter substitution or generic textbook sign test because the negative internal stages cancel nontrivially in the noncommuting product and the result precisely classifies a meaningful numerical-reliability regime. It is not an assertion about the entire nonlinear algorithm.",
+    "status": "PASS"
+  }
+}
