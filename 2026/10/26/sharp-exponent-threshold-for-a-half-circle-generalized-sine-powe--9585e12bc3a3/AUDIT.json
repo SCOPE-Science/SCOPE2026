@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every alpha>0 the integration-by-parts identity (alpha+n)I_n+(alpha-n+2)I_(n-2)=2cos((n-1)pi/2) follows with legitimate endpoints. Even coefficients are all positive when 0<alpha<2 and the fourth is negative when alpha>2. The exact fifth coefficient is alpha(alpha^2-16alpha+23)/(5(alpha+1)(alpha+3)(alpha+5)), so the unique threshold in (0,2) is 8-sqrt(41). Odd n>=7 are strictly positive by the proved two-step recurrence lower bound, including the equality case at n=5. The nonnegative Fourier characterization implies global positive semidefiniteness and consecutive positive frequencies yield strictness by Vandermonde. CHECK.py ran from its packaged source path and passed exact sympy identities, 384 direct quadrature comparisons (worst error 4.744e-14), and a 32-site negative eigenvalue witness at alpha=1.7. These experiments are not used as infinite-frequency proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1110.2437, Theorem 1.7, gives sufficient positivity criteria for suitably convex profiles; when alpha>1, the present profile is concave near theta=0 (second derivative negative).",
+        "arXiv:1505.01169, theorem on Fourier support for strict positive definiteness on products of circles, gives a general support criterion but does not evaluate the sine-power coefficients."
+      ],
+      "reasoning": "The candidate is not obtained as a routine corollary of convexity because the newly admissible range includes 1<alpha<=8-sqrt(41), where the shape is not convex. Abstract support criteria do not imply coefficient nonnegativity or locate its exact threshold.",
+      "searches": [
+        "\"Gneiting\" \"generalized sine power\" \"Problem 10\" circle positive definite",
+        "strictly positive definite isotropic kernels products of circles spectral arithmetic supports 2015 Guella Menegatto Peron",
+        "spherical Polya criterion generalized sine power nonconvex covariance sphere Guella Menegatto"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1111.7077v1, Problem 10 / eq. (45)",
+      "arXiv:1110.2437, relevant Pólya theorem",
+      "arXiv:1505.01169, theorem on circle spectral support",
+      "doi:10.1016/S0167-7152(98)00042-X, title and abstract only",
+      "Published mathematical index: indexed result on shifted Vietoris sine sums (2026-09-20); claim implications compared",
+      "Accessible prior mathematical claims: no exact cutoff sine-power family statement detected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gneiting, arXiv:1111.7077v1, Problem 10: parameter problem asked rather than classification asserted.",
+        "Beatson–zu Castell–Xu, arXiv:1110.2437: convex-profile sufficient conditions for spherical positive definiteness.",
+        "Guella–Menegatto–Peron, arXiv:1505.01169: support-based strictness conditions, after coefficient positivity is already established.",
+        "Gneiting (1998), doi:10.1016/S0167-7152(98)00042-X: an abstract announcing general circle tests, not evidence of a stated exact sine-power cutoff."
+      ],
+      "reasoning": "The new theorem supplies necessary and sufficient conditions including a sharp nonconvex interval and the exact sole zero harmonic at the endpoint. Existing general criteria can diagnose strictness from known positive support but do not evaluate this family. The 1998 full text was not inspected, hence remains an explicit bounded-review risk rather than a claimed negative comparison.",
+      "searches": [
+        "\"Gneiting\" \"generalized sine power\" \"Problem 10\" circle positive definite",
+        "circle isotropic positive definite truncated sine power (1-sin^alpha theta) supported half circle",
+        "Gneiting 1998 Simple tests validity correlation function models on circle pdf",
+        "strictly positive definite truncated sine power circle Fourier Bochner coefficient conditions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1111.7077v1, Problem 10 (45), explicitly asks admissible exponent/support values for the family; its c=pi/2, d=1 specialization is the exact object analyzed here.",
+        "Published-index record titled Sharp exponent threshold and endpoint boundary layer for shifted Vietoris sine sums (2026-09-20) concerns positive sine sums with shifted polynomial weights, not Fourier coefficients of the cutoff sine-power covariance."
+      ],
+      "reasoning": "The relevant equivalence is by substituting c=pi/2 in Gneiting equation (45), yielding 1-sin^alpha(theta) for theta <=pi/2, zero otherwise. Other similar-looking sine sums lack this profile and sharp coefficient condition. No indexed theorem with this exact equivalence was found; absence in search is not uniqueness proof.",
+      "searches": [
+        "\"8-sqrt(41)\" \"positive definite\" Fourier sine",
+        "\"generalized sine power\" \"positive definite\" circle cutoff",
+        "circle isotropic positive definite truncated sine power (1-sin^alpha theta) supported half circle",
+        "\"generalized sine power\" \"positive definite\" cutoff"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1111.7077v1 presents the family as a question rather than an entry in a solved threshold table.",
+        "Relevant indexed mathematical claims retrieved for exact critical-value and sine-power queries did not contain a threshold table for this family."
+      ],
+      "reasoning": "The result is an all-frequency continuous-parameter classification, not a finite database enumeration. Searches for the exact radical, decimal equivalent, and the family name found no precomputed equivalent table. Missing tables remain possible and are a residual literature risk.",
+      "searches": [
+        "\"compactly supported generalized sine power\" \"fifth Fourier coefficient\" threshold",
+        "Generalized sine power spherical correlation scale support c pi/2 exact range alpha 8 minus sqrt 41 Fourier coefficient fifth harmonic",
+        "\"8-√41\" circle covariance",
+        "\"sin\" \"positive definite\" \"1.596\" cutoff circle"
+      ]
+    },
+    "rationale": "The sharp exact exponent 8-sqrt(41) for the natural support-radius pi/2 section of the explicitly formulated 2011 generalized sine-power parameter problem was not found in inspected primary papers, accessible owned claim statements, or published mathematical-index searches. The original Problem 10 asks for the admissible parameter region, whereas its general circle Fourier criterion does not compute this nonconvex range. The 2011 spherical Polya theorem supplies convex sufficient conditions, and the 2015 product-of-circles theorem addresses Fourier support rather than this sign classification. A pre-1998 circle positivity test is an unresolved source risk because only its abstract was accessible.",
+    "residual_risks": [
+      "An unindexed or newly published Fourier-coefficient classification might coincide with this precise c=pi/2, d=1 special case.",
+      "Gneiting (1998), an older related circle covariance paper, could not be fully inspected; the abstract is inadequate for a whole-document noncoverage assertion.",
+      "No independent literature expert has validated the claim of originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The author explicitly raises the exponent/support admissibility question. The support value c=pi/2 matches the present family. No stated sharp coefficient classification in the material examined.",
+        "evidence": [
+          "Problem 10 and equation (45) are direct statements of the generalized sine-power parameter classification problem.",
+          "arXiv:1111.7077 version 1 public posting dated 2011-11-30."
+        ],
+        "identifier_or_url": "arXiv:1111.7077v1 (2011-11-30)",
+        "material_read": "Problem 10, equation (45), and adjacent parameter discussion in accessible 2011 preprint text; source abstract and relevant circle framework.",
+        "method": "Read original preprint full-text extraction and verified arXiv v1 posting date.",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Direct founding source for generalized sine-power family and precise scope/date."
+      },
+      {
+        "assessment": "Convexity criterion is inapplicable to the alpha>1 section of the present family and therefore does not settle its sharp threshold.",
+        "evidence": [
+          "The relevant spherical criterion assumes convexity; near theta=0, 1-sin^alpha(theta) has negative second derivative for alpha>1."
+        ],
+        "identifier_or_url": "arXiv:1110.2437",
+        "material_read": "Relevant theorem statement on convex profiles, associated assumptions, and positivity consequences.",
+        "method": "Read accessible primary preprint text around theorem and its hypotheses.",
+        "title": "A Pólya criterion for (strict) positive definiteness on the sphere",
+        "trigger": "General sufficient criterion might already cover continuous range of exponents."
+      },
+      {
+        "assessment": "General support theorem does not provide the kernel-family Fourier signs or sharp alpha boundary.",
+        "evidence": [
+          "The product-of-circles theorem characterizes strictness using spectral support; new computation supplies that spectral support in a nontrivial family."
+        ],
+        "identifier_or_url": "arXiv:1505.01169",
+        "material_read": "Abstract, introductory definitions and Theorem 1.1 for the Fourier support condition.",
+        "method": "Read accessible arXiv primary article full-text HTML.",
+        "title": "Strictly positive definite kernels on a product of circles",
+        "trigger": "Broad circle Fourier support results could subsume the strictness statement."
+      },
+      {
+        "assessment": "Abstract announces general sufficient and necessary tests but does not establish whether the special family was evaluated; no NOT_COVERING conclusion is claimed.",
+        "evidence": [
+          "Statistics & Probability Letters 39 (1998) 119–122; abstract describes a Pólya analogue and derivative test."
+        ],
+        "identifier_or_url": "doi:10.1016/S0167-7152(98)00042-X",
+        "material_read": "Journal bibliographic metadata and abstract only; full text not accessible in the bounded review.",
+        "method": "Journal metadata and archival/index abstract; open-access/full-text search did not retrieve the article.",
+        "title": "Simple tests for the validity of correlation function models on the circle",
+        "trigger": "Older closely titled circle covariance criteria may conceal an equivalent special-case result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9585e12b-c3a3-4cce-b581-ce3f1fa8185b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gneiting (2011) expressly motivates the generalized sine-power family and asks for its positivity parameter region; support radius c=pi/2 is geometrically natural as half the maximal circle distance. The exact radical smoothness threshold and its uniquely vanishing fifth harmonic resolve a sharp, nontrivial section of that problem, reaching exponents above one beyond elementary convexity-based sufficient criteria. The endpoint remains strictly positive definite, yielding a useful distinction between spectral nonnegativity and strict finite-set positivity. This is a complete natural one-parameter classification, not an arbitrary tiny numerical extension.",
+    "status": "PASS"
+  }
+}
