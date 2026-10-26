@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "CRT yields unique (u,v,t) with -1<=t and u<b,v<a. Each two-coin pair contributes precisely 1+min(U,V) refinements. For t>=2 the j=1 term contributes >=a+1 plus two endpoints >=1, so no low-multiplicity arguments occur there. The t=0 rectangular min-levels give a+b-2k+1 cases; the t=1 triangular diagonal gives k-1, then a at the next level. Explicit linear optimization on both layers proves g_k for 1<=k<=a+1 and Sylvester genus proves the k=0 base. Dynamic programming independently agreed for 575 coprime pairs and 952360 n-values. All hypotheses and boundary cases were checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aldrich–Gulbrandsen–Keddy Theorem C supplies two-sided quasi-polynomial bounds and a generalized Frobenius existence argument for all triples, not exact level counts.",
+        "Komatsu–Ying Theorem 1 supplies exact p-Frobenius and p-genus for arithmetic-progression triples, which have no intersection with coprime ascending (a,b,a+b), a>=2.",
+        "A universal general restricted-partition coefficient algorithm can compute instances but need not resolve the global maximum or count the infinitely many parameter cases in one formula."
+      ],
+      "reasoning": "Compared the strongest relevant broader claims by logical implication. Bounds and existence do not establish exact early thresholds. Arithmetic-progression hypotheses fail. General instance algorithms do not directly give this uniform all-parameter extremal and spectrum assertion.",
+      "searches": [
+        "restricted partition denumerant three generators a b a+b quasi polynomial sharp generalized Frobenius",
+        "generalized Frobenius g_k(a,b,a+b)=ab-a-b+kb for k up to a",
+        "arxiv:2610.20899 sections 3.1 and 3.2",
+        "doi:10.3390/sym15071328 Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "Aldrich–Gulbrandsen–Keddy, arXiv:2610.20899v2, HTML full text, first posted 2026-10-14.",
+      "Komatsu–Ying, Symmetry 15 (2023) 1328, Theorem 1/intro indexed full text; arXiv:2206.13052 abstract.",
+      "Komatsu–Laishram–Punyani, Symmetry 15 (2023) 852, arXiv:2304.00443 abstract.",
+      "Komatsu–Mu, Axioms 13 (2024) 608, open preprint 202407.1982 intro/§§2–3."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 article proves for general pairwise-coprime triples an upper/lower gap of at most (a+b)/4 and eventual existence; not an exact maximum in a selected multiplicity level.",
+        "The 2023 arithmetic-progression theorem assumes sorted differences equal, whereas b-a=a would imply b=2a, incompatible with gcd(a,b)=1 for a>=2.",
+        "The Fibonacci and Horadam papers parameterize recurrence triples, not arbitrary coprime a<b with last denomination a+b."
+      ],
+      "reasoning": "None of those stated conclusions directly or by parameter specialization implies the theorem over all coprime pairs. The new analysis establishes a global t-layer exclusion and compares maximal n across all admissible residues, which the cited general bound or restricted-family theorems do not supply.",
+      "searches": [
+        "arxiv:2610.20899v2 Theorem C and Section 3.2",
+        "doi:10.3390/sym15071328 Theorem 1",
+        "arxiv:2304.00443 abstract and introduction",
+        "doi:10.3390/axioms13090608 Sections 2 and 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new three-denomination count is the coefficient of 1/((1-X^a)(1-X^b)(1-X^{a+b})).",
+        "Komatsu–Ying 2023 defines p-Frobenius and p-genus as precisely the same cumulative multiplicity invariants, but studies triples in an arithmetic progression."
+      ],
+      "reasoning": "Checked the aliases denumerant, restricted partition function, k-Frobenius number, p-genus, and coin representations. Under these exact equivalences the inspected sources did not contain the initial phase for arbitrary coprime a,b.",
+      "searches": [
+        "generalized Frobenius numbers for three coin system a b a+b precise representation threshold first k linear formula",
+        "exact multiplicity spectrum denumerant triple coin a b a+b gcd(a,b)=1 number of n with exactly k representations equals a+b-k",
+        "denumerant ax+by+(a+b)z=n smallest multiplicities k=1..a exact spectrum generalized Frobenius slope",
+        "\"a,b,a+b\" \"number of representations\" \"Frobenius\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record searches for co-generated triples returned no matching exact-count tables.",
+        "Accessible published special-family p-Apery formulas concern Fibonacci, Pell/Horadam, or arithmetic progression constraints."
+      ],
+      "reasoning": "Searched exact tables and database analogues for same generators and multiplicity parameters. No covering entries were identified. Searches are not proof of uniqueness; an unindexed table remains a residual risk.",
+      "searches": [
+        "co-generated triple coin denominations (a,b,a+b) p-Frobenius p-genus multiplicity level counts",
+        "minimum positive representation number multiplicity intervals sum of two coprime generators third generator sum first breakpoint",
+        "\"a+b\" \"p-genus\" \"p-Frobenius\"",
+        "\"a+b\" \"denumerant\" \"Frobenius\" \"at most\""
+      ]
+    },
+    "rationale": "Inspected the complete main-result sections of arXiv:2610.20899v2, whose general denumerant bounds and existence statement do not imply explicit first-phase counts or a uniform exact earliest slope transition. Arithmetic-progression p-numerical semigroup formulas require b=2a for ascending (a,b,a+b), excluded by the coprimality hypothesis a>=2. Recurrence-constrained Komatsu triples do not cover arbitrary coprime pairs. Searches for denumerant aliases, generalized Frobenius levels, semigroup genera, and co-generated denominations returned no covering statement; novelty remains a best-knowledge assessment with explicit risks.",
+    "residual_risks": [
+      "An unindexed published calculation or special-family table may implicitly contain the same initial phase.",
+      "General denumerant coefficient algorithms give computable answers for every fixed pair; unrecognized stronger closed-form coverage may exist.",
+      "Direct publisher full-text access for Komatsu–Ying returned HTTP 429; comparison used indexed article excerpts and an arXiv abstract."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General quasi-polynomial bounds/existence only; does not give this exact level spectrum and first change of extremal slope.",
+        "evidence": [
+          "Theorem C bounds P(n) between U(n),L(n) with difference <=(a+b)/4; §3.2 explicitly says a general closed formula is not obtained.",
+          "First submission 14 Oct 2026 UTC on arXiv abstract page."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.20899v2",
+        "material_read": "Complete HTML introduction, Sections 2 and 3 including Corollary 3.2, Theorem C, Section 3.2, and Section 4.",
+        "method": "Examined arXiv open HTML full text and the dated arXiv abstract page.",
+        "title": "Enumerating Integral Points on Triangles in R^3",
+        "trigger": "Same equation ax+by+cz=n and generalized Frobenius motivation; closest primary source."
+      },
+      {
+        "assessment": "Not covering the coprime co-generated shape: ascending arithmetic progression would require b=2a.",
+        "evidence": [
+          "Theorem 1 treats (a,a+d,a+2d) and 0<=p<=floor(a/2).",
+          "The parameter identity for (a,b,a+b) forces b=2a and violates coprimality a>=2."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2073-8994/15/7/1328",
+        "material_read": "Indexed public full-text abstract, introduction, and published Theorem 1 formulas; direct reread was rate-limited.",
+        "method": "Retrieved search-index extract of published article and arXiv abstract arxiv:2206.13052.",
+        "title": "The p-Numerical Semigroup of the Triple of Arithmetic Progressions",
+        "trigger": "Exact p-Frobenius, genus of another three-coin family."
+      },
+      {
+        "assessment": "Recurrence-constrained triples do not imply unrestricted coprime (a,b,a+b).",
+        "evidence": [
+          "Explicit formulas specifically for generalized Fibonacci and Jacobsthal family triple constraints."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.00443",
+        "material_read": "Full public abstract and publication description; not the complete article.",
+        "method": "Read arXiv abstract and open bibliographic repository page.",
+        "title": "p-Numerical Semigroups of Generalized Fibonacci Triples",
+        "trigger": "Published exact three-coin p-Frobenius and p-genus formulas."
+      },
+      {
+        "assessment": "Its technical parameters require specific recurrence triples W_i,W_{i+2},W_{i+k}; no coverage of arbitrary co-generated coprime pairs.",
+        "evidence": [
+          "The paper fixes (W_i,W_{i+2},W_{i+k}), with W_0=0 and W_1=1, and treats p-Apery sets for that shape."
+        ],
+        "identifier_or_url": "https://www.preprints.org/manuscript/202407.1982",
+        "material_read": "Accessible full HTML introduction, general p-Apery formulas in §2 and main-result recurrence hypotheses in §3.",
+        "method": "Read open article text including its model W_n=uW_{n-1}+vW_{n-2}.",
+        "title": "p-Numerical Semigroups of Triples from the Three-Term Recurrence Relations",
+        "trigger": "Potentially broader recurrence-family coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7c07d355-5572-4fe0-bb94-2d78501ade1f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The redundant third denomination is a natural minimal perturbation of two-generator representation counts: it preserves all representable integers while changing the entire multiplicity spectrum. The theorem determines the exact number of integers at each low representation multiplicity, the p-genus, and p-Frobenius uniformly for every coprime pair, including the sharp first non-linear transition at p=a+1. The endpoint is structurally forced by the emergence of a new CRT layer, not an arbitrary numerical window. This is a meaningful exact arithmetic boundary invariant and not a mere finite calculation or restatement of Sylvester genus.",
+    "status": "PASS"
+  }
+}
