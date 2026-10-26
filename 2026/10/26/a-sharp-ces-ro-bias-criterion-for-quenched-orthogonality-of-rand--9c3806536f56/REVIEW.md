@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Conditional on an input path, centered masking signs satisfy an independent-variable strong law because their variances are bounded. Fubini upgrades this to almost every fixed mask. The rescaled two-component walk then has identity limiting predictable covariance and bounded jumps, so the martingale functional CLT applies. Necessity uses the deterministic rule \(h_k=\operatorname{sgn}(m_k)\), the centered strong law, and uniform integrability of terminal products. The explicit exponential maximal bound follows from the bounded-increment exponential supermartingale. The finite verifier checks 3,116 exact rational identities; it is not used to prove infinite convergence.
+
+**Originality — PASS, with residual risk.** The 2026 source explicitly gives only annealed convergence for time-by-size independent coefficients and describes the quenched extension as open; its quenched subset-indexed theorem has different hypotheses. The 2022 predecessor gives a general bracket-based characterization but not this sharp universal criterion in terms of absolute Cesàro bias for independent masks. Actual targeted semantic searches for sign-masked quenched martingale transforms and for the one-factor fair empty-subset case returned no equivalent covering statement. These comparisons are by mathematical implications, not titles. The criterion uses standard martingale tools, so a previously implicit formulation remains possible.
+
+**Mathematical value — PASS.** A general exact if-and-only-if condition answers how much independent timewise randomization guarantees quenched decoupling **against every fixed predictable recycling rule**. The theorem has a matching obstruction and an explicit uniform finite-horizon deviation bound, and resolves a natural constrained case of an identified open quenched question. The fixed-rule versus shared-null-set distinction prevents an important false strengthening.
+
+The result does not cover dependent masks or arbitrary elliptic coefficients in the open one-factor case; nor does finite enumeration establish the infinite theorem. Independent review is needed before treating the result as an established publication.
+
+Self-review: passed. Independent audit: not yet performed.
