@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The rank-one count is a bijection of factor pairs with maps whose images lie in a single kernel fiber, multiplied by the outer-permutation cardinality. The binomial strict inequality \(m^n>n(m-1)^{n-1}\) prevents lower parts masking a highest differing block; it justifies both the greedy inverse and injectivity. An independent conservation-of-mass argument for the doubleton boundary, paired with the monotone strict lower bound for larger differing parts, proves the exact smallest gap. The isomorphism equivalence explicitly relies on Tsyaputa's published Theorem 2. The included exhaustive direct calculations are corroboration, not an infinite proof.
+
+**Originality — PASS, with historical-priority risk.** Tsyaputa (arXiv:math/0508386, Theorem 2) established kernel-partition classification and analyzed an entire collection of equivalence-class sizes. The new assertion isolates a single mixed rank-one product fiber count, proves that this particular scalar is enough, gives a reconstruction algorithm, and computes its smallest possible separation. Dolinka–East (arXiv:1410.5253, introduction/Section 4) emphasize structure/generation rather than the asserted scalar. The older classification of the variants is not re-claimed as novel; the possibility of an unlocated equivalent power-sum observation remains a priority risk.
+
+**Value — PASS.** The kernel-fiber partition is a fundamental invariant that completely classifies the full transformation variants abstractly, whereas the sandwich map's rank alone forgets it. Recovering this entire discrete classification from one natural multiplication experiment is a strict information reduction. The explicit inverse and sharp gap provide mathematically optimal separation and distinguishability within this family, without artificial fixed dimensions.
+
+**Scope and risk.** The count uses a marked ordinary permutation set in the canonical transformation representation. We claim invariance of its *numerical value* on abstract isomorphism classes by an external classification theorem, not intrinsic characterization of the marker set. No independent mathematical validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
