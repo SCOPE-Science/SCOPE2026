@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The squarefree-monomial spanning proof reduces every nonzero product tensor to a unique class indexed by its union. The key zero-product identity joins incomparable splittings; a complement connects comparable splittings. Products certify independence. Units in the local algebra isolate zero-product tensors inside the radical–radical summand, proving the universal quotient. Dimensions and finite-field counts follow by independent parameterization. The included direct-kernel checker supplies finite consistency checks, not an infinite proof.
+
+**Originality — PASS (self-review, residual uncertainty).** Gardella–Thiel establish failure of zero-product determination for higher-index monogenic nilpotent algebras; the current squarefree radical gives an all-index opposing family. Their paper does not supply these squarefree quotient or symmetric-defect formulas. Jia–Xiao establish a yes/no unital idempotent criterion; the negative unital ZPD verdict is credited and excluded from the originality claim. The present claim is the universal bilinear decomposition, its exact dimension profile and symmetric boundary, and the contrasting nilpotent radical. Searches for squarefree radicals, zero-product tensor quotients, and bilinear zero-product maps did not locate direct coverage. Residual risk: a broader uncatalogued classification could implicitly subsume the combinatorial quotient computation.
+
+**Value — PASS.** The results distinguish the nilpotent radical sharply from its unitization, show that high nilpotency index alone is not a ZPD obstruction, and provide exact spaces and counts of all admissible bilinear maps, not just examples or existence statements. The symmetric-defect threshold is natural because symmetric bilinear maps form the commutative/Jordan-relevant subclass.
+
+**Closest literature.** Gardella–Thiel (2023), Examples 2.16–2.17 and tensor-quotient definitions, and Jia–Xiao (2026), finite-dimensional unital criterion. Mathematical limitations and reproducibility are in the result and verification files. An uncatalogued equivalent derivation remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
