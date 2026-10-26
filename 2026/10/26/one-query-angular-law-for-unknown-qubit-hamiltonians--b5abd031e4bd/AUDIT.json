@@ -1,0 +1,116 @@
+{
+  "claim": "For a qubit Hamiltonian \\(H_j=\\mathbf n_j\\cdot\\boldsymbol\\sigma\\), where \\(\\|\\mathbf n_j\\|=1\\), if the unknown evolution time is uniformly distributed on \\([0,\\pi]\\), the two Hamiltonians have equal prior probability, and only one query is allowed, then the optimal average success probability over all probes (including ancillas) is \\(P_{\\rm succ}=\\frac12+\\frac14\\sqrt{1-(\\mathbf n_0\\cdot\\mathbf n_1)^2}\\).",
+  "correctness": {
+    "rationale": "The time average is exactly the qubit dephasing channel \\(\\mathcal E_{\\mathbf n}=(\\mathrm{id}+\\operatorname{Ad}_{\\sigma_{\\mathbf n}})/2\\). For every pure probe with reduced Bloch vector \\(\\mathbf r\\), the trace norm of the output difference is \\(\\sqrt{1-c^2-((\\mathbf n_0\\times\\mathbf n_1)\\cdot\\mathbf r)^2}\\), hence at most \\(\\sqrt{1-c^2}\\); a maximally entangled probe has \\(\\mathbf r=0\\) and attains equality. Helstrom’s equal-prior formula gives the stated result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sacchi, arXiv:quant-ph/0506072, Sections 2-4: general channel-discrimination trace-norm framework and explicit formulas for channels diagonal in a common Pauli basis.",
+        "The averaged channels here are \\(\\mathcal E_{\\mathbf n}=(\\mathrm{id}+\\operatorname{Ad}_{\\sigma_{\\mathbf n}})/2\\) and \\(\\mathcal E_{\\mathbf m}=(\\mathrm{id}+\\operatorname{Ad}_{\\sigma_{\\mathbf m}})/2\\); for generic nonorthogonal axes their Bloch-space projectors \\(\\mathbf n\\mathbf n^\\top\\) and \\(\\mathbf m\\mathbf m^\\top\\) do not commute, so they are not jointly Pauli diagonal."
+      ],
+      "reasoning": "The general discrimination framework covers the method but does not itself supply the explicit angle formula. The cited Pauli-channel result covers the orthogonal/parallel special cases, not the generic nonorthogonal-axis pair.",
+      "searches": [
+        "optimal discrimination qubit dephasing channels axes angle diamond norm maximally entangled probe",
+        "Hamiltonian recognition nonorthogonal qubit axes one query average success probability",
+        "qubit dephasing channel discrimination angle between dephasing axes diamond norm",
+        "two dephasing channels different axes diamond norm",
+        "optimal Hamiltonian recognition of unknown quantum dynamics arbitrary axes",
+        "Minimum error discrimination of Pauli channels nonorthogonal axes",
+        "arXiv:quant-ph/0506072, Sections 2-4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2412.13067 — initial public date 2024-12-17; Theorem 1 is restricted to orthogonal axes.",
+      "https://doi.org/10.1038/s41534-026-01182-6 — journal publication dated 2026-01-21; same orthogonal-axis recognition result.",
+      "https://arxiv.org/abs/quant-ph/0506072 — general channel-discrimination framework and common-Pauli-basis formulas.",
+      "https://en.wikipedia.org/wiki/Diamond_norm — general relation between one-shot channel distinguishability and the diamond norm; used only as background, not as novelty evidence."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The main source explicitly restricts its exact binary theorem to \\(\\mathbf n_0\\perp\\mathbf n_1\\).",
+        "The Pauli-channel paper assumes a common orthogonal unitary error basis for its closed-form formulas.",
+        "The new formula reduces to \\(3/4\\) at \\(c=0\\) and \\(1/2\\) at \\(|c|=1\\), consistent with the known orthogonal case and identical-channel boundary."
+      ],
+      "reasoning": "The main paper implies only the c=0, k=1 special case. The general channel-discrimination formalism gives an optimization but not the explicit square-root dependence; the proof evaluates that norm for the present pair of channels.",
+      "searches": [
+        "arXiv:2412.13067, full text, Sections II-III and Theorem 1",
+        "arXiv:quant-ph/0506072, full text, Sections 2-4",
+        "single-query discrimination uniformly unknown rotation axis qubit Hamiltonian recognition nonorthogonal Bloch vectors",
+        "optimal discrimination qubit dephasing channels axes angle diamond norm maximally entangled probe",
+        "Hamiltonian recognition nonorthogonal qubit axes one query average success probability",
+        "qubit dephasing channel discrimination angle between dephasing axes diamond norm",
+        "two dephasing channels different axes diamond norm",
+        "optimal Hamiltonian recognition of unknown quantum dynamics arbitrary axes",
+        "Minimum error discrimination of Pauli channels nonorthogonal axes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2412.13067, lines 52-61: candidate Hamiltonians are unit Bloch vectors; the theorem assumes orthogonal axes.",
+        "Theorem 1 gives \\((2k+1)/(2k+2)\\), which specializes to \\(3/4\\) for \\(k=1\\)."
+      ],
+      "reasoning": "The exact formulation is a one-query angle-dependent extension, not a restatement of the orthogonal-axis theorem. The overlap parameter \\(c=\\mathbf n_0\\cdot\\mathbf n_1\\) is unrestricted in the new claim.",
+      "searches": [
+        "single-query discrimination uniformly unknown rotation axis qubit Hamiltonian recognition nonorthogonal Bloch vectors",
+        "optimal discrimination qubit dephasing channels axes angle diamond norm maximally entangled probe",
+        "Hamiltonian recognition nonorthogonal qubit axes one query average success probability",
+        "arXiv:2412.13067, full text, Section III, Theorem 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned item concerned a three-copy minimax problem over a bounded y-rotation, not one-query Hamiltonian-axis angle.",
+        "Another close item concerned multi-copy state discrimination for regular rebit polygons, not averaged Hamiltonian channels.",
+        "No returned record states the arbitrary-axis one-query formula."
+      ],
+      "reasoning": "Semantic searches were run against the available result corpus using the source title, aliases (dephasing-axis discrimination, diamond norm), and the exact claim parameters. The closest returned records differ in model, query count, or target quantity; absence of an exact hit is not treated as proof of novelty.",
+      "searches": [
+        "single-query discrimination uniformly unknown rotation axis qubit Hamiltonian recognition nonorthogonal Bloch vectors",
+        "optimal discrimination qubit dephasing channels axes angle diamond norm maximally entangled probe",
+        "Hamiltonian recognition nonorthogonal qubit axes one query average success probability",
+        "qubit dephasing channel discrimination angle between dephasing axes diamond norm",
+        "two dephasing channels different axes diamond norm",
+        "optimal Hamiltonian recognition of unknown quantum dynamics arbitrary axes",
+        "Minimum error discrimination of Pauli channels nonorthogonal axes"
+      ]
+    },
+    "rationale": "The closest direct Hamiltonian-recognition theorem is restricted to orthogonal axes; the prior Pauli-channel treatment assumes a common Pauli basis. The exact arbitrary-angle one-query expression is not present in the inspected primary texts or returned closest search records. Residual unindexed-literature risk is disclosed.",
+    "residual_risks": [
+      "Targeted semantic and web searches are not exhaustive; an unindexed paper may contain an equivalent formula for noncommuting qubit dephasing channels.",
+      "The claim intentionally does not extend to multiple calls with the same unknown time, nonuniform time priors, or unequal hypothesis priors."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest direct prior; theorem is for orthogonal axes, so it covers c=0 but not the general c dependence.",
+        "evidence": "Theorem 1 assumes \\(\\mathbf n_0\\perp\\mathbf n_1\\) and gives \\((2k+1)/(2k+2)\\); the \\(k=1\\) equal-prior value is \\(3/4\\).",
+        "identifier_or_url": "https://arxiv.org/abs/2412.13067",
+        "material_read": "arXiv HTML full text: Section III, Definition 1 and Theorem 1; lines 35-61 and 78-90 of the accessible text.",
+        "method": "Compared candidate set, time averaging, priors, query count, and axis-angle assumptions with the proposed claim.",
+        "title": "Optimal Hamiltonian recognition of unknown quantum dynamics",
+        "trigger": "Direct primary source for the one-query unknown-time Hamiltonian recognition model."
+      },
+      {
+        "assessment": "Provides the general framework and covers common-basis Pauli channels; it does not directly state the angle formula for noncommuting dephasing axes.",
+        "evidence": "The explicit formulas are written for \\(\\mathcal E_i(\\rho)=\\sum_n q_n^{(i)}\\sigma_n\\rho\\sigma_n\\) in one fixed Pauli basis.",
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0506072",
+        "material_read": "Full arXiv text: Sections 2-4, including the channel trace-norm formula and the common Pauli-basis assumption.",
+        "method": "Compared the averaged channels and their Bloch representations with the channel family treated in the paper.",
+        "title": "Minimum error discrimination of Pauli channels",
+        "trigger": "General prior literature on optimal discrimination of dephasing/Pauli channels and ancilla-assisted probes."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5abd031-e4bd-494f-9a1a-9963c5a7bdc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The formula gives the exact dependence of ideal one-query recognition on the relative axis angle, with both the known orthogonal benchmark and the indistinguishable parallel/antiparallel boundary as exact endpoints. This quantifies when an axis mismatch makes a one-query experiment informative.",
+    "status": "PASS"
+  }
+}
