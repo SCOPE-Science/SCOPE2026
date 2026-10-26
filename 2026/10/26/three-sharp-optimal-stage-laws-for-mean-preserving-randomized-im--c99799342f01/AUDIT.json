@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For every \\(s>0\\) and all Borel mean-half laws on \\([0,1]\\), the exact squared scalar multiplier is \\(g_s(t)=(1-s+st)^2/(1+st)^2\\). Three independently factored global affine lower supports prove the infimum and uniqueness in all three stiffness regimes, including both endpoint thresholds. The scalar all-step identity follows from stage independence. CHECK.py confirms the exact algebraic identities and finite illustrative cases; the universal sign inequalities are proved in RESULT.md rather than inferred from enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2404.19059, Fact 4 obtains the mean-square interval for uniform stages and Fact 5 gives the complex stability integral, not a minimum over stage laws.",
+        "arXiv:2006.12131, Theorem 3 establishes stability of a uniform-stage explicit RK method and gives its different polynomial amplifier.",
+        "arXiv:2607.18928 abstract describes a randomized SDIRK method with randomized trapezoidal quadrature; full-text comparison was unavailable."
+      ],
+      "reasoning": "The broader potential coverage is arbitrary stage distributions, SDE stochastic-theta convergence theory, and general convex-analytic moment bounds. Neither inspected primary work quantifies over stage laws, and the stochastic-theta SDE literature concerns random forcing rather than optimizing an internal stage time in a deterministic scalar equation. The 2026 SDIRK paper is a plausible adjacent source with incomplete inspection, retained as a specific residual priority risk.",
+      "searches": [
+        "optimal distribution random theta method implicit stochastic Runge Kutta expected squared stability mean stage half",
+        "randomized implicit Runge Kutta sampling distribution optimize mean square amplification Dahlquist",
+        "stage distribution Chebyshev convex envelope mean squared amplification random implicit Euler one-step"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.19059 (primary, full text, equations and stability section)",
+      "arXiv:2006.12131 (primary, full text, randomized explicit stages and stability section)",
+      "arXiv:2607.18928 (abstract only, adjacent randomized SDIRK)",
+      "D. J. Higham, Mean-square and asymptotic stability of the stochastic theta method (SIAM J. Numer. Anal. 38, 2000; abstract only; different stochastic forcing setting)",
+      "Targeted accessible published mathematical claim records, queried by algorithm, optimization, aliases, convex-envelope reduction and exact parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2404.19059 equations S1/S2 yield the same rational scalar amplifier; its mean-square stability results assume uniform stage fractions.",
+        "arXiv:2006.12131 uses the explicit randomized multiplier and gives an explicit polynomial mean-square region, so its statements do not specialize to the rational implicit-stage optimization.",
+        "The new proof supplies three globally valid affine supports and uniquely realizes each with a mean-half law."
+      ],
+      "reasoning": "Existing uniform-law moment formulas evaluate one feasible law, not the infimum over all laws; bounding a fixed uniform region does not imply a distributional optimality theorem. Deterministic midpoint A-stability does not preclude strictly smaller expected squared amplification by randomization at moderate stiffness. Standard convex-envelope theory is a possible reduction, but neither inspected paper states the exact support-location formula or its stiffness transitions.",
+      "searches": [
+        "randomized implicit two-stage Runge Kutta A stability almost sure mean square exact stability region Bochacik Przybylowicz",
+        "\"randomized implicit\" \"optimal distribution\" \"stability\" Runge Kutta",
+        "\"mean-preserving\" \"random\" \"implicit midpoint\" stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2404.19059, Section 1.2 defines S1/S2 with uniform stage fractions and Section 3.2 writes an expected squared scalar multiplier for that fixed law.",
+        "arXiv:2006.12131, Sections 2 and 5 define and analyze a uniform-stage explicit randomized RK scheme, rather than the implicit rational multiplier considered here."
+      ],
+      "reasoning": "The potential equivalent wording is optimization of a random theta parameter, convex envelope under a fixed mean, or an optimal probability measure for scalar stability. The sources inspected analyze fixed uniform laws and different schemes. The precise unrestricted mean-half minimizer and its three support transitions are not present in their examined definitions, results, and stability sections. Broad moment-optimization principles could still imply the calculation and remain a priority risk.",
+      "searches": [
+        "randomized implicit RK2 stage sample distribution optimized mean square contraction scalar Dahlquist test equation mean half two-point support tangent convex envelope",
+        "random theta numerical integrator optimal sampling distribution support endpoints interior stage threshold sqrt17 2/sqrt3",
+        "\"randomized theta\" \"optimal\" \"distribution\" mean-square ODE"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical claim-record results included rates for unrelated two-component PAGE, random implicit methods, and general time-stage sampling, without an exact table of the mean-half scalar implicit-stage optimum.",
+        "The arXiv:2404.19059 real-axis comparison concerns a uniform-integral threshold near stiffness 4.03, not the optimal-law transition values."
+      ],
+      "reasoning": "The parameter is a continuous scalar damping stiffness, not an enumerated table entry or finite database. No exact table, database claim, or numerical stability diagram inspected contains the unrestricted distributional optimal support laws; the absence of a record is not treated as novelty proof.",
+      "searches": [
+        "Bochacik Przybylowicz 2024 implicit RK2 optimize random internal stage distribution mean one half minimal mean square stability three phase",
+        "stochastic Runge Kutta randomized theta stage law 0 1 interior support tangent optimally mean square stable",
+        "random implicit midpoint quadrature optimized distribution mean-preserving stage law stability polynomial"
+      ]
+    },
+    "rationale": "The exact three-phase unrestricted fixed-mean optimizer is not contained in the inspected 2024 implicit randomized RK analysis or 2020 explicit randomized RK stability analysis, and targeted accessible mathematical-record searches found no direct implication. The main source fixes uniform stage sampling and does not optimize it. Specialized convex-envelope or optimal quadrature literature could still have equivalent coverage; this uncertainty is recorded rather than characterized as certified independence.",
+    "residual_risks": [
+      "Classical moment-constrained convex-envelope optimization principles could cover the general support construction although the exact parametric implicit-stage phase diagram was not identified.",
+      "Specialized numerical-analysis results on nonuniform randomized implicit stages may be missing from the indexed published literature.",
+      "A recent randomized SDIRK manuscript was accessible at abstract level only; no claim of full-text noncoverage is made.",
+      "The result is only one scalar real mode with known damping; it does not optimize a shared law for all eigenmodes or establish accuracy of the original uniform scheme under modified sampling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The analyzed stage fractions are iid uniform. The real and complex mean-square formulas concern that fixed law; the material inspected does not contain an optimizer over all fixed-mean stage distributions.",
+        "evidence": "arXiv:2404.19059, equation S1/S2, equation (16), Fact 4, Fact 5 and Fact 7.",
+        "identifier_or_url": "https://arxiv.org/pdf/2404.19059",
+        "material_read": "Accessible primary full-text PDF: title/abstract/introduction, Section 1.2 S1 and S2 definitions, Section 3.2 Facts 1–6 and integrals, Section 3.3 Fact 7, and discussion/references.",
+        "method": "Read textual and rendered PDF pages 3, 10 and 11, with the relevant stability formulas examined.",
+        "title": "Convergence and stability of randomized implicit two-stage Runge-Kutta schemes",
+        "trigger": "Same implicit two-stage algorithm, stage distribution, and scalar mean-square stability."
+      },
+      {
+        "assessment": "The earlier algorithm is explicit and uses a uniform internal-stage sample; its polynomial scalar stability region does not imply optimality of the rational implicit-stage law under an arbitrary distribution.",
+        "evidence": "arXiv:2006.12131 Section 2 uniform draws and Section 5 Theorem 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2006.12131",
+        "material_read": "Accessible primary full-text PDF: abstract and introduction; Section 2 randomized-stage construction; Section 5.1 mean-square stability Theorem 3 and equations (72)–(86); Section 5.2 asymptotic stability, Theorem 4.",
+        "method": "Read textual and rendered PDF pages 1–5 and 14–16.",
+        "title": "Randomized Runge–Kutta method—stability and convergence under inexact information",
+        "trigger": "Earlier randomized RK stage law, scalar amplifier, and potentially more general stability theory."
+      },
+      {
+        "assessment": "An adjacent SDIRK construction rather than the identical stage law; no whole-document exclusion can be drawn. Retained as publication-priority risk.",
+        "evidence": "arXiv:2607.18928 abstract; full text not inspected.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.18928",
+        "material_read": "Abstract only; direct full-text retrieval was not available.",
+        "method": "Read publicly accessible abstract and attempted arXiv PDF retrieval.",
+        "title": "Error Bound and Stability Analysis for a Randomized Singly Diagonally Implicit Runge-Kutta Method",
+        "trigger": "Potential later implicit randomized RK stability method using randomized trapezoidal quadrature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c9979934-2f01-476e-913a-af8497d76d26",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full stage-law design under a prescribed mean is a motivated stability question for randomized implicit Runge-Kutta: it determines the best mean-square damping achievable without changing nominal stage centering. The unusual transition between endpoint two-point sampling, asymmetric interior-to-endpoint two-point sampling, and deterministic midpoint is sharp. At \\(s=1\\) an asymmetric random stage strictly beats deterministic midpoint (\\(7/64\\) versus \\(1/9\\)), while above \\(2/\\sqrt3\\) randomization cannot help. The result is not merely a trivial restatement of a fixed-law stability integral and has explicit limitations.",
+    "status": "PASS"
+  }
+}
