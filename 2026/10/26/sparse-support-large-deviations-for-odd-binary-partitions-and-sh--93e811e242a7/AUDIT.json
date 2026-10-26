@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For every sufficiently large odd n, upper-bound coefficient counts over at most 2^(k+1) supports; lower-bound exact-support partitions with an injective independent choice of m_j for j>=1 and a parity-forced nonnegative remainder m_0. Quantified parameter choices s=floor((1-epsilon)k) and s=k-ceil(2 log2(k+2)) give matching exponents with O_epsilon(k log k), proving the sharp support deficit rate. The established overpartition weight 2^(J-1) and the negligible sparse-support share yield the sharp ratio exponent. Direct coefficient and recurrence calculations matched for every 1<=n<=2048; no infinite claim rests on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Andrews 2019 proves count identity and parity; Keith–Munagi 2023 proves composition bijections, generating functions and congruences.",
+        "A general binary-partition first-order logarithmic growth law alone does not supply a support large-deviation rate or the weighted/unweighted count ratio."
+      ],
+      "reasoning": "A broader theorem specifying joint distribution of occupied part sizes for odd-multiplicity binary partitions could dominate this finding, but none is stated in the inspected sources. The known unweighted equality and composition formulas supply necessary definitions, not the quantitative concentration bound.",
+      "searches": [
+        "Source: https://georgeandrews1.github.io/pdf/Binary%20and%20Semi-Fibonnaci.pdf",
+        "Source: https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+        "Web: odd binary partitions number of distinct asymptotic",
+        "published-finding corpus: odd binary partitions with odd multiplicities logarithmic support large deviation rate epsilon squared over two"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2303.11493",
+      "https://georgeandrews1.github.io/pdf/Binary%20and%20Semi-Fibonnaci.pdf",
+      "https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+      "https://oeis.org/A030067",
+      "https://oeis.org/A129095",
+      "https://oeis.org/A129096",
+      "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-exact-asymptotic-weighted-representation-partitions--fb5b8dfd89f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Andrews provides b(n)=sf(n), Ballantine–Beck provides p(n)=sp(n) and explicitly raises comparing growth; both equalities are prerequisites but do not determine the asymptotic ratio.",
+        "published-finding corpus's weighted-representation balance finding counts partitions with a representation-balance condition and does not encode occupied binary powers or semi-Pell overline weights."
+      ],
+      "reasoning": "The new claim is not an immediate logical consequence of any prior formula without a uniform exponential-scale concentration estimate for J. The proof supplies that missing estimate by counting bounded supports and constructing exact-support partitions; known parity and congruence results do not imply it.",
+      "searches": [
+        "Ballantine–Beck Section 6 and Section 12: https://arxiv.org/pdf/2303.11493",
+        "Andrews Theorem 1: https://georgeandrews1.github.io/pdf/Binary%20and%20Semi-Fibonnaci.pdf",
+        "Keith–Munagi Theorems 1 and 6: https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+        "published-finding corpus closest: https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-exact-asymptotic-weighted-representation-partitions--fb5b8dfd89f0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ballantine–Beck 2023, Section 6 provides overpartition interpretation; Section 12 poses comparison of odd-index asymptotic growth.",
+        "published-finding corpus top retrieved hits have different objects, such as automata rank profiles and modular semigroups, not the two recurrences."
+      ],
+      "reasoning": "Equivalent formulations include an almost-full-support typical odd binary partition, exponential suppression of support deficits, and a polynomial separation of the overlined weighted count from the unweighted count. None was found in the inspected original results or closely returned records.",
+      "searches": [
+        "published-finding corpus: asymptotic ratio semi-Pell sequence sp(n) to semi-Fibonacci sequence sf(n) growth n^{1-o(1)} odd n overpartitions binary",
+        "published-finding corpus: semi-Fibonacci semi-Pell exact ratio sp(n)/sf(n) equals n^{1+o(1)} over odd n; odd binary partition support large deviation",
+        "Web: semi-Pell semi-Fibonacci asymptotic sp(n) sf(n) binary overpartitions occupancy ratio",
+        "Source: https://arxiv.org/pdf/2303.11493"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS records recurrence-defined terms and odd-index monotonicity, with references to Andrews, Ballantine–Beck and Keith–Munagi."
+      ],
+      "reasoning": "These are numerical tables and individual recurrence entries, not an exact coefficient table for the support statistic across all indices, and they do not state the two limiting asymptotic results.",
+      "searches": [
+        "OEIS A030067 https://oeis.org/A030067",
+        "OEIS A129095 https://oeis.org/A129095",
+        "OEIS A129096 https://oeis.org/A129096",
+        "published-finding corpus: Ballantine Beck 2023 compare asymptotic growth semi-Pell and semi-Fibonacci odd index subsequences"
+      ]
+    },
+    "rationale": "No inspected primary statement or published search result is equivalent to, or mathematically stronger than, the sharp support large-deviation rate and odd-index semi-Pell/semi-Fibonacci exponent. The motivating 2023 primary paper explicitly proposes this kind of comparison. Search incompleteness remains an explicit risk; self-review does not independently certify priority.",
+    "residual_risks": [
+      "Previously unindexed work on large deviations in binary partition supports might subsume the rate, even if terminology differs.",
+      "An indirect consequence of a more general multivariate partition saddle-point theorem has not been ruled out exhaustively.",
+      "A same mathematical model literature comparison is not independent proof of publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the comparison and required overpartition identity but does not give the sharp odd-index quotient exponent or support large deviations",
+        "evidence": [
+          "Section 6 identifies sp(n) with largest-part-overlined odd binary overpartitions; Section 12 explicitly suggests comparing odd-index subsequence growth"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.11493",
+        "material_read": "PDF introduction and generating-function setup, Section 6 including Definition 8 and Theorems 6.1–6.2, Section 12 concluding remarks and glossary",
+        "method": "Searched and read parsed full-text section ranges of the 36-page public PDF, including exact equation and theorem statements",
+        "title": "Partitions enumerated by self-similar sequences",
+        "trigger": "Same semi-Fibonacci and semi-Pell sequences; an explicit growth-comparison question"
+      },
+      {
+        "assessment": "Proves partition identity and parity, not a semi-Pell comparison or sharp distribution by occupied part sizes",
+        "evidence": [
+          "Theorem 1 states sf(n)=ob(n); Theorem 2 concerns divisibility by 3 and parity"
+        ],
+        "identifier_or_url": "https://georgeandrews1.github.io/pdf/Binary%20and%20Semi-Fibonnaci.pdf",
+        "material_read": "All four pages, including Theorem 1, generating function proof, parity theorem and conclusion",
+        "method": "Opened publicly accessible author-hosted full PDF; inspected page image and indexed page text",
+        "title": "Binary and Semi-Fibonacci Partitions",
+        "trigger": "Primary theorem identifying semi-Fibonacci with odd-multiplicity binary partitions"
+      },
+      {
+        "assessment": "Gives composition correspondences and modular congruences; no support-density rate or odd-index semi-Fibonacci versus semi-Pell ratio",
+        "evidence": [
+          "Theorem 1 supplies composition generating function; Theorem 6 gives residues mod 4"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+        "material_read": "12-page publicly accessible PDF: introduction, Theorem 1 generating function and final Sections 4–5 including Theorem 6",
+        "method": "Opened full text, inspected the first-page image and relevant sections; searched text for growth and asymptotic",
+        "title": "Power compositions and semi-Pell compositions",
+        "trigger": "Same semi-Pell sequence and potential dominating combinatorial interpretation"
+      },
+      {
+        "assessment": "Contains known individual sequence terms, recurrence formulas and growth monotonicity, but no asserted sharp ratio or sparse-support deviation exponent",
+        "evidence": [
+          "A030067 recurrence and special powers of two; A129095 recurrence and odd-index A129096 cross reference"
+        ],
+        "identifier_or_url": "https://oeis.org/A030067 ; https://oeis.org/A129095 ; https://oeis.org/A129096",
+        "material_read": "Sequence descriptions, recurrences, tables, comments and bibliography of the three entries",
+        "method": "Opened current OEIS text pages directly",
+        "title": "OEIS A030067, A129095, A129096",
+        "trigger": "Potential exact database or known-table coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93e811e2-42a7-4657-8db6-2d2739658458",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Answers the explicit 2023 mathematical suggestion to compare odd-index semi-Fibonacci and semi-Pell growth with an exact polynomial separation exponent. Independently establishes a natural complete sharp logarithmic large-deviation rate epsilon^2/2 for their underlying partition supports. This structural statement goes beyond established parity, bijections, finite tables and unweighted leading-term estimates.",
+    "status": "PASS"
+  }
+}
