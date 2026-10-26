@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The stated Gaussian RBF Runge–Kutta coefficients match primary equations (12) and (15). With \\(\\tau=\\sqrt2/4\\), every mesh input \\(g(n/N)\\) is strictly positive. Writing \\(\\delta=\\lceil N\\tau\\rceil/N-\\tau\\in(0,h)\\), differentiation yields \\(E-\\delta^{-2}=h^2\\delta^{-6}(8/9-(4/3)\\delta^2-\\delta^4/h^2)\\ge(2h^4)^{-1}\\) for every integer \\(N\\ge4\\). The second-stage contribution is \\((3h/4)\\exp(E-\\delta^{-2})\\), while the rest of the step and the exact target remain bounded. Thus the positive divergence is proved for infinitely many meshes, not inferred from finite numerical experiments. Embedded verification returned VERIFY_OK 91.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] Theorem 4.1 is conditional on bounded shape and therefore cannot imply the claimed uniform-grid failure outside the hypothesis.",
+        "[2] discusses Gaussian RBF Euler/multistep modification and remedies but not an all-uniform-mesh two-stage RBF Runge–Kutta exploding defect.",
+        "published-finding corpus 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1 concerns Richardson-extrapolated backward Euler, not shape-dependent Runge–Kutta."
+      ],
+      "reasoning": "No checked general ODE error theorem with the same hypotheses forces the present failure; standard local-consistency theorems presuppose uniformly controlled step maps or suitable Taylor remainders, which fail for this variable shape.",
+      "searches": [
+        "Gu Chen Jung explicit RBF Runge Kutta 2024 zero crossing shape singularity, nonuniform convergence and smooth ODE counterexample",
+        "radial basis function Euler integrator local consistency failure flat zero infinite order derivative ratio unbounded exponent",
+        "Explicit radial basis function Runge Kutta methods singular zero convergence Gu Chen Jung"
+      ]
+    },
+    "checked_sources": [
+      "Gu–Chen–Jung arXiv:2403.08253v1 primary complete relevant mathematics, equation (12), (15), theorem 4.1",
+      "Gu–Jung JCAM 381 (2021) 113036 indexed full-text Sections 3.1.1, 3.3 and concluding remarks",
+      "Gu–Jung J. Sci. Comput. 82 (2020) 47 abstract only",
+      "published-finding corpus entries 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce, 2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1, 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 as method analogues, not covering statements"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] equations (12),(15) provide the scheme and shape quotient only; Theorem 4.1 assumes bounded parameters.",
+        "[2] independently contains the same adaptive Gaussian shape quotient for earlier Gaussian Euler and cautions about singularity, which is explicitly excluded from the novelty claim.",
+        "[3] is earlier multiquadric RBF IVP work; only the public abstract was accessible.",
+        "published-finding corpus analogue 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 addresses stagewise-safe Richardson steps, not adaptive RBF interpolation."
+      ],
+      "reasoning": "The proof quantitatively combines a specific uncapped exponential second-stage map, a fixed flat smooth exact solution, and a mesh offset bound uniform over all N. Neither prior formula plus its bounded-shape analysis nor the earlier singularity warning proves that combination; the new result does not purport to refute either.",
+      "searches": [
+        "arXiv:2403.08253v1",
+        "doi:10.1016/j.cam.2020.113036",
+        "doi:10.1007/s10915-020-01140-0",
+        "exponential fitted Runge Kutta shape parameter blows up near flat zero no local consistency numerical method epsilon negative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] Section 3.1, equation (15), specifies \\(\\epsilon^2=-u^{\\prime\\prime}/(2u)\\); Section 4.1 assumes bounded shape.",
+        "[2] Section 3.1.1 explicitly recognizes denominator singularity and advises a remedy.",
+        "published-finding corpus nearest method-analogue 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce concerns Fehlberg RK4(5) rather than Gaussian RBF stages."
+      ],
+      "reasoning": "An unbounded shape quotient or an undefined rule at a zero is not the same statement as a positive, all-refinements, exact-data defect tending to infinity despite every mesh evaluation being defined. The inspected source formulations do not imply the quantitative conclusion.",
+      "searches": [
+        "Gaussian radial basis function Runge Kutta two stage shape parameter epsilon squared equals minus u second derivative divided by two u, smooth flat zeros, local truncation error divergence, superexponential instability",
+        "Gaussian RBF two-stage Runge-Kutta ε^2=-u''/(2u) flat zero C-infinity smooth globally Lipschitz ODE divergence exact local defect on uniform meshes superexponential",
+        "exponential fitted Runge Kutta shape parameter blows up near flat zero no local consistency numerical method epsilon negative",
+        "arXiv:2403.08253v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches gave unrelated numerical integration instability entries, not a smooth flat-zero RBF Runge–Kutta entry.",
+        "Closest identified numerical-method analogue 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce has a zero Fehlberg embedded estimator at a finite scalar step, unrelated to the flat-zero stage amplification.",
+        "Neither source [1] numerical experiments nor [2] tables contain the irrational-flat-zero uniform-mesh case."
+      ],
+      "reasoning": "This is a universal asymptotic witness for an adaptive ODE method, not an exact finite database entry. Searches of comparable records and the two relevant paper tables showed no encompassing result; unsuccessful searches alone do not establish novelty.",
+      "searches": [
+        "Gaussian radial basis function Runge Kutta two stage shape parameter epsilon squared equals minus u second derivative divided by two u, smooth flat zeros, local truncation error divergence, superexponential instability",
+        "Gu Chen Jung explicit RBF Runge Kutta 2024 zero crossing shape singularity, nonuniform convergence and smooth ODE counterexample",
+        "Gaussian RBF two-stage Runge-Kutta ε^2=-u''/(2u) flat zero C-infinity smooth globally Lipschitz ODE divergence exact local defect on uniform meshes superexponential",
+        "radial basis function IVP exponential shape runaway stage near zero analytic flat function"
+      ]
+    },
+    "rationale": "The specific all-grid superexponential exact-data defect for a fixed smooth globally state-Lipschitz ODE is not given by the inspected Gu–Chen–Jung RBF RK paper (which assumes bounded shape for convergence) or Gu–Jung Gaussian RBF Euler source (which already warns about denominator singularities). No covering implication identified among semantic published-finding corpus comparators; residual related earlier source access and classical-equivalence risk explicitly recorded.",
+    "residual_risks": [
+      "Unlocated variable-shape ODE method analysis might contain an equivalent flat-zero exact-data counterexample.",
+      "The full 2020 multiquadric paper could not be inspected; its denominator remedies should not be inferred to be absent or ineffective.",
+      "Numerical experiments do not prove originality; novelty is a best-knowledge literature assessment, not a database-certified uniqueness theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_METHOD_NOT_COVERING_QUANTITATIVE_WITNESS",
+        "evidence": [
+          "Original augmented second-stage formula, Runge–Kutta weights \\(1/4\\) and \\(3/4\\), and \\(\\epsilon^2=-u^{\\prime\\prime}/(2u)\\) in equation (15).",
+          "Two-stage convergence theorem in Section 4.1 explicitly requires bounded epsilon-squared."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.08253",
+        "material_read": "Full primary PDF relevant Sections 3.1 (pages 6–7), 4.1 (pages 13–14), theorem hypotheses; first-page MSC and source timestamp; source body and numerical sections were text-searched for singularity and boundedness.",
+        "method": "Read PDF text and visually inspected pages 6 and 7, including equations (12) and (15); compared equations and theorem hypotheses directly.",
+        "title": "Explicit radial basis function Runge-Kutta methods",
+        "trigger": "Defines precisely the same two-stage method and shape parameter."
+      },
+      {
+        "assessment": "EARLIER_SINGULARITY_WARNING_CREDITED_NOT_ALL_GRID_RK_DEFECT",
+        "evidence": [
+          "The paper expressly warns that the adaptive epsilon denominator may be singular and refers to a remedy.",
+          "It treats Gaussian RBF Euler/multistep methods; the present full-stage two-stage RK exact-data lower bound is not in the inspected content."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2020.113036",
+        "material_read": "Search-indexed full HTML article including Introduction, Section 3.1.1 on consistency, shape singularity warning, Section 3.3 summary, numerical examples, and concluding remarks.",
+        "method": "Read text of accessible full article from ScienceDirect search result; compared Gaussian Euler rule and denominator caveat against the later two-stage Runge–Kutta stage.",
+        "title": "Adaptive Gaussian radial basis function methods for initial value problems: Construction and comparison with adaptive multiquadric radial basis function methods",
+        "trigger": "Earlier Gaussian RBF shape prescription and possible zero-denominator risk."
+      },
+      {
+        "assessment": "ACCESS_LIMITED_PLAUSIBLE_RELATED_SOURCE",
+        "evidence": [
+          "This earlier article develops multiquadric RBF initial-value methods, not stated here as a Gaussian two-stage Runge–Kutta result.",
+          "The full body was unavailable, so possible broader stability insights are reserved as residual risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-020-01140-0",
+        "material_read": "Publisher bibliographic page and public abstract; full source paywalled.",
+        "method": "Read accessible abstract and publication metadata; no whole-document exclusion inference.",
+        "title": "Adaptive Radial Basis Function Methods for Initial Value Problems",
+        "trigger": "Referenced by the 2021 paper as source for denominator-singularity remedy."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a6fec2e8-e6ea-4421-b4cf-c178763d05ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result makes the bounded-shape assumption substantive: plain \\(C^\\infty\\) regularity, global state Lipschitzness and avoidance of zero-valued mesh inputs do not preclude complete local-consistency failure. It supplies a mesh-uniform positive lower bound of order \\(h\\exp(1/(2h^4))\\), far beyond the routine warning that an adaptive quotient may be undefined exactly at a zero, and motivates explicit shape safeguards.",
+    "status": "PASS"
+  }
+}
