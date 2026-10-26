@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The ordinary associative commutator reduces in odd characteristic to twice the exterior product of odd portions. In five generators, the odd-dimensional alternating wedge map has a nonzero kernel, permitting explicit degenerations of the entire linear-degree-zero locus into the irreducible nonzero-linear-part open stratum. In six generators, the open stratum has dimension \(48\) before even coordinates, whereas the distinct closed degree-one-zero locus is one irreducible nondegenerate alternating-pairing hypersurface of dimension \(51\). These yield exactly two components of dimensions \(112\) and \(115\). The stratum counts are derived from independent linear equations, and literal wedge-matrix checks corroborate critical ranks.
+
+**Originality — PASS, with residual historical risk.** Domokos–Zubor (arXiv:1403.2916, Sections 2 and 7) and Bovdi–Leung (arXiv:1803.03457, Sections 1–2) analyze commutative *subalgebras*; their statements do not imply the exact two-component decomposition of the six-generator **commuting-pair variety**. Prior five-generator inner-derivation rank data cover the five-generator counting polynomial, which is expressly not asserted as new. Searches for exterior-algebra commuting varieties, six-generator component counts and synonymous wedge-zero loci found no directly dominating claim. The possibility of a hidden equivalent in older intersection-theoretic literature remains.
+
+**Value — PASS.** Reducibility and non-equidimensionality of the natural commuting-pair variety are structural invariants not supplied by centralizer distributions or maximal-subalgebra dimensions. The sharp transition from five to six generators, explicit rational components and exact six-generator finite-field count distinguish the first dimension in which middle-degree wedge pairing creates an additional component. This is a complete classification of the components at the boundary, not an arbitrary numerical slice.
+
+**Limits.** These results concern the reduced pair variety, not the nonreduced commuting scheme, and do not classify seven or more generators or characteristic two. Computational checks alone would not justify the geometric claim.
+
+Self-review: passed. Independent audit: not yet performed.
