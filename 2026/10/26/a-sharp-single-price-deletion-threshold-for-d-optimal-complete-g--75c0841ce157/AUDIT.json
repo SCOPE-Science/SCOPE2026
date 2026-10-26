@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For K_n, n>=4, independent nonnegative weights under one price r>0 and budget B>0, the grounded Laplacian is injective in all edge conductances and log-det is strictly concave for connected supports. Orbit averaging thus follows from global uniqueness, not an imposed restriction. The four Laplacian eigenspaces yield tau=b(2a+(n-2)b)(2b+(n-2)c)^(n-3). The explicit KKT gradients, budget multiplier (n-1)/B, and the inactive-edge complementarity inequality give a>0 iff r<(n-1)/(n-2), with b,c always positive. Strict concavity proves uniqueness for every B,r including equality; the two formulas agree there. The bundled verify.py checks 42 exact-rational full Laplacian minors and individual-edge gradients plus 240 asymmetric comparisons and 40 unrestricted numerical optimizer runs, which corroborate rather than replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1408.2698 Theorem 1 gives a general optimal-design equivalence test under two constraints; its single-cost case reduces to ordinary design via reweighted regressors.",
+        "Ghosh–Boyd 2006 is chiefly a Laplacian algebraic-connectivity convex symmetry framework."
+      ],
+      "reasoning": "Generic KKT, strict concavity, and a symmetry-reduction method cover optimization machinery and can be applied to the candidate, but the inspected general statements do not already entail the displayed threshold without an additional three-class eigenvalue computation and exact active-set solution. Other graph classes in accessible records are not superclasses containing weighted K_n with one anomalous edge.",
+      "searches": [
+        "optimal network experimental design distinguish one edge cost complete graph D-optimal",
+        "maximize determinant grounded Laplacian complete graph with one anomalous cost edge, optimal conductances, threshold omit expensive edge",
+        "D optimum paired comparisons complete graph one exceptional edge price",
+        "D optimal graph design complete graph single expensive edge weight threshold",
+        "weighted spanning tree entropy maximization single expensive edge complete graph resource allocation",
+        "arxiv:1408.2698 Theorem 1 and Section 5.1",
+        "Ghosh and Boyd 2006 Upper Bounds on Algebraic Connectivity via Convex Optimization"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1207.6430",
+      "https://arxiv.org/abs/1408.2698",
+      "https://stanford.edu/~boyd/papers/eigbounds_laplacian.html",
+      "published-finding corpus:2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f",
+      "published-finding corpus:2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c",
+      "prior-mathematical-finding:1ae0e33a-18ed-4d28-a1d5-0853ca4de22a",
+      "prior-mathematical-finding:93ce11e2-66fa-496c-b2fb-a9d07f751ec1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2012 ranking paper defines D-optimality but focuses optimization/experiments on E-optimal algebraic connectivity and gives no single-price K_n stationarity solution.",
+        "The 2014 paper provides necessary/sufficient general optimality tests and iterative algorithms, not formulas specialized to complete pairwise graph comparisons.",
+        "A non-unicyclic K_n, n>=4, is not within the domain of the arbitrary-price unicyclic theorem; a perfect matching in K_{n,n} differs combinatorially and spectrally from one edge in K_n."
+      ],
+      "reasoning": "The present analytic formulas imply explicit optimal edge weights, unique support, sharp r=(n-1)/(n-2), and optimal determinant for every n>=4 and real B,r>0. Neither inspected article nor closest previously available mathematical claim states or computes those consequences, though the general machinery is deliberately credited.",
+      "searches": [
+        "arxiv:1207.6430 §§1,4,5,6",
+        "arxiv:1408.2698 §§1,2,5",
+        "Previous mathematical claim identifier 1ae0e33a-18ed-4d28-a1d5-0853ca4de22a",
+        "Previous mathematical claim identifier 93ce11e2-66fa-496c-b2fb-a9d07f751ec1",
+        "D-optimal spanning tree determinant complete graph one specially priced edge budget optimal conductance threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1207.6430 Proposition 4.2 identifies D-opt with the product of nonzero graph Laplacian eigenvalues and matrix-tree determinant.",
+        "arxiv:1408.2698 discusses D-optimality with linear cost constraints for regression design."
+      ],
+      "reasoning": "The candidate is equivalent to continuous approximate D-optimal all-pairs comparison design with one anomalously priced comparison, and to cost-constrained weighted spanning-tree determinant maximization. The inspected full papers give these equivalences/frameworks but do not present the explicit K_n weight optimizer, threshold, or exact optimum value.",
+      "searches": [
+        "D-optimal spanning tree determinant complete graph one specially priced edge budget optimal conductance threshold",
+        "complete graph K_n weighted spanning tree log determinant single edge conductance expensive edge critical price threshold",
+        "D optimal design paired comparisons cost of comparisons complete graph one cost different continuous design",
+        "weighted optimal design paired comparisons one expensive comparison D criterion",
+        "arxiv:1207.6430, Proposition 4.2/Remark 1",
+        "arxiv:1408.2698, Section 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related previously available findings include K_{n,n} priced perfect matching item 1ae0e33a-18ed-4d28-a1d5-0853ca4de22a, unicyclic arbitrary-price item 93ce11e2-66fa-496c-b2fb-a9d07f751ec1, and theta-network item e151ecf3-b731-4e52-a4c9-67598656da55.",
+        "published-finding corpus 2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f concerns Minkowski asymmetry of a polytope, not conductance-weighted D-optimality."
+      ],
+      "reasoning": "Comparison with the accessible previous mathematical claims and published-finding corpus searches did not find a matching exact optimized K_n single-expensive-edge formula or table. No claim that the databases are exhaustive is made.",
+      "searches": [
+        "D-optimal spanning tree determinant complete graph one specially priced edge budget optimal conductance threshold",
+        "complete graph K_n weighted spanning tree log determinant single edge conductance expensive edge critical price threshold",
+        "optimal network experimental design distinguish one edge cost complete graph D-optimal",
+        "maximize determinant grounded Laplacian complete graph with one anomalous cost edge, optimal conductances, threshold omit expensive edge",
+        "Comparison of accessible preceding mathematical claims concerning spanning-tree D-opt priced K_{n,n}, unicyclic graph, theta network",
+        "published-finding corpus top-100 semantic results for determinant grounded Laplacian anomalous edge"
+      ]
+    },
+    "rationale": "The inspected primary Osting–Brune–Osher 2012 text gives the D-optimal Laplacian eigenvalue-product/spanning-tree equivalence but not the one-price full K_n allocation. Inspected Harman–Benková 2014 establishes general cost-constrained approximate D-optimal design and equivalence/removal principles but not this graph-specific three-class closed solution. The closest compared mathematical records address priced perfect matchings in K_{n,n}, arbitrary prices in unicyclic graphs, and theta networks, none of which contains a complete graph of at least four vertices. Published mathematical research search did not expose the exact threshold or formula, and nearby published-finding corpus results concern other invariants. A specialized pre-existing case is possible, as documented.",
+    "residual_risks": [
+      "Older or specialized graph-restricted approximate-D-optimal-design literature may contain an equivalent closed-form single-expensive-edge result, even if unlocated by current queries.",
+      "The official 2006 Ghosh–Boyd source was not read in full; the summary alone supports only a partial comparison.",
+      "The published-finding corpus semantic index and previously available mathematical claims cannot certify global uniqueness of the theorem in literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines graph information criteria and notes weighted spanning-tree relation; does not present one-exceptional-price K_n solution.",
+        "evidence": [
+          "Proposition 4.2 (15c) gives product of nonzero eigenvalues.",
+          "Remark 1 ties it to spanning-tree counts.",
+          "Section 6 summarizes E-optimal optimization emphasis."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1207.6430",
+        "material_read": "Full accessible arXiv HTML: §§1–4, Proposition 4.2 and Remark 1; D criterion in §5.4, and §6 concluding discussion.",
+        "method": "Direct full-text HTML reading and finding D-optimal, determinant, complete graph.",
+        "title": "Optimal Data Collection For Informative Rankings Expose Well-Connected Graphs",
+        "trigger": "Earliest verified archive-era focal source; exact pairwise Laplacian D-optimality criterion."
+      },
+      {
+        "assessment": "General cost-constrained design; no specific K_n single-edge priced graph analysis, no r_c or triple of optimum weights.",
+        "evidence": [
+          "Introduction Equations (3)–(5), Section 2 Theorem 1, and §5.1 general linear constraints.",
+          "The only explicit introductory two-point example has regressors (1,0), (1,1), not a graph K_n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.2698",
+        "material_read": "Full accessible arXiv HTML: §§1–3 and §5, including Theorem 1 equivalence condition, introductory transformation for single-cost constraint, example, algorithm, and final remarks.",
+        "method": "Direct arXiv full-text examination; searched pair, spanning, complete, Example 1.",
+        "title": "Approximate D-optimal Experimental Design with Simultaneous Size and Cost Constraints",
+        "trigger": "Plausible dominating general theory for cost-constrained D-design and edge deletion."
+      },
+      {
+        "assessment": "General symmetry and algebraic-connectivity framework, not enough material to rule out every variant; partial-inspection risk recorded.",
+        "evidence": [
+          "Official description states optimized algebraic connectivity, and symmetry reduction for other concave Laplacian functions."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/eigbounds_laplacian.html",
+        "material_read": "Publisher-hosted paper description and abstract only; no full PDF was examined.",
+        "method": "Official author page read.",
+        "title": "Upper Bounds on Algebraic Connectivity via Convex Optimization",
+        "trigger": "General graph symmetry-averaging method could dominate the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "75c0841c-e157-4d1b-96a9-8fc583a098ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete all-n and all-price classification of a natural Fisher-information network-design problem. The exact active-set transition r_c=1+1/(n-2) shows that the relative price premium needed to discard one redundant all-pairs comparison vanishes as network size grows, while all remaining edges retain positive, uniquely prescribed conductances. Both regime-specific allocations and the optimal tree determinant are closed form. Unlike a routine graph-table evaluation, it solves unrestricted individual edge allocation under a meaningful cost perturbation and reveals support phase change.",
+    "status": "PASS"
+  }
+}
