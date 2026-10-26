@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and boundaries explicit: m>=2, 0<p<1, uniform source over all vertices, exactly two passive monitors. Three orbit scores are independently derived from edge-disjoint path failures. A single-crossing lemma and exact positive Bernstein coefficients exclude mixed optima for m<=6; exact rational m=7 witness and monotone m>=8 half-probability inequalities prove existence. Checked exact verifier against package, including exhaustive edge-state/seed evaluation for 15 small cases. Finite checks supplement rather than prove general claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Leskovec et al., CMU-ML-07-111, Section 2 and Section 7: arbitrary-graph rewards, submodularity, approximation methods; no bipartite or percolation in searchable PDF",
+        "Kenah and Robins, arXiv:q-bio/0610057, introduction and Section 2, compares bond and semi-directed percolation outbreak models",
+        "Brown et al., Networks 76 (2020), doi:10.1002/net.21968, abstract: node-failure two-terminal reliability and most-reliable graph selection"
+      ],
+      "reasoning": "General submodularity, component equivalences and two-terminal reliability provide modeling tools but do not determine which of HH, HL and LL uniquely minimizes expected missed sources on a fixed K_{2,m}. The node-failure extremal-graph theorem optimizes over graphs, not sentinel pairs on this fixed graph; the target probability law also differs. A decisive stronger theorem was not located.",
+      "searches": [
+        "Leskovec Krause Guestrin Faloutsos VanBriesen Glance 2007 cost-effective outbreak detection in networks pdf",
+        "two terminal reliability complete bipartite graph K(2,n) two sensor random source",
+        "epidemic surveillance placement bipartite graph sensor location hub leaf optimization reliability",
+        "epidemic detection two monitors all leaves both hubs optimal configuration phase transitions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:q-bio/0610057 (primary PDF introduction and model)",
+      "CMU-ML-07-111 (primary PDF sections including theorem and related work)",
+      "doi:10.1002/net.21968 (abstract only)",
+      "Published finding 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d (semantic record summary)",
+      "Published finding 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4 (semantic record summary)",
+      "Earlier published path-, cycle-, and star-network sentinel results (claim-level comparison only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Leskovec et al. general monotone submodular placement functions imply approximate optimality but not the sign of three specific polynomial differences",
+        "Kenah and Robins 2006 demonstrates independent bond percolation does not represent general SIR and therefore only constrains modeling scope",
+        "Published discounted-hitting and fragile-PMU sources concern alternative observables on similarly symmetric graphs"
+      ],
+      "reasoning": "To imply the final claim, a prior theorem must force existence of a strict optimal mixed pair for every m>=7 and its impossibility for all m<=6 under the specified uniform-source Bernoulli bond process. None of the inspected or returned statements supplies these simultaneous finite and infinite inequalities. The constructive witnesses and polynomial positivity certificates are specific new mathematical content within this comparison.",
+      "searches": [
+        "uniform source random bond percolation K_{2,m} optimal placement pair passive sensors detection probability mixed hub leaf seven threshold",
+        "complete bipartite epidemic two vertex monitors homogeneous independent transmission connectivity of seed component crossing sensor set",
+        "Cost-effective outbreak detection in networks 2007",
+        "site epidemic percolation semi-directed versus independent bond Kenah Robins 2006"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Leskovec et al., CMU-ML-07-111, pp. 3-6 (objective and submodularity)",
+        "Published finding 2026/10/4/SCOPE-exact-discounted-hitting-domination-of-complete-bipartite-graphs--f5f86f5d861d",
+        "Published finding 2026/9/30/SCOPE-fragile-pmu-optimal-complete-multipartite-placement--23cbdb64e7b4"
+      ],
+      "reasoning": "The objective is uniform-seed expected coverage of two selected target vertices by a bond-percolation component. Geometric discounted hitting is based on distance penalties and does not encode random open-edge clusters; PMU propagation and failure are not source-to-target outbreak reachability. Both are similar geometry but neither establishes the three exact percolation polynomials or the sharp onset. No exact equivalent was identified.",
+      "searches": [
+        "uniform source random bond percolation K_{2,m} optimal placement pair passive sensors detection probability mixed hub leaf seven threshold",
+        "complete bipartite epidemic two vertex monitors homogeneous independent transmission connectivity of seed component crossing sensor set",
+        "optimal monitors complete bipartite graph epidemic surveillance stochastic percolation sensor placement"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public finding searches returned related graph-dominance and PMU findings, not this seven-leaf boundary",
+        "Direct published searches returned general reliability and sensor-selection works, not a table classifying the exact minimal size for mixed-sentinel benefit"
+      ],
+      "reasoning": "An exact exhaustive table covering all m and p was not identified. A negative database search alone is not a novelty proof; the documented comparisons of actual statements and methods are decisive for current best-knowledge judgment. Residual risk of an obscure finite table is acknowledged.",
+      "searches": [
+        "complete bipartite graph K 2 m epidemic detection optimal two sensor placements phase transitions",
+        "optimal two monitors random epidemic on complete bipartite graph probability detection",
+        "uniform source random bond percolation K_{2,m} optimal placement pair passive sensors detection probability mixed hub leaf seven threshold"
+      ]
+    },
+    "rationale": "A dedicated 2007 primary source on outbreak-detection placements proves general submodularity and approximation, not an exact orbit-by-orbit K_{2,m} bond-reliability threshold; the inspected 2006 percolation paper concerns equivalence of epidemic processes rather than monitoring placements. published-finding corpus searches found graph hitting-domination and PMU reliability on bipartite graphs, but those objectives have distinct outcome laws. Recoverable previous-path/cycle/star claims do not cover K_{2,m}; no stronger theorem known from the checks implies this nine-vertex onset. Remaining risk is an equivalent reliability or optimal-monitoring result not exposed by the searches. This is best-knowledge originality, not independent certification.",
+    "residual_risks": [
+      "A differently named classical reliability polynomial result may already imply the sharp minimum size.",
+      "The full texts of two relevant published findings were unavailable through direct public URL access; the objective distinction was compared using actual indexed summaries only.",
+      "Full text of some network-reliability papers was not inspected; source comparisons are not independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General submodularity and approximation are not a sharp fixed-family placement classification.",
+        "evidence": "CMU-ML-07-111 (June 2007), Sections 2.1-2.3, Theorem 1, Section 7.2.",
+        "identifier_or_url": "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+        "material_read": "29-page full-text PDF: title/abstract, Section 1, Section 2 including Theorem 1, relevant methodology and related-work/conclusions text; searches for percolation and bipartite returned no matches",
+        "method": "OA complete-text search and direct reading of principal theorems, objective definitions and comparisons",
+        "title": "Cost-effective Outbreak Detection in Networks",
+        "trigger": "Primary general outbreak detection and monitoring placement paper with potentially encompassing optimization theorem"
+      },
+      {
+        "assessment": "Clarifies that the present undirected independent-edge model must not be generalized to arbitrary SIR; no sensor placement results in inspected material.",
+        "evidence": "arXiv:q-bio/0610057, introduction and Section 2.",
+        "identifier_or_url": "https://arxiv.org/pdf/q-bio/0610057",
+        "material_read": "29-page openly available PDF: abstract, introduction, Section 2 definitions and model counterexamples; version displayed v5, publication-date determination taken from original 2006-10-30 arXiv posting, not v5 date",
+        "method": "Primary PDF text read of model assumptions, counterexamples and scope",
+        "title": "Second look at the spread of epidemics on networks",
+        "trigger": "Potential stronger epidemic percolation framework and scope caveat"
+      },
+      {
+        "assessment": "Node-failure maximally reliable graph problem does not directly subsume fixed-graph bond-reliability placement question.",
+        "evidence": "Brown, Graves, Miller and Russell, Networks 76 (2020), 414-426, publisher abstract.",
+        "identifier_or_url": "https://doi.org/10.1002/net.21968",
+        "material_read": "Publisher abstract; full text not inspected",
+        "method": "Bibliographic and abstract comparison of failure model, optimized variable, and terminals",
+        "title": "Most reliable two-terminal graphs with node failures",
+        "trigger": "Two-terminal network reliability and possible dominating graph optimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b603de75-2b93-4df8-aa5d-3712ebb29cc9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-hub contact structures naturally represent redundant contact channels. The exact sharp 9-vertex onset resolves when a risk-detection pair should mix central and peripheral positions: for all smaller examples it never dominates, while beyond the threshold it robustly defeats both same-type pairings. This rejects blanket core-only or disperse-only placement heuristics in a natural minimal multi-path outbreak network, without relying on arbitrary decimal gains. Precise object and invariant are epidemic detection probability over a uniform-source ensemble.",
+    "status": "PASS"
+  }
+}
