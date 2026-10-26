@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "SPD of M+tK proves a positive denominator. The included exact SymPy checker computes all 16 cleared-numerator coefficient polynomials and proves by rational monomial signs that diagonal and adjacent entries are always positive for t>0 while each ordered opposite entry has a quadratic numerator factor with positive leading and negative constant coefficient; hence exactly one positive zero. It also verifies the alternating specialization. The rational (1,2,3,4) example is independent sanity evidence, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li--Huang Theorem 3.1 is a sufficient condition obtained by ensuring a coefficient matrix is an M-matrix.",
+        "Jin et al. Theorem 4.3 gives a sufficient Stieltjes upper bound on a threshold; no exact periodic four-cell necessity in examined sections."
+      ],
+      "reasoning": "General sufficiency of a different, stronger matrix sign condition does not determine the entrywise-positivity threshold. Broad existence of a positivity threshold does not determine the four exact roots or direction-dependent failure.",
+      "searches": [
+        "Search: periodic backward Euler maximum principle consistent mass nonuniform finite elements 4",
+        "Search: nonuniform periodic positivity backward Euler finite elements mass matrix",
+        "arXiv:1209.5657 full open-access PDF, Sections 1 and 3",
+        "arXiv:1510.02825 full open-access PDF, Sections 1 and 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1209.5657v1 (2012-09-25), relevant theorem sections inspected",
+      "arXiv:1510.02825v1 (2015-10-09), relevant theorem sections inspected",
+      "Thomée--Wahlbin 2008 institutional abstract only",
+      "published-finding corpus `2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac` summary checked for implication mismatch"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2012 Li--Huang, Theorem 3.1: sufficient maximum-principle criterion.",
+        "2015 Jin et al., Theorem 4.2: existence/monotonicity of positivity thresholds under hypotheses; Theorem 4.3: a sufficient bound.",
+        "The equal-alternation specialization of the new exact four-variable result agrees with the narrower known alternating formula (symbolically checked)."
+      ],
+      "reasoning": "The new statement includes necessity, sign location and exact four ordered radicals for arbitrary positive lengths; neither general sufficient bounds nor the special alternating result logically imply it. Thomée--Wahlbin 2008 was only available through abstract/metadata and remains an acknowledged risk.",
+      "searches": [
+        "Search: maximum principle finite element time dependent anisotropic diffusion Li Huang 2012",
+        "Search: On nonnegativity preservation in finite element methods for subdiffusion equations Jin Lazarov Thomee Zhou 2015",
+        "Search: Thomée Wahlbin existence of maximum principles parabolic finite element equations 2008"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1209.5657 (2012), Theorem 3.1 concerns sufficient DMP time-step bounds and Stieltjes matrices for simplicial meshes.",
+        "arXiv:1510.02825 (2015), Theorems 4.1--4.3 treat qualitative threshold existence/estimates in finite-element methods.",
+        "An alternating four-cell special case has one radical, whereas the new arbitrary-length criterion uses four ordered-pair radicals and permits different directional thresholds."
+      ],
+      "reasoning": "We compared the identical step operator (M+tK)^{-1}M, discrete maximum principle and entrywise positivity formulations; available sources neither imply the exact four-length boundary nor classify ordered opposite-node signs.",
+      "searches": [
+        "published-finding corpus: Consistent mass linear finite element backward Euler periodic four-element nonuniform mesh positivity preservation exact time step criterion and nonnegative update matrix",
+        "published-finding corpus: Positive semigroup and discrete maximum principle nonuniform one-dimensional periodic P1 finite elements backward Euler opposite nodes sign",
+        "arXiv:1209.5657 Theorem 3.1",
+        "arXiv:1510.02825 Section 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published-finding corpus hit `2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac` concerns a filtered Crank--Nicolson scheme on a uniform lattice, not raw backward Euler on four nonuniform cells.",
+        "For lengths (1,2,3,4) at time step 1, the exact opposite entries include P_{31}=-153/4025 and P_{13}=63/1150, so a single undirected or alternating-mesh table cannot encode this directional phenomenon."
+      ],
+      "reasoning": "Semantic record searches and available literature did not identify an exact table covering all four independent lengths and all four ordered off-diagonal thresholds. This search failure alone does not prove originality.",
+      "searches": [
+        "published-finding corpus: Sharp entrywise nonnegativity of (M+t K) inverse M on four-cycle periodic mesh arbitrary cell sizes; four directional quadratic thresholds",
+        "published-finding corpus: Consistent mass linear finite element backward Euler periodic four-element nonuniform mesh positivity preservation exact time step criterion and nonnegative update matrix",
+        "Search: four nonuniform finite element positivity periodic heat equation"
+      ]
+    },
+    "rationale": "The inspected Li--Huang and Jin--Lazarov--Thomée--Zhou results imply sufficient/existence constraints rather than the unrestricted exact ordered-sign classification. The closest alternating four-cell special case does not imply arbitrary four independent lengths or four distinct direction-dependent roots. Searches of relevant published records and primary results located no equivalent; uninspected 2008 work is a residual risk.",
+    "residual_risks": [
+      "Historical literature on positivity of implicit finite-element matrices, especially Thomée--Wahlbin 2008, was not fully available for inspection.",
+      "No worldwide uniqueness guarantee follows from semantic database searches.",
+      "A broader symbolic algebra result not located in these searches might subsume this four-node classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact unrestricted four-cell periodic criterion: sufficient mesh-time bounds and Dirichlet-domain formulation, not ordered opposite-node radicals",
+        "evidence": [
+          "arXiv:1209.5657 page 1 abstract and MSC 65M60; page 7 Lemma 3.3 M-matrix bound; page 8 Theorem 3.1 sufficient DMP conditions"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+        "material_read": "Open-access PDF introduction, finite-element formulation and complete Section 3 theorem statements and relevant proof, including pp. 1--8",
+        "method": "Examined text of PDF and rendered pages 7 and 8",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Direct older literature for discrete maximum principles with consistent finite-element mass and backward Euler"
+      },
+      {
+        "assessment": "NOT_COVERING for present specific exact four-cell nonuniform periodic formula; paper establishes threshold existence and sufficient estimates in different boundary/model setting",
+        "evidence": [
+          "arXiv:1510.02825 pp. 1--2 qualitative threshold statement; page 9 Theorem 4.2; page 10 Theorem 4.3 Stieltjes bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+        "material_read": "Open-access PDF abstract, introduction, model and Section 4 including Theorems 4.1--4.3 (pp. 1--3, 8--10)",
+        "method": "Read PDF text and rendered page 1; inspected Section 4 theorem and proof text",
+        "title": "On nonnegativity preservation in finite element methods for subdiffusion equations",
+        "trigger": "Closest qualitative study of positivity loss/recovery and backward-Euler finite elements"
+      },
+      {
+        "assessment": "UNRESOLVED; no inference from abstract that its full paper excludes a related exact four-cell calculation",
+        "evidence": [
+          "Chalmers institutional abstract describes semidiscrete positivity, lumped-mass criteria and homogeneous Dirichlet conditions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-07-02021-2",
+        "material_read": "Abstract and bibliographic information only; full text not inspected",
+        "method": "Publisher/institutional abstract metadata search",
+        "title": "On the existence of maximum principles in parabolic finite element equations",
+        "trigger": "Earlier study of standard and lumped finite-element positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad3b09bb-370c-4883-9142-7a4f3ed9cf66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Four-cell periodic meshes are the smallest cyclic setting showing consistent-mass sign loss. The exact threshold replaces the conservative sufficient Stieltjes time-step bound, is valid for any grading, and identifies four direction-sensitive sign mechanisms invisible in the alternating special case. At lengths (1,2,3,4), positivity holds at t=5/2 below max(h_i^2)/6=8/3, and at t=1 P31<0<P13. This is a complete natural parameter classification, not a table-only computation.",
+    "status": "PASS"
+  }
+}
