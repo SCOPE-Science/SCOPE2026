@@ -1,0 +1,15 @@
+# Scientific review: symmetric-tensor Hilbert series on elliptic ruled surfaces
+
+## Correctness — PASS
+For every integer \(d\geq1\) and \(m\geq0\), the argument reduces graded sections of the tangent bundle to those of the locally free elementary transform. Its filtration after twisting by the negative section has acyclic degree-\(-1\) term and positive-degree direct images \(\bigoplus_{i=1}^{j}L^{-i}\); the cohomology dimension is therefore \(d\binom{m+2}{3}\). Atiyah's nonsplit bundle supplies exactly one section upon restoring the negative curve. The proof also computes \(c_1(T_M)^2=c_2(T_M)=0\), so the top tautological intersection is zero while its volume is \(d\). Independently, Hirzebruch--Riemann--Roch yields the same Euler polynomial. The standalone exact checker succeeds for 1,220 finite parameter pairs; this supplements rather than replaces the all-degree proof.
+
+## Originality — PASS, with stated residual risk
+The closest directly relevant sources are Kim--Kim (arXiv:2607.03382v1, Sections 1--3), on bigness after blow-ups, and Denisi--Höring (arXiv:2610.03048v1, Section 3), on non-finite generation and an elementary-transform identification of the graded ring. Neither gives the full degree-by-degree dimension formula, Hilbert rational function, or the numerical volume/intersection pair. Beauville--Liu (arXiv:2309.12888, Section 2.8) treats other ruled-surface cases, and Kim (arXiv:2206.15413) gives the qualitative bigness criterion. Exact-phrase and implication-oriented comparisons of accessible mathematical research records found no equivalent formula. The source's established ring identification and Atiyah bundle properties make the new calculation possible but do not themselves state the required cohomological values. A prior unindexed derivation or an implicit equivalent computation remains possible; search failure is not a uniqueness certificate.
+
+## Mathematical value — PASS
+An exact Hilbert function in every degree is a natural invariant of the non-finitely generated symmetric-tensor algebra, much more precise than its previously established bigness or Krull dimension. The computation identifies the persistent one-dimensional contribution from an indecomposable degree-zero restriction, exhibits a rational Hilbert series despite non-finite generation, and measures the tautological volume exactly while its top intersection is zero. These are structural numerical consequences of a motivated family, not an arbitrary specialization or a restatement of the established non-finite-generation theorem.
+
+## Boundaries
+The calculation is for decomposable elliptic ruled surfaces in characteristic zero. The underlying elementary-transform geometry and the established non-finite generation belong to the cited primary literature. It does not give minimal generators, relations, or a classification for other rulings. The possibility of unindexed equivalents and lack of independent external assessment are explicitly retained.
+
+Self-review: passed. Independent audit: not yet performed.
