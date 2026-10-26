@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The conclusion is the rank-four equivalence classification of all finite Paley graphs. For every allowable field size at least 29, the explicitly derived character-sum lower bound \(8N\ge q-15-2\sqrt q>0\) proves three-existential closure and hence the four-round game equivalence. Exact modular and quadratic-field calculations supply five small-order separators. The standalone verification reproduces the witness tables and computes complete rank-four finite-model-theoretic types for all six representatives. Those finite checks do not purport to prove the infinite-range character bound.
+
+**Originality — PASS with residual literature-access risks.** Ananchuen--Caccetta already proved the 29-vertex threshold for Paley three-existential closure; this component is explicitly credited and not treated as novel. The six-class finite-model-theoretic classification, especially the rank-four distinctions between equal induced-four-vertex-age pairs, is not implied by a theorem merely establishing existential closure above 29. The accessible 2005 Forbes--Grannell--Griggs full text cites the threshold but concerns Steiner triple system block graphs; the examined 2010 Gordinowicz--Prałat article concerns minimum 3-e.c. graph order. published-finding corpus searches uncovered related Paley 4-e.c. and homotopy results but no equivalent six-class statement. The directly relevant 1993 Networks full text could not be consulted, so unindexed or inaccessible overlap remains possible.
+
+**Value — PASS.** This is a complete classification of a natural pseudorandom finite graph family at a fixed logical complexity, with an optimal family-internal test set and a sharp 29-vertex bound. The distinction between four-point existential configurations and alternating-quantifier extension conditions identifies a specific conceptual gap beyond the classical three-extension property; it is not a trivial reformulation of the previously known threshold.
+
+**Limits.** Characteristic-field signatures, other quantifier ranks, and non-Paley conference graphs are excluded. All field computations are exact for the listed small orders; no exhaustive search over all finite graphs is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
