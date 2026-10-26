@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Each original maximal constant run is fully specified for both track words by one integer x_i; any allocation is realizable by a position coloring. The 3-state partition fixes output run signatures. Matching signatures give exact run-length equations; each free x_i appears in exactly two degree incidences, possibly both at one vertex (loop). Thus feasible allocations are equivalent to exact-degree capacitated b-matchings. Polynomial-time general capacitated b-matching with binary capacities gives 3^r poly(r,S). verify.py independently corroborates reduction for 5327 binary/ternary words and a 117-bit compressed positive example. The infinite proof does not rest on enumeration; the classical matching solver is an explicit external premise.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2503.22043 Proposition 1 and the discussion of ordered graph supports, Propositions 2–3 for small run counts, and §6.",
+        "arXiv:2308.13882 Theorem 2 concerns cyclicly similar tracks, weaker than equality."
+      ],
+      "reasoning": "The graph characterization covers all words at the yes/no level but does not supply the asserted exact compact algorithmic complexity. Its natural multiplicity representation has potentially quadratically many candidate run-pair edges; the new reduction eliminates that freedom and enumerates precisely three support options per original run. This is more specific algorithmic information, not merely a restatement of shuffle-square existence.",
+      "searches": [
+        "arXiv:2503.22043",
+        "arXiv:2308.13882",
+        "parameterized complexity of shuffle-square detection by runs and compressed words",
+        "web: parameterized shuffle square subsequence identical fixed parameter number of runs FPT",
+        "published-finding corpus semantic: shuffle square recognition run-length encoding FPT three-way support allocation of maximal runs exact-degree capacitated b-matching graph 3^r"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.13882",
+      "https://arxiv.org/abs/2503.22043",
+      "https://doi.org/10.1137/060664793",
+      "https://doi.org/10.1137/16M1106195",
+      "published-finding corpus semantic searches for run-length-compressed shuffle-square recognition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2503.22043 §2 describes ordered nest-free graphs with edges between input runs; §3 gives bounded-run classifications.",
+        "Theorem and proof here transform positions within each constant run into one count, fix its three support statuses, then obtain a degree graph with one edge *per unresolved original run*."
+      ],
+      "reasoning": "General fixed-parameter tractability is not claimed as intrinsically novel: it may follow from the earlier graph formulation plus generic bounded-variable methods. The strictly stated contribution is the explicit single-exponential 3^r enumeration and O(r)-size graph with binary lengths, not obtained as a quoted theorem or direct specialization of inspected coverage. No result with matching implication was observed, subject to the stated literature risk.",
+      "searches": [
+        "arXiv:2503.22043",
+        "arXiv:2308.13882",
+        "fixed parameter tractable shuffle square recognition number runs run length encoding Lenstra integer programming",
+        "The shuffle-square recognition problem for a run-length encoded word is fixed-parameter tractable in number of constant runs: enumerate 3^r per-run allocation supports, equate output run lengths as integer linear systems with r variables, solve by Lenstra in f(r) poly(log length).",
+        "published-finding corpus semantic: shuffle square recognition run-length encoding FPT three-way support allocation of maximal runs exact-degree capacitated b-matching graph 3^r"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2503.22043, §§2–3 and §6: shuffle squares encoded by ordered nest-free graphs; the paper settles the four- and five-run cases.",
+        "arXiv:2308.13882, §§1–2: generalized shuffle squares and binary-recognition motivation; no 3-state RLE matching reduction found."
+      ],
+      "reasoning": "The word-equality recognition question can be translated into several graph formalisms. This claim is the sharper 3^r pattern bound with at most r edges, and polynomial dependence on binary-encoded run lengths. The prior nest-free graph model gives a broader characterization but did not state or directly supply this particular small exact-degree system or single-exponential bound. An implicit equal-performance implementation remains an originality risk.",
+      "searches": [
+        "fixed parameter tractable shuffle square recognition number runs run length encoding Lenstra integer programming",
+        "shuffle square word run length encoded algorithm number constant runs feasible integer linear program",
+        "web: shuffle square recognition run-length encoding fixed-parameter number runs integer linear programming",
+        "arXiv:2503.22043",
+        "published-finding corpus semantic: shuffle square recognition run-length encoding FPT three-way support allocation of maximal runs exact-degree capacitated b-matching graph 3^r"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest record 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e has a different word-reconstruction invariant.",
+        "published-finding corpus nearest 2026/9/30/SCOPE-fixed-color-shuffle-needs-at-least-one-jumped-lpo-bit-per-color--c2d7326600bf is unrelated Weihrauch shuffle."
+      ],
+      "reasoning": "This is a general algorithmic statement, not an exact finite table. Searches surfaced no identical parameterized complexity theorem or database entry that would imply the explicit 3^r-degree matching reduction.",
+      "searches": [
+        "unshuffle identical subsequences two tracks matching runs FPT RLE alphabet",
+        "The shuffle-square recognition problem for a run-length encoded word is fixed-parameter tractable in number of constant runs: enumerate 3^r per-run allocation supports, equate output run lengths as integer linear systems with r variables, solve by Lenstra in f(r) poly(log length).",
+        "web: shuffle square binary word parameterization runs Lenstra integer linear programming",
+        "published-finding corpus semantic: shuffle square recognition run-length encoding FPT three-way support allocation of maximal runs exact-degree capacitated b-matching graph 3^r"
+      ]
+    },
+    "rationale": "The precise 3^r linear-size matching-reduction theorem was compared with the accessible full texts of the 2023 shuffle-square paper and the 2025 nest-free graph characterization, multiple targeted web searches, published mathematical records and accessible prior claims. Generic FPT by number of runs may be implicit in the 2025 graph model and is not claimed independently. The stronger compact model and explicit single-exponential algorithm were not located as prior implications; equivalence under alternate terminology remains a real risk.",
+    "residual_risks": [
+      "The 2025 general nest-free graph theorem may yield other FPT algorithms; novelty is asserted only for the explicit 3^r and at-most-r-edge reduction.",
+      "A more efficient run-count parameter algorithm might exist under compressed-word or matching terminology outside the inspected records.",
+      "Polynomial general capacitated matching is cited rather than independently implemented."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Documents the problem, its computational hardness and cyclic variants, without the r-run compressed matching reduction",
+        "evidence": [
+          "arXiv first-submission date 2023-08-26; MSC2020 68R15.",
+          "§1 cites binary NP-completeness and §§2–3 examine generalized permutations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.13882",
+        "material_read": "Accessible full HTML text, particularly introduction, §2 including statements and proofs, §3 and appendix/MSC",
+        "method": "Web full-text opening and section/term searches",
+        "title": "Variations on shuffle squares",
+        "trigger": "Focal first-public research source defining shuffle-square variants and ordinary recognition context"
+      },
+      {
+        "assessment": "General ordered-graph characterization and four-/five-run classification. FPT may be implicit, but no at-most-r-edge degree system or 3^r compressed algorithm was identified.",
+        "evidence": [
+          "§3 Proposition 2 characterizes four runs; Proposition 3 characterizes five runs.",
+          "§2 constructs ordered nest-free graphs; §6 discusses open classification questions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.22043",
+        "material_read": "Accessible full HTML text, §§1–3, section §6 and targeted searches for algorithms and parameters",
+        "method": "Web full-text section reads and finds",
+        "title": "Shuffle squares and nest-free graphs",
+        "trigger": "Most plausible broader structural coverage, including bounded-run characterizations"
+      },
+      {
+        "assessment": "Published polynomial separation method for capacitated b-matching; supports invoking the classical polynomial exact-degree b-matching theorem, not a source of word-specific results.",
+        "evidence": [
+          "SIAM J. Discrete Math. 22 (2008) 1480–1487; capacitated b-matching polyhedral separation polynomial."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060664793",
+        "material_read": "Publisher abstract and bibliographic information",
+        "method": "Web indexed abstract",
+        "title": "Odd Minimum Cut Sets and b-Matchings Revisited",
+        "trigger": "Verify existence of polynomial methods for capacitated integral b-matching"
+      },
+      {
+        "assessment": "Standard general graph b-matching and exact-factor algorithmic literature, not a prior shuffle-square result.",
+        "evidence": [
+          "SIAM J. Comput. 50 (2021) 440–486; general multigraph b-matching and f-factors."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/16M1106195",
+        "material_read": "Publisher abstract and bibliographic information",
+        "method": "Web indexed abstract",
+        "title": "Algorithms for Weighted Matching Generalizations I: Bipartite Graphs, b-matching, and Unweighted f-factors",
+        "trigger": "Additional matching algorithm foundation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "501ec624-4a59-4df9-8461-20da8da0e34a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unrestricted binary shuffle-square recognition is NP-complete (Bulteau–Vialette 2020). The result provides a deterministic single-exponential algorithm in the natural and compressible number of runs, using O(r) graph vertices/edges and bit-cost polynomial in run lengths. This is a genuine structural tractability theorem across arbitrary finite alphabets and enormous compressed inputs, not a routine finite census or alphabet renaming.",
+    "status": "PASS"
+  }
+}
