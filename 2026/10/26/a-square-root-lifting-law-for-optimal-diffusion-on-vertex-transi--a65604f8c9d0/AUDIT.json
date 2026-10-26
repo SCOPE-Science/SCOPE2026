@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The variational formula proves concavity and orbit averaging. A direct orthogonal leaf-aggregate decomposition yields the two-by-two spectral branch and leaf-difference eigenvalues. The strictly increasing lower branch reduces the core to its exact homogeneous unit-budget optimum. The Schur complement characterizes target-gap feasibility with y>r, and the strictly convex scalar budget function has a unique minimizing split. Explicit scaled base weights and uniform leaf rates meet all inequalities at equality. Symbolic characteristic and budget identities, 72 full-spectrum tests, 18 non-edge-transitive prism cases and 810 nonexhaustive asymmetric stress tests reproduced the predictions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. 2006 includes a general convex formulation and examples for cycles and paths, but not an analytical formula for pendant-decorated vertex-transitive cores.",
+        "Boyd et al. 2009, section 2, gives symmetry reduction for discrete-time second-largest-eigenvalue modulus rather than continuous-time conductance-budget spectral gap."
+      ],
+      "reasoning": "The general SDP describes how to solve arbitrary instances but does not by itself state the exact scalar composition formula. Neither the published symmetry reduction nor the unweighted corona spectrum directly gives the optimal leaf/core budget split for all positive costs and every positive integer leaf count.",
+      "searches": [
+        "\"fastest mixing\" \"sunlet\" edges",
+        "\"corona\" \"algebraic connectivity\" \"optimal weights\" spectral gap",
+        "\"sunlet graph\" \"fastest mixing Markov process\"",
+        "doi:10.1137/070689413"
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao, and Diaconis, SIAM Review 48 (2006), DOI 10.1137/S0036144504443821",
+      "Barik, Pati, and Sarma, SIAM J. Discrete Math. 21 (2007), DOI 10.1137/050624029",
+      "Boyd, Diaconis, Parrilo, and Xiao, SIAM J. Optim. 20 (2009), DOI 10.1137/070689413"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2006 paper establishes existence of an SDP optimum and concavity but not the corona lifting formula.",
+        "The 2007 paper calculates eigenvalues for fixed unweighted corona graphs; this does not determine the optimal allocation under orbit-dependent costs.",
+        "The 2009 paper minimizes a discrete-time SLEM with stochastic nonnegativity constraints, not the continuous-time positive-homogeneous gap."
+      ],
+      "reasoning": "A literal special case of a generic SDP is not already an explicit quantitative implication: deriving the sharp budget split additionally uses a weighted core spectral compression, Schur complement, and strictly convex optimization. The prior spectrum formula supplies an ingredient but does not dominate the full theorem.",
+      "searches": [
+        "doi:10.1137/S0036144504443821 pages 681-685 695-697",
+        "doi:10.1137/050624029 Theorem 3.2",
+        "doi:10.1137/070689413 Theorem 2.1 and Sections 1-3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. 2006, sections 1 and 3, formulates continuous-time gap optimization and its convexity.",
+        "Barik et al. 2007, Theorem 3.2, states fixed unweighted corona Laplacian eigenvalues and their algebraic connectivity."
+      ],
+      "reasoning": "The unit-base-gap-to-corona-budget square-root transfer is invariant under rescaling of costs and is not an equivalent restatement of the cited fixed-spectrum theorem or general SDP. No identical cost-sensitive lifting identity was located in the actual searches.",
+      "searches": [
+        "\"fastest mixing Markov process\" \"corona\"",
+        "\"optimal algebraic connectivity\" \"corona\" weights",
+        "\"fastest mixing\" \"pendant vertices\" \"corona\" graph spectral gap",
+        "doi:10.1137/S0036144504443821",
+        "doi:10.1137/050624029"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published searches surfaced corona Laplacian spectra and general fastest-mixing methods, not a table of exact conductance-budget optima for all vertex-transitive base cores and leaf multiplicities.",
+        "Barik et al. 2007 states graph corona eigenvalue transforms, not a cost-optimal allocation table."
+      ],
+      "reasoning": "The result is an infinite-parametric lifting identity, not a recomputation of a known numerical list or enumeration. Absence from search results is uncertainty evidence, not a uniqueness certificate.",
+      "searches": [
+        "\"fastest mixing\" \"sunlet\" \"algebraic connectivity\" weights",
+        "\"weighted Laplacian algebraic connectivity optimal weights sunlet graph cycle leaf every vertex\"",
+        "\"multiple leaves per vertex\" \"spectral gap\" \"optimal budget\""
+      ]
+    },
+    "rationale": "The literature supplies general continuous-time spectral-gap convex optimization, fixed unweighted corona Laplacian eigenvalues, and discrete-time symmetry reduction, but none of the inspected relevant sources states an exact optimization lifting identity parameterized by an arbitrary vertex-transitive core unit-budget gap, arbitrary pendant multiplicity and invariant base-edge cost classes. Claim-level comparisons and genuine source inspections support a best-knowledge original explicit transfer law, with residual specialist-coverage risk.",
+    "residual_risks": [
+      "A specialized earlier theorem using graph corona lifting or an SDP dual parametrization may provide a stronger equivalent formula even if the searched phrasing differs.",
+      "The 2022 weighted-corona spectral literature, concerned with different spectral invariants, was not exhaustively examined in all full-text instances.",
+      "The proof does not assert unrestricted uniqueness and applies only to the stated cost-symmetry class."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_LIFTING",
+        "evidence": "Sections 1 and 3 define the conductance-budget objective and prove concavity; Section 5.3 handles unadorned cycles. No private-leaf budget transfer is stated.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Original 19-page full-text PDF, including problem formulation, concavity and duality sections, cycle and path results, and references",
+        "method": "Direct PDF full-text inspection including visual check of the original PDF page",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same spectral gap objective and cost constraint"
+      },
+      {
+        "assessment": "FIXED_UNWEIGHTED_SPECTRUM_NOT_BUDGET_OPTIMUM",
+        "evidence": "Theorem 3.2 gives ordinary unweighted corona Laplacian eigenvalue branches and algebraic connectivity; no optimized conductance budget or orbit cost class appears.",
+        "identifier_or_url": "https://www.researchgate.net/publication/220533743_The_Spectrum_of_the_Corona_of_Two_Graphs",
+        "material_read": "Author-shared full-text article in public HTML, especially sections 1 and 3, Theorem 3.2 and its proof, Fiedler discussion and references",
+        "method": "Line-by-line accessible full-text reading of relevant theorem and surrounding argument",
+        "title": "The Spectrum of the Corona of Two Graphs",
+        "trigger": "Direct corona Laplacian spectrum and possible Fiedler classification"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_AND_CONSTRAINTS",
+        "evidence": "Section 1.1 minimizes SLEM for symmetric row-stochastic matrices; Theorem 2.1 symmetrizes these matrices. It does not assert the continuous-time cost-sensitive corona lifting law.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "28-page full-text PDF, especially sections 1-3 on discrete-time objective, Theorem 2.1 and edge orbit reductions, and analytic examples",
+        "method": "Direct PDF full-text inspection including visual first-page check",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Possible stronger symmetry-based optimization solution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a65604f8-c9d0-464b-99ba-2edb4224c849",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp formula reduces infinitely many enlarged continuous-time network-design problems to one scalar base optimum, preserving arbitrary optimal core profiles, and provides the exact positive leaf/core budget division. It holds across leaf multiplicity and distinct orbit costs, including an explicit non-edge-transitive prism family; these structural design and compositional consequences are useful independent of computing an entirely new SDP for each decorated graph.",
+    "status": "PASS"
+  }
+}
