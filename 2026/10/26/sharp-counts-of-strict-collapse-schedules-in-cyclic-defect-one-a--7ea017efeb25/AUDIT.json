@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Direct comoving-coordinate derivation gives effective b condition; finite directed paths exactly characterize feasible deletion sets and schedules; multinomial interleavings count all orders; convexity and run separators prove the sharp envelope; the single chain for a singleton forces n-d shifts between the n−1 effective b occurrences. The packaged independent brute-order and 0–1 BFS checker passed all 3048 finite instances at 2≤n≤8; the infinite claim rests on the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Don, arXiv:1507.06070 sections on circular automata, all-subset bound under coprimality",
+        "published-finding corpus record 3d0ad329ab1e, full RESULT.md"
+      ],
+      "reasoning": "Don covers all subsets in the coprime regime, but not constrained schedule counts or the noncoprime all-target criterion. The published-finding corpus proof covers arbitrary rank-n-minus-one b but only codimension two, not sharp factorial counts for all k.",
+      "searches": [
+        "Černý circular automata with two merged states at distance k exact shortest synchronizing word n d",
+        "automaton cyclic shift a and map b fixing all states except state 0 mapped to d; exact reset threshold (n-1)^2 -(d-1)(n-2); synchronization gcd(n,d)=1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1507.06070 first submitted 2015-07-22, circular subset-reachability section",
+      "doi:10.1007/s10878-013-9682-0 shortest-reset algorithm description",
+      "published-finding corpus full RESULT.md 3d0ad329ab1e",
+      "published-finding corpus ranked queries recorded in audit"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Don 2015 proves reachability and an n(n−k) target-length bound, which does not bound counts of minimal-b schedules",
+        "2013 Kisielewicz–Kowalski–Szykuła treats shortest-reset-word algorithms",
+        "2026 two-defect result classifies cardinality n−2 targets under arbitrary defect-one b"
+      ],
+      "reasoning": "The exact all-k run-length multinomial formula and its balanced-run maximum do not follow from the cited existence or length bounds without the order-constraint argument. The constrained reset word is not claimed to be unconstrained shortest.",
+      "searches": [
+        "cyclic defect-one automata synchronizing words exactly n-1 defect letters unique shortest b(a^{n-d}b)^{n-2}; length 1+(n-2)(n-d+1)",
+        "Černý circular automata with two merged states at distance k exact shortest synchronizing word n d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Don arXiv:1507.06070, Proposition 2: aperiodic 1-contracting subset reachability; two-defect published-finding corpus exact record"
+      ],
+      "reasoning": "Normalized deletion-site schedules are linear extensions of a forest poset; neither cited source gives this formula, and a reachability theorem alone does not determine the number of strict-drop schedules.",
+      "searches": [
+        "complete reachability of subsets for circular automata with one idempotent rank n-1 map 0 to d noncoprime gcd n d and minimum rank g, counting shortest b-delete schedules as interleavings of chains",
+        "enumeration of minimal-rank-loss subset reaches circular 1 contracting automata by maximal runs of hole set and linear extensions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest IDs: 2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e, 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3, 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f"
+      ],
+      "reasoning": "A semantic search found no matching general multinomial deletion-run schedule enumerator. Finite tests are not used as evidence of database uniqueness.",
+      "searches": [
+        "complete reachability of subsets for circular automata with one idempotent rank n-1 map 0 to d noncoprime gcd n d and minimum rank g, counting shortest b-delete schedules as interleavings of chains",
+        "cyclic defect-one automata synchronizing words exactly n-1 defect letters unique shortest b(a^{n-d}b)^{n-2}; length 1+(n-2)(n-d+1)",
+        "enumeration of minimal-rank-loss subset reaches circular 1 contracting automata by maximal runs of hole set and linear extensions"
+      ]
+    },
+    "rationale": "Don proves coprime reachability but does not enumerate all minimum-defect schedules, provide their sharp factorial envelope, or establish the new minimal-resource rigidity claim. The nearest published published-finding corpus full text handles only two deletions for an arbitrary defect-one map and does not imply the all-k factorial count. Five actual semantic published-finding corpus searches and target-matched primary paper passages were compared. A differently phrased earlier semigroup result remains a priority risk.",
+    "residual_risks": [
+      "A previously unindexed transformation-semigroup theorem may give an equivalent enumeration using different terminology.",
+      "No independent expert audit or complete survey of all older sources has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Coprime reachability already established, so it is background; no sharp sequence count, noncoprime criterion, or minimum-b reset rigidity identified in inspected relevant text",
+        "evidence": [
+          "arXiv:1507.06070, Proposition 2 and circular automata section; arXiv first submission 2015-07-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06070",
+        "material_read": "Full accessible arXiv HTML including definitions, circular-automata section and Proposition 2 proof",
+        "method": "arXiv HTML full text, inspected relevant statements and derivation",
+        "title": "The Černý Conjecture and 1-Contracting Automata",
+        "trigger": "Same cyclic defect-one automata, reachability and resource bounds"
+      },
+      {
+        "assessment": "Exact two-collapse reachability for arbitrary b, no formula for general cardinality deletion orders; it does not imply proposed sharp factorial envelope",
+        "evidence": [
+          "Published RESULT.md codimension-two characterization (2026)"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e",
+        "material_read": "Complete RESULT.md, including theorem, assumptions, proof, comparison and limitations",
+        "method": "Read-only GitHub repository file retrieval",
+        "title": "Two-defect reachability in cyclic defect-one automata",
+        "trigger": "Most relevant published finite-codimension reachability theorem"
+      },
+      {
+        "assessment": "Unrestricted shortest reset computation addresses a distinct optimization problem; constrained number-of-b schedule counts not identified in inspected material",
+        "evidence": [
+          "Journal of Combinatorial Optimization 29 (2015), 88–124; published online 2013-11-17"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10878-013-9682-0",
+        "material_read": "Abstract, introduction and algorithmic statement material, not a complete proof-level review of all sections",
+        "method": "Open-access publisher HTML, abstract and introductory material",
+        "title": "Computing shortest reset words of synchronizing automata",
+        "trigger": "Potential stronger reset threshold result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ea017ef-eb25-4a27-bf85-6c0bf0e91ec8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp multinomial formula measures the full control-schedule redundancy for resource-minimal state compression, and its extremal factorial profile identifies natural high-flexibility target sets. It also identifies exact noncoprime reachability obstruction and rigidity of the minimum-resource reset strategy; these are structural, all-parameter refinements of existence theorems, not arbitrary small examples.",
+    "status": "PASS"
+  }
+}
