@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness — PASS
+The proof applies to nonempty finite generalized quadrangles of symmetric order at least two in the uncoloured graph language. The incidence axioms give the exact diameter-four intersection array; the distance-algebra recurrences yield parameter-uniform, positive intersection-number support. The one-step extension lemma identifies rank-one triple types with all three pair distances truncated at three. The resulting five pair types and unique one-point rank-three type imply equality of rank-four sentence theories. The rank-five degree witness separates the explicitly constructed symplectic orders two and three. A symbolic checker confirms all intersection-polynomial identities and positivity for arbitrary integer parameters at least two. Two direct finite graphs validate the critical extension profiles. Neither finite enumeration is used as proof for arbitrary quadrangles.
+
+## Originality — PASS, with residual risk
+Source and claim searches for generalized quadrangle incidence graphs, four-round equivalence, distance-regular intersection arrays and Ehrenfeucht–Fraïssé equivalence found no implication-level coverage of the stated theorem. The closest known projective-plane statement concerns diameter-three, girth-six generalized triangles, not the present diameter-four, girth-eight structures. Classical finite geometry references establish incidence axioms and distance-regularity, while Libkin establishes the general game semantics. Neither inspected relevant section yields this precise four-round classification or sharp separating boundary. The comprehensive Payne–Thas book was not fully accessible and unindexed folklore remains a risk; these do not constitute positive evidence of coverage.
+
+## Value — PASS
+A family-independent rank-four logical boundary for an infinite class of symmetric finite incidence geometries is a structural finite-model-theoretic statement, rather than a restatement of graph regularity. Its exact depth-five separation witnesses show the boundary is sharp. The 30 universal ordered-triple one-step types and the five distance-indexed pair profiles give a reusable calculation relating distance-regular intersection algebras to finite first-order logic. The result is scoped to symmetric orders and does not claim analogous nonsymmetric or named-sort results.
+
+Self-review: passed. Independent audit: not yet performed.
