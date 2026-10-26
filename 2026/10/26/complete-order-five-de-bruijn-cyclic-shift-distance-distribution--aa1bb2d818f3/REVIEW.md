@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The classification is finite and fully bounded: a de Bruijn order-five cycle has a unique starting factor `00000`; exhaustive binary backtracking with a 32-factor distinctness mask and four wraparound tests visits every such cycle exactly once. The independent Euler-tour algorithm generates the same 2,048 canonical cycles. Direct 32-coordinate Hamming comparisons and independent XOR/bit-count distances agree at all 31 nontrivial shifts. The full CSV certificate matches regeneration; the histogram is 36, 114, 1212, 682, 4 for minimum distances 8, 10, 12, 14, 16. The bound 16 follows mathematically from uniform adjacent binary-pair counts. Four maximizers, their detailed correlation profiles and single reversal/complement orbit pass exact checks. The result asserts nothing about larger orders.
+
+## Originality — PASS with residual priority risk
+The 2011 Spinsante–Andrenacci–Gambi article computes order-five autocorrelation behavior and reports absolute-sidelobe threshold subsets (12 at magnitude 4, 784 at magnitude 8), while Fujisaki–Nabeshima (2011) proves general bounds and reports worst/second-worst order-five values. The worst positive correlation of 16 on 36 cycles is known, and the matching minimum shift-distance-8 bin is explicitly not new by itself. The five-bin *one-sided* cyclic Hamming shift-distance distribution, all four one-sided optimizers, and their common full correlation profile are not provided by the inspected full articles and are not implied by the cited absolute threshold counts or worst-only tables. Searches for equivalent autocorrelation and shift-distance statements did not identify a stronger covering table. Earlier unindexed priority is possible, and one related historical thesis was inaccessible.
+
+## Value — PASS
+Cyclic Hamming shift separation is a direct, natural robustness parameter for de Bruijn universal cycles regarded as cyclic synchronization patterns: large minimum distances distinguish any unknown nonzero phase displacement from the correct phase, while the equivalent maximum positive periodic autocorrelation is a standard sequence-selection criterion. Published communication-systems literature explicitly studies order-five de Bruijn correlations. The exact full design-space distribution adds how frequently each robustness level occurs, identifies every optimum, and shows their symmetry rigidity and exceptional negative sidelobes. These features are not merely restatements of the de Bruijn counting formula. Negative sidelobes still matter for other receiver metrics; no general coding-performance claim is made.
+
+## Sources and remaining limits
+Relevant primary source material read: Spinsante, Andrenacci and Gambi (2011), full openly available article, especially its de Bruijn correlation section and Tables 3–4; Fujisaki and Nabeshima (2011), full nine-page PDF, especially Theorem 2, Theorems 3–4, Tables I–II and concluding summary. Numerical results are finite exhaustive certificates and need independent replication beyond the included paired checkers.
+
+Self-review: passed. Independent audit: not yet performed.

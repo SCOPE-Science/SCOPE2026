@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Every order-five cycle has one 00000 window, so binary DFS with a used-five-factor mask and closure checks enumerates every rotation class exactly once. Independent local-edge-order Euler enumeration over all 2^16 binary choices yields the identical 2048 words. Direct coordinate Hamming counts agree for all 2048*31 shifts with cyclic-bitwise XOR/popcount. The certificate CSV matches full regeneration. The complete histogram is {8:36,10:114,12:1212,14:682,16:4}; adjacent-pair uniformity proves d(1)=16, and all four maximizers match the claimed common correlation profile and one reversal/complement orbit. No infinite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spinsante, Andrenacci & Gambi (2011), DOI 10.1186/1687-1499-2011-4, complete open article: correlation section; Table 3 (absolute sidelobe subsets 12 at 4 and 784 at 8); sections on order-five 2048 cycles.",
+        "Fujisaki & Nabeshima (2011), DOI 10.1587/nolta.2.400, open full PDF: Theorems 2-4, Tables I-II (36 sequences reach worst positive correlation 16 at order five, and second-worst counts).",
+        "Classical de Bruijn enumeration gives exactly 2048 binary order-five rotation classes, without autocorrelation bins."
+      ],
+      "reasoning": "The strongest inspected directly relevant broad studies exhaust all order-five cycles, but report averaged autocorrelation, specific absolute-sidelobe thresholds and extreme sidelobe values, respectively. None gives a joint or scalar classification strong enough to imply all five counts. Their known 36 worst cases are not a new assertion here.",
+      "searches": [
+        "de Bruijn cycles of order 5 cyclic Hamming distance distribution over 2048 necklaces 8 10 12 14 16 perfect shift autocorrelation",
+        "de Bruijn sequences order five optimal autocorrelation 32"
+      ]
+    },
+    "checked_sources": [
+      "Spinsante, Andrenacci & Gambi (2011), DOI 10.1186/1687-1499-2011-4, complete open article: correlation section; Table 3 (absolute sidelobe subsets 12 at 4 and 784 at 8); sections on order-five 2048 cycles.",
+      "Fujisaki & Nabeshima (2011), DOI 10.1587/nolta.2.400, open full PDF: Theorems 2-4, Tables I-II (36 sequences reach worst positive correlation 16 at order five, and second-worst counts).",
+      "Published research semantic search with three order-five autocorrelation/shift-distance query variants; no directly covering hit."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Spinsante, Andrenacci & Gambi (2011), DOI 10.1186/1687-1499-2011-4, complete open article: correlation section; Table 3 (absolute sidelobe subsets 12 at 4 and 784 at 8); sections on order-five 2048 cycles.",
+        "Fujisaki & Nabeshima (2011), DOI 10.1587/nolta.2.400, open full PDF: Theorems 2-4, Tables I-II (36 sequences reach worst positive correlation 16 at order five, and second-worst counts).",
+        "Primary comparison: maximum positive correlation equals 32-2 times minimum Hamming shift distance, while published absolute-sidelobe counts use max |R_C(s)| and are distinct."
+      ],
+      "reasoning": "The theorem is a five-bin exact distribution plus a one-orbit optimizer classification and common profile. The published general bound delta<=16 is an immediate consequence of balanced adjacent pairs; that bound alone, prior 2048 count, and the known 36 worst cases do not imply any middle counts or the exact four optimizers. Conversely, no novelty is claimed for the 2048 cardinality or the 36 worst-case count.",
+      "searches": [
+        "de Bruijn cycles of order 5 cyclic Hamming distance distribution over 2048 necklaces 8 10 12 14 16 perfect shift autocorrelation",
+        "optimal cyclic shift autocorrelation binary de Bruijn sequences 32 four cycles nonnegative periodic autocorrelation",
+        "autocorrelation distribution de Bruijn sequences order 5 32 periodic autocorrelation",
+        "binary de bruijn sequence order 5 maximum autocorrelation distribution table 2048"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Spinsante, Andrenacci & Gambi (2011), DOI 10.1186/1687-1499-2011-4, complete open article: correlation section; Table 3 (absolute sidelobe subsets 12 at 4 and 784 at 8); sections on order-five 2048 cycles.",
+        "Fujisaki & Nabeshima (2011), DOI 10.1587/nolta.2.400, open full PDF: Theorems 2-4, Tables I-II (36 sequences reach worst positive correlation 16 at order five, and second-worst counts).",
+        "Exact identity R_C(s)=32-2d(C,s) translates Hamming shift distance into bipolar periodic autocorrelation."
+      ],
+      "reasoning": "Checked the equivalent maximum positive sidelobe formulation and both normalized and unnormalized autocorrelation forms, not just matching terminology. The earlier papers investigate these notions, but published summarized threshold and worst-case tables do not present the exact full five-bin one-sided minimum-distance distribution or explicit four optimizers.",
+      "searches": [
+        "optimal cyclic shift autocorrelation binary de Bruijn sequences 32 four cycles nonnegative periodic autocorrelation",
+        "de Bruijn sequences binary order five 32 periodic autocorrelation sidelobes balanced Hamming distance",
+        "autocorrelation distribution de Bruijn sequences order 5 32 periodic autocorrelation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fujisaki & Nabeshima, Table I: worst positive correlation 16, 36 cycles; Table II: most-negative correlation statistics.",
+        "Spinsante et al., Table 3: absolute sidelobe subsets of 12 and 784, with no histogram of one-sided maximum positive correlation.",
+        "The complete certificate here gives five counts 36,114,1212,682,4."
+      ],
+      "reasoning": "Searched numeric fingerprints together with the order and parameter aliases. The 2011 published worst count 36 coincides with the first bin (positive correlation maximum 16). The remaining bins do not follow from the published absolute-threshold table because absolute values constrain negative sidelobes too.",
+      "searches": [
+        "binary de bruijn sequence order 5 maximum autocorrelation distribution table 2048",
+        "de Bruijn order five \"1212\" \"682\" correlation histogram",
+        "de Bruijn cycles of order 5 cyclic Hamming distance distribution over 2048 necklaces 8 10 12 14 16 perfect shift autocorrelation"
+      ]
+    },
+    "rationale": "The full five-value minimum *cyclic Hamming shift-distance* distribution and the exact four-cycle one-sided-maximum-positive-correlation optimizer classification are not stated by the two inspected original papers: the known worst-correlation count 36/2048 is explicitly prior work, and the known absolute-correlation threshold subsets (12/784) do not imply the five positive-one-sided bins. Actual research database and external alias/number searches returned no equivalent published statement. Earlier independent and unindexed enumerations remain a residual priority risk.",
+    "residual_risks": [
+      "There may be earlier unindexed numerical enumerations of the complete five-bin one-sided statistic.",
+      "The 2000 Mayhew thesis \"Clues to the Hidden Nature of de Bruijn Sequences\" was inaccessible via the encountered repository URL; the surfaced snippet concerns modified de Bruijn autocorrelation rather than this precise unmodified order-five distribution.",
+      "No independent human or external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partially covering: prior 2048 family, average profile, absolute-sidelobe subsets and communications motivation; does not give the complete minimum-positive-distance histogram.",
+        "evidence": [
+          "Published 2011-06-06; Table 3 says full set 2048, absolute sidelobe <=4 subset 12, <=8 subset 784; distinguishes absolute criterion."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1186/1687-1499-2011-4",
+        "material_read": "Open full article through its HTML and PDF, especially introduction, binary de Bruijn correlations, evaluation section, Tables 1-4 and paragraphs accompanying Table 3.",
+        "method": "Read publisher full text, searched table and autocorrelation terms, inspected the associated PDF including its graphs.",
+        "title": "Binary De Bruijn sequences for DS-CDMA systems: analysis and results",
+        "trigger": "Same 2048 order-five cycles and exactly equivalent autocorrelation statistics"
+      },
+      {
+        "assessment": "Partially covering: known worst positive correlation 0.5 has 36 order-five sequences, exactly one already-known histogram bin. Second-worst negative-correlation results do not supply the other bins.",
+        "evidence": [
+          "2011, DOI 10.1587/nolta.2.400; Table I has order five maximum positive normalized sidelobe 0.5 at 36 cycles, equivalent to minimum shift distance 8."
+        ],
+        "identifier_or_url": "https://www.jstage.jst.go.jp/article/nolta/2/4/2_4_400/_pdf/-char/en",
+        "material_read": "Full nine-page paper including definitions, Theorems 2-4, Tables I-II and conclusion (PDF pages 0-8).",
+        "method": "Read searchable primary PDF and inspected page 6 table image.",
+        "title": "On auto-correlation values of de Bruijn sequences",
+        "trigger": "Strong plausible same-object, same-order correlation classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa1bb2d8-18f3-40be-8e97-755490189029",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cyclic shift-distance is a natural signal self-separation / synchronization robustness parameter, equivalent to maximum positive periodic bipolar autocorrelation. Two 2011 primary communications/correlation papers explicitly motivate selecting de Bruijn cycles by autocorrelation. The new full spectrum quantifies all achievable robustness levels among all 2048 order-five cycles, characterizes the rare extremizers (only four, one symmetry orbit), and exhibits the precise negative-sidelobe tradeoff. This is a natural complete finite classification, not an arbitrary subsample or an inference from reproducibility alone.",
+    "status": "PASS"
+  }
+}
