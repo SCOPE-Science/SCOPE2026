@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The canonical-embedding argument reduces every rational fiber-preserving automorphism to one of the four elations at its rational center. The invariant-quartic local analysis proves that a smooth invariant quartic avoids the center. Full coefficient-space orbit enumeration and geometric Jacobian-ideal Gröbner tests give 78 smooth orbits / 10,920 equations, and a disjoint invariant-subspace-first route gives 17 orbits / 1,184 equations with a nontrivial center; detailed subgroup profiles agree. Both concrete programs and their recorded outputs were executed and inspected. Over an algebraically closed field the unit-ideal criterion is exact, not merely a check on small extensions.
+
+**Originality — PASS, with residual priority qualification.** Nart–Ritzenthaler's classification already covers the underlying 78 binary quartic classes and their automorphism groups. Fukasawa's work covers the seven-point outer-Galois Klein phenomenon, and those components are explicitly excluded from novelty. The 2022 quasi-Galois arrangement paper assumes characteristic zero; the published comparisons inspected do not state this full binary arithmetic quasi-Galois group-profile distribution. Stronger historic normal forms could permit reconstructing the result; this derived-invariant overlap is acknowledged as a concrete priority risk. The new claim is not merely the already-known census or the known Klein case.
+
+**Value — PASS.** Fiber-preserving subgroups of projection maps are natural geometric/field-theoretic invariants, and wild involutions in characteristic two behave differently from the cyclic prime-to-characteristic groups. The complete distribution identifies rarity (17/78 classes), the only full arithmetic Galois projections, and the way rational point counts differ even among identical center-group profiles. This gives a genuinely informative finite-field boundary case to quasi-Galois arrangement theory, not an arbitrary mask-counting exercise.
+
+**Publication and scientific limits.** No extension-field classification, independent external scientific audit, or priority guarantee is claimed; in particular, classic group classifications may imply the derived arithmetic counts after further calculations.
+
+Self-review: passed. Independent audit: not yet performed.
