@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "An exact digit recurrence yields B(F)Y=A(F)r. Because D(0)=1, D(F) has no nonzero formal-series kernel with constant term zero, so E(F)Y=C(F)r. For Bezout HC+JE=1, W=H(F)Y+J(F)r satisfies E(F)W=r. The simple pole of r at x=1 forces ramification divisible by 2^deg(E), equalling the degree upper bound, proving irreducibility. All zero masks and nonleast periods are covered. Finite independent coefficient and automaton checks confirm formulas but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rowland, Stipulanti and Yassawi, arXiv:2308.10977v2, Theorems 1-2 provide bounds on automaton state count from arbitrary series polynomial height/degree, not this exact degree from a periodic digit mask.",
+        "Cloitre, arXiv:2604.06243, Theorem 2.2 and §2.2 supply general masks and the transform on masks but do not state an exact algebraic-degree formula in the relevant sections."
+      ],
+      "reasoning": "Christol-type equivalence only ensures algebraicity, and general complexity upper bounds do not force an irreducible polynomial of degree 2^deg(E). The new result can be viewed as a concrete refinement that is not covered by those general implications. Uninspected or differently indexed specialized literature is a residual risk.",
+      "searches": [
+        "\"algebraic power series and their automatic complexity\" finite fields exact degree",
+        "\"automatic sequences\" \"periodic weights\" \"degree\" finite field",
+        "https://arxiv.org/pdf/2308.10977 pp.1-3",
+        "https://arxiv.org/pdf/2604.06243 pp.3-9"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2602.23395",
+      "https://arxiv.org/pdf/2604.06243",
+      "https://arxiv.org/pdf/2308.10977",
+      "https://oeis.org/A391614"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Campbell–Cloitre prove M2(n)=t(q(n)) with every position 2 mod 3 masked, and ordinary factor-complexity formulas.",
+        "Cloitre gives a general weighted digit-parity framework, but the series in §2.2 is the generating series of the weights rather than U(x)=sum u(n)x^n.",
+        "Rowland–Stipulanti–Yassawi prove quantitative bounds relating polynomial representations and automata; their results do not give the exact gcd-indexed algebraic degree."
+      ],
+      "reasoning": "The original digit formula is a necessary input, not itself the new conclusion. Exact irreducibility depends on Frobenius gcd cancellation plus ramification at a simple pole; no inspected prior theorem directly implies the full displayed degree law. The general mask theorem is stronger than only solving the M2 example.",
+      "searches": [
+        "arXiv:2602.23395 Theorems 22, 25, 26, §§4-5",
+        "arXiv:2604.06243 Theorem 2.2, §2.2",
+        "arXiv:2308.10977v2 Theorems 1-2",
+        "https://oeis.org/A391614"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cloitre 2026, arXiv:2604.06243, Theorem 2.2 defines weighted binary-digit parity for all masks; §2.2 transforms mask-generating series rather than taking the coefficient-series minimal polynomial.",
+        "Campbell and Cloitre 2026, arXiv:2602.23395, Theorem 26 identifies the period-three mask of M2."
+      ],
+      "reasoning": "General parity-weighted digit sums and M2 are equivalent objects under mask terminology; their definition is prior work. The proposed claim is not a renamed mask: it determines exact degrees, irreducible defining polynomials, and the complete period-three degree spectrum, which the cited statements do not imply numerically without additional field-theoretic reasoning.",
+      "searches": [
+        "\"Thue-Morse transform\" weighted digit sums formal power series",
+        "\"Meta-Automatic Sequences\" generating series quartic minimal polynomial",
+        "\"periodic digit weights\" \"algebraic degree\" generating function",
+        "https://arxiv.org/pdf/2604.06243 §2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A391614 comments, formula, and program give the 4-state automaton, and binary positions excluded modulo three, but no polynomial equation for the generating series is recorded."
+      ],
+      "reasoning": "The exact integer sequence appears in OEIS and is not new. The claimed exact algebraic degree and the arbitrary-period classification are separate invariants not listed in that entry.",
+      "searches": [
+        "https://oeis.org/A391614",
+        "A391614 algebraic generating function F2 quartic polynomial",
+        "\"periodic binary mask\" \"degree\" formal series"
+      ]
+    },
+    "rationale": "The inspected 2026 papers give masked digit sums, their automata and sequence transformations; a 2025 paper provides general algebraic-series complexity bounds. Neither inspected exact statement nor OEIS records the gcd-indexed exact minimal algebraic degree for all periodic masks, nor the degree-four minimal polynomial of the new meta-automatic example. The mathematical statement and stronger coverage, not titles alone, were compared; published-priority uncertainty remains.",
+    "residual_risks": [
+      "Equivalent gcd/ramification classification may be implicit in unindexed literature on additive polynomials or periodic digit sums.",
+      "Not every page of each broader source was inspected; in particular no comprehensive historical priority proof is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives sequence, automaton, mask and factor complexity; inspected relevant statements do not give algebraic minimal degree.",
+        "evidence": [
+          "Theorem 26, lines 443-461: M2 is parity of binary digits at positions not congruent to 2 mod 3.",
+          "Theorem 22, lines 383-397: explicit four-state automaton."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.23395",
+        "material_read": "Introduction; §4 especially Theorems 20, 22, 25 and 26; §5 on factor complexity; searched for generating function, Christol and algebraic.",
+        "method": "Read complete relevant HTML sections and searched text for possible covering formal-series conclusions.",
+        "title": "Meta-Automatic Sequences",
+        "trigger": "Primary 2026 source of M2 and its binary-digit mask"
+      },
+      {
+        "assessment": "General digit-parity representation overlaps with the definition but does not in inspected sections classify exact minimal degrees of coefficient series.",
+        "evidence": [
+          "Theorem 2.2, PDF pp. 5-6: general weighted digit-parity masks in a family of transforms.",
+          "§2.2, PDF pp. 8-9: mask-generating-series operator under the transform, not U(x) minimal polynomial."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.06243",
+        "material_read": "Abstract, main-results overview, Theorem 2.2, §§2.1-2.2 on binary weights and mask-generating series; searched for algebraic degree, minimal polynomial and Christol.",
+        "method": "Read relevant full-text sections of arXiv PDF; checked text search for exact-degree terminology.",
+        "title": "The Thue-Morse Transform",
+        "trigger": "Potentially dominating general weighted-digit parity theorem and same-author later source"
+      },
+      {
+        "assessment": "Provides general complexity inequalities but no statement identified that subsumes the periodic digit-mask exact formula.",
+        "evidence": [
+          "PDF pp. 1-3: Christol equivalence, theorem giving upper bounds of automaton size as function of algebraic polynomial height and degree."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.10977",
+        "material_read": "Title page, introduction, Theorems 1–2, definitions and descriptions of proof approach; search for weighted digit.",
+        "method": "Read primary PDF introduction and main statements; visually checked first page.",
+        "title": "An Elementary Proof of Bridy’s Theorem",
+        "trigger": "Potential broader general relation between automatic sequences and algebraic-degree complexity"
+      },
+      {
+        "assessment": "Digit mask and automaton are prior recorded; exact quartic generating-series polynomial not listed.",
+        "evidence": [
+          "OEIS formula: a(n)=t(q(n)), suppressing binary digits at positions 2 mod 3.",
+          "OEIS comments: explicit four-state base-four automaton."
+        ],
+        "identifier_or_url": "https://oeis.org/A391614",
+        "material_read": "Sequence definition, comments, formula, references and code through crossreferences.",
+        "method": "Read online OEIS text entry.",
+        "title": "OEIS A391614",
+        "trigger": "Exact database entry for 2026 M2 sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be3eb4b0-7d21-443d-a1bf-25aa90ad56af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimal algebraic degree of a coefficient series is a natural and nonautomatic invariant. This result classifies every periodic binary position mask by a computable polynomial gcd, including a complete 3-period family exhibiting all four degree values 1,2,4,8. It explains the specific quartic degree of the recently introduced M2 and distinguishes algebraicity from minimality; not a small table recomputation or a trivial corollary of automaticity.",
+    "status": "PASS"
+  }
+}
