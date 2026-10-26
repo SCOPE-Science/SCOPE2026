@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "Spherical invariance gives an exact Beta(1/2,(n−1)/2) weight. One-node Lanczos and degree-one endpoint interpolation reduce to explicit rational functions of that weight; the interpolant risk is the scaled beta variance. Absolutely convergent moment generating series produce exact risk-gap coefficients and recurrence; the recurrence is strictly negative for n≥4. Dimension 2 has a closed radical risk ratio >1; dimension 3 has coefficient signs switching once, proving exactly one risk crossover, with the opposite near-singular sign from dominated convergence. Standalone exact rational and numerical checks passed 18,835 assertions. No finite tests are used as proofs of the universal statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ubaru–Chen–Saad 2017, SIAM J. Matrix Anal. Appl., §4.1 and inverse-trace discussion: generic approximation and stochastic sampling error guarantees, with Rademacher sampling in core trace theorem; no dimension-sharp Haar-sphere versus spectral-interpolant risk ordering in inspected material.",
+        "Chen–Trogdon–Ubaru 2022 arXiv:2204.01941 §3.15: simultaneous approximation bounds for analytic function families, dependent on polynomial degree and probe count, not an exact one-probe mean-square ranking for two-level inverse traces."
+      ],
+      "reasoning": "General polynomial approximation, stochastic trace concentration and Gaussian-quadrature estimates do not determine which of these explicitly given random estimators has lower MSE, because the answer changes with ambient dimension and condition number.",
+      "searches": [
+        "\"stochastic Lanczos quadrature\" \"mean squared error\" \"interpolation\" \"inverse\"",
+        "\"quadrature\" \"unbiased interpolation\" \"mean squared error\" stochastic Lanczos",
+        "\"Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature\" arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2204.01941 (2022-04-05 public version; original preprint and accessible full text)",
+      "DOI:10.1137/16M1104974 (Ubaru–Chen–Saad 2017, available author full-text rendering)",
+      "Golub–Meurant, Matrices, Moments and Quadrature with Applications (2009), standard quadrature background",
+      "published-finding corpus semantic search results for one-step SLQ, reciprocal Rayleigh quotient, endpoint interpolation and exact MSE"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen–Trogdon–Ubaru 2022 §2.4 Definitions 2.1–2.4 supplies constructions; §3 concentrates on approximation guarantees, and §4 examples consider smooth spectra and spectral spikes with KPM/SLQ rather than precise one-probe inverse-trace MSE ordering.",
+        "Ubaru–Chen–Saad 2017 Sections 3–4 concern stochastic Lanczos trace estimation and matrix-inverse function bounds. The inspected material gives no matching dimension-three crossing or dimension-four uniform-risk threshold."
+      ],
+      "reasoning": "The published quadrature definitions imply each estimator formula and Jensen yields G≤I. They do not imply the full sign of E[(G−T)^2−(I−T)^2], especially since n=2, n=3 and n≥4 exhibit different signs. The new beta-coefficient proof establishes this missing comparison.",
+      "searches": [
+        "\"Randomized Matrix-Free Quadrature: Unified and Uniform Bounds\" arxiv 2023",
+        "\"Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature\" arxiv",
+        "\"stochastic Lanczos\" \"one-step\" \"bias\" \"variance\" spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus nearest 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--d1b1206636bc concerns Dirichlet-space approximation, not matrix spectral quadrature; 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 concerns residual distortion, not random inverse-trace MSE.",
+        "arXiv:2204.01941 §2.4 defines both moment-based quadrature and Gaussian quadrature, but its risk analyses do not supply this two-estimator dimension ordering."
+      ],
+      "reasoning": "Equivalent aliases checked include reciprocal Rayleigh quotient, one-node SLQ, a degree-one endpoint interpolant, spherical-beta shrinkage risk, and inverse-trace matrix-free quadrature. A Jensen inequality supplies samplewise Gaussian underestimation relative to the interpolatory estimate but cannot imply squared error dominance around the trace. No exact equivalent comparison was identified.",
+      "searches": [
+        "exact MSE risk dominance one-node stochastic Lanczos Gauss quadrature versus unbiased endpoint interpolation inverse trace for real unit sphere rank one small eigenvalue dimension n two three four critical crossing",
+        "one point Gauss quadrature inverse spectral trace Rayleigh reciprocal bias mean squared error two-level rank-one eigenvalue beta distribution versus polynomial interpolation",
+        "\"Rayleigh quotient\" \"reciprocal\" \"MSE\" \"trace\" Monte Carlo",
+        "\"stochastic Lanczos\" \"one-step\" \"bias\" \"variance\" spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits included 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 (two-step exponential vector positivity), 2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2 (adaptive quadratic gradient method), neither an inverse-trace risk table.",
+        "Accessible preceding scientific claims concerned Gaussian sketch Ritz matrices, interpolatory inverse-square-root preconditioners and inverse-spectral probes, but not this exact SLQ-versus-interpolant MSE comparison."
+      ],
+      "reasoning": "The theorem is an all-dimension closed-form risk comparison, not a lookup of an eigenvalue table. Searches for exact risk tables and two-level special cases did not yield a covering table; lack of hits is not proof of uniqueness.",
+      "searches": [
+        "Gaussian unit-vector spectral quadrature dimension four mean-square contraction shrinkage relative unbiased interpolatory inverse trace sampling",
+        "one step stochastic Lanczos quadrature vs polynomial interpolation mean square error rank one inverse spectrum",
+        "\"one step\" \"stochastic Lanczos quadrature\" expected inverse trace rank one bias"
+      ]
+    },
+    "rationale": "The assessed claim is the exact non-asymptotic risk ordering, dimension-four uniform domination, and unique three-dimensional reversal. Existing work provides underlying stochastic quadrature constructions, general high-probability errors and Gauss/interpolation definitions, but not a statement implying this mean-square ordering in the inspected matching settings. A pointwise Jensen inequality is strictly weaker: it cannot settle MSE relative to the target and yields opposite outcomes in different dimensions. Semantic database and literature searches were compared by objects and implications, not title alone; residual priority uncertainty remains.",
+    "residual_risks": [
+      "Exact special-case finite-dimensional MSE calculations could have appeared uncatalogued in matrix-free inverse trace, numerical statistics or quadrature literature.",
+      "2017 publisher PDF was not downloaded, although author full-text HTML material was read; material outside inspected sections could change comparison.",
+      "The comparator uses exact eigenvalue endpoints; the result is a model-level risk benchmark, not a field-performance conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALGORITHMS_AND_GENERIC_BOUNDS; no covering one-probe rank-one inverse-trace MSE dimension classification identified in read sections",
+        "evidence": [
+          "arXiv:2204.01941 equations (1.1)–(1.7), Definitions 2.1–2.4, Theorem 3.15, numerical §4.2–4.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.01941",
+        "material_read": "Full primary PDF made accessible as searchable 43-page document; text of abstract, introduction, §§2.2–2.4 (quadrature definitions), §§3.14–3.16 (analytic-function stochastic bounds), and selected §4 examples including spectral spikes and inverse-temperature functionals; page-one image inspected.",
+        "method": "Read primary text and compare definitions, exact assumptions and theorem implications",
+        "title": "Randomized matrix-free quadrature: unified and uniform bounds for stochastic Lanczos quadrature and the kernel polynomial method",
+        "trigger": "Motivating construction of spectral measures, Gaussian/Lanczos quadrature and polynomial methods"
+      },
+      {
+        "assessment": "GENERAL_SAMPLING_AND_APPROXIMATION_BOUNDS; does not establish the stated Haar one-probe versus endpoint interpolation ranking in inspected sections",
+        "evidence": [
+          "DOI:10.1137/16M1104974, Section 4 theorem statements and inverse-function treatment"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/320210803_Fast_Estimation_of_trfA_via_Stochastic_Lanczos_Quadrature",
+        "material_read": "Accessible full-text HTML rendering of 2017 paper; inspected material on stochastic quadrature method, Theorems 4.1 and 4.3, inverse and log-likelihood trace calculations in Sections 4.1–4.5. Direct PDF link timed out.",
+        "method": "Read available author full-text rendering and compare probabilistic probe law, function class and exact risk statement",
+        "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+        "trigger": "Foundational SLQ full algorithm and trace-inverse guarantees plausibly implying risk statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "945502ef-d97e-4e12-96e7-baac4a03b4d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Both compared one-matvec estimators arise naturally in stochastic spectral quadrature, and the exact theorem explains a genuine finite-budget risk reversal between an unbiased polynomial and a biased one-node Gauss rule. It distinguishes three sharp dimension regimes and yields an exact critical condition number in dimension three; these give a precise benchmark for bias-variance and algorithmic test cases. Limited to a prescribed rank-one two-level spectrum with exact baseline endpoints, not advertised as a general or practically dominant estimator.",
+    "status": "PASS"
+  }
+}
