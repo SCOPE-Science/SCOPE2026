@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The mixed-difference matrix has independent rows by an explicit discrete double-integration right inverse. Every active subset occurs with positive multipliers, so the Euclidean projection is locally an affine orthogonal projector with explicitly inverted active Gram matrix. Continuity and finite polyhedral stratification give the exact global Lipschitz maximum over active-face absolute row sums. The pure-Python Fraction certificate exhausts all 2, 16, and 512 subsets in sizes 2, 3, 4, checking symmetry, idempotence, active annihilation, per-cardinality maxima and uniqueness. An explicit rational finite input pair has ratio 9/4 with KKT multipliers >=397/400 and inactive slacks >=99/100. Embedding its five active constraints proves the stated n>=4 lower bound; no higher exact value is asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2019 anti-Monge paper bounds Frobenius statistical risk and gives Dykstra iteration without a sharp deterministic infinity-norm perturbation law.",
+        "The 2015 matrix-isotonic paper constrains coordinatewise monotonicity, not adjacent mixed differences, and addresses statistical risk.",
+        "General polyhedral-projection piecewise-affine theory supplies a computational reduction, not the evaluated global 9/4 constant or unique winning face."
+      ],
+      "reasoning": "Neither Frobenius-risk bounds nor an algorithm to compute a projection for specified data mathematically implies the 4-by-4 global coordinatewise Lipschitz constant and equality classification. A general exact active-set formula is used as a known tool and not claimed as novel.",
+      "searches": [
+        "Estimation of Monge Matrices Hutter Mao Rigollet Robeva 2019 quadratic projection, exact lipschitz 4 by 4",
+        "sup norm stability metric projection supermodular anti-Monge matrix 4x4",
+        "arxiv:1904.03136 Theorem 1 and Secs. 4-5",
+        "arxiv:1506.03430 Theorem 2.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1904.03136 full accessible primary PDF",
+      "arxiv:1506.03430 full accessible primary PDF",
+      "published-finding corpus search result: 2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62, abstract only; different isotonic order constraints",
+      "published-finding corpus search result: 2026/10/11/SCOPE-sharp-ell-4-stability-of-metric-projection-onto-a-probability-si--ade1ccb04ed3, abstract only; different cone and norm",
+      "Prior published weighted two-row supermodular projection theorem: claim-level comparison, domain only two rows"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A published two-row weighted supermodular result reduces to isotonic regression on column differences; a 4-by-4 array has a 3-by-3 matrix of mixed differences and its winning active set contains five independent plaquettes.",
+        "The 2019 Monge paper gives a Dykstra algorithm and mean-square estimation rates rather than an explicit mixed-norm Lipschitz radius.",
+        "The 2015 isotonic-matrix tangent-cone bounds apply to an inequivalent coordinatewise-monotone cone."
+      ],
+      "reasoning": "The 4-by-4 theorem is not a corollary of the two-row formula (which does not cover the object), of stochastic Frobenius-risk statements (which do not give sharp deterministic sup response), or of an unevaluated projector formula. It additionally classifies the minimal square-size active-set transition and provides exact finite equality inputs.",
+      "searches": [
+        "Monge anti-Monge supermodular 2 by m two-row least squares weighted projection exact coordinatewise stability",
+        "sup norm stability metric projection supermodular anti-Monge matrix 4x4",
+        "arxiv:1904.03136 Sec. 4.1",
+        "arxiv:1506.03430 Sec. 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The constraints are D x >= 0 with D the tensor product of first differences; reversing array sign changes anti-Monge to Monge without changing the Lipschitz constant.",
+        "Hütter et al., arXiv:1904.03136, eqs. (1.1),(2.2) and Sec. 4.1 use exactly this cone but analyze statistical risk and Dykstra computation.",
+        "No identified published-finding corpus search hit represented a 4-by-4 anti-Monge nearest-point maximum-norm theorem."
+      ],
+      "reasoning": "The natural aliases are submodular/supermodular, (anti-)Monge, mixed-second-difference cone and Frobenius metric projection. The anti-Monge-to-Monge equivalence is accounted for; surveyed statements give setup or algorithms, not the exact active-face result.",
+      "searches": [
+        "4 by 4 Monge matrix cone Euclidean metric projection Lipschitz infinity 9/4 checkerboard active inequalities additive fit",
+        "supermodular array projection l infinity Lipschitz 4x4 2.25, active set alternate plaquettes shape constrained regression",
+        "bivariate mixed second difference cone Frobenius projection endpoint norm additive margins projector 4x4",
+        "arxiv:1904.03136 Secs. 2 and 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest ranked published-finding corpus hits concern unrelated Euclidean projections and 4-by-4 tensor constants, not supermodular regression.",
+        "The prior two-row supermodular stability theorem concerns only a 2-by-m array and does not include five independent plaquettes in a 4-by-4 grid.",
+        "Exact per-cardinality maxima and unique winning mask are produced locally by complete rational enumeration of all 512 active sets, not copied from an existing table."
+      ],
+      "reasoning": "The search considered numeric 9/4, alternative 2.25, checkerboard, total-pooling 17/8 and cone terminology. No exact pre-existing table was identified; absence of matches alone is not a novelty proof.",
+      "searches": [
+        "4x4 checkerboard active inequalities Monge cone projection sharp 9/4 and total pooling 17/8",
+        "4 by 4 Monge matrix cone Euclidean metric projection Lipschitz infinity 9/4 checkerboard active inequalities additive fit",
+        "supermodular array projection l infinity Lipschitz 4x4 2.25, active set alternate plaquettes shape constrained regression",
+        "published-finding corpus semantic search: 4x4 checkerboard active inequalities Monge cone projection sharp 9/4 and total pooling 17/8"
+      ]
+    },
+    "rationale": "The published anti-Monge least-squares literature describes the same constraint cone and statistical/algorithmic properties, but the inspected main results and appendices do not yield the exact 4-by-4 infinity-to-infinity Lipschitz modulus, the unique checkerboard active set, or its finite witness. A separate earlier result on weighted two-row supermodular regression cannot specialize to a genuinely 4-by-4 five-plaquette face. Direct published-finding corpus semantic searches of exact constants, aliases and coverage identified no materially equivalent or dominating statement; the searches do not prove uniqueness or exhaustive priority. Historical priority remains provisional.",
+    "residual_risks": [
+      "Earlier equivalent small-grid anti-Monge sensitivity formula may exist under alternate submodular/polyhedral nomenclature beyond the inspected sources.",
+      "published-finding corpus searches are semantic and may miss lower-ranked or formula-only coverage; database partition is not proof of global novelty.",
+      "No independent historical-priority or mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same cone and computation, but no checked statement or appendix establishes the exact 4-by-4 9/4 norm or checkerboard optimizer.",
+        "evidence": [
+          "arXiv:1904.03136, Section 2 mixed-difference operator and least-squares problem",
+          "arXiv:1904.03136, Section 4.1 Dykstra anti-Monge projection algorithm",
+          "arXiv:1904.03136, Section 5.3 noise spectral decomposition; Appendices A/B"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1904.03136",
+        "material_read": "Accessible 42-page primary full-text PDF: introduction and statements, relevant passages in Sections 2 and 4.1, spectral decomposition in Section 5.3, Appendix A heading and references to Appendix B; PDF pages 1 and 15 additionally viewed. Not every page was read line by line.",
+        "method": "Primary text search for projection, Lipschitz and Appendix; mathematical comparison of (2.2), Section 4.1 and theorem statements with proposed norm and active-set classification.",
+        "title": "Estimation of Monge Matrices",
+        "trigger": "Exact same anti-Monge cone and direct projection algorithm; highest-priority coverage test."
+      },
+      {
+        "assessment": "Related estimation paradigm but inequivalent cone and objective of theorems; no implication of the proposed exact constant.",
+        "evidence": [
+          "arXiv:1506.03430 first posted 2015-06-10",
+          "Introduction specifies coordinatewise monotone matrices and Frobenius LSE",
+          "Section 4 treats tangent-cone expected-squared-risk bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1506.03430",
+        "material_read": "Accessible primary full-text PDF: introduction, main statements, selected proof and tangent-cone risk methods in Section 4, and title-page image; searched the available PDF text for Lipschitz and projection. Not every page was read line by line.",
+        "method": "Compare the coordinatewise isotonic inequalities and Frobenius risk bounds with mixed-difference anti-Monge constraints and deterministic maximum-norm sensitivity.",
+        "title": "On matrix estimation under monotonicity constraints",
+        "trigger": "Earliest dated relevant matrix shape-constrained least-squares source; possible broader result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c474cba4-e100-4604-b5f8-442e4c0e6ac1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural supermodular/anti-Monge Frobenius least-squares operator, the complete additive pooling face is indeed worst at square sizes two and three but fails at the first square size four. The unique checkerboard instability is a motivated minimal structural counterexample and exact deterministic perturbation invariant, attained by displayed finite data, not an arbitrary parameter slice. The phenomenon persists as a lower bound on larger squares, identifying the first genuinely bivariate active-face mechanism relevant to shape-constrained matrix denoising.",
+    "status": "PASS"
+  }
+}
