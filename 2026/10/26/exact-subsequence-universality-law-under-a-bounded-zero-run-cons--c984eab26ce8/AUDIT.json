@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The greedy arch theorem is proved in the result; a finite-state suffix-system for arbitrary r is solved algebraically to the exact rational GF. The n,k quantifiers include empty and unary words and r=1. At u=1 the ordinary zero-run enumeration is recovered. Dominant simple root and implicit differentiation give the expected-index slope, and a signed algebraic identity proves the strict reversal. Directly independently enumerated/automaton-derived coefficients (r=1..8,n<=125) and definition checks support rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson et al. (2023) give general effective procedures for counting k-universal words accepted by DFAs, covering fixed-parameter computability.",
+        "Adamson (2023), Conclusion, asks for closed formulas for fixed-length k-universal word counts.",
+        "The full all-r rational generating function and comparison of limiting expected index are symbolic evaluations not stated in those generic algorithms."
+      ],
+      "reasoning": "General computability of each coefficient is stronger algorithmically but does not identify the uniform rational expression or prove the strict arch-rate threshold. The new statement offers an explicit closed form uniform in both word length and the arbitrary run cap; it does not claim the broader counting problem is new.",
+      "searches": [
+        "arxiv:2311.10658v1 Section 4 counting/ranking",
+        "arxiv:2304.04583v1 Sections 3,6 counting formulas and open questions",
+        "web: number of binary words avoiding r consecutive zero subsequence universal words generating function"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.10658v1, Section 4",
+      "arxiv:2304.04583v1, Introduction and Conclusion",
+      "arxiv:2003.04629v1, Introduction and arch foundations",
+      "Published mathematical record e77c4e8d9f37, complete RESULT.md",
+      "arxiv:0902.4246v1 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arch count equals subsequence-universality index as prior foundational knowledge.",
+        "General DFA-counting algorithms imply that each fixed bounded-run coefficient is computable, but do not imply the displayed symbolic formula or its asymptotic threshold without substantial additional derivation.",
+        "The known unrestricted generating function is the limiting special case, not a domination of every finite-r distribution."
+      ],
+      "reasoning": "The new results are the uniform explicit parameterized rational identity and strict comparison μ1<1/3<μr (r≥2). Foundations and unrestricted specialization are not asserted as new. A trivial consequence of the generic algorithm would be a procedure, not these explicit identities.",
+      "searches": [
+        "arxiv:2003.04629v1 Section 2/4 arch characterization",
+        "arxiv:2304.04583v1 pp.1,8 counting and conclusion",
+        "arxiv:2311.10658v1 Section 4 counting regular languages",
+        "published-finding corpus record e77c4e8d9f37 full RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2023 automata paper counts k-universal accepted words using tables indexed by automaton state, arch count and alphabet mask (Section 4, pages 13-17); it provides algorithms, not an explicit all-r bivariate rational identity.",
+        "published-finding corpus nearest known binary case has F(z,u)=(1+z)/(1-z-2uz²), with no bound on zero runs.",
+        "The restricted law has correction terms depending on r and a sign reversal in asymptotic arch density."
+      ],
+      "reasoning": "The new language is a proper regular sublanguage for finite r. Its all-r generating function is not the unrestricted expression, nor obtained by renaming symbols; it reduces to the unrestricted expression only coefficientwise as r tends to infinity.",
+      "searches": [
+        "published-finding corpus: binary words avoiding 000 subsequence universality index distribution bivariate generating function greedy arch",
+        "published-finding corpus: greedy arch index binary words no runs of more than r zeros exact generating function",
+        "web: \"subsequence universality\" \"run length limited\" binary count",
+        "arxiv:2311.10658v1 pp.13-17"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returns an unconstrained binary enumeration and related arch/subsequence work but no zero-run-limited all-r identity in these actual searches.",
+        "Published binary result explicitly contains only the r-unbounded expression.",
+        "Classical run-length enumeration is unweighted by universality index."
+      ],
+      "reasoning": "An exact coefficient table in a general algorithm would need a per-r computation, and the public binary formula does not cover finite caps; no covering database record was located. Searches do not prove global absence.",
+      "searches": [
+        "published-finding corpus: GF (1+z-z^{r+1}-u z^{r+2})/(1-z-2u z^2+u z^{r+2}+u^2 z^{r+3}) subsequence universality binary avoid zero runs",
+        "published-finding corpus: bounded zero run universal subsequence arches binary all lengths closed form",
+        "web: binary run length limited subsequence universality arch generating function avoid 000",
+        "published-finding corpus public record binary subsequence-universality closed-form law e77c4e8d9f37"
+      ]
+    },
+    "rationale": "Literature and published-record comparisons find the all-r bounded-zero-run rational distribution and the strict mean-index efficiency reversal absent from checked sources. Unrestricted binary formula and general DFA counting algorithms are properly credited; neither states nor directly implies the symbolic all-r identity and its sign comparison. Residual risk remains for unindexed independent derivations.",
+    "residual_risks": [
+      "General automata counting could facilitate an unpublished equivalent special-case simplification.",
+      "Other mathematical literature, including the uninspected full RLL enumeration article, might use a different name for arch density or equivalent statistics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_ALGORITHM_NOT_EXPLICIT_RUN_CAP_DISTRIBUTION",
+        "evidence": [
+          "arXiv v1 dated 2023-11-17, counting path table T[q,l,c,R] and universal-word table U.",
+          "No displayed closed form uniform in zero-run cap or arch-rate efficiency comparison in inspected full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.10658",
+        "material_read": "Abstract, Introduction, Section 4 counting/ranking discussion and key path-table definitions on pages 13-17, and conclusions.",
+        "method": "Primary full-text PDF reading, arXiv public source.",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Directly covers k-universal words accepted by arbitrary finite automata and might subsume the result."
+      },
+      {
+        "assessment": "ALGORITHM_UNRESTRICTED_NOT_COVERING_UNIFORM_RUN_CAP_FORMULA",
+        "evidence": [
+          "O(nkσ) unrestricted counting algorithm; conclusion asks if a general formula exists.",
+          "No run-cap-refined rational identity in inspected source."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.04583",
+        "material_read": "Abstract, Introduction, counting-result overview, and conclusion containing a closed-form enumeration open question, including page 9.",
+        "method": "Primary full-text PDF reading, arXiv public source.",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Earlier enumeration work might cover binary arch distributions and general formulas."
+      },
+      {
+        "assessment": "FOUNDATIONAL_ARCH_EQUIVALENCE_ACKNOWLEDGED_NOT_NEW",
+        "evidence": [
+          "Establishes scattered-factor universality and uses arch factorization; no bounded-run all-r enumeration claimed."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Abstract, introduction, preliminaries and cited arch-factorization discussion.",
+        "method": "Primary full-text PDF reading, arXiv public source.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Primary arch factorization and universality foundation."
+      },
+      {
+        "assessment": "STRICTLY_UNRESTRICTED_CASE_ONLY;_NOT_FINITE_R",
+        "evidence": [
+          "Public formula F=(1+z)/(1-z-2u z²), unconditional over all binary words.",
+          "New F_r has nonzero r-dependent numerator and denominator corrections."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37/RESULT.md",
+        "material_read": "Entire public RESULT.md including theorem, proof, scope, limitations, references.",
+        "method": "Primary published source-file text through GitHub read-only interface.",
+        "title": "Closed-form law for binary subsequence universality",
+        "trigger": "Closest public mathematical-record expression with an apparently identical alphabet and index."
+      },
+      {
+        "assessment": "BACKGROUND_UNWEIGHTED_ENUMERATION_ONLY_IN_AVAILABLE_MATERIAL",
+        "evidence": [
+          "Abstract describes weight/charge distributions for run-limited words; absent universality index terms in available material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0902.4246",
+        "material_read": "Primary abstract and publication metadata; complete paper not inspected.",
+        "method": "arXiv abstract metadata.",
+        "title": "Constant-Weight and Constant-Charge Binary Run-Length Limited Codes",
+        "trigger": "May contain zero-run-constrained counting generating functions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c984eab2-6ce8-4a3a-8d77-3ca920d9f467",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A genuinely parameterized family of constrained symbolic sources receives an exact length-and-universality distribution, not a single finite table. The strict inequality μ1<1/3<μr for every r>=2 yields an unexpected qualitative reversal: forbidding long zero runs improves typical subsequence coverage while forbidding 00 worsens it. These are natural quantitative benchmarks for constrained sequence generation and exact fixed-length universal-string counts, motivated directly by the regular-language universality counting literature.",
+    "status": "PASS"
+  }
+}
