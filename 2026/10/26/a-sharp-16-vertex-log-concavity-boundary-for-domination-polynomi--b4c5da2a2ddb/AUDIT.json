@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Structural representation as rooted-forest ancestor graphs; universal-root and disjoint-union domination polynomials proven by partition of dominating sets. Exact integer enumeration tests every canonical rooted-forest multiset through order 16 (1,011,310 shapes), with a unique order-16 failed inequality; direct brute force independently checks all 65,536 subsets of the witness. The infinite family defect m(2m^2-9m-3)/2 is positive exactly for integers m>=5. Limits: exhaustive code and its completeness induction are necessary for the finite universal claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bilal Ahmad Rather, 2025, Theorem 2.16: exact domination polynomial of a join of a clique and several cliques; the subsequent question asks about log-concavity and unimodality in the general family.",
+        "Mohamed Omar, 2026, Section 5/Theorem 19: unimodality via a log-concave summand structure for threshold graphs, a proper subclass."
+      ],
+      "reasoning": "The known join polynomial algebraically includes the proposed witness, so the witness polynomial and coefficient defect are credited as consequences rather than novel. Neither broader coverage gives the 16-vertex cutoff and uniqueness across ALL trivially perfect graphs. No stronger theorem for that class was located.",
+      "searches": [
+        "Web: domination polynomial cographs log concave threshold graphs conjecture counterexamples 2026",
+        "Web: domination polynomial trivially perfect graphs log concave counterexample clique bouquet windmill 2026",
+        "Web: domination polynomial of generalized friendship graph clique windmill log-concave unimodal"
+      ]
+    },
+    "checked_sources": [
+      "https://combinatorialpress.com/jcmcc-articles/volume-126/on-domination-polynomials-of-some-graphs/",
+      "https://arxiv.org/html/2601.14494",
+      "https://arxiv.org/abs/2411.02288"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rather Theorem 2.16 implies D(K1 join 3K5;z)=z(1+z)^15+((1+z)^5-1)^3; hence the 225<230 witness comparison requires only substitution and is NOT independently novel.",
+        "Neither Rather nor Omar provides the sharp global exclusion of all smaller trivially perfect graphs or uniqueness at n=16; attached verifier enumerates all rooted-forest shapes to prove exactly those implications.",
+        "Known tree non-log-concavity examples (Beaton-Schoonhoven arXiv:2411.02288) do not assert this special (P4,C4)-free graph-class cutoff."
+      ],
+      "reasoning": "Claim is the sharp cutoff and uniqueness (with an infinite consequence), not a rediscovery of the existing general join polynomial. The prior algebraic formula does not itself entail the order-optimality/uniqueness claim without a nontrivial complete finite census.",
+      "searches": [
+        "Web: site:arxiv.org/abs/2601.14494 threshold graphs log-concavity domination polynomial",
+        "Web: \"On domination polynomials of some graphs\" 2025 authors combinatorial press",
+        "Web: domination polynomial cographs log concave threshold graphs conjecture counterexamples 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 Omar arXiv:2601.14494 section 5 treats threshold graphs; no theorem in the inspected section classifies all trivially perfect graphs."
+      ],
+      "reasoning": "Trivially perfect, quasi-threshold, (P4,C4)-free and rooted-forest-comparability formulations were compared. No returned result states the least non-log-concave domination-polynomial order and uniqueness in this class; the threshold result covers a proper subclass and the related total-domination literature concerns a distinct invariant.",
+      "searches": [
+        "Web: \"smallest\" \"trivially perfect\" \"domination polynomial\" \"log-concave\"",
+        "Web: \"quasi threshold\" \"domination polynomial\" non log concave",
+        "Web: domination polynomial trivially perfect graphs log concave counterexample clique bouquet windmill 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full rooted-forest coefficient census computed from exact recurrences: connected shape counts by n=1..16 end 87811,235381; forest shape counts end 235381,634847. No earlier source table with failure indices/uniqueness was found."
+      ],
+      "reasoning": "Searches using the exact witness coefficients and class names produced a published exact table of minimal failures; shape-count tables alone would not establish the domination-polynomial inequalities. Absence of a match is not proof of publication priority.",
+      "searches": [
+        "Web: \"trivially perfect graphs\" \"domination polynomials\" logconcave unimodal",
+        "Web: \"smallest\" \"trivially perfect\" \"domination polynomial\" \"log-concave\""
+      ]
+    },
+    "rationale": "Prior exact join-of-cliques polynomial subsumes the example, which is credited. New non-implied contribution is first failing order 16 and uniqueness over the entire hereditary trivially perfect class, requiring exhaustive rooted-forest census. Public research-record searches and relevant primary full text yielded no competing first-order classification; bibliographic uncertainty noted.",
+    "residual_risks": [
+      "An earlier unpublished or nonindexed least-order census under trivially perfect/quasi-threshold/cograph terminology could exist.",
+      "Full text of the older general-tree counterexample paper was not inspected; its abstract does not target the claimed subclass.",
+      "Finite exclusion and uniqueness rely on exact exhaustive code and its completeness argument, not an independent human audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the witness polynomial through Theorem 2.16, but not the sharp least-order/uniqueness result for all trivially perfect graphs",
+        "evidence": [
+          "Theorem 2.16 states D(K_n1 join disjoint cliques)=join binomial expression",
+          "Following Theorem 2.16 asks about log-concavity and unimodality for arbitrary clique sizes",
+          "Online publication date 2025-06-24"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-126/on-domination-polynomials-of-some-graphs/",
+        "material_read": "Relevant full online article HTML: definitions and Section 2, especially Lemma 2.2, Theorems 2.10, 2.11, 2.16, Propositions 2.12 and the open question after Theorem 2.16",
+        "method": "Direct primary-source HTML reading",
+        "title": "On domination polynomials of some graphs",
+        "trigger": "Generalized friendship and join-of-cliques formulas could subsume the example"
+      },
+      {
+        "assessment": "Narrower threshold-graph theorem. Its result does not assert all trivially perfect graphs satisfy log-concavity, nor give a first-failure census.",
+        "evidence": [
+          "arXiv posted 2026-01-20",
+          "Section 5 develops threshold graph coefficients and Theorem 19 states unimodality"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.14494",
+        "material_read": "Full HTML abstract, introduction, and Section 5 including Lemmas 16-18 and Theorem 19 with proof; conclusion",
+        "method": "Direct open-access arXiv HTML reading",
+        "title": "New Perspectives on the Unimodality of Domination Polynomials",
+        "trigger": "Possible stronger graph-class log-concavity result"
+      },
+      {
+        "assessment": "Reports some trees with non-log-concave domination polynomials. Does not by its abstract settle the trivially perfect subclass minimum.",
+        "evidence": [
+          "arXiv abstract reports non-log-concave trees, initially posted 2024-11-04"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2411.02288",
+        "material_read": "arXiv abstract and bibliographic record, not full text",
+        "method": "Abstract reading",
+        "title": "On the unimodality of nearly well-dominated trees",
+        "trigger": "Earlier counterexamples for tree domination sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b4c5da2a-2ddb-4ab6-8d9b-53e4c9436a1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp first-order and unique minimal example give a natural precise boundary to extending log-concavity beyond threshold graphs, and the infinite clique-bouquet family prevents treating the failure as an isolated fluke. This is a motivated extremal classification, not an arbitrary small invariant or a routine recomputation of a known polynomial. It does not assert failure of unimodality.",
+    "status": "PASS"
+  }
+}
