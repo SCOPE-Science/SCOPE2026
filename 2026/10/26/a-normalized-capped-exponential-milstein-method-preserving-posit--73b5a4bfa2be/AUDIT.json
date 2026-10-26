@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The positivity/martingale proof is exact Gaussian conditional expectation; all-step moment bounds use a uniformly bounded cap and Jensen lower bound; the uniform local Taylor remainder is order h^{3/2} in L2, and the centered Itô--Taylor error obeys an L2 recursion yielding strong order one. Critical identities and numerical checks were replayed with embedded verify.py; finite tests supplement but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bréhier and Cohen, arXiv:2608.25689v1, eq. (26), Prop. 5, Thm. 6, Prop. 9; https://arxiv.org/pdf/2608.25689",
+        "Bréhier and Cohen, arXiv:2608.25685v1, construction and convergence results; https://arxiv.org/abs/2608.25685",
+        "Yi, Hu, Zhao, arXiv:2010.16321, Sections 2--5; https://arxiv.org/abs/2010.16321"
+      ],
+      "reasoning": "The 2026 source guarantees all-step positivity and first-order convergence for small h, but its uncapped Gaussian quadratic factor fails all-step finite moments and is not conditionally mean-one on the driftless nonlinear example. The companion handles a bounded hypercube and does not imply this unbounded positive martingale construction. Older logarithmic truncation achieves other positivity and convergence properties; no implication of the exact normalization theorem was found in inspected material.",
+      "searches": [
+        "Bréhier Cohen 2026 first-order positivity preserving scalar SDE exponential Milstein correction weak mean bias martingale loss nonlinear diffusion quadratic Gaussian moment explosion",
+        "Bréhier Cohen scalar positivity preserving SDE 2608.25689 normalization martingale moment integrability",
+        "web: martingale preserving positive stochastic differential equation numerical scheme normalized exponential Euler Milstein polynomial Gaussian"
+      ]
+    },
+    "checked_sources": [
+      "Bréhier and Cohen, arXiv:2608.25689v1, eq. (26), Prop. 5, Thm. 6, Prop. 9; https://arxiv.org/pdf/2608.25689",
+      "Bréhier and Cohen, arXiv:2608.25685v1, construction and convergence results; https://arxiv.org/abs/2608.25685",
+      "Yi, Hu, Zhao, arXiv:2010.16321, Sections 2--5; https://arxiv.org/abs/2010.16321"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bréhier and Cohen, arXiv:2608.25689v1, eq. (26), Prop. 5, Thm. 6, Prop. 9; https://arxiv.org/pdf/2608.25689",
+        "Bréhier and Cohen, arXiv:2608.25685v1, construction and convergence results; https://arxiv.org/abs/2608.25685",
+        "Yi, Hu, Zhao, arXiv:2010.16321, Sections 2--5; https://arxiv.org/abs/2010.16321"
+      ],
+      "reasoning": "Moment blowup of the *source* scheme is already established by prior literature and internal record, and cannot imply preservation of martingale expectation or strong order for a new capped normalized algorithm. Neither positivity nor first-order convergence of the source scheme implies all-h moment finiteness. The new theorem requires and supplies a separate local-error and global martingale analysis.",
+      "searches": [
+        "martingale-preserving exponentially normalized tamed truncated Milstein positivity strong order one scalar Ito diffusion coefficient x squared over one plus x",
+        "Bréhier Cohen scalar positivity preserving SDE 2608.25689 normalization martingale moment integrability",
+        "web: arxiv 2608.25689 positivity preserving Proposition 9 Gaussian moment bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bréhier and Cohen, arXiv:2608.25689v1, eq. (26), Prop. 5, Thm. 6, Prop. 9; https://arxiv.org/pdf/2608.25689",
+        "Yi, Hu, Zhao, arXiv:2010.16321, Sections 2--5; https://arxiv.org/abs/2010.16321"
+      ],
+      "reasoning": "A stochastic exponential integrator with capped quadratic Brownian increment and state-dependent *exact Gaussian conditional-mean division* is the operative formulation. Logarithmic schemes guarantee positivity, but do not give the displayed multiplier and all-step martingale plus strong-order claim; cited measles Milstein finding concerns a separate drift inconsistency.",
+      "searches": [
+        "martingale-preserving exponentially normalized tamed truncated Milstein positivity strong order one scalar Ito diffusion coefficient x squared over one plus x",
+        "positive driftless SDE exact expectation preservation via conditional Gaussian normalizer cap square Brownian increment with high strong order",
+        "web: conditional normalisation exponential Milstein scheme preserve martingale diffusion positivity all timestep size numerical method"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches on normalized, clipped positive SDE integrators produced related Gaussian-positivity and Milstein error topics, but no exact construction reproducing the theorem.",
+        "The moment-divergence condition for the uncapped factor is established by direct Gaussian integration; it is not presented as a new finding."
+      ],
+      "reasoning": "Search results and accessible prior records cover the *uncapped* moment threshold, which is excluded from claimed novelty, but no exact entry for the capped normalized scheme with convergence proof was found. Database nonappearance alone cannot prove originality.",
+      "searches": [
+        "positive exponential Milstein scheme is strict submartingale for driftless nonlinear Ito SDE and loses finite moments at sharp timestep",
+        "exact Gaussian quadratic exponential positivity preserving scalar stochastic integrator weak bias optimal moment threshold",
+        "martingale-preserving exponentially normalized tamed truncated Milstein positivity strong order one scalar Ito diffusion coefficient x squared over one plus x"
+      ]
+    },
+    "rationale": "The constructive capped-and-normalized multiplicative step, its all-h martingale and moment guarantees, and its Milstein-order convergence are not implications of the uncapped scheme or bounded/log-truncated alternatives inspected. The existing uncapped moment threshold is explicitly excluded from novelty; partial literature search cannot establish absolute uniqueness.",
+    "residual_risks": [
+      "General conditional-normalization ideas are classical; an equivalent normalized truncated exponential Milstein scheme may exist under different terminology.",
+      "Long numerical integration literatures beyond the inspected primary papers were not exhaustively checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING new modified scheme; original uncapped method covered as prior",
+        "evidence": [
+          "Equation (26) uses full Brownian square, no cap and no conditional normalizer.",
+          "Proposition 5 gives positivity; Theorem 6 gives strong first-order convergence for small time steps; Proposition 9 proves finite moments under small-step conditions."
+        ],
+        "identifier_or_url": "arxiv:2608.25689v1 / https://arxiv.org/pdf/2608.25689",
+        "material_read": "PDF pp. 1, 7-15, 22-28 including equations (23)-(26), Proposition 5, Theorem 6 and Proposition 9 and their proof techniques",
+        "method": "Primary PDF section/full-formula inspection and direct Gaussian integral comparison",
+        "title": "Analysis of a first-order explicit positivity preserving scheme for a class of scalar SDEs",
+        "trigger": "Same integrator before truncation and normalization"
+      },
+      {
+        "assessment": "NOT_COVERING exact normalized halfline martingale scheme",
+        "evidence": [
+          "Schemes preserve prescribed hypercubes; their strong-one variant uses one-dimensional Brownian motion.",
+          "No Gaussian-mean quotient for the specified rational diffusion is identified."
+        ],
+        "identifier_or_url": "arxiv:2608.25685v1 / https://arxiv.org/abs/2608.25685",
+        "material_read": "Accessible HTML abstract, full-text description of positive hypercube schemes, and convergence discussion; principal structural formulas contrasted.",
+        "method": "Primary open-access text inspection, comparison of domain and update formulas",
+        "title": "Explicit domain preserving numerical schemes for a class of stochastic differential equations",
+        "trigger": "Same authors and positive splitting machinery cited by main source"
+      },
+      {
+        "assessment": "Related, but no exact simultaneous normalized-exp-Milstein structure in material read",
+        "evidence": [
+          "Method transforms \\(X\\) by logarithm then applies truncated numerical updates.",
+          "Positivity and convergence are studied but not the displayed exact conditional Gaussian quotient."
+        ],
+        "identifier_or_url": "arxiv:2010.16321 / https://arxiv.org/abs/2010.16321",
+        "material_read": "Accessible HTML abstract and introduction, Section 2, Section 3, and beginning of Section 4; keyword search on martingale. Later convergence proofs not read in full.",
+        "method": "Direct primary text reading; formula comparison",
+        "title": "Positivity preserving logarithmic Euler-Maruyama type scheme for stochastic differential equations",
+        "trigger": "Older log-truncation alternative could dominate positivity and convergence claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "73b5a4bf-a2be-46ca-b3e0-0a676e9efecf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonlinear driftless diffusion is a positive true martingale. The leading literature method combines positivity and strong-order-one only at small steps while the Gaussian quadratic tail may make numerical moments infinite on coarse steps. A single cap-plus-normalization simultaneously restores all-step moment finiteness and exact conditional mean, and the derived centered Milstein local error proves that these repairs preserve strong order one. This is a motivated constructive remedy with a full convergence theorem, not a reassertion of the known blowup threshold.",
+    "status": "PASS"
+  }
+}
