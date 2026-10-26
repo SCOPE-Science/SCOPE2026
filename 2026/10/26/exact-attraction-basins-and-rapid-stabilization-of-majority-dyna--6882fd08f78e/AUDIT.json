@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "An exhaustive case analysis of local open-neighborhood majority shows that each peripheral pair becomes monochromatic after one update and never changes thereafter. The hub chooses its terminal state by the second update. Fixed colorings are exactly those with no mixed pair and at most half the peripheral pairs opposing the hub. Disjoint counting of initial hub colors proves individual basin weights, including the tie boundary where the initial same-color hub contributes one state and the opposite-color hub contributes \\(3^j-1\\). Summing gives the complete terminal-blue polynomial and consensus law. A separate counted A/B/C condition gives exact two-round mass and a simple binomial symmetry argument gives its asymptotic 1/2 limit. Code independently enumerates all 174760 initial states for \\(1\\leq m\\leq8\\), but the uniform-in-size result rests on the displayed proof, not the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zehmakan reports the known general period-one-or-two theorem for deterministic majority and graph-specific cycle counts; a period bound does not give a basin decomposition.",
+        "Auletta et al. (2018) analyze asynchronous consensus existence and NP-hard coexistence, not the synchronous two-update graph-specific law."
+      ],
+      "reasoning": "Even a universal periodicity bound of two permits nontrivial two-cycles and gives no two-step cutoff or exact basin measures. Generic feasibility/complexity results for arbitrary graphs or different update protocols do not logically imply the proposed formula for labelled input counts without a new graph-specific analysis.",
+      "searches": [
+        "graph of triangles sharing a vertex, majority rule fixed points local basins of attraction",
+        "majority dynamics friendship graph windmill majority tie keep color probability consensus",
+        "arxiv:2302.06760v1 sections 1.2, 2, 4 and relevant appendix",
+        "DOI:10.24963/ijcai.2018/7, graph-general consensus/coexistence statements"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.06760v1: model, contribution overview, stabilization, random initial states, appendix",
+      "doi:10.24963/ijcai.2021/49: majority model and elite influence, accessible text",
+      "doi:10.24963/ijcai.2018/7: asynchronous majority consensus/coexistence, accessible text",
+      "MSC2020 91D30: field verification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Out and Zehmakan (2021) provide model/intervention analyses without the asserted friendship graph exact basins.",
+        "Zehmakan (arxiv:2302.06760v1) treats majority-state counts for cycles; their fixed-state counts do not imply the basins of a nonisomorphic friendship graph."
+      ],
+      "reasoning": "The new theorem is stronger in a different direction: its unit of enumeration is every initial profile mapped into each specified fixed coloring. Counting fixed colorings, establishing existence, finding a graph-convergence bound, or counting cycle configurations does not imply a distribution of individual basin sizes on the friendship graph.",
+      "searches": [
+        "one common hub m triangles majority dynamics stabilization two rounds consensus probability (3/4)^m +(1/4)^m",
+        "closed neighborhood strict threshold majority voting on complete bipartite graphs two-tier supporter profiles minority passage counts",
+        "friendship windmill majority fixed configurations attraction basins consensus",
+        "DOI:10.24963/ijcai.2021/49 majority tie model and elite influence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Same rule and deterministic dynamics established in Zehmakan (arxiv:2302.06760v1), without friendship-graph basin theorem in inspected relevant sections.",
+        "The polynomial enumerating generalized-windmill general-position sets is a static graph invariant and does not count opinions or attraction basins."
+      ],
+      "reasoning": "Aliases friendship graph, windmill graph, Dutch windmill and star of triangles name the same graph. Searching both these graph aliases and synchronous majority/tie-retention language located no exact labelled basin statement. Static graph-position coefficients do not count dynamic preimages of fixed opinions. Absence of a search hit alone is not evidence of absolute novelty.",
+      "searches": [
+        "friendship windmill graph synchronous majority opinion update tie retain old color convergence fixed point exact basin sizes formula 3 powers",
+        "friendship graph majority dynamics fixed points; windmill graph majority model opinion basins",
+        "friendship graph majority stabilization synchronous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact published fixed-state basin table was identified in these searches.",
+        "The exact table of fixed counts and terminal counts is computed by the included independently implemented local-update enumerator for m=1 through 8.",
+        "A generalized-windmill general-position polynomial counts an unrelated static invariant, not dynamical attraction basins."
+      ],
+      "reasoning": "A known sequence of fixed-point counts or a generic graph-automata enumerator, even if found, would not automatically supply labelled basin weights B_m(j), full terminal-blue distribution and exact convergence-time counts. No table containing these combined invariants was observed; external search nonexhaustiveness remains a real risk.",
+      "searches": [
+        "2 6 8 22 32 84 128 326 majority friendship graph fixed points",
+        "friendship graph windmill majority dynamics stabilization two rounds consensus",
+        "one common hub m triangles majority dynamics stabilization two rounds consensus probability (3/4)^m +(1/4)^m"
+      ]
+    },
+    "rationale": "The relevant primary source (Zehmakan, 2023) describes the exact majority rule, broad results and cycle specializations but not per-equilibrium basins on friendship graphs. The other inspected relevant primary papers address elite influence or asynchronous consensus/complexity; their statements are neither equivalent to nor logically dominating the complete basin decomposition. Previously described cycle-majority and other graph-specific calculations do not imply this triangle-hub dynamical basin law. Actual published-results and literature searches over graph aliases, stronger results and numeric tables found no direct coverage. Residual risk of equivalent older unindexed Boolean-network enumeration is acknowledged, without treating failed search as a proof of novelty.",
+    "residual_risks": [
+      "An equivalent theorem under the names threshold Boolean network, synchronous Ising zero-temperature Glauber map, friendship graph, Dutch windmill or triangular windmill might be unindexed or phrased differently.",
+      "Only inspected accessible relevant material is used to assess prior implication; no bibliographic search can certify global uniqueness.",
+      "Comparison with the 2018 and 2021 conference papers covered accessible text and relevant term searches rather than comprehensive independent visual inspection of every figure."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same majority/tie-retention map. Quantitative graph-specialized results concern cycles and constructions for random tie-breaking; no friendship-graph per-equilibrium basin-count formula is stated in the inspected relevant material. The general period-at-most-two fact is strictly weaker than uniform two-step fixation here.",
+        "evidence": [
+          "arxiv:2302.06760v1, pp.1-2 definitions and pp.3-7 model-specific results; sections 1.2, 2 and 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.06760 (arxiv:2302.06760v1)",
+        "material_read": "Full-length PDF text inspected at abstract, model definitions in section 1, contributions in section 1.2, stabilization/periodicity in section 2, random-coloring analysis in section 4, and relevant appendix statements; inspected page screenshots for abstract and section 2.",
+        "method": "Accessible first-public arXiv full-text PDF with page-level text extraction and visual page inspection.",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "Exact synchronous open-neighborhood majority rule and special-graph stability results in the motivating source."
+      },
+      {
+        "assessment": "Addresses elite influence, interventions and broad convergence. The reviewed material contains no claimed complete attraction-basin or terminal-color polynomial for friendship graphs.",
+        "evidence": [
+          "IJCAI 2021 paper, pp.349-350, model definition and stated objectives."
+        ],
+        "identifier_or_url": "https://www.ijcai.org/proceedings/2021/0049.pdf (DOI:10.24963/ijcai.2021/49)",
+        "material_read": "PDF abstract, introduction, majority-rule definition and description of contributions; text-search inspected for friendship, windmill and triangle terminology.",
+        "method": "Accessible conference PDF parsed text, with targeted full-document term searches.",
+        "title": "Majority Vote in Social Networks: Make Random Friends or Be Stubborn to Overpower Elites",
+        "trigger": "High-degree hub influence and same tie-retaining synchronous update."
+      },
+      {
+        "assessment": "Its update regime is asynchronous and its principal theorems concern existence/complexity of consensus and coexistence; the exact synchronous labelled basin law is not implied by these statements.",
+        "evidence": [
+          "IJCAI 2018 paper, pp.49-50, model and complexity results."
+        ],
+        "identifier_or_url": "https://www.ijcai.org/proceedings/2018/0007.pdf (DOI:10.24963/ijcai.2018/7)",
+        "material_read": "PDF abstract, introduction, algorithmic questions and stated results; text-search inspected for friendship, windmill and triangle terminology.",
+        "method": "Accessible conference PDF parsed text, with targeted full-document term searches.",
+        "title": "Reasoning about Consensus when Opinions Diffuse through Majority Dynamics",
+        "trigger": "Potential general graph theorem on consensus/coexistence that might subsume exact graph-family results."
+      },
+      {
+        "assessment": "91D30 is Social networks; opinion dynamics, directly matching the subject of the claim.",
+        "evidence": [
+          "MSC2020 91D30 Social networks; opinion dynamics."
+        ],
+        "identifier_or_url": "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=91D10",
+        "material_read": "The 91Dxx category table and the definition of 91D30.",
+        "method": "Official Mathematics Subject Classification 2020 webpage.",
+        "title": "MSC2020 classification database",
+        "trigger": "Verify the primary scientific field for an opinion-dynamics theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6882fd08-f78e-4b9f-9397-f156d6c7584e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural high-degree-hub social-network family admits a complete analytic dynamical basin census: exact attraction size of each stable coloring, exact absorption-output polynomial, sharp two-round bound and exact convergence-time multiplicity. The theorem exposes a substantive structural phenomenon: the hub almost surely retains its initial opinion for large friendship graphs, yet global consensus becomes exponentially rare because each local pair shields mutual dissent. The combinatorial invariant is motivated by opinion-outcome predictability and not a mere arbitrary small finite slice. No independent audit has been performed.",
+    "status": "PASS"
+  }
+}
