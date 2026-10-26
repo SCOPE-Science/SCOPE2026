@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "An exact conditioned composition formula yields a fixed-count partition-sector limit \\(b^{k-1}/[k!(k-1)!]\\) under \\(\\theta_L/L^2\\to\\Theta\\). A factorially summable uniform bound permits summing all counts, and bounded-support Hoeffding bounds eliminate the zero-cluster sector. Under fixed-count conditioning, polynomial bulk reweighting preserves concentration at \\(\\mu\\), and uniform weak compositions yield \\(\\operatorname{Dirichlet}(1,\\ldots,1)\\) mass proportions scaled by \\(e\\). The analytic argument proves the joint limit; checker.py agrees independently with all directly enumerated small cases and converges numerically to the Bessel law. No numerical extrapolation is used to justify the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jatuviriyapornchai–Grosskinsky (2024), DOI 10.1007/s10955-024-03362-0, stationary weight equation (5), §3.2.3 proof (cluster compositions), §4 discussion: \\(\\gamma=2\\) expressly not resolved.",
+        "Blank–Chleboun–Grosskinsky–Jatuviriyapornchai (2026), arXiv:2603.00806v1, Theorems 2 and 3 and §2.2: no theorem for \\(\\gamma=\\kappa+2\\); \\(\\kappa=0\\) is the constant-tail quadratic regime."
+      ],
+      "reasoning": "For the exact source system, independent mesoscopic clusters require exponent \\(\\gamma<2\\) and a single macroscopic condensate requires \\(\\gamma>2\\). The 2026 generalization likewise excludes \\(\\gamma=\\kappa+2\\) (kappa=0 here). Theorems stated with strict inequalities do not cover equality, even by a parameter limit, because the number and masses of clusters change scales.",
+      "searches": [
+        "Jatuviriyapornchai Grosskinsky condensation fast rate 2024 crossover number clusters",
+        "arXiv:2603.00806 Theorems 2 and 3",
+        "arXiv:2404.02590 Theorems 2 and 3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2404.02590 (2024-04-03 first public posting)",
+      "DOI:10.1007/s10955-024-03362-0 (full open-access HTML)",
+      "arXiv:2603.00806v1 (full HTML)",
+      "DOI:10.1007/s10955-019-02451-9 (full open-access HTML)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jatuviriyapornchai–Grosskinsky (2024), DOI 10.1007/s10955-024-03362-0, stationary weight equation (5), §3.2.3 proof (cluster compositions), §4 discussion: \\(\\gamma=2\\) expressly not resolved.",
+        "Blank–Chleboun–Grosskinsky–Jatuviriyapornchai (2026), arXiv:2603.00806v1, Theorems 2 and 3 and §2.2: no theorem for \\(\\gamma=\\kappa+2\\); \\(\\kappa=0\\) is the constant-tail quadratic regime.",
+        "Jatuviriyapornchai–Chleboun–Grosskinsky (2019/2020), DOI 10.1007/s10955-019-02451-9, §2–3: Poisson–Dirichlet statistics of inclusion rather than constant-tail Bessel count."
+      ],
+      "reasoning": "The 2024 source supplies the exact cluster composition identity, which is reused and duly attributed, but its published proof uses \\(L^2/\\theta_L\\to0\\) and does not establish a distribution for K at finite positive \\(L^2/\\theta_L\\). The 2026 source excludes its transition line. The inclusion-process result concerns a genuinely different tail and Poisson–Dirichlet law. None of these inspected statements implies the present count law plus conditional random finite-simplex limit.",
+      "searches": [
+        "critical gamma=2 zero-range fast jump rate theta_L/L^2 Bessel-distributed condensate clusters Dirichlet macroscopic fractions",
+        "single fast rate occupation number A gamma two mesoscopic macroscopic cluster statistics",
+        "2404.02590 §3.2.3 §4",
+        "2603.00806 §2.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jatuviriyapornchai–Grosskinsky (2024), DOI 10.1007/s10955-024-03362-0, stationary weight equation (5), §3.2.3 proof (cluster compositions), §4 discussion: \\(\\gamma=2\\) expressly not resolved.",
+        "Jatuviriyapornchai–Chleboun–Grosskinsky (2019/2020), DOI 10.1007/s10955-019-02451-9, §2–3: Poisson–Dirichlet statistics of inclusion rather than constant-tail Bessel count."
+      ],
+      "reasoning": "A Poisson–Dirichlet law has countably many positive fragments and arises from reciprocal occupation weights. A finite Bessel-distributed number of uniform Dirichlet fragments at a fixed positive excess density is not the same limiting statement. Uniform weak compositions imply conditional Dirichlet, but prior decompositions alone do not determine the critical count weights without uniform sector asymptotics.",
+      "searches": [
+        "critical gamma=2 zero-range fast jump rate theta_L/L^2 Bessel-distributed condensate clusters Dirichlet macroscopic fractions",
+        "zero range process particle condensation K cluster Bessel distribution Dirichlet simplex weights k!(k-1)!",
+        "\"zero range\" \"number of clusters\" \"Bessel distribution\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected full-text primary sources contain finite partition decompositions and neighboring asymptotic theorems, not a table of the quadratic-limit site-count probability b^{k-1}/(k!(k-1)!W(b)).",
+        "Blank–Chleboun–Grosskinsky–Jatuviriyapornchai (2026), arXiv:2603.00806v1, Theorems 2 and 3 and §2.2: no theorem for \\(\\gamma=\\kappa+2\\); \\(\\kappa=0\\) is the constant-tail quadratic regime."
+      ],
+      "reasoning": "There is no known exact finite-result database governing this infinite-particle thermodynamic transition; searched matching count and mass laws rather than relying on a table search alone. Absence of search hits does not certify novelty.",
+      "searches": [
+        "zero range process particle condensation K cluster Bessel distribution Dirichlet simplex weights k!(k-1)!",
+        "\"zero-range\" \"fast rate\" \"Bessel\" condensate",
+        "\"zero-range\" \"condensate\" \"Dirichlet\" \"critical\" \"L^2\""
+      ]
+    },
+    "rationale": "The motivating 2024 primary article explicitly leaves the \\(\\gamma=2\\) law unresolved, including the finite macroscopic cluster count and coupled masses. A 2026 generalization also excludes its critical line; its \\(\\kappa=0\\) constant-tail case falls exactly here. The inclusion-process Poisson–Dirichlet result is not equivalent. Focused source, claim, alias and parameter searches and comparisons found no covering published statement; there remains a substantive but nondecisive risk of unindexed duplicate results.",
+    "residual_risks": [
+      "The existing 2024 cluster partition-function decomposition almost contains the computation; an unindexed informal or follow-up derivation might already evaluate the critical limit.",
+      "A stronger general theorem beyond the inspected 2026 article could conceivably imply the same Bessel–Dirichlet law; no such coverage was found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model and known finite identity, but its Theorem 2 assumes \\(\\gamma<2\\) and Theorem 3 \\(\\gamma>2\\). Explicitly identifies equality as open; joint Bessel–Dirichlet law is not among its statements.",
+        "evidence": "Jatuviriyapornchai–Grosskinsky (2024), DOI 10.1007/s10955-024-03362-0, stationary weight equation (5), §3.2.3 proof (cluster compositions), §4 discussion: \\(\\gamma=2\\) expressly not resolved.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-024-03362-0",
+        "material_read": "Full HTML text, especially §§2.1–2.2, 3.1–3.2.3, 4, and references; the primary arXiv metadata for first public date.",
+        "method": "Compared equations (4)–(5), finite cluster decomposition (27)–(28), theorem hypotheses, critical discussion, and all stated limiting laws.",
+        "title": "Condensation in Zero-Range Processes with a Fast Rate",
+        "trigger": "The source defining the exact stationary product weights and the unsolved \\(\\gamma=2\\) transition."
+      },
+      {
+        "assessment": "The precise transition line is excluded and declared future research. No published stronger statement implies the claimed law.",
+        "evidence": "Blank–Chleboun–Grosskinsky–Jatuviriyapornchai (2026), arXiv:2603.00806v1, Theorems 2 and 3 and §2.2: no theorem for \\(\\gamma=\\kappa+2\\); \\(\\kappa=0\\) is the constant-tail quadratic regime.",
+        "identifier_or_url": "https://arxiv.org/html/2603.00806v1",
+        "material_read": "Full HTML abstract, introduction, §2.1–2.3, statements/proofs of Theorems 1–3, and critical-line discussion.",
+        "method": "Matched \\(\\kappa=0\\) constant tail and \\(\\gamma=2\\) to critical equality \\(\\gamma=\\kappa+2\\), and checked the strict inequalities of the two cluster theorems.",
+        "title": "Condensation in stochastic lattice gases with size-dependent stationary weights",
+        "trigger": "Later general theory might dominate or subsume the source-model transition."
+      },
+      {
+        "assessment": "Different stationary weight asymptotics and a Poisson–Dirichlet hierarchy; no implication of a finite Bessel count for the constant-tail source model.",
+        "evidence": "Jatuviriyapornchai–Chleboun–Grosskinsky (2019/2020), DOI 10.1007/s10955-019-02451-9, §2–3: Poisson–Dirichlet statistics of inclusion rather than constant-tail Bessel count.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-019-02451-9",
+        "material_read": "Open-access full-text introduction, model/weight definition, statements of the condensate distribution results, and comparison to zero-range models.",
+        "method": "Compared limiting multiplicity, stationary weight tails, and dimension of the random partition.",
+        "title": "Structure of the Condensed Phase in the Inclusion Process",
+        "trigger": "Poisson–Dirichlet or stick-breaking mass laws could cover apparent Dirichlet partition novelty."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c979c38d-21b1-480c-a6f9-309b7d8afc69",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The critical exponent \\(\\gamma=2\\) is the physically singled-out boundary between diverging mesoscopic and uniquely macroscopic condensates. The exact count probability and complete random mass split resolve a published natural structural question and distinguish finite-simplex partitions from the known Poisson–Dirichlet and independent-cluster regimes. The result is a nontrivial universal stationary law with a direct probability-of-one-condensate interpretation; it makes no unsupported dynamical claim.",
+    "status": "PASS"
+  }
+}
