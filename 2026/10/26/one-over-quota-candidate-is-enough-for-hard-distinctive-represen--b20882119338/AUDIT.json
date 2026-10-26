@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Positive: maximal pairwise disjoint quota supports require at most n/q<=k candidates and intersect every quota support; padding maintains JR. Negative: the 4-copy reduction makes q=4 and the shared dummy represents every eligible candidate, leaving only e as the JR test. For any allocation of 4t triples among four copies, each t-allocation in a NO X3C instance misses >=1, each underallocation t-b misses >=3b. Deficit total B=0 misses >=4; B=1 misses >=5; B>=2 misses >=6. The YES construction covers all. NP membership follows by direct verification of supporter counts and each candidate's unrepresented supporters. The standalone exact finite checks were executed and match the proof; they do not establish the all-size theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Unrestricted DR NP-hardness has no logical implication to NP-hardness within a one-exception restriction.",
+        "Universal JR existence without all winners q-supported does not imply universal DR existence under q-bounded supports."
+      ],
+      "reasoning": "The likely stronger-looking general complexity result covers all inputs but does not restrict hardness witnesses; the new reduction must and does meet the stronger family promise. General JR solvability is weaker than DR.",
+      "searches": [
+        "Diverse Representation in Approval-Based Committee Voting Chingoma Grossi Lindeboom Maly NP-hardness exact supporter sizes",
+        "\"Diverse Representation in Approval-Based Committee Voting\" 2609.29332",
+        "arXiv:2609.29332 Theorem 26",
+        "arXiv:1407.8269 Theorem 1",
+        "arXiv:2108.12949 justifying group"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29332 Definition 22 and Theorem 26 including Appendix D",
+      "arXiv:1407.8269 Theorem 1",
+      "arXiv:2108.12949 Introduction and Sections 3–4",
+      "published-finding corpus: Exact weight-three 2-cover-free families (2026-09-20)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 DR paper's theorem concerns unrestricted decision complexity and uses a different family of supporter sets.",
+        "2015 JR greedy algorithm does not constrain supporter counts of winners.",
+        "2021 justifying-group results do not claim decision complexity with one oversized candidate."
+      ],
+      "reasoning": "The precise new premise has every selected candidate q-supported plus exactly one unselectable overquota candidate. The previous general NP-hardness statement alone has no restriction-preserving reduction; our four-fold amplification provides that reduction. No selected source gives the exact single-exception boundary.",
+      "searches": [
+        "distinctive representation quota-sized candidates one overquota candidate NP-complete exact cover X3C committee",
+        "arXiv:2609.29332 Appendix D Theorem 26 proof",
+        "arXiv:1407.8269 theorem JR exists",
+        "arXiv:2108.12949 Sections 1,3,4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "DR means exactly-q support for winners plus JR, hence equivalent to quota-only committee selection with no candidate leaving q wholly unrepresented supporters.",
+        "published-finding corpus returned no matched DR-equivalent statement among inspected nearest records."
+      ],
+      "reasoning": "The positive clause translates to a maximal disjoint-edge family of quota sets, and the hardness clause to selecting 4t triples covering all but three element voters across four copies. Neither equivalent form was identified as an existing published DR theorem in the inspected materials.",
+      "searches": [
+        "distinctive representation quota-sized candidates one overquota candidate NP-complete exact cover X3C committee",
+        "\"Distinctive Representation\" DR justified representation exact quota support",
+        "arXiv:2609.29332 Definition 22"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest actual result records concern cover-free families, apportionment quotas or rank-maximal matching rankings rather than this decision problem."
+      ],
+      "reasoning": "A case-count database or extremal table cannot entail this all-input NP-completeness boundary. No such exact DR database identified; lack of a match is not novelty proof.",
+      "searches": [
+        "maximal hypergraph matching quota-supported candidates justified representation JR DR",
+        "\"Distinctive Representation\" DR justified representation exact quota support"
+      ]
+    },
+    "rationale": "Exact statement-versus-implication comparison: the 2026 DR source introduces DR and proves unrestricted hardness but does not state the zero-overquota constructive guarantee or hardness under a unique overquota candidate, all remaining supports equal to four, and a shared dummy supporter. Earlier JR/justifying-group theorems omit the equal-support constraint. No returned published-finding corpus record entails the combined boundary. Priority remains provisional as detailed in residual risks.",
+    "residual_risks": [
+      "General hypergraph partial-cover / exact-cover gap constructions may contain an equivalent promise-restricted reduction not found under DR terminology.",
+      "The JR/DR literature has numerous reformulations; search results and inspected sections do not establish global historical uniqueness.",
+      "No independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unrestricted NP-hardness and local search for weaker DR do not state or imply one-overquota-candidate hardness plus constructive zero-overquota boundary. Published reduction uses multiple types of quota-sized candidates rather than one overquota candidate.",
+        "evidence": [
+          "Definition 22: DR = JR plus exactly quota supporters for every elected candidate.",
+          "Theorem 26: unrestricted DR decision NP-hard; Appendix D supplies a different X3C construction."
+        ],
+        "identifier_or_url": "arXiv:2609.29332 | https://arxiv.org/abs/2609.29332",
+        "material_read": "Introduction; preliminaries defining JR; Section 6, Definition 22 and Theorem 26; Appendix D, complete theorem proof lines 851-863; Section 7 local DR.",
+        "method": "Accessible full-text HTML, closely compared definitions, premises and theorem implications.",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "Defines exactly the focal DR decision problem and proves general hardness."
+      },
+      {
+        "assessment": "Guarantees JR irrespective of supporter sizes, but not the restriction that all winners have exactly ceil(n/k) supporters. Does not entail the stated DR dichotomy.",
+        "evidence": [
+          "Theorem 1 proves universal JR existence by greedy voter removal without restrictions on support sizes of selected candidates."
+        ],
+        "identifier_or_url": "arXiv:1407.8269 | https://arxiv.org/abs/1407.8269",
+        "material_read": "Introduction and Theorem 1 proof describing Greedy Approval Voting and JR existence.",
+        "method": "Accessible full-text HTML; checked hypothesis/output of Greedy Approval Voting.",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Foundational JR existence, necessary to exclude subsumption by classic greedy JR."
+      },
+      {
+        "assessment": "Small JR-justifying groups and padding can be used without exactly-quota winners; the inspected material does not provide the one-exception hardness theorem.",
+        "evidence": [
+          "Focuses on n/k-justifying candidate groups, general guarantees, optimization and gender-balanced JR."
+        ],
+        "identifier_or_url": "arXiv:2108.12949 | https://arxiv.org/abs/2108.12949",
+        "material_read": "Abstract, Sections 1-1.1 and outline of the small-group and computational results.",
+        "method": "Accessible full-text HTML; implication comparison of objectives and quotas.",
+        "title": "Justifying Groups in Multiwinner Approval Voting",
+        "trigger": "Studies small JR-justifying groups and their computation, possible stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2088211-9338-4224-9ef2-c588a7adacf0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural exact support-size boundary for a very recent social-choice axiom: it separates a guaranteed constructive subdomain from NP-complete feasibility by the addition of a single unselectable but JR-blocking candidate. The common-dummy and all-but-one support constraints isolate the source of computational hardness instead of merely repeating unrestricted X3C hardness. Such structurally sharp complexity boundaries inform domain restrictions and algorithms for group-diverse committee selection.",
+    "status": "PASS"
+  }
+}
