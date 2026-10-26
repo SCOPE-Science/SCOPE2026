@@ -1,0 +1,173 @@
+{
+  "checked_sources": [
+    "doi:10.3182/20080706-5-KR-1001.2831 (full text inspected)",
+    "doi:10.1111/j.1934-6093.2005.tb00409.x (abstract and metadata inspected)",
+    "doi:10.1109/TAC.2009.2029304 (abstract and metadata inspected)",
+    "doi:10.1002/rnc.6744 (abstract and references inspected)",
+    "Searches for sampled-data alternating-interval and double-integrator proportional-derivative stability"
+  ],
+  "correctness": {
+    "rationale": "Exact integration of the held input gives M(h). Symbolic multiplication verifies the period-two trace and determinant and the identities \\(1-\\operatorname{tr}(P)+\\det(P)=k_p(a+b)(a+b-k_dab)\\) and \\(2(1+\\operatorname{tr}(P)+\\det(P))=\\Phi\\). Within the fixed-period stability interval, the determinant condition and first Jury inequality are strict, leaving \\(\\Phi>0\\) as the necessary-and-sufficient remaining condition. The exact witness has \\(\\\\(\\(\\(\\Phi=-253/1250\\)\\)\\)\\), \\(p(-2)=2903/2500\\), and \\(p(-1)=-253/2500\\), so its two-step map has a real multiplier in \\((-2,-1)\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected 2008 IFAC paper considers uncertain interval sequences in a general state-space setup and derives sufficient robustness conditions over an interval; it notes fixed-period stability can be checked through the sampled map's spectral radius.",
+        "Titton et al. (2023), DOI 10.1002/rnc.6744, abstract describes LMI conditions for sector- and slope-restricted Lur'e systems, not the exact linear two-period polynomial."
+      ],
+      "reasoning": "The broader methods can analyze related systems, but the inspected statements do not dominate the specific iff formula or its exact unit-multiplier boundary. No claim is made that generic sampled-data theory fails to encompass the system.",
+      "searches": [
+        "sampled-data double integrator periodic sampling jitter exact stability alternating sample periods feedback",
+        "A discrete-time approach to stability analysis of systems with aperiodic sample-and-hold devices",
+        "Stability analysis of Lure systems under aperiodic sampled-data control"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3182/20080706-5-KR-1001.2831 (full text inspected)",
+      "doi:10.1111/j.1934-6093.2005.tb00409.x (abstract and metadata inspected)",
+      "doi:10.1109/TAC.2009.2029304 (abstract and metadata inspected)",
+      "doi:10.1002/rnc.6744 (abstract and references inspected)",
+      "Searches for sampled-data alternating-interval and double-integrator proportional-derivative stability"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fujioka's full text, Sections 2–3, uses a fixed-interval spectral-radius check and sufficient inequalities for all intervals in a range; it does not display the product criterion for alternating a,b.",
+        "The exact witness with \\(k_p=2,\\ k_d=3/2,\\ a=1/10,\\ b=13/10\\) has each fixed-period map stable but a two-step multiplier below -1."
+      ],
+      "reasoning": "The general product/Floquet and Jury tools make the derivation possible, but the specific polynomial and sharp counterexample are not stated in the inspected material. The contribution is a model-specific exact boundary, not a new general stability principle.",
+      "searches": [
+        "sampled-data control alternating sampling intervals exact Floquet stability period-two feedback gain",
+        "double integrator zero-order hold proportional derivative feedback alternating two sampling periods exact period-two Floquet Schur stability boundary",
+        "Stability Analysis for a Class of Networked/Embedded Control Systems: Output Feedback Case",
+        "Systems with Nonequidistant Sampling: Controllable? Observable? Stable?"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fujioka (2008 IFAC), DOI 10.3182/20080706-5-KR-1001.2831, full text: Sections 2–3 formulate uncertain sample-and-hold intervals and use a spectral-radius check for a constant interval plus sufficient robustness/Lyapunov conditions for varying intervals.",
+        "Guo (first public 2008-10-22), DOI 10.1111/j.1934-6093.2005.tb00409.x, abstract: general stability conditions for linear and nonlinear systems with nonequidistant sampling; the abstract does not state this exact polynomial.",
+        "Fujioka (2009), DOI 10.1109/TAC.2009.2029304, abstract: a discrete-time robustness approach for uncertain time-varying sampling intervals, not an explicit iff period-two formula."
+      ],
+      "reasoning": "The claim is a closed-form iff criterion for P=M(b)M(a) for the specified double integrator and fixed gains. General aperiodic stability conditions are not logically equivalent to this explicit two-period boundary; a sufficient LMI certificate does not itself state the exact region.",
+      "searches": [
+        "sampled-data control alternating sampling intervals exact Floquet stability period-two feedback gain",
+        "double integrator zero-order hold proportional derivative feedback alternating two sampling periods exact period-two Floquet Schur stability boundary",
+        "sampled-data double integrator periodic sampling jitter exact stability alternating sample periods feedback",
+        "periodic sampling jitter destabilizes stable sampled-data control exact two-period sampling interval Floquet matrix",
+        "zero-order hold control harmonic oscillator alternating sampling intervals parametric resonance exact stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected source or search result returned the same \\(\\Phi\\) polynomial or an equivalent exact two-interval classification. The proof reduces to a symbolic two-by-two monodromy calculation rather than a table lookup."
+      ],
+      "reasoning": "A matching table would have to state the same necessary-and-sufficient boundary in equivalent parameters or imply it by a stronger explicit theorem; none was identified in the bounded search.",
+      "searches": [
+        "double integrator zero-order hold proportional derivative feedback alternating two sampling periods exact period-two Floquet Schur stability boundary",
+        "periodic sampling jitter destabilizes stable sampled-data control exact two-period sampling interval Floquet matrix",
+        "sampled-data double integrator periodic sampling jitter exact stability alternating sample periods feedback"
+      ]
+    },
+    "rationale": "The inspected literature supplies general sampled-data stability formulations and sufficient robustness criteria, but no inspected source states or implies the exact four-parameter necessary-and-sufficient period-two boundary for this fixed proportional-derivative double integrator. This is a specialized closed-form classification, not a claim of novelty for Floquet theory or the Schur-Jury test.",
+    "residual_risks": [
+      "The 2008 IFAC paper gives general interval-variation conditions, and an unindexed or inaccessible source may contain this exact specialization.",
+      "The full texts of the 2008 Guo article and 2009 Fujioka journal article were not accessible in the inspected route, so no claim is made that their appendices or examples lack an equivalent calculation.",
+      "The proof uses classical two-by-two matrix algebra and Schur-Jury theory; the novelty is limited to the explicit model-specific iff boundary and exact witness.",
+      "The result addresses only exact period-two sampling and does not establish stability for arbitrary aperiodic sampling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING: the paper gives general sufficient conditions for uncertain interval sequences and a spectral-radius test for a fixed interval; the exact Phi iff boundary for this proportional-derivative double integrator is not stated in the inspected text.",
+        "evidence": "The paper's Section 2, lines corresponding to its equations (3)–(5), defines uncertain intervals and the fixed-interval sampled map; Section 3 gives sufficient quadratic-stability/robustness criteria.",
+        "identifier_or_url": "doi:10.3182/20080706-5-KR-1001.2831",
+        "material_read": "Full six-page IFAC proceedings paper, including introduction, model formulation, constant-interval spectral-radius statement, robustness criterion, and sufficient interval-range tests.",
+        "method": "Read the accessible full-text PDF and compared the mathematical objects and claims in Sections 2–3 with the period-two monodromy criterion.",
+        "title": "Stability Analysis for a Class of Networked/Embedded Control Systems: Output Feedback Case",
+        "trigger": "Closest full-text source on uncertain sample-and-hold intervals and period-dependent stability."
+      },
+      {
+        "assessment": "RELATED_GENERAL_RESULT: the abstract reports stability conditions for linear and nonlinear sampled-data systems with time-varying sampling, but does not reveal whether an equivalent specialized two-period polynomial is included.",
+        "evidence": "Publisher record says first published 22 October 2008 and describes closed-loop stability conditions under nonequidistant sampling.",
+        "identifier_or_url": "doi:10.1111/j.1934-6093.2005.tb00409.x",
+        "material_read": "Publisher abstract, first-publication date, and reference list; full text was not available through the inspected route.",
+        "method": "Checked the publisher bibliographic record and abstract.",
+        "title": "Systems with Nonequidistant Sampling: Controllable? Observable? Stable?",
+        "trigger": "Direct literature on nonequidistant sampling and closed-loop stability."
+      },
+      {
+        "assessment": "RELATED_GENERAL_RESULT: it uses robustness of a related discrete-time system against interval variation, but the available text does not give the exact period-two criterion.",
+        "evidence": "The abstract describes uncertain time-varying intervals and a discrete-time robustness method.",
+        "identifier_or_url": "doi:10.1109/TAC.2009.2029304",
+        "material_read": "Bibliographic record and abstract; full article text was not available through the inspected route.",
+        "method": "Checked the repository/publisher metadata and abstract.",
+        "title": "A Discrete-Time Approach to Stability Analysis of Systems With Aperiodic Sample-and-Hold Devices",
+        "trigger": "Highly relevant aperiodic sampled-data stability method."
+      },
+      {
+        "assessment": "NOT_COVERING_ON_AVAILABLE_EVIDENCE: the paper's stated result is LMI sufficient conditions for sector- and slope-restricted Lur'e systems, not an exact necessary-and-sufficient boundary for the specified linear two-period controller.",
+        "evidence": "The abstract describes looped-functionals and optimization for maximum intersampling interval or sector bounds.",
+        "identifier_or_url": "doi:10.1002/rnc.6744",
+        "material_read": "Publisher abstract, publication metadata, and references; full-text route redirected to the abstract page.",
+        "method": "Checked the publisher page and its stated assumptions and result type.",
+        "title": "Stability analysis of Lur'e systems under aperiodic sampled-data control",
+        "trigger": "Modern aperiodic sampled-data stability conditions and possible broader implication."
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "The 2008 IFAC paper gives general interval-variation conditions, and an unindexed or inaccessible source may contain this exact specialization.",
+    "The full texts of the 2008 Guo article and 2009 Fujioka journal article were not accessible in the inspected route, so no claim is made that their appendices or examples lack an equivalent calculation.",
+    "The proof uses classical two-by-two matrix algebra and Schur-Jury theory; the novelty is limited to the explicit model-specific iff boundary and exact witness.",
+    "The result addresses only exact period-two sampling and does not establish stability for arbitrary aperiodic sampling."
+  ],
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "761f9f6e-87e4-4194-a78d-18989b1b87da",
+  "self_review_status": "passed",
+  "source_inspections": [
+    {
+      "assessment": "FOUNDATIONAL_NOT_COVERING: the paper gives general sufficient conditions for uncertain interval sequences and a spectral-radius test for a fixed interval; the exact Phi iff boundary for this proportional-derivative double integrator is not stated in the inspected text.",
+      "evidence": "The paper's Section 2, lines corresponding to its equations (3)–(5), defines uncertain intervals and the fixed-interval sampled map; Section 3 gives sufficient quadratic-stability/robustness criteria.",
+      "identifier_or_url": "doi:10.3182/20080706-5-KR-1001.2831",
+      "material_read": "Full six-page IFAC proceedings paper, including introduction, model formulation, constant-interval spectral-radius statement, robustness criterion, and sufficient interval-range tests.",
+      "method": "Read the accessible full-text PDF and compared the mathematical objects and claims in Sections 2–3 with the period-two monodromy criterion.",
+      "title": "Stability Analysis for a Class of Networked/Embedded Control Systems: Output Feedback Case",
+      "trigger": "Closest full-text source on uncertain sample-and-hold intervals and period-dependent stability."
+    },
+    {
+      "assessment": "RELATED_GENERAL_RESULT: the abstract reports stability conditions for linear and nonlinear sampled-data systems with time-varying sampling, but does not reveal whether an equivalent specialized two-period polynomial is included.",
+      "evidence": "Publisher record says first published 22 October 2008 and describes closed-loop stability conditions under nonequidistant sampling.",
+      "identifier_or_url": "doi:10.1111/j.1934-6093.2005.tb00409.x",
+      "material_read": "Publisher abstract, first-publication date, and reference list; full text was not available through the inspected route.",
+      "method": "Checked the publisher bibliographic record and abstract.",
+      "title": "Systems with Nonequidistant Sampling: Controllable? Observable? Stable?",
+      "trigger": "Direct literature on nonequidistant sampling and closed-loop stability."
+    },
+    {
+      "assessment": "RELATED_GENERAL_RESULT: it uses robustness of a related discrete-time system against interval variation, but the available text does not give the exact period-two criterion.",
+      "evidence": "The abstract describes uncertain time-varying intervals and a discrete-time robustness method.",
+      "identifier_or_url": "doi:10.1109/TAC.2009.2029304",
+      "material_read": "Bibliographic record and abstract; full article text was not available through the inspected route.",
+      "method": "Checked the repository/publisher metadata and abstract.",
+      "title": "A Discrete-Time Approach to Stability Analysis of Systems With Aperiodic Sample-and-Hold Devices",
+      "trigger": "Highly relevant aperiodic sampled-data stability method."
+    },
+    {
+      "assessment": "NOT_COVERING_ON_AVAILABLE_EVIDENCE: the paper's stated result is LMI sufficient conditions for sector- and slope-restricted Lur'e systems, not an exact necessary-and-sufficient boundary for the specified linear two-period controller.",
+      "evidence": "The abstract describes looped-functionals and optimization for maximum intersampling interval or sector bounds.",
+      "identifier_or_url": "doi:10.1002/rnc.6744",
+      "material_read": "Publisher abstract, publication metadata, and references; full-text route redirected to the abstract page.",
+      "method": "Checked the publisher page and its stated assumptions and result type.",
+      "title": "Stability analysis of Lur'e systems under aperiodic sampled-data control",
+      "trigger": "Modern aperiodic sampled-data stability conditions and possible broader implication."
+    }
+  ],
+  "value": {
+    "rationale": "Sampling jitter is a practical issue in networked feedback. The result precisely separates fixed-period stability from period-two stability and gives an exact necessary-and-sufficient design test, with a rational counterexample demonstrating that checking each interval separately can be misleading. The criterion applies to all positive gains and all interval pairs inside the individual stability range, rather than one numerical instance.",
+    "status": "PASS"
+  }
+}
