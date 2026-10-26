@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Gaussian theta spectral density is strictly positive. Exact OPUC Gram/Christoffel identity and a monic q-binomial polynomial decomposition yield E_N exactly, including endpoint N=1. The generating function has simple poles 1,-p^{-1},p^{-2}; normalized first residues are A0 and pA0/(1+p). Subtracting the third pole controls O(p^{2n}); theta triple product fixes normalization. Geometric tail gives nonzero signed correction and O(p^{2N}). Standalone rational matrix and q-series tests passed 609 checks; tests do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gover 1991 abstract specifies a first-row inverse formula and general inverse reconstruction for Gaussian matrices.",
+        "Böttcher 2022 full paper presents broad inverse-entry asymptotics, with explicit illustrative tridiagonal examples; no Gaussian theta-specific alternating Christoffel correction."
+      ],
+      "reasoning": "The known full inverse algorithm implicitly computes finite interpolation energies and therefore dominates bare numerical evaluability. The narrow claim instead concerns their exact signed asymptotic finite-size correction; obtaining this from the broader machinery requires nontrivial theta/q-series pole analysis. Gover full text unavailable is a priority risk.",
+      "searches": [
+        "published-finding corpus: Toeplitz matrix q^((i-j)^2) inverse quadratic form ones exact Rogers Szego q binomial boundary constant",
+        "published-finding corpus: Gaussian radial basis integer interpolation constant data inverse Gaussian Toeplitz matrix all ones Rogers Szego Christoffel q-binomial exact RKHS norm",
+        "DOI:10.1137/0612039"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2102.10628 full available PDF and initial 2021 v1 bibliographic entry",
+      "DOI:10.1007/s44146-022-00007-0 full OA PDF",
+      "DOI:10.1137/0612039 publisher abstract only; full text unavailable",
+      "NIST DLMF §18.33",
+      "Published published-finding corpus semantic query results, including SCOPE-a-logarithmic-boundary-layer-in-sharp-discrete-dirichlet-interpo--489778b0342d; SCOPE-sharp-logarithmic-asymptotics-of-critical-gaussian-gabor-biortho--9a4e258e09c2; SCOPE-sharp-determinant-stability-and-conditioning-of-concentric-szeg--44f30fce73fa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karvonen arXiv:2102.10628 abstract, Theorems 2.1–2.4 and §3.4 concern RKHS polynomial inclusion and Gaussian analyticity.",
+        "Böttcher DOI:10.1007/s44146-022-00007-0 full 15-page primary PDF addresses entries at matrix corners and density, not a signed Gaussian interpolation-norm correction.",
+        "Gover DOI:10.1137/0612039 same Gaussian matrix; abstract describes inverse first-row formula, but full text inaccessible."
+      ],
+      "reasoning": "Karvonen is complementary, not a quantitative finite-point norm statement. The broader Toeplitz entries paper does not specialize to theta Gaussian symbols. Gover could yield the exact finite expression via summation; the asserted signed asymptotic is not visible from available material. This qualified comparison supports best-knowledge originality but retains explicit human-priority risk.",
+      "searches": [
+        "published-finding corpus: Gaussian lattice kernel interpolation ones finite Toeplitz inverse 1^T K inverse 1 alternating exponential boundary correction",
+        "published-finding corpus: Gaussian radial basis integer interpolation constant data inverse Gaussian Toeplitz matrix all ones Rogers Szego Christoffel q-binomial exact RKHS norm",
+        "Böttcher 2022 full text, pp.85–99",
+        "Karvonen arXiv:2102.10628 full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Christoffel kernel K_{N-1}(1,1) equals 1^T G_N^{-1}1; Gaussian Toeplitz matrix has Fourier symbol theta_p.",
+        "DLMF §18.33 supplies general circle-orthogonal polynomial machinery, not the specialized signed finite-size expansion."
+      ],
+      "reasoning": "A constant-data Gaussian RKHS least-norm interpolation problem is exactly a Christoffel-kernel diagonal value for the wrapped-normal measure. The searches compared both formulations. Neither the found abstract nor inspected primary text states the nonzero (-p)^N coefficient and O(p^{2N}) remainder.",
+      "searches": [
+        "published-finding corpus: Rogers Szego Christoffel Darboux kernel at z=1 wrapped Gaussian theta sum q binomial reciprocal finite Toeplitz inverse",
+        "published-finding corpus: Gaussian lattice kernel interpolation ones finite Toeplitz inverse 1^T K inverse 1 alternating exponential boundary correction",
+        "NIST DLMF §18.33",
+        "Böttcher 2022 DOI:10.1007/s44146-022-00007-0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published-result records give a theta-Gaussian constant-vector inverse-energy table or the signed edge coefficient.",
+        "The q-binomial orthogonal polynomials themselves are classical and explicitly credited."
+      ],
+      "reasoning": "A catalog of Rogers–Szegő coefficients or matrix inverse values would not itself provide this exact infinite-N asymptotic. No discovered exact table was located; this is non-exhaustive evidence, not an assertion of uniqueness.",
+      "searches": [
+        "published-finding corpus: Quadratic form all ones inverse matrix q^(i-j)^2 size N, oscillatory correction (-q)^N positive definite interpolation",
+        "published-finding corpus: Gaussian kernel lattice sample RKHS interpolation norm growth theta function reciprocal Szego orthogonal polynomials",
+        "NIST DLMF §18.33"
+      ]
+    },
+    "rationale": "The claimed object is the explicit nonvanishing alternating exponential coefficient of the finite Gaussian constant-interpolation RKHS energy, plus the convergent edge constant. Published comparisons identify general inverse/OPUC theory but no checked same-claim signed boundary asymptotic. A pertinent 1991 full-text access gap remains an explicitly named priority risk.",
+    "residual_risks": [
+      "Full text of Gover (1991) could conceivably already imply the exact finite-data formula or even the signed asymptotic; publisher abstract alone cannot exclude it.",
+      "Older specialised theta/Christoffel asymptotic literature or monographs could contain an equivalent, indirectly stated result.",
+      "Classical q-binomial coefficients and the bulk interpolation limit are preexisting: priority attaches only to the complete signed boundary law, not these components."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the signed finite-grid Gaussian interpolation boundary coefficient; deals with membership, analyticity, and bump functions.",
+        "evidence": [
+          "Theorem 2.4 on polynomial inclusion, §3.4 Gaussian kernel, article text pages 1–10."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2102.10628",
+        "material_read": "Full available 10-page version: introduction, Theorems 2.1–2.4, Gaussian example §3.4, proof sections, references; initial arXiv v1 date independently verified as 2021-02-21.",
+        "method": "PDF text navigation and inspected rendered PDF page",
+        "title": "Bumps and polynomials in RKHSs of translation-invariant kernels",
+        "trigger": "Gaussian RKHS interpolation and constant polynomial exclusion"
+      },
+      {
+        "assessment": "General inverse-entry asymptotics, not an explicitly derived signed boundary correction for theta Gaussian constant interpolation; background only.",
+        "evidence": [
+          "Introduction and eq. (3), pages 85–89; article general outline and examples."
+        ],
+        "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s44146-022-00007-0.pdf",
+        "material_read": "15-page full open-access PDF, including Gohberg–Semencul formula and tridiagonal example; searched for Gaussian and theta in article text.",
+        "method": "Full PDF text navigation and rendered page inspection",
+        "title": "Entries of the inverses of large positive definite Toeplitz matrices",
+        "trigger": "Broader Toeplitz inverse entry asymptotics might dominate the interpolation law"
+      },
+      {
+        "assessment": "MATERIAL_ACCESS_LIMIT; abstract covers first inverse row and matrix reconstruction, not a stated sharp signed finite-size interpolation expansion; residual risk persists.",
+        "evidence": [
+          "SIAM J. Matrix Anal. Appl. 12 (1991), 541–548, publisher abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0612039",
+        "material_read": "Published bibliographic record and full abstract only; arXiv/OA full text searches unsuccessful; institutional full-text route could not proceed because connection unavailable.",
+        "method": "Publisher abstract and citation metadata, bounded open-access retrieval attempts",
+        "title": "Properties of the Inverse of the Gaussian Matrix",
+        "trigger": "Identical underlying Gaussian Toeplitz matrix, plausible coverage"
+      },
+      {
+        "assessment": "Covers standard OPUC theory but not specialized Gaussian interpolation finite-size asymptotic.",
+        "evidence": [
+          "§18.33(i), (ii), (vi), equations 18.33.1–18.33.6."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/18.33",
+        "material_read": "General orthogonality definition and recurrence sections, with links to Szegő/Simon theory.",
+        "method": "Primary reference webpage text",
+        "title": "DLMF §18.33 Polynomials Orthogonal on the Unit Circle",
+        "trigger": "Classical orthogonal-polynomial equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "493d02a4-b343-443f-86e4-9c33568ff8a5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Gaussian fixed-lattice constant-data minimum RKHS norm is a canonical interpolation invariant. Complete theta bulk plus computable edge constant plus exact alternating parity correction and sharp exponential scale solve a motivated finite-size boundary question for every fixed kernel bandwidth. A standard general inverse routine or generic O(1) bound does not supply the nonzero phase-sensitive coefficient; no arbitrary finite parameter slice is used.",
+    "status": "PASS"
+  }
+}
