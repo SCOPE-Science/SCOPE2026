@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The exact posterior formula separates the first candidate from the aggregate of later listed candidates and the unseen tail. Monotone likelihood ranking bounds that aggregate below by the second-ranked likelihood and above by the list length times that likelihood; subexponential list growth preserves its exponential rate. The tail term has the fixed-list tail exponent because the remaining codebook size has rate R and the unlisted rank space has rate one when the last-rank exponent is below one. Comparing the smaller competitor exponent with the first-candidate exponent proves both strict-sign cases. The zero-gap boundary is expressly excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The fixed-list paper gives the exact posterior formula and fixed-list asymptotic decision function, but does not establish uniformity when list length varies with blocklength.",
+        "The list-guesswork paper establishes an exponent for expected guesswork moments, not conditional reliability of a particular list entry."
+      ],
+      "reasoning": "Neither inspected source logically dominates the present claim. The current proof supplies the missing uniformity step for subexponential list growth and leaves the zero-gap boundary unresolved.",
+      "searches": [
+        "Conditional correctness in list decoding: late second codeword rescues confidence in first; rank-based posterior probability and asymptotic exponent",
+        "\"conditional probability of correctness\" \"subexponential\" list decoding ranks",
+        "arXiv:2610.02458 fixed list size L; arXiv:2607.00205 subexponential list guesswork"
+      ]
+    },
+    "checked_sources": [
+      {
+        "first_public_date": "2026-10-01",
+        "identifier_or_url": "https://arxiv.org/abs/2610.02458",
+        "role": "Primary fixed-list theorem and exact posterior formula.",
+        "title": "Conditional Correctness in List Decoding: How a Late Second Codeword Can Rescue Confidence in the First"
+      },
+      {
+        "first_public_date": "2026-06-30",
+        "identifier_or_url": "https://arxiv.org/abs/2607.00205",
+        "role": "Related subexponential-list guesswork result, used to test possible coverage.",
+        "title": "Guesswork Under Linear Constraints: Exact Exponent for Coset Decoding"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-list result has a finite rank tuple for each blocklength; it does not alone justify substituting a growing list length.",
+        "For nonincreasing rank probabilities, the aggregate of all listed competitors after the first is between the second-ranked likelihood and the list-length multiple of that likelihood; the multiplicative list-length factor contributes zero to the normalized logarithm under subexponential growth.",
+        "The unseen-codeword tail retains the fixed-list exponent when the last-rank exponent is below one."
+      ],
+      "reasoning": "The new implication follows from an explicit bound and the exact posterior formula. It is not a relabeling of the fixed-list statement: it establishes uniformity over subexponential list growth, including polynomial lists.",
+      "searches": [
+        "arXiv:2610.02458, fixed-L assumption and Proposition 2",
+        "arXiv:2607.00205, Theorem 8 list-guesswork exponent",
+        "Conditional correctness in list decoding: late second codeword rescues confidence in first; rank-based posterior probability and asymptotic exponent",
+        "\"conditional probability of correctness\" \"subexponential\" list decoding ranks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.02458 states that the analysis considers a fixed list size L and gives a decision function depending on first, second, and last rank exponents.",
+        "arXiv:2607.00205, Theorem 8, treats the first-order moment exponent of variable-list constrained guesswork; this is a different probability/functional."
+      ],
+      "reasoning": "Equivalent wording was searched by mathematical object and parameter regime. No equivalent statement for posterior correctness conditioned on the full rank tuple under subexponential list growth was found.",
+      "searches": [
+        "Conditional correctness in list decoding: late second codeword rescues confidence in first; rank-based posterior probability and asymptotic exponent",
+        "Binary symmetric channel list decoding conditional correctness first list entry depends on first second last ranks",
+        "\"conditional probability of correctness\" \"subexponential\" list decoding ranks",
+        "arXiv:2610.02458, Proposition 2 and Section IV; arXiv:2607.00205, Theorem 8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned closest records concern guesswork moments, conditional-expectation chains, and finite deletion-channel invariants; none states the same rank-conditioned posterior claim."
+      ],
+      "reasoning": "The accessible semantic literature search returned no exact matching claim. This is only a deduplication check, not proof of global uniqueness.",
+      "searches": [
+        "Conditional correctness in list decoding: late second codeword rescues confidence in first; rank-based posterior probability and asymptotic exponent",
+        "Binary symmetric channel list decoding conditional correctness first list entry depends on first second last ranks",
+        "\"conditional probability of correctness\" \"subexponential\" list decoding ranks",
+        "Search result comparisons for the three actual queries and the two arXiv source IDs"
+      ]
+    },
+    "rationale": "The closest primary source, arXiv:2610.02458, explicitly treats fixed list size. The related arXiv:2607.00205 result concerns guesswork-moment exponents rather than conditional posterior reliability given the complete rank tuple. Overlap and literature searches found no direct matching claim; the extension rests on a distinct uniformity argument for subexponential list growth.",
+    "residual_risks": [
+      "Literature and database searches are not exhaustive; an unindexed preprint may discuss a similar variable-list posterior exponent.",
+      "The related list-guesswork result is conceptually close but studies a different random variable and does not imply the present conditional-reliability decision boundary.",
+      "No independent audit or external validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the fixed-list theorem but does not state the subexponential-list extension; the proof explicitly identifies fixed list size as the scope.",
+        "evidence": [
+          "arXiv:2610.02458; Section II states fixed list size L; Proposition 1 gives the exact conditional formula; Proposition 2 gives the fixed-L decision function."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.02458",
+        "material_read": "Abstract, model and notation, exact random-codebook posterior formula, fixed-list assumption, Proposition 2/Section IV decision-function derivation, and conclusion; full text was inspected through an accessible text rendering linked to the arXiv preprint.",
+        "method": "Compared the exact posterior expression and the exponents of the known-list and unseen-tail terms against the proposed subexponential-list extension.",
+        "title": "Conditional Correctness in List Decoding: How a Late Second Codeword Can Rescue Confidence in the First",
+        "trigger": "Closest primary paper for the fixed-list rank-conditioned posterior and decision function."
+      },
+      {
+        "assessment": "Related but not covering: it proves a moment exponent for constrained guesswork, not conditional correctness of the first list entry given its rank tuple.",
+        "evidence": [
+          "arXiv:2607.00205, Theorem 8 and Section 8; the quantity is a moment of list-constrained guesswork, not conditional correctness of the first list entry."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.00205",
+        "material_read": "Abstract, system model, Theorem 8 on variable-list constrained guesswork, its proof, and conclusion in an accessible full-text rendering.",
+        "method": "Compared the target object, conditioning, and asymptotic quantity rather than relying on title or shared list-size terminology.",
+        "title": "Guesswork Under Linear Constraints: Exact Exponent for Coset Decoding",
+        "trigger": "Closest recent source explicitly treating subexponential list size in an information-theoretic decoding setting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b29a9404-bff9-4521-8b80-29c39835aac1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Polynomial and other subexponential list sizes are a standard operating regime for list decoding. The theorem determines whether the first candidate remains asymptotically trustworthy when list size grows with block length, and establishes that the late-second-entry reliability effect survives this scaling. It is not a finite table or an arbitrary parameter slice; it supplies a reusable asymptotic boundary for a natural family of decoder outputs.",
+    "status": "PASS"
+  }
+}
