@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Every graph endomorphism corresponds bijectively to a starting vertex and a closed ±1 step sequence; nonunit endomorphisms correspond exactly to zero-sum bridges. Their image cardinality is one plus the integer span. Weighted embeddings in finite paths establish the path-trace identity and exact finite difference. Reflection at the first maximum gives the binomial tail identity; sum of tails gives the exact first moment. Integer enumeration for n=4,6,8,10,12 checks histograms and moments but is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023/2024 full primary source covers graph-endomorphism monoids of all cycle lengths, but its documented formulas are total cardinality, Green relations, regularity and minimal generating sets.",
+        "The 2018 path-monoid paper concerns a different graph family."
+      ],
+      "reasoning": "All-cycle general theory of the whole monoid does not state the distribution or first moment. These are deduced by a weighted bridge identity and reflection principle, not by substituting into published total formulas.",
+      "searches": [
+        "finite semigroup endomorphism monoid cycle Green D class cardinalities rank enumerator binomial walk",
+        "semigroup endomorphism cycles image size number of endomorphisms fixed rank",
+        "End(C_2m) transformation monoid distribution of image ranks generating polynomial trace powers path graph",
+        "arxiv:2310.04149",
+        "doi:10.1515/ms-2024-0078"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2310.04149 full HTML sections 1–3",
+      "https://doi.org/10.1515/ms-2024-0078 official journal metadata",
+      "https://doi.org/10.1016/j.disc.2008.11.022 abstract and citation only",
+      "https://oeis.org/A112850 total count sequence",
+      "https://oeis.org/A112849 induced congruence sequence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known total is recovered exactly at z=1, showing proper implication from the new rank polynomial to the prior aggregate theorem.",
+        "The known 2023 structure gives walk increment rules; these alone do not state the bounded-range weighted enumeration or the reflection-derived mean.",
+        "Previously indexed work on cycle retractions treats the strict subset of idempotent maps."
+      ],
+      "reasoning": "Our result implies the published total cardinality when z=1, not vice versa. An existing parametric description of all maps allows deriving further statistics but does not explicitly cover the new trace-difference and mean formulas; these require additional nontrivial path-walk counting. Full access to the 2009 original was unavailable, so undiscovered overlap is retained as an explicit risk.",
+      "searches": [
+        "arxiv:2310.04149",
+        "doi:10.1016/j.disc.2008.11.022",
+        "trace path adjacency matrix enumerating ±1 bridges of exact range and cycle homomorphisms",
+        "Expected image cardinality of uniform random graph endomorphism of even cycle C_2m equals (4^m+4m)/(2+binomial(2m,m))",
+        "End(C_2m) transformation monoid distribution of image ranks generating polynomial trace powers path graph",
+        "number of endomorphisms of even cycles of each image size 2 to m+1 using lattice bridge reflection and path walks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2310.04149 Section 1 Proposition 1.9 proves aggregate |End(C_n)| only; Sections 2–3 treat regularity, Green relations and generator rank.",
+        "Michels–Knauer 2009 abstract reports total numbers of cycle endomorphisms and kernel congruence classes, not individual image-size counts."
+      ],
+      "reasoning": "The proposed image-rank polynomial is a refinement of the known aggregate total. It is not the minimum generating-set rank of a monoid, nor the number of kernel congruence classes, nor an idempotent-only rank count.",
+      "searches": [
+        "exact image rank distribution endomorphism monoid even cycle graph C_2m trace powers path adjacency second difference random bridge",
+        "finite semigroup endomorphism monoid cycle Green D class cardinalities rank enumerator binomial walk",
+        "semigroup endomorphism cycles image size number of endomorphisms fixed rank",
+        "arxiv:2310.04149",
+        "doi:10.1016/j.disc.2008.11.022"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A112850 is the sequence of total endomorphism counts of even cycles; it does not tabulate a full per-image-rank histogram.",
+        "OEIS A112849 counts endomorphism-induced congruences rather than endomorphisms classified by image cardinality."
+      ],
+      "reasoning": "Even knowing the total counts for every n does not determine the distribution across possible image ranks; the result gives a closed rank polynomial and a mean not specified by those tables.",
+      "searches": [
+        "https://oeis.org/A112850",
+        "https://oeis.org/A112849",
+        "End(C_2m) transformation monoid distribution of image ranks generating polynomial trace powers path graph",
+        "number of endomorphisms of even cycles of each image size 2 to m+1 using lattice bridge reflection and path walks"
+      ]
+    },
+    "rationale": "Full source comparison: the 2023 cycle-monoid paper gives the aggregate size (Proposition 1.9), characterizes Green relations, regularity and generator rank, but no all-parameter rank enumerator of individual maps or mean image size. The 2009 paper indexed by DOI gives the total and kernel congruence counts; full text unavailable. The idempotent cycle-retraction rank enumerator applies only to idempotents, while this statement counts all maps.",
+    "residual_risks": [
+      "Full text of the 2009 Michels–Knauer paper was not accessible: possible equivalent refinement not fully excluded.",
+      "Unindexed later publications may contain the same image-size distribution or expected-image statistic.",
+      "The underlying cycle is a graph-theoretic object (05C38 is first listed for the 2023 reference), while this new statement is specifically an image-rank theorem for a transformation monoid (20M20).",
+      "No independent audit or independent validation performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the known aggregate total and structure; no same full image-cardinality distribution or mean was identified in its full text.",
+        "evidence": [
+          "Posted 2023-10-06; arXiv:2310.04149, proposition 1.9: |End(C_2m)|=2n+n binom(n,n/2), with n=2m.",
+          "The paper explicitly distinguishes a monoid generator rank from image size; its 2024 journal DOI is 10.1515/ms-2024-0078."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.04149",
+        "material_read": "Public full HTML text: introduction, Section 1 including Propositions 1.1 and 1.9, Section 2 on regularity and Green relations, and Section 3 on monoid generating rank. The dated arXiv record was read.",
+        "method": "Compared the actual maps, counting formula and quantified parameters to the new image-rank polynomial and first moment.",
+        "title": "On monoids of endomorphisms of a cycle graph",
+        "trigger": "Same transformation monoid and graph object; closest source"
+      },
+      {
+        "assessment": "Known total and congruence-class counts are different invariants. The inaccessible full text remains a residual overlap risk.",
+        "evidence": [
+          "The abstract describes formulas for numbers of cycle endomorphisms and their induced congruence classes.",
+          "DOI:10.1016/j.disc.2008.11.022; Discrete Mathematics 309 (2009), 5352–5359."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2008.11.022",
+        "material_read": "Published abstract, bibliographic citation, and associated OEIS total and congruence sequences; full paper not accessible. Public arXiv and OA searches did not yield its full text; the institutional-download attempt required interactive user input and could not be completed.",
+        "method": "Compared only the actually accessible abstract and public numerical invariants; no inference of noncoverage from an unseen full text.",
+        "title": "The congruence classes of paths and cycles",
+        "trigger": "Earlier primary cycle-endomorphism counts cited by the 2023 paper"
+      },
+      {
+        "assessment": "Neither database sequence is a table of numbers of endomorphisms at each individual image size.",
+        "evidence": [
+          "A112850 total sequence begins 32,132,576,2540,11112 for even cycles of size 4,6,8,10,12.",
+          "A112849 enumerates induced congruences, not image-size histogram of all endomorphisms."
+        ],
+        "identifier_or_url": "https://oeis.org/A112850 ; https://oeis.org/A112849",
+        "material_read": "Sequence definitions, formulas, first terms and cited references.",
+        "method": "Compared the indices and quantified invariant to the full image-rank polynomial.",
+        "title": "OEIS A112850 and A112849",
+        "trigger": "Direct exact database comparison of total counts and congruence classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a0fa9975-7b61-41fb-bf24-213b9420c763",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full image-rank histogram and its exact first moment quantify typical compression in a natural finite transformation monoid. The √m growth gives a new asymptotic invariant: typical endomorphisms occupy a vanishing O(n^-1/2) proportion of the cycle, in contrast with automorphisms. These all-size structural statistics are not determined by the previously known monoid cardinalities or idempotent-only enumerations; they are motivated by classifying image ranks of all transformations, not an arbitrary slice.",
+    "status": "PASS"
+  }
+}
