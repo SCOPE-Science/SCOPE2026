@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For every safe prime at least 11, cyclic order 2q and quadratic reciprocity give the exact primitive-root criterion, with the unique order-2 exception -1. The 7 mod8 explicit construction verifies three nonresidues and product congruent to b. The 3 mod8 character-pair count follows from the fully proved quadratic Jacobi sum and linear sums; b=p-3 is the only forbidden counted residue; the fourth root cannot equal -1 due nonsquareness of 1/2. Direct checking handles p=5 and p=7. The verifier checks all 389 safe primes up to 50000 but is not used to infer the unbounded result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohen–Oliveira e Silva–Trudgian, arXiv:1402.2724, introductory Theorem 1: additive representation as two primitive roots.",
+        "Sun arXiv:1405.0290v5, Theorem 1.3 evaluates certain quadratic-character sums over primitive roots, but Section 4 separately states the four-root property as conjectural."
+      ],
+      "reasoning": "The larger prime range in a generic two-summand theorem is not stronger for this question: it omits primitive order of the sum and product, as well as the integer representative bound. Character-sum identities give ingredients but not an explicit accepted four-root configuration theorem.",
+      "searches": [
+        "\"Cohen and Mullen\" \"sums of primitive roots\"",
+        "arxiv:1402.2724",
+        "Zhi-Wei Sun primitive roots quadratic character S_p(c) Theorem 1.3",
+        "\"safe prime\" \"four primitive roots\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.0290v5, introduction/Theorem 1.3/Conjecture 4.2(i) and Remark 4.2",
+      "oeis:A260947, definition/example/authorship/remarks",
+      "arxiv:1402.2724, introduction and main theorem portion",
+      "arxiv:1710.04320, abstract",
+      "published-finding corpus semantic search, three exact queries; top 30 ranked hits each"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun Conjecture 4.2(i) directly matches the four-element primitive property, but has conjecture rather than theorem status for all p>13.",
+        "Cohen et al. prove additive two-root representation without primitive multiplicative product.",
+        "No semantically relevant published-finding corpus published hit surfaced among 30 results for each of three detailed queries."
+      ],
+      "reasoning": "Our statement solves Sun only for safe primes and additionally fixes p=5,7 and an exact count for a=2 for p≡3 mod8. Neither prior theorem entails the product condition; searched database entries record instances rather than a uniform implication.",
+      "searches": [
+        "arxiv:1405.0290 Conjecture 4.2(i)",
+        "arxiv:1402.2724 sums primitive roots",
+        "published-finding corpus Sun four primitive root primitive product safe prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun arXiv:1405.0290v5, Section 4 Conjecture 4.2(i): four primitive roots a,b,a+b,ab(a+b), still labeled conjecture.",
+        "OEIS A260947 defines least attainable sum, not exact count in safe-prime classes.",
+        "published-finding corpus similarity hits in unrelated Fourier and binomial topics do not assert an equivalent primitive-root witness property."
+      ],
+      "reasoning": "The multiplicative-order 2q criterion, character-pair model, and the fixed-a=2 count were compared to the literal Sun witness statement. A classical count of two nonresidues does not by itself cover the triple product and strict ordinary-integer boundary, which are separately proved.",
+      "searches": [
+        "Zhi Wei Sun 2015 conjecture a b a+b ab(a+b) primitive roots theorem",
+        "safe prime four primitive roots a b a+b ab(a+b) Legendre formula",
+        "\"safe primes\" \"four primitive roots\" \"a+b\" \"ab(a+b)\"",
+        "\"primitive roots\" \"2\" \"b\" \"b+2\" \"safe prime\"",
+        "\"Sun\" \"Conjecture 4.2\" \"primitive roots\" triangle",
+        "\"a,b,a+b,ab(a+b)\" \"primitive roots\" proof",
+        "Zhi Wei Sun Conjecture 4.2 four primitive roots a b a+b ab(a+b) modulo safe primes p=2q+1; count fixed a=2 for p congruent 3 modulo 8",
+        "safe primes p=2q+1 primitive roots 2,b,b+2,2b(b+2) with b+2<p and exact number (p-7)/4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A260947, example p=11: 2+6=8; definition is a least-sum lookup for each prime; first authored 2015-08-05.",
+        "Sun arXiv:1405.0290v5, Remark 4.2 records computational verification up to 10^6, not a theorem for unrestricted safe primes."
+      ],
+      "reasoning": "A table of smallest witnesses per prime, even if extensive, cannot establish the all-safe-primes statement or multiplicities of the fixed-first-entry family for arbitrary primes. This theorem supplies independent uniform proof.",
+      "searches": [
+        "OEIS A260947 least sum of four primitive roots",
+        "OEIS A260947 table p=11 2+6=8",
+        "OEIS A260946 Sun primitive roots right triangle"
+      ]
+    },
+    "rationale": "Sun explicitly poses the four-primitive-root assertion as Conjecture 4.2(i), dated 2015-08-05. An exact safe-prime classification and a uniform fixed-2 count were not among the inspected primary results, database entries or semantically similar published-result hits. Two-primitive-root additive representation does not imply that their sum and triple product are primitive. Originality is qualified by a possible unlocated equivalent specialization; the elementary Legendre character identities are not claimed as new.",
+    "residual_risks": [
+      "An equivalent safe-prime witness classification might exist in unlocated articles, unpublished notes, or different terminology; absence from search is not proof of absolute novelty.",
+      "A quadratic-character-pair theorem with an unstated but immediate corollary about the four-element Sun condition could have escaped semantic searches.",
+      "Only selected portions (not the entire document) of the Cohen–Oliveira e Silva–Trudgian manuscript were read; its stated main theorem nevertheless does not imply the additional multiplicative conditions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "TARGET_PROBLEM_BUT_NOT_COVERING",
+        "evidence": [
+          "Conjecture 4.2(i), dated 2015-08-05, states the four-primitive-root existence condition without a proof.",
+          "Remark 4.2 reports numerical verification p<10^6, and Theorem 1.3 concerns Legendre sums over primitive roots."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.0290v5",
+        "material_read": "Introduction, Theorem 1.3, Section 4 Conjecture 4.2 and Remark 4.2; full HTML was accessible and searched for safe primes",
+        "method": "read HTML theorem and relevant paragraphs",
+        "title": "New observations on primitive roots modulo primes",
+        "trigger": "Direct statement Conjecture 4.2(i) and same-field theorem"
+      },
+      {
+        "assessment": "EXACT_DATA_BUT_NOT_UNIFORM_THEOREM",
+        "evidence": [
+          "Defines least sum k for i,j,k,ijk all primitive, with ordinary positive representatives; example p=11 and i=2,j=6.",
+          "Author entry dated August 5, 2015, no safe-prime classification or fixed-coordinate counts in the inspected text."
+        ],
+        "identifier_or_url": "https://oeis.org/A260947",
+        "material_read": "sequence definition, conjecture comment, example, author date and displayed initial terms",
+        "method": "read OEIS current sequence text",
+        "title": "A260947",
+        "trigger": "Exactly the same four-primitive-root inequality and example"
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING",
+        "evidence": [
+          "The theorem gives sum of two primitive roots, but imposes neither primitive status of the sum nor primitive status of their triple product.",
+          "It does not impose a+b<p for ordinary integer representatives."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1402.2724",
+        "material_read": "Open-access manuscript introduction and main theorem on two primitive summands, with selected adjoining argument; not represented as whole-document read",
+        "method": "read available full-text portion and compare quantifiers/requirements",
+        "title": "A proof of the conjecture of Cohen and Mullen on sums of primitive roots",
+        "trigger": "Potentially dominating theorem on sums of primitive roots"
+      },
+      {
+        "assessment": "DIFFERENT_PROPERTY",
+        "evidence": [
+          "Addresses quadratic nonresidues that are not primitive roots, whereas safe-prime witness requires three primitive elements and primitive product."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.04320",
+        "material_read": "abstract only",
+        "method": "abstract screening",
+        "title": "Quadratic non-residues that are not primitive roots",
+        "trigger": "Potential two-nonresidue covering theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66437931-a714-45de-ba1c-063ed9d5b334",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem closes a canonical infinite structural subfamily of Sun’s explicitly motivated 2015 primitive-root conjecture, not a random congruence slice. It gives constructive witnesses uniformly for p=7 mod8, exact fixed-first-entry multiplicity for p=3 mod8 and sharp small-prime exceptions, while retaining a+b<p and the demanding primitive triple-product condition. It is useful for isolating what remains of the prime-general conjecture, and its conclusion is not merely restatement of classical two-point character sums.",
+    "status": "PASS"
+  }
+}
