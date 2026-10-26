@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For t nonzero cells, distinct positive row/column indices imply sum of output exponents >=t(t+1); distinct outputs below n imply <=tn-t(t+1)/2. Thus t<=floor((2n-3)/3), plus at most one zero output. Explicit modular permutations for odd/even t produce t distinct nonzero sums <= n-1, and zero row/column add one. Boundary n=2 is covered. Checker verifies witnesses n=2..70 and exact search n=2..12.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Araújo et al. 2026 abstract: regularity necessary for a *full* transversal; none of its stated results gives maximal *partial* size.",
+        "Montgomery 2024 abstract: transversal extremal results are for Latin squares."
+      ],
+      "reasoning": "For n>=2 the semigroup is nonregular and its table is not Latin. Neither the complete-mapping existence criterion nor the Latin-square lower bound implies this exact extremal value. The complete 2026 article was not read, so this source remains a specific novelty risk.",
+      "searches": [
+        "arxiv:2608.25092",
+        "arxiv:2406.19873",
+        "\"partial transversal\" \"nilpotent semigroup\" multiplication table"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.25092 (abstract)",
+      "https://www.advgrouptheory.com/agta2025/Talks/Kinyon.pdf (material excerpts)",
+      "arxiv:2406.19873 (abstract)",
+      "arxiv:2412.07733 (abstract)",
+      "Published mathematical findings queried using three scientific synonym and domain formulations",
+      "Previously recorded scientific claims compared for mathematical overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kinyon 2025 presentation, pp. 7-8 and 15-18: full transversals and regularity obstruction.",
+        "Araújo et al. 2026 abstract: classification/existence of complete mappings, rather than extremal partial transversals.",
+        "Montgomery 2024 abstract: large partial transversals of Latin squares."
+      ],
+      "reasoning": "Nonregularity proves only tau<n and cannot determine tau=floor(2n/3); a Latin-square near-spanning matching does not apply because the output zero repeats. The numerical value 2n/3 appearing in some equi-n square lower bounds is a distinct universal lower-bound problem and implies nothing exact for this non-equi-n table.",
+      "searches": [
+        "arxiv:2608.25092",
+        "https://www.advgrouptheory.com/agta2025/Talks/Kinyon.pdf",
+        "arxiv:2406.19873"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A published finding on Schatten-small radical weighted shifts is operator theory and does not cover the matching invariant.",
+        "A published finding on staircase Kronecker coefficients concerns tensor-product partitions, not rainbow matchings.",
+        "Web queries on staircase truncated sums returned no exact equation, not a uniqueness proof."
+      ],
+      "reasoning": "The same statement is maximum rainbow matching in the 3-partite hypergraph with edges (i,j,i+j) for positive indices with i+j<n, plus a zero edge. Searches used the arithmetic and triangular-array vocabulary, not merely the semigroup title. No equivalent identified; unindexed equivalence remains possible.",
+      "searches": [
+        "partial transversals monogenic nilpotent semigroup a a^2 ... a^(n-1) 0; distinct exponents i j i+j",
+        "staircase Ferrers array distinct row column diagonal rainbow matching largest partial transversal triangular addition table; truncated addition monogenic nilpotent semigroup",
+        "\"partial transversal\" \"truncated addition\" triangular latin",
+        "\"rainbow matching\" \"sums\" \"2n/3\" distinct"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published finding about four-colour rainbow Schur triples studies colorings, not partial transversals.",
+        "A published finding about staircase Kronecker products studies representation theory, not semigroup transversals.",
+        "Examined public mathematical statements did not state the exact nilpotent monogenic transversal formula."
+      ],
+      "reasoning": "An exact existing table or hypergraph rank computation may encode this answer without using the same title. Searches yielded no relevant indexed results; absence is not proof of novelty.",
+      "searches": [
+        "maximal partial transversal of multiplication table of nilpotent monogenic cyclic semigroup with zero; rainbow matching in truncated sum table exact floor two thirds n",
+        "staircase Ferrers array distinct row column diagonal rainbow matching largest partial transversal triangular addition table; truncated addition monogenic nilpotent semigroup",
+        "maximal partial transversal nilpotent monogenic semigroup"
+      ]
+    },
+    "rationale": "The exact size of a maximum partial transversal for every monogenic nilpotent semigroup is not implied by the published regularity obstruction for complete mappings; the comparison considered exact rainbow-matching/truncated-addition formulations and retrieved published mathematical records. Primary 2025 slides concern full transversals. The 2026 primary full text was not available, and older equivalents remain a recorded risk.",
+    "residual_risks": [
+      "The relevant 63-page 2026 arXiv article could not be examined in full, so implicit partial-transversal coverage is unexcluded.",
+      "Older combinatorial formulations as extremal rainbow matchings in truncated addition/staircase arrays may already contain the same formula but remain unindexed or undiscovered.",
+      "The finite checker does not establish universal novelty and is only a small-instance proof corroboration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FULL_TRANSVERSAL_AND_REGULARITY_ONLY_IN_INSPECTED_SECTIONS",
+        "evidence": "Full transversal corresponds to a complete mapping; finite semigroup admitting one is regular. Neither statement supplies a maximum partial-transversal size.",
+        "identifier_or_url": "https://www.advgrouptheory.com/agta2025/Talks/Kinyon.pdf",
+        "material_read": "Presentation text and the pages introducing complete mappings, semigroup tables and the regularity theorem (pp. 7-8, 15-18)",
+        "method": "Open-access slide PDF text and page image",
+        "title": "Complete Mappings for Semigroups",
+        "trigger": "Primary author's full-transversal work on semigroups"
+      },
+      {
+        "assessment": "LIMITED_ACCESS_NONDECISIVE",
+        "evidence": "The abstract states complete-mapping existence results and regularity; no partial-transversal maximum is stated in the abstract. Full-text coverage unverified.",
+        "identifier_or_url": "arxiv:2608.25092",
+        "material_read": "Dated abstract and bibliographic details only; 63-page full text was inaccessible",
+        "method": "arXiv abstract and indexing mirrors",
+        "title": "Complete Mappings of Semigroups",
+        "trigger": "Closest recent semigroup primary source"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT_CLASS",
+        "evidence": "This literature assumes Latin squares, whereas the nilpotent monogenic table has repeated zero symbols.",
+        "identifier_or_url": "arxiv:2406.19873",
+        "material_read": "Abstract and scope only",
+        "method": "Public arXiv abstract",
+        "title": "Transversals in Latin Squares",
+        "trigger": "General partial transversal comparison"
+      },
+      {
+        "assessment": "DIFFERENT_UNIFORM_SYMBOL_MULTIPLICITY",
+        "evidence": "General results for equi-n-squares concern each symbol occurring exactly n times; the truncated monogenic table has a highly nonuniform zero symbol.",
+        "identifier_or_url": "arxiv:2412.07733",
+        "material_read": "Abstract and stated scope only",
+        "method": "Public arXiv abstract",
+        "title": "Almost-full transversals in equi-n-squares",
+        "trigger": "Possible 2/3 bound by similar terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9380e22d-b8ae-46a3-b778-1c1c09bd319b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An infinite natural class of nilpotent semigroups was previously excluded from full transversals by regularity, but the sharp quantitative partial-transversal threshold remained mathematically motivated. The exact two-thirds law and explicit optimal witnesses give a nontrivial all-orders extremal answer, with applications to constrained rainbow matchings on truncated sum tables.",
+    "status": "PASS"
+  }
+}
