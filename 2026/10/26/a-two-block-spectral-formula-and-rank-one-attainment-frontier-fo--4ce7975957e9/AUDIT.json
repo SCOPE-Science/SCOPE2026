@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary dimensions, sign partitions define a finite union of closed sets of two independently chosen nonnegative rank-at-most-one diagonal rectangles with zero crossed rectangles. Signed factors realize every such member, including degenerate blocks. Frobenius distance attains its minimum on the closed nonempty output set. On each nonnegative block the Eckart--Young lower bound is attained with nonnegative top singular vectors, and independently optimized blocks yield the exact spectral score. For ambient minimum dimension at most two all ranks are either zero, one, or full, while Seraghiti--Vandaele--Gillis give a rank-two nonattainment in three by three. The package checker passed 146 tested reconstructions; finite tests supplement, not replace, the proof. No unproved infinite computational enumeration is invoked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Seraghiti--Vandaele--Gillis 2026 provides rank-two nonattainment and a general rank-one complexity reduction but does not claim a higher-rank or rank-one existence theorem.",
+        "The 2025 paper explicitly reports that general ReLU-NMD well-posedness had not been established.",
+        "Saul 2022 abstract develops a latent iterative model; Saul et al 2026 studied completion and low-rank learning."
+      ],
+      "reasoning": "A broader result about existence for every rank would be contradicted by the 2026 counterexample. Generic nonnegative matrix approximation or Eckart--Young alone does not cover the coupled sign rectangles; the finite block decomposition is essential. The 2022 full-text limitation is recorded as a risk.",
+      "searches": [
+        "minimum dimensions ill posed rectified low-rank Frobenius rank two 3x3 rank one always well posed",
+        "\"rank-one\" \"ReLU\" \"well-posed\" matrix decomposition",
+        "arxiv:2608.21607v1 Sections 1--2, 5 and appendices",
+        "doi:10.1137/21M1405769 abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.22255v1",
+      "https://arxiv.org/html/2503.23832v1",
+      "https://arxiv.org/html/2608.21607v1",
+      "https://doi.org/10.1137/21M1405769",
+      "Indexed published mathematical statement records searched by rank-one rectified Frobenius approximation, two-block singular score, and minimal dimension of nonattainment"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 rank-one NP-hardness theorem constrains computational complexity, not existential attainment or optimal-value spectral expression.",
+        "The 2026 three-by-three rank-two counterexample supplies the sharp upper dimension/rank witness only after the rank-one and small-ambient lower bound is proved here.",
+        "The 2025 example provides direct-model attainment for a specific two-by-two target but not arbitrary nonnegative rectangular data."
+      ],
+      "reasoning": "The new theorem strictly supplies the missing general rank-one positive statement and explicit finite spectral computation. The small-dimension boundary is a genuine implication of that new statement together with a known counterexample, not an independent novelty claim for the published example itself.",
+      "searches": [
+        "every rank-one rectified matrix Frobenius approximation attains its minimum, closed feasible set, two opposite sign rectangles blockwise leading singular values formula",
+        "ReLU rank-one matrix fit equals maximum over bipartitions sum squared top singular values of complementary submatrices",
+        "arxiv:2610.22255v1 Proposition 2.1 and Theorem 2.1",
+        "arxiv:2503.23832v1 Section 3 Lemmas 1--2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The direct Frobenius objective and its latent variable surrogate are distinguished in Gillis--Porcelli--Seraghiti 2025 Section 3, Lemmas 1 and 2; nonattainment is for the latent surrogate, while direct attainment is demonstrated only for one two-by-two family.",
+        "Seraghiti--Vandaele--Gillis 2026 Section 2, Proposition 2.1 concerns rank-two failure; Section 2.2 gives rank-one NP-hardness."
+      ],
+      "reasoning": "The purported equivalent formulations include closedness of the ReLU image of rank-one matrices and a disjoint-pair nonnegative block-SVD decomposition; neither inspected source states or proves this equivalence. Failure for the latent objective does not imply failure for direct rectified residual optimization.",
+      "searches": [
+        "every rank-one rectified matrix Frobenius approximation attains its minimum, closed feasible set, two opposite sign rectangles blockwise leading singular values formula",
+        "Frobenius nonlinear matrix decomposition ReLU-rank one optimal sign patterns Perron Eckart Young finite union closed cones",
+        "\"ReLU\" \"rank-one\" \"closed\" matrices",
+        "arxiv:2503.23832v1 Section 3",
+        "arxiv:2610.22255v1 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical statements concerned a rank-one Frobenius modulus inequality, quadratic-neural-network regularization, and an unrelated Roth rank-minimization classification; their implications concern other objects and do not assert the ReLU two-block optimum.",
+        "Direct claim comparison under rectification, bipartitions, global rank-one attainment, and the exact spectral score did not locate a covering statement in the inspected records."
+      ],
+      "reasoning": "No exact pre-existing record of the two-block spectral characterization appeared in the actual published-statement searches. This is a finite bibliographic comparison, not a proof of unique discovery.",
+      "searches": [
+        "every rank-one rectified matrix Frobenius approximation attains its minimum, closed feasible set, two opposite sign rectangles blockwise leading singular values formula",
+        "ReLU rank-one matrix fit equals maximum over bipartitions sum squared top singular values of complementary submatrices",
+        "minimum dimensions ill posed rectified low-rank Frobenius rank two 3x3 rank one always well posed"
+      ]
+    },
+    "rationale": "Inspected the 2026 source for precise rank-one hardness and rank-two nonattainment; neither logically implies rank-one global attainment or its two-rectangle spectral formula. The directly relevant 2025 source established direct-model attainment only for a special two-by-two example, explicitly leaving general well-posedness open; its latent-model nonattainment cannot be transferred. The later subzero-completion text addresses other algebraic/algorithmic properties. Focused published-record and literature searches for all structural formulations returned no covering theorem. This is evidence for best-knowledge originality rather than proof of bibliographic uniqueness.",
+    "residual_risks": [
+      "The 2022 Saul primary full article was not materially inspected; its abstract alone cannot exclude hidden equivalent global optimization results.",
+      "Older non-indexed and differently named signed-factorization or cone-geometry literature could independently imply the paired singular-value formula.",
+      "Exhaustive novelty or originality beyond the actual semantic searches is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new rank-one attainment and two-block spectral formula; COVERS the quoted three-by-three rank-two counterexample and rank-one NP-hardness, which are acknowledged.",
+        "evidence": [
+          "Section 2.1 Proposition 2.1 exhibits rank-two three-by-three nonattainment.",
+          "Section 2.2 Theorem 2.1 gives NP-hardness of rank-one Frobenius ReLU decomposition.",
+          "Geometric Section 3 concerns exact ReLU rank, not the global rank-one approximation formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22255v1",
+        "material_read": "Full HTML Introduction, Section 2.1 Proposition 2.1 and proof, Section 2.2 rank-one decision problem and reduction, Sections 3--4 result outlines and geometric content, conclusion",
+        "method": "Read mathematical statements and proofs in accessible arXiv HTML and compared their logical implications to the two-block spectral formula.",
+        "title": "The ReLU Matrix Decomposition: NP-Hardness, Ill-Posedness, and ReLU-Rank",
+        "trigger": "Exact same objective, rank-one hardness, rank-two nonattainment, and potential stronger coverage"
+      },
+      {
+        "assessment": "NOT_COVERING: Section 3 supplies specific two-by-two direct attainment, but expressly says general direct-model well-posedness was not established; the latent surrogate can be nonattaining.",
+        "evidence": [
+          "Section 3 says general ReLU-NMD well-posedness could not be established.",
+          "Lemma 2 proves an instance-specific rank-one direct optimum for a two-by-two matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2503.23832v1",
+        "material_read": "Introduction and objective definitions, Section 3 distinction between direct and latent models, Lemmas 1 and 2 and their cases, following comparison theorem, Section 4 algorithmic methods",
+        "method": "Inspected accessible arXiv HTML mathematical statements and special example proof.",
+        "title": "An extrapolated and provably convergent algorithm for nonlinear matrix decomposition with the ReLU function",
+        "trigger": "Closest earlier direct versus latent ReLU model and possible global attainment theorem"
+      },
+      {
+        "assessment": "NO_COVERAGE_FOUND_IN_INSPECTED_MATERIAL: rank geometry and computational learning methods, not the stated direct rank-one closedness and paired spectral optimum. Remaining uninspected material is a bibliographic risk.",
+        "evidence": [
+          "Proposition 3 lower-bounds latent rank by the rank of an all-positive observed submatrix.",
+          "SVD appears in algorithmic updates to latent completions, distinct from maximization over two complementary sign rectangles."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.21607v1",
+        "material_read": "Abstract and Introduction, first theoretical section on subzero completion and positive-submatrix lower bound, selected optimization and SVD sections and appendix material",
+        "method": "Inspected mathematical definitions, Proposition 3, discussion of positive submatrices, algorithmic SVD uses in accessible HTML.",
+        "title": "Subzero matrix completion for sparse data analysis: large-scale learning of latent low-rank structure",
+        "trigger": "Recent closely related nonlinear low-rank completion, potential general spectral approximation coverage"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_RISK: abstract describes latent EM/SVD algorithms rather than a sign-partition global theorem, but cannot exclude uninspected full-text coverage.",
+        "evidence": [
+          "Abstract describes estimating a latent low-rank matrix via repeated singular value decomposition, not an explicitly stated direct rank-one global optimum."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/21M1405769",
+        "material_read": "Publisher abstract, author/date and bibliographic data only; full article not materially inspected",
+        "method": "Reviewed publisher abstract and associated indexed scholarly description; searched for lawful public source.",
+        "title": "A Nonlinear Matrix Decomposition for Mining the Zeros of Sparse Data",
+        "trigger": "Original latent nonlinear matrix decomposition precursor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ce79759-57e9-48a9-ad58-982fff0030a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a naturally motivated boundary issue for nonconvex direct ReLU matrix factorization: a recently established rank-two nonattainment contrasts with NP-hard rank-one optimization. The new general closedness theorem settles whether a global rank-one best approximation exists, and a constructive exact combinatorial spectral objective permits direct verification and explicit minimizer recovery. Combining that with the known counterexample establishes the smallest possible rank and ambient dimension where nonattainment can occur. It clarifies that NP-hardness does not entail ill-posedness and is more than a routine reformulation of SVD, because signed rectification creates two independently optimized blocks with a global coupled sign partition. Exponential partition complexity, possible historical overlap, and finite-precision issues are stated limits.",
+    "status": "PASS"
+  }
+}
