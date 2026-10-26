@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The odd-part digit recurrences are exact. For A+A all four residue classes have explicit constructive induction. The mixed sumset has constructive coverage except 0,1,4, checked as genuinely nonrepresentable. For B+B, all odd residues except 1,3,5,9 and all positive multiples of four are covered, and the equivalence 4m+2 in B+B iff 2m in B+B follows from parity/residue constraints. Descending reduction on the remaining even class reaches zero exactly on 2^k-2, yielding the complete infinite family. The exact count follows from counting powers of two. Actual standalone test covers constructive witnesses to n<100000 and independently direct sumsets to n<8192, but these finite tests are supplemental to the symbolic universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bell–Hare–Shallit establishes general decision procedures for automatic sets; no instantiated paperfolding three-sumset theorem is given in the material inspected.",
+        "Shallit (2022), The Logical Approach to Automatic Sequences, chapters 11–12 are plausibly related but were not fully accessible."
+      ],
+      "reasoning": "A general effective decision procedure does not imply the stated explicit exceptional sets without performing its specialized computation. However, inaccessible monograph content could contain a dominating special instance, which is retained as a risk.",
+      "searches": [
+        "\"paperfolding\" \"additive basis\" number theory",
+        "\"paperfolding\" \"sum of two\" \"Shallit\" additive",
+        "Bell Hare Shallit When Is an Automatic Set an Additive Basis arXiv:1710.08353"
+      ]
+    },
+    "checked_sources": [
+      "OEIS A014577",
+      "Bunder–Bates–Arnold, DOI 10.1017/S0004972724000169 (author-posted manuscript sections)",
+      "Allouche–Shallit, arXiv:2112.13627",
+      "Bell–Hare–Shallit, arXiv:1710.08353 (accessible material)",
+      "Shallit 2022 monograph (only descriptions and chapter titles)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bunder–Bates–Arnold author-posted paper develops paperfolding run-length sums and continued-fraction connections, not ordinary integer sumsets of one/zero positions in inspected sections.",
+        "Allouche–Shallit prove related additive properties for a different digit statistic.",
+        "The new proof uses direct odd-part residue recursions and a sumset-membership reduction."
+      ],
+      "reasoning": "The cited paperfolding sum is a sum of sequence symbols over a prefix, not an additive sumset of their index positions. Neither method/theorem directly states or entails the three specific complement formulas without additional specialized reasoning.",
+      "searches": [
+        "Bunder Bates Arnold The Summed Paperfolding Sequence DOI 10.1017/S0004972724000169",
+        "Allouche Shallit Additive Properties Evil Odious Numbers arXiv 2112.13627",
+        "\"paperfolding\" \"sumsets\" integers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A014577 provides zero-based membership \\(a(4n)=1,a(4n+2)=0,a(2n+1)=a(n)\\); it does not present the three addition sets.",
+        "Allouche and Shallit arXiv:2112.13627 examine Thue–Morse digit parity, not paperfolding digit parity."
+      ],
+      "reasoning": "The one-positions/zero-positions and the odd-part congruence formulation were both considered. The exact simultaneous pairing statements were not found.",
+      "searches": [
+        "\"paperfolding\" \"two summands\" additive",
+        "\"paperfolding\" \"A+B\" \"B+B\" sumsets",
+        "\"paperfolding\" \"sum of two\" \"odd part\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A014577 tabulates the sign sequence and recurrences, not representation exceptions.",
+        "The exceptional integers \\(0,2,6,14,30,\\ldots\\) arise here as a paired-addition complement, not as a mere recurrence identification."
+      ],
+      "reasoning": "The familiar Mersenne-minus-two progression by itself may be previously tabulated; the full equivalence with nonrepresentation by two zero-positions is the mathematical assertion, and no exact relevant table was located.",
+      "searches": [
+        "OEIS A014577 paper-folding sequence zero based recurrence",
+        "\"paperfolding\" \"2^k - 2\" \"sum\" integer"
+      ]
+    },
+    "rationale": "Targeted comparison with canonical digit-rule records, a directly relevant 2024 paperfolding primary work, and major literature on automatic additive bases did not identify equivalent or dominating results. The exact three ordinary sumsets and their geometric missing family are not direct implications of the cited statements without a new concrete classification. The accessible monograph chapters and journal-only differences create a material acknowledged residual risk.",
+    "residual_risks": [
+      "Shallit (2022) monograph chapters 11–12 were not read in full; a specialized sumset computation might be implicit.",
+      "The accessed Bunder–Bates–Arnold author text may differ from the final journal paper; only inspected material can support the comparison.",
+      "Automatic sequence sumsets could have earlier, unindexed presentations; absence of matching search results is not a novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No equivalent pairwise ordinary sumset theorem identified in inspected material; journal-only difference remains risk",
+        "evidence": [
+          "Bunder, Bates, Arnold (2024), published online 25 March 2024; author manuscript available at researchgate.net/publication/379281782_THE_SUMMED_PAPERFOLDING_SEQUENCE"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972724000169",
+        "material_read": "Publisher abstract and author-posted manuscript sections, definitions, theorem statements concerning summed/run-length paperfolding sequence; not all final journal-only material",
+        "method": "Read the available author text and compare sum-of-symbols quantities with two-summand sums of digit-class indices",
+        "title": "The Summed Paperfolding Sequence",
+        "trigger": "Most relevant 2024 primary paper with same regular paperfolding object"
+      },
+      {
+        "assessment": "The index-class membership recurrence is prior; no three paired sumset classifications were found",
+        "evidence": [
+          "OEIS A014577: a(4n)=1, a(4n+2)=0, a(2n+1)=a(n)"
+        ],
+        "identifier_or_url": "https://oeis.org/A014577",
+        "material_read": "Sequence description, offset, recurrences and comments",
+        "method": "Compare zero-indexed digit rule and included arithmetic formulas",
+        "title": "The regular paper-folding sequence",
+        "trigger": "Verify normalization and recurrence of the classical source sequence"
+      },
+      {
+        "assessment": "Methods motivate the question, but the underlying classes differ and no exact paperfolding pairing theorem found",
+        "evidence": [
+          "Allouche and Shallit, arXiv:2112.13627, 2021"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.13627",
+        "material_read": "Available author article text and its mathematical scope",
+        "method": "Compare binary digit-sum parity objects with paperfolding odd-part parity classes",
+        "title": "Additive Properties of the Evil and Odious Numbers and Similar Sequences",
+        "trigger": "Closest primary literature on sumsets of automatic sign classes"
+      },
+      {
+        "assessment": "General algorithmic coverage is not an explicit instantiated answer",
+        "evidence": [
+          "Bell, Hare and Shallit, arXiv:1710.08353 (2017)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.08353",
+        "material_read": "Available paper description and relevant text search for paperfolding instances; full detailed proof not independently audited",
+        "method": "Compare general algorithms with explicit finite/infinite exceptional set identities",
+        "title": "When Is an Automatic Set an Additive Basis?",
+        "trigger": "Potential dominating general theorem on automatic additive bases"
+      },
+      {
+        "assessment": "Unresolved possible stronger coverage; no claim that complete content was checked",
+        "evidence": [
+          "Shallit (2022), chapters 11 and 12"
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/9781108775267",
+        "material_read": "Publisher description and chapter titles only; full chapters inaccessible",
+        "method": "Accessibility boundary and high-level relevance assessment",
+        "title": "The Logical Approach to Automatic Sequences",
+        "trigger": "Chapters on additive number theory and paperfolding may contain equivalent results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c917316f-78c7-4884-9bd1-0797220fd222",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This classifies all three natural pairwise two-integer sumsets of the complementary sign-position sets of regular paperfolding, exhibiting universally representable, finitely obstructed, and infinitely logarithmically obstructed behavior. The exact exceptional set and sharp counting law answer a motivated additive-basis problem for a classical automatic sequence; they are neither a mere finite numerical table nor a restatement of its familiar index recurrence.",
+    "status": "PASS"
+  }
+}
