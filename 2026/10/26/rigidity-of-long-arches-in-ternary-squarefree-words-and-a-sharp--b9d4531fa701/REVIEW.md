@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every complete arch has length three or four because no binary squarefree factor has length four. A four-letter arch is necessarily `abac`; examining the four possible ways to start the next four-letter arch forces `babc`. Four such successive arches create a square, so each four complete arches include a length-three arch. The remainder has length at most three, proving the global bound. The explicit eighteen-letter witness has four arches and is squarefree. The standalone verifier checks the local classification and all 1,830 squarefree ternary words of length nineteen, including all 243 target length-five subsequences. The infinity-wide conclusion follows from the proof, not these finite checks.
+
+**Originality — PASS, qualified.** Adamson (arXiv:2304.04583v1) and Schnoebelen–Veron (arXiv:2304.11932v1) supply general arch theory but do not analyze ternary squarefree words. Grytczuk–Kordulewski–Pawlik (Journal of Integer Sequences 24, Article 21.8.7) treats squarefree extensions, not scattered subsequence universality. The known full-adjacency-distinct ternary universality enumeration permits arbitrarily long two-letter alternating words and gives no growing lower bound in the squarefree subfamily. A literature-equivalent alternative theorem may remain unindexed. Searches and source inspections provide best-knowledge, not a guarantee of uniqueness.
+
+**Mathematical value — PASS.** Factor avoidance constrains contiguous repetitions, whereas universality concerns scattered patterns; the theorem gives a motivated structural bridge, a strictly stronger global guaranteed subsequence density than the elementary four-position covering bound, and the first sharp forcing threshold where rigidity genuinely improves that bound (nineteen rather than twenty for five-universality). No asymptotic optimality of the coefficient is claimed.
+
+**Closest literature and limitations.** General arch factorization and ranking/unranking are prior results. Ternary squarefree extension theory supplies a known ingredient. The asymptotic coefficient need not be optimal, and independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
