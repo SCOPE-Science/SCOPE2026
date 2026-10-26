@@ -1,0 +1,150 @@
+{
+  "claim": "For every \\(\\lambda\\in\\mathbb Z_2\\) with \\(\\lambda\\equiv3\\pmod4\\), the map \\(f_\\lambda(x)=x^2-\\lambda\\) has a unique globally attracting 2-cycle \\(\\alpha\\leftrightarrow\\beta\\), where \\(\\alpha\\equiv1\\pmod4\\) and \\(\\beta\\equiv2\\pmod4\\). Every orbit enters \\(B=\\beta+8\\mathbb Z_2\\) after one iterate from an odd initial point or two from an even one. For \\(y\\in B\\), set \\(k_N(y)=\\min\\{N,v_2(y-\\beta)\\}\\), \\(d=N-k_N(y)\\), and \\(h_N(y)=0\\) if \\(d=0\\), otherwise \\(h_N(y)=2\\lfloor d/3\\rfloor+\\mathbf{1}_{3\\nmid d}\\). This is the exact least additional time for \\(y\\bmod 2^N\\) to enter the 2-cycle modulo \\(2^N\\). For every residue \\(x\\bmod2^N\\), its least preperiod \\(T_N(x)\\) is zero if \\(x\\equiv\\alpha\\) or \\(\\beta\\pmod{2^N}\\); otherwise it is \\(1+h_N(f_\\lambda(x))\\) when \\(x\\) is odd, it is \\(1\\) when \\(x\\) is even and \\(f_\\lambda(x)\\equiv\\alpha\\pmod{2^N}\\), and in all remaining even cases it is \\(2+h_N(f_\\lambda^2(x))\\). The valuation increases exactly by three per two iterates after entry into \\(B\\).",
+  "correctness": {
+    "rationale": "For \\(B=(1-\\lambda)+8\\mathbb Z_2\\), \\(g=f_\\lambda^2\\) maps \\(B\\) into itself and \\(v_2(g(x)-g(y))\\ge v_2(x-y)+3\\). Banach contraction gives \\(\\beta\\) and \\(\\alpha=f_\\lambda(\\beta)\\). The exact expansions \\(f_\\lambda(\\beta+u)-\\alpha=u(2\\beta+u)\\) and \\(g(\\beta+u)-\\beta=u[4\\alpha\\beta+(6\\beta^2-2\\lambda)u+4\\beta u^2+u^3]\\) give valuation increments \\(k+2\\) and \\(k+3\\). The tail-time law and the four-case finite-quotient formula follow by minimizing over the even and odd iterate times and handling the earlier time-zero/time-one cycle hits explicitly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fan–Liao, Theorem 6.1, covers the qualitative basin for all \\(\\lambda\\equiv3\\pmod4\\).",
+        "The inspected theorem and proof discuss the attracting 2-cycle but do not state the exact +3 valuation increment or tail-time formula."
+      ],
+      "reasoning": "The prior result is broader in qualitative classification, while the present claim adds a quantitative invariant on the same parameter range. It does not claim broader parameter coverage.",
+      "searches": [
+        {
+          "public_sources_consulted": [
+            "arXiv:1010.5583"
+          ],
+          "query": "Fan Liao all quadratic polynomials Z_2 minimal decomposition global basin period two exact convergence rate"
+        },
+        {
+          "public_sources_consulted": [
+            "arXiv:1010.5583",
+            "arXiv:1408.4574"
+          ],
+          "query": "quadratic p-adic map basin of attraction exact convergence rate 2-adic valuation"
+        }
+      ]
+    },
+    "checked_sources": [
+      {
+        "result": "qualitative global basin is covered; exact rate not stated in inspected theorem/proof",
+        "role": "primary full text",
+        "source": "arXiv:1010.5583"
+      },
+      {
+        "result": "different polynomial map; no direct implication found",
+        "role": "related background",
+        "source": "arXiv:1408.4574"
+      },
+      {
+        "result": "same work as arXiv:1010.5583, not counted as an independent result",
+        "role": "published version of primary source",
+        "source": "DOI:10.1016/j.aim.2011.06.032"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.1 states that the whole \\(\\mathbb Z_2\\) is attracted to a period-two orbit when \\(\\lambda\\equiv3\\pmod4\\).",
+        "The proof's qualitative cycle-growth argument does not give the exact valuations \\(k+3j\\) and \\(k+2+3j\\)."
+      ],
+      "reasoning": "The exact rate follows from an additional explicit expansion and a noncancellation check. This is a quantitative refinement of the prior qualitative theorem; the residual risk that a related computation appears elsewhere is retained.",
+      "searches": [
+        {
+          "public_sources_consulted": [
+            "arXiv:1010.5583",
+            "DOI:10.1016/j.aim.2011.06.032"
+          ],
+          "query": "On minimal decomposition of p-adic polynomial dynamical systems Theorem 6.1 proof lambda congruent 3 modulo 4"
+        }
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fan–Liao, Theorem 6.1, treats the qualitative basin for \\(f_\\lambda(x)=x^2-\\lambda\\) with \\(\\lambda\\equiv3\\pmod4\\).",
+        "The claim uses the same polynomial family but specifies the exact valuation increments and the exact tail-time formula."
+      ],
+      "reasoning": "No distinct wording, parameter substitution, or rephrasing is being presented as new; only the quantitative rate and derived precision-time law are claimed.",
+      "searches": [
+        {
+          "public_sources_consulted": [
+            "arXiv:1010.5583",
+            "DOI:10.1016/j.aim.2011.06.032"
+          ],
+          "query": "for f_lambda(x)=x^2-lambda on Z_2 lambda congruent 3 mod 4 exact valuation growth of distance to unique 2-cycle three powers of two per two iterations finite precision settling time"
+        },
+        {
+          "public_sources_consulted": [
+            "arXiv:1010.5583"
+          ],
+          "query": "2-adic map f(x)=x^2-1 on Z_2 attracting two-cycle exact valuation convergence rate"
+        }
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant finite table is claimed by the primary paper; its result is theorem-based.",
+        "The inspected full text provides qualitative basin information, not a residue-class census or the exact precision-time law."
+      ],
+      "reasoning": "A finite table is inapplicable to the infinite 2-adic valuation statement. The comparison is with the actual primary theorem and proof, not with titles alone.",
+      "searches": [
+        {
+          "public_sources_consulted": [
+            "arXiv:1010.5583",
+            "arXiv:1408.4574"
+          ],
+          "query": "quantitative convergence rate p-adic quadratic polynomial attracting period two cycle valuation multiplier exact preperiod depth modulo 2^N"
+        },
+        {
+          "public_sources_consulted": [
+            "arXiv:1010.5583"
+          ],
+          "query": "2-adic polynomial x^2-lambda lambda congruent 3 mod 4 exact valuation gain per two iterates"
+        }
+      ]
+    },
+    "rationale": "The directly relevant primary source establishes qualitative attraction to a 2-cycle for this family but does not state the exact valuation growth or precision-time law in the inspected theorem and proof. The submitted claim is restricted to that quantitative refinement and does not claim the qualitative classification as new.",
+    "residual_risks": [
+      "A broader or unindexed source may contain the same quantitative computation; absence of a search match is not proof of novelty.",
+      "The exact valuation law is an elementary but sharp quantitative refinement of an established qualitative basin theorem; an external reviewer may judge its significance modest.",
+      "The finite-precision formula is a tail-time from the canonical basin ball and is not a full count of globally minimal preperiods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the qualitative global attracting 2-cycle, but the exact three-unit valuation gain and precision-time formula are not stated in the inspected result.",
+        "evidence": [
+          "arXiv:1010.5583, Theorem 6.1: the whole Z_2 is attracted to a period-two orbit for lambda congruent to 3 modulo 4.",
+          "arXiv:1010.5583, proof of Theorem 6.1: establishes the qualitative cycle-growth conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1010.5583",
+        "material_read": "Full arXiv PDF; Theorem 6.1 statement and its proof, especially the global period-two basin statement and the cycle-growth argument around pages 16 and 20 of the PDF.",
+        "method": "Compared the exact object and parameter range, then checked whether the theorem or proof states the exact valuation increments or finite-precision tail-time formula.",
+        "title": "On minimal decomposition of p-adic polynomial dynamical systems",
+        "trigger": "Theorem 6.1 explicitly treats \\(f_\\lambda(x)=x^2-\\lambda\\) on \\(\\mathbb Z_2\\) when \\(\\lambda\\equiv3\\pmod4\\)."
+      },
+      {
+        "assessment": "Related general p-adic dynamics background, but not the same map and not a statement of the claimed valuation law.",
+        "evidence": [
+          "arXiv:1408.4574 describes the square map x to x^2 on Z_p, not the quadratic family x^2-lambda."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.4574",
+        "material_read": "Abstract and relevant scope statement; the paper studies x mapped to x^2 rather than x^2-lambda.",
+        "method": "Checked the map and parameter scope against the proposed claim.",
+        "title": "Dynamics of the square mapping on the ring of p-adic integers",
+        "trigger": "Search result on quantitative p-adic polynomial dynamics and attracting basins."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c0020db-9d8f-434d-be75-5fd702cac796",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a pointwise exact least preperiod for every residue modulo \\(2^N\\), not merely a convergence bound. The exact valuation slope yields a sharp, parameter-uniform cost for resolving the attracting cycle to \\(N\\)-bit 2-adic precision. This is a natural finite-precision invariant for iterated p-adic maps and is strictly more informative than qualitative convergence or a nonsharp contraction bound.",
+    "status": "PASS"
+  }
+}
