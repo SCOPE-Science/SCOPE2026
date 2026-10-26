@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The linear mean/difference coordinate change exactly splits the weighted loss, reducing two-row anti-Monge projection to weighted isotonic regression on the differences. On each pooled block the top and bottom Jacobian absolute row sums are 1+2[b_j/(a_j+b_j)](1-c_j/C_B) and 1+2[a_j/(a_j+b_j)](1-c_j/C_B); C_B≤C gives the claimed global upper bound. Strictly descending data differences lie inside a full-pooling open KKT cell, and an exact sign perturbation attains the bound. An elementary minimum-c and α≥1/2 argument with equality rigidity yields 2−1/m uniquely at equal weights; strict α<1 and c_j/C>0 give <3; a continuous weight path reaches every intermediate value and approaches 3. The extracted exact-fraction checker ran and reported 12883 assertions passed. Universal results rest on proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hütter–Mao–Rigollet–Robeva treat arbitrary-sized anti-Monge matrices and statistical least-squares estimators; the sections read address structure, risk and computation, not the sharp deterministic input-to-fit sup-norm modulus.",
+        "Chatterjee–Guntuboyina–Sen treat shape-constrained least squares and risk bounds, not the two-row heterogeneous coordinatewise sharp perturbation constant."
+      ],
+      "reasoning": "Broader objects alone do not entail the proposed exact numerical stability theorem: neither inspected result gives a dominating sup-norm Lipschitz bound with equality or the complete weight-design characterization.",
+      "searches": [
+        "weighted least squares projection onto supermodular 2 by m arrays Monge cone sup norm Lipschitz sensitivity sharp",
+        "supermodular regression two row array isotonic differences weighted Euclidean projection",
+        "Monge matrix cone nearest projection weighted coordinatewise infinity norm stability",
+        "Estimation of Monge Matrices arXiv:1904.03136 full-text §§2,4,5",
+        "On risk bounds in isotonic and other shape restricted regression problems arXiv:1311.3765 relevant full-text sections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1311.3765",
+      "arXiv:1904.03136",
+      "arXiv:1706.01852 (abstract only)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-stability-of-finite-chain-isotonic-metric-projection--f78c125227d5",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The two-row weighted square-completion is a new reduction used here; the decisive claimed result is the exact maximal Jacobian row-sum after reconstruction and its full optimization over weights.",
+        "Published scalar isotonic theorems state Lipschitz bounds for the scalar fit itself in ℓp, not reconstructed top/bottom rows in ordinary ℓ∞."
+      ],
+      "reasoning": "The prior statements neither logically specialize to the two-row weighted map nor contain the sharp mixed Jacobian coefficient and global weight-classification. Isotonic pooling and the Monge cone are recognized as prior mechanisms, not originality claims.",
+      "searches": [
+        "arXiv:1311.3765",
+        "arXiv:1904.03136",
+        "published-finding corpus published: sharp ℓp finite-chain isotonic metric projection",
+        "published-finding corpus published: sharp ℓp isotonic regression every finite partial order",
+        "bivariate isotonic and supermodular regression exact l infinity Lipschitz constants",
+        "two-row supermodular regression sharp elementwise sup-norm Lipschitz 3 weighted"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Monge supermodularity in two rows becomes the weighted isotonic cone on successive row differences; the projected two-row array also reconstructs column means.",
+        "The two published full-text isotonic stability results bound scalar-cone projections in their ℓp data norm and do not contain the mixed reconstruction coefficients that cause a two-row sup-norm gain."
+      ],
+      "reasoning": "A mere isotonic projector is sup-norm contractive and does not have the claimed >1 amplification; the relevant operator includes the heterogeneous mean/difference linear maps. Direct implication would require additional analysis of the reconstructed rows; neither inspected isotonic result supplies this sharp computation.",
+      "searches": [
+        "weighted least squares projection onto supermodular 2 by m arrays Monge cone sup norm Lipschitz sensitivity sharp",
+        "supermodular regression two row array isotonic differences weighted Euclidean projection",
+        "Monge matrix cone nearest projection weighted coordinatewise infinity norm stability",
+        "Published published-finding corpus: sharp ell-p stability of finite-chain isotonic metric projections, full RESULT.md",
+        "Published published-finding corpus: sharp ell-p isotonic regression stability on every finite partial order, full RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried mathematical finding records and the examined Monge primary source supplied no exact table or numerical invariant equal to the proposed formula.",
+        "The published isotonic constants vary with ℓp objective exponents and count of scalar-order vertices, not the arbitrary heteroscedastic two-row weights."
+      ],
+      "reasoning": "No matching precomputed value, dominating formula, or finite database of all heteroscedastic weights was located. Unsuccessful searches are not themselves proof of novelty.",
+      "searches": [
+        "weighted least squares projection onto supermodular 2 by m arrays Monge cone sup norm Lipschitz sensitivity sharp",
+        "supermodular regression two row array isotonic differences weighted Euclidean projection",
+        "Monge matrix cone nearest projection weighted coordinatewise infinity norm stability",
+        "bivariate isotonic and supermodular regression exact l infinity Lipschitz constants",
+        "two-row supermodular regression sharp elementwise sup-norm Lipschitz 3 weighted",
+        "published-finding corpus semantic queries: weighted Monge cone, two-row supermodular, isotonic reconstruction, sharp Lipschitz constants"
+      ]
+    },
+    "rationale": "Relevant Monge-matrix regression and scalar isotonic sources provide the operator framework, risk theory, and pooling representation but do not give the sharp coordinatewise Lipschitz modulus of the reconstructed two-row weighted projection or the exact attainable weight range. Two closely related full published isotonic stability statements measure their scalar map in an ℓp objective/input norm; they do not dominate the present heteroscedastic reconstructed-output sup-norm result. A different historical matrix formulation remains possible, and originality is assessed only within checked evidence.",
+    "residual_risks": [
+      "An older article on matrix-valued Monge regression may derive the same two-row formula under different coordinates.",
+      "The full text of arXiv:1706.01852 was not accessible for a complete side-by-side comparison; its abstract addresses a distinct scalar projector.",
+      "Priority is not exhaustively certified, and mathematical correctness is not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the claimed exact heterogeneous two-row coordinatewise modulus",
+        "evidence": "Estimates statistical risks of constrained estimators; does not introduce mixed reconstructed two-row weighted max-norm Jacobians.",
+        "identifier_or_url": "arXiv:1311.3765 (2013); https://arxiv.org/abs/1311.3765",
+        "material_read": "Full-text available sections on isotonic and shape-restricted regression formulation and risk bounds; original submission chronology verified",
+        "method": "Read accessible article text and theorem statements, comparing deterministic solution-map norms with its statistical risk problem",
+        "title": "On risk bounds in isotonic and other shape restricted regression problems",
+        "trigger": "Foundational older source for isotonic regression and archive anchor"
+      },
+      {
+        "assessment": "NOT_COVERING the claim in examined relevant material",
+        "evidence": "Covers broader anti-Monge least-squares estimation and algorithms but does not state a sharp heteroscedastic coordinatewise Lipschitz constant or its full achievable interval.",
+        "identifier_or_url": "arXiv:1904.03136 (2019); https://arxiv.org/html/1904.03136",
+        "material_read": "Accessible HTML primary full text, particularly introduction, §2 anti-Monge geometry, §4.1 projection algorithm, §5.1 structural decomposition; targeted searches for Lipschitz, sensitivity, two-row and sup-norm",
+        "method": "Inspected sections covering the object, cone constraints, estimator and projection implementation, then compared stated results with exact two-row norm and weight-design classification",
+        "title": "Estimation of Monge Matrices",
+        "trigger": "Direct matching anti-Monge matrix cone and least-squares projection"
+      },
+      {
+        "assessment": "NOT_COVERING; same scalar isotonic ingredient, different output operator and different norm",
+        "evidence": "Claims sharp ℓp norms of scalar isotonic metric projection for p in (1,∞); excludes p=∞ and arbitrary weights; the present two-row reconstructed map may amplify ℓ∞ errors above one.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-stability-of-finite-chain-isotonic-metric-projection--f78c125227d5",
+        "material_read": "Complete published RESULT.md including finding, assumptions, proof, limitations and references",
+        "method": "Read the complete primary mathematical claim and compared domain, objective and output reconstruction",
+        "title": "Sharp ℓp stability of finite-chain isotonic metric projections",
+        "trigger": "Strongest semantic match for the reduced isotonic component"
+      },
+      {
+        "assessment": "NOT_COVERING; scalar ℓp isotonic map, not two-row weighted reconstructed supermodularity map",
+        "evidence": "Its theorem assumes unweighted finite order and 1<p<∞ with input/output in the same ℓp norm.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-ell-p-isotonic-regression-stability-on-every-finite-partia--7bfc7f16ca62",
+        "material_read": "Complete published RESULT.md including finding, assumptions, proof and limitations",
+        "method": "Checked mathematical implication rather than relying on title or parameter match",
+        "title": "Sharp ℓp isotonic regression stability on every finite partial order",
+        "trigger": "Possible broader coverage via all finite orders"
+      },
+      {
+        "assessment": "Scalar isotonic results do not directly imply two-row sharp constant; full-text equivalences not ruled out",
+        "evidence": "Abstract concerns projection onto a monotone-sequence cone and characterization of norms for which that scalar projection is contractive.",
+        "identifier_or_url": "arXiv:1706.01852",
+        "material_read": "Original public abstract; full paper was not accessible during this comparison",
+        "method": "Compared stated scalar isotonic contractivity object with the present reconstructed two-row operator, retaining access risk",
+        "title": "Contraction and uniform convergence of isotonic regression",
+        "trigger": "Could imply an isotonic sup-norm contraction bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9895722c-ef5e-4283-8c2b-ccf910ea6d85",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-row Monge/anti-Monge regression is a natural minimal nontrivial multivariate shape-constrained estimator. Its sharp max-coordinate input-to-output error amplification matters for bounded independent observation perturbations, which mean-square statistical risk and Hilbert-norm contractivity do not control sharply. The exact heteroscedastic formula exhibits a natural and sharp robustness design principle (equal weights uniquely minimize) and a nontrivial unbounded-weight degradation approaching three; this quantitative boundary case can guide stability analysis for larger Monge cones.",
+    "status": "PASS"
+  }
+}
