@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two-step Legendre recurrence was derived from standard differentiation and integration by parts with explicit endpoint data. The base cases, positivity, ratio monotonicity, both parity limits via Euler/Wallis products, and the Schoenberg strictness criterion cover all positive scales, all real signed mixture coefficients, and boundary cases. The full parameter claim is a consequence of analytic inequalities rather than a finite search. Supplementary 45-digit quadrature confirmed the finite coefficient formulas, with maximum discrepancy below \(5.5\times10^{-48}\).
+
+**Originality — PASS under a bounded comparison.** The inspected full texts of Gneiting (arXiv:1111.7077), Fiedler (arXiv:1303.6856), and Feragen–Lauze–Hauberg (arXiv:1411.0296) give spherical positive definiteness, coefficient transfer and individual exponential positivity, but not the sharp inequality for differences of two distinct scales. The indexed-record searches and accessible own claim comparison found no statement dominating the complete criterion. Search incompleteness and unindexed equivalent results remain genuine priority risks; no exhaustive literature uniqueness is asserted.
+
+**Mathematical value — PASS.** Signed differences of covariance kernels are not generally positive definite merely because both summands are. The result solves a natural spectral Loewner-comparison problem exactly, replaces infinitely many spherical-harmonic inequalities by an explicit two-branch parameter threshold, identifies the distinct low-degree and asymptotic even-degree obstructions, and proves strict positive definiteness at the nontrivial boundary. The dimension and signed-scale restrictions are substantive, not arbitrary numerical slices.
+
+Closest inspected literature: Gneiting's theorem on individual completely monotone spherical kernels and Schoenberg expansions; Fiedler's general coefficient relations; Feragen and coauthors' geodesic exponential kernel geometry. None of these facts alone establishes the two-scale coefficient-order theorem. No independent scientific audit, priority determination, or dimension extension is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
