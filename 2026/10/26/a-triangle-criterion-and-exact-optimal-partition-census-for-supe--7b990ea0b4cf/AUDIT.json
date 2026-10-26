@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed definitions and each lemma independently. The no-isolate assumption certifies all one-vertex deletions; the super domination threshold forbids deletion of three or more. For four blocks, the one nonsingleton block must join every coalition pair and the other three singleton complement-pairs are exactly edges of a triangle; converse holds. Three blocks exist whether the deletion graph is complete or not. For three blocks, at least two of the three remainders must be singleton or eligible pair. Double-count the three possible designated small pairs and subtract two when all three are small: only n=5 (two edges and singleton) or n=6 (three disjoint edges). This proves the binomial + (n−3)edges + 2-matching − exceptional correction identity. Independent brute-force implementation tested 2388 eligible graphs of orders 5,6,7; finite checks are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alikhani–Ghanbari Theorem 3.2 bounds the number of blocks by order + 2 − super domination number; Theorems 3.5 and 3.6 give other sufficient cases, none a necessary and sufficient near-maximal criterion.",
+        "Theorem 5.7 handles complete graphs, stars, wheels and friendship graphs by a universal-vertex sufficient family, rather than classifying all high-super-domination graphs."
+      ],
+      "reasoning": "The known universal ceiling implies at most four blocks, but the matching/triangle statistics determine attainability and exact counts for a broad class of graphs not fixed by the ceiling.",
+      "searches": [
+        "super coalition graphs with super domination number n-2 at most four classes triangle criterion two-deletion graph",
+        "super coalition partitions complete multipartite extremal four classes and triple elementary symmetric enumeration",
+        "arxiv.org/html/2607.22686v1 Theorems 3.1,3.2,3.5,3.6; Sections 5 and 7"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.22686, full HTML, Definition 2.2, Theorem 3.2, Sections 5 and 7",
+      "published-finding corpus:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089, indexed abstract",
+      "doi:10.22049/CCO.2019.26587.1122, publicly available abstract",
+      "Targeted web searches for super coalition triangle/equality, counts and multipartite partitions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary Theorem 3.2 gives only upper bound; Section 7 asks to characterize equality cases. The present theorem characterizes equality when super domination is at least n−2, and enumerates optimal partitions.",
+        "The indexed multipartite record completely describes eligible two-deletion pairs for that specific family, and hence covers that input lemma, but not an arbitrary-graph super-coalition partition count."
+      ],
+      "reasoning": "The new triangle criterion answers a genuine part of the motivating equality-characterization question; the exact matchings-based three-block formula and triangle count require further combinatorial reasoning not stated in the inspected sources. The input multipartite deletion condition is expressly credited, not represented as new.",
+      "searches": [
+        "super coalition graphs with super domination number n-2 at most four classes triangle criterion two-deletion graph",
+        "super coalition partitions complete multipartite extremal four classes and triple elementary symmetric enumeration",
+        "super dominating coalitions partition color classes K_{n1,...,nr}",
+        "arxiv.org/html/2607.22686v1 Theorems 3.1–3.6",
+        "published-finding corpus:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text gives definition 2.2 and a bound in Theorem 3.2 but does not turn two-deletion super domination into a triangle/matching enumeration.",
+        "Searches in published research records gave no corresponding four-block triangle equivalence."
+      ],
+      "reasoning": "The auxiliary graph is a representation of exactly which two-vertex complements super dominate. Triangles encode the three possible remainders of four-block coalitions. A generic upper bound of four is weaker and does not imply triangle existence or cardinalities.",
+      "searches": [
+        "super coalition graphs with super domination number n-2 at most four classes triangle criterion two-deletion graph",
+        "maximal super coalition partitions number triangle auxiliary graph feasible omitted pairs",
+        "super domination pair deletion graph and super coalition number triangle matching counts",
+        "arxiv.org/html/2607.22686v1 Sections 2–7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed multipartite record enumerates super dominating vertex sets by omitted pairs and does not report super-coalition set partitions.",
+        "No exact auxiliary-graph 3-block formula involving two- and three-edge matching counts was returned by the actual queries."
+      ],
+      "reasoning": "A list of eligible pairs permits deriving one specialization but does not itself state the claimed general partition census. A search miss alone does not establish novelty.",
+      "searches": [
+        "maximal super coalition partitions number triangle auxiliary graph feasible omitted pairs",
+        "super domination pair deletion graph and super coalition number triangle matching counts",
+        "super coalition number complete multipartite graph maximum classes part sizes number of maximizing partitions",
+        "published-finding corpus:2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089"
+      ]
+    },
+    "rationale": "The motivating paper was inspected in full in accessible arXiv HTML. Its Theorem 3.2 implies the four-block ceiling in this regime but supplies neither equality characterization nor the exact number of three-/four-block partitions; its open Problem 7.1 explicitly asks for equality classification. Targeted published-finding corpus searches identified a stronger input result for complete multipartite super dominating sets, credited in the proof, but no published statement covering the general triangle/graph-matching theorem. Novelty is assessed only for this structural partition theorem, not for that input lemma or the universal ceiling.",
+    "residual_risks": [
+      "The complete separately indexed multipartite paper was not inspected; a previously published hidden coalition specialization could overlap, although the general arbitrary-graph formula is not in its returned scientific summary.",
+      "Unindexed or unpublished equivalent results remain possible. Absence from search results is not proof of worldwide uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same invariant and already proves universal bound; does not give near-maximal if-and-only-if triangle criterion, exact optimal partition counts or matching census.",
+        "evidence": [
+          "Definition 2.2, Theorem 3.2, Section 5 Theorems 5.1–5.7, Problem 7.1; arXiv submission history July 15, 2026."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.22686v1",
+        "material_read": "Complete arXiv HTML text: definitions, Sections 2–7, general bounds Theorems 3.1–3.6, Section 5 special classes and Section 7 open problems.",
+        "method": "Read arXiv HTML and compared theorem statements and their logical consequences",
+        "title": "Super Coalition Number in Graphs",
+        "trigger": "Directly introduces super-coalition partitions and general upper bound; possible stronger coverage"
+      },
+      {
+        "assessment": "Contains exact two-vertex complement criterion in complete multipartite graphs, necessarily credited. Does not claim super coalition optimum triangle rule or general matching census. Full text unavailable in this run.",
+        "evidence": [
+          "The record summary states: super-dominating sets of complete multipartite graphs omit at most two vertices, and valid pairs come from two different nonsingleton parts."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-super-dominating-sets-of-complete-multipartite-graphs--315739371089",
+        "material_read": "Public semantic-search record title, indexed summary and public identifier, not full underlying text.",
+        "method": "Scientific comparison of directly retrieved record summary with explicit claimed hypothesis and conclusion",
+        "title": "All super dominating sets of complete multipartite graphs",
+        "trigger": "Exact eligible two-deletion pairs in natural special family"
+      },
+      {
+        "assessment": "Defines superdomination but predates the super coalition invariant and does not establish the new partition census.",
+        "evidence": [
+          "2018 preprint and 2019 DOI bibliographic data; foundational super dominating set definition."
+        ],
+        "identifier_or_url": "https://doi.org/10.22049/CCO.2019.26587.1122",
+        "material_read": "Public abstract and bibliographic record, not complete article.",
+        "method": "Compared scope of primary definition and invariant",
+        "title": "On the super domination number of graphs",
+        "trigger": "Source of fundamental superdomination definition and prior bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7b990ea0-b4cf-494c-ba99-ef57a3c5d0ad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural question left by the motivating Theorem 3.2 and Problem 7.1 is when the sharp upper bound on coalition blocks is attained. This result completely solves that equality question for every graph with super domination number at least n−2 and goes beyond the extremal value by enumerating all attaining partitions, plus all three-block partitions, through structurally canonical triangle/matching invariants. This is an infinite and graph-wide classification and a useful exact reduction, not an artificial finite slice or mere recomputation of a known table.",
+    "status": "PASS"
+  }
+}
