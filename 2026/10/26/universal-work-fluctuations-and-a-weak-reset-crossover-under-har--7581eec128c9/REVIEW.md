@@ -1,0 +1,15 @@
+# Review of the stationary harmonic partial-reset work theorem
+
+## Correctness
+PASS. Conditioning on exploration duration produces the independent innovation law and exact second and fourth cumulants. An elementary conditional quadratic regression yields the complete work-increment autocovariance; summation gives the exact finite-count variance. The square-integrable martingale central limit theorem and a triangular-array functional invariance principle independently establish the two asymptotic regimes. The self-contained `verify.py` implementation samples Brownian displacements conditional on each exploration duration and compares six time-law/reset-strength cases plus three OU scaling cases with the displayed formulas. Limits requiring infinite sample size are proved analytically, not by numerical fit.
+
+## Originality
+PASS at self-review, with residual literature-priority risk. The directly motivating Olsen--Gupta article explicitly gives mean work and position one-time moments, plus a simulated standardized work histogram; it identifies work fluctuations as a future question. Complete-reset work-fluctuation results apply regenerative independence, absent when \(a>0\). The separately investigated refractory-position and completely thermalized erasure-cycle models do not imply this event-indexed exact work variance and its integrated-OU crossover under the identical assumptions. The contraction-chain covariance and general AR/OU limit methods are recognized prior mathematics; originality is restricted to their evaluated thermodynamic work law and universal non-Gaussian critical window. Stronger coverage outside the inspected source set remains possible.
+
+## Mathematical value
+PASS. Work reliability is a motivated physical quantity absent from a mean-only cost calculation. The exact formula separates two mechanisms: a universal growing persistence term and an additive reset-strength-independent contribution from renewal-time randomness. It quantifies the singular loss of self-averaging as resets weaken. The integrated-OU critical window identifies the non-Gaussian distribution of work precisely when stationary single-position marginals become Gaussian, and prevents an invalid Gaussian approximation when the number of resets does not exceed the correlation scale. No general downstream theorem is required to interpret these structural observables.
+
+## Closest work and limits
+Primary comparison: Olsen and Gupta, arXiv:2401.11919, Sections III--V and Appendix A. Other comparisons: Gupta--Plata--Pal arXiv:1909.08512; Zamparo arXiv:2207.07521; Olsen--Löwen arXiv:2406.10039; Gupta--Olsen--Krishnamurthy DOI:10.1038/s42005-025-02277-w. Unlike time-based work rates, the theorem conditions on exactly \(n\) completed contractions and stationary event-indexed preparation. Return-stage noise, finite-time work protocols, heavy-tailed exploration durations without a second moment and independent scientific replication remain outside its claims.
+
+Self-review: passed. Independent audit: not yet performed.
