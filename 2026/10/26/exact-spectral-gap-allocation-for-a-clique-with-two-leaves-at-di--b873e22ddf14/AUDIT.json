@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A centered Euclidean point configuration has unit squared length on every graph edge and variance V. The Rayleigh trace identity gives the global upper bound λ2≤B/V for arbitrary nonnegative conductances. The proposed positive edge weights satisfy LQ=λQ_centered for every coordinate. The invariant anti-symmetric 2x2 and symmetric 3x3 spectral blocks each have exactly one λ positive mode; their other eigenvalue exceeds λ since the pendant edge conductance is strictly greater than λ. Peripheral-difference modes have λ with multiplicity k−1, so λ2=λ with total multiplicity k+1. Unit edge lengths and trace equality imply budget B=λV. Uniqueness of scalar root follows from a strictly decreasing function on (0,1). Direct asymptotics give the stated limit. A separate numerical implementation assembled matrices and checked the formulas for 33 graph sizes; the infinite result uses proof, not the finite list.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al. 2006 sections 1, 4 and 5",
+        "Jafarizadeh arXiv:2501.02421v1 sections 2, 3, 5.5 and 6.4",
+        "arXiv:0709.0955 abstract"
+      ],
+      "reasoning": "General semidefinite or symmetry methods are computational formulations rather than explicit all-size classifications. The lollipop formula is for a different topology and discrete-time SLEM, which has upper spectral and vertex stochastic constraints absent from an unrestricted continuous-time rate budget. No known general theorem was found that implies the proposed explicit scalar algebraic root and weights.",
+      "searches": [
+        "exact fastest mixing continuous-time Markov process weighted clique graph with two pendant leaves attached to distinct core vertices optimal algebraic connectivity budget",
+        "two independent pendant leaves connected to different vertices of complete graph sharp spectral gap optimal edge weights",
+        "maximum second Laplacian eigenvalue conductance budget complete clique two leaves attached to distinct vertices continuous time optimum",
+        "clique spectral-gap conductance allocation two leaf nodes different core vertices exact optimizers Fiedler"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. 2006, doi:10.1137/S0036144504443821, author-hosted PDF pages/sections as noted",
+      "Jafarizadeh arXiv:2501.02421v1, open HTML Sections 2, 3, 5.5, 6.4",
+      "Boyd et al. arXiv:0709.0955, abstract only",
+      "Public web searches for alternate graph names, optimal algebraic connectivity, and variance unfolding",
+      "Indexed mathematical-record search using the displayed graph-topology, spectral-gap, and variance-dual queries; no direct matching theorem retrieved"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A one-tail clique has one tail of length two at a single clique hub, unlike two leaves at two distinct hubs.",
+        "A bridged clique pair has two nontrivial clique blocks; the present graph has only one clique and two distinct pendant leaves.",
+        "A one-leaf complete bipartite network has a bipartite core, not the complete core in this claim.",
+        "Sun et al. 2006 provides general SDP/dual formulation and different examples.",
+        "Jafarizadeh 2025 addresses discrete-time stochastic SLEM and nonidentical lollipop/clique lift topologies."
+      ],
+      "reasoning": "The compared explicit topology-specific theorems have different edge supports and do not imply the two-distinct-hub solution. General SDP methods are not themselves this explicit analytic formula, and the later clique-lift/lollipop results impose discrete-time stochasticity and different graph incidence.",
+      "searches": [
+        "fastest mixing continuous time Markov process optimize algebraic connectivity conductance budget clique with a path of length two attached at one vertex",
+        "optimal spectral gap weighted graph pendant path attached to complete graph budget exact symmetry reduced semidefinite certificate",
+        "maximum second Laplacian eigenvalue conductance budget complete clique two leaves attached to distinct vertices continuous time optimum",
+        "clique spectral-gap conductance allocation two leaf nodes different core vertices exact optimizers Fiedler",
+        "Sun et al. 2006 doi:10.1137/S0036144504443821",
+        "Jafarizadeh arXiv:2501.02421v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. 2006, continuous-time Euclidean variance dual, DOI 10.1137/S0036144504443821",
+        "A clique with one length-two pendant path has a different articulation/leaf incidence pattern from two pendant edges at distinct hubs."
+      ],
+      "reasoning": "The primal can be recast as unit-edge Euclidean maximum-variance embedding. That general duality is known, but the exact optimizer and formula are not given there. The distinct-hub graph has two degree-one leaves with different clique neighbors; it is not the one-tail graph of a related separate graph problem and has different orbit and Fiedler structure.",
+      "searches": [
+        "fastest mixing continuous time Markov process optimize algebraic connectivity conductance budget clique with a path of length two attached at one vertex",
+        "optimal spectral gap weighted graph pendant path attached to complete graph budget exact symmetry reduced semidefinite certificate",
+        "exact fastest mixing continuous-time Markov process weighted clique graph with two pendant leaves attached to distinct core vertices optimal algebraic connectivity budget",
+        "two independent pendant leaves connected to different vertices of complete graph sharp spectral gap optimal edge weights",
+        "web: maximum variance unfolding graph clique with pendant leaves two distinct vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Sun et al. 2006 numerical example is a triangle-and-fork structure, not the double-leaf clique in this result.",
+        "No retrieved mathematical table provides an explicit formula for this graph family."
+      ],
+      "reasoning": "No located exact database/table supplies these optimal rate vectors. Failed retrieval is not itself proof of novelty; the comparison is with the actual reported objects and formulas.",
+      "searches": [
+        "exact fastest mixing continuous-time Markov process weighted clique graph with two pendant leaves attached to distinct core vertices optimal algebraic connectivity budget",
+        "two independent pendant leaves connected to different vertices of complete graph sharp spectral gap optimal edge weights",
+        "maximum second Laplacian eigenvalue conductance budget complete clique two leaves attached to distinct vertices continuous time optimum",
+        "clique spectral-gap conductance allocation two leaf nodes different core vertices exact optimizers Fiedler",
+        "web: clique with two attached leaves Fiedler value fastest mixing conductance optimization"
+      ]
+    },
+    "rationale": "The exact all-size continuous-time total-budget spectral-gap formula for the two distinct attachment hubs, positive edge rates and Fiedler multiplicity are not implied by the inspected primary results. Sun et al. provide a general SDP and variance dual without this solved graph family; Jafarizadeh treats discrete-time SLEM and different attachment structures. Related explicit problems for a one-tail clique, bridged clique pair and one-leaf biclique have nonisomorphic supports and do not yield the present formula. Searches for analogous results under alternative graph names found no implication-equivalent solution. Specialized prior coverage is still possible.",
+    "residual_risks": [
+      "An earlier exact spectral-design calculation using a different name (e.g. two-whisker clique or a block graph) may have escaped semantic indexing.",
+      "The 2009 symmetry paper was assessed only from its arXiv abstract after PDF retrieval failed; its general technique could contain a specialized hidden example.",
+      "The 2025 clique-lift work was inspected in relevant open-text sections, not page-by-page in every appendix; present graph differs from the stated clique-lift and lollipop definitions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general continuous-time semidefinite optimization and duality, not the exact distinct-hub double-leaf clique family or the stated root and edge rates",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821",
+          "PDF pp.681-683 and pp.694-697, including Result 5 on paths and its small numerical example"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Author-hosted 19-page PDF: problem and model pp.681-683, maximal-variance dual and its geometric formulation, examples and explicit graph cases pp.694-697 including a six-vertex triangle-and-fork example, paths and cycles",
+        "method": "Primary full-text PDF rendering and extracted page text, including first-page visual check",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Direct foundational optimization problem and variance dual; plausible generic coverage"
+      },
+      {
+        "assessment": "It optimizes discrete-time reversible-chain SLEM with prescribed equilibrium distribution; its lollipop has one clique-to-path attachment and its clique lift has complete bipartite links between fibers, unlike two leaves on different clique hubs. Does not imply the continuous-time total-conductance solution",
+        "evidence": [
+          "arXiv:2501.02421v1 Sections 2,3,5.5,6.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.02421v1",
+        "material_read": "Open full-text arXiv HTML: Sections 1-3, Section 5.5 (lollipop subgraph), Section 6.4 (lollipop), definitions of SLEM and stochastic matrices",
+        "method": "Open-access primary HTML text with section-level comparison of objects and objectives",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "Clique-lifted and lollipop networks may give dominating formulas"
+      },
+      {
+        "assessment": "Addresses discrete-time SLEM and generic symmetry reduction, rather than a stated exact family-specific continuous-time conductance optimum",
+        "evidence": [
+          "arXiv:0709.0955 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+        "material_read": "arXiv abstract and bibliographic summary; full PDF not inspected",
+        "method": "Open-access abstract and metadata; author-hosted PDF retrieval unsuccessful",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetry-reduced semidefinite method for graphs with automorphisms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b873e22d-df14-4d2b-9eed-9e8983e0b491",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete family of clique networks with two different pendant bottlenecks is a natural model for allocating a fixed total diffusion/consensus coupling budget. An explicit all-size rate allocation, algebraic root, global upper-bound certificate, Fiedler multiplicity, and asymptotic optimum answer a concrete network design question that generic SDP solvability does not quantify. The precision matters for implementing sparse attachments and benchmarking high-multiplicity semidefinite optima; it is not a renaming of the single-tail graph or a fixed tiny-graph enumeration.",
+    "status": "PASS"
+  }
+}
