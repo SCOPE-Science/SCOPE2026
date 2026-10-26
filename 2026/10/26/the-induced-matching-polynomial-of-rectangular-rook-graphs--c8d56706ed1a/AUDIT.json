@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For each profile \\( (h,v) \\), the endpoint-coordinate constraints are necessary and sufficient. Direct selection and pairing gives \\(N_{m,n}(h,v)=\\frac{m!\\,n!}{h!\\,v!\\,2^{h+v}(m-h-2v)!(n-v-2h)!}\\). Summing proves the polynomial. The profile constraints give the upper bound on degree, and \\(h=\\max\\{0,2k-m\\},\\ v=k-h\\) constructs a feasible profile for \\(k=\\min\\{m,n,\\lfloor(m+n)/3\\rfloor\\}\\). A standard-library brute-force check of all boards with \\(1\\le m,n\\le4\\) agrees coefficient-by-coefficient; this is supplemental to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cameron, Sritharan, and Tang (2003) reduce induced matching to an independent-set problem in the square of the line graph and give a polynomial-time algorithm on weakly chordal graphs; the inspected result is algorithmic rather than an exact enumerator for this family.",
+        "Klavžar and Peterin (2005) characterize subgraphs of Hamming graphs; the inspected abstract does not provide induced-matching counts."
+      ],
+      "reasoning": "Neither broader result implies the all-cardinality profile formula: an algorithm for finding one maximum set does not determine the number of sets of each size, and a structural characterization of Hamming-graph subgraphs is not an enumerator.",
+      "searches": [
+        "strong chromatic index of rook graph K_q square K_q and induced matching number",
+        "https://doi.org/10.1016/S0012-365X(02)00803-8",
+        "https://doi.org/10.1002/jgt.20084"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1016/S0012-365X(02)00803-8",
+      "https://doi.org/10.1002/jgt.20084",
+      "https://doi.org/10.1080/23799927.2020.1871418",
+      "2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f",
+      "2026/10/11/SCOPE-full-rook-graph-ech-homology-character-under-coordinate-permutat--3db3b8efc98c",
+      "2026/10/4/SCOPE-exact-uniform-released-packing-on-complete-bipartite-graphs--7b706d1b874b",
+      "2026/10/11/SCOPE-independence-complexes-of-the-shrikhande-and-4-times4-rook-graph--41bf4d1d3187"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The claimed object is \\(I_{m,n}(z)\\), counting every induced matching by size, with coefficient contributions indexed by row/column orientation counts.",
+        "The 2021 P3-packing partition theorem counts partition classes for special complete-bipartite packings, not the number of packings of each size."
+      ],
+      "reasoning": "The statements inspected do not imply the full polynomial or its exact profile coefficients. The simple maximum-size consequence alone would be modest; the accepted claim is the complete all-size enumerator together with its degree.",
+      "searches": [
+        "https://doi.org/10.1016/S0012-365X(02)00803-8",
+        "https://doi.org/10.1002/jgt.20084",
+        "https://doi.org/10.1080/23799927.2020.1871418",
+        "Exact enumerator and maximum size of induced matchings in rectangular rook graphs K_m Cartesian K_n; equivalent vertex-disjoint P3 packings in complete bipartite graphs, including all orientation profiles and counts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph is the line graph \\(L(K_{m,n})\\); an edge in the rook graph corresponds to a two-edge path in \\(K_{m,n}\\), and an induced matching corresponds to vertex-disjoint such paths.",
+        "Raja, Rajasingh, and Xavier (2021), DOI 10.1080/23799927.2020.1871418, defines the induced \\(P_3\\)-packing partition number and treats complete bipartite graphs, but its Theorem 2.10 concerns partition number for perfect/almost-perfect packings, not the all-size packing polynomial."
+      ],
+      "reasoning": "The equivalent P3-packing language was explicitly searched. The closest inspected prior paper treats a partition/coloring parameter and does not state the coefficient enumerator or profile counts N_{m,n}(h,v).",
+      "searches": [
+        "exact induced matching number of the rook graph K_q Cartesian K_q, maximum strong matching in square grid rook graph",
+        "maximum induced matching in H(2,q) Hamming graph rook graph classification extremal configurations",
+        "Exact enumerator and maximum size of induced matchings in rectangular rook graphs K_m Cartesian K_n; equivalent vertex-disjoint P3 packings in complete bipartite graphs, including all orientation profiles and counts",
+        "https://doi.org/10.1080/23799927.2020.1871418"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus queries returned nearby entries on rook-graph homology, matching complexes, and complete-bipartite packing parameters, but no directly matching induced-matching polynomial.",
+        "No exact table or database record for N_{m,n}(h,v) was returned by the searched phrases."
+      ],
+      "reasoning": "No exact database/table match was identified. This is a bounded search result, not a proof of global novelty.",
+      "searches": [
+        "exact induced matching number of the rook graph K_q Cartesian K_q, maximum strong matching in square grid rook graph",
+        "maximum induced matching in H(2,q) Hamming graph rook graph classification extremal configurations",
+        "Exact enumerator and maximum size of induced matchings in rectangular rook graphs K_m Cartesian K_n; equivalent vertex-disjoint P3 packings in complete bipartite graphs, including all orientation profiles and counts",
+        "\"induced matching number\" \"rook graph\" K_n square K_n",
+        "\"strong matching number\" \"rook graph\" K_n square K_n",
+        "\"maximum induced matching\" \"rook graph\" Cartesian product complete graphs",
+        "\"P3-packing polynomial\" complete bipartite graph",
+        "\"number of\" \"P3-packing\" complete bipartite graph K_m,n"
+      ]
+    },
+    "rationale": "published-finding corpus searches and inspected primary literature found related induced-matching algorithms, rook-graph topology, and induced P3-packing partition parameters, but no directly covering all-size enumerator. The claim is explicitly the full polynomial and profile counts, not only the maximum-size corollary. Novelty remains best-knowledge rather than absolute.",
+    "residual_risks": [
+      "A non-indexed thesis, preprint, or differently named P3-packing enumerator may contain an equivalent formula; the searches are not exhaustive.",
+      "The theorem is an exact structural enumeration for a standard family but no asymptotic analysis or downstream algorithmic application is established.",
+      "The full text of the Hamming-graph characterization paper was not inspected; its role is limited to family context, not a decisive novelty comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general algorithmic coverage, but no exact all-size enumerator for rectangular rook graphs is stated in the inspected text.",
+        "evidence": "The inspected Section 3 describes the reduction and class-preserving algorithm; it does not provide \\(N_{m,n}(h,v)\\).",
+        "identifier_or_url": "https://doi.org/10.1016/S0012-365X(02)00803-8",
+        "material_read": "Full accessible article text, including the introduction and Section 3 reduction.",
+        "method": "Reduces induced matching to independent set in the square of the line graph and proves a polynomial-time algorithm on weakly chordal graphs.",
+        "title": "Finding a maximum induced matching in weakly chordal graphs",
+        "trigger": "Closest primary literature on the exact graph invariant induced matching."
+      },
+      {
+        "assessment": "Supports the standard product-family context only; it does not establish the induced-matching polynomial in the material read.",
+        "evidence": "The abstract identifies Hamming graphs as Cartesian products of complete graphs and gives a structural edge-labeling characterization.",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.20084",
+        "material_read": "Abstract and bibliographic record; full text was not inspected.",
+        "method": "Characterizes subgraphs, induced subgraphs, and isometric subgraphs of Hamming graphs.",
+        "title": "Characterizing subgraphs of Hamming graphs",
+        "trigger": "Primary source establishing the Hamming-graph family as Cartesian products of complete graphs."
+      },
+      {
+        "assessment": "Not covering: the parameter is a partition number, not the count of all packings by size; Theorem 2.10 does not give the polynomial coefficients N_{m,n}(h,v).",
+        "evidence": "The paper defines the partition parameter in its introduction and states Theorem 2.10 for complete bipartite graphs; neither statement enumerates the all-size packing family.",
+        "identifier_or_url": "https://doi.org/10.1080/23799927.2020.1871418",
+        "material_read": "Full 17-page open-access PDF, including definitions and Theorem 2.10.",
+        "method": "Studies the minimum number of mutually noninterfering partition classes for induced P3-packings, with complete-bipartite results under perfect/almost-perfect packing assumptions.",
+        "title": "Induced H-packing k-partition of graphs",
+        "trigger": "Plausible equivalent formulation via vertex-disjoint P3-packings in complete bipartite graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c8d56706-ed1a-4c4d-abf2-9caeae26400d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The induced-matching polynomial is a natural exact invariant of the standard rook-graph family. It gives every size stratum and orientation profile, supplying a reusable baseline for conflict-free pair placement and for testing induced-matching enumeration methods. This is a bounded exact result; no unsupported downstream consequence is claimed.",
+    "status": "PASS"
+  }
+}
