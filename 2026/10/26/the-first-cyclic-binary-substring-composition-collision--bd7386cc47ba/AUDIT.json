@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact definition and boundary cases include all n cyclic starts and all 1..n window lengths, with the complement relation reducing to k<=floor(n/2) without losing information. The witness pair has identical explicit histograms for the six necessary lengths and distinct canonical dihedral representatives. Complete word enumeration 2^n for every n<=12, with two independently constructed exact implementations, gives the observed 224 classes and 223 spectra and the unique two-bracelet class; checker output VERIFY_OK. Moment expansion proves that the full histograms imply homometry and the CSV exhaustively documents all 23 homometric pairs. The 12-periodic lift for all powers is proved algebraically, not inferred from the five tested powers. No larger-length uniqueness claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acharya et al., arXiv:1403.2439, defines its data from the n(n+1)/2 linear contiguous substrings, so cyclic wrapping windows are not included.",
+        "Mandereau et al., Discrete phase retrieval in musical structures, DOI 10.1080/17459737.2011.608820, Thm 3.10 classifies existence of nontrivial Z-related pairs beginning at n=8, not equality of every cyclic sliding-window histogram."
+      ],
+      "reasoning": "The stronger existing cyclic k-deck uses configurations of arbitrary ordered k-tuples of support locations; no inspected theorem equates that invariant to all consecutive cyclic window occupancy histograms. The linear substring-composition problem has boundary-sensitive data and a different symmetry group and cannot provide a direct implication about bracelet collisions.",
+      "searches": [
+        "cyclic consecutive substring Parikh multiset dihedral binary necklaces 12 223 observations 224 bracelets",
+        "cyclic substring composition necklace ambiguity dihedral reconstruction",
+        "binary circular string reconstruction from multiset of substring compositions all lengths"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.1080/17459737.2011.608819 (2011): cyclic homometry, interval-vector definitions and examples.",
+      "DOI 10.1080/17459737.2011.608820 (2011): phase retrieval, k-decks, Theorem 3.10.",
+      "arXiv:1304.6608 (2013), particularly Sections 1 and 3: all length-twelve homometric-pair census.",
+      "arXiv:1403.2439 (2014): linear string reconstruction from substring compositions."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 theorem places the onset of failure of two-point interval-vector reconstruction at 8; the present finer observation is verified injective at 8, 9, 10, and 11.",
+        "The exact relation C_d=(F_{d+1}-2F_d+F_{d-1})/2 derives autocorrelation from cyclic window-weight histograms, but its converse fails for 22 pairs already at n=12.",
+        "The 2014 arXiv source discusses substring counts in linear strings, hence excludes cyclic windows crossing the chosen origin."
+      ],
+      "reasoning": "An existing homometry example does not automatically collide for full cyclic window histograms. Indeed the n=8 Z-related example is distinguished by the histogram at some length. Nor does the linear-word eight-letter reconstruction example imply cyclic ambiguity. The new full observation is genuinely different and more informative than two-point autocorrelation.",
+      "searches": [
+        "Mandereau discrete phase retrieval musical structures Theorem 3.10 Z related 8 10 12 2011",
+        "Acharya Das Milenkovic Orlitsky Pan 2014 substring compositions reconstruct 8",
+        "Z relation homometry interval multiset cyclic consecutive block sum distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mandereau et al., Z-relation and homometry in musical distributions, DOI 10.1080/17459737.2011.608819, defines interval vector as pairwise cyclic separation counts.",
+        "Jedrzejewski--Johnson, arXiv:1304.6608, Sec. 1, defines Patterson autocorrelation as the interval-vector observable.",
+        "Direct finite calculation: 23 autocorrelation collisions but just one full cyclic window-composition collision at length 12."
+      ],
+      "reasoning": "Rotation/inversion of binary necklaces corresponds to transposition/inversion of cyclic support sets. The autocorrelation vector is a derived observable, not equivalent to the full window-weight histograms; the second-moment formula proves one-direction implication and the other 22 length-twelve homometric pairs disprove converse. The 2011 k-deck is a multi-point placement correlation rather than a sliding-window-sum histogram.",
+      "searches": [
+        "cyclic binary word window sum multiset reconstruction necklace homometric interval spectra",
+        "circular binary words same multiset of all cyclic substring compositions length twelve first ambiguous",
+        "Z-related homometric binary circular words same sliding window sum multiset all lengths first ambiguous twelve"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jedrzejewski--Johnson, arXiv:1304.6608, Sec. 3, table gives 1,3,15 strict homometric pairs for support sizes 4,5,6 respectively at cycle length 12, not the complete cyclic-window histogram distribution.",
+        "The explicit exhaustive CSV groups 23 strict homometric pairs by first distinguishing cyclic window length: 17 at 3, 3 at 4, 2 at 5, and one unresolved."
+      ],
+      "reasoning": "Existing interval-vector tables concern the strictly coarser two-point-correlator equivalence. They imply an upper bound on the number of full-window ambiguities but cannot determine the unique survivor without checking higher moments and all window weights. The cited published table does not contain the claimed 223 output count or its unique exceptional preimage pair.",
+      "searches": [
+        "The Structure of Z-Related Sets Section 3 enumeration n=12 19 homometric pairs 2013",
+        "necklaces cyclic window sum histogram count 223 224 length 12",
+        "binary 12 circular Parikh vector histogram table collision"
+      ]
+    },
+    "rationale": "The 2011 cyclic Z-relation work establishes the interval-vector/Patterson autocorrelation and earlier homometric collisions; it does not specify the complete distributions of all cyclic consecutive-window weights. Jedrzejewski--Johnson (2013) enumerate 19 homometric pairs of length twelve for weights <=6, which becomes 23 at all weights, but do not filter them by the much stronger full cyclic window multiset. Acharya et al. (2014) analyze linear contiguous substrings, not cyclic wrapping windows. The two observed source frameworks are mathematically distinct from the 224-to-223 cyclic bracelet quotient proved here. Searches under cyclic Parikh-window compositions, sliding-window sums, circular reconstructibility, Z-relation, and necklaces found no implication covering the exact earliest noninjectivity, pair classification, or infinite periodic lift. Historical unindexed equivalence remains a substantive residual risk.",
+    "residual_risks": [
+      "An unindexed earlier formulation using circular scan-statistics, cyclic sliding-window sums, or genomic circular composition profiles could subsume this result.",
+      "Published homometry tables give the coarser exact 23-pair baseline but do not establish uniqueness of the strong-spectrum survivor; verifying an unpublished refinement might affect historical priority.",
+      "Finite exact classification depends on faithful execution of the included completely exhaustive standard-library code; external replication is desirable but not claimed.",
+      "No statement is made about the full ambiguity distribution beyond length 12, aside from the proved periodic multiples."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The studied invariant is all cyclic pairwise distances, equivalently the Patterson function, not the complete histogram of occupied consecutive cyclic windows of each length.",
+        "evidence": "The article defines iv(A)(d) as the number of support-point pairs separated by d, describes Z-related distinct sets, and cites a well-known length-12 pair; first public online 2011-09-15.",
+        "identifier_or_url": "https://doi.org/10.1080/17459737.2011.608819",
+        "material_read": "Author full-text reproduction on ResearchGate and publisher abstract plus publication details, including the definition of the interval vector, its dihedral symmetries, and the homometry/Z-relation examples.",
+        "method": "Read text in publisher and author-hosted full-text HTML.",
+        "title": "Z-relation and homometry in musical distributions",
+        "trigger": "Cyclic homometry could cover the proposed collision and its minimal length."
+      },
+      {
+        "assessment": "Theorem 3.10 classifies nontrivial Z-related sets (n=8 or 10 or >=12), but does not classify full cyclic consecutive-window composition histograms. Deck counts of fixed site-tuples are a distinct observable.",
+        "evidence": "Theorem 3.10 explicitly says nontrivially Z-related cyclic sets exist exactly at 8,10, and >=12; this is a coarser equivalence than the claimed invariant.",
+        "identifier_or_url": "https://doi.org/10.1080/17459737.2011.608820",
+        "material_read": "Author-hosted full-text HTML including Section 3.4, k-deck discussion, and Theorem 3.10; publisher bibliographic record.",
+        "method": "Read mathematical definitions and existence theorem in accessible primary full text.",
+        "title": "Discrete phase retrieval in musical structures",
+        "trigger": "The author group studies finite cyclic phase retrieval and higher-order decks."
+      },
+      {
+        "assessment": "It enumerates homometry classes, e.g. 19 pairs at n12 and support size <=6, but does not apply cyclic contiguous-window histograms to distinguish these pairs.",
+        "evidence": "Section 3 reports 1+3+15=19 n12 pairs at weights 4,5,6; our full all-weight autocorrelation count 23 agrees after complementation, leaving only 1 pair under full window histograms.",
+        "identifier_or_url": "https://arxiv.org/abs/1304.6608",
+        "material_read": "Full author primary text through Section 3, including the definition, interval-vector computations, Theorems 2–4, and the Z-pair cardinality table for n<=24.",
+        "method": "Read full accessible author-supplied text and compare Section 3 table against computed pair counts.",
+        "title": "The Structure of Z-Related Sets",
+        "trigger": "Highly relevant exact length-12 table might imply the present classification."
+      },
+      {
+        "assessment": "Linear substring intervals, not cyclic wrapping intervals; the claimed length-12 bracelet census does not follow from this source.",
+        "evidence": "Its abstract and model concern linear strings and all nonwrapping substrings; a linear length-8 collision is distinct from the circular reconstruction boundary.",
+        "identifier_or_url": "https://arxiv.org/abs/1403.2439",
+        "material_read": "Original arXiv PDF, title/abstract, definitions of linear substring compositions, and reconstruction/ambiguity statements.",
+        "method": "Read arXiv PDF text and inspect its first rendered page.",
+        "title": "String Reconstruction from Substring Compositions",
+        "trigger": "Same noun phrase substring-composition reconstruction could dominate the result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bd7386cc-47ba-4822-8c92-c9deca0bfda8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp first failure of injectivity and complete first-collision classification are naturally motivated exact reconstruction invariants. Demonstrating that full cyclic consecutive-window statistics eliminate 22 of 23 previously known length-twelve two-point-homometric ambiguities quantifies higher-order information absent from pairwise measurement. The explicit periodic-power construction shows genuine noninjectivity at infinitely many lengths. Unlike the known linear substring problem this is a different, circular data model, not a reparameterized prior computation. Scientific importance is bounded: full asymptotic ambiguity behavior is not established.",
+    "status": "PASS"
+  }
+}
