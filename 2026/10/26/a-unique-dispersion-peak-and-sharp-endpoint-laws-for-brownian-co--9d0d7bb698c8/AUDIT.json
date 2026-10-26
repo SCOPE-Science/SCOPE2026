@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The normalized Brownian pair has correlation sqrt(s/t); integrating the Gaussian corner derivative and two exact substitutions gives (1) and (7). The positive-integrand Laplace ratio has strictly positive logarithmic derivative and crosses once, establishing a unique global maximizer. Dominated convergence establishes both singular small-band and Gaussian-tail constants, with explicit majorants. The standalone standard-library verifier passed 42 numerical assertions across independent integrals and boundary regimes; numerical evidence does not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Older Gaussian-stationary-process occupation work studies discrete/continuous sampling and occupation-time statistics, but its abstract does not resolve this specific exponentially weighted symmetric-band optimization.",
+        "Fischer–Glynn give the full limiting law implicitly by PDE and equation (4) for the second moment, not a theorem asserting one variance peak or boundary constants."
+      ],
+      "reasoning": "An implicit integral determining a variance is stronger input than a numerical table, but does not state the strict global single-crossing classification or derive the nonanalytic cubic small-band term and rare-event constant. Because the older full text was inaccessible, a hidden specialization remains a stated risk.",
+      "searches": [
+        "stationary Ornstein Uhlenbeck discounted occupation interval variance unimodal unique optimal threshold cutoff Brownian square-root confidence proportion",
+        "Gaussian Ornstein Uhlenbeck exponentially discounted indicator occupation variance unimodality",
+        "arXiv:cond-mat/0306101 abstract"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2610.24668",
+      "https://arxiv.org/abs/cond-mat/0306101",
+      "https://doi.org/10.1093/biomet/41.3-4.351",
+      "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.69.016106"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Gaussian-corner derivative is classical and its use alone cannot support novelty.",
+        "A new decomposition into two Laplace integrals supported on opposite sides of a common split yields a strict monotone ratio and therefore exactly one critical point.",
+        "Singular differentiation at the small-band endpoint gives a cubic term, while large-deviation Laplace scaling gives the exact high-confidence constant."
+      ],
+      "reasoning": "The prior covariance formula implies an integral representation of the variance, but the searched and inspected texts did not assert, or directly furnish as a stated corollary, the complete global maximization theorem plus sharp limiting laws. The mathematical argument and concrete conclusions are additional; residual priority risk remains for technical Gaussian-process literature.",
+      "searches": [
+        "arXiv:2610.24668v1 §§2–5",
+        "Plackett 1954 bivariate normal reduction formula",
+        "Plackett Gaussian bivariate probability Brownian cone occupation variance 1D integral Laplace transform single-crossing critical bandwidth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fischer–Glynn Theorem 1 defines the Brownian functional and equation (4) integrates two correlated Gaussian threshold events.",
+        "Their Theorem 3.1 represents the same functional by an exponentially discounted stationary Ornstein–Uhlenbeck occupation.",
+        "The current result uses these exactly equivalent versions; it does not claim they are new."
+      ],
+      "reasoning": "The claim is not a new law for the occupation functional. It uniquely characterizes and proves the global maximizer of its variance and obtains two sharp threshold limits. These statements are not the same as the general invariance principle or the basic OU representation.",
+      "searches": [
+        "Brownian confidence interval coverage occupation fraction Z=integral_0^1 indicator(|B_t| <= z sqrt(t)) dt variance exact one-dimensional Plackett formula asymptotic z large z small",
+        "Brownian square root boundary occupation variance unique maximum threshold",
+        "arXiv:2610.24668v1 pp. 2–5 and 9–10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 1 in Fischer–Glynn lists numerical standard deviations at a finite set of nominal coverage levels, including around 0.55, without a global optimizer theorem.",
+        "No checked research record supplied the stated integral equation for the unique maximum or the two exact endpoint constants."
+      ],
+      "reasoning": "A list of sampled standard deviations can locate a neighborhood but cannot exclude other extrema. The current result proves strict uniqueness by a positive Laplace-integral ratio and gives explicit limiting constants. No exact-value database or table covering this theorem was located; this is not a proof of universal absence.",
+      "searches": [
+        "Fischer Glynn Brownian coverage fraction time average Z(1) variance uniquely maximized at confidence level 0.593191914 z=0.829523781",
+        "Fischer Glynn variance high confidence occupation time 2026",
+        "arXiv:2610.24668v1 Table 1 and equation (4)"
+      ]
+    },
+    "rationale": "Fischer and Glynn (2026), the motivating first-public source, supply the functional, asymptotic distribution, a nested second-moment integral and a sampled variance table; their inspected primary text does not assert a unique global variance maximizer or the two sharp endpoint laws. Plackett’s Gaussian derivative is classical and acknowledged. Published research-record searches and known Gaussian occupation comparisons found no stronger claim covering these results; an inaccessible older occupation paper is explicitly retained as priority risk.",
+    "residual_risks": [
+      "The complete 2003 Ehrhardt–Majumdar–Bray paper could not be read: specialized symmetric-band or exponentially discounted OU statements may predate the present calculation.",
+      "Implicit earlier formulas for Gaussian-process occupation covariances could contain mathematically equivalent optimization conclusions under different terminology.",
+      "Numerical root values are approximations; exact uniqueness follows from the analytic ratio argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS definition, weak convergence, nested covariance integral and tabulated variances; DOES NOT STATE the unique maximizer or its sharp endpoint asymptotics in inspected full text.",
+        "evidence": [
+          "Theorem 1; equation (4); Table 1; Theorem 3.1 OU representation; Section 4 numerical densities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.24668",
+        "material_read": "Primary arXiv PDF: abstract, Theorem 1, equation (4), Table 1, sections 3–5, references and selected plots; relevant text examined over pages 1–17 and 18–20.",
+        "method": "Read arXiv PDF text and inspected rendered pages 5–6.",
+        "title": "On the Proportion of Time that a Conventional Confidence Interval Covers",
+        "trigger": "Exact motivating Brownian coverage functional and its known variance."
+      },
+      {
+        "assessment": "Plausible historical antecedent, not resolved at full-text level; specifically retained as priority risk, not labeled NOT_COVERING.",
+        "evidence": [
+          "Abstract concerns occupations/crossings and discrete sampling of Gaussian stationary processes, with OU examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0306101",
+        "material_read": "Abstract and bibliographic record only; attempted open-access full-text retrieval was unsuccessful.",
+        "method": "Examined arXiv abstract and publication record; no claim of comprehensive full-text inspection.",
+        "title": "Persistence Exponents and the Statistics of Crossings and Occupation Times for Gaussian Stationary Processes",
+        "trigger": "Possible broader Gaussian-stationary OU occupation theory."
+      },
+      {
+        "assessment": "Covers classical derivative tool; no claim of novelty for that tool, no statement of coverage-occupation variance optimality identified from accessible material.",
+        "evidence": [
+          "Plackett, Biometrika 41 (1954) 351–360."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/biomet/41.3-4.351",
+        "material_read": "Bibliographic entry only; identity was rederived from the bivariate normal density in the current proof.",
+        "method": "Inspected publisher bibliographic description and independently differentiated the explicit Gaussian density.",
+        "title": "A Reduction Formula for Normal Multivariate Integrals",
+        "trigger": "Classical Gaussian-corner derivative identity behind the one-dimensional variance reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d0d7bb6-98c8-4e89-aecc-4e720fa023f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural statistical question of which nominal confidence level makes time-averaged conventional-interval coverage most unstable is resolved with a proof of uniqueness, not just a table search. The exact optimizer at about 59.3192% and the distinct sharp endpoint laws quantify regimes not settled by the existing numerical variance table; the small-band nonanalytic cubic term and the high-confidence factor four arise from different covariance boundary layers. These are intrinsic distributional invariants of the already-motivated coverage functional, with reproducible one-variable quadrature.",
+    "status": "PASS"
+  }
+}
