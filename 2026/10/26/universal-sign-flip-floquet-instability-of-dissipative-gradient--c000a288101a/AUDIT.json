@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact source update gives B_minus=B_plus^T for the sign-reversing bilinear game. On each singular mode, the positive-definite Hermitian period block has trace 2[(1-rho)^2+rho^2]+t^2, determinant (1-2rho)^2+(1-rho)^2t^2>0, and det(I-Q)=-rho(2-rho)t^2<0; therefore exactly one eigenvalue exceeds one. Every nonzero synchronized mode has Rayleigh quotient 1+t^2/2>1, ensuring an expanding projection; nonzero off-diagonal coupling ensures its primary projection is nonzero. Orthogonal SVD modes preclude cancellations. The exact frozen example and 240 numerical eigenvalue tests plus exact sympy identities executed from the bundled verifier; finite checks are not taken as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zheng et al. static DGDA convergence analysis is for one fixed matrix and one fixed iteration operator.",
+        "Fiez et al. characterize continuous-time GDA dynamics on periodic games as volume-preserving and recurrent; DGDA is discrete and augmented with damping.",
+        "Feng et al. work with OGDA, extra-gradient, and negative momentum, without DGDA in the analyzed dynamics."
+      ],
+      "reasoning": "The strongest accessible broad statements concern different algorithms or static games; none implies the two-step DGDA operator is B_plus-transpose times B_plus or that its unstable eigenspace intersects every nonzero synchronized primary start. SVD reduction covers every invertible square A rather than one specially constructed example.",
+      "searches": [
+        "dissipative gradient descent ascent augmented variables bilinear scalar exact stability damping parameters convergence",
+        "\"dissipative gradient descent ascent\" \"switching\" system matrix",
+        "alternating bilinear zero sum games time varying dissipative gradient descent ascent convergence",
+        "arXiv:2403.09090v1 Theorem 2 Appendix B",
+        "arXiv:2111.03377 Theorem 1 and Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.09090v1 (2024-03-14) defining DGDA, Eq. (6), Theorem 2, Appendix B",
+      "arXiv:2310.02604 (2023-10-04) Theorem 3.2 and Appendix C.1-C.3",
+      "arXiv:2111.03377 (2021-11-05) Section 4, Theorem 1 and appendix",
+      "AMS MSC2020 90C47 minimax problems, https://mathscinet.ams.org/msc/msc2020.html?btn=Current&t=90Cxx"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zheng et al. Eq. (10) supplies the fixed-game iteration matrix; transposing under payoff sign reversal is a separate new-period comparison.",
+        "Feng et al. Theorem 3.2 proves existence of exponentially divergent OGDA and NM initializations for alternating rectangular payoff rows and Appendix C explains it is not an all-initialization statement.",
+        "Our period eigenvalues depend on arbitrary rho and every positive singular value; their characteristic polynomial and all-synchronized-initialization theorem are obtained by an additional Hermitian Gram argument."
+      ],
+      "reasoning": "The published OGDA sign-flip instability demonstrates the generic qualitative risk but does not imply the stated parameter-uniform DGDA theorem, exact full spectrum or universal divergence over the naturally initialized primary state. The rho=1/2 consequence is acknowledged as overlapping in algorithmic meaning. This is a best-knowledge originality assessment, not independence proof.",
+      "searches": [
+        "DGDA dissipative gradient descent ascent alternating payoff matrices opposite sign causes spectral radius divergence for every dampening rho",
+        "periodic bilinear game opposite payoff signs OGDA DGDA divergence for every initialization",
+        "state augmented minmax dissipative filtered variable periodically flipping bilinear game two-step Floquet eigenvalues singular value square",
+        "arXiv:2310.02604 Theorem 3.2 Appendix C.1 C.3",
+        "arXiv:2403.09090v1 Eq. (10) and Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2403.09090v1 Eq. (6) defines DGDA with two state variables and damping rho.",
+        "arXiv:2310.02604 Theorem 3.2 constructs periodic OGDA and negative-momentum divergence; Appendix C.1 restricts the claim to some initial states.",
+        "Exact algebra: rho=1/2 DGDA implies z_(k+2)=(I-eta K_(k+1))z_(k+1)+(eta/2)K_k z_k, which is OGDA at eta/2."
+      ],
+      "reasoning": "The half-damping special case is a genuine algorithmic equivalence to OGDA and has earlier conceptual instability coverage. For rho different from 1/2 the elimination contains an additional scalar two-step memory term, and the existing OGDA theorem does not imply the all-damping multiplier formula or every synchronized primary start. The full conclusion explicitly includes this non-equivalent interval.",
+      "searches": [
+        "\"Dissipative Gradient Descent Ascent\" DGDA bilinear stability optimal parameter exact boundary",
+        "\"dissipative gradient descent ascent\" \"periodic\"",
+        "Feng Fu Hu Li Panageas Peng Wang OGDA time varying sign flipping and DGDA rho one-half equivalence",
+        "arXiv:2310.02604 Theorem 3.2 and Appendix C.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zheng et al. static-game algorithm comparison tables contain convergence rates rather than switched-period spectra.",
+        "Feng et al. calculate characteristic polynomials for time-varying OGDA and NM, not the two-step DGDA singular-value-parametrized polynomial over rho in (0,1)."
+      ],
+      "reasoning": "The inspected exact tables and formulas do not list the claimed DGDA T_rho, D_rho spectral law or synchronized-initialization classification. No claim of exhaustive indexing or uniqueness is made.",
+      "searches": [
+        "DGDA sign-reversing payoff matrices every synchronized initial condition two-step Gram matrix B transpose B spectral multipliers",
+        "\"dissipative gradient descent ascent\" two-periodic sign-flipped bilinear game all damping Floquet spectrum",
+        "arXiv:2403.09090v1 Tables I-II and Appendix B",
+        "arXiv:2310.02604 Appendix C.3 characteristic-polynomial calculations"
+      ]
+    },
+    "rationale": "Direct comparison against Zheng et al. arXiv:2403.09090v1 (DGDA update, static bilinear Theorem 2 and its spectral appendix), Feng et al. arXiv:2310.02604 (time-varying OGDA/NM Theorem 3.2 and Appendix C), and Fiez et al. arXiv:2111.03377 (continuous-time periodic GDA) found no statement covering the new all-rho DGDA Floquet spectrum and divergence from every synchronized nonzero primary initialization. The qualitative possibility of periodic instability is known and excluded from the novel claim. In particular, rho=1/2 DGDA reduces algebraically to OGDA with half the stepsize; that special-case phenomenon is not itself claimed novel.",
+    "residual_risks": [
+      "An unindexed or differently named result in switched nonsymmetric linear iterations may contain an equivalent Gram-period theorem.",
+      "The qualitative instability at rho=1/2 follows from the OGDA reduction and should not be credited as a new phenomenon independently of the parameter-uniform DGDA theorem.",
+      "Research-literature indexing is incomplete; no mathematical uniqueness assertion follows from the searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers fixed-payoff bilinear DGDA convergence, not two-periodic sign switching or its all-rho Floquet spectrum.",
+        "evidence": [
+          "arXiv:2403.09090v1 Eq. (6) update; Theorem 2 assumes fixed bilinear matrix; Appendix B spectral calculation for a single map."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2403.09090",
+        "material_read": "Full-text PDF: Section III-B Eq. (6), Section IV-A Eq. (10), Theorem 2, and Appendix B Eqs. (13)-(14), with original theorem and definition pages visually inspected.",
+        "method": "Full-text publicly accessible arXiv PDF and page-view inspection.",
+        "title": "Dissipative Gradient Descent Ascent Method: A Control Theory Inspired Algorithm for Min-max Optimization",
+        "trigger": "Original defining paper and directly identical state-augmented update; possible stronger spectral theorem."
+      },
+      {
+        "assessment": "Demonstrates time-varying OGDA/NM divergence; partially overlaps the rho=1/2 interpretation but does not cover arbitrary damping DGDA full spectrum and every synchronized start.",
+        "evidence": [
+          "arXiv:2310.02604 Theorem 3.2: rectangular alternating rows and divergent trajectories for OGDA and negative momentum.",
+          "Appendix C.1 explicitly does not assert divergence for every possible initialization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.02604",
+        "material_read": "Full publicly accessible HTML: setting and updates in Sections 2-3, Theorem 3.2, and Appendix C.1-C.3 including initial-point restrictions and polynomial comparisons.",
+        "method": "Full-text arXiv HTML with theorem and appendix sections read.",
+        "title": "On the Last-iterate Convergence in Time-varying Zero-sum Games: Extra Gradient Succeeds where Optimism Fails",
+        "trigger": "Closest primary claim about sign-flipping periodic bilinear games; OGDA equivalence at one rho value."
+      },
+      {
+        "assessment": "Study is for continuous-time gradient descent-ascent and recurrence, not the discrete two-state DGDA update.",
+        "evidence": [
+          "arXiv:2111.03377 Theorem 1 and Lemma 2: continuous-time GDA recurrence and bounded continuous-time orbits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.03377",
+        "material_read": "Full arXiv HTML: introduction, Section 4.1 Theorem 1 and Lemmas 1-2, Section 4.2, and Appendix B discussion of Poincare maps.",
+        "method": "Full-text arXiv HTML with definitions and stated proofs inspected.",
+        "title": "Online Learning in Periodic Zero-Sum Games",
+        "trigger": "Earlier general periodic zero-sum bilinear game results could dominate the dynamical conclusion."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c000a288-101a-488f-af1b-f5153e01e4fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Directly addresses robustness of a published dissipative saddle-point optimizer under periodic games: the all-parameter structural instability and exact growth spectrum prove that no positive damping in the algorithmic range or arbitrarily small positive step suffices to transfer the static convergence guarantee. Exact every-synchronized-start growth and a stable-frozen but divergent-period example give a useful caution for minmax algorithm and switched-system analysis. This is not merely a routine renaming or a generic high-level time-variation warning; the proof identifies the transposed-period Gram mechanism and sharp mode-by-mode multipliers. The finite-dimensional sign-reversal model and auxiliary initialization limits are explicit.",
+    "status": "PASS"
+  }
+}
