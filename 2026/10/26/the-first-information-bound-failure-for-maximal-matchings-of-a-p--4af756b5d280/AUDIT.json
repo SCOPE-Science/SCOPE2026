@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exactly all 0<=m<=15 are covered. Binary-word characterization of inclusion-maximal matching is proved. The matching count recurrence gives N15=65. Complete shattered-tree certificates provide lower bounds; hypothesis count gives upper bounds for m<=14; for m=15 a separate three-stage exhaustive cardinality obstruction disproves depth six. Both independently implemented checkers ran successfully, with verified certificates and the full 65-mask list. No finite experiment is extrapolated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manurangsi (2022) gives complexity bounds for general explicit dimension computation via biclique reductions.",
+        "Krivelevich et al. (2023) analyze random greedy maximal independent-set density on paths and random graphs, not worst-case adaptive shattering."
+      ],
+      "reasoning": "Neither kind of result dominates the present exact first-obstruction profile: algorithmic hardness does not supply path-specific dimensions, and random greedy occupancy is a different invariant.",
+      "searches": [
+        "arXiv:2211.01443 general Littlestone computational hardness",
+        "DOI:10.1002/rsa.21200 random greedy maximal independent sets paths"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.01443",
+      "DOI:10.4230/LIPIcs.ITCS.2023.85",
+      "DOI:10.1002/rsa.21200",
+      "DOI:10.1002/jgt.3190110403",
+      "published research-record semantic matches on path MIS and Littlestone"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited sources deal respectively with general dimension-computation complexity, stochastic greedy maximal independent sets, and maximum counts of maximal independent sets in connected graphs.",
+        "The statement here compares Ldim with floor(log2 number of maximal matchings) for every m<=15 and identifies the first failure."
+      ],
+      "reasoning": "None of these inspected main results implies the exact adaptation-game value 5 for 15-edge paths or proves minimality among smaller paths. A decisive covering source was not observed.",
+      "searches": [
+        "arXiv:2211.01443",
+        "DOI:10.1002/rsa.21200",
+        "DOI:10.1002/jgt.3190110403"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The line graph of an m-edge path is a path on m vertices; maximal matchings correspond bijectively to maximal independent sets in this line graph.",
+        "The known Padovan counting sequence supplies N_m but does not fix adaptive shattering depth."
+      ],
+      "reasoning": "Matched the equivalent line-graph maximal independent-set language, not just the word matching. No retrieved statement gave the first failure at m=15 or the 65-versus-5 online-shattering calculation.",
+      "searches": [
+        "Littlestone dimension maximal independent sets of path graph, Padovan counting mistake bound",
+        "exact online shattering Littlestone dimension maximal matchings on paths first failure information theoretic bound",
+        "maximal independent set concept families optimal online mistake depth, 15 vertex path",
+        "maximal matchings of a path online learning"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical path maximal independent set counts are Padovan numbers; N_15=65 follows from the recurrence.",
+        "The new dimension sequence is calculated using exact shattered-tree certificates and a proof that depth six fails at m=15."
+      ],
+      "reasoning": "The numerical hypothesis count is not claimed original; a count table for maximal independent sets does not assert or imply Littlestone dimensional equality or failure.",
+      "searches": [
+        "maximal independent sets path Padovan sequence count 65 15 vertices",
+        "number of maximal matchings in path with 15 edges 65"
+      ]
+    },
+    "rationale": "The finite first-failure statement is not implied by the generic computational hardness results for Littlestone dimension, by known maximal independent set counts, or by the random greedy independent-set local-limit theorems. Searched published finding summaries and primary literature against the exact object, equivalent line-graph formulation, numerical threshold and broader coverage. Remaining historical-priority risk is explicit; no exhaustive absence claim.",
+    "residual_risks": [
+      "Historical-priority search cannot prove that no other publication contains this finite first-failure result.",
+      "A source about maximal independent-set counts may contain tangential online-learning statements not visible in available abstracts.",
+      "The claim relies on exhaustive but fully reproducible finite certificate checks; separate external human verification has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General hardness and reductions; no exact maximal-matching path classification identified.",
+        "evidence": [
+          "2022-11-02 arXiv posting metadata",
+          "DOI:10.4230/LIPIcs.ITCS.2023.85, introductory theorems 2-8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.01443",
+        "material_read": "Abstract, introduction and statement of main results from freely accessible full-text PDF (the same work appeared at ITCS 2023); checked term matches for maximal independent sets, matching, and path.",
+        "method": "Read original publisher-hosted open PDF and searched extracted text for candidate same-family terms.",
+        "title": "Improved Inapproximability of VC Dimension and Littlestone's Dimension via (Unbalanced) Biclique",
+        "trigger": "Exact finite Littlestone computation and possible generic domination"
+      },
+      {
+        "assessment": "Analyzes random greedy MIS ratios and distributions, not membership-query shattered trees or first information-bound failure.",
+        "evidence": [
+          "First published 2023-12-18",
+          "DOI:10.1002/rsa.21200, §§1–1.1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.21200",
+        "material_read": "Full open-access HTML abstract, introduction, main-results overview and statement of Proposition 1.1 and Theorem 1.2; searched the full available page for Littlestone.",
+        "method": "Read original open-access full text and searched internal terminology.",
+        "title": "Greedy maximal independent sets via local limits",
+        "trigger": "Same maximal independent-set objects, including paths"
+      },
+      {
+        "assessment": "Classical enumeration context; residual risk if a relevant unnoticed adaptive discussion exists.",
+        "evidence": [
+          "1987 Journal of Graph Theory abstract states maximum number of maximal independent sets in connected n-vertex graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.3190110403",
+        "material_read": "Publisher title/abstract and bibliographic description; original full text not read.",
+        "method": "Inspect accessible abstract/metadata; no claim to whole-document exclusion.",
+        "title": "The number of maximal independent sets in connected graphs",
+        "trigger": "Potential dominating count formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4af756b5-d280-4eef-b536-6905385ded01",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the sharp smallest path size where a natural maximal-matching concept class ceases to attain its hypothesis-count online-shattering upper bound. Minimality through all shorter paths is established; 15 is not an arbitrary parameter choice. It pinpoints a structural adaptive-information bottleneck, with both positive depth-five and negative depth-six certificates. No unsupported downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
