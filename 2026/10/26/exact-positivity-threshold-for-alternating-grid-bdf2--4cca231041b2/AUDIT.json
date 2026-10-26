@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The variable-step BDF2 recurrence is expanded exactly. The period-two ratio map has a fixed-point polynomial with discriminant proportional to ((r-1)^2 z^2-4(r+1)z+4), whose first positive root is 2/(sqrt(r)+1)^2. The startup ratio is above the larger positive fixed point at and below the boundary; monotonicity of the map preserves positivity. Above the boundary, no positive fixed point can sustain the ratio sequence, so a nonpositive iterate occurs. The included exact-rational script is only a finite reproducibility check, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2003.00421 states a discrete maximum principle for the nonlinear Allen–Cahn scheme under r_k<1+sqrt(2) and a practical time-step constraint.",
+        "arXiv:2003.03534's abstract describes stability and error estimates on variable grids, not an exact positivity boundary."
+      ],
+      "reasoning": "Neither inspected statement implies the exact if-and-only-if threshold for scalar linear decay on the alternating pattern. The new result does not claim coverage of arbitrary variable grids or nonlinear PDEs.",
+      "searches": [
+        {
+          "query": "stability and error estimates variable step-size BDF2 linear semilinear parabolic equations",
+          "source_ids": [
+            "arXiv:2003.03534"
+          ]
+        },
+        {
+          "query": "nonuniform BDF2 discrete maximum principle variable steps ratio restriction",
+          "source_ids": [
+            "arXiv:2003.00421"
+          ]
+        }
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.00421 (full HTML text inspected)",
+      "arXiv:2003.03534 (abstract inspected; full text not obtained)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Setting r=1 in the new formula gives z<=1/2, the constant-step boundary.",
+        "For r>1 the exact short-step threshold is 2/(sqrt(r)+1)^2 and the long-step product threshold is 2r/(sqrt(r)+1)^2; these depend on the alternating pattern and are not stated in the inspected primary source."
+      ],
+      "reasoning": "The constant-step result is recovered as a special case, but it does not determine the new ratio-dependent necessary-and-sufficient law. The distinction is a substantive parameter extension; residual risk from uninspected literature remains explicit.",
+      "searches": [
+        {
+          "query": "constant-step BDF2 positivity boundary scalar decay h lambda one half",
+          "source_ids": [
+            "arXiv:2003.00421",
+            "arXiv:2003.03534"
+          ]
+        },
+        {
+          "query": "exact positivity threshold alternating step sizes BDF2 scalar linear test equation",
+          "source_ids": [
+            "arXiv:2003.00421"
+          ]
+        }
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The BDF2 formula in arXiv:2003.00421, Section 2.1, yields the same adjacent-ratio recurrence; its theorem is for a nonlinear Allen–Cahn discretization.",
+        "The exact period-two fixed-point discriminant derived here has first root z=2/(sqrt(r)+1)^2."
+      ],
+      "reasoning": "The claim is equivalently a necessary-and-sufficient positivity criterion for the ratio dynamics induced by a two-periodic scalar recurrence. The inspected source gives a general nonlinear PDE sufficient condition, not this exact scalar criterion.",
+      "searches": [
+        {
+          "query": "variable-step BDF2 positivity preserving maximum principle scalar decay alternating steps",
+          "source_ids": [
+            "arXiv:2003.00421",
+            "arXiv:2003.03534"
+          ]
+        },
+        {
+          "query": "exact positivity threshold alternating step sizes BDF2 scalar linear test equation",
+          "source_ids": [
+            "arXiv:2003.00421"
+          ]
+        }
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest identified public result is the general variable-step BDF2 maximum-principle theorem in arXiv:2003.00421; no exact alternating-grid scalar threshold or table was identified in the checked material."
+      ],
+      "reasoning": "No standard table applies to the two-periodic recurrence. The exact threshold is derived from its fixed-point discriminant, not inferred from an absent search result; lack of a matching record is not itself proof of novelty.",
+      "searches": [
+        {
+          "query": "periodic alternating step ratio BDF2 positivity",
+          "source_ids": [
+            "arXiv:2003.00421",
+            "arXiv:2003.03534"
+          ]
+        },
+        {
+          "query": "variable-step BDF2 positivity preserving maximum principle scalar decay alternating steps",
+          "source_ids": [
+            "arXiv:2003.00421"
+          ]
+        }
+      ]
+    },
+    "rationale": "The claim is a sharp necessary-and-sufficient result for a specific alternating-grid scalar problem. The closest inspected primary paper treats a nonlinear Allen–Cahn PDE and supplies sufficient ratio/time-step conditions, not this exact scalar criterion. The constant-step case is recovered but does not imply the ratio-dependent law. A second related paper was only abstract-inspected, so the scope is kept narrow and a residual literature risk is retained.",
+    "residual_risks": [
+      "The full text of arXiv:2003.03534 was not inspected during this run and could contain a specialized positivity statement not visible in its abstract.",
+      "Searches cannot prove literature-wide novelty; the claim is limited to the exact alternating-grid scalar theorem and the comparisons documented here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact claim: it treats a spatially discretized nonlinear Allen–Cahn equation and proves a discrete maximum principle under a ratio restriction and practical step-size condition; it does not state the exact scalar alternating-grid threshold.",
+        "evidence": "arXiv:2003.00421, abstract and Sections 2.1–2.2 and 4; full text states r_k<1+sqrt(2) for its maximum-principle result.",
+        "identifier_or_url": "https://arxiv.org/abs/2003.00421",
+        "material_read": "Full arXiv HTML text, including the nonuniform BDF2 formula, assumptions, and maximum-principle theorem in Sections 2–4",
+        "method": "Compared the governing equation, startup, grid pattern, step-ratio assumptions, and whether the positivity statement is necessary-and-sufficient",
+        "title": "On energy stable, maximum-principle preserving, second order BDF scheme with variable steps for the Allen-Cahn equation",
+        "trigger": "Closest primary literature on variable-step BDF2 positivity and maximum principles"
+      },
+      {
+        "assessment": "No direct coverage is indicated by the abstract, which focuses on stability and error estimates. Full-text comparison remains incomplete and is recorded as a residual risk.",
+        "evidence": "arXiv:2003.03534, abstract and MSC classification.",
+        "identifier_or_url": "https://arxiv.org/abs/2003.03534",
+        "material_read": "arXiv abstract only; full text was not obtained during this run",
+        "method": "Compared the abstract's stated scope with the exact positivity claim; did not infer full-text non-coverage",
+        "title": "Stability and error estimates for the variable step-size BDF2 method for linear and semilinear parabolic equations",
+        "trigger": "Related primary literature on variable-step BDF2 for linear equations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4cca2310-41b2-48aa-a71f-29eef8b79576",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity preservation is a meaningful property for numerical integration of nonnegative decaying modes. Alternating coarse/fine steps are a natural periodic pattern in adaptive time stepping. The exact boundary quantifies the tradeoff: the long step can exceed the constant-step limit only when paired with a sufficiently short step, and its admissible product approaches 2 as the ratio grows. This is a sharp, reproducible benchmark, not an unsupported claim about general adaptive grids.",
+    "status": "PASS"
+  }
+}
