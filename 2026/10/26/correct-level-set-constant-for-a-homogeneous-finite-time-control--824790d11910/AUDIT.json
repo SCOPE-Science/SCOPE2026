@@ -1,0 +1,108 @@
+{
+  "claim": "For the homogeneous optimal-control problem in Theorem 6.5 of Weng–Chitour–Mason, let \\(V_\\infty\\) be its value function, \\(K=\\{x:V_\\infty(x)=1\\}\\), and \\(m=\\min_{x\\in K}F(x)>0\\). The Lyapunov comparison rigorously gives \\[T_{x_0}\\leq\\frac{d+\\mu}{m\\mu}V_\\infty(x_0)^{\\mu/(d+\\mu)}.\\] The coefficient required by this proof is the minimum of the running cost on the unit value-function level set, not its maximum; an admissible anisotropic example has distinct minimum and maximum. This corrects the displayed comparison argument and does not claim that the printed maximum-based numerical bound is false by every possible argument.",
+  "correctness": {
+    "rationale": "The HJB equation gives \\(\\dot V_\\infty=-F-\\frac1q|\\partial_nV_\\infty|^{q/(q-1)}\\leq-F\\). Homogeneity and \\(m=\\min_K F>0\\) give \\(F\\geq mV_\\infty^{d/(d+\\mu)}\\); integrating \\(\\frac{d}{dt}V_\\infty^{\\mu/(d+\\mu)}\\leq-\\frac{m\\mu}{d+\\mu}\\) proves the stated bound. The anisotropic example verifies \\(\\min_KF<\\max_KF\\) under the stated assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kisole–Garg–Peet state the general implication \\(\\dot V\\leq-aV^\\gamma\\Rightarrow T\\leq V^{1-\\gamma}/(a(1-\\gamma))\\).",
+        "Bhat–Bernstein provide the foundational finite-time Lyapunov comparison framework; the retrieved abstract and first-page text do not state the source-specific level-set coefficient."
+      ],
+      "reasoning": "Prior general comparison results cover the integration step but do not imply that \\(\\max_KF\\) is a lower comparison coefficient. The source-specific correction is the identification and verification of the required extremum in Theorem 6.5.",
+      "searches": [
+        "Bhat Bernstein Finite-time stability of continuous autonomous systems 2000 settling time Lyapunov min on unit level set theorem",
+        "homogeneous finite time stability settling time bound Lyapunov min level set positive definite derivative",
+        "https://arxiv.org/abs/2501.11255, Theorem 4 and Section 5.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2607.22191",
+      "https://arxiv.org/abs/2501.11255",
+      "https://doi.org/10.1137/S0363012997321358"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof uses \\(\\dot V_\\infty\\leq-F\\) and then defines \\(c=\\max_{x\\in K}F(x)\\) before asserting \\(\\dot V_\\infty\\leq-cV_\\infty^{d/(d+\\mu)}\\).",
+        "The anisotropic admissible example \\(F(x_1,x_2)=|x_1|^{10/7}+|x_2|^{5/3}\\) shows \\(\\min_K F<\\max_K F\\): if \\(F\\) were constant on \\(K\\), homogeneity would force \\(V_\\infty=CF^{11/10}\\), contradicting the HJB equation at \\((s,0)\\), \\(s\\ne0\\)."
+      ],
+      "reasoning": "The maximum gives an upper bound on \\(F\\) along a normalized level set, whereas the derivative comparison requires a lower bound. The example rules out treating the extrema as interchangeable. The result establishes the corrected minimum-based estimate and a proof gap in the displayed maximum-based argument, but does not claim the stated numerical bound is false by every possible alternative proof.",
+      "searches": [
+        "site:arxiv.org/abs/2607 \"numerical optimization\" exact convergence stability",
+        "Bhat Bernstein Finite-time stability of continuous autonomous systems 2000 settling time Lyapunov min on unit level set theorem",
+        "https://arxiv.org/abs/2607.22191, Theorem 5.1 and Theorem 6.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source HJB equation is \\(\\nabla V_\\infty(x)^\\top J_nx-\\frac{q-1}{q}|\\partial_nV_\\infty(x)|^{q/(q-1)}+F(x)=0\\).",
+        "The source states \\(V_\\infty(\\delta^r_\\epsilon x)=\\epsilon^{d+\\mu}V_\\infty(x)\\) and \\(F(\\delta^r_\\epsilon x)=\\epsilon^dF(x)\\)."
+      ],
+      "reasoning": "The equivalent Lyapunov-comparison formulation requires a constant \\(a\\) for which \\(F(x)\\geq aV_\\infty(x)^{d/(d+\\mu)}\\). Homogeneity identifies the best such level-set coefficient as \\(\\min_KF\\), not \\(\\max_KF\\).",
+      "searches": [
+        "site:arxiv.org/abs/2607 \"numerical optimization\" exact convergence stability",
+        "https://arxiv.org/abs/2607.22191, Theorem 5.1, Lemma 6.1, Theorem 6.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No finite database or tabulated benchmark is intrinsic to this theorem; the source-specific coefficient appears in Theorem 6.5 of arXiv:2607.22191v1.",
+        "Targeted literature searches returned related but mathematically different stability and control results, not the same level-set coefficient issue."
+      ],
+      "reasoning": "A finite database/table comparison is inapplicable to this analytic proof correction. The source theorem and its exact differential inequality are the decisive evidence; search absence is not treated as a novelty proof.",
+      "searches": [
+        "site:deepblue.lib.umich.edu \"Finite-Time Stability of Continuous Autonomous Systems\" pdf Bhat Bernstein",
+        "https://arxiv.org/abs/2607.22191, Theorem 6.5",
+        "https://arxiv.org/abs/2501.11255"
+      ]
+    },
+    "rationale": "This is a source-specific correction of the coefficient used in Theorem 6.5 of arXiv:2607.22191v1. General finite-time comparison literature covers the integration step, but does not make \\(\\max_KF\\) a lower comparison coefficient. The claim is limited to the valid minimum-based bound and the error in the displayed substitution; no global uniqueness claim is made.",
+    "residual_risks": [
+      "The target source is an arXiv preprint; a later revision may correct the coefficient.",
+      "The full Bhat–Bernstein PDF endpoint returned HTTP 403; only its abstract and first-page text were inspected, so it is not used as evidence of noncoverage.",
+      "No trajectory-level counterexample to the printed maximum-based numerical bound is established; only the minimum-based bound and the proof gap in the displayed argument are claimed.",
+      "Searches cannot prove global uniqueness; an equivalent source-specific correction may exist outside the inspected material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The theorem defines \\(c=\\max_KF\\), but its displayed F-only comparison requires a lower bound on \\(F\\). Replacing this coefficient by \\(\\min_KF\\) yields a rigorous bound. The max-based numerical estimate itself is not declared false without a separate trajectory-level counterexample.",
+        "evidence": "Theorem 5.1 gives the HJB equation; Lemma 6.1 gives degree \\(d+\\mu\\) for \\(V_\\infty\\); Theorem 6.5 proof gives \\(\\dot V_\\infty\\leq-F\\) and then uses \\(c=\\max_KF\\).",
+        "identifier_or_url": "https://arxiv.org/abs/2607.22191",
+        "material_read": "Relevant full HTML sections read: assumptions and value-function properties; Theorem 5.1 HJB equation; Lemma 6.1 homogeneity; Theorem 6.5 and its proof, especially the definition of c and displayed differential inequality.",
+        "method": "Reconstructed the optimal-feedback derivative, normalized the value-function level set by weighted homogeneity, and checked the level-set extremum required by the scalar comparison.",
+        "title": "Finite-Time Stabilization of Linear Systems via Optimal Control",
+        "trigger": "Theorem 6.5 is the precise source of the maximum-based settling-time coefficient."
+      },
+      {
+        "assessment": "Supports the scalar integration once a valid lower coefficient is established; it does not imply that \\(\\max_KF\\) is a lower coefficient.",
+        "evidence": "Theorem 4 states \\(T(x)\\leq V(x)^{1-\\gamma}/(a(1-\\gamma))\\) under \\(\\dot V+aV^\\gamma\\leq0\\).",
+        "identifier_or_url": "https://arxiv.org/abs/2501.11255",
+        "material_read": "HTML lines 61–70 and 104–129, including the general finite-time comparison theorem and multivariate formulation.",
+        "method": "Compared its coefficient-bearing inequality \\(\\dot V\\leq-aV^\\gamma\\) and resulting time bound with the homogeneity-derived inequality in the target source.",
+        "title": "Bounding the Settling Time of Finite-Time Stable Systems using Sum of Squares",
+        "trigger": "A recent primary source for the generic Lyapunov settling-time comparison."
+      },
+      {
+        "assessment": "Relevant background for the integration step; full-text coverage of this exact source-specific coefficient issue remains unverified.",
+        "evidence": "The retrieved abstract identifies Lyapunov and converse Lyapunov results involving scalar differential inequalities.",
+        "identifier_or_url": "https://doi.org/10.1137/S0363012997321358",
+        "material_read": "Abstract and first-page text retrieved; the full PDF endpoint returned HTTP 403 and was not read in full.",
+        "method": "Used only as evidence for the general scalar differential-inequality framework, not for a whole-document noncoverage conclusion.",
+        "title": "Finite-Time Stability of Continuous Autonomous Systems",
+        "trigger": "Foundational finite-time Lyapunov comparison literature cited by the recent settling-time paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "824790d1-1910-4f68-9602-7b86ab51b599",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The constant in a finite-time settling-time upper bound is operationally meaningful. Replacing an unsupported \\(\\max_KF\\) with the rigorously justified positive \\(\\min_KF\\) yields a correct quantitative guarantee, and the example shows that the difference is not merely notational.",
+    "status": "PASS"
+  }
+}
