@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The symbolic base-b carry normal form is exact on every finite lsd-first word. A high-digit padding argument converts indicator equality into congruence equality; the b^K minus offset construction then proves all offset-residue pairs inequivalent. For b>=3, quotient levels t>=2 are disjoint; t=0 contributes all m residues and t=1 contributes exactly the digit-count residues of [0,c). This gives an exhaustive state count, including zero shifts and all boundary values. The two adjacent-power formulas follow from singletons and complete maximal-digit count ranges; they yield difference r-m for r>=m. The stand-alone finite verifier independently minimizes 4140 parametric automata and checks 40000 outputs; the infinite proof does not depend on those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2512.10017 lines 194-260: general lsd-first shift construction and bounds, including previously known 2m bound for shift by one; later sections discuss msd-first Thue-Morse.",
+        "arxiv:1910.08543 Theorem 3 (published 2021): exact automata for mT+r with T the Thue-Morse set, a different forward affine image problem."
+      ],
+      "reasoning": "Generic bounds, recognizability-preserving constructions and a formula for a different Thue-Morse affine-image operation do not dominate the full exact shifted maximal-digit family. The binary case from the earlier binary case is a proper related specialization of a different statistic, not a proof for bases >=3.",
+      "searches": [
+        "exact state complexity of shifts of base-b digit-count residue indicator / counting maximal digit occurrences",
+        "\"automatic sequences\" \"state complexity of shifts\" \"digit counting\"",
+        "arxiv:2512.10017 Section 4",
+        "arxiv:1910.08543 Theorem 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.03837 primary full HTML (2026-10-02)",
+      "arxiv:2512.10017 relevant full rendered sections (2025-12-10)",
+      "arxiv:1910.08543 primary 36-page PDF key statements (2019-10-18)",
+      "A related exact binary digit-sum translation theorem",
+      "published-finding corpus semantic searches recorded above, with noncovering relevant/nearest records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 7 of arxiv:2610.03837: non-2-regular abelian complexity of an automatic binary coding; no exact least-significant-first shift-state theorem.",
+        "arxiv:2512.10017: general DFAO bounds, examples for Thue-Morse, and msd-first shift bounds; no formula for digit-three count shifts.",
+        "arxiv:1910.08543: affine image mT+r not inverse translation of a digit-count set.",
+        "Related prior binary-digit-sum theorem: exact binary digit-sum shift residual-pair formula; a related method, not covering the new marked-maximal-digit b>=3 statement."
+      ],
+      "reasoning": "The current theorem proves pairwise residual inequivalence at all bases >=3 and unique depth ownership of quotients >=2, then gives an all-shift digit-interval formula and asymptotically unbounded adjacent-shift collapse. Those conclusions do not follow from the cited published statements or older binary theorem, although the elementary residual method is related.",
+      "searches": [
+        "arxiv:2610.03837 Theorem 7 and Lemma 3",
+        "arxiv:2512.10017 Theorems 7,9,19,20",
+        "arxiv:1910.08543 Theorem 3",
+        "exact state complexity of shifts of base-b digit-count residue indicator / counting maximal digit occurrences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full text of arxiv:2610.03837 sections 2-4: b(n)=1 iff number of digit 3 in base 4 is 0 mod 3; no shifted minimal automata theorem.",
+        "A related exact binary-digit-sum shift result addresses base 2 sum of all unit digits, whereas present claim marks only the maximal digit in every base >=3."
+      ],
+      "reasoning": "The translated residue language can be phrased as the b-kernel of n↦1_{d_b(n+c)=0 mod m}. This equivalent formulation was compared with source-specific state-complexity statements and the binary analogue. Neither yields the b>=3 interval-layer cardinality or power-boundary jump by direct implication.",
+      "searches": [
+        "state complexity translated digit count modulo 3 4-automatic sequence base 4 shifts least significant first",
+        "minimal DFAO number of states additive shifts of automatic sequence indicating number of digit 3 in base 4 divisible by 3; least significant digit first, shifted power 4",
+        "\"number of digit 3\" \"state complexity\" shifts automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical-record search returned rank-compression automata and other unrelated state-complexity entries, not an exact table for maximal-digit residue shifts.",
+        "The primary 2026 construction provides a short digit-three-count prefix table, not translated DFAO minima."
+      ],
+      "reasoning": "An exact published finite or infinite shift-complexity table implying the formula was not identified. Computed checks in checker.py were produced for the current claim and are not evidence that prior tables are absent.",
+      "searches": [
+        "state complexity translated digit count modulo 3 4-automatic sequence base 4 shifts least significant first",
+        "minimal DFAO number of states additive shifts of automatic sequence indicating number of digit 3 in base 4 divisible by 3; least significant digit first, shifted power 4",
+        "Allouche Rampersad Rigo Shallit Stipulanti non regular abelian complexity example shift digit 3 count modulo 3 DFAO complexity",
+        "\"state complexity\" \"shift\" \"digit 3\" \"base 4\""
+      ]
+    },
+    "rationale": "The primary 2026 construction determines automaticity and abelian complexity, not translated minimal DFAO state counts. The 2025 linear-subsequence analysis obtains general bounds and a different Thue-Morse msd-first result. The 2019/2021 Thue-Morse automaton theorem concerns affine images of its set, not inverse translations of maximal-digit residue sets. A previous exact binary-digit-sum shift theorem overlaps in proof vocabulary but does not imply the new b>=3 arbitrary-base classification or its unbounded adjacent-power drops. No covering published-finding corpus hit was found by the recorded searches, though that is not proof of global novelty.",
+    "residual_risks": [
+      "Equivalent exact state-complexity results may occur under inverse-translation, numeration-language or kernel terminology outside indexed literature.",
+      "The proof pattern resembles earlier binary digit-sum translations, although the new bases and count statistic are not directly implied by the older statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Automaticity and abelian complexity proved; translation-state minima and power-boundary discontinuity not established.",
+        "evidence": [
+          "Section 2 defines b(n) from d_3(n) mod 3; Theorem 7 concerns abelian complexity.",
+          "Section 3 Proposition 8 concerns abelian complexity at lengths 4^m, not DFAO shifts."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.03837",
+        "material_read": "HTML complete statements and proofs of Sections 1–4, including Lemmas 1–13, Theorem 7, Proposition 8, and reference list.",
+        "method": "Primary full HTML inspection, comparison of actual properties and studied parameters.",
+        "title": "An example of an automatic sequence with non-regular abelian complexity",
+        "trigger": "Exact same base-four digit-three count automatic sequence; possible originating theorem."
+      },
+      {
+        "assessment": "Provides general transformations and state-complexity bounds; the exact maximal-digit all-shift identity is not given.",
+        "evidence": [
+          "Section 4 quotes lsd-first shift-by-one bound and gives near-sharp examples, then studies msd-first transformations.",
+          "Theorem 19 is a nonsharp msd-first Thue-Morse shift bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+        "material_read": "Full public arXiv rendered relevant introduction, Sections 3–4 (especially Theorems 7, 9, 19, 20), and shift-complexity discussions.",
+        "method": "Textual full section inspection through arXiv rendering.",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Potential broad covering result on shifts of k-automatic sequences."
+      },
+      {
+        "assessment": "Theorem 3 is for mT+r and base 2^p, with msd-first conventions; not shifted input to maximal-digit residue indicator.",
+        "evidence": [
+          "Theorem 3 and page 6–7 use the affine image mT+r; the base-four target here counts maximal digits modulo any m.",
+          "Section 2 explicitly uses most-significant-first expansions."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i3p12/pdf/",
+        "material_read": "Primary 36-page PDF introduction, notation and key Theorem 3 and construction statement, with first-page image inspected.",
+        "method": "PDF text and page-image examination with targeted statement comparison.",
+        "title": "Minimal automaton for multiplying and translating the Thue-Morse set",
+        "trigger": "Title suggests translation and exact minimal automata, so could dominate the shift problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9c05a238-4a31-42e9-a875-6f9b7861e53b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete all-shift minimal-automaton classification for the maximal-digit residue family, including the recently introduced base-four mod-three automatic sequence, determines a natural exact invariant for infinitely many parameters. State minimality is structural rather than an unverified constructed bound. The sharp adjacent-power comparison gives unbounded one-step decreases r-m in state count, exposing a nonmonotonicity not implied by known generic automata bounds. The digit-interval formula has a finite digit-DP implementation with no brute-force interval enumeration.",
+    "status": "PASS"
+  }
+}
