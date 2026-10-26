@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The Fourier normalization was independently recovered by elementary integration and the exact lower-incomplete-gamma identity. Differentiation in the exponent at the triangular case yields \(2C_n/T_n^2\), while the second frequency derivative is \(2/T_n^2\), giving the displayed square-root constant without an omitted factor of two. The upper-incomplete-gamma expansion identifies the competing endpoint terms and, in the double scaling, yields the uniform \(C^1\) limit \(1-e^\lambda\cos s\). Both limiting roots are simple when \(\lambda>0\), and compactness plus the derivative control excludes spurious roots in the target frequency cells. The checker exercised the exact incomplete-gamma representation and observed convergence of the paired offsets. Limits: the argument does not treat the double-scaling boundaries \(\lambda=0\) and \(\lambda=\infty\) or all complex roots.
+
+## Originality — PASS, with residual priority risk
+Tuck (2006) proves positivity of Fourier-cosine transforms for convex input profiles, including a relevant half of the tent exponent transition. Sedletskii (2009) develops Pólya-type real/simple zero placement for positive increasing sine-transform weights and sharper localization of finitely indexed roots. These results cover the qualitative sign/zero setting, and they are credited. Neither of the inspected statements supplies the proposed simultaneous \(\varepsilon\log n\) scaling or the explicit \(\arccos(e^{-\lambda})\) separation law. DLMF §8.11 states the incomplete-gamma asymptotics used in the new derivation, but not the zero geometry. Semantically related finite Fourier transform and special-function literature could contain an equivalent scaling not found by the documented searches; the Sedletskii PDF was materially inspected only in its introductory/results pages, not in its entirety. This is a publication-priority risk, not evidence of absence.
+
+## Mathematical value — PASS
+The triangular Fourier window has infinitely many degenerate spectral notches, whereas fractional perturbations split them. A fixed-notch perturbation expansion alone misses the exponentially distant frequencies at which arbitrarily small exponent changes produce finite notch separation. The two-scale theorem gives an explicit universal transition profile and supplies a natural explanation for noncommutation of parameter and high-frequency limits. This is a motivated, quantitative spectral-zero invariant, rather than a mere restatement of positivity or an arbitrary finite numerical slice.
+
+## Literature and scope
+Relevant sources: Tuck, *On positivity of Fourier transforms* (2006); Sedletskii, *Localization of small zeros of sine and cosine Fourier transforms* (2009); DLMF §8.11. A general historical priority search is not exhaustive. The mathematical result is restricted to real frequencies, to exponent perturbations from below, and to crossover parameters strictly between zero and infinity. Checks recorded in the package are numerical diagnostics, not independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.

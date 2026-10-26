@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact gamma-integral expression and triangular specialization fix normalization. Fixed-index exponent derivative is 2C_n/T_n², second frequency derivative is 2/T_n². Two analytic branches split by ±sqrt(2C_n epsilon)+O(epsilon). Locally uniform differentiable incomplete-gamma expansion yields 1-e^lambda cos(s), whose only two roots in [-pi,pi] are simple for finite lambda>0; C¹ convergence proves exactly two nearby real zeros and excludes others. The packaged checker agrees, but finite tests do not prove infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DLMF §8.11(i), equations 8.11.1–8.11.2 provide general large-argument upper-gamma expansions.",
+        "Paris 2012 abstract explicitly concerns rapidly decaying whole-line power exponentials, a different transform."
+      ],
+      "reasoning": "DLMF establishes a method/premise, not this formulated joint zero transition; stronger general methods do not amount to prior publication of the specific theorem.",
+      "searches": [
+        "Pólya cosine transform zeros perturb parameter logarithm n double scaling",
+        "truncated power Fourier zeros alpha approaching integer zeros coalesce asymptotic",
+        "asymptotic roots sine Fourier integral x power logarithmic parameter arccos",
+        "On the asymptotics and zeros of a class of Fourier integrals Richard B Paris 2012"
+      ]
+    },
+    "checked_sources": [
+      "Tuck (2006) full six-page primary PDF",
+      "Sedletskii (2009) MathNet primary PDF pp.35–37",
+      "DLMF incomplete gamma asymptotic §8.11(i)",
+      "Paris (2012) publisher abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tuck derives sign criterion using convexity and sine-transform positivity; no paired-zero phase transitions.",
+        "Sedletskii Theorem 2 explicitly restricts arccos inequalities by an integral smallness/index condition; these are finite low-index estimates, not the exponentially growing indices here.",
+        "DLMF upper-gamma endpoint expansion is a known proof input, no zero classification."
+      ],
+      "reasoning": "Neither sign/zero-location theorem yields the quantitative crossover by statement implication. The DLMF expansion enables a new derivation but does not state the result; a hidden equivalent older application remains possible.",
+      "searches": [
+        "Tuck 2006 Cambridge PDF S0004972700047511a.pdf pp.133–138",
+        "Sedletskii 2009 MathNet PDF vmumm887 pp.35–37 accessible",
+        "DLMF §8.11(i), gamma expansion",
+        "asyptotic paired zeros Fourier transform generalized Bartlett taper near alpha=1 high frequency n exponential logarithmic crossover arccos e^-lambda"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sedletskii 2009 PDF pp. 35–37: Pólya sine-transform real/simple zero location and finitely indexed arccos bounds",
+        "Tuck 2006 PDF pp. 134–135: strict positivity under convexity"
+      ],
+      "reasoning": "Sine-transform weight (1-x) raised to exponent alpha-1 gives qualitative prior regime, not joint alpha/frequency scaling. No found statement entails explicit crossover offsets.",
+      "searches": [
+        "fractional tent Fourier transform positive definite alpha 1 near-critical logarithmic zero crossover arccos exponential",
+        "Fourier transform (1-|x|)_+^alpha zeros alpha to 1 and n to infinity double scaling",
+        "Fourier cosine transform fractional power tent function real zero location alpha parameter 0 alpha 1",
+        "fractional Bartlett window raised triangular Fourier zeros near alpha 1 double scaling n log"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Compared mathematical research summaries on fractional Fourier kernels, spectral zeros and logarithmic transition laws; the nearest checked mollified-ball Fourier result concerns a different kernel and an integrability threshold, not tent zero positions."
+      ],
+      "reasoning": "No matching exact limit table or published claim was identified in inspected materials. The mathematical comparison is by object, exponent parameter and asserted zero offsets, not by matching the word Fourier.",
+      "searches": [
+        "power tent cosine transform sine zeros simple threshold alpha one logarithmic splitting",
+        "near critical fractional tent Fourier zero boundary layer epsilon log index",
+        "generalized Bartlett taper Fourier transform complex zeros power exponent"
+      ]
+    },
+    "rationale": "Qualitative positivity and Pólya-type simple real-zero placement are prior work; the combined fixed-index and exponential-index quantified zero-separation law is not stated in inspected Tuck, Sedletskii, DLMF, or searched records. Direct derived formulae and implication comparisons support best-knowledge originality, subject to historical priority risk.",
+    "residual_risks": [
+      "Sedletskii remaining pages were not conclusively inspected .",
+      "Undiscovered older general finite-Fourier-transform literature may contain an equivalent scaling result.",
+      "Numerical finite calculations cannot establish originality or an infinite statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strict convex positivity and complex-plane criteria, no fractional-tent paired zero asymptotics.",
+        "evidence": [
+          "Theorem proof pp.134–135; concluding positivity discussions pp.137–138."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/D232B9DEB4819E4D2FF17E8162B8B066/S0004972700047511a.pdf/on_positivity_of_fourier_transforms.pdf",
+        "material_read": "Entire six-page PDF, pp.133–138.",
+        "method": "Parsed PDF text and visual screenshot of p.134.",
+        "title": "On positivity of Fourier transforms",
+        "trigger": "Could cover stronger positivity statements at the triangular exponent threshold."
+      },
+      {
+        "assessment": "Relevant arccos bounds apply to low-index regimes, but the remaining pages were not fully inspected; priority uncertainty is retained.",
+        "evidence": [
+          "PDF pp.35–37, especially Theorem 2 small-index conditions."
+        ],
+        "identifier_or_url": "https://www.mathnet.ru/eng/vmumm887",
+        "material_read": "PDF text for pp.35–37 including Theorems A, B, 1 and 2; rest not conclusively read.",
+        "method": "MathNet original PDF, selected original research statement pages.",
+        "title": "Localization of small zeros of sine and cosine Fourier transforms of a finite positive nondecreasing function",
+        "trigger": "Pólya result applies to the increasing sine-transform weight for subcritical exponents."
+      },
+      {
+        "assessment": "Provides the general endpoint expansion, not the specialized Fourier-zero limit.",
+        "evidence": [
+          "Equations 8.11.1–8.11.2."
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/8.11",
+        "material_read": "Displayed expansion equations 8.11.1–8.11.2 and stated domain.",
+        "method": "Official DLMF equation text.",
+        "title": "DLMF §8.11(i)",
+        "trigger": "Check critical asymptotic input."
+      },
+      {
+        "assessment": "Abstract concerns whole-line stretched-exponential Fourier integrals, not fractional tents; full-text uncertainty remains.",
+        "evidence": [
+          "Abstract and publication date 2012-07-31."
+        ],
+        "identifier_or_url": "https://www.ejpam.com/ejpam/article/view/1206",
+        "material_read": "Title, abstract and published metadata; full text not inspected.",
+        "method": "Publisher article landing page.",
+        "title": "On the asymptotics and zeros of a class of Fourier integrals",
+        "trigger": "Potential dominating asymptotic zero theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e95c2d9-3c0a-4f34-b2ed-33ebbb96dc49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The quantity is a natural spectral-notch separation invariant for an infinitely degenerate triangular Fourier window. The precise exponential-frequency crossover demonstrates noncommuting small-perturbation/high-frequency limits not captured by qualitative Pólya placement or ordinary perturbation theory. The limit arccos(e^-lambda) provides a meaningful uniform profile across a whole parameter family, rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
