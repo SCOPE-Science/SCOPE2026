@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The rank-one symmetric block reduction and full eigenvalue ordering are explicit. Squared-gap exact factorizations give every strict/equality region. The strict 3/2 family bound follows from a verified positive sum-of-squares certificate and its sharpness from a stated parametric sequence. The exact three-by-three witness and all critical polynomial identities passed symbolic checking; 1,800 finite random tests serve only as supplementary checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Demmel 2023 general near-optimality compares block scaling against optimal scaling; BLOKS 2026 Appendix B Eq (28) defines exact baseline; Kolotilina 2002 abstract describes optimally scaled block matrices."
+      ],
+      "reasoning": "A bound relative to the globally best block scaling does not supply the signed comparison with no scaling or the exact family threshold. The 2002 full text was unavailable, hence this general article remains a residual uncertainty rather than certified noncoverage.",
+      "searches": [
+        "2026 BLOKS block Jacobi sketched kernel ridge preconditioner eigenvalues coupling block iteration exact spectrum",
+        "block diagonal preconditioner diagonal scaling worsens condition number rank one Gram spike equicorrelation unequal leverage",
+        "doi:10.1137/22M1504901",
+        "doi:10.1016/S0024-3795(01)00412-8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.13382v1, indexed relevant primary text",
+      "doi:10.1137/22M1504901, publisher abstract and introduction",
+      "doi:10.1023/B:JOTH.0000026285.08558.74, author-provided full text",
+      "doi:10.1016/S0024-3795(01)00412-8, publisher abstract only",
+      "targeted scholarly and mathematical-record searches recorded in the private bibliographic checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2004 Kolotilina explicitly covers two-block 1±σ; Demmel controls nearly optimal scaling; BLOKS defines a preconditioner and reports empirical comparisons, with no observed 3block equal-energy threshold in inspected material."
+      ],
+      "reasoning": "Exact two-block pairing implies only the prerequisite safety formula; extending it to three blocks requires an independent 3x3 spectrum, different ordering of the smallest eigenvalue at t=s, two exact sign factorizations, and a separate positive certificate for the sharp family ceiling. Neither a 3-block partition keyword nor a bound on optimal preconditioning implies those results.",
+      "searches": [
+        "block Jacobi preconditioning rank-one perturbation identity can increase spectral condition number three blocks 3x3",
+        "exact three-block Jacobi scaled rank-one SPD matrix worsens condition number spectral 3/2 deterioration",
+        "arxiv:2610.13382v1",
+        "doi:10.1137/22M1504901"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2004 Kolotilina equation (1.3) yields pair 1±σ only for two blocks; triple reduced matrix has a third interaction direction."
+      ],
+      "reasoning": "Checking normalization, diagonal congruence, Gram rank-one perturbation, and matrix correlation formulations reveals that the two-block formula is existing, whereas a three-block sign boundary requires the cubic/eigenvalue comparison and is not implied by the bipartite statement.",
+      "searches": [
+        "block Jacobi preconditioning rank-one perturbation identity can increase spectral condition number three blocks 3x3",
+        "exact three-block Jacobi scaled rank-one SPD matrix worsens condition number spectral 3/2 deterioration",
+        "rank-one spike three-block Jacobi conditioning s s t threshold 4s+3 partition block",
+        "doi:10.1023/B:JOTH.0000026285.08558.74"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published findings included weighted-Jacobi damping, additive Gauss–Seidel inverse, and cyclic momentum three-block results, but none stated the same rank-one symmetric-scaled spectrum and strict parameter region.",
+        "2026 BLOKS Table 5 compares computational costs of preconditioner variants, not this rank-one parameter table."
+      ],
+      "reasoning": "No exact theorem, parameterized preconditioning table, or strong special-case covering the displayed phase diagram was found in actual database results; query absence by itself does not prove originality.",
+      "searches": [
+        "exact three-block Jacobi scaled rank-one SPD matrix worsens condition number spectral 3/2 deterioration",
+        "rank-one spike three-block Jacobi conditioning s s t threshold 4s+3 partition block",
+        "block Jacobi preconditioner can worsen condition number compared to identity rank one perturbed matrix"
+      ]
+    },
+    "rationale": "The new statement is the sharp signed comparison of symmetric block-Jacobi condition numbers to the original rank-one spike in a three-block equal-pair energy family, including its exact two-curve boundary and sharp 3/2 ratio cap. The closest two-block eigenpairing is expressly attributed to prior literature, and the general scaling and recent BLOKS papers inspected do not directly entail the claimed complete region and cap. Dedicated searches of published mathematical findings found no matching claim; this is not uniqueness proof and residual original-source access risks remain.",
+    "residual_risks": [
+      "The 2002 Kolotilina general block-scaling paper was not inspected in full; a specialized existing characterization cannot be excluded.",
+      "The 2023 Demmel article was not inspected in full, although the main stated theorem has different quantifiers; an implicit special-case computation might exist.",
+      "The complete 2026 BLOKS text could not be directly opened; relevant Appendix B material was read from its indexed full-text rendering.",
+      "The boundary and factor concern a two-equal-energy rank-one three-block family, not all three-block problems."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Equation (28) supplies the exact block-Jacobi baseline; the examined parts emphasize algorithmic memory cost and performance rather than the rank-one three-block spectral condition-number phase diagram.",
+        "evidence": [
+          "arxiv:2610.13382v1 Appendix B Eq. (28), Section 3, Table 5"
+        ],
+        "identifier_or_url": "arxiv:2610.13382v1; https://arxiv.t3mt.com/html/2610.13382v1",
+        "material_read": "Search-indexed text from Section 3 and Appendix B, specifically equations (27)-(30), Table 5 and adjacent discussions. Direct full-page fetch timed out; not an exhaustive examination of all 29 pages.",
+        "method": "Read indexed primary-paper full-text excerpt of the definition and comparison of plain and sketched blocks.",
+        "title": "BLOKS: Scaling Kernel Solvers with Sketched Block Preconditioning",
+        "trigger": "The 2026 new sketched preconditioner builds on exact block Jacobi."
+      },
+      {
+        "assessment": "General within-optimal-scaling bounds do not by immediate implication give the exact parameterized deterioration boundary or sharp 3/2 family ceiling.",
+        "evidence": [
+          "DOI 10.1137/22M1504901 abstract, general block bounds"
+        ],
+        "identifier_or_url": "doi:10.1137/22M1504901; https://epubs.siam.org/doi/full/10.1137/22M1504901",
+        "material_read": "Publisher abstract, stated main theorem scope, metadata and searchable introduction; full proof body not accessed.",
+        "method": "Read publisher primary summary and author-hosted record; compared global relative-optimality statement with target absolute comparison to identity.",
+        "title": "Nearly Optimal Block-Jacobi Preconditioning",
+        "trigger": "Strongest nearby general theorem on block-Jacobi Euclidean conditioning."
+      },
+      {
+        "assessment": "Explicitly supplies the known 1±singular-value pattern for a two-block normalized matrix, so this is acknowledged as prior coverage; does not cover three-block nonbipartite off-diagonal interaction.",
+        "evidence": [
+          "2004 article §1, equation (1.3), spectral list following that display"
+        ],
+        "identifier_or_url": "doi:10.1023/B:JOTH.0000026285.08558.74; https://www.researchgate.net/publication/226838200_A_Class_of_Optimally_Conditioned_Block_2_2_Matrices",
+        "material_read": "Author-provided full article text, introduction, Theorem 1.1, matrix (1.3), eigenvalue pairing in discussion around page 2475.",
+        "method": "Read uploaded author text and traced two-block eigenvalues.",
+        "title": "A Class of Optimally Conditioned Block 2 × 2 Matrices",
+        "trigger": "A plausible dominating special-case block-scaling theorem."
+      },
+      {
+        "assessment": "Addresses optimally conditioned block scalings generally, unlike comparison of canonical exact block Jacobi versus the unscaled rank-one matrix; an uninspected lemma could conceivably subsume the new classification.",
+        "evidence": [
+          "2002 Linear Algebra and its Applications 340:55-67 publisher abstract"
+        ],
+        "identifier_or_url": "doi:10.1016/S0024-3795(01)00412-8; https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Publisher original abstract and references only; complete article inaccessible in this investigation.",
+        "method": "Read scientific scope from publisher record; marked full-text comparison incomplete.",
+        "title": "Optimally conditioned block matrices",
+        "trigger": "Generalization to arbitrary block number could include a specialized rank-one case."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "714da92d-df3c-4c3d-9ee5-8fa9a2fbac4e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact baseline of recent block-sketched kernel solvers suggests the motivated question whether increasingly fine partitioning actually improves Euclidean spectral conditioning. The sharp distinction between two blocks and three, a complete two-parameter phase diagram, and a finite sharp ceiling characterize a genuine structural tradeoff rather than a routine tabulated eigenvalue.",
+    "status": "PASS"
+  }
+}
