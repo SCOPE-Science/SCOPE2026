@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact squarefree-product series follows from the valid recurrence/convolution expansion. Weighted prime-sum estimates using PNT are explicitly derived with kernel integrals 1 and 0 and effective harmonic-prime error. They imply H_x(t sqrt x)=(2t(1-ln t)+o(1))sqrt x/ln x and derivative -2ln t/ln x. Strict concavity fixes a unique saddle at t→1; a geometric tail shows the sum has the same leading log as its largest term. Exact integer recursion and ordered-Bell polynomial checks agree for the first ten primorials; only the proof establishes the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fink arXiv:2307.09140 proves formulas for all κ_x and all n but not the primorial limit.",
+        "Fink arXiv:2307.16691 Theorems 1 and 2 concern κ_0 and K, not κ_1 on primorials.",
+        "Fink arXiv:2008.10398 studies κ_0 abundant and perfect phenomena."
+      ],
+      "reasoning": "Broad arithmetic-function identities cover the formula input but not the conclusion; κ_0 is a different function, and known general Dirichlet series identities do not themselves evaluate the primorial growth. A possible unstated implication from more advanced multiplicative convolution asymptotics is retained as a risk.",
+      "searches": [
+        "\"Properties of the recursive divisor function and the number of ordered factorizations\"",
+        "\"Number of ordered factorizations and recursive divisors\" primorial",
+        "\"recursively divisible numbers\" primorial asymptotic"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1912.07979v1 (2019-12-17)",
+      "arxiv:2307.09140v1 (2023-07-18)",
+      "arxiv:2307.16691v1 (2023-07-31)",
+      "arxiv:2008.10398v1 (2020-08-24)",
+      "Standard effective prime number theorem; Davenport, Multiplicative Number Theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2019 open question is about κ_1 on the first-primes product.",
+        "The 2023 convolution formula gives a convergent sum but does not estimate its saddle at r asymptotic to sqrt(x).",
+        "The 2024 paper proves explicit κ_0 formulas for all prime signatures and does not analyze κ_1 primorial growth."
+      ],
+      "reasoning": "Known identities imply an exact input representation; the new implication uses effective PNT to isolate the small excess of the prime-product logarithm over r log 2, identifies the saddle and controls all terms. Thus the asymptotic is not simply a special case of the stated prior conclusions.",
+      "searches": [
+        "Fink 2019 first k distinct primes open question 3",
+        "Fink 2023 κ_x Dirichlet series ζ(s-x)/(2-ζ(s))",
+        "ordered Bell product shifted primes recursive divisor asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fink arXiv:2307.09140, Theorem 2(5): general convolution expansion κ_x=Σ2^{-r-1} 1^{*r}*id_x, which specializes to an exact shifted-prime series but has no primorial asymptotic.",
+        "Fink arXiv:1912.07979, open question 3 singles out κ_1 on products of the first k distinct primes."
+      ],
+      "reasoning": "The known exact series is mathematically equivalent to equation (1) in the proof; it is not novel. The claimed leading square-root/logarithmic asymptotic and constant 2 do not follow merely from the exact identity without an analytic saddle analysis. Targeted queries did not locate that asymptotic.",
+      "searches": [
+        "\"recursive divisor function\" \"primorial\" asymptotic",
+        "\"sum of recursive divisors\" \"first k distinct primes\"",
+        "recursive divisor sum primorial square root prime scale",
+        "arxiv:2307.09140 Theorem 2 convolution series"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fink arXiv:1912.07979 Table 1 tabulates small κ_1(n), Appendix A lists record values, not the asymptotic.",
+        "The available recursive-divisor research record searches did not identify a precise primorial growth table or formula with constant 2."
+      ],
+      "reasoning": "Finite tables give data but do not dominate the all-k analytic limit. Exact values for fixed k cannot imply the asserted infinite asymptotic.",
+      "searches": [
+        "\"kappa_1\" primorial recursively divisible first k primes",
+        "\"recursive divisor function\" \"asymptotic\" \"primorial\"",
+        "\"sum of recursive divisors\" square root logarithm"
+      ]
+    },
+    "rationale": "The asymptotic constant 2 for the logarithm of the normalized primorial first-power recursive-divisor sum was not found in the full-text primary comparisons or the mathematical record queries. The general convolution expansion, including its specialization to this arithmetic function, is explicitly prior work (Fink 2023) and not claimed as original. The open question about the first-primes product appears in Fink 2019; this contribution determines asymptotic rather than exact closed-form growth. The prime-number-theorem saddle requires substantive work beyond substituting values into the known series.",
+    "residual_risks": [
+      "An unindexed publication or a general prime-supported Dirichlet-convolution theorem may already imply this exact leading constant.",
+      "The known general convolution identity is prior work; originality is limited to its new asymptotic evaluation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the object; question 3 asks for κ_1 at a product of first k primes; no logarithmic primorial asymptotic found",
+        "evidence": "Section 6.4 question 3; Section 2.3 exact relation between κ_x and κ_0; arXiv v1 dated 2019-12-17",
+        "identifier_or_url": "arxiv:1912.07979; https://lims.ac.uk/documents/recursive-divisible-numbers.pdf",
+        "material_read": "Definitions and Table 1; divisor-tree and convolution sections; section 6.4 open questions; conclusions and bibliography",
+        "method": "Read lawful open PDF text and inspected the relevant page image",
+        "title": "Recursively divisible numbers",
+        "trigger": "Defines κ_x and explicitly poses the first-primes-product question"
+      },
+      {
+        "assessment": "Provides Dirichlet generating series and exact convolution expansion, acknowledged as prior work; no prime-scale saddle asymptotic stated",
+        "evidence": "Theorem 2 identities (4),(5), and (12); Dirichlet series ζ(s-x)/(2-ζ(s))",
+        "identifier_or_url": "arxiv:2307.09140; https://arxiv.org/abs/2307.09140",
+        "material_read": "Full accessible article text, especially Theorems 1–3 and proof of convolution series",
+        "method": "Read publicly accessible arXiv HTML full text",
+        "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+        "trigger": "Potential stronger coverage through general κ_x formulas"
+      },
+      {
+        "assessment": "Computes general κ_0 and K expressions, not a κ_1 primorial asymptotic",
+        "evidence": "Section 2 Theorems 1 and 2 and Section 5 discussion",
+        "identifier_or_url": "arxiv:2307.16691; https://lims.ac.uk/documents/paper-number-of-ordered-factorizations-and-recursive-divisors.pdf",
+        "material_read": "All theorem statements and argument sections of eight-page open PDF, including discussion of scope",
+        "method": "Read public full-text PDF",
+        "title": "Number of ordered factorizations and recursive divisors",
+        "trigger": "Closed forms potentially dominating new primorial formula"
+      },
+      {
+        "assessment": "Studies the zeroth-power counting variant, distinct from the first-power primorial sum",
+        "evidence": "Section 2 and Section 3: κ_0, abundant/perfect criteria",
+        "identifier_or_url": "arxiv:2008.10398",
+        "material_read": "Full accessible abstract and definitions/results sections concerning κ_0",
+        "method": "Read arXiv open HTML",
+        "title": "Recursively abundant and recursively perfect numbers",
+        "trigger": "Related research on recursive divisor arithmetic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bac2218c-ecef-4d25-8ac0-6fccdf1f633e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original recursive-divisor paper explicitly singles out the product of the first k primes as a question for κ_1. The result computes an unconditional leading logarithmic growth law and nontrivial constant 2 for this natural prime-supported family. The saddle balances prime contributions above and below sqrt x; neither finite enumeration nor the prior exact convolution identity alone resolves the asymptotic. No arbitrary parameter slice or tiny numerical gain is involved.",
+    "status": "PASS"
+  }
+}
