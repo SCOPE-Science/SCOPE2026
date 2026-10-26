@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For n>=6, every path of length three along the cycle is geodesic, so feasible sets are exactly binary cyclic words with at most two ones per four-window. Window averaging proves the optimum floor(n/2). For optimal sets the cyclic positive gaps satisfy g_i+g_(i+1)>=4. The slack s_i=g_i+g_(i+1)-4 sums to zero for even n and two for odd n. Solving its cyclic linear equations classifies every possible gap tuple, yielding the four exact counts. A double count by starting selected vertex gives n/m times the gap-tuple number; rotational stabilizers are addressed separately. Actual code `verify.py` independently checked direct distance membership on 13,472 candidate subsets, all 2,786,632 optimum-size candidates through n=23, rotation counts through n=18, and transfer counts through n=120. No finite test substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 paper calculates the scalar cycle number and provides graph-wide membership conditions.",
+        "The 2024 k-general paper proves the cardinality bound and that one maximally even cyclic pattern attains it.",
+        "The 2024 maximal-evenness paper counts neither all geodesic optimizers nor all their cyclic orbit classes."
+      ],
+      "reasoning": "Neither a general recognition characterization nor one canonical extremal construction determines the exact multiplicity or orbit profile. The new formulas distinguish the non-maximally-even optimizers.",
+      "searches": [
+        "arXiv:2005.08095, Proposition 3.3 and Theorem 4.1",
+        "arXiv:2409.05644, Theorem 4.6 and Corollary 4.7",
+        "arXiv:2407.18768, maximal evenness and energy minimum on cycles"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2005.08095",
+      "arXiv:2409.05644",
+      "arXiv:2407.18768",
+      "Scientific index searches for cycles and cyclic four-window words",
+      "Previously recorded scientific claims about graph packing and position constraints",
+      "Previously recorded scientific claims about enumerative graph invariants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known cardinality is floor(n/2); it does not imply the number of equality cases.",
+        "Maximally even constructions yield a single rotation orbit; at odd orders the theorem counts floor((n+3)/4) such orbits, strictly larger than one.",
+        "Energy minimizers are precisely the maximally even sets, not every maximizer of the distance-three constraint."
+      ],
+      "reasoning": "The formulas provide a genuinely stronger equality-case classification of a previously known extremal size. They are not an immediate renaming of a scalar maximum or a special case of the energy-optimum count.",
+      "searches": [
+        "arXiv:2005.08095, cycle Proposition 3.3 and graph Theorem 4.1",
+        "arXiv:2409.05644, cycle Theorem 4.6 and maximally even Corollary 4.7",
+        "arXiv:2407.18768, energy-minimal cycle sets Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For cycle orders at least six, the graph condition is equivalent to cyclic binary words with at most two ones in every four consecutive positions.",
+        "The inspected 2020 and 2024 primary papers establish optimum cardinality and existence, not optimizer counts; no searched circular-word record gave the four-residue formulas."
+      ],
+      "reasoning": "A binary-word reformulation is an actual mathematical equivalence, not a new graph parameter. It was searched explicitly. Failure to retrieve a count does not establish absence from classical constrained-word literature.",
+      "searches": [
+        "Published mathematical-record query: k-general 3-position cycle C_n number of optimal sets no three vertices on geodesic of length three cyclic four-window exact enumeration",
+        "Web: \"no three\" \"four consecutive\" circular binary strings maximum number",
+        "Web: \"at most two\" \"four consecutive\" \"maximum\" \"cyclic\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ranked mathematical-record response included unrelated cycle cover-free-family counts (the indexed article titled Exact small cover-free-family numbers for paths, cycles, and wheels), but no optimizer census for general distance-three position.",
+        "The web searches surfaced general cycle-set papers and unrelated binary-necklace sequences, not a database of the exact optimizer counts."
+      ],
+      "reasoning": "The requested arrays and modulus-four counts were not found in these actual retrievals. This limited negative search is not represented as a complete table audit.",
+      "searches": [
+        "Published mathematical-record query: exact number of maximum general 3-position sets in the cycle graph C_n; cyclic 4-block binary strings at most two selected",
+        "Published mathematical-record query: graph cycle C_n general d-position k=3 d=3 maximum set enumeration modulo four",
+        "Web: \"general 3-position\" \"cycles\" \"count\" maximum",
+        "Web: \"14, 6, 27, 2, 33, 6, 52\" sequence circular"
+      ]
+    },
+    "rationale": "The 2020 original general d-position paper gives cycle maximum sizes and a general set-characterization (Proposition 3.3, Theorem 4.1), and the 2024 k-general d-position paper supplies a maximally even extremizer and the general optimum number (Theorem 4.6). Neither inspected primary treatment counts all optimal sets or computes the mod-four number of their rotation classes. The 2024 maximal-evenness paper studies energy-minimizing sets, a different subfamily. Targeted mathematical-record and literature searches for exact cyclic four-window counts did not retrieve a covering result. The older general characterization provides feasible-set conditions, not the newly proved closed optimizer census. Residual classical cyclic-word priority risk is explicitly retained.",
+    "residual_risks": [
+      "A classical cyclic-word or constrained-necklace enumeration may contain an equivalent mod-four count under an unsearched terminology.",
+      "Published mathematical indexing and web retrieval are not exhaustive; no claim of absolute publication priority.",
+      "The formal equivalence to four-windows is simple, but the classification of all maximum equality cases and counts is the substantive result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes maximum cardinality (with a later-noted correction in a subcase) and a graph-wide membership characterization. Does not state cardinality-refined enumeration of all optimum cycle sets.",
+        "evidence": [
+          "Section 3 Proposition 3.3 gives cycle general-d-position maxima; Section 4 Theorem 4.1 gives component-distance membership criteria."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/350025906_General_d-position_sets; arXiv:2005.08095",
+        "material_read": "Full public text with emphasis on Section 3 Proposition 3.3, Section 4 Theorem 4.1, and conclusions",
+        "method": "Read publicly accessible author full-text HTML, compared quantified claims and selected-set conditions",
+        "title": "General d-position sets",
+        "trigger": "Original distance-limited geodesic set definition and cycle exact size; possible dominance by general structural theorem"
+      },
+      {
+        "assessment": "Scalar optimum and a canonical maximally even witness family; no count of all equality sets or rotation orbits.",
+        "evidence": [
+          "Theorem 4.6 states general k,d cycle optimum; Corollary 4.7 states the J-construction is feasible at the optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2409.05644",
+        "material_read": "Full 600-line public HTML text, especially definitions, Section 4 including Theorem 4.6 and Corollary 4.7, Section 7",
+        "method": "Read the indexed full arXiv HTML rendering and compared cycle theorem, witnesses, and quantified scope",
+        "title": "The k-general d-position problem for graphs",
+        "trigger": "Direct same family and parameter, theorem asserting maximally even optimal constructions"
+      },
+      {
+        "assessment": "Characterizes energy-minimizing cycle configurations by maximal evenness; does not imply that all general-three-position maximizers are maximally even and does not count their optimizer orbits.",
+        "evidence": [
+          "Theorem 1 identifies energy minimizers with maximally even sets; examples distinguish other types of optimal distance profiles."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/382638621_The_Music_and_Mathematics_of_Maximal_Evenness_in_Graphs; arXiv:2407.18768",
+        "material_read": "Author full-text HTML, definition and theorem on energy minimizers, examples and distance-vector discussion",
+        "method": "Inspected the published text and compared objective functions",
+        "title": "The Music and Mathematics of Maximal Evenness in Graphs",
+        "trigger": "Potential equivalence between optimal short-geodesic configurations and maximally even sets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bc25be8-2e1a-4cbe-a66b-468933f15beb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cited research settles a scalar maximum and supplies an even witness but leaves the multiplicity and cyclic symmetry of all maxima unresolved in those texts. The exact count has a sharp modulus-four transition (only 2 or 6 labeled optima at even orders versus quadratic growth at odd orders), and the odd-order number of rotation classes grows unboundedly. This is a natural equality-case statistic and shows that maximal-evenness is not a complete structural classification of all optimum sets. The target was motivated before computation; it is not a generic parameter substitution or known-table reprint.",
+    "status": "PASS"
+  }
+}
