@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For every finite interior block, an empty interval forces a sum of squared Gaussian displacements of \\(N^3/12+O(N^2)\\). The Gaussian covariance matrix has eigenvalues bounded by the exact AR(1) long-run variance, so a determinant moment bound yields the corresponding sharp one-sided cubic exponent. A finite Gaussian Markov block around a two-sided evacuation profile has density cost exactly \\((1-\\rho)^2N^3/[24\\sigma^2(1-\\rho^2)]+O(N^2)\\). Its jump correction is \\(O(N^2)\\) by an exact summation-by-parts identity; the exterior Gaussian conditional tails are o(1) uniformly, making the lower bound genuine for the entire infinite point field. Integer-to-real monotonicity closes the quantifiers. The 15,353 exact-rational finite checks verify key algebraic identities but are not treated as asymptotic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flimmel arXiv:2610.24650v1 Corollary 1(i) gives exp(-c t^{d/(d+1)}) upper bounds under exponential mixing, not an exact exp(-c t^3) logarithmic equivalent in dimension one.",
+        "Flimmel arXiv:2503.12179 studies second-order Gaussian K-functions and hyperuniformity, not the joint large-deviation event.",
+        "Elboim, Spinka and Yakir arXiv:2506.16873v1 Lemma 2.5 applies only to independent perturbations and bounds the logarithm up to unspecified positive constants."
+      ],
+      "reasoning": "A general mixing inequality does not imply the sharp coefficient; its exponent in dimension one is only one half. Independently perturbed lattice bounds do not cover positive AR(1) correlation, and second-order K-functions do not determine multi-point hole costs without an additional Gaussian Markov analysis.",
+      "searches": [
+        "correlated Gaussian displacement field perturbed lattice large empty interval rate AR1 Toeplitz covariance inverse RKHS",
+        "large deviations empty space probability Gaussian perturbed lattice one dimensional AR(1) covariance interval",
+        "correlated Gaussian perturbed lattice hole probability size R three power",
+        "arXiv:2610.24650v1 Theorem 2 Corollary 1 Gaussian AR(1) alpha mixing",
+        "arXiv:2503.12179 Gaussian dependent perturbed lattice K function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.24650v1, Section 3 and 4",
+      "arXiv:2506.16873v1, introductory statements and Lemma 2.5",
+      "arXiv:cond-mat/0409594v1, correlation and Gaussian-field sections",
+      "arXiv:2503.12179v1 / DOI 10.1016/j.spa.2026.105037, publisher OA Gaussian-field and K-function sections",
+      "Published mathematical research records, targeted semantic searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flimmel mixing estimate: P_void(tK)<=C exp(-c sqrt(t)) in d=1 under exp mixing, which gives no sharp cubic constant.",
+        "Elboim-Spinka-Yakir Lemma 2.5: p(r)^{C r^d} <= h(r) <= p(r)^{c r^d}, restricted to iid sites, only rate order.",
+        "Gabrielli Gaussian displacement formulas: one- and two-point statistics and spectra, not a many-site Gaussian obstacle probability."
+      ],
+      "reasoning": "Neither a merely stretched-exponential upper bound nor two-sided asymptotic-order notation specifies the limit coefficient. IID factorization fails for rho>0. Exact second-order descriptors do not, without the new pathwise variational calculation, entail a correlated growing-hole probability. The current proof establishes both matching upper and lower cubic exponents for each fixed rho.",
+      "searches": [
+        "sharp exact logarithmic asymptotic of one-dimensional void hole probability of stationary perturbed lattice with AR(1) correlated Gaussian displacements; cubic length rate (1-rho)/(24 sigma squared (1+rho))",
+        "large deviations empty space probability Gaussian perturbed lattice one dimensional AR(1) covariance interval",
+        "\"Gaussian\" \"perturbed lattice\" \"hole probability\" constant correlated",
+        "arXiv:2610.24650v1 Theorem 1 Theorem 2 Corollary 1 Section 3.1",
+        "arXiv:2506.16873v1 Lemma 2.5",
+        "arXiv:cond-mat/0409594v1 Gaussian covariance correlation field"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flimmel arXiv:2610.24650v1 Section 3: general mixing and independent product formula, not a logarithmic equivalent for dependent Gaussian fields.",
+        "Gabrielli arXiv:cond-mat/0409594v1 Sections I, IV-VII: exact pair-correlation and spectrum formulas for displacement fields, not large empty-interval probabilities.",
+        "Published record searches returned AR(1) transforms and unrelated Gaussian spectral findings, rather than a matching void-cost statement."
+      ],
+      "reasoning": "The identity \\(1/[24\\sum_k\\operatorname{Cov}(P_0,P_k)]\\) is equivalent here to the displayed rho expression because the AR(1) covariance series sums exactly. Literature and mathematical-record searches were made for both formulations and large-deviation obstacle costs. No checked work states or derives the exact logarithmic hole rate for this correlated family; a broader Gaussian obstacle principle could conceivably imply it and remains a residual risk.",
+      "searches": [
+        "sharp exact logarithmic asymptotic of one-dimensional void hole probability of stationary perturbed lattice with AR(1) correlated Gaussian displacements; cubic length rate (1-rho)/(24 sigma squared (1+rho))",
+        "correlated Gaussian displacement field perturbed lattice large empty interval rate AR1 Toeplitz covariance inverse RKHS",
+        "holes in correlated Gaussian shuffled lattices exact log probability spectral density zero frequency",
+        "Gaussian AR(1) perturbed lattice void probability interval large gap exact cubic rate correlation",
+        "perturbed lattice Gaussian displacement hole probability large interval exact constant",
+        "arXiv:cond-mat/0409594v1 correlated Gaussian displacements spectral structures",
+        "Sharp one-dimensional Gaussian AR(1)-perturbed stationary integer lattice interval hole probability exact limit -log P / L^3 = (1-rho)/(24 sigma^2 (1+rho))",
+        "Perturbed lattice Gaussian AR(1) correlated displacement long-run variance void cost 1/(24 Lambda), piecewise linear evacuation profile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published all-order AR(1) Karhunen–Loève transform result concerns spectral transforms, not point-process void probabilities.",
+        "A published precision-matrix result for occupancy indicators concerns sampled boxes, not Gaussian displaced lattices."
+      ],
+      "reasoning": "This is a continuum-parameter asymptotic point-process theorem rather than a value recoverable by consulting a standard finite table. Targeted published mathematical-record searches identified only separate AR(1) spectral and occupancy topics. Search failure is not taken as conclusive uniqueness.",
+      "searches": [
+        "sharp exact logarithmic asymptotic of one-dimensional void hole probability of stationary perturbed lattice with AR(1) correlated Gaussian displacements; cubic length rate (1-rho)/(24 sigma squared (1+rho))",
+        "perturbed lattice Gaussian AR1 correlated displacement void probability cubic asymptotic coefficient",
+        "holes in correlated Gaussian shuffled lattices exact log probability spectral density zero frequency",
+        "stationary Gaussian perturbed lattice empty interval large deviations cost covariance",
+        "Sharp one-dimensional Gaussian AR(1)-perturbed stationary integer lattice interval hole probability exact limit -log P / L^3 = (1-rho)/(24 sigma^2 (1+rho))",
+        "Perturbed lattice Gaussian AR(1) correlated displacement long-run variance void cost 1/(24 Lambda), piecewise linear evacuation profile"
+      ]
+    },
+    "rationale": "The full publicly accessible motivating preprint proves nonsharp mixing-based void bounds. The closest Gaussian perturbed-lattice predecessor treats iid perturbations and only logarithmic-order equivalence; correlated displacement literature focuses on pair statistics. Published mathematical-record and literature comparisons identified no prior same-claim or stronger implication; residual general-Gaussian large-deviation coverage is acknowledged. The novelty assessment pertains especially to the exact dependence-sensitive AR(1) coefficient, not simply the rho=0 specialization.",
+    "residual_risks": [
+      "A broad Gaussian large-deviation/obstacle variational theorem in older literature may imply this AR(1) specialization even without mention of perturbed lattices; no independent comprehensive literature audit was performed.",
+      "The iid rho=0 endpoint can be derived by standard independent Gaussian-tail multiplication; it is not the basis of the originality claim.",
+      "No uniform-in-rho or prefactor claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It establishes general exponential-mixing upper bounds and an iid product formula, but neither the cubic exponent with a sharp coefficient for AR(1) Gaussian dependence nor a matching lower bound.",
+        "evidence": [
+          "Theorem 2 and Corollary 1, Section 3; Section 3.1 and references [6], [10]."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24650v1",
+        "material_read": "Introduction, definitions, Theorems 1 and 2, Corollary 1, independent-perturbation Section 3.1, main estimates and proof Section 4, bibliography.",
+        "method": "Read publicly accessible arXiv HTML full text with relevant theorem statements and proof.",
+        "title": "Void probabilities for perturbed lattices under mixing",
+        "trigger": "Same stationary perturbed lattice, dependent displacement fields, void probabilities and exponentially mixing estimates."
+      },
+      {
+        "assessment": "The perturbations are independent and identically distributed. Lemma 2.5 gives logarithmic-order equivalence, without the exact correlated Gaussian coefficient.",
+        "evidence": [
+          "Equation (1.3) on page 2; Lemma 2.5, equation (2.6), on pages 7-8."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2506.16873",
+        "material_read": "ArXiv 15-page PDF, introductory assumptions and main results, Section 2 Lemma 2.5 and its proof, relevant following discussion.",
+        "method": "Examined the arXiv PDF extracted text and page images for its model and exact hole bounds.",
+        "title": "Optimal matchings of randomly perturbed lattices",
+        "trigger": "Strongest explicitly cited Gaussian hole-probability comparison."
+      },
+      {
+        "assessment": "Its exact results concern two-point correlation functions, structure factors and displacement fields, rather than logarithmic large-hole rate constants.",
+        "evidence": [
+          "Abstract and introduction, Section IV two-point statistical properties, Gaussian field and conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0409594",
+        "material_read": "ArXiv 17-page PDF abstract, introduction, Section IV definitions, main transformations, Gaussian-displacement discussion and conclusions.",
+        "method": "Inspected public PDF extracted text, sections and page image; compared its central observables.",
+        "title": "Point processes and stochastic displacement fields",
+        "trigger": "Older general correlated Gaussian displaced-lattice framework and possible broader coverage."
+      },
+      {
+        "assessment": "Establishes two-point K-function and hyperuniformity properties; no sharp Gaussian void-rate theorem was found in inspected material.",
+        "evidence": [
+          "Publisher article introduction, Gaussian K-function discussion, and conclusion; arXiv:2503.12179."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spa.2026.105037",
+        "material_read": "Open-access publisher abstract, introduction, Section 4 description of Gaussian K-functions, model specification, and conclusion.",
+        "method": "Read publisher open-access web full-text sections and located Gaussian covariance model.",
+        "title": "Fitting regular point patterns with a hyperuniform perturbed lattice",
+        "trigger": "Same Gaussian perturbed-lattice family including correlated displacement models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aeb15388-fb25-4fb9-b1b7-ed2872ed57eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is an exact infinite-size logarithmic law for a natural correlated stationary point process rather than a restatement of general mixing bounds. The nontrivial change in the leading cubic cost with positive correlation, specifically the reciprocal long-run-variance law, gives a sharp geometric rarity invariant for the entire fixed-parameter AR(1) Gaussian family. It resolves a concrete precision gap left by the motivating treatment: upper bounds of stretched-exponential form and order-only Gaussian examples do not identify this coefficient.",
+    "status": "PASS"
+  }
+}
