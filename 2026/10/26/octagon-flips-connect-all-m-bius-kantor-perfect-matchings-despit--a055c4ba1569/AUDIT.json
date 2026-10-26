@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "The 16-vertex GP(8,3) graph is explicitly defined by edge rules. All 40320 bipartite bijections are tested, giving 33 matchings, independently reproduced by recursive exact-cover enumeration. The equivalence of a flip and a single-cycle symmetric difference is proved for any pair of perfect matchings. Two distinct programs enumerate all 528 pairs by symmetric difference, respectively 24 six-cycles plus 30 eight-cycles by DFS with explicit flips, and agree on all 96 and 36 edge pairs as certified by a shared canonical SHA-256. Degree-neighbor identities yield the stated three-hub octagon graph. Complete BFS for all 33 states verifies combined eccentricity three, while elementary distances in the three-hub graph establish octagon diameter four and radius three. The 6-only graph has three isolated states, proving the sharp length-eight threshold. These are exhaustive finite computations with source files supplied, not samples or logs in isolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bošković (2026), full open arXiv PDF, introduction, Theorems 1 and 2, definition of acceptable decorations and Theorem 18.",
+        "Bošković Lemma 14: a suitable decoration with more than two distinguished vertices is non-bipartite; GP(8,3) is cubic bipartite.",
+        "Kutnar and Marušič (2009), available published abstract: classification of cubic symmetric graphs of girth six, not matching-flip adjacency."
+      ],
+      "reasoning": "Universal facts that arbitrary pairs of perfect matchings differ by a union of alternating cycles give only a trivial bound up to graph order, and do not supply octagon-only connectivity, sharpness or T. The cited decorated-graph theorems do not directly specialize to this simple bipartite cubic graph. A graph classification does not compute its perfect-matching transition relation.",
+      "searches": [
+        "Flip dynamics on perfect matchings beyond bipartite and planar graphs 2607.16101 decorated theorem",
+        "nonplanar bipartite toroidal hexagonal embedding perfect matching flip connectivity octagon-only 8-cycles",
+        "A complete classification of cubic symmetric graphs of girth 6 Kutnar Marusic"
+      ]
+    },
+    "checked_sources": [
+      "https://dml.cz/dmlcz/133137 (Marušič–Pisanski 2000, complete OA)",
+      "doi:10.1021/ci049865c (Lijnen–Ceulemans 2004, abstract/metadata)",
+      "doi:10.1016/j.jctb.2008.06.001 (Kutnar–Marušič 2009, abstract)",
+      "doi:10.1137/120865938 (de Carvalho–Lucchesi–Murty 2013, abstract)",
+      "doi:10.3390/sym17010133 (Balasubramanian 2025, indexed sections and table)",
+      "https://arxiv.org/pdf/2607.16101 (Bošković 2026, mathematical hypotheses and graph-name search)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Marušič–Pisanski (2000): cyclic/cover/embedding and symmetry statements; no perfect-matching transition graph result on article pages 117–121.",
+        "Bošković (2026): bounded flip lengths in decorated graph families, distinct hypotheses and no named Möbius–Kantor application.",
+        "Balasubramanian (2025): ordinary matching count 33 but no identified transition relation in retrieved sections."
+      ],
+      "reasoning": "Even knowledge of the whole matching polynomial or symmetry group leaves open which pairs differ by a single alternating 8-cycle. The present exact transition graph and its sharp contrast to 6-cycle flips cannot be deduced from these inspected prior claims without an additional substantive combinatorial analysis.",
+      "searches": [
+        "\"Möbius-Kantor\" \"perfect matching\" \"switch\" \"cycle\"",
+        "GP(8,3) perfect matching eight-cycle switch irreducibility radius diameter",
+        "2000 remarkable generalized Petersen graph G(8,3) full text embeddings",
+        "arxiv 2607.16101 Theorem 18 acceptable decorated graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marušič and Pisanski (2000), full OA article pp.117–121, identifies GP(8,3) with the Möbius–Kantor graph and Haar graph H(133).",
+        "Matching complex refers to all matchings as faces of a simplicial complex; its homotopy type does not specify edges between perfect matchings under alternating cycles."
+      ],
+      "reasoning": "Aliases GP(8,3), Möbius–Kantor graph, H(133), Levi graph of the 8_3 configuration, alternating cycle switches, matching resonance and reconfiguration were considered. No inspected statement yields the claimed octagon-only three-hub structure.",
+      "searches": [
+        "\"Möbius-Kantor\" \"resonance graph\" perfect matching",
+        "\"Möbius Kantor\" \"alternating cycles\" matchings",
+        "Haar graph H(133) Mobius-Kantor 8_3 incidence graph dimer resonance hexagonal and octagonal flips graph",
+        "\"Möbius-Kantor\" \"perfect matching\" \"switch\" \"cycle\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Balasubramanian (2025), indexed primary article Table 1, records coefficient 33 for 8-edge perfect matchings of the Möbius–Kantor graph.",
+        "The 2025 table is a matching-size enumerator, not a table of 6-cycle or 8-cycle flips.",
+        "The local certificate enumerates full pair lists and graph isomorphism, beyond mere 33-state count."
+      ],
+      "reasoning": "No located table supplies the octagon flip adjacency structure. The known count 33 is prior work and does not imply 36 octagon-flip edges or the three-hub realization. A search miss cannot establish uniqueness; accessible content from the 2025 source is partial.",
+      "searches": [
+        "\"Möbius Kantor graph\" \"perfect matchings\" \"33\"",
+        "\"Möbius-Kantor\" \"hexagon\" \"perfect matching\" \"flip\"",
+        "Möbius-Kantor graph 33 one-factors alternating octagon switches reconfiguration octagon-only 3 hubs 24 leaves 6 degree-two"
+      ]
+    },
+    "rationale": "The sharp octagon-only connectivity threshold and the explicit 33-vertex three-hub graph are not stated or implied in the inspected graph-embedding classification (Marušič–Pisanski 2000), general matching-number bounds (de Carvalho–Lucchesi–Murty 2013), or the 2026 decorated-graph flip theorem. The known value of 33 matchings is expressly excluded as a novelty claim (Balasubramanian 2025). Searches for graph-name and equivalence aliases did not identify a stronger exact published description; this supports best-knowledge originality, not a proof of publication-wide uniqueness.",
+    "residual_risks": [
+      "An exact resonance-graph or flip-equivalence classification under different terminology may be unindexed or missed by the queries.",
+      "The complete 2004 Möbius–Kantor embedding paper and 2025 matching-polynomial paper were inaccessible for full-text comparison; an unforeseen equivalence cannot be ruled out.",
+      "The date field gives an independently documented day-resolved public source; an earlier graph-specific paper is known only by publication year 2000, and its first day of public availability was not verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: establishes graph and embedding geometry, does not enumerate perfect-matching flips.",
+        "evidence": [
+          "GP(8,3) graph and graph names at pp.117–118; Haar H(133) p.118; toroidal hexagonal and regular octagonal embeddings p.119."
+        ],
+        "identifier_or_url": "https://dml.cz/dmlcz/133137",
+        "material_read": "Complete five-page article pp.117–121, including GP graph definition, Haar representation, 6-gonal torus and 8-gonal double-torus map, figure, and references.",
+        "method": "Opened lawful OA PDF and inspected full text plus pages 118–119 visually.",
+        "title": "The remarkable generalized Petersen graph G(8,3)",
+        "trigger": "Exact graph, its aliases, and toroidal hexagon/octagon embeddings"
+      },
+      {
+        "assessment": "NOT_COVERING: no GP(8,3) application or specific 8-cycle flip graph; decorated-graph hypotheses do not directly apply.",
+        "evidence": [
+          "Introduction describes bounded alternating-cycle connectivity, Theorems 1–2 restrict to clique/Fisher decorations, Lemma 14 gives non-bipartiteness of certain acceptable decorations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2607.16101",
+        "material_read": "Open-access 19-page PDF text searched for graph aliases; introduction pp.1–3, decorated-graph theorem statements and scope, definitions in section 3.",
+        "method": "Opened arXiv PDF; inspected theorem pages and relevant searchable source text, searched Möbius and Kantor throughout.",
+        "title": "Flip dynamics on perfect matchings beyond bipartite and planar graphs",
+        "trigger": "Same move definition and potentially stronger general flip-connectivity theorem"
+      },
+      {
+        "assessment": "PARTIALLY_INSPECTED: records 33 perfect matchings; no octagon flip classification in material read; unseen sections are a residual risk.",
+        "evidence": [
+          "Table 1: 33 perfect matchings, ordinary matching-polynomial coefficients; no dynamic transition entries in indexed table."
+        ],
+        "identifier_or_url": "doi:10.3390/sym17010133",
+        "material_read": "Search-indexed article abstract, introduction, Table 1, relevant GP(8,3) discussion and conclusion; not full paper. Direct full-text and PDF access encountered HTTP 429/inaccessibility.",
+        "method": "Compared public indexed article sections and attempted open-access full-text access.",
+        "title": "Matching Polynomials of Symmetric, Semisymmetric, Double Group Graphs, Polyacenes, Wheels, Fans, and Symmetric Solids in Third and Higher Dimensions",
+        "trigger": "Exact same graph and known perfect-matching count 33"
+      },
+      {
+        "assessment": "PARTIALLY_INSPECTED: classification of graphs, not matching-flip relations in accessible material; hidden details remain unknown.",
+        "evidence": [
+          "Abstract classifies cubic symmetric girth-six graphs and names Möbius–Kantor, Heawood, Pappus and Desargues."
+        ],
+        "identifier_or_url": "doi:10.1016/j.jctb.2008.06.001",
+        "material_read": "Bibliographic abstract and citation records; full PDF not retrieved.",
+        "method": "Examined abstract and publication metadata; searched OA/preprint sources.",
+        "title": "A complete classification of cubic symmetric graphs of girth 6",
+        "trigger": "All four named exceptional symmetric girth-six graphs including GP(8,3)"
+      },
+      {
+        "assessment": "PARTIALLY_INSPECTED: classifies surface embeddings rather than graph of alternating-cycle switches in its abstract; uninspected content remains a limited risk.",
+        "evidence": [
+          "Abstract: generates and classifies symmetry-distinct oriented 2-cell embeddings of the graph; dated 2004-08-18 on bibliographic record."
+        ],
+        "identifier_or_url": "doi:10.1021/ci049865c",
+        "material_read": "Bibliographic abstract and metadata only; full text unavailable in the accessed channels.",
+        "method": "Examined indexed publication abstract and first-date record; checked for OA/preprint availability.",
+        "title": "Oriented 2-cell embeddings of a graph and their symmetry classification: generating algorithms and case study of the Möbius–Kantor graph",
+        "trigger": "Historical graph-specific embedding motivation and dated public source"
+      },
+      {
+        "assessment": "NOT_COVERING_IN_READ_MATERIAL: count lower bounds, no pairwise flip classification; full details not independently certified.",
+        "evidence": [
+          "General bound at least 2n-4 with 11 exceptions for suitable bipartite graphs, and brace lower bounds; first online 2013-05-02."
+        ],
+        "identifier_or_url": "doi:10.1137/120865938",
+        "material_read": "Publisher article abstract, MSC 05C70, theorem scope and references; full text not retrieved.",
+        "method": "Read journal abstract and references with dated publication metadata.",
+        "title": "On the Number of Perfect Matchings in a Bipartite Graph",
+        "trigger": "Potential stronger result on perfect matchings of cubic bipartite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a055c4ba-1569-4bba-9151-c0a1d19c8893",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Möbius–Kantor graph is a classical highly symmetric nonplanar bipartite graph with hexagonal torus embeddings (Marušič–Pisanski 2000). A natural question is whether shortest alternating-cycle moves suffice to make its dimer state space irreducible. They do not: all six-cycle flips leave three frozen states; yet eight-cycle flips *alone* already yield a connected graph with an explicit, unusually simple structural model. The sharp threshold and three-hub/octagon distance geometry answer a mathematically motivated transformability question that is not determined by the previously published count 33 or graph symmetry. This is a complete finite structural classification, not an arbitrary slice or small numerical improvement. Its scope is one fixed graph and no mixing-rate conclusion is claimed.",
+    "status": "PASS"
+  }
+}
