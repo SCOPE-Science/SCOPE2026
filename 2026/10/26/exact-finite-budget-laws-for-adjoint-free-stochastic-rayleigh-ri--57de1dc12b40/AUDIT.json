@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For an exact two-level spectrum the Rayleigh quotient is a constant plus a positive multiple of the squared overlap with the top eigendirection, so the optimizer over the sampled augmented subspace is the normalized projection of that direction. An orthogonal decomposition proves that the ratio of successive spectral gaps equals one minus the squared length of a Haar tangent-subspace projection. The Haar tangent-plane projection has the stated beta law; its conditional distribution is constant given every past state, which proves independence. Gamma beta moments, the strong law for integrable log increments, strict block merging and the beta/chi-square asymptotics prove all parts of the final claim. The saved verifier passed 837 seeded algebraic/numerical checks; finite testing is not used to prove an infinite statement. Excludes degenerate initial overlaps, noisy operators and inexact subproblems.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1111.0194 on unconstrained convex random pursuit",
+        "arXiv:1804.02614 on randomized subspace iteration and canonical-angle bounds",
+        "arXiv:2512.05520 §5–6 general convergence and §8.6 block subproblem"
+      ],
+      "reasoning": "General convergence and randomized subspace projection results bound related error quantities but do not state this specific all-step conditional distribution and strict optimizer over partitions of a fixed forward-product budget. The classical Beta one-shot distribution is an ingredient; no uniqueness claim follows from partitions.",
+      "searches": [
+        "Gaussian two-dimensional and three-dimensional exact line search stochastic operator norm random directional search stationary law angle beta distribution",
+        "Gaussian tangent direction eigenvector random plane rank-one Rayleigh quotient operator norm linear convergence dimensions digamma",
+        "batching randomized tangent vectors yields strictly sharper rank-one spectral norm residual than sequential line searches, Haar Grassmann",
+        "random Grassmann block line search eigenvector rate expected gap 1-s/(d-1) compared (1-1/(d-1))^s",
+        "https://arxiv.org/html/1111.0194",
+        "https://arxiv.org/abs/1804.02614"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2410.08297v3 §§2.1–2.2, convergence/rates and experiments",
+      "arXiv:2512.05520v2 §§3, 5–7, 8.6",
+      "arXiv:1111.0194v2 introduction and convergence theorems",
+      "arXiv:1804.02614 full accessible analysis",
+      "Published published-finding corpus query matches including one-spike random radii and sparse stochastic subspace descent",
+      "131 accessible earlier findings (deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary 2024 preprint: adjoint-free random tangent exact line search, almost-sure convergence; condition on multiplicity in intermediate technical results",
+        "Primary 2025 preprint §8.6: multivector subspace algorithm and numerical performance, with no stated sharp evaluation-budget theorem",
+        "Classical Haar Beta projection plus a repeated conditional-independence argument is the new specialized implication being proved"
+      ],
+      "reasoning": "The algorithmic constructions in both papers encompass the tested model but their published convergence theorems and experiments do not logically specify the exact iid product distribution or full budget comparison constants. The one-shot geometric radius result does not itself involve an adaptive choice of new tangent spaces. In light of this overlap, only the distributional runtime and allocation theorems—not either algorithm—are claimed.",
+      "searches": [
+        "Exact beta multiplicative gap distribution for matrix-free operator norm random tangent line search Bresch Lorenz rank-one spectral projector Rayleigh-Ritz",
+        "Randomized Rayleigh quotient ascent rank-one two-eigenvalue exact convergence law Beta(1/2,(d-2)/2) iid factors",
+        "block Rayleigh-Ritz random s-dimensional tangent subspaces rank-one spike Beta((d-1-s)/2,s/2) stochastic eigenvalue gap",
+        "https://arxiv.org/html/2410.08297v3",
+        "https://arxiv.org/html/2512.05520v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2410.08297v3, algorithm 1 (tangent exact line search) and section 2.2 convergence",
+        "arXiv:2512.05520v2, §8.6 (same multivector Rayleigh–Ritz subproblem) and §6 general rate",
+        "Classical Haar projector squared-norm Beta identity explicitly treated as known"
+      ],
+      "reasoning": "One-dimensional exact random line searches and multivector Rayleigh–Ritz are pre-existing; the audited theorem concerns their complete adaptively repeated one-spike error distribution and all-budget partition optimum, not the novelty of the method or of individual Beta identities. The later §8.6 provides experiments but no iid Beta product statement.",
+      "searches": [
+        "Matrix-free stochastic calculation of operator norms without adjoints randomized Rayleigh quotient exact line search Gaussian direction convergence rank-one spiked matrix",
+        "Exact beta multiplicative gap distribution for matrix-free operator norm random tangent line search Bresch Lorenz rank-one spectral projector Rayleigh-Ritz",
+        "Randomized Rayleigh quotient ascent rank-one two-eigenvalue exact convergence law Beta(1/2,(d-2)/2) iid factors",
+        "block Rayleigh-Ritz random s-dimensional tangent subspaces rank-one spike Beta((d-1-s)/2,s/2) stochastic eigenvalue gap",
+        "https://arxiv.org/html/2410.08297v3",
+        "https://arxiv.org/html/2512.05520v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae (Haar random-section radii)",
+        "published-finding corpus hit 2026/9/18/SCOPE-exact-haar-moments-sparse-ssd--d9ecf263b248 (subspace descent moments)",
+        "Accessible 131 previous claim records were compared on statements and nearby parameter families"
+      ],
+      "reasoning": "The retrieved database outputs contained no exact stochastic optimizer gap-product law or strict budget allocation result. A geometric Beta projection law exists and is acknowledged; inaccessible complete text of a returned geometrically related source is a specific priority risk, not evidence of noncoverage.",
+      "searches": [
+        "Randomized block coordinate descent for linear ill-posed problems regularization stopping time spectral filter",
+        "\"Bresch\" \"Lorenz\" \"Schneppe\" \"Winkler\" matrix-free stochastic operator norms",
+        "\"2410.08297\"",
+        "\"random pursuit\" \"beta\" \"spectral norm\"",
+        "\"rank-one\" \"random tangent\" \"beta\"",
+        "Exact Beta product contraction of rank-one two eigenvalue matrix-free Gaussian tangent Rayleigh quotient block search, oracle-budget advantage batched directions versus sequential"
+      ]
+    },
+    "rationale": "The single-direction exact stochastic line search is supplied by Bresch–Lorenz–Schneppe–Winkler, arXiv:2410.08297 (Sections 2.1–2.2); Bresch–Melnyk–Schoen–Steidl, arXiv:2512.05520 (Section 8.6), already introduces the multivector Rayleigh–Ritz algorithm and measures its performance. Haar beta projection and classical random pursuit are established. These sources do not display the specialized **adaptive iid beta product law**, its full finite-horizon moments and almost-sure exponent, or the exact strict optimal allocation of a fixed forward-operator evaluation budget on a two-level one-spike spectral family. published-finding corpus and accessible earlier-claim comparisons did not reveal a complete covering result. A specialist prior equivalent or an implicit derivation remains a genuine priority risk; independent priority verification was not performed.",
+    "residual_risks": [
+      "A complete equivalent special-case beta trajectory computation might exist outside indexed literature or be implicit in older random-pursuit studies.",
+      "The 2025 paper already presents the exact same multi-vector Rayleigh–Ritz algorithm, and the geometric beta projection is classical; neither is claimed as a novel construction.",
+      "The highest-matching published-finding corpus one-spike ellipsoid article was available by detailed summary, not full-text inspection; only its stated geometric claim was compared.",
+      "Oracle evaluation count does not include the arithmetic and memory overhead of a growing reduced Rayleigh–Ritz problem; no wall-clock dominance is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes s=1 method and a.s. convergence, not exact Beta product moments or optimal block partition theorem",
+        "evidence": [
+          "Algorithm 1 explicitly samples a normalized Gaussian tangent direction and uses exact line maximization",
+          "Remark 2.21 explicitly treats both codimension-one multiplicity cases and proves convergence or one-step termination, but does not give an exact Beta gap ratio, its iid product or a budget-optimality law"
+        ],
+        "identifier_or_url": "arXiv:2410.08297v3; https://arxiv.org/html/2410.08297v3",
+        "material_read": "Sections 2.1–2.2 (including algorithm 1 and Remark 2.21 specifically covering a codimension-one multiplicity), almost-sure convergence, spherical-cap beta bound, rates and numerical examples; open PDF and HTML inspected",
+        "method": "Lawful open-access full text inspected, including PDF page image and HTML sections",
+        "title": "Matrix-free stochastic calculation of operator norms without using adjoints",
+        "trigger": "Direct parent of the tangent random exact line-search algorithm and matching two-level spectra"
+      },
+      {
+        "assessment": "Direct prior for the block construction; it compares methods numerically but does not give the exact adaptive beta law or strict fixed-forward-evaluation partition optimum",
+        "evidence": [
+          "§8.6, lines around 791–808, says one can maximize over the augmented (m+1)-plane and compares iteration/time performance",
+          "§6 general stationary-gradient convergence rates, not the two-level finite-time spectral gap distribution"
+        ],
+        "identifier_or_url": "arXiv:2512.05520v2; https://arxiv.org/html/2512.05520v2",
+        "material_read": "Open full-text sections 3 (sample algorithms), 6 (general convergence-rate statement) and 8.6 (multi-vector Ritz construction, tests, and complexity comparison)",
+        "method": "Lawful arXiv open HTML full paper",
+        "title": "Stochastic Zeroth-Order Method for Computing Generalized Rayleigh Quotients",
+        "trigger": "Highly relevant later source, same research group; explicitly proposes multi-vector Rayleigh–Ritz"
+      },
+      {
+        "assessment": "Works on unconstrained convex functions and general rates, not sphere-constrained Rayleigh-Ritz adaptive beta products",
+        "evidence": [
+          "Studies optimizing convex objectives along random one-dimensional search lines",
+          "No matrix-free singular-value block allocation result is asserted in the inspected material"
+        ],
+        "identifier_or_url": "arXiv:1111.0194v2; https://arxiv.org/html/1111.0194",
+        "material_read": "Full open HTML paper, introduction and convergence/rate statements for randomized exact line optimization",
+        "method": "Lawful arXiv open full text",
+        "title": "Optimization of Convex Functions with Random Pursuit",
+        "trigger": "Random single-direction exact optimization is closely related in algorithmic form"
+      },
+      {
+        "assessment": "Studies randomized subspace iteration requiring different oracle and constructions; not exact repeated tangent Rayleigh-Ritz per-call gain",
+        "evidence": [
+          "Provides canonical-angle and unitarily invariant norm bounds",
+          "No sharp forward-product partition optimization for an adaptive one-spike tangent method in the inspected arguments"
+        ],
+        "identifier_or_url": "arXiv:1804.02614; https://arxiv.org/abs/1804.02614",
+        "material_read": "Open-access full HTML content read for model, canonical-angle bounds, and matrix iteration framework",
+        "method": "Lawful open-access paper text",
+        "title": "Randomized subspace iteration: Analysis of canonical angles and unitarily invariant norms",
+        "trigger": "Strong background coverage of randomized dominant singular-subspace error behavior"
+      },
+      {
+        "assessment": "Strong overlap with the one-shot Beta ingredient, but no reported repeated adaptive Rayleigh–Ritz law or budget-optimal partition; remaining uncertainty recorded",
+        "evidence": [
+          "published-finding corpus summary states a codimension-n Haar projection Beta law and one-spike ellipsoid radius CDF",
+          "No full-text NOT_COVERING inference was made"
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae",
+        "material_read": "published-finding corpus result title and detailed summary only; full linked GitHub page could not be opened",
+        "method": "Semantic database retrieval; attempted page access failed",
+        "title": "Exact random-radius law for one-spike ellipsoids in every codimension",
+        "trigger": "Closest published mathematical database item with a Haar projection Beta distribution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57de1dc1-2b40-4502-8016-b434a294c4eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This supplies a complete distributional test case for an adjoint-free spectral optimization method under the natural rank-one spike model: exact errors and confidence-relevant moments at every step, a sample-path rate, and the sharp tradeoff between one larger tangent search and a partition of the same number of forward evaluations. With a near-full tangent budget, the expected remaining gap improves from order one under sequential one-direction searches to order inverse dimension under the full block, so the comparison has tangible quantitative significance. The algorithmic input metric excludes the larger Rayleigh–Ritz eigensolve and storage overhead; this does not assert wall-clock superiority or results for arbitrary spectra.",
+    "status": "PASS"
+  }
+}
