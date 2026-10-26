@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For Delta>=2, no disjoint TOIDS exist, so the coalition graph has pairwise-intersecting edges and a universal hub. Every partner of a hub failing total domination must meet a fixed neighborhood of size <=Delta; otherwise it meets one of two endpoints of a fixed uncovered edge. Thus k<=Delta+1. Given the independent neighborhood and distance-two condition, X=V\\N(v) fails total domination only at v; each singleton w in N(v) repairs this and leaves independent complement N(v)\\{w}. This constructs Delta+1 parts. Girth>=5 and delta>=2 imply the local condition by excluding triangles and squares. A standalone exhaustive solver confirms all eligible graph edge masks to order 6 and selected larger exact cases; the unrestricted proof does not rely on enumeration. The six-vertex boundary uses complete Bell(6)=203 partition enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buntina–Golmohammadi, arXiv:2607.23623 revised full text: Theorem 1 bounds a single part’s number of TOI partners by maximum degree; Lemma 2 finds a universal part in a maximum coalition graph.",
+        "The same source, Section 4 Theorem 2, gives exact formulas for complete graphs, complete bipartite graphs, paths and cycles. Section 6 asks for degree-based bounds as an open direction."
+      ],
+      "reasoning": "The general degree upper bound implies C <= Delta+1 but does not imply the lower bound. Published exact cycle cases are already covered and are excluded from novelty; high-girth graphs such as Petersen, Heawood, and unequal cycle bouquets are not the source’s listed solved classes. The local neighborhood construction is the additional implication needed.",
+      "searches": [
+        "total outer-independent coalition in graphs",
+        "Buntina Golmohammadi total outer-independent coalition",
+        "\"total outer-independent coalition\" \"minimum degree\" \"girth\"",
+        "total outer-independent coalition number equals Delta plus one girth five maximum degree extremal",
+        "arxiv:2607.23623v2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.23623v1",
+      "arxiv:2607.23623v2",
+      "arxiv:2608.05403",
+      "published-record search: total outer-independent coalition in graphs",
+      "published-record search: total outer-independent coalition number graph minimum degree at least two girth at least five equals maximum degree plus one",
+      "public literature searches for TOI-coalition girth, regular graphs, triangle-free, and degree equality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For a suitable maximum-degree vertex v, the partition {V\\N(v)} plus each singleton neighbor gives Delta+1 parts; this radius-two construction is proved in RESULT.md.",
+        "No lower equality follows from the generic upper bound C <= Delta+1 or from the cycle and complete-bipartite special cases.",
+        "The open direction in the defining paper specifically concerns degree-based bounds."
+      ],
+      "reasoning": "The new equality gives a matching sharp lower construction on all graphs of minimum degree >=2 and girth >=5, including disconnected and irregular examples. The proof is not obtained by changing notation in a known count: it uses a local repair of a single undominated vertex and the no-triangle/no-square constraints. A full unindexed equivalent theorem, if found, could nevertheless subsume this claim.",
+      "searches": [
+        "total outer-independent coalition number equals Delta plus one girth five maximum degree extremal",
+        "total outer-independent coalition in graphs",
+        "\"total outer-independent coalition\" \"regular graphs\"",
+        "arxiv:2607.23623v2",
+        "arxiv:2608.05403"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Buntina–Golmohammadi, arXiv:2607.23623, Definitions 2–3: TOIDS and TOI-coalition are joint conditions on total domination and outside independence.",
+        "Kaneshiro, arXiv:2608.05403, Sections 1 and 3: k-coalitions use k-domination of vertices outside a set, without outer-independence or total domination; that is a different invariant."
+      ],
+      "reasoning": "A graph-partition result about ordinary coalitions, k-coalitions or total outer-independent dominating sets alone is not an equivalent statement. Targeted searches for the joint invariant with girth and the radius-two neighborhood construction returned no direct covering entry; an empty search is not a priority proof.",
+      "searches": [
+        "total outer-independent coalition number graph minimum degree at least two girth at least five equals maximum degree plus one",
+        "TOI-coalition partition graph high girth triangle-free square-free neighborhoods V minus N(v) maximum degree",
+        "\"TOI-coalition\" \"girth\"",
+        "\"total outer-independent coalition\" \"triangle-free\"",
+        "arxiv:2607.23623v1",
+        "arxiv:2608.05403"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Section 4 of arXiv:2607.23623 tabulates exact values only for complete graphs, complete bipartite graphs, paths and cycles.",
+        "Published mathematical-record search results most closely concerned total outer-component domination, outer-independent Roman functions, and other distinct domination invariants; none of their retrieved mathematical statements computes the specified TOI-coalition number for arbitrary high-girth graphs."
+      ],
+      "reasoning": "There is no finite graph table being claimed as a new invariant value; the novelty is the universal degree-sharp formula. The known cycle result is an exact subcase and is explicitly acknowledged. The six-vertex boundary is an independently exhaustive small check and not evidence of global uniqueness.",
+      "searches": [
+        "total outer independent coalition cubic graphs cages hypercubes exact degree plus one",
+        "\"total outer-independent coalition\" \"cubic\" \"girth\"",
+        "C_t^{oi}(G) maximum degree girth",
+        "\"TOI-coalition number\" \"girth\"",
+        "arxiv:2607.23623v2"
+      ]
+    },
+    "rationale": "Checked the actual defining paper’s relevant full-text theorems, its solved special families, and its stated open degree-based direction. Its upper bound C <= Delta+1 is prior work; the matching high-girth lower-bound partition is not implied. Cycles are acknowledged as previously exact and not an independent priority claim. A second contemporary coalition paper concerns k-domination and is not equivalent. Targeted public-literature and published mathematical-record searches found no equivalent/stronger statement, although absent indexing is a residual risk.",
+    "residual_risks": [
+      "An unpublished or unindexed equivalent high-girth result could exist, including under alternate coalition terminology.",
+      "One source was inspected only in its relevant full-text sections, not all theorem details unrelated to the invariant.",
+      "The finite boundary certificate is not a general classification of all girth-four graphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_THE_HIGH_GIRTH_EQUALITY",
+        "evidence": [
+          "Theorem 1: at most Delta partners per part.",
+          "Lemma 2: universal coalition hub for a maximum partition.",
+          "Theorem 2: cycles C_n have coalition number 3 and the source also gives complete graphs, complete bipartite graphs, paths.",
+          "Section 6 problem 1 asks for bounds in minimum and maximum degree.",
+          "v1 publicly submitted 2026-07-26 12:13:56 UTC."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.23623",
+        "material_read": "Full HTML text in Sections 1, 3, 4 and 6, including Definitions 2–3, Theorem 1, Lemma 2, Theorem 2, its concluding questions, and the source references; v1 archive submission history separately read.",
+        "method": "Direct arXiv full-text HTML inspection, theorem-by-theorem implication comparison, and publication metadata check.",
+        "title": "Total outer-independent coalition in graphs",
+        "trigger": "The source defines exactly the invariant and states degree bounds and exact family values."
+      },
+      {
+        "assessment": "DISTINCT_PARAMETER_AND_DOMINATION_MODEL",
+        "evidence": [
+          "Defines k-domination only on vertices outside a selected set, with optional singleton k-dominating parts.",
+          "Studies CO_k and k-coalition graphs, rather than joint total-and-outer-independent partitions.",
+          "No implication to the TOIDS condition follows from its degree bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.05403",
+        "material_read": "Full HTML exposition of introduction, definitions and Section 3 bounds, with remaining-paper section summary.",
+        "method": "Direct primary text inspection; compare defining predicates and hypotheses.",
+        "title": "On k-coalition partitions of graphs",
+        "trigger": "Plausible analogous title, coalition partitions and degree inequalities."
+      },
+      {
+        "assessment": "DATE_EVIDENCE_ONLY",
+        "evidence": [
+          "v1 published 2026-07-26 12:13:56 UTC, v2 2026-07-29.",
+          "The scientific paper declares classification 05C69."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.23623v1",
+        "material_read": "Versioned arXiv metadata and Submission history, especially the v1 timestamp.",
+        "method": "Direct primary arXiv version-record inspection.",
+        "title": "Total outer-independent coalition in graphs, arXiv first version record",
+        "trigger": "Verify earliest public source date instead of relying on revised text dating."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b79a5b86-7e37-465a-afd1-efe030050b18",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The defining paper explicitly asks for bounds in minimum and maximum degree. This proves its natural global Delta+1 upper bound is always attained on the entire high-girth delta>=2 class, including irregular and disconnected graphs of unbounded order/degree. It constructs optimal partitions from one neighborhood, rather than merely producing a numerical limit. The girth-four bipartite boundary shows the threshold has genuine content, and the local criterion extends to graph families with four-cycles such as hypercubes.",
+    "status": "PASS"
+  }
+}
