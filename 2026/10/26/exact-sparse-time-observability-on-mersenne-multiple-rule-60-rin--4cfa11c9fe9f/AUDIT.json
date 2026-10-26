@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "For every \\(r\\ge2,a\\ge0,q\\ge1\\), the consecutive sampled observation row vectors are identified as \\(1,H,H^2,\\ldots\\) in \\(\\mathbb F_2[X]/(X^n-1)\\) with \\(H=(1+X)^q\\). CRT over F₂^r gives root 1 with factor \\(Y^{\\lceil 2^a/q\\rceil}\\), and each of h distinct nonzero eigenvalues with exponent \\(2^{\\max(a-v_2(q),0)}\\). The multiplicities follow by an explicit w-adic leading-term calculation (q odd part nonzero), and h follows exactly from the gcd-kernel of the power map on F₂^r× after excluding 1. The minimal-polynomial degree proves first-row independence, saturated rank and nullity. The reconstructibility iff follows by strict comparison with \\(n\\). The standalone independent bit-vector rank code was executed and matched on 528 grid and 216 random cases; these tests only corroborate the unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 full-text article treats general affine cellular automata and observability under generic output matrices.",
+        "The publicly accessible 2022 abstracts address bounded observability, mobile-sensor rank criteria and RNG reconstruction; they do not explicitly state a closed Mersenne-length formula in their abstracts."
+      ],
+      "reasoning": "Generic finite-matrix rank tests could evaluate any fixed instance but do not logically state the present infinitely quantified closed symbolic evaluation. Since 2022 full texts could not be read, they are not declared not covering; a priority risk is explicitly preserved.",
+      "searches": [
+        "One-sided additive cellular automaton Rule 60, observation from a single fixed site at every q-th time, sparse temporal sampling, exact observability rank and reconstruction horizon over F2 on arbitrary cyclic rings; 2-adic resonance and aliasing.",
+        "Time-decimated scalar observability for a binary circulant matrix I+shift over a ring of length 2^a(2^r-1), minimal polynomial of (I+shift)^q, formula with gcd(q odd part,2^r-1) and exceptional zero mode.",
+        "Plénet et al., Observability and reconstructibility of bounded cellular automata, DOI 10.1080/00207721.2022.2064556",
+        "Plénet et al., Observability and Reconstructibility of Affine Cellular Automata: Example on Random Number Reconstruction, Journal of Cellular Automata 16 (2022)"
+      ]
+    },
+    "checked_sources": [
+      "Wolfram 1983 Rev. Mod. Phys. 55, 601–644 (selected full-PDF pages)",
+      "Martin–Odlyzko–Wolfram 1984 Comm. Math. Phys. 93, 219–258 (selected full-PDF sections)",
+      "El Yacoubi et al. 2021 Complex Systems 30, 391–413 (full-PDF observation theorem inspected)",
+      "Elser 2021 arXiv:2012.02179 (full-PDF introduction inspected)",
+      "Plénet et al. 2022 Int. J. Syst. Sci. 53, 2901–2917 (abstract only)",
+      "Plénet et al. 2022 J. Cell. Autom. 16, 401–422 (abstract only)",
+      "Published mathematical record IDs 2026/10/11/...--0f64ca58c3b3 and ...--c15848fbcc1a (summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Elser studies unknown rule reconstruction from nonconsecutive *whole configurations*, not known-rule one-site state recovery.",
+        "Wolfram treats Rule 60 and additive cellular automata, not the fixed-stride sampled-observer rank law.",
+        "The 2021 generic Kalman-style criterion does not contain the local multiplicities and power-map collision arithmetic of this formula."
+      ],
+      "reasoning": "Different source objects/unknown-rule quantifiers cannot imply this fixed known-rule single-site rank by substitution. No inspected stronger explicit rank theorem dominates this statement; unread 2022 texts remain a documented uncertainty.",
+      "searches": [
+        "One-sided additive cellular automaton Rule 60, observation from a single fixed site at every q-th time, sparse temporal sampling, exact observability rank and reconstruction horizon over F2 on arbitrary cyclic rings; 2-adic resonance and aliasing.",
+        "Sparse time samples of a fixed cell for Rule 60 one-sided linear cellular automaton, full state reconstruction iff gcd(period,ring length)=1 for odd Mersenne ring; even ring no nontrivial stride.",
+        "Elser, Reconstructing cellular automata rules from observations at nonconsecutive times, arXiv:2012.02179, full text",
+        "S. Wolfram, Statistical mechanics of cellular automata (1983), additive rules"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "El Yacoubi et al. 2021 formulate affine-CA observability using a general matrix rank condition.",
+        "Martin–Odlyzko–Wolfram 1984 describe finite-field polynomial structures of additive CA without the evaluated stride-q one-site spectral nullity."
+      ],
+      "reasoning": "A general observability matrix rank criterion is an algorithm for each finite input rather than the equality R=ceil(2^a/q)+2^max(a-b,0)h for every r,a,q. The classical polynomial description is a method, not an equivalent statement of the sampled-observer information law.",
+      "searches": [
+        "Rule 60 cyclic additive cellular automaton x_i(t+1)=x_i(t)+x_{i-1}(t) mod2; Mersenne ring length 2^r-1; single-cell measurements every q steps; exact observability dimension gcd(q,2^r-1) or nilpotent Jordan roots.",
+        "Time-decimated scalar observability for a binary circulant matrix I+shift over a ring of length 2^a(2^r-1), minimal polynomial of (I+shift)^q, formula with gcd(q odd part,2^r-1) and exceptional zero mode.",
+        "El Yacoubi et al., Complex Systems 30 (2021), pp.391–413, full text, observability theorem 5",
+        "Martin–Odlyzko–Wolfram (1984), full text, additive cellular automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published semantic record: finite-volume clock-factor aliasing in traveling affine cellular automata (2026/10/11/...--0f64ca58c3b3), about reversible scalar clocks rather than observability of Rule 60.",
+        "Two-frame observation of separated symbolic sensors (2026/10/11/...--c15848fbcc1a), about shift sensors and spatial density, not one fixed CA site and q-strided temporal ranks."
+      ],
+      "reasoning": "The returned records do not tabulate the requested infinite r,a,q observation rank or a stronger theorem implying it. Searches cannot prove the absence of an unindexed exact table.",
+      "searches": [
+        "Rule 60 cyclic additive cellular automaton x_i(t+1)=x_i(t)+x_{i-1}(t) mod2; Mersenne ring length 2^r-1; single-cell measurements every q steps; exact observability dimension gcd(q,2^r-1) or nilpotent Jordan roots.",
+        "Sparse time samples of a fixed cell for Rule 60 one-sided linear cellular automaton, full state reconstruction iff gcd(period,ring length)=1 for odd Mersenne ring; even ring no nontrivial stride.",
+        "Published mathematical research record semantic search: fixed-site Rule 60 Mersenne sampling exact rank and gcd aliases"
+      ]
+    },
+    "rationale": "The inspected full-text algebraic CA and full-text observability papers give group-algebra frameworks and generic numerical rank tests, not a symbolic evaluation of the one-site, fixed-stride Rule 60 sampled rank on the entire Mersenne-multiple family. The finite-field eigenvalue collision and nilpotent multiplicity calculation is a substantive additional theorem. Four searches of published mathematical research records (also recorded privately) returned only thematically related but mathematically non-dominating results. Two plausible 2022 CA observability works were assessed only by accessible abstracts; these remain explicit historical-priority risks.",
+    "residual_risks": [
+      "Plénet et al. (2022) bounded-CA observability full text was not accessible; an equivalently evaluated special case in its results/appendices remains possible.",
+      "Plénet et al. (2022) affine-CA RNG reconstruction full text was not accessible; a covered sampling-stride example is not ruled out.",
+      "Some older/unindexed algebraic signal-processing or cellular-automata literature may imply the symbolic rank formula. Semantic search and sampled primary-literature reading cannot prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives foundational CA setting and examples, not an explicit time-decimated stationary single-sensor rank formula",
+        "evidence": [
+          "Rev. Mod. Phys. 55, 601–644, 1983; source publication date July 1, 1983."
+        ],
+        "identifier_or_url": "doi:10.1103/RevModPhys.55.601",
+        "material_read": "Full-text accessible; title/introduction and selected additive-rule pages/figures inspected, not every page",
+        "method": "Open PDF and visually inspect selected pages",
+        "title": "Statistical Mechanics of Cellular Automata",
+        "trigger": "Original elementary-rule context and archive source eligibility"
+      },
+      {
+        "assessment": "Polynomial algebra and evolution of additive CA are covered; the specific fixed-site sampled rank over Mersenne-multiple rings is not established in inspected material",
+        "evidence": [
+          "Communications in Mathematical Physics 93 (1984), 219–258; accessible author-hosted complete PDF."
+        ],
+        "identifier_or_url": "https://www-users.cse.umn.edu/~odlyzko/doc/arch/cellular.automata.pdf",
+        "material_read": "Introduction and early algebraic sections plus selected later additive material in accessible full PDF",
+        "method": "PDF text and selected page inspections, searches for observation, sampling, and minimal-polynomial formulations",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "Potential algebraic finite-field dominance"
+      },
+      {
+        "assessment": "Contains general observability rank conditions, but not the evaluated infinite-family q-subsampled single stationary-sensor rank",
+        "evidence": [
+          "Complex Systems 30 (2021), 391–413, especially pp. 405–406."
+        ],
+        "identifier_or_url": "doi:10.25088/ComplexSystems.30.3.391",
+        "material_read": "Introduction, observation formulation, explicit observability theorem and discussion in accessible complete 23-page PDF",
+        "method": "Full-text PDF textual sections and selected page inspections, especially theorem 5",
+        "title": "Some Control and Observation Issues in Cellular Automata",
+        "trigger": "Most relevant general affine CA observability framework"
+      },
+      {
+        "assessment": "Reconstructs unknown automaton rules from nonconsecutive full-state observations, a different inverse problem",
+        "evidence": [
+          "arXiv:2012.02179; Phys. Rev. E 104, 034301 (2021)."
+        ],
+        "identifier_or_url": "arxiv:2012.02179",
+        "material_read": "Title, abstract, introduction and selected methods pages in accessible arXiv full text",
+        "method": "arXiv PDF reading",
+        "title": "Reconstructing cellular automata rules from observations at nonconsecutive times",
+        "trigger": "Temporal subsampling and reconstruction overlap"
+      },
+      {
+        "assessment": "Undecided as to complete paper coverage; no whole-document noncoverage claim. Priority risk retained.",
+        "evidence": [
+          "Int. J. Syst. Sci. 53 (2022), 2901–2917; full-text not inspected."
+        ],
+        "identifier_or_url": "doi:10.1080/00207721.2022.2064556",
+        "material_read": "Abstract only; open-access full-text route was unsuccessful and authorized institutional route unavailable",
+        "method": "Publisher/repository bibliographic abstract and lawful institutional-access attempt",
+        "title": "Observability and reconstructibility of bounded cellular automata",
+        "trigger": "Plausible broader observability theorem, highest priority comparison"
+      },
+      {
+        "assessment": "Abstract addresses mobile sensors, generic rank and RNG reconstruction; no conclusive full-text comparison.",
+        "evidence": [
+          "J. Cell. Autom. 16 (2022), 401–422; full text not inspected."
+        ],
+        "identifier_or_url": "https://www.oldcitypublishing.com/journals/jca-home/jca-issue-contents/jca-volume-16-number-5-6-2022/jca-16-5-6-p-401-422/",
+        "material_read": "Publisher abstract; indexed repository entry identified but full text inaccessible",
+        "method": "Journal publisher abstract and bibliographic/repository search",
+        "title": "Observability and Reconstructibility of Affine Cellular Automata: Example on Random Number Reconstruction",
+        "trigger": "Potential exact Rule 60 sampled measurement instance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4cfa11c9-fe9f-4761-9192-166b64f2b481",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exactly quantifies how many initial bits a single stationary sensor can recover from temporally thinned observations, in an infinite and natural family of additive cellular-automaton rings; this is a motivated inverse dynamics problem. The formula distinguishes Frobenius spectral aliasing and the zero-mode nilpotent loss, and gives the sharp nontrivial obstruction: every \\(q>1\\) fails full recovery on even Mersenne-multiple rings. This is a symbolic structural theorem, not a generic observability-matrix recomputation, arbitrary finite cutoff, or merely a special sample table.",
+    "status": "PASS"
+  }
+}
