@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Addition theorem yields exact sample Gram with factor (2ell+1)/12. Parity compression doubles it to (2ell+1)/6. The six axes form a tight frame, so C^2=5I; rank-one J and 3+3 Seidel eigenspaces give all singular values. Bernstein inequality excludes further odd exceptional degrees beyond 3 and even beyond 16, and an exact Legendre recurrence checks every remaining degree. Numerical tests independently assemble spherical harmonic evaluations through degree 25 but the proof does not rely on finite experiments. Full-domain quantifiers, factor conventions, and rank-six output limitation are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1403.4661: stable algorithm on iso-latitude arrays for sums of degrees.",
+        "arxiv:1701.06617: sums of degrees on icosahedral grids, sample covariance ranks for low-degree cutoffs."
+      ],
+      "reasoning": "Neither source supplies the exact individual-degree parity-compressed Gram eigenvalues; the full bandlimited operator is a different matrix and its ranks do not determine singular spectra of individual-degree components.",
+      "searches": [
+        "arxiv:1403.4661 all pages and introduction",
+        "arxiv:1701.06617 section 4.2 and Table 3",
+        "12 icosahedron vertices six antipodal axes degree ell spherical harmonics evaluation exact singular spectrum Legendre P_ell 1/sqrt5 sharp rank threshold 15"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1308.5101 section 1 p.3: known icosahedron harmonic-index 8 and 14 cancellations",
+      "arxiv:1701.06617 section 4.2 Table 3: numerical rank of sum-of-degrees covariance on the 12-vertex icosahedron, degree-three rank contribution 3",
+      "arxiv:1403.4661 section I: iso-latitude general bandlimited spherical sampling",
+      "doi:10.1007/s11075-008-9208-5 Eq. (56): Bernstein Legendre inequality",
+      "doi:10.1137/S0036141098341770: icosahedral identity-representation harmonic expansions, full text inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known degree-eight and degree-fourteen cancellation is expressly subsumed; older symmetry-adapted harmonics may supply enough representation data to rederive some cases, but full text was not available.",
+        "The Bernstein bound and exact finite Legendre recurrence supply a proof of *no later rank losses*, absent from inspected primary results."
+      ],
+      "reasoning": "Some pieces of the final theorem are standard consequences of designs or orthogonal-polynomial identities. The surviving final claim is the complete evaluated spectrum and its sharp permanent interpolation classification. No inspected theorem directly entails the entire statement, although rederivation from group character theory is a residual risk.",
+      "searches": [
+        "arxiv:1308.5101 p.3",
+        "arxiv:1701.06617 section 4.2",
+        "doi:10.1137/S0036141098341770 publisher abstract and MSC"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1308.5101 p.3: harmonic-index design degrees 8 and 14 is known; icosahedron is a classical spherical 5-design.",
+        "No exact all-degree six-by-six Gram formula or all-degree invertible-rank threshold was found in the inspected sections."
+      ],
+      "reasoning": "Design sum cancellation is the vanishing one-dimensional trivial harmonic representation, whereas the new assertion simultaneously determines all six eigenvalues and all representation sectors; known exceptional zeros alone do not imply positive eigenvalue values or absence of later exceptional degrees.",
+      "searches": [
+        "icosahedron spherical harmonic sample rank ell 8 14 2 4 eigenvalues Legendre",
+        "icosahedron harmonic sampling complete singular values individual degrees",
+        "arxiv:1308.5101 full text, Introduction and theorem"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1701.06617 Table 3 lists finite covariance ranks for degrees through six for twelve vertices; it lacks exact six-by-six normalized eigenvalues and an all-degree result."
+      ],
+      "reasoning": "A finite table of cumulative ranks is not an exact table of degree-wise singular values and cannot establish the sharp threshold for all higher degrees.",
+      "searches": [
+        "icosahedron harmonic sampling complete singular values individual degrees",
+        "icosahedron vertex harmonic evaluation singular values all degrees",
+        "arxiv:1701.06617 Table 3"
+      ]
+    },
+    "rationale": "The 2013 harmonic-index paper explicitly covers cancellations at degrees 8 and 14, and the icosahedral five-design covers 2 and 4; neither is claimed new. Full-text inspections of arXiv:1308.5101, arXiv:1403.4661 and relevant Section 4.2 of arXiv:1701.06617 find no theorem giving the complete normalized per-degree singular spectrum, all-degree zero-eigenvalue exhaustion and exact least-norm interpolation costs. The new combination is a full spectral theorem not a restatement of known design strength. An inaccessible icosahedral-representation paper and incomplete indexing leave residual priority risk.",
+    "residual_risks": [
+      "Older symmetry-adapted icosahedral harmonic representation papers may contain an equivalent sampling eigenvalue decomposition; Zheng–Doerschuk and Cohan full text were unavailable.",
+      "The new formulas follow from the classical addition theorem and icosahedral association algebra, so independent priority review is necessary before publication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the degree 8 and 14 vanishing-sum facts but not full evaluation singular-value spectrum",
+        "evidence": [
+          "p.3 explicitly exhibits antipodal half-icosahedron as harmonic-index 8 and 14 design."
+        ],
+        "identifier_or_url": "arxiv:1308.5101",
+        "material_read": "PDF introduction pp.1–3, definition of harmonic-index designs, geometric examples and stated scope of the theorems",
+        "method": "Primary arXiv full-text text and page-image inspection",
+        "title": "Spherical designs of harmonic index t",
+        "trigger": "Exactly the same six icosahedral axes and degrees 8 and 14"
+      },
+      {
+        "assessment": "Documents rank of cumulative multi-degree covariance up to degree six, not the exact single-degree all-ell spectral theorem",
+        "evidence": [
+          "Section 4.2: twelve base vertices; Table 3 and text: degree-three odd block rank three."
+        ],
+        "identifier_or_url": "arxiv:1701.06617",
+        "material_read": "PDF Section 4.2 pp.11–12, Table 3 and derivation of degree-three contribution",
+        "method": "Full PDF section text plus screenshot inspection",
+        "title": "On the regularity of the covariance matrix of a discretized scalar field on the sphere",
+        "trigger": "Twelve icosahedron vertices and rank of spherical harmonic evaluation"
+      },
+      {
+        "assessment": "Different grids and bandlimited sums; no normalized regular-icosahedron individual-degree Gram spectrum",
+        "evidence": [
+          "Introduction frames the scheme as iso-latitude sampling and stable spherical harmonic transforms."
+        ],
+        "identifier_or_url": "arxiv:1403.4661",
+        "material_read": "arXiv PDF introduction, mathematical setup and proposed iso-latitude scheme",
+        "method": "Primary arXiv full-text and image inspection",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "General spherical-harmonic sampling stability might dominate finite-set interpolation"
+      },
+      {
+        "assessment": "Provides classical Bernstein inequality only, not specific icosahedral spectrum",
+        "evidence": [
+          "Equation (56): |P_n(cos theta)| sqrt(sin theta) < sqrt(2/pi)n^-1/2."
+        ],
+        "identifier_or_url": "doi:10.1007/s11075-008-9208-5",
+        "material_read": "Full PDF, Section 5.3 p.16 and bibliographic first page",
+        "method": "Full-text reading and direct PDF image inspection",
+        "title": "Luigi Gatteschi's work on asymptotics of special functions and their zeros",
+        "trigger": "Critical uniform Bernstein inequality for all-degree exception exclusion"
+      },
+      {
+        "assessment": "Plausible residual coverage. Cannot certify noncoverage from abstract, and cannot identify stronger covering theorem without full text.",
+        "evidence": [
+          "Publisher abstract constructs identity-isotypic symmetrized harmonic functions, not an asserted six-value evaluation Gram spectrum."
+        ],
+        "identifier_or_url": "doi:10.1137/S0036141098341770",
+        "material_read": "Publisher abstract, keywords, primary MSC 33C55 and public online publication date; complete paper unavailable",
+        "method": "Searched arXiv and lawful OA, then attempted authorized institutional access; not connected",
+        "title": "Explicit Computation of Orthonormal Symmetrized Harmonics with Application to the Identity Representation of the Icosahedral Group",
+        "trigger": "Closest older symmetry-specific analysis might indirectly contain eigenvalue decomposition"
+      },
+      {
+        "assessment": "Potential low-degree partial overlap, cannot cover claim of every degree from the available stated scope, full text uninspected",
+        "evidence": [
+          "Abstract describes expansions for all representations up to degree fourteen."
+        ],
+        "identifier_or_url": "doi:10.1017/S0305004100033156",
+        "material_read": "Publisher abstract and metadata; main text not accessible",
+        "method": "Publisher bibliographic source inspection",
+        "title": "The spherical harmonics with the symmetry of the icosahedral group",
+        "trigger": "Historic all-irreducible icosahedral harmonics through degree fourteen"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb8abf92-1d51-4b92-ac1c-dfe6b4987c0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-degree sampling on the minimal symmetric icosahedral mesh naturally asks when all six parity-compatible observations are attainable and how stable least-norm interpolation is. The theorem gives the complete nonzero-capable singular spectrum, exact intrinsic conditioning at each degree, a sharp final exceptional degree 14, and asymptotic approach to tight six-channel sampling. The earlier degree 8/14 design examples provide motivation but do not give this quantitative theorem. This is a structural measurement classification, not an arbitrary numerical invariant.",
+    "status": "PASS"
+  }
+}
