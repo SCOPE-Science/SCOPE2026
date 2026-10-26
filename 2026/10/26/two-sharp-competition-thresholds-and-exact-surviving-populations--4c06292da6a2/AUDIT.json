@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For alpha>1 the first update maps every initially biomass-one site to zero and every initially biomass-two site to biomass one. At the second update, the sign of 1-alpha*s/2, where s is the number of initially biomass-two neighbors, yields the complete three-regime local classification. Maximal initial two-runs force isolated survivors or independent adjacent dimers. Exact two-state updates prove periodicity below alpha=2 and stationarity at and above alpha=2. Distinct modulo-n neighboring sites and four-site patterns hold for n>=4. Independent Bernoulli bits give survival probabilities 3/8 and 1/8 and dimer probability 1/16 per start. The probability of extinction and bound for an oscillator follow from direct counting of positive initial states. The exact-rational program completed 14,224 case checks on sizes four through ten; these tests support rather than replace the universal argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sergo et al., arXiv:2606.09494v1, Sections I-II and methodology: main computations concern random d-regular graphs and percolation; their Appendix C is described as proving all cycles have periods at most 2.",
+        "An upper bound on attractor period does not determine which starts oscillate, a complete transient classification, or expected survival ratios."
+      ],
+      "reasoning": "The source model is broader than the cycle, and its eventual-period theorem applies, but no inspected theorem fixes the particular run map or probability laws. The independently established finite-time reduction is needed to obtain each claimed exact quantity.",
+      "searches": [
+        "Competitive ecological dynamics on regular degree 2 graphs and exact stationary biomass under deterministic synchronous update",
+        "2606.09494 Sergo Koller Erba Zdeborova discrete generalized Lotka Volterra percolation ring degree two exact transient basin",
+        "\"Percolation and clustering in ecological communities\" \"d=2\" \"period\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.09494",
+      "https://arxiv.org/html/2606.09494",
+      "https://doi.org/10.3934/dcdsb.2008.9.415",
+      "https://doi.org/10.1103/PhysRevE.95.032318"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.09494v1 gives generic period at most two and d-regular random graph phase properties.",
+        "A separate accessible prior claim on the same map addresses complete graphs with 0<alpha<1; its geometric and parameter assumptions do not contain n>=4 cycles at alpha>1.",
+        "Roeger (2008) concerns a nonstandard finite-difference discretization, and Feldager et al. (2017) considers cyclic competition with mixing, not this synchronous sign-update."
+      ],
+      "reasoning": "Generic no-periods-over-two only bounds orbit lengths; it implies neither the iff two-run condition nor the sharp ensemble expectations. The complete-graph prior is topologically distinct for n>=4 and its competition regime is disjoint. A theorem about other discrete LV maps would require a substantive dynamics-preserving reduction; none was demonstrated.",
+      "searches": [
+        "2606.09494 Sergo Koller Erba Zdeborova discrete generalized Lotka Volterra percolation ring degree two exact transient basin",
+        "\"Percolation and clustering in ecological communities\" \"d=2\" \"period\"",
+        "\"discrete generalized Lotka\" \"cycle\" \"K=2\" dynamics survival 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary arXiv:2606.09494v1 equations (2)-(3) define an explicit synchronous sign map, so related threshold cellular-automaton descriptions are plausible.",
+        "Exact sought relation involves initial cyclic two-runs and surviving fixed singleton/dimer oscillators; retrieved alternatives use different update schemes or phase observables."
+      ],
+      "reasoning": "Formulated the same theorem in pattern-erasure language (0110 dimers), cyclic runs, and discrete Lotka–Volterra competition. No equivalent statement was identified. Possible independent rediscovery of this one-dimensional cellular automaton remains a residual risk, not excluded by a failed search.",
+      "searches": [
+        "Discrete generalized Lotka Volterra cellular automaton on cycle 2 biomass competition alpha between one and two: exact attractor enumeration, paired oscillators and survival density 3/8",
+        "Synchronous competitive population discrete-time K=2 cycle ring graph occupancy, initial 1 or 2, localized 2-cycle and extinction thresholds at interaction alpha 2",
+        "initial pattern 0110 deterministic ecological competition period two paired survivors exact 3/8 density",
+        "\"discrete generalized Lotka\" \"cycle\" \"K=2\" dynamics survival 2026",
+        "\"discrete gLV\" \"ring\" exact attractors competition 2 cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary paper presents numerical and cavity-method phase observables for random regular graphs; no inspected exact d=2 finite-cycle table was identified.",
+        "No retrieved exact table of n-cycle positive binary initial-state attractor assignments or the 3/8 to 1/8 threshold was found."
+      ],
+      "reasoning": "The output is a complete all-n pattern-based dynamical classification, not the recomputation of an identified table. Absence of a retrieved table is not proof of absolute novelty.",
+      "searches": [
+        "cycle graph discrete generalized Lotka Volterra K=2 alpha greater than one and less than two positive initial states stable singleton and period-two dimer",
+        "initial pattern 0110 deterministic ecological competition period two paired survivors exact 3/8 density",
+        "\"Percolation and clustering in ecological communities\" \"d=2\" \"period\""
+      ]
+    },
+    "rationale": "The nearest primary source supplies the sign-update map and a general no-long-period result, but its inspected discussion and regular random-graph analysis do not state the complete deterministic cycle-run basins, exact finite-size densities, or probability bound. Published records located by source, equivalence, and parameter searches did not exhibit an implication-equivalent theorem. Closest accessible historical claim concerns a complete graph in the disjoint alpha<1 range. The result is a new exact description of the source model in a natural degree-two domain, with explicitly acknowledged possible equivalent cellular-automaton precedent.",
+    "residual_risks": [
+      "ArXiv HTML material from the source Appendix C was not completely accessible after initial reading, leaving a finite risk of an unstated-to-us specialized cycle consequence.",
+      "Equivalent cyclic binary cellular-automaton formulations in older literature may exist under different terminology.",
+      "Current checks support best-knowledge originality, not an independent historical-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the same map and yields a general period upper bound; inspected passages do not provide the finite cycle run classification or exact occupancy distribution. Source appendix-access gap is explicitly retained as residual risk.",
+        "evidence": [
+          "Model Eq. (2) and growth Eq. (3), regular graph coupling alpha/d, positive initial N_i in {1,...,K}; discussion of c=1,2 cycles and random d-regular phase diagram."
+        ],
+        "identifier_or_url": "arXiv:2606.09494v1; https://arxiv.org/abs/2606.09494",
+        "material_read": "ArXiv HTML passages containing abstract, Sections I and II model/update/initialization, phase-diagram and methods discussion, appendix organization and the statement of the general periods-at-most-two result; relevant source lines for random regular graphs and Appendix A; remaining Appendix C full proof not recovered.",
+        "method": "Primary arXiv HTML inspected by opening and targeted text searches",
+        "title": "Percolation and clustering in ecological communities: A dynamical theory",
+        "trigger": "Exact originating sign-update model and possible general period/basin results"
+      },
+      {
+        "assessment": "Different continuous-time discretization preserving local dynamics, whereas present source employs a synchronous sign-of-growth integer step; no coverage conclusion is made about its uninspected full text.",
+        "evidence": [
+          "2008 abstract explicitly describes nonstandard finite-difference schemes and equilibrium stability, rather than K=2 sign-based cyclic run erasure."
+        ],
+        "identifier_or_url": "https://doi.org/10.3934/dcdsb.2008.9.415",
+        "material_read": "Publisher-visible title, abstract, mathematical subject description and publication date; full article not examined.",
+        "method": "Publisher abstract/search result inspection",
+        "title": "Dynamically consistent discrete Lotka–Volterra competition models derived from nonstandard finite-difference schemes",
+        "trigger": "Possible earlier discrete competitive Lotka–Volterra dynamics"
+      },
+      {
+        "assessment": "Mixing-driven cyclically competing species model differs from the synchronous competitive sign-update on a ring; no whole-text novelty assertion made.",
+        "evidence": [
+          "2017 abstract specifies global mixing of a cyclically competing species ring, not positive initial K=2 nearest-neighbor biomass sign updates."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.95.032318",
+        "material_read": "Journal-visible title, abstract, system description and date; full article not examined.",
+        "method": "Journal abstract/search result inspection",
+        "title": "Deterministic extinction by mixing in cyclically competing species",
+        "trigger": "Potential prior ecological ring-extinction phenomenon"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c06292d-a6a2-4a3b-8315-622e4e4a15fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cycle graphs are the canonical one-dimensional regular habitat networks, and capacity two is the primary illustrative regime of the source model. The exact all-initial-state attraction and strict parameter thresholds quantify ecological fragmentation and distinguish fixed pairs from persistent synchronized biomass oscillations, which is more informative than a routine isolated numerical example. Exact 3/8 versus 1/8 finite-cycle survival and almost-sure large-cycle oscillation provide natural calibrations for network-phase and dynamic-cavity studies. The theorem does not claim generality beyond its meaningful solvable benchmark.",
+    "status": "PASS"
+  }
+}
