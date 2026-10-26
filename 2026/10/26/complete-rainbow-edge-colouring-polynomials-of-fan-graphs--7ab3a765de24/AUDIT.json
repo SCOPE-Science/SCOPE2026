@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every fan four-cycle is chorded by a hub spoke; independent conflict enumeration confirms the full pair classification. Fixing n distinct spoke colours gives exactly one list on each rim edge, excluding the at most four neighbouring spoke colours. Inclusion-exclusion of adjacent-rim equalities yields the displayed full chromatic polynomial. A uniform explicit n-colouring works for all \\(n\\ge5\\) and the hub lower bound is sharp, while the \\(n=2,3,4\\) minima and uniqueness are handled algebraically. For \\(n\\ge6\\) an explicit second colouring proves nonuniqueness. The extracted standalone program independently compares diamond and four-cycle conflicts and exact completion counts against two separate evaluation routes in 20 cases, plus 42 additional formula-versus-state-DP checks and checks 75 constructions; these tests are not substituted for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gyárfás et al. (2024), Theorem 1.6: outerplanar B-index upper bound degree+1 and known \\(n=3,4\\) sharpness graphs.",
+        "Wang (2026): general D-index upper bound quadratic in maximum degree.",
+        "Hu–Kong–Wang (2026): planar bounds and prior chordal equivalence."
+      ],
+      "reasoning": "The bounds do not force palette n for all \\(n\\ge5\\) and do not count any named optimal or nonoptimal colourings. The exact five-colour small cases are credited, rather than reasserted as new.",
+      "searches": [
+        "arXiv:2408.09059v2 Theorem 1.6",
+        "arXiv:2606.06831v1 Theorems 1.3–1.4",
+        "arXiv:2607.14837 Theorem 1.2",
+        "rainbow diamond edge coloring general outerplanar fans"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.06831v1, first public 2026-06-05",
+      "arXiv:2607.14837, first public 2026-07-16",
+      "arXiv:2408.09059v2, first public v1 2024-08-17",
+      "Indexed research results on fan dissociation and D-chromatic indices of complete multipartite graphs (different problems)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang provides definitions, general extremal bounds, and local edge-conflict criteria.",
+        "Hu–Kong–Wang explicitly gives the chordal equality but not an exact family census in the inspected theorem statements and directly relevant sections.",
+        "Gyárfás et al. explicitly established \\(n=3,4\\) five-colour values but not the all-n all-q fan formula in the inspected statements."
+      ],
+      "reasoning": "The theorem strictly refines the previously available scalar facts: even knowing all minimal palette sizes would not determine the number of rainbow edge-colourings for arbitrary q or the \\(1,16,333,\\ldots\\) optimum census. Prior facts included in the final statement are labelled previously known.",
+      "searches": [
+        "arXiv:2606.06831v1 proper edge coloring with rainbow diamonds",
+        "arXiv:2607.14837 D-coloring of planar graphs",
+        "arXiv:2408.09059v2 proper edge colorings planar rainbow C4",
+        "D-coloring graph fan graph rainbow diamonds wheel chromatic polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hu–Kong–Wang, arXiv:2607.14837, Introduction: D and B coincide on chordal graphs; this equality is not a new claim.",
+        "The new count is the chromatic polynomial of the edge-conflict graph, equivalently the list-colouring enumerator after fixing pairwise distinct hub-edge colours."
+      ],
+      "reasoning": "Equivalence of the two colouring notions or a generic conflict-graph translation does not evaluate its chromatic polynomial; the fan-specific path lists and all-palette composition count are extra information.",
+      "searches": [
+        "rainbow C4 B colorings fan graph F_n palette n count 1 16 333",
+        "B-coloring rainbow four cycle of fan graphs exact polynomial palette",
+        "arXiv:2607.14837 Sections 1–2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed graph-family entry computes a dissociation polynomial of \\(K_1\\vee P_n\\), which counts vertex sets instead of rainbow edge-colourings.",
+        "Other nearby indexed records concern D-colourings of complete multipartite graphs and rainbow-colourings of wheels, not the fan all-palette polynomial."
+      ],
+      "reasoning": "No matching fan B/D chromatic polynomial or table was identified in the queried research index or inspected published literature. This negative search is supporting context, not proof of uniqueness.",
+      "searches": [
+        "chromatic polynomial of rainbow diamond D-edge colorings of fan graphs \\(K_1\\vee P_n\\) all palettes q",
+        "fan graph K1 join path Pn proper edge coloring every diamond rainbow exact chromatic polynomial \\((q)_n\\) rim forbidden intervals",
+        "D-coloring graph fan graph rainbow diamonds wheel chromatic polynomial"
+      ]
+    },
+    "rationale": "Originality concerns the all-palette chromatic polynomial and full optimum-class census of the fan \\(K_1\\vee P_n\\). The chordal equivalence of D and B colourings is already stated by Hu–Kong–Wang (2026); the five-colour \\(n=3,4\\) values are covered by Gyárfás et al. (2024). Those facts and Wang’s general bounds do not imply the explicit fan list intersections, composition polynomial, all \\(n\\ge5\\) minimum palette or unique-optimum boundary. Targeted literature and indexed-result comparisons did not locate this combined theorem; unindexed or differently named precedent remains possible.",
+    "residual_risks": [
+      "The all-palette fan formula or an equivalent conflict-graph chromatic polynomial may appear under alternate terminology in unindexed literature.",
+      "The chordal D/B coincidence and \\(n=3,4\\) scalar minima are prior work and are not considered originality evidence.",
+      "Independent review and broader historical-priority assessment have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general D framework and degree bounds, but the inspected material does not state a fan chromatic polynomial.",
+        "evidence": [
+          "Definition 1.2 and Theorems 1.3–1.4, arXiv:2606.06831v1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2606.06831",
+        "material_read": "Pages 1–4 of the 16-page PDF, introduction, definitions, theorem statements, and full-document keyword searches for fan and wheel; technical proofs outside that scope not comprehensively read.",
+        "method": "Readable arXiv PDF text with visual page inspection",
+        "title": "Proper edge coloring with rainbow diamonds",
+        "trigger": "Foundational June 2026 D-coloring paper defining the studied invariant"
+      },
+      {
+        "assessment": "Explicitly owns the chordal B/D equivalence and planar bounds; its patch-testing fans are local edge lists, not this graph-family all-palette enumerator.",
+        "evidence": [
+          "Introduction paragraphs on chordal graphs and conflict graphs, arXiv:2607.14837."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.14837",
+        "material_read": "Accessible long-form arXiv HTML introduction, relevant theorems, the planar extension discussion and Appendix A fan test cases; full search for family terms.",
+        "method": "Long-form online article text, direct theorem/appendix inspection",
+        "title": "D-coloring of planar graphs",
+        "trigger": "Very relevant broader planar graph study and chordal equivalence"
+      },
+      {
+        "assessment": "Already covers five-colour diamond and four-path-vertex fan minimum palettes, but no all-palette polynomial was found in the inspected material.",
+        "evidence": [
+          "Theorem 1.6(i), arXiv:2408.09059v2, and its sharpness explanation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.09059",
+        "material_read": "Pages 1–4 of the 16-page PDF, including Theorem 1.6 and discussion of its sharpness examples; keyword search for fan.",
+        "method": "Readable arXiv PDF text with visual theorem-page inspection",
+        "title": "Proper edge colorings of planar graphs with rainbow C4-s",
+        "trigger": "Foundational B-coloring paper with sharp outerplanar example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7ab3a765-de24-4323-a338-dbfbf861a0ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete named-palette enumeration of B/D rainbow edge colourings on the natural maximal outerplanar fan family is a motivated exact graph invariant, beyond a scalar edge-chromatic index. The polynomial has an \\(O(n^2)\\)-arithmetic evaluation and yields the all-order optimum census, a precise unique-to-nonunique boundary between five and six rim vertices, and test instances for stronger planar colouring estimates. This is an infinite structural enumeration, not an arbitrary finite instance or merely a rephrased chordal equivalence.",
+    "status": "PASS"
+  }
+}
