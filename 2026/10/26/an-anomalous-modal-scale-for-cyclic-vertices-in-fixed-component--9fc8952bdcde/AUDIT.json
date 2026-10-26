@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The forest enumeration, Stirling/symmetric-polynomial equivalence, Newton inequality and the monotone ratio identity are algebraically reconstructed. At c=alpha sqrt(n/log n), H(c)~(log n)/2 and sqrt(n log n)(R(c)-1)->-alpha+2(k-1)/alpha. Strict ratio monotonicity traps every mode at the unique positive root. Endpoints k=1, c=n, n=1 and possible adjacent ties are handled. An independent stdlib verifier enumerates all mappings through n=5 and performs 62,604 assertions; finite testing is supplementary, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pavlov 1986 detailed abstract (Theorems 6-7), mathnet:tm2116",
+        "Flajolet-Odlyzko 1990 broad framework, doi:10.1007/3-540-46885-4_34"
+      ],
+      "reasoning": "Pavlov Theorem 6 decisively covers the half-normal law for fixed component count; it is not counted toward novelty. Its stated uniformity requires c/sqrt(n) in a positive compact interval, whereas the new mode has c/sqrt(n)->0. Flajolet-Odlyzko reviews approximately twenty mapping parameters, and full text was inaccessible: broader coverage of the mode cannot be eliminated absolutely.",
+      "searches": [
+        "\"Random mappings with constraints on the number of cycles\" Pavlov pdf 1988",
+        "Flajolet Odlyzko 1990 random mapping statistics conditioned number of components cyclic points mode"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0603529v1",
+      "mathnet:tm2116",
+      "doi:10.1007/3-540-46885-4_34",
+      "doi:10.2307/3214607"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pavlov 1986 Theorem 6 limits scaled cyclic points away from zero",
+        "Hansen-Jaworski 2006 Corollary 1 gives conditional Stirling cycle law",
+        "Kupka 1990 studies component-count marginal, doi:10.2307/3214607"
+      ],
+      "reasoning": "Pavlov's half-normal density is positive at zero but convergence and a local limit away from zero alone cannot locate an integer mode. The novel inference requires ratio control in the moderate-deviation boundary layer c=Theta(sqrt(n/log n)). Known enumeration plus standard Newton inequalities implies finite log-concavity relatively easily; the asymptotic modal constant is the principal substantive extension. No covered/stronger modal theorem was identified in examined material.",
+      "searches": [
+        "\"random mapping\" \"cyclic nodes\" \"component count\" \"mode\"",
+        "\"random mappings\" \"fixed number of components\" \"cyclic points\" asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pavlov 1986: conditional number of cyclic points lambda^(n,m) at fixed component count, Theorem 6, mathnet:tm2116",
+        "Hansen-Jaworski 2006, Corollary 1, arxiv:math/0603529v1"
+      ],
+      "reasoning": "The functional digraph is an assembly of rooted directed trees attached to a permutation of cyclic vertices. Conditioning on the number of weak components equals conditioning on the number of permutation cycles. The exact joint kernel follows from known enumeration, but the global finite ratio inequalities and mode at c=o(sqrt(n)) are separate statements, not equivalent to the cited half-normal limit.",
+      "searches": [
+        "For uniformly random mappings conditioned on exactly k connected components, the number of cyclic vertices has an anomalous mode of order sqrt(n/log n) with coefficient sqrt(2(k-1)); log-concavity Newton Stirling",
+        "Fixed-component random functional digraph cyclic-point distribution strictly log-concave and asymptotic mode sqrt(2(k-1)n/log n)",
+        "\"random mapping\" \"cyclic points\" \"number of components\" \"mode\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Hansen-Jaworski 2006 gives a symbolic Stirling mixture, not a modal table",
+        "No relevant exact mode table identified in consulted accessible materials"
+      ],
+      "reasoning": "The result is a theorem for all sizes, and not a finite table or numerical record. The exact weights are a specialization of classical published formulas; the asymptotic threshold and strict inequalities are not merely a lookup of those weights.",
+      "searches": [
+        "\"random functional digraph\" \"cyclic points\" \"conditional components\" \"log concavity\"",
+        "\"random mapping\" \"fixed components\" \"cyclic vertices\" unimodal"
+      ]
+    },
+    "rationale": "The established joint Stirling enumeration and fixed-component half-normal local limit are not claimed as new. The inspected primary results do not supply the strictly decreasing consecutive finite ratios or the mode on the smaller sqrt(n/log n) scale. Pavlov's positive-x local limit holds only for c/sqrt(n) bounded away from zero and therefore does not imply the modal asymptotic. The exact mode limit is proved by evaluating ratios at that smaller scale. Priority remains provisional because the older full texts were inaccessible.",
+    "residual_risks": [
+      "Pavlov 1986 full PDF was not obtained; its uninspected text may contain a boundary-mode result in addition to the abstracted local limit.",
+      "Flajolet-Odlyzko 1990 complete text was unavailable through attempted permitted routes; broader generating-function asymptotics might imply this mode.",
+      "Hansen-Jaworski classical enumeration plus Newton inequalities yields log-concavity; the modal asymptotic, not the standard identity alone, carries the value and priority claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Stirling conditional permutation-cycle law already known; no mode/local-at-zero statement found",
+        "evidence": [
+          "Corollary 1, pp. 11-13; concluding discussion pp. 28-32"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+        "material_read": "Complete thirty-four-page PDF searched and main component-count results on pages 10-13 read; context and conclusions on pages 28-32 checked",
+        "method": "Full-text PDF and formula inspection",
+        "title": "A new random mapping model",
+        "trigger": "Exact joint distribution of cyclic vertices and components"
+      },
+      {
+        "assessment": "Theorem 6 already covers the conditioned half-normal positive-scaled local limit; modal-scale implication absent from available theorem statement, but full-text historical risk remains",
+        "evidence": [
+          "Abstract: Theorem 6 uniform for 0<z0<=c/sqrt(n)<=z1<infinity, asymptotic sqrt(2/pi)exp(-z^2/2)"
+        ],
+        "identifier_or_url": "https://www.mathnet.ru/eng/tm2116",
+        "material_read": "Detailed article abstract with displayed Theorems 6 and 7; complete PDF not obtained",
+        "method": "Original publication record and mathematically explicit abstract",
+        "title": "Random mappings with constraints on the number of cycles",
+        "trigger": "Exactly same conditioning and cyclic-vertex statistic"
+      },
+      {
+        "assessment": "Broad classical treatment; cannot exclude uninspected boundary-mode results; not used to claim exclusion",
+        "evidence": [
+          "EUROCRYPT 1989 LNCS 434, pp. 329-354; publisher abstract describes about twenty parameters"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/3-540-46885-4_34",
+        "material_read": "Publisher abstract and indexed bibliography; complete full text inaccessible",
+        "method": "Publisher record, legal open version attempted, institutional fallback unavailable",
+        "title": "Random Mapping Statistics",
+        "trigger": "Classical broad analysis of random-mapping parameters"
+      },
+      {
+        "assessment": "Marginal component-count and its moments, not an accessible theorem on conditional cyclic-core mode",
+        "evidence": [
+          "J. Appl. Probab. 27 (1990), 202-207, abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3214607",
+        "material_read": "Publisher article abstract and bibliographic details only",
+        "method": "Publisher abstract",
+        "title": "The distribution and moments of the number of components of a random function",
+        "trigger": "Possible exact component-count covering formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9fc8952b-dcde-404d-bed1-d34bd3c69859",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed-component model has a classical half-normal cyclic-core limit on scale sqrt(n), but the mode lies in a shrinking boundary layer and is not inferable from convergence or the stated positive-x local limit. Pinpointing its scale sqrt(n/log n) with exact coefficient and establishing a globally unimodal shape answers a natural distributional question for an infinite family of random functional graphs; finite-table recomputation would not answer it.",
+    "status": "PASS"
+  }
+}
