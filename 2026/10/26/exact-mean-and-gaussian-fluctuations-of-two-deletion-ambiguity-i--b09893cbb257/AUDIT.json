@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For any read sequence, the leftmost-subsequence embedding counts canonical separated-run-end and adjacent deletion masks; their exact algebra yields B_2=binom(R,2)+H-T. For consecutive ell-mers from an i.i.d. q-ary word, adjacent-read equality iff an ell+1-letter constant substring, giving exact pair probability q^(-ell-min(d,ell)). The H-T expectation cancels to p, yielding the stated finite mean. The centered constant-run sum is finite-dependent and has variance growth v>0; the quadratic remainder has second moment O(m^2), the local remainder O(m), proving both the Gaussian law and variance limit. Actual package verifier checked 294061 input words across 48 complete parameter grids by constructing all deletion outputs; exact rational means and local formula all agree. Finite checks are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Chen arXiv:2601.21236v3, Sections II–IV: code constructions and bounds, guarded adapters.",
+        "Chee et al., DOI:10.1109/TIT.2021.3112300, locally-constrained de Bruijn enumeration.",
+        "Abbasian et al., arXiv:2410.15290, mixed-edit DNA error-ball formulas."
+      ],
+      "reasoning": "The sources concern fixed-adapter coding, forbidden-window enumeration, or mixed-edit error spheres. None inspected states a general distributional theorem for the *uncorrected* exact-two-deletion ambiguity volume of i.i.d. overlapping ell-mer reads; hence no stronger result was identified that directly implies the claimed moment and CLT.",
+      "searches": [
+        "nanopore channel sliding ell-mers adjacent overlapping reads two deletions exact sphere size distribution",
+        "q-gram sliding window t-deletion reconstruction sets enumeration alphabet q",
+        "Cyclic codes constrained sliding-window DNA GC probabilistic tolerance transfer matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.21236v3 (full text inspected in relevant sections)",
+      "DOI:10.1109/TIT.2021.3112300 (lawfully posted full text)",
+      "arXiv:2410.15290 (full text relevant sections)",
+      "DOI:10.1109/TIT.2002.806155 (author-uploaded full text, Proposition 3.1 and surrounding proof)",
+      "published-finding corpus published record 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+      "published-finding corpus published record 2026/10/4/SCOPE-exact-mean-and-variance-of-b-symbol-corruption-under-independent--c9a49f782c6b (search summary only)",
+      "published-finding corpus published record 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91 (search summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus binary variance RESULT.md: independence of binary transition indicators is essential.",
+        "Xie–Chen arXiv:2601.21236v3 uses Janson concentration for count of long constant *source* substrings in coding bounds.",
+        "Chee et al. 2021 enumerate local nonrepetition paths, not all sphere volumes."
+      ],
+      "reasoning": "For ell>=2, neighboring read symbols are overlapping correlated tuples, and the sum of constant-read equalities has positive covariances q^(-ell-d)-q^(-2ell) for d<ell. The published iid-binary variance and the earlier iid-q-ary moment formulas cannot be specialized or relabeled to recover this coefficient. Coding-rate bounds, local-constraint enumeration, and general error-ball identity do not already assert the exact population mean plus CLT.",
+      "searches": [
+        "Exact mean and variance Gaussian fluctuations of two-deletion sphere volume for overlapping ell-mer sliding-window nanopore reads under uniform q-ary input",
+        "two deletion read sphere Gaussian fluctuation q-ary nanopore periodic constant windows",
+        "\"nanopore\" \"two deletions\" \"sphere size\" read channel 2025 2026",
+        "\"nanopore\" \"two deletions\" \"sphere size\" read channel 2025 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deterministic two-deletion descendant statistic is a run-count quadratic with alternation correction; Swart–Ferreira, DOI:10.1109/TIT.2002.806155.",
+        "Published binary variance source: 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc"
+      ],
+      "reasoning": "The moment law is equivalently a limit theorem for the number of distinct length-(m-2) subsequences of the overlapping ell-mer path. The generic run identity, earlier q-ary independent-symbol mean/variance, and binary independent-symbol variance do not provide the required covariance of overlapping constant base-letter windows; the latter vanishes only in the inappropriate independent-read model.",
+      "searches": [
+        "two-deletion shadow of overlapping pairs 2-grams run count central limit theorem",
+        "two deletion sphere run count repeated-run alternating triples formula",
+        "two deletion read sphere Gaussian fluctuation q-ary nanopore periodic constant windows",
+        "\"distinct\" \"subsequences\" \"two deletions\" \"variance\" \"q-ary\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public variance record: 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+        "Previously recorded i.i.d. q-ary two-deletion moment claim ID: 1cbd5a76-d8bf-42ad-9418-9c4d0e9615fa",
+        "Nearby symbol-corruption moments: 2026/10/4/SCOPE-exact-mean-and-variance-of-b-symbol-corruption-under-independent--c9a49f782c6b",
+        "Nearby deletion reconstruction graph: 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+      ],
+      "reasoning": "Results include an exact independent binary double-deletion variance and earlier all-alphabet i.i.d. moment formulas, a cyclic b-symbol corruption count for substitution noise, and a graph-edge census; none tabulates the two-deletion random overlapping-read sphere expectation or variance constant over q and ell. Relevant previously published mathematical statements were compared for claim-level overlap, without treating search non-detection as proof of novelty.",
+      "searches": [
+        "Exact mean and variance Gaussian fluctuations of two-deletion sphere volume for overlapping ell-mer sliding-window nanopore reads under uniform q-ary input",
+        "nanopore channel sliding ell-mers adjacent overlapping reads two deletions exact sphere size distribution",
+        "nanopore channel deletion set number of distinct subsequences of sliding window sequence",
+        "q-gram sliding window t-deletion reconstruction sets enumeration alphabet q"
+      ]
+    },
+    "rationale": "Searches of public mathematical records and primary paper texts found no exact q-ary overlapping-window two-deletion mean plus Gaussian law. The general double-deletion pointwise run identity is explicitly treated as prior technique; novelty is the correlated sliding-window expectation and nondegenerate CLT with explicit overlap covariance. Xie–Chen treat code redundancy and fixed adapters, Chee et al. locally constrained sequence enumeration, Abbasian et al. mixed-error spheres, and the closest published binary variance and a previously accessible all-alphabet iid-word moment claim concern independent symbol inputs. This is best-knowledge originality only, with unindexed or not retrieved equivalences a residual risk.",
+    "residual_risks": [
+      "An unindexed formulation of the correlated-read ball-size central limit theorem may predate this work; absence of a search hit is not a mathematical proof of novelty.",
+      "The closest 2026 coding paper assumes protected adapters, so this unguarded theorem is not a direct result for its full operational channel; no such claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CREDITED_POINTWISE_METHOD: establishes binary run enumeration for two deletions, not all-alphabet correlated overlapping ell-mer random-source mean and normal fluctuation law.",
+        "evidence": [
+          "Swart–Ferreira 2003, Proposition 3.1 and proof, DOI:10.1109/TIT.2002.806155"
+        ],
+        "identifier_or_url": "DOI:10.1109/TIT.2002.806155; https://www.researchgate.net/publication/3084624_A_note_on_double_insertiondeletion_correcting_codes",
+        "material_read": "Author-uploaded full-text transcription: introduction, Section II binary run-length representation, Section III Proposition 3.1 on double deletion subsequences, and Section IV codebook discussion.",
+        "method": "Inspected scientific full text and checked domain binary plus role of local run counts and ambiguity over source centers.",
+        "title": "A note on double insertion/deletion correcting codes",
+        "trigger": "Underlying run-based exact double-deletion counting identity; possible direct prior coverage."
+      },
+      {
+        "assessment": "NO_IDENTIFIED_COVERAGE: studies code redundancy and guarded endpoint adapters; its random-source estimates count long constant substrings, not exact expectation or Gaussian volume law of distinct double-deletion read-list outputs.",
+        "evidence": [
+          "arXiv:2601.21236v3, Abstract, Sections II and III-A, esp. Theorem 9 and its proof; initially publicly posted 2026-01-29"
+        ],
+        "identifier_or_url": "arXiv:2601.21236v3; https://arxiv.org/pdf/2601.21236",
+        "material_read": "19-page open preprint: abstract and Sections I–II model/assumptions; Section III-A coding and random-constant-run estimates; paper section overview for III-B/IV/V; searched throughout for sphere, variance, moment.",
+        "method": "Primary PDF text and page images; compared output definitions, bounds, random-source assumptions and exactly-two question.",
+        "title": "First-order optimal codes for an adversarial nanopore channel",
+        "trigger": "Same sliding length-ell read/overlap channel and adversarial deletions, most plausible source."
+      },
+      {
+        "assessment": "NOT_SAME_STATISTIC: counts input sequences obeying local window-repetition restrictions; does not give mean, central limit theorem or covariance constant for two-deletion ball cardinality across all input words.",
+        "evidence": [
+          "Chee et al. 2021, abstract, Sections I, IV, VI, VII; DOI:10.1109/TIT.2021.3112300"
+        ],
+        "identifier_or_url": "DOI:10.1109/TIT.2021.3112300; https://ymchee66.github.io/home/PDF/localdebruijnjournal.pdf",
+        "material_read": "19-page available full article abstract/Sections I and IV enumeration scope and applications to ell-symbol read channels (Sections VI–VII).",
+        "method": "Read accessible primary PDF text and inspected page images; compared local constraint counts to full random-center volume statistics.",
+        "title": "Locally-Constrained de Bruijn Codes: Properties, Enumeration, Code Constructions, and Applications",
+        "trigger": "Nearby overlapping ell-mers and three-window repetition restrictions might enumerate maximum ball centers."
+      },
+      {
+        "assessment": "NOT_COVERING: concerns mixed one-deletion-plus-other-edit spheres in original DNA words, not exact two-deletion overlapping-read sphere moments.",
+        "evidence": [
+          "arXiv:2410.15290 (2024-10-20), Abstract, Sections II–V"
+        ],
+        "identifier_or_url": "arXiv:2410.15290; https://arxiv.org/pdf/2410.15290",
+        "material_read": "17-page preprint; abstract, Sections I–II on deletion-ball background, Sections III–V error-ball problem definitions, Section VI remarks and references.",
+        "method": "Primary PDF inspected including page images; compared exact edit-type budget and whether read symbols are overlapping windows.",
+        "title": "On the size of error ball in DNA storage channels",
+        "trigger": "Natural possible stronger generic error-ball formulas for DNA channels."
+      },
+      {
+        "assessment": "NOT_IMPLYING: exact variance (n-1)(n-2)(2n-3)/32 for independent binary *symbols*; expressly excludes nonbinary alphabets. Here the read-list alphabet is q^ell and successive reads overlap, producing nonzero finite-range covariance, and conclusion is all q>=2,ell>=2 exact mean and CLT.",
+        "evidence": [
+          "Published RESULT.md with ID 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc; classical Swart–Ferreira run-length method cited therein"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc",
+        "material_read": "Complete accessible published RESULT.md theorem, assumptions, run expansion, proof and limitations.",
+        "method": "Direct repository file read; compared independent binary symbol model and conclusion to correlated q-ary ell-mer read model.",
+        "title": "Exact variance of binary two-deletion sphere size",
+        "trigger": "Closest published public variance statement for radius-two deletion shadows."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b09893cb-b257-4255-b4d3-e88b9d1843ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unlike mere worst-case cardinality, the finite expectation and sharp nondegenerate fluctuation law measure typical ambiguity after two read deletions for every q,ell, including the quaternary DNA alphabet. Overlapping reads have nonzero covariances, and these induce the explicit positive correction v_q,ell to the leading variance coefficient. The exact cancellation of longer-run and period-two effects yields an economical all-length average formula. This motivated analytic benchmark is meaningful without a downstream rate theorem or broad channel performance guarantee.",
+    "status": "PASS"
+  }
+}
