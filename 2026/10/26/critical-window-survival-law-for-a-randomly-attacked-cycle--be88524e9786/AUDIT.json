@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on \\(M_n\\sim\\operatorname{Bin}(n,\\lambda/n)\\) gives \\(M_n\\Rightarrow\\operatorname{Poisson}(\\lambda)\\). For fixed \\(m\\ge2\\), uniform cut locations yield Dirichlet gap proportions and the uniformly seeded component is a size-biased \\(\\operatorname{Beta}(2,m-1)\\) gap. The Poisson mixture sums exactly to the stated atom and density; differentiating the CDF proves stochastic ordering. The bounded statistic \\(Y_n^2\\) converges in expectation, and its integral gives the stated welfare fraction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. analyze equilibrium edge-density and welfare bounds in random-attack network formation; their stated results do not give the \\(p_n=1-\\lambda/n\\) survival-fraction law.",
+        "Allard et al. provide a general exact method for finite-graph percolation distributions, but the inspected text does not state this critical-window asymptotic.",
+        "Jevtić et al. report exact first and second cluster-size moments on rings, paths, and stars; these moments may imply the welfare corollary but do not determine the full limiting law."
+      ],
+      "reasoning": "The broader finite-graph method is an important coverage risk, but it does not itself state or prove the explicit limit with atom, density, and stochastic ordering. The retained novelty claim is restricted to that distributional limit; the second-moment formula is presented as a corollary, not as the main originality claim.",
+      "searches": [
+        "arXiv:1906.00241, §§2–3, 5–6",
+        "arXiv:1201.4369, §§1–3",
+        "DOI:10.1016/j.spl.2020.108714, abstract and bibliographic record"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1906.00241",
+      "arXiv:1201.4369",
+      "DOI:10.1016/j.spl.2020.108714",
+      "published-finding corpus search: cycle graph random attack independent cascade percolation connected component size distribution critical window p approaches one lambda over n",
+      "published-finding corpus search: uniform random cut edges on a cycle size-biased Dirichlet spacing beta distribution expected squared remaining fraction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The network-formation paper's main results concern equilibrium edge density and welfare order, not the explicit near-one scaling distribution.",
+        "The 2012 exact percolation algorithm can in principle calculate each finite-n distribution; the inspected paper does not state the asymptotic mixture or its closed CDF.",
+        "The 2020 ring paper's accessible abstract specifies exact first and second moments only. Its full text was not accessible, so a stronger undiscovered result cannot be ruled out."
+      ],
+      "reasoning": "A first/second-moment formula alone does not imply the full distribution. The finite-graph algorithm is stronger computationally for each fixed graph but does not directly state the critical-window limit; the Poisson and size-biased-Dirichlet argument supplies that limit explicitly. The full-text access limitation is retained as a residual risk rather than concealed.",
+      "searches": [
+        "arXiv:1906.00241, §§2–3, 5–6",
+        "arXiv:1201.4369, §§1–3",
+        "DOI:10.1016/j.spl.2020.108714, abstract and bibliographic record",
+        "For cycle C_n bond percolation p=1-lambda/n random attack connected component K normalized expected surviving component squared welfare limit 1-4(1-e^-lambda)/lambda+6(1-(lambda+1)e^-lambda)/lambda^2",
+        "cycle graph random attack independent cascade percolation connected component size distribution critical window p approaches one lambda over n social welfare"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest percolation result returned by the mathematical-record search concerns component-count/triangle-count covariance, not the survival fraction of a randomly attacked cycle.",
+        "Allard et al., arXiv:1201.4369, §§1–3, give exact finite-graph component distributions after bond percolation.",
+        "The claim uses the seeded attack component and the complementary surviving fraction, not only the size of a typical percolation component."
+      ],
+      "reasoning": "Equivalent language is random bond percolation on a cycle with a uniformly chosen root, followed by the complementary surviving-fraction statistic. The size-biased gap law is derived explicitly; no inspected source states this Poisson-mixture limit in the same statistic.",
+      "searches": [
+        "For cycle C_n bond percolation p=1-lambda/n random attack connected component K normalized expected surviving component squared welfare limit 1-4(1-e^-lambda)/lambda+6(1-(lambda+1)e^-lambda)/lambda^2",
+        "cycle graph random attack independent cascade percolation connected component size distribution critical window p approaches one lambda over n social welfare",
+        "uniform random cut edges on a cycle size-biased Dirichlet spacing beta distribution expected squared remaining fraction",
+        "2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+        "arXiv:1201.4369, §§1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved mathematical-record entry states the atom (1+lambda)e^{-lambda} together with density lambda^2(1-y)e^{-lambda(1-y)} for this network-attack survival fraction.",
+        "The closest retrieved percolation record is the component-triangle covariance result, whose statistic and hypotheses differ."
+      ],
+      "reasoning": "The exact formula search did not return a matching table or distribution. This is negative search evidence only and is not treated as a proof of novelty.",
+      "searches": [
+        "For cycle C_n bond percolation p=1-lambda/n random attack connected component K normalized expected surviving component squared welfare limit 1-4(1-e^-lambda)/lambda+6(1-(lambda+1)e^-lambda)/lambda^2",
+        "cycle graph random attack independent cascade percolation connected component size distribution critical window p approaches one lambda over n social welfare",
+        "uniform random cut edges on a cycle size-biased Dirichlet spacing beta distribution expected squared remaining fraction",
+        "network formation under random attack and probabilistic spread cycle equilibrium social welfare exact formula",
+        "published-finding corpus semantic query: cycle percolation survival fraction Poisson cuts Dirichlet critical window"
+      ]
+    },
+    "rationale": "The exact finite-graph percolation and ring-moment literature is close, so novelty is not claimed for generic component calculations or the welfare second moment alone. The retained claim is the explicit near-one critical-window limit law for the surviving fraction, including its atom, density, and stochastic ordering. No inspected source states that limit; inaccessible full text remains a residual risk.",
+    "residual_risks": [
+      "The full text of the 2020 ring-moment paper was inaccessible; it could contain a stronger distributional or asymptotic statement not visible in its abstract.",
+      "The generic finite-graph percolation algorithm can in principle yield finite-n distributions, so the novelty rests on the explicit critical-window limit and stochastic ordering rather than on finite-size exactness.",
+      "The cycle profile is not shown to be an equilibrium for p_n=1-lambda/n; the theorem is a resilience-law result only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant primary context, but the stated theorems do not give the near-one transmission scaling law or its full survival-fraction distribution.",
+        "evidence": [
+          "The paper models a uniformly seeded attack that spreads through independent-cascade edges.",
+          "Its main results bound equilibrium edge density and welfare; the explicit \\(p_n=1-\\lambda/n\\) limit is not stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1906.00241",
+        "material_read": "Full-text abstract, model section, equilibrium examples, social-welfare section, and conclusions.",
+        "method": "Compared model definition, attack mechanism, scaling assumptions, and stated equilibrium/welfare results against the exact claim.",
+        "title": "Network Formation under Random Attack and Probabilistic Spread",
+        "trigger": "Primary literature direction for the attack-and-network-formation model."
+      },
+      {
+        "assessment": "A broad finite-graph method can compute distributions for each fixed cycle, but the inspected text does not state the Poisson-mixture critical-window limit.",
+        "evidence": [
+          "The paper derives exact component probabilities for arbitrary finite graphs after random edge removal.",
+          "The inspected text describes finite-size distributions and algorithms, not this asymptotic surviving-fraction law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1201.4369",
+        "material_read": "Relevant full-text sections on exact component-distribution recurrences and arbitrary-graph percolation.",
+        "method": "Compared the generic finite-graph distribution method with the claimed asymptotic limit and its explicit closed form.",
+        "title": "Exact solution of bond percolation on small arbitrary graphs",
+        "trigger": "Potential broader coverage of exact finite-graph component distributions."
+      },
+      {
+        "assessment": "The abstract states exact first and second moments on rings, paths, and stars. This is a direct risk for the welfare corollary but does not, on the accessible evidence, cover the full limiting law.",
+        "evidence": [
+          "The abstract explicitly limits its stated target to first and second moments of typical cluster size.",
+          "The full-text comparison remains unresolved and is recorded as a residual risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2020.108714",
+        "material_read": "Accessible abstract and bibliographic record only; full text was not available from accessible open sources.",
+        "method": "Checked the stated scope of the paper and separated moment-only implications from the full-distribution claim.",
+        "title": "First and second moments of the size distribution of bond percolation clusters on rings, paths and stars",
+        "trigger": "Closest exact ring-percolation moment result; potential implication for welfare and scaling."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be88524e-9786-4bdd-9f36-f93216574142",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full law quantifies the chance of total cascade and the entire distribution of the surviving network fraction in the transition window where the expected number of failed edges stays finite. Its stochastic ordering and second-moment welfare profile provide a reusable resilience benchmark beyond an average alone; the cycle is a canonical sparse topology in the cited network-formation model.",
+    "status": "PASS"
+  }
+}
