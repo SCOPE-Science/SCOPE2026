@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The valuation-parity substitution coding is exact; alternating digit sums equal (k+1)S(N)-N; adding radix digits yields the signed carry identity, with a necessary and sufficient two-state transition criterion and realizable finite tails. Sliding-window interpolation gives all intermediate values. Alternating maximum/minimum and geometric-scale cases are proved analytically. A fresh standalone verifier passed 85,483 exact-integer checks for bounded cases; tests are corroborative, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berthé–Cecchi-Bernales–Espinoza Section 6.1 gives general necessary and sufficient letter-balance criteria, not exact factor-count ranges for this k-ary family.",
+        "Parreau et al. covers ordinary k=2 period doubling and related 2-block and 2-Abelian complexity.",
+        "Bognini–Ammar generalized period doubling has k-letter alphabet and substitution length two, not the two-letter length-k family."
+      ],
+      "reasoning": "Broader general theorems about automaticity and balancedness do not give the exact signed-carry minima, maxima and logarithmic ladder without new specialized calculations. The previously covered k=2 case is excluded.",
+      "searches": [
+        "abelian complexity radix-k period-doubling substitution binary 0 to 0^(k-1)1 and 1 to 0^k; exact carry automaton all block lengths",
+        "letter frequencies number of ones in windows of base-k valuation parity automatic word, logarithmic ladder ceil",
+        "arxiv:2602.04833 section 6.1",
+        "arxiv:1405.3532 sections 4-6",
+        "arxiv:2511.20881 section 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2602.04833v2 full HTML §§6.1,9.1",
+      "arxiv:1405.3532v2 PDF, relevant pages/sections, full-document keyword searches",
+      "arxiv:2511.20881v1 HTML Section 3 and factorization sections",
+      "Richomme–Saari–Zamboni 2011 abstract and bibliographic record",
+      "OEIS A096268 ordinary radix-two sequence",
+      "Published: Exact component and fibre-rank law for the three-block period-doubling lift (2026)",
+      "Published: Exact greedy string attractor of the period-doubling word (2026)",
+      "Published: Automorphism rigidity and palindromic collapse in cyclic Sturmian lifts (2026)",
+      "Published: Unbounded prefix-normal defect of the ordinary paperfolding word (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published three-block period-doubling result classifies modular-difference lift minimal components, not letter-count spectra in the high-radix substitution.",
+        "The published greedy string-attractor result addresses a different invariant for ordinary period doubling.",
+        "The published paperfolding result studies a different automatic word and its prefix-normal defect.",
+        "Other published findings on ordinary binary period-doubling extensions and two-dimensional Toeplitz pattern counts do not address the present higher-radix binary substitution or its Abelian complexity."
+      ],
+      "reasoning": "Neither equivalent cyclic extension formulas, string-attractor results, nor existing binary Abelian recurrences imply the exact k>=3 signed-carry window-count range. No direct stronger dominating theorem was identified. Residual historical priority remains.",
+      "searches": [
+        "abelian complexity radix-k period-doubling substitution binary 0 to 0^(k-1)1 and 1 to 0^k; exact carry automaton all block lengths",
+        "letter frequencies number of ones in windows of base-k valuation parity automatic word, logarithmic ladder ceil"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Classical period-doubling radix two is related to parity of 2-adic valuations and known 2-regular Abelian complexity, as explicitly noted by Parreau et al. (arxiv:1405.3532).",
+        "The claimed substitution changes the radix to every k>=3 and proves its all-length carry-extremal spectrum."
+      ],
+      "reasoning": "The known valuation-parity characterization and radix-two formulas motivate the k-ary analogy, but neither the ordinary binary case nor its 2-adic recurrence implies the high-radix all-length formula without a k-ary carry analysis. Generic sum-of-digits properties alone do not give window extrema or exact Abelian complexity.",
+      "searches": [
+        "period doubling substitution prefix sums are alternating base-k digit sums, exact finite-level distribution, Gaussian discrepancy central limit law, perfect balance at substitution powers",
+        "generalized period doubling 0 to zero k-1 then 1 1 to zero k, cylinder abelian complexity k-adic interval counts and digit-sum formula",
+        "abelian complexity radix-k period-doubling substitution binary 0 to 0^(k-1)1 and 1 to 0^k; exact carry automaton all block lengths",
+        "web: \"0^{k-1}1\" \"0^k\" morphism abelian complexity",
+        "web: period doubling word number of 1s prefix sum digit sum alternating sum binary digits exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A096268 identifies the classical radix-two period-doubling sequence only.",
+        "No exact k>=3 all-length Abelian-complexity database or table was identified among examined records."
+      ],
+      "reasoning": "A tabulation or radix-two recurrence cannot exhaust arbitrary k>=3 and all n; failure to locate a table is not a proof of novelty.",
+      "searches": [
+        "period doubling substitution prefix sums are alternating base-k digit sums, exact finite-level distribution, Gaussian discrepancy central limit law, perfect balance at substitution powers",
+        "generalized period doubling 0 to zero k-1 then 1 1 to zero k, cylinder abelian complexity k-adic interval counts and digit-sum formula",
+        "abelian complexity radix-k period-doubling substitution binary 0 to 0^(k-1)1 and 1 to 0^k; exact carry automaton all block lengths",
+        "OEIS:A096268 (ordinary binary period-doubling word)",
+        "web: abelian complexity higher radix period doubling word logarithmic powers of k"
+      ]
+    },
+    "rationale": "The claim is expressly restricted to radix k>=3. Published ordinary binary period-doubling Abelian complexity, including recurrence and regularity statements, is acknowledged and excluded; the 2026 source treats qualitative balance and the other 2025 generalization uses a different substitution. Mathematical-record and ledger claim searches revealed no covering k-ary all-length signed-carry classification; priority beyond checked sources remains uncertain.",
+    "residual_risks": [
+      "An equivalent high-radix Abelian-complexity formula could predate this work under automatic-sequence or numeration terminology.",
+      "The 2011 Richomme–Saari–Zamboni full paper was not read beyond bibliographic and abstract material.",
+      "Bibliographic searches and accessible prior claims cannot establish complete historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Section 6.1 proves a qualitative balancedness criterion, not the exact all-length radix-k Abelian complexity or signed-addition carry construction. Section 9.1 uses the binary k=2 substitution in a product dynamical system.",
+        "evidence": [
+          "Section 6.1 Theorem 6.2 relates letter-balancedness to stable and coboundary spaces.",
+          "Section 9.1 uses the period-doubling substitution 0->01, 1->00, k=2."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.04833v2",
+        "material_read": "Full-text HTML including introduction, section 6.1 theorem and proof context, and section 9.1 ordinary period-doubling example",
+        "method": "Primary source HTML section and statement comparison",
+        "title": "Continuous eigenvalues of minimal subshifts via S-adic representations and coboundaries",
+        "trigger": "2026 source addresses primitive substitution letter discrepancy and mentions the ordinary period-doubling substitution"
+      },
+      {
+        "assessment": "Explicitly gives established radix-two Abelian-complexity recurrence work; our claim excludes k=2. Does not state this binary alphabet length-k substitution for k>=3, nor our exact k-ary carry DP.",
+        "evidence": [
+          "Introduction pp. 2-4 identifies ordinary substitution 0->01, 1->00 and previously known radix-2 Abelian complexity regularity.",
+          "Theorem 4 and cited earlier results concern base-two reflection recurrences."
+        ],
+        "identifier_or_url": "arxiv:1405.3532v2",
+        "material_read": "44-page primary PDF parsed; introduction and relevant pages 1-5 and sections 4, 6 overview read; visual screenshot of PDF page 3 inspected",
+        "method": "Primary PDF text, find across the document, relevant page visual inspection",
+        "title": "A new approach to the 2-regularity of the l-abelian complexity of 2-automatic sequences",
+        "trigger": "Highly relevant classical calculation of Abelian complexity for period-doubling"
+      },
+      {
+        "assessment": "Studies k-symbol alphabet and constant-length two substitution s_k(a)=0(a+1) or 00, distinct from the present binary alphabet, length-k morphism. Results concern kernel words/gaps, not all-length Abelian complexity of our family.",
+        "evidence": [
+          "Section 3 defines k-symbol morphism of length 2, whereas the claimed family has 2 symbols and length k."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.20881",
+        "material_read": "Full-text HTML, especially definition of s_k in Section 3 and paper objectives in Sections 1 and 4",
+        "method": "Primary HTML direct object comparison",
+        "title": "A new factorization of the generalized period-doubling sequences through kernel words and gaps sequences",
+        "trigger": "Same words generalized period-doubling might mask exact coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c281dcf6-fe5e-472e-a557-aa48687127a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Abelian complexity is a natural complete factor-count invariant. The finding classifies it at every length for a genuine infinite family of minimal aperiodic binary substitutions in exact O(log n) operations, determines an unbounded logarithmic ladder and an exact one-count balance at all substitution scales. It is not an isolated finite table or a relabeling of the already-known radix-two word.",
+    "status": "PASS"
+  }
+}
