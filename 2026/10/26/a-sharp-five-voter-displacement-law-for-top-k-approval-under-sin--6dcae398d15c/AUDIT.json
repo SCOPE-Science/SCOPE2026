@@ -1,0 +1,121 @@
+{
+  "claim": "For five voters with strict single-peaked rankings on the ordered alternatives \\(0,1,\\ldots,m-1\\), each approving exactly their top \\(k\\) alternatives, a unique top-\\(k\\)-approval winner exists for some profile if and only if \\(m\\ge 2k-1\\). Over all such profiles with a unique winner \\(w\\), the maximum distance from the median peak \\(h\\) is \\[D_5(m,k)=\\max |w-h|=\\begin{cases}k-1,&2k-1\\le m<5k-1,\\m-3k,&m\\ge5k-1.\\end{cases}\\]",
+  "correctness": {
+    "rationale": "The proof gives a complete upper bound in the near and far regimes, proves the exact feasibility condition \\(m\\ge2k-1\\), and supplies explicit single-peaked interval profiles attaining both branches. The far-regime inequalities imply m>=5k-1 and \\(|w-h|\\le m-3k\\); all endpoints and the k=1 case are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The current ledger's closest claim is a Borda-winner displacement formula, not a fixed-k approval formula.",
+        "Brandt et al. (2010) treats approval ballots under single-peakedness but its stated results are about computational complexity; no distance result appears in the inspected full text.",
+        "Weber's abstract discusses approval voting and median-voter results in two-candidate positioning games, not the five-voter finite-candidate formula."
+      ],
+      "reasoning": "Borda scores all ranks linearly, while top-k approval uses a threshold score vector. The Borda formula does not imply the piecewise threshold or the exact value m-3k for top-k approval. The inspected primary literature does not provide a stronger theorem that covers this exact parameterized claim.",
+      "searches": [
+        "approval voting score versus Borda under single peaked preference domain exact characterization",
+        ": Brandt et al. (2010), full PDF, sections on single-peaked approval and scoring protocols",
+        ": Weber (1995), Approval Voting, abstract"
+      ]
+    },
+    "checked_sources": [
+      "Exact-claim and alias searches listed in the four named checks",
+      "Brandt et al. (2010), official AAAI full text, DOI 10.1609/aaai.v24i1.7637",
+      "Weber (1995), publisher abstract, DOI 10.1257/jep.9.1.39",
+      "Black (1948), publisher bibliographic record, DOI 10.1086/256633",
+      "A related Borda-scoring displacement formula was compared as a distinct scoring rule."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest own-ledger claim gives a formula for the Borda winner's distance from the median peak for arbitrary odd electorates.",
+        "The present claim fixes five voters and uses a top-k score vector; its sharp transition is at m=5k-1 and its far branch is m-3k."
+      ],
+      "reasoning": "The Borda claim is not a dominating result for top-k approval: the scoring vectors and winning-score constraints differ, and neither the formula nor the proof implies the other. This is a mathematically distinct scoring rule, not a relabeling of the Borda claim.",
+      "searches": [
+        "Own-ledger overlap check: Borda winner displacement on single-peaked profiles, item c79e7028-3a04-42a4-ad1c-2abe6771f18e",
+        "approval voting score versus Borda under single peaked preference domain exact characterization",
+        ": Brandt et al. (2010), scoring-protocol and approval-voting definitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No direct database hit stated the five-voter fixed-k displacement formula.",
+        "Brandt et al. (2010) defines approval voting and studies single-peaked electorates, but the inspected results concern winner complexity and bribery/manipulation."
+      ],
+      "reasoning": "The claim is a sharp maximum-distance invariant for exactly five voters and fixed top-k approval. The retrieved formulations concern approval voting generally or computational complexity; none states an equivalent interval-displacement theorem. Weber's survey is a plausible related source but only its abstract was accessible, so the comparison is best-knowledge rather than exhaustive.",
+      "searches": [
+        "five voters k-approval single-peaked median peak maximum winner distance m candidates approval interval",
+        "fixed k-approval winner median peak single-peaked exact displacement threshold 5k-1",
+        "single-peaked k-approval worst-case distance between approval winner and Condorcet winner",
+        ": Brandt et al. (2010), full-text passages on approval ballots and single-peaked preferences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned records concerned Kemeny/Slater divergence, voting-power indices, and other voting-rule boundary classifications; no exact k-approval median-displacement record was returned."
+      ],
+      "reasoning": "The retrieved database records are adjacent in broad social-choice subject matter but differ in rule, invariant, or quantifiers. They do not cover the claim as a special case. Search absence is not treated as proof of novelty; the primary-literature comparison and residual risk are recorded separately.",
+      "searches": [
+        "five voters k-approval single-peaked median peak maximum winner distance m candidates approval interval",
+        "fixed k-approval winner median peak single-peaked exact displacement threshold 5k-1",
+        "single-peaked k-approval worst-case distance between approval winner and Condorcet winner"
+      ]
+    },
+    "rationale": "Exact database searches returned no direct match. A related Borda-scoring displacement formula uses a different scoring vector and does not imply the top-k formula. The full Brandt et al. paper was inspected in its relevant sections and addresses complexity rather than displacement. A related approval-voting survey was accessible only as an abstract, so the novelty assessment is best-knowledge and retains that risk.",
+    "residual_risks": [
+      "The full text of Weber (1995) was inaccessible; a related older approval-voting result may be present there or in another unindexed source.",
+      "Database partitioning and unsuccessful search results cannot prove uniqueness; the conclusion is based on statement-level comparison with the inspected primary material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claim: the paper studies computational complexity of winner, bribery, and manipulation problems, not the maximum distance from a unique top-k winner to the median peak.",
+        "evidence": [
+          "",
+          "",
+          "",
+          ""
+        ],
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/7637/7498",
+        "material_read": "Full eight-page official AAAI PDF; read definitions, median-voter fact, approval-ballot discussion, and relevant complexity/manipulation sections; searched within the PDF for distance terminology.",
+        "method": "Compared the stated theorems and definitions with the exact displacement claim.",
+        "title": "Bypassing Combinatorial Protections: Polynomial-Time Algorithms for Single-Peaked Electorates",
+        "trigger": "Exact search for fixed-k approval under single-peaked preferences"
+      },
+      {
+        "assessment": "No exact coverage evident from the abstract, which surveys approval voting and two-candidate positioning results. Full-text coverage remains unverified.",
+        "evidence": [
+          "",
+          ""
+        ],
+        "identifier_or_url": "https://doi.org/10.1257/jep.9.1.39",
+        "material_read": "Publisher abstract only; the full-text request returned 403 Forbidden.",
+        "method": "Compared the abstract's scope and stated conclusions with the fixed-k five-voter invariant.",
+        "title": "Approval Voting",
+        "trigger": "Primary approval-voting survey and median-voter discussion"
+      },
+      {
+        "assessment": "Foundational background only; it does not certify or imply the exact fixed-k displacement formula.",
+        "evidence": [
+          "",
+          ""
+        ],
+        "identifier_or_url": "https://doi.org/10.1086/256633",
+        "material_read": "Publisher bibliographic page and publication date; full text was not accessible there.",
+        "method": "Verified the source date and its role as background for the median-voter model, without attributing the new formula to it.",
+        "title": "On the Rationale of Group Decision-making",
+        "trigger": "Earliest verified public source for the median-voter/single-peaked framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6dcae398-d15c-45db-8b01-b8990badeaf8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a sharp, natural finite classification of the maximum spatial displacement of a unique fixed-k approval winner from the median voter. The exact transition \\(\\(\\(m=5k-1\\)\\)\\) separates a local bound k-1 from a linearly growing branch \\(\\(\\(m-3k\\)\\)\\), clarifying a limitation of the median-voter intuition for a widely studied scoring rule. The five-voter case is the smallest odd electorate with two voters on each side available to create the far-displacement regime.",
+    "status": "PASS"
+  }
+}
