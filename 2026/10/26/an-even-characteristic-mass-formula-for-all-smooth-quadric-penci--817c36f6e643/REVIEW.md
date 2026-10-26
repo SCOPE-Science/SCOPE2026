@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Polarization reduces every rational-member smoothness test to an anisotropic Pfaffian two-plane. The normalized-pair count gives exactly \(q^4(q^3-1)(q-1)/2\) such planes. Each has \(q^8\) quadratic lifts, and a conjugate-coordinate Jacobian calculation proves that exactly \((q^4-1)(q^4-q^2)\) lifts have smooth base. The proof handles all even prime powers; exact arithmetic tests for \(q=2\) and \(q=4\) independently verify counts and the geometric singularity criterion. The general proof is not inferred from those finite instances.
+
+**Originality — PASS, qualified.** The nearest construction, Asgarli–Ghioca (arXiv:2203.07169), proves existence of all-smooth pencils but does not provide the uniform count or smooth-base probability. Bhosle (1990) develops characteristic-two structural theory; its canonical-form ideas are acknowledged, and the accessible examination did not disclose the exact finite-field mass formulas. Earlier results already settle the numerical \(q=2\) case and odd-characteristic analogues; neither is claimed as new. The searches of related mathematical records and literature did not identify a uniform even-characteristic mass count. Unindexed literature or inaccessible portions of older papers pose a residual priority risk.
+
+**Value — PASS.** Counting all-smooth quadric pencils is a natural arithmetic enumeration problem motivated by even-characteristic existence constructions. Distinguishing the fraction with geometrically smooth genus-one base clarifies how memberwise smoothness interacts with base smoothness. The exact formula across all even fields provides a reusable mass for finite-field moduli and computational tests, rather than an arbitrary small-table extension.
+
+Self-review: passed. Independent audit: not yet performed.
