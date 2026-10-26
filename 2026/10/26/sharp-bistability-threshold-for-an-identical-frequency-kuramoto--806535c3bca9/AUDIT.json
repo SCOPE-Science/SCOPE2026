@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Direct reconstruction of Kirchhoff current, exclusion of negative ordinary edges, winding bound including all N>=5 and endpoints, strict Hessian positivity equivalent to decreasing scalar fold branch, strict log-convexity, and compact perturbative asymptotics; independent 1447 finite matrix residual and eigenvalue checks. Numerical experiments are explicitly not used to assert the all-N proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ferguson arXiv:1704.02294 develops weighted winding-state framework; Zelazo–Bürger arXiv:1408.2187 supplies resistance criteria for signed Laplacians."
+      ],
+      "reasoning": "The general frameworks imply how to test stability for a specified state, but do not themselves classify all strictly stable states and determine the unique fold weight for a homogeneous-frequency ring with a single weakened bond; this specialized global enumeration and asymptotic are derived separately.",
+      "searches": [
+        "Phase locked stable Kuramoto ring one inhomogeneous coupling weak link winding branches saddle node hysteresis critical weight",
+        "arXiv:1704.02294 weighted winding states theorem",
+        "arXiv:1408.2187 effective resistance single negative edge"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1408.2187",
+      "arXiv:1508.01507",
+      "arXiv:1512.04266",
+      "arXiv:1704.02294"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bronski–DeVille–Ferguson prove cycle signed-Laplacian inertia and show long-edge examples with equal capacities and tailored nonuniform frequencies. Delabays–Coletta–Jacquod establish one-obtuse-link continuations and winding counts for equal edge capacities. A weighted winding theorem from 2017 supplies a broad conceptual reduction."
+      ],
+      "reasoning": "The stability criterion is prior art and is not claimed novel. The exact all-N minimizer and asymptotic require a distinct one-defect scalar optimization plus exclusion of all other stable branches; they are not immediate fixed-input restatements of the published conclusions. A yet-unlocated direct specialization could still cover the claim.",
+      "searches": [
+        "Kuramoto cycle with one weak edge and exactly one obtuse phase difference stable equilibrium signed Laplacian effective resistance sharp coupling defect weight",
+        "For N identical Kuramoto oscillators on ring all edges unit except one edge weight w, critical w for stable q=1 equilibrium sin((2pi-beta)/(N-1))/sin(beta)",
+        "arXiv:1508.01507 Theorem 2.6, Sections 3.2 and 4",
+        "arXiv:1512.04266 Section IV",
+        "arXiv:1704.02294 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bronski–DeVille–Ferguson arXiv:1508.01507 Sec. 4: equal-coupling, selected-frequency long-edge optimization; Delabays–Coletta–Jacquod arXiv:1512.04266 Sec. IV: homogeneous-capacity loop flows and long-link continuation."
+      ],
+      "reasoning": "Current sharp one-weight, zero-frequency fold is expressible in prior current/angle coordinates but not an identical statement; parameters differ and no exact weight threshold/large-size constant is provided there.",
+      "searches": [
+        "Kuramoto cycle with one weak edge and exactly one obtuse phase difference stable equilibrium signed Laplacian effective resistance sharp coupling defect weight",
+        "Single weak edge in identical Kuramoto oscillator cycle sharp saddle node threshold first nonzero winding stable phase locked state, obtuse weak-bond phase and large-n coefficient 4.6033388",
+        "arXiv:1508.01507 Sec. 3.2 and 4",
+        "arXiv:1512.04266 Sec. IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearest retrieved indexed result fbd39164c275 concerns a four-oscillator frequency-heterogeneous Braess threshold; primary arXiv:1508.01507 Table 2 tabulates longest *angle* with homogeneous weights and selected frequencies, not a critical defective-edge coupling."
+      ],
+      "reasoning": "No matching exact parameter table or stored result was encountered; this is evidence of inspected noncoverage, not a claim that every database was exhaustively searched.",
+      "searches": [
+        "Single weak edge in identical Kuramoto oscillator cycle sharp saddle node threshold first nonzero winding stable phase locked state, obtuse weak-bond phase and large-n coefficient 4.6033388",
+        "For N identical Kuramoto oscillators on ring all edges unit except one edge weight w, critical w for stable q=1 equilibrium sin((2pi-beta)/(N-1))/sin(beta)"
+      ]
+    },
+    "rationale": "The explicit scalar sharp critical weight, globally exhaustive stable phase count in the one-defect identical-frequency ring, and transcendental large-ring coefficient were not found in the inspected closest works. They require an all-states current argument, signed quadratic-form exclusion, strict logarithmic convexity and asymptotic minimization; predecessor graph-Laplacian methods are credited, with historical priority risk noted.",
+    "residual_risks": [
+      "Prior general weighted-cycle theorems might yield an equivalent theorem under straightforward specialization not stated as such; a wider literature review could discover historical priority.",
+      "The 2014 abstract was not compared to full text; it supplies only a supporting generic signed-Laplacian relation.",
+      "An all-size numerical simulation is not a substitute for the analytical proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General negative-edge effective-resistance criterion supports a proof lemma, not nonlinear all-equilibria phase classification.",
+        "evidence": [
+          "arXiv:1408.2187 (abstract, first submitted 2014-08-10)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.2187",
+        "material_read": "Abstract and public bibliographic record; not a claim of full-text inspection.",
+        "method": "Read accessible abstract and original submission record",
+        "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+        "trigger": "One-negative-edge stability may subsume the needed Hessian test"
+      },
+      {
+        "assessment": "Provides exact cycle conductance criterion and uniform-weight, frequency-selected long-link extremization, not an identical-frequency one-weak-weight critical threshold.",
+        "evidence": [
+          "arXiv:1508.01507 Sec. 3.2, Sec. 4 equations (4.2)–(4.5), Table 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1508.01507",
+        "material_read": "Sections 2.2, 3.2 and 4 in available full arXiv text, including formulas (4.2)–(4.5), Table 2 and continuation remarks.",
+        "method": "Read full-text scientific sections and compared model hypotheses and optimizing parameters",
+        "title": "Graph Homology and Stability of Coupled Oscillator Networks",
+        "trigger": "Possible stronger signed one-cycle theorem and same-object ring example"
+      },
+      {
+        "assessment": "Explains general one-obtuse continuation for homogeneous capacity systems; no exact defective-edge threshold for identical oscillators in inspected portions.",
+        "evidence": [
+          "arXiv:1512.04266 Sec. II.2, IV.1–IV.3; first public v1 2015-12-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1512.04266v2",
+        "material_read": "Full available text, emphasizing Sec. II, Sec. IV and proof of loop-current constraints.",
+        "method": "Read arXiv HTML text and compared equal edge capacities with one defect and injected powers versus zero-frequency dynamics",
+        "title": "Multistability of Phase-Locking and Topological Winding Numbers in Locally Coupled Kuramoto Models on Single-Loop Networks",
+        "trigger": "Direct antecedent for one-obtuse-edge branches and winding counting"
+      },
+      {
+        "assessment": "Broader representation applicable in principle but no directly stated sharp one-defect threshold recognized; historical-priority risk retained.",
+        "evidence": [
+          "arXiv:1704.02294 theorem on weighted winding states and one-negative-link stability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.02294",
+        "material_read": "Available full-text HTML portions containing weighted winding-state theorems and assumptions inspected; not an assertion every appendix was checked.",
+        "method": "Compared general weighted-state construction against explicit one-defect fold/minimizer and asymptotic",
+        "title": "Topological States in the Kuramoto Model",
+        "trigger": "Broader weighted-ring winding theorem could dominate specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "806535c3-bca9-4f9a-8d14-32c8cf70c9ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete exact first appearance and disappearance of obtuse stable twists in the natural identically driven one-defect ring, with an all-size stable-state count, sharp onset, and nontrivial large-size limiting constant; not merely a cheap spectral test or an arbitrary parameter value.",
+    "status": "PASS"
+  }
+}
