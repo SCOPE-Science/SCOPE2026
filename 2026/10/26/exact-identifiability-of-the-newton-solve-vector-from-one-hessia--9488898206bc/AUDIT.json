@@ -1,0 +1,84 @@
+{
+  "claim": "Let \\(n\\ge2\\), let \\(A=A^{\\mathsf T}\\succ0\\) be an unknown Hessian, and let \\(g\\in\\mathbb R^n\\) be a known gradient. After one exact Hessian-vector observation \\(y=Av\\) with \\(v\ne0\\), the Newton solve vector \\(p=A^{-1}g\\) (and hence the conventional Newton step \\(-p\\)) is uniquely determined over all symmetric positive-definite completions consistent with that observation if and only if \\(g\\in\\operatorname{span}\\{y\\}\\); in that case \\(p=\u0007lpha v\\) for the scalar \\(\u0007lpha\\) satisfying \\(g=\u0007lpha y\\). Consequently, one Hessian-vector observation cannot guarantee exact Newton-direction recovery for every positive-definite quadratic in dimension at least two.",
+  "correctness": {
+    "rationale": "The forward implication follows from \\(A^{-1}g=\u0007lpha v\\) when \\(g=\u0007lpha Av\\). For the converse, use coordinates with \\(v=e_1\\) and write every SPD completion as \\(A_D=\begin{psmallmatrix}a&b^{\\mathsf T}\\b&D\\end{psmallmatrix}\\), with \\(D-bb^{\\mathsf T}/a\\succ0\\). If \\(g\notin\\operatorname{span}\\{y\\}\\), the orthogonal component of every Newton solution is nonzero; replacing \\(D\\) by \\(D+\tau I\\) preserves the observed first column but cannot preserve the solution. The exact rational witness verifies this distinction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper treats a broader recursive algorithmic setting with a Krylov-subspace history and curvature information on a subspace of dimension at most two.",
+        "The present theorem treats arbitrary SPD completions of a single observed action \\(Av\\) and gives a necessary-and-sufficient criterion."
+      ],
+      "reasoning": "The source has broader algorithmic coverage, but its sufficiency theorem does not imply the exact one-query identifiability boundary. The new statement is narrower in algorithmic setting and sharper as an identifiability classification.",
+      "searches": [
+        "published-finding corpus query: finite Newton-step generation subspace quasi-Newton methods necessity two curvature directions lower bound exact Newton step; closest ID 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004.",
+        "published-finding corpus query: indistinguishable positive definite Hessians same Hessian-vector product different Newton direction oracle lower bound; closest IDs 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004 and 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c."
+      ]
+    },
+    "checked_sources": [
+      "Ansari-Önnestam and Forsgren, arXiv:2407.03072, https://arxiv.org/abs/2407.03072.",
+      "published-finding corpus retrieved findings: 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004; 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.1 constructs a subspace quasi-Newton step using curvature information on a subspace of dimension at most two and recursively recovers the Newton step.",
+        "The source does not assert that one fixed Hessian-vector observation uniquely determines \\(A^{-1}g\\) exactly when \\(g\\in\\operatorname{span}\\{Av\\}\\)."
+      ],
+      "reasoning": "The new theorem proves a distinct necessary-and-sufficient identifiability condition for one observation. Its converse is witnessed by two explicit SPD matrices sharing the same \\(Av\\) but yielding different \\(A^{-1}g\\). This does not weaken or contradict the source’s recursive sufficiency result.",
+      "searches": [
+        "Primary source full text: https://arxiv.org/pdf/2407.03072, Section 4, Proposition 4.1.",
+        "published-finding corpus query: finite Newton-step generation subspace quasi-Newton methods necessity two curvature directions lower bound exact Newton step; closest ID 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ansari-Önnestam and Forsgren, arXiv:2407.03072, abstract and Section 4, Proposition 4.1: a subspace of dimension at most two suffices for the paper’s recursive subspace quasi-Newton step.",
+        "The paper does not state an if-and-only-if criterion for unique recovery from one fixed product \\(Av\\) over all SPD completions."
+      ],
+      "reasoning": "The present theorem classifies identifiability from one fixed observation, rather than proving finite termination or sufficiency of a recursive two-direction construction. The statements are related but not equivalent.",
+      "searches": [
+        "published-finding corpus query: information theoretic lower bound one Hessian vector product cannot recover exact Newton step for SPD quadratic two-direction curvature information; closest retrieved ID 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004.",
+        "published-finding corpus query: finite Newton-step generation subspace quasi-Newton methods necessity two curvature directions lower bound exact Newton step; closest retrieved ID 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004.",
+        "published-finding corpus query: indistinguishable positive definite Hessians same Hessian-vector product different Newton direction oracle lower bound; closest retrieved IDs 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004 and 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The retrieved closest records concern BFGS trajectory Hessian recovery and AdaHessian curvature leakage, not a table or exhaustive database of one-query SPD completions."
+      ],
+      "reasoning": "No exact database or finite table is applicable: the claim is a universal algebraic theorem over all SPD completions. published-finding corpus is a retrieval corpus, not an exhaustive novelty certificate; the conclusion rests on comparing the statement with the inspected primary theorem, not on search absence alone.",
+      "searches": [
+        "published-finding corpus query: information theoretic lower bound one Hessian vector product cannot recover exact Newton step for SPD quadratic two-direction curvature information; closest ID 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004.",
+        "published-finding corpus query: indistinguishable positive definite Hessians same Hessian-vector product different Newton direction oracle lower bound; closest IDs 2026/10/4/SCOPE-exact-hessian-recovery-inside-a-q-order-one-bfgs-trajectory--7b775acd2004 and 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c."
+      ]
+    },
+    "rationale": "The inspected primary paper proves sufficiency of at most two curvature directions for a recursive subspace quasi-Newton construction. The present claim is a complementary exact classification of when one observed Hessian-vector product uniquely determines the Newton solve vector across all SPD completions. Retrieved published-finding corpus findings on BFGS matrix recovery and curvature estimation address different statements and do not imply this criterion.",
+    "residual_risks": [
+      "Classical information-based complexity literature may contain an equivalent one-Hessian-vector identifiability lemma not surfaced by the searches; no universal priority claim is made.",
+      "The result does not quantify conditioning or approximate recovery and does not lower-bound adaptive multi-query methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not equivalent. The paper establishes a two-direction sufficiency construction for a recursive method; it does not supply the exact identifiability criterion for a single fixed product \\(Av\\).",
+        "evidence": "arXiv:2407.03072, abstract and Section 4, Proposition 4.1.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.03072",
+        "material_read": "Full arXiv PDF opened; read the abstract and introduction, the subspace Newton-step development in Section 3, and Section 4 through Proposition 4.1 and its proof (including the stated two-dimensional curvature-information requirement).",
+        "method": "Compared the source assumptions, object, and quantifiers with the one-observation completion problem; checked that the source’s two-direction result is recursive and does not state the present one-query if-and-only-if condition.",
+        "title": "Finite Newton-Step Generation via Subspace Quasi-Newton Methods for Quadratic Problems",
+        "trigger": "Direct primary literature for the sufficiency of two curvature directions and the motivation for testing one-direction necessity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94888982-06bc-41de-856c-3f2e36040b84",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The iff criterion identifies the exact exceptional case where one curvature observation suffices and otherwise proves a universal ambiguity across SPD completions. It is a natural information boundary for methods that seek an exact Newton solve vector without line-search or historical conjugacy information. The explicit rational witness makes the obstruction directly reproducible.",
+    "status": "PASS"
+  }
+}
