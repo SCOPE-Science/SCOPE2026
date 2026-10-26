@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The graph neighborhood formulas and window-transfer bijection are valid for all n>=5. An explicit 256-state binary transfer has 576 transitions; exact Newton identities for 256 coefficients prove the factored degree-64 determinant and hence the infinite trace generating function. Brute force confirms n=5..9. The F3 order-six recurrence is invertible with characteristic polynomial dividing t^30-1; all 729 initial sextuples exhaustively yield six valid universal solutions, giving one three-class partition when 3 divides n. No finite-term extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Choi, Kwon and Park, arXiv:2609.33902v1, introductory discussion of the total domatic number in cubic graphs: qualitative rather than this enumerator.",
+        "Zhao et al. 2020, numerical invariants including minimum total dominating sets, not total-domatic partition enumerators.",
+        "Minyard and Sepanski 2026 classify 3-balanced existence on GP(n,k), a different (strictly weaker) output."
+      ],
+      "reasoning": "A formula giving the full distribution of total-domatic partition counts for all GP(n,k), or even GP(n,2), would dominate the claim; the inspected highly relevant sources do not state such a formula. Claims of full novelty remain limited to checked literature; an unindexed broader formula remains a risk.",
+      "searches": [
+        "generalized Petersen graphs total domatic number counting all partitions",
+        "two disjoint total dominating sets GP(n,2) coloring transfer matrix 64 characteristic polynomial",
+        "generalized Petersen graph generalized 2-coupon coloring exact transfer enumeration"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.33902v1 (Choi, Kwon, Park, 2026)",
+      "Zelinka, Domination in generalized Petersen graphs (2002)",
+      "Zhao et al., The Numerical Invariants concerning the Total Domination for Generalized Petersen Graphs (2020)",
+      "Minyard and Sepanski, Neighborhood 3-Balanced Graphs (2026) and arXiv:2410.05422v1",
+      "Mathematical result index: generalized Petersen, two-coupon, exact partition enumeration and numerical queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zelinka 2002 Theorems 4–5 establish a range of total-domatic numbers, not multiplicities of partitioning.",
+        "Minyard–Sepanski 2026 Theorem 4.2 yields a 3-colorability criterion, but the uniqueness of the partition and the two-color series are not consequent from mere existence.",
+        "Choi–Kwon–Park 2026 addresses threshold conditions in cubic graphs, including 2-coupon terminology, not full enumeration."
+      ],
+      "reasoning": "In none of these cases does the source theorem imply the exact number of two-class partitions. A graph may have the same total-domatic number but arbitrarily many decompositions. The recurrence classification strengthens the three-balanced existence result to uniqueness for this subfamily; the two-class rational series is the main additional claim.",
+      "searches": [
+        "Zelinka 2002 generalized Petersen domatic theorem 4 theorem 5",
+        "Minyard Sepanski neighborhood 3 balanced graphs generalized Petersen theorem 4.2",
+        "Choi Kwon Park Det-extremal cubic graphs total domatic 2026",
+        "all three-color total domatic partitions GP(n,2) unique up to permutations n divisible 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zelinka 2002, Theorems 4 and 5: total-domatic existence and maximum, not the number of ways to realize two classes.",
+        "Minyard and Sepanski 2024/2026, Section 4: neighborhood 3-balanced existence conditions on generalized Petersen graphs; no two-class enumerator."
+      ],
+      "reasoning": "The asserted series is equivalently an exact count of binary two-coupon colorings or of unordered decompositions into two total dominating sets. These equivalent formulations were compared against studies of total-domatic number, 2-coupon coloring, and generalized Petersen graphs. Existence, optimization, and minimum total domination are logically weaker than an all-length enumeration.",
+      "searches": [
+        "GP(n,2) generalized Petersen graph exact number two coupon colourings both total dominating vertex classes rational generating function",
+        "generalized Petersen graph GP(n,2) two disjoint total dominating sets total domatic 2-coloring enumeration exact",
+        "generalized Petersen graph total domatic number optimal bipartition two total dominating sets",
+        "generalized Petersen 2-coupon coloring two total dominating classes count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The calculated named-coloring sequence begins 12,116,226,1286,2486; the table and 64-degree denominator are generated and verified in verify_gp2.py.",
+        "Semantic mathematical result index queries for this sequence, family, and rational generating function returned unrelated closest results."
+      ],
+      "reasoning": "Direct searches for exact initial terms and the graph family failed to find an established matching table. No identification with an existing database sequence is asserted, and a failed lookup alone cannot certify originality.",
+      "searches": [
+        "generalized Petersen P(n,2) total domatic two-class partitions sequence 12 116 226 1286",
+        "12, 116, 226, 1286 generalized Petersen domination",
+        "116, 226, 1286, 2486 coloring",
+        "P(n,2) two total dominating partitions enumeration exact"
+      ]
+    },
+    "rationale": "Exact determinant factorization and full partition census are not implied by the total-domatic existence results of Zelinka, the minimum-total-dominating-set enumerations of Zhao et al., the balanced-three-colour existence theorem of Minyard–Sepanski, or the cubic threshold theorem of Choi–Kwon–Park. Search queries targeted the same graph, all two-class decompositions, aliases, the degree-64 rational transfer, and initial numerical terms. Historical priority remains conditional on what is covered by the inspected literature; absence of a hit alone is not evidence of absolute uniqueness.",
+    "residual_risks": [
+      "Unindexed or older exact 2-coupon colouring enumerations on generalized Petersen graphs might cover the formula.",
+      "The degree-64 transfer factorization is established by self-contained exact-integer computation and has no independent external reimplementation.",
+      "The original 2026 source has a different main question; this is a value-motivated new counting direction, not a solution of the source flagship theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background threshold/equivalence results, not a formula for all total-domatic partitions of GP(n,2).",
+        "evidence": [
+          "arXiv 2609.33902v1, first posted 2026-09-27; theorem 1.4 and introduction"
+        ],
+        "identifier_or_url": "arxiv:2609.33902v1",
+        "material_read": "Abstract, introduction, Section 1.2, discussion and stated principal theorems, including the det-extremal/total-domatic relation.",
+        "method": "Accessible arXiv PDF full-text and visual page inspection.",
+        "title": "Det-extremal cubic graphs and the total domatic number",
+        "trigger": "Recent source with relevant primary MSC 05C69 and cubic two-coupon framework"
+      },
+      {
+        "assessment": "Gives thresholds and existence, without the exact two-part partition enumeration.",
+        "evidence": [
+          "Zelinka (2002), Theorems 4–5"
+        ],
+        "identifier_or_url": "https://www.dml.cz/bitstream/handle/10338.dmlcz/127697/CzechMathJ_52-2002-1_2.pdf",
+        "material_read": "Theorems 4 and 5 and related definitions and discussion.",
+        "method": "Open-access PDF full text, with page-image inspection.",
+        "title": "Domination in generalized Petersen graphs",
+        "trigger": "Plausible original source treating total-domatic numbers of exactly the graph family."
+      },
+      {
+        "assessment": "Counts minimum total dominating sets, not partitions into simultaneously total dominating classes.",
+        "evidence": [
+          "Zhao et al. 2020, article 5473675, Theorems 4 and 6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/5473675",
+        "material_read": "Open full HTML text including theorems on minimum total domination and associated numerical invariants.",
+        "method": "Publisher lawful open HTML full text, theorem-by-theorem comparison.",
+        "title": "The Numerical Invariants concerning the Total Domination for Generalized Petersen Graphs",
+        "trigger": "Plausibly overlapping total domination enumerations on the same graph family."
+      },
+      {
+        "assessment": "Establishes existence of 3-balanced coloring, not exact number of unordered partitions or 2-coloring generating function.",
+        "evidence": [
+          "Minyard and Sepanski, Graphs and Combinatorics (2026), Section 4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00373-026-03038-4",
+        "material_read": "Sections on generalized Petersen graphs and Theorem 4.2, with introductory definitions.",
+        "method": "Lawful publisher open full HTML and associated 2024 arXiv precursor metadata.",
+        "title": "Neighborhood 3-Balanced Graphs",
+        "trigger": "Modern 3-neighborhood coloring theorem specializing to generalized Petersen graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43beb49d-fa00-4c34-bb0f-ff8b3365192d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Counts all ways of decomposing a canonical, well-studied cubic graph family into simultaneous total dominating classes, not just existence or a minimum parameter. Exact multiplicities, an all-order rational series of degree 64, and the unique three-class rigidity address a natural completeness gap in existing total-domatic research and can support robustness and random-partition studies. This is not an arbitrary small example or a table recomputation.",
+    "status": "PASS"
+  }
+}
