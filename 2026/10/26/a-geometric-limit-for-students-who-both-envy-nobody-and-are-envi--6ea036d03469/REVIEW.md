@@ -1,0 +1,11 @@
+# Review of the geometric doubly envy-free law
+
+**Correctness — PASS.** The proof conditions on the previously assigned set. A protected position takes its overall top house with probability equal to remaining inventory divided by total inventory; an unprotected position preserves every earlier protected house with a simple symmetric-order probability. Adjacent exchanges of protected labels preserve the two-step product, proving exact joint inclusion probabilities independent of positions. Inclusion inversion, variance, and geometric convergence follow analytically. The independent exact checker enumerates all preference profiles through four students and reconstructs joint laws through twelve. Finite checks are not treated as infinite proof.
+
+**Originality — PASS, subject to ordinary publication-priority risk.** The motivating 2026 article proves separate expected unenvied and top-choice counts. Its relevant complete statements and proofs, including propositions 1–3, do not identify the intersection count, exchangeability of the intersection, or a geometric limit for that count. The 2003 coupon-collector paper supplies a distinct singleton-coupon law, and a previously recorded result establishes equality of marginal unenvied-count distributions across two matching mechanisms. Those broader or nearby statements neither imply the joint intersection event nor settle its count law without the new factorization. Relevant literature and mathematical-record searches found no equivalent claim; unindexed equivalent work remains possible.
+
+**Value — PASS.** The union of two qualitatively different unimprovability indicators is economically natural, and their intersection is needed to avoid double counting. A surprising exchangeability of the intersection, despite opposing serial-position biases in the two marginal indicators, yields an exact constant intersection expectation and a non-Poisson geometric limit with nonvanishing zero probability. This is a structural dependence result, not a mere recomputation of either marginal expected count.
+
+The mathematical scope is independent uniform complete strict preferences and unit-capacity square RSD. Cross-market or correlated-preference extensions are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
