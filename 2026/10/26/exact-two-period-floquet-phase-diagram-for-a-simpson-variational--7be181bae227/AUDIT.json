@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Direct rational-polynomial computation verifies determinant one, factored trace(T±2) identities, and reciprocal-step identity. Analytic Q>0 on open square yields T<2; the sign of F(s,t)F(t,s) gives strict elliptic/hyperbolic cases. Strict monotonicity of off-diagonal ratio R(s) ensures P=-I only at equal s=t with A(s)=0, so neutral boundary has a Jordan block except quarter-turn. Taylor expansion near quarter-turn yields explicit positive first-order log multiplier. The exact rational verifier reproduces all polynomial identities from packaged code; its finite rational tests are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Skeel 1993 identifies failure of the Störmer/leapfrog/Verlet scheme under variable steps, not the Simpson variational matrix or the parameter region.",
+        "Rojas-Quintero–Dubois–Cabrera-Díaz 2024, Axioms 13, 255, DOI 10.3390/axioms13040255, abstract accessible; whole text retrieval limited."
+      ],
+      "reasoning": "A general theorem that symplectic matrices may have unstable products is background, not the exact branch inequalities for this particular map. The inaccessible 2024 text is explicitly flagged as possible dominating coverage and not excluded by an abstract alone.",
+      "searches": [
+        "two-period variable timestep symplectic integrator exact Floquet hyperbolic quarter-turn resonance",
+        "two period Floquet trace variable timestep symplectic Verlet Simpson quarter turn resonant instability",
+        "variable step size destabilizes Störmer leapfrog Verlet symplectic adaptive stability"
+      ]
+    },
+    "checked_sources": [
+      "Dubois and Rojas-Quintero (2023), arXiv:2406.16423 (full text)",
+      "Proceedings of Geometric Science of Information (2023), Springer ebook first public release 2023-07-31",
+      "Rojas-Quintero et al. (2024), DOI 10.3390/axioms13040255 (abstract only)",
+      "Skeel (1993), DOI 10.1007/BF01990352 (abstract only)",
+      "Semantic indexed finding comparisons against method-specific switching, symplectic Floquet resonance, and exact trace polynomial queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original 2023 paper gives symplectic fixed-step maps and step-specific modified energies, not a common quadratic energy invariant for variable steps.",
+        "Skeel 1993 analyzes variable-step destabilization in Störmer/Verlet, with different transfer matrices."
+      ],
+      "reasoning": "Fixed-step bounded powers of each M(s) do not imply bounded powers of M(t)M(s). The exact trace factorization and boundary classification require the present calculation; none of the inspected primary statements imply them without new work.",
+      "searches": [
+        "Simpson variational symplectic integrator harmonic oscillator alternating time steps resonance unstable product",
+        "Exact alternating timestep stability Simpson variational integrator trace polynomial F(s,t) harmonic oscillator 2023 Dubois Rojas Quintero",
+        "two period Floquet trace variable timestep symplectic Verlet Simpson quarter turn resonant instability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dubois–Rojas-Quintero 2023, arXiv:2406.16423, equations (22),(26),(28), full author manuscript read: fixed-step characterization.",
+        "Skeel 1993, BIT 33, 172–175, DOI 10.1007/BF01990352: abstract identifies instability of variable-step Störmer/Verlet, a distinct one-step matrix."
+      ],
+      "reasoning": "Looked for variable timestep, two-period composition, Floquet trace, and symplectic resonance aliases. The complete source derivation treats a single constant step. General switching instability or conjugacy vocabulary alone does not yield this explicit Simpson two-parameter classification.",
+      "searches": [
+        "Simpson variational symplectic integrator harmonic oscillator alternating time steps resonance unstable product",
+        "two-period variable timestep symplectic integrator exact Floquet hyperbolic quarter-turn resonance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2023 manuscript supplies a one-dimensional stability restriction, and no two-period matrix or tabulated switching regions appear in the inspected original text.",
+        "Semantic indexed finding searches for the exact polynomial, quarter-turn critical step and reciprocal-step curve returned nonidentical results."
+      ],
+      "reasoning": "The proposed classification is algebraic, not a finite-parameter recomputation from a known numerical stability table. Failure to locate a tabulation is not proof of absence.",
+      "searches": [
+        "Exact alternating timestep stability Simpson variational integrator trace polynomial F(s,t) harmonic oscillator 2023 Dubois Rojas Quintero",
+        "Quadratic Simpson variational symplectic scheme period two resonance h1 h2 sqrt(11-sqrt(73))"
+      ]
+    },
+    "rationale": "The 2023 original gives a fixed-step Simpson canonical oscillator map and modified-energy preservation, but the inspected full manuscript does not establish the two-period switching Floquet polynomial, full neutral-boundary Jordan classification, protected reciprocal-step curve or small-modulation exponent. Generic prior variable-step destabilization theorems for a different integrator do not logically imply these method-specific identities; the 2024 follow-up and classical full text were not accessible, leaving acknowledged risk.",
+    "residual_risks": [
+      "Unindexed method-specific treatment of variable-step Simpson integration could have the same explicit trace identities.",
+      "The 2024 quadratic-Lagrangian sequel could contain a special-case stronger statement in its inaccessible main text or supplementary materials.",
+      "Earlier variable-step Störmer/Verlet work may contain a transferable conjugacy result not identifiable from the abstract."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for full two-period product phase diagram; supplies the fixed-step matrix.",
+        "evidence": "Explicit source equations (22),(26),(28) concern one identical step and a step-dependent invariant; no product trace polynomial or Jordan boundary.",
+        "identifier_or_url": "https://arxiv.org/abs/2406.16423",
+        "material_read": "Full author manuscript; especially harmonic-oscillator matrix derivation, fixed-step stability result and preserved quadratic form, including equations (22), (26) and (28).",
+        "method": "Read the complete accessible arXiv manuscript and compared mathematical hypotheses, output and bounds to alternating two-matrix products.",
+        "title": "A Variational Symplectic Scheme Based on Simpson's Quadrature",
+        "trigger": "Defines exactly the proposed canonical oscillator map and constant-step stability interval."
+      },
+      {
+        "assessment": "UNRESOLVED_RISK: accessible description covers linear quadratic mechanics; cannot rule out an equivalent alternating-step result.",
+        "evidence": "Axioms 13 (2024), article 255, DOI 10.3390/axioms13040255.",
+        "identifier_or_url": "https://doi.org/10.3390/axioms13040255",
+        "material_read": "Title, author metadata and publicly accessible abstract; complete text not read after HTTP access throttling.",
+        "method": "Attempted direct article full text; assessed accessible abstract only.",
+        "title": "Simpson's Variational Integrator for Systems with Quadratic Lagrangians",
+        "trigger": "Plausible 2024 sequel to the same integration method, potentially overlapping variable-step questions."
+      },
+      {
+        "assessment": "GENERIC_PRECEDENT: distinct integration scheme; full text not checked.",
+        "evidence": "Skeel (1993), BIT 33, 172–175, DOI 10.1007/BF01990352.",
+        "identifier_or_url": "https://doi.org/10.1007/BF01990352",
+        "material_read": "Bibliographic metadata, title and available abstract only; inaccessible full text.",
+        "method": "Searched publisher information and attempted full-text retrieval.",
+        "title": "Variable step size destabilizes the Störmer/leapfrog/Verlet method",
+        "trigger": "Classical close precedent for variable-step instability in symplectic integrators."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7be181ba-e227-4c8c-a9b5-f7c96b2820be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The core numerical issue is geometric stability under changing step size, because each Simpson step preserves its own quadratic modified energy but not necessarily a common invariant. A complete sharp semialgebraic classification, unique bounded -I boundary, protected st=4 large-switching family, and infinitesimal resonant growth law produce meaningful actionable boundaries for periodic step modulation. The result is neither a textbook fixed-step deduction nor an arbitrary individual numerical example.",
+    "status": "PASS"
+  }
+}
