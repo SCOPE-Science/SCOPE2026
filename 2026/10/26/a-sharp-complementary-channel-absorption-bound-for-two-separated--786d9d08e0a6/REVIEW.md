@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The distributional matching conditions give the stated unimodular two-sheet transfer product. Its upper-left entry vanishes exactly at the two enumerated and disjoint positive-strength CPA branches; at no other separation phase can its real nonzero component be canceled. The singular-value identity for a rank-one \(2\times2\) reciprocal scattering matrix gives \(\mathcal A_{\mathrm{worst}}=0\) at \(L=1\) and \(2(L-1)/L^2\) at \(L>1\). The latter is uniquely maximized at \(L=2\), with the two prescribed ordered sheets. The proof uses all positive \(k,d,a,b\) and every two-port coherent input, not numerical extrapolation. The standalone Python checker independently verifies 4,743 sampled scalar/matrix assertions. Limits: strictly positive point losses, fixed frequency, same exterior wave medium, exact CPA designs only.
+
+## Originality — PASS on inspected scientific evidence
+The closest general background is Chong et al., arXiv:1003.4968v1, including the two-port CPA condition \(r_\ell r_r=t^2\). That condition is necessary but does not specify an optimized pair of unequal positive point absorbers or a singular-value minimax over the complementary input channel. Li et al., arXiv:1406.1847v1, and Roger et al., doi:10.1038/ncomms8031, analyze a single thin film, where the coherent orthogonal illumination can be unabsorbed, unlike the best two-separated-sheet CPA configuration. Luo et al., arXiv:1405.6475, considers a thin film with reflectors; its double-layer equivalent uses symmetric near-coincident films and not the present variable quarter-wavelength separation. Martínez-Argüello et al., arXiv:1207.2716v1, concerns a one-port delta-with-wall model. Targeted published-record comparisons did not identify the complete sharp \(1/2\) minimax result. Priority uncertainty remains: a different impedance-language treatment of two dissipative sheets might imply this result, and semantic searches are not novelty proofs.
+
+## Mathematical value — PASS
+The min-over-input objective is an operational robustness criterion for a device constrained to perfectly absorb one coherent waveform. The theorem solves simultaneously the existence-versus-budget classification, the unique above-threshold loss split, the forced illumination imbalance and the sharp complementary-input absorption optimum. It separates the familiar 50% *one-sided absorption* ceiling of a single sheet from a new 50% *worst-coherent-input guarantee* under exact CPA for two separated sheets. The qualitative phase change from co-phased to quarter-wavelength spacings makes the exact optimizing design physically motivated rather than an arbitrary parameter slice.
+
+## Limits and closest literature
+No claim is made outside strictly positive imaginary point interactions at fixed monochromatic \(k\), for devices without CPA, or for arbitrary three-dimensional optical stacks. Broader literature could contain equivalent transfer-matrix reductions, so independent literature scrutiny remains appropriate.
+
+Self-review: passed. Independent audit: not yet performed.
