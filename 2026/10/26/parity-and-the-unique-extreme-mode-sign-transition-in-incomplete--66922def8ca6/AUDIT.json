@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact Krylov polynomial representation at simple Ritz nodes; strict Ritz top endpoint inequality from the support-cardinality polynomial argument; Newton divided difference and Hermite-Genocchi simplex remainder yield p_t(x)/exp(-tx)=1-(-1)^m H_m. For x above all Ritz nodes H_m is strictly increasing from 0 to infinity in t and strictly increasing in x. Hence odd m has no extreme-mode zero; even m has exactly one crossing, strictly decreasing in x. The Lagrange leading coefficient proves the relative-error asymptotic. Check.py (embedded as verify.py) tested m=1..7 in exact machine form for three input matrices and returned VERIFY_OK 16, corroborating but not proving infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2303.09482 includes broad polynomial/rational Krylov approximation background but no claim controlling all incomplete depths and the extreme original-coordinate sign.",
+        "Druskin (2008) studies approximation monotonicity; the related m=2 full-text description distinguishes reduced Jacobi positivity from original-coordinate positivity."
+      ],
+      "reasoning": "Broad norm approximation and reduced-basis positivity results do not imply sign of an original physical coordinate. The prior complete m=2 characterization does not quantify any m>=3, so it cannot cover the stated universal odd/even structure.",
+      "searches": [
+        "Parity effect odd Lanczos Krylov space steps retain positivity at maximum eigenmode while even dimension yields finite sign loss monotone threshold",
+        "matrix exponential Krylov interpolation exponential divided differences signed error largest eigenvalue positive negative unique zero time",
+        "positive semigroup Krylov projection parity extrapolation at largest eigenvalue sign alternating unique positivity horizon at even Lanczos degree",
+        "web: Lanczos matrix exponential positivity preservation Ritz nodes interpolation sign parity largest eigenvalue",
+        "arxiv:2303.09482 polynomial and rational Krylov exponential method"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.11251 (v1 date and open full text sections; primary MSC 65F60)",
+      "arxiv:2303.09482 (open method discussion)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 (full RESULT.md)",
+      "Atkinson interpolation theorem references and open Hermite-Genocchi exposition",
+      "Accessible historical private mathematical claims (deduplication only)",
+      "Actual published-finding corpus semantic searches for parity, Ritz extrapolation, and Lanczos positivity"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "m=2 result gives the unique zero only at depth two, explicitly does not claim higher depths.",
+        "arxiv:2202.11251 proves the projection representation for all depths but does not state/prove positivity or a unique highest-mode crossing.",
+        "Hermite-Genocchi remainder is a standard theorem requiring new application and monotonicity argument for this family."
+      ],
+      "reasoning": "Our m=2 specialization is subsumed and acknowledged. The m=3 odd protection and every m>=4 even sharp time do not follow from the m=2 result by implication; they are established by the all-order signed remainder identity and monotonicity. The general algorithm representation alone does not provide the claimed threshold.",
+      "searches": [
+        "All incomplete m-step Lanczos approximation exp(-t A)b for diagonal positive matrix: highest eigenvalue coordinate remains positive for odd m and changes sign once for every even m, Hermite Genocchi interpolation remainder parity",
+        "Ritz interpolation exponential beyond largest node unique zero for even degree and positive for odd degree, positivity preservation Lanczos Krylov matrix exponential",
+        "Parity effect odd Lanczos Krylov space steps retain positivity at maximum eigenmode while even dimension yields finite sign loss monotone threshold",
+        "arxiv:2202.11251v3",
+        "published-finding corpus m=2 full RESULT.md https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ritz interpolation of the exponential and Newton/Hermite-Genocchi divided differences are alternate exact forms.",
+        "Full source arxiv:2202.11251v3, Section 1.1, provides the standard Lanczos projection and Krylov representation; no all-depth top-mode parity statement identified in reviewed text.",
+        "published-finding corpus nearest hit https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8 explicitly m=2."
+      ],
+      "reasoning": "Interpreting the claim as sign of extrapolation of a completely monotone exponential makes classical interpolation literature relevant. The analytic remainder formula implies parity but a named general Lanczos extreme-coordinate sign classification was not found. Mathematical equivalence could be hidden in interpolation texts, which is a residual risk.",
+      "searches": [
+        "All incomplete m-step Lanczos approximation exp(-t A)b for diagonal positive matrix: highest eigenvalue coordinate remains positive for odd m and changes sign once for every even m, Hermite Genocchi interpolation remainder parity",
+        "Ritz interpolation exponential beyond largest node unique zero for even degree and positive for odd degree, positivity preservation Lanczos Krylov matrix exponential",
+        "Polynomial Lanczos approximation matrix exponential positive diagonal matrix m step Ritz interpolation largest eigenvalue coordinate negative for even Krylov dimension odd Krylov positivity parity",
+        "web: Lanczos Krylov approximation exp(-tA)b negative component even degree polynomial interpolation eigenvalue largest Ritz parity",
+        "arxiv:2202.11251 Section 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published exact mathematical finding: m=2 polynomial Lanczos positivity horizon.",
+        "Own historical d1e987... gives m=2 shift-and-invert Krylov positivity, not arbitrary-depth standard polynomial Lanczos.",
+        "Own historical 8e6624... gives moment tails of sketched linear-system Krylov solvers, not exponential sign properties."
+      ],
+      "reasoning": "No exact formula/table or previously recorded for-all-depth parity theorem found. An analogous m=2 formula is expressly prior and cited, not asserted novel.",
+      "searches": [
+        "All incomplete m-step Lanczos approximation exp(-t A)b for diagonal positive matrix: highest eigenvalue coordinate remains positive for odd m and changes sign once for every even m, Hermite Genocchi interpolation remainder parity",
+        "Parity effect odd Lanczos Krylov space steps retain positivity at maximum eigenmode while even dimension yields finite sign loss monotone threshold",
+        "published-finding corpus record https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8",
+        "accessible own-ledger claim IDs d1e987b0-ef81-4ec1-a66d-97285b3dc7c9 and 8e6624cf-650a-4370-a17c-2f649a1549d0"
+      ]
+    },
+    "rationale": "The prior exact result covers two-step Lanczos only, with explicit m>=3 exclusion; the full mathematical presentation was read. The source Lanczos-FA paper gives the algorithmic representation but no all-depth sign theorem; the classical divided-difference representation is acknowledged as prior. The new implication is a for-all-m parity law and sole highest-mode zero at any even incomplete depth, with strict spectral ordering and odd-mode relative-error asymptotic; neither a special case of the m=2 result nor an algorithmic reformulation of it. No equivalent was identified in dedicated semantic, published-text, and own-claim searches; equivalence under unsearched terminology remains possible.",
+    "residual_risks": [
+      "An older classical interpolation work may explicitly discuss the odd/even sign of Ritz extrapolants even when not described as Lanczos.",
+      "Druskin (2008) full article was not independently retrieved in this run; its topic/scope is assessed via bibliographic descriptions and a close full-text published result.",
+      "Some closely related matrix-function articles were checked by topic and accessible sections rather than exhaustive full-text scanning."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background method and Krylov projection, no observed highest-mode parity theorem",
+        "evidence": "arXiv submission history v1 dated 2022-02-23; math.NA primary classification 65F60 in HTML; Sections 1.1 and 3.2.1.",
+        "identifier_or_url": "https://arxiv.org/html/2202.11251v3",
+        "material_read": "Abstract, Section 1 and Section 1.1 Lanczos recurrence and projection definition, Section 3.2.1 Lanczos-FA comparison, conclusion and mathematical theorem navigation",
+        "method": "Lawful arXiv open HTML reviewed",
+        "title": "Low-memory Krylov subspace methods for optimal rational matrix function approximation",
+        "trigger": "Primary MSC 65F60 paper defining standard Lanczos-FA and a distinct rational method"
+      },
+      {
+        "assessment": "Discusses algorithms and adaptation; no equivalent all-order extreme physical-coordinate sign theorem found in inspected material",
+        "evidence": "arXiv:2303.09482 public first submission 2023-03-16; exponential Krylov algorithm discussion.",
+        "identifier_or_url": "https://arxiv.org/html/2303.09482",
+        "material_read": "Open HTML introduction and polynomial/rational Krylov method discussion around section 4",
+        "method": "Lawful arXiv HTML inspected",
+        "title": "Adaptive rational Krylov methods for exponential Runge-Kutta integrators",
+        "trigger": "Closely related exponential actions and distinction between polynomial and rational Krylov methods"
+      },
+      {
+        "assessment": "Exactly m=2 result is covered and credited, but the text limits scope to two steps and disclaims higher Krylov dimensions",
+        "evidence": "m=2 affine interpolant, unique horizon, 3-dimensional witness, explicit higher-depth limitation.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8",
+        "material_read": "Entire RESULT.md, including theorem, assumptions, proof, prior work, limitations and references",
+        "method": "Read directly from public mathematical repository full file",
+        "title": "The exact positivity horizon of the two-step Lanczos exponential",
+        "trigger": "Closest exact same physical-coordinate sign problem in a special m=2 case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66922def-8ca6-4aae-8357-6ec0136664b9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a standard incomplete Krylov approximation to a positivity-preserving physical semigroup. The full-depth parity classification shows an intrinsic alternating obstruction: all odd truncation depths protect the stiffest coordinate, whereas all even truncation depths force a unique sign reversal. The strict ordering of high-mode crossing times and the exponentially bad relative error even at sign-protected odd depths are structural features relevant to interpreting positivity-preserving matrix-function computations. It goes beyond an arbitrary fixed numerical instance and gives a natural exact classification over every admissible dimension, but does not imply all-coordinate positivity.",
+    "status": "PASS"
+  }
+}
