@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The hypergeometric factorial moments for three distinct draws prove covariance -c^2 p(1-p)/(N-1) and third cross centered moment 2c^3p(1-p)(1-2p)/((N-1)(N-2)); conditional assay errors transfer these moments exactly. The normalized third/negative covariance ratio is a strictly monotone bijection of p in (0,1). The reconstruction produces the unique positive c and b,a, including p=1/2. Exchangeable Bernoulli triples are determined by these moments, proving exact feasibility. Complementary infected counts 1 and N-1 give indistinguishable complete two-result distributions for every N>=3 but opposite third moments. Exact rational checker enumerated 216 models and 9 two-result pairs; infinity is proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hui and Walter (1980), DOI 10.2307/2530508, PubMed 7370371 (two distinct assays applied in two populations).",
+        "Huang et al. (2016 online), DOI 10.1111/rssb.12223, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC5726813/ (full sections 2 and 3 use independent test responses from pools of different sizes and optimize a three-support design).",
+        "Ge et al. (2023), arXiv:2302.03558, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/ (known, externally specified error rates)."
+      ],
+      "reasoning": "None of these inspected or abstract-supported stronger settings implies the present global inverse: Hui-Walter needs two assays and two populations, Huang exploits different pool sizes (not dependence among distinct people), and Ge assumes the nuisance assay parameters are known. The general conditional-independence observation channel by itself does not imply prevalence identification without exploiting fixed-composition third cross-moments. The Su 2004 full-text gap is a separately named risk.",
+      "searches": [
+        "\"one\" \"test\" \"finite population\" \"sensitivity\" \"specificity\" \"identifiable\" \"without gold standard\"",
+        "finite population one fallible diagnostic test estimate sensitivity specificity fixed cases hypergeometric dependent moment",
+        "Hui and Walter (1980), DOI 10.2307/2530508, PubMed 7370371",
+        "Huang et al. (2016 online), DOI 10.1111/rssb.12223, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC5726813/",
+        "Ge et al. (2023), arXiv:2302.03558, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/"
+      ]
+    },
+    "checked_sources": [
+      "Su, Gardner and Johnson (2004), DOI 10.1002/sim.1809, https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1809",
+      "Hui and Walter (1980), DOI 10.2307/2530508, PubMed 7370371",
+      "Huang et al. (2016 online), DOI 10.1111/rssb.12223, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC5726813/",
+      "Ge et al. (2023), arXiv:2302.03558, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/",
+      "Jones et al. (2009), DOI 10.1111/j.1541-0420.2009.01330.x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "New claim: μ=b+(a-b)p; cross-covariance = -(a-b)^2 p(1-p)/(N-1); third centered cross moment = 2(a-b)^3p(1-p)(1-2p)/((N-1)(N-2)). This yields a unique global inverse from three individual results and exact two-result indistinguishability.",
+        "Su, Gardner and Johnson (2004), DOI 10.1002/sim.1809, https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1809 (abstract includes two diagnostic tests, two populations, and hypergeometric versus binomial inference).",
+        "Ge et al. (2023), arXiv:2302.03558, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/ (explicitly assumes known Se and Sp in abstract and Methods).",
+        "Huang et al. (2016 online), DOI 10.1111/rssb.12223, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC5726813/ (three distinct group sizes, independent-pool response probabilities)."
+      ],
+      "reasoning": "A statistical likelihood for finite-population diagnostics does not alone prove the present one-assay global identifiability and sharp minimum; the relevant third *distinct-person* cross-moment is the missing constraint. The primary matched methods either use multiple assays/populations, varying pooled group sizes, or known assay accuracy. The precise possibility that Su et al. supply the scalar-case moment inverse in a section unavailable to inspect remains open and is not claimed to be excluded.",
+      "searches": [
+        "\"Diagnostic test accuracy and prevalence inferences based on joint and sequential testing with finite population sampling\" pdf",
+        "finite population one diagnostic test three distinct people no gold standard prevalence identifiability",
+        "\"Enhanced Inference for Finite Population Sampling-Based Prevalence Estimation with Misclassification Errors\"",
+        "Huang et al. (2016 online), DOI 10.1111/rssb.12223, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC5726813/"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "One-assay joint results are exchangeable and their covariance is strictly negative — unlike binomial individual sampling. The third centered cross moment changes sign at half prevalence.",
+        "Su, Gardner and Johnson (2004), DOI 10.1002/sim.1809, https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1809 (abstract describes joint and sequential two-test methods with finite-population sampling; full text inaccessible).",
+        "Ge et al. (2023), arXiv:2302.03558, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/ (complete Methods 2.2 assumes manufacturer-known error rates)."
+      ],
+      "reasoning": "The potential algebraic aliases are finite-population misclassified hypergeometric samples, triplet cumulants, fixed-composition exchangeable Bernoulli observations, and gold-standard-free diagnostic identification. The inspected full text in Ge derives variance/interval corrections assuming known sensitivity and specificity. Su is closest in domain but its available abstract specifically develops two-test/two-population finite-population inference, not one unknown-error assay from three different people; because full text was unavailable, residual overlap risk is kept explicit.",
+      "searches": [
+        "\"finite population\" \"misclassification\" \"third moment\" sensitivity specificity",
+        "diagnostic test accuracy without gold standard single test finite population negative correlation",
+        "\"sampling without replacement\" \"misclassification\" \"sensitivity\" \"specificity\"",
+        "Su, Gardner and Johnson (2004), DOI 10.1002/sim.1809, https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1809",
+        "Ge et al. (2023), arXiv:2302.03558, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The target claim is an all-integer-population identity with three arbitrary interior parameters and an exact sharp two-result construction; it is not a finite lookup item.",
+        "Su, Gardner and Johnson (2004), DOI 10.1002/sim.1809, https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1809 (describes data-based Bayesian diagnostic inference, not a database/table for triplet inverse)."
+      ],
+      "reasoning": "Neither an exact parameter table nor an enumerated data source found in the targeted bibliographic searches contains the globally quantified identity or its constructive nonidentifiability boundary. This negative result is limited to examined sources and is not treated as an exhaustive absence proof.",
+      "searches": [
+        "finite population dependent latent binary tests identification sensitivity specificity no gold standard",
+        "hypergeometric mixture misclassification unvalidated diagnostic finite population identification covariance third moment",
+        "misclassification random sampling without replacement finite population unknown response error rates identifiability"
+      ]
+    },
+    "rationale": "The closest pre-2016 finite-population diagnostic literature concerns joint/sequential multiple diagnostic tests, rather than this single-assay distinct-person third-moment inverse; relevant complete later works either rely on different pool sizes or assume known error rates. The claim is restricted to its explicitly proved mechanism and sharp lower bound. Su et al. (2004) full text was inaccessible, a documented residual bibliographic risk that does not by its available abstract imply this precise claim.",
+    "residual_risks": [
+      "The primary 2004 finite-population diagnostic study could not be inspected in complete form; its full text might contain a related one-assay identifiability observation.",
+      "An equivalent hypergeometric misclassification cumulant inversion could occur outside the directly searchable diagnostic literature.",
+      "No claim of exhaustive novelty proof or independent bibliographic verification is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Plausible closest source; its declared two-test/two-population model differs from one-assay three-distinct-person identification, but full-text overlap remains uncertain.",
+        "evidence": [
+          "Su, Gardner and Johnson (2004), DOI 10.1002/sim.1809, https://onlinelibrary.wiley.com/doi/abs/10.1002/sim.1809"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/sim.1809",
+        "material_read": "Accessible published abstract, metadata, and bibliography only; full text unavailable after open-access/arXiv search and institutional route failed due to disconnected VPN.",
+        "method": "Read publisher abstract and references; searched title and DOI for lawful full-text versions; attempted authorized institutional retrieval.",
+        "title": "Diagnostic test accuracy and prevalence inferences based on joint and sequential testing with finite population sampling",
+        "trigger": "Directly addresses finite-population sampling with imperfect tests and unknown accuracy."
+      },
+      {
+        "assessment": "Distinct sampling experiment: independent binomial pooled tests at differing sizes, rather than one test on three distinct individuals with finite-composition dependence.",
+        "evidence": [
+          "Huang et al. (2016 online), DOI 10.1111/rssb.12223, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC5726813/"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5726813/",
+        "material_read": "Full accessible article: introduction, section 2, equations 1–6, section 3, theorem 1–3, discussion.",
+        "method": "Opened and read HTML full text, comparing the independent pooled-response model and supported design statements.",
+        "title": "Optimal group testing designs for estimating prevalence with uncertain testing errors",
+        "trigger": "Three group sizes identify unknown prevalence, sensitivity and specificity; potential broader covering result."
+      },
+      {
+        "assessment": "Assumes manufacturer-known sensitivity and specificity throughout; its uncertainty adjustment does not identify both rates.",
+        "evidence": [
+          "Ge et al. (2023), arXiv:2302.03558, full text https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11027951/",
+        "material_read": "Full accessible manuscript: Abstract, Introduction, Methods 2.1–2.2 including equations (5)–(12), discussion.",
+        "method": "Read PMC complete text and checked assumptions about Se, Sp and the finite-population correction.",
+        "title": "Enhanced Inference for Finite Population Sampling-Based Prevalence Estimation with Misclassification Errors",
+        "trigger": "Same finite fixed-case diagnostic sampling structure, possibly stronger theorem."
+      },
+      {
+        "assessment": "Not the one-assay fixed-composition sampling mechanism.",
+        "evidence": [
+          "Hui and Walter (1980), DOI 10.2307/2530508, PubMed 7370371"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/7370371/",
+        "material_read": "PubMed abstract and metadata; linked full PDF retrieval timed out.",
+        "method": "Read abstract defining two tests and two prevalence-distinct populations, attempted academic-host PDF.",
+        "title": "Estimating the error rates of diagnostic tests",
+        "trigger": "Foundational diagnostic-identification theorem."
+      },
+      {
+        "assessment": "No verified coverage of a single test on three different fixed-composition people; residual risk not eliminated.",
+        "evidence": [
+          "Jones et al., DOI 10.1111/j.1541-0420.2009.01330.x"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1541-0420.2009.01330.x",
+        "material_read": "Publisher abstract and metadata, not full text.",
+        "method": "Read abstract describing multiple dichotomous tests, product-multinomial data and dependence structures.",
+        "title": "Identifiability of Models for Multiple Diagnostic Testing in the Absence of a Gold Standard",
+        "trigger": "Potential generic multiple-test identifiability theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d5d4be1-ca3a-44df-afb5-e6f5ad598a53",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimal number of distinct-person reports required for population-law self-calibration of one unknown-error diagnostic assay is a natural structural design boundary, not a low-level example. The proof identifies negative finite-population dependence as the source of information absent under independent prevalence sampling, supplies an explicit global inverse and a full exchangeable-triple feasibility criterion, and exhibits indistinguishable two-result models for every N>=3. Its small O(N^-2) third signal is disclosed, preventing a misleading claim of practical robustness.",
+    "status": "PASS"
+  }
+}
