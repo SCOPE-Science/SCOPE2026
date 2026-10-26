@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Fixing the distinguished chord leaves \\((N-1)!!\\) equiprobable matchings. Counting \\(h\\) cross-cut pairs gives \\(p_{n,k}(h)\\), and direct factorial division gives the claimed ratio. Its varying factor has strictly positive derivative because \\(N-2k-2>0\\) for \\(0\\le k\\le n-3\\). Added support at \\(h=k+2\\) makes same-parity stochastic order strict; parity support at zero and the exact top-tail ratio \\((N-2k)/(N-k)<1\\) show adjacent incomparability for \\(1\\le k\\le n-2\\), while \\(k=0\\) is deterministic. Indicator linearity verifies the mean. The standalone verifier independently enumerates matchings through 14 endpoints and passes 128 rational assertions. Quantifiers hold for every \\(n\\ge3\\); experiments are not substituted for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Acan 2015 Theorem 2.1 gives the asymptotic marginal distribution of a randomly selected chord degree, after deriving conditional means and variances. Its finite n and k claims do not order conditional degree laws.",
+        "Acan–Pittel 2014 examines global crossing counts and component formation, rather than the marked chord conditional degree ordering.",
+        "A separate exact theorem for uniform matching cut-crossing count processes gives the mean, full covariance, inverse and Gaussian limit; it does not assert finite-sample likelihood-ratio ordering of chord degrees."
+      ],
+      "reasoning": "Neither marginal asymptotics nor mean and covariance data determine finite-sample likelihood ratios or the absence of first-order stochastic dominance. The stronger conditional distributional theorem therefore is not implied by those statements. An unknown general theorem for hypergeometric random matchings could imply the comparison, which is retained as a residual risk.",
+      "searches": [
+        "random chord diagram chord length conditioned crossing degree monotone likelihood ratio odd even length",
+        "uniform pairing crossing edge counts H_k distribution stochastic monotonicity parity MLR",
+        "random pairing crossing cut size conditional degree MLR single crossing adjacent incomparability"
+      ]
+    },
+    "checked_sources": [
+      "H. Acan, On a uniformly random chord diagram and its intersection graph, arXiv:1501.01489v1 (2015), Sec. 2, especially the conditional degree definition and mean/variance computations.",
+      "H. Acan, An Enumerative-Probabilistic Study of Chord Diagrams (2013), PhD thesis, Sec. 3.1, pp. 23-26 (PDF pages 33-36).",
+      "H. Acan and B. Pittel, Formation of a giant component in the intersection graph of a random chord diagram, arXiv:1406.2867v1 (2014).",
+      "Exact moment/covariance and Gaussian limit law for uniform perfect-matching cut-crossing counts (scientific claim comparison only)",
+      "Conditional degree versus distance in a uniform Cayley tree (distinct probability space)",
+      "Inverse covariance for permutation inversion indicators (distinct event family)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Acan 2015 Sec. 2: conditional \\(\\deg(c)=k-2X_k\\) and its first two moments imply the displayed mean by elementary algebra, but no likelihood-ratio ordering or adjacent crossing-tail contradiction.",
+        "A separate exact cut-profile moment theorem supplies covariance and a functional limit for matching cuts; moments and scaling limits do not determine all finite-sample distributional order comparisons.",
+        "A different random-tree degree-regression result and a permutation inversion-indicator precision theorem concern distinct distributions and cannot supply the chord-degree comparison."
+      ],
+      "reasoning": "The overlap in the means is not counted as novelty. Strict MLR along same-parity lengths and first-order incomparability of all adjacent positive lengths require a full probability mass comparison and two explicit conflicting tails; these do not logically follow from the published moment or scaling claims.",
+      "searches": [
+        "uniform perfect matching crossing-edge cut profile likelihood ratio order for even separation, strict monotonicity cut-size parity",
+        "random pairing crossing cut size conditional degree MLR single crossing adjacent incomparability",
+        "random chord diagram conditional degree by shorter arc length likelihood ratio stochastic ordering parity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Acan 2015 Sec. 2 states \\(\\deg(c)=k-2X_k\\), where \\(X_k\\) counts internally paired endpoints on the shorter arc. This is exactly a cut-crossing count after relabeling.",
+        "Acan 2013 thesis Sec. 3.1 uses the same smaller-arc degree conditional distribution but computes moments and an asymptotic marginal distribution.",
+        "A related exact matching cut-crossing profile theorem evaluates its moments, covariance inverse and functional limit; those statements do not compare all finite-sample crossing-count probabilities."
+      ],
+      "reasoning": "Conditioning on the chord length leaves an exactly uniform random matching across a k versus N-k cut, so all aliases of marked-chord degree, open chords, and crossing cut profiles were considered. The analyzed older works give moments/asymptotics but do not establish the present full-law parity comparison and the two-tail adjacent obstruction.",
+      "searches": [
+        "uniform perfect matching crossing-edge cut profile likelihood ratio order for even separation, strict monotonicity cut-size parity",
+        "random chord diagram chord length conditioned crossing degree monotone likelihood ratio odd even length",
+        "open chord count in random matching increasing likelihood ratio order as cut advances 2 endpoints",
+        "random chord intersection graph degree conditional chord length 2 parity tail probability monotonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Acan 2015 Sec. 2 and Acan 2013 thesis Sec. 3.1 give conditional degree moments but no stochastic-order table by arc length.",
+        "Literature and mathematical record searches with the listed queries surfaced related work on conditional random-tree degree regression and permutation comparison indicators, but no matching or chord-degree likelihood-ratio theorem.",
+        "The related cut-crossing process moment and Gaussian-limit theorem is not an exact finite-size stochastic-order table."
+      ],
+      "reasoning": "The submitted all-parameter result is an exact algebraic order classification; not a numerical table readout. No exact already-published counterpart was identified in the inspected sources and queried indices. Absence of a retrieved record is not proof of global originality.",
+      "searches": [
+        "random chord diagram chord length conditioned crossing degree monotone likelihood ratio odd even length",
+        "open chord count in random matching increasing likelihood ratio order as cut advances 2 endpoints",
+        "random chord intersection graph degree conditional chord length 2 parity tail probability monotonic"
+      ]
+    },
+    "rationale": "The exact finite-sample parity-separated likelihood-ratio ordering and adjacent stochastic incomparability are not provided by the inspected conditional-degree mean/variance and marginal-asymptotic treatments. The matching-count method and expected degree are classical and not claimed as new. A mathematically related cut-crossing process theorem provides moments, inverse covariance and a functional limit, but no all-finite-size stochastic order classification. Literature priority is provisional because broader matching-distribution sources might imply the results.",
+    "residual_risks": [
+      "Likelihood-ratio ordering is a general concept; an unlocated general theorem for uniform perfect matchings or exchangeable pairings may imply the parity-separated claim.",
+      "Older combinatorial treatments may contain an equivalent probability-ratio simplification without matching the terms chord length or likelihood ratio.",
+      "Independent literature and correctness auditing has not been undertaken."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME MODEL: conditional degree mean/variance and asymptotic marginal law. NO directly stated or logically dominating finite-n parity-wise likelihood-ratio ordering or adjacent-order incomparability.",
+        "evidence": "Sec. 2 defines \\(X_k\\), uses \\(\\deg(c)=k-2X_k\\), and gives its mean and variance in Eq. (2.1)–(2.2); Thm. 2.1 gives the asymptotic marginal degree law.",
+        "identifier_or_url": "https://arxiv.org/abs/1501.01489",
+        "material_read": "Full freely available Section 2, definitions, equations (2.1)–(2.3), Theorem 2.1 and proof, plus introduction and referenced scope",
+        "method": "Open arXiv full-text rendering and original PDF Section 2",
+        "title": "On a uniformly random chord diagram and its intersection graph",
+        "trigger": "Identical distinguished chord degree and shorter-arc length statistic"
+      },
+      {
+        "assessment": "Identical conditional statistic is considered but no MLR or adjacent incomparability result in inspected target section.",
+        "evidence": "Definition 3.1.1 defines shorter-arc length; Theorem 3.1.3 gives asymptotic degree law.",
+        "identifier_or_url": "https://etd.ohiolink.edu/acprod/odb_etd/ws/send_file/send?accession=osu1373310487&disposition=inline",
+        "material_read": "Chapter 3.1 pp. 23–26 (PDF pp. 33–36), including conditional length distribution, moments and degree-limit theorem",
+        "method": "Read accessible original thesis PDF text and inspected a page screenshot",
+        "title": "An Enumerative-Probabilistic Study of Chord Diagrams",
+        "trigger": "Older doctoral treatment of the same marked-chord degree problem"
+      },
+      {
+        "assessment": "Counts global crossings and analyzes components; does not formulate a conditional one-chord degree likelihood-ratio result.",
+        "evidence": "Main scope is giant component as the aggregate crossing count varies.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.2867",
+        "material_read": "Accessible full preprint introduction and statements concerning global crossings and components",
+        "method": "ArXiv open preprint text/PDF",
+        "title": "Formation of a giant component in the intersection graph of a random chord diagram",
+        "trigger": "Related primary source for uniform chord intersection graph and crossing structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a5798d3-e263-4426-8ee2-8664d743ab3d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Degree of a uniformly sampled chord conditional on its geometric shorter-arc span is a natural local network statistic studied in primary literature. The theorem supplies sharp all-n finite-sample distributional control along parity classes and demonstrates that *every* adjacent positive length comparison is stochastically incomparable in spite of increasing mean; both features matter for predicting tails from span. The result is not just an expectation identity or an arbitrary small-parameter census.",
+    "status": "PASS"
+  }
+}
