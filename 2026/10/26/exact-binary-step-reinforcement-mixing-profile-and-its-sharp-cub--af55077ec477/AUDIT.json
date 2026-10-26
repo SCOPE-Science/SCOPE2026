@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The original increment-history process couples exactly to percolated random recursive trees. Conditional binary parity expectation is 1 precisely when every forest component has even size, otherwise 0. Increasing-tree decomposition by root-component parity proves A'=e^A sinh(alpha B), B'=e^A cosh(alpha B), with unique formal coefficients and q_n=n[z^n]A. The change u=tanh(B/3) gives z=3u-u^3 at alpha=1/3, and Lagrange inversion yields the binomial sum. A negative-binomial CLT with mean m and variance 3m/2 proves the leading (3/4)4^{-m} TV constant. Standalone exact-rational code independently matches 60 coefficients with forest recursions and 30 cases with direct increment-history enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.07207v1 Section 1 establishes exponential convergence and cycle/hypercube asymptotic mixing; Section 2 gives forest representation and Section 4.5 estimates cluster-dependent Fourier damping.",
+        "arXiv:2604.07227v1 proves transition-probability bounds in a generalized group model; arXiv:1512.05275v1 derives root-cluster and generation size moments."
+      ],
+      "reasoning": "The claimed finite-time all-even-component probability and its sharp 1/3 coefficient are not corollaries of the published numerical mixing bounds or finitely many cluster moments. The common representation is shared background, not an independent new fact.",
+      "searches": [
+        "step reinforced random walk on Z2 exact total variation distance all even times generating function cosh alpha cluster parity",
+        "step-reinforced random walks mixing time Peres Qin 2026 memory eigenvalues critical",
+        "\"Random recursive trees and the elephant random walk\" Kürsten 2016 cluster even partition generating function"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.07207v1 (full-text HTML, relevant sections)",
+      "arXiv:2604.07227v1 (full-text HTML, relevant sections)",
+      "arXiv:1512.05275v1 (full-text HTML, relevant sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (17) of arXiv:2604.07207v1 implies that binary parity Fourier expectation equals probability all component sizes are even, and the even/odd support observation follows immediately.",
+        "The source Example 1.1 notes a nonzero binary bias at the second step but does not compute the all-time binary bias.",
+        "The present result explicitly proves an increasing-tree differential recursion, the cubic inverse z=3u-u^3 at alpha=1/3, and a negative-binomial representation yielding the sharp constant."
+      ],
+      "reasoning": "We exclude the already implied forest representation and parity observation from the novelty claim. Neither primary source’s bound determines exact coefficients or the (3/4)4^{-m} leading term; these require mathematically additional steps. A broad future forest-enumeration reference remains a risk.",
+      "searches": [
+        "step reinforced random walk on Z2 exact total variation distance all even times generating function cosh alpha cluster parity",
+        "\"step reinforced random walk\" Fourier coefficient \"partition\" \"cluster\"",
+        "\"step-reinforced\" \"finite group\" \"coprime\" \"uniform\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The finite-group source states S_n as a cluster-size-weighted sum of fresh labels (equation 17) and gives a binary nonmonotonicity example at n=2.",
+        "The derived all-even cluster generating-function ODE and its 1/3 binomial-coefficient inversion are different statements from the forest identity and were not located in source results."
+      ],
+      "reasoning": "The forest parity indicator is an immediate equivalent reduction and is NOT offered as the novelty. To recover the claimed exact profile requires an enumeration of all decorated increasing trees by parity, an ODE derivation and Lagrange inversion; the source forest identity alone does not supply their probability law.",
+      "searches": [
+        "step reinforced random walk on Z2 exact total variation distance all even times generating function cosh alpha cluster parity",
+        "step-reinforced binary Haar walk exact generating function even component random recursive forest",
+        "\"step-reinforced random walk\" \"exactly uniform\" marginal finite",
+        "\"step-reinforced\" \"uniform\" \"odd\" \"even\" finite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The two 2026 primary references provide bounds rather than a tabulated exact binary profile.",
+        "The 2015 forest-coupling paper treats root-cluster moments rather than a probability that every forest component is even.",
+        "The exact binomial expression follows by formal power-series inversion and applies to all even lengths, not by recomputing a finite table."
+      ],
+      "reasoning": "No directly matching database formula or exact coefficient table was located by the listed searches; absence of a match is not treated as proof of priority. The infinite closed formula is independently proved.",
+      "searches": [
+        "recursive forest percolation all even sized components differential equations log cosh and 1/3 mixing",
+        "step-reinforced binary Haar walk exact generating function even component random recursive forest",
+        "\"even components\" \"random recursive tree\" percolation generating function"
+      ]
+    },
+    "rationale": "The finite-group paper explicitly supplies the forest representation and a mixing estimate, which cover the easy parity-event reduction; these are acknowledged as prior work. The new contribution is the all-even forest-component weighted increasing-tree system, its integrable cubic inverse at 1/3, exact sum for every even time, and sharp nonzero prefactor. Relevant primary full texts were inspected in their relevant sections and no equivalent full profile was found. Terminology risk remains.",
+    "residual_risks": [
+      "A forest-enumeration or Yule--Simon species literature formula under different terminology may already imply the full all-even-component generating system or its cubic case.",
+      "The basic parity-forest equivalence is directly implied by known forest representations and is not claimed as independently original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BACKGROUND_AND_PARTIAL_IMPLICATION_ONLY",
+        "evidence": "Example 1.1 addresses the second-time bias; equation (17) expresses the walk via forest component sizes; Theorem and proof discuss asymptotic mixing rather than an all-even-component EGF or cubic closed profile.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.07207",
+        "material_read": "Full-text HTML: abstract and Section 1 (definitions and main results), Section 2 (random-forest coupling, equations 11 and 17), Section 3 introductory cluster description, and Section 4.5 (Fourier mixing argument).",
+        "method": "Compared binary finite-time claims, forest identity, probability enumeration and theorems on exact vs exponential mixing.",
+        "title": "Mixing times of step-reinforced random walks",
+        "trigger": "Exact same finite binary group walk, including the authors’ nonmonotonic-mixing example."
+      },
+      {
+        "assessment": "BOUNDS_NOT_EXACT_PROFILE",
+        "evidence": "The authors derive group transition-probability bounds and forest coupling; no all-even-component generating system or alpha=1/3 exact coefficient formula was identified in those relevant sections.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.07227",
+        "material_read": "Full-text HTML: introductory statements, Sections 1.1--1.2, Section 2.1 forest representation and the proof of transition-probability bounds.",
+        "method": "Checked whether its general transition estimates determine the binary exact all-time coefficients.",
+        "title": "Transition probabilities of step-reinforced random walks",
+        "trigger": "Companion primary result with recursive-forest and transition-probability framework."
+      },
+      {
+        "assessment": "COUPLING_PRIOR_ART_NO_ALL_EVEN_PROFILE_FOUND",
+        "evidence": "The work explicitly computes first and second moments and selected cluster expectations, not the weighted count of trees whose every percolation component is even.",
+        "identifier_or_url": "https://arxiv.org/abs/1512.05275",
+        "material_read": "Full-text HTML: Introduction, Sections II--IV (the forest representation and enumerated root-cluster moments), conclusions, plus targeted searches for generating functions and even components.",
+        "method": "Compared the counted observables (root-cluster size moments) with the joint evenness event for all components.",
+        "title": "Random Recursive Trees and the Elephant Random Walk",
+        "trigger": "Historical primary source of the recursive-tree/percolation coupling; possible alternative formulation of the same event."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af55077e-c477-4ef9-a98b-55515b3f1381",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest nontrivial finite-group example used to demonstrate nonmonotone reinforced mixing acquires a complete exact finite-time mixing profile, a general computable generating-function representation and a sharp decay constant at the first nontrivial polynomial-integrability parameter alpha=1/3. This distinguishes infinitely many exactly uniform odd times from exponentially small but strictly positive even-time defects and quantifies both exponent and prefactor beyond the available broad exponential bounds. The cubic parameter is structurally motivated by polynomial inversion, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
