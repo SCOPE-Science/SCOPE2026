@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** Every parity-check representation reduces by a choice of independent check rows to standard coordinates plus arbitrary dependent checks; this is a column permutation because Hamming parity-check columns exhaust all nonzero vectors. An explicit induced four-cycle excludes zero redundant rows for every redundancy at least four. Exact enumeration of 31 functionals in dimension five and all 63 singles and 1953 distinct pairs in dimension six excludes smaller augmentations, using the established maximum-cardinality-search chordality criterion. Induced-subgraph inheritance extends these finite exhaustive obstructions to every higher dimension. Grouped-coordinate check-row constructions attain the exact row minima through redundancy six. The standalone checker returned `VERIFY_OK`.
+
+**Originality (O): PASS, with limited full-text coverage.** The direct 2026 source introduces the concept of chordal code parity-check representations and motivates elimination-cost questions, but the accessible abstract does not report an exact Hamming check-row cost or these bounds. The standard MCS reference concerns graph testing, not Hamming representations. The searches and comparisons listed in `AUDIT.json` found no equivalent Hamming check-row threshold among accessible records. The full text of the motivating 2026 source could not be inspected; a covered example or stronger result remains a documented risk, not a negative full-text comparison.
+
+**Value (V): PASS.** Counting the extra linear equations necessary to obtain a chordal representation is a natural complexity-versus-redundant-check invariant for an important family of optimal distance-three perfect codes. The result identifies the first unavoidable nonchordality, quantifies its exact repair cost at three successive redundancies, and proves uniform obstructions for every larger redundancy. It is not just a graph census on arbitrary chosen small matrices: the enumeration covers *all* equivalent presentations in the stated dimensions.
+
+**Limitations.** This assesses column-primal chordality and row count only. The exact minimum is unknown here above redundancy six, full text of the motivating paper was unavailable, and independent assessment may identify overlooked literature.
+
+Self-review: passed. Independent audit: not yet performed.

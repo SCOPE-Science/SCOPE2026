@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Exact canonical-form argument reduces every full-rank Hamming parity-check presentation to coordinate-basis rows plus dependent functionals. Four explicit nonzero columns induce a chordless four-cycle for r>=4. The standard-library verifier exhaustively checks all 31 single augmentations for r=5 and all 63 singles/1953 distinct pairs for r=6 by exact parity adjacency and MCS plus perfect-elimination verification, not sampling. Induced-subgraph closure lifts finite exclusions to all larger r. Pairwise-check grouped-coordinate constructions give chordal witnesses at r=3,4,5,6. The actual checker returned VERIFY_OK. Ranges: exact r=3..6; lower bounds r>=4,5,6 respectively.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Guo–Li–Zhu, Chordal Codes (arXiv:2610.17934), abstract discusses chordal decoding submatrix and complexity, not classical Hamming row minimization.",
+        "Searches for Hamming plus chordal check rows did not locate a statement proving these bounds."
+      ],
+      "reasoning": "General definitions of chordal codes and faster elimination do not automatically determine whether the exact Hamming code has a chordal realization using r, r+1, or r+2 dual rows. Full text of the closest source was not accessible; absence of coverage is qualified to the material actually examined.",
+      "searches": [
+        "Hamming code redundant parity checks chordal completion r=4 r=5 r=6",
+        "\"Chordal Codes\" \"Hamming\" \"parity-check\" \"graph\" Chen Guo",
+        "site:arxiv.org/abs/2610 \"chordal\" \"Hamming\" codes",
+        "arXiv:2610.17934"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.17934",
+      "https://doi.org/10.1137/0213035",
+      "published-finding corpus:2026/10/4/SCOPE-generation-profiles-of-cyclic-binary-hamming-codes-collapse-by-p--089d7cd75f06"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tarjan–Yannakakis DOI:10.1137/0213035 supplies MCS chordality checking but does not determine minima over linear-code parity-check presentations.",
+        "Chen et al. arXiv:2610.17934 abstract does not give a Hamming-specific equivalence or exact minimum."
+      ],
+      "reasoning": "Even assuming an arbitrary chordal decoding property for a given parity-check representation, no exact Hamming representation count follows; the finite exhaustive parameter-space check and grouped check-row upper witnesses are additional work. A hidden exact Hamming case in unavailable source would dominate this claim; that remains the main unresolved literature risk.",
+      "searches": [
+        "arXiv:2610.17934",
+        "Tarjan Yannakakis 1984 maximum cardinality search chordality",
+        "published-finding corpus:2026/10/4/SCOPE-generation-profiles-of-cyclic-binary-hamming-codes-collapse-by-p--089d7cd75f06"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 source arXiv:2610.17934 abstract defines chordal code representations, but no invariant counting minimum equivalent check rows.",
+        "Closest published-finding corpus: 2026/10/4/SCOPE-generation-profiles-of-cyclic-binary-hamming-codes-collapse-by-p--089d7cd75f06 concerns symbol-pair generation radius of cyclic Hamming codes, not chordal primal graphs."
+      ],
+      "reasoning": "The target claim concerns the minimum number of *row-space-equivalent* parity-check equations whose common-ones column intersection graph is chordal; rephrases as minimum extra dual checks to triangulate all Hamming columns. Neither an exact Hamming generation profile nor MCS chordality detection implies a minimum such row count.",
+      "searches": [
+        "minimum redundant parity check rows chordal primal graph binary Hamming perfect code",
+        "primal graph chordality intersection support graph nonzero parity-check columns of Hamming code",
+        "binary linear code support intersection graph chordal characterization",
+        "published-finding corpus:2026/10/4/SCOPE-generation-profiles-of-cyclic-binary-hamming-codes-collapse-by-p--089d7cd75f06"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned unrelated perfect-code, pair-radius and covering-code profiles rather than a table of Hamming check-row chordality thresholds.",
+        "No matching small-parameter table was found in available search results."
+      ],
+      "reasoning": "The finite values (3,5,7,9) are stated for an extremal count of parity-check equations, not for classical Hamming code dimensions, weight distributions or minimum distances. Failed searches alone do not establish originality; direct logical coverage comparisons were made.",
+      "searches": [
+        "minimum redundant parity check rows chordal primal graph binary Hamming perfect code",
+        "Hamming code redundant parity checks chordal completion r=4 r=5 r=6",
+        "published-finding corpus:Hamming code redundant parity checks chordal completion r=4 r=5 r=6"
+      ]
+    },
+    "rationale": "The 2026 motivating source introduces chordal parity-check matrices and decoding complexity; its available abstract does not state the minimum redundant-check count for classical Hamming codes. Earlier Tarjan-Yannakakis establishes the chordality algorithm, not the coding invariant. published-finding corpus semantic searches of row-minimization, primal graph representations, codeword-support intersection and Hamming equivalents returned different graph/coding invariants. No equivalent checked statement was identified. The source full text was unavailable and may hide a related construction: this is a documented residual risk rather than a fabricated negative full-text inspection.",
+    "residual_risks": [
+      "The full arXiv text of the primary 2026 chordal-codes paper could not be obtained; it may include a relevant Hamming example or stronger result.",
+      "Unindexed literature about minimum chordal representations of Hamming codes may cover the statement.",
+      "The row-count invariant does not measure decoding cost directly; it only measures equation overhead."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact Hamming minimum-row formula in material read; no whole-document noncoverage claim.",
+        "evidence": [
+          "arXiv:2610.17934 first posted 2026-10-13",
+          "The abstract describes chordal primal graphs of parity-check matrices, erasure submatrices and Gaussian-elimination complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.17934",
+        "material_read": "Title, arXiv first-submission date, authors, abstract; full paper was inaccessible.",
+        "method": "arXiv abstract and two lawful OA mirrors; attempted full arXiv PDF/HTML; institutional retrieval unavailable.",
+        "title": "Chordal Codes: Code Construction and Efficient Gaussian-Elimination Decoding",
+        "trigger": "Direct motivating 2026 chordal code paper defining relevant graph and coding representations"
+      },
+      {
+        "assessment": "Supports checker algorithm; not a theorem on Hamming check-row costs.",
+        "evidence": [
+          "Tarjan–Yannakakis, SIAM Journal on Computing 13 (1984), 566–579.",
+          "MCS tests chordality by checking a perfect elimination order."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0213035",
+        "material_read": "Bibliographic abstract plus independently sourced description of maximum-cardinality-search and PEO theorem.",
+        "method": "SIAM abstract and public lecture notes/description of MCS and the chordality criterion.",
+        "title": "Simple Linear-Time Algorithms to Test Chordality of Graphs, Test Acyclicity of Hypergraphs, and Selectively Reduce Acyclic Hypergraphs",
+        "trigger": "Critical algorithm theorem used in finite exhaustive certificate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b54a982-8a3f-41c0-ab86-f57b551c9fb6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural efficiency question for the new chordal decoding paradigm is the extra parity-check equation overhead needed to make a fixed classical code graph chordal. Hamming codes are canonical perfect distance-three codes. This theorem identifies the first nonchordal redundancy, sharp repair costs at three successive redundancies, and induced-subgraph lower bounds that remain true for every larger Hamming code. The exact invariant is not an arbitrary code instance, and the finite checks enumerate all row-space-equivalent presentations in each target dimension.",
+    "status": "PASS"
+  }
+}
