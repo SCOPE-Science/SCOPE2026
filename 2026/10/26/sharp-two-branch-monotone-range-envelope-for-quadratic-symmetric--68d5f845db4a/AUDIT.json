@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The orthogonal basis and beta moments give the explicit kernel. Direct tail integration yields formula (1). Quadratic maximization exhausts all evaluation points and the factored derivative identifies all step maxima, including boundaries. Positive Stieltjes mixtures exhaust bounded monotone inputs; reflection proves the lower bound. Exact algebra and direct quadrature were independently compared by the standalone checker. Finite checks corroborate but are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xiang (2021), SIAM J. Numer. Anal. 59, 1374–1398, DOI:10.1137/20M134407X, abstract",
+        "Kaber (2006), full text, long-degree universal Gibbs constant",
+        "Kopotun et al. arXiv:1109.0968, shape-preserving approximation"
+      ],
+      "reasoning": "Convergence/error estimates for Jacobi partial sums, the classical infinite-degree overshoot, and rates for best monotone approximation do not yield a fixed-degree sharp pointwise envelope over every monotone function; no dominating exact theorem was identified.",
+      "searches": [
+        "Jacobi Gegenbauer finite degree 2 projection monotone functions exact positivity overshoot constant step functions orthogonal projection",
+        "monotone input L2 polynomial projection degree 2 sharp overshoot range Jacobi measure Gegenbauer",
+        "Convergence Rates on Spectral Orthogonal Projection Approximation for Functions of Algebraic and Logarithmatic Regularities"
+      ]
+    },
+    "checked_sources": [
+      "https://www.acadsol.eu/en/articles/10/2/3.pdf",
+      "arxiv:1109.0968v1",
+      "arxiv:1207.4524v1",
+      "doi:10.1137/20M134407X",
+      "doi:10.1016/j.jmaa.2021.125574",
+      "2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445",
+      "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kaber (2006) results apply to limit of large degrees for sign jumps, not every jump at degree two",
+        "Kopotun et al. 2011 study approximants chosen to preserve shape",
+        "Calderón–Urbina 2012 studies Abel-summed operators, not unmodified quadratic projector",
+        "Xiang 2021 controls convergence rates, not optimal finite-degree range constants"
+      ],
+      "reasoning": "Neither convergence as degree grows nor shape-constrained optimization implies the exact finite-dimensional sharp envelope of the unmodified projector. Conversely, the present statement does not imply their convergence or best-approximation theorems.",
+      "searches": [
+        "monotone input L2 polynomial projection degree 2 sharp overshoot range Jacobi measure Gegenbauer",
+        "finite degree Legendre least squares projection monotone signal Gibbs range violation endpoint global maximizer",
+        "arxiv:1109.0968v1 Jacobi constrained shape preserving approximation",
+        "arxiv:1207.4524v1 Abel summability Jacobi kernel"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaber (2006), The Gibbs Phenomenon for Jacobi Expansions, full text, §§2–4",
+        "Kopotun et al., arXiv:1109.0968v1, §§1–2",
+        "Calderón–Urbina, arXiv:1207.4524v1, introduction and Jacobi kernel"
+      ],
+      "reasoning": "The same assertion could be phrased as the restricted cone norm or range defect of the degree-two Gegenbauer spectral projector, or as optimized overshoot of a single jump. Kaber addresses a distinct asymptotic, fixed-jump regime; shape-preserving approximations and Abel summability do not supply the exact all-jump degree-two envelope.",
+      "searches": [
+        "sharp overshoot global quadratic Legendre L2 orthogonal projection on nondecreasing bounded functions step extremizer (27+3 sqrt 6)/25",
+        "finite degree Legendre least squares projection monotone signal Gibbs range violation endpoint global maximizer",
+        "Legendre polynomial projection Lebesgue function monotone cone norm",
+        "published findings: Jacobi quadratic orthogonal projection monotone cone bound; ultraspherical Gibbs sharp finite truncation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed 2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445",
+        "Indexed 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+      ],
+      "reasoning": "The exact formulas \\(E(q),I(q)\\) depend on incomplete beta tails for a continuous Jacobi weight parameter, not numerical tables of degree-two Lagrange interpolation or finite simplex projection; no matching exact table was found.",
+      "searches": [
+        "exact range constant monotone polynomial least squares approximation step function 3 modes",
+        "Legendre polynomial projection Lebesgue function monotone cone norm",
+        "published indexed findings: sharp monotone range defect uniform four-point cubic Lagrange interpolation",
+        "published indexed findings: affine least squares projector simplex positivity defect"
+      ]
+    },
+    "rationale": "A source/claim/alias search of indexed findings and original mathematical literature did not identify an equivalent exact two-branch sharp envelope or a stronger theorem implying it. Full Kaber paper was materially examined; two directly relevant arXiv full-text introductions and constructions were read. Shape-preserving approximation, asymptotic Gibbs overshoot, and Jacobi spectral convergence rates have logically different quantifiers and operators. Bibliographic coverage cannot be exhaustive, leaving residual risk.",
+    "residual_risks": [
+      "An equivalent result could occur in unindexed or non-digitized literature.",
+      "Full text of Xiang (2021) and Davis–Hagelstein (2022) was not read; their abstracts concern different questions but do not definitively rule out incidental finite-degree results.",
+      "This work does not establish the number of parameter crossings beyond existence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not present a globally sharp degree-two monotone range envelope; concerns large-degree Gibbs behavior of a sign jump",
+        "evidence": "Kaber (2006), theorem on universal limit and closing discussion",
+        "identifier_or_url": "https://www.acadsol.eu/en/articles/10/2/3.pdf",
+        "material_read": "Full 16-page public PDF, with examination of the theorem, proof setup and conclusion, including displayed screenshots of relevant pages",
+        "method": "Read original PDF text and visually inspect pages 1, 7, 12 and 16",
+        "title": "The Gibbs Phenomenon for Jacobi Expansions",
+        "trigger": "Potential directly covering Gibbs result on Jacobi spectral sums"
+      },
+      {
+        "assessment": "Concerns constrained approximants, not ordinary degree-two Jacobi orthogonal projection",
+        "evidence": "Kopotun, Leviatan, Prymak, Shevchuk (2011), Introduction",
+        "identifier_or_url": "arxiv:1109.0968v1",
+        "material_read": "Public HTML rendering, abstract and relevant opening sections describing scope",
+        "method": "Inspect original arXiv full-text HTML and formulation of shape-preservation approximation problems",
+        "title": "Uniform and Pointwise Shape Preserving Approximation by Algebraic Polynomials",
+        "trigger": "Overview and classical context of monotone polynomial approximation"
+      },
+      {
+        "assessment": "Abel means and Watson kernel, not raw degree-two orthogonal projection or sharp monotone envelope",
+        "evidence": "Calderón and Urbina (2012), introductory definitions and results",
+        "identifier_or_url": "arxiv:1207.4524v1",
+        "material_read": "Public arXiv HTML full-text introduction and kernel definitions",
+        "method": "Inspect original arXiv full-text HTML",
+        "title": "On Abel Summability of Jacobi Polynomials Series, the Watson Kernel and Applications",
+        "trigger": "Jacobi-kernel study with possible positivity coverage"
+      },
+      {
+        "assessment": "Rates for approximation of singular functions; full-text absence prevents asserting no equivalent content in appendices",
+        "evidence": "Xiang (2021), SIAM Journal on Numerical Analysis 59, abstract",
+        "identifier_or_url": "doi:10.1137/20M134407X",
+        "material_read": "Publisher abstract and bibliographic metadata only",
+        "method": "Inspect public abstract",
+        "title": "Convergence Rates on Spectral Orthogonal Projection Approximation for Functions of Algebraic and Logarithmatic Regularities",
+        "trigger": "Jacobi projection literature with possibility of broader coverage"
+      },
+      {
+        "assessment": "Asymptotic Gibbs phenomena; full-document exact finite-degree tables not ruled out",
+        "evidence": "Davis and Hagelstein (2022), journal abstract",
+        "identifier_or_url": "doi:10.1016/j.jmaa.2021.125574",
+        "material_read": "Publicly accessible abstract and bibliographic summary",
+        "method": "Inspect abstract",
+        "title": "Gibbs phenomena for some classical orthogonal polynomials",
+        "trigger": "Classical orthogonal polynomial Gibbs overshoot"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68d5f845-db4a-4b32-b1c6-5a9e2a27f3f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp range loss of an unconstrained spectral projector on ordered data is a natural quantitative stability invariant, not determined by general best-approximation rates. The complete two-branch parameter family, all extremizers and a change in worst-case geometry yield useful exact bounds for all symmetric Jacobi weights. No claim of a unique crossing or higher-degree theorem is needed for this value.",
+    "status": "PASS"
+  }
+}
