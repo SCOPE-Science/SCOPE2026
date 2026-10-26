@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The complete elementwise formula follows from three explicit idempotent equations and a single square-zero convolution coefficient. The free-arm count with unequal endpoint bits is an affine-linear rank computation; with equal endpoint bits it is an exact finite-field dot-product count, including the zero vector. The sharp comparison holds for every \(r\ge2\) and every prime power. The independent literal-convolution checker exhausts 7,800 parameter fibers in six fields/posets, including characteristic two and \(\mathbb F_4\). The finite tests corroborate rather than replace the proof.
+
+**Originality — PASS, subject to stated risks.** Basnet–Bhattacharyya define unrestricted nil-clean multiplicity and focus on small indices, whereas the claim demands a square-zero remainder. Khripchenko and subsequent triangular-matrix literature describe idempotents but do not, in material available for inspection, determine this restricted isotropic section. An existing full diagonal-idempotent fiber count in split basic algebras implies the unrestricted maximum \(q^{2r}\) but not the restriction count. Exact-result searches for the branched-poset and square-zero equations found no dominating statement. The full text of a plausible triangular-idempotent source was inaccessible, and priority beyond available sources remains uncertain.
+
+**Value — PASS.** The order-two nilpotence constraint turns a free idempotent orbit into a quadratic isotropic section. For every \(r\ge2\), the exact index is smaller than the unrestricted index but larger than the largest fiber with opposite endpoint diagonals. The first diamond case gives the concrete non-power multiplicity \(10\) over \(\mathbb F_2\), while the general formula quantifies the transition for an unbounded family of natural finite incidence algebras.
+
+Self-review: passed. Independent audit: not yet performed.
