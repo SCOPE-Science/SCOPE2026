@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The conjugate is derived from the maximizer \\(t=s/(r+s)\\) for positive \\(s\\) and extended by evenness. The gap identity follows by direct substitution. Since \\(t-\\log(1+t)=t^2/2+O(t^3)\\), the gap tends to zero as \\(x_n^{-2}\\), while \\(F'(2\\pi n)=1\\) exactly. The objective is bounded below, \\(f\\) has 1-Lipschitz gradient, and \\(g\\) is prox-bounded with threshold 1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The target paper explicitly states that its analysis does not obtain rates for standard stationarity measures and that conversion is possible in most cases; arXiv:2605.11850v1, Remark 4.6.",
+        "The later GA-BPG paper establishes a rate for a BPG stationarity residual under relative smoothness and a convex nonsmooth term; it does not use this \\(D_{\\phi^*}\\) gap or the same nonconvex prox-bounded decomposition; arXiv:2609.34773v1."
+      ],
+      "reasoning": "The present claim narrows the general caveat to an explicit, smooth, lower-bounded objective with a prox-bounded nonconvex regularizer. It does not imply or contradict the algorithmic convergence theorems in either paper.",
+      "searches": [
+        "arXiv:2605.11850v1, Assumption 2.1, Example 2.3, Theorem 4.3, Remark 4.6",
+        "arXiv:2609.34773v1, Sections 1–2 and nonconvex stationarity discussion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.11850v1",
+      "arXiv:2609.34773v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The target source remarks that its gap analysis does not generally yield standard stationarity rates but does not display this exact example in the inspected sections.",
+        "The GA-BPG result concerns a different proximal residual and convex nonsmooth term; it does not imply a lower error bound for the target gap."
+      ],
+      "reasoning": "The prior results motivate the distinction but do not imply the explicit formula or the impossibility of a uniform global error-bound function for this objective class. The proof is self-contained and establishes only that precise claim.",
+      "searches": [
+        "arXiv:2605.11850v1, Remark 4.6 and Example 2.3",
+        "arXiv:2609.34773v1, Sections 1–2",
+        "D phi star stationarity gap nonconvex proximal gradient Bregman divergence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target paper defines the gap as \\(\\operatorname{gap}(x)=D_{\\phi^*}(\\nabla f(x),-\\widetilde{\\nabla}g(x))\\) and uses a reference function whose conjugate gradient saturates; arXiv:2605.11850v1.",
+        "The explicit formula here reduces to \\(r[t-\\log(1+t)]\\) for arguments separated by one and tending to +infinity; this is not a reformulation of Euclidean gradient norm."
+      ],
+      "reasoning": "The Bregman divergence is a valid nonnegative metric-like quantity and vanishes only when its arguments coincide at finite points, but this does not provide a uniform lower bound in terms of their difference as the arguments escape to infinity. The constructed arguments differ by one while the divergence tends to zero.",
+      "searches": [
+        "asymptotically linear convex conjugate Bregman divergence does not control gradient residual nonconvex stationarity gap",
+        "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives Bregman gap standard stationarity measure",
+        "nonconvex composite optimization Bregman divergence stationarity measure bounded gradient preconditioner counterexample",
+        "arXiv:2605.11850v1, Example 2.3 and Section 4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary-source index inspected: arXiv records arXiv:2605.11850v1 and arXiv:2609.34773v1; neither inspected paper states the same reference-function/decomposition/sequence formula.",
+        "The nearest indexed Bregman-zone result concerns a different kernel and trajectory, not the same gap-to-residual implication.",
+        "A nearby Moreau-merit conditioning result studies a different objective and implication."
+      ],
+      "reasoning": "A bounded semantic literature search returned adjacent Bregman and merit-function records but no result with the same reference function, decomposition, sequence, or exact gap-to-residual separation. The search is not exhaustive and absence is not treated as novelty proof.",
+      "searches": [
+        "asymptotically linear convex conjugate Bregman divergence does not control gradient residual nonconvex stationarity gap",
+        "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives Bregman gap standard stationarity measure"
+      ]
+    },
+    "rationale": "The claim is a concrete exact obstruction for the particular conjugate-Bregman gap, not a claim that all Bregman stationarity measures fail. The inspected target paper supplies the gap definition and a saturating barrier map; the explicit composite example and asymptotic separation are derived here. Similarity search is used only as overlap evidence, not as a novelty proof.",
+    "residual_risks": [
+      "The comparison search is bounded; absence from search results is not proof of novelty.",
+      "The result is pointwise and does not establish that a particular algorithm trajectory visits the constructed sequence.",
+      "Stronger assumptions may permit problem-specific conversion from the geometry-specific gap to a Euclidean residual."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports the gap definition and saturating barrier map; the inspected sections do not state the exact counterexample or asymptotic separation proved here.",
+        "evidence": [
+          "arXiv:2605.11850v1: first public 2026-05-12; MSC 65K05, 49J52, 90C30.",
+          "arXiv:2605.11850v1, Example 2.3: the scalar conjugate map has the form \\(\\nabla\\phi^*(s)=s/(r+|s|)\\).",
+          "arXiv:2605.11850v1, Section 4.1 and Remark 4.6: definition of the gap and limitation regarding standard stationarity measures."
+        ],
+        "identifier_or_url": "arXiv:2605.11850v1",
+        "material_read": "Primary arXiv HTML full text: assumptions, barrier example, stochastic gap definition, convergence theorem, and remark on standard stationarity.",
+        "method": "Reconstructed the conjugate of the displayed barrier reference function and substituted an explicit composite objective into the gap definition.",
+        "title": "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives",
+        "trigger": "Primary source defining the geometry-specific gap and barrier reference function."
+      },
+      {
+        "assessment": "Related but not equivalent: the paper studies a BPG residual under relative smoothness with a convex nonsmooth term, rather than the conjugate-Bregman gap with a nonconvex prox-bounded regularizer used here.",
+        "evidence": [
+          "arXiv:2609.34773v1, Sections 1–2: objective class f+rho with convex rho.",
+          "arXiv:2609.34773v1, introduction: nonconvex stationarity-residual rate and assumptions."
+        ],
+        "identifier_or_url": "arXiv:2609.34773v1",
+        "material_read": "Primary arXiv HTML full text: abstract, introduction, problem formulation, assumptions, and description of the nonconvex stationarity result.",
+        "method": "Compared the problem class and stationarity object to the proposed conjugate-Bregman-gap counterexample.",
+        "title": "Accelerated Bregman Proximal Gradient Methods from Dual Geometric Perspectives",
+        "trigger": "Recent primary literature on stationarity measures under Bregman geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "96d36789-43ec-4b60-9ff4-e7458954d905",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The example gives a concrete mathematical boundary for interpreting convergence in a geometry-specific gap as Euclidean stationarity. It is useful for choosing/reporting stopping metrics: a uniform conversion requires additional boundedness or error-bound assumptions, and the result does not overclaim failure of any particular algorithm trajectory.",
+    "status": "PASS"
+  }
+}
