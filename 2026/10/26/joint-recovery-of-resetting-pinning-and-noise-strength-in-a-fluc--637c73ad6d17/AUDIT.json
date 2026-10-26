@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "With flat whole-profile Poisson resets, the stationary age is Exp(r) and point evaluations are conditionally Gaussian. The spatial heat-kernel resolvent gives covariance D exp(-ell sqrt(s/(2nu)))/sqrt(2nu s), with s=r+2mu. Exponential-age integration of the squared error-function conditional variance gives K=(12/pi)y atan(1/y)-3. Its derivative is strictly positive for all y>1 and endpoint values give exactly the open range. The inverse explicitly reconstructs positive mu,r,D for every admissible observable triple, so existence and uniqueness are both proved. Five independent numerical quadratures and inverse tests passed; boundary cases are excluded and not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full-reset renewal identity in arXiv:1312.5954, equation 4, is a valid generic forward integral and is explicitly credited.",
+        "Olsen, arXiv:2310.04840, sections II–IV, develops moments for a single harmonically trapped particle and a run-and-tumble particle; spatial field covariance at distinct points and its joint inverse are not presented in inspected article sections.",
+        "A previous finite-mode shared-reset fourth-cumulant result determines dimensionless mode-rate ratios but explicitly notes that absolute time scale cannot be recovered from those observables alone."
+      ],
+      "reasoning": "General forward renewal formulas imply a route to calculating moments, not the named strict global inverse theorem automatically. A continuum Fourier spectrum with uniform positive mass and a spatial covariance measurement is structurally different from scalar OU and finite-mode-only inverse data. No inspected stronger statement contains the exact claim as a corollary.",
+      "searches": [
+        "\"stochastic resetting\" \"massive\" \"Edwards Wilkinson\"",
+        "finite-dimensional Ornstein Uhlenbeck process with stochastic resetting, common reset, covariance inverse reconstruction, Gaussian mixture kurtosis",
+        "diffusive Gaussian field with mass regularization and global resetting, recovery of reset rate and mass from spectral and non Gaussian measurements",
+        "2023 \"Steady-state moments under resetting to a distribution\" arxiv"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1308.0284",
+      "https://arxiv.org/abs/1312.5954",
+      "https://arxiv.org/abs/2310.04840",
+      "https://doi.org/10.1103/PhysRevE.108.044120"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited 2013 interface-resetting source fixes \\(\\mu=0\\), where the present theorem has only an excluded boundary \\(K=12/\\pi-3\\).",
+        "The 2013 polymer source adds pinning locally rather than uniformly and does not have global Poisson resets.",
+        "The massless hard-Fourier-cutoff case has a qualitatively different kurtosis range \\((12/\\pi-3,3)\\) and identifies a cutoff at known reset rate; this theorem instead recovers both positive damping mechanisms and noise amplitude using spatial correlation."
+      ],
+      "reasoning": "The new statement is not a renaming of the massless cutoff theorem: its pointwise excess range is disjoint, except for a common unattained endpoint, and the recovered parameters differ. The common-rate finite-mode OU cumulant formula also lacks absolute time-scale identification, whereas the observed spatial covariance supplies that scale. Forward formulas are acknowledged as standard ingredients, not presented as independent novelty.",
+      "searches": [
+        "arxiv:1312.5954 2013 massless Edwards Wilkinson resetting one-point distribution",
+        "arxiv:1308.0284 2013 tagged monomer elastic pinning harmonic absorption",
+        "arxiv:2310.04840 2023 stochastic resetting harmonic trap moment identities",
+        "finite-band Edwards Wilkinson whole field resetting kurtosis sharp Fourier cutoff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2013-12-20 arXiv:1312.5954 PDF describes full-profile resets for the unpinned \\(\\mu=0\\) equation, with formulas for one-point heights (equations 2–7), not the simultaneous positive-mass inverse observables.",
+        "arXiv:1308.0284 focuses on an elastic pin acting at one tagged monomer; equations 1–7 use a local defect rather than spatially uniform mass and no global resets."
+      ],
+      "reasoning": "Equivalent wording would refer to joint identifiability of a spectral gap and global reset hazard, perhaps in the language of Rouse polymers, Ornstein–Uhlenbeck fields or Fourier modes. The searched phrases and inspected models did not exhibit this exact observation map. The absence of a search hit is not proof of novelty.",
+      "searches": [
+        "\"massive Edwards Wilkinson\" \"resetting\" kurtosis",
+        "\"massive Edwards-Wilkinson\" \"resetting\"",
+        "harmonically pinned Gaussian interface under global stochastic resetting, stationary one-point fourth cumulant and exponential two-point correlation",
+        "massive Edwards Wilkinson interface Poisson resetting to flat; mass versus resetting rate jointly identifiable from spatial covariance and stationary excess kurtosis arctangent formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted arXiv/web and published mathematical result index queries returned no table simultaneously listing the exact arctangent kurtosis range and normalized exponential spatial covariance with inverse rate reconstruction.",
+        "The 2014 massless-interface formulas give a different endpoint model; they do not tabulate the strict \\(0<K<12/\\pi-3\\) massive crossover."
+      ],
+      "reasoning": "There is no finite exact enumeration or external constants table used in the proof. No direct table coverage was identified; only a bounded searched subset was available, so further specialty sources could change this judgment.",
+      "searches": [
+        "Edwards Wilkinson interface restoring force mu Poisson resetting stationary kurtosis 12/pi-3 monotone 3 arcsin arctan",
+        "\"harmonically pinned\" \"interface\" \"resetting\" kurtosis",
+        "arxiv stochastic resetting interface harmonically pinned mass covariance fourth cumulant"
+      ]
+    },
+    "rationale": "The exact observation-domain theorem jointly determines uniform mass, global reset rate and white-noise intensity from variance, normalized separated-point covariance and standardized excess kurtosis. Inspected early massless-global-reset and locally-pinned-chain studies contain distinct models, while a generic harmonic-particle resetting-moment result does not present this continuum-field inverse image. Existing finite-band massless and finite-mode shared-reset findings do not entail this continuum-mass spatial inversion. Targeted public and published-result searches found no same complete theorem; specialization or undiscovered priority remains possible.",
+    "residual_risks": [
+      "Specialized uniform-pinning/full-profile-resetting interface papers using alternate terms may establish equivalent moments or inversion.",
+      "The partial inspection of the local-pinning arXiv paper and incomplete equation rendering in the 2023 HTML leave narrower priority uncertainty; neither supplies decisive same mathematical model coverage in read material.",
+      "No human independent literature-priority assessment or external scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Massless EW equation without uniform restoring mass; stationary height one-point scaling rather than three-parameter inverse observable image.",
+        "evidence": "arXiv:1312.5954 pp. 1–5, especially pp. 2–3 equations (1)–(7).",
+        "identifier_or_url": "https://arxiv.org/pdf/1312.5954",
+        "material_read": "Five-page arXiv v1 paper: renewal equations (2)–(4), EW equations (5)–(7), KPZ section, conclusion and reference page, with page images inspected.",
+        "method": "Opened arXiv preprint PDF and examined parsed full text with page screenshots.",
+        "title": "Fluctuating interfaces subject to stochastic resetting",
+        "trigger": "Same whole-interface Poisson resetting with one-dimensional Edwards–Wilkinson noise, directly plausible forward coverage."
+      },
+      {
+        "assessment": "Finite/local tagged-monomer pinning without independent global resetting. Distinct from uniform mass and spatial-moment inversion.",
+        "evidence": "arXiv:1308.0284 pp. 1–3, equations (1)–(7), local spring schematic.",
+        "identifier_or_url": "https://arxiv.org/pdf/1308.0284",
+        "material_read": "ArXiv v2 PDF first three pages, model definition, localized pinning equation, Gaussian covariance formula and tabulated conclusions; uninspected remaining supplement presents some residual uncertainty.",
+        "method": "Opened arXiv PDF, read text on model and pinning, inspected page image.",
+        "title": "Dynamics of a tagged monomer: Effects of elastic pinning and harmonic absorption",
+        "trigger": "Pinning of an EW/Rouse interface could plausibly dominate the mass-dependent calculation."
+      },
+      {
+        "assessment": "Provides general scalar particle forward resetting moments and a renewal framework, but not a massive spatial EW field or the claimed observable-image theorem.",
+        "evidence": "Olsen (2023), PRE 108, 044120, sections II–IV and conclusion.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.108.044120",
+        "material_read": "Open full-text HTML: abstract, sections II–IV, conclusion, with accessible displayed prose; some formula renderings omitted in scraped text.",
+        "method": "Read publisher-hosted open article text and publication details.",
+        "title": "Steady-state moments under resetting to a distribution",
+        "trigger": "Potential general domination by an all-moment resetting result for harmonic models."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "637c73ad-6d17-47af-a762-4b65a23bee9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two distinct physical mechanisms, restoring pinning and global restarting, both suppress low-frequency fluctuations and cannot be distinguished from spatial covariance alone, since it depends on r+2mu. The exact fourth-moment law separates their ratio and restores identifiability; noise intensity is recovered from variance, yielding a natural full-range three-parameter inverse theorem with sharp image inequalities. This is a motivated structural distinction between equilibrium-like pinning and nonequilibrium resetting, not merely a numerical fit or small parameter optimization.",
+    "status": "PASS"
+  }
+}
