@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof uses the paper's *full interval-projection* median convention, not a nearest-endpoint substitution. Direct substitution gives the leaf-gap recursion, invariant interior region, and exact exterior affine map. For \(s\le2/3\) every outer sign reversal decreases normalized distance by at least the fixed positive quantity \(B\), making infinitely many such reversals impossible; for \(s>2/3\), the strict invariant outer region grows in normalized displacement and alternates at every time. The geometric consensus proof and alternating-branch geometric series check all denominators and endpoints; exact-rational instances supply a separate computational check.
+
+**Originality — PASS, subject to bibliographic uncertainty.** The primary full text defines the synchronous rule and focuses on simulations and mean-field behavior, rather than median-branch identity stabilization. The closest newer convergence theorem for mixed median/average dynamics does not imply branch stabilization: it controls convergence of opinions, which holds even in this alternating construction. Asynchronous and continuous-time median results have different update mechanisms. Searches for three-path median switching, its sharp \(2/3\) coefficient, and related phrasing yielded no equivalent theorem; remaining unindexed literature risk is explicit.
+
+**Mathematical value — PASS.** This identifies a sharp, structurally motivated qualitative boundary between globally eventually fixed median selection and robust endless branch switching, on the smallest connected graph with a two-neighbor median interval. The open alternating set separates stability of opinions from stability of the discrete influence mechanism and gives an exact, interpretable consensus observable. The threshold is not just a computed orbit or an arbitrary finite slice.
+
+**Closest comparisons and limitations.** arXiv:2406.17552 Sections 2–5 and appendices; arXiv:2610.16406 Sections 2–3 and supporting analysis; arXiv:2212.08808; arXiv:2404.16318; arXiv:2408.01899. The sharp cutoff applies to a symmetric three-agent path, common \(s\), synchronous updates, and the specified median convention. A broader literature analogue may remain unindexed. No claim of independent certification is made.
+
+Self-review: passed. Independent audit: not yet performed.
