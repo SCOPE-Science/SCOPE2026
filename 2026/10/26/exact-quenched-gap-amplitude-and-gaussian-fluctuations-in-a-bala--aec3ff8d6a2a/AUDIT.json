@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Bidiagonal singular value identity and exact M=(I+S)D factorization verified algebraically; generalized discrete string has Green inverse min(i,j), confirmed by a separate 7-site exact-matrix test. Empirical atomic measures converge in Lip operator norm using summation-by-parts; their discrepancy is O_P(N^-1/2). Isolated principal continuum eigenpair solves mixed Dirichlet–Neumann ODE; first-variation coefficient is exact. Bounded triangular-array Lindeberg CLT and delta method yield variance 3π² Var(J^-2)/(32 E[J^-2]^3). The independent finite simulation agrees to sampling precision; simulation is not the proof. Assumptions include endpoint h_N=1, bounded iid disorder, nonparity-constrained gap.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bal, arXiv:0710.0363 Sec. 4, treats spectral eigenvalue correctors through abstract compact self-adjoint perturbations; our random generalized eigenvalue has the fluctuating coefficient on its mass (right) side, with discrete Dirichlet–Neumann boundary and exact Ising mapping.",
+        "Juhász–Roósz, arXiv:2309.12827, distinguishes parity-accessible epsilon1+epsilon2 from epsilon1, and reports scaling rather than this single-mode law."
+      ],
+      "reasoning": "Generic eigenvalue perturbation formulas are a methodological prerequisite but do not state the claimed model-specific amplitude or variance, and Bal’s cited differential-operator family is not a direct occurrence of this discrete generalized random-mass eigenproblem. Further abstract homogenization coverage remains a residual risk.",
+      "searches": [
+        "one dimensional stochastic Sturm Liouville rapidly oscillating density random eigenvalues central limit theorem fluctuations",
+        "Guillaume Bal central limits homogenization random media 1d general elliptic eigenvalues random coefficients eigenvalue fluctuations 2008 pdf",
+        "arXiv:0710.0363 Sec. 4",
+        "arXiv:2309.12827 Sec. II"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2206.11575v1, ar5iv HTML full text",
+      "arXiv:2007.07439v4, arXiv HTML Secs. 2–3 and Appendix A",
+      "arXiv:2309.12827v2, arXiv HTML relevant sections",
+      "arXiv:0710.0363v3, PDF introduction and spectral Sec. 4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Juhász bounds establish comparable powers of the gap but bounds do not squeeze its leading amplitude or central limit normalization.",
+        "Shirai–Tanaka z=1 moment bounds do not determine a universal amplitude or Gaussian fluctuation coefficient.",
+        "Bal provides general compact-operator eigenvalue corrector theory; this finding supplies the exact spin-chain reduction, perturbation asymptotics, and evaluation of the model-dependent covariance."
+      ],
+      "reasoning": "The conjunction of almost-sure specific prefactor and sample-to-sample CLT is stronger than exponent-only claims and not an immediate numerical substitution into any identified prior formula. Generic perturbative machinery is acknowledged rather than claimed as new.",
+      "searches": [
+        "exact bounds lowest energy gap transverse field Ising random walks Juhasz single boundary defect sharp finite-size crossover",
+        "Róbert Juhász 2022 arxiv 2206.11575 balanced disordered transverse-field Ising chain s=0 lowest fermionic gap N epsilon_N limiting pi/(2 sqrt(E[J^-2])) Gaussian CLT variance 3 pi squared Var(J^-2)/(32 E[J^-2]^3) Dirichlet Neumann random string",
+        "arXiv:2206.11575 Sec. V.2",
+        "arXiv:2007.07439 Sec. 3",
+        "arXiv:0710.0363 Sec. 4.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both source matrix representations are singular-value problems for the balanced field-coupling Ising chain; our exact equivalent generalized eigenproblem is K z=epsilon^2 diag(w) z.",
+        "Shirai–Tanaka reports z=1 for weak disorder, but does not determine the limiting constant or Gaussian variance in inspected spectral text."
+      ],
+      "reasoning": "The exact random-string representation is equivalent to the spin-chain one-fermion gap; title differences are ignored. A statement only of z=1, polynomial gap bounds, or disorder-averaged moment powers does not imply this exact prefactor and central limit variance.",
+      "searches": [
+        "exact bounds lowest energy gap transverse field Ising random walks Juhasz single boundary defect sharp finite-size crossover",
+        "correlated disorder transverse field Ising h_i=J_i harmonic mean inverse squared couplings exact scaled lowest gap Dirichlet Neumann random-mass string",
+        "arXiv:2206.11575 Sec. II and Eq. (34)",
+        "arXiv:2007.07439 Eq. (4) and Sec. 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2022 analytic bounds are in terms of random inverse-coupling sums and show the exponent; no table with the exact constant and CLT variance was found.",
+        "Finite-dimensional numerical gap checks reproduce the predicted asymptotic statistics but do not serve as originality evidence."
+      ],
+      "reasoning": "Searches of formula, model aliases, inverse-square coupling moments and the explicit variance yielded no identified table or formula for the same assertion; absence of a search hit is not itself a novelty proof.",
+      "searches": [
+        "correlated disorder transverse field Ising h_i=J_i harmonic mean inverse squared couplings exact scaled lowest gap Dirichlet Neumann random-mass string",
+        "weak disorder finite inverse-square moments central limit theorem fluctuations spectral gap transverse-field Ising chain diagonal correlated fields",
+        "Róbert Juhász 2022 arxiv 2206.11575 balanced disordered transverse-field Ising chain s=0 lowest fermionic gap N epsilon_N limiting pi/(2 sqrt(E[J^-2])) Gaussian CLT variance 3 pi squared Var(J^-2)/(32 E[J^-2]^3) Dirichlet Neumann random string",
+        "arXiv:2206.11575 Eqs. (34)–(40)"
+      ]
+    },
+    "rationale": "The closest physical primary texts prove z=1 or derive bounds, not an explicit almost-sure coefficient together with the fluctuations of the smallest single-fermion gap. The reduction to a discrete Dirichlet–Neumann random-mass string yields the novel model-specific law, and an explicit first variation gives a variance not stated in the inspected sources. Broader generic spectral perturbation arguments exist (Bal 2007); a residual coverage risk remains for an unlocated random-string specialization.",
+    "residual_risks": [
+      "Abstract spectral homogenization literature may imply a general eigenvalue-CLT framework for this random-mass model with an additional reduction.",
+      "Published physics literature beyond the inspected papers might state the same prefactor or Gaussian fluctuations under alternate terminology; searches are not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes matrix reduction and bounds sufficient for dynamical exponent; no explicit almost-sure N-gap amplitude or central limit fluctuation variance for s=0",
+        "evidence": [
+          "Eqs. (1), (7), (34), (36)–(40); Secs. II, V.2; arXiv:2206.11575"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2206.11575",
+        "material_read": "Full HTML text, including Introduction, spectrum Eq. (7), random-walk bounds, balanced disorder Eq. (34), scaling Sec. V.2 and Appendix",
+        "method": "Compared finite-size definitions and result statements/formulas",
+        "title": "Exact bounds on the energy gap of transverse-field Ising chains by mapping to random walks",
+        "trigger": "Same random critical spin-chain family and singular-value representation"
+      },
+      {
+        "assessment": "Bounds and exact z=1 weak-disorder dynamical exponent; no identification of sample-to-sample Gaussian correction in the model",
+        "evidence": [
+          "Eq. (4); Sec. 3.1 gap-moment inequalities; arXiv:2007.07439"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2007.07439v4",
+        "material_read": "Introduction, Model Eq. (4), Sec. 3 and analytic bounds, conclusion, Appendix A spectral mapping",
+        "method": "Checked theorems about moment powers versus constants and distributional limits",
+        "title": "Exact bounds for dynamical critical exponents of transverse-field Ising chains with a correlated disorder",
+        "trigger": "Earlier correlated-disorder critical gap exponents with exact same weak disorder class"
+      },
+      {
+        "assessment": "Discusses annealing/quench exponents and numerical scaling; no claimed explicit Gaussian law for the lowest fermionic gap",
+        "evidence": [
+          "Secs. II–V; text after Eq. (6), gap ε1+ε2; arXiv:2309.12827"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.12827v2",
+        "material_read": "Secs. I–II, Eq. (6) singular values, accessible-gap parity paragraph, scaling and numerical sections, Discussion",
+        "method": "Compared distinction between single-fermion and parity-constrained gap and type of scaling measured",
+        "title": "Reducing defect production in random transverse-field Ising chains by inhomogeneous driving fields",
+        "trigger": "Follow-up balanced-disorder model and parity issue"
+      },
+      {
+        "assessment": "General eigenvalue-corrector framework; no explicit treatment of the specific Ising-balanced lattice random-mass eigenproblem or its prefactor and variance. Potential methodological coverage is acknowledged.",
+        "evidence": [
+          "Sec. 4.1 Proposition 4.1; Sec. 4.2 Eqs. (94)–(96); arXiv:0710.0363"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0710.0363",
+        "material_read": "Introduction and Sec. 4 (pages 29–31), especially Proposition 4.1 and Eqs. (94)–(96)",
+        "method": "Compared abstract perturbation hypotheses with a discrete generalized random-mass string operator and model-specific variance",
+        "title": "Central limits and homogenization in random media",
+        "trigger": "Plausible broader spectral eigenvalue corrector theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aec3ff8d-6a2a-4d26-93af-cb34e307b9a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Balanced local disorder preserves the clean critical dynamic exponent z=1, but that exponent does not determine either the physical finite-size gap coefficient or its sample-to-sample uncertainty. The explicit inverse-square-coupling effective velocity and variance resolve these motivated, nontrivial spectral properties for a natural s=0 correlated Ising model; the distinction matters for gap estimation and disorder sample variability, beyond a routine table or arbitrary finite-size computation. The exact transformation and weighted-mode correction are structural and reproducible.",
+    "status": "PASS"
+  }
+}
