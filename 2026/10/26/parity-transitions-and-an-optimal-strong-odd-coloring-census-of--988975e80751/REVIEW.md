@@ -1,0 +1,15 @@
+# Scientific review — gear-graph strong odd colorings
+
+## Correctness
+**PASS.** The vertex-by-vertex neighborhood analysis yields a complete dichotomy: each subdivision color equals the hub color, or every subdivision color differs from it and adjacent subdivision colors are unequal. The hub requires every occupied rim color class to have odd cardinality, while the degree-two vertices force a proper cyclic rim word. The lower bounds follow from class parity, the cycle independence number, and chromaticity, and explicit seed words extended by four positions attain each bound. The named-color enumeration separates the two disjoint modes, derives the odd-order signed trace with characteristic polynomial \(\lambda^3+\lambda+2\), supplies a finite inclusion-exclusion certificate for the five-rim case, and proves the parity-transfer trace bijection for all multiples of four. A standalone second route directly checks each actual graph neighborhood for small orders. Risks: the programmatic checks alone establish only finite cases, not the all-order statements; the written structural proof supplies the latter.
+
+## Originality
+**PASS under the documented literature comparison, with residual priority risk.** Kwon and Park's introduction and bounds, Caro et al.'s more general graph-class statements, and Manattu et al.'s *unsubdivided wheel* theorem were examined. The wheel theorem imposes distance-two rim separation, unlike the gear graph's adjacency plus subdivision-state constraint; neither it nor the previously indexed minimum-wheel-coloring enumeration determines the two-mode gear classification. Publicly indexed gear-graph results inspected by title concern mixed resolving sets, not strong odd coloring. A recent relevant specialized coloring work might remain unindexed or inaccessible, and the priority assessment is not exhaustive.
+
+## Mathematical value
+**PASS.** The gear graph is a standard bipartite wheel family, and strong odd coloring is a recently introduced local-parity invariant. The theorem gives an exact all-length classification with a sharp isolated six-color anomaly at rim length five, a two-mode local rigidity theorem, and the complete named-optimal-coloring census. It demonstrates a large, structured change from known wheel behavior under edge subdivision; the fixed-size transfer formula captures the otherwise nontrivial multiple-of-four enumeration. This is an exact natural graph-family invariant, not an arbitrary finite slice or a parameter renaming.
+
+## Limitations and relevant literature
+The result does not cover nonminimal color palettes, other Jahangir graphs, or an automorphism-orbit census. The even-order optimum-count formula is expressed as a finite matrix trace and parity coefficient rather than an expanded scalar recurrence. The relevant sources are Kwon–Park (arXiv:2401.11653), Caro–Petruševski–Škrekovski–Tuza (arXiv:2410.02336), and Manattu–Vinay–Lakshmanan (arXiv:2602.03259); their precise coverage and the residual priority risk are recorded in AUDIT.json.
+
+Self-review: passed. Independent audit: not yet performed.
