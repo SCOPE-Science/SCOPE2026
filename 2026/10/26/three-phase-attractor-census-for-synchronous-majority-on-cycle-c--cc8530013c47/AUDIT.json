@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The local update is reconstructed for each degree r+2, including tie retention. A finite symmetric-weight Lyapunov identity proves eventual periods at most two. Periodic private-leaf uniformity gives a bijection with ordered binary phase words. For r=1, the double cover is one 2n-cycle when n odd and two n-cycles when even; its exact four-state determinant gives Q_j. For r=2, both forward and backward flip conditions give an explicit 16-state transfer and its exact characteristic polynomial. For r>=3, three identical leaves strictly dominate two cycle neighbours after one step, giving F^3=F on all initial configurations. The embedded verifier checks the algebra and 751424 individually labelled states; these finite checks are corroboration, not proof of unbounded n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos (1980): general eventual-period-two coverage, no graph-specific number of cycles.",
+        "Turau, arxiv:2202.01580, §§1–3: tree fixed points and 2-cycles; cycle coronas contain the original cycle.",
+        "Benjamini et al., arxiv:1405.2486v1, §1 Theorem 1.1: finite general convergence; main later sections on unimodular/random graphs."
+      ],
+      "reasoning": "A general proof that all periods divide two does not determine periodic-state counts. The tree characterization cannot be directly applied to a graph containing a cycle. These are real overlaps in general method but not implications of the parameterized census.",
+      "searches": [
+        "synchronous binary majority dynamics sunlet graphs corona cycle leaf attached every vertex fixed points two cycles enumeration",
+        "parallel majority dynamics crown cycle with pendant leaf inertial two step majority cellular automaton attractor configurations",
+        "https://arxiv.org/abs/1405.2486",
+        "https://arxiv.org/abs/2202.01580"
+      ]
+    },
+    "checked_sources": [
+      "Agur–Fraenkel–Klein (1988), DOI 10.1016/0012-365X(88)90005-2, all eight pages inspected",
+      "Benjamini et al., arxiv:1405.2486v1, full text accessible, relevant sections inspected",
+      "Turau, arxiv:2202.01580, full text accessible, relevant sections inspected",
+      "Goles–Olivos (1980), DOI 10.1016/0012-365X(80)90121-1, theorem verified via published secondary full text, original not inspected",
+      "Lemoy–Mozeika–Seki (2014), DOI 10.1088/1751-8113/47/10/105001, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agur–Fraenkel–Klein proves Q_n, which is a strict component of the present r=1 fixed-point calculation, and does not give P_{n,1}, P_{n,2} or P_{n,r≥3}.",
+        "Published majority-on-circular-prism results concern C_n□K_2 with every vertex degree three, versus cycle coronas with pendant degrees one and core degrees r+2.",
+        "Existing sunlet XOR-neighbour cycle census uses a linear F_2 rule rather than the nonlinear tie-retaining majority rule."
+      ],
+      "reasoning": "The new theorem does not label the known ring Q_n calculation original. Nor does the general period-two property, a separate graph census, or an XOR rule imply the new two-leaf transfer factor or a full 4^n recurrent set with one-step entry.",
+      "searches": [
+        "Agur Fraenkel Klein cyclic majority fixed point sequence memory majority graph corona",
+        "two cycle majority dynamics minimum local fixed point transfer matrix ladder sunlet graph",
+        "https://arxiv.org/abs/1405.2486",
+        "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agur–Fraenkel–Klein (1988), DOI 10.1016/0012-365X(88)90005-2, pp. 295–302: one-layer, radius-one closed-neighbourhood majority, no private leaves.",
+        "Benjamini et al., arxiv:1405.2486v1, §1 defines synchronous open-neighbour majority with tie retention.",
+        "The private-leaf variables reduce to a delayed core input only on recurrent states; r=2 is not the classical three-input majority rule."
+      ],
+      "reasoning": "The obvious aliases are sunlet graphs (r=1), one-leaf coronas, and majority-with-memory on a cycle. The older ring count supplies Q_n alone. The current r=2 quartic trace and r≥3 full independent phase-word census do not follow from the classical ring fixed-point statement.",
+      "searches": [
+        "synchronous majority dynamics cycle corona graph leaves oscillations fixed points sunlet",
+        "binary majority vote dynamics graphs with pendant nodes cycle of stars two cycles",
+        "sunlet cycle corona pendant graph synchronous majority exact periodic point counts fixed period two Lucas Fibonacci",
+        "majority with one step memory cellular automaton one-dimensional nearest-neighbor delayed majority binary exact period-two configurations Fibonacci Lucas",
+        "majority with one step memory cellular automaton one-dimensional nearest-neighbor delayed majority binary exact period-two configurations Fibonacci Lucas"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Agur–Fraenkel–Klein (1988) gives the known cyclic no-isolated-bit sequence Q_n for ring fixed points.",
+        "The present exact counts at n=3,4,5 for r=2 are respectively 38, 118, 362 periodic states (directly checked) rather than numbers tabulated in the inspected sources.",
+        "Lemoy–Mozeika–Seki (2014), DOI 10.1088/1751-8113/47/10/105001, studies noisy radius-one cellular automata and not this deterministic cycle-corona census (abstract accessible, full text not inspected)."
+      ],
+      "reasoning": "The Q_n component is already in a published table and explicitly credited. No inspected exact table contains the private-leaf multiplicity trichotomy or its r=2 quartic polynomial; a numerically coincident sequence under a nonobvious reduction remains a residual archival risk.",
+      "searches": [
+        "sunlet cycle corona pendant graph synchronous majority exact periodic point counts fixed period two Lucas Fibonacci",
+        "synchronous majority dynamics cycle corona graph leaves oscillations fixed points sunlet",
+        "https://orbilu.uni.lu/handle/10993/31616"
+      ]
+    },
+    "rationale": "The specified contribution is the three-regime exact fixed- and primitive-two-cycle census on unicyclic coronas with r private leaves at each site; the Fibonacci/Lucas fixed count on a single ring and the general period-two theorem are prior results, not novel claims. The fully inspected 1988 cyclic-majority article does not add leaf delays or count their recurrent two-cycles. The 2014 complete preprint supplies a general convergence framework but no fixed graph-family exact census; the 2022 tree article treats a distinct tree domain. Accessible historical claims on XOR sunlets and majority prisms do not imply these majority-corona formulas. A search cannot certify historical uniqueness; unindexed equivalent classifications remain a bounded residual risk.",
+    "residual_risks": [
+      "Unindexed earlier majority-with-delayed-input or graph-corona transfer-matrix results may reproduce the private-leaf trichotomy.",
+      "The full text of Lemoy–Mozeika–Seki (2014) was not inspected; the abstract indicates a different noisy automaton, but does not prove absence of a related limiting calculation.",
+      "Only general convergence theorem, not its original 1980 full article, was directly rechecked; correctness of the present bound does not depend on that text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers Q_n for the one-dimensional closed-neighbourhood ring; does not cover graph-corona leaf multiplicity or two-cycle census. The prior ring count is fully credited.",
+        "evidence": [
+          "Page 295 defines majority of the two adjacent cycle bits and its own bit; pages 295–302 give exact cyclic word counts and discuss fixed points."
+        ],
+        "identifier_or_url": "https://www.imbm.org/wp-content/uploads/2020/01/AFK88.pdf",
+        "material_read": "Complete scanned eight-page article, pp. 295–302; definitions, cyclic word theorem, proof and references",
+        "method": "Visual page-by-page PDF inspection",
+        "title": "The number of fixed points of the majority rule",
+        "trigger": "Closest original cyclic-majority exact fixed count and sequence"
+      },
+      {
+        "assessment": "Gives period≤2 on finite graphs and probabilistic graph results, but no exact cycle-corona attractor table. Earliest verified submitted public date 2014-05-11.",
+        "evidence": [
+          "arxiv:1405.2486v1 lines 46–61 cite Goles–Olivos, §§3–4 concern random graph behaviour."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Accessible full-text HTML: Introduction §1, §2 theorem statements and arguments, §3–4 result statements, and references; PDF page 1 was visually inspected",
+        "method": "Open-access arxiv HTML and PDF page inspection",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Historical dated anchor and closest general graph convergence result"
+      },
+      {
+        "assessment": "Characterizes tree configurations, whereas the cycle-corona family contains a cycle. No general transfer polynomial for these graphs provided.",
+        "evidence": [
+          "arxiv:2202.01580 §§1–3 explicitly restrict classification to finite trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+        "material_read": "Accessible full-text HTML: abstract, introduction, state-of-art, definitions and tree-scope main-results descriptions; PDF first page inspected",
+        "method": "Open-access arxiv HTML and PDF page inspection",
+        "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+        "trigger": "Potentially more general recent recurrence-characterization theorem"
+      },
+      {
+        "assessment": "Analyses a thermally noisy three-input ring cellular automaton, not a deterministic graph with private leaves. Abstract-level scope comparison only; unknown fuller content acknowledged.",
+        "evidence": [
+          "Abstract describes noise in self-plus-two-neighbour majority cellular automata."
+        ],
+        "identifier_or_url": "https://orbilu.uni.lu/handle/10993/31616",
+        "material_read": "Bibliographic record, abstract, and scope; publisher full text not inspected",
+        "method": "Open institutional bibliographic abstract",
+        "title": "Transfer matrix analysis of one-dimensional majority cellular automata with thermal noise",
+        "trigger": "Potential dominating transfer-matrix approach to one-dimensional majority"
+      },
+      {
+        "assessment": "The known general period-two theorem is directly acknowledged and independently proved for the concrete tie rule. No unsupported assertion about contents beyond known theorem.",
+        "evidence": [
+          "Benjamini et al., arxiv:1405.2486v1, Theorem 1.1."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Publication metadata and theorem restatement in accessible Benjamini et al. (2014); original full text not read",
+        "method": "Bibliographic and secondary full-text cross-reference",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Source of known finite symmetric threshold period-two theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc853001-3c47-4f22-8a29-5378c0843a23",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a natural one-parameter sequence of cycle coronas modeling one, two, or many private followers of each cycle site. Their nonlinear synchronous majority dynamics has a nontrivial exact attractor phase diagram with exponential recurrent counts 2.618^n, 3.249^n, and 4^n. The r=1 double-cover parity split, r=2 new transfer quartic and r>=3 one-step periodicity together form a complete natural infinite-family classification, rather than an arbitrary finite slice or a known fixed-point table. The previously known ring Q_n component is expressly excluded from novelty.",
+    "status": "PASS"
+  }
+}
