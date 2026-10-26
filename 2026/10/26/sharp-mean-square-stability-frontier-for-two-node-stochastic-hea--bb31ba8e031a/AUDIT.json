@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Explicit covariance lift, exchange symmetry reduction, Perron domination, strict noise-variance monotonicity, determinant cutoff, Itô continuous generator, and two-node mass-lumped FE witness checked line-by-line. Positive initial covariance excites Perron mode at the threshold. 576 independent numerical covariance-matrix checks and three cutoff-asymptotics parameter sets agree; numerical tests are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Published general positivity schemes give finite-horizon moment bounds, which do not imply exact asymptotic stability for every h.",
+        "A 2022 abstract mentions almost-sure stability for another discretization; full text was not available."
+      ],
+      "reasoning": "Finite-horizon bounded moments and pathwise positivity cannot imply geometric mean-square decay under indefinite iteration; conversely some general long-time frameworks might imply structural small-step equivalence but not the derived exact threshold. Uninspected 2022 source remains a specific residual risk.",
+      "searches": [
+        "stochastic splitting positive semigroup exact noise long time mean-square stable continuous unstable discrete commutation",
+        "Bréhier Cohen Ulander positivity-preserving stochastic heat splitting long-time moments amplification",
+        "Bréhier–Cohen–Ulander (2024), Sec. 3.2",
+        "Yang–Yang–Zhang (2022), publisher abstract"
+      ]
+    },
+    "checked_sources": [
+      "Hearder–Le Bris–Djurdjevac 2026, arXiv:2602.16508 (primary scheme and finite-horizon analysis)",
+      "arXiv:2502.16854 (earlier scheme and moments)",
+      "Bréhier–Cohen–Ulander 2024 (positive stochastic heat splitting, Sec. 3.2)",
+      "Published published-finding corpus record 1f6f56bd0eac, deterministic heat positivity",
+      "Published published-finding corpus record 479c623ea3e7, predator–prey moment frontier",
+      "Published published-finding corpus record 168b7afadfef, stochastic SIS invasion threshold"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The same noise-then-heat structural scheme exists in Hearder et al.; its inspected bounds are on prescribed finite time horizons.",
+        "The present statement determines a sharp spectral radius cutoff for indefinitely repeated two-node steps and a fixed finite-element counterexample to unconditional large-step mean-square stability."
+      ],
+      "reasoning": "At identical two-node parameters a finite-T estimate may grow exponentially in T and thus is not stronger than, or logically equivalent to, a negative asymptotic exponent. Exact spectral-radius and unstable-large-step conclusions require extra covariance analysis not seen in the inspected sections.",
+      "searches": [
+        "Hearder Le Bris Djurdjevac A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation 2602.16508",
+        "Bréhier Cohen Ulander positivity-preserving stochastic heat splitting long-time moments amplification",
+        "arXiv:2602.16508, Eq. (36) and moment analysis",
+        "Bréhier–Cohen–Ulander (2024), Section 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No matching two-node covariance Perron spectral-radius equality among searched published-finding corpus nearest hits.",
+        "The inspected Hearder et al. scheme is identical upon two-node specialization, but prior estimates are finite-horizon."
+      ],
+      "reasoning": "The relevant equivalences are exponential noise-then-heat splitting, a 3 by 3 second-moment covariance lift, a positive 2 by 2 symmetry reduction, and the generalized mean-square stability function. Search compared the implication (cutoff and numerical/continuous stability separation), not the title.",
+      "searches": [
+        "two-node stochastic heat equation independent multiplicative node noises Lie Trotter splitting exact mean square stability threshold time step exponential diffusion",
+        "two-dimensional finite element stochastic heat independent Brownian diagonal noise spectral radius covariance update",
+        "sharp discrete versus continuous second moment exponential stability region exponential Lie Trotter mass lumped two-site stochastic heat orthonormal spatial noises",
+        "arXiv:2602.16508",
+        "arXiv:2502.16854"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest database hits concern deterministic CN positivity, predator-prey mean-square frontier, and a separate SIS threshold."
+      ],
+      "reasoning": "No exact numerical lookup table for the two-node FEM stochastic heat mean-square threshold was identified among published-finding corpus returned records or inspected primary literature. Absence from a search index is not a uniqueness certificate.",
+      "searches": [
+        "two-node stochastic heat equation independent multiplicative node noises Lie Trotter splitting exact mean square stability threshold time step exponential diffusion",
+        "two-dimensional finite element stochastic heat independent Brownian diagonal noise spectral radius covariance update",
+        "sharp discrete versus continuous second moment exponential stability region exponential Lie Trotter mass lumped two-site stochastic heat orthonormal spatial noises",
+        "published-finding corpus searches against finite-element stochastic heat, Lie-Trotter, spectral moment cutoff"
+      ]
+    },
+    "rationale": "published-finding corpus queries and inspected primary sources compared the exact asymptotic mean-square spectral-radius claim and all-step versus continuous-stability implication, not wording. The same exponential scheme is published but inspected moment bounds concern finite horizons, unlike the derived sharp two-node boundary. General older theory and inaccessible publisher fulltext leave explicit risk.",
+    "residual_risks": [
+      "A different long-time mean-square result may be implicit in older general covariance-splitting theory; no uniqueness is certified by database search.",
+      "Yang–Yang–Zhang 2022 and Higham–Mao–Stuart 2003 relevant fulltexts were not inspected; only abstract-level evidence is available.",
+      "Extending beyond the symmetric two-node model is not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates the exact discretization and proves positivity/finite-horizon moments; inspected material does not state the exact two-node all-timestep mean-square frontier or its sharp stable-continuous/unstable-discrete separation.",
+        "evidence": [
+          "arXiv:2602.16508, introduction and scheme Eq. (36), moment-stability sections",
+          "https://arxiv.org/html/2602.16508"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.16508",
+        "material_read": "ArXiv HTML: introduction, noise model, finite-element discretization, numerical splitting specification including Eq. (36), finite-horizon moment bounds, numerical discussion; PDF first and scheme-section pages visually inspected.",
+        "method": "Read arXiv text and displayed PDF pages, compare scheme definition and quantifiers of reported moment results to arbitrary-horizon Perron criterion.",
+        "title": "A Fully Discrete Nonnegativity-Preserving FEM for a Stochastic Heat Equation",
+        "trigger": "Same noise-then-heat exponential splitting and two-node mass-lumped finite-element model; decisive potential prior coverage."
+      },
+      {
+        "assessment": "Relevant positive schemes and moment estimates; no equivalent exact two-node long-time frontier located in material read.",
+        "evidence": [
+          "arXiv:2502.16854, introductory and scheme sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2502.16854",
+        "material_read": "ArXiv paper introductory and splitting/moment sections plus PDF pages.",
+        "method": "Compare finite-time moment and positivity statements against the present long-time necessary/sufficient spectral condition.",
+        "title": "Earlier nonnegativity-preserving stochastic heat discretization",
+        "trigger": "Related predecessor finite-difference stochastic heat splitting, potentially subsuming the two-mode example."
+      },
+      {
+        "assessment": "Positivity and finite-horizon bounds with scheme-specific restrictions are addressed; inspected sections do not establish the precise stepwise long-time two-node cutoff.",
+        "evidence": [
+          "Bréhier–Cohen–Ulander (2024), Section 3.2"
+        ],
+        "identifier_or_url": "Bréhier–Cohen–Ulander, ESAIM: M2AN (2024)",
+        "material_read": "Open-access PDF introductory setup and Section 3.2 on moment bounds and timestep qualifications; relevant PDF pages visually inspected.",
+        "method": "Compare published quantifiers and moment inequalities to exactly iterated two-node covariance amplification.",
+        "title": "Positivity-preserving Lie–Trotter discretizations for the stochastic heat equation",
+        "trigger": "Direct earlier primary literature on positivity-preserving stochastic heat equation splitting."
+      },
+      {
+        "assessment": "Exact coverage not established; cannot exclude a related mean-square condition in inaccessible body.",
+        "evidence": [
+          "2022 publisher title and abstract; fulltext uninspected"
+        ],
+        "identifier_or_url": "Yang–Yang–Zhang (2022), publisher abstract",
+        "material_read": "Publisher abstract/search metadata only; full text not accessible during this search.",
+        "method": "Compare reported almost-sure exponential stability and split-step backward-Euler method at abstract level only.",
+        "title": "Stochastic heat equation: numerical positivity and almost surely exponential stability",
+        "trigger": "Potentially relevant long-time positivity-plus-stability paper."
+      },
+      {
+        "assessment": "General small-step results do not themselves supply explicit all-step covariance frontier; fulltext remains a residual risk.",
+        "evidence": [
+          "Higham–Mao–Stuart (2003) abstract record"
+        ],
+        "identifier_or_url": "Higham–Mao–Stuart (2003), abstract record",
+        "material_read": "Abstract and identifying metadata; no full paper inspected.",
+        "method": "Compare small-step general equivalence to finite-h arbitrary-step exact two-site formula.",
+        "title": "Mean-square and asymptotic stability of numerical SDE methods",
+        "trigger": "General numerical SDE moment-stability theory may subsume specific discrete-vs-continuous separation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb31ba8e-031a-4e63-a68c-b39e3cdcf7e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact sharp mean-square stability threshold solves a natural diagnostic problem for a published positivity-preserving stochastic heat integrator. It isolates a nontrivial gap between pathwise positivity, finite-horizon bounded moments, continuous-time mean-square stability, and indefinite repeated-step mean-square stability; a bona fide two-interior-node mass-lumped FE witness crosses from stable at h=1/9 to unstable at h=2/9 for the same physical coefficients. No general-mesh or global nonlinear SPDE theorem is claimed.",
+    "status": "PASS"
+  }
+}
