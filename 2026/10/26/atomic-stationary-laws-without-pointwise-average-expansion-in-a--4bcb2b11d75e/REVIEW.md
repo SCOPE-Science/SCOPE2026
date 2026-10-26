@@ -1,0 +1,11 @@
+# Scientific assessment: atomic stationary laws without average expansion
+
+**Correctness — PASS.** The piecewise binary rules are derived directly from the two rational maps. All 32 endpoint/prefix inequalities are strict rational inequalities; affineness in the probability parameter extends them to the full closed interval. The resulting proper geometric Lyapunov function yields uniform tightness of Cesàro laws and a finite exponential denominator-depth moment. Consecutive doubling steps make zero accessible from every dyadic state, giving uniqueness on the dyadic class. Boundary states of depth below four are handled by a finite exceptional set, not by extrapolating the prefix formula.
+
+**Originality — PASS under available evidence.** The closest direct source, Goverse and Kleptsyn, arXiv:2607.11421v2, explicitly assumes \(p>1/2\) in its original two-map example and uses strict average expansion in Theorem 3.5. The new interval \(2/5\le p\le1/2\) violates that hypothesis at all non-dyadic points in the left semicircle. The four-bit rational Lyapunov certificate and its uniform sign-changing interval are absent from the examined Example 3.1, Theorem 3.5 and Section 3.3. Related general countable-state Foster theory provides the mechanism, not the model-specific certificate. Search and coverage limitations are recorded in the accompanying structured review.
+
+**Mathematical value — PASS.** This is a qualitative boundary to a natural sufficient condition, not merely a narrower numerical example: a random non-invertible circle system has a unique exponentially tight atomic stationary distribution even though its pointwise expected logarithmic derivative is strictly negative on an open semicircle. The interval includes the zero-drift endpoint and a robust negative-drift subinterval, making it relevant to identifying correct recurrence hypotheses for random Thompson-semigroup dynamics.
+
+**Limits and risks.** The lower cutoff is certified sufficient rather than sharp. No physicality claim or uniqueness on the entire circle is made. A specialized unpublished or unindexed analysis of the exact two maps could supersede the argument. Independent mathematical and historical-priority assessment remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
