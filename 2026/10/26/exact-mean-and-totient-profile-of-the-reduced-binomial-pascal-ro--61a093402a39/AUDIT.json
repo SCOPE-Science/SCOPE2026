@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every positive integer the deficit is exactly the binomial mass of nonprimitive columns minus a reduced replacement mass bounded by \\((n+1)2^{-n/2}\\). The centered indicator of multiples of any positive integer has bounded partial sums; summation by parts against binomial unimodality gives uniform modular discrepancy at most twice the largest binomial mass. Möbius inversion therefore yields the asserted totient-profile inequality. Standard central-binomial and divisor bounds make the error tend to zero; summing the divisor estimate and the classical totient mean proves the quantified Cesàro limit. The prime and primorial cases are proved separately. Exact finite checks through index 320 are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The intermediate probability bound is a binomial-weighted coprimality estimate; classical tools for modular probabilities may provide that component.",
+        "Relevant classical binomial-weighting facts concern general residue classes, while the original OEIS row definitions contain no such probability estimate."
+      ],
+      "reasoning": "Generic coprimality weights can dominate the discrepancy lemma but do not by their titles or inspected claims resolve the gcd-reduced row-sum conjecture without the explicit exponentially small replacement-term comparison. No stronger theorem with this implication was identified; unlocated generic coverage remains possible.",
+      "searches": [
+        "\"binomial\" \"coprime\" \"phi(n)/n\" \"sqrt\"",
+        "\"sum\" \"binom{n}{k}\" \"gcd(n,k)=1\"",
+        "Binomial distributed integers coprime to n uniformly phi(n)/n error divisor count over square root n",
+        "Weighted binomial probability gcd(n, Binomial(n,1/2)) = 1 asymptotic Euler totient phi(n)/n"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A082905",
+      "https://oeis.org/A082906",
+      "https://oeis.org/A271834",
+      "https://oeis.org/A271834/a271834.txt"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original A271834 entry gives an empirical average only.",
+        "The earlier A082905/A082906 entries are definitions/tables with no uniform totient asymptotic.",
+        "The directly inspected OEIS source and its numerical supplement contain no analytic theorem for the limit."
+      ],
+      "reasoning": "The new quantitative totient profile implies existence and identifies the original conjectured mean with \\(1-6/\\pi^2\\). Neither the conjecture nor finite tables can imply the infinite result. Classical ingredients combine to establish the theorem but are not presented as new.",
+      "searches": [
+        "OEIS A271834 entry and linked ratio table",
+        "OEIS A082905 and A082906",
+        "Average drop from two to n of reduced binomial coefficients binomial(n/gcd(n,k), k/gcd(n,k)) divided by 2^n; limiting mean 1 minus 6 over pi squared",
+        "Reduced binomial sum A082906 A271834 ratio arithmetic mean totient density 6 pi squared",
+        "\"Sykora\" \"reduced binomial\" \"zeta\" average"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A271834 explicitly defines 2^n minus the reduced row sum and conjectures its mean; A082906 is the complementary reduced row sum.",
+        "No inspected entry gives \\\\(1-6/\\\\pi^2\\\\) as the normalized deficit mean."
+      ],
+      "reasoning": "The normalized-deficit and normalized-reduced-row formulations are complements. The exact proposed limit corresponds to reduced-row mean 6/pi^2. A271834 states only a numerical estimate, not this assertion. Search absence alone is not a uniqueness proof.",
+      "searches": [
+        "OEIS A271834 and A082906 entries",
+        "\"A271834\" \"6/pi^2\" binomial reduced",
+        "\"A271834\" limit conjecture resolved",
+        "Limit as N tends to infinity of average (2^n - sum_{k=0}^n binomial(n/gcd(n,k), k/gcd(n,k)))/2^n equals 1 - 6/pi^2",
+        "Modified Pascal triangle reduced binomial coefficients A082905 A082906 A271834 average normalized row deficit phi(n)/n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A082905 gives exact individual reduced-row entries, A082906 row sums, A271834 deficits; the A271834 data lists finite normalized ratios to n=5000.",
+        "A271834 text presents mean existence and approximate 0.3915 ± 0.0010 as a conjecture."
+      ],
+      "reasoning": "Published sequence tables determine finite values, not the infinite exact limiting mean, error term, or primorial behavior. The mathematical claim is not merely a recomputation of the table.",
+      "searches": [
+        "https://oeis.org/A082905",
+        "https://oeis.org/A082906",
+        "https://oeis.org/A271834",
+        "https://oeis.org/A271834/a271834.txt",
+        "\"A271834\" \"0.3915\" limit average binomial"
+      ]
+    },
+    "rationale": "OEIS A271834 records a numerical conjecture near 0.3915; the exact limit \\(1-6/\\pi^2\\), quantitative Cesàro rate and uniform totient-tracking inequality are absent from the inspected primary entries. Scholarly-record searches for the direct problem, aliases and implication-equivalent asymptotics found no stronger theorem for this normalized reduced row. Classical binomial unimodality, Möbius inversion and the totient mean are acknowledged as inputs rather than proposed discoveries. Residual risk of unlocated stronger literature remains.",
+    "residual_risks": [
+      "An unlocated published study of A271834 or a general theorem on gcd-reduced Pascal arrays could include the result under another name.",
+      "Standard results on binomial-weighted coprimality may supply the intermediate lemma; only the specific conjecture resolution and assembled quantified asymptotic are claimed as new.",
+      "Accessible research-record and file searches are not a complete literature census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the array; does not provide a normalized mean or pointwise totient approximation.",
+        "evidence": [
+          "A082905 defines C(n/g,j/g) with g=gcd(n,j); OEIS author line dated April 23, 2003."
+        ],
+        "identifier_or_url": "https://oeis.org/A082905",
+        "material_read": "Complete public OEIS entry: definition, initial triangle, examples, references, and April 23, 2003 entry date.",
+        "method": "Opened and inspected displayed HTML entry.",
+        "title": "Modified Pascal-triangle (OEIS A082905)",
+        "trigger": "Original definition of gcd-reduced binomial rows and earliest source date."
+      },
+      {
+        "assessment": "Records row sums but neither the A271834 numerical-conjecture solution nor a limiting ratio.",
+        "evidence": [
+          "A082906 is the sequence of sums from A082905; entry date April 23, 2003."
+        ],
+        "identifier_or_url": "https://oeis.org/A082906",
+        "material_read": "Complete public OEIS entry with row sums and exact defining sum.",
+        "method": "Opened and inspected displayed HTML entry.",
+        "title": "Modified Pascal-row sums (OEIS A082906)",
+        "trigger": "Row-sum predecessor that might contain asymptotics."
+      },
+      {
+        "assessment": "Conjectures existence of mean near 0.3915 ± 0.0010; no exact limit or pointwise totient formula is stated.",
+        "evidence": [
+          "A271834 commentary proposes an average r; examples for n through 5000; author date April 19, 2016."
+        ],
+        "identifier_or_url": "https://oeis.org/A271834",
+        "material_read": "Complete public OEIS entry, including definition, author date, conjectural mean, sample means, references.",
+        "method": "Opened and inspected displayed HTML entry.",
+        "title": "Reduced-binomial row deficit (OEIS A271834)",
+        "trigger": "Original explicit conjecture and closest possible prior statement."
+      },
+      {
+        "assessment": "Numerical evidence only; not an analytic limit proof.",
+        "evidence": [
+          "First displayed ratios include zero for primes and 0.65625 at n=6, agreeing with exact computations."
+        ],
+        "identifier_or_url": "https://oeis.org/A271834/a271834.txt",
+        "material_read": "Table header and first 150+ displayed lines; sequence is numerical ratios indexed by n.",
+        "method": "Opened plain-text OEIS linked data and compared early entries to independent calculations.",
+        "title": "A271834 normalized ratio data, indices 1 through 5000",
+        "trigger": "Numerical companion table to the explicit conjecture."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61a09340-2a39-4921-8a3d-82c39124820a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2016 sequence entry explicitly conjectures existence of a mean for its gcd-reduced row deficit. Identifying the exact value \\(1-6/\\pi^2\\) and a quantitative rate resolves that named question; the independent totient-profile theorem and primorial behavior explain large fluctuations. These are natural infinite-family facts, not a finite table or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
