@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For B1=[[0,p],[q,0]], B2=B1^T and a=sqrt(pq), the normalized monodromy Q=exp(B2*tau)exp(B1*tau) is positive definite, det(Q)=1 and tr(Q)=2+4*kappa^2*sinh^2(a*tau). Its eigenvalues equal exp(±2*asinh(kappa*sinh(a*tau))). The resulting exact exponent is strictly decreasing when p != q because H(0)=0 and H''(u)=kappa*(1-kappa^2)*sinh(u)/(1+kappa^2*sinh^2(u))^(3/2)<0. The finite endpoint limits are arithmetic and geometric means of the rates minus recovery, proving the complete all-positive-tau sign cases and exactly one zero in the strict interval. Taylor and large-u expansions prove the two claimed boundary asymptotics, including endpoint equalities and p=q. The included stdlib checker passed 1300 random matrix identities and 260 threshold/monotonicity cases, plus example/asymptotic checks. The finite tests are not substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gökçek 2004 Theorems 3.1–3.4 and Example 4.1 demonstrate general monodromy criteria and stable phases producing unstable switching; example generators are not Metzler and the paper does not classify all periods.",
+        "Lian–Liu 2013 §3 derives sufficient average-dwell-time Lyapunov conditions, not exact iff critical durations for a symmetric transposition pair.",
+        "Zheng et al. 2023 §2 gives positive-system stabilizing switching-law sufficient conditions, not an exact global Floquet exponent."
+      ],
+      "reasoning": "General switching theorems subsume the existence of some stability switches and permit numerical spectral computation at fixed tau. The new content is not merely the fact of possible switching destabilization: the closed hyperbolic Floquet law, strict derivative sign for every tau, both sharp iff parameter boundaries, and endpoint scaling are not implications of these published sufficient conditions without a new specialization and argument.",
+      "searches": [
+        "positive switched systems transpose generators monotonic spectral abscissa switching period theorem",
+        "fast switching destabilizes two stable Metzler matrices transposes positive systems high frequency switching",
+        "New results on stability of switched positive systems an average dwell-time approach Lian Liu",
+        "Stability analysis of periodically switched linear systems using Floquet theory Gokcek"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1602.00859, §§2–5",
+      "arXiv:1406.4815, §§1–3",
+      "arXiv:2406.16787, §§2–3.5 and appendices",
+      "Gökçek (2004) DOI:10.1155/S1024123X04401069, Theorems 3.1–3.4, Examples 4.1–4.2",
+      "Lian and Liu (2013) DOI:10.1049/iet-cta.2013.0280, §§1–3",
+      "Zheng et al. (2023) DOI:10.1049/cth2.12459, §2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Speidel 2016 §2 explicitly restricts to undirected contact networks (symmetric adjacency), making the mirror pair with p != q outside their model; their empirical trend is opposite to the directed-case strict decreasing growth rate.",
+        "Sejunti et al. 2024 §3.1 define the supercritical-frozen/subcritical-switched direction of Parrondo behavior; the present theorem proves the opposite direction with strictly stable frozen rates for every environment, and fixes the entire switching-time dependence.",
+        "Valdano et al. 2014 §§2–3 establish general spectral propagation threshold and discuss directed generalization; using that framework at a given tau is not the strict one-crossing theorem.",
+        "Gökçek 2004 Example 4.1 has mixed-sign off-diagonal entries, so it does not give this positive SIS example."
+      ],
+      "reasoning": "The exact linearization and monodromy principle are acknowledged prior work, not claimed original. For two individually stable phases, the prior works either concern undirected matrices, show a generic existence example with signed matrices, or provide sufficient bounds; none of their materially inspected theorem statements settles the full inverse-Parrondo, rate-swapping iff classification as formulated. A sufficiently general not-yet-inspected matrix theorem could cover this specialization, retained as risk.",
+      "searches": [
+        "Temporal interactions facilitate endemicity SIS Speidel 2016 monotonic period undirected network",
+        "Parrondo paradox susceptible infectious susceptible dynamics periodic temporal networks two nodes Floquet 2024",
+        "Analytical computation epidemic threshold temporal networks Valdano 2014 directed weighted supplement",
+        "two stable positive Metzler matrices with complementary off diagonal cross infection p q switched periodic rapidly unstable slowly stable threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Valdano et al., arXiv:1406.4815 §2, use the infection-propagator spectral radius to decide invasion, but no rate-swap hyperbolic-sine solution.",
+        "Speidel et al., arXiv:1602.00859 §3 Eq.(3), use ordered products of exponential contact matrices on undirected temporal networks.",
+        "Sejunti et al., arXiv:2406.16787 §§2.3, 3.1, 3.5, analyze Floquet exponents with generally undirected two-node adjacency examples."
+      ],
+      "reasoning": "Equivalent notations include directed rate transposition, alternating two positive Metzler generators, a Floquet-product Perron root, and singular values of exp(B1*tau) because B2=B1^T. The cited general spectral/monodromy identities apply but do not by themselves state or prove the strict monotonicity, unique crossing interval, or two boundary laws in this specific positive family.",
+      "searches": [
+        "exact arcsinh kappa sinh Floquet exponent periodic two directed contact matrices [[0,p],[q,0]] and transpose, unique switching duration epidemic threshold",
+        "two stable positive Metzler matrices with complementary off diagonal cross infection p q switched periodic rapidly unstable slowly stable threshold",
+        "temporal interactions facilitate endemicity Speidel Klemm Eguíluz Masuda 2016 directed mirror switching",
+        "two by two linear systems alternating transpose Floquet exponent asinh sinh formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected full texts report generic product-threshold formulas and illustrative parameter tables, not an exact parameter-independent formula for the mirrored (p,q)/(q,p) class.",
+        "The two-group exact sample p=4,q=1,mu=9/4 was derived from the analytic formula and reproduced numerically, not read from a table."
+      ],
+      "reasoning": "No matching entry containing this exact all-period threshold classification was found in the scientific searches. This does not establish global uniqueness of the discovery; neither the special numerical value nor searching by notation alone defines the originality claim.",
+      "searches": [
+        "exact arcsinh kappa sinh Floquet exponent periodic two directed contact matrices [[0,p],[q,0]] and transpose, unique switching duration epidemic threshold",
+        "two by two Metzler mirror transposed off diagonal periodic switching spectral radius arcsinh sinh Floquet exponent",
+        "site:arxiv.org \"arsinh\" \"SIS\" \"Floquet\"",
+        "site:arxiv.org \"switching\" \"Metzler\" \"transpose\""
+      ]
+    },
+    "rationale": "The narrowly scoped scientific assertion is a complete explicit all-period stability diagram for the mirrored directed two-group SIS linearization, with strict one-crossing law and asymptotic rates. Examined precedents supply spectral-radius threshold methods and general switching stability principles but not this exact classification. Nonmatching prior-title search alone would not justify this decision; primary statements and hypotheses were compared. Residual broader positive-product equivalence is openly retained.",
+    "residual_risks": [
+      "A hidden exact two-matrix-product identity and monotonicity theorem in the broader positive-systems literature may contain the precise classification; available searching and material inspections reduce but do not eliminate this possibility.",
+      "Valdano and related continuous/discrete infection-propagator frameworks may have special-case reductions not explicitly presented in the main text; the mathematical monodromy mechanism itself is established prior art."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general spectral-radius threshold for discrete-time SIS; does not state continuous-time mirrored-rate exact dwell-time monotonicity",
+        "evidence": "Sections 2–3, spectral threshold Eq.(7)–(8), Appendix S3 directed/weighted extension",
+        "identifier_or_url": "arXiv:1406.4815 | https://arxiv.org/abs/1406.4815",
+        "material_read": "Rendered full main text and Appendix S3 (weighted and directed cases), Sections 1–3 and the infection-propagator spectrum derivation",
+        "method": "Read and compare dynamic classes, threshold, theorem hypotheses and consequences",
+        "title": "Analytical computation of the epidemic threshold on temporal networks",
+        "trigger": "General epidemic threshold by ordered contact-matrix products, possible stronger coverage"
+      },
+      {
+        "assessment": "Explicitly undirected adjacency snapshots with common edge rate; symmetric case does not instantiate asymmetric directional reversal p != q. No exact one-crossing switch duration claimed",
+        "evidence": "§2 lines on undirected temporal networks; §3 Eq.(1)–(4), §4 concrete snapshot classes",
+        "identifier_or_url": "arXiv:1602.00859 | https://arxiv.org/abs/1602.00859",
+        "material_read": "Rendered complete article material, Sections 1–5 and the snapshot product derivation; examined distinctions in Appendices",
+        "method": "Direct reading of model Eq.(1), monodromy Eq.(3), threshold comparisons and network examples",
+        "title": "Temporal interactions facilitate endemicity in the susceptible-infected-susceptible epidemic model",
+        "trigger": "Primary dated direction, continuous-time two-snapshot epidemic Floquet theory"
+      },
+      {
+        "assessment": "Studied supercritical frozen phases that jointly decay with switching and first-order perturbations in beta, not the exact switched instability of two stable directed mirror phases and unique tau threshold",
+        "evidence": "§3.1 definition, §3.3 two-node families, §3.5 first-order Floquet perturbation",
+        "identifier_or_url": "arXiv:2406.16787 | https://arxiv.org/abs/2406.16787",
+        "material_read": "Rendered main full text, Sections 2.3, 3.1–3.5, specific two-node matrices, and appendices discussing nonlinear and stochastic comparison",
+        "method": "Read actual two-node matrices and compare super/subcritical direction, hypotheses and periodic parameter variation",
+        "title": "A Parrondo paradox in susceptible-infectious-susceptible dynamics over periodic temporal networks",
+        "trigger": "Highly plausible two-node Floquet antecedent and opposite paradox"
+      },
+      {
+        "assessment": "Exhibits switching-generated instability for Hurwitz phases, but examples have signed off-diagonal entries and no unique global period threshold in the directed positive transpose family",
+        "evidence": "Theorem 3.1 and Example 4.1, printed page 7, matrices with negative off-diagonal entries",
+        "identifier_or_url": "DOI:10.1155/S1024123X04401069 | https://doi.org/10.1155/S1024123X04401069",
+        "material_read": "Full-text PDF, the Floquet criterion Theorem 3.1, Theorems 3.3–3.4, Examples 4.1–4.2; relevant page images inspected",
+        "method": "Read and inspect PDF page images including example matrices and exact stated qualitative claims",
+        "title": "Stability analysis of periodically switched linear systems using Floquet theory",
+        "trigger": "Strong generic system-level coverage for stable-generator switching instability"
+      },
+      {
+        "assessment": "General stability conditions are sufficient and do not supply explicit all-time one-crossing or endpoint exponents for the mirrored two-group epidemic",
+        "evidence": "Introduction and Section 3 average dwell-time conditions",
+        "identifier_or_url": "DOI:10.1049/iet-cta.2013.0280 | https://doi.org/10.1049/iet-cta.2013.0280",
+        "material_read": "Publisher full-text article, Abstract, definitions, Section 3 principal sufficient stability theorems and examples",
+        "method": "Compared sufficient Lyapunov/dwell-time criteria and system classes against exact mirrored positive generators",
+        "title": "New results on stability of switched positive systems: an average dwell-time approach",
+        "trigger": "Broader coverage in positive Metzler switched systems"
+      },
+      {
+        "assessment": "Sufficient stabilizing switching design; does not claim monotonic unique threshold for reversed directed cross-contacts",
+        "evidence": "§2 Eq.(1)–(3) and discussion of dwell parameters",
+        "identifier_or_url": "DOI:10.1049/cth2.12459 | https://doi.org/10.1049/cth2.12459",
+        "material_read": "Publisher full-text Section 2 model and switching conditions, including product criterion and remarks",
+        "method": "Inspected the positive-system spectral conditions and compared equality/uniqueness requirements",
+        "title": "A combined cyclic stabilizing switching law for continuous time positive switched systems",
+        "trigger": "Modern positive switched system with cyclic periodic activation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d877dd8-8dca-4ffc-bab9-080f6d32c428",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Alternating reciprocal directed transmission is a natural smallest-dimensional example separating disease-free thresholds for fast and slow contact switching. Its two frozen states each decay when mu>sqrt(pq), but the joint system invades for fast switching when mu<(p+q)/2. The exact Floquet law, strict sign monotonicity, unique crossing and its two sharp duration asymptotics give a complete, interpretable decision boundary, not merely recomputation of an isolated eigennumber or a textbook numerical exercise. The mathematical value resides in the global classification and mechanism under a clearly limited model, without asserting a full nonlinear epidemiological result.",
+    "status": "PASS"
+  }
+}
