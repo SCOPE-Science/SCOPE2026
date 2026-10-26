@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The complete 3x3 symmetric second-moment operator is computed, and its off-diagonal eigenvalue is bounded by the Perron eigenvalue of a positive symmetric 2x2 diagonal block. Sylvester’s criterion gives exactly F_lambda(h)>0 for 0<h<1, and positive off-diagonal coupling excludes any stability for h>=1. Its unique positive root is evaluated exactly. Perron duality forbids finite-second-moment stationarity beyond the root and proves linear/geometric moment divergence from zero. The closed 2x2 stationary Lyapunov equations give the exact covariance and anisotropy; strict inequalities, root monotonicity and boundary limits follow analytically. 1,500 exact-rational identities and 72 independent full-operator numerical tests corroborate but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lang–Petersson–Thalhammer 2017 provides tensor-product operator criteria for numerical mean-square stability, without explicit evaluation of this Stratonovich sampler.",
+        "Published UBU harmonic stability/bias findings involve underdamped integrators with different propagation and forcing matrices.",
+        "A prior additive-noise symmetric Ornstein–Uhlenbeck stationary covariance finding gives a separate additive Lyapunov equation, not the multiplicative coupling herein."
+      ],
+      "reasoning": "The 2017 criterion is a broad framework from which this instance may in principle be derived, but it does not report the novel closed frontier, its anisotropy dependence, or stationary-bias identity. The published UBU results have distinct mathematical objects and do not dominate the present update. General methodology is acknowledged rather than claimed as new.",
+      "searches": [
+        "Euler Maruyama discrete mean-square stability threshold invariant covariance Stratonovich reversible Langevin Gaussian perturbation two-dimensional spectral gap",
+        "quadratic reversible Stratonovich Langevin Euler covariance relative slow fast variance inflation step-size root",
+        "\"Euler-Maruyama\" \"optimal Stratonovich\" stationary covariance spectral stability",
+        "https://link.springer.com/article/10.1007/s10543-017-0684-7 Theorem 2.1 and Sections 2–3",
+        "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+        "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arxiv:2610.03191",
+        "sections": "3.1;4.2;4.3;6.1;7;appendices",
+        "type": "primary_full_text"
+      },
+      {
+        "identifier": "arxiv:1903.03024",
+        "sections": "pages 1–6",
+        "type": "primary_full_text_pdf"
+      },
+      {
+        "identifier": "doi:10.1007/s10543-017-0684-7",
+        "sections": "Introduction; Sections 2–3, definitions and main stability criterion",
+        "type": "lawful_open_access_theory"
+      },
+      {
+        "identifier": "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+        "sections": "result title/summary and implication comparison",
+        "type": "published research record"
+      },
+      {
+        "identifier": "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285",
+        "sections": "result title/summary and implication comparison",
+        "type": "published research record"
+      },
+      {
+        "identifier": "2026/9/19/SCOPE-harmonic-equilibrium-bias-low-cost-randomized-ulmc--160d754f339b",
+        "sections": "result title/summary and implication comparison",
+        "type": "published research record"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source 2026 Theorem 2 asserts a continuous-time spectral gap at critical scaling, not the Euler mean-square stability threshold.",
+        "The 2026 continuous covariance ODE has a negative generator yet the explicit discrete second-moment matrix may be unstable for finite steps.",
+        "Generic tensorized discrete stability requires computing the scheme-specific spectrum, and does not fix its stationary covariance or normalized bias."
+      ],
+      "reasoning": "Continuous-time spectral decay cannot imply unconditional Euler stability; the present calculation explicitly distinguishes mean and mean-square stability and determines the exact cutoff. Prior general tensor criteria explain the method, but do not imply the particular closed formulas without new model-specific computation. No inspected source proves a stronger statement entailing the precise discrete result.",
+      "searches": [
+        "arxiv:2610.03191 Sections 3.1, 4.2, 6.1, 7 and appendices",
+        "arxiv:1903.03024 complete six-page paper",
+        "doi:10.1007/s10543-017-0684-7 Sections 1–3",
+        "Euler Maruyama Stratonovich Langevin dX1 = -(1+lambda delta²) X1 dt + sqrt 2 lambda delta X2 d beta  stationary bias",
+        "2026/9/19/SCOPE-harmonic-stability-low-cost-ubu-langevin--4fc68d9c8d50",
+        "2026/9/19/SCOPE-fractional-midpoint-noise-ubu-configurational-bias--516bd7b79285"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Louis–Pavliotis–Vilmart 2026 Section 3.1 states the Itô model and continuous-time spectral-gap result; Section 4.2 studies continuous moment ODEs, Section 6.1 uses a fixed Euler step, and Section 7 identifies discrete analysis as open.",
+        "Abdulle–Pavliotis–Vilmart 2019 studies continuous-time reversible perturbation and asymptotic variance.",
+        "Search matches to different underdamped UBU and random-time integrators do not have the source-specific multiplicative two-mode Euler update."
+      ],
+      "reasoning": "The closest representations are continuous-time covariance generators and abstract linear-SDE covariance operators. The claim is a fully discrete sharp positive-root frontier together with a closed stationary anisotropy identity. Neither prior paper states or calculates that same discrete result; an unlocated equivalent in general stochastic-recursion literature remains possible.",
+      "searches": [
+        "Euler Maruyama discrete mean-square stability threshold invariant covariance Stratonovich reversible Langevin Gaussian perturbation two-dimensional spectral gap",
+        "Reversible Stratonovich perturbations Langevin Louis Pavliotis Vilmart timestep stability Euler Maruyama two-dimensional diagonal Gaussian",
+        "Euler discretization reversible Langevin multiplicative rotation noise covariance bias sharp stepsize anisotropic Gaussian",
+        "Louis Pavliotis Vilmart 2610.03191 optimal delta=lambda^-1/2 Euler Maruyama sharp timestep hstar sqrt lambda anisotropic two dimensional mean square stability stationary covariance",
+        "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics arxiv 2610.03191 exact Euler Maruyama stationary covariance threshold",
+        "arxiv:2610.03191 Section 4.2 full text",
+        "arxiv:1903.03024 six-page full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 primary numerical experiments fix Euler step at 10^{-4}, not an exact parameter table.",
+        "published-finding corpus semantically matched neighboring stability and covariance topics without an exact threshold/parameter record for the multiplicative critically perturbed Langevin recursion."
+      ],
+      "reasoning": "No exact precomputed table for the function of \\(\\lambda\\) or invariant covariance of this source model was identified. The claim gives analytic formulas valid on a continuum; absence of a database match is not a uniqueness proof.",
+      "searches": [
+        "Louis Pavliotis Vilmart 2610.03191 optimal delta=lambda^-1/2 Euler Maruyama sharp timestep hstar sqrt lambda anisotropic two dimensional mean square stability stationary covariance",
+        "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics arxiv 2610.03191 exact Euler Maruyama stationary covariance threshold",
+        "arxiv 2610.03191 Reversible Stratonovich perturbations accelerating convergence Langevin Euler numerical experiments October 2 2026",
+        "\"Reversible Stratonovich perturbations\" \"Euler-Maruyama\" stability covariance",
+        "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+      ]
+    },
+    "rationale": "The inspected 2026 defining paper has continuous-time gap/moment theory and fixed-step Euler experiments, while its conclusion identifies rigorous discretized analysis as outstanding. The 2019 antecedent concerns continuous-time perturbation, and the 2017 framework supplies a general tensor-product criterion rather than this sharp λ-dependent root or invariant anisotropy formula. Related published UBU work uses different update operators. The exact source-specific claim is not implied as a stated corollary by inspected source results; residual risk of equivalent general noncommuting-SDE calculations is openly recorded.",
+    "residual_risks": [
+      "Specialized mean-square-stability literature on two-dimensional noncommuting linear stochastic recursions may contain algebraically equivalent closed threshold under different parameters; not every item was accessible for full-text comparison.",
+      "A generic tensor-product criterion entails the possibility of deriving this special case but does not explicitly supply the source-specific closed-form phase boundary and covariance bias.",
+      "This is an analytic result for one source-motivated two-mode model and Itô Euler method, not a general guarantee of discretized Stratonovich sampler convergence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines object and proves continuous rate; no corresponding discrete sharp Euler stability frontier or exact finite-step covariance identity in inspected full paper.",
+        "evidence": [
+          "Eq. (17) has drift S+delta^2 lambda I and Stratonovich-multiplicative noise; delta=lambda^-1/2.",
+          "Section 4.2 Equation (23) is an ODE for continuous covariance.",
+          "Section 6.1 uses Euler–Maruyama h=10^-4; Section 7 explicitly identifies full rigorous discretized analysis as remaining work."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03191",
+        "material_read": "Full accessible arXiv HTML, including source model Eq. (17), Theorem 2, Section 4.2 continuous second moments, Section 4.3 higher moments, Section 6.1 Euler numerical experiment, Section 7 conclusion, and relevant appendix material.",
+        "method": "Direct full-text article inspection with explicit section/claim comparison",
+        "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+        "trigger": "Exact defining two-mode model and apparently open question of rigorous discretized behavior"
+      },
+      {
+        "assessment": "Establishes continuous-time invariant-measure and variance advantages; does not calculate the Euler second-moment threshold or its stationary covariance bias.",
+        "evidence": [
+          "Continuous reversible Stratonovich process is the main object.",
+          "No equivalent exact finite-step two-mode Euler frontier in six-page text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1903.03024",
+        "material_read": "All six pages of the lawful open-access arXiv PDF, including theorem statements, examples and references.",
+        "method": "Page-by-page screenshot and mathematical statement comparison",
+        "title": "Accelerated convergence to equilibrium and reduced asymptotic variance for Langevin dynamics using Stratonovich perturbations",
+        "trigger": "Foundational reversible Stratonovich diffusion and possible antecedent of numerical statements"
+      },
+      {
+        "assessment": "Provides general abstract operator criteria valid for many SDE discretizations, but does not compute this sampler-specific λ-dependent exact threshold and normalized stationary variance identity.",
+        "evidence": [
+          "Theorem 2.1 concerns products of tensorized one-step mean-square operators.",
+          "Introduction distinguishes discretized from continuous stability and notes noncommuting matrices; here the concrete two-dimensional operator is evaluated sharply."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-017-0684-7",
+        "material_read": "Open-access article introduction, Definitions/Assumptions 2.1, Lemma 2.1, Theorem 2.1 and surrounding mean-square/tensor-product stability discussion, with Sections 2–3 topical inspection.",
+        "method": "Direct HTML full-text section and theorem inspection",
+        "title": "Mean-square stability analysis of approximations of stochastic differential equations in infinite dimensions",
+        "trigger": "Potentially dominating general finite-dimensional tensor-product stability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c4dd588-d28f-4fa9-ad64-24fe4c9b9525",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact stability ceiling and finite-step covariance excess quantify whether a provably accelerated continuous-time Gaussian sampler remains reliable after the paper’s explicit Euler discretization. The nonempty mean-stable but second-moment-unstable window is a substantive numerical failure mode, and the scale-uniform limiting timestep plus anisotropic stationary bias are directly useful when choosing step sizes and interpreting quadratic observables. This addresses a cited numerical-analysis gap rather than an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
