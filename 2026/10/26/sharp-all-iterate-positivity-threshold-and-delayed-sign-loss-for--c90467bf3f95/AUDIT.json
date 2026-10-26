@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Published coefficient reduction, the exact Padé comparison q²−Bq−A=4s³/[(s+2)²(25s+48)], mode-sign decomposition, and B derivative at 16/15 prove all-step positivity and the singular index law. Exact symbolic identities and rational-parameter recurrence checks reproduce the proof-critical formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.22685v1 Corollary 4.2 concerns root damping and error constants, not positive sequences",
+        "BDF2 first-sign-loss findings involve different recurrences"
+      ],
+      "reasoning": "Generic linear-recurrence spectral formulas are standard, but the cited optimized-method stability and older BDF2 formulas do not imply the exact positivity threshold under the specific exact startup; no identified broader theorem supplied that implication.",
+      "searches": [
+        "BDF2 optimal multistep family positivity preservation exact positive startup all iterates sharp parameter",
+        "BDFL optimized L stable two step monotonicity positivity exact startup 16/15 2026"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.22685v1",
+      "https://arxiv.org/abs/2605.11979",
+      "published-finding corpus:2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+      "published-finding corpus:2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source L(3/5) stability only bounds stiff characteristic-root magnitudes",
+        "BDF2 delay prior concerns a different characteristic pair and backward-Euler startup"
+      ],
+      "reasoning": "A-stability controls boundedness of the numerical solution, not nonnegativity; the reported inverse-distance delay is specific to the \\(\\kappa=3/5\\) double-modulus crossing and requires the new strict modal comparison. No inspected source implies all three parts of the claim.",
+      "searches": [
+        "BDF2 optimal multistep family positivity preservation exact positive startup all iterates sharp parameter",
+        "BDFL optimized L stable two step monotonicity positivity exact startup 16/15 2026",
+        "arxiv:2610.22685v1 §4.1 Table 2 §5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full primary HTML Table 2 gives the recurrence; no startup cone criterion",
+        "Distinct BDF2 sign-delay record identifies a different method and startup"
+      ],
+      "reasoning": "The relevant equivalent descriptions are scalar decay, two-step recurrence, positive roots and discrete positive-semigroup preservation. The sharp threshold follows from the sign of the coefficient on the dominant negative root and an exponential-versus-Padé comparison, not just the published A-stability condition.",
+      "searches": [
+        "Jensen Ketcheson Loczi optimal A stable linear multistep kappa parameter exact startup positivity phase negative stiff damping two-step",
+        "BDF2 optimal multistep family positivity preservation exact positive startup all iterates sharp parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Table 2 lists 2/3,1/3,3/16,5/8,25/48, and error constant -19/192, but not sign cutoff or delay"
+      ],
+      "reasoning": "The source table contains the coefficients but no precomputed positivity frontier, negative-index table, or asymptotic constant; targeted literature and result-database searches did not identify an exact equivalent.",
+      "searches": [
+        "Jensen Ketcheson Loczi optimal A stable linear multistep kappa parameter exact startup positivity phase negative stiff damping two-step",
+        "2026 Jensen Ketcheson Loczi BDFL two step kappa 3/5 positivity scalar decay 16/15",
+        "s=(16/15) positivity boundary three fifths BDFL 2026"
+      ]
+    },
+    "rationale": "Compared the primary full text and its Table 2 against scalar positivity, recurrence equivalences and root-damping coverage; no inspected source states or implies the exact 16/15 frontier and inverse-distance delay for its optimized L(3/5) rule. Distinct BDF2 sign-delay results do not imply this method-specific claim.",
+    "residual_risks": [
+      "A specialized older absolute-monotonicity analysis could have independently stated this precise cutoff or its proof.",
+      "The supporting comparison preprint about parareal propagators was not exhaustively read; its scheme differs structurally and is not a decisive uncertainty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING specific all-iterate positivity cutoff, exact sign-loss index and inverse-distance constant; source stability results concern different criteria",
+        "evidence": [
+          "arXiv:2610.22685v1, Table 2, 4.1, section 5; coefficient \\(2/3,1/3,3/16,5/8,25/48\\); numerical initialization uses TR-BDF2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22685v1",
+        "material_read": "Sections 1, 3.3, 4.1 (Corollary 4.2), 4.3 (Table 2), 5 numerical tests, and HTML search for positivity and monotonicity",
+        "method": "Read source full HTML expressions for coefficients, stability claims, and initialization; compare implications of each claim",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "Exact printed rule with \\(\\kappa=3/5\\); possible pre-existing sign and damping results"
+      },
+      {
+        "assessment": "Different optimized coarse propagator does not imply the new \\(\\kappa=3/5\\) rule cutoff",
+        "evidence": [
+          "arXiv:2605.11979 concerns O2CP in parareal; not the BDFL two-step coefficients"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.11979",
+        "material_read": "Public abstract and method-comparison context; not a complete current-round full-text inspection",
+        "method": "Compare the object, recurrence coefficient formulas, and numerical start assumptions",
+        "title": "Optimized Two-Step Coarse Propagators in Parareal Algorithms",
+        "trigger": "Two-step positivity is known for a related but distinct optimized recurrence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c90467bf-3f95-4a21-8f87-4ff356fce1ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This optimized A-stable stiff ODE method has a precise positive-state safe range on decaying scalar modes; the complete iff condition and divergence of the first-negative horizon explain why finite-step testing and A-stability do not establish nonnegative physical trajectories. The exact 16/15 limit is a usable positivity step constraint distinct from error or root-damping bounds.",
+    "status": "PASS"
+  }
+}
