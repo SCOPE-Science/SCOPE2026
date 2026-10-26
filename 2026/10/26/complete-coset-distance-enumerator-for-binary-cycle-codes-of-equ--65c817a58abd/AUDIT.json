@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Direct incidence constraints force m arm-constant bits of even parity, giving code size 2^(m-1). For every received word, minimum distance equals sum of block minimum weights, plus cheapest arm flip if the unique preferred constants have odd parity, with ties eliminating parity cost. Counting ties/non-ties and the exact maximum local minimum yields the full polynomial. Independent brute force exhausts every received word at (4,2),(4,3),(4,4),(6,2), and formula checks 44 further grids; radii and deepest coefficients are proved for m>=4, both parities. Correct ML expression uses exactly one minimum-weight error representative per syndrome coset and assumes 0<=p<=1/2. Finite tests do not substitute for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Solé–Zaslavsky 1993 abstract: lower bounds, Hamiltonian/regular cases, several examples; not a displayed all-distance coset enumerator.",
+        "arXiv:2610.04617v1 Section 3.2 explicitly states length/dimension/distance and four parameter examples; does not compute cosets or BSC decoding success.",
+        "2000 IEEE ISIT DOI 10.1109/ISIT.2000.866523: general algorithm for coset-leader distributions and examples from Reed–Muller/BCH families, not this evaluated book-graph family."
+      ],
+      "reasoning": "General radius methods, general enumeration algorithms, and broad graph-code identities give computable context, but a generic algorithm does not mathematically imply a closed evaluated polynomial without specializing and proving this calculation. The older radius paper might include the radius corollary; no novelty is asserted for radius alone. A decisive equality of its unseen full text to the entire polynomial remains a residual risk.",
+      "searches": [
+        "covering radius coset distribution theta graph cycle code book graph 2 sum all lengths",
+        "binary cycle code generalized theta graph parallel paths coset weight enumerator coset leader distance distribution covering radius",
+        "The covering radius of the cycle code of a graph Solé Zaslavsky 1993 pdf theorem theta graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04617v1, full HTML paper, especially Section 3.2",
+      "Solé and Zaslavsky (1993), DOI 10.1016/0166-218X(93)90140-J, bibliographic abstract only",
+      "IEEE ISIT (2000), DOI 10.1109/ISIT.2000.866523, conference abstract only",
+      "Mathematical research record the published mathematical-research record titled Covering radius three for two extended two-weight BCH families, ranked summary, mathematically inapplicable to graph-cycle family"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barbosa–Marquezino–La Guardia, arXiv:2610.04617v1, Theorem 3.3 states [2c(n-1),2c-1,2n-2]; that parameter triple does not determine the coset-distance distribution.",
+        "Solé–Zaslavsky (1993) studies the maximum coset-leader weight; even identical covering radius and dimension do not determine counts at intermediate distances.",
+        "IEEE ISIT (2000) gives generic computational algorithms; the all-parameter polynomial is explicitly derived here by a parity/maximum-local-cost decomposition."
+      ],
+      "reasoning": "Exact parameter coverage, generic distance minimization, and a radius formula alone do not imply specific coset multiplicities. A complete graph-specific enumerator in unseen literature would imply this theorem; this risk is disclosed and cannot be ruled out solely from unsuccessful searches.",
+      "searches": [
+        "binary repeated single parity check code covering radius coset weight distribution equal repetition factors theta graph",
+        "covering radius coset distribution theta graph cycle code book graph 2 sum all lengths",
+        "\"The covering radius of the cycle code of a graph\" pdf Solé Zaslavsky"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.04617v1, Section 3.2, full HTML: incidence-kernel code of book-graph 2-sum with length 2c(n-1), dimension 2c-1.",
+        "The code admits an explicitly proved even-parity concatenated-repetition realization; neither the generic concatenation terminology nor the identical radius alone equals a full coset-multiplicity polynomial.",
+        "Solé and Zaslavsky (1993), DOI 10.1016/0166-218X(93)90140-J: abstract explicitly targets graph cycle-code radius and T-joins; full text inaccessible."
+      ],
+      "reasoning": "The same linear code may be described as a cycle code of a multiple-theta graph, a repeated single-parity-check code, or an even number of active arms. The comparison searches included those equivalents. The exact formula determines every coset-distance coefficient and the ML block-error polynomial, beyond any single radius value. The inaccessible old article cannot be certified as noncovering; retain specific residual risk.",
+      "searches": [
+        "complete coset-leader enumerator even parity m blocks each a repeated L times, theta graph cycle code, deep coset count and exact ML decoding probability",
+        "binary repeated single parity check code covering radius coset weight distribution equal repetition factors theta graph",
+        "\"The covering radius of the cycle code of a graph\" pdf Solé Zaslavsky",
+        "site:arxiv.org \"The covering radius of the cycle code of a graph\" Solé Zaslavsky"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.04617v1 Table 1 lists four book-graph codes with [N,k,d] only, not any coset-distance frequency table.",
+        "Mathematical research search closest ID the published mathematical-research record titled Covering radius three for two extended two-weight BCH families concerns different BCH families and radius three, not the equal-arm cycle code.",
+        "Direct enumeration produces D_{4,2}=1+8z+13z^2+8z^3+2z^4 and D_{4,3}=1+12z+66z^2+163z^3+189z^4+81z^5, not found in inspected primary table."
+      ],
+      "reasoning": "No identified published table or relevant mathematical-record result presents the exact all-parameter coset distribution. Short parameter examples are direct checks, not the scope of the claim; a finite table alone would not imply all c,n without further argument.",
+      "searches": [
+        "2 sum book graph linear codes complete coset distance distribution",
+        "coset leader polynomial concatenated repetition single parity check even parity length L blocks",
+        "complete coset-leader enumerator even parity m blocks each a repeated L times, theta graph cycle code, deep coset count and exact ML decoding probability"
+      ]
+    },
+    "rationale": "After searching exact and equivalent graph-cycle, repeated-parity, coset-distribution and ML-decoding statements, no available result was found that implies the entire all-parameter polynomial. The source 2026 paper proves [N,k,d] rather than this spectrum; a 1993 cycle-code covering-radius source and 2000 generic enumerator algorithm are acknowledged. A plausible older full text was inaccessible and remains a specific priority risk; the status is best-knowledge mathematical noncoverage, not a uniqueness or priority certificate.",
+    "residual_risks": [
+      "Full Solé–Zaslavsky (1993) article could include an all-coset enumeration for theta graphs, not established or excluded from abstract.",
+      "Older classical literature on repeated single-parity-check, concatenated repetition codes, or minimum T-joins may have an equivalent implicit or explicit polynomial.",
+      "A generic coset-enumerator algorithm can compute finite specializations; potential textbook derivation is not independently excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the precise family and four minimum-distance examples; does not present a coset-distance enumerator or ML channel-error formula",
+        "evidence": [
+          "Public version dated 2026-10-03.",
+          "Section 3.2 Theorem 3.3: code length 2c(n-1), dimension 2c-1, distance 2n-2.",
+          "Table 1 code parameters [8,3,4], [12,5,4], [12,3,6], [16,3,8]."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.04617v1",
+        "material_read": "Full HTML sections 1, 2.1, 3.2, theorem and Table 1 plus conclusions",
+        "method": "Read accessible arXiv HTML text, matched explicit two-book 2-sum construction, graph edges, and code parameters",
+        "title": "New Methods for Constructing Classical and Quantum Codes from Graphs and Matroids",
+        "trigger": "Same recently introduced graph-based code family and exact [N,k,d] parameters"
+      },
+      {
+        "assessment": "Abstract states general T-join connection, covering-radius bounds, and examples; may overlap radius corollary, cannot assert absent all-coset enumerator from unseen text",
+        "evidence": [
+          "Solé and Zaslavsky, Discrete Applied Mathematics 45 (1993), pages 63–70.",
+          "Abstract describes covering radius and minimum T-joins, not displayed full coset-distance coefficients."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0166-218X(93)90140-J",
+        "material_read": "Abstract and bibliographic description only; full journal article not accessible for examination",
+        "method": "Searched arXiv and lawful OA exact title, inspected university research metadata/abstract, attempted lawful full-text access; full text was not obtained",
+        "title": "The covering radius of the cycle code of a graph",
+        "trigger": "Strong title match on cycle-code covering radius and potential broader graph families"
+      },
+      {
+        "assessment": "Provides a general algorithm and examples on Reed–Muller/BCH codes; exact book-graph evaluated formula not visible. Generic capability is acknowledged as a potential reduction, not excluded by snippets.",
+        "evidence": [
+          "2000 IEEE ISIT conference abstract names generic algorithm, RM and BCH example families."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/ISIT.2000.866523",
+        "material_read": "Publisher conference abstract and metadata, not full article",
+        "method": "Searched general binary-code coset-leader algorithms and read public publisher abstract",
+        "title": "An algorithm for computing weight distribution of coset leaders of binary linear block codes",
+        "trigger": "General prior technique covering coset-leader distribution"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65c817a5-8abd-4443-94a6-0097b3794d77",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recently introduced book-graph 2-sum family was characterized by minimum distance but not decoded-performance distribution. Every coefficient in this polynomial counts distinct syndrome cosets and determines the exact maximum-likelihood block-success probability for every BSC crossover, as well as sharp deepest-coset multiplicities and parity-sensitive covering radius. This is a complete infinite family decoding invariant with practical channel-metric interpretation, not merely generic code normalization, an arbitrary small case, or an unmotivated tiny improvement. No superiority of the family to other codes is claimed.",
+    "status": "PASS"
+  }
+}
