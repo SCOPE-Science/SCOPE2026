@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Proof verifies normalized affine projection minorant in both cases, strict concavity with correct domain and endpoints, all-dimension projection monotonicity, exact antipodal equality, and subthreshold zero drift. Doob variance and non-atomic Gaussian component establish positive-probability nonzero limit. The accompanying checker passed 96,000 pointwise and rational boundary configurations, without confusing finite checks with proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Koloskova et al. analyze bounded-variance noise and explicitly describe special stronger uniform boundedness/threshold conditions, but not the sharp endpoint constant.",
+        "Qian et al. impose angle/norm structure on individual components.",
+        "Chen et al. 2020 Example 2 establishes the subthreshold flat drift."
+      ],
+      "reasoning": "Qualitative prior coverage of subthreshold flat drift is acknowledged. No inspected broader quantitative theorem dominates the arbitrary-dimension endpoint half coefficient under only centering and norm support.",
+      "searches": [
+        "gradient clipping momentum heavy tailed stochastic optimization scalar quadratic exact stationary bias threshold",
+        "gradient clipping q equals noise bound necessary sufficient threshold almost sure convergence symmetric two-point oracle deadzone",
+        "pmlr2023:koloskova23a sections 1.2, 3.1–3.3, Appendix C.5",
+        "pmlr2021:qian21a"
+      ]
+    },
+    "checked_sources": [
+      "Mukherjee and Liu, Almost Sure Convergence Analysis of Stochastic Gradient Methods with Clipping and Additive Noise, arXiv:2609.12119v1 (2026-09-10), https://arxiv.org/abs/2609.12119",
+      "Koloskova, Hendrikx and Stich, Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees, ICML/PMLR 2023, https://proceedings.mlr.press/v202/koloskova23a/koloskova23a.pdf",
+      "Chen, Wu and Hong, Understanding Gradient Clipping in Private SGD: A Geometric Perspective, NeurIPS 2020, https://papers.neurips.cc/paper_files/paper/2020/file/9ecff5455677b38d19f49ce658ef0608-Paper.pdf",
+      "Qian et al., Understanding Gradient Clipping In Incremental Gradient Methods, AISTATS/PMLR 2021, https://proceedings.mlr.press/v130/qian21a/qian21a.pdf",
+      "Published mathematical record index; relevant titles and claim summaries compared"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 bound 1-sigma/q becomes zero at equality, whereas the new inequality is 1/2.",
+        "Chen et al. 2020 Example 2 supplies a known zero-drift interval below threshold and their Theorem 2 is conditioned on symmetry.",
+        "The 2023 bounded-variance lower-bound constructions do not supply the new sharp positive endpoint coefficient."
+      ],
+      "reasoning": "The new endpoint coefficient is not a mathematical corollary of a strict-radius inequality whose coefficient tends to zero, nor of symmetry-restricted results; the new concavity minorant fills precisely that quantitative gap.",
+      "searches": [
+        "gradient clipping q equals noise bound necessary sufficient threshold almost sure convergence symmetric two-point oracle deadzone",
+        "endpoint clipping threshold equals almost surely bounded gradient noise radius positive alignment sharp one half with centered oracle and nonconvex optimization",
+        "arxiv:2609.12119v1 eqs (13)–(17) and Remark 3",
+        "neurips2020:9ecff5455677b38d19f49ce658ef0608 Example 2 and Theorem 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The projection inequality is equivalent to conditional expected clipped-gradient angle lower bound for all centered supported noise.",
+        "Mukherjee–Liu 2026 Proposition 2: coefficient 1-sigma_g/q, q>sigma_g.",
+        "Chen–Wu–Hong 2020 Theorem 2: symmetric-noise alignment tied to probability of small noise."
+      ],
+      "reasoning": "No inspected equivalent entails half-alignment at q=sigma_g for every centered potentially asymmetric error; the novel affine minorant handles that endpoint.",
+      "searches": [
+        "bounded stochastic gradient noise clipping q equal sigma sharp alignment half constant expectation gradient projection Euclidean ball",
+        "endpoint clipping threshold equals almost surely bounded gradient noise radius positive alignment sharp one half with centered oracle and nonconvex optimization",
+        "bounded centered stochastic error clipping projection lower bound one half quadratic alignment for any dimension",
+        "arxiv:2609.12119v1 Proposition 2",
+        "neurips2020:9ecff5455677b38d19f49ce658ef0608 Theorem 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2026 Euclidean-ball clipping sensitivity finding 78696bf157c3 concerns mixed-norm projection Lipschitz constants, not random centered gradient alignment.",
+        "Published 2026 gradient-clipped heavy-ball finding 979ce9506a74 concerns deterministic heavy-ball limit cycles.",
+        "Published 2026 capped SPS finding 6e87af5006ee concerns capped stochastic Polyak steps."
+      ],
+      "reasoning": "No exact result/table was identified matching the centered bounded-noise universal minimax alignment constant; this is evidence from bounded retrieval, not uniqueness proof.",
+      "searches": [
+        "bounded stochastic gradient noise clipping q equal sigma sharp alignment half constant expectation gradient projection Euclidean ball",
+        "bounded centered stochastic error clipping projection lower bound one half quadratic alignment for any dimension",
+        "uniform bounded noise clipping threshold smaller than support radius flat zero drift nonconvergence strongly convex stochastic gradient",
+        "Published mathematical records: Euclidean-ball clipping sensitivity, gradient-clipped heavy-ball, capped SPS"
+      ]
+    },
+    "rationale": "Motivating 2026 Proposition 2 leaves its guaranteed descent coefficient zero at q=sigma_g; here the sharp dimension-free value 1/2 is proved for all centered bounded errors. The subthreshold deadzone is expressly prior art from Chen et al. 2020; the new result is the sharp endpoint uniform bound and its threshold conclusion. Other inspected primary work uses symmetry or bounded variance and does not imply the new endpoint statement. Historical equivalent remains possible.",
+    "residual_risks": [
+      "Equivalent sharp endpoint projection inequality may exist in older monotone-operator or clipped stochastic-gradient literature not indexed or not fully inspected.",
+      "Additional results in related 2019–2022 clipping literature could implicitly derive the constant despite different theorem statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STRICT_GT_THRESHOLD; proposition only q>sigma with half guaranteed for q>=2sigma; no half at equality",
+        "evidence": [
+          "Proposition 2 eqs (13)–(17), Remark 3, Theorem 1 eq (22); arxiv:2609.12119v1"
+        ],
+        "identifier_or_url": "arxiv:2609.12119v1 https://arxiv.org/abs/2609.12119",
+        "material_read": "Rendered full article: definition of post-clipping Gaussian SGD, Assumptions 1–3, Proposition 2 including proof and Remark 3, Theorems 1–3 and discussion of step sizes",
+        "method": "Lawful arXiv rendered paper, inspection of theorem/proof text and hypotheses",
+        "title": "Almost Sure Convergence Analysis of Stochastic Gradient Methods with Clipping and Additive Noise",
+        "trigger": "Direct motivating study of clipped stochastic alignment with almost-sure bounded noise"
+      },
+      {
+        "assessment": "KNOWN_SUBTHRESHOLD_EXAMPLE; symmetricity theorem does not subsume arbitrary centered bounded-error endpoint bound",
+        "evidence": [
+          "p.2 Example 2: c=1, component positions +/-3, flat drift on [-2,2]",
+          "pp.3–4 Theorem 2: symmetric-noise alignment depends on small-noise probability"
+        ],
+        "identifier_or_url": "NeurIPS 2020 9ecff5455677b38d19f49ce658ef0608 https://papers.neurips.cc/paper_files/paper/2020/file/9ecff5455677b38d19f49ce658ef0608-Paper.pdf",
+        "material_read": "Main article pp. 1–4, Example 2, Theorems 1–2 and their formulations, discussion of asymmetric distributions",
+        "method": "Full-text NeurIPS PDF parsed with original theorem statements",
+        "title": "Understanding Gradient Clipping in Private SGD: A Geometric Perspective",
+        "trigger": "Plausible earlier zero-drift and expected-clipping theory"
+      },
+      {
+        "assessment": "BOUNDED_VARIANCE_DIFFERENT_HYPOTHESIS; uniform-bound threshold discussed but no sharp endpoint positive coefficient",
+        "evidence": [
+          "p.3 Assumptions 1.3 and 1.4 distinguish a.s. versus expected squared noise",
+          "p.7 threshold and bias discussion",
+          "p.20 lower-bound construction"
+        ],
+        "identifier_or_url": "PMLR 2023 koloskova23a https://proceedings.mlr.press/v202/koloskova23a/koloskova23a.pdf",
+        "material_read": "PDF abstract, §§1–3, pp. 2, 6–7 and Appendix C.5, including original equation statements",
+        "method": "Lawful PMLR PDF inspected through parsed text and page images",
+        "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+        "trigger": "Related sharp gradient-clipping bias lower bounds and uniform-noise discussion"
+      },
+      {
+        "assessment": "ANGLE_AND_COMPONENT_BOUNDS; no known coverage of unconditional centered-noise endpoint coefficient",
+        "evidence": [
+          "PMLR abstract states descent angle depends on clipping threshold and component angles"
+        ],
+        "identifier_or_url": "PMLR 2021 qian21a https://proceedings.mlr.press/v130/qian21a/qian21a.pdf",
+        "material_read": "PMLR complete article record and PDF text and main stated setup/abstract; not all appendix arguments",
+        "method": "Lawful PMLR full-text PDF accessed and main setup inspected",
+        "title": "Understanding Gradient Clipping In Incremental Gradient Methods",
+        "trigger": "Relevant component-gradient clipping alignment work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b52a2879-9402-4f85-a275-245a533f4f8c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural algorithmic control parameter q is identified sharply at the noise-support radius sigma. The motivating 2026 method requires q>sigma for strictly positive theoretical coefficient and only guarantees half-coefficient at q>=2sigma; the endpoint q=sigma formerly yields zero in its inequality, whereas the new universal factor 1/2 is optimal. This structurally closes the narrowest reliable radius gap for stochastic clipping and clarifies the strict distinction with the known subthreshold flat-drift regime.",
+    "status": "PASS"
+  }
+}
