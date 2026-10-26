@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "The exact covariance matrix and characteristic polynomial follow from independence and conditional squares. At positive momentum the characteristic polynomial is negative at either beta or the best SGD rate, giving a real eigenvalue above the optimum. Zero-momentum optimum is an exact strictly convex quadratic. Discrete Lyapunov and positive resolvent establish the exact if-and-only-if stability condition including boundary. Standalone exact rational checker passed 1152 path-sum, 120 polynomial, and 48 stability cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2605.18609 proves an upper bound on momentum-accelerated interpolation quadratics, not that momentum always accelerates any given problem.",
+        "arxiv:1803.05591 uses one specific adverse 2D least-squares family; arxiv:2106.03696 is asymptotic in dimension."
+      ],
+      "reasoning": "A broad complexity upper bound does not imply an optimized strict non-acceleration lower bound for all scalar iid distributions. The closest counterexamples and asymptotic models lack the exact distribution-universal optimizer and all-batch stability frontier. General positive-operator results may imply a sublemma, but no inspected statement dominates the full theorem.",
+      "searches": [
+        "One-dimensional interpolation stochastic momentum mean-square convergence lower bound heavy ball same best SGD rate cannot accelerate arbitrary step and batch size",
+        "Heavy ball momentum stochastic interpolation diagonal scalar minibatch exact stability eta threshold variance batch size",
+        "stochastic heavy ball momentum scalar random curvature optimally tuned mean square rate no improvement over SGD",
+        "arxiv:2605.18609 Theorem 1",
+        "arxiv:2106.03696 main results"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.18609, Introduction and Theorem 1",
+      "arxiv:1803.05591, Proposition 3",
+      "arxiv:2106.03696, introduction and model",
+      "arxiv:2501.08883, Section 1 and Table 1",
+      "Published mathematical findings 021cc30589a6 (scalar SGD), 5f3230b80158 (deterministic heavy ball), 3a5c82c9e834 (loopless SVRG), fd5004e04a73 (STORM), d7ec7c84f6a5 (Hessian-corrected momentum)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source proof framework bounds stochastic momentum convergence in general, but does not present the exact sharp scalar lower envelope.",
+        "Kidambi et al. establish a hard 2D instance rather than all iid nondegenerate scalar curvatures.",
+        "Kamo–Iiduka consider constant/growing batches for nonconvex stationarity, rather than optimized linear second-moment contraction.",
+        "Loizou–Richtárik Remark 4 obtains a momentum-worsening *bound* for a specific projection formulation, not a sharp actual-rate minimax theorem."
+      ],
+      "reasoning": "The final theorem is neither an immediate specialization of a published exact optimizer statement nor a corollary of the upper-bound-only theorems identified. It sharpens the scalar boundary quantitatively. Since classical Lyapunov resolvents are standard, possible earlier derivations with identical implications remain a stated priority risk.",
+      "searches": [
+        "arxiv:2605.18609 Section 2/4 and Appendix B",
+        "arxiv:1803.05591 Proposition 3",
+        "arxiv:2106.03696 introduction and Volterra framework",
+        "arxiv:2501.08883 Table 1 and Section 1.1",
+        "arxiv:1710.10737 Remark 4",
+        "Stochastic heavy ball scalar random coefficient comparison optimal SGD asymptotic mean-square rate second moment variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Covariance dynamics is a positive linear operator with a cubic characteristic polynomial, matching the usual multiplicative-noise stochastic linear-recurrence formulation.",
+        "arxiv:1803.05591 Proposition 3 gives a different 2D obstruction.",
+        "arxiv:2106.03696 gives a different high-dimensional limit.",
+        "arxiv:1710.10737 Remark 4 compares sufficient bounds q(beta), not sharp actual moment spectral radii."
+      ],
+      "reasoning": "Searched heavy-ball, stochastic linear random coefficient, scalar mean-square and variance-language aliases. The current result optimizes the full covariance spectral radius over both constant parameters and all finite-variance iid scalar curvature laws; no searched equivalent implication was verified. Older random-matrix literature may still rederive it.",
+      "searches": [
+        "Stochastic heavy ball scalar random quadratic no momentum advantage exactly optimal mean-square convergence rate variance over second moment; minbatch Bernoulli curvature",
+        "Exact mean square stability stochastic heavy ball iid scalar curvature second moment condition alpha beta",
+        "Exact scalar stochastic heavy-ball minmax mean-square factor variance divided by second moment no momentum improvement all iid curvatures",
+        "stochastic heavy ball momentum scalar random curvature optimally tuned mean square rate no improvement over SGD",
+        "\"heavy ball\" \"one-dimensional\" \"mean-square\" \"momentum\" stochastic quadratic rate",
+        "\"stochastic heavy ball\" \"optimal\" \"mean square\" \"zero momentum\" quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical finding ID 021cc30589a6 optimizes one-step SGD on scalar random-curvature quadratics, not heavy-ball.",
+        "Published mathematical finding ID 5f3230b80158 concerns a deterministic real-root barrier on Hessian intervals, rather than random second moments.",
+        "Other nearby records concern STORM, loopless SVRG, or deterministic corrected momentum."
+      ],
+      "reasoning": "Actual published-record semantic searches and known-library claim inspection produced no identical all-curvature heavy-ball optimum and exact minibatch penalty, although semantic search is not exhaustive and records may use other formulations.",
+      "searches": [
+        "Stochastic heavy ball scalar random quadratic no momentum advantage exactly optimal mean-square convergence rate variance over second moment; minbatch Bernoulli curvature",
+        "One-dimensional interpolation stochastic momentum mean-square convergence lower bound heavy ball same best SGD rate cannot accelerate arbitrary step and batch size",
+        "Exact mean square stability stochastic heavy ball iid scalar curvature second moment condition alpha beta",
+        "Mini-batch SGD classical heavy ball momentum perfect parallelization lower dimensional no acceleration noise heterogeneity",
+        "Exact scalar stochastic heavy-ball minmax mean-square factor variance divided by second moment no momentum improvement all iid curvatures",
+        "Heavy ball momentum stochastic interpolation diagonal scalar minibatch exact stability eta threshold variance batch size",
+        "Stochastic heavy ball scalar random coefficient comparison optimal SGD asymptotic mean-square rate second moment variance",
+        "\"Increasing Batch Size Improves Convergence of Stochastic Gradient Descent with Momentum\" 2025 arxiv"
+      ]
+    },
+    "rationale": "Source comparison distinguishes the exact all-distribution scalar no-momentum-gain and unique optimum from general acceleration upper bounds, older isolated obstructions, asymptotic high-dimensional results, and batch-size scheduling theorems. Actual semantic record searches found no dominating result; priority remains provisional.",
+    "residual_risks": [
+      "Classical scalar random-coefficient autoregression mean-square stability analyses might state or imply the same optimized lower envelope.",
+      "Semantic published-record search cannot establish uniqueness or exhaust every old stochastic approximation source.",
+      "No independent mathematical priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General accelerated upper bounds for interpolation quadratics; no optimized exact all-scalar-distribution lower bound or sharp minibatch frontier identified",
+        "evidence": [
+          "Theorem 1 iteration bound for heterogeneous curvature; source does not claim universal strict improvement on each scalar law."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.18609",
+        "material_read": "Introduction pp. 1–5; statement of Theorem 1 and appendix general statement pp. 25–26; matched algorithm and result types",
+        "method": "Read text and inspected source PDF pages",
+        "title": "Perfect Parallelization in Mini-Batch SGD with Classical Momentum Acceleration",
+        "trigger": "2026 interpolation-momentum results and possible broad coverage"
+      },
+      {
+        "assessment": "Two-dimensional stochastic least squares lower bound, not a universal scalar law/unique optimum",
+        "evidence": [
+          "Proposition 3 concerns an explicit 2D distribution and condition-number scaling."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1803.05591",
+        "material_read": "Abstract/introduction and detailed 2D counterexample pp. 3–5, including Proposition 3",
+        "method": "Read material and inspected PDF p. 4",
+        "title": "On the Insufficiency of Existing Momentum Schemes for Stochastic Optimization",
+        "trigger": "Potential existing stochastic momentum obstruction"
+      },
+      {
+        "assessment": "High-dimensional limiting model and small-batch rate phenomena, not finite m every scalar distribution",
+        "evidence": [
+          "The large-dimensional limit and fixed-parameter comparison differ from exact scalar covariance optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2106.03696",
+        "material_read": "Abstract, introduction, main model and high-dimensional comparison pp. 1–3",
+        "method": "Read material and inspected PDF p. 2",
+        "title": "Dynamics of Stochastic Momentum Methods on Large-scale, Quadratic Models",
+        "trigger": "Potential general no-acceleration or dynamical coverage"
+      },
+      {
+        "assessment": "Nonconvex expected-gradient stationary behavior under varying batch sizes, not exact uniform mean-square spectrum",
+        "evidence": [
+          "Results optimize batch-size schedule and stationary-gradient bounds, with different objectives and assumptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2501.08883",
+        "material_read": "Abstract, definitions, Table 1 and Section 1.1 contributions pp. 1–3",
+        "method": "Read material and inspected PDF p. 2",
+        "title": "Increasing Batch Size Improves Convergence of Stochastic Gradient Descent with Momentum",
+        "trigger": "Potential existing batch-size momentum theorem"
+      },
+      {
+        "assessment": "Remark 4 shows a sufficient upper convergence-rate bound is worse with momentum, but does not establish actual sharp spectral rate or the unique scalar minimizer over steps and momenta",
+        "evidence": [
+          "Remark 4 inequality concerns an estimate q(beta), and explicitly distinguishes from actual strictly better convergence possibilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1710.10737",
+        "material_read": "Abstract, Sections 1–2.1, Theorem 1 and Remark 4 on pp. 1–3",
+        "method": "Read relevant text and inspected PDF p. 3",
+        "title": "Linearly Convergent Stochastic Heavy Ball Method for Minimizing Generalization Error",
+        "trigger": "Potential published rate optimality for stochastic heavy-ball"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0b39352-7cc7-4062-b776-93388019be32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 theory motivates asking when minibatch curvature variance alone permits strict heavy-ball acceleration. This result isolates a natural entire stochastic interpolation class, proves a unique globally optimized rate, and quantifies a sharp high-momentum batch-size stability cost. It distinguishes spectral heterogeneity from stochastic curvature noise and is neither a single exceptional point nor a trivial bound.",
+    "status": "PASS"
+  }
+}
