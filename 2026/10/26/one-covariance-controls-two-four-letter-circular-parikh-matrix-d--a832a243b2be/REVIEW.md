@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The nilpotent-matrix proof identifies the unique quadratic term involving two variable scattered-subword counts; all cubic and quartic contributions average linearly because the first superdiagonal is fixed across rotations. Both formulas, including the nonprimitive case and the reverse/inverse sign convention, follow exactly. The two block calculations and two involutive alphabet swaps establish the entire six-order factorization. An exact-arithmetic checker reproduced 1,548 word-level cases, three powers, all 24 full-support four-letter permutations, and 486 block cases. Finite testing is supporting evidence, not the infinite proof.
+
+**Originality — PASS, with remaining literature risk.** The nearest inspected primary text is Poovanandran–Simpson–Teh (arXiv:2110.14858v1, §§4 and 6), which states the two identities for at most three letters and supplies only an `abcd` counterexample at four. Its statements do not include a quantitative covariance obstruction, the simultaneous equivalence of the two failures for every four-letter word, or the exact factorized classification for arbitrary positive four-block multiplicities. The linear power identity and general matrix-power expansions in Atanasiu–Poovanandran–Teh (arXiv:1808.04102v1, §3) are acknowledged and used rather than claimed as new. Although algebraically related, that result does not directly furnish the circular reverse/inverse defect or the all-block vanishing table. Equivalent unindexed computations and straightforward derivations by specialists remain possible.
+
+**Mathematical value — PASS.** This answers a concrete boundary question left by the first circular-Parikh construction: exactly which single entry breaks, by how much, why two different identities fail together, and when four-block words unexpectedly keep both. It supplies a natural, complete all-parameter sign/vanishing classification and unlimited families of both failures and equalities. The result is structural, rather than only a tabulation of isolated numerical counterexamples.
+
+**Limits.** Full characterization beyond four letters is not asserted. Independent external verification remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
