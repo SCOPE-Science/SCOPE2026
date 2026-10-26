@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed k-domination as vertex cover; proved partner graph maximum degree two and matching-two criterion, giving four-block bound and bipartite necessity. Explicit three/four constructions prove classification. Bijection through all component bipartitions yields 2^(c-1)s^2 candidates; each duplicated four-block partition corresponds uniquely to an unordered split of components, with exactly two valid pairings, giving 2^(c-2)(2^(c-1)-1). Independently enumerated 174 small regular graphs and checked the duplicate correction on 2,3,4 components. Proof is unrestricted; finite checks are corroborative.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.05403 Theorem 3.7: published general regular-graph bound 3<=CO_k<=4 rather than exact choice in every degree.",
+        "arXiv:2507.18306 Theorem 4.2: cubic graphs fully classified; Theorem 5.1 treats complete bipartite graphs, not enumeration of all regular bipartite partition families."
+      ],
+      "reasoning": "Existing bounds establish at most four, and existing cubic results establish the degree-three numerical case; neither gives an all-degree exact optimal-partition count or duplicate correction for disconnected bipartite graphs.",
+      "searches": [
+        "complete classification k-coalition number of k-regular graphs: 4 if and only if bipartite otherwise 3; generalization of cubic graph",
+        "2026 Kaneshiro 2608.05403 Theorem 3.7 3 ≤ CO_k(G) ≤ 4 exact regular graphs bipartite",
+        "arXiv:2608.05403 Theorem 3.7",
+        "arXiv:2507.18306 section 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.09332",
+      "arXiv:2507.18306",
+      "arXiv:2608.05403",
+      "published research record: 2026/10/4/SCOPE-exact-residual-of-the-spanning-tree-overlap-bound-on-complete-mu--41da6484779a",
+      "published research record: 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known general 3-to-4 bounds do not determine the choice; the cubic theorem has fixed degree three.",
+        "An existing argument for the cubic numerical result can be adapted across degrees, so numerical extension alone is not the principal novelty. The exact universal count and nontrivial disconnected orientation correction are not stated in the inspected works.",
+        "Independent proof Step 5 derives the formula and isolates the correction from multiple bipartition pairings."
+      ],
+      "reasoning": "The counting theorem requires a bijection between optimal partitions and bipartition splits modulo multiple coalition-pair matchings. Its correction term is not a numerical consequence of the known 3-to-4 bound or cubic classification; the new proof makes this identification explicitly.",
+      "searches": [
+        "2025 Bresar Henning Samadi k-coalition cubic graphs 3 regular bipartite",
+        "arXiv:2507.18306 Theorem 4.2 and Lemma 2.3",
+        "arXiv:2608.05403 Theorem 3.7",
+        "counting maximum k-coalition partitions bipartite k-regular graph connected components 4 blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For degree k equal to domination demand, k-domination is equivalent to vertex cover; see the independent proof in RESULT.md.",
+        "The 2025 Theorem 4.2 gives the same numerical dichotomy only for cubic graphs; its Lemma 2.3 bounds partner degree."
+      ],
+      "reasoning": "Compared the k-dominating definition, vertex-cover equivalence for full regular degree, cubic bipartite criterion and enumeration of optimal four-block partitions. Related notions such as 2-coalitions with k not equal to degree do not encode the claimed count.",
+      "searches": [
+        "k-coalition partitions hypercube Q_n k=n-1 graph dissociation number maximum blocks",
+        "coalition partitions regular graphs vertex-cover equivalence regular bipartite iff maximum four",
+        "full degree regular graph k-coalition bipartite four optimal partitions 2^(n/2-1)-1",
+        "arXiv:2507.18306 section 4 Theorem 4.2",
+        "arXiv:2407.09332 Corollary 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record id 2026/10/4/SCOPE-exact-residual-of-the-spanning-tree-overlap-bound-on-complete-mu--41da6484779a concerns domination coefficients, not coalition partitions.",
+        "Published mathematical record id 2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb counts non-CIS pairs, not k-coalition partition types.",
+        "Exact direct finite census in verification_output.txt includes 97 four-partitions of two disjoint 4-cycles; the naive orientation count is 98."
+      ],
+      "reasoning": "Top retrieved records on coefficients, clique partitions and bipartite graphs do not count full-degree coalition partitions. No inspected exact table/sequence covers the displayed formula. Search failure alone is not a proof of worldwide novelty.",
+      "searches": [
+        "counting maximum k-coalition partitions bipartite k-regular graph connected components 4 blocks",
+        "The number of maximum full-degree k-coalition partitions of disconnected regular bipartite graphs equals 2^(c-1)(2^(n/2-1)-1)^2 minus a correction for dual pairings",
+        "research-record:2026/10/4/SCOPE-exact-residual-of-the-spanning-tree-overlap-bound-on-complete-mu--41da6484779a",
+        "research-record:2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb"
+      ]
+    },
+    "rationale": "The general degree-three numerical dichotomy and regular bounds are acknowledged as prior. Main assessed contribution is the exact shape-independent optimal-partition count for ALL regular bipartite graphs, including its necessary disconnected overcount correction; inspected primary works and searched record claims do not imply or explicitly provide that enumerator. Residual unindexed prior-work risk remains.",
+    "residual_risks": [
+      "Priority cannot be conclusively proved from indexed searches; older or unpublished enumeration might cover the formula.",
+      "The all-regular numerical classification by itself closely parallels the earlier cubic proof; value and originality depend principally on the complete counting formula and duplicate correction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original definitions and bounds; no optimal-partition enumeration for all regular graphs identified",
+        "evidence": [
+          "Original corollary gives a bound in the regular setting; no disconnected exact four-block counting formula located."
+        ],
+        "identifier_or_url": "arXiv:2407.09332; https://arxiv.org/html/2407.09332",
+        "material_read": "Available HTML text, definitions and original regular-graph corollary in section 2",
+        "method": "Inspected public author manuscript HTML and matched definitions and bounds",
+        "title": "k-Coalitions in Graphs",
+        "trigger": "Original introduction of k-coalition partitions and regular graph bounds"
+      },
+      {
+        "assessment": "Cubic numerical statement is prior; partner-degree ceiling is prior; optimal-partition count for all connected/disconnected regular bipartite graphs not given",
+        "evidence": [
+          "Theorem 4.2 classifies cubic numerical values, and Lemma 2.3 bounds partner degree; the new exact count includes correction for disconnected components."
+        ],
+        "identifier_or_url": "arXiv:2507.18306; https://arxiv.org/html/2507.18306v1",
+        "material_read": "Full HTML article available; checked introduction, Lemma 2.3, section 4 Theorem 4.2/proof, and section 5 complete-bipartite discussion",
+        "method": "Read primary open-access HTML and searched relevant regular/bipartite/partition terms",
+        "title": "On k-coalition in graphs: bounds and exact values",
+        "trigger": "Strongest preceding exact cubic classification and general partner-degree argument"
+      },
+      {
+        "assessment": "General regular value bounded between three and four; no formula for numbers of optimal four-block partitions found in inspected material",
+        "evidence": [
+          "Theorem 3.7 provides the full-degree regular bound and does not enumerate maximum four-block partitions."
+        ],
+        "identifier_or_url": "arXiv:2608.05403; https://arxiv.org/abs/2608.05403",
+        "material_read": "Accessible 28-page primary PDF: checked introduction, regular-graph Theorem 3.7 and relevant graph-class/coalition sections, including rendered pages",
+        "method": "Inspected primary PDF text and relevant page images; searched statements for regular, bipartite and coalition partitions",
+        "title": "On k-coalition partitions of graphs",
+        "trigger": "Recent systematic graph-coalition partition study, including full-degree regular bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b114391a-a22c-4acf-9724-3380ec56321c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Counts all optimal partitions of a natural domination-derived graph invariant across an infinite connected/disconnected regular class, not merely its maximum. The unexpected correction for multiple component bipartitions is necessary (two disjoint squares have 97 partitions rather than naive 98), and the count depends solely on order and connected-component number even though the underlying graphs vary. Provides a complete enumeration and an explicit multiplicity mechanism, beyond the previously known 3-to-4 numerical bound and cubic case.",
+    "status": "PASS"
+  }
+}
