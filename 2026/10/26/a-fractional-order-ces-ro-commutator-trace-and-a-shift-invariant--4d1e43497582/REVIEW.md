@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The operator domain and all parameter restrictions are explicit. Gamma-ratio comparisons and two Schur sums prove boundedness. The compressed commutator trace identity is an exact cancellation of within-block square energies. A two-dimensional singular Riemann-limit proof handles the far tail and the potentially nonintegrable-looking corner separately, for every real positive order. A nonnegative power-series computation proves the digamma evaluation including the half-order case. For the unshifted matrix, the beta-distribution Hausdorff representation meets the hypotheses of the classical bounded-Hausdorff subnormality theorem explicitly identified in Rhaly's 2017 update; positivity then promotes the finite trace limit to genuine trace-class membership. The standalone standard-library numerical checks pass; they do not substitute for infinite arguments.
+
+## Originality — PASS, with qualifications
+Ma (2026) restricts its generalized matrix order to positive integers, despite considering real shifts. The closest indexed October 2026 trace result explicitly claims the harmonic trace formula for integral order, not the real-order digamma profile. A 2024 article gives the fractional-order matrix but the material visible in accessible search excerpts concerns factorization rather than commutator traces. Primary full-text examination of Rhaly's 2017 update establishes the positivity background. Neither the integer trace nor the general Hausdorff subnormality theorem alone supplies this exact fractional trace by logical implication: a continuous function is not determined by its values on positive integers. Unindexed Mellin/Hausdorff literature and the partly inaccessible 2024 article are residual priority risks.
+
+## Mathematical value — PASS
+The canonical trace of the self-commutator is a meaningful operator invariant, not an arbitrary numerical slice. This result determines it for the full natural nonintegral Cesàro-Hausdorff family and proves that it remains finite at every real positive order, including the singular half-order transition where the formula has a removable denominator. It simultaneously identifies the shift-invariant finite-boundary flux even when shifted hyponormality is not supplied. The proof explains why singular diagonal weights at small fractional orders do not change the limit, and recovers the known harmonic values at integers without claiming those as new.
+
+## Closest literature and remaining limitations
+Yicen Ma, arXiv:2610.00193v1 (September 18, 2026), Theorem 1.1 and Section 1; H. C. Rhaly Jr., arXiv:1701.00425v2, Section 5; N. K. Sharma (1973) through Rhaly's precise quotation; *Factorization of Hausdorff Operators* (2024), Section 4 partially accessible; and the indexed integer-order harmonic-trace result dated October 2026. The complete 2024 source and all unindexed publications were not examined. No norm or full-trace assertion is made for nonzero shifts.
+
+Self-review: passed. Independent audit: not yet performed.
