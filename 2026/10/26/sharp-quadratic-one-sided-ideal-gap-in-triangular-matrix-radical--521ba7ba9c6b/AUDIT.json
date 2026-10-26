@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For every field k, n≥2, and radical matrix X of rank r, column-wise and row-wise independent triangular multiplications give dim XT = sum of upper-left corner ranks and dim TX = sum of lower-right corner ranks. Each leading rank is at most min(r,j−1), and each trailing rank at least max(r−i+1,0), proving sharp bound r(n−r−1). Equality forces nonzero first r superdiagonal pivots and all rows below r zero, which also suffice. Their free coordinates give (G_m)^r × A^{rn−r(r+3)/2}; transpose-reflection exchanges signs. A rank-preserving sequence of nonattacking rook shifts reduces the gap by exactly one at each step and reaches the opposite bound, proving the entire spectrum. The script check.py exhaustively confirms 13 field-size examples incl. GF(4). Finite checks alone are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "E. Arias-Castro, P. Diaconis, R. P. Stanley, A super-class walk on upper-triangular matrices, DOI 10.1016/j.jalgebra.2004.04.005, §§1–2, sparse superclass-orbit representatives and superclass sizes.",
+        "R. A. Ferraz, C. Polcino Milies, E. Taufer, Left ideals in matrix rings over finite fields, arXiv:1711.09289, §§1–3, matrix-ring ideals.",
+        "Superclasses are indexed by rook placements under two-sided unitriangular multiplication, while the new theorem concerns dimensions of two one-sided ideals in the *unital* triangular algebra and equality on rank-r strata.",
+        "M. Rahimi-Alangi and B. R. Yahaghi, On nest modules of matrices over division rings, arXiv:1508.00041v1 (2015), Corollary 2.5 states the row/column descriptions of principal one-sided ideals of triangular matrix rings; Theorem 2.6 gives a principal nest-submodule criterion."
+      ],
+      "reasoning": "Rahimi-Alangi–Yahaghi Theorem 2.6 classifies which one-sided nest submodules are principal, and their Corollary 2.5 implies each separate ideal dimension formula. But the theorem as stated does not bound the *joint* difference for rank-r radical generators, determine its full image, or identify all extremizers with their cardinality. Deriving these requires combined rank-profile inequalities, a sharp simultaneous equality argument and rank-preserving interpolation. The earlier superclass orbit theory could alternatively encode the new property, creating a material residual risk.",
+      "searches": [
+        "upper triangular matrix algebra right annihilator left annihilator difference bound and equality",
+        "triangular matrix ring one-sided principal ideal asymmetry rank fixed finite field enumeration",
+        "\"upper triangular matrices\" \"left and right ideals\" dimensions difference",
+        "2026/10/4/SCOPE-exact-strictness-boundary-on-a-six-dimensional-roth-rank-minimiz--584b308b0805",
+        "\"On nest modules of matrices over division rings\" principal ideals rank theorem 2.6 1508.00041"
+      ]
+    },
+    "checked_sources": [
+      "M. Rahimi-Alangi and B. R. Yahaghi, On nest modules of matrices over division rings, arXiv:1508.00041v1 (2015), Corollary 2.5 states the row/column descriptions of principal one-sided ideals of triangular matrix rings; Theorem 2.6 gives a principal nest-submodule criterion.",
+      "E. Arias-Castro, P. Diaconis, R. P. Stanley, A super-class walk on upper-triangular matrices, DOI 10.1016/j.jalgebra.2004.04.005, §§1–2, sparse superclass-orbit representatives and superclass sizes.",
+      "M. Yip, q-Rook placements and Jordan forms of upper-triangular nilpotent matrices, DOI 10.46298/dmtcs.2362, §§1–3, Eq. (4) ordinary rank distribution.",
+      "R. A. Ferraz, C. Polcino Milies, E. Taufer, Left ideals in matrix rings over finite fields, arXiv:1711.09289, §§1–3, matrix-ring ideals.",
+      "DMTCS publisher record at https://dmtcs.episciences.org/en/articles/2362 (Published on December 31, 2012)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "M. Yip, q-Rook placements and Jordan forms of upper-triangular nilpotent matrices, DOI 10.46298/dmtcs.2362, §§1–3, Eq. (4) ordinary rank distribution.",
+        "E. Arias-Castro, P. Diaconis, R. P. Stanley, A super-class walk on upper-triangular matrices, DOI 10.1016/j.jalgebra.2004.04.005, §§1–2, sparse superclass-orbit representatives and superclass sizes.",
+        "R. A. Ferraz, C. Polcino Milies, E. Taufer, Left ideals in matrix rings over finite fields, arXiv:1711.09289, §§1–3, matrix-ring ideals.",
+        "Computing Δ for E_12 and E_34 at n=4 gives respectively +2 and −2 while both have ordinary rank 1 and identical Jordan type.",
+        "M. Rahimi-Alangi and B. R. Yahaghi, On nest modules of matrices over division rings, arXiv:1508.00041v1 (2015), Corollary 2.5 states the row/column descriptions of principal one-sided ideals of triangular matrix rings; Theorem 2.6 gives a principal nest-submodule criterion."
+      ],
+      "reasoning": "The 2015 corollary already provides the two separate profile formulas and is a direct prior implication of proof Step 1. The new assertions—sharp ±r(n−r−1), no gaps, iff extremizers, torus-affine structure, and (q−1)^r q^{rn−r(r+3)/2}—do not follow as explicit special cases of Cor. 2.5/Thm. 2.6; they require optimization and construction not performed there. A novel corollary from prior structural theory may still lack absolute publication priority, so this risk is openly recorded.",
+      "searches": [
+        "principal one-sided ideal dimension difference right minus left for a nilpotent strictly upper triangular matrix in upper triangular ring sharp bound rank r",
+        "exact range and extremizers of differences between dimensions of xT_n and T_n x for rank r strictly upper triangular matrices",
+        "upper triangular matrix algebra right annihilator left annihilator difference bound and equality",
+        "\"upper triangular matrices\" \"principal left ideals\" dimension",
+        "\"On nest modules of matrices over division rings\" principal ideals rank theorem 2.6 1508.00041"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "M. Yip, q-Rook placements and Jordan forms of upper-triangular nilpotent matrices, DOI 10.46298/dmtcs.2362, §§1–3, Eq. (4) ordinary rank distribution.",
+        "E. Arias-Castro, P. Diaconis, R. P. Stanley, A super-class walk on upper-triangular matrices, DOI 10.1016/j.jalgebra.2004.04.005, §§1–2, sparse superclass-orbit representatives and superclass sizes.",
+        "For n=4 the rank-one matrix units E_12 and E_34 have identical Jordan type but opposite ideal-dimension differences of ±2, so rank/Jordan counts cannot determine this invariant.",
+        "M. Rahimi-Alangi and B. R. Yahaghi, On nest modules of matrices over division rings, arXiv:1508.00041v1 (2015), Corollary 2.5 states the row/column descriptions of principal one-sided ideals of triangular matrix rings; Theorem 2.6 gives a principal nest-submodule criterion."
+      ],
+      "reasoning": "The principal right/left ideal profile identities are already known as a direct specialization of Rahimi-Alangi–Yahaghi Corollary 2.5, so they are not a novelty claim. The new claimed statement is the fixed-ordinary-rank *difference* of their total dimensions, a sharp two-sided inequality with a gap-free attainable integer spectrum and all equality matrices. Alias searches included left-versus-right annihilator codimension and multiplier ranks; no exact extremal law located.",
+      "searches": [
+        "principal one-sided ideal dimension difference right minus left for a nilpotent strictly upper triangular matrix in upper triangular ring sharp bound rank r",
+        "exact range and extremizers of differences between dimensions of xT_n and T_n x for rank r strictly upper triangular matrices",
+        "strictly upper triangular matrix radical left principal ideal dimension rank generating polynomial finite field",
+        "rank profile left multiplication by upper triangular matrix on triangular algebra principal right ideal",
+        "\"principal right ideal\" \"upper triangular matrix\" \"dimension\"",
+        "\"On nest modules of matrices over division rings\" principal ideals rank theorem 2.6 1508.00041"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "M. Yip, q-Rook placements and Jordan forms of upper-triangular nilpotent matrices, DOI 10.46298/dmtcs.2362, §§1–3, Eq. (4) ordinary rank distribution.",
+        "Its Equation (4) counts nilpotent matrices of ordinary rank, but includes no joint two-sided one-element ideal-dimension distribution.",
+        "M. Rahimi-Alangi and B. R. Yahaghi, On nest modules of matrices over division rings, arXiv:1508.00041v1 (2015), Corollary 2.5 states the row/column descriptions of principal one-sided ideals of triangular matrix rings; Theorem 2.6 gives a principal nest-submodule criterion."
+      ],
+      "reasoning": "Yip counts by ordinary rank/Jordan type, and Rahimi-Alangi–Yahaghi classify nest ideals, but their inspected results do not provide a table of rank-conditioned possible *differences* of left/right generated ideal dimensions or finite-field counts of all maximizers. This is a finer incidence invariant.",
+      "searches": [
+        "triangular matrix ring one-sided principal ideal asymmetry rank fixed finite field enumeration",
+        "Catalan distribution two-sided ideals generated by individual upper triangular nilpotent matrices finite fields",
+        "\"triangular\" \"principal ideals\" \"floor((n-1)^2/4)\"",
+        "2026/10/4/SCOPE-commutator-fibers-and-commuting-probabilities-of-finite-kronecke--75cb49b6c27d",
+        "\"On nest modules of matrices over division rings\" principal ideals rank theorem 2.6 1508.00041"
+      ]
+    },
+    "rationale": "A directly relevant prior full text, Rahimi-Alangi–Yahaghi (2015), Corollary 2.5, already yields the principal one-sided ideal rank-profile formulas. These are explicitly credited, not claimed as new. Their Theorem 2.6 classifies principal nest modules but does not determine the maximal or possible differences of left and right ideal dimensions at fixed matrix rank, their sharp equality conditions, or extremal finite-field matrix counts. Older superclass-orbit and Jordan-rank tables address related but different invariants. Novelty is claimed only for this joint rank-conditioned extremal/attainability theorem, with a substantial residual risk of indirect derivation from the prior nest-module theory.",
+    "residual_risks": [
+      "Rahimi-Alangi–Yahaghi (2015) already contains the one-sided rank-profile identity, so any originality priority is restricted to the sharp joint fixed-rank gap, attainability and equality counts. These could be implicit consequences of their principal nest-module framework and need independent review.",
+      "The superclass/rook framework may imply the extremal law after an unstated but nontrivial specialization. No absolute novelty certification is claimed.",
+      "Other literature on one-sided rank profiles or triangular matrix modules could contain equivalent statements under different names."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY COVERS the separate principal-ideal row/column rank-profile formulas and principal-ideal characterizations; these are credited. Does NOT state the new simultaneous fixed-rank difference bound, full interval, extremal algebraic varieties and counts.",
+        "evidence": [
+          "M. Rahimi-Alangi and B. R. Yahaghi, On nest modules of matrices over division rings, arXiv:1508.00041v1 (2015), Corollary 2.5 states the row/column descriptions of principal one-sided ideals of triangular matrix rings; Theorem 2.6 gives a principal nest-submodule criterion.",
+          "Corollary 2.5 row_i(T_m A)=span(rows_i,...,rows_m) and column_j(A T_n)=span(columns_1,...,columns_j). Theorem 2.6 constrains successive ranks by block sizes, not extremal two-sided gaps."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.00041",
+        "material_read": "17-page arXiv v1 original: abstract, §§1–2, the specialized upper-triangular case and the proofs/statements of Corollary 2.5 (page 12), Theorem 2.6 (pages 12–13), and Corollary 2.7 (page 14).",
+        "method": "Inspected accessible original PDF text and the rendered page covering Proposition 2.4; located Corollary 2.5 and Theorem 2.6 in the full original.",
+        "title": "On nest modules of matrices over division rings",
+        "trigger": "2015 paper explicitly characterizes one-sided ideals and principal submodules of upper triangular/nest matrix algebras, strongly overlapping a component of the proof."
+      },
+      {
+        "assessment": "Original results classify superclass orbits and their sizes for random-walk/character-theoretic applications, not a fixed-rank left-right ideal gap spectrum.",
+        "evidence": [
+          "E. Arias-Castro, P. Diaconis, R. P. Stanley, A super-class walk on upper-triangular matrices, DOI 10.1016/j.jalgebra.2004.04.005, §§1–2, sparse superclass-orbit representatives and superclass sizes.",
+          "Figure 1 and §2 define nonattacking rook configurations and dimension/intertwining indices; those are not the principal one-sided ideals."
+        ],
+        "identifier_or_url": "https://www.math.ucsd.edu/~eariasca/papers/UniRW.pdf",
+        "material_read": "27-page open manuscript: abstract, introduction, §2.1 and §2.4 discussion of sparse superclass representatives, superclass dimensions, and orbit formula; keyword checks for one-sided ideals.",
+        "method": "Read accessible original PDF text and inspect rendered pages (including page 6).",
+        "title": "A super-class walk on upper-triangular matrices",
+        "trigger": "A plausible stronger two-sided orbit classification over the same radical, potentially encoding one-sided ideal ranks."
+      },
+      {
+        "assessment": "Determines rank and Jordan partition populations, a strictly coarser invariant than the sign-sensitive principal one-sided ideal dimension difference.",
+        "evidence": [
+          "M. Yip, q-Rook placements and Jordan forms of upper-triangular nilpotent matrices, DOI 10.46298/dmtcs.2362, §§1–3, Eq. (4) ordinary rank distribution.",
+          "Equation (4) is a rank-counting polynomial on staircase boards, not a left/right ideal difference count."
+        ],
+        "identifier_or_url": "https://sites.math.washington.edu/~billey/classes/561.fall.2021/past.articles/Yip.2013.pdf",
+        "material_read": "12-page complete openly available article: Introduction, §2 rank/Jordan and rook formulas (Eq. (1)–(5)), propositions and final theorem and closing discussion.",
+        "method": "Read source PDF text and rendered mathematical formulas (page 2).",
+        "title": "q-Rook placements and Jordan forms of upper-triangular nilpotent matrices",
+        "trigger": "Potential full rank distribution or Jordan-form theorem dominating a new rank-stratified assertion."
+      },
+      {
+        "assessment": "Semisimple M_n(F_q) gives symmetric principal-ideal dimensions nr, unlike nonsemisimple T_n; does not cover the claim.",
+        "evidence": [
+          "R. A. Ferraz, C. Polcino Milies, E. Taufer, Left ideals in matrix rings over finite fields, arXiv:1711.09289, §§1–3, matrix-ring ideals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1711.09289",
+        "material_read": "Open original arXiv HTML full paper description and sections on the full matrix ring.",
+        "method": "Read openly accessible paper text; compared the underlying full matrix ring M_n(F_q) with T_n(F_q).",
+        "title": "Left ideals in matrix rings over finite fields",
+        "trigger": "Exact counts of one-sided principal ideals could cover triangular matrix algebras."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "521ba7ba-9c6b-40a6-85b8-9678eaf43c56",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The one-sided principal ideals of a radical element are intrinsic modules whose dimension imbalance quantifies the noncommutative orientation asymmetry in a standard hereditary algebra. The theorem supplies a field-independent sharp quadratic bound, every attainable signed value at each ordinary rank, and all endpoint algebraic loci with exact finite-field cardinality, rather than an arbitrary finite example or marginal matrix-rank count. These natural extremal and geometric data can guide comparisons for incidence and pattern algebras.",
+    "status": "PASS"
+  }
+}
