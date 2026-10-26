@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For every finite even population and every independent interior infection-risk vector, the disjoint pool assay count is m+2 sum of independent Bernoulli pool-positivity indicators. Variance reduction to 4 sum f(q_i q_j) is exact. Expanding all three four-point costs gives a crossing-never-strictly-best inequality. Lexicographic tie-breaking by least total span and greatest squared span proves a noncrossing global optimum without assuming strict probabilities. The parity-correct recurrence enumerates every noncrossing pairing, giving exact O(m^3) time/O(m^2) memory. Exact rational enumeration checks all 15 six-person matchings and supports, but does not replace, the universal algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McMahan et al. (2011) targets expected number of tests with heterogeneous risk sorting, pool size, and imperfect tests.",
+        "Warasi–Das (2024) full HTML sections 3–4 targets variance/MSE of the prevalence estimator, mean test count and information cost; these are not variance of tests expended.",
+        "The stated noncrossing theorem works for any mixed risk vector and displays a strictly intermediate unique minimizer."
+      ],
+      "reasoning": "Published objectives targeting E(T), Var(p-hat), or generic matchings do not logically entail a no-crossing property for Var(T) at mandatory pair size. A previously established special-case risk-range extremal comparison likewise does not settle mixed vectors because opposite-extreme and adjacent matchings both lose in the exhibited six-person case.",
+      "searches": [
+        "\"Informative Dorfman Screening\" variance pool sizes risk 2011",
+        "\"Optimal group testing with heterogeneous risks\" minimum expected tests",
+        "\"Optimizing Disease Surveillance Through Pooled Testing\" \"variance\"",
+        "doi:10.1007/s13253-024-00646-6"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1111/j.1541-0420.2011.01644.x",
+      "doi:10.1002/sim.5334",
+      "doi:10.1007/s13253-024-00646-6",
+      "doi:10.1287/ijoc.11.2.138"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Independent pool-positive indicators imply Var(T)=4 sum f(q_iq_j), a different optimization target from E(T).",
+        "Six noninfection probabilities (1,2,3,4,5,6)/7 yield a unique optimum (1,4),(2,3),(5,6), distinct from both pure adjacent and opposite-extreme designs.",
+        "Two four-point identities establish the explicit universal noncrossing inequality; neither the earlier mean-workload order nor one-sided variance regimes implies that mixed-risk inequality."
+      ],
+      "reasoning": "The claim is noncrossing optimality for variance with arbitrary mixed risks, not mere efficient solvability by general matching algorithms, nor the known extreme-pattern laws with risks on one side of 1/2. Distinct objective and unclassified mixed regime prevent direct implication from inspected results, subject to uninspected broader ordered-matching results.",
+      "searches": [
+        "\"Pooled-testing procedures for screening high volume clinical specimens in heterogeneous populations\"",
+        "\"Informative Dorfman Screening\" section 3 optimum E(T)",
+        "\"Minimum-Weight Perfect Matchings\" ordered optimal matching",
+        "\"variance of total number of tests\" group testing optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McMahan–Tebbs–Bilder, section 2–3 indexed full-text excerpts: risk-ordered pools and minimizing E(T), not the claimed variance matching.",
+        "Cook–Rohe (1999) studies generic weighted perfect matching algorithms, not this structured weight.",
+        "The present algebra gives min(separated,nested) <= crossing even while the sign of each difference can change."
+      ],
+      "reasoning": "The potential equivalent names are noncrossing matching, ordered quadrangle inequality, and variance-optimal heterogeneous Dorfman pooling. The generic polynomial minimum-weight perfect matching problem certainly contains the optimization instance, but none of the inspected sources states the special always-noncrossing minimizer or the interval recurrence for f(st)=st(1-st). Equivalent general ordered-matching literature not exhaustively accessible remains a risk.",
+      "searches": [
+        "\"Dorfman\" \"variance\" \"heterogeneous\" \"pairing\"",
+        "\"group testing\" \"variance of number of tests\" \"pairing\"",
+        "\"perfect matching\" \"noncrossing\" \"quadrangle inequality\"",
+        "doi:10.1111/j.1541-0420.2011.01644.x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches found no exact mixed-risk variance-matching classification or tabulated six-risk witness.",
+        "The example is fully enumerated in RESULT.md using 15 exact rational costs with denominator 2401.",
+        "The inspected 2012 Bilder–Tebbs abstract describes testing efficiency for heterogeneous populations rather than a variance-optimal matching table."
+      ],
+      "reasoning": "No exact table was found for these 15 exact rational outcomes. This is not a proof that no such table exists; source access gaps and alternative ordering conventions remain possible.",
+      "searches": [
+        "\"Dorfman\" \"variance\" \"heterogeneous\" \"pairing\"",
+        "\"group testing\" \"variance\" \"matching\" \"pair\" infection",
+        "\"noncrossing\" \"matching\" \"Monge\" cost function",
+        "doi:10.1002/sim.5334"
+      ]
+    },
+    "rationale": "The inspected risk-ordered epidemiological screening literature focuses on expected assay counts or estimator variances, and generic matching literature does not state this specific mixed-risk noncrossing guarantee. An earlier special-range pairing theorem covers only all-risk-one-side regimes; the exact six-person mixed-risk minimizer proves that those formulas do not yield the new answer. No direct equivalent was found in targeted published-index searches; unsearched equivalent ordered-matching and inaccessible full-text portions remain genuine residual bibliographic risks.",
+    "residual_risks": [
+      "An equivalent noncrossing-matching result could be known under general ordered quadrangle inequalities; the direct specialization to the cost f(xy) may have appeared under a different name.",
+      "Complete appendix-level reading of two relevant 2011–2012 heterogeneous-screening papers was obstructed.",
+      "This statement is mathematically distinct from a previously recovered all-low/all-high risk variance rule, but absolute publication priority is not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected sections choose sorted risk pools and optimize expected testing effort E(T), pooling sizes and diagnostic accuracy. They do not state the mixed-risk variance-optimal noncrossing matching theorem; remaining unviewed sections/appendices retain some risk.",
+        "evidence": [
+          "Publisher publication date 2011-07-15 and description of E(T) minimization, doi:10.1111/j.1541-0420.2011.01644.x",
+          "Indexed sections 2–3 explicitly formulate optimal pool size by minimizing E(T)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1541-0420.2011.01644.x",
+        "material_read": "Publisher abstract and indexed article sections 1, 2.1, 3.1–3.3, 4 and discussion 6; direct PMC HTML interstitial blocked uninterrupted full-page reading.",
+        "method": "Search-indexed section excerpts cross-checked with publisher first-publication and abstract pages",
+        "title": "Informative Dorfman Screening",
+        "trigger": "Most relevant primary account of heterogeneous risk-ordered two-stage Dorfman pooling, first public 2011-07-15"
+      },
+      {
+        "assessment": "Abstract emphasizes total tests needed and diagnostic accuracy; insufficient text to exclude an appendix with the specific variance criterion. Residual risk explicitly retained.",
+        "evidence": [
+          "First published 2012-03-13; doi:10.1002/sim.5334",
+          "PMC3500568 lawful-open access link was not accessible for direct inspection"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/sim.5334",
+        "material_read": "Publisher abstract and PubMed article description; full text at PMC returned interstitial / access error.",
+        "method": "Publisher and PubMed indexed abstract examination, lawful OA attempted",
+        "title": "Pooled-testing procedures for screening high volume clinical specimens in heterogeneous populations",
+        "trigger": "Potentially matching multi-pool heterogeneous-screening article"
+      },
+      {
+        "assessment": "Studies E[T] and variance/MSE of prevalence estimator, not minimization of Var(T) over pairings at fixed pair size.",
+        "evidence": [
+          "Section 4 explicitly lists its three objectives E[(p-hat-p)^2], E[T], E[T(p-hat-p)^2]."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13253-024-00646-6",
+        "material_read": "Accessible publisher full HTML methods, mathematical objectives, section 3 and sections 4.1–4.3, discussion/references; specifically checked random total T and variance targets.",
+        "method": "Full HTML section read and text search for variance of test workload",
+        "title": "Optimizing Disease Surveillance Through Pooled Testing with Application to Infectious Diseases",
+        "trigger": "Closest accessible detailed survey optimizing testing variability and precision"
+      },
+      {
+        "assessment": "Generic algorithmic weighted matching permits computing optimum but does not by itself give the ordered noncrossing structure.",
+        "evidence": [
+          "Abstract describes implementation of Edmonds-type minimum-weight perfect matching, not epidemiological variance weights."
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/ijoc.11.2.138",
+        "material_read": "Publisher abstract and bibliographic metadata",
+        "method": "Abstract comparison; no claim of full paper exclusion",
+        "title": "Computing Minimum-Weight Perfect Matchings",
+        "trigger": "Broader matching-algorithm coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "598c42f9-ee28-43eb-b837-7d5cd1e751b5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Assay workload variability matters when second-stage retests must be resourced under fixed pair pooling. The exact arbitrary mixed-risk noncrossing structural theorem replaces unrestricted matchings with an inspectable interval recurrence for all population sizes, and the uniquely intermediate six-person optimum demonstrates a real gap beyond two extreme pairing recipes. It does not simply recompute a known table or assert routine reparameterization. Its application is conditional: if unrestricted individual tests are allowed, their count is deterministic and the variance-only objective becomes trivial.",
+    "status": "PASS"
+  }
+}
