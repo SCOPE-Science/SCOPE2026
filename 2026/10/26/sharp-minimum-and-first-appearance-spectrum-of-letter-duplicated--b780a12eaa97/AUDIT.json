@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The quantified all-q, all-n result follows from two pigeonhole inductions yielding sharp even/odd uniform lower bounds, the exact greedy embedding cost for a periodic alphabet word, and unique run decomposition yielding the first-appearance generating function. All boundary cases including n<=q and L<2 are addressed; an independent dynamic program, exhaustive small input enumeration and coefficient recurrence passed 67,752 source-word cases and degrees through 80.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lai et al., CPM 2022, main results: full-appearance constrained hardness, bounded-frequency approximation, weighted dynamic programming.",
+        "Lai et al., Acta Informatica (2024), algorithmic and restricted-input variants, open-access full article."
+      ],
+      "reasoning": "An exact algorithm for LLDS(w) does not logically imply the closed form for min over all q-ary words or the rational spectrum for infinitely many words. The inspected source results concern algorithms and complexity; neither theorem includes the claimed extremal or enumerative statement.",
+      "searches": [
+        "\"longest letter duplicated subsequence\" \"lower bound\" worst case",
+        "\"longest letter-duplicated subsequence\" \"probability\" \"tight\"",
+        "\"longest letter duplicated subsequence worst case minimum value length n alphabet q theorem\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.05725 (public 2021-12-10), accessible article HTML and relevant full-text sections",
+      "DOI:10.4230/LIPIcs.CPM.2022.7 (CPM 2022), full PDF and introductory/problem statements",
+      "DOI:10.1007/s00236-024-00459-7 (Acta Informatica 2024), open-access article text"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lai et al., arXiv:2112.05725, Section 2.1 provides a per-input dynamic programming characterization of the longest LDS length.",
+        "Lai et al., Acta Informatica 61 (2024), 315-329 studies related algorithmic variants."
+      ],
+      "reasoning": "The new proof needs two global pigeonhole inductions and an exact periodic greedy-embedding analysis absent from the compared statements. A per-input DP cannot alone yield the sharp worst-case value without a separate extremal proof, and contains no distinct-output first-appearance generating function.",
+      "searches": [
+        "\"longest letter-duplicated subsequence\" \"length\" \"alphabet\" lower bound",
+        "\"longest letter duplicated subsequence worst case minimum value length n alphabet q theorem\"",
+        "\"q ary word guaranteed repeated runs subsequence at least 2 floor(n/(q+1))\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lai et al., arXiv:2112.05725, Sections 1 and 2.1 explicitly distinguish letter-duplicated subsequences from longest-run subsequences.",
+        "Lai et al., Acta Informatica (2024), Section 2 defines LLDS under the same maximal-run constraint."
+      ],
+      "reasoning": "Requiring run lengths >=2 is not the same as requiring each alphabet symbol in at most one run; a single word can satisfy one constraint and fail the other. General subsequence-universality counts all target words of a fixed length, rather than optimizing length among run-restricted targets. No searched alias stated the sharp q,n minimax or its first-appearance spectrum.",
+      "searches": [
+        "\"longest letter-duplicated subsequence\" \"length\" \"alphabet\" lower bound",
+        "\"letter-duplicated subsequence\" \"extremal\" \"cyclic\"",
+        "\"longest run subsequence worst case lower bound alphabet size cyclic word\"",
+        "\"longest duplicated subsequence\" \"cyclic\" alphabet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching bivariate first-appearance table was identified in the inspected two primary research articles; their enumerative results concern other constraints."
+      ],
+      "reasoning": "The coefficients here enumerate DISTINCT LDS output words by two parameters, not subsequence embeddings or run-subsequence optima. The literature searches did not reveal a matching indexed table; this is not an exhaustive database search.",
+      "searches": [
+        "\"letter-duplicated\" \"generating function\" \"enumeration\"",
+        "\"repeated letter subsequence\" \"n/(sigma+1)\" consecutive blocks",
+        "\"q ary word guaranteed repeated runs subsequence at least 2 floor(n/(q+1))\""
+      ]
+    },
+    "rationale": "The focal 2021 arXiv/2022 CPM and 2024 journal publications establish the same LLDS invariant, but their algorithmic results do not state the sharp all-alphabet worst-case value or the enumerative periodic first-appearance spectrum. Comparisons include equivalent run-restricted names, potential stronger coverage and exact output enumerations; an undiscovered equivalent result remains possible.",
+    "residual_risks": [
+      "An earlier equivalent minimax bound may appear under another name or in an unindexed mathematical source.",
+      "The rational distinct-output generating function could coincide with a separately tabulated formal-language series not found in the compared papers.",
+      "The comparison cannot establish uniqueness throughout all mathematical publications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed all-q minimax or the distinct-output bivariate series; does establish the source invariant and fast per-instance computation.",
+        "evidence": [
+          "arXiv:2112.05725, first version 10 December 2021; Sections 1-2.1 define the problem and contrast longest run subsequence.",
+          "Section 3 studies full-appearance restrictions; Section 4 studies weighted LLDS."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2112.05725v2",
+        "material_read": "The complete publicly accessible HTML article, especially Sections 1, 2.1, 3, 4, and concluding remarks; theorem statements and variant descriptions.",
+        "method": "Read article HTML and compare definitions, run-length conventions, result hypotheses and implications with the present minimax and first-appearance claims.",
+        "title": "Beyond the Longest Letter-duplicated Subsequence Problem",
+        "trigger": "Introduces precisely the same longest letter-duplicated subsequence invariant and supplies the earliest focal source."
+      },
+      {
+        "assessment": "No equivalent formula identified in the materially inspected sections, although undiscovered equivalent descriptions remain a risk.",
+        "evidence": [
+          "Acta Informatica 61 (2024), 315-329; DOI 10.1007/s00236-024-00459-7."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00236-024-00459-7",
+        "material_read": "Open-access article HTML: abstract, definitions, algorithmic statements, constrained and weighted results, and discussion; searched the article for periodic/extremal/guarantee terminology.",
+        "method": "Full-text HTML reading and in-document term searches, with implication comparison to a sharp worst-case optimum and output-spectrum rational generating function.",
+        "title": "The longest letter-duplicated subsequence and related problems",
+        "trigger": "Follow-up from the same authors and direct potentially stronger coverage of the exact LLDS invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b780a12e-aa97-49c9-8a3d-62c7814387fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact guaranteed repeated-letter run-subsequence length in every q-ary input of every length, exhibits a sharp universal periodic extremizer, and supplies a natural complete two-variable count of distinct duplicated-pattern outputs visible from that extremizer. This structural and enumerative information is not provided merely by an LLDS algorithm; it avoids arbitrary isolated parameters and has a direct interpretation as pattern recoverability after deletions.",
+    "status": "PASS"
+  }
+}
