@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Closed SIR final-size root is unique since the strictly concave fixed-point residual crosses once from positive to negative; its slope at the root gives \\(0<\\mathcal R s<1\\). Implicit differentiation yields A_R=A s/(1-Rs). Substitution proves \\(Q′/Q=(g_*-\\mathcal R s h)/(1-\\mathcal R s)\\), strictly positive to the right of the reproduction-ratio optimizer. The uniform exponential estimate ensures full positivity for sufficiently large transmission. The 30:1 explicit example uses strict rational exponential bounds. The analytic proof covers continuous u and asymptotic beta0; 522 independent checker assertions corroborate arithmetic and ODE consistency.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bolzoni et al. arXiv:1706.04447, Secs. 1 and 2 and Theorem 2 (time-optimal controls, compared with unconstrained infectious burden)",
+        "Bolzoni et al. allow time-dependent single-control policies and optimize eradication time, not a static shared prevention-treatment budget."
+      ],
+      "reasoning": "Broader SIR control theory overlaps in motivation but does not directly imply the universal strict comparison under both controlled beta and gamma. It remains plausible that general comparative-statistics theory subsumes the derivation.",
+      "searches": [
+        "SIR optimal prevention treatment allocation minimizing infectious person days vs epidemic peak",
+        "difference intervention strategies minimizing peak and total infected person time SIR transmission recovery allocation",
+        "SIR optimal prevention treatment allocation minimizing infectious person days vs epidemic peak final epidemic size tradeoff",
+        "arXiv:1706.04447"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2302.00960",
+      "https://arxiv.org/abs/2111.05652",
+      "https://arxiv.org/abs/1706.04447",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC10189312/",
+      "https://arxiv.org/abs/2604.08420"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Maity et al. arXiv:2302.00960v1, Secs. 2.1, 3.2, 3.3, Appendix B (peak formula, production responses, peak optimizer)",
+        "Sereno et al. arXiv:2111.05652, Secs. 2 and 4 (AUC/final-size identity and time-varying transmission intervention)",
+        "Bolzoni et al. arXiv:1706.04447, Secs. 1 and 2 and Theorem 2 (time-optimal controls, compared with unconstrained infectious burden)",
+        "Maity Appendix B derives dI/dt peak and optimized reproduction ratio, not total physical-time integral with control-dependent recovery."
+      ],
+      "reasoning": "Peak optimum u_R and classical final-size law are prior components. Their conjunction with variable recovery requires deriving and sign-analyzing the new Q slope, yielding a universal one-sided optimum constraint and a large-transmission all-treatment phase. Sereno AUC is in rescaled time with independently fixed gamma, and Bolzoni controls are dynamically switched.",
+      "searches": [
+        "arXiv:2302.00960v1 Appendix B",
+        "arXiv:2111.05652 Section 2 area under curve",
+        "Maity Banerjee Senapati Chattopadhyay 2023 epidemic optimal prevention treatment SIR peak versus total infectious person time final size allocation policy ordering"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sereno et al. arXiv:2111.05652, Secs. 2 and 4 (AUC/final-size identity and time-varying transmission intervention)",
+        "The AUC identity in that study treats an invariant recovery-time normalization; here recovery itself changes with the budget."
+      ],
+      "reasoning": "AUC is cumulative infectious person-time, which equals total removed cases divided by the controlled recovery rate. Merely using final size alone does not yield the ordering because gamma varies with u. No identical split-optimization theorem was found.",
+      "searches": [
+        "arxiv 2302.00960 Maity Banerjee Senapati Chattopadhyay optimal allocation fraction beta_e gamma_e peak integrated prevalence SIR person time",
+        "SIR final-size relation treatment recovery investment versus prevention investment at fixed budget cumulative infectious time ordering peak-optimal split",
+        "SIR \"area under the infection curve\" \"resource allocation\" \"recovery rate\" transmission rate",
+        "arXiv:2111.05652"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic hits headed by a distinct resource-feasible-set analysis and other epidemic studies; no hit described an identical Maity-model cumulative-person-time optimum theorem.",
+        "Maity et al. peak-optimum expression is known and expressly excluded from the new claim."
+      ],
+      "reasoning": "Search results compare claims rather than only titles; the closest resource-split item concerns an unrelated feasible-region problem. An absence of an indexed hit does not demonstrate global novelty.",
+      "searches": [
+        "arxiv 2302.00960 Maity Banerjee Senapati Chattopadhyay optimal allocation fraction beta_e gamma_e peak integrated prevalence SIR person time",
+        "SIR final-size relation treatment recovery investment versus prevention investment at fixed budget cumulative infectious time ordering peak-optimal split",
+        "Maity Banerjee Senapati Chattopadhyay 2023 epidemic optimal prevention treatment SIR peak versus total infectious person time final size allocation policy ordering",
+        "arxiv 2302.00960 Maity Banerjee Senapati Chattopadhyay optimal allocation fraction beta_e gamma_e peak integrated prevalence SIR person time"
+      ]
+    },
+    "rationale": "Maity et al. give the prevention/treatment production functions and prevalence peak optimum, not the integrated-infection objective under a recovery-changing allocation. Sereno et al. give the AUC/final-size relationship in a different control space; Bolzoni et al. give time-optimal single-control results. The current comparative statics, strict optimum ordering, uniform all-treatment high-transmission regime and exact opposed-optimum example were not located in inspected primary results. Broader prior coverage remains a risk.",
+    "residual_risks": [
+      "Known final-size identities are substantive prior ingredients; broader comparative-statics or epidemic allocation theory may give a corollary.",
+      "The most recent 2026 peak-versus-final-size study considers a different time-policy formulation; a fully general synthesis was not independently audited.",
+      "No external or independent mathematical assessment is supplied."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers controlled beta/gamma response and peak optimization, but no variable-recovery integrated-person-time resource comparison.",
+        "evidence": [
+          "Maity et al. arXiv:2302.00960v1, Secs. 2.1, 3.2, 3.3, Appendix B (peak formula, production responses, peak optimizer)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.00960",
+        "material_read": "Complete accessible arXiv HTML article sections 1-3.3 and Appendix B peak-optimizer derivation, equations 18-21 and 38-41; PDF page 5 crosschecked.",
+        "method": "Primary full text and original Appendix B comparison",
+        "title": "Quantifying optimal resource allocation strategies for controlling epidemics",
+        "trigger": "Same two-control response functions and outbreak peak optimum"
+      },
+      {
+        "assessment": "AUC and final epidemic size treated with intervention via time-dependent reproduction controls, but no two-program allocation with a recovery-speed tradeoff.",
+        "evidence": [
+          "Sereno et al. arXiv:2111.05652, Secs. 2 and 4 (AUC/final-size identity and time-varying transmission intervention)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.05652",
+        "material_read": "Accessible arXiv full text: abstract, Section 2 AUC identity near integral derivation, Section 4 control strategy and main theorem.",
+        "method": "Primary source text and equation comparison",
+        "title": "Minimizing the Epidemic Final Size while Containing the Infected Peak Prevalence in SIR Systems",
+        "trigger": "Potential stronger AUC/final-size and peak-control coverage"
+      },
+      {
+        "assessment": "Studies time-optimal delayed/single-control bang-bang strategies; qualitatively recognizes objective disagreement but neither implies nor states static two-control prevention share ordering.",
+        "evidence": [
+          "Bolzoni et al. arXiv:1706.04447, Secs. 1 and 2 and Theorem 2 (time-optimal controls, compared with unconstrained infectious burden)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.04447",
+        "material_read": "Primary arXiv text Sections 1-2 and Theorem 2, and PDF first-page abstract.",
+        "method": "Full primary article targeted mathematical sections",
+        "title": "Time-optimal control strategies in SIR epidemic models",
+        "trigger": "Broader epidemic optimization under different intervention objectives"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "97add9aa-7f3a-444e-811e-b17f8ff6522a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Distinct policy objectives are motivated by simultaneous burden versus cumulative infectious person-time, which controls duration-weighted utilization in this model. The universal strict optimum ordering and the large-transmission reversal show a qualitative and all-parameter structural distinction, with an exact bounded example; the result is not merely an evaluation of one arbitrary parameter case. It provides a diagnostic for comparing budget recommendations from peak-only models.",
+    "status": "PASS"
+  }
+}
