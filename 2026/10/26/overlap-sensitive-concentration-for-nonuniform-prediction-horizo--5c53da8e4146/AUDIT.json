@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "For deterministic horizons, the intervals are colorable with Δ colors. Within each color, the centered terms form bounded martingale differences because disjointness places all prior terms in the conditioning sigma-field. Conditional Hoeffding gives E exp(λ S_c) ≤ exp(2 λ² r_c). Generalized Hölder with p_c=(sum_d sqrt(r_d))/sqrt(r_c) yields a sub-Gaussian moment bound with R=(sum_c sqrt(r_c))²≤ΔN; Chernoff gives the stated two-sided constant 8. The proof covers all finite N and states the exact assumptions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The fixed-horizon result gives order sqrt(KN) when K is common and K≤N.",
+        "The new result applies to arbitrary deterministic positive integer horizons and uses Δ=max_t #{n:t in I_n}.",
+        "For K_N=N and K_n=1 for n<N, the maximum horizon is N while Δ=2."
+      ],
+      "reasoning": "The common-horizon theorem does not directly imply the overlap-sensitive result by setting K=max_n K_n; that substitution loses the sparse-window structure. The new theorem provides a finite-sample bound and the consequence Δ_N=o(N) ⇒ normalized error converges in probability to zero.",
+      "searches": [
+        "variable prediction horizon adapted bounded sequence conditional expectation F_{n-K_n} concentration inequality overlap of forecast windows",
+        "nonuniform delay martingale differences interval graph coloring concentration sum conditional expectations filtration",
+        "Vovk 2025 law of large numbers predicting several steps ahead theorem 1 prediction horizon K bounded adapted sequence",
+        "arXiv:2508.17507v1, Proposition 5 and conclusion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2508.17507v1, first public on 2025-08-24; full HTML inspected.",
+      "DOI 10.1016/j.spl.2026.110785, publication metadata checked against the preprint identity.",
+      "DOI 10.1007/s00780-006-0005-5, metadata and abstract checked; full text was not accessible in the searched source."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior theorem assumes a single K independent of n and groups terms by residue class modulo K.",
+        "The present proof colors the intervals I_n={n-K_n+1,...,n}; each color has disjoint windows, and generalized Hölder aggregates their sub-Gaussian bounds.",
+        "For the pattern K_N=N and K_n=1 for n<N, Δ=2, so the present bound is order sqrt(N) at fixed confidence while substitution of the maximum horizon into a common-horizon bound is order N."
+      ],
+      "reasoning": "The parameter, quantification over horizon patterns, and proof decomposition differ from the checked fixed-horizon result. No implication covering the arbitrary deterministic-horizon statement was found in the searched sources.",
+      "searches": [
+        "arXiv:2508.17507v1, Theorem 1, Proposition 5, and conclusion",
+        "nonuniform delay martingale differences interval graph coloring concentration sum conditional expectations filtration",
+        "martingale concentration nonuniform delayed conditional expectations variable lag windows interval overlap maximum concurrency"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Vovk, arXiv:2508.17507v1, Theorem 1: one fixed horizon K for all observations, with deviation scale sqrt(8 K (N+K) log(2/epsilon)).",
+        "The inspected theorem and proof use residue classes for the common K; they do not state a maximum-overlap parameter for varying K_n.",
+        "Semantic searches returned nearby but different subjects, including renewal-window bias, finite-horizon operator bounds, and bounded-stopping bias."
+      ],
+      "reasoning": "No equivalent formulation was located in the searched material. Search failure is not treated as proof of novelty; the residual risk of an unindexed equivalent is retained.",
+      "searches": [
+        "variable prediction horizon adapted bounded sequence conditional expectation F_{n-K_n} concentration inequality overlap of forecast windows",
+        "nonuniform delay martingale differences interval graph coloring concentration sum conditional expectations filtration",
+        "effective maximum overlap prediction horizons martingale law of large numbers several steps ahead",
+        "arXiv:2508.17507v1, Theorem 1 and proof"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is a universal analytic inequality, not a finite census or a table lookup.",
+        "The illustrative sparse-long-lag example is proved by counting interval overlaps and is not used as evidence for the universal theorem."
+      ],
+      "reasoning": "No exact database or table is applicable. The proof is supplied in full and does not rely on an unverified finite enumeration.",
+      "searches": [
+        "effective maximum overlap prediction horizons martingale law of large numbers several steps ahead",
+        "martingale concentration nonuniform delayed conditional expectations variable lag windows interval overlap maximum concurrency"
+      ]
+    },
+    "rationale": "The closest inspected primary result treats one common deterministic horizon K. The present claim instead depends on maximum overlap of heterogeneous deterministic windows and yields a law of large numbers when Δ_N=o(N), including sparse long-lag patterns. Bounded literature and mathematical-record searches found no statement-level match; this is not a proof of global novelty.",
+    "residual_risks": [
+      "A similar overlap-sensitive inequality may exist in unindexed general martingale-concentration or risk-aggregation literature; bounded searches cannot establish absolute novelty.",
+      "The dependent-risk paper was available only as metadata and abstract, so no claim is made that its full text excludes a related result.",
+      "The horizons must be deterministic and prespecified; random or data-adaptive horizon selection is not covered.",
+      "The dependence on Δ is a proved sufficient bound, not a sharpness classification for every horizon pattern."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected result uses a common deterministic horizon K; no maximum-overlap theorem for arbitrary deterministic K_n is stated in the inspected text.",
+        "evidence": [
+          "Theorem 1 gives a bound with a common K and scale sqrt(K(N+K) log(2/epsilon)).",
+          "Proposition 5 establishes a lower construction of order sqrt(KN) for the fixed-horizon model.",
+          "The conclusion lists other extensions but does not state the interval-overlap result."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.17507",
+        "material_read": "Full arXiv HTML, including Theorem 1 and its proof, Proposition 5, the concluding discussion, and submission history.",
+        "method": "Compared assumptions, quantifiers, the fixed-horizon deviation bound, proof decomposition, and stated future directions against the variable-horizon claim.",
+        "title": "A law of large numbers for predicting several steps ahead",
+        "trigger": "Recent primary theorem on concentration of multi-step-ahead conditional forecasts."
+      },
+      {
+        "assessment": "Potential methodological background only. The available material is insufficient for a statement-level exclusion, and this source is not needed for the self-contained proof here.",
+        "evidence": [
+          "The abstract concerns bounds for nondecreasing functions of dependent risks and does not expose a theorem about heterogeneous forecast windows."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00780-006-0005-5",
+        "material_read": "Accessible metadata and abstract only; the repository record listed the full text as restricted.",
+        "method": "Checked the available abstract and bibliographic record for a statement involving nonuniform prediction horizons or interval overlap.",
+        "title": "Bounds for functions of dependent risks",
+        "trigger": "General dependent-sum bounds are cited in the fixed-horizon proof and could be relevant to aggregation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c53da8e-4146-4810-95a8-f53fbe07feb6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximum overlap is a natural design parameter for heterogeneous forecast lags. It can be far smaller than the largest lag: one horizon of length N together with N-1 one-step horizons has Δ=2. The theorem therefore supplies a finite-sample guarantee and an LLN criterion for sparse long-lag forecasts that a maximum-horizon substitution does not capture. The application is stated narrowly and does not claim optimality.",
+    "status": "PASS"
+  }
+}
