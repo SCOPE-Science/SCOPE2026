@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The renewal identity is exact because position and OU velocity are both deterministically renewed. Girsanov and the passive killed spectral gap give local differentiability in active amplitude; differentiating the backward generator yields two linear Dirichlet–Neumann resolvent equations. Green inversion, passive polynomial factorization, the implicit-function theorem and exact sequential relaxation limits prove the single claim. 905 deterministic standard-library checks verify independent finite-difference solutions, polynomial limits, differential residuals, and opposite-sign coefficients; these are not treated as proof of infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pal–Reuveni (arXiv:1607.06048) derives the general renewal approach and coefficient-of-variation criterion used as Step 1; it does not calculate two fixed-launch OU first-passage moment perturbations.",
+        "Baouche–Kurzthaler (DOI:10.1039/D5SM00340G) analyzes initial orientation effects for a two-dimensional active Brownian searcher and unbounded wall geometry; the model differs from a one-dimensional OU velocity with a finite reflecting wall.",
+        "Shankari–Sahoo (arXiv:2509.18515) analyzes free-space active OU stochastic resetting through MSD and stationary distributions, not a bounded absorbing first-passage threshold.",
+        "Georgiou–Bressloff–Bertrand (arXiv:2609.21124v1) derives an analytic stationary-Gaussian velocity perturbation and numerically explores fixed-velocity resetting, leaving the exact deterministic-velocity coefficient untreated."
+      ],
+      "reasoning": "The general renewal formula logically implies the candidate only after supplied source-specific Green inversions and sign analyses; a universal restart criterion alone cannot imply a persistence-dependent direction for the threshold. The nearby active Brownian paper is not a stronger theorem in this model; its first-passage geometry and self-propulsion law differ. Potential implicit coverage by broad perturbation methods remains a priority risk.",
+      "searches": [
+        "arxiv:1607.06048 First Passage Under Restart (Pal and Reuveni)",
+        "web: \"coefficient of variation\" \"first passage\" \"velocity\" resetting finite interval active Ornstein",
+        "web: \"Optimal first-passage times of active Brownian particles under stochastic resetting\" 2025 pdf",
+        "web: \"AOUP\" \"velocity resetting\" \"phase boundary\" \"first passage\" initial velocity",
+        "arxiv:2509.18515 Active Ornstein-Uhlenbeck particle under stochastic resetting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.21124v1; Sections 2–4 and Appendix B, Figure 9 (primary model and numerical fixed-velocity prior).",
+      "arxiv:1607.06048; renewal formula and general criterion (broader framework).",
+      "arxiv:2509.18515; free active OU transport and resetting (different observable and geometry).",
+      "doi:10.1039/D5SM00340G; 2D active Brownian wall first-passage and velocity-direction effects (different dynamics and reflecting geometry).",
+      "AMS MSC2020 82C31 classification; primary ownership fits time-dependent Langevin first-passage stochastic methods."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source 2026 model supplies the exact passive threshold and an indirect simulation-based fixed-velocity trend; it does not state the strong-persistence positive coefficient 4/125 or fast-relaxation negative asymptotic -1/gamma.",
+        "Its stationary-Gaussian initial velocity assumption cancels all odd active-amplitude corrections, so the linear deterministic-velocity term is not a specialization of its stated Gaussian-averaged formula.",
+        "Pal–Reuveni supplies only the renewal map from unreset moments to resetting response; the two model-dependent resolvent equations and asymptotic comparison are additional necessary mathematics."
+      ],
+      "reasoning": "The candidate is not merely the passive Brownian value or the generic coefficient-of-variation criterion. It solves two new, triangular OU-dependent boundary problems for deterministic velocity, differentiates their crossing at the known Brownian root, and proves opposing persistence limits. No inspected prior stronger statement was found that subsumes these exact conclusions. A general full distribution theorem for this identical generator and deterministic initialization, if subsequently discovered, could dominate the claim.",
+      "searches": [
+        "arxiv:2609.21124v1 Sections 2, 3.2, 3.4, Conclusion and Appendix B",
+        "arxiv:1607.06048 First Passage Under Restart, main manuscript",
+        "doi:10.1039/D5SM00340G Optimal first-passage times active Brownian",
+        "velocity reset sign reversal persistence crossover startup OU first passage coefficient of variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.21124v1 Section 3.4 and Figure 9 present simulated fixed-velocity phase boundaries and approximate square-root-Péclet linearity, but give no exact coefficient or proof of the persistence-controlled reversal.",
+        "In the stated model the new statement is the exact Green-kernel shift S(gamma), with S(0)=4/125 and gamma*S(gamma)->-1, not merely a direction-dependent optimal reset rate."
+      ],
+      "reasoning": "No exact equivalent statement was identified in the inspected papers or retrieved published mathematical sources. Similar words such as velocity, resetting or threshold are not sufficient: the candidate compares the sign of the infinitesimal Poisson-restart response, differentiated in active amplitude, for fixed deterministic OU starting/reset velocity on an absorbing–reflecting interval. This search does not establish mathematical uniqueness.",
+      "searches": [
+        "active Ornstein Uhlenbeck first passage finite interval resetting fixed initial velocity perturbative shift beneficial resetting critical starting position Pe square root",
+        "Georgiou Bressloff Bertrand 2609.21124 reset protocol initial velocity linear sqrt Pe beneficial restart boundary",
+        "web: \"active Ornstein\" \"fixed velocity\" resetting \"critical position\" square root Péclet",
+        "arXiv:2609.21124v1 sections 2.2 and 3.4; Figure 9"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source Figure 9 shows simulated fixed-reset-velocity phase boundaries; its dashed linear fits do not give the closed Green-integral calibration or prove the sign-changing persistence asymptotics."
+      ],
+      "reasoning": "The primary paper supplies a numerical phase diagram, not the exact Green-integral coefficient or its two analytically opposite persistence limits. No exact table of this calibration was identified in the inspected primary sources; this is not a proof of uniqueness.",
+      "searches": [
+        "arXiv:2609.21124v1 Figure 9, Sections 3.2–3.4 and Appendix B",
+        "arxiv:2609.21124 Persistence resetting first passage active Ornstein Uhlenbeck Georgiou Bressloff Bertrand fixed velocity"
+      ]
+    },
+    "rationale": "The most relevant 2026 full text provides the physical model, Gaussian-velocity analytic results and fixed-velocity simulations, but not the model-calibrated deterministic-velocity first-order phase-boundary shift with a positive persistent limit and negative fast-relaxation limit. General restart work gives only the renewal reduction; distinct active Brownian and free OU resetting results do not imply this BVP calculation.",
+    "residual_risks": [
+      "Literature search is not a uniqueness theorem; undiscovered titles, older exact OU first-passage moment literature or unpublished analyses could subsume the sign-change claim.",
+      "Generic semigroup perturbation theorems may imply individual steps but not visibly the explicit physical coefficient; a stronger literature theorem may cover the same specialization.",
+      "Only the deterministic-velocity first-order sign reversal is assessed as original; passive cutoff, renewal criterion and numerical linear behavior are prior.",
+      "No independent mathematical or external priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model, passive boundary, general renewal criterion and numerical fixed-velocity phase diagrams are prior; exact first-order deterministic reset-velocity coefficient and sign-reversal limiting proof not located.",
+        "evidence": [
+          "Section 3.4 says fixed-reset-velocity results were obtained via direct simulations, with approximately linear square-root-Péclet variation.",
+          "Appendix B gives a Gaussian-initial-velocity, not fixed-velocity, survival correction.",
+          "Figure 9 shows simulations rather than the exact coefficient or sequential asymptotic proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2609.21124",
+        "material_read": "ArXiv full parsed article: Sections 2.1–2.3, 3.1–3.6, Conclusion, Appendix A/B definitions and relevant displayed formulas; PDF pages 1, 11, 13 and 14 visually examined, including Figure 9.",
+        "method": "Full arXiv HTML scientific text inspection plus displayed arXiv PDF pages and section-level comparison.",
+        "title": "Persistence, resetting, and first-passage times of an active Ornstein–Uhlenbeck particle",
+        "trigger": "Identical physical model, deterministic velocity protocol, and approximate linear phase boundaries."
+      },
+      {
+        "assessment": "General restart identity covers Step 1 but has no source-specific deterministic AOUP boundary-value evaluation or sign reversal.",
+        "evidence": [
+          "General expected completion time E[min(T,R)]/P(T<R) and its Poisson specialization are explicit in the paper."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1607.06048",
+        "material_read": "Full manuscript accessible; introduction and main first-passage renewal argument, especially equations (1)–(3), and its constant-rate special case.",
+        "method": "Primary arXiv PDF text inspection of the defining formulas and theorem context.",
+        "title": "First Passage Under Restart",
+        "trigger": "General result might dominate all restart optimization claims."
+      },
+      {
+        "assessment": "Analyzes free-space transport, stationary distributions and MSD; no finite absorbing–reflecting interval or fixed-velocity resetting crossover identified.",
+        "evidence": [
+          "Section II describes a free active OU particle; Section III focuses on MSD, probabilities and viscous/viscoelastic relaxation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2509.18515",
+        "material_read": "PDF introduction, model, renewal scheme and results overview; searched the full extracted PDF for absorption/first-passage sections.",
+        "method": "Primary arXiv PDF text inspection with cross-document topical search.",
+        "title": "Active Ornstein-Uhlenbeck particle under stochastic resetting",
+        "trigger": "Closest earlier AOUP resetting model."
+      },
+      {
+        "assessment": "Covers a 2D active Brownian particle at a single unbounded absorbing wall; lacks the finite reflecting wall and OU-speed first-order persistence sign reversal.",
+        "evidence": [
+          "The model resets an angular orientation and position in two dimensions, with no reflecting distant wall."
+        ],
+        "identifier_or_url": "https://pubs.rsc.org/en/content/articlehtml/2025/sm/d5sm00340g",
+        "material_read": "Open-access HTML abstract, model, central first-passage and optimal resetting analysis, orientation bias, and conclusion.",
+        "method": "Publisher open-access full-text section reading.",
+        "title": "Optimal first-passage times of active Brownian particles under stochastic resetting",
+        "trigger": "Strongest comparable initial-orientation resetting first-passage theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "845ad3bf-89f1-4935-b6f1-ca8d602d72a5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Source-identified fixed-velocity sensitivity had been evaluated through simulations. Exact first-order calibration and the limiting sign reversal identify a qualitative, physically motivated persistence boundary: outward initial velocity can expand, rather than always contract, the initially beneficial-reset region. This is an experimentally or numerically testable directional prediction and a mathematically natural boundary for protocol design, while staying local in reset rate and activity.",
+    "status": "PASS"
+  }
+}
