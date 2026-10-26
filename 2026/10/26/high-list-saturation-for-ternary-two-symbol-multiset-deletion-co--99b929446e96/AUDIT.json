@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "The upper bound is proved for n>=4 by counting heavy-coordinate incidences: every word has >=1 heavy coordinate, precisely 12 words have exactly 1, all others contribute >=2, and each of three pure receive lists has <=L parents; hence 2M-12<=3L. For L>=6, all 12 one-heavy words plus floor((L-4)/2), ceil((L-4)/2), floor((L-4)/2) balanced edge words have exactly floor(3L/2)+6 distinct words and each of six trace lists obeys capacity L when n>=ceil(L/2)+1. For L=5, the explicit 13-of-15 length-four code covers all six omitted-parent traces and has an injective, signature-preserving lift to every larger n. For even L, equality forces inclusion of all 12 one-heavy words and exactly two heavy coordinates for every remaining word with each pure load L. All critical inequalities, parity boundaries and L=5 exception have been reconstructed. Standard-library checks ran on 198 constructive parameter cases and exhaustively enumerated all 32768 subcodes at n=4. Finite checking alone is not used as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "related-record:992c1104-31e7-4da3-8937-fb4c02defc74: result for q>=3, k>=2, 2<=L<=k; at k=2 only L=2 is included.",
+        "related-record:ee477e8d-50b6-4362-a516-dde2e730f741: exact ternary two-survivor formula at fixed L=4, n>=4 gives 11.",
+        "arXiv:2601.05636v2 Corollary 11 gives q for unique decoding after deleting n-2 symbols when n>=q+1.",
+        "arXiv:2603.18322v1 obtains sphere-packing and Gilbert–Varshamov bounds for distance-separated codes."
+      ],
+      "reasoning": "The two accessible prior parameter domains L<=2 and L=4 do not cover L>=5. Nor do distance-separated bounds imply sharp list capacities, because the list formulation admits repeated received pairs. The current claim deliberately excludes all previously determined L values.",
+      "searches": [
+        "capacity ternary multiset deletion n-2 5-list 6-list codes equality rigidity",
+        "ternary multiset deletion two surviving symbols list decoding L at least five exact capacity 3L/2 plus six for large n",
+        "arXiv:2601.05636v2 Theorem 10 and Corollary 11",
+        "arXiv:2603.18322v1 Section 5",
+        "related-record:992c1104-31e7-4da3-8937-fb4c02defc74",
+        "related-record:ee477e8d-50b6-4362-a516-dde2e730f741"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.05636 (full primary PDF, high-deletion theorem and relevant material)",
+      "arXiv:2603.18322 (full primary PDF, ternary ball/bounds and conclusion)",
+      "published-finding corpus record 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505 (indexed summary)",
+      "published-finding corpus record 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814 (indexed summary)",
+      "Related scientific claim related-record:992c1104-31e7-4da3-8937-fb4c02defc74 (L<=2 for k=2)",
+      "Related scientific claim related-record:ee477e8d-50b6-4362-a516-dde2e730f741 (L=4 exact)",
+      "Related scientific claim related-record:e9733e35-c471-4a18-a193-ece486fc7f48 (ordered binary analogue)",
+      "Web searches for 'multiset deletion list-decodable exact capacity' and variants; no exact covering source identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For L>=5 and n>=ceil(L/2)+1, the claim M=floor(3L/2)+6 provides infinitely many previously untreated list allowances.",
+        "The prior L=4 optimum 11 does not determine L=5 (13), or L=6 (15), or the coefficient of growth in L.",
+        "related-record:e9733e35-c471-4a18-a193-ece486fc7f48 treats ordered binary two-symbol subsequences rather than unordered ternary two-element multisets."
+      ],
+      "reasoning": "The implication from the current theorem to an L=4 value is absent because its hypothesis begins at L=5. Conversely, the L=4 value and prior L<=2 formula cannot constrain the newly proved high-list slope or rigidity. Ordered binary subsequence signatures have a different incidence system and cannot establish the ternary unordered claim.",
+      "searches": [
+        "maximal list decoding in ternary multiset deletion channels heavy coordinate incidence bound 3L + 12",
+        "list decoding deletion codes unordered multisets two element trace n>=ceil(L/2)+1",
+        "arXiv:2601.05636v2 sec 4.3",
+        "related-record:992c1104-31e7-4da3-8937-fb4c02defc74",
+        "related-record:ee477e8d-50b6-4362-a516-dde2e730f741",
+        "related-record:e9733e35-c471-4a18-a193-ece486fc7f48"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Received unordered pair y is possible exactly when y<=x componentwise; its six output traces are the usual ternary high-deletion list-decoding incidence matrix.",
+        "arXiv:2601.05636v2 Theorem 10 reduces q-ary two-survivor unique decoding to pairwise intersection at most one, not bounded multiplicity L.",
+        "arXiv:2603.18322v1 section 5 assumes minimum deletion distance and disjoint balls, unlike L-parent lists."
+      ],
+      "reasoning": "An equivalent hypergraph packing formulation uses a rank-six incidence matrix with column signatures of ternary multisets. Existing unique-decoding hypergraph independence conditions restrict pairwise collisions to zero, while our constraint permits up to L parents; the latter is not deducible by renaming or duality. Searches for the exact six-output incidence condition did not reveal a published arbitrary-L solution.",
+      "searches": [
+        "exact list-size dependent capacity q=3 two surviving unordered symbols multiset deletion code 5 6 7 8 list saturation",
+        "maximal list decoding in ternary multiset deletion channels heavy coordinate incidence bound 3L + 12",
+        "list decoding deletion codes unordered multisets two element trace n>=ceil(L/2)+1",
+        "published-finding corpus IDs 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505; 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "arXiv:2601.05636 pp.24-25",
+        "arXiv:2603.18322 pp.34-39"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505 concerns three surviving multiset elements under unique decoding and has S_3(n,n-3)=3 in the large-length regime.",
+        "2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814 concerns ordered binary words with two deletions and a fixed list size of two.",
+        "The primary paper's tabulated exact small-alphabet results concern unique deletion correction, not arbitrary list sizes of unordered two-survivor channels.",
+        "The length-four check yields 13 at L=5 and 15 at L=6, but no examined table gives the infinite all-L formula."
+      ],
+      "reasoning": "Existing finite tables and related channels do not dominate this statement. A finite n=4 count cannot prove the infinite n,L region, while the current upper bound and construction hold symbolically for all stated parameters.",
+      "searches": [
+        "exact list-size dependent capacity q=3 two surviving unordered symbols multiset deletion code 5 6 7 8 list saturation",
+        "capacity ternary multiset deletion n-2 5-list 6-list codes equality rigidity",
+        "unordered multiset q=3 k=2 L list decoding saturation upper bound 3L/2 +6",
+        "published-finding corpus 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505",
+        "published-finding corpus 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "arXiv:2601.05636v2 section 4",
+        "arXiv:2603.18322v1 section 4.5.2"
+      ]
+    },
+    "rationale": "The January primary theorem on two survivors assumes unique decoding and gives q+I(q,n), which equals three for q=3,n>=4; its pairwise-disjointness proof does not imply bounded-list capacity. The March primary work treats metric-ball counts and unique-decoding packing/GV bounds, not the six-output list-incidence maximum. Previous accessible results with exactly the same channel cover only L=4, while another covers 2<=L<=k and thus L<=2 at k=2. The new infinite high-list law for every L>=5, including the 3L/2 slope and even-L equality condition, is neither a restatement nor an implication of those results. Searches did not expose a stronger result; unindexed equivalent work remains a risk.",
+    "residual_risks": [
+      "An unindexed publication or equivalent nonstandard formulation may contain the same infinite high-list capacity law.",
+      "published-finding corpus indexed-record comparisons outside the two primary papers used summaries rather than full-text inspection; their expressly different parameters do not establish a covering theorem.",
+      "The uniform sufficient saturation length is not claimed to be minimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unique-decoding theorem for t=n-2 uses disjointness; it does not state bounded-list high-list capacity.",
+        "evidence": [
+          "Theorem 10: S_q(n,n-2)=q+I(q,n); Corollary 11: value q for n>=q+1.",
+          "The code definition requires pairwise deletion distance >=t+1, unlike the bounded-parent criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2601.05636",
+        "material_read": "Primary PDF introduction and contributions, pp. 2-5; high-deletion results and Theorem 10, pp. 24-26; relevant list-decoding term search; displayed definition screenshot.",
+        "method": "Read primary PDF text, targeted theorem and claim comparison, PDF page-image inspection.",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "Same multiset deletion objects and exact two-survivor theorem."
+      },
+      {
+        "assessment": "Studies radii, ball sizes, packing and GV bounds under pairwise distance constraints; no covering arbitrary-L two-survivor list-capacity result appears in the inspected material.",
+        "evidence": [
+          "Lemma 15 gives ternary deletion-ball extrema; section 5 bounds distance-correcting codes.",
+          "Conclusion summarizes unique-decoding bounds and Sidon constructions, not two-survivor list decodability."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.18322",
+        "material_read": "Primary PDF pp. 1-5, ternary-ball specialization pp. 33-34, bound derivations pp. 34-39, conclusion pp. 38-39; targeted list-decoding term search.",
+        "method": "Read primary PDF text and compared hypotheses and implications.",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Same three-symbol multiset simplex, deletion distance and possible volume bounds."
+      },
+      {
+        "assessment": "Its stated theorem is for k=3 and unique decoding, whereas the present theorem has k=2 and L>=5.",
+        "evidence": [
+          "Summary gives S_3(n,n-3)=3 for n>=7; not an arbitrary-list two-survivor result."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505",
+        "material_read": "Indexed record title and scientific summary, not full text.",
+        "method": "Semantic record search and comparison of explicitly stated channel parameters.",
+        "title": "published-finding corpus: Exact ternary multiset deletion codes when three multiset elements survive",
+        "trigger": "Closest same alphabet/multiset-topic result."
+      },
+      {
+        "assessment": "Binary ordered source, two deletions, fixed blocklength six/list size two: disjoint from ternary unordered n-2 deletion regime L>=5.",
+        "evidence": [
+          "Summary states maximum seven codewords at binary length six with two deletions, list size two."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814",
+        "material_read": "Indexed record title and scientific summary, not full text.",
+        "method": "Semantic record search and parameter comparison.",
+        "title": "published-finding corpus: Exact length-six binary two-list two-deletion code size",
+        "trigger": "Closest record involving list decoding under deletions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "99b92944-6e96-40da-9caf-1c92d9b89ceb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "List decoding of unordered survivors is a motivated extension of the established multiset deletion model with genuinely different incidence geometry from unique decoding. The theorem supplies an exact infinite two-parameter capacity (not just a lower bound), an explicit all-parameter family of attaining codes, a 3/2 asymptotic list-capacity slope, and necessary optimizer rigidity for every even L; it includes arbitrarily large list sizes and source lengths. The twelve exceptional one-heavy source words and three-edge balancing mechanism explain the capacity. The uniform sufficient threshold is not claimed sharp. This natural exact invariant remains useful even without a general q-ary extension.",
+    "status": "PASS"
+  }
+}
