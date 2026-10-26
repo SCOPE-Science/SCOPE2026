@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For each m=1..5, enumerating both source W_m and all one-zero/one-one outputs gives an exact compatibility graph. Clique/code equivalence follows immediately from disjoint deletion shadows. A proper greedy coloring bounds clique extensions and exhaustive recursive branching enumerates all codes of target size and eliminates target+1 without heuristic steps. The bundled Python 3 checker replays all 666 length-ten maxima, confirms no size-eleven code and all symmetry orbits; a separately formulated integer optimization also agrees on the optimum sizes. No finite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2012 ISIT article DOI:10.1109/ISIT.2012.6284242, Table I concerns aggregate unrestricted two-deletion code sizes and greedy constructions; it is not a mixed-shadow exact table.",
+        "2020 arXiv:2007.10592v1 Theorems 1.1–1.2 are asymptotic constructions for unrestricted deletions and list decoding, not finite mixed-channel optimality."
+      ],
+      "reasoning": "Unrestricted two-deletion codes form a subclass of mixed-deletion-correcting codes for balanced sources, so their constructions give only lower bounds for our restricted-channel optimum. Their code-size bounds do not determine the new census; direct verification at lengths 8 and 10 also distinguishes the two restricted and unrestricted optima.",
+      "searches": [
+        "Cullina Kulkarni Kiyavash constant weight subgraphs 2012 arxiv",
+        "arxiv:2007.10592v1",
+        "exact maximum code for mixed-symbol two-deletion channel balanced binary words"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1211.4056v1",
+      "doi:10.1109/ISIT.2012.6284242",
+      "arxiv:2007.10592v1",
+      "Published mathematical record: complete census of maximum binary length-six single-deletion codes",
+      "Published mathematical record: exact length-six binary two-list two-deletion code size"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cullina–Kulkarni–Kiyavash, arXiv:1211.4056v1, Section II defines D_s, Section III derives weight-layer general bounds; these encompass the graph framework but do not determine the restricted independence spectrum.",
+        "Guruswami–Håstad, arXiv:2007.10592v1, Section 5 uses sketches to decode a zero-and-one deletion as one case of unrestricted correction, not an enumeration of all extremal codebooks."
+      ],
+      "reasoning": "The full-channel optimal code size is at most the mixed-channel optimum, but the reverse inequality is unavailable. The best-known full-channel numerical data or asymptotic existence theorem alone does not imply the exact new maximum or number of maximizing codebooks. The graph-theoretic method is prior art; only the exact small-parameter conditional-channel classification is claimed as new.",
+      "searches": [
+        "balanced length ten code correct one zero and one one deletion optimum 10 exactly 666 codebooks 174 reversal complement orbits",
+        "exact maximum code for mixed-symbol two-deletion channel balanced binary words",
+        "fixed composition one zero and one one deletion sphere packing optimal codes",
+        "arxiv:1211.4056v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guruswami–Håstad, arXiv:2007.10592v1, Sections 1 and 5, treat mixed-symbol erasures within an unrestricted two-deletion channel.",
+        "Cullina–Kulkarni–Kiyavash, arXiv:1211.4056v1, Sections II–III, define full two-deletion confusability and weight-layer induced graphs."
+      ],
+      "reasoning": "In the balanced source layer, the mixed channel is precisely the balanced-output slice of the ordinary two-deletion shadow; it is not equivalent to the full shadow, which additionally contains outputs of weights m and m−2. The prior general graph representation does not tabulate the independence numbers and optimum-codebook multiplicities of the balanced-output slice.",
+      "searches": [
+        "constant weight 5 length 10 mixed 0 1 two-deletion correcting codes independence number 10",
+        "single zero single one deletion channel composition-preserving output optimal code size",
+        "fixed composition one zero and one one deletion sphere packing optimal codes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2012 conference paper Section IV, Table I, lists aggregate unrestricted two-deletion code sizes, not mixed-output optimum-codebook multiplicities.",
+        "Relevant indexed research records concern the exact six-bit one-deletion codebook census and two-list two-deletion coding, not length-ten balance-preserving mixed deletions."
+      ],
+      "reasoning": "The quoted exact tables and research records are for full deletion, a single deletion, different blocklengths, or different channels. A table sharing the number ten does not imply the finite balanced mixed-deletion claim. An unindexed exact table could exist; search alone is not a uniqueness proof.",
+      "searches": [
+        "balanced length ten code correct one zero and one one deletion optimum 10 exactly 666 codebooks 174 reversal complement orbits",
+        "constant weight 5 length 10 mixed 0 1 two-deletion correcting codes independence number 10",
+        "constant composition binary 1 zero 1 one deletion correcting codes optimum length eight balanced",
+        "exact binary balanced two-deletion correcting code A(8,4) mixed deletion"
+      ]
+    },
+    "rationale": "Checked published foundational weight-layer graphs and full two-deletion results, plus targeted semantic research-record searches. These establish the general model and asymptotic constructions, not the different-symbol-only balanced output slice exact finite codebook census. Strongest overlap was compared by implication rather than terminology. Residual unindexed enumeration risk remains.",
+    "residual_risks": [
+      "Equivalent unpublished or unindexed finite enumeration may exist; retrieval and semantic searches cannot certify absolute uniqueness.",
+      "The theorem does not extend to unknown deleted-symbol composition or longer lengths."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes all-compositions two-deletion confusability and aggregate size tables; neither exact mixed-shadow optimum nor multiplicity for balance length ten was found in reviewed material",
+        "evidence": "arXiv:1211.4056v1, pp.1–8; ISIT conference PDF p.5 Table I.",
+        "identifier_or_url": "https://arxiv.org/pdf/1211.4056",
+        "material_read": "Primary PDF introduction, definitions, constant-weight decomposition, Lemmas 5–7 and computational comparison passages; inspected corresponding 2012 proceedings table",
+        "method": "Opened parsed full-text PDF and inspected the relevant passages and graph definitions",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Same objects: binary two-deletion graph and constant-weight source-layer subgraphs"
+      },
+      {
+        "assessment": "Lists heuristic full two-deletion aggregate constructions; no exact different-symbol-only maximizing-code census",
+        "evidence": "ISIT 2012 p.5, Table I and Sec.IV.",
+        "identifier_or_url": "https://www.sc.iitb.ac.in/~ankur/docs/isit-weight-final.pdf",
+        "material_read": "Primary five-page proceedings PDF, particularly Section IV and Table I, with page-image inspection",
+        "method": "Read source PDF parsed text and viewed page five",
+        "title": "A Coloring Approach to Constructing Deletion Correcting Codes from Constant Weight Subgraphs",
+        "trigger": "Plausible earlier enumeration of constant-weight two-deletion codes"
+      },
+      {
+        "assessment": "General-purpose codes and decoding sketches do not give maximum code size or number of maximum codebooks for length-ten balanced output slice",
+        "evidence": "arXiv:2007.10592v1 pp.1–3, 10–13, Theorems 1.1, 1.2 and Lemma 5.3.",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.10592",
+        "material_read": "Primary PDF introduction, Theorems 1.1–1.2, and original Section 5 subsections on mixed-symbol insertions and run changes; page-image of first introduction page",
+        "method": "Read parsed full-text primary paper, examined proofs and compared theorem quantifiers to finite optimum statement",
+        "title": "Explicit two-deletion codes with redundancy matching the existential bound",
+        "trigger": "Includes the exact case of deleting one zero and one one, with possible stronger code constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afe475d2-6513-40d4-a845-21bbd7eaef7b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Motivated zero-error coding with composition constraints and known opposite-symbol deletions. The exhaustive small-length classification includes exact optima, counts of all optimum codebooks, a symmetry orbit spectrum and a concrete optimal length-ten construction. The conditional channel differs materially from unrestricted two-deletion correction; a finite exact benchmark can guide code design without requiring a general asymptotic theorem. The cutoff is stated explicitly and does not follow merely from generic graph-model definitions.",
+    "status": "PASS"
+  }
+}
