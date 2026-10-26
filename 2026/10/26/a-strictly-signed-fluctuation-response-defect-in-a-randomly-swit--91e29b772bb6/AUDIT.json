@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "With positive switching rates and at least one positive harmonic stiffness, both the first-moment tilted generator Q-K and the second-moment generator Q-2K are stable. The stationary state-conditioned second moments satisfy (2K-Q)u=2Dp; the exact covariance and additive-drift impulse response are 1^T exp[(Q-K)t]u and 1^T exp[(Q-K)t]p. Their FDT-form defect is a sum of the two distinct negative exponential modes, and the stationary Ito balance gives F(0)=0. Direct algebra gives F'(0)=Dab(k1-k0)^2/[(a+b)Z]. These two initial conditions uniquely determine the closed formula. Positivity, unique maximum, finite integral, and k0=0 cancellation follow without approximations. The actual companion Python implementation independently evaluates all matrices and the formula for 960 parameter/time cases, 160 sums and peaks, and two Monte Carlo samples; finite checks supplement but do not establish the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alston–Cocconi–Bertrand 2022 covers two-state harmonic-potential thermodynamics and entropy production, a broader physical setting but a different observable.",
+        "General fluctuation–dissipation response identities are established methods, not themselves the strict all-lag evaluated coefficient or its stiffness-independent area."
+      ],
+      "reasoning": "The full related thermodynamic model does not in its inspected equations give a dominating theorem for the requested forced susceptibility. The new statement is restricted to an explicitly testable drift perturbation, even though a future/general linear-response formula could subsume it.",
+      "searches": [
+        "non-equilibrium stochastic modulated Ornstein Uhlenbeck spectral covariance susceptibility Einstein relation two state",
+        "Alston Cocconi Bertrand fluctuating potential two-state stiffness response fluctuation-dissipation violation positivity",
+        "arxiv:2202.02630"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2407.12213 (main relevant primary text inspected)",
+      "arxiv:2104.00609 (main relevant primary text inspected)",
+      "arxiv:2202.02630 (main relevant primary text inspected)",
+      "arxiv:2607.05173 (later relevant semi-Markovian title/abstract only; no whole-text coverage inference)",
+      "targeted mathematical research-record search of random-telegraph traps, forced response, FDT and integrated defects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known stationary covariance equal to a single OU exponential for special symmetric positive stiffness configurations does not, by itself, fix the susceptibility to an externally applied drift.",
+        "Known stationary marginal distributions or entropy-production rates do not imply the strict lag-by-lag sign of -C'(t)-DR(t).",
+        "Source formulations supply the underlying generator and moment equations from which the new specialized theorem can be derived; the source models and those elementary equations are prior art."
+      ],
+      "reasoning": "The new claim is not the existence of a nonequilibrium steady state, a Gaussian mixture, a stationary OU-like covariance, or positive entropy production. It requires and evaluates a different perturbative response, proves strict positivity at every lag and one maximum, and obtains an area independent of the nonzero stiffness for every pair of asymmetric on/off rates. No inspected prior theorem states these exact conclusions as a corollary of an explicit stronger bound.",
+      "searches": [
+        "Frydel passive Brownian particles fluctuating harmonic trap response FDT signed deficit",
+        "exact equilibrium-like covariance with hidden dissipation in a two-state fluctuating harmonic trap FDT response",
+        "arxiv:2407.12213",
+        "arxiv:2202.02630",
+        "arxiv:2104.00609"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Frydel 2024 derives stationary moment mixtures for stochastic trap on/off; the inspected text does not calculate the additive-drift two-time FDT defect.",
+        "Santra et al. 2021 derive unforced variance relaxation, but not the forced response kernel or integrated defect.",
+        "The identity here compares two distinct initial vectors propagated by the same tilted generator, rather than only a stationary variance or covariance."
+      ],
+      "reasoning": "Terms searched include intermittency, random telegraph stiffness, Markov-modulated OU, FDT, response, autocorrelation and effective temperature. A source stating stationary covariance or moments is not equivalent to a theorem on the signed difference between correlation decay and causal force susceptibility. No matching statement was identified in inspected material.",
+      "searches": [
+        "Intermittent harmonic potential stochastic telegraph on off trap fluctuation dissipation theorem exact two-time response correlation strict positive defect",
+        "Passive Brownian particle intermittently on off harmonic confinement response autocorrelation FDT formula two exponential modes",
+        "switching Ornstein Uhlenbeck zero harmonic stiffness steady autocorrelation linear response equilibrium fluctuation dissipation failure",
+        "arxiv:2407.12213",
+        "arxiv:2104.00609"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulated formula for the all-lag difference or the fully off integrated response was located in the inspected primary work or focused mathematical-record search.",
+        "The result is continuous-parameter analytic, not a numerical invariant enumeration or finite database row."
+      ],
+      "reasoning": "The likely coverage route is an existing analytic theorem on Markov-modulated linear response rather than an exact numerical table. Searching for the full parameter formula and physical aliases did not produce a matching table; absence from search results alone is not proof of novelty.",
+      "searches": [
+        "fluctuation dissipation defect under stochastic switching harmonic trap two stiffnesses response autocovariance strict sign sum rule",
+        "exact equilibrium-like covariance with hidden dissipation in a two-state fluctuating harmonic trap FDT response",
+        "arxiv:2407.12213"
+      ]
+    },
+    "rationale": "The closest inspected primary sources establish the same class of fluctuating traps, their unforced moment laws, and entropy production, but do not state or directly imply from their published claims the evaluated strict all-positive-lag deviation -C'(t)-DR(t), its unique peak, and the stiffness-independent integrated defect with fully off stiffness. These observables require combining stationary state-conditioned second moments and a distinct force-response initialization. Exact prior-claim comparisons and targeted mathematical-record/literature searches found no dominating result. General Markov-modulated diffusion and linear-response theories could subsume this narrow theorem, so originality is assessed at best-known priority, not certified universal novelty.",
+    "residual_risks": [
+      "The general exact Markov-modulated Ornstein–Uhlenbeck response literature may contain an equivalent identity under a different fluctuation–dissipation convention.",
+      "The later 2026 semi-Markov fluctuating-trap study was not inspected in sufficient detail to rule out a Markov specialization.",
+      "The novelty distinction is fine-grained: stationary moment equations and Feynman–Kac propagation are standard, and independent expert bibliographic priority review remains necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the physical system, stationary distributions/moments and nonequilibrium setting; inspected material does not state the exact all-lag defect, its strict sign/unique maximizer, or the stiffness-independent area",
+        "evidence": [
+          "arxiv:2407.12213, sections on stationary distribution, Gaussian mixture and moments",
+          "First public v1: 2024-07-16"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.12213",
+        "material_read": "Accessible full primary preprint, particularly stationary Fokker–Planck, Gaussian-mixture, moment, and energetic analysis in the principal sections",
+        "method": "Read main preprint PDF text and inspected the mathematical sections and page images; searched for a forced drift-response kernel, two-time autocorrelation derivative, and fluctuation–dissipation defect",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Fresh directly matching 2024 on/off harmonically confined Brownian model and stationary analysis"
+      },
+      {
+        "assessment": "Develops unforced variance dynamics, stationary distributions and first-passage behavior; inspected material does not give the additive-drift fluctuation–response defect theorem",
+        "evidence": [
+          "arxiv:2104.00609, variance and stationary sections",
+          "First public v1: 2021-04-01"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.00609",
+        "material_read": "Accessible full primary 2021 preprint, including intermittent-trap dynamics, variance evolution, stationary limits and first-passage sections",
+        "method": "Inspected mathematical text and primary PDF pages for stochastic generator, correlation and forced linear-response calculations",
+        "title": "Brownian motion under intermittent harmonic potentials",
+        "trigger": "Earlier directly related intermittent harmonic-trap study potentially containing time-dependent response or correlators"
+      },
+      {
+        "assessment": "Establishes entropy production and energetics in the model class, a stronger thermodynamic treatment in its own observable; no matching explicitly evaluated all-lag drift-response defect or fully-off integrated area was found in inspected text",
+        "evidence": [
+          "arxiv:2202.02630, main harmonic-fluctuating-potential and entropy-production sections",
+          "First public v1: 2022-02-05"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.02630",
+        "material_read": "Accessible full 2022 primary preprint, especially exact entropy-production formulas and harmonic Markov-switching cases",
+        "method": "Read relevant derivations and scanned the text for position autocorrelation, forced susceptibility, response and fluctuation–dissipation identities",
+        "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+        "trigger": "Broader primary thermodynamic result covering stochastic harmonic stiffness variations and hidden dissipation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "91e29b77-2bb6-4e8d-bbf4-1043fd238547",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is physically motivated by randomly controlled optical traps: displacement relaxation and externally forced susceptibility may look compatible with equilibrium at individual observables, yet their exact gap is strictly signed across every positive lag. Measuring two time-domain observables rather than stationary moments is a substantive diagnostic of nonequilibrium; the closed integrated sum rule is unexpectedly insensitive to how strong the on trap is, in a broad asymmetric-switching regime. The theorem resolves the natural complete sign/peak/area classification for this scalar two-state model rather than an arbitrary unmotivated numerical slice.",
+    "status": "PASS"
+  }
+}
