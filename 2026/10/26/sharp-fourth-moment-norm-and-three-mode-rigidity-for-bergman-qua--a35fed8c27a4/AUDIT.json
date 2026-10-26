@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The probability-area monomial moments 1/(j+1) yield an exact coefficient expression. Phase alignment is necessary and sufficient for positive magnitudes. For nonzero constant coefficient, differentiating the fully normalized rational objective gives a unique optimal middle-coefficient modulus for each endpoint ratio; substitution yields an exact rational univariate F(s) whose derivative factors by a cubic with exactly one positive root. The boundary constant-coefficient-zero case has sharp maximum 99/43; the other two-term supports have bounds 8/5 and 11/6. Therefore the interior maximum and all equality cases are complete. SymPy exact checks of all identities, the resultant and sampled numeric tests were executed from the included checker; trials are not used for the global proof. No unproved limiting step is required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Melentijević Theorem 1 uses a strict dilation r=sqrt(p/q).",
+        "Wang–Zhang Theorem 1.2 gives degree-two ratio at most 2, not equality nor sharp fixed-degree value 1.279453789."
+      ],
+      "reasoning": "A general universal estimate can cover the inequality but does not imply the claimed sharp constant/equality family. A genuinely stronger bound attaining K at degree two was not found.",
+      "searches": [
+        "https://arxiv.org/abs/2211.03655",
+        "https://arxiv.org/pdf/2505.12760",
+        "degree two analytic Bergman polynomial sharp L4 L2 norm quadratic extremizer weighted disk"
+      ]
+    },
+    "checked_sources": [
+      "P. Melentijević, arXiv:2211.03655, 2022-11-07, accessible full arXiv text.",
+      "Z. Wang and K. Zhang, arXiv:2505.12760, 2025-05-19, PDF theorem 1.2 pages 1–3.",
+      "Published searchable result: Exact L²-to-L⁶ Nikolskii constant for analytic quadratics (indexed summary; full text inaccessible)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General degree-two bound 2 does not determine sharp 1.27945 or its equality cases.",
+        "Dilation and weight changes preclude deriving the same-measure quadratic extremal classification without an additional optimization, which the proof supplies explicitly."
+      ],
+      "reasoning": "These prior results are compatible with, but do not directly imply, the sharp claim. The polynomial on the circle has distinct orthogonality weights and target exponent. The cubic extremizer equation is absent from identified theorem statements.",
+      "searches": [
+        "https://arxiv.org/abs/2211.03655",
+        "https://arxiv.org/pdf/2505.12760",
+        "sharp Bergman quadratic polynomial L4 to L2 Nikol'skii inequality three coefficients all extremizers aligned phases cubic 4t3+5t2-35t-30"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Area-mononomial norms turn the problem into the symmetric-square multiplication map on span{1,z,z²}, with exact beta moments 1/(j+1).",
+        "Searchable nearby fixed-degree analytic quadratic result concerns circle L6, not disk area L4."
+      ],
+      "reasoning": "The ratio is equivalent to a sharp norm of the diagonal quadratic multiplication map; a fixed-degree-circle inequality cannot be substituted because input inner products differ. Search did not reveal equivalent exact disk-area statement.",
+      "searches": [
+        "degree two analytic Bergman polynomial sharp L4 L2 norm quadratic extremizer weighted disk",
+        "sharp fourth moment of analytic quadratic polynomials on Bergman disk norm",
+        "Bergman polynomial L2 L4 multiplication norm degree two symmetric square tensor Hilbert space"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published index nearest analytic-quadratic record gives an L6 circle optimization rather than the target L4 disk moment.",
+        "No matching exact numerical/algebraic value appeared in the actual queries."
+      ],
+      "reasoning": "The database search is negative for the exact disk calculation but does not certify originality. Indexed overlap was checked by mathematical measure and exponents, not title alone.",
+      "searches": [
+        "unweighted disk Bergman analytic polynomials degree at most two exact optimal norm L4 over norm L2 fourth moment 2.679775542 19070 110975",
+        "sharp Bergman quadratic polynomial L4 to L2 Nikol'skii inequality three coefficients all extremizers aligned phases cubic 4t3+5t2-35t-30",
+        "finite degree two weighted Bergman disk polynomial multiplication norm homogeneous quartic phase aligned",
+        "Published indexed record identifier 0b2c2efe6412"
+      ]
+    },
+    "rationale": "The complete sharp same-area Bergman L4/L2 constant for all complex quadratic analytic polynomials and the complete algebraic three-mode equality family were not implied by the closest checked theorems. The key comparison is exact statements: Melentijević proves dilated or changed-weight inequalities, Wang–Zhang gives the nonsharp factor 2 at degree two, and the indexed analytic quadratic theorem uses a different circle L6 objective. This is an assessment of the identified gap, not a proof of historical priority.",
+    "residual_risks": [
+      "Historical equivalence under an unindexed finite-degree Bergman multiplication norm or specialized quartic norm terminology cannot be ruled out.",
+      "The indexed 2026 circle-norm paper could not be inspected in full; the distinct measure/exponent in its searchable theorem is evidence against direct coverage but not whole-text exclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its sharp claim concerns the contraction of f(rz) in Lq against f in Lp (and a separate different-weight comparison), not the undilated sharp finite-band L4/L2 ratio. It gives no fixed-degree quadratic optimizer.",
+        "evidence": [
+          "Theorem 1, formula (1): norm of f(rz) with r=sqrt(p/q).",
+          "Theorem 2, formula (2): distinct weights with alpha/p=beta/q, with reproducing-kernel extremizers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2211.03655",
+        "material_read": "Accessible arXiv full-text presentation including Introduction, Theorems 1 and 2, proof sections and remarks (all accessible sections, 2026-10-23 UTC).",
+        "method": "Read full text, examined the exact hypotheses on dilation and weights and the stated extremizers.",
+        "title": "Hypercontractive inequalities for weighted Bergman spaces",
+        "trigger": "Focal 2022 paper establishing sharp inequalities for analytic Bergman spaces; closest published analytic-function comparison."
+      },
+      {
+        "assessment": "Its global degree-dependent bound specializes to L4/L2 <= 2 for degree two, whereas the exact degree-two ratio here is K^(1/4)=1.279453789... . An optimal universal base as polynomial degree varies does not imply a sharp fixed-degree value or complete extremizers.",
+        "evidence": [
+          "Theorem 1.2 on PDF page 3 gives ||P||_{A_beta^q} <= (sqrt(alpha*q/(beta*p)))^m ||P||_{A_alpha^p}.",
+          "For alpha=beta=2, p=2, q=4 and degree m=2 the factor is 2, strictly above K^(1/4)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.12760",
+        "material_read": "PDF pages 1–3 including Introduction and Theorem 1.2, with page 3 visually inspected (2026-10-23 UTC).",
+        "method": "Read theorem hypothesis and normalization, apply m=2, p=2, q=4, alpha=beta=2.",
+        "title": "Hypercontractive inequalities and Nikol'skiĭ-type inequalities on weighted Bergman spaces",
+        "trigger": "Most plausible broader published estimate for polynomial bands on the same Bergman disk."
+      },
+      {
+        "assessment": "It studies a Euclidean-to-L6 ratio on analytic quadratics over the circle, not the same-area L4/L2 norm; neither constant nor optimizer is a direct implication of its summary. Lack of full text is retained as a priority risk.",
+        "evidence": [
+          "Indexed summary states exponent 6, Euclidean input and circular analytic quadratics; result gives endpoint-equal optimizer moduli.",
+          "Current theorem uses disk area with ||1||2^2=1, ||z||2^2=1/2, ||z²||2^2=1/3 and unequal endpoint ratios."
+        ],
+        "identifier_or_url": "Published searchable record: Exact L²-to-L⁶ Nikolskii constant for analytic quadratics; identifier 0b2c2efe6412",
+        "material_read": "Published searchable index title and summary only; full text was inaccessible at source link.",
+        "method": "Compare the mathematical norms and measures specified by its indexed statement.",
+        "title": "Exact L²-to-L⁶ Nikolskii constant for analytic quadratics",
+        "trigger": "Indexed same-degree norm optimization might have an equivalent fixed-degree extremizer statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a35fed8c-27a4-4c0b-802e-a8a4a6fc6103",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first analytic degree with a nontrivial additive phase collision in f² is degree two: the coefficient b²+2ac couples all three modes. For the natural probability-area Bergman norm, the exact fixed-band L4/L2 operator constant and full equality family answer a concrete norm-design invariant that the available dimension-free bounds do not determine. A strict sharp gap K>99/43 proves three-mode cooperation is necessary, providing a benchmark for polynomial multiplication and finite-section Bergman embeddings. The fact is not an arbitrary parameter slice of a known exact table, and its value does not rely on hypothetical downstream claims.",
+    "status": "PASS"
+  }
+}
