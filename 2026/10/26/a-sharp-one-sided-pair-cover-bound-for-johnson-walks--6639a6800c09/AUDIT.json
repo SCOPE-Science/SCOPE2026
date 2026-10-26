@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Fixed-pair intersection process is exactly a killed 2x2 nonnegative matrix. Its characteristic polynomial and positive eigenvector yield finite two-sided survival bounds. Union bound/geometric series gives finite expectation bound and δ=2(r-1)/n²(1+O_r(1/n)) yields sharp upper constant. Exact rational enumeration checks all transitions through n=10 and seven rounds, without claiming infinite computational proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2304.01145, Theorem 2.5 treats the Markov model r=s and §3 uses Matthews' theorem for visits to individual Johnson graph vertices.",
+        "Rivera–Sauerwald–Sylvester (2023) studies multiple walkers visiting graph vertices rather than a single walk hitting all pair-containing faces."
+      ],
+      "reasoning": "The independent-draw theorem in the source is not transferable to temporally dependent rounds. Standard vertex cover time results and general upper bounds do not directly state the conjectured sharp constant for all faces; an implicit general hitting-set consequence remains a priority risk.",
+      "searches": [
+        "Johnson graph Bernoulli Laplace spectral survival avoid an unordered pair sharp cover time upper bound r subset walk",
+        "Markovian super-coupon Johnson walk unordered pairs s=2 Athreya Mukherjee 2023 sharp first moment E cover upper bound spectral persistence n squared",
+        "Multiple random walks on graphs: mixing few to cover many 2023",
+        "Matthews cover time theorem hitting sets Johnson walk pair"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.01145 (primary 2023 original, directly read)",
+      "doi:10.1007/s10959-025-01417-w (publisher version)",
+      "doi:10.1017/S0963548322000372 (general graph cover comparison)",
+      "published-finding corpus query results for all six recorded Johnson/supercoupon variants",
+      "Own available 2026-10_week2 and 2026-10_week3 findings for claim/aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2304.01145, Theorem 2.1 treats independent r-subset sampling; Conjecture 2.4 formulates the Markovian model; Theorem 2.5 proves r=s and leaves s=2<r outside its scope.",
+        "Two-state killed-chain derivation here controls the precise fixed-pair survival rate δ ~ 2(r-1)/n^2 for all fixed r≥3."
+      ],
+      "reasoning": "The source predicts but does not prove its dependent all-pair upper asymptotic for r>2; the new first-moment bound implies the conjectured sharp upper constant, not vice versa. No cited prior theorem entails the displayed precise finite survival envelope from its stated conclusion.",
+      "searches": [
+        "Markovian supercoupon collection s=2 Johnson graph walk upper bound expected cover time (n choose 2)/(r-1) log(n choose 2) Athreya Mukherjee",
+        "Conjecture 2.4 Athreya Mukherjee Markovian supercoupon pair r s 2 exact fixed-pair avoidance spectral Perron eigenvalue 2(r-1)/n^2 first moment upper limsup",
+        "Markovian super-coupon Johnson walk unordered pairs s=2 Athreya Mukherjee 2023 sharp first moment E cover upper bound spectral persistence n squared"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.01145, Conjecture 2.4 explicitly formulates the same r-subset replacement walk and all s-subset collection time; at s=2 its scale simplifies to binom(n,2)log binom(n,2)/(r-1).",
+        "The fixed pair-observation event reduces to hitting a face of the Johnson state space, not to visiting a single walk state."
+      ],
+      "reasoning": "The claim uses the source's exact pair-supercoupon process, not a different renamed occupancy problem. The conjecture is stronger (a two-sided asymptotic); the new implication establishes only its leading upper side, with a finite spectral comparison.",
+      "searches": [
+        "Johnson graph random walk on r-subsets coupon collector all pairs s=2 first moment probability avoidance killed three-state birth death eigenvalue upper bound cover time n squared log n",
+        "Markovian supercoupon collection s=2 Johnson graph walk upper bound expected cover time (n choose 2)/(r-1) log(n choose 2) Athreya Mukherjee",
+        "Conjecture 2.4 Athreya Mukherjee Markovian supercoupon pair r s 2 exact fixed-pair avoidance spectral Perron eigenvalue 2(r-1)/n^2 first moment upper limsup"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved published-finding corpus record 2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1 concerns Fourier spectral concentration rather than killed first-hitting dynamics.",
+        "Accessible preceding own ledger findings were checked for equivalent probability/Johnson-walk pair cover claims; no matching prior statement recovered."
+      ],
+      "reasoning": "Search-result comparisons and recoverable own records did not return the pair-avoidance Perron eigenvalue, mean-unseen profile or conjectured cover-time upper constant. This is evidence of nonoverlap of inspected records only, not a completeness proof.",
+      "searches": [
+        "Johnson graph random walk on r-subsets coupon collector all pairs s=2 first moment probability avoidance killed three-state birth death eigenvalue upper bound cover time n squared log n",
+        "Markovian supercoupon collection s=2 Johnson graph walk upper bound expected cover time (n choose 2)/(r-1) log(n choose 2) Athreya Mukherjee",
+        "Coverage of all edges by consecutive cliques Johnson walk fixed pair hitting time spectral decay",
+        "Conjecture 2.4 Athreya Mukherjee Markovian supercoupon pair r s 2 exact fixed-pair avoidance spectral Perron eigenvalue 2(r-1)/n^2 first moment upper limsup",
+        "Johnson graph Bernoulli Laplace spectral survival avoid an unordered pair sharp cover time upper bound r subset walk",
+        "Markovian super-coupon Johnson walk unordered pairs s=2 Athreya Mukherjee 2023 sharp first moment E cover upper bound spectral persistence n squared"
+      ]
+    },
+    "rationale": "The closest primary paper arXiv:2304.01145 directly poses the Markovian all-supercoupon conjecture but proves only the r=s dependent case; this fixes the s=2<r expected-cover upper constant via a nontrivial exact killed-chain rate. Independent-sampling theorem does not entail Markovian statement. Actual comparative published-finding corpus/own ledger searches returned no equivalent claim. Residual generic-hitting-bound subsumption risk noted.",
+    "residual_risks": [
+      "An earlier or later general theorem for hitting overlapping target sets might imply the sharp upper cover constant without explicitly mentioning super-coupons.",
+      "No matching lower bound: conjectured full expectation asymptotic is still unproved here.",
+      "The related multiple-walk source was not read completely; no claim that all possible general graph-cover theorems were excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME MODEL AND OPEN TARGET; proves the r=s regime but does not present the sharp s=2<r upper estimate or the killed-pair eigenvalue.",
+        "evidence": [
+          "arXiv:2304.01145 pp. 4–5, Conjecture 2.4, Theorem 2.5; pp. 13–14, Theorem 3.4/§3 proof."
+        ],
+        "identifier_or_url": "arXiv:2304.01145",
+        "material_read": "Original open-access PDF, abstract/introduction, relevant complete formulations in §2 (Conjecture 2.4, Theorem 2.5), and dependent-walk proof in §3 (Matthews theorem and hitting recursion).",
+        "method": "Full-text PDF search and direct page inspection, including figure and theorem context.",
+        "title": "On a Generalisation of the Coupon Collector Problem",
+        "trigger": "Direct source of Conjecture 2.4 for Markovian r-subset pair collection"
+      },
+      {
+        "assessment": "The published version identifies the same conjectural coverage process; no asserted prior proof of the claimed sharp upper constant for s=2<r found in inspected mathematical statements.",
+        "evidence": [
+          "Journal of Theoretical Probability 2025, DOI 10.1007/s10959-025-01417-w, §2."
+        ],
+        "identifier_or_url": "doi:10.1007/s10959-025-01417-w",
+        "material_read": "HTML article metadata, sections giving the Markovian problem and statement of its conjecture, and theorem discussion.",
+        "method": "Publisher full-text article browsing and comparison to the arXiv PDF.",
+        "title": "On a Generalisation of the Coupon Collector Problem",
+        "trigger": "Published version of closest plausible primary paper"
+      },
+      {
+        "assessment": "Different cover process (graph vertices by multiple walkers); not treated as conclusive evidence of absence of broader possible implications.",
+        "evidence": [
+          "Combinatorics, Probability and Computing 32 (2023), 594–637."
+        ],
+        "identifier_or_url": "doi:10.1017/S0963548322000372",
+        "material_read": "Public abstract, introduction and stated topic of multiple independent random walkers.",
+        "method": "Published HTML text and abstract inspection, not an exhaustive appendix search.",
+        "title": "Multiple random walks on graphs: mixing few to cover many",
+        "trigger": "Possible stronger graph-cover theorem in related area"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6639a680-0c09-4281-a011-d269e8548998",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides the conjectured leading *upper side* for all pairs under a temporally dependent Johnson walk, precisely the r>2,s=2 case of an explicitly stated open conjecture. Also determines a nontrivial finite spectral survival envelope and critical-window expected number of unseen pairs, which cannot be inferred from stationary pair marginal probabilities alone.",
+    "status": "PASS"
+  }
+}
