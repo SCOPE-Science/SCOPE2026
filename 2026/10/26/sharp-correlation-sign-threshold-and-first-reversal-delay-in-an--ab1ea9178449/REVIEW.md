@@ -1,0 +1,21 @@
+# Review of the correlation-sign theorem
+
+## Correctness — PASS
+
+For every strictly positive mass, damping, stiffness, propulsion amplitude and telegraph flip rate, stability gives a unique stationary causal convolution and a finite covariance. The stationary mixed moments imply the exact inhomogeneous correlation ODE. The displayed three-mode solution satisfies both initial conditions and the ODE, and the independent linear-Gaussian covariance computation agrees with it because only the source two-point law matters. Overdamped and critically damped impulses are strictly positive, proving their all-lag covariance positivity. In the underdamped case, the two sign alternatives for the sine coefficient yield either a strict oscillatory-amplitude bound or a strict exponential-versus-trigonometric comparison; both cover the whole slow-switch domain. A slower-decaying sinusoid proves infinitely many sign changes on the other side. The first-zero delay follows from a phase-independent threshold bracket of length one period. The integrated-area formula follows from the zero-frequency transfer gain. There is no limiting argument that mistakes finite tests for infinite proof.
+
+The source code checks 200 matrix/Lyapunov covariance evaluations, 35 independent Fourier integrals, 500 slow-switch parameter tests, first-zero asymptotic brackets and nonoscillatory regimes. The proof is independent of these finite computations.
+
+## Originality — PASS, with residual risk
+
+Dutta, Kundu, Sabhapandit and Basu (arXiv:2406.06120v1) establish the same Langevin model, stationary one-time moments, phase-space boundaries and distribution regimes. None of these is claimed as new. Their nonstationary second moments do not provide, as stated, the complete all-lag sign phase diagram or its singular first-zero scaling. Nguyen, Wittmann and Löwen (arXiv:2108.14005v1), a closer covariance-level predecessor, derive harmonic-trap colored-noise displacement statistics for a Gaussian driver. For equal exponential source covariance their method covers the stationary covariance formula in principle; neither the formula itself nor linear filtering is claimed as new. Inspection of their harmonic-trap discussion and full MSD appendix did not identify the sharp positivity/first-zero theorem. Garcia-Millan and Pruessner (2021) analyze the overdamped field-theoretic run-and-tumble correlation problem, where the inertial complex-pole competition is absent. Comparison with accessible earlier findings and mathematical records identified no covering statement; this absence is not treated as a uniqueness proof. The residual risk is an older oscillator spectral theorem implying exactly the same sign and onset criterion.
+
+## Mathematical value — PASS
+
+The theorem resolves a physically motivated observable invisible to stationary single-time distributions: the sign of the particle's two-time memory at every lag. An underdamped oscillator is *not* sufficient for negative correlations; a second sharp relative switching-rate boundary is needed. On that boundary the correlation remains strictly positive even though complex relaxation poles are present. The first sign reversal has a singular delay with a nontrivial explicit coefficient, while total signed correlation remains fixed by static susceptibility and the input switching rate. These give structural, parameter-uniform predictions beyond raw covariance formulas and characterize precisely when negative-lag windows can emerge.
+
+## Closest sources and limitations
+
+The primary 2024 inertial run-and-tumble paper and 2021 inertial active Ornstein–Uhlenbeck study were read in their accessible preprint forms, including the relevant model, moment, harmonic-trap and appendix calculations. Their existing formulas are not presented as new. Related overdamped RTP and 2022 large-deviation sources supply context, not a claimed noncoverage certificate. A general older colored-noise oscillator calculation could indirectly imply the theorem. The result excludes additional white noise, asymmetric flips, nonlinear forcing, non-Poisson runs, and nonstationary initialization. Independent scientific audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
