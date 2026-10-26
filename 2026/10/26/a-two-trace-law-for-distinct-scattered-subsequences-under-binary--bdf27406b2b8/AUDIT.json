@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For each binary word, the vector (one plus the number of distinct subsequences ending in 0, one plus those ending in 1) is updated by exact 2×2 integer shears. Matrix complement conjugacy yields M(w bar(w))=(P M(w))². Cayley–Hamilton and det M=1 prove s_next=t²+2, t_next=st and N=s+t−2, including monochromatic seeds. Setting y=log t reduces the growth proof to z_next=2z+log(1+2/t²). Both parity subsequences of s/t remain bounded by the convergent product obtained from (s/t)_m (s/t)_{m+1}=1+2/t_m². This proves log N-log t=O(1), the exact limiting series, and its 8/(21·2^r·t_r²) tail bound. An independent last-occurrence dynamic program, matrix multiplication, and direct short-word set enumeration all agree; the standard-library verifier reports VERIFY_OK exhaustive_seeds=126 Thue_Morse_prefix_length=4096. Finite checks are corroboration, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lejeune–Leroy–Rigo arXiv:1812.07330, section on k-binomial complexity and Theorem 6.",
+        "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 concerns the distribution of the subsequence-universality index for ALL fixed-length binary words, which is not the number of distinct subsequences in ONE prescribed self-similar word."
+      ],
+      "reasoning": "Even a theorem about k-binomial classes or the maximum universal length does not determine the cardinality of the union of all supported subsequence strings at all lengths. The primary paper was checked for the closest Thue–Morse objects and parameters and no dominating implication was found in inspected technical portions.",
+      "searches": [
+        "Thue Morse word finite prefixes number of distinct scattered subsequences subwords count 1 3 10 72 2664 68R15",
+        "trace recurrences Thue Morse word continued fraction Stern Brocot matrices subsequence enumeration 2020",
+        "Thue Morse substitution \"distinct subsequences\" \"number\" 2021",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1812.07330 (PDF selected primary text)",
+      "Berstel–Crochemore–Pin author manuscript https://www.irif.fr/~jep/PDF/ThueMorse.pdf",
+      "arXiv:2310.15064 (PDF selected primary text)",
+      "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 (record summary)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91 (record summary)",
+      "published-finding corpus 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b (record summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lejeune–Leroy–Rigo https://arxiv.org/pdf/1812.07330: Theorem 6 asserts k-binomial factor equivalence, not a two-trace recurrence for total distinct scattered subwords of a Thue–Morse block.",
+        "Shallit–Shur–Zorcic https://arxiv.org/pdf/2310.15064: power-free complementary morphisms, without the target subword-support count.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91 concerns minimum string attractors of finite Thue–Morse blocks, a substring-hitting invariant."
+      ],
+      "reasoning": "The claimed per-seed two-trace law plus exact entropy series is not implied by listed k-binomial classes, modular embedding statistics, power-freeness, subsequence-universality thresholds, or substring attractors; none supplies the support count across all subsequence lengths and complement-doubling times.",
+      "searches": [
+        "Thue Morse word finite prefixes number of distinct scattered subsequences subwords count 1 3 10 72 2664 68R15",
+        "complement-doubling binary seed word w -> w complement(w), exact count of distinct subsequences via 2x2 shear matrices trace recurrence s'=t²+2 t'=st entropy growth",
+        "subsequence complexity of iterated substitution word total distinct scattered subsequences exponential growth constant",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lejeune–Leroy–Rigo arXiv:1812.07330, Introduction and Theorem 6 classify k-binomial equivalence of factors rather than distinct-support count of one finite block.",
+        "Berstel–Crochemore–Pin available manuscript, theorems on binomial coefficients of words and their residue properties: https://www.irif.fr/~jep/PDF/ThueMorse.pdf"
+      ],
+      "reasoning": "Synonyms considered: total distinct scattered subsequences, subword support cardinality, support of binomial-word coefficients, complement-concatenation of Thue–Morse blocks, and the positive 2×2 shear trace. Counting embeddings of a fixed subword and counting the support of all subwords are different operations. The inspected results do not exhibit an equivalence yielding the claimed two-trace recurrence.",
+      "searches": [
+        "complement-doubling binary seed word w -> w complement(w), exact count of distinct subsequences via 2x2 shear matrices trace recurrence s'=t²+2 t'=st entropy growth",
+        "Thue Morse distinct subsequence count 2^m binary morphism closed recurrence",
+        "\"distinct subsequences\" \"Thue-Morse\" \"number\"",
+        "\"Thue-Morse\" \"subsequence count\" trace matrix",
+        "2026/10/4/SCOPE-exact-smallest-attractor-transition-for-thue-morse-words--59fd87719e91"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted exact integer-prefix and Thue–Morse subword-count searches returned no matching published table in the accessible results.",
+        "published-finding corpus 2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b is about random-word distinct CONTIGUOUS substring deficit, not these scattered subsequences."
+      ],
+      "reasoning": "The first seven counts are finite checks of the new infinite claim, not the basis of an originality assertion; absence of a matching indexed sequence is not evidence of global novelty.",
+      "searches": [
+        "Thue Morse prefix 011010011 count distinct subsequence 1,3,10,72,2664 recurrence",
+        "\"1, 3, 10, 72, 2664\" thue morse",
+        "\"Thue-Morse\" \"subsequences\" \"2664\"",
+        "2026/9/19/SCOPE-random-word-distinct-substring-first-correction--022b2626ec5b"
+      ]
+    },
+    "rationale": "The new claim is the two-integer exact recurrence for distinct scattered-subsequence support under complement doubling of every nonempty binary seed, plus an effective growth constant. The most relevant inspected primary paper (Lejeune–Leroy–Rigo, arXiv:1812.07330) proves k-binomial complexity results for factors of the Thue–Morse infinite word and studies multiplicities of selected scattered subwords, but does not state or entail the two-trace whole-block support recurrence. Berstel–Crochemore–Pin address embedding coefficients/congruences; Shallit–Shur–Zorcic address power-free complementary morphisms. The published-finding corpus matches concern different statistics and do not imply this recurrence. Residual risk of an implicit earlier matrix-product specialization is acknowledged.",
+    "residual_risks": [
+      "A general result in older two-generator positive-matrix or shuffled-word literature could imply the two-trace formula without naming complement doubling.",
+      "Some published-finding corpus records were available as ranked abstracts rather than inspected complete primary text; these do not support blanket absence claims.",
+      "Literature indexing is incomplete; no independent originality audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the k-binomial complexity of factors and explicit embedding-multiplicity structure, but not this two-trace count of total distinct subsequence strings of complement-doubled whole blocks.",
+        "evidence": [
+          "Theorem 6 and surrounding definitions count k-binomial equivalence classes of contiguous factors.",
+          "The introduction distinguishes binomial occurrences (embeddings) from ordinary factor statistics."
+        ],
+        "identifier_or_url": "arXiv:1812.07330; https://arxiv.org/pdf/1812.07330",
+        "material_read": "Primary PDF introduction, definitions, theorem statements including Theorem 6, technical discussion in the early sections, and end references; PDF 34 pages, not claimed that every page was read line by line.",
+        "method": "Opened accessible arXiv full text; inspected rendered first-page screenshot and selected mathematical passages and references.",
+        "title": "Computing the k-binomial complexity of the Thue–Morse word",
+        "trigger": "Closest source on scattered subwords, their multiplicities, and Thue–Morse blocks."
+      },
+      {
+        "assessment": "Studies embedding multiplicities, modular or p-adic conditions; inspected statements do not count distinct supported scattered subsequences of finite complement-doubling blocks.",
+        "evidence": [
+          "Main theorem formulations concern binomial coefficients of Thue–Morse words, not the count of their nonzero-support words."
+        ],
+        "identifier_or_url": "https://www.irif.fr/~jep/PDF/ThueMorse.pdf",
+        "material_read": "The accessible manuscript and theorem statements in the first several pages, including the congruence and p-adic classification framework; not represented as an exhaustive page-by-page read.",
+        "method": "Opened accessible author-hosted manuscript and inspected mathematical statements.",
+        "title": "Thue-Morse sequence and p-adic topology for the free monoid",
+        "trigger": "Older direct study of Thue–Morse scattered-subword binomial coefficients, a plausible stronger antecedent."
+      },
+      {
+        "assessment": "Power-freeness and avoidance properties; the inspected claims do not entail the total number of distinct scattered subsequences or its effective growth.",
+        "evidence": [
+          "Main results concern repeated factors of complementary-morphic images."
+        ],
+        "identifier_or_url": "arXiv:2310.15064; https://arxiv.org/pdf/2310.15064",
+        "material_read": "Primary PDF introductory pages, main definitions and theorem statements; PDF approximately 24 pages, not every page inspected.",
+        "method": "Opened arXiv full text and inspected rendered first-page screenshot and theorem statements.",
+        "title": "Power-free Complementary Binary Morphisms",
+        "trigger": "Uses the exact complementary binary morphism construction but with a different language invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bdf27406-b2b8-46b0-8ad6-3d3a5fb1942b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical Thue–Morse complement-doubling substitution is a central finite-word family; total distinct scattered-subsequence support is a different and natural invariant from embedding multiplicity, k-binomial equivalence classes and ordinary factor complexity. The result compresses exponentially large support sets to a fixed two-integer evolution for every seed, yields a nontrivial exact rapidly converging rate with quantitative error bound, and detects the precise exponential growth constant for the canonical infinite-word prefixes. The seed-uniform structural compression and infinite asymptotic theorem are the mathematical value; short sequence counts alone would not suffice.",
+    "status": "PASS"
+  }
+}
