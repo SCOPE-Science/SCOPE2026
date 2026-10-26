@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For every n>=4 and theta>0, deletion of a prescribed fixed label retains Ewens theta on n-1 labels; exact q_n is derived by two-arrow weight enumeration. Conditioning yields (n-2)q_{n-1} at endpoints and (n-3)q_{n-1}+(n-1)/(theta+n-2) at interior positions. Combining with p_n=theta/(theta+n-1) and E D=(n-1)q_n gives the stated rational formulas. Positive denominators, positive P,Q, and positive global residual polynomial establish complete sign classification. The leading polynomial orders prove fixed-theta asymptotics. Independent exact-rational permutation enumeration n=4..8, theta in {1/3,1/2,1,2,5}, passed. Finite checks supplement unrestricted algebraic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kammoun, Monotonous subsequences and the descent process of invariant random permutations, arXiv:1805.05253, Theorem 10 and Corollary 11, pp. 6-7: asymptotic local descent process under Ewens; no finite specified-label fixed-point joint law stated there.",
+        "Féray–Kammoun, Asymptotic normality of pattern counts in conjugacy classes, arXiv:2312.08756, Theorem 1, pp. 3-4: asymptotic normality of pattern counts under fixed cycle classes; 2020 MSC 60C05 appears p.1; no fixed labelled-site covariance asserted there.",
+        "Pinsky–Schickentanz, Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points, arXiv:2510.20654v2: Theorem 1(a), p.3, supplies pair inversion marginals; Theorem 5 p.5 and Proposition 10 concern conditioning on the number of fixed points, not the event pi(i)=i for a given label."
+      ],
+      "reasoning": "General asymptotic descent process or pattern central limit results do not yield finite n local joint covariances of fixed labels. The inversion paper gives exact conditional inversion laws at fixed total fixed-point count; those average over which labels are fixed and do not imply the endpoint/bulk split by themselves. Its marginal adjacent inversion formula is fully credited.",
+      "searches": [
+        "Ewens distribution descents conditional fixed points covariance",
+        "random Ewens permutation number of descents fixed points correlation",
+        "Ewens theta symmetric group permutation fixed-point indicator at an interior position covariance with total descents, endpoint boundary, sign at theta=1",
+        "arXiv:1805.05253 Theorem 10 Corollary 11",
+        "arXiv:2312.08756 Theorem 1",
+        "arXiv:2510.20654 Theorem 5 Proposition 10"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1805.05253, Theorem 10 and Corollary 11, pp.6-7",
+      "arXiv:2312.08756, Theorem 1 and primary MSC2020 p.1",
+      "arXiv:2510.20654v2, Theorems 1,5 and Proposition 10, pp.3-6 and proof",
+      "published-finding corpus indexed finding 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495 (summary only, full-text unavailable)",
+      "published-finding corpus indexed finding 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051 (title/summary only, about cycles/inversions rather than fixed label/descents)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kammoun, Monotonous subsequences and the descent process of invariant random permutations, arXiv:1805.05253, Theorem 10 and Corollary 11, pp. 6-7: asymptotic local descent process under Ewens; no finite specified-label fixed-point joint law stated there.",
+        "Féray–Kammoun, Asymptotic normality of pattern counts in conjugacy classes, arXiv:2312.08756, Theorem 1, pp. 3-4: asymptotic normality of pattern counts under fixed cycle classes; 2020 MSC 60C05 appears p.1; no fixed labelled-site covariance asserted there.",
+        "Pinsky–Schickentanz, Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points, arXiv:2510.20654v2: Theorem 1(a), p.3, supplies pair inversion marginals; Theorem 5 p.5 and Proposition 10 concern conditioning on the number of fixed points, not the event pi(i)=i for a given label.",
+        "published-finding corpus indexed public finding 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495: published summary gives exactly the theta=1 positionwise cancellation and endpoints; it does not document theta != 1. Only summary could be inspected, not full text."
+      ],
+      "reasoning": "The theta=1 specialization is implied by earlier uniform findings. The fixed-point/descent marginal q_n follows from the Pinsky–Schickentanz pair-inversion formula. However a pair inversion marginal and a fixed-point marginal do not determine their covariance; conditioning on F=m likewise does not determine the covariance with individual B_i. The 2023 and 2018 results concern limit laws rather than exact all-positive-theta sitewise identities. The present contribution is only the latter complete exact spatial/parameter classification, not its known ingredients or the uniform special case.",
+      "searches": [
+        "Ewens theta symmetric group permutation fixed-point indicator at an interior position covariance with total descents, endpoint boundary, sign at theta=1",
+        "Ewens random permutations individual fixed point at site i covariance with number of descents, positive in bulk theta<1 negative at ends",
+        "Ewens fixed point descent covariance 2023 random permutations positional conditional given pi(i)=i",
+        "Pinsky Schickentanz 2025 section 1.1 Theorem 1 and section 1.2 Theorem 5",
+        "Féray Kammoun 2023 section 1.3 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Pinsky–Schickentanz, Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points, arXiv:2510.20654v2: Theorem 1(a), p.3, supplies pair inversion marginals; Theorem 5 p.5 and Proposition 10 concern conditioning on the number of fixed points, not the event pi(i)=i for a given label.",
+        "published-finding corpus indexed public finding 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495: published summary gives exactly the theta=1 positionwise cancellation and endpoints; it does not document theta != 1. Only summary could be inspected, not full text."
+      ],
+      "reasoning": "A specified-label fixed point is a stronger conditioning event than a prescribed total number of fixed points. The uniform fixed-point/descent cancellation is equivalent to the theta=1 specialization and is not claimed new. Local descent indicator identities are a route to the covariance, but no inspected source asserts all-theta sign reversal. No nontrivial reduction to a published stronger conclusion was found in the material actually inspected.",
+      "searches": [
+        "Ewens theta permutation fixed point descent covariance exact",
+        "Ewens distribution descents conditional fixed points covariance",
+        "Ewens permutation descents fixed point indicator position identity",
+        "Ewens theta symmetric group permutation fixed-point indicator at an interior position covariance with total descents, endpoint boundary, sign at theta=1",
+        "Ewens random permutations individual fixed point at site i covariance with number of descents, positive in bulk theta<1 negative at ends",
+        "2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Pinsky–Schickentanz, Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points, arXiv:2510.20654v2: Theorem 1(a), p.3, supplies pair inversion marginals; Theorem 5 p.5 and Proposition 10 concern conditioning on the number of fixed points, not the event pi(i)=i for a given label.",
+        "published-finding corpus indexed public finding 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495: published summary gives exactly the theta=1 positionwise cancellation and endpoints; it does not document theta != 1. Only summary could be inspected, not full text."
+      ],
+      "reasoning": "The exact formula for a single adjacent inversion probability is already in the 2025 full-text Theorem 1 and is excluded from the originality claim. The public indexed uniform special-case formulas correspond to theta=1 and are excluded from originality. No inspected finite covariance table resolves theta != 1 by specified label; this statement is confined to inspected evidence, not a universal negative claim.",
+      "searches": [
+        "Ewens theta permutation fixed point descent covariance exact",
+        "Ewens permutation descents fixed point indicator position identity",
+        "Ewens random permutations individual fixed point at site i covariance with number of descents, positive in bulk theta<1 negative at ends",
+        "arXiv:2510.20654 pair inversion probability adjacent positions",
+        "2026/10/4 public fixed point descent uniform position covariance"
+      ]
+    },
+    "rationale": "The all-theta finite sitewise covariance sign reversal and endpoint/bulk scaling distinguish the claim from the previously known uniform special case and the Ewens inversion marginals. Stronger prior conditional laws at a fixed total number of fixed points are explicitly compared and do not alone imply dependence on a specific labelled fixed point. This is a best-knowledge conclusion on inspected sources, not proof of historical uniqueness.",
+    "residual_risks": [
+      "Published uniform case full text was unavailable: its indexed summary covers theta=1 but could cite stronger Ewens statements not visible in the summary.",
+      "A priori possible equivalent finite sitewise inversion/fixed-point formula in older Ewens combinatorics is not eliminated by semantic search.",
+      "Pinsky–Schickentanz (2025) conditioning on total fixed-point count comes closest; an uninspected derived labelled statistic is a residual priority risk even though its stated Theorem 5 is coarser."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes determinantal asymptotic descent process under Ewens as n grows; neither finite covariance nor fixed-site theta sign phase is its theorem claim.",
+        "evidence": [
+          "Kammoun, Monotonous subsequences and the descent process of invariant random permutations, arXiv:1805.05253, Theorem 10 and Corollary 11, pp. 6-7: asymptotic local descent process under Ewens; no finite specified-label fixed-point joint law stated there."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1805.05253",
+        "material_read": "Full-paper PDF introduction, section 1.3 pp.6-7 including Theorem 10 and Corollary 11, context of conditional laws and assumptions",
+        "method": "Read primary arXiv open full text in PDF extraction, inspect theorem statements and scope",
+        "title": "Monotonous subsequences and the descent process of invariant random permutations",
+        "trigger": "Ewens descent processes and conditioning on fixed labels"
+      },
+      {
+        "assessment": "Theorem concerns asymptotic normality of vincular pattern counts in conjugacy classes. It does not give the finite Ewens specified-label fixed-point/descent covariance in those inspected parts.",
+        "evidence": [
+          "Féray–Kammoun, Asymptotic normality of pattern counts in conjugacy classes, arXiv:2312.08756, Theorem 1, pp. 3-4: asymptotic normality of pattern counts under fixed cycle classes; 2020 MSC 60C05 appears p.1; no fixed labelled-site covariance asserted there."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.08756",
+        "material_read": "Full-paper PDF pp.1-4 including abstract, MSC2020, definitions, Theorem 1 and its scope, and proof overview",
+        "method": "Read arXiv open full text, examine its theorem hypotheses and role of fixed points",
+        "title": "Asymptotic normality of pattern counts in conjugacy classes",
+        "trigger": "Literature-leading source on 60C05 vincular patterns and fixed points"
+      },
+      {
+        "assessment": "Theorem 1 subsumes adjacent descent marginal. Conditioning on the number of fixed points in Theorem 5/Proposition 10 does not by itself resolve dependence with a prescribed labelled fixed point, so its results are explicitly credited and not claimed new.",
+        "evidence": [
+          "Pinsky–Schickentanz, Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points, arXiv:2510.20654v2: Theorem 1(a), p.3, supplies pair inversion marginals; Theorem 5 p.5 and Proposition 10 concern conditioning on the number of fixed points, not the event pi(i)=i for a given label."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2510.20654",
+        "material_read": "Full-paper PDF pp.1-6 including precise Theorem 1, Theorem 5, and their conditional-on-fixed-point-number framework; checked Proposition 10 location in proof",
+        "method": "Read primary arXiv full PDF theorem statements, scope, proof section and compare implication to labelled event",
+        "title": "Inversions in Random Permutations Under the Ewens Sampling Distribution With and Without a Prescribed Number of Fixed Points",
+        "trigger": "Exact pair inversion probabilities and possibly dominating conditional fixed-point results"
+      },
+      {
+        "assessment": "The uniform theta=1 special case is already covered; cannot responsibly exclude stronger uninspected claims hidden in the full text. Record as a residual risk, and restrict novelty statement to the phase transition theta != 1.",
+        "evidence": [
+          "published-finding corpus indexed public finding 2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495: published summary gives exactly the theta=1 positionwise cancellation and endpoints; it does not document theta != 1. Only summary could be inspected, not full text."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-boundary-localization-of-fixed-point-descent-dependence-in-a-uni--6e228e1e9495",
+        "material_read": "Indexed public title and summary only, not full text; attempted open full published material but no accessible full text through available access",
+        "method": "Semantic finding search and published metadata result; assessment limited to explicit indexed summary",
+        "title": "Boundary localization of fixed-point–descent dependence in a uniform permutation",
+        "trigger": "Very close same-object positional covariance with uniform parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9878c0f6-895a-466c-9143-02c9523a8319",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed points and descents are natural statistics in a classically studied conjugation-invariant law; negative total covariance does not determine the sign for individual labels. The exact phase theta=1, surprising positive interior effects for theta<1, and different 1/n versus 1/n² asymptotic orders resolve a structural dependence question with no arbitrary parameter slice or numerical guesswork.",
+    "status": "PASS"
+  }
+}
