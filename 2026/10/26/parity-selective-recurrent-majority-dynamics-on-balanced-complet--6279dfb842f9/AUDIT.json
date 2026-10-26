@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all r>=2,s>=1 the update of each part is determined exactly by total one-count minus its own count, with tie preserving the entire part. A homogeneous part cannot become mixed, so periodic mixed parts must all tie and have equal populations t. Their homogeneous companions swap; conservation forces equal full and empty counts and (k-1)(2t-s)=0. This is exhaustive and yields the exact labelled constant-term coefficient and one-mixed-part correction; the only additional fixed states are r half-filled parts. From any starting state, one update leaves only equal-population mixed parts plus homogeneous parts; a second step either erases all mixed parts or swaps homogeneous parts, which ensures periodicity by update three. The explicit population path (0,3,3,3,4) -> (5,3,3,3,0) -> (0,5,5,5,5) -> (5,5,5,5,5) proves global sharpness. Stirling and Laplace arguments yield the two asymptotic regimes. The included checker re-evaluates 167116 labelled states across 20 (r,s) parameter pairs, using independent vertex-level and occupancy models, and directly checks \\(F^5=F^3\\); finite checks are corroboration, not the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Earlier exact complete-tripartite note ID 131a7770-6642-4b93-ba33-0bd3772ada93 states the r=3 general-size census.",
+        "Goles and Olivos, DOI:10.1016/0012-365X(80)90121-1: all symmetric threshold networks converge to period <=2, but do not thereby yield an exact attractor count.",
+        "Turau, arXiv:2202.01580, sections 4-6: tree-specific fixed and 2-cycle structural characterizations."
+      ],
+      "reasoning": "The known tripartite count implies the special r=3 case, which is acknowledged; r>=4 is not a corollary of an r=3 formula. The generic bound on periods does not imply part-level classifications, asymptotics, or sharp entry by time three. Turau gives tree-specific rather than multipartite classifications. Indexed majority C-colorings cover a static invariant and some fully balanced fixed states only.",
+      "searches": [
+        "Majority dynamics complete tripartite graph K_{a,b,c}, exact fixed points and two-cycle census with binomial B(s,r), generalized to any number of equal parts",
+        "Majority dynamics on regular complete multipartite graphs, parity dependent recurrent-state growth, oscillating mixed modules and asymptotic enumeration",
+        "published-finding corpus search: Majority dynamics complete tripartite graph K_{a,b,c}, exact fixed points and two-cycle census with binomial B(s,r), generalized to any number of equal parts"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.2486v1 (primary full HTML; submission 2014-05-11 verified)",
+      "arxiv:2202.01580 (primary full HTML sections 1-6)",
+      "doi:10.1016/0012-365X(80)90121-1 (journal abstract and bibliographic record only)",
+      "published-finding corpus 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5 (indexed description only)",
+      "published-finding corpus 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 (indexed description only, different rule)",
+      "Prior exact tripartite claim 131a7770-6642-4b93-ba33-0bd3772ada93 (accessible claim for deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1405.2486v1 Theorem 1.1 (classical finite period two) has no exact r,s-specific cardinalities.",
+        "arXiv:2202.01580 conclusion explicitly concerns trees and proposes other graph families as future questions.",
+        "Prior tripartite note covers r=3; r=4,s=3 and r=5,s=3 have 8 and 182 periodic labelled configurations, respectively, computed from the new all-r theorem and independently checked."
+      ],
+      "reasoning": "If one assumes only the period-two property and the r=3 formula, neither supplies counts at r=4,5 or the exact three-update uniform bound; a genuinely additional mixed-part equation (k-1)(2t-s)=0 and coefficient enumeration are required. Existing tree results do not apply to connected multipartite graphs with cycles. The static coloring result establishes the fixed half-filled states but cannot count two-cycles.",
+      "searches": [
+        "published-finding corpus search: exact majority tournament and majority C-colorings; prior record 131a7770-6642-4b93-ba33-0bd3772ada93",
+        "Exact recurrent state count for synchronous binary majority on balanced complete multipartite Turán graph K_{s,...,s}, coefficient [z^0](z+z^-1+binomial(s,s/2))^r, mixed part tie retention, fixed and period two",
+        "Majority dynamics complete tripartite graph K_{a,b,c}, exact fixed points and two-cycle census with binomial B(s,r), generalized to any number of equal parts"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus published hit 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 treats XOR/parity rather than majority; its periods up to four are not a conjugate of this symmetric monotone threshold system.",
+        "Benjamini et al., arXiv:1405.2486v1, section 1, finite period-two theorem but no fixed-part enumeration."
+      ],
+      "reasoning": "Neither parity automata nor generic finite-graph period-two results count labelled fixed/periodic configurations for regular complete multipartite strict majority. The same object with state complement or part permutation does not change the condition that mixed parts must tie; the count is not a renamed parity-automaton formula.",
+      "searches": [
+        "Exact recurrent state count for synchronous binary majority on balanced complete multipartite Turán graph K_{s,...,s}, coefficient [z^0](z+z^-1+binomial(s,s/2))^r, mixed part tie retention, fixed and period two",
+        "Majority dynamics on regular complete multipartite graphs, parity dependent recurrent-state growth, oscillating mixed modules and asymptotic enumeration",
+        "published-finding corpus search: complete-multipartite parity automata -- acea41c73be7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hit 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5: indexed description states that two-color static optimal colorings split all parts in half and have product of central binomial coefficients.",
+        "Own accessible exact-claim ledger contains r=3 special case under 131a7770-6642-4b93-ba33-0bd3772ada93; no r>=4 balanced-majority dynamics recurrence table was identified in the examined claim summaries."
+      ],
+      "reasoning": "The published C-coloring count equals the nonunanimous fixed-point factor when part sizes are even, but omits the oscillating part-balance classes, their parity correction, and the transient identity. This is partial numerical overlap, not full coverage; absence of a matching database entry is not proof of novelty.",
+      "searches": [
+        "Exact recurrent state count for synchronous binary majority on balanced complete multipartite Turán graph K_{s,...,s}, coefficient [z^0](z+z^-1+binomial(s,s/2))^r, mixed part tie retention, fixed and period two",
+        "Majority dynamics complete tripartite graph K_{a,b,c}, exact fixed points and two-cycle census with binomial B(s,r), generalized to any number of equal parts",
+        "Majority dynamics on regular complete multipartite graphs, parity dependent recurrent-state growth, oscillating mixed modules and asymptotic enumeration",
+        "majority dynamics multipartite periodic point count equal parts graph",
+        "majority rule complete multipartite fixed points cycles enumerations"
+      ]
+    },
+    "rationale": "Indexed research comparison and the accessible relevant primary full texts distinguish this exact labelled r-by-s periodic census and sharp three-update bound from the generic period-two theorem, the tripartite special case, static majority C-colorings, and random-graph or tree-specific statements. The r=3 and generic period-two components are explicitly excluded from the novelty claim. r>=4 has new mixed-part balance terms; for odd s the odd/even r asymptotics differ by order r. No identified comparator states or logically implies the entire result, though literature coverage is bounded.",
+    "residual_risks": [
+      "An unindexed exact synchronous majority enumeration for equal-size complete multipartite graphs may exist; web/database negative searches do not establish priority.",
+      "The accessible excerpt of Goles and Olivos (1980) and published-finding corpus majority C-colorings was not a full-text inspection; their narrower advertised results support only the stated bounded comparison.",
+      "The exact all-r count extends a known r=3 special case, so significance and priority of the extension require independent specialist assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general eventual period one/two and random/infinite-graph convergence but not the exact balanced complete multipartite periodic-point census or sharp entry bound.",
+        "evidence": [
+          "arxiv:1405.2486v1, Theorem 1.1, section 1; sections 2-4 treat unimodular graphs and random graph models"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+        "material_read": "2014 v1 full accessible HTML: abstract, sections 1-4 including finite period-two and random/unimodular theorems, introduction and references",
+        "method": "primary arXiv full HTML",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "same synchronous tie-retaining majority rule and finite-graph period-two theorem"
+      },
+      {
+        "assessment": "Establishes edge-set characterizations of recurrent configurations on finite trees. Balanced complete multipartite graphs outside tree class; no r,s formula there.",
+        "evidence": [
+          "arxiv:2202.01580, sections 4-6, especially section 6 explicit tree-specific scope"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+        "material_read": "accessible complete arXiv HTML, introduction, section 4 fixed points, section 5 recurrent coloring classifications, and section 6 conclusion",
+        "method": "primary arXiv full HTML",
+        "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+        "trigger": "title directly concerns fixed points and two-cycles under identical majority updating"
+      },
+      {
+        "assessment": "Its verified result is the eventual period <=2 theorem, acknowledged as prior; no exact parameter-specific counting claim is evidenced in accessible material.",
+        "evidence": [
+          "1980 article, Discrete Mathematics 30(2), 187-189; abstract describes only periodicity bound"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "publisher-linked abstract and bibliographic record; primary full text not accessible in checked path",
+        "method": "journal institutional/public abstract",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "classical broad periodicity theorem may dominate the period statement"
+      },
+      {
+        "assessment": "Identified half-split static configurations, a proper subset of present theorem; its summary does not claim dynamic periodic-state census or transient bound, but full-text exclusion was not asserted.",
+        "evidence": [
+          "published-finding corpus hit 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+        "material_read": "indexed title and scientific summary only; public full-record fetch unsuccessful",
+        "method": "published-finding corpus indexed result and public source attempt",
+        "title": "Majority C-colorings of complete multipartite graphs",
+        "trigger": "same graph family and static majority C-coloring count may partially overlap fixed points"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6279dfb8-42f9-4af6-9788-646ab31d28fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural invariant is the full labelled attractor census and global convergence speed for regular Turán-type graphs. The result supplies all r,s fixed and two-cycle counts, exact zeta information, and a sharp finite time cutoff. Its key mechanism, one exceptional mixed tie class when r is odd versus half-filled mixed classes in all other cases, creates a quantitatively nontrivial polynomial-prefactor phase difference for odd s and a different exponential base for even s. This new all-number-of-parts phase diagram is not a mere fixed-parameter table and is useful for comparing collective oscillation capacity in regular multipartite opinion networks; r=3 and the generic period-two property are acknowledged rather than counted as new.",
+    "status": "PASS"
+  }
+}
