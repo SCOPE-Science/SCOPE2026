@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For t=1 and t=2, edges of the 4-state and 16-state de Bruijn graphs correspond bijectively to length-3 and length-5 input windows. Every length-n output word has such a path if and only if it is in F^t of the bilateral full shift. Subset-mask transitions recognize this language for every n. Exhaustive BFS of paired masks proves no discrepancy for 72 rules, with all reachable states closed, or finds a provably shortest word for 184; the maximum reported shortest length is 12 with exact histogram and two witnesses. All computations are reproduced by included verify.py and the generated classification.csv; a separate enumeration of finite input blocks checks all 256 rules for n=1,...,5, every shortest witness and both extremal n=12 cases. No finite-experiment-to-infinite inference is used: the exhaustive automaton closure supplies the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Oliveira et al. 2015, §3 Figures 6–7 describe first- and second-update labeled graphs of Rule 126; §4 Tables 1–2 summarize regular-language graph sizes, while §5 explicitly proposes more difference-set comparisons.",
+        "Ruivo & de Oliveira 2017 (doi:10.1142/S0218127417300282), abstract/preview studies selected elementary-rule limit behavior, not a published full 256-rule minimum-difference table in accessible material."
+      ],
+      "reasoning": "Having a process-graph presentation for one rule may permit derivation of that rule’s witness, so priority to the graph presentation is fully acknowledged. Graph size comparisons for many rules do not entail equality or shortest language discrepancies; no inspected general theorem or table entails all 256 exact memberships.",
+      "searches": [
+        "Classification of elementary cellular automata by equality of first and second spatial images F(A^Z)=F²(A^Z), 72 stable, 184 shrinking, sharp shortest distinguishing output word length twelve at rules 126 and 129",
+        "Images of all elementary cellular automata after one versus two updates equality self-surjection on image",
+        "Inferring the Limit Behavior of Some Elementary Cellular Automata 2017 first second graphs full pdf",
+        "doi:10.1002/cplx.21686 §4 Tables 1 and 2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1301.3790v1",
+      "doi:10.1002/cplx.21686",
+      "doi:10.1142/S0218127417300282 (abstract/preview only)",
+      "Earlier published single-rule image and first-image-language records available for comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ballier 2013: general characterization via steady factor maps; not an elementary 256-rule computation.",
+        "De Oliveira et al. 2015, §5: further investigations of second-order difference sets identified as future work.",
+        "Previously published individual-rule second-image bounds apply to particular automata and do not force a sharp maximum across the full family."
+      ],
+      "reasoning": "A classification of words absent after the *first* update cannot imply the words newly absent after the *second*. A special-case Rule 54 threshold cannot imply the global maximum or 72 stable cases. Generic finite-state decidability gives an algorithm but neither these exact arithmetic counts nor the sharp extremizers. The present theorem does not claim a new algorithm.",
+      "searches": [
+        "Classification of elementary cellular automata by equality of first and second spatial images F(A^Z)=F²(A^Z), 72 stable, 184 shrinking, sharp shortest distinguishing output word length twelve at rules 126 and 129",
+        "Images after multiple iterations elementary cellular automata de Bruijn graphs Rule 126 finite language second step",
+        "arxiv:1301.3790v1",
+        "doi:10.1002/cplx.21686",
+        "published first-image forbidden-word bounds of elementary cellular automata"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ballier 2013, introduction and Definitions: stability means finite-time attainment of a limit set, so Y1=Y2 is a particularly strong first-step stability test.",
+        "De Oliveira et al. 2015, §3: process graphs generate languages of finite-time images."
+      ],
+      "reasoning": "The equivalent dynamical statement is that the image Y1 is invariant under F (F acts surjectively on Y1), not merely that F is surjective on the full shift. No inspected source supplies the exhaustive first-step classification or maximum distinguishing length.",
+      "searches": [
+        "Classification of elementary cellular automata by equality of first and second spatial images F(A^Z)=F²(A^Z), 72 stable, 184 shrinking, sharp shortest distinguishing output word length twelve at rules 126 and 129",
+        "Elementary cellular automata finite-time image stabilization first second image equality and sharp 12 block witness",
+        "Images of all elementary cellular automata after one versus two updates equality self-surjection on image",
+        "\"first and second images\" \"elementary cellular automata\"",
+        "arxiv:1301.3790v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "De Oliveira et al. 2015, Table 1/2 described in lines around section 4 as graph complexity (node and edge counts) rather than language difference word lengths.",
+        "Complete 256-rule `classification.csv` is regenerated by `verify.py` from exact language comparisons, rather than copied from an existing table."
+      ],
+      "reasoning": "The closest published tabulation of first/second graphs counts complexity states, which cannot determine least distinguishing words without access to transition labels and full equivalence checking. No pre-existing exact 72/184 and length-12 complete table was located.",
+      "searches": [
+        "Classification of elementary cellular automata by equality of first and second spatial images F(A^Z)=F²(A^Z), 72 stable, 184 shrinking, sharp shortest distinguishing output word length twelve at rules 126 and 129",
+        "Rule 126 second iterate image language first difference at length 12 word 011101101110",
+        "De Oliveira Complexity 21 267-279 process graph complexity table t1 t2 256 rules",
+        "Rule 126 second iterate image language first difference at length 12 word 011101101110"
+      ]
+    },
+    "rationale": "Ballier (arxiv:1301.3790v1) develops general stable cellular automata but not elementary-rule first-vs-second-image counts or shortest witnesses. De Oliveira et al. (doi:10.1002/cplx.21686) publicly supply the general finite-time graph technique, explicitly Rule 126 graphs at t=1 and t=2, and a graph-size complexity table, but their conclusion calls for future time-difference comparisons. Thus graph machinery and related Rule 126 data are prior; the global 72/184 language-equality census, complete shortest-witness histogram, and sharp maximum twelve over all 256 rules are not stated or forced by those published tables. Nearby indexed studies concern different CA families or individual rules. Residual priority risk: unindexed exhaustive earlier table.",
+    "residual_risks": [
+      "The 2015 Rule 126 two-step graph could imply the individual extremal witness by a further calculation; novelty is claimed for the complete global sharp theorem, not its primitive graph data.",
+      "An unindexed exhaustive enumeration or supplementary table could predate this classification.",
+      "The 2017 selected-rules follow-up was not accessible in full, and its uninspected sections might bear on individual-rule results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides stability and steady-map definitions and general existence characterizations, not exact complete binary radius-one first/second image comparison",
+        "evidence": [
+          "arXiv 1301.3790v1 public 2013-01-16; introduction p. 1 defines stable CA by finite-time limit-set attainment; §§1–4 concern sofic shift properties and factor maps."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.3790",
+        "material_read": "Open-access PDF introduction pages 1–3 and formal language/shift/factor definitions pages 3–5; abstract and theorem summaries",
+        "method": "Inspected arXiv v1 full-PDF extracted text and rendered page image",
+        "title": "Limit sets of stable Cellular Automata",
+        "trigger": "General strong coverage candidate for stability of full-shift images"
+      },
+      {
+        "assessment": "General graph methodology and 126 t1/t2 graphs are prior and could yield that single witness; publication’s graph-complexity tables do not report the global shortest image-loss census or sharp 12 bound",
+        "evidence": [
+          "First public online 2015-05-06; §3 Figures 6–7 process graphs for Rule 126 t=1,2; §4 Tables 1–2 language-complexity sizes; §5 asks for further second-order difference-set investigations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/cplx.21686",
+        "material_read": "Free-to-read HTML full text §§1–5, in particular §3 Rule 126 figures and definitions, §4 tables and their captions, §5 conclusion",
+        "method": "Read publisher full HTML text and inspected statements of Figures 6/7, Tables 1/2 and concluding discussion",
+        "title": "Advances in the study of elementary cellular automata regular language complexity",
+        "trigger": "Most relevant full-text study of every rule’s finite-time process graph, specifically Rule 126 at t=1,2"
+      },
+      {
+        "assessment": "Possible related selected-rule analysis; exact whole-document comparison unresolved",
+        "evidence": [
+          "2017 article title specifies some elementary rules; published abstract describes regular-language finite-time graph methods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0218127417300282",
+        "material_read": "Abstract and publicly available publisher preview only; full primary text not available from attempted open-source retrieval",
+        "method": "Checked bibliographic/abstract and preview listings; did not treat uninspected sections as not covering the claim",
+        "title": "Inferring the Limit Behavior of Some Elementary Cellular Automata",
+        "trigger": "Follow-up to finite-time graph complexity and limit behavior analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5742d176-c6e4-4dd0-aeef-27377b306588",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural dynamical distinction is whether a cellular automaton already surjects onto its own one-step image and hence stabilizes that image forever; a second natural observable is the first finite output window that detects additional loss of admissible configurations. The complete family-level 72/184 partition and the sharp 12-window maximum supply new exact invariants, including two uniquely extremal rules. A global maximum is not implied by separate illustrative examples or routine one-step forbidden-language computations.",
+    "status": "PASS"
+  }
+}
