@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The homogeneous quartic is smooth because its derivative with respect to \(x\) is \(-z^3\), and the unique point at infinity has a nonzero \(z\)-derivative. Splitting all lines by whether they admit the representation \(x=ay+bz\) proves completeness. Exact coefficient comparison yields the two monic, separable polynomial equations and universal factorization. The rank-54 contact-root algebra follows from \(r^2=d\); uniqueness of tangents proves point distinctness across lines. The self-contained exact polynomial verifier has been run from its actual package source and returned `VERIFY_OK`.
+
+**Originality — PASS (best-knowledge, with residual risk).** Full primary-text inspections distinguish the published general count of 28 odd-characteristic bitangents, the already-known exceptional all-hyperflex case, and Artin–Schreier moduli normal forms from the newly explicit four-parameter, finite-étale degree-27 line tower and uniformly branched contact cover. Published-result semantic searches and accessible own historical records did not identify a theorem implying that full relative structure. Exact equivalent statements in older specialist literature remain a documented risk.
+
+**Value — PASS.** This resolves the bitangent/contact-incidence problem uniformly on an entire natural genus-three Artin–Schreier moduli stratum. The finite étale tower and its *single* reduced hyperflex boundary give geometric control of degeneration and rationality problems, not merely one additional finite-field census or a specialization of an exceptional member. The theorem also locates precisely the support jump \(55\to28\) and retains the complete scheme-theoretic double-root information.
+
+**Closest literature and limitations.** Li (2009) gives exceptional examples; Oyono–Ritzenthaler (2010) provides the general bitangent count and tangent correspondence; Duque-Rosero et al. (2024) classify the underlying Artin–Schreier strata without the line/contact-cover formulas. The result addresses only the one-pole order-four stratum, does not compute Frobenius cycle types in general, and is vulnerable to undiscovered equivalent classical formulae.
+
+Self-review: passed. Independent audit: not yet performed.
