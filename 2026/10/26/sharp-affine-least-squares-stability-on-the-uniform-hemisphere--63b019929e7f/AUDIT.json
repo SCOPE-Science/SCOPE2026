@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Direct Gram computation on the normalized curved hemisphere yields K(x,y)=1+3(x_h·y_h)+12(x3-1/2)(y3-1/2). For height z, conditional azimuth symmetry and convexity give F(sqrt(1-z²),z)<=F(1,z); convex interpolation bounds 0<z<=1/3 by an endpoint below L, and Cauchy-Schwarz bounds z>=1/3 by 2. An equatorial kernel has a negative cap entirely contained in the hemisphere, integrated exactly using the uniform spherical dot-product coordinate, yielding L=61 sqrt(5)/15-7>sqrt(13/3). This proves global uniqueness of equatorial maximizing rows. Triangle-equality and symmetry yield all L-infinity extremizers, L1 equality of norms and lack of L1 attainment. Standard-library checker replayed 96 supporting assertions; finite quadrature is not used as a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1005.2424, Section 5, Theorem 5.1 bounds orthogonal projection onto kernel translates under locality hypotheses",
+        "arxiv:1012.4852, Sections 3 and 5 treat polyharmonic interpolation/least squares over manifolds",
+        "arxiv:2405.12123, Section 4 and Corollary 4.12 provide full-sphere norms, not hemisphere norms"
+      ],
+      "reasoning": "The general kernel-stability theorems do not specify the present four basis functions or sharp constant. The full-sphere formula cannot specialize to the hemisphere because neither sampling measure nor orthogonality is preserved by truncation; indeed the full-sphere first-degree norm 5/3 differs from the value proved here.",
+      "searches": [
+        "Hangelbroek Narcowich Sun Ward Kernel Approximation Manifolds II 2010 arxiv pdf",
+        "Defant Galicer Mansilla Mastylo Muro Minimal projections real Euclidean spheres arxiv",
+        "spherical cap orthogonal projection onto first degree polynomials uniform surface measure exact operator norm",
+        "sharp affine least squares orthogonal projection L infinity norm on upper half of unit two-sphere hemisphere boundary Lebesgue constant exact equatorial maximizers"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1005.2424",
+      "arxiv:1012.4852",
+      "arxiv:2405.12123",
+      "published-record-f9735429621e",
+      "published-record-99c2b9dd9b34",
+      "related-prior-semicircle-and-spherical-shell-formula-comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2405.12123, Corollary 4.12: full S² degree-one norm 5/3",
+        "arxiv:1005.2424, Theorem 5.1: uniform bounds for a variable family of kernel-translate spaces, not an exact constant here",
+        "Published index item 99c2b9dd9b34 treats uniform solid simplex affine projection, not surface hemisphere",
+        "Previously recorded semicircle and spherical-shell projector statements treat one-dimensional arc or rotationally symmetric shells rather than the half-sphere surface"
+      ],
+      "reasoning": "Neither general upper boundedness nor the exact norm of a symmetric whole sphere or polytope implies the specific sharp half-sphere constant. The proof uses vertical centered covariance 1/12 and the negative-cap location, neither present in the compared spaces.",
+      "searches": [
+        "sharp affine least squares orthogonal projection L infinity norm on upper half of unit two-sphere hemisphere boundary Lebesgue constant exact equatorial maximizers",
+        "sharp first degree least squares Lebesgue constant sphere hemisphere equator boundary",
+        "equatorial extremizers and sharp L1 L-infinity norm of first-degree least-squares projection on half sphere"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2405.12123, Corollary 4.12: complete-sphere polynomial projection constant expressed using Jacobi polynomials",
+        "arxiv:1005.2424, Theorem 5.1: stability of manifold kernel-translate least-squares projectors",
+        "Published mathematical index: exact degree-two Johnson projector item f9735429621e applies to a discrete Johnson association scheme, not hemispherical surface measure"
+      ],
+      "reasoning": "Equivalent language includes Lebesgue constants, fixed-degree spherical polynomial projectors, and half-sphere boundary least squares. The full-sphere operator acts on a different measured space and has norm 5/3; a rank-four projector on truncated surface has a different covariance and lacks global rotation symmetry. The other indexed operators are distinct both in range and underlying measure.",
+      "searches": [
+        "Exact formula 61 sqrt 5 / 15 minus 7 for norm of orthogonal least squares projection onto 1,x,y,z on uniformly measured upper hemisphere of S2; equatorial maximizing evaluations and spherical cap sign extremizers",
+        "equatorial extremizers and sharp L1 L-infinity norm of first-degree least-squares projection on half sphere",
+        "hemisphere spherical cap rank 4 reproducing kernel negative spherical cap projection stability 41A44",
+        "hemisphere spherical cap least squares projection affine linear exact L infinity Lebesgue constant hemisphere boundary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-index semantic queries returned unrelated degree-two Johnson and simplex affine projectors, with no returned matching hemispherical table entry",
+        "Earlier half-range one-dimensional result has a different angular measure and reproducing space"
+      ],
+      "reasoning": "No exact-number/database match was found in these actual queries. Failed searches alone do not prove novelty; the stronger originality evidence is the object-level and implication-level comparison with read full texts and the distinct covariances.",
+      "searches": [
+        "Exact formula 61 sqrt 5 / 15 minus 7 for norm of orthogonal least squares projection onto 1,x,y,z on uniformly measured upper hemisphere of S2; equatorial maximizing evaluations and spherical cap sign extremizers",
+        "on the upper hemisphere S^2 with normalized surface area rank-four affine projection has norm 2.093343108499 and sharp positivity defect 0.546671554",
+        "61 sqrt5 15 7 hemisphere affine projection first degree 2010",
+        "sharp projection norm 2.0933431085 of degree-one polynomial least squares on hemisphere equator"
+      ]
+    },
+    "rationale": "No inspected statement implies the sharp surface-hemisphere rank-four affine projector norm, the equatorial-only maximizing evaluations, or the cap-sign extremizers. Full-sphere Jacobi-polynomial projection constants require full rotational invariance; general manifold kernel projection theorems address different approximation spaces and do not yield the exact benchmark. Indexed published examples on simplex, semicircle, and hemisphere concentration have inequivalent objects. Remaining historical risk is explicitly recorded.",
+    "residual_risks": [
+      "An earlier specialist treatment may use different language for first-degree hemispherical least squares and may not be electronically indexed.",
+      "The exact literature comparison does not constitute a comprehensive systematic review; historical priority requires human verification.",
+      "Published projection-constant work distinguishes minimal projection norm from fixed L2 orthogonal projector norm; no minimality is claimed here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING after inspection of relevant result: boundedness for kernel-translate spaces, not the sharp fixed rank-four affine projection on hemisphere",
+        "evidence": "Theorem 5.1, Section 5, studies T_Xi=V(V*V)^-1V* for local bases; no hemisphere mention in searchable text.",
+        "identifier_or_url": "https://arxiv.org/pdf/1005.2424",
+        "material_read": "Title/abstract, introduction, statements and argument of Section 5 Theorem 5.1 and nearby sphere example; PDF searched for hemisphere",
+        "method": "Full-text page/section inspection and text search",
+        "title": "Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector",
+        "trigger": "Most closely titled pre-2016 primary source on least-squares L-infinity stability on manifolds, including spheres"
+      },
+      {
+        "assessment": "NOT_COVERING after material read: polyharmonic kernel-generated approximation spaces and general bounds, not sharp degree-one hemisphere projection",
+        "evidence": "Section 3.2 defines surface spline kernels; Section 5.4 discusses near-best kernel interpolation and L2 projection on full manifolds.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1012.4852",
+        "material_read": "HTML abstract, introduction, Sections 3.2 and 5.4 including sphere discussion",
+        "method": "Accessible full-text HTML section inspection",
+        "title": "Polyharmonic and Related Kernels on Manifolds: Interpolation and Approximation",
+        "trigger": "Possible more general stability theorem covering regions with boundary"
+      },
+      {
+        "assessment": "NOT_COVERING after the specified inspected material: results are for whole rotation-invariant spheres, not the upper hemisphere with truncated measure",
+        "evidence": "Corollary 4.12 is explicitly for P_{<=d}(S^2); text searches for hemisphere/spherical cap had no matches.",
+        "identifier_or_url": "https://arxiv.org/pdf/2405.12123",
+        "material_read": "Full-text abstract and introduction, Section 4 formula around Corollary 4.12; searched PDF for hemisphere and spherical cap",
+        "method": "Primary preprint full-text PDF section inspection and matching-term search",
+        "title": "Minimal projections onto spaces of polynomials on real Euclidean spheres",
+        "trigger": "Strongest plausible fuller-space covering result on degree-one spherical polynomial projection norms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "63b01992-9e7f-46ec-a267-eac053d8b81a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Half-sphere affine least squares is the canonical degree-one projector on a simple bounded spherical patch; a sharp projector norm directly controls L-infinity approximation error and positivity undershoot. The closed form differs strictly from the full-sphere first-degree norm 5/3, and the global equator-only maximization plus distinction between L-infinity attainment and L1 nonattainment supply structural information not implied by general boundedness. Its fixed natural domain and exact extremizers make the precise invariant useful for stability benchmarks rather than a contrived numerical slice.",
+    "status": "PASS"
+  }
+}
