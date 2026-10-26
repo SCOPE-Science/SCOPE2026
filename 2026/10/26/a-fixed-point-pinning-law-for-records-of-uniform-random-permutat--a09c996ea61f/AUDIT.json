@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For n>=2, removing a pinned fixed point leaves uniform S_(n-1) and changes record count by the indicator of one explicitly counted value-block event. Conditioned event yields independent uniform blocks and a product of rising-factorial record pgfs. Differentiation and binomial unimodality establish exact identities and strict signs. 161,280 independent exact assertions, including exhaustive sizes 2-9, agree; proof extends beyond checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brändén--Claesson 2011 Propositions 3 and 4 give distinct mesh-pattern expansions; neither contains the claimed exact finite conditional joint pgf.",
+        "Dubach 2024 theorem 2.10 relates high-record counts to conjugacy-invariant permutations with a prescribed or scaled count of fixed points; its statement does not imply exact conditioning at label i.",
+        "Gnedin--Gorin 2012 theorem 3.3 treats classification of coherent measures, not the joint pinned-point distribution."
+      ],
+      "reasoning": "Broader record statistics and pattern expansions could in principle generate mixed moments after additional work, but published statements inspected do not dominate or directly entail the full pinned conditional polynomial for every n,i,t. A same-object total fixed-point theorem is not the same as individual-label conditioning.",
+      "searches": [
+        "Random permutations peak statistic and cycle count covariance",
+        "covariance fixed point indicator i with total record count random permutation 1/(i binomial(n,i)) - 1/n^2",
+        "arxiv:1102.4226",
+        "arxiv:1202.3680",
+        "arxiv:2402.10116"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0611538, full PDF",
+      "arxiv:1202.3680, full PDF",
+      "arxiv:1102.4226, full PDF",
+      "arxiv:2402.10116, full open HTML",
+      "Published mathematical result: Boundary localization of fixed-point--descent dependence in a uniform permutation",
+      "Published mathematical result: Linear inversion-gap profile for cycle count in a uniform random permutation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conditional pgf derived here from deletion: \\(G_{n-1}(t)+(t-1)\\binom{n-1}{i-1}^{-1}G_{i-1}(t)G_{n-i}(t)\\).",
+        "A record-marginal Stirling polynomial cannot determine the conditional distribution under a pinned fixed point.",
+        "Published mixed covariance of fixed-point indicators and descents is different; it neither gives this conditional pgf nor the four-boundary sign profile.",
+        "The 2024 conjugacy-invariant theorem concerns asymptotics conditional on total fixed-point count, not a specified positional fixed point."
+      ],
+      "reasoning": "Each closest primary theorem has a genuinely weaker or differently conditioned conclusion. None of the inspected conclusions gives this exact polynomial without the additional, explicitly proved event/deletion factorization. Residual priority uncertainty is documented.",
+      "searches": [
+        "Uniform random permutation number of cycles and number of left-to-right maxima records joint covariance dependence",
+        "fixed points and number of records left-to-right maxima in uniform permutations covariance position interior negative endpoints positive",
+        "conditional probability generating function number of left-to-right records given permutation has fixed point at specified position rising factorial",
+        "mirror symmetry record count conditioned on fixed point position i and n+1-i in uniform random permutations",
+        "arxiv:math/0611538",
+        "arxiv:1102.4226",
+        "arxiv:1202.3680",
+        "arxiv:2402.10116"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The record statistic is the classical number of left-to-right maxima, with marginal pgf \\(t^{\\overline n}/n!\\).",
+        "The published fixed-point--descent covariance identity concerns \\(D\\), not the record count \\(R_n\\); conditioning on \\(\\Pi(i)=i\\) is not equivalent to a descent-local event.",
+        "Gnedin 2006 and Gnedin--Gorin 2012 construct record-dependent measures, not this positional fixed-point conditioning."
+      ],
+      "reasoning": "Aliases include upper records, left-to-right maxima, strong records and fixed-position points. Ordinary record indicators after deleting a pinned point give a new two-block correction. A fixed point at i is neither the marginal record event nor conditioning on a fixed-point total or permutation cycle type.",
+      "searches": [
+        "fixed points and number of records left-to-right maxima in uniform permutations covariance position interior negative endpoints positive",
+        "conditional probability generating function number of left-to-right records given permutation has fixed point at specified position rising factorial",
+        "mirror symmetry record count conditioned on fixed point position i and n+1-i in uniform random permutations",
+        "joint conditional generating function left-to-right maxima and fixed-point location in random permutations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search located separate permutation statistics for records and fixed points and separate inversion/cycle mixed moments, but no exact table indexed by pin location i and record count.",
+        "Finite values were recomputed independently in verify.py rather than copied from an identified table."
+      ],
+      "reasoning": "No directly covering exact joint table was identified in inspected resources; that negative evidence is not treated as a uniqueness theorem. The claim is the complete symbolic polynomial and uniform-in-n sign split, not merely tabulated small-n coefficients.",
+      "searches": [
+        "joint distribution fixed points and record values permutation left-to-right maxima",
+        "joint conditional generating function left-to-right maxima and fixed-point location in random permutations",
+        "FindStat permutation statistics fixed points left-to-right maxima marginal entries"
+      ]
+    },
+    "rationale": "Actual published-result searches for the exact pgf, its aliases and reflection/sign profiles and statement-level comparison with inspected primary texts did not reveal a covering theorem. Particular attention to fixed point versus descents, separate mesh-pattern statistics, coherent record measures, and total-fixed-point conjugacy-invariant asymptotics yields no direct implication. Priority not conclusively guaranteed; risk noted.",
+    "residual_risks": [
+      "Older unindexed enumerative or multivariate pattern-statistics sources might contain an equivalent coefficient identity.",
+      "Separate marginal mesh-pattern expansions could be transformed into the conditional law after nontrivial additional algebra, which has not been excluded as earlier implicit literature.",
+      "An incomplete historical bibliography cannot establish global publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Record-driven coherent families; does not state the exact conditional polynomial for a specified fixed point.",
+        "evidence": [
+          "Primary PDF pages and discussion of upper/lower record-based coherent measures, arXiv:math/0611538; earliest arXiv upload 2006-11-17."
+        ],
+        "identifier_or_url": "arxiv:math/0611538",
+        "material_read": "Accessible 17-page PDF; introduction, record-statistic construction, and main introductory theorem statements read.",
+        "method": "Inspected PDF introduction and relevant construction section; checked title/date evidence.",
+        "title": "Coherent random permutations with record statistics",
+        "trigger": "Classical record-statistics constructions and chance of a pinning identity"
+      },
+      {
+        "assessment": "Coherent record-dependent measures and classification do not determine the pinned uniform fixed-point event generating polynomial.",
+        "evidence": [
+          "Gnedin--Gorin 2012, arXiv:1202.3680, theorem 3.3 and proposition 3.5 and introductory setup."
+        ],
+        "identifier_or_url": "arxiv:1202.3680",
+        "material_read": "Accessible 23-page PDF; introduction, sections 1-2, and theorem 3.3/proposition 3.5 statements with their surrounding material read.",
+        "method": "Inspected full-text PDF for its measure classification and claims; searched relevant term fixed point.",
+        "title": "Record-dependent measures on the symmetric groups",
+        "trigger": "Plausible more general record-conditioned permutation law"
+      },
+      {
+        "assessment": "Separate expansions of marginal statistics do not assert or imply the explicit pinned joint conditional polynomial without the additional deletion argument.",
+        "evidence": [
+          "Brändén--Claesson 2011, arXiv:1102.4226, Propositions 3 and 4."
+        ],
+        "identifier_or_url": "arxiv:1102.4226",
+        "material_read": "Accessible full PDF; introduction and section 3 with Proposition 3 for left-to-right maxima and Proposition 4 for fixed points read.",
+        "method": "Read separate mesh-pattern expansions and checked the forms of their implications.",
+        "title": "Mesh patterns and the expansion of permutation statistics as sums of permutation patterns",
+        "trigger": "Potential equivalence via a broader permutation-pattern expansion"
+      },
+      {
+        "assessment": "Conjugacy-invariant asymptotic record results under total fixed-point counts, not an exact finite uniform law conditioned on one pinned position. This later literature is contextual, not archive ownership.",
+        "evidence": [
+          "Dubach, arXiv:2402.10116, theorem 2.10 and section 2.3."
+        ],
+        "identifier_or_url": "arxiv:2402.10116",
+        "material_read": "Open full-text HTML: abstract, introduction, theorem 2.10 in section 2.3, and surrounding discussion and proof details.",
+        "method": "Read primary open HTML for theorem on upper records under a total number of fixed points; PDF delivery was inaccessible but HTML was available.",
+        "title": "A geometric approach to conjugation-invariant random permutations",
+        "trigger": "Directly related record statistics under constraints involving fixed points"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a09c996e-a61f-42f7-b6eb-f4ac040627ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete conditional distribution is a natural statistic for a uniform random permutation pinned at a label. The exact reflection symmetry of a directional record count, the universal four-boundary positive/interior negative association, and the opposite positive aggregate covariance are structural conclusions, not an isolated arithmetic increment. These consequences are not inferable from the unconditioned Stirling-number record pgf alone.",
+    "status": "PASS"
+  }
+}
