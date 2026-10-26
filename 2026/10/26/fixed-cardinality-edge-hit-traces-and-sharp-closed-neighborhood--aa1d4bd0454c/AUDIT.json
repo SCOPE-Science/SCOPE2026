@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Singleton traces imply every edge has a leaf endpoint, giving a star forest. For a star of s edges, a proper nonempty trace of size t requires t leaves and the full trace costs one hub; the maximum cost is max(1,s-1). The empty trace forces r outside vertices. Selecting cost-minimizing vertices in each component and padding externally proves iff. For k edges and m star components, minimum possible cost is max(m,k-m); minimizing m under this and the support bound yields the exact dimension min(2r,n-r-1,floor(n/2)), truncated at zero. Explicit labeled component counts produce the triangular shattering polynomial. The actual verify.py passes all n<=6 edge subsets, bounded-size n=7,8, and exact triangular counts n<=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler--Benediktsson--Macpherson 2020 prove open Johnson-graph VC dimension at most four and open J(7,2) dimension four; their closed-neighborhood observation is boundedness rather than an exact dimension or complete classification.",
+        "Coudert--Csikós--Ducoffe--Viennot 2024 give graph-wide algorithms and parameter bounds for closed neighborhoods; neither the fixed-r criterion nor exact triangular-graph thresholds appears in examined relevant sections.",
+        "A published matching-topic database summary concerning triangular-graph neighborhood homology is topological, not a theorem about VC dimension or shattered sets.",
+        "Byrne--Byrne--Cioabă 2026 Section 4 explicitly restricts to open-neighborhood VC dimension; the introductory triangular-graph dimension-four fact does not settle closed-neighborhood thresholds."
+      ],
+      "reasoning": "General graph bounds and algorithms do not determine an exact all-parameter formula. The open-neighborhood result is not stronger coverage of the closed case; indeed open J(7,2) has a shattered four-set while closed J(7,2) does not. No inspected statement dominates the new uniform-cardinality classification.",
+      "searches": [
+        "Public research-index query: VC dimension of neighborhood hypergraphs of graph powers of paths and trees",
+        "Public research-index query: exact VC dimension closed neighborhood of Johnson graph J(n,2) triangular graphs line graph of K_n",
+        "arXiv:2007.16042, Sections 1,3, Theorems 3.6,3.7",
+        "arXiv:2405.07588, Sections 1-6",
+        "arXiv:2609.10330, Section 4, triangular-graph open-neighborhood results"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042 (relevant primary PDF sections)",
+      "arXiv:2405.07588 (relevant primary PDF sections)",
+      "Published-research semantic searches for aliases, triangular graphs, and uniform edge-hit traces",
+      "Earlier accessible scientific claims: unrestricted induced-edge traces; prior Johnson/Hamming-related VC calculations",
+      "arXiv:2609.10330 Section 4, explicit open-versus-closed definition and triangular-graph discussion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 open-neighborhood witness uses a four-edge star in J(7,2), whereas selecting its center edge itself adds all four star edges to the closed trace; in the closed case a four-star needs three distinct leaves for a proper triple trace and cannot be shattered with a two-vertex witness.",
+        "The unrestricted induced-edge shattering theorem only characterizes possible star forests without fixed witness size, and cannot imply the threshold n >= |support|+r or component budget <=r.",
+        "The 2024 paper gives a general algorithm for closed-neighborhood VC dimension, not the analytic exact formula or counts."
+      ],
+      "reasoning": "The implication check distinguishes open from closed neighborhoods and unrestricted from fixed-cardinality range families. The new conclusion cannot be read as a corollary of these statements without a substantive independent cost lemma and dimension optimization.",
+      "searches": [
+        "arXiv:2007.16042 Figure 4 and Theorems 3.6-3.7",
+        "arXiv:2405.07588 Sections 2,4-6",
+        "Public research-index query: shattering edge subsets by two vertex stars edge intersection of 2-subsets",
+        "Prior mathematical claim comparison: induced edge trace star forest and domination theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For an r-vertex witness U, the edge-hit range is the complement of the edge set induced by [n]\\U, so shattering of a chosen F is equivalent to shattering under the uniform-cardinality induced-edge complement family.",
+        "The unrestricted induced-edge context has a star-forest shattering obstruction, whereas the uniform family must additionally enforce n-|V(F)| >= r and sum max(1,s_i-1) <= r.",
+        "The inspected arXiv:2007.16042 Theorem 3.7 computes open-neighborhood, not closed-neighborhood shattering."
+      ],
+      "reasoning": "The complement equivalence was explicitly checked. This is a fixed-witness-cardinality restriction, not mere rewriting of unrestricted star-forest shattering. Its quantitative budget, exact general VC dimension, and triangular-graph profile require new arguments; no equivalent formula was found in the named searches.",
+      "searches": [
+        "Public research-index query: Shattered edge sets in complete graph by edges incident to fixed r vertex subset: star forests weighted budget",
+        "Public research-index query: uniform r-vertex cover set systems VC dimension 2r exact edge incidence",
+        "Web: VC dimension k-vertex covers range system edges incident to k vertices star forests shattering",
+        "Web: shattered edge sets k vertex stars uniform vertex subsets incidence hypergraph VC dimension"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed public record (ID suffix 5026f3f1e8ec) treats homology of T_n rather than the VC trace distribution; only its search summary was available and no NOT_COVERING assessment of its full text is asserted.",
+        "Closest indexed public record (ID suffix c10287ed1518) treats Vietoris--Rips topology; only its search summary was inspected.",
+        "The explicit formulas for shattered-set counts 1, binomial(n,2), etc. were compared to directly enumerated data for 3 <= n <= 8 and not encountered in the primary papers."
+      ],
+      "reasoning": "No exact matching indexed published entry or external table appeared in the recorded queries. Search absence alone is not used as proof of priority; the full-text comparisons are limited to the most relevant primary papers and the different object/parameter implications are checked directly.",
+      "searches": [
+        "Public research-index query: closed neighborhood VC dimension triangular graph J(n,2) exact n >= 8 versus open n>=7",
+        "Public research-index query: shattering edge subsets by two vertex stars edge intersection of 2-subsets",
+        "Web: VC dimension closed neighborhoods line graphs complete graph triangular graph J(n,2)",
+        "Web: shattering graph edges fixed cardinality vertex cover neighborhoods 2-star"
+      ]
+    },
+    "rationale": "The primary 2020 Johnson work proves an open-neighborhood theorem, not the exact closed-neighborhood result; the 2024 closed-neighborhood algorithm paper supplies general computational methods but not the family formulas. The closest unrestricted induced-edge star-forest statement does not entail fixed-r budgets or precise order thresholds. Explicit search-equivalence and stronger-coverage comparisons are recorded. Alternative terminology remains a residual risk.",
+    "residual_risks": [
+      "An equivalent result may exist under uniform trace systems, edge-hit shattering or partial vertex-cover terminology outside inspected sources.",
+      "The earlier unrestricted star-forest obstruction is not new; the claimed contribution is the exact fixed-r budget, dimension formula and triangular-graph count.",
+      "The nearby indexed topological record was only read at title/summary level; it is not used to certify noncoverage by its full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS open-neighborhood bound and J(7,2) witness, NOT the corresponding closed-neighborhood result or fixed-r trace budget in the examined material",
+        "evidence": "Theorem 3.7 states open edge-relation VC dimension four for J(7,2); the introduction states only boundedness of closed-neighborhood dimension.",
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "PDF abstract, introduction, Sections 2-3 with Theorems 3.6-3.7, Figure 4 and open/closed distinction",
+        "method": "Read searchable full-text PDF and inspect page images including theorem page",
+        "title": "Vapnik--Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Same Johnson graphs and VC dimension, known open-neighborhood four-point threshold"
+      },
+      {
+        "assessment": "COVERS algorithms and broad bounds, NOT exact triangular-graph star-forest trace classification in examined relevant sections",
+        "evidence": "Defines graph VC dimension from closed neighborhoods; main results are W[1]-hardness, general bounds and algorithm, and empirical data.",
+        "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+        "material_read": "PDF abstract, introduction, definitions, principal results and bounds, and experiment summaries; searchable checks across the PDF for the Johnson and triangular families",
+        "method": "Inspected relevant parts of full-text PDF, checked family names across its text, inspected first page image",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Defines closed-neighborhood VC dimension and offers general algorithm and bounds"
+      },
+      {
+        "assessment": "TITLE/SUMMARY indicate a topological homology problem, not a demonstrated covering theorem; whole-document exclusion is NOT claimed",
+        "evidence": "The summary states exact homology of Lovasz neighborhood complexes, not shattering dimensions.",
+        "identifier_or_url": "Public-record ID suffix 5026f3f1e8ec",
+        "material_read": "Structured title and abstract summary only",
+        "method": "Published-research semantic index result, no full text retrieved",
+        "title": "Mixed-dimensional mod-two neighborhood homology first appears at T_7",
+        "trigger": "Same triangular graph, different neighborhood invariant; ranked published-index hit"
+      },
+      {
+        "assessment": "COVERS open-neighborhood VC on strongly regular graphs; Section 4 explicitly excludes closed neighborhoods from scope",
+        "evidence": "Section 4 states that although some authors consider closed neighborhoods, this work restricts to open neighborhoods.",
+        "identifier_or_url": "https://arxiv.org/pdf/2609.10330",
+        "material_read": "Introduction and Section 4 definition of the studied VC set system, search results for triangular graphs and closed neighborhoods",
+        "method": "Searched the full public PDF for triangular and closed; inspected introduction page image and relevant section text",
+        "title": "The VC-dimension of strongly regular graphs",
+        "trigger": "2026 strongly-regular-graph paper explicitly mentions VC dimension four of triangular graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa1d4bd0-454c-4344-98b4-5cfb5aace6ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed-cardinality witness constraints change an unrestricted star-forest result into a sharp resource-budget theorem with a nontrivial phase diagram VC=min(2r,n-r-1,floor(n/2)). The exact classified r=2 spectrum shows a real open-versus-closed threshold shift in triangular Johnson graphs and counts every shattered subset type. These are natural learning-theoretic and finite-model invariants, not arbitrary numerical slices.",
+    "status": "PASS"
+  }
+}
