@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "A complete, quantified structural proof enumerates all successful initial states. For q<r the embedded K_r obstructs any completion. At q=r the hub cannot be forced until each blade has >=r-2 seeds, and hub-seeded and hub-unseeded cases yield respectively zH_r(z)^m and H_r(z)^m-(r-1)z^(m(r-2)) per completed color assignment. For q>r every leaf has degree r-1<q-1, so all leaves are seeds and the hub can be forced iff the q-1 non-hub colors are all present, giving exact inclusion-exclusion. All thresholds and multiplicities follow, as does the weighted probability transform. An independently coded adjacency-based exhaustive checker enumerated 489,479 complete seed states across 12 cases, confirming each coefficient; its finite checks are supplementary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published published-finding corpus complete multipartite theorem is restricted to K_(n1,...,nr) with palette size equal to chromatic number.",
+        "A clique windmill W_(r,m), m>=2, is not complete multipartite: a pair of adjacent vertices in a blade are both nonadjacent to a vertex of another blade, contradicting nonadjacency equivalence.",
+        "Farr arXiv:2609.17108v1 gives the complete-graph boundary m=1 and general graph identities, not this closed multi-blade formula."
+      ],
+      "reasoning": "Neither the published chromatic-palette multipartite formula nor the three-color biclique formula can be specialized or reduced by a graph isomorphism to W_(r,m). General polynomial definitions and recurrences do not state the exact all-palette coefficients or palette threshold without the nontrivial blade/hub classification.",
+      "searches": [
+        "forced colouring function complete multipartite graphs q colours forcing probability surjective seed assignments exact formula",
+        "forced coloring polynomial of complete multipartite graph induced coloring percolation with empty parts",
+        "chromatic forcing seed count graph K_1 join m copies K_{r-1} using r colors and q>r exact polynomial",
+        "published-finding corpus:2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "published-finding corpus:2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2609.17108",
+      "https://arxiv.org/html/2406.15746v1",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655/RESULT.md",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b/RESULT.md",
+      "https://arxiv.org/abs/cs/0406044"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For all r>=3, m>=2 and q=r, the new term is r((r-1)!)^m((1+z)H_r(z)^m-(r-1)z^(m(r-2))), with a hub-uncoloured correction that the complete-graph m=1 boundary does not capture.",
+        "For q>r the new surjective-hub count q U_(r,m)(q) and resulting m-unit jump in minimum forcing size are not present in the sources inspected."
+      ],
+      "reasoning": "The known complete-graph case fixes m=1 and thus cannot by specialization cover m>=2; multipartite and bipartite statements have inequivalent structures, and the general framework alone lacks the blade synchronization and surjectivity calculation. The new theorem implies full coefficients and a sharp q threshold, stronger than computing selected evaluations or minima for the family.",
+      "searches": [
+        "forced colouring function friendship windmill graph bouquet of complete graphs clique sum at cut vertex chromatic palette r exact seed counting",
+        "chromatic forcing seed count graph K_1 join m copies K_{r-1} using r colors and q>r exact polynomial",
+        "arxiv:2609.17108v1",
+        "published-finding corpus:2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "published-finding corpus:2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The inspected friendship-graph zero-forcing polynomial uses the binary unique-white-neighbor color-change rule; it has different coefficients and minimum seed size from the three-colour forced-colouring polynomial here.",
+        "Harary–Slany–Verbitsky, arXiv:cs/0406044, studies initial colourings with a unique extension, without requiring Farr local propagation."
+      ],
+      "reasoning": "The theorem concerns named q-colour local forcing, not binary zero forcing, unique precolouring extensions, or the combinatorial counting of proper q-colourings. published-finding corpus semantics and primary-source comparisons found no equivalent propagation law for clique bouquets.",
+      "searches": [
+        "forced colouring function friendship windmill graph bouquet of complete graphs clique sum at cut vertex chromatic palette r exact seed counting",
+        "chromatic forcing polynomial windmill graphs friendship graphs clique bouquets general r m",
+        "clique bouquet friendship windmill force extension of partial graph colourings, chromatic percolation and unique extension",
+        "published-finding corpus:2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b",
+        "arxiv:cs/0406044"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published maximum-degree-two result concerns graphs with maximum degree <=2. Nontrivial W_(r,m) with r>=3,m>=2 has hub degree m(r-1)>=4.",
+        "Farr 2026 includes a finite list of small graph examples, not the infinite, all-palette windmill distribution."
+      ],
+      "reasoning": "No inspected formula, table, or record provided the exact entire domain-size polynomial on clique windmills for arbitrary r,m,q. The computed finite example vectors are cross-checks, not a claim that absent tables prove novelty.",
+      "searches": [
+        "chromatic forcing polynomial windmill graphs friendship graphs clique bouquets general r m",
+        "The forced q-colouring probability polynomial of windmill W(r,m) equals r((r-1)!)^m[(1+z)((r-1)z^(r-2)+z^(r-1))^m-(r-1)z^(m(r-2))]; all palette q>r inclusive-exclusion",
+        "published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+      ]
+    },
+    "rationale": "Actual published-finding corpus semantic searches and full scientific reading of the strongest matching primary and published published-finding corpus records found only the invariant definition, the m=1 complete-graph boundary, chromatic-palette formulas on non-isomorphic multipartite graphs, and an unrelated ordinary zero-forcing polynomial on friendship graphs. None includes the all-q windmill forcing-domain enumerator, surjective hub count, or m-unit palette discontinuity. Residual risk remains for unindexed/differently termed prior work.",
+    "residual_risks": [
+      "An unindexed or older formula under chromatic forcing, precolouring, or windmill terminology could be equivalent; bounded searches do not prove absolute novelty.",
+      "General graph-polynomial identities can formally encode local forcing, but the inspected literature has not already performed the closed multi-blade enumeration.",
+      "Independent mathematical assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes local forcing and the m=1 complete-graph boundary; no multi-blade clique-windmill all-palette expression found in inspected text.",
+        "evidence": [
+          "arxiv:2609.17108v1, first submitted 2026-09-15",
+          "Farr paper explicitly defines local q-1 distinct-neighbour-color forcing."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.17108",
+        "material_read": "Full open-access HTML including the definitions, complete graph proposition, special families, and later open problems/future work.",
+        "method": "Read the primary arXiv HTML sections and compare all statements involving complete graphs, graph joins, or forcing polynomials.",
+        "title": "The forced colouring function of a graph",
+        "trigger": "Defining paper for the new September 2026 invariant and known special graph formulas."
+      },
+      {
+        "assessment": "General polynomial machinery is relevant; the explicit windmill formula and m-sized seed discontinuity were not located.",
+        "evidence": [
+          "arxiv:2406.15746v1, first submitted 2024-06-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.15746v1",
+        "material_read": "Open-access HTML sections on forced coloring polynomials and discussion of associated graph-polynomial constructions.",
+        "method": "Read original definitions, examples, and graph-polynomial framework.",
+        "title": "Graph polynomials: some questions on the edge",
+        "trigger": "Earlier origin of the chromatic forcing function."
+      },
+      {
+        "assessment": "No implication: complete multipartite graphs form a different family; palette range is also narrower.",
+        "evidence": [
+          "Full result requires nonempty complete multipartite parts and palette q equal to number of parts."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655/RESULT.md",
+        "material_read": "Complete published RESULT.md, including full theorem and proof.",
+        "method": "Read entire mathematical result; check necessary/sufficient conditions and compare graph-isomorphism hypotheses.",
+        "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+        "trigger": "Highest-ranked semantic match on color forcing, exact enumerator, and multipartite graphs."
+      },
+      {
+        "assessment": "No implication: complete bipartite graphs are triangle-free, while windmills contain triangles for r>=3.",
+        "evidence": [
+          "Full theorem fixes q=3 on K_(m,n), whereas W_(r,m) has triangles and cut vertex."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+        "material_read": "Complete published RESULT.md with all three classes, exact expressions, proof and limitations.",
+        "method": "Read and compare structural classification and palette q=3.",
+        "title": "Forced three-colouring polynomial of complete bipartite graphs",
+        "trigger": "Related detailed forcing-domain polynomial in a familiar graph family."
+      },
+      {
+        "assessment": "Different notion: ordinary zero forcing permits a blue neighbor with unique white neighbor, not q-1 distinct preassigned colors.",
+        "evidence": [
+          "Its zero-forcing polynomial is z^m((1+z)(2+z)^m-2^m), unlike the chromatic forcing q=3 expression."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b/RESULT.md",
+        "material_read": "Complete published RESULT.md including proof of ordinary zero forcing, complete coefficient formula and limits.",
+        "method": "Read full theorem and prove distinction between binary propagation and q-colour forcing.",
+        "title": "Zero forcing polynomial of friendship graphs",
+        "trigger": "Exact polynomial on the r=3 windmill subfamily, possible synonym collision."
+      },
+      {
+        "assessment": "No direct implication: unique extendability is not equivalent to a local q-1-colour forcing schedule.",
+        "evidence": [
+          "Harary, Slany and Verbitsky (2004) define forcing chromatic number via unique extension."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cs/0406044",
+        "material_read": "Accessible arXiv primary introduction and definitions and selected methods.",
+        "method": "Read the preliminary mathematical definitions and distinguish global uniqueness from iterative local propagation.",
+        "title": "On the Computational Complexity of the Forcing Chromatic Number",
+        "trigger": "Older terminology \"forcing chromatic number\" could describe a seemingly identical problem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9cc04398-c51e-485c-94dd-f4de10c9d857",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives all coefficients, and thus all exact forcing probabilities and successful seed counts, in a natural infinite two-parameter family for every named palette q. It proves a substantive structural phase transition: one extra color beyond the chromatic palette forbids all leaf-forcing events and increases the minimum initial domain by exactly m. This sharp rigidity and full distribution are motivated by propagation on cut-vertex clique blocks, rather than an arbitrary finite instance.",
+    "status": "PASS"
+  }
+}
