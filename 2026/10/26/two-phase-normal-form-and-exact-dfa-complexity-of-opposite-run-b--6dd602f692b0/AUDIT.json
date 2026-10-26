@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The first a+c output positions must have exactly a zeros: fewer prevents the first source reaching its 1-run, while more requires the second source to have passed all c leading ones. Every pair of fixed-composition blocks admits an explicit legal interleaving. Myhill–Nerode quotients are determined by residual phase composition and distinguished by compulsory remaining zeros at fixed phase length, and distinct depths are distinguished by residual length. Counting the two composition rectangles with one shared boundary and one dead state proves the exact formula for all positive parameters. Two independent finite-check algorithms corroborate 256 explicit cases and 4096 grid-automaton instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2009 paper gives exponential examples and quadratic bounds for operands based on a shared periodic word, not the present opposite-run inputs.",
+        "2018 pattern-matching bounds for all-sided ideals are not stated for the finite shuffle of two singleton languages."
+      ],
+      "reasoning": "A general exponential upper bound or a quadratic periodic-case upper bound is not strong enough to determine equality at every positive quadruple, and its operands have different quantifiers or assumptions.",
+      "searches": [
+        "deterministic state complexity exact for shuffle of two run monotone binary words with opposite run order",
+        "quadratic shuffle automaton size Biegler Daley McQuillan opposite blocks case",
+        "arxiv:0907.5111 Theorem 4.12",
+        "arxiv:1806.04645 exact state complexities"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0907.5111",
+      "https://arxiv.org/html/0907.5111v1",
+      "https://arxiv.org/abs/1806.04645",
+      "https://arxiv.org/abs/1606.01199",
+      "https://arxiv.org/abs/2202.07988"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Biegler et al. show that shuffles of two words can be exponentially state-complex and provide shared-periodic quadratic cases; the positive four-run opposite-order family is not obtained by applying that theorem.",
+        "Brzozowski et al. address pattern containment via shuffle with an arbitrary word, not the shuffle of two fixed finite two-run words.",
+        "Eremondi et al. focus on inclusions and language equivalences involving shuffles, and Fleischmann et al. consider equal-operand self shuffles."
+      ],
+      "reasoning": "The broader statements do not imply either the two-phase factorization or its precise number of Myhill–Nerode quotients; the primary-source conceptual overlaps have been separated by comparing assumptions and conclusions.",
+      "searches": [
+        "arxiv:0907.5111 full text sections 2–4",
+        "arxiv:1806.04645 full text subsequence-pattern sections",
+        "arxiv:1606.01199 accessible open manuscript",
+        "arxiv:2202.07988 abstract withdrawal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The two-phase identity is exactly membership by one internal cut and its two Parikh vectors; a generic shuffle NFA has a grid of interleaving states. The inspected periodic-case result assumes common periodic structure and does not assert the internal cut.",
+        "2018 pattern-matching paper studies intersection of a text language with an all-sided shuffle ideal, not a finite binary shuffle of two fixed words."
+      ],
+      "reasoning": "A possible alias is a two-phase commutative or Parikh-block language. The comparison inspected both interpretations; neither selected text gives the four-parameter exact right quotients.",
+      "searches": [
+        "shuffle of binary words 0^a1^b and 1^c0^d exact minimal deterministic automaton (a+1)(c+1)+(b+1)(d+1)",
+        "shuffle of opposite two-run words equals concatenation of two fixed Parikh composition sets; binomial product distinct interleavings",
+        "product binomial coefficients cardinality shuffle of words a^i b^j and b^k a^l",
+        "arxiv:0907.5111 section 4.1",
+        "arxiv:1806.04645 sections 1,7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public search and mathematical record lookup returned no exact four-parameter table or formula.",
+        "The new proof yields an infinite formula and quotient profile rather than a finite numerical census."
+      ],
+      "reasoning": "Searches did not reveal a competing exact family of this type; absence of a retrieved table alone would not establish novelty.",
+      "searches": [
+        "shuffle of binary words 0^a1^b and 1^c0^d exact minimal deterministic automaton (a+1)(c+1)+(b+1)(d+1)",
+        "product binomial coefficients cardinality shuffle of words a^i b^j and b^k a^l",
+        "exact DFA state count shuffle 0^a 1^b 1^c 0^d",
+        "binary two-run shuffle distinct interleavings binomial coefficient"
+      ]
+    },
+    "rationale": "The complete four-parameter fixed-composition identity, exact DFA size, and depth-by-depth residual classification are not implied by the inspected general state-complexity estimates, shared-periodic shuffle bounds, decision problems, or self-shuffle results. The eligible 2018 pattern-matching study concerns a different two-input operation. All searches are bounded; an unindexed equivalent remains possible.",
+    "residual_risks": [
+      "An unindexed equivalent in finite automata or trace/shuffle literature may exist.",
+      "The 2022 withdrawn self-shuffle manuscript is not fully available; only its abstract could be inspected.",
+      "The proof and finite checks have not received independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the new normal form or exact parameter formula; supplies related general and periodic complexity context",
+        "evidence": [
+          "Example involving runs bbaa and aab describes nondeterministic grid but gives no arbitrary opposite-run exact formula.",
+          "Theorem 4.12 assumes two operands derived from suffixes and powers of a shared nonrepeating periodic base."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0907.5111",
+        "material_read": "Full accessible HTML, including naive-grid example, periodicity conditions, Section 4.1 theorem, and conclusions; PDF pages also checked",
+        "method": "Compared quantified operands and claimed estimates with two-run opposite-order words and exact quotient formula",
+        "title": "On the Shuffle Automaton Size for Words",
+        "trigger": "Closest directly concerned with determinization of shuffles of two fixed words"
+      },
+      {
+        "assessment": "Different operation and quantifiers; no exact opposite-run shuffle complexity classification",
+        "evidence": [
+          "The studied shuffle expression has an arbitrary unconstrained word from the alphabet, rather than a prescribed second two-run word."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.04645",
+        "material_read": "Accessible full arXiv HTML: abstract, introduction, Sections 2 and 7 with operation definitions and bounds",
+        "method": "Compared all-sided ideal of a pattern intersected with a text language to finite shuffle of two fixed words",
+        "title": "State Complexity of Pattern Matching in Regular Languages",
+        "trigger": "Eligible 2018 formal-language state complexity study involving shuffle patterns"
+      },
+      {
+        "assessment": "No implication of a four-parameter minimal-DFA quotient profile from cited decision results",
+        "evidence": [
+          "Targets deciding equivalence/inclusion between automata languages and fixed-word shuffle languages."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.01199",
+        "material_read": "Accessible preprint abstract and main result descriptions; compared their actual decision-problem statements",
+        "method": "Compared NP-completeness and language comparison with exact minimal-state enumeration",
+        "title": "On the Complexity and Decidability of Some Problems Involving Shuffle",
+        "trigger": "Two-fixed-word shuffle paper with language inclusion and equality queries"
+      },
+      {
+        "assessment": "Not decisive for exact opposite-run formulas. Withdrawn source treated as a contextual reference, not established support",
+        "evidence": [
+          "Submitted 2022-02-16 and withdrawn 2022-03-02; abstract studies shuffle of a word with itself."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07988",
+        "material_read": "Accessible abstract and submission/withdrawal metadata only; full withdrawn manuscript unavailable",
+        "method": "Compared equal-source self-shuffle definition against two distinct opposite-run operands",
+        "title": "On the Self Shuffle Language",
+        "trigger": "Middle-window word-shuffle source with a nearby linguistic topic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6dd602f6-92b0-478a-a965-999e3fa723d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact complete four-parameter classification of a natural nontrivial finite-word shuffle family explains when two-dimensional interleaving nondeterminism collapses to two phases, yields a product enumeration of distinct traces, gives the entire Myhill–Nerode profile and sharp polynomial state count, and contrasts with known exponential worst cases.",
+    "status": "PASS"
+  }
+}
