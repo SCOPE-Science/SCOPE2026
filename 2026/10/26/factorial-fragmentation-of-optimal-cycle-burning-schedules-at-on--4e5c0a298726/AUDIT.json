@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every integer k at least two, the sum of radius ball sizes is k squared. At full square order every schedule tiles the circle, giving rigidity. At deficit one, a single duplicated vertex yields exactly types A/B of the positive arcs and singleton; their cyclic-order coordinate parametrization counts all schedules. Changes of positive centers can only shift one step and preserve their cyclic order; defect travel and interval translation connect each order class. Degree counts and handshake establish exact edges. The direct graph-distance brute enumerator and independent cyclic-arc construction agree for k=2,3,4, while complete constructed exchange graphs agree with the formulas through k=7. The theorem is proved for arbitrary k, not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fitzpatrick and Wilm, arXiv:1706.03106, Sections 2–5, derive burning-number bounds and values for degree-3 and degree-4 circulant classes.",
+        "Bessy et al., arXiv:1511.06023, Sections 1–2, derive bounds and characterization for path forests and binary trees."
+      ],
+      "reasoning": "A general theorem connecting all optimal burning schedules, or counting all circular interval coverings under time-labeled replacement, would dominate this finite-slack statement. The inspected circulant burning results concern the minimum number of rounds rather than coordinate exchange graphs or schedule multiplicities, so do not imply the factorial fragmentation.",
+      "searches": [
+        "\"burning sequence\" \"swap\" \"cycle\" graph burning",
+        "\"burning sequence\" \"reconfiguration graph\"",
+        "arXiv:1706.03106 burning circulant graph"
+      ]
+    },
+    "checked_sources": [
+      "Bonato–Janssen–Roshanbin, How to burn a graph, arXiv:1507.06524, first version 2015-07-23.",
+      "Bessy–Bonato–Janssen–Rautenbach, Bounds on the Burning Number, arXiv:1511.06023, first version 2015-11-18.",
+      "Fitzpatrick–Wilm, Burning Circulant Graphs, arXiv:1706.03106, first version 2017-06-09.",
+      "Targeted indexed phrase searches for enumeration of optimal burning sequences and reconfiguration; no covering match identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bonato et al., arXiv:1507.06524, Corollary 11 proves b(C_n)=ceil(sqrt(n)); Equation (1) yields a necessary-and-sufficient ball characterization.",
+        "Bessy et al., arXiv:1511.06023, Lemma 1 notes ignition separation can be dropped for computing only the scalar minimum, not for counting proper sequences.",
+        "Fitzpatrick–Wilm, arXiv:1706.03106, Sections 1–5 center on burning numbers of circulant graphs and supply no matching component result."
+      ],
+      "reasoning": "The prior ball-cover criterion is an indispensable premise, not the claimed classification. Its existence implication does not specify that there are Nk! schedules at n=k²−1, (k−2)! coordinate-exchange components, or the exact degree distribution; deriving those facts requires the one-overlap and transported-defect argument. Relaxing source properness is safe for the minimum but not for enumeration, so a relaxation theorem does not subsume the present labeled proper-schedule results.",
+      "searches": [
+        "\"burning sequences\" \"reconfiguration\" cycles paths",
+        "\"burning sequence\" \"reconfiguration graph\"",
+        "arXiv:1507.06524 Corollary 11, arXiv:1511.06023 Lemma 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bonato et al., arXiv:1507.06524, Section 2, Equation (1) gives both radius-ball coverage and ignition separation.",
+        "Bessy et al., arXiv:1511.06023, Introduction, Equations (1)–(3), describes equivalent distance domination and proper burning sequences."
+      ],
+      "reasoning": "Potential aliases include optimal burning strategy, optimal burning sequence, radius-ordered circular interval covering, and recoloring of ignition locations. The current theorem counts the full solution space and its coordinate-change graph; the inspected equalities for the minimum length do not enumerate or connect solutions. Targeted phrasing gave no covering indexed result, not a proof of uniqueness.",
+      "searches": [
+        "\"counting\" \"burning sequences\" cycle graph theory",
+        "\"burning sequences\" \"number of\" \"cycle\"",
+        "\"burning sequences\" \"reconfiguration\" cycles paths",
+        "arXiv:1511.06023 distance-and-ball formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bonato et al., arXiv:1507.06524, Corollary 11 lists burning numbers for cycles but no full schedule table.",
+        "Exhaustive independent distance enumerations in the supplied verifier for k=2,3,4 give (6,48,360) schedules at one-below-square orders and (4,18,96) at square orders."
+      ],
+      "reasoning": "A table of exact optimal schedule counts could cover individual parameter values, but indexed searches revealed no such table. The present all-k formulas, degree census, and connectivity classification are not implied by just the classic scalar values. New finite program output is proof corroboration, not novelty evidence.",
+      "searches": [
+        "\"burning sequences\" \"number of\" \"cycle\"",
+        "\"optimal burning sequences\" \"enumeration\" cycles",
+        "\"burning sequences\" \"count\" \"cycle\" graph theory"
+      ]
+    },
+    "rationale": "Three accessible primary full texts were inspected for mathematical implication, not titles alone. Bonato–Janssen–Roshanbin establish the scalar cycle burning number and covering description. Bessy–Bonato–Janssen–Rautenbach establish general covering and separation formulations and general bounds. Fitzpatrick–Wilm study other circulant burning numbers. None of their examined results characterizes the number, one-coordinate reconfiguration components, or degree profile of proper length-k sequences on cycles of orders k squared and k squared minus one. Actual mathematical-record searches and phrase searches located no equivalent assertion; residual unindexed/alternative-convention coverage is explicitly retained.",
+    "residual_risks": [
+      "Earlier or unindexed literature may enumerate optimal burning schedules under alternative terminology or identify equivalent one-unit-overlap interval reconfiguration graphs.",
+      "The result depends on proper, labeled ignition sequences. Literature using redundant ignition choices may count different objects; those results have not been comprehensively surveyed.",
+      "A same-author or independent computational study may have exact tables for some small parameters without an indexed theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes exact cycle burning number and ball-covering characterization, but does not give one-coordinate reconfiguration or labeled schedule enumeration.",
+        "evidence": [
+          "arXiv:1507.06524 lines 13–27 (definition and coverage), 123–130 (cycle scalar), 293–296 (scope)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06524",
+        "material_read": "Accessible long full-text rendering, Introduction, Section 2 including Equation (1), Corollary 11, and closing Section 5.",
+        "method": "Full-text section inspection and textual query of schedule/count/reconfiguration passages.",
+        "title": "How to burn a graph",
+        "trigger": "Original scalar cycle theorem and definition could conceivably count or characterize all optimal schedules."
+      },
+      {
+        "assessment": "Reformulates burning and proves general bounds; supplies no counts or exchange-component structure for the cycle family.",
+        "evidence": [
+          "arXiv:1511.06023 lines 17–38 and 93–169 (covering/bounds and tree results)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.06023",
+        "material_read": "Accessible full-text Introduction and all main results through binary trees; coverage inequalities, tree bounds and Lemma 1.",
+        "method": "Theorem-by-theorem content and implication comparison, especially Equations (1)–(3), Lemma 1, Theorems 7–15.",
+        "title": "Bounds on the Burning Number",
+        "trigger": "A potentially stronger all-graph burning characterization, possibly dominating specific near-square reconfiguration claims."
+      },
+      {
+        "assessment": "Proves burning-number values and bounds for other circulant families, not the coordinate-exchange graph of near-square ordinary cycles.",
+        "evidence": [
+          "arXiv:1706.03106v2, Sections 1–5 and Section 1 summary of the authors’ scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1706.03106v2",
+        "material_read": "Accessible HTML full text: abstract, sections 1–5, main theorem claims and their relation to cycles.",
+        "method": "Theorem-oriented reading of HTML and full-text searches for reconfiguration and optimal schedules.",
+        "title": "Burning Circulant Graphs",
+        "trigger": "Circulant graph study and potential generalized cycle coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e5c0a29-8726-485e-a825-f6367b347217",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At cycle orders at or one below the theoretical k-round coverage capacity, the solution geometry undergoes a sharp change from full rigidity to local mobility. The theorem classifies a natural optimization-sensitivity invariant and exhibits unbounded factorial fragmentation, even as all one-deficit schedules admit exchanges. It gives a structural all-parameter theorem, exact degree and component profiles, not an arbitrary finite enumeration or a restatement of the known cycle burning number.",
+    "status": "PASS"
+  }
+}
