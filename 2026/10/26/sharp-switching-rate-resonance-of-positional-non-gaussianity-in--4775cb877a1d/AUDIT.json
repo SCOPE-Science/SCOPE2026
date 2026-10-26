@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The exact two-state generator gives two invertible 2x2 systems for second/fourth joint moments, independently reproduced with SymPy. Conditional Gaussian variance bounds prove existence, uniqueness, and all required finite moments. Explicit moment derivatives have strictly negative numerators at a!=b, while Q derivative has sign of a strictly decreasing cubic P(k). Its sign at k=0 yields the exact stiffness ratio 3+2sqrt(2), with threshold equality and a=b separately handled. The included code validates the algebra, not the infinite-range uniqueness proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biroli et al. provide the exact full joint stationary law for arbitrary positive two-way switching rates and explicitly derive mixed fourth moments in Supplement Eq. (S72). By conditional Gaussianity their expressions imply the single-particle normalized fourth moment as a ratio.",
+        "Alston et al. give entropy production and joint second-moment stationarity, but no fourth-moment extremum."
+      ],
+      "reasoning": "The forward stationary law from arXiv:2312.02570 is genuinely broader and is NOT claimed as new. Its full formula and explicit mixed fourth moment directly permit deriving our Q(k), but the parameter-uniform sign theorem (exact contrast threshold, one interior maximum versus strict monotonicity, and raw-moment reversal) is an additional optimization assertion not identified in the inspected work. Priority risk remains substantial because a published distribution makes this a derivable consequence.",
+      "searches": [
+        "published-finding corpus: stochastic stiffness two-state harmonic Ornstein Uhlenbeck gaussian mixture fourth cumulant relaxation response",
+        "published-finding corpus: Switching linear Gaussian stable Markov modulated OU two harmonic potentials stationary standardized fourth cumulant maximized at unique environment hopping rate",
+        "arXiv:2312.02570v1 Equations (10)-(13)",
+        "arXiv:2202.02630v1 equations (31)-(39)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1303.6742v1 Kwon–Noh–Park (2013-03-27)",
+      "arXiv:2202.02630v1 Alston–Cocconi–Bertrand (2022-02-05)",
+      "arXiv:2312.02570v1 Biroli–Kulkarni–Majumdar–Schehr (2023-12-05)",
+      "arXiv:2407.12213 Frydel (2024-07)",
+      "published-finding corpus semantic searches 9 variants for claim/aliases/threshold and nearest four IDs",
+      "Related published findings: mixed stable/inverted harmonic trap, harmonic-reset kurtosis, velocity-reset harmonic fourth moments, fluctuating diffusivity telegraph moment inverses"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kwon et al. study prescribed harmonic protocols and work cumulants, not stationary two-state displacement kurtosis.",
+        "Alston et al. study switched-trap entropy production and variance; the fourth moment is not their target.",
+        "Biroli et al. compute the full stationary law and mixed fourth moment for the same object in main Eq. (14) and supplementary Eqs. (S69), (S72), so even the forward single-particle Q formula is algebraically implied by prior coverage."
+      ],
+      "reasoning": "We explicitly exclude the forward distribution and any elementary stationary variance consequence from novelty. The differentiated normalized observable has a global sign classification depending on the sharp stiffness ratio and a unique critical switching rate: these are the independently established claim, not merely a restatement of known Gaussian-mixture density. This distinction is material but does not remove priority risk from implicit general formulas.",
+      "searches": [
+        "published-finding corpus: dichotomous harmonic-trap stiffness switching thermal displacement kurtosis fourth moment rate resonance unimodality",
+        "published-finding corpus: Markov switching Langevin two positive confining drift coefficients non Gaussian spatial kurtosis resonance even though second and fourth moments decline",
+        "arXiv:1303.6742v1 Section V",
+        "arXiv:2202.02630v1 Section 4",
+        "arXiv:2312.02570v1 Eqs. (10)-(13)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alston–Cocconi–Bertrand arXiv:2202.02630 Section 4 is the same switched OU model with conditional variance equations; Biroli et al. arXiv:2312.02570 main Eq. (12) Gaussian mixture is a full forward equivalent description",
+        "A published work titled Monotone residence exchange and a quartic crossover law in a switching nilpotent center concerns deterministic Hamiltonian residence-time fraction, not a Markov-modulated stationary Gaussian mixture"
+      ],
+      "reasoning": "Both Markov-modulated OU and fluctuating harmonic potential aliases were checked. Their existing direct statements do not give the unique stationary positional fourth-moment switching-rate maximum; the exact models are acknowledged and evaluated for implicit coverage.",
+      "searches": [
+        "published-finding corpus: Overdamped Brownian particle switching between two positive harmonic trap stiffnesses at symmetric Poisson rate: exact stationary excess kurtosis nonmonotone peak if stiffness ratio exceeds 3+2 sqrt 2, unique optimum",
+        "published-finding corpus: dichotomous harmonic-trap stiffness switching thermal displacement kurtosis fourth moment rate resonance unimodality",
+        "published-finding corpus: Switching linear Gaussian stable Markov modulated OU two harmonic potentials stationary standardized fourth cumulant maximized at unique environment hopping rate",
+        "web: \"switching stiffness\" \"kurtosis\" Ornstein Uhlenbeck",
+        "web: \"harmonic trap\" \"non-Gaussian\" \"stiffness\" \"telegraph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published complete kurtosis phase diagram for three-point laws has a different probability family and optimized variable.",
+        "arXiv:2312.02570 gives a stationary mixture, not a tabulated exact threshold 3+2sqrt2 or a table for maximizing k."
+      ],
+      "reasoning": "No accessible published database/table located containing the precise sharp threshold or the exact cubic optimum for the two-positive-stiffness switched OU. Absence of search hits does not prove novelty; positive comparison focuses on differing claims.",
+      "searches": [
+        "published-finding corpus: Overdamped Brownian particle switching between two positive harmonic trap stiffnesses at symmetric Poisson rate: exact stationary excess kurtosis nonmonotone peak if stiffness ratio exceeds 3+2 sqrt 2, unique optimum",
+        "published-finding corpus: Sharp harmonic stiffness ratio 3+2sqrt(2) threshold for peak excess kurtosis when two confinement rates switch symmetrically, Ornstein Uhlenbeck",
+        "published-finding corpus: Markov switching Langevin two positive confining drift coefficients non Gaussian spatial kurtosis resonance even though second and fourth moments decline",
+        "web: \"3+2 sqrt 2\" \"kurtosis\" switching trap harmonic"
+      ]
+    },
+    "rationale": "The source papers give the physical model, exact variance equations, and even a complete forward stationary distribution plus exact mixed fourth moments, respectively. No inspected source explicitly supplies the globally unique normalized-fourth-moment peak, its sharp 3+2sqrt2 stiffness contrast, and the counterintuitive simultaneous monotone decline of both unnormalized moments. Those optimization implications require a further derivative-sign factorization; neither the stationary distribution nor its already calculable raw fourth moments are asserted to be novel. The closest source [3] creates an explicit significant residual priority risk.",
+    "residual_risks": [
+      "Very strong forward priority: arXiv:2312.02570 provides the exact stationary distribution and explicit mixed fourth moment for this self-review; the sharp moment optimization is a derivative-level consequence and might be considered implicit coverage by some standards.",
+      "Possible specialized unindexed study of the stationary two-stiffness switched OU fourth moment or its switching-rate optimum was not ruled out.",
+      "The normalized Gaussian-excess parameter Q is one-third of conventional excess kurtosis, so normalizations must be compared before priority assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PHYSICAL_BACKGROUND_ONLY: does not use a symmetric two-state stochastic trap or state a stationary positional normalized kurtosis rate threshold",
+        "evidence": [
+          "2013-03-27 v1 arXiv header; Sections II–V; Equations (31)–(39) concern work cumulants for driven protocols, not stationary positional fourth moment",
+          "https://arxiv.org/pdf/1303.6742"
+        ],
+        "identifier_or_url": "arXiv:1303.6742v1; https://arxiv.org/pdf/1303.6742",
+        "material_read": "Accessible 12-page manuscript sections on model equations, work cumulants, overdamped limit Section V, and prescribed-force protocols",
+        "method": "arXiv public PDF parsed text; page images inspected",
+        "title": "Work fluctuations in a time-dependent harmonic potential: rigorous results and beyond the overdamped limit",
+        "trigger": "Archive physics primary source for time-dependent harmonic confinement and fluctuation observations"
+      },
+      {
+        "assessment": "SAME_MODEL_FORWARD_VARIANCE: gives stationarity second-moment systems and entropy production, but not fourth-moment optimization or sharp stiffness contrast threshold",
+        "evidence": [
+          "Section 4 general two-state OU, stationary variances in Equations (37a)–(37b); manuscript full-text searches for fourth/kurtosis did not produce matches",
+          "https://arxiv.org/pdf/2202.02630"
+        ],
+        "identifier_or_url": "arXiv:2202.02630v1; https://arxiv.org/pdf/2202.02630",
+        "material_read": "Introduction, general Fokker–Planck framework, Sections 3–4, Equations (31)–(39), and discussion of second moments/entropy-production mechanism",
+        "method": "arXiv open-access PDF text and first-page image; within-document searches for fourth and kurtosis",
+        "title": "Non-equilibrium thermodynamics of diffusion in fluctuating potentials",
+        "trigger": "High-overlap physical model: general two-state positive harmonic stiffness switching"
+      },
+      {
+        "assessment": "STRONG_FORWARD_COVERAGE: full stationary distribution and explicit cross-particle fourth moment imply the forward normalized fourth moment by conditional Gaussianity, but inspected source does not state or prove monotonicity of switching-rate standardized fourth moment nor the universal 3+2sqrt2 threshold; exact optimization is the separated claim",
+        "evidence": [
+          "Equations (10)–(14) give stationary Fourier/mixing law and squared-position covariance; supplementary Equations (S69), (S72), (S73) explicitly compute second and mixed fourth moments, sufficient to reconstruct \\(Q\\) algebraically; the positive-stiffness contrast threshold and unique peak are not stated in the inspected discussions",
+          "https://arxiv.org/pdf/2312.02570"
+        ],
+        "identifier_or_url": "arXiv:2312.02570v1; https://arxiv.org/pdf/2312.02570",
+        "material_read": "Main text NESS model and Equations (2)–(14), supplementary Equations (S69), (S72), (S73) for second and mixed fourth moments, stationary joint Gaussian-mixture solution and supplementary-material subject/contents, document-wide word searches for fourth, moment, and kurtosis; relevant text and PDF images",
+        "method": "arXiv full primary PDF (22 pages) text sections and page images; full-text search for named target observables",
+        "title": "Dynamically emergent correlations between particles in a switching harmonic trap",
+        "trigger": "Most decisive overlap: exactly same switching OU generator, and a stronger full stationary position distribution"
+      },
+      {
+        "assessment": "DIFFERENT_PARAMETER_DOMAIN: switched off/on confinement has a zero stiffness and is outside the strictly positive-positive threshold, and no cited exact finite positive-contrast optimum was found",
+        "evidence": [
+          "Source models trap turned off/on, in contrast to the two positive trap strengths in the present theorem",
+          "https://arxiv.org/abs/2407.12213"
+        ],
+        "identifier_or_url": "arXiv:2407.12213; https://arxiv.org/abs/2407.12213",
+        "material_read": "Public full accessible HTML article abstract, model scope, sections on full Gaussian superposition and off/on modulation",
+        "method": "Open arXiv HTML, text searches for kurtosis and physically distinct switched stiffness parameters",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Another plausible trap fluctuation study, possibly stronger normalized-moment overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4775cb87-7a1d-497e-a1b0-3db4325f3d22",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact population normalized fourth moment quantifies Gaussian departure in driven optical-trap dynamics. The full stiffness-ratio classification identifies a physically meaningful switching-rate non-Gaussianity resonance despite simultaneous monotone suppression of both raw moments; the universal contrast threshold and unique optimal rate explain when relative fluctuation-based diagnostics can behave opposite to raw fluctuation magnitudes. The claim is a sharp structural bifurcation rather than an unmotivated parameter substitution or arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
