@@ -1,0 +1,11 @@
+# Review: Equal-order nonlocality of cover-time edge insertion
+
+**Correctness — PASS.** The complete proof treats the full stated quantifiers (each integer \(r\ge1\)), both graph orders and boundary ambient-degree labels, and the exact sign of the fixed-start response. The cut-vertex identity of Si [1, Theorem 3.2] is reconstructed from explicit Poissonized excursions and their terminal unused suffixes. The positive path response is an exact positive rational function. The negative clique-tail response follows from a nonasymptotic single-excursion coupon bound and a strict polynomial inequality. Exact visited-state Bellman computations, independent of the excursion representation, passed for three finite witness pairs; 203 parameter choices corroborate the analytic sign margins. These finite computations do not prove the infinite theorem.
+
+**Originality — PASS, subject to residual priority risk.** Si [1] derives the transfer identity and proves arbitrary-radius marked local sign nonlocality with different graph orders; the paper expressly poses the equal-order strengthening as an open problem. The proved equal-order terminal-clique construction is not covered by that theorem or its clique-at-hub witnesses. Barlow, Ding, Nachmias and Peres [2] give a universal multiplicative edge-insertion bound; Ding, Lee and Peres [3] give coarse cover-time equivalences, neither deciding the present exact matched-order sign problem. Relevant research records and recoverable prior claims were compared at the statement/implication level. A matching unindexed construction remains possible; this is not an independent historical priority determination.
+
+**Mathematical value — PASS.** A stated natural open extension is resolved for **every** local radius, preserving the graph order in addition to all previously matched visible and electrical data. The proof provides a reusable remote-excursion domination mechanism and an exact positive-response formula. The large nonoptimized size and fixed-start restriction are stated; no minimality or worst-start assertion is made.
+
+Closest work: [1] Ian Meng Si, *Nonlocality of Cover-Time Changes Under Edge Addition*, arXiv:2608.27474v1 (2026-08-19), Sections 3 and 7; [2] Barlow et al., arXiv:1001.0609; [3] Ding, Lee and Peres, arXiv:1004.4371.
+
+Self-review: passed. Independent audit: not yet performed.
