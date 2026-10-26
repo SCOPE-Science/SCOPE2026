@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The traveling-wave ODE is derived directly from the PDE. Its residual is an explicit quadratic polynomial whose coefficient equations are necessary and sufficient for the proposed profile; the positive root and interface flux matching are proved analytically and checked by the included symbolic script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harko and Mak, arXiv:1510.08163v1, §§II–III: the Abel reduction yields exact waves under explicit Chiellini/Lemke integrability relations; the solved subclasses inspected include constant convection and specified transformed DQ forms.",
+        "For the present PDE the convection coefficient in the general form u_t=(D(u)u_x)_x+B(u)u_x+Q(u) is B(u)=−u−ku², which is nonconstant; the paper sections inspected do not state this quadratic-convection curve.",
+        "Sánchez-Garduño–Pérez-Velázquez, full text §4.3 and discussion: the h′(u)=u+ku² case is examined, with speed dependence explored numerically rather than given as this closed-form parameter curve."
+      ],
+      "reasoning": "The broad Abel framework is relevant but is not itself an implication of the exact formula unless its stated integrability conditions or an explicit solved case yields this parameter relation. No such direct implication was found in the inspected material. This is not a claim that every possible Abel-based reformulation has been excluded.",
+      "searches": [
+        "arXiv 1510.08163 Abel equation reaction convection diffusion profile exponential compact support",
+        "published-finding corpus query: Chiellini lemma exact travelling wave degenerate diffusion nonlinear advection h'(u)=alpha u+gamma u^2",
+        "published-finding corpus query: For D(u)=u+beta u^2, g(u)=u(1-u), h'(u)=u+k u^2 find explicit compact support exponential traveling wave critical speed"
+      ]
+    },
+    "checked_sources": [
+      "https://onlinelibrary.wiley.com/doi/full/10.1155/2016/5620839",
+      "https://arxiv.org/abs/1510.08163",
+      "https://doi.org/10.1051/mmnp/20105505",
+      "published-finding corpus search: For D(u)=u+beta u^2, g(u)=u(1-u), h′(u)=u+k u^2 find explicit compact support exponential traveling wave critical speed",
+      "published-finding corpus search: Sánchez-Garduño Pérez-Velázquez 2016 D(u)=u+beta u^2 h′(u)=u+k u^2 exact sharp traveling wave speed formula",
+      "published-finding corpus search: exact profile max(1-exp(lambda xi),0) degenerate diffusion quadratic advection logistic reaction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 article studies the same nonlinear model with h′(u)=u+ku² and D(u)=u+βu², but its displayed speed dependence is numerical; the present direct substitution yields an exact one-dimensional curve in (β,k).",
+        "The 2015 Abel paper gives exact-wave methods for specified coefficient relations; its explicitly read solved examples do not state this profile in the nonconstant quadratic-convection model.",
+        "The limiting case β=0 is outside this claim; the claimed domain is strictly 0<β<1 with k>0."
+      ],
+      "reasoning": "The statement is not merely a renaming of the known linear-diffusion profile: every claimed point has β>0 and quadratic diffusion, and k is constrained by a derived coefficient identity. The proof is an exact iff classification for the specified ansatz, not a claim that all traveling waves are classified.",
+      "searches": [
+        "Sánchez-Garduño Pérez-Velázquez 2016 D(u)=u+beta u^2 h'(u)=u+k u^2 exact sharp traveling wave speed formula",
+        "arXiv 1510.08163 Abel equation reaction convection diffusion profile exponential compact support",
+        "published-finding corpus query: exact profile max(1-exp(lambda xi),0) degenerate diffusion quadratic advection logistic reaction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sánchez-Garduño–Pérez-Velázquez, DOI 10.1155/2016/5620839, full text §§1, 4.3, 5: the model uses D(u)=u+βu², h′(u)=u+ku² and g(u)=u(1−u); the article discusses sharp-wave speed exploration numerically.",
+        "The exact residual derived in RESULT.md is λ²−λc + [λ²(2β−2)+λ+1]U + [−3βλ²+λk]U²; its coefficient equations yield the claimed locus.",
+        "published-finding corpus semantic searches returned no direct same-equation/profile match; closest wave results concern a pseudo-parabolic Fisher–KPP model and other unrelated degenerate waves."
+      ],
+      "reasoning": "The primary model family is already published, so the finding is not a new equation or general existence theory. The statement compared here is the explicit necessary-and-sufficient coefficient locus and profile within a fixed exponential-front ansatz. No inspected source states this exact curve.",
+      "searches": [
+        "For D(u)=u+beta u^2, g(u)=u(1-u), h'(u)=u+k u^2 find explicit compact support exponential traveling wave critical speed",
+        "Sánchez-Garduño Pérez-Velázquez 2016 D(u)=u+beta u^2 h'(u)=u+k u^2 exact sharp traveling wave speed formula",
+        "exact profile max(1-exp(lambda xi),0) degenerate diffusion quadratic advection logistic reaction",
+        "published-finding corpus query: Exact travelling wave for D(u)=u(1+beta u), h'(u)=alpha u+gamma u^2, g=u(1-u), compact support profile 1-exp(lambda xi)",
+        "published-finding corpus query: Chiellini lemma exact travelling wave degenerate diffusion nonlinear advection h'(u)=alpha u+gamma u^2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned closest IDs 2026/10/11/SCOPE-real-upstream-spectrum-defeats-the-linear-oscillation-obstructio--a32a93e50680 and 2026/9/18/SCOPE-sharp-dispersive-tails-degenerate-mkdv-burgers-shock--618ae9cb1a99; their summaries concern different equations.",
+        "The 2016 primary paper reports numerical critical-speed exploration in the relevant nonlinear family but does not display the present explicit profile/parameter curve in the sections inspected."
+      ],
+      "reasoning": "No exact database/table entry for this same profile and parameter locus appeared in the actual searches. published-finding corpus ranking is a deduplication aid, not proof of novelty, and failure to retrieve a match is not treated as novelty proof by itself.",
+      "searches": [
+        "Sánchez-Garduño Pérez-Velázquez 2016 D(u)=u+beta u^2 h'(u)=u+k u^2 exact sharp traveling wave speed formula",
+        "exact profile max(1-exp(lambda xi),0) degenerate diffusion quadratic advection logistic reaction",
+        "published-finding corpus query: Exact travelling wave for D(u)=u(1+beta u), h'(u)=alpha u+gamma u^2, g=u(1-u), compact support profile 1-exp(lambda xi)",
+        "published-finding corpus query: For D(u)=u+beta u^2, g(u)=u(1-u), h'(u)=u+k u^2 find explicit compact support exponential traveling wave critical speed"
+      ]
+    },
+    "rationale": "The primary source studies the same family but reports numerical speed dependence; the exact profile and coefficient locus were not found in the inspected primary literature or published-finding corpus results. The claim is deliberately limited to a precise ansatz and does not assert exhaustive novelty.",
+    "residual_risks": [
+      "The search was bounded; a broader exact-wave classification may encode an equivalent formula without stating this parameter curve.",
+      "The claim is complete only within the exponential-front ansatz and does not independently classify all sharp fronts or prove stability.",
+      "The weak solution interpretation relies on the conservative form and flux matching at the interface; no claim is made for classical C1 regularity at the front."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant primary source. It analyzes the same family and describes numerical exploration; the exact exponential profile and closed-form parameter curve are not stated in the material inspected.",
+        "evidence": "First published 2016-09-01; §§4.3 and 5; the discussion describes numerical sharp-wave-speed dependence for h′(u)=u+ku².",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1155/2016/5620839",
+        "material_read": "Full-text abstract, introduction, §4.3, discussion, and figure captions around the sharp-wave speed exploration.",
+        "method": "Compared the displayed D(u), h′(u), and g(u), the sharp-front profile class, and whether the exact parameter relation appears in the examined text.",
+        "title": "Reactive-Diffusive-Advective Traveling Waves in a Family of Degenerate Nonlinear Equations",
+        "trigger": "Same model family and the reported critical sharp-wave speed."
+      },
+      {
+        "assessment": "Relevant broad methodology, but the explicit solved cases inspected do not directly state the current quadratic-convection parameter curve. An implicit equivalence through a more general reduction remains a residual risk.",
+        "evidence": "arXiv first public date 2015-10-28; §§II–III present Chiellini/Lemke relations and several exact subclasses.",
+        "identifier_or_url": "https://arxiv.org/abs/1510.08163",
+        "material_read": "Abstract, introduction, Chiellini condition and Theorem 1, plus Lemke transformed equation and solved subclasses in §§III.3–III.6 and IV.1.",
+        "method": "Compared the general integrability conditions and explicitly solved coefficient classes with B(u)=−u−ku² and D(u)Q(u)=u²(1+βu)(1−u).",
+        "title": "Exact travelling wave solutions of non-linear reaction-convection-diffusion equations — an Abel equation based approach",
+        "trigger": "Potential prior exact-wave result or a broader theorem implying the same profile."
+      },
+      {
+        "assessment": "Useful background and limiting-model context, but it does not directly imply the interior parameter curve claimed here.",
+        "evidence": "The abstract identifies the β=0, no-convection model and studies smooth-front waves near its sharp-front speed.",
+        "identifier_or_url": "https://doi.org/10.1051/mmnp/20105505",
+        "material_read": "Abstract and bibliographic metadata; full proof not inspected.",
+        "method": "Compared the stated model u_t=(u u_x)_x+u(1−u) with the present strictly positive-β quadratic-diffusion and quadratic-convection regime.",
+        "title": "On the Form of Smooth-Front Travelling Waves in a Reaction-Diffusion Equation with Degenerate Nonlinear Diffusion",
+        "trigger": "Closest classic degenerate Fisher–KPP sharp/smooth-front analysis."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7c32671-3710-427e-8d9f-2cbb4911c4ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact curve is a reproducible calibration benchmark for phase-plane and numerical wave-speed calculations in a degenerate diffusion/nonlinear-advection model whose published study explores sharp-front speeds numerically. The iff statement for the natural exponential-front ansatz is mathematically complete and directly useful for verification.",
+    "status": "PASS"
+  }
+}
