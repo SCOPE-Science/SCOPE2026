@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "For n=2^a m<2^k with m odd and t=k-a, D(2^k)-D(n) divided by 2^k equals k(1-x)/2+x(t/2-S(m)), x=m/2^t. The primewise estimate 1/p<=ln p/(3 ln3) yields S(m)<=bt. Since x<=1-2^-t, the gap is at least ct+bk2^-t. Convex minimization gives c log_2 k+gamma. The explicitly feasible n=2^(k-t)(2^t-1) with t=ceil(log_2 k) gives the upper bound. The same nonnegative terms prove location inequalities for all maximizers. Boundary cases k=2, m=1, a=0 and ties are included. Exact-integer exhaustive tests up to k=20 corroborate, but do not substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ufnarovski–Åhlander (2003), Theorem 1 supplies the factorization rule; inspected sections focus on equations, rational extensions, and generating functions.",
+        "Barbeau (1961) DOI 10.4153/CMB-1961-013-0: related early inequality paper; full text not read.",
+        "Relevant research-record results on fixed-multiplier level sets and derivative–cototient gaps concern distinct invariants."
+      ],
+      "reasoning": "The elementary global derivative upper bound applied to n immediately below 2^k gives only a lower gap on the scale of k; a uniform gap of order 2^k log k and two-adic localization require extra odd-part structure. The other related claims are not stronger envelopes for dyadic runner-up extrema.",
+      "searches": [
+        "Sharp asymptotic growth order of deficit between derivative of 2^k and maximum arithmetic derivative n' for n<2^k, Omega(2^k log k) and O(2^k log k), quantitative stability",
+        "Record gaps near powers of two in arithmetic derivative n'=n sum_{p|n} v_p(n)/p and precise 2-adic valuation of submaximizers",
+        "\"arithmetic derivative\" \"largest\" \"less than\" \"power of two\" quantitative",
+        "\"arithmetic derivative\" \"maximum\" \"gap\" integer",
+        "\"How to Differentiate a Number\" Ufnarovski Ahlander 2003 pdf"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1108.4762v1 (2011) accessible full article",
+      "Ufnarovski–Åhlander, JIS 6 (2003), Article 03.3.4 PDF targeted reading",
+      "OEIS A003415/A131116/A131117",
+      "Arithmetic Derivative Records (2023)",
+      "Barbeau (1961) publisher extract/metadata",
+      "Relevant semantic research records on arithmetic derivative level sets, derivative–cototient gaps and iterates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 theorem fixes the endpoint derivative maximum.",
+        "The 2003 formula D(n)=n sum v_p(n)/p is used as a premise, but the second-best gap optimization is absent in inspected targeted sections.",
+        "A global upper bound D(n)<=n log_2(n)/2 at n=2^k-1 differs from the dyadic record by only O(k), so it cannot entail the stated Omega(2^k log k) separation."
+      ],
+      "reasoning": "The exact claim is the quantitative runner-up law and localization, not the general derivative identity or the fact 2^k is a record. The demonstrated odd-part prime-weight inequality and scale optimization bridge a real implication gap. Residual literature priority uncertainty remains.",
+      "searches": [
+        "Arithmetic derivative second-best at dyadic powers, n<2^k record gap normalized by 2^k logarithm of exponent k",
+        "Numbers attaining near maximum of arithmetic derivative on dyadic interval have even factor 2^(k-O(log k))",
+        "arxiv:1108.4762 arithmetic derivative Lambda(2^a) record maximum",
+        "Ufnarovski Åhlander arithmetic derivative 2003 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dahl–Olsson–Loiko (2011), Theorem 3.2.1: the record occurs at each power of two, but no runner-up order or quantitative stability is stated in the inspected chapter.",
+        "OEIS A131116 and A131117: record values and locations are enumerated without a universal runner-up gap law."
+      ],
+      "reasoning": "The candidate is an asymptotic-order theorem for the second maximum below each dyadic endpoint, with localization of every maximizer. The older record theorem concerns the first maximum, and finite record sequences supply examples only. A reformulation as a logarithmic stability gap is not covered by those statements.",
+      "searches": [
+        "For arithmetic derivative n' = n sum v_p(n)/p, second largest value on interval 1<=n<=2^k and size of gap from k2^(k-1), asymptotic gap 2^k log k, near maximal record points",
+        "Arithmetic derivative dyadic record maxima powers of 2, second largest derivative runner up, stability of record n'=k 2^(k-1), odd part optimal",
+        "Arithmetic logarithmic derivative n'/n, quantitative stability near dyadic power extrema, gap lower bound and upper bound",
+        "\"arithmetic derivative\" \"second largest\" \"powers of two\" maxima",
+        "\"arithmetic derivative\" \"second maximum\" \"dyadic\" integers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A131116/A131117 are finite record data for D(n).",
+        "The November 26, 2023 Arithmetic Derivative Records post supplies finite enumerated records, not a general estimate."
+      ],
+      "reasoning": "The database material contains the maximizers for some small exponents indirectly, but not the uniform all-k two-sided estimate, nor the explicit t_k and relative-distance bounds. The proof is not a table recomputation.",
+      "searches": [
+        "OEIS A003415 arithmetic derivative",
+        "OEIS A131116 record values",
+        "OEIS A131117 record locations",
+        "Arithmetic Derivative Records 2023 record table"
+      ]
+    },
+    "rationale": "2011 dyadic record extremum is weaker than an all-k next-best logarithmic gap and high-two-adic maximizing support. Original factorization and classic upper bound do not imply the stronger order without the new constrained odd-part optimization. OEIS and 2023 tables do not prove the theorem. Actual semantic and publication searches found no direct equivalent; unindexed earlier research and full 1961 paper are residual risks.",
+    "residual_risks": [
+      "Priorities are provisional: an unindexed or non-English result could contain the same runner-up theorem.",
+      "Barbeau (1961) full paper was not inspected, although its known inequalities are reproduced by accessible sources.",
+      "Ufnarovski–Åhlander (2003) was inspected through targeted regions rather than a page-by-page complete reading; do not infer a whole-document noncoverage guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact record at dyadic endpoint; inspected statement does not give second-best gap size or maximizing-argument localization",
+        "evidence": [
+          "Theorem 3.2.1 identifies records at 2^a",
+          "Theorem 3.2.2 gives eventual divisibility of record arguments by 2^m"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1108.4762",
+        "material_read": "Full accessible arXiv text, especially §§1,2.1,3.2 and Theorems 3.2.1–3.2.2",
+        "method": "Rendered full article text and read the defining identity, inequalities and record theorem",
+        "title": "Investigations on the properties of the arithmetic derivative",
+        "trigger": "Primary archival source establishing dyadic record property"
+      },
+      {
+        "assessment": "Inspected material concerns formula, equations and rational extension; no precise dyadic runner-up theorem identified; uninspected material remains a priority risk",
+        "evidence": [
+          "Theorem 1 gives D(n)=n Σν_p(n)/p",
+          "Article investigates arithmetic differential equations and rational extensions"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL6/Ufnarovski/ufnarovski.pdf",
+        "material_read": "PDF pp.1–3, pp.8–12, pp.15–18, pp.21–22, with all-page targeted text searches for maximum, largest, record, and power of two",
+        "method": "Read the PDF text, inspected a rendered page with factorization formula, and examined thematic sections",
+        "title": "How to Differentiate a Number",
+        "trigger": "Foundational 2003 article on derivative and possible broader extremal bounds"
+      },
+      {
+        "assessment": "Finite tabulations without a uniform asymptotic runner-up theorem",
+        "evidence": [
+          "Lists OEIS record values and arguments, not analytic gap estimates"
+        ],
+        "identifier_or_url": "https://voodooguru23.blogspot.com/2023/11/arithmetic-derivative-records.html",
+        "material_read": "Complete brief article and both record tables",
+        "method": "Read entire webpage",
+        "title": "Arithmetic Derivative Records",
+        "trigger": "Accessible published compilation of record derivative values and arguments"
+      },
+      {
+        "assessment": "Record values and positions available; no all-k second-best asymptotic or two-adic concentration",
+        "evidence": [
+          "A131116: record values",
+          "A131117: record arguments",
+          "A003415: arithmetic derivative formula"
+        ],
+        "identifier_or_url": "https://oeis.org/A131116 ; https://oeis.org/A131117 ; https://oeis.org/A003415",
+        "material_read": "Current rendered entries including formulae, comments and cross-references",
+        "method": "Read the relevant database pages",
+        "title": "OEIS A131116, A131117 and A003415",
+        "trigger": "Search for an exact database/table equivalent of the record-gap theorem"
+      },
+      {
+        "assessment": "Full-text coverage unresolved; cannot claim entire paper lacks the proposed statement",
+        "evidence": [
+          "1961 paper defines the arithmetic derivative and supports later inequalities"
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CMB-1961-013-0",
+        "material_read": "Publisher extract and mathematical bibliography; full article not obtained",
+        "method": "Read abstract/extract and compared bibliographic citations",
+        "title": "Remarks on an Arithmetic Derivative",
+        "trigger": "Source of the original inequality underpinning later derivative bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "72de2291-711c-4e7b-ae0e-d7813e4acd85",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The dyadic record theorem motivates a natural next-extremum question. The finding determines the global first-deficit order Theta(2^k log k) for every k, not just numerical records, and simultaneously establishes a quantitative two-adic stability law for every optimizer. This is a structural restriction on the entire infinite family and not a trivial table extension. The unproved optimal coefficient and precise winning n are explicitly separated from the proved result.",
+    "status": "PASS"
+  }
+}
