@@ -1,0 +1,110 @@
+{
+  "claim": "Within the linear no-flow leaky-aquifer model on a bounded Lipschitz domain, with time-independent uniformly elliptic symmetric transmissivity tensor \\(\\mathbf T(x)\\), positive storage coefficient \\(S(x)\\), bounded leakance \\(\\lambda(x)\\ge0\\), zero initial drawdown, and pumping density \\(q(x,t)\\) whose total is \\(Q(t)=\\int_\\Omega q(x,t)\\,dx\\), the aggregate leakage history is independent of transmissivity, domain geometry, and spatial pumping profile for every prescribed total pumping history if and only if \\(\\lambda(x)/S(x)=\\kappa\\ge0\\) almost everywhere. In that case the total leakage rate is exactly \\(\\mathcal L(t)=\\kappa\\int_0^t e^{-\\kappa(t-u)}Q(u)\\,du\\); for constant pumping \\(Q\\), it is \\(\\mathcal L(t)=Q(1-e^{-\\kappa t})\\).",
+  "correctness": {
+    "rationale": "The weak-form mass balance with test function 1 yields M′ = Q - L. If lambda/S = kappa, then L = kappa M and the exact scalar ODE gives the convolution formula. Necessity follows because L′(0+) = Q(0) integral[(lambda/S)w] for each normalized spatial source profile w; equality across all profiles forces lambda/S to be constant almost everywhere. The no-flow boundary, zero initial drawdown, linearity, and static coefficients are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Butler and Tsou (2003) present homogeneous Hantush-Jacob and stream-aquifer cases and demonstrate bounded-domain invariance with image-well arguments; their numerical rectangular examples use the same grid-cell count.",
+        "The current theorem allows arbitrary time-independent uniformly elliptic transmissivity, spatially varying storage and leakance satisfying lambda/S = kappa, and arbitrary nonnegative pumping histories."
+      ],
+      "reasoning": "The extension is broader in coefficient heterogeneity and forcing. The formula follows from a weak mass balance and does not depend on image-well representability or rectangular geometry. It does not extend to arbitrary lambda/S, aquitard storage dynamics, or nonzero lateral flux.",
+      "searches": [
+        "groundwater leakage transfer function total leakage rate convolution pumping schedule storage leakance proportional heterogeneous aquifer",
+        "Butler Tsou 2003 pumping induced leakage bounded aquifer geometry invariance proof heterogeneous transmissivity arbitrary pumping history",
+        "doi:10.1029/2002WR001484 sections 3-4"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "doi:10.1029/2002WR001484",
+        "title": "Butler and Tsou (2003), Pumping-induced leakage in a bounded aquifer",
+        "use": "Full text inspected for exact prior scope and limitation."
+      },
+      {
+        "identifier": "doi:10.1029/TR036i001p00095",
+        "title": "Hantush and Jacob (1955), Non-steady radial flow in an infinite leaky aquifer",
+        "use": "Abstract inspected for model assumptions; not used to establish noncoverage."
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Butler and Tsou explicitly establish scale-invariant total leakage in the homogeneous model and describe image-well arguments for representative geometries; the paper notes the lack of a completely general proof for the more complicated geometries discussed.",
+        "The weak-form identity M′ = Q - L and the initial-slope identity L′(0+) = Q(0) integral[(lambda/S)w] are derived directly in the new proof."
+      ],
+      "reasoning": "The prior homogeneous invariance result does not by itself give the necessary-and-sufficient spatial coefficient criterion or the arbitrary-schedule transfer function. The proof supplies both directly. The originality claim is restricted to that explicit generalization; an equivalent mass-balance argument may be implicit in uninspected textbooks, which remains a residual risk.",
+      "searches": [
+        "doi:10.1029/2002WR001484 full text, especially section 3 and concluding discussion",
+        "doi:10.1029/TR036i001p00095 publisher abstract",
+        "Butler Tsou 2003 pumping induced leakage bounded aquifer geometry invariance proof heterogeneous transmissivity arbitrary pumping history",
+        "groundwater leakage transfer function total leakage rate convolution pumping schedule storage leakance proportional heterogeneous aquifer",
+        "necessary sufficient spatially constant leakance storage ratio for source-location independent total leakage in a no-flow aquifer"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Butler and Tsou (2003), DOI 10.1029/2002WR001484, sections 2-4: the homogeneous Hantush-Jacob model gives scale-invariant total leakage and the article discusses image-well proofs for representative bounded geometries.",
+        "The same article states that a completely general proof had not been obtained for the more complicated geometries discussed.",
+        "Hantush and Jacob (1955), DOI 10.1029/TR036i001p00095, publisher abstract: classical infinite leaky-aquifer solution assumes uniform aquifer properties and constant discharge."
+      ],
+      "reasoning": "The present statement is an equivalent mass-balance formulation of the homogeneous scale-invariance phenomenon, but its claim is the iff condition lambda/S = constant and the exact convolution law for heterogeneous transmissivity, spatially varying S and lambda with fixed ratio, and arbitrary pumping schedules. The cited prior sources do not state that complete coefficient characterization in the inspected material.",
+      "searches": [
+        "Butler Tsou 2003 pumping induced leakage bounded aquifer geometry invariance proof heterogeneous transmissivity arbitrary pumping history",
+        "groundwater leakage transfer function total leakage rate convolution pumping schedule storage leakance proportional heterogeneous aquifer",
+        "necessary sufficient spatially constant leakance storage ratio for source-location independent total leakage in a no-flow aquifer",
+        "doi:10.1029/2002WR001484 sections 2-4; doi:10.1029/TR036i001p00095 abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published comparison is Butler and Tsou (2003), which treats homogeneous scale-invariant total leakage and representative bounded geometries.",
+        "The current claim is an analytic PDE identity with no finite census or tabular database to exhaust."
+      ],
+      "reasoning": "No finite census or exact table is mathematically applicable to this PDE conservation theorem. The literature searches support overlap triage only and do not prove uniqueness.",
+      "searches": [
+        "Butler Tsou 2003 pumping induced leakage bounded aquifer geometry invariance proof heterogeneous transmissivity arbitrary pumping history",
+        "groundwater leakage transfer function total leakage rate convolution pumping schedule storage leakance proportional heterogeneous aquifer",
+        "necessary sufficient spatially constant leakance storage ratio for source-location independent total leakage in a no-flow aquifer"
+      ]
+    },
+    "rationale": "The result is narrowly scoped to an iff characterization of source-profile independence and an arbitrary-schedule leakage transfer function under heterogeneous coefficients. Butler and Tsou (2003) establish homogeneous scale invariance and image-well arguments for representative geometries but do not state this coefficient characterization in the inspected full text. The literature search did not locate a directly covering published theorem. This is best-knowledge originality, not proof of global uniqueness.",
+    "residual_risks": [
+      "The integrated mass-balance argument is elementary and may be implicit in standard groundwater texts not located by semantic search; originality is limited to the explicit iff coefficient criterion and arbitrary-schedule formulation.",
+      "The Hantush-Jacob primary paper was inspected only at abstract level, so it is not used to claim that its full text lacks an equivalent extension.",
+      "The theorem does not cover aquitard storage dynamics, nonzero lateral boundary flux, time-varying coefficients, nonlinear leakage, or spatially nonconstant lambda/S."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the homogeneous scale-invariance phenomenon and representative bounded geometries; it does not state the explicit iff condition for spatially varying lambda/S or the arbitrary-pumping-schedule convolution law in the inspected text.",
+        "evidence": "Section 3 defines scale-invariant leakage and develops image-well arguments; the discussion states that a completely general proof had not been obtained for the more complicated geometries considered.",
+        "identifier_or_url": "doi:10.1029/2002WR001484",
+        "material_read": "Full-text HTML sections 2-4, including the homogeneous total-leakage derivation, bounded-geometry image-well examples, and concluding discussion.",
+        "method": "Publisher full-text HTML.",
+        "title": "Pumping-induced leakage in a bounded aquifer: An example of a scale-invariant phenomenon",
+        "trigger": "Closest published result on geometry-independent total leakage in bounded aquifers."
+      },
+      {
+        "assessment": "Relevant model antecedent; its abstract describes uniform aquifer properties, constant discharge, and negligible confining-bed storage. Full-text coverage of the new iff extension remains unverified.",
+        "evidence": "The publisher abstract describes the nonsteady drawdown solution for an infinite leaky aquifer with leakage proportional to drawdown.",
+        "identifier_or_url": "doi:10.1029/TR036i001p00095",
+        "material_read": "Publisher abstract and bibliographic metadata only; the openly listed PDF was not successfully inspected in full, so no whole-document noncoverage claim is based on it.",
+        "method": "Publisher abstract and public open-access listing.",
+        "title": "Non-steady radial flow in an infinite leaky aquifer",
+        "trigger": "Primary antecedent for the linear leaky-aquifer model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cd7a7380-55ab-4379-8efd-1f787ca0239a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Total leakage is a practical water-budget quantity. The exact transfer function eliminates the need to solve the spatial field for this aggregate whenever the local leakage/storage timescale is uniform, even with heterogeneous transmissivity and arbitrary pumping schedules. The converse identifies when that simplification fails: a nonconstant lambda/S makes the initial aggregate leakage slope depend on source placement. This is a natural structural classification; it does not claim local-head invariance.",
+    "status": "PASS"
+  }
+}
