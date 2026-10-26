@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** Exact covariance expansion (same-coordinate and distinct-coordinate summands) yields equation (1). Beta neutrality makes the conditional different-coordinate exceedance probability strictly decreasing, and variance positivity anchors the sign crossing. The degenerate two-coordinate beta limit and threshold endpoints were assessed separately. The closed uniform-simplex and fixed-sample geometric formulas follow by translation of the simplex. Exact-rational checks and seeded simulation corroborate, but cannot prove, the infinite claim.
+
+**Originality: PASS, provisionally.** Negative association of Dirichlet coordinates (Joag-Dev–Proschan) concerns disjoint functions and does not dictate covariance between two overlapping exceedance counts. Decreusefond–Ferraz study single-scale Poisson-input connected-component counts, not two-scale fixed-vertex covariance. Comparisons included published records on occupancy sign switches and earlier spacing geometry; no checked statement was found to imply the sharp mean-count criterion, its unique sign change, and the exact geometric threshold together. Older inaccessible material and equivalent empirical-process formulations remain credible priority risks; absence in searches does not certify novelty.
+
+**Mathematical value: PASS.** The phase boundary \(\mathbb E N(r)=1\) gives an intrinsic criterion that separates universally positive nested-count dependence from a regime admitting negative dependence despite pathwise nesting. The uniform-simplex crossing is explicit; the first nontrivial geometric-graph sample has three vertices; and a nontrivial order-\(n\) covariance limit gives a scale-dependent sign frontier. These jointly motivate the exact classification beyond a routine covariance computation.
+
+**Closest literature and limits.** Joag-Dev and Proschan (1983) established Dirichlet negative association. Decreusefond and Ferraz (2010) established one-radius component distributions for Poisson sensors; their arXiv HTML was read across the principal derivations and other-scenarios section. Pyke (1965) and older spacing-process literature may contain broader covariance formulas; complete priority against inaccessible sources is not guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.
