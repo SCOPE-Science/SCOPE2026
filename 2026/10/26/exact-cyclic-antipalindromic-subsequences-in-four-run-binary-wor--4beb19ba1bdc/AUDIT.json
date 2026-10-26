@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For any circular four-run binary word, cutting creates four or five linear source runs; reverse-complement palindromes have an even number of runs, hence exactly two or four. A two-run optimum draws either the two runs of one color and one of the other or vice versa, yielding P. A four-run optimum draws four consecutive source runs and its paired mirrored lengths give Q. For balanced totals s, the identities P=s/2+U and Q=s-U+V imply A/2>=3s/4, while explicit positive quadruples attain the ceiling for every s. When four divides s, equality forces U=s/4,V=0. Independent interval DP on every rotation checked 4096 tuples; explicit mask enumeration checked 495 smaller tuples; balanced exhaustive maxima and constructions checked to s=50. Finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf (Lemma 2.2 covers an extremal witness, Lemma 3.1 weaker general k=2 estimate)",
+        "https://arxiv.org/abs/2005.12603 (unrestricted conjecture disproved)"
+      ],
+      "reasoning": "Checked potentially dominating theorems about arbitrary balanced circular words, geometric separated matchings, and general anti-palindromic subsequences. Known general lower estimates are weaker and 2020 constructions are high-run counterexamples; they do not force this restricted sharp guarantee. The exact four-run spectrum also applies to unbalanced inputs, which those balanced statements do not imply.",
+      "searches": [
+        "Lyngso Pedersen conjecture four runs exact longest antipalindromic subsequence circular word",
+        "minimum antipalindromic subsequence length for balanced binary circle with precisely two red runs and two blue runs; exact 3/4 theorem; Kyncl Pach Toth fixed k=2 separated matching",
+        "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf Lemmas 2.2 3.1 conjecture",
+        "https://arxiv.org/abs/2005.12603 main counterexamples"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1901.07502",
+      "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf",
+      "https://arxiv.org/abs/2005.12603",
+      "2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+      "2026/10/4/SCOPE-exact-binary-two-mathrm-pal-2-code-sizes-through-length-eight--ba7c5d4a4968",
+      "2026/10/11/SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/1901.07502 (discusses conjectural lower bound for general balanced circles)",
+        "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf (explicit configuration and a conjecture for k-configurations)",
+        "https://arxiv.org/abs/2005.12603 (disproves unrestricted conjecture)"
+      ],
+      "reasoning": "The same sharp witness is already in the primary 2004/2005 source and is not claimed as new. The new statement is a universal exact formula for every positive a,b,c,d and the sharp finite balanced guarantee. The original paper has a conjecture, not the proved universal k=2 implication; the later counterexample covers different run complexity. A plausible equivalence derivation in an unindexed geometric paper remains a specific risk.",
+      "searches": [
+        "for every balanced circular binary word with four runs 0^a1^b0^c1^d, longest antipalindromic subsequence at least three quarters total length and sharp equality a:c=1:3 b=d",
+        "minimum antipalindromic subsequence length for balanced binary circle with precisely two red runs and two blue runs; exact 3/4 theorem; Kyncl Pach Toth fixed k=2 separated matching",
+        "https://arxiv.org/abs/1901.07502 circular binary palindromic subsequences",
+        "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf Lemma 2.2 and Conjecture",
+        "https://arxiv.org/abs/2005.12603 necklace folding upper bounds"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf (pages 2-4, 8; separated-matchings and conjecture)",
+        "https://arxiv.org/abs/1901.07502 (definition and circular subsequence problem)",
+        "https://arxiv.org/abs/2005.12603 (necklace equivalence and counterexamples)"
+      ],
+      "reasoning": "An antipalindromic subsequence after circular cutting encodes a separated matching of differently colored cyclic vertices. Therefore mere absence of the exact phrase antipalindrome does not prove originality. Kyncl et al. have the original sharp special configuration and the conjectured fixed-k profile. Their proven results provide neither universal k=2 matching lower bound nor full four-positive-integer spectrum. The 2020 refutation for general configurations is logically consistent with the restricted k=2 statement.",
+      "searches": [
+        "for every balanced circular binary word with four runs 0^a1^b0^c1^d, longest antipalindromic subsequence at least three quarters total length and sharp equality a:c=1:3 b=d",
+        "Lyngso Pedersen conjecture four runs exact longest antipalindromic subsequence circular word",
+        "minimum antipalindromic subsequence length for balanced binary circle with precisely two red runs and two blue runs; exact 3/4 theorem; Kyncl Pach Toth fixed k=2 separated matching",
+        "\"separated matching\" \"2-configuration\" \"3/4\" necklace"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returns antipalindromic pseudostandard string-attractor classification: 2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+        "published-finding corpus returns palindromic duplication-code enumeration: 2026/10/4/SCOPE-exact-binary-two-mathrm-pal-2-code-sizes-through-length-eight--ba7c5d4a4968"
+      ],
+      "reasoning": "Meaning-based database queries for the six-term formula, a balanced four-run extremum and separated matching variants returned none of this claim in the closest records. The returned attractor and code enumerations count distinct different invariants and are not implication supersets. Database coverage is incomplete, and the search result alone does not establish novelty.",
+      "searches": [
+        "longest antipalindromic subsequence exact four block binary circle min(a,d)+min(b,c) 3/4",
+        "closed formula four run alternating 0^a 1^b 0^c 1^d longest reverse-complement subsequence across rotations using min a d plus min b c",
+        "exact finite sharp 2 ceil 3n/4 antipalindromic circular subsequence four monochrome blocks",
+        "2026/10/4/SCOPE-all-smallest-attractors-in-two-exceptional-antipalindromic-pseud--fe2566e0098c",
+        "2026/10/4/SCOPE-exact-binary-two-mathrm-pal-2-code-sizes-through-length-eight--ba7c5d4a4968",
+        "2026/10/11/SCOPE-automorphism-rigidity-and-palindromic-collapse-in-cyclic-sturmia--579201631ae0"
+      ]
+    },
+    "rationale": "Full-text primary comparisons distinguish the proved universal four-run spectrum from earlier sharp witness and unproved restricted conjecture. Kyncl-Pach-Toth supply the old 3/4 upper witness; 2019 text treats broader unsolved bounds; 2020 work refutes the unqualified universal bound but does not cover this exact restricted claim. Six actual database queries for antipalindrome/separated matching/formula aliases produced closest records with distinct statistics, with coverage limitations acknowledged.",
+    "residual_risks": [
+      "An unindexed geometric treatment could have an equivalent four-run case.",
+      "Database semantic retrieval cannot certify global mathematical priority.",
+      "The sharp extremal construction was already known and is expressly not claimed as original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Previously contains the extremal four-run configuration and the proposed coefficient, not a proved matching lower bound or complete exact spectrum",
+        "evidence": [
+          "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf pages 1-5 and 8"
+        ],
+        "identifier_or_url": "https://math.nyu.edu/~pach/publications/alternatingreprint.pdf",
+        "material_read": "Complete nine-page preprint, including run definitions, Lemmas 2.1, 2.2, 3.1, the conjecture, and references",
+        "method": "Primary full-text PDF text, with page-image inspections of the definitions, Lemma 2.2, and concluding conjecture",
+        "title": "Long Alternating Paths in Bicolored Point Sets",
+        "trigger": "Original separated matching conjecture and possible dominating four-run formula"
+      },
+      {
+        "assessment": "Treats broad antipalindromic subsequence problem and examples, not this four-run exact spectrum or k=2 sharp finite law",
+        "evidence": [
+          "https://arxiv.org/abs/1901.07502 submitted 2019-01-22"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+        "material_read": "Full accessible arXiv HTML text, definitions, constructions, and stated conjectures",
+        "method": "Primary arXiv HTML full text and submission history",
+        "title": "Palindromic Subsequences in Finite Words",
+        "trigger": "Middle-cohort primary paper explicitly defining the antipalindromic circular subsequence problem"
+      },
+      {
+        "assessment": "Counterexamples rule out global extrapolation but do not address all balanced four-run circles or give the exact length formula",
+        "evidence": [
+          "https://arxiv.org/abs/2005.12603 submitted 2020-05-26"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.12603",
+        "material_read": "Full 16-page PDF primary manuscript, including introduction, fixed-run discussion and counterexample construction",
+        "method": "Primary arXiv PDF text and selected page images, supplemented by full arXiv HTML",
+        "title": "Upper bounds for the necklace folding problems",
+        "trigger": "Later refutation of the unrestricted necklace conjecture, essential for valid scope comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4beb19ba-1bdc-473e-b8df-30e09e0cb563",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The four-run case is the first nontrivial fixed-run endpoint of a proposed separated-matching hierarchy. An exact closed formula valid also for unbalanced circles, every finite balanced optimum, and rigorous equality characterization identify a meaningful structural boundary, rather than a new numerical instance or trivial renaming. The unrestricted fixed-run conjecture is false in general, making the rigorously surviving k=2 boundary of specific interest.",
+    "status": "PASS"
+  }
+}
