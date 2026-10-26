@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact specialization of [1] Eq. (22) fixes the four weights and the hq normalization. The Fourier diagonalization is an identity for every k≥2. Counting roots cos=±1 via the k lifts per residue proves every stated multiplicity; extremal cosine values give the exact SPD condition number. Explicit substitution verifies the continuum and unique discrete cosine solutions for k≥3. Finite checker corroborates arithmetic samples but is not a proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[2] studies monotone wide-stencil schemes and consistency, stability, convergence in broader classes.",
+        "[3] mentions aliasing reduction for spectral IMEX methods, a different discretization."
+      ],
+      "reasoning": "General monotonicity and pointwise convergence for fixed smooth data do not quantitatively entail the spectral multiplicities or the mesoscopic mesh-dependent forcing comparison; classic grid decoupling ideas pose a residual risk of conceptual prior coverage but not an exact implication from identified sources.",
+      "searches": [
+        "periodic four-branch bilinear interpolation wide-stencil probabilistic elliptic solver periodic Fourier symbol cos(kappa_x)cos(kappa_y), arithmetic grid resonances N=k squared un-damped modes",
+        "resonant step sizes for periodic expectation-based noncompact diffusion scheme with arbitrary number of invariant modes and slow Jacobi iteration",
+        "arxiv:0910.1046 §§1,3–5,7",
+        "doi:10.1137/0732037 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.02797v1 §2.3 Eq.22; Theorem 3; §3",
+      "arxiv:0910.1046, §§1,3–5,7",
+      "doi:10.1137/0732037, abstract only",
+      "published-findings index actual search results: periodic four-branch bilinear interpolation wide-stencil probabilistic elliptic solver periodic Fourier symbol cos(kappa_x)cos(kappa_y), arithmetic grid resonances N=k squared un-damped modes",
+      "published-findings index actual search results: Xu Li Yue arxiv 2604.02797 periodic four branch elliptic scheme exact Fourier eigenvalues cos(2 pi a/k) cos(2 pi b/k), mesh time step h=1/k squared, sublattice resonance k squared undamped Fourier modes and O(1) error mesh-dependent cosine source"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] Eq. (22) implies the stated matrix on commensurate grids but does not directly present its Fourier spectrum or the error example.",
+        "[1] Theorem 3 explicitly assumes a smooth exact solution and addresses convergence with its fixed regularity, so mesh-growing derivatives are outside a uniform assertion.",
+        "[2] a general wide-stencil framework, different object and propositions."
+      ],
+      "reasoning": "The first paper supplies the definition of the algorithm, so algebraic diagonalization is an original derived consequence rather than an independent claim about a new algorithm. Its smooth-data convergence theorem does not imply an exact k²-dimensional nondamped eigenspace, nor exclude the growing-frequency forcing. No searched stronger theorem directly states this count and exact response.",
+      "searches": [
+        "positivity preserving wide stencil elliptic equations expectation hitting times branch weights sharp contraction iteration count and stopping time correction 2026 Xu Li Yue",
+        "periodic four-branch bilinear interpolation wide-stencil probabilistic elliptic solver periodic Fourier symbol cos(kappa_x)cos(kappa_y), arithmetic grid resonances N=k squared un-damped modes",
+        "semi Lagrangian diffusion on torus jumps diagonal integer grid offsets parity checkerboard spurious invariant Fourier eigenspace",
+        "Xu Li Yue arxiv 2604.02797 periodic four branch elliptic scheme exact Fourier eigenvalues cos(2 pi a/k) cos(2 pi b/k), mesh time step h=1/k squared, sublattice resonance k squared undamped Fourier modes and O(1) error mesh-dependent cosine source",
+        "arxiv:2604.02797v1 §§2.1–2.3,3",
+        "arxiv:0910.1046 §§1,3–5,7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] §2.3 yields a four-point toroidal Markov average when branch endpoints exactly hit nodes.",
+        "A Fourier character reduction gives multiplier cos(2πa/k)cos(2πb/k); generic aliasing titles do not establish the full eigenspace and source response."
+      ],
+      "reasoning": "Compared Fourier symbols, graph-component interpretations, periodic-grid aliasing and Markov-resolvent terminology; the exact parity-dependent multiplicity and reaction source discrepancy are not stated in the inspected primary paper or closest index results.",
+      "searches": [
+        "periodic four-branch bilinear interpolation wide-stencil probabilistic elliptic solver periodic Fourier symbol cos(kappa_x)cos(kappa_y), arithmetic grid resonances N=k squared un-damped modes",
+        "semi Lagrangian diffusion on torus jumps diagonal integer grid offsets parity checkerboard spurious invariant Fourier eigenspace",
+        "Xu Li Yue arxiv 2604.02797 periodic four branch elliptic scheme exact Fourier eigenvalues cos(2 pi a/k) cos(2 pi b/k), mesh time step h=1/k squared, sublattice resonance k squared undamped Fourier modes and O(1) error mesh-dependent cosine source",
+        "arxiv:2604.02797v1 Eq. (22), §2.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-findings index searches returned no exact eigenvalue-count or Fourier-branch matching record.",
+        "[1] reports numerical convergence tables on smooth test cases, not the eigenvalue counts for k² meshes."
+      ],
+      "reasoning": "Compared the quantity (multiplicity of ±1, minimum eigenvalue, condition number, exact forced mode) rather than matching titles or isolated k values; no inspected source supplies this operator-specific table.",
+      "searches": [
+        "periodic four-branch bilinear interpolation wide-stencil probabilistic elliptic solver periodic Fourier symbol cos(kappa_x)cos(kappa_y), arithmetic grid resonances N=k squared un-damped modes",
+        "arxiv:2604.02797 'A Non-compact Positivity-Preserving Numerical Scheme for Elliptic Differential Equations Based on Mathematical Expectation' periodic spectral gap",
+        "Xu Li Yue arxiv 2604.02797 periodic four branch elliptic scheme exact Fourier eigenvalues cos(2 pi a/k) cos(2 pi b/k), mesh time step h=1/k squared, sublattice resonance k squared undamped Fourier modes and O(1) error mesh-dependent cosine source",
+        "[1] §3 periodic numerical results"
+      ]
+    },
+    "rationale": "The exact ±1 multiplicities, parity split, condition number and resolved mesh-dependent forcing law are not contained in the inspected [1], [2] or in the closest actual published-findings index records. General aliasing and monotone-stencil results are explicitly not claimed novel. The classically known conceptual aliasing risk remains, while no demonstrated prior implies the complete claim.",
+    "residual_risks": [
+      "The general disconnected-subgrid/aliasing mechanism is classic; an unindexed exact presentation of this arithmetic specialization could exist.",
+      "The full text of the historical IMEX aliasing paper was not retrieved; its abstract does not signal a direct match.",
+      "The [1] convergence statement applies to fixed smooth data and does not compare the moving-frequency forcing family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines this operator, proves positivity and fixed-data convergence, but not the arithmetic Fourier multiplicities or mesh-dependent source law.",
+        "evidence": [
+          "§2.1 Eq. (3)-(7) four branches",
+          "§2.3 Eq. (21)-(22), Algorithm 3, Theorem 3, §3 tests"
+        ],
+        "identifier_or_url": "arxiv:2604.02797v1; https://arxiv.org/html/2604.02797v1",
+        "material_read": "Full HTML §§1–4 including §2.1 branches, §2.3 Eq. (22), Algorithm 3, Theorem 3, §3 tests, references.",
+        "method": "Read source and specialize its equations with unit isotropic diffusion and integer node hits; compared hypotheses and displayed conclusions.",
+        "title": "A Non-compact Positivity-Preserving Numerical Scheme for Elliptic Differential Equations Based on Mathematical Expectation",
+        "trigger": "Primary recent scheme with the exact four-branch elliptic update."
+      },
+      {
+        "assessment": "Provides broad monotone semi-Lagrangian framework, without the claimed specific spectral and forcing classification.",
+        "evidence": [
+          "§1 defines SL difference-interpolation methods and their wide stencils",
+          "§§3–5,7 discuss monotonicity, consistency and stencil issues"
+        ],
+        "identifier_or_url": "arxiv:0910.1046; https://arxiv.org/abs/0910.1046",
+        "material_read": "HTML full textual paper, specifically introduction and scheme/stability/convergence discussion §§3–5,7; compared spectral and periodic statements.",
+        "method": "Read arXiv HTML rendition and examine general interpolation/diffusion statements and Fourier/periodicity terminology.",
+        "title": "Semi-Lagrangian schemes for linear and fully non-linear diffusion equations",
+        "trigger": "Classical primary text referenced in [1] as baseline wide-stencil theory."
+      },
+      {
+        "assessment": "Abstract concerns IMEX time methods rather than exact spectral multiplicity here; no whole-document exclusion is asserted.",
+        "evidence": [
+          "Abstract mentions aliasing reduction for spectral methods; specific operator not mentioned"
+        ],
+        "identifier_or_url": "doi:10.1137/0732037; https://epubs.siam.org/doi/abs/10.1137/0732037",
+        "material_read": "Abstract only; attempted full-text retrieval was unsuccessful.",
+        "method": "Compared stated time-integration and spectral-aliasing scope with this elliptic four-branch matrix.",
+        "title": "Implicit-Explicit Methods for Time-Dependent Partial Differential Equations",
+        "trigger": "Aliasing mentioned in a related historical numerical-analysis title."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ab69d2ac-9b8a-4473-b0bd-700408e9cceb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a structural mesh-alignment loss of smoothing in a recently proposed positive wide-stencil method: a k² or 2k² dimensional eigenvalue-one subspace despite elliptic coercivity, exact parity-dependent conditioning and a low-relative-frequency O(1) error on a precisely motivated wavelength. It distinguishes fixed-smooth convergence from nonuniform mesoscale response and can inform mesh selection and iterative solver diagnostics.",
+    "status": "PASS"
+  }
+}
