@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The complete-run-set lemma proves every period-one contribution, rules out any higher period except the distance between the two ones, and gives a unique maximal extension of that period. The generating-function decomposition and four-run counting are exact formal identities. The included standard-library verifier directly compares full run triples for 1330 words, with independent series checks; finite checks are supporting tests only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bannai et al. prove rho(n)<n and bounds depending on distinct alphabet symbols.",
+        "Fischer et al. prove a general binary upper bound of (22/23)n."
+      ],
+      "reasoning": "Bounds depending only on word length or alphabet cardinality are not stronger classifications at fixed occurrence count two: they yield neither a length-independent upper bound four nor an enumeration of all configurations. No directly dominating weighted theorem located.",
+      "searches": [
+        "maximal repetitions in words having two marked occurrences: at most 4 periodic runs, limiting density 3/4",
+        "arXiv:1406.0263",
+        "arXiv:1502.04644"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1406.0263; earliest public 2014-06-02",
+      "arXiv:1502.04644; earliest public 2015-02-16",
+      "arXiv:1707.04351; earliest public 2017-07-13"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bannai et al., arXiv:1406.0263, Theorems 9–11 and rho(n,d) discussion.",
+        "Fischer et al., arXiv:1502.04644, Theorem on universal 22n/23 bound.",
+        "Madden, arXiv:1707.04351, Definition in §1."
+      ],
+      "reasoning": "The claim is a sharp exact parametric classification and generating series; these are neither logical corollaries of universal run bounds nor of the different same-symbol run enumeration. Additional period-(b+1) run survives for e.g. 00100100 and is absent from the same-symbol-block statistic.",
+      "searches": [
+        "For binary words 0^a 1 0^b 1 0^c count maximal periodic runs equals indicators a>=2 b>=2 c>=2 plus a+c>=b",
+        "run count distributions words with two marked positions maximal periodicity",
+        "arXiv:1406.0263",
+        "arXiv:1502.04644"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bannai et al., arXiv:1406.0263, Definition 1 and Theorems 9–11",
+        "Fischer et al., arXiv:1502.04644, binary global bounds"
+      ],
+      "reasoning": "This work counts maximal periodic repetitions as runs with least period, not same-symbol blocks or BWT runs. The reviewed maximal periodicity literature uses the same definition but does not list the exact two-marker gap families or generating series.",
+      "searches": [
+        "binary words with two ones maximal periodic runs 4 classification run count",
+        "complete run spectrum in binary words with precisely two ones full bivariate generating function",
+        "arXiv:1406.0263"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Madden, arXiv:1707.04351, §1, explicitly defines runs as maximal consecutive equal-symbol blocks.",
+        "Primary general-periodicity papers give global extremal properties, not a fixed-weight-two table."
+      ],
+      "reasoning": "A table for maximal blocks of constant symbols cannot encode the period-(b+1) run. Inspected exact series and tables in the available sources do not list the same two-one maximal-periodic-run invariant. Earlier unindexed tables remain a residual risk.",
+      "searches": [
+        "complete run spectrum in binary words with precisely two ones full bivariate generating function",
+        "binary words with two ones maximal periodic runs 4 classification run count",
+        "arXiv:1707.04351"
+      ]
+    },
+    "rationale": "Full relevant primary text and public literature comparisons do not reveal an exact two-one maximal-periodic-run classification, bivariate distribution or four-run asymptotic density. General n-linear run upper bounds neither imply the all-gap formula nor the number of extremizers. Another paper using the same term runs counts only constant-letter blocks, missing higher-period runs. Residual risk: an earlier unindexed equivalent result may exist.",
+    "residual_risks": [
+      "An earlier unindexed or differently named exact fixed-weight-two computation may exist.",
+      "No exhaustive historical-priority proof is possible from sampled searchable and accessible literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes global bounds and definition, but neither fixed two-one classification nor exact generating series in the inspected material.",
+        "evidence": [
+          "Definition 1 run triple, least-period, maximality",
+          "Theorem 9: rho(n)<n",
+          "Other upper bounds concern word length and number of distinct alphabet symbols"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1406.0263v7",
+        "material_read": "Definition 1; statements and proofs of Theorems 9–11; rho(n,d) distinct-symbol discussion; introduction, conclusion and references.",
+        "method": "Open-access full-text direct reading plus PDF-page inspection.",
+        "title": "The “Runs” Theorem",
+        "trigger": "Closest source defining the identical invariant and proving its universal bound."
+      },
+      {
+        "assessment": "Universal binary run-count upper bounds, not the fixed-number-of-ones complete run set and distribution.",
+        "evidence": [
+          "Global bound rho(n,2) <= (22/23)n",
+          "Sections analyze idle positions in general binary words"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1502.04644v2",
+        "material_read": "Full original article including the introduction, period-maximal intervals, main bound and final discussion.",
+        "method": "Open-access primary full-text reading plus PDF-page inspection.",
+        "title": "Beyond the Runs Theorem",
+        "trigger": "Strongest closely relevant published general binary upper bound."
+      },
+      {
+        "assessment": "Not covering: defines runs only as maximal constant-symbol blocks; does not count periodic runs of greater least period.",
+        "evidence": [
+          "§1 defines runs as maximal consecutive same-symbol subsequences",
+          "The main generating function counts such blocks at specified lengths"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1707.04351",
+        "material_read": "Full accessible article, in particular Section 1 explicit definition, generating-function statement and counting proof.",
+        "method": "Open-access primary full-text reading.",
+        "title": "A Generating Function for the Distribution of Runs in Binary Words",
+        "trigger": "Plausible exact distribution and matching title but a definition ambiguity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cb462a87-3448-4ef2-8cd0-812f48c8f192",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural primitive in string algorithms is the maximal periodic run. The theorem is a complete structural solution for a sparse infinite word class: exact locations/periods, sharp constant maximal count independent of total length, full rational bivariate distribution and an exact asymptotic density of extremizers. That is a meaningful complete classification, not a routine renaming or unmotivated finite sample; the distinction from universal linear bounds motivates the gap.",
+    "status": "PASS"
+  }
+}
