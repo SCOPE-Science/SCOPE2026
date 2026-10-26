@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The universal boundary-edge inequality for a connected dominating set \(D\) uses only regularity \(q+1\), edge-connectedness \(|E(G[D])|\ge|D|-1\), and domination of every outside vertex. Its equality condition forces a tree on the selected vertices and exactly one selected neighbor for each outside vertex. Pairwise-joining and pairwise-intersection arguments plus the absence of an induced six-cycle force the selected points onto one line and selected lines into one pencil; domination fills both. The spanning-tree bijection and the \(q\)-exchange line-graph identification are checked separately. Independent standard-library programs exhaustively reproduce the order-two and order-three cases. All quantifiers are restricted to existing finite projective planes with \(q\ge2\). Tests at small order are corroboration, not an infinite proof.
+
+## Originality — PASS, subject to stated priority risk
+Caro–West–Yuster give the known general maximum-leaf/connected-domination equivalence, not the present flag classification in the accessible abstract. Goldberg–Rajendraprasad–Mathew give ordinary domination numbers in design incidence graphs; Héger–Nagy analyze ordinary dominating sets and a distinct minimality notion. Accessible full-text portions were compared with the exact structural claim, not merely titles. Searches targeting incidence/Levi graphs, flag double stars, exchange size, line-graph reconfiguration, and maximum-leaf spanning trees, including research-record searches, identified no implication that covers the joint classification. The general 2000 article was accessible only at abstract level, and an unindexed earlier characterization is a residual priority risk.
+
+## Mathematical value — PASS
+This is an all-order exact structural theorem (including non-Desarguesian planes) for a classical domination parameter of a natural incidence-graph family. Beyond its sharp optimum, it counts every optimal maximum-leaf spanning tree and establishes the minimum batch size needed for feasible optimal reconfiguration, including the threshold graph and its diameter. The sharp transition is motivated by the fundamental question of whether optimal connected sensor/relay placements can be transformed while preserving connectivity and domination, not by an arbitrary parameter slice.
+
+## Closest literature and limitations
+The general equivalence and broad bounds are in Caro–West–Yuster (2000); ordinary domination and small ordinary dominating sets are in Goldberg–Rajendraprasad–Mathew (2014) and Héger–Nagy (2016). These results have different conclusions; they were not passed off as discoveries. Potential alternative terminology, an incompletely accessible general paper, and unindexed results remain possible. The full mathematical proof is given in RESULT.md, while two finite independent tests check \(q=2,3\). There is no proof that projective planes exist for all integer \(q\), and no claim of uniqueness from searches alone.
+
+Self-review: passed. Independent audit: not yet performed.
