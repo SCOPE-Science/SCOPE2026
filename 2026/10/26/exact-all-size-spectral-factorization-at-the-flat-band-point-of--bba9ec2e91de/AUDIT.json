@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The orthonormal local basis \\(u=(i,1)^T/\\sqrt2,\\ v=(-i,1)^T/\\sqrt2\\) converts the hopping block to \\(J|u\\rangle\\langle v|\\) and the onsite \\(\\sigma_z\\) term to -(|u><v|+|v><u|). This yields the stated invariant blocks. The \\(3\\times3\\), \\(4\\times4\\), and \\(6\\times6\\) determinant recurrences give the three displayed characteristic polynomials. The \\(P_4\\) discriminant is negative for \\(0<\\gamma<4J\\); at the central position the projected perturbation on the \\(+J\\) eigenspace has eigenvalues \\(0,\\pm i\\gamma/(2\\sqrt2)\\); at the edge position the moving roots stay real up to \\(\\gamma=2J\\) and become imaginary beyond it. The standard-library checker passed 56 matrix-transform cases and the three block determinant recurrences.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper studies all gain locations numerically but provides an analytic spectrum only for a small odd chain; its even-chain results are displayed as finite-size phase diagrams (arXiv:2103.07058v1, Secs. III-V).",
+        "The 2018 paper treats gain and loss at the two ends and derives edge-mode and PT-boundary information; it does not treat an arbitrary interior mirror pair (arXiv:1801.00499v1, Secs. II-III)."
+      ],
+      "reasoning": "The result covers every mirror-pair position in even finite chains at the flat-band point, while preserving the known edge result as a special case. It does not claim to generalize away from that point or to odd lengths.",
+      "searches": [
+        "published-finding corpus query: non-Hermitian Kitaev chain pair gain loss potentials edge sites exact spectrum flat band",
+        "published-finding corpus query: PT-symmetric Kitaev chain edge gain loss exact characteristic polynomial all chain lengths gamma threshold",
+        "arXiv:2103.07058v1, full PDF read through the model, analytical section, exceptional-point discussion, and references",
+        "arXiv:1801.00499v1, full accessible text read through the Majorana edge-mode and pseudo-Hermiticity sections"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.07058v1, full PDF",
+      "arXiv:1801.00499v1, full accessible text",
+      "published-finding corpus searches on exact Kitaev-chain characteristic-polynomial factorization, Majorana edge EP3, and all-size gain/loss threshold classification",
+      "Accessible prior claim records searched for Kitaev/PT-symmetric/Majorana/gain-loss overlap; no matching claim was found"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior edge-only result gives \\(\\gamma_{\\rm th}=2J\\) at the sweet spot, which is reproduced by the \\(m=1\\) factorization.",
+        "The 2021 paper's numerical position dependence motivates the interior classification but does not supply the exact \\(P_4/P_6\\) polynomials or an all-position proof.",
+        "No matching claim was found in the accessible current-week or previous-week ledger files searched for overlap."
+      ],
+      "reasoning": "The established edge threshold is not presented as new. The new statement is the exact finite-size polynomial and threshold dichotomy across all mirror-pair positions; a direct dimerization argument may make the result derivable from the model, so residual priority risk is retained.",
+      "searches": [
+        "arXiv:2103.07058v1, full-text comparison of the stated Hamiltonian, position-dependent threshold plots, N=5 analytic spectrum, and EP3 discussion",
+        "arXiv:1801.00499v1, full-text comparison of the edge-gain/loss Majorana Hamiltonian and sweet-spot threshold",
+        "published-finding corpus query: PT-symmetric Kitaev chain edge gain loss exact characteristic polynomial all chain lengths gamma threshold",
+        "Accessible prior claim records searched for Kitaev, PT-symmetric, and gain-loss overlap terms"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agarwal and Joglekar define the same BdG matrix with a mirror-symmetric gain/loss pair and study its position-dependent PT threshold; the inspected text gives an analytic \\(N=5\\) case and numerical even-chain phase diagrams, including an EP3 at the edge setting and \\(\\gamma=2J\\) (arXiv:2103.07058v1, Secs. II, IV, V).",
+        "Kawabata, Ashida, Katsura, and Ueda give the edge-gain/loss Majorana representation and identify the sweet-spot PT boundary \\(\\gamma=2J\\) (arXiv:1801.00499v1, Eq. (10) and the discussion of the sweet spot).",
+        "Neither inspected primary text states the all-even-N, all-position characteristic-polynomial factorization derived here."
+      ],
+      "reasoning": "The edge threshold and exceptional point are equivalent to established results and are explicitly excluded from the novelty claim. The all-position factorization and exact interior zero-threshold proof go beyond the numerical position profiles and edge-only analytical statement found in the inspected texts.",
+      "searches": [
+        "published-finding corpus query: Kitaev chain edge gain loss at m0=1 mu=0 delta=J exact characteristic polynomial factorization eigenvalues independent of chain length",
+        "published-finding corpus query: Majorana zero modes exceptional point order three gamma 2J flat bands PT symmetry threshold Kitaev chain",
+        "arXiv:2103.07058v1 full text, Eqs. (2), (6), (7), Sections IV-VI",
+        "arXiv:1801.00499v1 full text, Eq. (10), Sections III and IV, and sweet-spot boundary discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The returned closest published-finding corpus records concerned unrelated quantum-graph band asymptotics, a perfect-transfer diamond spectrum, and other spectral-threshold problems; no returned record stated this Kitaev-chain factorization.",
+        "No exact indexed database or table specific to the characteristic polynomial of this finite BdG family was identified in the performed searches."
+      ],
+      "reasoning": "No matching database/table result was found. This is a bounded search outcome, not proof that no equivalent result exists.",
+      "searches": [
+        "published-finding corpus query: Kitaev chain edge gain loss at m0=1 mu=0 delta=J exact characteristic polynomial factorization eigenvalues independent of chain length",
+        "published-finding corpus query: Majorana zero modes exceptional point order three gamma 2J flat bands PT symmetry threshold Kitaev chain",
+        "published-finding corpus query: non-Hermitian Kitaev chain pair gain loss potentials edge sites exact spectrum flat band"
+      ]
+    },
+    "rationale": "The edge threshold \\(\\gamma=2J\\) and its exceptional point are prior results, and the 2021 source reports numerical position-dependent threshold profiles. The present claim is limited to the exact all-even-size characteristic-polynomial factorization and the proof that every interior mirror pair has zero threshold at the flat-band point. No inspected source states these all-position factorization formulas. The general model makes the derivation accessible, so priority risk remains and the novelty claim is deliberately narrow.",
+    "residual_risks": [
+      "The exact factorization is a direct consequence of dimerization at the special point and may appear in unindexed notes or follow from a source not found by search.",
+      "The 2021 paper's numerical threshold plot is closely related; the novelty is the exact all-size proof and formulas, not the qualitative edge-versus-interior picture.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Highly relevant prior work. It establishes the model, reports numerical threshold profiles, and identifies the edge EP3 at \\(\\gamma=2J\\), but the inspected text does not state the all-position characteristic-polynomial factorization.",
+        "evidence": [
+          "arXiv:2103.07058v1, Sec. II Eqs. (2), (6), (7)",
+          "arXiv:2103.07058v1, Sec. III and Fig. 2 position-dependent even-chain threshold profiles",
+          "arXiv:2103.07058v1, Sec. IV small-size analytic spectra",
+          "arXiv:2103.07058v1, Sec. V and Fig. 6 discussion of the edge EP3 at \\(\\gamma/J=2\\)"
+        ],
+        "identifier_or_url": "arXiv:2103.07058v1",
+        "material_read": "Full accessible PDF text, including model equations, numerical position-dependent phase diagrams, the analytic \\(N=5\\) case, exceptional-point discussion, conclusion, and references.",
+        "method": "Compared the exact objects, parameters, size quantifiers, threshold statement, and explicit spectral formulas with the proposed all-even-size factorization.",
+        "title": "PT-symmetry breaking in a Kitaev chain with one pair of gain-loss potentials",
+        "trigger": "Same BdG model and the dependence of the threshold on the gain/loss site position."
+      },
+      {
+        "assessment": "Covers the edge-gain/loss special case and its \\(\\gamma=2J\\) PT boundary; it does not classify interior mirror-pair positions or state the all-position polynomial formulas in the inspected text.",
+        "evidence": [
+          "arXiv:1801.00499v1, Eq. (10) Majorana Hamiltonian with edge gain/loss",
+          "arXiv:1801.00499v1, Sec. III and the sweet-spot discussion of the PT phase boundary at \\(\\gamma=2J\\)"
+        ],
+        "identifier_or_url": "arXiv:1801.00499v1",
+        "material_read": "Full accessible text, including the Majorana representation, edge-mode analysis, sweet-spot threshold discussion, pseudo-Hermiticity section, and appendices exposed in the text view.",
+        "method": "Compared the edge perturbation, flat-band assumptions, threshold, and stated spectral consequences with the edge-block part of the claim.",
+        "title": "Parity-time-symmetric topological superconductor",
+        "trigger": "Earlier primary source for the same edge-gain/loss Kitaev/Majorana chain at the flat-band point."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bba9ec2e-91de-4a77-b9a2-1f72c1d95d8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact classification isolates a physically natural finite-size invariant: the first PT-breaking threshold as the balanced pair moves from the ends into the bulk. It gives a closed-form characteristic polynomial for every even length and every mirror-pair position, replaces large-matrix diagonalization with blocks of dimension at most six, and explains the sharp contrast between a protected edge pair and immediately unstable interior pairs at the Majorana dimerization point. This is a complete parameter-position classification, not merely a finite numerical census.",
+    "status": "PASS"
+  }
+}
