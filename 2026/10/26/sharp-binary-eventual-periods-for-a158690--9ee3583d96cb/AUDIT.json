@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The integral Stirling-basis reduction gives a finite power-sum congruence for each modulus. The exact coefficients a(6)=1431665 and a(8)=6646603073 imply B=2 modulo 4. For odd bases, binomial expansion of j^2=1+8 beta gives the upper shift 2^(r-3) modulo 2^r and a half-shift residue 2^(r-1) at every even n>=r, proving minimality and exact valuations. The small powers are separately classified. Standalone integer checks returned VERIFY_OK 393; finite checks do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.07238v1: Theorem 2.6 applies to all G(e^t-1), but guarantees only lambda(2^r)=2^(r-2).",
+        "arXiv:1407.7521: Theorems 1.2 and 1.5 concern prime-power zero congruences of ordinary Fishburn generating-function coefficients."
+      ],
+      "reasoning": "A universal admissible period need not be minimal; it does not imply the half Carmichael reduction or exact 2-adic valuations. The Fishburn q-series congruences have different arithmetic indices and coefficients, so they do not subsume the claim.",
+      "searches": [
+        "\"Fishburn\" \"period\" \"2^r\" \"congruences\" eventually",
+        "\"A158690\" \"powers of 2\" congruences",
+        "A158690 modulo 32 period four 64 eight"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.07238v1",
+      "OEIS:A158690",
+      "arXiv:1407.7521",
+      "web searches of quoted A158690 period and prime-power formulations",
+      "semantic published-result records (queried by source title, exact period statement, arithmetic aliases)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kallat 2026 Proposition 2.1: eventual lambda(k) bound; Remark 2.2: example at 16.",
+        "OEIS:A158690: preperiod length four and period two modulo 16 are given as an example.",
+        "Straub 2015 Section 3: proof uses dissection and carry divisibility of a different q-series."
+      ],
+      "reasoning": "Kallat implies period dividing 2^(r-2), whereas the new result proves exact period 2^(r-3), strictly smaller for every r>=4, and an exact dyadic difference valuation. OEIS contributes only r=4, and Straub gives no matching implication.",
+      "searches": [
+        "A Proof of Bala’s Congruence Conjectures for A158690 arXiv 2609.07238 full text Section 2",
+        "Congruences for Fishburn numbers modulo prime powers Straub arXiv 1407.7521 full text",
+        "\"A158690\" \"powers of 2\" congruences"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS:A158690: modulo 16 is eventually period 2 in the dated comment of Peter Bala, December 18, 2021.",
+        "arXiv:2609.07238v1: Proposition 2.1 states eventual period lambda(k), not a least-period formula."
+      ],
+      "reasoning": "An isolated example at 16 is a strict special case; the new formula treats every dyadic exponent and proves lower bounds. No equivalent all-exponent statement was found in inspected primary texts.",
+      "searches": [
+        "\"A158690\" \"minimal period\" powers of two",
+        "\"A158690\" \"period\" \"2^\" \"modulo\"",
+        "\"A158690\" \"2-adic\" \"period\" sequence",
+        "arXiv:2609.07238 Kallat A158690 minimal eventual period"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS:A158690 supplies coefficients through at least index 14 and records the mod-16 observation, not a general period sequence.",
+        "arXiv:2609.07238v1 Remark 2.2 cites the mod-16 four-term preperiod as an example, not a uniform least-period determination."
+      ],
+      "reasoning": "The exact low-modulus row supplies independent base values but not infinite minimal periods; the theorem is not a tabular reproduction.",
+      "searches": [
+        "OEIS A158690 eventual period modulo 16 32 64",
+        "\"A158690\" \"minimal period\" powers of two",
+        "\"A158690\" \"mod 256\" \"period\""
+      ]
+    },
+    "rationale": "Kallat (arXiv:2609.07238v1, Theorem 2.6) proves the larger Carmichael eventual period 2^(r-2), not the smaller least period or sharp valuation. OEIS A158690 exhibits only the r=4 instance, and Straub studies a different ordinary generating-function coefficient family. Targeted searchable literature and result records yielded no statement implying all r>=4; risks of implicit/unpublished coverage remain.",
+    "residual_risks": [
+      "An implicit general periodicity theorem for the particular q-series might yield the same minimal-period hierarchy.",
+      "Unindexed or unpublished analysis of OEIS A158690 could precede this result.",
+      "Semantic search and incomplete historical access cannot establish global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PARTIAL_COVERAGE_NOT_FULL: universal Carmichael upper period and isolated modulo-16 example, no least-period hierarchy",
+        "evidence": "Proposition 2.1 provides lambda(k); Remark 2.2 describes example k=16; Theorem 2.6 establishes the broader upper period.",
+        "identifier_or_url": "https://arxiv.org/html/2609.07238v1",
+        "material_read": "Full HTML text, including Sections 1–4, Propositions 2.1–2.5, Theorem 2.6, and application to A158690",
+        "method": "Open access HTML inspection",
+        "title": "A Proof of Bala’s Congruence Conjectures for A158690",
+        "trigger": "Identical number sequence and general eventual periodicity theorem"
+      },
+      {
+        "assessment": "ONLY_SMALL_CASE: r=4 period-two example is known, no all-exponent theorem found",
+        "evidence": "The record explicitly labels modulo-16 period 2 as an example; a(6) and a(8) match exact finite expansion.",
+        "identifier_or_url": "https://oeis.org/A158690",
+        "material_read": "Definition, sample coefficients, December 18 2021 conjecture and worked modulus-16 example, references",
+        "method": "Web text inspection",
+        "title": "A158690",
+        "trigger": "Official sequence record, coefficient values and conjecture provenance"
+      },
+      {
+        "assessment": "NOT_COVERING: different ordinary Fishburn coefficients and prime-power index-zero congruences, no sharp dyadic eventual period for A158690",
+        "evidence": "Definition via ordinary generating series F(1-q); Theorems 1.2 and 1.5 and their Kummer-carry proofs.",
+        "identifier_or_url": "https://arxiv.org/abs/1407.7521",
+        "material_read": "Accessible full text: introduction, Theorem 1.5, Sections 2 and 3 proofs and concluding material",
+        "method": "Full open-access text inspection",
+        "title": "Congruences for Fishburn numbers modulo prime powers",
+        "trigger": "Plausible stronger arithmetic congruences for closely related q-series"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ee3583d-96cb-4222-851c-e21cfe203923",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact dyadic least-period hierarchy is a natural invariant of a sequence whose modular periodicity was a named arithmetic problem. Existing literature gives only a nonsharp Carmichael bound plus one example. The proof resolves all powers of two and gives exact dyadic difference valuations forcing optimality, enabling arithmetic predictions at arbitrary precision. It does not merely relabel a known theorem or extrapolate a finite table.",
+    "status": "PASS"
+  }
+}
