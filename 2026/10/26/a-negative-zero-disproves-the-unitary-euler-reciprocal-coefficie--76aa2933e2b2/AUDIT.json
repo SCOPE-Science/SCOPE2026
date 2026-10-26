@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For |z|<2 an absolutely convergent geometric expansion gives S(z)=1+sum_j z/(2^j-z). Along z=-x, x in [0,2), F(x)=sum_j x/(2^j+x) is continuous and strictly increasing. F(1)<sum_j 2^-j=1, whereas the EXACT sum of its first six summands at x=3/2 is 65011734/64203755>1. Thus a unique alpha in (1,3/2) satisfies S(-alpha)=0. Its derivative S'( -alpha )=sum_j 2^j/(2^j+alpha)^2>0 so the zero is simple. The inverse Taylor series has a pole at -alpha, radius R<=alpha<3/2, and limsup|b_n|^(1/n)=1/R>2/3. This contradicts b_n=O(2^-n). The packaged exact-rational verifier reproduces the critical certificate and independently checks the ten-term alternating bound and published initial inverse coefficients.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tóth, arXiv:1608.00795v1, Section 4.10, p. 24: Open Problem 41 explicitly conjectures b_n << 2^-n for the same S.",
+        "Tóth, JIS 20 (2017), Article 17.2.1, Section 4.10, pp. 30-31: Open Problem 44 explicitly conjectures the same inverse-coefficient estimate.",
+        "Zurita, JIS 23 (2020), Article 20.10.4, Section 4.5, pp. 16-17: direct unitary Euler Bell series, not the inverse reciprocal-unitary-Euler Bell series."
+      ],
+      "reasoning": "General alternating-sum estimates in the two primary articles and later Zurita direct Bell-series formulas do not prove nonvanishing of S on |z|<2 or its inverse coefficient decay. In particular, Zurita Section 4.5 evaluates the direct Euler-totient Bell series (p^n-1) rather than S of reciprocal prime-power values; its estimates cannot imply a bound disproved by the exact root.",
+      "searches": [
+        "Laszlo Toth Alternating sums concerning multiplicative arithmetic functions arxiv 1608.00795 unitary Euler inverse Bell series coefficient b_n conjecture rate 2^-n pole",
+        "Generalized Alternating Sums of Multiplicative Arithmetic Functions reciprocal unitary Euler open problem coefficients",
+        "Rimer Zurita Tóth Open Problem 44"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1608.00795v1, 2016-08-02, Section 4.10 and Open Problem 41",
+      "Journal of Integer Sequences 20 (2017), Article 17.2.1, Section 4.10 and Open Problem 44",
+      "Journal of Integer Sequences 23 (2020), Article 20.10.4, Section 4.5 and Section 4.3",
+      "OEIS A065442",
+      "published-finding corpus semantic mathematical findings searches (five query variants; no exact covering result)",
+      "Targeted literature search by source problem number, coefficient aliases, Lambert series, root and rational certificate"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tóth, arXiv:1608.00795v1, Section 4.10, p. 24: Open Problem 41 explicitly conjectures b_n << 2^-n for the same S.",
+        "Tóth, JIS 20 (2017), Article 17.2.1, Section 4.10, pp. 30-31: Open Problem 44 explicitly conjectures the same inverse-coefficient estimate.",
+        "Zurita, JIS 23 (2020), Article 20.10.4, Section 4.5, pp. 16-17: direct unitary Euler Bell series, not the inverse reciprocal-unitary-Euler Bell series.",
+        "OEIS A065442: value Sum_{n>=1} 1/(2^n-1), i.e. S(1)-1, no coefficient-radius statement."
+      ],
+      "reasoning": "Tóth explicitly posits b_n<<2^-n; the new pole demonstrates its negation, rather than being a special case of his claimed bound. Zurita 2020 proves separate asymptotic formulas and discusses the direct unitary Euler series; those results do not logically imply this negative zero. The numerical Erdos-Borwein constant S(1)-1 is compatible with either existence or absence of a negative zero.",
+      "searches": [
+        "Laszlo Toth Alternating sums concerning multiplicative arithmetic functions arxiv 1608.00795 unitary Euler inverse Bell series coefficient b_n conjecture rate 2^-n pole",
+        "Disproof Open Problem 44 Journal of Integer Sequences 2017 Toth unitary Euler power series reciprocal analytic zero",
+        "Toth Open problem 41 unitary Euler reciprocal coefficients false"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tóth, arXiv:1608.00795v1, Section 4.10, p. 24: Open Problem 41 explicitly conjectures b_n << 2^-n for the same S.",
+        "Tóth, JIS 20 (2017), Article 17.2.1, Section 4.10, pp. 30-31: Open Problem 44 explicitly conjectures the same inverse-coefficient estimate.",
+        "published-finding corpus closest: 2026/10/4/SCOPE-sharp-modal-threshold-at-the-repeated-root-trace-one-recurrence--3eb5020d899d has a different recurrence and coefficient threshold."
+      ],
+      "reasoning": "The zero at -alpha in |z|<2 is equivalent to a pole of 1/S inside this disk, and yields the growth obstruction limsup|b_n|^(1/n)>2/3; both imply failure of O(2^-n). Lambert expansion S(z)=1+sum_j z/(2^j-z) shows the equivalence. None of the searched exact-series zero/pole aliases or closest records asserted it.",
+      "searches": [
+        "q Lambert series F(z)=1+sum_{n>=1} z^n/(2^n-1) has negative real zero in (-3/2,0), reciprocal coefficient radius below 3/2",
+        "Counterexample to Tóth open problem 41 reciprocal Bell series unitary Euler phi-star coefficients b_n O(2^{-n}); zero negative near -1.4285 of 1+sum z^n/(2^n-1)",
+        "Reciprocal q-Lambert series 1/(1+sum_{n>=1} z^n/(2^n-1)) negative real zero, radius of convergence 1.428506508"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A065442: value Sum_{n>=1} 1/(2^n-1), i.e. S(1)-1, no coefficient-radius statement.",
+        "Tóth, JIS 20 (2017), Article 17.2.1, Section 4.10, pp. 30-31: Open Problem 44 explicitly conjectures the same inverse-coefficient estimate."
+      ],
+      "reasoning": "OEIS A065442 tabulates the Erdos-Borwein constant S(1)-1; it does not tabulate a negative root of S, the reciprocal Taylor radius, or an infinite coefficient bound. Searches for exact reciprocal coefficients and rational certificate were not matching databases; a numerical table cannot itself give the required infinite pole proof.",
+      "searches": [
+        "site:oeis.org \"2^n-1\" \"reciprocal\" \"generating function\"",
+        "site:oeis.org \"1, -1, 2/3, -10/21\"",
+        "\"1.428506508\" \"2^n\""
+      ]
+    },
+    "rationale": "The original 2016 preprint and 2017 published article explicitly conjecture the bound that the sign-certified root contradicts. The inspected 2020 follow-up examines direct unitary Euler Bell series and does not imply the negative-zero obstruction for the reciprocal-unitary-Euler Bell series. OEIS records a value at z=1 only. Semantic research-record and literature searches using the source, exact series, known equivalent Lambert form, root and coefficient-rate aliases found no covering result; unindexed priority risk remains.",
+    "residual_risks": [
+      "Unindexed earlier work on zeros of this particular Lambert series may be mathematically equivalent and would affect priority.",
+      "No claim that the simple negative zero is the nearest complex zero; a sharper coefficient asymptotic is not proved.",
+      "Only the proposed coefficient-bound method is refuted; a sharper arithmetic alternating-sum estimate by another method remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact conjectural statement, not a prior proof; 2016-08-02 header independently confirms first public posting.",
+        "evidence": [
+          "Tóth, arXiv:1608.00795v1, Section 4.10, p. 24: Open Problem 41 explicitly conjectures b_n << 2^-n for the same S.",
+          "arXiv v1 p. 1 header: 2 Aug 2016."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1608.00795v1",
+        "material_read": "Opening introduction, relevant Sections 4.9 and 4.10 (pp. 22-24), Open Problem 41 and a page-image confirmation of the coefficient bound.",
+        "method": "Full arXiv PDF text and visual page inspection",
+        "title": "Alternating sums concerning multiplicative arithmetic functions (first preprint)",
+        "trigger": "Exact arithmetic function, Bell series, and public first-date verification"
+      },
+      {
+        "assessment": "Renumbers original open problem to 44; retains conjectured 2^-n bound, gives b0 through b4, not a proof.",
+        "evidence": [
+          "Tóth, JIS 20 (2017), Article 17.2.1, Section 4.10, pp. 30-31: Open Problem 44 explicitly conjectures the same inverse-coefficient estimate."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL20/Toth/toth25.pdf",
+        "material_read": "Full-text Section 4.10 pp. 30-31 and relevant reciprocal-coefficient discussion; Open Problem 44.",
+        "method": "Journal-hosted full PDF, searched and read text surrounding exact statement",
+        "title": "Alternating Sums Concerning Multiplicative Arithmetic Functions (journal version)",
+        "trigger": "Published version might renumber or resolve the conjecture"
+      },
+      {
+        "assessment": "Its resolved item is the sum-of-unitary-divisors problem; its unitary Euler section treats the direct Bell series, not the inverse-Bell coefficient conjecture.",
+        "evidence": [
+          "Zurita, JIS 23 (2020), Article 20.10.4, Section 4.5, pp. 16-17: direct unitary Euler Bell series, not the inverse reciprocal-unitary-Euler Bell series.",
+          "Zurita p. 14: result (9) solves open problem 41 of the journal version (a different section)."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL23/Zurita/zur3.pdf",
+        "material_read": "Abstract, proof and summary concerning problem numbered 41 in Section 4.3 pp. 13-14, and unitary Euler Section 4.5 pp. 16-17.",
+        "method": "Full journal PDF text read across relevant proofs and exact formulas",
+        "title": "Generalized Alternating Sums of Multiplicative Arithmetic Functions",
+        "trigger": "2020 citing follow-up claims to solve a Tóth problem numbered 41 and treats unitary Euler functions"
+      },
+      {
+        "assessment": "Covers S(1)-1, not the S(-alpha)=0 certificate or inverse coefficients.",
+        "evidence": [
+          "OEIS A065442: value Sum_{n>=1} 1/(2^n-1), i.e. S(1)-1, no coefficient-radius statement."
+        ],
+        "identifier_or_url": "https://oeis.org/A065442",
+        "material_read": "Definition, formulas, links and references for the Erdos-Borwein constant.",
+        "method": "Read OEIS entry text and related reference list",
+        "title": "OEIS A065442",
+        "trigger": "Exact-series database coverage and Lambert form aliases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76aa2933-e2b2-448b-9154-5297d2e49464",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A published explicit open problem about a key coefficient estimate is disproved rigorously, with a six-term rational witness and an unavoidable simple pole. This settles the sign of the answer and supplies a quantified exponential-growth obstruction. It is mathematically motivated by the arithmetic reciprocal-totient problem rather than by an arbitrary evaluated invariant.",
+    "status": "PASS"
+  }
+}
