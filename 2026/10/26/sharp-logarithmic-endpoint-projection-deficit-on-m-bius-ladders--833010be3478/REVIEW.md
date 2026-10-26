@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The exact Green kernel satisfies the stated antiperiodic difference equation, and the antipodal-even/odd splitting reconstructs every entry of representative rim and chord projector columns. Signed currents, telescoping rung sums, orbit comparisons, and the moving-cutoff asymptotic have been checked as mathematical identities. The full theorem is analytical: 264 independently reconstructed rational edge columns for graph orders \(n=3,\ldots,13\) corroborate but do not replace the proof. The stated \((\log n)/n\) coefficient follows from a cutoff at logarithmic distance and the geometric-series tail of the Green kernel.
+
+**Originality — PASS with residual risk.** The closest primary source, Azimi–Farrokhi (arXiv:2306.10497, 2023), already provides all Möbius-ladder incidence pseudoinverse entries and effective resistances. This is stronger **matrix data** than is needed to compute the canonical projector, and there is no claim of novelty for those data. Its inspected Section 5 does not present absolute-column-sum norm maximizers or the sharp logarithmic defect. Dilworth–Kutzarova–Ostrovskii (arXiv:2305.12582) supplies the relevant projection framework but focuses explicit calculations elsewhere. The novel statement requires a moving sign-threshold argument and asymptotic extraction; nevertheless, a previously published equivalent absolute-sum analysis may exist, and the result is not independent of the published pseudoinverse formulas.
+
+**Mathematical value — PASS.** The nontrivial feature is the *logarithmic* finite-size convergence of a natural Banach-space operator invariant, while the underlying electrical Green kernel decays exponentially. The exact coefficient and rim-versus-chord extremizer classification describe how a spatially uniform cycle mode interacts with an exponentially decaying antipodal-odd mode. This is a structural finite-size effect, not merely a new small-graph numerical table.
+
+The theorem only addresses canonical real edge-space orthogonal projections; it makes no minimum-norm claim over nonorthogonal projections. Independent mathematical audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
