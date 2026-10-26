@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact source-coefficient substitution gives B,C. Symbolic polynomial expansion verifies all three positive/discriminant identities. Case analysis for kappa<=1/2 and kappa>1/2 proves both directions for every n and positive z, including equality and B=C=0. Complex nonreal roots necessarily change sign along integer orbit; when B<0,C<0, a nonzero negative coefficient on the larger-modulus negative root forces eventual negative even iterates. The sharp maximum follows by monotonicity of the two explicit branches. Fraction checker exercises identities independently of floating-point code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hundsdorfer–Ruuth–Spiteri analyze monotonicity/TVD/TVB of multistep methods with compatible starters; their BDF2 special case is an overlap.",
+        "Lóczi (2016), arXiv:1609.07858, describes SCB criteria for BDF, Adams–Bashforth and EBDF families."
+      ],
+      "reasoning": "General all-starter nonlinear boundedness/monotonicity criteria (Lóczi 2017, Theorem 1.6) do not directly imply the scalar-backward-Euler-starter necessary-and-sufficient positivity condition. The paper explicitly analyzes BDF, EBDF and Adams methods, not the 2026 optimized family. Partially implicit BDF2 blends do not have identical continuously variable coefficients. An implicit theorem specialization cannot be categorically excluded.",
+      "searches": [
+        "nonnegativity threshold BE-started second-order implicit multistep partial stiff damping parameter",
+        "Hundsdorfer Ruuth Spiteri monotonicity preserving linear multistep 2003 started positivity",
+        "Lóczi exact optimal step-size coefficients boundedness linear multistep 2016"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2610.22685",
+      "https://ir.cwi.nl/pub/4231",
+      "https://doi.org/10.1137/S0036142902406326",
+      "https://arxiv.org/abs/1609.07858",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+      "https://real.mtak.hu/160776/1/1609.07858.pdf",
+      "https://ir.cwi.nl/pub/4596/04596D.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jensen et al supply the coefficients and prove A-stability/error-optimality, which does not imply sign-preservation of all iterates.",
+        "The old BDF2 first-sign-loss classification establishes only the kappa=0 boundary, while the new phase diagram covers every 0<=kappa<1 and has a distinct optimum kappa=1/2.",
+        "General step-size-coefficient theories can potentially contain deductions but a direct implication with the new coefficients has not been identified."
+      ],
+      "reasoning": "A-stability means decay/controlled roots, not nonnegative iterates. A BDF2 endpoint bound and a variable-step Floquet criterion do not mathematically force a two-branch all-kappa phase diagram. The exact family-specific discriminant sign and dominant-negative-root mechanism must be established separately.",
+      "searches": [
+        "Optimized linear multistep methods Jensen Ketcheson Lóczi L(kappa) A-stable second order 2-step backward Euler started positivity radius scalar decay kappa",
+        "arxiv:2610.22685 Section 4.1 Corollary 4.2",
+        "arxiv:1609.07858",
+        "CWI Monotonicity-preserving linear multistep methods 2002"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The studied method is the real two-step recurrence with numerator coefficients B=4(1-kappa^2-kappa*z)/d, C=((1-3*kappa)(1+kappa)+2*kappa^2*z)/d.",
+        "The 2026 source Section 4.1 focuses on A-stability and stiff damping; the canonical kappa=0 BDF2 positivity radius is already known."
+      ],
+      "reasoning": "Any reparameterized equivalent must establish global nonnegativity for the backward-Euler-started scalar recurrence, not just boundedness/absolute stability. Existing inspected source statements do not include this joint kappa-dependent necessary-and-sufficient piecewise curve; the classical kappa=0 overlap is acknowledged.",
+      "searches": [
+        "Optimized linear multistep methods Jensen Ketcheson Lóczi L(kappa) A-stable second order 2-step backward Euler started positivity radius scalar decay kappa",
+        "positive recurrence y_(n+2)=B y_(n+1)-C y_n sharp positivity all steps complex roots sign changes BDF2 A stable linear multistep",
+        "arxiv:2610.22685, Eq. (25)",
+        "doi:10.1137/S0036142902406326"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest found mathematical record on delayed BDF2 sign loss is the known kappa=0 endpoint; it does not contain the positive-kappa two-branch boundary.",
+        "Another related two-period variable-step zero-ODE Floquet result concerns step-ratio stability rather than fixed-step scalar-decay positivity."
+      ],
+      "reasoning": "The closest existing numerical record is an endpoint-specialized BDF2 statement and the own same-source record is about alternating variable steps for y'=0. Neither implies the positive-kappa constant-step positivity boundary. Search absence is not a uniqueness proof.",
+      "searches": [
+        "positive recurrence y_(n+2)=B y_(n+1)-C y_n sharp positivity all steps complex roots sign changes BDF2 A stable linear multistep",
+        "optimized 2-step L(kappa)-stable method positivity nonnegativity threshold (1+kappa)/(2(1-kappa)) and (1-kappa^2)/kappa",
+        "nonnegativity threshold BE-started second-order implicit multistep partial stiff damping parameter",
+        "published-finding corpus search: optimized 2-step L(kappa)-stable method positivity nonnegativity threshold (1+kappa)/(2(1-kappa)) and (1-kappa^2)/kappa"
+      ]
+    },
+    "rationale": "The exact all-kappa, all-iterate backward-Euler-started scalar positivity diagram and its optimal interior damping parameter were not found as statements or implications in the newly published coefficient source or inspected older monotonicity work. The kappa=0 BDF2 result is known; it is neither alone nor disguised as the new contribution. A possible implicit equivalent in the generalized boundedness-coefficient literature is a declared risk.",
+    "residual_risks": [
+      "A family-specific implication could be derivable from general multistep positivity or SCB sign criteria, though the examined Lóczi (2017) full text treats a different universally quantified boundedness concept and different named families; unindexed implicit equivalents remain possible.",
+      "The result treats only scalar decay with a backward-Euler start; published A-stability and SSP/nonlinear monotonicity are inequivalent properties."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers coefficients, A-stability and error-constant optimality; does not state the specified all-n backward-Euler-started scalar positivity frontier.",
+        "evidence": [
+          "Corollary 4.2, Eq. (25) lists alpha and beta coefficients; abstract describes stability/error-constant aims; numerical Section 5 uses its separate starting procedure."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.22685",
+        "material_read": "Full-text sections describing the definitions and optimized two-step family, especially Section 4.1 and Corollary 4.2 (pp. 14–17), and Section 5 numerical tests; visual inspection of Eq. (25).",
+        "method": "Text extraction and visual examination of Corollary 4.2 and Eq. (25).",
+        "title": "Optimized linear multistep methods for stiff problems",
+        "trigger": "The new A-stable two-step L(kappa) family and its coefficients are direct source and potential prior coverage."
+      },
+      {
+        "assessment": "Covers known kappa=0 BDF2 behavior and general nonlinear monotonicity but does not supply the explicit 2026 optimized-family curve.",
+        "evidence": [
+          "Report 2002; journal DOI 10.1137/S0036142902406326; BDF and starting-method analyses."
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4231",
+        "material_read": "Available report material, including formal method/monotonicity hypotheses, Sections 3 and following BDF examples.",
+        "method": "Read report text and examine selected full-text page images for hypotheses and BDF comparisons.",
+        "title": "Monotonicity-Preserving Linear Multistep Methods",
+        "trigger": "Canonical prior monotonicity and BDF2 positive-starter results."
+      },
+      {
+        "assessment": "Partially implicit BDF2 blends treat a fixed BDF2-like left side and source splitting; unlike the varying-alpha optimized L(kappa) family, and no direct implication was identified.",
+        "evidence": [
+          "Hundsdorfer 1998 CWI report and later 2001 publication, on convection-dominated flows.",
+          "Exact lawful 1998 CWI report at https://ir.cwi.nl/pub/4596/04596D.pdf and 2001 SIAM DOI 10.1137/S0036142999364741."
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4596/04596D.pdf",
+        "material_read": "Accessible report equations and discussions of the partially implicit convective splitting and positivity.",
+        "method": "Compare the role of splitting and coefficient dependence with Eq. (25) of the motivating paper.",
+        "title": "Partially implicit BDF2 blends for convection dominated flows",
+        "trigger": "The older report is a plausible same-object BDF2-blending antecedent."
+      },
+      {
+        "assessment": "Studies necessary-and-sufficient SCB criteria for arbitrary data plus exact SCB of existing BDF, Adams and extrapolated BDF methods, but does not state the newly defined continuously varying optimal 2026 L(kappa) family or its backward-Euler-started scalar positivity phase diagram.",
+        "evidence": [
+          "Full text Theorem 1.6 and Definition 1.4 quantify arbitrary seminorms, F, and starter vectors; Section 2 lists analyzed families BDF, EBDF and Adams–Bashforth, not the 2026 family."
+        ],
+        "identifier_or_url": "https://real.mtak.hu/160776/1/1609.07858.pdf",
+        "material_read": "Selected full-text material of the 25-page open-access manuscript, especially introduction, definitions in Section 1, the characterizations and analyzed method families in Section 2, and a sample BDF proof in Section 3; visual inspection of p. 3.",
+        "method": "Read open-access full text, distinguish arbitrary-seminorm SCB and all-starter boundedness from the selected scalar backward-Euler positivity orbit.",
+        "title": "Exact optimal values of step-size coefficients for boundedness of linear multistep methods",
+        "trigger": "Same-subject SCB conditions by a motivating-paper author might dominate the sign classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a570fdc4-cf08-4a67-8888-d9fe90b7a6cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent family trades error constants against infinitely stiff damping, yet A-stability does not certify nonnegative intermediate states. A global sharp scalar positivity radius is a natural independent numerical design criterion. The two structural transition mechanisms meet at the unique kappa=1/2 maximizer with radius 3/2, three times the BDF2 endpoint radius. The exact parameter choice and complete global sign classification are substantive beyond a routine coefficient check; they identify a useful accuracy/stiffness/positivity tradeoff without extrapolating to matrices.",
+    "status": "PASS"
+  }
+}
