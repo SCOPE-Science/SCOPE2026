@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The regenerative stationary law is the exponentially aged no-reset diffusion, and the exact mean identity follows from its generator. Global Lipschitzness controls the error from replacing short SDE paths by Brownian paths. Brownian motion sampled at an independent exponential time has an exact Laplace law, whose positive-part expectation gives the profile \(\frac{\sqrt D}{2}e^{-|\xi|/\sqrt D}\). The second McKean kink contributes exponentially little at the indicated scale. Uniform error bounds and a global contraction give the recovery-equilibrium expansion. The bundled checker passes 28 analytic and finite-volume checks; the proof, not the finite sample, supports the uniform limiting assertion.
+
+**Originality — PASS, conditional on wider literature.** Swaby–Bressloff (arXiv:2609.31153v1, §§II–V) supplies the stochastic model, exact stationary equation and averaged dynamics. Its explicit asymptotics are for vanishing diffusivity, not growing reset rate and reset-location detuning. Bressloff (arXiv:2503.07585v1, §§1–2) treats the earlier noiseless cubic model. Searches for high-rate cusp, resolvent, McKean, kink and detuning forms found no exact equivalent among inspected published records. An unexamined general high-rate resolvent boundary-layer theorem could still subsume the specialization; search absence is not proof of novelty.
+
+**Value — PASS.** The two McKean switching thresholds are fixed physically meaningful nonsmooth voltage points. The theorem predicts a parameter-scale \(r^{-1/2}\) response window and a signed \(r^{-3/2}\) recovery shift not visible in a regular integer-power perturbation of the mean. The explicit exponential profile distinguishes exact kink resetting from nearby and ordinary interior resetting, permitting concrete finite-rate comparisons. This is more informative than a bare local Brownian moment identity.
+
+**Limitations.** Fixed positive diffusion and frozen-voltage adiabatic approximation; no finite-timescale full-system error estimate. Normalization, finite-rate stationary equations and the general averaged model are pre-existing. Independent priority and proof audit are still required.
+
+Self-review: passed. Independent audit: not yet performed.

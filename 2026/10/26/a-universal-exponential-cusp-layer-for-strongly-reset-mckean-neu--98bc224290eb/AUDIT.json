@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For r>L, the stationary voltage is the renewal mixture of the no-reset diffusion at an independent exponential age. The exact stationary generator identity reduces its mean to the age-averaged drift. Bounded-detuning SDE paths differ from Brownian paths by O(r^-1) in L1; the Brownian increment at exponential age has exact Laplace scale sqrt(D/r). The Laplace positive-part expectation has coefficient sqrt(D)/2 exp(-abs(xi)/sqrt(D)), and the remote kink contributes exponentially little. This proves a uniform O(r^-2) mean remainder. The frozen-recovery mean is a contraction with Lipschitz constant at most 1/(r-L), yielding the fixed-point expansion and global attraction. The embedded finite-volume script passed 28 checks; simulations do not prove the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The exact parabolic-cylinder stationary density of arxiv:2609.31153v1 covers the underlying process for arbitrary finite r, but deriving the asymptotic kink boundary layer is not stated there.",
+        "The regenerative Laplace formula for Brownian paths is standard, so the basic probability step is not presented as original."
+      ],
+      "reasoning": "An existing general expansion theorem could dominate this result even without the same model terminology. The full available motivating text and the accessible precursor do not state the uniform detuning coefficient or the slow-equilibrium asymptotic; that leaves a specific broader-theorem residual risk.",
+      "searches": [
+        "resolvent asymptotic nondifferentiable drift Poisson restarting cusp derivative jump Laplace exponential kernel",
+        "strong resetting expansion nonsmooth drift cusp Poisson reset Brownian r^-3/2",
+        "arxiv:2609.31153v1 sections II–V"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.31153v1 (full accessible text, especially §§II–V)",
+      "arxiv:2503.07585v1 (accessible full text; §§1–2)",
+      "Evans and Majumdar 2011 (background renewal resetting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Swaby–Bressloff implies the precise reset-density model and defines the averaged fixed point; it does not formulate a growing-r detuning limit.",
+        "Bressloff 2025 studies a resetting law without Gaussian diffusion; it cannot yield the stated nonzero sqrt(D) coefficient by simply setting parameters.",
+        "The r^-3/2 term is a derived asymptotic of prior exact stochastic equations, not logically independent of them as model identities."
+      ],
+      "reasoning": "The new claim is a refinement of the same stochastic model, not a new model or NESS formula. It follows from the earlier complete stationary equations together with separate analytic asymptotic work; the earlier explicit conclusions are weaker. If a general published theorem already evaluates that asymptotic, priority must be revisited.",
+      "searches": [
+        "arxiv:2609.31153v1 IV.1, V",
+        "arxiv:2503.07585v1 1–2",
+        "slow fast FitzHugh Nagumo McKean neural averaged slow equilibrium local time cusp Brownian half normal correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For exponentially sampled Brownian increments, the exact resolvent kernel is a two-sided Laplace density; the new statement specializes its positive-part expectation to the McKean slope jump.",
+        "arxiv:2609.31153v1, section V, studies vanishing diffusion and section IV describes finite-reset-rate stationary density; no large-r cusp-detuning formula occurs in the inspected sections.",
+        "arxiv:2503.07585v1 has no Brownian noise and uses a smooth cubic drift."
+      ],
+      "reasoning": "A general resolvent expansion at a nonsmooth point could be an equivalent formulation; the original model and renewal device do not by themselves imply the explicit uniform r^-3/2 crossover for the averaged McKean equilibrium. Searches found no exact identified prior statement, but literature search cannot prove uniqueness.",
+      "searches": [
+        "\"McKean\" \"resetting\" \"cusp\" \"large rate\"",
+        "Brownian diffusion exponential age sampling piecewise affine drift cusp exp detuning reset location 1/sqrt r",
+        "arxiv:2609.31153v1 §§II,IV,V",
+        "arxiv:2503.07585v1 §§1–2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source reports numerical stationary density and averaged slow fixed point for selected parameter values, and exact finite-r matching equations; these are not a table of strong-r cusp coefficients or detuning profiles.",
+        "Published semantic search hits concerned cusp diffusion coefficients or unrelated slow-fast recurrent dynamics, not the McKean reset-slope-jump parameter law."
+      ],
+      "reasoning": "A finite-r exact solver or plotted data can in principle be used to derive the new asymptotic, but the specific leading coefficient is not explicitly tabulated in the inspected source. No claims of exhaustive literature coverage are made.",
+      "searches": [
+        "arxiv:2609.31153v1 equation (4.19), figures 10–14, sections IV–V",
+        "stochastic resetting McKean kink threshold resetting Gaussian Laplace boundary layer r^-3/2 slow equilibrium"
+      ]
+    },
+    "rationale": "Inspected same-object full-text Swaby–Bressloff arxiv:2609.31153v1 and precursor Bressloff arxiv:2503.07585v1. The former studies the exact stationary McKean model and D→0 asymptotics; the latter is nondiffusive. The precise high-r cusp-detuning exponential profile and r^-3/2 slow-equilibrium term are not stated by the inspected explicit prior conclusions. Actual semantic searches for alias forms did not identify a matching published result. Generic Brownian exponential-age/Laplace facts are acknowledged as established and possible general resolvent-priority risk remains.",
+    "residual_risks": [
+      "The specialization may be implied by a broad pre-existing nonsmooth semigroup or Poisson-resolvent expansion.",
+      "Not every mathematical-physics publication can be searched or read; independent priority assessment has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS original model, finite-r stationary PDE, exact stationary density and averaged recovery equation. Does not explicitly give the proposed r^-3/2/exp-detuning strong-rate law in inspected text.",
+        "evidence": [
+          "Section II defines continuous three-branch McKean drift and Poisson-Gaussian resetting.",
+          "Section IV gives parabolic-cylinder finite-r solutions; section V treats D→0, not r→∞; section VI treats r=O(epsilon)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.31153",
+        "material_read": "Full accessible arXiv HTML-rendered text, particularly sections II.1–II.2, III, IV.1, V and VI; equations (2.3)–(2.17), (4.1)–(4.19), figures 10–14, weak-diffusion expansion.",
+        "method": "Read published arXiv full text and compare parameter limits and conclusions with high-reset-rate cusp-detuning expansion.",
+        "title": "Slow-fast dynamics of the McKean model with stochastic resetting and diffusion",
+        "trigger": "Exact same stochastic McKean fast-variable process and averaged slow recovery equilibrium."
+      },
+      {
+        "assessment": "COVERS original general averaging framework and resetting without Brownian diffusion; does not supply a nonzero Brownian kink-layer coefficient.",
+        "evidence": [
+          "The model uses a cubic deterministic fast drift and no additive Gaussian noise.",
+          "The slow averaged equation is a known earlier construction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.07585",
+        "material_read": "Full accessible arXiv text, with particular inspection of introduction and sections 1–2, equations for the reset Liouville law and averaged slow equation.",
+        "method": "Read accessible arXiv full text and compare regularity/noise assumptions and consequence strength.",
+        "title": "Slow-fast systems with stochastic resetting",
+        "trigger": "Precursor result on averaged slow recovery with Poisson resetting and possible implicit high-rate limits."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98bc2242-90eb-4c02-abc9-3584f787d4c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resetting at a McKean switching threshold is dictated by the voltage piecewise-linear model rather than an arbitrary numerical slice. The explicit r^-1/2 parameter boundary layer and r^-3/2 response term identify a singular noise effect missed by smooth integer-power mean expansions; the exponential detuning shape predicts the gradual disappearance of the effect as reset voltage moves away. The fixed-point shift links a local fast-voltage kink to a macroscopic observable of the averaged recovery dynamics.",
+    "status": "PASS"
+  }
+}
