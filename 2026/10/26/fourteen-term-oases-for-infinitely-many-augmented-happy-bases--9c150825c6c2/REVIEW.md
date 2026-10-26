@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness: PASS.** The explicit defect identity supplies twelve of fourteen consecutive values in every admissible even base; two polynomial equalities fill exactly the missing offsets \(5\) and \(8\). An exact norm identity and an integral, parity-preserving positive recurrence yield infinitely many admissible bases. The published mirage upper-bound theorem plus exhaustive enumeration gives the sharp first base and its exact maximum. The standalone verification reproduces all finite bounds and initial Pell witnesses. The infinite conclusion rests on symbolic identities, not on the finite experiments.
+
+**Originality: PASS within inspected evidence.** The 2019 primary source gives a uniform five-term lower bound for even bases, base-specific exact values only through \(20\), and a construction of infinitely many translated oases within a *fixed* base. None implies an infinite set of distinct bases supporting fourteen-term oases; the present Pell construction and first-occurrence value are not found in the inspected full texts or targeted mathematical-record searches. Residual risk: an unindexed construction or independent calculation may exist; no publication-priority claim is made.
+
+**Mathematical value: PASS.** The oasis-length invariant was introduced precisely to quantify runs of augmenting parameters with fixed points. Fourteen rather than five in an infinite base family is a substantive structural strengthening, with explicit three-digit witnesses and a Pell mechanism; the first occurrence at base \(28\) is a sharp natural threshold. The exact finite census is auxiliary rather than the sole contribution. Neither unrestricted growth of maximal lengths nor a classification of all bases is proved.
+
+Self-review: passed. Independent audit: not yet performed.
