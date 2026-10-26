@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For each odd swap-displacement polynomial, internal ordered-pair terms cancel. The resulting multilinear coefficient of the full marked-index monomial is -n for odd subset order and -(n-2k) for even order; both nonzero on \\(n>2k\\). Induction recovers every intersection moment and Möbius inversion recovers every atom profile. Symmetric permutations inside atoms give orbit transitivity and round k+1 identifies all profiles. A second codebase checks 1080 coefficients and 32400 exact swap-moment identities; a direct 1-WL implementation passed 864 configurations and class-size checks. The infinite theorem is proved algebraically; the middle layer is excluded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arvind et al. (2015) only proves the Johnson rank-two class via direct definability of stabilizer orbit types.",
+        "Bhattacharjee, Panse, Sarma (2026) describes a hierarchy and generic membership tests, not a proof of this family-level membership.",
+        "Arvind et al., MFCS 2016.13 studies complexity of vertex individualization and refinability in general."
+      ],
+      "reasoning": "General hierarchy characterizations and hardness do not classify a particular graph family. Rank-two Tinhofer coverage and general complexity statements fail to imply higher-rank arbitrary-mark orbit recovery; the odd-moment reconstruction supplies that missing implication.",
+      "searches": [
+        "Johnson graphs individualization refinement automorphism orbits arbitrary individualized vertices 1-WL",
+        "Johnson graph Tinhofer Godsil compact graph fractional automorphisms",
+        "published-finding corpus: All higher rank Johnson graphs Tinhofer color refinement any number of fixed vertices, proof using odd neighbor distance-displacement moments and intersection atoms"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1502.01255v3 Appendix 0.A.2",
+      "arXiv:2605.19702v1 abstract, preliminaries, global Johnson search",
+      "doi:10.33697/ajur.2023.097 relevant primary PDF sections",
+      "MFCS 2016.13 official abstract",
+      "published-finding corpus semantic searches: three Johnson-Tinhofer all-marker formulations and closest linked findings",
+      "Two-anchor Johnson-graph theorem, compared by mathematical implication rather than matching title"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known J(n,2) Tinhofer proof applies at k=2, whereas new proof derives all order-|U| marker intersections for k>2 via odd displacement moments.",
+        "Della-Giustina (2023), Theorems 3–4 computes minimum numbers of stabilizing vertices for k=2,3; a fixing-number computation does not imply that one-dimensional colour refinement realizes arbitrary pointwise-stabilizer orbits.",
+        "The current new theorem also includes the empty-mark case and arbitrary r; the nearest own earlier Johnson statement covers two marked vertices for n≥2k."
+      ],
+      "reasoning": "A pair of marked subsets provides only up to four ground membership atoms; unrestricted markers require recovering 2^r atoms. Neither the pair theorem nor rank-two theorem yields the all-r and all-k conclusion by a parameter substitution. The proof explicitly handles every |U| using a nonzero triangular coefficient; all-mark exactness strictly strengthens those prior statements on n>2k.",
+      "searches": [
+        "arXiv:1502.01255v3 Appendix 0.A.2 Theorem 0.A.7",
+        "arXiv:2605.19702 Section 3.1 algebraic characterization",
+        "doi:10.33697/ajur.2023.097 Johnson k=3 fixing number",
+        "published-finding corpus: Counting color refinement 1-WL individualizing three vertices in Johnson graphs, stabilizer orbits, coherent configurations, distinguishing markings"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arvind et al., arXiv:1502.01255v3 Section 0.A.2, Theorem 0.A.7, states J(n,2), not J(n,k) for unrestricted k.",
+        "Bhattacharjee et al., arXiv:2605.19702, Section 3.1 provides a general orbit-partition characterization but does not state the Johnson-family theorem in the examined HTML."
+      ],
+      "reasoning": "Equivalent language would include Tinhofer, arbitrary individualization followed by 1-WL, C^2 with all landmarks named, or equality of stable classes and stabilizer orbits. The rank-two result is an included special case, not a general higher-rank theorem. A general characterization of Tinhofer graphs alone is not an implication that the Johnson graphs lie in the class.",
+      "searches": [
+        "Johnson graphs are Tinhofer graphs vertex individualized color refinement",
+        "\"J(n,k)\" \"Tinhofer\"",
+        "\"Johnson graphs\" \"Tinhofer\" \"k\"",
+        "published-finding corpus: Every off-middle Johnson graph J(n,k) with n>2k is Tinhofer; arbitrary individually marked k-subsets, one-dimensional Weisfeiler Leman yields pointwise-stabilizer orbits after k+1 rounds"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The highest published-finding corpus hits included 2026/10/11/SCOPE-sphere-wedge-collapse-of-scale-one-johnson-graph-rips-complexes--c10287ed1518 (homotopy), 2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1 (eigen-restriction), and 2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec (topological invariant), not refinement.",
+        "The compared two-anchor Johnson theorem concerns exactly two individually fixed vertices, not the arbitrary-marker conclusion."
+      ],
+      "reasoning": "The retrieved Johnson-named records concern different graph invariants and do not provide a table of colour-refinement orbit partitions for all markings. The earlier two-marker Johnson result is subsumed strictly by arbitrary-marker classification and is not a database containing it.",
+      "searches": [
+        "published-finding corpus: Johnson graph full arbitrary landmark pointwise stabilizer orbits, stable equitable partition, finite variable counting logic",
+        "published-finding corpus: Johnson graph J(n,k) color refinement after three distinguished vertices orbit partition counterexample",
+        "\"Johnson graph\" \"Tinhofer\" \"2\""
+      ]
+    },
+    "rationale": "The closest fully inspected primary result is Arvind et al. (2015), Theorem 0.A.7, proving Tinhofer membership only for rank-two Johnson graphs; the present claim covers arbitrary rank off the middle layer, arbitrary numbers of individually marked vertices, and an explicit round bound. General hierarchy and fixing-number papers do not imply this specific higher-rank all-marker conclusion in the inspected material. Indexed discovery and own prior-claim comparisons did not find a broader equivalent statement. Residual specialized-publication risk remains.",
+    "residual_risks": [
+      "Literature retrieval cannot prove absence of earlier specialized higher-rank Tinhofer results.",
+      "The 2016 parameterized-individualization paper was checked through its official abstract, not its complete PDF.",
+      "No independent scholarly review of correctness or priority has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known rank-two Tinhofer theorem; no general arbitrary-rank Johnson statement in examined section.",
+        "evidence": [
+          "Section 0.A.2 heading explicitly names J(n,2); Theorem 0.A.7 states J(n,2) is Tinhofer for all n."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1502.01255v3",
+        "material_read": "Main hierarchy discussion and Appendix Section 0.A.2 including Theorem 0.A.7, proof setup and cases",
+        "method": "Open-access arXiv HTML full section",
+        "title": "Graph Isomorphism, Color Refinement, and Compactness",
+        "trigger": "Exact prior Tinhofer theorem for Johnson graphs"
+      },
+      {
+        "assessment": "General classification framework without an explicit Johnson all-rank theorem in inspected text.",
+        "evidence": [
+          "Section 3.1 is an abstract characterization in terms of stabilizer orbits, not a proof for this family."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.19702",
+        "material_read": "Abstract, introduction, Section 2 preliminaries, theorem outlines; full HTML term search for Johnson returned no occurrence",
+        "method": "Open-access arXiv HTML text and in-document find",
+        "title": "A Hierarchy of Tinhofer Graphs: Separations and Membership Testing",
+        "trigger": "Potential stronger general result via k-Tinhofer characterizations"
+      },
+      {
+        "assessment": "Treats fixing numbers and stabilizer sizes, not colour-refinement cell equality or depth.",
+        "evidence": [
+          "Theorem 4 states fix(J(n,3)) as a function of n; its conclusion addresses fixing-number results rather than WL refinement."
+        ],
+        "identifier_or_url": "https://doi.org/10.33697/ajur.2023.097",
+        "material_read": "PDF abstract, graph setup, Theorems 3 and 4 and proof for rank three, conclusion; relevant pages 1 and 7 visually inspected",
+        "method": "Open-access primary PDF full-text extraction and page screenshots",
+        "title": "Finding the Fixing Number of Johnson Graphs J(n,k) for k in {2,3}",
+        "trigger": "Ground-set stabilizer results at rank three might dominate the new orbit conclusion"
+      },
+      {
+        "assessment": "No exact Johnson-family coverage apparent from available inspected abstract; residual limited-full-text risk noted.",
+        "evidence": [
+          "Abstract gives W[P]-hardness and complexity classifications for general individualization tasks, no Johnson-family theorem."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2016.13",
+        "material_read": "Open-access repository article abstract, bibliographic metadata and listed conclusions",
+        "method": "Publisher open-abstract read; complete paper not inspected",
+        "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+        "trigger": "General individualized refinability might cover the statement"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "87944155-1158-41b0-b6f9-e4d2db60b827",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives all-rank, all-individualization stabilizer-orbit exactness for a natural infinite graph family, extending a previously established rank-two classification. A uniform explicit counting-refinement depth and a full formula for orbit counts and sizes follow. Recovering all higher-order ground-membership interactions is structural, not a routine finite check or parameter tweak. The middle-layer restriction is an explicit limitation, not a claimed counterexample.",
+    "status": "PASS"
+  }
+}
