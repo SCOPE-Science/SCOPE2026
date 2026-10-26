@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The congruence proof gives a bijection between all nonnegative solutions and t in [0,k]. The gcd criterion is a direct consequence of coprimality of a,b. k-1 prime-power endpoints and four explicit split-prime cases exhaust k<=15. For k=16 every index 0<=t<=16 is obstructed for (273,55); replacing 55 by any 55m with (m,273)=1 preserves all obstructions. The extracted verifier independently checked 119448 finite generator-multiplier instances and all 17 solutions in the witness.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jaffe Theorem 4.3 proves g(a,b)<infinity; Section 5 treats a=1 and a=2; Section 6 gives global numerical upper bounds, and Section 7 gives multiplicative growth inequalities.",
+        "Known two-generator Sylvester formula addresses unrestricted coefficients; its conclusions are not membership tests for primitive coefficient pairs at k ab."
+      ],
+      "reasoning": "Finiteness of the maximum missing target and arbitrary upper/lower bounds on that maximum do not imply membership for each specific k ab. Stronger ordinary Frobenius guarantees unrestricted representations but not coefficient coprimality. No checked broader theorem subsumes the exact first failure.",
+      "searches": [
+        "multiples of product ab representable by primitive coprime coefficients Frobenius threshold k 16",
+        "\"primitive Frobenius\" \"lower bound\" fixed a",
+        "\"primitive Frobenius\" \"16\" \"273\" \"55\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.17267v1",
+      "https://arxiv.org/abs/2610.17267",
+      "https://www.southampton.ac.uk/~wright/1001/coprime-integers.html",
+      "Exact subthreshold Frobenius correction for primitive Pythagorean quadruples (indexed title)",
+      "Finite-resultant correction for coprime values of homogeneous binary forms (indexed title)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jaffe arXiv:2610.17267v1 Sections 2-7: definition, finiteness, bounds, special generators, future conjectures.",
+        "Related indexed results: Exact subthreshold Frobenius correction for primitive Pythagorean quadruples (indexed title), a different generator set and unrestricted Frobenius correction.",
+        "Related indexed results: Finite-resultant correction for coprime values of homogeneous binary forms (indexed title), a density theorem for polynomial values not two-coefficient primitive representations."
+      ],
+      "reasoning": "The new claim asserts exact universality for 2<=k<=15 and nonuniversality at k=16, including explicit infinite exceptions. Prior growth results for g(a,b) do not settle the membership of k ab for every a,b; ordinary Sylvester Frobenius covers different admissibility. Closest indexed titles refer to different mathematical objects or only the overall threshold.",
+      "searches": [
+        "primitive Frobenius ax+by=k ab for coprime a b nonnegative coprime x y first failure multiplier k=16 273 55",
+        "multiples of product ab representable by primitive coprime coefficients Frobenius threshold k 16",
+        "\"coprime\" \"ax+by\" \"kab\" \"16\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jaffe arXiv:2610.17267v1 Theorem 2.1 identifies primitive ax+by representations with Stern/Farey membership.",
+        "The elementary reduction ax+by=k ab iff (x,y)=(b(k-t),at), 0<=t<=k, translates target membership to three explicit gcd conditions."
+      ],
+      "reasoning": "Tested equivalent formulations: primitive lattice points on the diagonal line, Stern/Farey membership at targets k ab, coprime t and k, and prime assignments to a and b. Source paper gives general equivalence but not sharp universal cutoff.",
+      "searches": [
+        "primitive Frobenius ax+by=k ab for coprime a b nonnegative coprime x y first failure multiplier k=16 273 55",
+        "gcd(b(k-t),a t)=1 exists for all coprime a,b and every multiplier k<=15, failure k=16",
+        "\"primitive\" \"ax+by\" \"ab\" multiple coprime representation 16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jaffe Section 5/6 describes finite g(a,b) tables for a,b<=200, but these data do not specify universal product-multiple cutoff; theorem handles all generator sizes.",
+        "A complete exact certificate for 16*a*b=240240 is in RESULT.md, with all 17 coefficient pairs and integer verifications in verify.py."
+      ],
+      "reasoning": "Even if a numerical table happened to include the exceptional pair, the universal lower bound for all coprime generators at 2<=k<=15 is a quantified theorem, not a table lookup. No exact table was found proving or stating the cutoff.",
+      "searches": [
+        "gcd(b(k-t),a t)=1 exists for all coprime a,b and every multiplier k<=15, failure k=16",
+        "\"primitive Frobenius\" \"16\" \"273\" \"55\"",
+        "\"coprime\" \"ax+by\" \"kab\" \"16\""
+      ]
+    },
+    "rationale": "The sharp universal product-multiple cutoff is not stated or logically implied by the inspected primitive-Frobenius primary theorems or relevant indexed work. The argument supplies an all-generator universal assertion and the first counterexample, not merely a larger numeric Frobenius bound. Searches were actual; absence in search is not proof of priority.",
+    "residual_risks": [
+      "An unindexed or older elementary primitive-linear-representation or prime-covering theorem could implicitly contain this cutoff; independent bibliographic assessment remains necessary.",
+      "Source Jaffe is fresh and bibliographic search alone cannot prove complete absence of equivalents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines same representability, proves global finiteness and bounds, but the inspected results do not determine universal membership of product multiples k*a*b, nor establish first failure at k=16.",
+        "evidence": [
+          "arXiv:2610.17267v1, Sections 2-7, https://arxiv.org/abs/2610.17267"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.17267",
+        "material_read": "Substantive full HTML text including Theorem 2.1, Theorem 4.3, Propositions 5.1-5.2, Theorems 6.5-6.6, Theorem 7.1 and conjectures in Section 7",
+        "method": "Read theorem statements and proofs in arXiv public HTML transcript; compare actual quantified statements and underlying objects",
+        "title": "Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers",
+        "trigger": "Same primitive coefficients in two-generator Frobenius problem"
+      },
+      {
+        "assessment": "Elementary gcd and cancellation framework is standard. No inspected text identifies a universal product-multiple cutoff. This reference cannot establish novelty by itself.",
+        "evidence": [
+          "Coprime Integers, sections 3.4 and Corollary 3.27, https://www.southampton.ac.uk/~wright/1001/coprime-integers.html"
+        ],
+        "identifier_or_url": "https://www.southampton.ac.uk/~wright/1001/coprime-integers.html",
+        "material_read": "Publicly accessible statement and proof snippets for Bézout, gcd and coprime products",
+        "method": "Read available online text snippets, not claimed full-document exclusion",
+        "title": "Coprime Integers, introductory number theory",
+        "trigger": "Check whether standard two-variable coprimality or Bézout results already yield the specific sharp classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7fbb4ae3-81db-4209-a11d-26bf33c44093",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The product multiples k ab are a canonical arithmetic target family with ordinary nonnegative representations for every k; coprimality imposes a sharp structural obstruction. The complete first universal prefix and minimal failing multiplier 16 give an exact natural cutoff, explained by prime allocation rather than a numerical census. Infinitely many coprime pairs share the first failure. Neither a paper-scale extension nor a general future theorem is assumed.",
+    "status": "PASS"
+  }
+}
