@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The normalized finite generator is real symmetric and diagonalized by finite characters; radiality forces a common high-conductor eigenvalue. Since these modes carry exactly \((p-1)/p\) of the point state's Fourier mass and generate one common pure spinor, the reduced qubit has largest eigenvalue at least \((p-1)/p\), implying the sharp entropy ceiling. Direct two-component Fourier evolution gives the massless closed formula. Reverse-triangle equality gives the exact phase criterion. The explicitly specified positive complete-graph kernel has eigenvalues \(0\), \(-2g\), \(-3g\) in the claimed conductor sectors and saturates the bound. Finite matrix tests support but do not replace this arbitrary-depth argument.
+
+**Originality — PASS, best-knowledge.** Zúñiga-Galindo (2026, arXiv:2609.04358v1) sets up the finite \(p\)-adic Dirac system and identifies spinor–position entanglement as a question, without deriving this arithmetic entropy ceiling or its connected realizers in the inspected material. Konno's ultrametric walk deals with scalar time-averaged position distributions; published coin–position entanglement studies primarily concern discrete-time models. Multiple searches for equivalent prime-dependent bounds and conductor-phase characterizations found no direct covering statement. The remaining risk is a more general uninspected theorem that subsumes the qubit-mixture inequality in this setting.
+
+**Value — PASS.** The result solves a naturally specified entanglement-capacity question for an open one-coordinate family of the finite \(p\)-adic Dirac model. It gives the exact time law in the massless case, proves the odd-prime one-ebit obstruction at all depths, and constructs strictly positive connected examples attaining the sharp bound. It does not purport to solve the full anisotropic three-coordinate model.
+
+**Closest literature and limitations.** W. A. Zúñiga-Galindo (arXiv:2609.04358v1, 2026) provides the construction; N. Konno (arXiv:quant-ph/0602070, 2006) analyzes different scalar localization statistics. Only the invariant two-spinor/one-coordinate block with a localized initial position is covered. Exact equality with nonzero fixed mass is not asserted. General priority is not independently established.
+
+Self-review: passed. Independent audit: not yet performed.
