@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For independent unit row constraints the full scalar Schur pivots equal the Cholesky/Gram–Schmidt residual norms. The symmetrically preconditioned arrow spectrum is exactly the signed quadratic map of singular values. The 3-by-3 normalized row Gram has determinant 1 and the three permutation classes have exact characteristic coefficients as given. Strict polynomial sign comparison above each preceding maximal root yields the strict ordering for all t in (0,1); an exact endpoint argument gives ratios 5/4 and sqrt(5)/2. Two-row trace/determinant invariance proves minimality. Exact rational coefficient checks and full matrix eigenvalue crosschecks were run, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2610.17940v1, Section 4, Theorem 4 and Section 5.1.2: bounds for fixed preconditioned multiple-arrow matrices and a warning that full sequential Schur complements can be spectrally detrimental.",
+        "Golub–Greif–Varah (2006) and Notay (2014): general two-block Schur/preconditioned spectral theory, accessible summaries."
+      ],
+      "reasoning": "General spectral analysis of arbitrary block systems could in principle be specialized to calculate each permutation, but no inspected general theorem directly compares and optimizes the six distinct ordered exact-Schur preconditioners or enforces the strict A<B<C ordering. The claimed advance is exactly this across-order optimization, not a new bound for a fixed matrix. Full texts of two older works were not inspected and remain risks.",
+      "searches": [
+        "saddle point arrow matrix full block Schur complement order sensitivity optimal ordering",
+        "forward Schur complement block Jacobi preconditioner ordering sensitivity constraint ordering MINRES arrow matrix",
+        "doi:10.1137/04060679X Golub Greif Varah saddle point analysis",
+        "doi:10.1137/130911962 Notay block preconditioners"
+      ]
+    },
+    "checked_sources": [
+      "Bergamaschi and Bergamaschi, arxiv:2610.17940v1, Sections 2–5",
+      "Wang, Zhang and Chen, arxiv:2407.19217v2, Sections 3–4",
+      "Golub, Greif and Varah, doi:10.1137/04060679X, abstract",
+      "Notay, doi:10.1137/130911962, abstract",
+      "Dutto, doi:10.1002/nme.1620360307, publisher record",
+      "Recoverable prior mathematical result on row-coherence scaling and prior double-saddle preconditioning claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.17940v1: derives exact Schur-block formulas and normalized arrow matrix, but applies eigenvalue bounds for a chosen block ordering, not comparative optimality over all six orders.",
+        "arxiv:2407.19217v2: row-permuted Neumann boundary-control matrix with an approximate block-triangular preconditioner, a different problem and objective.",
+        "Dutto (1993): block ordering affects nonlinear Navier–Stokes GMRES with an incomplete LDU Jacobian, not this exact forward sequential Schur model."
+      ],
+      "reasoning": "No inspected statement logically entails the three strict permutation classes or sharp asymptotic penalty without additional analytic optimization across permutations. The starting Schur identities and spectral transform are prior work; the complete cross-permutation comparison is the assessed claim. A not-fully-read older study of Schur preconditioners remains a genuine potential implication risk.",
+      "searches": [
+        "arxiv:2610.17940v1 Theorem 1 Theorem 4 Sections 3–5",
+        "arxiv:2407.19217v2 Sections 3–4",
+        "Permuted preconditioning for extended saddle point problem arising from Neumann boundary control",
+        "doi:10.1002/nme.1620360307"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.17940v1, Theorems 1–2, Section 3.1 and Eq. (8): sequential Schur blocks and the general symmetrically preconditioned arrow form are established there.",
+        "For the present model, the exact sequential Schur blocks equal squared Gram–Schmidt residual lengths. The new comparison varies the permutation itself, whereas the source treats a fixed partition."
+      ],
+      "reasoning": "The equivalence to row Gram–Schmidt/Cholesky pivot magnitudes and the singular-value eigenvalue formula are explicitly treated as background, not novelty. Neither that equivalence nor the available source spectral bounds identifies the unique optimal first row or the strict worst least-correlated-first permutation over the whole parameter interval.",
+      "searches": [
+        "block diagonal Schur complement preconditioner ordering permutation effect arrow saddle point three constraints order optimization spectrum",
+        "Gram Schmidt pivot order normalize rows by residual norm spectral norm heuristic most orthogonal pair counterexample",
+        "arxiv:2610.17940v1 Sections 2–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published mathematical results on row coherence of diagonal scalings and on two-coordinate Gauss–Seidel ordering concern distinct operators/criteria and do not provide the three-constraint sequential-Schur ordering classification.",
+        "The present classification was also compared against recoverable claims on double-saddle spectral floors, block-Jacobi conditioning, reduced-basis preconditioning and Schur-related results."
+      ],
+      "reasoning": "These checks do not establish uniqueness. The closest accessible records neither tabulate the eigenvalue-optimizing constraint permutation for this six-dimensional arrow family nor state a stronger result implying the strict ordering and limiting spectral ratio.",
+      "searches": [
+        "full Schur complement preconditioning arrow saddle point constraints ordering three row vectors optimal spectral radius counterexample most orthogonal first",
+        "Gram Schmidt row pivoting order sensitivity normalized unorthogonalized row matrix eigenvalues arrow preconditioner 3x3 three constraints",
+        "sharp order dependence constraint elimination Schur complements two saddle point three-block preconditioner"
+      ]
+    },
+    "rationale": "The derivation isolates and proves a new cross-order optimization problem: strict spectral-radius ordering of all six permutations for a continuous exact-Schur three-constraint saddle family; the least-correlated pair is the worst first pair. The existing general Schur and eigenvalue relations are acknowledged. Comparisons with the closest primary full texts, general published preconditioner literature, accessible prior claims, and published mathematical results did not identify a covering statement. Priority remains provisional because two older abstracts could not be expanded to full text.",
+    "residual_risks": [
+      "Older broad saddle-point preconditioning articles (Golub–Greif–Varah and Notay) were available only in abstract/metadata form; a more specialized ordering theorem could remain unseen.",
+      "General Schur complement and singular-value spectral relations are established; originality is confined to the new all-order optimization and sharp comparison, not these known ingredients.",
+      "No global ordering rule or MINRES convergence rate is established outside the named continuous family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS Schur-block mechanism and fixed-order eigenvalue characterization; does not state or imply without new analysis the all-permutation strict ordering and the sharp t-limit penalty.",
+        "evidence": [
+          "Eq. (3) defines full sequential Schur complements; Eq. (8) the symmetrically preconditioned form; Section 5.1.2 shows detrimental full Schur choice but not order optimization."
+        ],
+        "identifier_or_url": "arxiv:2610.17940v1; https://arxiv.org/pdf/2610.17940",
+        "material_read": "Primary PDF passages spanning Introduction, Sections 2–5 (especially exact sequential Schur blocks, full-versus-incomplete preconditioners, and normalized eigenvalue equations), Section 7 conclusions; title page visually inspected. Not every sentence of every section was reviewed.",
+        "method": "Primary preprint PDF textual reading and page-image inspection",
+        "title": "Block diagonal preconditioners for arrow-shaped multiple saddle-point linear systems",
+        "trigger": "Same matrix family and exact/full forward sequential Schur complement preconditioner"
+      },
+      {
+        "assessment": "DISTINCT: row permutation to regularize an extended Neumann-control system and approximate block triangular preconditioner, not optimization among exact sequential scalar Schur pivots.",
+        "evidence": [
+          "Section 4 defines a preconditioner for a particular Neumann control system; no three-unit-row permutation comparison."
+        ],
+        "identifier_or_url": "arxiv:2407.19217v2; https://arxiv.org/pdf/2407.19217",
+        "material_read": "Primary PDF abstract, Introduction, problem setup and extended-system construction, opening of Section 4, and Section 6 conclusion; title page visually inspected.",
+        "method": "Primary preprint PDF textual reading and page-image inspection",
+        "title": "Permuted preconditioning for extended saddle point problem arising from Neumann boundary control",
+        "trigger": "Permutation-based saddle-point preconditioning is close by name"
+      },
+      {
+        "assessment": "UNRESOLVED scope beyond abstract; abstract describes parameter selection and spectral analysis but not the particular 3-row exact sequential Schur ordering.",
+        "evidence": [
+          "Publisher abstract; no full manuscript inspected."
+        ],
+        "identifier_or_url": "doi:10.1137/04060679X",
+        "material_read": "Publisher bibliographic record and abstract only",
+        "method": "Publisher metadata and abstract",
+        "title": "An Algebraic Analysis of a Block Diagonal Preconditioner for Saddle Point Systems",
+        "trigger": "Foundational algebraic saddle point block-diagonal spectral treatment"
+      },
+      {
+        "assessment": "UNRESOLVED scope beyond abstract; general spectra/approximations, potentially related, no explicit order claim visible.",
+        "evidence": [
+          "Publisher abstract; no full manuscript inspected."
+        ],
+        "identifier_or_url": "doi:10.1137/130911962",
+        "material_read": "Publisher bibliographic record and abstract only",
+        "method": "Publisher metadata and abstract",
+        "title": "A New Analysis of Block Preconditioners for Saddle Point Problems",
+        "trigger": "Broad block preconditioner theorems might dominate specialized comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "579fba04-c898-4e3e-839e-5fb5371ee17b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Permutation choice is a natural design question in the forward full-Schur block diagonal saddle-point preconditioner, where subsequent pivot sizes change with ordering. This continuous 3-constraint classification is the smallest nontrivial ordering effect, invalidates the seemingly natural least-correlated-first heuristic, and quantifies its nonvanishing spectral penalty in a nearly dependent limit. The precise result informs preconditioner diagnostics but does not claim iteration-count or floating-point benefits.",
+    "status": "PASS"
+  }
+}
