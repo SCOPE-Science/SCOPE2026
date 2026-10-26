@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The hub/paired-leaf eigenspaces yield an exact block decomposition; positive definiteness, all eigenvalue boundaries, and the scalar minimizer are checked algebraically. A semidefinite sandwich averaged over automorphisms proves that no asymmetric diagonal congruence can beat the displayed invariant scaling. The symbolic identities and finite independent checks from the attached reproducibility code reproduced the intended formulas. The finite tests do not stand in for the unrestricted proof.
+
+**Originality — PASS, with stated uncertainty.** The nearest property-A optimal-scaling results of Vandebril, Golub and Van Barel concern bipartite sparsity, whereas every matrix in the present family has triangles. General convex/SDP algorithms of Braatz–Morari and Gao–Qu–Udell–Ye pose and solve the broad optimization problem without giving the inspected two-parameter windmill closed form. Indexed scientific literature searches for diagonal congruences, triangles, windmill matrices, and Jacobi optimality found nearby iterative-solver bounds but not this statement; other indexed published windmill results concern resistance and leader placement, not diagonal conditioning. The 1985 Shapiro and 2002 Kolotilina papers have potentially relevant abstract-level broad characterizations; their full texts were not accessible here. The absence of a match is not proof of uniqueness.
+
+**Mathematical value — PASS.** The exact optimizer gives a practical diagonal scale for any number of triangular motifs, resolves a sharp boundary between two active spectral constraints, and shows precisely when simple Jacobi equilibration can and cannot be optimal. The global all-diagonal result is stronger than merely optimizing a symmetry-imposed subfamily.
+
+**Limitations.** The statement assumes a real symmetric positive-definite matrix with exactly one hub, equal hub-leaf coupling, equal paired-leaf coupling and no other edges. It concerns spectral condition number under positive diagonal congruence. It does not characterize all asymmetric minimizers or exclude undiscovered specialized prior coverage.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The exact spectral decomposition yields eigenvalues \\(1-s\\) (multiplicity \\(k\\)), \\(1+s\\) (multiplicity \\(k-1\\)), and the two roots of \\(\\lambda^2-(q+1+s)\\lambda+q(1+s-2kt^2)=0\\). The positive-definite domain follows from these eigenvalues. For any asymmetric diagonal scale the semidefinite sandwich \\(W\\preceq A\\preceq\\kappa W\\) can be averaged over graph automorphisms, showing a symmetric scale does at least as well. The scalar condition \\(\\lambda_+/\\min\\{\\lambda_-,1-s\\}\\) has a unique minimizer: the crossing \\(q_0=s(1-s)/(s-kt^2)\\) if \\(kt^2\\le2s^2/(1+s)\\), otherwise \\(q=1+s\\). The proof also justifies the exact Jacobi locus \\(kt^2=s^2\\). Exact characteristic-polynomial identities and symbolic crossing identities were verified from the attached standalone code, with 75 spectrum cases, 75 scalar optimizations, and 6000 asymmetric sampling comparisons. Finite experiments are not used to infer global optimality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Braatz–Morari (1994), section 2, convert generic optimal scaling to convex minimization: this permits numerical solution in principle without the parameter-dependent active eigenmode classification.",
+        "Gao–Qu–Udell–Ye (2023), theorem 2.1 and sections 3–5, give a general preconditioning SDP and approximation schemes; no windmill or two-branch exact expression is stated in the material inspected.",
+        "Shapiro (1985) and Kolotilina (2002) abstracts announce broad characterizations and some special closed-form cases. Full source comparison was unavailable, so neither is designated NOT_COVERING as a whole."
+      ],
+      "reasoning": "The broad literature covers the optimization problem and necessary/algorithmic structure, not demonstrably the precise \\(q_*(k,s,t)\\) and Jacobi iff \\(kt^2=s^2\\) rule. Older full-text limitations are explicitly retained as risks.",
+      "searches": [
+        "optimal diagonal preconditioning Jacobi scaling bipartite matrices condition number",
+        "optimal diagonal scaling arrowhead matrix eigenvalues symmetric condition number",
+        "https://arxiv.org/html/2312.15594v1",
+        "10.1137/0722005",
+        "10.1016/S0024-3795(01)00412-8"
+      ]
+    },
+    "checked_sources": [
+      "https://people.cs.kuleuven.be/~raf.vandebril/homepage/publications/papers_html/condss/",
+      "https://people.cs.kuleuven.be/~raf.vandebril/homepage/publications/papers_html/condss/node1.html",
+      "https://people.cs.kuleuven.be/~raf.vandebril/homepage/publications/papers_html/condss/node2.html",
+      "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+      "https://arxiv.org/html/2312.15594v1",
+      "https://epubs.siam.org/doi/abs/10.1137/0722005",
+      "https://doi.org/10.1016/S0024-3795(01)00412-8"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Property-A optimal Jacobi scaling implies a normalized optimum on bipartite support, but the friendship graph has an odd 3-cycle, and Jacobi fails except on a codimension-one parameter relation.",
+        "Generic SDP feasibility \\(A\\succeq W\\) and \\(A\\preceq\\kappa W\\) implies that an optimizer exists but not the explicit active-mode equality \\(q_0\\) or threshold \\(\\theta_c\\) in this two-parameter family.",
+        "The condition-number theorem is a new exact evaluation of a natural specialized SDP instance rather than a claim that optimal scaling was previously unformulated."
+      ],
+      "reasoning": "The central new mathematical content is eliminating every asymmetric scale by convex feasibility symmetrization and then resolving the eigenmode switch exactly; this is not a statement extracted from the inspected general source results. Inaccessible specialized characterization remains a nonzero originality risk.",
+      "searches": [
+        "windmill friendship graph symmetric positive definite matrix optimal diagonal congruence preconditioning spectral condition number hub leaf pair correlations explicit threshold",
+        "optimal diagonal preconditioning symmetric arrowhead matrix windmill friendship graph block leaves triangles condition number",
+        "A small note on the scaling of symmetric positive definite semiseparable matrices Vandebril 2005 optimal scaling property A",
+        "Minimizing the Euclidean condition number Braatz Morari 1994",
+        "Optimal Block Diagonal l2-Scaling of Matrices Alexander Shapiro 1985"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A diagonal congruence \\(DAD\\) is equivalently a generalized-eigenvalue problem for \\(A\\) versus positive diagonal \\(W=D^{-2}\\); the present optimum requires choosing a ratio \\(q\\) and comparing the antisymmetric leaf mode \\(1-s\\) with the smaller hub/leaf-sum block eigenvalue.",
+        "Vandebril–Golub–Van Barel define property A by a permuted block matrix with diagonal diagonal blocks. A friendship graph contains triangles and cannot satisfy this bipartite sparsity condition, so their unit-diagonal optimality theorem is inapplicable.",
+        "The benchmark \\(k=2\\), \\(s=1/2\\), \\(t=1/10\\) yields optimal \\(q=25/48\\), showing that unit-diagonal normalization is not generally optimal for the claimed objects."
+      ],
+      "reasoning": "Equivalent normalized/generalized formulations were compared at the level of the optimization objective. Property-A Jacobi optimality does not dominate a nonbipartite support and disagrees with explicit parameters; an equivalent specialized nonlinear ratio formula was not found in the queried indexed or accessible full-text material.",
+      "searches": [
+        "optimal diagonal preconditioning symmetric arrowhead matrix windmill friendship graph block leaves triangles condition number",
+        "exact Jacobi-optimality condition for triangular correlation matrix repeated triangles diagonal scaling theta equals s squared",
+        "Jacobi diagonal scaling not optimal for triangle plus pendant edge symmetric matrix support transition",
+        "https://people.cs.kuleuven.be/~raf.vandebril/homepage/publications/papers_html/condss/node1.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed scientific record concerns an additive bidirectional Gauss–Seidel inverse factorization and a positive-definiteness threshold, not diagonal congruence conditioning of friendship matrices.",
+        "Another nearby indexed record concerns one-step Euclidean damping for a weighted-Jacobi iteration, a different optimization object from diagonal preconditioner design.",
+        "Other indexed published findings concerning friendship graphs address resistance interdiction and leader/coherence placement; their claims do not evaluate diagonal condition-number scaling."
+      ],
+      "reasoning": "Actual indexed scientific-record semantic queries, published-source searches, and comparison with accessible published scientific statements did not identify an exact cataloged formula. Such absence alone is not taken as a proof of uniqueness.",
+      "searches": [
+        "windmill friendship graph symmetric positive definite matrix optimal diagonal congruence preconditioning spectral condition number hub leaf pair correlations explicit threshold",
+        "exact Jacobi-optimality condition for triangular correlation matrix repeated triangles diagonal scaling theta equals s squared",
+        "block 2 cyclic property A versus nonbipartite friendship graph optimal Jacobi diagonal scaling spectral condition number",
+        "optimal diagonal scaling condition number friendship windmill graph triangular fan matrix",
+        "optimal diagonal scaling condition number friendship windmill graph triangular fan matrix"
+      ]
+    },
+    "rationale": "The exact two-regime condition number and globally optimal hub-to-leaf diagonal ratio on arbitrarily large weighted friendship matrices were compared to full-text property-A and general convex/SDP scaling sources and with indexed published findings. Property A excludes triangles, while generic optimal-scaling algorithms formulate the problem without stating this two-parameter closed-form phase boundary. The principal literature risks are older broad characterizations whose full text could not be examined; originality is a reasoned best-knowledge judgment, not a uniqueness certificate.",
+    "residual_risks": [
+      "The full 1985 Shapiro scaling paper could not be accessed; its abstract mentions unspecified closed-form cases. This is a nonzero specialized-coverage risk, not evidence of coverage.",
+      "The full 2002 Kolotilina block-optimality paper could not be accessed; it might contain a reduction applicable to the specific family.",
+      "Indexed-record semantic search results cannot establish publication uniqueness, and other old results might be indexed under different terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Applies to property-A supports (bipartite block sparsity), not to triangle-bearing friendship matrices; does not state the claimed formula in inspected sections.",
+        "evidence": [
+          "Introduction defines property A by two diagonal within-part blocks and arbitrary cross-part block.",
+          "Scaling section constructs reciprocal-square-root diagonal normalization for property-A tridiagonal matrices."
+        ],
+        "identifier_or_url": "https://people.cs.kuleuven.be/~raf.vandebril/homepage/publications/papers_html/condss/",
+        "material_read": "Public HTML abstract; introduction; scaling-theory section; conclusion (dated 2005-01-06).",
+        "method": "Read source HTML and linked primary sections on property A and construction of optimal scaling.",
+        "title": "A small note on the scaling of symmetric positive definite semiseparable matrices",
+        "trigger": "Earliest dated primary source for optimal diagonal scaling on property-A and semiseparable matrices."
+      },
+      {
+        "assessment": "Generic convex optimization procedure for one/two-sided matrix scaling; no weighted friendship support or explicit switching threshold in the inspected theorem statements.",
+        "evidence": [
+          "The paper presents a convex-program transformation for optimal Euclidean conditioning, with no family-specific windmill formula."
+        ],
+        "identifier_or_url": "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+        "material_read": "Six-page paper text, including introduction and results; visually checked PDF pages 1 and 4 in page-numbering from zero.",
+        "method": "Inspected searchable PDF text and rendered first and fourth pages to verify principal content.",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Foundational exact convex formulation of diagonal condition-number scaling."
+      },
+      {
+        "assessment": "Covers the general matrix optimization problem but not the specified exact two-regime family formula in inspected material.",
+        "evidence": [
+          "Theorem 2.1 gives the SDP maximizing reciprocal optimal condition number; sections 3–5 study scalable approximations rather than a windmill closed form."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2312.15594v1",
+        "material_read": "Full-text HTML introduction, theorem 2.1, problem formulation, subspace construction, dual and column generation sections.",
+        "method": "Read accessible HTML sections and inspected nearby theorem statements and optimizers.",
+        "title": "Scalable Approximate Optimal Diagonal Preconditioning",
+        "trigger": "Modern broad optimum-SDP method potentially stronger than a specialized explicit solution."
+      },
+      {
+        "assessment": "Unresolved possible specialized predecessor; only abstract-level comparison, no whole-document exclusion.",
+        "evidence": [
+          "Abstract announces general optimality conditions and some unspecified closed-form special cases; none of the accessible text identifies friendship-graph parameters."
+        ],
+        "identifier_or_url": "10.1137/0722005",
+        "material_read": "Publisher and JSTOR abstracts, bibliographic details; full paper unavailable.",
+        "method": "Searched arXiv and lawful open access; institutional retrieval returned an access prerequisite (VPN disconnected).",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "1985 broad scaling paper mentions closed-form solutions for certain special cases."
+      },
+      {
+        "assessment": "Potential broader qualitative characterization; direct implication of the exact windmill phase law is not shown, and full comparison remains open.",
+        "evidence": [
+          "Abstract describes optimal Hermitian positive-definite block matrices and generalized optimality conditions without displaying the windmill law."
+        ],
+        "identifier_or_url": "10.1016/S0024-3795(01)00412-8",
+        "material_read": "Publisher abstract and bibliography; redirected full text could not be fetched.",
+        "method": "Retrieved public publisher abstract; attempted lawful publisher link, which was inaccessible.",
+        "title": "Optimally conditioned block matrices",
+        "trigger": "General spectral condition-number optimality characterizations possibly subsuming a symmetric support."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c423dd7-52b2-49ac-ad97-f2e063cffbad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The weighted friendship graph is a natural minimal non-bipartite departure from property-A sparsity: \\(k\\) triangular motifs share a common hub, making diagonal equilibration a meaningful practical baseline. The theorem solves a nontrivial global min-condition-number design problem at arbitrary dimension and identifies two distinct active-eigenmode regimes, a sharp transition in the optimal hub scale, and the exceptional curve on which Jacobi equilibration is truly optimal. It gives an immediately usable closed-form preconditioner in place of an SDP solve and an explicit boundary for a widespread heuristic. This is more than a routine evaluated condition number because it establishes global optimality against asymmetric diagonals and a structural parameter classification.",
+    "status": "PASS"
+  }
+}
