@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Strong Markov first-hit resolvent identity plus unit-cost geometric renewal yields \\(H_j=(c/R_j-1)/\\gamma\\); independent backward linear-system calculations on cycles, complete graphs and a hypercube reproduce it. Harmonic-arithmetic equality and invertible resolvent prove unique law; exact algebra gives regret. Strict spectral convexity and exact cosecant sums prove cycle cutoff. Symbolic C5 root and bounded Taylor remainders prove constants/asymptotics. The executed verify.py checks do not substitute for the analytic infinite-family argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2104.00727 explicitly covers the uniform Google strategy and its spectral formula; arxiv:2409.08394 explicitly covers convex spectral rate optimization, both treated as background; neither comparison states an ordering over every relocation law for a fixed uniform target prior."
+      ],
+      "reasoning": "Earlier general formulas are strong enough to provide the necessary ingredients, but their already-published results do not contain the strict uniform-prior law optimization, simultaneous minimax conclusion, exact regret identity or all-cycle cutoff. The spectral rate criterion itself is not claimed as new.",
+      "searches": [
+        "published-finding corpus: graph Green function resolvent hitting-time optimal restart probability unique convex spectral optimality random target",
+        "arxiv:2104.00727 section IV.4 Eqs. (75)–(76)",
+        "arxiv:2110.15437 sections 3–4",
+        "arxiv:2409.08394 Eq. (52)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2409.08394 (full text sections 2.1–2.2, explicit Eq. 47 and Eq. 52 prior claims)",
+      "arxiv:2104.00727 (full text sections III–IV and Eq. 76)",
+      "arxiv:2110.15437 (full text sections 2–4 and ring optimization)",
+      "MSC2020 official code 82C41",
+      "published-finding corpus semantic records searched for random-reset graphs, hidden targets, cycle threshold and Green function optimality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Kemeny spectral formula and convexity directly imply part of the rate analysis: explicitly excluded from the novel contribution. The current theorem obtains a strict law-comparison inequality and two-objective optimum for independently uniformly sampled targets, an objective absent from the source Kemeny law."
+      ],
+      "reasoning": "The new implication requires resolving target weights before optimization; a stationary-weighted invariant sum alone does not imply strict optimality for an independently uniform prior. The exact penalty is a harmonic-mean identity on the Green vector and furnishes equality classification. The cycle count comes from evaluating the boundary derivative by exact trigonometric sums.",
+      "searches": [
+        "arxiv:2409.08394 Eqs. (43)–(52), sections 2.1.1 and 2.2",
+        "arxiv:2104.00727 Eq. (76), section IV.4",
+        "arxiv:2110.15437 section 4.1",
+        "published-finding corpus: finite network random walk stochastic resetting optimal resetting node distribution first passage mean, optimization over relocation probabilities, pure deterministic node dominates randomized resetting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The stationary-weighted Kemeny criterion in arxiv:2409.08394 Eqs. (46)–(47) is independent of reset weights; exogenous uniform-prior mean here has an exact strictly positive regret for nonuniform weights."
+      ],
+      "reasoning": "Stationary target weights are not uniform for nonuniform resetting, so the established reset-law-invariant Kemeny objective is not equivalent to the present reset-law-dependent mean or worst-target criterion.",
+      "searches": [
+        "published-finding corpus: mean first passage time vertex transitive graph stochastic resetting arbitrary restart distribution uniform optimal unknown uniformly random fixed target; exact Jensen heterogeneity penalty",
+        "Web: \"uniform target\" \"optimal reset distribution\" \"random walk\" network",
+        "arxiv:2409.08394 Eq. (46) compared with exogenous uniform target averaging"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2104.00727 evaluates example circulant spectra and plots search times; no all-cycle five-vertex threshold or arbitrary-law regret table was found in inspected text.",
+        "published-finding corpus ranked near results concern quantum detection renewal optimization and balanced nonuniform reset coupon collectors, not this graph-search object and prior."
+      ],
+      "reasoning": "A fixed-graph or fixed-reset table cannot dominate an exact all-transitive-graph law theorem or all-cycle integer boundary; no checked table presents an equivalent classification.",
+      "searches": [
+        "published-finding corpus: cycle C_n sharp threshold five vertices nonzero optimal resetting probability averaged uniform targets spectral cosine root",
+        "published-finding corpus: uniform teleportation distribution globally optimal search random target vertex transitive graph stochastic resetting",
+        "Web: \"random target\" \"resetting\" \"cycle\" optimal random walk"
+      ]
+    },
+    "rationale": "The independently uniform target prior produces a strict law-sensitive objective, unlike the known law-invariant stationary-weighted Kemeny functional. In three materially inspected primary full texts the spectral formula, convexity and rate derivative are prior, expressly not novelty claims; the strict all-law mean-and-minimax optimum, exact regret and exhaustive all-cycle boundary were not covered in comparisons.",
+    "residual_risks": [
+      "A fully equivalent uniform-target relocation optimality or sharp cycle cutoff could be proved in unindexed graph search, teleportation or mean-access-time literature.",
+      "Exact spectral convexity and rate condition are covered by arxiv:2409.08394 and the uniform-reset spectral function by arxiv:2104.00727; originality excludes these known ingredients.",
+      "Different first-return and time-zero-hit conventions can disguise equivalent results, although source conventions were expressly compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The rate derivative and strict convexity of the Kemeny spectral expression are explicitly prior; its target is drawn with reset-chain stationary weights, whereas the present theorem fixes independent uniform target weights. No global optimization over arbitrary relocation vectors or exact uniform-prior regret was identified.",
+        "evidence": [
+          "Eq. (45) gives general MFPT; Eq. (46) defines a stationary-weighted Kemeny objective; Eqs. (47),(51),(52) give reset-law-independent spectral expression and convexity; section 2.2 excludes killing at t=0."
+        ],
+        "identifier_or_url": "arxiv:2409.08394 | https://arxiv.org/abs/2409.08394",
+        "material_read": "Full arXiv text: geometric reset transition law, sections 2.1–2.1.1 (Eqs. 37–52), Kemeny discussion and numerical target examples, plus section 2.2 on first hitting.",
+        "method": "Read full arXiv text and compared precise weighting and objectives in Eqs. (43)–(52).",
+        "title": "Random walks with stochastic resetting in complex networks: a discrete time approach",
+        "trigger": "Same finite-network multiple-reset geometric model, first-hitting formula and rate optimization."
+      },
+      {
+        "assessment": "Eq. (76) explicitly supplies the uniform-reset spectral function (shifted by the source return-time convention), already prior. The work does not establish uniformity as the unique optimizer among arbitrary probability vectors, the exact strict regret or the complete cycle threshold.",
+        "evidence": [
+          "Section IV.4 Eqs. (75)–(76) treats only equal all-node reset weights; section IV.3 gives chosen multiple sites and numerical rates; Appendix uses first return for coincident start and target."
+        ],
+        "identifier_or_url": "arxiv:2104.00727 | https://arxiv.org/abs/2104.00727",
+        "material_read": "Full arXiv text, in particular sections III and IV, IV.4 and conclusion, Eq. (76) with spectral expression; reset-number and global mean discussions.",
+        "method": "Compared the single-target reset-node examples and uniform Google strategy spectral formula with an exogenous uniformly sampled target and an unrestricted relocation distribution.",
+        "title": "Diffusive transport on networks with stochastic resetting to multiple nodes",
+        "trigger": "Closest multi-node resetting comparison; uniform all-node Google strategy on circulant graphs."
+      },
+      {
+        "assessment": "Optimizes probability of reset to a specified initial vertex while locating a specified other vertex; ring results are fixed-separation estimates, not optimization over an unknown uniform target and all reset locations.",
+        "evidence": [
+          "Section 2 fixes a reset node r; section 3 varies only the reset rate; section 4.1 varies ring separation and solves rate equations numerically."
+        ],
+        "identifier_or_url": "arxiv:2110.15437 | https://arxiv.org/abs/2110.15437",
+        "material_read": "Full arXiv text, especially sections 2–4 and the ring examples, optimality and first-passage fluctuation criteria.",
+        "method": "Checked quantifiers in the objective, resetting rule and ring section against the arbitrary relocation law and hidden uniform target.",
+        "title": "Discrete-time random walks and Lévy flights on arbitrary networks: when resetting becomes advantageous?",
+        "trigger": "Generic rate-optimality and nearest-neighbor ring analysis could dominate a cycle threshold."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54536c42-7d44-4425-8eac-ef07b997b696",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For an exogenously hidden uniform target, the theorem completely resolves relocation-design fairness and mean performance simultaneously across all finite transitive graphs; its exact heterogeneity penalty quantifies the cost of poor allocations. The Kemeny-versus-uniform-target distinction changes the mathematical design objective. The exact smallest-cycle size five for advantageous nonzero resetting, radical C5 optimum and large-cycle scaling make a nontrivial natural classification and reproducible benchmark.",
+    "status": "PASS"
+  }
+}
