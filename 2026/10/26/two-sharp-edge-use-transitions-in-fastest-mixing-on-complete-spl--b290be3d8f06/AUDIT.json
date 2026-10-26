@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every r,m>=2, graph automorphism averaging preserves feasibility and cannot increase the convex operator-norm SLEM. The invariant spectrum is exactly 1, 1-ra (mult m-1), 1-ma-rb (mult r-1), 1-(m+r)a; its first and last nonconstant modes yield a unique optimal a subject to capacity. Solving the remaining two-sided scalar constraint gives the stated complete nonempty interval for b and verifies equality. Averaging a general optimum and using nonnegativity establishes sharp mandatory/optional/forbidden core-edge use. Exact rational testing covered 561 parameter pairs/1683 endpoint and midpoint instances; separate LP comparison 209 cases; dense eigenspectra 77 cases. Finite computation is supplementary and not an infinite proof. No unsupported uniqueness statement is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. 2009, §5.4.2, explicitly solves K_{r,m} but leaves general complete k-partite systems expressed as a semidefinite program.",
+        "For r>m, Boyd et al. bipartite optimum is max(1-m/r, r/(r+2m)), strictly larger than m/(m+2r) for the graph after adding the internal clique edges.",
+        "Jafarizadeh arXiv:2501.02117 studies windmills of triangles sharing one vertex, not a clique of r vertices joined to an independent set."
+      ],
+      "reasoning": "The branch m>=r admits a bipartite optimal subgraph and is explicitly acknowledged as already known in value. The r>m branch is not a case of the prior bipartite optimum, as a strict mathematical inequality of optimum values demonstrates. A general convex algorithm is not itself the exact full two-threshold theorem; hidden stronger sources remain a risk.",
+      "searches": [
+        "fastest mixing complete multipartite K_{m,1,1,...,1} stochastic matrix exact eigenvalue optimization",
+        "fastest mixing Markov chain \"complete multipartite\" graph exact",
+        "fastest mixing Markov chain on graphs with symmetries complete k-partite Section 5.4.2",
+        "arxiv:2501.02117 friendship graph fastest reversible Markov chain"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0709.0955v1 full PDF, especially §5.4.2 pp812–813; original public date 2007-09-06",
+      "arxiv:2501.02117v1 primary PDF pages 1–7 material read",
+      "Boyd–Diaconis–Xiao 2004 SIAM Review original abstract and source page",
+      "Olesker-Taylor–Zanetti 2024 open publisher HTML intro and selected examples",
+      "published-finding corpus mathematical records including 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For r=3,m=2, complete split optimum is 1/4 (cross a=1/4 and clique b in [1/12,1/4]), while the previously solved bipartite subgraph K_{3,2} has optimal SLEM 3/7.",
+        "For fixed m>=2 and r growing, the complete split SLEM tends to 0, whereas the bipartite K_{r,m} optimum tends to 1.",
+        "The 2025 friendship graph has only one common vertex to its triangles and is not isomorphic to G_{r,m} for r,m>=2."
+      ],
+      "reasoning": "The strict separation, plus a mandatory clique-edge theorem for m<r and a full invariant-optimum interval, is not entailed by a theorem that solves only K_{r,m}. The same generic symmetry-SDP proof technique does not by itself establish the newly optimized parameter inequalities. No uniqueness among arbitrary optimizers is inferred.",
+      "searches": [
+        "fastest mixing Markov chain on complete split graph clique joined independent set K_r join m isolated vertices exact formula",
+        "fastest mixing stochastic matrices on complete split graphs K_r vee independent n vertices optimized SLEM",
+        "Boyd Diaconis Parrilo Xiao 2009 Section 5.4.2 complete bipartite explicit FMMC",
+        "Saber Jafarizadeh fastest mixing friendship graph Pareto 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complete split graph K_r join independent_m is the complete (r+1)-partite graph with one part of size m and r singleton parts.",
+        "Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955v1, §5.4.2, gives a general block diagonalization for complete k-partite stochastic matrices, but does not state or solve this r,m full optimizer classification.",
+        "published-finding corpus search on the complete-split alias returned only other invariants, such as 2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f."
+      ],
+      "reasoning": "The multipartite encoding is mathematically equivalent and was directly compared, rather than screened out by wording. The general SDP/block formalism permits formulation of the problem but does not imply the explicit minimax solution and compulsory/optional/forbidden edge-support regime as a stated covered corollary. Existing claims on greedy independent-set variance have different objectives.",
+      "searches": [
+        "fastest mixing Markov chain on complete split graph clique joined independent set K_r join m isolated vertices exact formula",
+        "fastest mixing stochastic matrices on complete split graphs K_r vee independent n vertices optimized SLEM",
+        "fastest mixing complete multipartite K_{m,1,1,...,1} stochastic matrix exact eigenvalue optimization",
+        "arxiv:0709.0955v1 Section 5.4.2 complete k-partite block decomposition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest mathematical-record entry 2026/9/18/SCOPE-clique-partitions-joins-repeated-graphs--40b72bad9da8 addresses clique partition numbers, not eigenvalue minimax for stochastic matrices.",
+        "The author-hosted 2009 full text contains an analytic complete-bipartite value and a general multipartite block scheme, no complete split r,m table of optimal values and all invariant optimizers."
+      ],
+      "reasoning": "No matching exact formula, optimizer interval, or sharp support-regime table was found in the accessible searches. Search non-return alone proves nothing; conclusion also rests on full-text section comparisons and mathematical implications.",
+      "searches": [
+        "complete split graph fastest mixing spectral norm formula m/(m+2r), 1-r/m; K_r join m isolated vertices",
+        "clique-independent join FMMC optimum clique edges compulsory when m<r threshold 2r",
+        "book graph spectral fastest mixing 2/(m+4) exact SLEM",
+        "fastest mixing Markov chain complete multipartite graph explicit transition optimal spectral gap"
+      ]
+    },
+    "rationale": "The 2007/2009 Boyd et al. primary full-text §5.4.2 gives general complete multipartite block reduction and the K_{r,m} bipartite optimum, covering the m>=r optimal value; this known branch is explicitly credited. Their stated results do not cover the strict improved r>m complete split regime, all invariant optimizers, or two edge-use thresholds. The mathematically different friendship/windmill article and broader lazy-chain estimates were compared. published-finding corpus and public-literature checks did not find an equivalent stronger theorem, but specialized or incompletely indexed exact results are possible.",
+    "residual_risks": [
+      "General multipartite SDP literature may contain specialized reductions not indexed by literal graph labels.",
+      "Related later work could solve this complete split exact optimization as a corollary inside a different theorem.",
+      "Not all sections of the 2025 friendship article nor all of the 2024 general-bounds article were inspected; their object/optimization definitions demonstrably differ.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_METHOD_AND_PARTIAL_COVERAGE: general multipartite block reduction, complete bipartite exact solution; not an explicit complete split all-(r,m) classification. The m>=r value coincides and is acknowledged as known.",
+        "evidence": [
+          "§5.4.2 (journal pp812–813): general complete k-partite block representation then closed form for complete bipartite K_{m,n}.",
+          "§5.4.3 handles wheel graphs, a different adjacency structure."
+        ],
+        "identifier_or_url": "arxiv:0709.0955v1; https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full primary PDF was accessed, with §5.4.2 pages 812–813 read and both page images inspected, plus introductory FMMC definition and adjacent solved graph examples.",
+        "method": "Author-hosted full PDF text/search and page-image comparison of equations, cases and graph families.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Same FMMC objective and complete multipartite family in §5.4.2"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECT: triangles share a single hub; stationary measure may be prescribed and intra-friend edge weights fixed, unlike symmetric complete split optimization.",
+        "evidence": [
+          "§2.1 defines the friendship graph as m triangles sharing one central vertex.",
+          "§3 optimizes reversible chains with partially fixed friend edges and nonuniform targets."
+        ],
+        "identifier_or_url": "arxiv:2501.02117v1; https://arxiv.org/pdf/2501.02117",
+        "material_read": "Abstract, introduction, definition of the friendship graph, FMRMC model and beginning of main results through page 6, using full primary PDF text; title page image inspected. Later proof sections were not material read.",
+        "method": "Full-PDF page-specific text inspection and first-page screenshot of object and hypotheses.",
+        "title": "Fastest Mixing Reversible Markov Chain on Friendship Graph: Trade-Off between Transition Probabilities among Friends and Convergence Rate",
+        "trigger": "A close name and related fastest-mixing edge-use optimization on hub-based networks"
+      },
+      {
+        "assessment": "GENERAL_BOUNDS_ONLY on lazy-chain spectral gaps and mixing scale; no identified exact nonlazy two-sided complete split optimizer or edge support classification.",
+        "evidence": [
+          "The article defines a lazy-chain optimization and establishes geometric comparison bounds, unlike the exact two-sided SLEM minimization here."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00440-023-01257-x",
+        "material_read": "Accessible open HTML abstract, setup and selected examples about dense graph connections. Not an exhaustive entire-article inspection.",
+        "method": "Publisher open full-text page search and inspection of statements and named graph examples.",
+        "title": "Geometric bounds on the fastest mixing Markov chain",
+        "trigger": "Possible stronger graph-universal bounds subsuming the family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b290be3d-8f06-46b5-a9c7-e5ed0afb67cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural two-parameter family K_r join independent_m models a clique of mutually communicating agents joined to many independent clients. It has two exact, structural, sharp design thresholds: core links are compulsory for m<r, optional for r<=m<2r and necessarily assigned zero optimal probability for m>=2r. For any fixed m>=2 as r grows, the optimum SLEM on the full split graph tends to zero, while the established optimum on its complete-bipartite spanning subgraph tends to one, so the core-edge effect is qualitative rather than a routine small gain. A complete invariant-optimizer interval and exact uniform-stationary spectral rates for all r,m are directly usable design facts; no downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
