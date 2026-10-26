@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact oscillator decomposition gives the two equations Q(x1)=Q(x2)=0, a positive-definite stage Gram matrix, and a weighted least-norm obstruction C h^3. In the actual projected-gradient space the normalized cross product has a removable h singularity and the scaled 3x3 Jacobian is invertible at the solution (a*,a*,1/8). Repeated energy-preserving multipliers give the exact T C global h² limit. Extracted standalone checker confirms symbolic identities and finite asymptotic diagnostics; no finite test supports infinite quantifiers independently.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2409.18328v1 §§2.1–2.2, Eq. (2.29), Theorem 8 and Remark 7: projected-gradient construction and order claim conditional on limiting nondegeneracy",
+        "arxiv:2302.05235 §§3–4: different multi-relaxation parameter method and rank requirements",
+        "doi:10.1137/04061979X, author-uploaded technical report §§3–4: invariant projection convergence conditional on nondegenerate coefficient Jacobian"
+      ],
+      "reasoning": "Theorem 8 of arxiv:2409.18328v1 would imply order retention only with its nondegenerate limiting rank assumption, which fails. Multiple-relaxation Runge–Kutta and classical projection theorems use alternative directions and conditional rank hypotheses and do not dominate this singular instance.",
+      "searches": [
+        "three-stage RK3 simultaneous conservation two quadratic oscillator energies sharp O(h^3) projection correction",
+        "fixed RK stage derivative subspace projected gradients singular limit multiple independent invariants"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2409.18328v1",
+      "arxiv:2302.05235",
+      "doi:10.1137/04061979X",
+      "published-finding corpus semantic searches using six documented queries",
+      "recoverable claims in own current-week part1 g75 and part2 g53"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2409.18328v1 §§2.1–2.2, Eq. (2.29), Theorem 8 and Remark 7: projected-gradient construction and order claim conditional on limiting nondegeneracy",
+        "arxiv:2302.05235 §§3–4: different multi-relaxation parameter method and rank requirements",
+        "doi:10.1137/04061979X, author-uploaded technical report §§3–4: invariant projection convergence conditional on nondegenerate coefficient Jacobian"
+      ],
+      "reasoning": "Najafian–Vermeire supplies the operator and a conditional sufficient theorem; its rank condition fails here. Calvo and collaborators and Biswas–Ketcheson supply different conditional constructions. None of these statements implies the nonzero optimal correction constant or the exact positive global rate without the new singular perturbation argument.",
+      "searches": [
+        "quasi-orthogonal Runge Kutta two quadratic invariants distinct oscillator frequencies three stage third-order projection order reduction",
+        "RK3 two uncoupled harmonic oscillators preserve both modal energies impossibility order three with stage projected gradients",
+        "fixed RK stage derivative subspace projected gradients singular limit multiple independent invariants"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The oscillator invariant constraints reduce to Q(x1)=Q(x2)=0; this checks equivalent unit-modulus two-frequency polynomial corrections.",
+        "published-finding corpus results included oscillator and invariant projection records but none stating the sharp two-frequency RK3 h³ correction/global error."
+      ],
+      "reasoning": "Comparisons used the exact joint claim: two independent invariant moduli, the fixed Kutta stage-derivative subspace and a sharp near-predictor correction/global asymptotic. Simple order-loss assertions are weaker; different projection spaces are not equivalent.",
+      "searches": [
+        "quasi-orthogonal Runge Kutta two quadratic invariants distinct oscillator frequencies three stage third-order projection order reduction",
+        "multiple invariants projection stage derivative subspace two-frequency oscillator identity stagnation explicit midpoint",
+        "RK3 two uncoupled harmonic oscillators preserve both modal energies impossibility order three with stage projected gradients"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned thematically adjacent public records including “An exact error-estimator resonance in the classical Fehlberg RK4(5) pair” and “A three-mode perturbation threshold for two-step Euclidean steepest descent”. These concern an error estimator or an optimization method rather than two simultaneous quadratic-invariant RK3 projections."
+      ],
+      "reasoning": "This is an infinite small-step asymptotic and not a finite dataset or tabulated numerical value; no exact match table or published-finding corpus claim appeared.",
+      "searches": [
+        "quasi-orthogonal Runge Kutta two quadratic invariants distinct oscillator frequencies three stage third-order projection order reduction",
+        "three-stage RK3 simultaneous conservation two quadratic oscillator energies sharp O(h^3) projection correction",
+        "degree three real stability polynomial modulus one at two imaginary frequencies norm preservation stage space"
+      ]
+    },
+    "rationale": "The conditional order theorem and the projection algorithm are correctly credited to Najafian–Vermeire; an example with singular limiting rank and sharp unavoidable order reduction is not an implication of that theorem. The specifically matched two-frequency invariant constraints and their global constant were compared with primary literature, published-finding corpus records, and recoverable previous claims. No covering claim was found; an unlocated specialized historical equivalent remains a risk.",
+    "residual_risks": [
+      "An equivalent two-frequency polynomial constraint may have appeared in a specialist geometric integration source outside search coverage.",
+      "Some full historical publisher versions may not be publicly accessible; this comparison uses lawful preprints and author-hosted versions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides method and conditional order result, not this singular two-frequency sharp order-loss/global constant",
+        "evidence": [
+          "arxiv:2409.18328v1 Eq. (2.29) and Theorem 8 rank assumption"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2409.18328v1",
+        "material_read": "Section 2.1, multi-invariant section 2.2 including Eq. (2.29), Theorem 8, Remark 7, and examples",
+        "method": "Opened and read full lawful arXiv HTML at named sections",
+        "title": "Quasi-Orthogonal Runge-Kutta Projection Methods",
+        "trigger": "Same exact frozen predictor projected-gradient construction and claimed order preservation"
+      },
+      {
+        "assessment": "Different multi-relaxation correction parameters and generic rank assumptions; no fixed Kutta stage-span sharp loss statement",
+        "evidence": [
+          "arxiv:2302.05235 §§3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.05235",
+        "material_read": "Full rendered manuscript sections 3 and 4 on multiple correction parameters, conditions and examples",
+        "method": "Read arXiv-accessible manuscript content",
+        "title": "Multiple-Relaxation Runge-Kutta Methods for Conservative Dynamical Systems",
+        "trigger": "Other schemes that conserve multiple quadratic invariants"
+      },
+      {
+        "assessment": "Conditional nondegeneracy theorem and a different correction construction; does not imply singular exact sharp constant",
+        "evidence": [
+          "doi:10.1137/04061979X §3 and Theorem 4.2"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/04061979X",
+        "material_read": "Author-posted full-text technical report section 3 and Theorem 4.2 and adjacent proof",
+        "method": "Inspected available full-text rendering of author technical report",
+        "title": "On the Preservation of Invariants by Explicit Runge–Kutta Methods",
+        "trigger": "Earlier strongly relevant generalized invariant projection analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8aca49ed-d71e-4ba5-8a43-7c64ec5f6971",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a sharp order loss from simultaneous invariant correction in a natural two-frequency linear test, even when the simple stage-count criterion s>=ell+1 is satisfied. Sharp local correction and positive global coefficient give meaningful diagnostic and illuminate why the original conditional rank condition is essential, without asserting broader failure.",
+    "status": "PASS"
+  }
+}
