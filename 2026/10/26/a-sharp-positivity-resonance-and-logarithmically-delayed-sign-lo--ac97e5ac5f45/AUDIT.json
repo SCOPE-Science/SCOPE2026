@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed all four stages and source coefficients exactly; checked second-order conditions rationally, all Jury boundary inequalities, simple real-root factorization, strict monotonicity of the smaller root, a unique root against increasing exponential startup, the safe second Chebyshev lobe, and first-negative/logarithmic asymptotics. Package-local script replay returns VERIFY_OK 2229. Infinite signs are proved rather than inferred from samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2025 Faleichik--Moisa text constructs one-step monotone-positive RK polynomials, not the two-step recurrence here.",
+        "2024 Moisa follow-up abstract emphasizes stability intervals and implementation; full text unavailable after arXiv/OA attempts and authorized institutional access attempt.",
+        "published-finding corpus BDF2 delay source has an unrelated multistep pair and distinct starting rule."
+      ],
+      "reasoning": "The one-step positive-polynomial guarantee does not logically dominate an endpoint-sign theorem for this two-step fixed-coefficient scheme. The inaccessible 2024 follow-up creates residual coverage risk, but no presently observed statement resolves the threshold or first-negative law.",
+      "searches": [
+        "Positivity non preservation of stabilized explicit two step Chebyshev recurrence scalar decay near negative-real stability endpoint, negative dominant eigenvalue even with positive exact starting values",
+        "exact positivity threshold logarithmic delayed sign loss of second-order damped two-stage two-step Runge-Kutta-Chebyshev with transfer matrix eigenvalue cancellation",
+        "\"A family of two-step second order Runge-Kutta-Chebyshev methods\" pdf filetype:pdf",
+        "\"TSRKC2\" \"positivity\" sign change exact-started",
+        "arXiv:2504.00323v1 one-step monotone stable polynomial"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2303.16267v1",
+      "https://arxiv.org/abs/2504.00323",
+      "https://doi.org/10.1016/j.cam.2024.115868 (abstract only)",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=65L03",
+      "published published-finding corpus research records 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+      "prior finding IDs afb90934-073e-414a-bf42-e77b2d86dfd4 and 4cca2310-41b2-48aa-a71f-29eef8b79576"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The accessible same-paper prior finding afb90934 proves a vanishing-damping cubic-forcing consistency barrier, not exact positive scalar endpoint signs at fixed damping.",
+        "The accessible BDF2 prior finding 4cca2310 treats alternating step sizes and backward-Euler startup, not a two-stage Chebyshev RK scheme.",
+        "The 2023 primary article presents the stability and order constraints, without the starter-dependent projection-coefficient cancellation and unique nonzero resonance."
+      ],
+      "reasoning": "Stability bounds are necessary context, not sufficient for sign preservation or the exact first-negative index. Neither the vanishing-damping nonautonomous forcing theorem nor variable-grid BDF2 implies the fixed-parameter transcendental zero of the smaller transfer root and its logarithmic first-negative asymptotic.",
+      "searches": [
+        "arXiv:2303.16267 Moisa Faleichik 2023 second order stabilized two-step Runge–Kutta Chebyshev exact scalar positive startup exponential threshold 9/2 4/7 3/7",
+        "exact positivity threshold logarithmic delayed sign loss of second-order damped two-stage two-step Runge-Kutta-Chebyshev with transfer matrix eigenvalue cancellation",
+        "prior scientific finding ID afb90934-073e-414a-bf42-e77b2d86dfd4",
+        "prior scientific finding ID 4cca2310-41b2-48aa-a71f-29eef8b79576"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Moisa--Faleichik 2023 equations (9),(10),(21),(24) provide the two-step Chebyshev polynomial method and stage realization, not a sign criterion with exact exponential startup.",
+        "published-finding corpus search retrieved analogous BDF2 positivity-delay ID 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14 but no same transfer matrix or sharp root."
+      ],
+      "reasoning": "A description as a two-root transfer-matrix positivity law, a Chebyshev sign lobe, or a nonzero exponential exactness resonance is mathematically equivalent to the claim. The source defines the recurrence but does not assert or imply the global positivity threshold merely from its stability bounds; the BDF2 result involves a different characteristic polynomial and a square-root rather than logarithmic delay.",
+      "searches": [
+        "Two-step stabilized Chebyshev Runge–Kutta methods damping order two Moisa Faleichik odd stage negative stable root parasitic sign alternation positivity dissipative scalar",
+        "arXiv:2303.16267 Moisa Faleichik 2023 second order stabilized two-step Runge–Kutta Chebyshev exact scalar positive startup exponential threshold 9/2 4/7 3/7",
+        "Stability interval and eventual sign of scalar solution recurrence y[n+1]=(4/3+32z/27+64z^2/243)y[n]-(1/3+14z/27+28z^2/243)y[n-1]",
+        "arXiv:2303.16267v1, equations (9)-(10), (21), (24)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary 2023 table reports error constants and real stability interval lengths for damping 0.05, not a positivity threshold for the exact rational damping 0.5 case.",
+        "published-finding corpus searches of the explicit rational recurrence and threshold parameters returned different dynamical schemes, not this indexed numerical law."
+      ],
+      "reasoning": "The critical root and all-step positivity phase diagram are not reconstructed by the source stability-length table or by the returned research-record summaries. Negative search is not a proof of uniqueness; missing classical tables remain a risk.",
+      "searches": [
+        "Stabilized Runge Kutta alternating oscillations positive solutions two-step odd stages boundary spectral stability",
+        "Stability interval and eventual sign of scalar solution recurrence y[n+1]=(4/3+32z/27+64z^2/243)y[n]-(1/3+14z/27+28z^2/243)y[n-1]",
+        "\"Moisa\" \"Faleichik\" positivity nonnegative oscillation two-step Runge Kutta",
+        "\"second order stabilized two-step Runge-Kutta\" negative oscillations mode"
+      ]
+    },
+    "rationale": "The 2023 paper owns the method and stable interval, while the newly proved exact-startup positivity threshold, nonzero exact integration resonance, and logarithmic first-negative law are not stated there. Published-record and previous-claim comparisons found related but distinct BDF2, one-step polynomial, and vanishing-damping results. No decisive coverage seen; inaccessible 2024 family follow-up remains a material risk.",
+    "residual_risks": [
+      "Later 2024 Moisa follow-up has not been inspected in full; more general endpoint sign results may exist there.",
+      "Older two-step recurrence/nonoscillation theory may yield an equivalent specialized threshold after substitution.",
+      "Research-record semantic search and accessible claims do not establish global literature uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Method and stability are explicitly prior. The exact positive-startup endpoint threshold, resonance, and delayed sign law were not found.",
+        "evidence": [
+          "Submitted 2023-03-28; primary listed MSC 65L04, valid under MSC2020.",
+          "Section 3 determines damping via Chebyshev stability polynomials; section 5 gives stages and coefficients; section 4 tabulates scalar stability lengths."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.16267v1",
+        "material_read": "HTML sections 1-7, especially complete formulas (2)-(10), (13)-(25), stability interval table, and conclusions",
+        "method": "Full open-access HTML inspection and direct algebraic reproduction of equations (9),(10),(21),(24)",
+        "title": "Second order stabilized two-step Runge-Kutta methods",
+        "trigger": "Primary source, identical method family and source-date/MSC ownership"
+      },
+      {
+        "assessment": "One-step monotone positive stability-polynomial family. The two-step exact-starter resonance in the present claim is not implied.",
+        "evidence": [
+          "Article submitted 2025-04-01, too recent to own the middle cohort but eligible as supporting comparison.",
+          "Its positivity condition is R_s(x)>0 and derivative nonnegative for a one-step stability function."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.00323",
+        "material_read": "Open full rendered text, introduction and sections 2-3 including conditions (2), (11), (17)-(19)",
+        "method": "Open-access arXiv full-text reading",
+        "title": "Explicit Runge-Kutta-Chebyshev methods of second order with monotonic stability polynomial",
+        "trigger": "Potential stronger prior positivity result by same authors"
+      },
+      {
+        "assessment": "No NOT_COVERING assertion; plausible unresolved stronger result, but no observed decisive matching statement",
+        "evidence": [
+          "2024 follow-up abstract concerns generalized two-step family, solver, and stability efficiency; no full-paper positivity classification inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2024.115868",
+        "material_read": "Searchable title and abstract only; full text not accessible",
+        "method": "Searched arXiv and lawful open-access versions; full text was not available, so no article-body inspection was possible",
+        "title": "A family of two-step second order Runge–Kutta–Chebyshev methods",
+        "trigger": "Later potentially broader analysis of the same method family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac97e5ac-5f45-4c95-b98c-7556325a55aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp whole-stability-interval positivity classification for the minimally staged damped second-order Chebyshev realization directly addresses a physically significant distinction between linear stability and positivity. The coincidence with a nonzero exactness resonance and the logarithmic delay explain why finite runs can miss sign loss. This is not a generic textbook restatement or arbitrary table entry; the exact rational damping choice removes numerical calibration ambiguity. Restricted to exact-starter scalar endpoints.",
+    "status": "PASS"
+  }
+}
