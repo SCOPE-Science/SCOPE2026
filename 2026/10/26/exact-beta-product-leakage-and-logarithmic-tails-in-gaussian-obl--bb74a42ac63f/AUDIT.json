@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Direct multiplication yields the exact 2×2 block [[−ab,a],[b,0]]; Gaussian rotational symmetry and conditioning yield independent G/sqrt(chi-square_s) slopes. Independent beta reciprocal factors give the full distribution, integral CDF and Mellin transform, including the s=2 divergent mean square boundary. For log-inverse-beta variables the convolution has e^(−αz)(z+O(1))/B² density because the endpoint excess kernel is integrable, proving the exact power-log coefficient; identity-side specialization proves the one-sided comparison. Verified against 3221 standalone source-program assertions. Numerical tests are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carrel–Grigori, Proposition 4.4 conditions equivalence on embedding of perpendicular forcing and §6 shows physical-invariant drift.",
+        "Balabanov–Nouy, arXiv:1803.02602, Galerkin embedding and error bounds rely on embedding events.",
+        "Dereziński et al., arXiv:2006.10653v3, Theorem 1, expected orthogonal residual projection approximated by a deterministic spectral inverse."
+      ],
+      "reasoning": "An embedding-conditioned upper bound cannot determine the unconditional beta-product CDF or sharp log-tail coefficient because extreme skew Gaussian sketches lie outside the good-embedding event. An expected orthogonal-projector estimate is for a self-adjoint norm-one projector rather than this unbounded oblique operator; it does not imply the moment divergence or two-sided logarithm.",
+      "searches": [
+        "2607.03402 Carrel Grigori Gaussian oblique DLRA",
+        "oblique projector Gaussian sketch exact Frobenius risk finite second moment",
+        "Precise expressions for random projections Low-rank approximation randomized Newton projected residual oblique 2020",
+        "randomized oblique tangent projection Gaussian sketch exact moments distribution rank one dynamical low rank"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.03402v1 §4.1–4.2 and §6",
+      "arXiv:1803.02602 Galerkin error text and appendix portions",
+      "arXiv:2605.24955 §§2, 4.4, Appendix F",
+      "arXiv:2006.10653v3 §§1–2 and proof structure",
+      "doi:10.1137/100792093 abstract-only record",
+      "Mathematical research-record similarity queries covering oblique Gaussian tangent leakage, beta products, inverse-Wishart and Student aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Carrel–Grigori Lemma 4.2 explicitly gives LZ+ZR^T-LZR^T and Remark 4.3 permits one-sided specialization.",
+        "Carrel–Grigori Proposition 4.4 describes conditional equivalence, not unconditional risk.",
+        "Dereziński et al. 2020/2022 §§1–2 explicitly define P=(SA)^†SA, an orthogonal residual projector."
+      ],
+      "reasoning": "The prior Lemma 4.2 supplies the algebraic definition but not the distributional calculation: after substituting a fixed normal rank-one force, the two independent Gaussian slopes must be identified, multiplied and integrated to derive the theorem. No stated stronger theorem in these inspected papers supplies that full chain as a corollary without new analysis. Published qualitative negative examples do not imply the precise critical moments or logarithmic amplification.",
+      "searches": [
+        "2607.03402 Carrel Grigori Gaussian oblique DLRA",
+        "Precise expressions for random projections Low-rank approximation randomized Newton projected residual oblique 2020",
+        "Gaussian sketch oblique tangent-space projection normal residual beta product exact distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Carrel–Grigori 2026, §4.1 Lemma 4.2 supplies the operator but not a beta-ratio distribution.",
+        "arXiv:2605.24955, §2 and §4.4 concern subsampled OLS/CUR random oblique projectors with different constructions.",
+        "The Gaussian scalar slope is a scaled Student variate, and its reciprocal-square transformation is beta; this standard probabilistic equivalence was explicitly tested as a possible alias."
+      ],
+      "reasoning": "The equivalent formulations are products of independent beta ratios, products of two independent squared Student slopes plus their bilinear term, and a sum of two logarithmic beta-inverse variables. None appeared as an unconditional tangent-normal projection law in the inspected source statements; generic probability identities alone do not state this application.",
+      "searches": [
+        "Gaussian sketch oblique tangent-space projection normal residual beta product exact distribution",
+        "Gaussian two-sided oblique tangent-space projection normal residual independent Beta product logarithmic heavy-tail dynamical low-rank",
+        "two-sided Gaussian oblique projection beta product",
+        "rank one sketch Galerkin Student t heavy tailed normal residual log"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating source provides figures and qualitative randomized experiments, not an exact rank-one error-risk table.",
+        "Standard Beta and Student distribution tables give the one-factor ratio but do not by themselves identify the numerical operator as their product."
+      ],
+      "reasoning": "No inspected exact table for the specified Gaussian rank-one canonical oblique projection, with the same normal forcing, independent sketches and unconditional CDF/tail coefficient was found. An exact special-function representation of a generic beta product would be an algebraic ingredient, not necessarily the full numerical comparison; such overlap is retained as a residual risk.",
+      "searches": [
+        "Gaussian two-sided oblique tangent-space projection normal residual independent Beta product logarithmic heavy-tail dynamical low-rank",
+        "Gaussian randomized Galerkin projector two-sided rank-one leakage beta product logarithmic tail",
+        "Gaussian oblique tangent projector rank-one inverse Wishart Gaussian moments squared Frobenius error"
+      ]
+    },
+    "rationale": "An actual theorem-to-theorem comparison against the motivating 2026 article and several older primary works showed qualitative/conditional oblique errors, embedding bounds, different random oblique CUR/OLS estimators, or orthogonal residual projection expectations, but no result implying the full independent-beta-product law, exact finite-sample CDF, critical moments and sharp two-sided log-tail versus one-sided power-tail contrast. The raw beta-ratio and convolution identities are known methods and are not claimed independently. The historical-priority conclusion is conditional on accessible evidence; older special-function and numerical sketching results remain possible.",
+    "residual_risks": [
+      "A generic pre-existing exact product-of-beta distribution formula may supply the logarithmic coefficient abstractly; independent priority of the operator-specific application has not been established exhaustively.",
+      "Stewart 2011 and all older specialized projector papers were not available for full-text line-by-line comparison.",
+      "Mathematical record similarity searches can miss synonymous or unpublished formulations; lack of hits does not prove novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies the operator and qualitative/conditional context, but does not state the independent-beta product, full CDF or sharp logarithmic tail law",
+        "evidence": [
+          "Lemma 4.2: the projector is LZ+ZR^T−LZR^T",
+          "Remark 4.3: identity-side sketch is valid",
+          "Proposition 4.4 and §6: embedding condition and perpendicular-residual dependence"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.03402",
+        "material_read": "Full accessible article presentation, particularly §§1, 2, 4 including Lemmas 4.1–4.2, Remark 4.3, Proposition 4.4, and §6 experiments",
+        "method": "Read equations, arguments and the stated scope of theorems against the proposed exact unconditional Gaussian rank-one distribution",
+        "title": "Sketch low-rank dynamics: orthogonal vs. oblique projections",
+        "trigger": "The named canonical lifted tangent projector and qualitative normal-forcing sensitivity"
+      },
+      {
+        "assessment": "Different objects and conditioning; no unconditional exact beta-product leakage law observed",
+        "evidence": [
+          "Embedding-style error estimates concern good sketch events",
+          "Normal-forcing projection law requires two independent scalar slope ratios"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.02602",
+        "material_read": "Accessible full-text portions on model-reduction Galerkin error control, embedding guarantees and appendix",
+        "method": "Compared stated randomized Galerkin OSE hypotheses and conditional error control to the unconditioned law of this two-sided tangent projector",
+        "title": "Randomized linear algebra for model reduction. Part I: Galerkin methods and error estimation",
+        "trigger": "Possible dominating Galerkin randomized-embedding error theorem"
+      },
+      {
+        "assessment": "Related oblique projection and inverse-Wishart ingredients; target operator, statistic and tail law not covered by the inspected statements",
+        "evidence": [
+          "Distinct subsampled least-squares / CUR setting",
+          "Two-sided tangent construction not the OLS/CUR estimator"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.24955",
+        "material_read": "Accessible article §§2, 4.4 and Appendix F, including Gaussian inverse-Wishart remarks",
+        "method": "Contrasted the sampling CUR/OLS projector and asymptotic statistical risk with the fixed rank-one DLRA tangent projector and exact unconditional two-sketch law",
+        "title": "Debiasing Random Oblique Projections for Subsampled OLS and Fast CUR in High Dimensions",
+        "trigger": "Potential algebraically equivalent random oblique projection distribution"
+      },
+      {
+        "assessment": "Main residual P_perp=I−(SA)^†SA is an orthogonal projector; expected spectral approximation does not encompass the claimed non-self-adjoint oblique two-sided tail law",
+        "evidence": [
+          "§1.1 Theorem 1: expected orthogonal residual projector approximate spectral resolvent",
+          "§1.2: Frobenius approximation traces of that orthogonal residual"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.10653v3",
+        "material_read": "Abstract, full §§1–2 main formulas, theorem statements and accessible proof/appendix structure",
+        "method": "Checked definition of projected residual and whether a theorem implies the unbounded oblique tangent product statistic",
+        "title": "Precise expressions for random projections: Low-rank approximation and randomized Newton",
+        "trigger": "Strong plausible prior on exact Gaussian projection risk"
+      },
+      {
+        "assessment": "Deterministic conditioning relevant but no demonstrated Gaussian beta-product distribution from accessible material",
+        "evidence": [
+          "SIAM J. Matrix Analysis and Applications, 2011, deterministic oblique-projector numerical analysis; full-text coverage unknown"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/100792093",
+        "material_read": "Bibliographic record and abstract only; primary full text not inspected",
+        "method": "Compared abstracted deterministic perturbation and conditioning scope with the proposed Gaussian law",
+        "title": "On the Numerical Analysis of Oblique Projectors",
+        "trigger": "Earlier deterministic theory possibly dominating low-dimensional oblique projector norms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb74a42a-c63f-4196-9124-e6698e5f7ecb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This answers a motivated error-risk question raised by the motivating oblique low-rank method: it identifies the complete smallest nontrivial normal-forcing leakage distribution, exact sketch-size threshold for finite mean-square error, and a genuine logarithmic penalty from sketching both factors versus one. High-probability embedding conditions cannot answer this unconditional tail question. No full-trajectory instability is claimed.",
+    "status": "PASS"
+  }
+}
