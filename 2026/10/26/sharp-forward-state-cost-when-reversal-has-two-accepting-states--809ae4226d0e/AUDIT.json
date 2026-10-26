@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "For the minimal permutation DFA, the group of input actions is transitive and the reverse subset states are its orbit on the final set. Transitivity distinguishes all different reverse subset states and makes exactly two of them incident to each original state. The incidence-signature injection follows from forward DFA minimality. Hence 2N=tm and N<=binom(t,2), so t>=m+1 and N>=binom(m+1,2). Equality forces a bijection to edges of a complete graph and a 2-homogeneous group action; conversely any such edge action with a vertex-star final set is minimal forward, and its reversal has precisely two accepting stars. The proof covers every integer m>=2 and both directions of the equality classification. Explicit independent DFA minimization passed m=2..12; finite checks are not the all-m proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "German 2026, Theorem 1, solves the full accepting-state spectrum for all m>=2 and alpha>=2.",
+        "German 2026, Sections 3, Lemmas 3-6, displays a binomial-size star-family construction."
+      ],
+      "reasoning": "The later broad existence theorem is decisive coverage of the attempted spectrum-only result; it is not coverage of the new state optimality/rigidity claim. At alpha=2 it gives the upper bound, and no stronger minimum-state bound or classification of all minimizers appears in the inspected text.",
+      "searches": [
+        "Samuel German exact accepting state spectrum reversal permutation automata minimum automaton size optimal witnesses",
+        "Rauch Holzer conjecture accepting state complexity of reversal resolved by German construction. Is the construction with alpha = 2 state-optimal, with C(m+1,2) states and classification by 2-homogeneous permutation groups?",
+        "permutation automaton 2-homogeneous group reversal minimal size states binomial m"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.14731v1 (2022-08-31)",
+      "arXiv:2605.13385v1 (2026-05-13)",
+      "Published indexed mathematical findings: state-minimal reversal witness and 2-homogeneous-star searches",
+      "Web search for accepting-state reversal witness optimality, minimal automata, and incidence-graph reformulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2208.14731v1, Theorem 26 and Conjecture 27: attainable accepting-state counts.",
+        "arXiv:2605.13385v1, Theorem 1 and Lemmas 3-6: witness with binom(m+1,2) states when alpha=2."
+      ],
+      "reasoning": "The new statement quantifies universally over all qualifying automata and characterizes every optimizer. A construction proving attainability and minimality of that individual DFA does not imply a global lower bound over other automata. The orbit-incidence injection and equality-case 2-homogeneity provide the missing implication.",
+      "searches": [
+        "minimum number of states of a permutation automaton with exactly m accepting states and exactly two accepting states after reversal equals m(m+1)/2, stars of complete graph",
+        "Samuel German exact accepting state spectrum reversal permutation automata minimum automaton size optimal witnesses",
+        "\"accepting-state complexity\" \"reversal\" \"minimal states\" graph incidence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rauch--Holzer 2022, Section 3.6, counts accepting states of the reversed minimal DFA.",
+        "German 2026, Lemmas 3-6, proves a specific witness is minimal forward and reverse, a different quantifier than being smallest among all witnesses."
+      ],
+      "reasoning": "Equivalent formulations include minimum DFA state count at prescribed forward/reverse final-state counts, or minimum edges of a vertex-transitive incidence system with block size m and point degree two. None is the same as existence of any witness for those final-state counts.",
+      "searches": [
+        "minimum number of states of a permutation automaton with exactly m accepting states and exactly two accepting states after reversal equals m(m+1)/2, stars of complete graph",
+        "permutation automata reversal two final states minimum state count pair-transitive graph",
+        "\"accepting-state complexity\" \"reversal\" \"minimal states\" graph incidence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result found concerns rank compression in nonpermutational automata; it does not examine the minimum number of states for prescribed accepting-state counts under reversal.",
+        "Searches of online primary literature surfaced arXiv:2605.13385 and arXiv:2208.14731 but no table of optimum sizes."
+      ],
+      "reasoning": "There is no identified exact database table or indexed record giving this least-state function or the optimizer families; the index search is incomplete, so absence by itself is not proof of novelty.",
+      "searches": [
+        "sharp optimal witness size reversal permutation DFA 2-homogeneous groups star incidence states binomial",
+        "state complexity pair spectrum reversal of permutation group automaton, minimal forward state count given forward 3 final states and reversal 2 final states, all minimizers 2-homogeneous edge actions",
+        "\"accepting state complexity\" reversal \"minimum\" \"states\" permutation witness",
+        "permutation automata reversal smallest witness m accepting reversed two accepting states binomial"
+      ]
+    },
+    "rationale": "The 2022 paper derives constraints on attainable numbers of accepting states under reversal, not the least total forward state count. The 2026 paper constructs for each m,alpha a witness using binom(m+alpha-1,alpha) forward states, hence gives the alpha=2 upper bound. Its complete proof establishes existence and minimizes each constructed DFA, but does not universally minimize the witness cardinality or classify all state-minimizers. The new incidence lower bound and rigidity characterization answer those separate optimization questions. The accessible own deduplication claims and the published research index searches revealed no same lower bound or 2-homogeneous equality classification; this does not establish global uniqueness.",
+    "residual_risks": [
+      "Other unindexed or terminology-divergent papers may have studied optimal witness size rather than only attainable final-state counts.",
+      "The lower bound is short once the orbit-incidence viewpoint is adopted, so an implicit observation in other group-action sources cannot be excluded.",
+      "The novelty comparison was performed without independent human verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No minimum-state optimizer rigidity claim in the inspected text; original result is an attainable accepting-state spectrum with missing cases",
+        "evidence": [
+          "Section 3.6 characterizes the reverse subset-orbit incidence count.",
+          "Conjecture 27 asks which final-state numbers can occur, not the minimal number of total states."
+        ],
+        "identifier_or_url": "arXiv:2208.14731v1 | https://arxiv.org/pdf/2208.14731",
+        "material_read": "Full manuscript text, especially pages 1-3 and 9-10: Section 3.6, Lemmas 23-25, Theorem 26, Conjecture 27; other operation sections scanned for scope",
+        "method": "Opened primary OA arXiv PDF, inspected extracted text and page image",
+        "title": "On the Accepting State Complexity of Operations on Permutation Automata",
+        "trigger": "Original problem on reversal spectrum and accepting-state complexity"
+      },
+      {
+        "assessment": "Covers existence for every forward/reverse accepting-state pair; supplies the alpha=2 upper-bound construction. Does not prove a universal minimum forward state count or characterize all smallest witnesses.",
+        "evidence": [
+          "Section 3 uses all alpha-subsets of m+alpha-1 vertices as forward states.",
+          "Theorem 1 establishes attainability, not least witness size."
+        ],
+        "identifier_or_url": "arXiv:2605.13385v1 | https://arxiv.org/pdf/2605.13385",
+        "material_read": "Complete nine-page manuscript text, especially pages 3-9: reverse subset construction, Section 3, Lemmas 3-6, Theorem 1, Corollary 1 and worked example",
+        "method": "Opened primary OA arXiv PDF, inspected extracted text and page image",
+        "title": "Exact Accepting-State Spectrum for Reversal of Permutation Automata",
+        "trigger": "Potentially dominating post-2022 resolution of the original conjecture"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "809ae422-6d0e-4aab-b5c7-23eb9093a4db",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimal number of forward states needed to realize a prescribed pair of reversal accepting-state counts is a natural optimization refinement of a solved existence spectrum. The sharp quadratic lower bound explains why the known binomial-size witness cannot be compressed for reverse accepting count two. More importantly, equality forces a complete edge-incidence system and 2-homogeneous transition group, classifying all optimal automata, a structural theorem not implied by one explicit witness. The result is an all-m theorem, not a small tabulation or an arbitrary parameter slice; larger reverse counts remain open in this analysis.",
+    "status": "PASS"
+  }
+}
