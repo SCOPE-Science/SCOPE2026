@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Proof: independence is equivalent to each consecutive clockwise selected gap >= k+1; two-step forward reachability exactly covers up to 2k, hence every gap <= 2k+1. Marked-vertex enumeration gives n/s bounded-composition coefficients; inclusion-exclusion gives the explicit binomial sum. Direct exhaustive enumeration for 90 parameter pairs matches. Checks include s=1 and k=n-1; finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ai et al. arXiv:2610.23487v1 Thm 1.3 gives an upper bound on the smallest quasi-kernel, not the number of quasi-kernels of each size.",
+        "Gutin et al. 2004 Theorems 2.5 and 2.6 establish at least three quasi-kernels in strong digraphs apart from an exception and classify two-solution digraphs, not the exact polynomial.",
+        "Nguyen-Scott-Seymour 2026 studies general k-kernel domination bounds; Jartoux 2022 counts kernels (one-step) in other classes."
+      ],
+      "reasoning": "Generality in the class of input digraphs is not broader coverage of an exact coefficient enumeration. No consulted theorem implies these counts solely through its stated conclusions.",
+      "searches": [
+        "web: enumeration quasi-kernels directed cycles power circulant independent 2-step domination",
+        "web: \"On the number of quasi-kernels in digraphs\" Gutin Koh Tay Yeo",
+        "web: \"Distant digraph domination\" Nguyen Scott Seymour",
+        "web: \"Counting Kernels in Directed Graphs with Arbitrary Orientations\" Jartoux"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.23487v1",
+      "Gutin-Koh-Tay-Yeo-2004-JGT46-48-56",
+      "Nguyen-Scott-Seymour-2026-EJC33-P1.32",
+      "arxiv:2202.04476",
+      "published-finding corpus actual query for quasi-kernels of directed circular powers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ArXiv 2610.23487v1 proves a weighted size transfer and bound, with the directed 4-cycle merely a sharpness example. It contains no cyclic enumeration.",
+        "Gutin-Koh-Tay-Yeo 2004 proves structural necessary/sufficient conditions for exactly two quasi-kernels, not a coefficient distribution."
+      ],
+      "reasoning": "The present theorem adds a gap-by-gap necessary-and-sufficient condition, a size-spectrum classification and explicit integer formula for every coefficient, none follows as a special-case statement from the checked prior size bounds.",
+      "searches": [
+        "arxiv:2610.23487v1 Thm 1.3, Cor. 1.4, Cor. 1.5 and Sec. 4 full text",
+        "Gutin et al 2004 Theorems 2.3, 2.5, 2.6 full text",
+        "web: \"quasi-kernel\" \"directed circulant\" counting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem in arXiv:2610.23487v1 uses independent distance-two out-domination; the current formula is equivalent to enumeration of independent directed distance-two dominating sets.",
+        "Gutin et al. 2004 studies cardinalities 1 and 2 for arbitrary digraphs, not this cyclic polynomial."
+      ],
+      "reasoning": "The arc-reversal convention preserves counts on circulant powers by vertex reflection. Searches using quasi-kernel, 2-kernel, distance-two dominating and cyclic-gap vocabulary found no same two-parameter all-cardinality statement.",
+      "searches": [
+        "web: \"quasi-kernel\" \"directed circulant\" counting",
+        "web: \"quasi-kernel\" \"power of a directed cycle\" count",
+        "web: \"quasi-kernel\" \"cycle powers\" cardinalities",
+        "published-finding corpus: quasi-kernels of k-th powers of consistently oriented directed cycles, exact counts by cardinality circular compositions gap lengths k+1 through 2k+1, minimum and maximum quasi-kernel sizes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted published-finding corpus response returned 30 ranked records; nearest topical records concern circular directed graphs, different enumerators, or general kernels, none listing this quasi-kernel cardinality table.",
+        "The 2004 exact-count paper treats the cases of one and two quasi-kernels in general digraphs, not a table of cyclic-power cardinality coefficients."
+      ],
+      "reasoning": "No encountered database of directed circular-power quasi-kernels records the full two-parameter enumerator. Absence from a search is not proof of uniqueness; circular domination-polynomial compilations may exist.",
+      "searches": [
+        "web: \"quasi-kernel polynomial\" oriented cycle",
+        "web: \"quasi-kernels\" \"circulant\" \"count\" cycles powers",
+        "published-finding corpus: quasi-kernels of k-th powers of consistently oriented directed cycles, exact counts by cardinality circular compositions gap lengths k+1 through 2k+1, minimum and maximum quasi-kernel sizes"
+      ]
+    },
+    "rationale": "Compared actual quasi-kernel size-transfer and numerical-count literature, equivalent directed distance-two domination and cyclic-composition variants, and research records. None examined states or implies the complete enumerator for all circular powers; main priority residual risk is another periodic-code formulation.",
+    "residual_risks": [
+      "Bounded-gap cyclic-composition enumeration may have appeared under circular periodic code or directed domination terminology outside indexed sources.",
+      "Some source coverage beyond the primary 2026 article and 2004 exact-number paper is abstract/introductory rather than full-text; no independence or comprehensive-priority claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: sharp size bounds and weighted transfer but no exact polynomial or circulant power classification",
+        "evidence": [
+          "2026 preprint pp.1-7, Thm1.3/Cor1.4/Cor1.5, Sec2-4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.23487v1",
+        "material_read": "All 7 PDF pages: definitions, Thm 1.3, full proof, Corollaries 1.4-1.5 and references",
+        "method": "Page-resolved full-text read plus page-2 screenshot",
+        "title": "Small and large quasi-kernels: a weighted transfer theorem",
+        "trigger": "Same quasi-kernel property and contemporaneous motivating result"
+      },
+      {
+        "assessment": "NOT_COVERING full cardinality distribution: structural classification of digraphs with one or two quasi-kernels and at-least-three bound",
+        "evidence": [
+          "Gutin et al 2004, Abstract; Thm2.3/2.5/2.6"
+        ],
+        "identifier_or_url": "https://www.cs.rhul.ac.uk/home/gutin/paperstsp/quasik130903.pdf",
+        "material_read": "Nine-page PDF: introduction and statements of Theorems 2.3, 2.5, 2.6, plus related proof arguments",
+        "method": "Full-text navigation, page-1 screenshot, targeted cycle matches",
+        "title": "On the number of quasi-kernels in digraphs",
+        "trigger": "Title explicitly concerns enumerating quasi-kernels"
+      },
+      {
+        "assessment": "PARTIAL_INSPECTION; no displayed complete enumerator, broader text not exhaustively inspected",
+        "evidence": [
+          "Nguyen-Scott-Seymour 2026 abstract/introduction"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p32/pdf/",
+        "material_read": "Abstract and introduction, including the three theorem descriptions",
+        "method": "Search result and extracted PDF introductory passage",
+        "title": "Distant digraph domination",
+        "trigger": "General k-kernel bounds could dominate the extremal formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "792b79af-4f23-49a0-b73b-ff0cdf925e17",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural all-cardinality invariant of a two-parameter class of strongly connected circulant digraphs, including sharp minimum/maximum, absence of size gaps, exact multiplicities and a constructive characterization. Directly motivated by current quasi-kernel extremal and counting questions, not a mere finite table or restatement of known bounds.",
+    "status": "PASS"
+  }
+}
