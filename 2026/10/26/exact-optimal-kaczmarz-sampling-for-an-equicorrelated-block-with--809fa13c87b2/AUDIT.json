@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For the SPD unit-diagonal Gram G, the sharp one-step expected squared-error gain is the least eigenvalue of the affine information matrix. Group symmetry reduces the global maximum without presupposing uniqueness. The repeated-row contrast eigenvalue is (1-alpha)q; the remaining two eigenvalues equal those of the explicit 2x2 M(r). Its smaller eigenvalue satisfies a global determinant-square certificate and is concave via a fixed-vector affine representation. A single crossing gives the exact beta_c transition and both branch formulas. A bottom-eigenvector kernel argument proves uniqueness even against asymmetric sampling laws, including the beta=0 boundary. Executed verification code independently checks 270 spectral parameter cases, 6480 random probability laws, 11 numerical optimizers and 6 exact/symbolic identities. These finite tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General projected linear solvers: Gower–Richtárik https://doi.org/10.1137/15M1025487.",
+        "Dai–Soltanalian–Pelckmans optimal-probability SDP https://arxiv.org/abs/1402.2863."
+      ],
+      "reasoning": "Both broader frameworks include the objective abstractly but do not imply closed unique optimum probabilities, the beta_c transition, or the full asymmetric uniqueness assertion without doing the new optimization. The asymptotic exact MSE design of Agaskar et al. optimizes a different fourth-moment transfer operator.",
+      "searches": [
+        "Exact optimal randomized coordinate descent probabilities for rank-one perturbed diagonal quadratic Hessian spectral rate two block symmetry",
+        "Optimal Kaczmarz probabilities augmented linear systems rank one diagonal sampling beyond row norm proportional",
+        "E-optimal design maximal minimum eigenvalue equicorrelation block one outlier row exact phase transition sample proportions",
+        "One-factor signal shared latent measurement correlation Gram normalized randomized projection probabilities sharp eigenspace crossover",
+        "randomized Kaczmarz optimal sampling exchangeable rows one outlier"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/0702226v1",
+      "https://arxiv.org/abs/1402.2863",
+      "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+      "https://doi.org/10.1137/15M1025487",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Strohmer–Vershynin https://arxiv.org/html/math/0702226v1: norm-proportional sampling and mean-square convergence.",
+        "Dai et al. https://arxiv.org/abs/1402.2863: general optimal row-probability SDP.",
+        "Agaskar–Wang–Lu https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content: asymptotic exact MSE and associated optimal design."
+      ],
+      "reasoning": "Uniform unit row norms make norm-proportional sampling uniform, but it is optimal here exactly at beta=alpha. The general SDP does not logically assert a closed formula for the specified Gram family. The asymptotic MSE objective differs from the claimed sharp conditional one-step decrease. The exact eigenmode crossover and arbitrary-law uniqueness are not consequences stated by the inspected sources.",
+      "searches": [
+        "Optimal Kaczmarz probabilities augmented linear systems rank one diagonal sampling beyond row norm proportional",
+        "Sharp optimal worst-case one-step randomized Kaczmarz row-selection probabilities for unit-row Gram matrix consisting of a positively equicorrelated block and one exceptional row cross correlation phase transition",
+        "Optimal randomized Kaczmarz unit-norm rows one exceptional correlated measurement m exchangeable rows coherence alpha beta exact closed-form sampling threshold root",
+        "E optimal design equicorrelation single outlier optimal weights eigenvalue sampling"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dai–Soltanalian–Pelckmans https://arxiv.org/abs/1402.2863 gives equivalent one-step Kaczmarz row-selection eigenvalue SDP.",
+        "Inverse-positive coordinate-sampling theorem published at https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ],
+      "reasoning": "The primal eigenvalue SDP and E-optimal information design are the relevant equivalent formulations. The general convex program does not supply this closed block-perturbed Gram solution. The inverse-positive Hessian condition is inapplicable: an equicorrelated positive off-diagonal block has inverse with negative off-diagonal coefficients.",
+      "searches": [
+        "Sharp optimal worst-case one-step randomized Kaczmarz row-selection probabilities for unit-row Gram matrix consisting of a positively equicorrelated block and one exceptional row cross correlation phase transition",
+        "equicorrelated block plus one exceptional row optimal sampling λ_min design eigenvalue covariance probabilities",
+        "one-factor correlation matrix optimal smallest eigenvalue diagonal scaling sampling probabilities Kaczmarz",
+        "Optimal randomized Kaczmarz unit-norm rows one exceptional correlated measurement m exchangeable rows coherence alpha beta exact closed-form sampling threshold root",
+        "Kaczmarz equicorrelated optimal row sampling probabilities"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published maximal-distance residual-spike analysis: https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+        "Published cyclic two-row horizon analysis: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1"
+      ],
+      "reasoning": "Searches across published mathematical finding records and primary literature revealed no tabulation of the two-correlation exact sampling law or its exceptional-row phase threshold. Failure to locate a table is not a proof of absence; the closest records study adaptive residual spikes or cyclic two-row rates.",
+      "searches": [
+        "equicorrelated block plus one exceptional row optimal sampling λ_min design eigenvalue covariance probabilities",
+        "one-factor correlation matrix optimal smallest eigenvalue diagonal scaling sampling probabilities Kaczmarz",
+        "Optimal randomized Kaczmarz unit-norm rows one exceptional correlated measurement m exchangeable rows coherence alpha beta exact closed-form sampling threshold root",
+        "E-optimal design maximal minimum eigenvalue equicorrelation block one outlier row exact phase transition sample proportions"
+      ]
+    },
+    "rationale": "The new claim evaluates, rather than merely restates, the previously known worst-direction eigenvalue SDP for sampling. The closed two-branch formulas and sharp coherence threshold hold for all repeated-block sizes and all admissible beta, and arbitrary asymmetric optimizers are excluded. The inspected primary texts establish the general contraction/SDP framework but do not state a theorem implying this exact evaluation. General and specialized earlier coverage remains a residual risk, not proof of uniqueness in the literature.",
+    "residual_risks": [
+      "A specialized E-optimal design or matrix scaling result not indexed in the retrieved sources might already imply the exact two-coherence formula.",
+      "Published finding summaries were compared by their scientific statements; not every potentially relevant published package was inspected in full.",
+      "No independent mathematical review; the stated C/O/V assessment is a self-review only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Foundation for conditional expected squared-error decrease and norm-proportional sampling; no exceptional equicorrelation optimal-probability classification identified.",
+        "evidence": "arXiv:math/0702226v1; first arXiv posting 2007-02-08.",
+        "identifier_or_url": "https://arxiv.org/html/math/0702226v1",
+        "material_read": "Full-text abstract, setup, sampling law, convergence theorem and related discussion",
+        "method": "Read openly accessible arXiv article text",
+        "title": "A randomized Kaczmarz algorithm with exponential convergence",
+        "trigger": "Classical row-selection probability and convergence theorem"
+      },
+      {
+        "assessment": "Covers the global eigenvalue SDP used here but does not evaluate it in closed form on the one-defect equicorrelated family; general prior framework explicitly credited.",
+        "evidence": "arXiv:1402.2863; 2014-02-12 first arXiv posting.",
+        "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+        "material_read": "Primary paper abstract, convergence-factor and probability-optimization sections including SDP formulation",
+        "method": "Read accessible arXiv preprint text",
+        "title": "On the Randomized Kaczmarz Algorithm",
+        "trigger": "General optimal row probabilities could already cover the exact claim"
+      },
+      {
+        "assessment": "Optimizes the long-time exact MSE exponent via a distinct higher-dimensional evolution operator; it does not imply this closed one-step SDP threshold.",
+        "evidence": "Agaskar, Wang, Lu, GlobalSIP 2014, especially optimization of asymptotic MSE.",
+        "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+        "material_read": "Accessible paper abstract, analysis and optimal probability subsection, including pages around Section III",
+        "method": "Read lawful Harvard repository PDF and inspected relevant page images",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "Exact-sampling title and potential stronger result"
+      },
+      {
+        "assessment": "Gives framework and several distribution choices, not the full two-coherence exact E-optimal Kaczmarz law.",
+        "evidence": "Gower, Richtárik, SIAM Journal on Matrix Analysis and Applications 36 (2015), 1660–1690.",
+        "identifier_or_url": "https://doi.org/10.1137/15M1025487",
+        "material_read": "Full-text introductory framework and probability selections, including optimal probability discussion",
+        "method": "Read publicly available SIAM PDF and inspected pages",
+        "title": "Randomized Iterative Methods for Linear Systems",
+        "trigger": "General random-projection and probability-selection theory"
+      },
+      {
+        "assessment": "Different inverse-positivity premise; positive equicorrelated Gram block inverse has negative offdiagonal entries. Full published package not used to claim broad noncoverage.",
+        "evidence": "Published summary states p proportional to C^{-1}1 under entrywise nonnegative inverse.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+        "material_read": "Published record title and research-result summary; not claimed to be full article text",
+        "method": "Semantic database search and scientific statement comparison",
+        "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+        "trigger": "Similar optimizer of one-step eigenvalue contraction under nonuniform sampling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "809fa13c-87b2-4420-8d3a-4ed9336302d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Repeated mutually correlated measurements with one differently correlated exceptional measurement form a natural and interpretable finite-measurement design. The exact optimizer determines when group contrasts versus coupled exceptional-mode geometry controls guaranteed projection improvement; it gives a sharp threshold, nontrivial deviation from conventional uniform/norm sampling, unique design, and an infinite-dimensional-size family. This is a motivated structural design result rather than an arbitrary finite computation. The nontrivial exact 35-percent class of gains and uniform-only-at-beta=alpha criterion clarify practical allocation.",
+    "status": "PASS"
+  }
+}
