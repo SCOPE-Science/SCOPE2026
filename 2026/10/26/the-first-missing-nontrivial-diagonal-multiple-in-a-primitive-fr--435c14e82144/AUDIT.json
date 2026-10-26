@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every coprime a,b>=2, x=bj and y=a(m-j) characterize ALL representations of mab; endpoints cannot be primitive. When m-1 is a prime power, j=1 or m-1 is always primitive. The remaining m=7,11,13,15 have explicit witnesses for every forced allocation of the small prime factors. At m=16, excluding j=1,15 forces primes 3 and 5 to opposite generators, and excluding j=3,9,11 forces 13,7,11 respectively; the converse list of all eight odd-index obstructions and even-index parity is exhaustive. An independently implemented standard-library checker exhaustively covered 729 finite prime states and 13,416 small coprime pairs; no finite extrapolation is used in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jaffe proves finiteness of g(a,b) and some special exact values; these address all n above a pair-specific bound or one generator special.",
+        "Closest public mathematical record concerns a four-generator primitive Pythagorean quadruple semigroup, a different Frobenius object.",
+        "Earlier CRT-offset primitive gaps  0eee43f2-3b58-4ee9-a015-a0b55e8dc425 have the shifted form kab-ac-bd, and earlier fixed-a asymptotic gaps 6529a886-a349-476b-8b85-89e3d8c0f0c9 do not identify exact diagonal gaps."
+      ],
+      "reasoning": "Uniform eventual representability and lower bounds for non-diagonal shifted numbers do not imply existence or failure at every m from 2 to 16, or classify the exceptional divisibility patterns. Conversely the present small-m result does not imply the full existing asymptotic conclusions.",
+      "searches": [
+        "coprime multipliers Frobenius largest gap restricted primitive solutions, conjecture 7.2 g(a,b) >= 4(ab-a-b), exact prime-power parameter families",
+        "Jaffe 2026 restricted Frobenius problem, diagonal multiples of coprime generators and coprime coefficient visibility",
+        "arXiv:2610.17267v1 Sections 4-7",
+        "2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.17267v1 (HTML full text)",
+      "doi:10.7546/nntdm.2018.24.2.71-73 (three-page PDF)",
+      "2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594",
+      "0eee43f2-3b58-4ee9-a015-a0b55e8dc425",
+      "6529a886-a349-476b-8b85-89e3d8c0f0c9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source equivalence maps primitive ax+by to Stern denominators, without an m<=16 classification.",
+        "Source finiteness and monotonicity are compatible with all m<=15 occurring yet 16ab failing for selected coprime pairs.",
+        "Published closest semigroup result is not a statement about requiring gcd(x,y)=1 in a two-generator linear form."
+      ],
+      "reasoning": "The exact claim is stronger than the source statements at the specific m<=16 values but weaker in other dimensions: it neither yields all large-n primitive representability nor a global formula for g(a,b). No checked theorem logically implies the 55/273 iff classification.",
+      "searches": [
+        "primitive Frobenius problem g(a,b) with gcd(x,y)=1, exact values for a=3, Jaffe 2026, all n=ax+by",
+        "coprime multipliers Frobenius largest gap restricted primitive solutions, conjecture 7.2 g(a,b) >= 4(ab-a-b), exact prime-power parameter families",
+        "First multiplier m>=2 for which coprime a,b have no primitive nonnegative solution ax+by=mab, 16ab, 55 273",
+        "arXiv:2610.17267v1 Theorems 2.1,4.3,7.1",
+        "2026/10/4/SCOPE-exact-subthreshold-frobenius-correction-for-primitive-pythagorea--3f9d1229d594"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jaffe arXiv:2610.17267v1 Theorem 2.1: primitive representations equivalent to Stern-array denominator occurrences.",
+        "For n=mab, modular reduction yields only the m+1 pairs (bj,a(m-j)); no further representation can be hidden by a change of variables."
+      ],
+      "reasoning": "Equivalently this theorem states the smallest m>=2 for which some coprime a,b>=2 omit mab from their Stern denominator set is m=16, with explicit if-and-only-if generators. The inspected source proves the equivalence of objects but does not determine this threshold.",
+      "searches": [
+        "primitive Frobenius problem g(a,b) with gcd(x,y)=1, exact values for a=3, Jaffe 2026, all n=ax+by",
+        "First multiplier m>=2 for which coprime a,b have no primitive nonnegative solution ax+by=mab, 16ab, 55 273",
+        "\"primitive\" \"Frobenius\" \"16ab\" coprime",
+        "\"coprime\" \"ax+by\" \"55\" \"273\"",
+        "arXiv:2610.17267v1, Sections 2, 3, 5, 7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Jaffe Section 6 describes exact g(a,b) computations for coprime a,b<=200 and a plot; exceptional minimal pair (55,273) lies outside that box.",
+        "The standardized prime-state checker exhausts 729 possible assignments to six relevant primes and matches the theorem."
+      ],
+      "reasoning": "A table of whole-number g(a,b) values for bounded a,b cannot classify all pairs at m16; no public table encoding the exact 55/273 divisibility criterion was identified. The finite checker is new computational corroboration, not novelty evidence by itself.",
+      "searches": [
+        "First multiplier m>=2 for which coprime a,b have no primitive nonnegative solution ax+by=mab, 16ab, 55 273",
+        "all integer m=2 to 15 primitive representations of ab*m and exceptional m=16 patterns 55|a 273|b",
+        "arXiv:2610.17267v1 Section 6 exact values and Figure 5",
+        "\"coprime\" \"ax+by\" \"55\" \"273\""
+      ]
+    },
+    "rationale": "Current public 2026 manuscript treats identical primitive linear forms but only proves ultimate existence, certain special values and general open questions. Exact m=2..16 universal statements and two full iff patterns were not identified in the primary full text or targeted mathematical searches. Closest public mathematical record addresses different primitive-Pythagorean four-generator semigroup; two related earlier primitive gaps give shifted CRT points or asymptotic lower bounds, not an unshifted first diagonal failure. Searches are not proof of uniqueness; implicit re-formulation remains a risk.",
+    "residual_risks": [
+      "An equivalent finite prime-covering lemma might exist outside the indexed papers; searches do not establish universal novelty.",
+      "Available prior ledgers provide a partial historical view, so unpublished or unavailable historical overlap cannot be ruled out.",
+      "External human mathematical review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems 2.1 and 4.3 give object equivalence and ultimate existence, and exact data cover a,b<=200; no matching universal first nontrivial diagonal failure classification found",
+        "evidence": [
+          "Theorem 2.1: primitive linear representations equivalent to Stern array.",
+          "Section 6: plotted dataset a,b<=200, not 55 by 273.",
+          "Section 7: unproven general bounds and open behavior of nonrepresented integers below g."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.17267v1",
+        "material_read": "Full HTML, with attention to Sections 2, 3, 4, 5, 6, and 7, including the exact-values figure description and open problems",
+        "method": "Read theorem statements, proofs and mathematical scope; inspected source for the diagonal multiplier and exceptional-factor parameter patterns",
+        "title": "Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers",
+        "trigger": "Same ax+by primitive-coefficient object and first-public source for the work"
+      },
+      {
+        "assessment": "Ordinary Frobenius coin sums without a gcd(x,y)=1 requirement, hence cannot imply this coefficient-primitivity classification",
+        "evidence": [
+          "No universal condition that a solution coefficient pair is coprime; the object is the unrestricted Frobenius invariant."
+        ],
+        "identifier_or_url": "doi:10.7546/nntdm.2018.24.2.71-73",
+        "material_read": "All three pages of the openly accessible 2018 PDF, including definitions and main number-theoretic results",
+        "method": "Read PDF text and visually inspected its pages",
+        "title": "A note on the Frobenius and the Sylvester numbers",
+        "trigger": "Related classical Frobenius formulation could be misidentified as covering a primitive-coefficient theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "435c14e8-2144-442a-826d-be9163700923",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial multiplicative interval of assured primitive representability is a canonical structural invariant for the primitive two-generator Frobenius problem, not a selected arbitrary modulus. Its sharp endpoint at m=16 and complete 55/273 oriented failure locus demonstrate a genuine prime-covering transition and infinitely many naturally defined counterinstances beyond the uniform range, providing concrete guidance for later exact structure questions. This is stronger than a single worked example or a generic CRT lower bound.",
+    "status": "PASS"
+  }
+}
