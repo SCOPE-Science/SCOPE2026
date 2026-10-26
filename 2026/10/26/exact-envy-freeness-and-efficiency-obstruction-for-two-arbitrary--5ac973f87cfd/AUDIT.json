@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every integer m≥1, two-agent binary utility vectors imply that any (1,1) allocation is EF+PO and any (1,0)/(0,1) allocation is PO when (1,1) is absent. A subset on which nonidentical valuations disagree yields an envy-free extreme allocation. For identical valuations, a nonzero complementary-11 pair yields EF+PO; if no such pair, all Pareto-efficient allocations have one agent at utility 0 who envies the utility-1 bundle. For plain EF the complementary equality criterion is exact. Each complementary pair gives three admissible identical function patterns, minus allzero, yielding 3^L-1; no EF permits only two patterns, yielding 2^L; 16^L is the exactly counted independent-fair sample space. An independently implemented exhaustive definition-level checker passed all 65,808 profiles for m=1,2,3; finite testing is explicitly not substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bérczi et al., arXiv:2006.04428v1, full text §5 and Theorems 5–6 on EF1/EFX for Boolean preferences: a different, weaker envy criterion; not the exact EF+PO existence classification.",
+        "Teh, arXiv:2607.23367: strictly increasing valuations, EF1 and PO rather than arbitrary nonmonotone Boolean exact EF and PO."
+      ],
+      "reasoning": "General EF1/EFX statements do not imply EF; stronger monotonic/additive hypotheses do not cover arbitrary truth tables. No inspected stronger result subsumes the exact classification and random incidence; additional unindexed coverage remains a risk.",
+      "searches": [
+        "two agents arbitrary Boolean nonmonotone set valuations distinct valuations always have Pareto optimal envy-free complete allocation identical valuations complementary bundles",
+        "two agent nonmonotone dichotomous valuations unequal set functions envy free Pareto efficiency random complementary pairs",
+        "arxiv:2006.04428v1, section 5",
+        "arxiv:2607.23367 EF1 Pareto strict increasing"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.29497 (full inspected primary text)",
+      "arxiv:2006.04428v1 (full inspected primary text)",
+      "arxiv:2607.23367 (abstract/scope)",
+      "arxiv:2608.08966 (additive lottery, abstract/scope)",
+      "published mathematical records: two-preference-type random-priority SD fairness, four-agent RSD inefficiency, PS versus RSD stochastic-dominance; all concern different models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shah–Verma, arXiv:2608.29497, full text, Lemma 3 and Proposition 6: EF+PO when exactly one empty-bundle value is zero; an EF1+PO counterexample with unnormalized valuations, respectively. Neither provides the exact pointwise iff for two distinct arbitrary Boolean truth tables or a uniform-profile count.",
+        "Bérczi et al., arXiv:2006.04428v1, full text §5 and Theorems 5–6 on EF1/EFX for Boolean preferences: a different, weaker envy criterion; not the exact EF+PO existence classification.",
+        "For Z=1 the new obstruction is impossible because identical functions have equal empty-set values; this recovers the paper’s existing guarantee as a special case. For Z=0 and Z=2, old class-wide counterexamples do not characterize each pair, whereas the new iff distinguishes all successful and unsuccessful pairs."
+      ],
+      "reasoning": "The manuscript’s lemma is strictly a special case, and its counterexample only shows non-universal existence of relaxed fairness plus PO. Both can hold without the full necessary-and-sufficient characterization; the earlier Boolean EF1/EFX theorems are too weak in fairness strength to imply it.",
+      "searches": [
+        "Shah Verma Fair Division Under Boolean Valuations Beyond Normalization Lemma 3 Proposition 6",
+        "two agents arbitrary Boolean nonmonotone set valuations distinct valuations always have Pareto optimal envy-free complete allocation identical valuations complementary bundles",
+        "two-player dichotomous arbitrary preferences envy-free Pareto optimal allocation characterization obstruction identical valuations no complementary satisfactory partition",
+        "Bérczi Envy-free Relaxations Boolean utilities Theorems 5 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shah–Verma, arXiv:2608.29497, full text, Lemma 3 and Proposition 6: EF+PO when exactly one empty-bundle value is zero; an EF1+PO counterexample with unnormalized valuations, respectively. Neither provides the exact pointwise iff for two distinct arbitrary Boolean truth tables or a uniform-profile count.",
+        "Equivalent obstruction formulated as v1=v2 nonzero and support of v containing no complementary sets; nonexistence of plain EF is the stronger self-dual condition. Exact comparisons are at the level of the relevant claims."
+      ],
+      "reasoning": "A two-agent Boolean Pareto frontier has only four possible utility vectors. A global (1,1) output is both EF and PO; otherwise a disagreement between v1 and v2 yields a nonenvied PO 1/0 output. The target manuscript only establishes a narrower normalization-based guarantee, not this exact all-valuation dichotomy.",
+      "searches": [
+        "two agents arbitrary Boolean nonmonotone set valuations distinct valuations always have Pareto optimal envy-free complete allocation identical valuations complementary bundles",
+        "two-player dichotomous arbitrary preferences envy-free Pareto optimal allocation characterization obstruction identical valuations no complementary satisfactory partition",
+        "self-dual Boolean valuation identical agents complementary bundles absence envy-free Pareto efficiency",
+        "complement-free support family of Boolean set functions envy free Pareto optimal fair allocation",
+        "arxiv:2608.29497, sections 2–8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The first computed no-EF-plus-PO counts for m=1,2,3 are 2,8,80; these are derived from (3^L-1) and are not claimed as a novel integer sequence in isolation.",
+        "Published mathematical-record semantic searches returned no exact Boolean allocation incidence theorem or database entry matching its interpretation."
+      ],
+      "reasoning": "A combinatorial formula by itself may duplicate elementary binomial or sequence identities. The claim is the two-agent fair-allocation obstruction, from which the exact random-profile probability follows; the counts alone are not represented as novel independent identities.",
+      "searches": [
+        "random Boolean valuations envy free Pareto efficient probability exact 3/16 complement pairs",
+        "OEIS sequence 3 8 80 Boolean valuations envy-free Pareto count"
+      ]
+    },
+    "rationale": "Primary full text on arbitrary Boolean fair division was inspected: its mixed-normalization EF+PO guarantee is implied by, but does not imply, the complete two-agent valuation-equality obstruction. Its EF1+PO counterexample does not classify plain exact EF+PO feasibility. Earlier EF1/EFX and stricter monotone-valuation results do not dominate the exact iff. Six targeted mathematical-result queries, closest published scientific records, and available previous claims produced no mathematical equivalent. Priority is provisional because such a short combinatorial structural lemma might be previously observed outside the checked record.",
+    "residual_risks": [
+      "Equivalent short two-agent dichotomous EF+PO obstruction may be folklore, in an unindexed appendix, or formulated via complementary support; search failure cannot prove worldwide novelty.",
+      "The full text of every tangential additive fair-allocation article was not inspected, but those visible scopes use different fairness and valuation assumptions.",
+      "The random-profile probability is a direct enumeration from the structural obstruction, not asserted as independently significant outside the allocation context."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its Lemma 3 proves a particular normalization-case EF+PO result and its Proposition 6 a different EF1+PO obstruction; neither states or dominates this universal two-agent exact iff or random incidence.",
+        "evidence": "arXiv:2608.29497, Lemma 3; Proposition 6; Theorem 2 and scope sections.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.29497",
+        "material_read": "Full arXiv HTML manuscript, introduction, formal definitions, Section 4 Lemma 3 and Proposition 6, adjacent existence arguments, mechanisms and constraints results.",
+        "method": "Full manuscript textual reading and targeted result/section searches.",
+        "title": "Fair Division Under Boolean Valuations: Beyond Normalization",
+        "trigger": "Identical all-nonmonotone Boolean model and fair-and-efficient existence/obstruction claims."
+      },
+      {
+        "assessment": "The inspected claims establish EF1/EFX relaxations, not exact EF-and-PO pointwise feasibility or combinatorial probability.",
+        "evidence": "arXiv:2006.04428v1, abstract, §3, §5 and Theorems 5–6.",
+        "identifier_or_url": "https://arxiv.org/html/2006.04428v1",
+        "material_read": "The complete accessible arXiv manuscript with introduction, preliminaries and Section 5 Boolean utilities, including Theorems 5 and 6.",
+        "method": "Read accessible original arXiv full text with Boolean and fairness theorem comparisons.",
+        "title": "Envy-free Relaxations for Goods, Chores, and Mixed Items",
+        "trigger": "Early full-text treatment of arbitrary nonmonotone utility and Boolean allocations."
+      },
+      {
+        "assessment": "Different valuation domain (strict increasing) and fairness (EF1, not exact EF); no implication for the new binary nonmonotone result is identified from its stated theorem.",
+        "evidence": "arXiv:2607.23367, abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.23367",
+        "material_read": "Abstract and published result summary; not treated as a complete-text exclusion.",
+        "method": "Source abstract and precise scope comparison.",
+        "title": "Fair Division with Strictly Increasing Valuations: A Tight Threshold for Two-Agent EF1 and PO",
+        "trigger": "Two-person fairness and Pareto optimality with many indivisible goods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5ac973f8-7cfd-4d05-8589-6621eb15ea8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Recent work identifies empty-set normalization as a central parameter in arbitrary Boolean division but gives only coarse classwise guarantees. The exact two-agent iff identifies the actual global obstruction: coincidence of entire valuation tables plus absence of complementary valued bundles. The result shows that even within both endpoint normalization classes every pair of differing valuations is feasible, locates the difference between EF nonexistence and EF/PO incompatibility, and supplies a natural exact probability under the uniform finite Boolean benchmark. This is a complete classification with a motivated substantive distinction, not merely a renamed allocation or a generic integer sequence. Limits to two agents and the artificial independent truth-table prior are explicit.",
+    "status": "PASS"
+  }
+}
