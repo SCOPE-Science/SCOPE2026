@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The biconditional between destruction of every minimum dominating set and domination increase after deletion is proved without a numerical assumption. Exact 24-vertex subset enumeration establishes domination number eight and 1767 optimal sets. Two distinct exhaustions of all 376992 five-edge subsets agree that 276 kill every optimum. Explicit 48-element group actions partition the 276 into eight orbit sizes totalling 276; each representative and its full orbit are replayed. The star counts 240 and 36 are exhaustively established. A finite enumeration is sufficient for this finite claim.
+
+**Originality: PASS with residual risk.** The public 2026 primary record [1] states only domination number eight and bondage number five; it reports four-edge exhaustion and one five-edge obstruction, not the exact five-edge multiplicity, full symmetry-orbit classification, or universal star property. Searches for aliases (truncated-octahedral graph, order-four permutahedron, Cayley graph of adjacent transpositions), exact counts (276, eight orbits), and domination/bondage did not identify a known identical or stronger statement. Another result about the independence complex on this same graph is about a different invariant. Full-text access to [1] was unsuccessful, so an unreported appendix/census remains a documented priority risk.
+
+**Value: PASS.** Minimum bondage is a robustness threshold. Exhaustively classifying its witnesses on an important 2026 planar-counterexample graph supplies information not implied by the threshold: every optimal failure isolates a vertex, there are 276 solutions in eight structurally distinct symmetry classes, and double-isolation accounts for 36. This identifies the mechanism and multiplicity of every optimal attack rather than merely recomputing a known bondage number.
+
+**Limits and relevant literature.** Scope is the named 24-vertex graph, not general planar graphs. See Srivastava, arXiv:2609.02477 (2 September 2026); Weisstein's Truncated Octahedral Graph and Bondage Number references. The primary full text was inaccessible in this attempt; independent priority and proof review remain undone.
+
+Self-review: passed. Independent audit: not yet performed.
