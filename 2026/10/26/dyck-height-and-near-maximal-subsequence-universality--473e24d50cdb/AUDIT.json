@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The greedy arch index equals the all-target subsequence index by earliest-occurrence induction. Summing arch-length excess and residual length gives 2(n-k); their signed height increments sum to zero, so positive total variation is n-k. A positive 0-run arch rises at most one above its endpoint, yielding H<=n-k+1. If H<=2, arch boundary heights remain 0/1; the only positive-excess arch is a unique 001, with preceding 01 arches and following 01/10 arches and terminal 1. Exhaustive n<=12 Dyck checks and direct target-subsequence tests n<=8 pass; they corroborate rather than establish the infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson 2023 counts unrestricted k-universal words over fixed alphabets, not their intersection with the nonregular Dyck language.",
+        "Adamson et al. 2023 addresses regular languages via finite automata, not the nonregular full Dyck language; the retrieved abstract cannot establish broader coverage."
+      ],
+      "reasoning": "The unrestricted-word counts do not determine Dyck-constrained counts; the regular-language algorithm does not imply a count for the full nonregular Dyck language. The new height relation also has no corresponding statement in either visible result.",
+      "searches": [
+        "published-finding corpus: exact number Dyck paths of semilength n that are (n-1)-subsequence universal 2^{n-1}-1",
+        "published-finding corpus: near-maximal universality index Catalan Dyck words complete arch decomposition",
+        "arXiv:2304.04583 Section 3 unrestricted word enumeration",
+        "arXiv:2311.10658 abstract regular-language universality"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.06145v1, HTML material",
+      "arxiv:2304.04583v1, HTML material",
+      "arxiv:2304.11932v1, HTML material",
+      "arxiv:2610.06717v1, HTML material",
+      "arxiv:2311.10658, abstract only",
+      "published-finding corpus 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "published-finding corpus 2026/10/11/SCOPE-sharp-logarithmic-finite-core-entropy-deficit-for-primitive-dyck--cc17d7fdec34",
+      "published-finding corpus 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schnoebelen–Veron derive word-index computations via arch jumps but give no Dyck-depth inequality.",
+        "Mol–Rampersad–Shallit derive restrictions on nesting for words avoiding powers and Thue–Morse Dyck factors, not universality constraints.",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-logarithmic-finite-core-entropy-deficit-for-primitive-dyck--cc17d7fdec34 is an entropy result for a different Dyck-derived system."
+      ],
+      "reasoning": "Arch factorization alone and standard bounded-height Dyck enumeration are separate premises; neither statement implies the structural correspondence without the new boundary-variation argument. No inspected stronger theorem subsumes it, but lack of discovery is not proof of novelty.",
+      "searches": [
+        "published-finding corpus: Dyck words with n-1 greedy binary arches almost maximum subsequence universality",
+        "published-finding corpus: Dyck words subsequence universality index arch factorization distribution counting universal balanced parentheses",
+        "arXiv:2304.11932 Section 3 arch jumping",
+        "arXiv:2301.06145 Sections 2–4 Dyck nesting"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hébrard arch-factorization theorem is described in Adamson arXiv:2304.04583 §§2–3; Mol–Rampersad–Shallit arXiv:2301.06145 §§1–4 concerns Dyck nesting and factors but not subsequence-universality index.",
+        "No retrieved published-finding corpus summary or inspected paper gives the equivalence iota>=n-1 iff Dyck height<=2."
+      ],
+      "reasoning": "Classical height-2 Dyck counting supplies 2^(n-1), but is not equivalent to an assertion relating that class to near-maximal subsequence universality. The structural equivalence and unique arch normal form are the distinguishing statements; negative searches leave residual literature risk.",
+      "searches": [
+        "published-finding corpus: Dyck words subsequence universality index arch factorization distribution counting universal balanced parentheses",
+        "published-finding corpus: Dyck words with n-1 greedy binary arches almost maximum subsequence universality",
+        "Web: \"universality index\" \"Dyck\" \"height\"",
+        "Web: \"Dyck\" \"subsequence-universal\"",
+        "arXiv:2301.06145 HTML full-text search \"univers\" and \"subsequence\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Standard Dyck height-two counts equal 2^(n-1), a prior combinatorial fact explicitly separated from the claim.",
+        "The published-finding corpus unrestricted binary-universality hit 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 does not restrict to Dyck words."
+      ],
+      "reasoning": "Numerical near-maximal counts alone coincide with a classical Dyck-height class; the exact claim is the equivalence, sharp height inequality, and unique greedy-arch normal form. No database table of their joint invariant was located.",
+      "searches": [
+        "published-finding corpus: Dyck words with n-1 greedy binary arches almost maximum subsequence universality",
+        "published-finding corpus: Dyck words subsequence universality index arch factorization distribution counting universal balanced parentheses",
+        "Web: Dyck paths maximum height at most two 2^(n-1) enumeration",
+        "Web: \"2^(n-1)-1\" \"Dyck\" \"universal\" subsequence"
+      ]
+    },
+    "rationale": "The exact near-maximal Dyck universality/height equivalence and sharp height bound were not found in the inspected general universality, Dyck nesting, or published semantic records. Classical height-two Dyck counts and arch algorithms are acknowledged; originality is restricted to their proved structural connection and unique normal form. Residual risk of an unknown equivalent remains.",
+    "residual_risks": [
+      "Height-at-most-two Dyck count 2^(n-1) is classical; only its identification with the near-maximal universal class is asserted as new.",
+      "An equivalent height-index inequality or near-maximal characterization could be present under unrelated terminology or in unindexed sources.",
+      "arxiv:2311.10658 was accessible by abstract only; its regular-language scope does not cover the nonregular full Dyck language as stated."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No Dyck height-constrained count or stated height bound in inspected material; unrestricted counting differs in domain",
+        "evidence": [
+          "arXiv:2304.04583v1 §§1–3, especially Theorem 2.4 and Definition 2.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.04583v1",
+        "material_read": "Abstract, introduction and results, Section 2 definitions and arch statements, Section 3 counting overview; full-text search for Dyck",
+        "method": "Read arXiv open HTML and tested Dyck term",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "General finite-word universality counting and arch decomposition could imply near-extremal formula"
+      },
+      {
+        "assessment": "Computes indices but supplies no geometric Dyck nesting relation",
+        "evidence": [
+          "arXiv:2304.11932v1, §§1–3 and §7"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2304.11932v1",
+        "material_read": "Abstract, introduction, basic definitions, Section 3 index identity, and conclusions; full-text Dyck search",
+        "method": "Read complete accessible HTML sections relevant to universality and searched for Dyck",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "General arch-jumping tools might imply the claimed bound"
+      },
+      {
+        "assessment": "Provides Dyck nesting context but does not connect nesting to subsequence universality or high-index counts",
+        "evidence": [
+          "arXiv:2301.06145v1, §1 Dyck definition, §2 avoidance, §4 factor counts"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2301.06145",
+        "material_read": "Sections 1–2 on Dyck levels and avoidance, sections 3–4 on Thue–Morse Dyck factors and counting; full-text searches for universality and subsequence",
+        "method": "Read accessible ar5iv HTML and searched terms",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Same Dyck family, maximum height and classification of bounded nesting"
+      },
+      {
+        "assessment": "Constrains words by fixed Parikh-matrix data rather than all Dyck prefix inequalities; not a covering result",
+        "evidence": [
+          "arXiv:2610.06717v1, abstract and Sections 1–2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.06717v1",
+        "material_read": "Abstract, introduction, sample result discussion and references; searched Dyck and Catalan",
+        "method": "Read arXiv HTML and term searches",
+        "title": "Subsequence Analysis Problems for Binary Parikh Matrices",
+        "trigger": "Recent statement of binary universality constrained to combinatorial languages"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "473e24d5-0cdb-4c8d-8ea7-006f68bd4226",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximal nesting height is a canonical complexity parameter of Dyck words, while subsequence universality is a canonical formal-language invariant. Their sharp all-n relation and first nontrivial near-optimal class, including an exact binary-choice normal form and exponential rarity among Catalan words, give a motivated classification beyond routine enumeration or an arbitrary finite case.",
+    "status": "PASS"
+  }
+}
