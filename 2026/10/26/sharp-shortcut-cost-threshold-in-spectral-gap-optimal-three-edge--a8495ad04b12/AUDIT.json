@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every m≥2, B>0, τ>0, symmetry averaging is valid because λ2 is concave and costs are invariant. The exact spectrum is {0,(m+1)x,x [m−1 times],x+2y [m−1 times],eig(M)} with M=[[mx+2z,−sqrt(m)x],[−sqrt(m)x,x+2y]]. The normalization λ2≥1 forces x≥1 and M−I positive semidefinite, whose Schur complement gives the exact necessary and sufficient bound y≥[mx²/(mx+2z−1)−(x−1)]/2. The cost lower bound Fτ is minimized analytically: when τ≤(m/(m−1))² its free z-minimizer is feasible at x=1 and cost grows with x; otherwise z=0 and the remaining bound is strictly increasing in x. Equality reconstructs the stated nonnegative design with λ2 exactly B/D. The unique symmetric optimizer and shortcut fixed by every symmetry imply all global optimizers have the same shortcut weight. At the optimum the Fiedler eigenvalue has multiplicity m. The standalone scripts executed from the new package verified 30 exact-rational full spectra/budgets, 90 numerical eigenspectra and budgets, 9,000 feasible asymmetric alternatives, and 12 local constrained optimizations. Finite tests are not used to prove universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shakeri et al., arXiv:1510.06785v1, pp. 1-2, formulate variable one-to-one interlayer weights with **fixed** internal layer Laplacians, unlike the jointly variable path and shortcut edges here.",
+        "Boyd et al., arXiv:0709.0955v1, introduction and section 5.4, minimize stochastic transition matrix SLEM under row stochasticity rather than a sum-of-conductance-cost budget.",
+        "Sun et al. general SDP and geometrical dual are broad algorithmic tools but their inspected examples do not give the all-m threshold."
+      ],
+      "reasoning": "The more general SDP objective can be instantiated at this graph and solved algorithmically, but it supplies no statement of the exact optimizer/support formula as a theorem. Discrete-time SLEM and fixed-layer interconnection results have different feasible sets and objectives; neither universally implies the present cost-sensitive rule.",
+      "searches": [
+        "maximizing algebraic connectivity interconnected networks general weighted costs all edges",
+        "arxiv:1510.06785v1",
+        "arxiv:0709.0955v1",
+        "Fastest Mixing Markov Process Sun Boyd Xiao Diaconis path cycle example"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144504443821 (primary text inspected)",
+      "doi:10.1137/070689413 (relevant sections inspected)",
+      "arxiv:1510.06785v1 (problem statement and methods inspected)",
+      "Published mathematical finding summaries for related theta graphs, edge polytopes and Markov mixing (claim/parameter comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the earlier spanning-tree determinant optimization on theta graphs, the symmetric length-three case has shortcut deletion already at m≥4 under unit costs, whereas the new continuous-time λ2 optimum at τ=1 retains shortcut weight z=λ*/2 for every m≥2.",
+        "An earlier cost-free λ2 optimization on two cliques joined by one bridge concerns a different graph; it contains no internal redundant shortcut and has different eigenvalue modes.",
+        "Sun et al. show qualitative deletion of a costly link on a different 6-vertex graph but provide no implication establishing τc for H_m."
+      ],
+      "reasoning": "Graph-object coincidence does not make spanning-tree D-optimality imply E-optimal λ2 rates: m=4, τ=1 yields opposite shortcut support. The full exact parameter branch and universal assertion for every asymmetric optimizer therefore are not just a numerical corollary of these prior statements. General convexity gives symmetry reduction but not the strict threshold until the new spectral and scalar optimization calculation.",
+      "searches": [
+        "maximizing algebraic connectivity spectral gap on m parallel paths of length three plus direct terminal edge variable edge conductances",
+        "D optimal weighted spanning tree conductance graph generalized theta graph allocating direct shortcut",
+        "fastest mixing Markov process theta graph generalized theta with path length 3 and chord under total edge rate budget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al. (2006), pp. 683, 685-687, explicitly optimize λ2 under costs Σd_ij²w_ij and derive SDP and dual; this is an exact reformulation of the present optimization problem.",
+        "The target graph spectral decomposition adds a multi-parameter exact classification, not present in the inspected examples on pp. 694-697."
+      ],
+      "reasoning": "Rephrasing the theorem as fastest continuous-time mixing, maximum uniform diffusion decay, semidefinite Laplacian design, or total material cost for a target gap does not change the claimed formulas. The generic SDP framework is acknowledged as covering the **optimization problem**, not as already stating its exact closed-form solution; this avoids treating a failed literal-title search as novelty evidence.",
+      "searches": [
+        "fastest mixing Markov process theta graph generalized theta with path length 3 and chord under total edge rate budget",
+        "algebraic connectivity maximization theta graph parallel paths weighted edges conductance budget optimal",
+        "cost-constrained continuous-time consensus optimal edge weights theta multitheta network two terminals series-parallel",
+        "doi:10.1137/S0036144504443821"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed theta-graph materials concern algebraic gnarledness, configuration-space classes, and directed edge polytopes, which do not compute λ2-maximizing conductances.",
+        "The inspected Sun et al. numerical example concerns a distinct triangle-with-tails graph; its table of six rates is not the proposed m-route graph.",
+        "No exact lookup matching the cost threshold (m/(m-1))² or both optimum branches was located."
+      ],
+      "reasoning": "Failure to locate a table is **not** a novelty certificate. Relevant concrete tables and examples were compared by object, objective and parameters; no inspected table is an exact restatement or stronger parameterization of this result.",
+      "searches": [
+        "length 3 generalized theta graph optimal λ2 conductance weights m paths shortcut",
+        "sharp shortcut edge deletion in weighted Laplacian algebraic connectivity max network with parallel paths",
+        "optimal weighted Laplacian spectral gap diamond theta network edge cost shortcut",
+        "theta graph algebraic connectivity optimal weights graph table"
+      ]
+    },
+    "rationale": "The closest inspected primary source, Sun--Boyd--Xiao--Diaconis (2006), already formalizes this cost-weighted continuous-time spectral-gap maximization as an SDP and shows qualitatively that a costly edge may vanish, but its explicitly solved graph examples are a triangular-tail graph, paths, and cycles, not the family of m three-edge parallel paths plus a shortcut. The new all-parameter closed form, threshold and every-optimum shortcut rule are not supplied there. Boyd--Diaconis--Parrilo--Xiao (2009) use a discrete-time SLEM objective, and Shakeri et al. (2015) hold intralayer edge rates fixed. Exact compared historical results optimize a spanning-tree determinant on a larger theta family or λ2 on other graph families: neither implies this λ2 cost threshold. Targeted scholarly and mathematical-index searches found no decisive exact counterpart, but cannot establish exhaustive originality.",
+    "residual_risks": [
+      "A historical exact specialized solution in an unindexed thesis, proceedings, or differently named family could still establish this same threshold.",
+      "The entire full text of the discrete-time symmetry paper was not inspected, although the objective mismatch and relevant examples were verified.",
+      "No independent human or external mathematical audit; numerical checks do not certify novelty or infinite quantification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains exact umbrella SDP and edge-deletion phenomenon, but no equal three-edge m-path network, no τc, and no global shortcut-weight law in the inspected explicit constructions.",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821",
+          "pp. 683 and 686 definitions",
+          "pp. 694-697 examples for triangle-tail graph, path, cycle"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Accessible primary full-text PDF: objective/constraint pp. 681-686; SDP and dual pp. 686-687; explicit examples pp. 694-697.",
+        "method": "Compared graph structure, cost model, eigenvalue objective, and example optimal-edge support with the proposed all-m family.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same λ2 edge-cost optimization formulation and edge deletion in a worked example"
+      },
+      {
+        "assessment": "Optimizes discrete-time symmetric stochastic P by SLEM, which is not equivalent to cost-constrained continuous-time weighted Laplacian gap in general; no exact direct implication established.",
+        "evidence": [
+          "arXiv:0709.0955v1",
+          "DOI 10.1137/070689413",
+          "introductory SLEM SDP and section 5.4.2 bipartite example"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Accessible PDF, introductory problem pp. 792-793 and explicit complete-bipartite symmetry-reduction example around pp. 812-814; remaining portions not examined exhaustively.",
+        "method": "Compared the spectral objective and constraints; checked relevant symmetry exploitation examples.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Potential stronger graph automorphism optimization"
+      },
+      {
+        "assessment": "The internal layers are fixed and only matching interlayer weights vary, so its exact threshold results do not cover the joint optimization of all path edges and one direct shortcut here.",
+        "evidence": [
+          "arXiv:1510.06785v1 published 2015-10-22",
+          "eqs. (2)-(4) and fixed layer Laplacians in p. 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.06785",
+        "material_read": "Accessible first-version preprint pp. 1-2, including precise fixed-layer plus variable-matching-link assumption.",
+        "method": "Compared feasible sets, graph decompositions, and fixed versus varying edges.",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Potential stronger λ2 optimal allocation on multiple interconnected paths"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8495ad0-4b12-4708-96eb-a8ac8722bd31",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural cost-heterogeneous series-parallel network design problem exhibits an exact sharp phase transition: a redundant shortcut with initially positive optimal conductance must be removed from every global optimizer when its relative unit cost exceeds τc=(m/(m−1))², and the optimized mixing rate then plateaus. The theorem gives all-m, all-positive-cost closed forms and an all-unrestricted-optimizers support rule rather than a special value or routine instance. Comparing with the distinct spanning-tree determinant objective at m=4 and τ=1 shows the support pattern depends substantively on the spectral design criterion. A resource-allocation decision rule and a new analytic phase boundary are directly useful to studying weighted consensus/transport design.",
+    "status": "PASS"
+  }
+}
