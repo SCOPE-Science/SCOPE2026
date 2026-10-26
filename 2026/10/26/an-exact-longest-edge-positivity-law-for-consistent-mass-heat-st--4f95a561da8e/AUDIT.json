@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every t>0, the H-principal tree branch Schur complement g is positive with g^{-1}>=h/3+t/h; this gives 0<P_bb<1 and strict adjacent entries. If any beta=h/6-t/h is positive, deletion of that edge and a distinct neighbor gives P_vw=-beta*g_v*P_uw<0. If every beta<=0, H is SPD Stieltjes and H^{-1}M>=0. t=0 gives I, and the two-vertex case has no distance-two obstruction. Exact rational testing executes 411 independently assembled cases, but infinity is covered by proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schatz--Thomée--Wahlbin (2010), full-text HTML at https://www.researchgate.net/publication/266952795_On_Positivity_and_Maximum-Norm_Contractivity_in_Time_Stepping_Methods_for_Parabolic_Equations, Section 5, theorem 5.7 and discussion of sufficient Stieltjes step restrictions.",
+        "Jin--Lazarov--Thomée--Zhou, arXiv:1510.02825v1, HTML at https://arxiv.org/html/1510.02825v1, Introduction and Section 4: theorems 4.1--4.3, based on two-dimensional polygonal Dirichlet finite element models."
+      ],
+      "reasoning": "Schatz--Thomée--Wahlbin establish sufficient step restrictions and general properties in planar-domain finite elements; Jin et al discuss existence and sufficient bounds for subdiffusion and two-dimensional Dirichlet polygon meshes. Neither inspected argument quantifies over arbitrary branched metric trees or constructs the necessary two-hop witness for each overlong edge.",
+      "searches": [
+        "Tree graph finite element discretization positivity theorem necessary sufficient each element t at least length squared over six",
+        "Web: Schatz Thomée Wahlbin 2010 On positivity and maximum norm contractivity in time stepping methods for parabolic equations pdf"
+      ]
+    },
+    "checked_sources": [
+      "Schatz--Thomée--Wahlbin (2010), full-text HTML at https://www.researchgate.net/publication/266952795_On_Positivity_and_Maximum-Norm_Contractivity_in_Time_Stepping_Methods_for_Parabolic_Equations, Section 5, theorem 5.7 and discussion of sufficient Stieltjes step restrictions.",
+      "Jin--Lazarov--Thomée--Zhou, arXiv:1510.02825v1, HTML at https://arxiv.org/html/1510.02825v1, Introduction and Section 4: theorems 4.1--4.3, based on two-dimensional polygonal Dirichlet finite element models.",
+      "Chatzipantelidis--Horváth--Thomée (2015): abstract and title only, PDF inaccessible.",
+      "An earlier exact graded-Dirichlet-interval statement was compared at statement level only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A relevant earlier statement addresses an exact threshold on one-dimensional Dirichlet interior meshes with no branches and with boundary nodes eliminated.",
+        "Jin et al arXiv:1510.02825v1 Section 4 positivity theorems concern 2D polygonal triangulations.",
+        "Schatz et al (2010) Section 5 obtains sufficiency from offdiagonal Stieltjes sign and does not establish the tree-only converse."
+      ],
+      "reasoning": "The tree assertion includes Neumann leaves and arbitrary high-degree Kirchhoff vertices, which are not subinstances of an interval mesh with Dirichlet elimination. The precise converse and sign certificate are not logical corollaries of general sufficiency. The known path case overlaps only in mechanism and special one-dimensional geometry.",
+      "searches": [
+        "graded Dirichlet interval mesh positivity",
+        "Tree graph finite element discretization positivity theorem necessary sufficient each element t at least length squared over six",
+        "Web: Chatzipantelidis Horvath Thomee 2015 preservation positivity finite element heat equation proof sufficient necessary beta entries"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No indexed scholarly result in the actual searches stated an arbitrary metric-tree if-and-only-if threshold.",
+        "The inspected 2010 full text emphasizes the sufficient Stieltjes condition and polygonal Dirichlet models."
+      ],
+      "reasoning": "The precise equivalent claim is H^{-1}M nonnegative iff all edge off-diagonals H_uv are nonpositive, for every connected tree of at least three vertices. General inverse-positive Stieltjes sufficiency does not entail the converse, which here uses unique-path geometry.",
+      "searches": [
+        "Consistent mass finite elements backward Euler positivity exact time step threshold on metric trees, graph branching arbitrary edge lengths; nonnegative update M plus tau K",
+        "Web: finite element heat equation maximum principle positivity consistent mass star graph finite element semidiscrete heat equation mass matrix 2010"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed filtered Crank--Nicolson lattice positivity analysis concerns another time integrator and is not a table or theorem on arbitrary metric trees.",
+        "A previously documented exact graded Dirichlet interval-mesh statement covers a different boundary and graph geometry."
+      ],
+      "reasoning": "No exact all-tree threshold table, theorem, or database was located. Only the positive presence of specific antecedents is evidence; the unsuccessful search alone is not novelty proof.",
+      "searches": [
+        "Sign and positivity of backward Euler consistent-mass finite element diffusion on branched networks and arbitrary trees",
+        "Web: metric graph finite element positivity backward Euler tree"
+      ]
+    },
+    "rationale": "Full-text published antecedents give broad positivity and Stieltjes sufficiency, not an exact all-metric-tree necessary-and-sufficient rule with distance-two witnesses and Neumann/Kirchhoff branching. The earlier established Dirichlet graded interval theorem does not imply the network-branch theorem. Indexed scholarly searches for exact graph-tree formulas did not return equivalent coverage. Risk of specialized prior mathematical results remains, especially a plausible full text not retrieved.",
+    "residual_risks": [
+      "A more specialized publication on metric-graph Kirchhoff finite elements may already imply the exact statement; broad literature/semantic searches do not certify novelty.",
+      "The plausible 2015 author-hosted PDF was not inspected in full, so its contents cannot be certified as noncovering.",
+      "The earlier graded Dirichlet path result shares the H=M+tK sign-threshold mechanism but does not by itself cover arbitrary branched Neumann metric trees."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Sufficient 2D-domain FE criteria, not the tree-specific necessary converse",
+        "evidence": [
+          "https://www.researchgate.net/publication/266952795_On_Positivity_and_Maximum-Norm_Contractivity_in_Time_Stepping_Methods_for_Parabolic_Equations"
+        ],
+        "identifier_or_url": "doi:10.2478/cmam-2010-0025",
+        "material_read": "Full-text HTML introduction, Section 5 Stieltjes sufficient criteria, Theorem 5.7 context and boundary discussion",
+        "method": "Accessible author text reproduced as full text on ResearchGate; searched within and read relevant sections",
+        "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+        "trigger": "Classical primary source on finite-element backward-Euler positivity and sharpness"
+      },
+      {
+        "assessment": "General positivity questions, 2D polygonal Dirichlet meshes and subdiffusion; no all-tree exact threshold",
+        "evidence": [
+          "https://arxiv.org/html/1510.02825v1",
+          "https://arxiv.org/abs/1510.02825"
+        ],
+        "identifier_or_url": "arxiv:1510.02825v1",
+        "material_read": "Complete accessible HTML, especially Introduction and Section 4 theorems 4.1--4.3 and assumptions",
+        "method": "arXiv v1 HTML full-text inspected",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Earliest precisely UTC-timestamped motivating source on consistent-mass positivity recovery"
+      },
+      {
+        "assessment": "Cannot classify the full text as not covering; title and abstract emphasize two-dimensional Dirichlet heat discretization, leaving a material-access originality risk",
+        "evidence": [
+          "https://research.chalmers.se/en/publication/224734",
+          "https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf"
+        ],
+        "identifier_or_url": "doi:10.1515/cmam-2015-0018",
+        "material_read": "Abstract, publicly visible bibliographic scope; author-hosted PDF could not be fetched (timeout or bad gateway)",
+        "method": "Author publication page and search previews; PDF retrieval attempt",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Closely related exact positivity time-step literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f95a561-da8e-49bc-9008-8c1a91e6aa0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete all-tree, grading-independent necessity/sufficiency classification solves the natural nonnegativity design question for Kirchhoff heat-network time stepping. Every edge violating the longest-element rule yields an explicit two-hop negative witness, a substantive local diagnostic absent from general one-way Stieltjes tests; branching is unrestricted and the two-vertex boundary is sharp. No general PDE convergence or higher-order method claim is made.",
+    "status": "PASS"
+  }
+}
