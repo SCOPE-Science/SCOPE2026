@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "The domain is a precisely specified finite cycle-membership concept class. Two independent maximal-independent-set enumerators agree for every n=3,...,16. Two exact memoized game recurrences (bitsets and immutable-set splitting) agree on all dimensions; exhaustive VC traces prove upper bounds, and full depth-5 and depth-6 leaf-labeled trees are replayed directly against all \\(C_{13}\\) and \\(C_{16}\\) hypotheses. The ranks at each smaller order are exhaustively computed; the all-s amplification follows a separate proof of additivity. Finite computation is used only for the finite part of the claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "An earlier all-order cycle maximal-independent-set Boolean trace result gives the VC dimension; that result is used as prior coverage, not claimed new.",
+        "Liu et al. SoCG 2024 Lemma 27 bounds VC dimension of the maximal-independent-set hypergraph by a bipartite induced matching number, without specifying Littlestone ranks.",
+        "Manurangsi arXiv:2211.01443 Section 3 concerns general hardness of explicit-class dimension computations."
+      ],
+      "reasoning": "A fixed-query shattering result does not imply the adaptive dimension; a general upper bound for VC does not decide whether complete adaptive trees of depth five or six exist. The present claim relies on explicit verified adaptive trees and exhaustive upper checks.",
+      "searches": [
+        "maximal independent sets of cycles vs paths, VC versus Littlestone dimension, connected 13 vertex cycle",
+        "\"independent dominating sets\" \"Littlestone\" cycle VC",
+        "\"maximal independent sets\" \"VC dimension\" cycle"
+      ]
+    },
+    "checked_sources": [
+      "Manurangsi arxiv:2211.01443 Sections 1 and 3",
+      "Liu et al. SoCG 2024 Sections 2.3-2.4, Lemma 27",
+      "Cormode-Dark-Konrad ICALP 2019 repository record and abstract",
+      "Sagan-Vatter JGT 2006 publisher abstract",
+      "Cycle maximal-independent-set static trace classification previously obtained; comparison only",
+      "Path maximal-matching online dimension profile previously obtained; comparison only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing cycle MIS Boolean trace rank implies the displayed static ranks, so the static formula is not presented as original.",
+        "The older path maximal-matching finding supplies ranks on a different graph and does not determine maximal independent sets under cyclic adjacency.",
+        "SoCG 2024 Lemma 27 is a static VC inequality; Manurangsi 2022 is general computational complexity; Cormode et al. 2019 considers graph streaming rather than pairwise adaptive labeling."
+      ],
+      "reasoning": "None of the inspected specific statements implies an exact depth-five C13 shattered tree, its absence on C3..C12, or depth-six C16. The result is restricted to these new adaptive facts and their additive consequence.",
+      "searches": [
+        "arxiv:2211.01443 Sections 1 and 3",
+        "https://d-nb.info/1367513596/34 Section 2.4, Lemma 27",
+        "https://wrap.warwick.ac.uk/id/eprint/117339/ abstract",
+        "\"maximal independent sets\" \"Littlestone\" dimension cycles"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The concept family is equivalently the cyclic binary words avoiding adjacent ones and three consecutive zeros. Prior path maximal-matching concepts are maximal independent sets of path line graphs, not cycle maximal-independent-set concepts."
+      ],
+      "reasoning": "The line-graph correspondence of a path does not turn a path into a cycle, so the published path-specific online ranks do not entail the cyclic wraparound classification. No exact equivalence for the cyclic family was identified.",
+      "searches": [
+        "Exact VC dimension and Littlestone dimension of maximal independent sets of cycle graph C_n, first difference at C_13, 39 maximal independent sets VC 4 online 5",
+        "binary traces of independent dominating sets in cycles, adaptive shattering, first strict separation",
+        "\"maximal independent sets\" \"Littlestone\" dimension cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results nearest to this topic concerned graph cover-free-family numbers for cycles and general maximal-independent-set enumerations, not an exact C3-through-C16 VC/Littlestone dimension table.",
+        "Cycle maximal-independent-set counts alone do not determine Littlestone rank: C10 has 17 concepts but Ldim 3, below its information bound 4."
+      ],
+      "reasoning": "No source or record consulted contained this exact online-rank table or C13/C16 certificate. Search absence is weak evidence, not a proof of uniqueness.",
+      "searches": [
+        "Exact VC dimension and Littlestone dimension of maximal independent sets of cycle graph C_n, first difference at C_13, 39 maximal independent sets VC 4 online 5",
+        "maximal independent sets of cycles vs paths, VC versus Littlestone dimension, connected 13 vertex cycle",
+        "binary traces of independent dominating sets in cycles, adaptive shattering, first strict separation",
+        "\"maximal independent sets\" \"VC dimension\" cycle",
+        "For maximal independent set vertex-membership concepts of the ordinary cycle C13, VC dimension 4 but Littlestone dimension 5; first cycle separating adaptive and static shattering, C16 VC 5 Ldim 6, disjoint unions of 13-cycles amplify"
+      ]
+    },
+    "rationale": "The prior cycle-specific Boolean trace classification gives VC but not Littlestone ranks; previous path maximal matching online results apply to a line graph that is a path, not a cycle. Inspected primary literature and semantic searches found no exact online-rank classification for cycles. Historical priority remains uncertain.",
+    "residual_risks": [
+      "A full-text MIS streaming paper could not be inspected because the PDF fetch timed out.",
+      "Sagan-Vatter 2006 maximal-independent-set counting paper was only accessible at abstract level; no claim of full-document exclusion is made.",
+      "Database and literature searches cannot exclude unindexed cycle-specific online-learning results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the cycle MIS adaptive dimensions",
+        "evidence": "The paper proves hardness by reductions from bicliques and an explicit-class Littlestone bound for biclique-free matrices, without evaluating cycle maximal independent sets.",
+        "identifier_or_url": "https://arxiv.org/pdf/2211.01443",
+        "material_read": "Introduction, Section 3 reduction and Lemma 21 with proof; full PDF was available and search examined context",
+        "method": "direct full-text text inspection and first-page screenshot",
+        "title": "Improved Inapproximability of VC Dimension and Littlestone’s Dimension via (Unbalanced) Biclique",
+        "trigger": "Explicit-class exact VC/Littlestone calculation might subsume small concept tables"
+      },
+      {
+        "assessment": "Covers a VC bound for MIS hypergraphs, not online shattering of cycles",
+        "evidence": "Lemma 27 proves VCdim(M(G)) <= bipartite induced matching number; no Littlestone dimension of M(C_n) is calculated.",
+        "identifier_or_url": "https://d-nb.info/1367513596/34",
+        "material_read": "Sections 2.3–2.4 around the definitions of the dual MIS hypergraph and Lemma 27, including the lemma proof",
+        "method": "PDF text at the specified sections and screenshot of page 11",
+        "title": "Beyond Chromatic Threshold via (p,q)-Theorem, and Blow-Up Phenomenon",
+        "trigger": "Explicit maximal-independent-set hypergraph with VC dimension studied"
+      },
+      {
+        "assessment": "Abstract scope is streaming space complexity, not the precise version-space dimension; body remains access risk",
+        "evidence": "The abstract states one-pass space lower bounds for finding MIS under edge and vertex streaming, not cycle membership decision trees.",
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/117339/",
+        "material_read": "Repository bibliographic record and full abstract; linked PDF preview timed out, so body not inspected",
+        "method": "primary repository HTML and unsuccessful PDF read attempt",
+        "title": "Independent Sets in Vertex-Arrival Streams",
+        "trigger": "Earlier work on maximal independent sets under sequential information"
+      },
+      {
+        "assessment": "The abstract addresses extremal counts of maximal independent sets by cyclomatic number, not VC/Littlestone, but full-text coverage is unverified",
+        "evidence": "Sagan and Vatter (2006) frame the results in counting extrema, not adaptive membership queries.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.20186",
+        "material_read": "Publisher landing page and abstract only, full text not inspected",
+        "method": "primary publisher HTML",
+        "title": "Maximal and maximum independent sets in graphs with at most r cycles",
+        "trigger": "Classical maximal-independent-set counting might contain exact cycle enumerations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8b0b7f77-dba1-45ae-b8a1-3bacdd5c6dc6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cyclic maximal-independent-set concept class is a canonical non-monotone graph-solution class; thirteen is the sharp first cycle order where adaptive shattering exceeds static VC capacity. The gap vanishes at fourteen and fifteen and reappears at sixteen, giving a nontrivial boundary pattern. Verified exact adaptive certificates and an independent additivity argument produce an unbounded gap on two-regular disjoint unions. The finite cutoff is chosen by the first transition/reappearance, not an arbitrary size slice.",
+    "status": "PASS"
+  }
+}
