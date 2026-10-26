@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The state endpoints are equivalent to two moment constraints. For arbitrary bounded controls, the first-moment maximizer under fixed mean is bang-bang with one switch, giving the sharp feasibility cutoff U >= 1+sqrt(2). For nondecreasing BV controls, the nonnegative derivative measure gives integral s(1-s)dmu=1. Cauchy–Schwarz yields TV >= (U-1)^2/(U-2) in the capped branch; s(1-s) <= 1/4 yields TV >= 4 above U=3. The displayed controls attain the bounds and satisfy both moments exactly.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaya treats the uncapped double integrator and recovers the midpoint step for the selected boundary data.",
+        "Manns–Schiemann treat integer-valued controls with TV regularization on multidimensional domains."
+      ],
+      "reasoning": "Neither checked primary source gives the capped continuous-valued monotone law. The present result strictly refines the uncapped benchmark for 1+sqrt(2) <= U < 3 while recovering it for U >= 3.",
+      "searches": [
+        "optimal control total variation with control constraints double integrator saturation exact threshold",
+        "https://arxiv.org/abs/1901.00491",
+        "https://arxiv.org/abs/2212.12226"
+      ]
+    },
+    "checked_sources": [
+      {
+        "material": "Full accessible preprint; endpoint formulation and TV minimization sections.",
+        "title": "Optimal Control of the Double Integrator with Minimum Total Variation",
+        "url": "https://arxiv.org/abs/1901.00491"
+      },
+      {
+        "material": "Abstract, introduction, and theorem/example on multidimensional integer-valued controls.",
+        "title": "On Integer Optimal Control with Total Variation Regularization on Multi-dimensional Domains",
+        "url": "https://arxiv.org/abs/2212.12226"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The uncapped source yields TV = 4 for the midpoint step but does not constrain the amplitude.",
+        "The capped formula has TV (U-1)^2/(U-2) for 1+sqrt(2) <= U <= 3 and equals 4 at U=3."
+      ],
+      "reasoning": "The old result implies the U >= 3 branch but not the capped branch below 3. The new branch follows from the cap-sensitive bound m <= U-1 and equality in Cauchy–Schwarz; it is explicitly limited to nondecreasing controls.",
+      "searches": [
+        "https://arxiv.org/abs/1901.00491",
+        "minimum total variation double integrator bounded control amplitude exact solution switching time",
+        "optimal control total variation with control constraints double integrator saturation exact threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The endpoint conditions reduce exactly to integral u = -1 and integral t*u = 0.",
+        "For monotone BV controls, Du is a nonnegative measure and TV(u) is its mass."
+      ],
+      "reasoning": "The measure formulation is equivalent to the original monotone-control problem by Fubini and the two endpoint moments. The amplitude cap enters through the initial and final control levels.",
+      "searches": [
+        "minimum total variation double integrator bounded control amplitude exact solution switching time",
+        "bounded control minimum variation double integrator terminal position velocity moment constraints",
+        "https://arxiv.org/abs/1901.00491"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact match for the capped moment problem was returned by the indexed mathematical-record searches; the closest retrieved records concerned different optimization/control problems.",
+        "The primary full-text source above is the nearest direct literature match."
+      ],
+      "reasoning": "There is no finite numerical table governing this infinite-dimensional BV problem. Search nonmatches are not treated as proof of novelty; the originality assessment rests on the statement-level comparison with the closest primary source.",
+      "searches": [
+        "minimum total variation double integrator bounded control amplitude exact solution switching time",
+        "optimal control total variation with control constraints double integrator saturation exact threshold",
+        "bounded control minimum variation double integrator terminal position velocity moment constraints"
+      ]
+    },
+    "rationale": "The closest full-text source gives the uncapped midpoint step, but not the amplitude-dependent law for 1+sqrt(2) <= U < 3. Exact-query searches and a related multidimensional integer-control paper did not reveal an equivalent statement. Residual risk remains from broader bounded-variation and switching-cost literature.",
+    "residual_risks": [
+      "The minimum-TV theorem is restricted to nondecreasing controls; a lower-TV nonmonotone capped control has not been excluded.",
+      "Related bounded-variation and switching-cost optimal-control literature was not exhaustively inspected; no exact cap-dependent formula was found in the checked sources.",
+      "The feasibility threshold is global, but the TV minimizer classification is only within the monotone subclass."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest prior work. The source does not impose an amplitude cap and gives the midpoint step for the selected endpoint data; it does not state the cap-dependent law on the interval 1+sqrt(2) <= U < 3.",
+        "evidence": [
+          "arXiv:1901.00491v1, Sections 2–3.5",
+          "The source reports the pure-TV solution as a midpoint one-switch control and TV equal to two-thirds of the minimum-energy control TV."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.00491",
+        "material_read": "Accessible full-text preprint, including the double-integrator moment formulation, TV augmentation, optimality derivation and pure-TV asymptotic solution.",
+        "method": "Compared the stated feasible set and the derived unbounded pure-TV solution with the capped problem; reconstructed the endpoint moment constraints independently.",
+        "title": "Optimal Control of the Double Integrator with Minimum Total Variation",
+        "trigger": "Same dynamics, endpoint data and total-variation objective; closest primary source."
+      },
+      {
+        "assessment": "Related but not covering: it treats finite integer-valued controls and multidimensional domains, rather than a continuously valued amplitude-capped double integrator with the stated endpoint moments.",
+        "evidence": [
+          "arXiv:2212.12226, Sections 1 and 5.1, Theorem 5.2 and Example 5.4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.12226",
+        "material_read": "Abstract, introduction, and the stated multidimensional trust-region/Gamma-convergence results and one-dimensional counterexample.",
+        "method": "Compared control codomain, dynamics, domain dimension and objective structure.",
+        "title": "On Integer Optimal Control with Total Variation Regularization on Multi-dimensional Domains",
+        "trigger": "Related TV-regularized control literature cited by the closest source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94d54d85-6d42-496c-8f33-7cbc2c9c311a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp cap-feasibility threshold and exact monotone TV law provide a useful actuator-saturation benchmark. They quantify the departure from the uncapped TV value 4 and identify the threshold U=3 at which the classical midpoint step becomes feasible again.",
+    "status": "PASS"
+  }
+}
