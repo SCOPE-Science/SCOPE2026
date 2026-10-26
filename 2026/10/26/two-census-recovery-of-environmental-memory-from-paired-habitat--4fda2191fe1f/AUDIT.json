@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Under the strict parameter bounds, conditioning on the two-sided environment gives independent patch noises and the recursion for the conditional mean; its variance yields C0. Cross-lag conditional means yield C1/C0=(lambda+rho)/(1+lambda rho), and residual same-patch persistence yields A1-C1=lambda[p(1-p)-C0]. Because C0 and E of the conditional variance are strictly positive and |q|<1, all four parameters are globally reconstructed. Distinct rational admissible models with one-date law (13/50,6/25,6/25,13/50) prove sharpness. A standalone exact 8-state rational stationary solver verified 12 parameter settings, 768 transition entries, 48 moments and 12 inversions; enumeration alone is not claimed as general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Heaton and Solo (2004), DOI 10.1111/j.1368-423X.2004.00146.x: an abstract claiming identification of broad dynamic factor families",
+        "Massie et al. 2015, DOI 10.1038/ncomms6993: environmental autocorrelation and spatial synchrony",
+        "General AR(1) common/idiosyncratic component description in dynamic factor models"
+      ],
+      "reasoning": "A model with correlated residuals and a common temporally persistent latent forcing can resemble a dynamic factor model at the level of its second-order moments. General factor-identification theorems could cover some linear covariance identities, and this is explicitly retained as a residual risk. Neither accessible cited statement supplies the Bernoulli renewal hypotheses, the four-moment algebra, sharp two-census sufficiency, or one-date two-patch counterexample. This is a qualified best-knowledge comparison, not a certified exclusion of every broader theorem.",
+      "searches": [
+        "two measurement dynamic factor model AR1 latent factor AR1 idiosyncratic errors identify autocovariance cross covariance parameter exact",
+        "two-site occupancy dynamic factor temporal environmental autocorrelation moment identifiability covariance",
+        "Identification of causal factor models of stationary time series Heaton Solo 2004"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1086/303350",
+      "doi:10.1890/02-3090",
+      "doi:10.1034/j.1600-0706.2000.890119.x",
+      "doi:10.1038/ncomms6993",
+      "doi:10.1111/j.1368-423X.2004.00146.x",
+      "Published stationarity/renewal aliasing record 2026/9/21/...2fe27acb9c54",
+      "Published two-visit binomial N-mixture record 2026/9/21/...1c1f6450764b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kendall (2000) methods derive synchrony for linearized abundance driven by dispersal and spatially correlated environmental noise",
+        "MacKenzie (2003) full text constructs occupancy/colonization models with imperfect observation",
+        "Heaton–Solo (2004) abstract establishes an unspecified broad factor-model identification family",
+        "The present result isolates local renewal as \\((A_1-C_1)/(p(1-p)-C_0)\\), followed by inversion \\(\\rho=(q-\\lambda)/(1-\\lambda q)\\)."
+      ],
+      "reasoning": "Neither a general assertion that factor models are identifiable nor classic Moran-effect correlations automatically determines the minimal number of exact censuses or this explicit positive-amplitude inverse for Bernoulli renewals. Because the broad Heaton–Solo full theorem was not materially read, coverage remains a named risk. No decisive known stronger theorem was found implying the whole two-census plus sharpness claim.",
+      "searches": [
+        "ecological synchrony exact cross-covariance separating shared environmental Markov noise from independent patch renewal rates",
+        "two measurement dynamic factor model AR1 latent factor AR1 idiosyncratic errors identify autocovariance cross covariance parameter exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kendall et al. 2000 DOI 10.1086/303350: dispersion/spatial environmental covariance in a linearized population model",
+        "MacKenzie et al. 2003 DOI 10.1890/02-3090: repeated detection/occupancy model with imperfect detection",
+        "Published alternating renewal two-time aliasing record 2026/9/21/...2fe27acb9c54: a single two-state renewal process cannot identify arbitrary dwell-time laws"
+      ],
+      "reasoning": "The claimed data are a paired cross-sectional covariance plus cross- and within-site lag-one covariances in a specific symmetric shared binary-environment renewal model. Classical synchrony results involve linearized population deviations; occupancy-detection results involve emissions and dynamic colonization; unrestricted alternating renewal nonidentifiability uses a different and broader process class. None of their accessible statements implies the exact four-parameter inversion or the explicit one-date two-patch ambiguity.",
+      "searches": [
+        "two patch occupancy copying renewal hidden symmetric Markov environment identify shocks and persistence from two-date cross moments covariance",
+        "Moran effect binary two patch Markov modulation inverse covariance exact p a lambda rho",
+        "finite metapopulation patch occupancy temporal autocorrelation imperfect detection identifiability number of repeated surveys extinction colonization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published records include stationary alternating-renewal two-time-law aliasing 2026/9/21/...2fe27acb9c54 and two-visit closed-binomial N-mixture identification 2026/9/21/...1c1f6450764b; these are distinct likelihood and hidden-state questions",
+        "The explicit one-date alias is \\(p=1/2\\) with \\((a,\\lambda,\\rho)=(1/5,1/2,-2/7)\\) or \\((1/10,0,0)\\); both produce \\(C_0=1/100\\)."
+      ],
+      "reasoning": "No matching database entry or tabulated natural invariant was located. This search result is not treated as a uniqueness proof; the claim is an analytical theorem for an infinite continuous-parameter domain, plus an exact two-model alias witness, rather than a recomputed enumerated table.",
+      "searches": [
+        "Markov-modulated Bernoulli autoregressive occupancy spatial panel autocovariance identifiability three times",
+        "two patch binary occupancy common two-state Markov environmental forcing local persistence lagged cross covariance moments identify environmental memory parameter"
+      ]
+    },
+    "rationale": "Qualified best-knowledge novelty: ecological Moran-effect studies, classic occupancy models, and accessible dynamic-factor identification material do not state or demonstrate implication of the exact two-site Bernoulli renewal four-moment reconstruction plus a sharp one-census counterexample. A broader hidden-factor identification theorem could cover algebraic special cases, particularly the Heaton–Solo source available only as abstract, so this is an explicit residual risk, not certified uniqueness.",
+    "residual_risks": [
+      "Heaton–Solo 2004 general dynamic factor identification theorem was available by abstract only and may subsume parts of the covariance inversion.",
+      "Full text of Ripa 2000 and Massie 2015 was not materially inspected; accessible abstracts do not justify claims about unseen details.",
+      "A broader state-space or moment-identification theorem not retrieved may imply the entire specialized two-census statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Noncovering for the present exact Bernoulli-renewal inversion; its mathematical object and environment temporal structure differ",
+        "evidence": [
+          "Kendall et al. (2000), American Naturalist 155, 628-636; spatial environmental correlations and dispersal in linearized abundance model"
+        ],
+        "identifier_or_url": "doi:10.1086/303350",
+        "material_read": "Author-accessible full HTML text: introduction, covariance equations in methods, population-synchrony conclusions and discussion",
+        "method": "Full-text reading of the author's accessible article page",
+        "title": "Dispersal, Environmental Correlation, and Spatial Synchrony in Population Dynamics",
+        "trigger": "Closest primary ecological covariance analysis of common environmental fluctuations"
+      },
+      {
+        "assessment": "Dynamic single-species occupancy with imperfect detection, not paired perfect-occupancy binary Markov weather inversion",
+        "evidence": [
+          "MacKenzie et al. (2003), Ecology 84, 2200–2207, online first publication August 1, 2003"
+        ],
+        "identifier_or_url": "doi:10.1890/02-3090",
+        "material_read": "Complete accessible scientific article including methods, multiseason occupancy and likelihoods",
+        "method": "Accessible full-text PDF and first-page rendering",
+        "title": "Estimating Site Occupancy, Colonization, and Local Extinction When a Species Is Detected Imperfectly",
+        "trigger": "Foundational dynamic ecological occupancy inference model"
+      },
+      {
+        "assessment": "Abstract is about linearized synchronicity and census timing; insufficient to exclude hidden equivalent claims in full text",
+        "evidence": [
+          "Ripa (2000), Oikos 89, 175–187; publisher says first online April 24, 2003"
+        ],
+        "identifier_or_url": "doi:10.1034/j.1600-0706.2000.890119.x",
+        "material_read": "Publisher abstract, bibliographic and first-online date; full scientific article not accessed",
+        "method": "Publisher landing page",
+        "title": "Analysing the Moran effect and dispersal: their significance and interaction in synchronous population dynamics",
+        "trigger": "Potential stronger synchrony and census-timing comparator"
+      },
+      {
+        "assessment": "Environmental autocorrelation relevant but no direct two-patch Bernoulli minimal-identification assertion accessible; full-text risk remains",
+        "evidence": [
+          "Massie et al. (2015), Nature Communications 6, 5993"
+        ],
+        "identifier_or_url": "doi:10.1038/ncomms6993",
+        "material_read": "Publisher abstract and accessible bibliographic record, not complete body",
+        "method": "Publisher abstract/record",
+        "title": "Enhanced Moran effect by spatial variation in environmental autocorrelation",
+        "trigger": "Important colored-noise synchrony comparator"
+      },
+      {
+        "assessment": "High-level identification statement but no accessible exact theorem or hypotheses allowing a decisive implication comparison; retained as explicit priority risk",
+        "evidence": [
+          "Heaton and Solo (2004), Econometrics Journal 7, 618–627"
+        ],
+        "identifier_or_url": "doi:10.1111/j.1368-423X.2004.00146.x",
+        "material_read": "Publisher abstract and reference list only; full text not read",
+        "method": "Publisher page",
+        "title": "Identification of causal factor models of stationary time series",
+        "trigger": "Broad factor identification may subsume the moment inversion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4fda2191-fe1f-420f-a200-4e5a979d7e39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Separating shared environmental Markov memory from local patch persistence is a motivated ecological synchrony problem. The theorem proves exact structural recoverability from one mean and three second moments using only two adjacent census dates and proves sharp failure for one date in the same two-patch setting. The exact sharp boundary is useful for designing and interpreting paired-occupancy observations, despite not guaranteeing finite-sample precision or stability under misspecification.",
+    "status": "PASS"
+  }
+}
