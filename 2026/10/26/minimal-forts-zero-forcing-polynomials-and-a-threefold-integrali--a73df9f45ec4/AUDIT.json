@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The complete fort classification is proved directly from q-1_{i in Q} and p-1_{i in P} neighbor counts at every external vertex; all p,q cases including n=3 are handled. The fort-hitting equivalence supplies the exact polynomial and optimum sets, and summing triple LP inequalities on two sides gives the sharp 2n/3 lower bound. Equality of all triple constraints proves uniqueness for n>=4. The standalone verify.py independently enumerated all masks, full subfort containment, and forcing propagation for every n=3..7, with 1..2^14 subsets per graph.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cameron et al. complete bipartite minimal forts are pairs and Z*=n at K_{n,n}; crown graph has no two-vertex forts and Z*=2n/3.",
+        "Boyer et al., Prop. 4, complete multipartite polynomial; crown graph is not complete multipartite for n>=3.",
+        "published-finding corpus 6afb52747484 concerns complete multipartite minimal forts of rank at most 3, different from crown paired 4-forts."
+      ],
+      "reasoning": "A statement about all complete multipartite graphs does not include deleting a matching; the crown family has a distinct fort size distribution and fractional parameter. Broad general formulas for arbitrary graphs are definitions/LP frameworks, not evaluations.",
+      "searches": [
+        "arXiv:2310.17904v3 full text Sec.3 and Table 6.1",
+        "arXiv:1801.08910v1 full text Sec.4",
+        "published-finding corpus: minimum forts and fort polynomial in crown graphs K_n,n minus perfect matching inclusion minimal fort enumeration",
+        "published-finding corpus: minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.17904v3 full HTML",
+      "arXiv:1801.08910v1 full HTML",
+      "arXiv:1906.03079v1 full HTML",
+      "published-finding corpus 6afb52747484 complete multipartite forts",
+      "published-finding corpus 408da78a029d complete multipartite minimal forts",
+      "MathWorld Crown Graph graph alias",
+      "fresh web search terms recorded in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General fort-hitting iff zero forcing (Cameron et al.) makes new polynomial follow from new specific classification, but does not provide the classification.",
+        "K_{n,n} graph zero forcing polynomial involves paired size-2 forts; crown requires one-sided triples and paired quadruples.",
+        "For n=3 C6 values occur in Boyer et al.; for n=4 Q3 values occur in Cameron et al. These are covered special cases but do not cover all n>=5 or minimal fort profiles."
+      ],
+      "reasoning": "Prior abstract LP/hitting equivalences strictly imply the transformations once the new fort hypergraph is supplied, but not the necessary family-specific incidence description. Neither scalar circular-graph bounds nor finite special cases imply the polynomial or the gap tending to three.",
+      "searches": [
+        "arXiv:2310.17904v3 Sec.2 fort transversal theorem Sec.3 examples",
+        "arXiv:1801.08910v1 Sec.4 Proposition 4",
+        "arXiv:1906.03079v1 Sec.3 bipartite circulants",
+        "published-finding corpus: fort hypergraph of crown graph minimal fort sizes 3 4 zero forcing integer fractional"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Crown graphs = K_{n,n} minus one perfect matching = bipartite double covers of K_n; the family includes C6 and Q3 (MathWorld Crown Graph; 2019 circulant equivalences).",
+        "Cameron et al., arXiv:2310.17904v3, Secs. 2,3 and Table 6.1, defines fort-hypergraph LP and treats K_{p,q}, Q_d but does not list crown family."
+      ],
+      "reasoning": "Checked aliases crown/bipartite double cover/circulant and the equivalence between minimal forts and minimal transversals. General theory transfers but requires the new exact family-specific hypergraph; listed complete bipartite/hypercube values do not determine all n.",
+      "searches": [
+        "published-finding corpus: fort hypergraph of crown graph minimal fort sizes 3 4 zero forcing integer fractional",
+        "web: \"crown graphs\" \"minimal forts\" \"zero forcing\"",
+        "web: \"crown graph\" \"fractional zero forcing\"",
+        "arXiv:2310.17904v3 full text, crown and complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2310.17904v3 Table 6.1 lists Q_d and K_{p,q} but not matching-deleted K_{n,n}.",
+        "arXiv:1801.08910v1 Sec.4 explicitly lists wheels, threshold graphs, complete multipartite, paths and cycles; no crown graph polynomial.",
+        "published-finding corpus closest 6afb52747484 is a complete multipartite hypergraph, not the crown result."
+      ],
+      "reasoning": "No exact crown fort-hypergraph, polynomial, and fractional gap table was identified from the checked materials. This is not a uniqueness proof; undetected literature is possible.",
+      "searches": [
+        "published-finding corpus: zero forcing fort number minimum fort size crown graph K_n,n minus matching",
+        "published-finding corpus: fractional zero forcing number crown graphs n n minus perfect matching minimal forts triples four set 2n/3 integrality gap three",
+        "arXiv:2310.17904v3 Table 6.1",
+        "arXiv:1801.08910v1 full text Sec.4",
+        "web: zero forcing polynomial crown graph K n n minus matching"
+      ]
+    },
+    "rationale": "Claim-level comparisons: the 2018 general zero-forcing-polynomial theory and its complete multipartite and cycle formulas do not state a polynomial for the matching-deleted complete bipartite family; the 2023 foundational fort hypergraph treatment gives the LP and exact complete bipartite/hypercube cases, but not the paired-fort classification nor the crown polynomial and threefold asymptotic gap; the 2019 full circulant paper covers certain scalar zero forcing numbers without the crown fort-hypergraph LP/enumerator. Prior complete multipartite published-finding corpus findings concern different edge sets. Known C6 and Q3 scalar consequences are credited. Semantic and textual overlap searches found no direct covering theorem, though undocumented earlier work remains a residual priority risk.",
+    "residual_risks": [
+      "Unindexed or differently named literature on crown/bipartite-double-cover zero forcing could previously contain all or part of the classification.",
+      "Known n=3 cycle and n=4 cube special-case scalar results are excluded from originality.",
+      "The general fort-hypergraph LP-to-zero-forcing equivalence predates this theorem; novelty is the specific full paired-fort classification and its consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines LP/fort equivalence, gives K_{n,n} and hypercube cases; no all-n crown fort classification or polynomial identified",
+        "evidence": [
+          "Section 2 definition of minimal fort hypergraph/LP; Section 3 Example 3.4 K_{p,q}; Table 6.1 K_{p,q} and Q_d; no crown heading or occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2310.17904v3",
+        "material_read": "Full article sections 1, 2, 3 and family summary table 6.1; searched complete bipartite, crown, tensor product, hypercube and parameter values",
+        "method": "arXiv accessible full HTML",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Direct prior definition and potentially stronger general fractional result"
+      },
+      {
+        "assessment": "General polynomial and complete multipartite, cycle cases but no formula for crown family",
+        "evidence": [
+          "Section 4 Proposition 4 complete multipartite; Proposition 6 cycle; absent crown graph object in text."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1801.08910v1",
+        "material_read": "Full article introduction, coefficient theorems, Section 4 including Proposition 4 and cycle formula, Section 5; searched crown and bipartite",
+        "method": "arXiv full HTML",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Possible general coverage of entire forcing-set polynomial"
+      },
+      {
+        "assessment": "Studies selected bipartite circulants and scalar Z/M, not minimal forts/fractional LP or full polynomial",
+        "evidence": [
+          "Section 3 selected bipartite circulant graph bounds; no use of crown terminology or fort-hypergraph enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1906.03079v1",
+        "material_read": "Introduction and Section 3 bipartite circulants; inspected zero forcing theorem statements and searched crown and K_n,n",
+        "method": "arXiv full HTML",
+        "title": "Maximum nullity and zero forcing of circulant graphs",
+        "trigger": "Crown has circulant realizations, hence potentially covered scalar Z"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a73df9f4-5ec4-45fb-9f3d-090a6c8c4999",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full minimal-fort hypergraph (two families of triples plus paired quadruples) makes the complete zero forcing polynomial tractable and reveals a discontinuous structural effect from deleting just a perfect matching. It yields a family of fort-cover integrality gaps tending to 3, versus 2 for K_n,n, a natural LP-relaxation phenomenon motivated by the original fractional-zero-forcing paper; neither elementary scalar bounds nor prior known K_n,n computations recover the paired-fort census.",
+    "status": "PASS"
+  }
+}
