@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** Separate multinomial enumeration of one and two marked cells proves the exact covariance identity. Consecutive ratios of the normalized joint probability strictly decrease for every fixed positive first load, forcing one positive interval. A genuine feasible negative–positive–negative witness is checked as exact rational arithmetic. The fixed-box critical threshold is proved by the local bivariate multinomial Gaussian approximation at the exact maximizing second load, using the finite ratio monotonicity to control the *global* maximum. The checker corroborates the claims but is not the infinite proof.
+
+**Originality (O): PASS, with historical priority risk.** The basic covariance identity and many-box Poisson covariance matrix are standard and not counted. The relevant prior infinite-box occupancy CLT (Barbour–Gnedin) uses a different regime. O'Neill's indexed 2019 occupancy paper studies the occupied-bin count; complete publisher full text was not accessible, and its precise contents remain a residual risk. Related published results on \(\operatorname{Cov}(K,M_r)\) and on precision of occupied-bin indicators cannot imply each \(\operatorname{Cov}(M_r,M_s)\) separately. Related recorded results aggregate frequency-count covariances with Pearson statistics. No equivalent finite two-switch + fixed-box Gaussian sharp-threshold result was identified in direct and alias searches.
+
+**Value (V): PASS.** Counts of boxes with exactly a specified load are canonical occupancy-spectrum statistics. Complete sign variation and the sharp standardized-load threshold answer a natural structural question about when two frequency categories can be positively associated; neither the two reversals nor their precise boundary is a generic textbook occupancy moment computation.
+
+**Limitations and risk.** Diagonal variances are excluded; the exact threshold is proved only when the number of boxes is fixed and the number of balls grows; equality at the Gaussian threshold is left unresolved. A relevant publisher full text and some indexed public records were not accessible in full, so historical priority is not independently certified. Only same mathematical model proof review and standalone computational checks were performed.
+
+Self-review: passed. Independent audit: not yet performed.
