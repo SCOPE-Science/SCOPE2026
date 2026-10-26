@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+Equation (11) of the motivating nonlinear public-goods paper specializes exactly to the stated polynomial system when \(N=2\). The weighted divergence has a constant nonzero sign for every \(r\neq2\) on the simply connected open square, excluding all periodic orbits there. At \(r=2\), the explicit conserved quantity has one interior maximum and all its other levels are compact regular simple closed curves without equilibria, proving periodicity for all other interior states. Three exact total-derivative identities prove the time means and zero covariance. The attached symbolic checker reproduces each critical identity; three independent numerical integrations provide ancillary support.
+
+## Originality — PASS
+The nearest model paper [1] analyzes strict cycle inequalities and local stability without the neutral equality case at \(N=2\), the globally constant-sign Dulac identity, or orbit-independent moment formulas. Weitz et al. [2] provide an important earlier center with a nonzero cooperation-advantage intercept; their printed first integral divides by that intercept and does not directly cover the singular zero-intercept case. Ito and Yamamichi [3] classify strict pairwise-game types and neutral centers, but do not state this asymmetric public-goods parameter dichotomy or its three exact temporal averages. Relevant published mathematical findings and prior accessible research claims were compared for coverage; no equal or stronger statement on the same model and statistics was found. In particular, a complete published finding proves a stronger conditional covariance identity for classical Lotka–Volterra but assumes different vector fields and cannot establish the public-goods sharp threshold; the shared generator method is acknowledged as prior technique. The 2024 paper's linked supplementary tables were not fully inspected, and general center theory creates publication-priority risk.
+
+## Value — PASS
+The sharp equality \(r=2\) is the natural group-size boundary of the 2025 paper's enhancement-dependent cycle regime: arbitrarily small changes in \(r\) eliminate all interior periodic orbits, while equality fills the punctured square with neutral cycles. The conservation law and exact zero-covariance prediction show how sustained cooperation/environment oscillations can leave time-averaged observables fixed. This is a structural phase classification and precise observable prediction, not a small numerical improvement or an arbitrary parameter slice.
+
+## Closest literature and limitations
+Sources: [1] Jiang et al., arXiv:2510.10259; [2] Weitz et al., DOI 10.1073/pnas.1604096113; [3] Ito and Yamamichi, DOI 10.1093/pnasnexus/pgae455. The result covers only the two-person, two-strategy deterministic model with interior initial states. No extension to larger groups or global off-critical attractors is claimed. Mathematical priority outside inspected material remains uncertain.
+
+Self-review: passed. Independent audit: not yet performed.
