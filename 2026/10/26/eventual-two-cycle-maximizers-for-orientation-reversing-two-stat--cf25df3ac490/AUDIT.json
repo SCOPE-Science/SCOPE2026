@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For finite strictly decreasing affine maps the max/min Bellman envelopes reverse extremal roles; their two-step compositions are increasing, giving monotone parity subsequences. Each pairwise affine comparison therefore eventually stabilizes, including ties. Exact extremizer-set products imply two-step nondecreasing multiplicities, so unique winners stop or have an eventually constant optimal two-letter suffix on each parity. A no-return upper/lower-envelope argument establishes disjoint letter runs in parity subsequences. Counting ordered runs yields the stated valid O_q(n^(2q-2)) upper bound. Fraction-based tests evaluated 619210 words for 190 models and a genuine ternary example; computation is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Binary regularity is broader in determinant sign but narrower in alphabet size.",
+        "An orientation-preserving all-letter classification has determinants of the opposite sign."
+      ],
+      "reasoning": "Neither known special regime includes three-or-more-symbol automata with every determinant strictly negative; a generic all-alphabet regularity theorem was not identified.",
+      "searches": [
+        "orientation reversing two-state probabilistic finite automata unique length-n maximizing words eventually alternating, negative transition determinant",
+        "two-state stochastic automata nonnegative determinants each letter occupies one contiguous run classification words",
+        "Gill two state PFA regular witness language arbitrary alphabets negative transition slopes"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.26275v1",
+      "arxiv:2402.13376v4",
+      "published-finding corpus semantic queries listed in four comparisons",
+      "Relevant previously reported mathematical claims on opposite determinant signs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gill arXiv:2402.13376 Cor. 4.16: regularity for binary-letter 2-state PFAs.",
+        "Kjos-Hanssen arXiv:2607.26275: any finite word has probabilistic automatic complexity at most three.",
+        "Closest own historical record ea94ed89-3bf3-47d4-beb4-63e9dcf8cb36 concerns nonnegative determinants and contiguous runs."
+      ],
+      "reasoning": "Gill does not cover q>=3, the 3-state universal bound provides no classification for two-state winning words, and the nonnegative-determinant premise is disjoint from strict negativity. Current theorem neither duplicates nor follows from those statements.",
+      "searches": [
+        "probabilistic automatic complexity two state negative determinants parity subsequences single runs regular language",
+        "probabilistic automaton uniqueness maximizing words every other symbol run nonmonotone affine sign reversal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill arXiv:2402.13376 Cor. 4.16 discusses binary alphabet only; inspection of the paper’s proof does not provide larger alphabets.",
+        "Kjos-Hanssen arXiv:2607.26275v1 describes the 3-state construction and earlier 2-state binary classification."
+      ],
+      "reasoning": "Ternary negative-determinant examples are not binary-alphabet instances; the theorem asserts fixed-machine eventual regularity and a parity-run restriction, neither follows from a 3-state existence result.",
+      "searches": [
+        "probabilistic automatic complexity two states arbitrary alphabet ternary unique most probable word classification 2-state PFA",
+        "two-state probabilistic finite automata exact maximizer ternary strings binary Gill Kjos-Hanssen",
+        "probabilistic automatic complexity ternary length words 2 states affine map"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched research record on outermost-cycle basin selection studies quantized scalar contractions, not probabilistic-automaton language winners.",
+        "No exact table of maximizers for this hypothesis was returned by the searched research records."
+      ],
+      "reasoning": "An affine-contraction iteration statement does not determine competition among finitely many affine maps, uniqueness multiplicities or the winning-language rays. Absence of a table alone does not establish priority.",
+      "searches": [
+        "all-negative two state stochastic matrices maximum probability words eventual period two, affine contractions",
+        "two-state probabilistic automata maximizers 2-cycle negative slopes exact switch bounds"
+      ]
+    },
+    "rationale": "Gill establishes regularity for the binary alphabet but not arbitrary alphabet, and Kjos-Hanssen proves a universal 3-state upper bound without the negative-determinant 2-state regularity theorem. Available current research search and preceding claims disclose no stronger covering statement; comparisons are scoped by hypothesis and implication rather than title. This is best-knowledge originality, not certification of historical priority.",
+    "residual_risks": [
+      "No absolute novelty conclusion is possible from a bounded database/literature search.",
+      "Equivalent descriptions through order-reversing iterated-function systems may be unindexed.",
+      "The unrestricted mixed-determinant two-state problem is left unresolved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering; establishes three-state upper bound rather than language of winners of a fixed two-state negative-determinant PFA",
+        "evidence": [
+          "arXiv:2607.26275v1, initial preprint dated 2026-07-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.26275",
+        "material_read": "Accessible full HTML: statement, introduction, main construction and discussion of 2-state limitations",
+        "method": "Read mathematical text and compared its hypotheses, conclusions and cited binary work",
+        "title": "Every String Has Probabilistic Automatic Complexity at Most Three",
+        "trigger": "New general finite-alphabet complexity bound and motivation for larger-alphabet 2-state questions"
+      },
+      {
+        "assessment": "Strong closest literature but limited to two-letter alphabets, and hence not covering the ternary-and-higher claim",
+        "evidence": [
+          "arXiv:2402.13376v4, Corollary 4.16 states binary fixed-machine winning-language regularity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.13376",
+        "material_read": "Relevant full PDF sections on two-state affine maps, Section 4, Section 4.4 and Corollary 4.16; not entire 46-page document",
+        "method": "Inspected PDF text and selected PDF screenshots; compared binary premise and proof",
+        "title": "Probabilistic Automatic Complexity of Finite Strings",
+        "trigger": "Closest theorem on regularity of fixed-machine unique winners"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cf25df3a-c490-4201-abeb-d9908bb35a50",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Motivated by recent finite-alphabet probabilistic automatic-complexity advances and a published binary regularity theorem. Obtains an exact finite-union-of-ultimately-periodic-ray characterization for fixed orientation-reversing two-state models over arbitrarily many letters, plus a uniform parity-run structural restriction and polynomial sparsity envelope. These are non-routine infinite-family structural facts, not merely rephrasings of the known binary or opposite-determinant cases.",
+    "status": "PASS"
+  }
+}
