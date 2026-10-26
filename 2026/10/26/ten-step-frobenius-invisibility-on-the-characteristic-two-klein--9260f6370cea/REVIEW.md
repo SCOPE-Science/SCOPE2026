@@ -1,0 +1,15 @@
+# Scientific review: Ten-step Frobenius invisibility
+
+## Correctness — PASS
+The exact equation is smooth in characteristic two because its five partials are the squares of the preceding coordinates. Weak Lefschetz and Gauss--Bonnet give \(\dim H^3=10\). For the cyclic order-eleven diagonal action, every nonidentity power has exactly five isolated, nondegenerate fixed points. Tame Lefschetz gives trace \(-1\), so Fourier inversion yields each nontrivial character once. Frobenius permutes these spaces by multiplication by two modulo eleven in one orbit of length ten. Alternating Poincare duality forces determinant \(2^{15}\), fixing the cyclic characteristic polynomial to \(U^{10}+2^{15}\). The cohomological trace formula gives all stated point counts. The supplied exact field enumeration for degrees one through seven is corroborative only. A significant premise is the standard tame fixed-point theorem, not an unverified finite calculation.
+
+## Originality — PASS (qualified)
+Roulleau and Gonzalez-Aguilera--Liendo establish the Klein cubic and order-eleven geometry. Ciurca explicitly computes the order-eleven trace on middle cohomology in characteristic two, which is acknowledged as **previously known**. The comparison did not find the exact prime-field Frobenius ten-cycle, resulting polynomial \(U^{10}+2^{15}\), or all-extension point-count formula in those inspected works. Roulleau's published zeta algorithm addresses a different parameter (the Fano surface) and assumes odd characteristic. The arithmetic claim is therefore not merely a restatement of the titles inspected, though general results on twists of Hermitian forms could imply it without identical wording. Historical equivalence and unpublished computations remain residual risks.
+
+## Mathematical value — PASS
+The explicit Hasse--Weil zeta function is a fundamental invariant of the fixed prime-field model. The exact coincidence with projective-space point counts across nine consecutive extension degrees, followed by a large degree-ten deviation, is a structurally motivated Frobenius phenomenon rather than an arbitrary small-field census. The cyclic middle-cohomology explanation and all-extension formula make the result reusable for arithmetic and twist comparisons. No claim is made about the full Fano-surface arithmetic or about all Hermitian twists.
+
+## Closest literature and limits
+The closest direct geometrical source is Ciurca's characteristic-two order-eleven cohomological trace; it does not identify the prime-field Frobenius eigenvalue permutation or evaluate the above zeta function in the inspected section. Roulleau's earlier Fano-surface work provides historical geometric context but addresses different invariants. A broader Hermitian-variety result, if found to cover this twisted \(\mathbb F_2\) form with its specified Frobenius, would supersede the claimed arithmetic novelty. The proof uses standard cohomological fixed-point and duality theorems and depends on those hypotheses as stated.
+
+Self-review: passed. Independent audit: not yet performed.
