@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For every frozen history, the current choice maximizes a report-separable, supporter-monotone candidate priority: affine residual-budget support in fallback and affordable-first minimum price in the MES phase. A current lie cannot improve a genuinely approved candidate priority or worsen a genuinely disapproved incumbent, hence OSP. An exact earliest-large-payment argument gives wEJR; the cited and inspected Theorem 3.14 of Phillips et al. guarantees inherited wEJR+ under matching normalized MES rules. The standalone verifier passed 66,288 fixed states, 184,734 deletion checks, 1,187,136 OSP comparisons, and 22,894 dynamic histories; no finite test is presented as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Phillips et al., Theorem 3.14 covers arbitrary completion with wEJR+; it does not establish strategyproofness of such completions.",
+        "Borodin and Lueger, Theorem 1 gives the general OIIA-to-OSP implication, while Proposition 5 addresses only MES without completion.",
+        "Elkind et al. prove static approval voting strategyproof, not the MES-priced prefix joined to frozen-budget continuation."
+      ],
+      "reasoning": "The stronger published proportionality theorem does cover the inherited wEJR+ part, which is not presented as novel. Neither its mathematical statement nor the stronger classical monotone score principle asserts OSP at the mixed payment/fallback decision boundary for the constructed completed rule. These antecedents are used openly as ingredients, not evaded.",
+      "searches": [
+        "online temporal voting Phragmen strategyproofness equal shares time permutation proportional representation",
+        "web: Method of equal shares completion stage approval voting strategyproof current round sequential temporal",
+        "web: online temporal voting semi online MES completion procedure preserving online strategyproofness 2026"
+      ]
+    },
+    "checked_sources": [
+      "Borodin and Lueger, arXiv:2603.26504, Section 4.3, paragraph explicitly opening the completion/OSP question",
+      "Chandak, Goel and Peters, arXiv:2306.14858, Section 4.2, Theorem 4.3 and its budget proof",
+      "Phillips, Elkind, Teh and Wąs, arXiv:2505.22513, AAMAS 2026 Definition 3.13 and Theorem 3.14",
+      "Elkind, Neoh and Teh, arXiv:2408.13637, one-shot approval-scoring strategyproofness",
+      "Published results on power-index ranking boundaries, examined and inapplicable to MES completion",
+      "Published result on temporal EJR+/FJR+ implications, examined and inapplicable to OSP completion"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] covers incompletely defined MES plus its OSP, with missing decisions after exhaustion.",
+        "[2] supplies wEJR and a budget proof without the claimed OSP-preserving responsive completion.",
+        "[3] covers arbitrary tail outcomes and wEJR+, but its theorem allows tail rules that could respond nonmonotonically to approvals; therefore it cannot imply OSP for every tail rule.",
+        "The present priority construction yields both properties; the optional stronger fairness statement is explicitly inherited from [3]."
+      ],
+      "reasoning": "Combining previously known wEJR+ with arbitrary completion does not prove the new online incentive guarantee. Combining OIIA implies OSP with the statement that static weighted approval is OSP also does not settle whether a current report can trigger the budget-exhaustion switch. The candidate-wise monotonicity across affordable and unaffordable tiers supplies the missing implication.",
+      "searches": [
+        "Method of Equal Shares temporal voting completion when unaffordable winner online strategyproofness residual budget weighted approval fallback",
+        "temporal Method of Equal Shares approval voting completion after premature termination residual budget strategyproofness",
+        "web: method equal shares completion stage approval voting strategyproof current round sequential temporal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.26504 says MES without completion is OSP, expressly poses OSP-preserving completion as open.",
+        "The candidate-separable OSP proof is equivalently an OIIA verification for the affordability boundary plus a weighted-approval fallback.",
+        "The inspected public-literature searches returned the original open problem and background MES completions, not this joint OSP + full-output construction."
+      ],
+      "reasoning": "A rule choosing a fixed, approval-independent tail also creates full output but does not provide the approval-responsive residual-budget rule claimed here. The source authors do not prove online incentive compatibility at a budget-exhaustion switch. The general OIIA implies OSP theorem is prior and acknowledged; what is new is the separately specified completion and proof that OIIA survives the switch.",
+      "searches": [
+        "Method of Equal Shares temporal voting completion when unaffordable winner online strategyproofness residual budget weighted approval fallback",
+        "online independent irrelevant alternatives fallback patching MES affordable non affordable temporal voting wEJR",
+        "temporal Method of Equal Shares approval voting completion after premature termination residual budget strategyproofness",
+        "web: \"online temporal voting\" \"completion\" \"equal shares\" 2026",
+        "web: \"MES\" \"completion\" \"online strategyproof\" voting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A leading published-record match concerns a six-voter power-index ranking boundary, not temporal equal shares.",
+        "Another result concerns Deegan–Packel local monotonicity in weighted voting games, not current-round report manipulation.",
+        "An earlier examined theorem on a finite-voter temporal EJR+/FJR+ boundary concerns distinct axioms and does not imply an OSP MES continuation."
+      ],
+      "reasoning": "No exact database entry or finite table covering the stated all-parameter completion theorem was identified. Since search result ranking and corpus coverage are imperfect, this is supporting negative evidence, not a uniqueness proof.",
+      "searches": [
+        "Method of Equal Shares temporal voting completion when unaffordable winner online strategyproofness residual budget weighted approval fallback",
+        "online independent irrelevant alternatives fallback patching MES affordable non affordable temporal voting wEJR",
+        "temporal Method of Equal Shares approval voting completion after premature termination residual budget strategyproofness"
+      ]
+    },
+    "rationale": "The proposed nonnegative-weight, report-responsive completion is not a statement in the examined primary sources. The main 2026 source explicitly leaves OSP-preserving completion open. The 2025 Phillips et al. theorem already covers the stronger fairness inheritance and is acknowledged. Actual published-record search and 48 accessible prior claims yielded no equivalent OSP completion; unindexed or later literature remains a priority risk.",
+    "residual_risks": [
+      "No independent historical-priority review.",
+      "Semantic search can miss similarly proved results under other voting-completion terminology.",
+      "Full text of Elkind–Neoh–Teh 2024 was not read; its abstract and claims in the motivating paper were checked, and it remains possible a more general theorem reduces the novelty of the candidate-separable argument.",
+      "The inherited wEJR+ is known from Phillips et al. and is not claimed as an original proportionality theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING OSP-compatible completion; establishes prior MES-no-completion OSP and explicitly leaves completion open",
+        "evidence": [
+          "Section 4.3 describes premature termination and asks whether an OSP-preserving completion exists.",
+          "Theorem 1 concerns OIIA implies OSP; Proposition 5 proves OSP for no-completion MES."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.26504",
+        "material_read": "Web-accessible full text including definitions, Section 4.3 MES construction, Proposition 5, and conclusion/related results",
+        "method": "Read substantive primary full-text passages, not just abstract or search snippets",
+        "title": "Online Temporal Voting: Strategyproofness, Proportionality and Asymptotic Analysis",
+        "trigger": "Exact motivating rule and explicit open completion problem"
+      },
+      {
+        "assessment": "COVERS baseline wEJR, NOT_COVERING the stateful OSP completion",
+        "evidence": [
+          "Theorem 4.3 proves Weak EJR by earliest large MES payment.",
+          "Its online strategyproof completion is not established there."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.14858",
+        "material_read": "Full-text Section 4.2, Theorem 4.3, proof of Weak EJR and limitations of MES",
+        "method": "Read primary full-text statement, proof and surrounding analysis",
+        "title": "Proportional Aggregation of Preferences for Sequential Decision Making",
+        "trigger": "Original temporal MES water filling and proportionality"
+      },
+      {
+        "assessment": "COVERS wEJR+ for arbitrary MES completions, which is explicitly credited; DOES NOT cover OSP of the residual-budget completion",
+        "evidence": [
+          "Definition 3.13 explicitly allows arbitrary candidates once MES becomes unaffordable.",
+          "Theorem 3.14 guarantees wEJR+ for every such output.",
+          "The inspected paper has no online strategyproofness result for the completion."
+        ],
+        "identifier_or_url": "https://ifaamas.org/Proceedings/aamas2026/pdfs/SWJZ9796.pdf",
+        "material_read": "Proceedings paper preliminaries, Definition 3.11, Proposition 3.12, Definition 3.13 and Theorem 3.14 (page 6), plus introduction, related work, and bibliographic sources",
+        "method": "Examined accessible primary PDF text and page rendering including the applicable theorem",
+        "title": "Strengthening Proportionality in Temporal Voting",
+        "trigger": "Plausible stronger completion theorem and stronger proportionality coverage"
+      },
+      {
+        "assessment": "INSUFFICIENT_TO_RULE_OUT_ALL_BROADER_COVERAGE, but no explicit completed-MES claim found in the material inspected",
+        "evidence": [
+          "Abstract states utilitarian maximization is strategyproof.",
+          "This result concerns a different rule and cannot alone determine OSP at a MES affordability switch."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2408.13637",
+        "material_read": "Accessible primary abstract and cited result as characterized in the motivating paper; full theorem proof not independently examined",
+        "method": "Read abstract and inspected motivating-paper related-work comparison",
+        "title": "Temporal Elections: Welfare, Strategyproofness, and Proportionality",
+        "trigger": "Static and temporal strategyproofness of approval-maximizing rules"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5d008ee2-c633-4b08-ab39-80989a0f7f90",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 paper identifies preservation of OSP when an early-terminating proportional voting rule is completed as an open design issue. The constructive result gives full voter-responsive outputs at every round while retaining immediate truthfulness and known proportional group guarantees; the monotone separable score invariant explains a general safe family of continuations. Its value is not based on the number of verification tests or a routine numerical improvement.",
+    "status": "PASS"
+  }
+}
