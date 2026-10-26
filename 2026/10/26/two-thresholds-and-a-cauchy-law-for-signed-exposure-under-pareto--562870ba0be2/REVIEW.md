@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The intra-cycle signed integral is Gaussian with exact variance \(4K\tau^{2+\beta}/((\beta+1)(\beta+2))\). The Pareto/Gaussian product tail gives the stable index and scale, and the finite-mean renewal random-time-change theorem transfers the sum to physical time. Tight backward age makes the final partial excursion negligible at the stable scale. The renewal equation and its Laplace–Tauberian asymptotic independently determine the large-time second moment, including the noncommuting probability and mean-square limits. Forty-three numerical checks passed; these are supporting evidence only. The stable limit uses standard probabilistic lemmas and is not an independently certified theorem.
+
+**Originality — PASS under available-source comparison, with priority risk.** The motivating arXiv:2610.19985v1 treats absolute area under resetting; its threshold \(\alpha=1+\beta\) must not be mistaken for this signed-area Cauchy threshold \(\alpha=1+\beta/2\). arXiv:2602.04342v1 gives signed Gaussian area without resets; arXiv:2202.03546v1 gives signed area with Poisson resets. Heavy-tail renewal-reward limit theory supplies broader standard machinery; the model-specific two-threshold phase separation and constants are not identified in the accessed material. A fully comprehensive priority search is not guaranteed, particularly for inaccessible general renewal-reward texts.
+
+**Value — PASS.** Signed area is a natural integrated transport observable (including phase accumulation under linear spatial field gradients). The exact Cauchy crossover is a non-Gaussian dynamical boundary, and the open parameter regime where typical averages vanish but variance diverges explains why finite ensembles can misleadingly suggest a failure of self-averaging. The phase diagram gives physically interpretable boundaries rather than a routine isolated moment computation.
+
+Scientific limits: exact Pareto clocks, full rejuvenation of Brownian dynamics at reset, finite-mean interarrivals, and no local-limit or finite-time rate. The findings here are assessed on the basis of the cited sources and reproducible checks, not independent external validation.
+
+Self-review: passed. Independent audit: not yet performed.
