@@ -1,0 +1,11 @@
+# Review of the Möbius-ladder limited-domination theorem
+
+**Correctness — PASS.** The proof does not infer an infinite classification from finite enumeration. Degree counting makes half-order equality equivalent to a perfect matching cut. Opposite-crossing indicators have an alternating difference recurrence; parity forces periodic crossing sequences only when \(4\mid n\). The explicit arc of \(n+1\) selected vertices handles all other orders. The argument also enumerates all four minimum sets at the equality orders. The direct exhaustive and twisted-boundary transfer implementations cross-check the first six widths.
+
+**Originality — PASS (best-knowledge, not independent priority certification).** The closest contemporary literature gives the definition, general half-order constraints, Cartesian product bounds, and cubic graph families distinct from the Möbius ladder. The 2021 result already includes the smallest graph \(K_{3,3}\), so that particular value is not new. A general statement about efficient domination in the Möbius ladder has a different constraint. Matching-cut literature is a material alternative formulation: a general unindexed classification of perfect matching cuts could subsume the half-order boundary. The inspected sources and searches did not reveal that classification, but residual bibliographic uncertainty is recorded in the structured audit.
+
+**Value — PASS.** The four-period threshold and exact equality-case rigidity are structural results about a canonical, vertex-transitive, cubic twisted cycle family. They specify when the universal half-order bound is attainable, provide optimal constructions otherwise, and completely classify the exceptional minimum configurations. This is stronger than a one-instance calculation, a small improvement to a generic bound, or a brute-force table.
+
+**Limitations and closest literature.** Radić–Tepeh, arXiv:2610.01796v1, studies 1-limited and \((1,2)\)-domination in cubic families; Tepeh, arXiv:2606.22428v1, treats Cartesian products; Fakharan et al. (2021) covers \(K_{3,3}\); Bouquet–Picouleau (2025) discusses perfect matching cuts. No exhaustive count of minimum sets for non-equality orders is proved. The paper-priority assessment is subject to equivalent formulations and unindexed sources.
+
+Self-review: passed. Independent audit: not yet performed.
