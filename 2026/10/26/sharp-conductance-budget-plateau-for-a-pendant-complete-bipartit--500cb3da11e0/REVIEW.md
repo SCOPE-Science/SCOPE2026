@@ -1,0 +1,15 @@
+# Scientific review: sharp pendant-biclique budget plateau
+
+## Correctness
+**PASS.** For every \(p\ge4\), \(q\ge2\), and \(B>0\), the explicit Gram matrix \(X=vv^{\mathsf T}+\sigma^2 E\) is positive semidefinite, annihilates constants, has trace \(p+4\), and gives squared distance one on every permitted edge. Tracing against any weighted Laplacian gives the unrestricted upper bound. The equitable quotient characteristic polynomial is checked symbolically, and its remaining roots exceed one; the opposite-side fluctuation eigenvalue supplies the exact saturation threshold. Averaging and complementary slackness rule out saturation above that threshold even for nonsymmetric weights. The explicit six-vertex counterexample shows why the claim excludes \(p=3\). The accompanying checker gives finite and symbolic cross-checks; the infinite claim uses the displayed proof.
+
+## Originality
+**PASS, subject to residual research-literature risk.** The September 2, 2005 Göring–Helmberg–Wappler preprint introduces a general embedding-duality theory and examples, not the explicit pendant-\(K_{p,q}\) saturation threshold. The 2006 Sun–Boyd–Xiao–Diaconis full text studies general continuous-time fastest mixing, with path/cycle examples, but no matching pendant-biclique family statement located in the examined sections or term searches. The 2007 Boyd–Diaconis–Parrilo–Xiao full preprint analyzes discrete-time graph symmetry and intact complete bipartite graphs, whose feasible objective differs. Related accessible mathematical records concern other graph families, discrete-time objectives, or fixed conductance spectra. The 2002 Kirkland–Pati vertex-connectivity article was available only at abstract level and is a residual uncertainty; no claim of exhaustive coverage of inaccessible literature is made.
+
+## Value
+**PASS.** The mathematically natural absolute-algebraic-connectivity problem has an exactly solvable, nontrivial regime on a one-leaf perturbation of a complete bipartite core. The optimum is independent of opposite-side size until the sharp integer threshold \(q=p+2\), after which *every* allocation strictly misses the previous ceiling. The dual witness is simultaneously tight on all individual edge types and works against all nonsymmetric designs, providing a reusable design certificate for bottlenecked bipartite communication and diffusion networks. The explicit counterexample at \(p=3\) shows that the vertex-count assumption is structural, not a cosmetic proof constraint.
+
+## Limits and closest literature
+No global exact value above the transition, no unrestricted uniqueness claim, and no independent audit are provided. Closest directly inspected sources: Göring–Helmberg–Wappler (2005, optimization-online.org/2005/09/1202/); Sun–Boyd–Xiao–Diaconis (2006, DOI 10.1137/S0036144504443821); Boyd–Diaconis–Parrilo–Xiao (2007, arXiv:0709.0955). Kirkland–Pati (2002, DOI 10.1080/03081080290025453) remained abstract-only.
+
+Self-review: passed. Independent audit: not yet performed.

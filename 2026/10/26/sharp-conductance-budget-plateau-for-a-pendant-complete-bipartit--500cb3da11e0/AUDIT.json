@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "The explicit Gram dual X is positive semidefinite for m=p-1>=3, orthogonal to constants, has trace m+5=p+4, and gives squared distance exactly 1 on every allowed edge. Therefore tr(LX)=B for EVERY nonnegative edge weighting, yielding lambda2<=B/(p+4). The candidate with positive rates (leaf 2lambda, distinguished cross 3lambda/q, other cross lambda/q) has exact eigenvalue decomposition: eigenvalue lambda on A0 differences, lambda(p+2)/q on D differences, quotient eigenvalues lambda(0,1,t_plus,t_minus) with t_plus,t_minus>1 from the verified quadratic. Thus for q<=p+2 it saturates. If any allocation saturated above that threshold, automorphism averaging preserves its gap; complementary slackness against X forces the averaged candidate rates, whose D-difference eigenvalue is smaller. Contradiction. A separate six-vertex exact spectrum demonstrates failure of the same universal bound at p=3. Symbolic quotient identity and Gram equalities were replayed, with 57 exact rational graph cases and 189 independently assembled finite numerical spectral cases. None of the infinite steps relies on finite enumeration.",
+    "risks": [
+      "The above-transition exact maximum remains unknown but is not asserted."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Göring–Helmberg–Wappler give SDP embedding/shadow and treewidth theorems, but not a pendant-biclique exact optimum in the inspected material.",
+        "Kirkland–Pati abstract gives a vertex-connectivity bound, without accessible full-text theorem assumptions or equality cases.",
+        "Closest published-finding corpus matroid-polytope result concerns a fixed unweighted Laplacian on a different graph, not rate allocation."
+      ],
+      "reasoning": "General SDP formulations are algorithms/characterizations, not a closed optimal value for this graph family. A plausible stronger graph-connectivity theorem was identified but its inaccessible full text is an explicit residual risk rather than labeled not-covering. No reviewed accessible broader theorem directly implies the specified integer threshold.",
+      "searches": [
+        "\"complete bipartite\" \"pendant\" \"fastest mixing\" \"eigenvalue\"",
+        "\"pendant vertex\" \"algebraic connectivity\" \"optimal edge weights\" graph",
+        "\"absolute algebraic connectivity\" \"pendant\" \"complete bipartite\"",
+        "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "https://doi.org/10.1080/03081080290025453",
+        "2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680"
+      ]
+    },
+    "checked_sources": [
+      "Göring–Helmberg–Wappler, Embedded in the Shadow of the Separator, original September 2 2005 preprint, https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+      "Sun–Boyd–Xiao–Diaconis, The Fastest Mixing Markov Process on a Graph, 2006, https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "Boyd–Diaconis–Parrilo–Xiao, Fastest Mixing Markov Chain on Graphs with Symmetries, arXiv:0709.0955",
+      "Kirkland–Pati, On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs, 2002, DOI 10.1080/03081080290025453 (abstract only)",
+      "Accessible same-category historical claim IDs ce99a32b-12f5-40ee-b861-5b47ef91becd, 16afafb3-a1dc-4e60-947e-4444dd3ed405, 422e1626-e78a-40c4-a09f-99f3d418c8a1, 1c77a3a7-bc2b-4087-95ea-4b885dd2aff9, ecdbeb09-88b4-4ad0-91d1-ad8cbbfe7678, d7998e96-a233-4d68-86fd-195b14b9426f",
+      "published-finding corpus result 2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680",
+      "published-finding corpus result 2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Historical one-leaf corona results ce99a32b-12f5-40ee-b861-5b47ef91becd and 16afafb3-a1dc-4e60-947e-4444dd3ed405 treat discrete-time SLEM on a leaf attached to every core vertex.",
+        "Historical weighted continuous-time clique-with-two-edge-pendant path 1c77a3a7-bc2b-4087-95ea-4b885dd2aff9 and two cliques linked by bridge ecdbeb09-88b4-4ad0-91d1-ad8cbbfe7678 concern different support graphs.",
+        "Historical complete-bipartite graph with one deleted edge 422e1626-e78a-40c4-a09f-99f3d418c8a1 optimizes discrete-time SLEM rather than continuous-time rate-budget gap.",
+        "2007 symmetry source computes discrete-time intact K_{p,q}, not an attached leaf."
+      ],
+      "reasoning": "Changing a leaf-corona, clique-with-pendant-path or two-clique bridge to a single leaf on K_{p,q} is not a reduction preserving objective or optimal rate constraints. The candidate gives an explicit sharp q=p+2 saturation/nonattainment boundary with an unrestricted dual bound, which none of those other statements implies without a new graph-specific certificate.",
+      "searches": [
+        "fastest mixing Markov chain on complete bipartite graph with a pendant leaf appended to one vertex exact edge transition weights spectral gap SLEM",
+        "continuous-time fastest mixing Markov process with edge conductance budget on a complete bipartite graph with pendant edge exact optimum",
+        "\"complete bipartite\" \"pendant\" \"fastest mixing\" \"eigenvalue\"",
+        "\"pendant\" \"complete bipartite\" \"maximum algebraic connectivity\" weights",
+        "https://arxiv.org/pdf/0709.0955",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Continuous-time fastest mixing = absolute algebraic connectivity of a weighted graph at fixed edge-rate sum; both primary papers set up that convex spectral optimization.",
+        "The pendant K_{p,q} graph is not a tree or an intact complete bipartite graph; the exact q<=p+2 condition concerns the weighted optimum."
+      ],
+      "reasoning": "Aliased continuous-time FMMP, absolute algebraic connectivity, and maximum-variance-unfolding dual formulations were checked. The general duality is acknowledged and reused, but no inspected earlier statement specializes to the exact pendant-biclique ratio allocation and saturation boundary. Discrete-time SLEM is not the same optimum, even with the same underlying graph.",
+      "searches": [
+        "fastest mixing Markov chain on complete bipartite graph with a pendant leaf appended to one vertex exact edge transition weights spectral gap SLEM",
+        "continuous-time fastest mixing Markov process with edge conductance budget on a complete bipartite graph with pendant edge exact optimum",
+        "fastest mixing stochastic matrices on lollipop-type complete bipartite graphs one pendant node",
+        "\"absolute algebraic connectivity\" \"pendant\" \"complete bipartite\"",
+        "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus top candidates treat fixed spectra of edge polytope graphs or rank-two matroid polytope graphs and not the weighted Laplacian optimum on K_{p,q} with a leaf.",
+        "No examined graph table or published exact allocation formula contains the ratio 2:3:1 and q=p+2 criterion."
+      ],
+      "reasoning": "No corresponding exact parameter table or database result emerged in the actual searches. A failed search is not proof of uniqueness; these records have different graph objects and quantities.",
+      "searches": [
+        "absolute algebraic connectivity continuous-time fastest mixing on complete bipartite K_(p,q) with one pendant leaf sharp imbalance threshold q <= p+2, conductance ratios 2:3:1 and spectral gap B/(p+4)",
+        "semidefinite dual maximum variance unfolding certificate for pendant complete bipartite graph spectral gap optimality q=p+2",
+        "optimization of weighted Laplacian algebraic connectivity for graph formed by K_pq with a single attached leaf, edge weights and total rate budget",
+        "\"complete bipartite\" \"pendant\" \"fastest mixing\" \"eigenvalue\"",
+        "\"pendant\" \"complete bipartite\" \"maximum algebraic connectivity\" weights",
+        "2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02"
+      ]
+    },
+    "rationale": "Compared aliases continuous-time FMMP, absolute algebraic connectivity, maximum-variance-unfolding duality, and graph-family and parameter variants in accessible primary full texts, published-finding corpus and own recoverable claims. General SDP/duality methods were known and are explicitly credited. No inspected source or recoverable historical claim provides the exact pendant-K_{p,q} rate allocation and sharp q=p+2 saturation/nonattainment criterion, and none implies it merely from its graph/optimization statement. The 2002 Kirkland–Pati possible bound could not be fully inspected; this and wider specialized literature are expressly residual risks, not claimed eliminated.",
+    "residual_risks": [
+      "Kirkland and Pati (2002) full text unavailable; a sharper vertex-connectivity result could in principle subsume some portion, though no implication was established from the abstract.",
+      "Older or poorly indexed special-family SDP calculations may overlap despite alias/parameter searches.",
+      "The inspected primary full texts were read in directly relevant sections plus global term searches, not line-by-line entirety of every page."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general duality, shadow/structural results, examples with complete joins; does not exhibit the exact one-pendant K_{p,q} weight allocation or the q=p+2 plateau boundary in inspected material. A general SDP theorem alone does not numerically imply the explicit family threshold without further calculation.",
+        "evidence": [
+          "Dated 2005-09-02 original preprint front matter",
+          "Dual SDP formulation and example sections",
+          "No document text hits for \"bipartite\" or \"pendant\""
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "material_read": "Preprint front matter and introduction pp. 3–5; SDP dual and embedding formulation pp. 5–6; examples and separation discussion pp. 23–24; searched complete PDF text for bipartite and pendant terms.",
+        "method": "Primary full PDF inspected through page text, visual page inspection and targeted searches.",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "General primal-dual and absolute algebraic connectivity, closest optimization formulation and separator geometry"
+      },
+      {
+        "assessment": "Introduces the same general optimization class and dual certificate method, with path and cycle worked examples; no direct pendant-biclique theorem or sharp imbalance threshold found in inspected sections. No novelty claimed for the general SDP machinery.",
+        "evidence": [
+          "SIAM Review 48 (2006), pp. 681–699, DOI 10.1137/S0036144504443821",
+          "Page 681: MSC 90C22, published electronically November 2, 2006",
+          "Examples: path and cycle pp. 694–697"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full PDF opened; front matter, setup pp. 681–683, duality discussion, relevant examples pp. 694–697; full-text term searches for bipartite and pendant.",
+        "method": "Primary PDF text and page screenshot plus example-section reading and targeted term searches.",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Exact continuous-time FMMP statement, semidefinite optimization and maximum-variance unfolding dual"
+      },
+      {
+        "assessment": "Analyzes discrete-time stochastic-matrix SLEM, including intact K_{m,n}; it does not provide an implication for the continuous-time total-rate budget optimum of K_{p,q} with an attached leaf.",
+        "evidence": [
+          "arXiv:0709.0955v1 dated September 6, 2007",
+          "Sections 3.1.2 and 5.3.1 concern unmodified K_{m,n}",
+          "No \"pendant\" or \"lollipop\" text matches"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0955",
+        "material_read": "Full PDF opened; abstract/introduction pp. 1–4; complete-bipartite sections pp. 9–10 and pp. 27–28; searched for pendant, lollipop and bipartite.",
+        "method": "Primary arXiv PDF text and visual page inspection, targeted sections and text search.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Strongest closely titled symmetry-reduction paper; includes complete bipartite example"
+      },
+      {
+        "assessment": "The abstract announces a general vertex-connectivity upper bound; an implication-equivalent specialization was not established, and the full paper was not examined. Residual coverage risk remains.",
+        "evidence": [
+          "Linear and Multilinear Algebra 50 (2002), 253–284; DOI 10.1080/03081080290025453",
+          "Abstract: attainable bound in terms of vertex-connectivity parameters"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081080290025453",
+        "material_read": "Title, 2002 volume/year metadata, and abstract only; full text inaccessible through checked public routes.",
+        "method": "Publisher metadata and abstract, public scholarly search for open full text.",
+        "title": "On Vertex Connectivity and Absolute Algebraic Connectivity for Graphs",
+        "trigger": "Possible stronger vertex-connectivity upper bound for a graph with pendant leaf"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "500cb3da-11e0-49d2-8cce-244bb469f8f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete sharp criterion identifies when a marginally attached vertex fixes the optimal continuous-time spectral gap regardless of opposite-part population. The exact ceiling B/(p+4), graph-independent dual Gram witness tight on every edge type, explicit 2:3:1 allocation, sharp q=p+2 exit threshold, and p=3 counterexample reveal nontrivial structural resource-allocation behavior. This is more than a renamed SDP, table recomputation or tiny numeric improvement: it supplies a directly usable design law and certificates for all p>=4 in the saturation region.",
+    "status": "PASS"
+  }
+}
