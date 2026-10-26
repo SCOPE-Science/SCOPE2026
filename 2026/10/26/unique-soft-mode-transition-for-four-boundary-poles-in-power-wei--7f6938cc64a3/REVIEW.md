@@ -1,0 +1,15 @@
+# Scientific assessment of the four-pole soft-mode transition
+
+## Correctness
+**PASS.** The normalized monomial moments are beta integrals, and for every \(\alpha>2\) the second angular derivatives converge absolutely because their coefficients are \(O_\alpha(k^{1-\alpha})\). Discrete Fourier diagonalization of the four-pole Hessian gives a rotation zero mode, a double first mode, and a single alternating mode. Root-of-unity generating functions yield positive rational beta-integral representations for the two nonzero eigenvalues. The ratio \(B/A\) is strictly increasing and crosses one once. The resulting single-crossing argument shows \(F\) can have at most one zero; rationally certified partial-fraction integrals prove opposite signs at the continuous parameters \(2\) and \(3\), so the zero exists. Positivity and the sharp local coefficient follow from the full real Hessian. The exact-rational script checks supporting identities and signs; quadrature is not treated as proof.
+
+## Originality
+**PASS, subject to literature limitations.** The 2020 source proves a global minimizer using pair interactions and analyzes convexity; the 2026 Corbett and Bezrukov sources prove global minimization but do not classify the weakest local perturbation as the power weight varies above two. A particularly close published exact Hessian calculation studies only the *fixed* weight \(\alpha=1\), for arbitrary numbers of poles. Its eigenvalue ordering at that weight cannot imply an interval-spanning unique crossing at an exponent strictly between two and three. Semantic database queries for weight-varying Chui Hessians, symmetry-mode crossings, and equivalent spectral formulations found no result covering this transition. Unindexed papers or independently known versions remain a residual risk, not a proof of uniqueness in the literature.
+
+## Value
+**PASS.** Global minimality does not quantify anisotropic local stability, and the previously studied critical weight has the first Fourier mode as softest. The least curved mode actually changes symmetry in the natural one-parameter family of weighted Bergman norms, with exactly one isotropic parameter on the rotation quotient. The four-pole case is the smallest regular configuration containing two competing nontrivial real Fourier-mode classes. The theorem provides a sharp local stability constant for every \(\alpha>2\) and an analytically characterized transition, not merely a numerical example or a routine parameter substitution.
+
+## Closest literature and limitations
+The closest source comparisons are Abakumov–Borichev–Fedorovskiy (2020), Corbett (arXiv:2609.21121v1), Bezrukov (arXiv:2609.03134v1), and *Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles* (published-finding corpus, October 2026). Claims concern exactly four poles and infinitesimal local stability; they do not establish an all-number-of-poles phase diagram, a global quadratic bound, or critical differentiability at \(\alpha=2\). The numerical root is an approximation, while the existence, uniqueness and ordering are proved.
+
+Self-review: passed. Independent audit: not yet performed.
