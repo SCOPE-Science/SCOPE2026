@@ -1,0 +1,162 @@
+{
+  "correctness": {
+    "rationale": "For n>=2, exact Dirichlet-simplex exceedance integration gives E[M Q] with evaluated beta integrals. Two finite binomial identities reduce it to harmonic numbers. Independent marginal Dirichlet fourth moments give Var(Q), maximal-spacing tail moments give Var(M), and (H-1)^2+(H2-1)>0 establishes strict positivity. Harmonic asymptotics prove the rate. The standalone standard-library rational script passes n=2..80 and independently integrates n=2 and n=3; finite checks are corroborative only. Boundary n=1 has zero variances and undefined correlation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Singh and Misra arxiv:2110.10737 concerns overlapping-spacing U-statistics and asymptotic tests.",
+        "Eller and Shtembari arxiv:2111.02252 compares goodness-of-fit spacing tests but does not give the joint finite-n formula.",
+        "The published exponential-range covariance summary is on different unnormalized random variables."
+      ],
+      "reasoning": "Checked whether broader spacing moment methods, testing asymptotics or exponentially represented statistics supplied a theorem whose direct specialization is the current joint moment. Inspected sources do not; the partly inaccessible specialized Greenwood paper leaves a residual priority risk.",
+      "searches": [
+        "uniform spacings maximum spacing Greenwood statistic sum squared spacings exact covariance harmonic numbers",
+        "For Dirichlet(1,...,1) normalized exponential vector exact covariance maximum component and quadratic power sum Simpson Greenwood statistic harmonic numbers logarithm squared over n cubed",
+        "exact mixed moment longest maximal uniform spacing and Greenwood sum of squared gaps Dirichlet one covariance positive finite n harmonic numbers",
+        "exponential normalized maximum sum of squared exponential proportions Simpson index harmonic covariance",
+        "arxiv:2110.10737",
+        "arxiv:2111.02252",
+        "2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2008.02048 (full text)",
+      "arxiv:2110.10737 (full text)",
+      "arxiv:2111.02252 (full text)",
+      "doi:10.1111/sjos.12520 (abstract only)",
+      "2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8 (public summary only)",
+      "2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31 (public summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ordered-spacings source gives marginal/ordered-sum results, not E[max G_i sum G_i^2].",
+        "Exponential sample range/variance covariance is computed before normalizing by the random sum of exponentials; covariance alone cannot determine a ratio moment.",
+        "Uniform-composition part count/maximum covariance concerns a different statistic and model."
+      ],
+      "reasoning": "A general joint Dirichlet moment formula that explicitly includes max could imply the result and defeat originality, but it was not present in inspected papers. The elementary component moments alone cannot determine E[M Q] without the inclusion-exclusion calculation. Bibliographic novelty is assessed through mathematical implication, not catalogue category.",
+      "searches": [
+        "uniform spacings maximum spacing Greenwood statistic sum squared spacings exact covariance harmonic numbers",
+        "Dirichlet uniform simplex largest component Simpson index covariance maximum",
+        "exponential normalized maximum sum of squared exponential proportions Simpson index harmonic covariance",
+        "2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8",
+        "2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+        "arxiv:2008.02048",
+        "arxiv:2110.10737",
+        "arxiv:2111.02252"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Uniform spacings are Dirichlet(1,...,1) and normalized independent exponential coordinates; same mixed moment would be E[(max_i E_i/T) sum_i (E_i/T)^2].",
+        "Shtembari and Caldwell arxiv:2008.02048 treats marginal extremes and ordered sums; no equivalent quadratic cross moment identified."
+      ],
+      "reasoning": "Checked the Dirichlet maximum/quadratic power sum, circular-spacings, normalized exponential and Simpson-index aliases. Normalized-exponential equivalence is exact but cannot be deduced from covariance of unnormalized range and sample variance because the random normalization T intervenes.",
+      "searches": [
+        "Dirichlet uniform simplex largest component Simpson index covariance maximum",
+        "uniform circular spacings maximum and Greenwood statistic correlation",
+        "For Dirichlet(1,...,1) normalized exponential vector exact covariance maximum component and quadratic power sum Simpson Greenwood statistic harmonic numbers logarithm squared over n cubed",
+        "exponential normalized maximum sum of squared exponential proportions Simpson index harmonic covariance",
+        "arxiv:2008.02048"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct semantic searches produced no exact n-dependent harmonic covariance table for longest uniform spacing vs Greenwood statistic."
+      ],
+      "reasoning": "Published mathematical records and exact tables were compared against this mixed moment, including possible formula aliases. No covering table was identified; search incompleteness remains an explicit priority risk.",
+      "searches": [
+        "uniform spacings maximum spacing Greenwood statistic sum squared spacings exact covariance harmonic numbers",
+        "uniform circular spacings maximum and Greenwood statistic correlation",
+        "exact mixed moment longest maximal uniform spacing and Greenwood sum of squared gaps Dirichlet one covariance positive finite n harmonic numbers",
+        "joint law largest uniform spacing and Greenwood statistic mixed covariance correlation asymptotic n log squared"
+      ]
+    },
+    "rationale": "The checked primary papers cover marginal/ordered-sum spacing distributions and test-statistic asymptotics, not the exact mixed moment, sign and sharp asymptotic correlation for maximum vs Greenwood quadratic sum. Closest published mathematical summary treats unnormalized exponential range and variance; its statement does not imply the normalized Dirichlet claim. No equivalent result was identified in actual searches; priority is provisional, especially due to one inaccessible Greenwood paper and unindexed historical work.",
+    "residual_risks": [
+      "Specialized Greenwood-statistic paper doi:10.1111/sjos.12520 could not be read beyond its abstract; any equivalent result in its full text remains unexcluded.",
+      "Other older comprehensive uniform-spacing or Dirichlet-order-statistic references may imply this moment; search is not exhaustive.",
+      "Closest published result involving exponential range and variance was compared from a summary rather than complete full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected text: marginal and ordered-sum distribution formulas are not the joint quadratic mixed moment; they do not directly imply the displayed covariance without new conditional integration.",
+        "evidence": [
+          "Shtembari and Caldwell (2020), arxiv:2008.02048; original arXiv posting 2020-08-05."
+        ],
+        "identifier_or_url": "arxiv:2008.02048",
+        "material_read": "Full lawful arXiv text including principal distribution statements, definitions, and results.",
+        "method": "Compared ordered-spacing identities and claims about sums of largest spacings against a cross moment with the quadratic sum of all spacings.",
+        "title": "On the sum of ordered spacings",
+        "trigger": "Largest spacing distribution and sums of extreme spacings might imply the mixed moment."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected text: no finite-n maximum-gap/Greenwood mixed moment or correlation.",
+        "evidence": [
+          "Singh and Misra (2021), arxiv:2110.10737."
+        ],
+        "identifier_or_url": "arxiv:2110.10737",
+        "material_read": "Full arXiv HTML text, including statistics, asymptotic tests, and results.",
+        "method": "Compared the tested quadratic-spacing statistics and their asymptotic limits with an exact mixed moment involving the single maximum ordinary spacing.",
+        "title": "U-statistic based on overlapping sample spacings",
+        "trigger": "Greenwood statistic and overlapping-spacing test theory could contain a joint extreme-gap moment."
+      },
+      {
+        "assessment": "NOT_COVERING in inspected text: no exact Pearson correlation or mixed moment of the two statistics.",
+        "evidence": [
+          "Eller and Shtembari (2021), arxiv:2111.02252."
+        ],
+        "identifier_or_url": "arxiv:2111.02252",
+        "material_read": "Full arXiv HTML text, including test construction, classical comparators, and results.",
+        "method": "Inspected comparison and test statistic sections for joint dependence formulas.",
+        "title": "A goodness-of-fit test based on a recursive product of spacings",
+        "trigger": "Discusses comparisons between Greenwood and maximum-spacing tests."
+      },
+      {
+        "assessment": "UNRESOLVED_PRIORITY: available text neither demonstrates nor excludes the exact maximum-spacing covariance; not classified as not covering.",
+        "evidence": [
+          "Arendarczyk, Kozubowski and Panorska, published online 2021-02-17, DOI:10.1111/sjos.12520; only abstract-level access."
+        ],
+        "identifier_or_url": "doi:10.1111/sjos.12520",
+        "material_read": "Accessible abstract and bibliographic information; full paper unavailable.",
+        "method": "Compared available abstract with stated theorem; arXiv and lawful OA attempts failed, institutional full-text attempt returned unavailable connectivity.",
+        "title": "The Greenwood statistic, stochastic dominance, clustering and heavy tails",
+        "trigger": "Potentially closest specialized Greenwood-statistic study."
+      },
+      {
+        "assessment": "NO_DIRECT_IMPLICATION from available statement: unnormalized exponential sample range and sample variance differ from normalized maximum exponential coordinate and quadratic normalized sum. Full proof not inspected.",
+        "evidence": [
+          "Public record 2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8; summary reports unnormalized exponential range/sample-variance covariance; no normalized Dirichlet mixed moment stated."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8",
+        "material_read": "Published mathematical summary, not complete work.",
+        "method": "Compared displayed random variables and covariance implication, including random normalization by total exponential mass.",
+        "title": "Exact harmonic covariance of range and sample variance in exponential sampling",
+        "trigger": "Similar harmonic-order covariance and logarithmic decorrelation may dominate via exponential-spacing representation."
+      },
+      {
+        "assessment": "NOT IMPLYING: different sample space, conditioning, and second statistic; no direct Greenwood identity.",
+        "evidence": [
+          "Public record 2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31; summary concerns part count and maximal part, not quadratic spacing sum."
+        ],
+        "identifier_or_url": "2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+        "material_read": "Published mathematical summary only.",
+        "method": "Compared integer uniform compositions, random number of parts and maximum, with continuous fixed-dimensional uniform spacings and Greenwood quadratic statistic.",
+        "title": "Rigorous decorrelation of part count and maximum in uniform compositions",
+        "trigger": "Shares maximum-part vs another statistic and logarithmic decorrelation rate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a4f2c9f7-6454-4f83-82f5-504d09c3b2df",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Longest uniform gap and Greenwood quadratic spacing sum are natural, different uniformity-test diagnostics. Exact finite-sample cross calibration and covariance sign for every n, plus the sharp log-squared over root-n correlation decay, characterize simultaneous use of these tests. This is a motivated global dependence law rather than a selected arbitrary numerical instance; no independence, power optimality or complete joint law is claimed.",
+    "status": "PASS"
+  }
+}
