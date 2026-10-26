@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The update polynomial follows from a three-stage second-order tableau. Direct symbolic algebra yields trace=-2bh+O(h²), determinant=a²b²(1-4beta)h⁴ + a²b(8a²beta-a²-b²)h⁵/2+O(h⁶). The symmetric 2x2 trace/determinant criterion settles the strict regimes. The a=b equal-rate factorization proves the full step-range signs and R=I at ah=2. An exact rational h=1 certificate proves strict reentrant contraction at b=11/10. The included executable independently checks all essential equalities with exact SymPy and rational arithmetic. Limits of the universal quantifiers are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2308.05689v1",
+        "https://arxiv.org/abs/2310.19758",
+        "https://arxiv.org/abs/1811.10680"
+      ],
+      "reasoning": "Theorem 0.2.2 of the 2023 primary work establishes failure for beta>1/4 by a strict coefficient criterion but does not settle beta=1/4, damping/coupling boundary b=a, or finite-step identity and reentrant stability. The 2018 general sufficient conditions for even-order methods do not imply these sharp equalities. No inspected broader theorem implies all aspects of the final claim.",
+      "searches": [
+        "hypocoercive real 2x2 semidissipative matrix RK stability polynomial marginal coefficient equality",
+        "Runge Kutta stability polynomial damped oscillator Euclidean contraction nonnormal matrices"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2308.05689v1",
+      "https://arxiv.org/abs/1811.10680",
+      "https://arxiv.org/abs/2310.19758"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2308.05689v1",
+        "https://arxiv.org/abs/1811.10680",
+        "https://arxiv.org/abs/2310.19758"
+      ],
+      "reasoning": "The published strict criterion c_3>3/2 (with c_3=6 beta) covers beta>1/4 but not equality. The contribution is the exact equality classification and identity/reentrant step behavior, plus a full self-contained specialization of the subcritical and supercritical small-step matrix calculation. The pure-imaginary scalar bound |R_1/4(iy)|<=1 for small |y| does not imply norm contraction for nonnormal L. The limiting case is thus not a corollary of the inspected criteria.",
+      "searches": [
+        "three-stage second-order explicit Runge Kutta stability polynomial 1+z+z^2/2+c z^3 contractivity semidissipative damped oscillator hypocoercivity coefficient 3/2 borderline",
+        "sharp cubic Runge Kutta strong stability nonnormal semidissipative two by two",
+        "three stage second order explicit RK R(z)=1+z+0.5z^2+0.25z^3 exact identity at finite step on dissipative nonnormal system"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2308.05689v1",
+        "https://arxiv.org/abs/1811.10680"
+      ],
+      "reasoning": "In energy-norm language the claim concerns definiteness of R(hL)^T R(hL)-I for HC-index-one damped oscillators; in numerical-range language it is Euclidean nonexpansivity of the exact polynomial. This matrix-norm criterion is stronger than a spectral-radius constraint and the special step R=I is not an alias for merely neutral spectral stability.",
+      "searches": [
+        "three-stage second-order explicit Runge Kutta stability polynomial 1+z+z^2/2+c z^3 contractivity semidissipative damped oscillator hypocoercivity coefficient 3/2 borderline",
+        "Runge Kutta two dimensional rank one damping oscillator b/a transition cubic coefficient quarter short timestep Euclidean strong stability",
+        "sharp cubic Runge Kutta strong stability nonnormal semidissipative two by two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2308.05689v1 (Theorem 0.2.2, strict inequality)",
+        "arXiv:1811.10680v1 (Tables 1-9 and Theorems 4.5-4.7)"
+      ],
+      "reasoning": "Inspection of the published method classifications and tables did not locate the specific boundary polynomial beta=1/4, equal-rate resonance step ah=2, or rational b=11/10 interval certificate. A search miss is not a mathematical proof that no external table exists.",
+      "searches": [
+        "Runge Kutta two dimensional rank one damping oscillator b/a transition cubic coefficient quarter short timestep Euclidean strong stability",
+        "three stage second order explicit RK R(z)=1+z+0.5z^2+0.25z^3 exact identity at finite step on dissipative nonnormal system"
+      ]
+    },
+    "rationale": "The exact marginal beta=1/4 damping/coupling dichotomy, all-step identity-step trichotomy, and rational reentrant strict-contraction certificate are not implied by the closest inspected published theorems. Their strict beta>1/4 non-stability result is a neighboring, not covering, statement; likewise prior general energy frameworks do not contain these exact matrix inequalities. Several targeted alias and specialized searches and mathematical-record comparisons revealed no covering claim; publication priority remains conditional on unlocated equivalents.",
+    "residual_risks": [
+      "Uncatalogued article, lecture notes, or implementation study could contain an equivalent marginal coefficient calculation or resonance.",
+      "The third related contextual article was not exhaustively inspected for every special-case calculation.",
+      "The result is not a general classification of all stable Runge–Kutta methods or all dissipative matrices."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the beta=1/4 sharp planar/finite-step conclusions; beta>1/4 part is published already and acknowledged",
+        "evidence": "Theorem 0.2.2(b) (7b) gives strict inequality 3-12 beta<0; equality is excluded from that implication.",
+        "identifier_or_url": "https://arxiv.org/html/2308.05689v1",
+        "material_read": "HTML article: Introduction, Theorems 0.2.1-0.2.4, coefficient conditions (7)-(8), index definitions, proof section and related comparisons",
+        "method": "Read accessible complete HTML and evaluate c3=6 beta at the strict inequality; compare logical hypotheses with the exact planar theorem",
+        "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+        "trigger": "Direct origin of the strict coefficient boundary for second-order explicit Runge–Kutta methods"
+      },
+      {
+        "assessment": "NOT_COVERING the explicit equality-case trichotomy or rational intermediate contraction",
+        "evidence": "Theorem 4.7 is a sufficient (not necessary-and-sufficient) condition for even linear order; Tables 1-9 study other standard tableaux.",
+        "identifier_or_url": "https://arxiv.org/abs/1811.10680",
+        "material_read": "Full accessible HTML content, including Sections 2-4, Tables 1-9, Theorems 4.5 and 4.7 and their neighboring discussion",
+        "method": "Checked published polynomial criteria, dimensions and table entries against the three-stage second-order cubic family",
+        "title": "Strong stability of explicit Runge–Kutta time discretizations",
+        "trigger": "Foundational energy method and even-order necessary/sufficient gap"
+      },
+      {
+        "assessment": "No covering theorem found in the material read; material limits remain",
+        "evidence": "arXiv:2310.19758v1 describes hypocoercivity for linear ODEs and strong stability methods.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.19758",
+        "material_read": "Accessible abstract and main summary; not a full independent covering theorem for the specific RK polynomial",
+        "method": "Compared its structural HC-index/truncated-exponential framework with this order-two three-stage nontruncated polynomial",
+        "title": "Hypocoercivity for Linear ODEs and Strong Stability for Runge–Kutta Methods",
+        "trigger": "General hypocoercivity and RK norm-monotonicity context"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5e1f05e-2197-4fa7-9ef3-c8916d7a3c54",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the unresolved equality boundary of a published non-stability coefficient criterion, an HC-index-one rank-one damped oscillator exhibits an exact damping/coupling split, a numerical identity step despite strictly dissipative true evolution, and unexpected strict contraction in a bounded intermediate step window despite infinitesimal and stiff-step amplification. These are motivated sharp stability and time-step-selection phenomena not obtained by a generic textbook scalar test. The rational example provides a reproducible nonnormal stability benchmark and the classification is complete on the natural equal-rate slice.",
+    "status": "PASS"
+  }
+}

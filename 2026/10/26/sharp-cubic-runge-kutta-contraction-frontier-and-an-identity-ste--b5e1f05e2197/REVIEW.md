@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The order-two Runge–Kutta method is explicitly specified. An exact trace/determinant expansion, a positive-leading-term argument with quantified fixed parameters, and exact factorizations at equal damping/coupling prove every claimed short-step and all-step assertion. A rational two-dimensional strict-contraction certificate proves the reentrant example. `verify.py` reconstructs these critical identities symbolically; it was executed successfully. Matrix-norm statements are Euclidean, not spectral-radius-only.
+
+**Originality — PASS, with qualification.** Achleitner–Arnold–Jüngel (arXiv:2308.05689v1), Theorem 0.2.2(b), yields a strict coefficient inequality establishing non-strong stability on the \(\beta>1/4\) side. It does not settle the equality value, the sharp comparison \(b=a\), the exact identity step or the explicit reentrant contraction window. Sun–Shu (arXiv:1811.10680v1) provides the general energy framework and even-order sufficient criteria; its inspected method tables and statements do not give these exact consequences. Related hypocoercivity material, and targeted conceptual/parameter searches, did not identify a covering formulation. The published strict outside-boundary criterion is acknowledged and not presented as an original result. Publication priority remains uncertain until wider human literature scrutiny.
+
+**Value — PASS.** A sharp equality-case stability frontier is meaningful because even-order polynomial criteria have a nontrivial gap at coefficient equality. The equality-step identity and bounded reentrant contraction window distinguish true dissipative dynamics, small-step numerical nonnormal amplification, and intermediate-step strict contraction. The two-state model is the minimal natural HC-index-one example and yields exact benchmarks without floating-point approximation.
+
+**Limitations and closest literature.** All universal statements are restricted to the displayed three-stage family and planar rank-one damped matrices, with fixed positive parameters; no global higher-dimensional strong-stability claim is made. Uncatalogued equivalent specialized calculations remain possible. Context: arXiv:2308.05689v1, arXiv:1811.10680v1, arXiv:2310.19758v1.
+
+Self-review: passed. Independent audit: not yet performed.
