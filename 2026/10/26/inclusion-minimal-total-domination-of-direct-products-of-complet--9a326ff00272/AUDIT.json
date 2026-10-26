@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "For all integers 2<=p<=q, a total dominating set is precisely an incidence edge set not covered by any mixed row-column pair, because adjacency requires both coordinates to differ. A three-edge matching is a minimal witness. Without one, Koenig matching-cover duality forces a same-side two-vertex cover; direct testing shows minimality exactly when two edges occur on each of the two supporting rows or columns. These three configurations exhaust all cases. Inclusion-exclusion of two-by-two rectangle overlaps gives the precise coefficients. The code exhaustively enumerated all graph subsets on 11 finite instances, including the 18-vertex K_3 x K_6, and agreed. Finite tests corroborate but do not replace the all-parameters proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bahadir--Ekim--Gozupek arXiv:2010.02341 develops the WTD concept and general theory; no complete-factor tensor-product classification was found in the inspected full text.",
+        "Burcroff--O’Brien arXiv:2110.00709 Section 5.1 proves unimodality of the ordinary domination polynomial of direct complete-graph products, rather than enumerating inclusion-minimal open-neighborhood total dominating sets.",
+        "Burcroff arXiv:2008.03887 studies paired domination and ordinary upper domination; neither equals upper total domination.",
+        "Bahadir--Gozupek--Dogan 2021 examines total dominating sequences (lengths), not an all-set polynomial for minimal total dominating sets."
+      ],
+      "reasoning": "Ordinary (closed-neighborhood) domination, paired domination, total domination sequences, and k-tuple minimum values do not logically determine the exact collection of inclusion-minimal total dominating sets. The graph-specific census is not a corollary of these broader metric studies.",
+      "searches": [
+        "arxiv:2010.02341 Well-Totally-Dominated Graphs, full text",
+        "arxiv:2110.00709 Sections 5.1 and 6, full text",
+        "arxiv:2008.03887 paired and upper domination direct graph products, full text",
+        "2021 On graphs all of whose total dominating sequences have the same length direct product"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2010.02341",
+      "arxiv:2110.00709",
+      "arxiv:1603.02428",
+      "doi:10.1007/s10878-011-9389-z",
+      "arxiv:2008.03887",
+      "doi:10.1016/j.disc.2021.112492"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Henning--Kazemi 2012 already supplies minimum gamma_t for complete-graph products; the theorem here credits this instead of claiming it new.",
+        "Kazemi 2016 Proposition 7 covers K_n x K_2 and poses the all-factor upper question; the newly proved upper=4 for factors >=3 answers only its k=1 case.",
+        "2020 WTD theory does not supply this factor-size classification as a product-specific implication.",
+        "2021 direct-product ordinary domination polynomial result does not give this minimal total domination census."
+      ],
+      "reasoning": "The new statement strictly refines the known minimum and two-row upper cases, while changing both the objects counted and their minimality property relative to ordinary domination-polynomial results. No inspected stronger theorem implies the whole exact polynomial.",
+      "searches": [
+        "arxiv:1603.02428 Question 1 and Proposition 7",
+        "doi:10.1007/s10878-011-9389-z k-tuple total domination cross product graphs",
+        "arxiv:2010.02341 full text",
+        "arxiv:2110.00709 Section 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kazemi arXiv:1603.02428, Section 5, Proposition 7 and Question 1 (fully inspected PDF pp. 7--9): upper k-tuple total domination of K_n x K_2 is known; arbitrary K_n x K_m is asked, not answered.",
+        "Henning--Kazemi, doi:10.1007/s10878-011-9389-z, Section 4 and Corollary 15: computes minimum k-tuple total domination of complete-graph products, not inclusion-minimal set counts."
+      ],
+      "reasoning": "Equivalent names (cross/direct/categorical/tensor product) refer to the same adjacency. An upper total domination scalar equality would imply only the maximum cardinality, not the binomial coefficient census. The older general question contains the k=1 scalar corollary as a special case, but its inspected statement does not cover that corollary as a theorem.",
+      "searches": [
+        "\"minimal total dominating sets\" \"direct product\" \"complete\" graphs",
+        "\"upper total domination\" \"direct product\" \"complete graphs\" minimal sets",
+        "\"total domination polynomial\" \"direct product\" complete graphs K_n",
+        "categorical tensor Kronecker cross product, minimal total dominating sets; arXiv:1603.02428 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted primary-paper and indexed web searches found only scalar questions and other domination variants, not a table of all minimal total dominating sets indexed by p and q.",
+        "The new exact formula gives coefficients 6 and 45 for the 3-by-3 case and 24 and 144 for the 3-by-4 case; these were checked by standalone enumeration by exhaustive enumeration."
+      ],
+      "reasoning": "A known scalar entry such as gamma_t=3 for both factors at least 3 is not an exact database of all inclusion-minimal sets. No exact matching table was located. Negative search evidence does not establish exhaustive uniqueness.",
+      "searches": [
+        "\"minimal total dominating sets\" \"direct product\" \"complete\" graphs",
+        "\"total domination polynomial\" \"direct product\" complete graphs K_n",
+        "\"Gamma\" \"K_n\" \"K_m\" \"upper total domination\" \"cross product\" 4",
+        "\"minimal total dominating sets\" \"K_n\" \"K_m\" categorical",
+        "direct product complete graph minimal total domination polynomial coefficient table K_3 x K_3",
+        "upper total domination K_m tensor K_n = 4"
+      ]
+    },
+    "rationale": "Compared the exact set polynomial and its upper/WTD implications against the known 2012 minimum scalar theorem, the 2016 two-row upper theorem plus its explicit general question, the 2020 WTD study, and the 2021 ordinary domination-polynomial result for these very same products. The main new assertion is the full minimal total dominating set classification and labeled census, rather than an already known scalar or a special case of ordinary domination; the k=1 upper corollary does not follow from the previously inspected proofs. Search coverage leaves explicit literature-priority risk.",
+    "residual_risks": [
+      "Some publisher-hosted full-text interfaces are inaccessible, although relevant transcriptions and authorized open versions were inspected where available.",
+      "An unindexed or differently labeled exact polynomial or a more recent theorem proving the 2016 upper-total product question could overlap; negative indexed searches are not uniqueness proofs.",
+      "This is a self-review and not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines and studies WTD graphs; no identical tensor-complete-graph census or factor transition in inspected paper.",
+        "evidence": [
+          "Initial public version October 5, 2020; defines gamma_t, Gamma_t and WTD."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.02341",
+        "material_read": "Full available open-access HTML text including definitions, theorems and references.",
+        "method": "Read primary arXiv text, searched for direct products and complete-factor product conclusions.",
+        "title": "Well-Totally-Dominated Graphs",
+        "trigger": "Definitions and WTD structural classification in the same invariant."
+      },
+      {
+        "assessment": "Ordinary closed-neighborhood domination polynomial and unimodality, not inclusion-minimal total domination.",
+        "evidence": [
+          "Original arXiv version dated October 2, 2021; Section 5.1 explicitly focuses on D(G,z)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2110.00709v1",
+        "material_read": "Full available arXiv HTML, including Section 5.1 on direct products of complete graphs and Section 6.",
+        "method": "Read definitions and relevant numbered propositions; compared counted subset property and implications.",
+        "title": "Unimodality and monotonic portions of certain domination polynomials",
+        "trigger": "Same graph family and counting polynomials."
+      },
+      {
+        "assessment": "K_n x K_2 upper value and a general upper question are present; no proof for the all-factor k=1 case or exact minimal-set enumeration.",
+        "evidence": [
+          "Section 5 Proposition 7 yields Gamma_{xk,t}(K_n x K_2)=2k+2; Question 1 asks about K_n x K_m, both at least two."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1603.02428",
+        "material_read": "All 11 PDF pages in parsed text; rendered PDF pages 7 and 8 inspected visually; Section 5 Proposition 7 and Question 1.",
+        "method": "Read paper and visually inspect the product statements and quantifiers.",
+        "title": "Upper k-tuple total domination in graphs",
+        "trigger": "Potential direct stronger upper total domination result and exact unresolved question."
+      },
+      {
+        "assessment": "Minimum k-tuple total domination treated; no upper minimality enumeration identified in the inspected material.",
+        "evidence": [
+          "Journal of Combinatorial Optimization 24 (2012), 339--346; stated exact minimum value for complete-graph cross products."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10878-011-9389-z",
+        "material_read": "Accessible public article text transcription, including Section 4 and corresponding minimum-value results; university publication record.",
+        "method": "Compared product definitions and exact minimum scalar statements.",
+        "title": "k-tuple total domination in cross products of graphs",
+        "trigger": "Same graph product and total domination parameter."
+      },
+      {
+        "assessment": "Not direct coverage; the upper parameter concerns minimal ordinary dominating sets rather than minimal total dominating sets.",
+        "evidence": [
+          "arXiv:2008.03887 distinguishes gamma_pr and ordinary Gamma."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2008.03887",
+        "material_read": "Full accessible open text, especially definitions and product results.",
+        "method": "Contrasted ordinary upper domination and paired domination with upper total domination.",
+        "title": "Tightness of Paired and Upper Domination Inequalities for Direct Product Graphs",
+        "trigger": "Same product and misleadingly similar named upper parameter."
+      },
+      {
+        "assessment": "Related but distinct sequence-length invariants; no coefficient enumeration for this graph family in accessible text.",
+        "evidence": [
+          "Section 3 studies total-k-uniform structures using graph products, not the present exact minimal-set polynomial."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2021.112492",
+        "material_read": "Accessible full primary HTML text including Section 3 and discussion; direct linked publisher fetch was unavailable.",
+        "method": "Compared total dominating sequence notions with inclusion-minimal total dominating set enumerators.",
+        "title": "On graphs all of whose total dominating sequences have the same length",
+        "trigger": "WTD relationship and use of direct products of graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a326ff0-0272-4057-a73c-7a9476f0bc3e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result counts every inclusion-minimal total dominating set across an infinite and naturally occurring graph family, and gives a sharp transition at factor order two. Its three-matching/two-row structural dichotomy supplies reusable insight rather than a raw small table. The all-factor upper equality settles the k=1 instance of Kazemi’s explicitly posed 2016 question. Neither minimum domination scalar, ordinary domination polynomial, nor previous two-row upper result determines the full census.",
+    "status": "PASS"
+  }
+}
