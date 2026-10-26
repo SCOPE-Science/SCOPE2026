@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Enumerating all 2^r roots for r<=6 and all nine-square block concatenations is exhaustive. The square-block recurrence is exact by induction, and all outcomes use direct substring checks. The independent binary-prefix DP checks all potential words of length <=9*2*6=108 and obtains identical survivor sets for each root cap. Root<=5 gives zero nine-square factorizations; root<=6 gives exactly two, each root vector (3,2,2,2,6,2,2,2,3). The finite universal bound is proved from the hypothesis; no finite experiment is extrapolated to an unbounded range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shallit Theorem 8 gives k+L(w)+R(w)<=9, not a size lower bound for constituent roots.",
+        "Earlier finite shortest-total-length result states the minimum total length 48 and uniqueness at that total length, with all 9 root lengths; it says nothing about the set of all longer words whose root length is at most six.",
+        "A root cap 5 allows nine squares with total length up to 90 (logical upper bound), so the 48 lower bound does not exclude their existence."
+      ],
+      "reasoning": "The older shortest-total-length claim has overlapping equality witnesses but neither implies this universal root-width obstruction nor excludes other lengths 50..90; Shallit establishes maximal block count but not root length. Stronger implication would require new argument.",
+      "searches": [
+        "arXiv:2605.28570v2 Theorem 8 and its proof",
+        "arXiv:2605.28570v2 Lemmas 4,5,7",
+        "earlier finite shortest-total-length claim (exact mathematical wording)",
+        "overlap-free products of nine binary squares 48 length unique pair extremizers",
+        "overlap-free binary concatenation nine squares maximum root length at least 6 12-letter square length size obstruction sharp local square width"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2605.28570v1 date 2026-05-27",
+      "arXiv:2605.28570v2 full HTML",
+      "DOI:10.1142/S0129054123480052 publisher abstract",
+      "Mathematical-record semantic searches for equivalent and stronger coverage",
+      "Earlier relevant mathematical claim statements",
+      "Web targeted root-size/width searches listed in four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shallit gives no bound on constituent root lengths for fixed nine-square products.",
+        "The one closest earlier finite shortest-total-length classification concerns minimal total word length, which is logically a different constraint.",
+        "Harju 2023 abstract states a bound on the number of square centers, not concatenations of nine squares."
+      ],
+      "reasoning": "The current statement strictly quantifies over every possible total length (up to the intrinsic cap 108 under root<=6), and compares the minmax root-size invariant. A minimum total length 48 or a maximum square count 9 cannot imply all such 50..108 products are absent. The checked original published theorem therefore neither subsumes nor contradicts the present finite global width constraint.",
+      "searches": [
+        "arXiv:2605.28570v2 Theorems 1,8 and witness at line 200",
+        "earlier exact nine-square finite classification (claim statement)",
+        "Tero Harju A Note on Squares in Binary Words abstract DOI:10.1142/S0129054123480052"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.28570v2 Lemma 7 enumerates the four selected square blocks A=00,B=11,C=010010,D=101101, rather than all possible square blocks with root length <=6.",
+        "Our exhaustive square-block list has 14 eligible blocks with roots <=5 and 26 eligible blocks with roots <=6; the full nine-block counts differ decisively (0 versus 2)."
+      ],
+      "reasoning": "Rewording as a bounded square-factor length problem or a root-width minmax problem does not match the published total-number bound; no recovered statement asserts that nine blocks force a root of length >=6 or exhausts cap-6 words.",
+      "searches": [
+        "overlap-free binary concatenation nine squares maximum root length at least 6 12-letter square length size obstruction sharp local square width",
+        "overlap-free products nine binary squares with roots of lengths at most four, classification nine-square bounded root lengths",
+        "web: \"overlap-free\" \"nine\" \"square\" \"root length\"",
+        "arXiv:2605.28570v2 Lemma 7 and Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 8 and Table 1 only provide exhaustive products of A,B,C,D (4 special blocks) up to eight squares, and an example with a root of length six.",
+        "Checker lists layer cardinalities for *all* 26 overlap-free squares with roots <=6."
+      ],
+      "reasoning": "The published four-block table does not enumerate the 26 allowed blocks. The shorter witness reported in the source does not enumerate or exclude longer root-bounded nine-square words.",
+      "searches": [
+        "arXiv:2605.28570v2 Table 1 lines 134-151",
+        "web: \"nine squares\" \"48\" overlap-free unique",
+        "web: \"9 squares\" \"48\" \"overlap-free\"",
+        "shortest possible binary overlap-free word concatenated from exactly nine nonempty squares minimum total length uniqueness minimal extremizer 48 complement reverse"
+      ]
+    },
+    "rationale": "Shallit 2026 proves maximal number nine and supplies a witness with root size six, and an earlier finite result establishes shortest total length 48 and two corresponding words. Neither statement implies that every nine-square overlap-free word has a root length at least six; smaller roots still permit much longer total length in principle. The current result establishes the sharp global local-root obstruction and the entire bounded-root equality class. Six mathematical research-record queries, relevant earlier mathematical claims, the published full text and targeted web searches found no covering theorem. Risks are explicitly listed.",
+    "residual_risks": [
+      "The Harju 2023 full text was not inspected, though its abstract concerns a different invariant.",
+      "Unindexed, unpublished or obscure equivalent root-width bound might exist; search evidence is not a uniqueness certificate.",
+      "The same two witness words are in the prior 48-length result, but the new global root-width conclusion is logically independent of its shortest-total-length classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING width theorem; SAME witness but different universal inequality.",
+        "evidence": [
+          "Theorem 1 (line 44) concerns 10-square impossibility; Table 1 (lines 134–151) restricts to 4 blocks; Theorem 8 (lines 157–191) controls number and extension; the witness (lines 198–202) attains nine squares with a root of length six."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.28570v2",
+        "material_read": "Full HTML Sections 1–5 including Lemmas 2–7, Table 1, Theorems 1 and 8, final nine-square witness and references.",
+        "method": "Line-by-line comparison of objects, block lengths, Table 1, and logical conclusions; found no global size bound on nine constituent roots.",
+        "title": "Ten Squares Force an Overlap",
+        "trigger": "Same objects, nine consecutive squares, overlap avoidance; the exact 48-character witness is the equality case."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY, not demonstrably covering; residual full-text comparison risk recorded.",
+        "evidence": [
+          "Abstract describes count M(w) of distinct square-center positions; no nine-square bounded-root theorem is mentioned."
+        ],
+        "identifier_or_url": "https://doi.org/10.1142/S0129054123480052",
+        "material_read": "Publisher abstract and keywords, not full article.",
+        "method": "Compared stated inequality 2M(w)<=|w|+3 on square-center positions to a bounded-root consecutive factorization.",
+        "title": "A Note on Squares in Binary Words",
+        "trigger": "Overlap-free binary squares and their positions; plausible stronger covering count."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8829070b-0bab-4802-aac0-84d5f49106c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Nine is the largest feasible number of overlap-free consecutive binary squares, so the minimum possible longest constituent root is a natural structural invariant distinct from minimum total word length. A 12-symbol square is forced somewhere regardless of total word length, and at that sharp root-width threshold the product is rigid (two complemented/reversed words, one factorization each). This classifies a natural boundary for how locally short the blocks of a globally extremal product can all be; it is not just a length slice or a table recomputation from the main paper.",
+    "status": "PASS"
+  }
+}
