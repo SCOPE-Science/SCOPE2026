@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The n+1 candidate insertions form a tree with one edge per deletion position and connected consecutive edges. Odd-syndrome vertices yield a symmetric-difference representation of the check support as intervals, forcing at least r odd parents. Compatible boundary-bit assignments yield r exactly in the stated regimes, with syndrome of first designated parent congruent to r-1+sum(ell_j*t_j)=1. For one even run a sole odd parent would have even syndrome, and an explicit witness has two. The Fibonacci bound uses unique tilings by 0 and 11. Actual verifier enumerated each deletion parent list for 1012 hyperplanes through length nine and replayed 32230 witness constructions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.23270v1 Theorem 7 and Remark 9: general rate bound for q>=3, binary alternating exception",
+        "arXiv:2206.00287v1 abstract: strict half-Singleton and edit-distance bounds",
+        "arXiv:2201.06130v1 abstract: adversarial edit-correcting linear constructions"
+      ],
+      "reasoning": "Bounds on code dimension, edit distance, and existence of constructions do not determine every common single-deletion output parent list for an arbitrary ordered binary parity-check mask. The general insertion-ball identity is classical, not independently claimed.",
+      "searches": [
+        "binary single parity check hyperplane one deletion maximum list size number of support runs n minus r plus one odd interval",
+        "Verma Hollanti Tajeddine 2026 alternating binary parity support general run-count deletion-list sharp bound",
+        "web: \"binary linear\" \"codimension one\" \"deletion\" \"list\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.23270v1",
+      "arXiv:2206.00287v1",
+      "arXiv:2201.06130v1",
+      "published-finding corpus semantic search 6 actual queries listed in named checks",
+      "Related prior claims on deletion-list channels (claim-level comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.23270v1 Sections III-IV, Remark 9: one particular alternating binary mask bounds its parent list by L",
+        "published-finding corpus 2026/10/4/SCOPE-exact-inverse-ball-law-for-one-zero-deletion-and-one-adjacent-tr--53d4e9f05204: different asymmetric Damerau channel"
+      ],
+      "reasoning": "Our closed formula recovers the alternating special case, but gives sharp values for any even number of arbitrary support runs and every mask containing an odd-length run, an interval-xor structural lemma, and Fibonacci-sized exception set. None is a corollary of the prior alternating-mask statement or general code-rate bounds.",
+      "searches": [
+        "insdel generalized half Singleton binary single parity check alternating support L list counterexample 2026 Verma Hollanti Tajeddine",
+        "binary single parity check hyperplane one deletion maximum list size number of support runs n minus r plus one odd interval",
+        "Verma Hollanti Tajeddine 2026 alternating binary parity support general run-count deletion-list sharp bound",
+        "web: \"single parity-check\" \"one deletion\" \"inverse ball\" code"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.23270v1 Remark 9: alternating odd-coordinate binary check mask with list L",
+        "published-finding corpus 2026/10/4/SCOPE-exact-inverse-ball-law-for-one-zero-deletion-and-one-adjacent-tr--53d4e9f05204 has an extra transposition, not a parity hyperplane"
+      ],
+      "reasoning": "Equivalent wordings include binary hyperplane, single parity-check code, codimension-one linear code, one-deletion inverse list and coordinate-run count. Existing special alternating mask is strictly weaker than arbitrary run geometry.",
+      "searches": [
+        "binary linear single deletion list decoding parity-check hyperplane exact maximum list size even alternating check support q=2",
+        "insdel generalized half Singleton binary single parity check alternating support L list counterexample 2026 Verma Hollanti Tajeddine",
+        "short exact deletion list sizes binary codimension-one linear codes arbitrary parity check support",
+        "web: \"single parity-check\" \"deletion\" \"list\" code binary"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prior-claim corpus: no equivalent mask-run statement among recoverable titles and mathematical claims",
+        "published-finding corpus closest 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814 concerns two deletions",
+        "published-finding corpus closest 2026/10/4/SCOPE-complete-census-of-maximum-binary-length-six-single-deletion-cod--235d4ba50b9c concerns maximum unique-decoding codebooks"
+      ],
+      "reasoning": "No exact literature table or previous result surfaced for worst one-deletion parent lists for every binary codimension-one check mask. These searches cannot prove absolute novelty.",
+      "searches": [
+        "short exact deletion list sizes binary codimension-one linear codes arbitrary parity check support",
+        "contiguous support parity-check vector inverse deletion ball list size odd run even run exception",
+        "web: \"parity check\" \"deletion\" \"list size\" binary alternating parity"
+      ]
+    },
+    "rationale": "The precise run-bound, its equality conditions for arbitrarily located parity-check masks, and exponential prevalence were compared against the source paper, related edit-distance literature, accessible historical claims and targeted published-finding corpus searches. The originating paper proves only the alternating-mask counterexample as part of a more general list-rate bound; that special case does not imply the all-mask support-run statement. Closest available published-finding corpus items describe different channels. Unindexed equivalent results remain a priority risk.",
+    "residual_risks": [
+      "An unindexed or older theorem about Fourier coefficients of deletion insertion balls or interval incidence colorings may imply this result implicitly.",
+      "Full texts of older edit-distance references were not reviewed exhaustively; their abstracts concern different invariants.",
+      "The unclassified odd-run-count/all-even-run subclass is deliberately left with only an upper bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers alternating-support binary example and general q>=3 list-rate obstruction; no arbitrary binary support-run sharp bound or near-complete mask classification found in material examined",
+        "evidence": [
+          "Remark 9 lines 199-205: odd-coordinate parity mask of length 2L-1",
+          "Theorem 7 lines 157-185; Section IV lines 242-290"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.23270",
+        "material_read": "Sections I, III including Theorem 7, Corollary 8 and Remark 9, IV Construction 14, V Conclusion, bibliographic references",
+        "method": "Read full-text HTML and inspected PDF page 4 as a cross-check",
+        "title": "A Generalized Half-Singleton Bound for List Decoding of Insertion/Deletion Errors",
+        "trigger": "Direct motivating 2026 work; explicit binary single-parity-check counterexample"
+      },
+      {
+        "assessment": "Different invariant (minimum insdel distance), so does not directly determine one-deletion list multiplicity; incomplete full-text comparison remains a residual risk",
+        "evidence": [
+          "arXiv:2206.00287 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.00287",
+        "material_read": "Accessible abstract and descriptions of direct and strict half-Singleton bounds; not full text",
+        "method": "Compared exact statements of bounds in abstract",
+        "title": "Strict Half-Singleton Bound, Strict Direct Upper Bound for Linear Insertion-Deletion Codes and Optimal Codes",
+        "trigger": "Older possible stronger result for linear insdel codes"
+      },
+      {
+        "assessment": "Not a run-sensitive exact parent-list theorem",
+        "evidence": [
+          "arXiv:2201.06130 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.06130",
+        "material_read": "Accessible original abstract and statement of asymptotic rate/error performance; not full text",
+        "method": "Compared scope/parameter conclusions",
+        "title": "Explicit and Efficient Constructions of linear Codes Against Adversarial Insertions and Deletions",
+        "trigger": "General linear insdel construction literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc8bdd4c-a5c0-4933-a192-197afc394b7a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The binary exception in a newly published generalized half-Singleton paper motivates understanding which coordinate patterns of a high-rate binary linear check admit small single-deletion candidate lists. This work provides a sharp structural parameter (number of check support runs), proves equality for nearly all masks with an explicit constructed received word, identifies a genuine parity obstruction for a lone even run, and bounds the unclassified population by Fibonacci growth, exponentially negligible among the 2^n masks. This is not an isolated small computation or a renaming of the known alternating-mask example.",
+    "status": "PASS"
+  }
+}
