@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The three diagonal quadrics are a smooth genus-five complete intersection for five distinct branch values; this follows because at most one coordinate vanishes at any point and any four relevant gradient columns span rank three. The order-sixteen sign group yields five genus-one character quotients, and its 2-power isogeny has invertible degree in characteristic three. In Legendre form the Hasse coefficient is -(1+lambda), with exactly one supersingular fourth point after a fixed triple. Two different four-subsets share three points, so at most one elliptic factor is supersingular. Its a-number is one and p-rank zero; the other factors are ordinary, giving the listed rank, a-number and Newton polygons. The five Hasse components each omit one branch label, are mutually disjoint smooth four-punctured projective lines, and have simple Hasse zero. Counting those F_q-rational points proves the formulas for all n>=1. A standalone stdlib checker exhaustively verified q=3,9,27; these experiments are not substituted for the universal argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1905.12690, §1 explicitly assumes characteristic not two, and Theorem 2.1 decomposes the Jacobian for all such characteristics.",
+        "arXiv:1609.04895 §2 works with complex five-point moduli and does not state characteristic-three Hasse stratification."
+      ],
+      "reasoning": "The broad prime-to-two isogeny does cover the five-factor premise and is credited. It does not determine the supersingularity of each factor or simultaneous compatibility. General Legendre elliptic Hasse theory covers each single factor but does not itself assert the joint five-component geometry or the marked census.",
+      "searches": [
+        "arxiv:1905.12690 Theorem 2.1 Humbert-Edge curves characteristic different from two",
+        "genus five Humbert generalized Fermat characteristic 3 p-rank 4 5 five elliptic quotients harmonic four-subsets pairwise disjoint Hasse divisor M0,5",
+        "Generalized Humbert curves characteristic three Jacobian p rank five elliptic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.04895, Sections 1--3, Theorem 1",
+      "arXiv:1905.12690v2, Sections 1--4, Theorems 2.1 and 4.1",
+      "Yamauchi (2008), DOI 10.1080/00927870701866622, title and abstract",
+      "Legendre characteristic-three Hasse invariant directly recomputed as the coefficient of x^2 in x(x-1)(x-lambda)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2016 proof concerns field of moduli/definition over C; it supplies the branch model only.",
+        "The 2019 theorem supplies an isogeny of 2-power degree and elliptic factors over characteristic not two, but no p=3 Hasse factors.",
+        "Yamauchi abstract: genus-five and genus-seventeen curves with split Jacobians over number fields."
+      ],
+      "reasoning": "Neither model identification nor general elliptic factorization implies the complete p=3 stratum without using the distinct char-three collision of the harmonic values. The supplied proof gives that additional compatibility argument and exact point counts. The inaccessible Yamauchi body is flagged rather than claimed not to cover the theorem.",
+      "searches": [
+        "arxiv:1609.04895 §2 model and Theorem 1",
+        "arxiv:1905.12690 Theorems 2.1 and 4.1",
+        "Yamauchi 2008 On Curves with Split Jacobians doi:10.1080/00927870701866622 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hidalgo--Reyes-Carocca, arXiv:1609.04895, §2: marked five-point Humbert parameters but only moduli/definition theorems in characteristic zero.",
+        "Auffarth--Lucchini Arteche--Rojas, arXiv:1905.12690, Theorem 2.1: abstract elliptic splitting for genus-five Humbert curves."
+      ],
+      "reasoning": "The aliases Humbert, Humbert--Edge type four, generalized Fermat type (2,4), five elliptic quotients, harmonic four-subsets, and Hasse strata were checked. The published structural factorization is not equivalent to the claim that all five characteristic-three Hasse divisors are mutually disjoint; one needs a separate arithmetic cross-ratio compatibility calculation.",
+      "searches": [
+        "genus five Humbert generalized Fermat characteristic 3 p-rank 4 5 five elliptic quotients harmonic four-subsets pairwise disjoint Hasse divisor M0,5",
+        "characteristic three five branch points harmonic four-subsets at most one double elliptic cover p-rank",
+        "Humbert curves characteristic 3 p rank genus 5 supersingular quotients Legendre five branch points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact field computations in the supplied checker give (ordinary, nonordinary) counts (0,0), (12,30), (480,120) at q=3,9,27, respectively.",
+        "The inspected 2016 and 2019 primary sources contain no matching table of characteristic-three marked counts."
+      ],
+      "reasoning": "The check concerns the entire natural marked M_{0,5} chart and every extension q=3^n, not a new digit in a previously identified table. Searches did not locate an existing identical count, but an unknown table could still exist.",
+      "searches": [
+        "marked Humbert curves rank four q=3^n count 5(q-3) ordinary (q-3)(q-7)",
+        "Humbert curves characteristic 3 moduli Hasse divisor ordinary genus five finite field",
+        "Humbert curve characteristic 3 p-rank marked q extension count"
+      ]
+    },
+    "rationale": "Source arXiv:1609.04895 establishes the five-point Humbert model and fields of moduli over complex curves, not the characteristic-three Hasse divisor. Source arXiv:1905.12690, Theorems 2.1 and 4.1, gives the five elliptic factors and power-of-two isogeny, which is used as prior art, but supplies neither the unique characteristic-three harmonic completion nor the absence of intersections nor all-extension marked counts. The characteristic-three supersingularity calculation and combinatorial compatibility are additional inputs. Three actual mathematical-record queries located no equal or stronger result. The closest accessible historical abstract (Yamauchi 2008) treats split Jacobians over number fields; its full text was not read, leaving historical overlap risk. Absence of search hits is not a uniqueness certificate.",
+    "residual_risks": [
+      "The full text of Yamauchi (2008) could not be inspected; it is not known to cover this specific p=3 stratum.",
+      "Older specialized arithmetic treatments or databases not surfaced by the searches could contain equivalent formulas.",
+      "No independent literature or mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATION_MODEL_ONLY",
+        "evidence": "Section 2 specifies genus-five Humbert curves as maximal (Z/2)^4 covers branched at infinity, 0, 1, lambda1, lambda2; Theorem 1 is about fields of moduli and definition over the complex numbers.",
+        "identifier_or_url": "https://arxiv.org/abs/1609.04895",
+        "material_read": "HTML article Sections 1--3, especially Section 2, Theorem 1, marked branch parametrization",
+        "method": "Read primary arXiv HTML with section and theorem comparisons",
+        "title": "Fields of moduli of classical Humbert curves",
+        "trigger": "Same natural genus-five five-branch model, earliest day-verified archival source"
+      },
+      {
+        "assessment": "GENERAL_FACTOR_PREMISE_ONLY",
+        "evidence": "Theorem 2.1 states the general decomposition, and Theorem 4.1 gives a 2-power kernel; it does not classify p=3 Hasse strata or q-point counts.",
+        "identifier_or_url": "https://arxiv.org/html/1905.12690v2",
+        "material_read": "Full HTML §§1--4, particularly assumptions at line 42, Theorem 2.1, Theorem 4.1 and character proof",
+        "method": "Read primary arXiv HTML and compared scope and consequences",
+        "title": "A decomposition of the Jacobian of a Humbert--Edge curve",
+        "trigger": "Strongest plausible general implication through Jacobian elliptic decomposition"
+      },
+      {
+        "assessment": "UNRESOLVED_HISTORICAL_RISK",
+        "evidence": "2008 abstract describes families over number fields with split Jacobians; lacks characteristic-three statements. No negative assertion about inaccessible full text.",
+        "identifier_or_url": "https://doi.org/10.1080/00927870701866622",
+        "material_read": "Publisher title and abstract only; full text unavailable",
+        "method": "Inspected publisher abstract and bibliographic description",
+        "title": "On Curves with Split Jacobians",
+        "trigger": "Older genus-five fully split Jacobian family; possible overlooked overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8219bab0-918d-4631-b143-dd489f8eb24a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete p-rank/Newton and Hasse-locus classification on the natural two-dimensional marked moduli surface of genus-five Humbert curves in characteristic three. The pairwise disjointness of all five supersingular-quotient divisors contrasts with possible intersecting component loci in other characteristics and gives a genuine geometric compatibility obstruction. Each component has its own explicit rational parametrization, and the theorem derives exact counts over every finite extension without numerical fitting. It is neither an isolated parameter substitution nor a finite table only.",
+    "status": "PASS"
+  }
+}
