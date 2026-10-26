@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The ratio of two independent centered Gaussians is Cauchy. Maximal-absolute-row pivoting maps its ratio to the interval (-1,1) with density 2/[pi(1+r^2)]; the untouched Gaussian second column remains conditionally iid standard normal after the first-column-measurable permutation. Thus the last pivot is exactly N(0,1+r^2) conditionally; integrating conditional moments establishes every stated moment. The algebra gives variance 4/pi, fourth moment 16/pi and kurtosis pi. Unpivoted last pivot has infinite second moment because E[1/a^2] diverges. The included checker replays exact coefficients and finite simulation; finite checks do not prove the infinite identity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Spielman–Yu arXiv:2610.08701v1, Sections 1 and 2.1–2.2 give large-dimension probability bounds and GEPP definition; no exact two-by-two even-moment sequence in examined passages.",
+        "Trefethen–Schreiber 1990 abstract describes average magnitudes of GEPP matrix entries, pivots, and growth factors."
+      ],
+      "reasoning": "High-dimensional tail upper/lower bounds and average magnitudes do not imply the complete finite-dimensional moment sequence. The 1990 complete paper was not inspected, so a specialized identity cannot be ruled out; this is a genuine priority risk.",
+      "searches": [
+        "Large Growth Happens Gaussian Elimination Partial Pivoting Spielman Yu 2026 sharp two by two growth probability iid Gaussian",
+        "Spielman Yu large growth gaussian random matrices 2026",
+        "Trefethen Schreiber Average-Case Stability of Gaussian Elimination 1990"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.08701v1 (intro, Sections 2.1–2.2, relevant full HTML search)",
+      "arXiv:2610.10481v1 (abstract, intro, main-results list)",
+      "doi:10.1137/0611023 (abstract only)",
+      "arXiv:2610.04761v1 (abstract only)",
+      "published-finding corpus published record on complete-pivot ACA Frobenius growth"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Spielman–Yu prove inverse quasi-polynomial lower bounds for large dimension-dependent growth; this has no implication determining n=2 final pivot variance or kurtosis.",
+        "Gunawan–Peca-Medlin–Zhong derive pivoting permutation distributions in GOE/GUE/Bernoulli/butterfly models; a swap probability alone does not determine the transformed Gaussian second-column law.",
+        "Trefethen–Schreiber 1990 is a plausible older general treatment and remains incompletely compared."
+      ],
+      "reasoning": "The new claim combines the truncated-Cauchy ratio with an independent conditional Gaussian second column, yielding all even moments. The examined results target different variables, probability laws, and parameter regimes. Unexamined classical full text creates nonzero priority risk.",
+      "searches": [
+        "Large Growth Happens Gaussian Elimination Partial Pivoting Spielman Yu 2026 sharp two by two growth probability iid Gaussian",
+        "exact two by two Gaussian elimination partial pivoting growth factor probability distribution conditional row",
+        "instability of Gaussian elimination exponentially rare Trefethen 2026 partial result last pivot exact 2 x 2",
+        "arXiv:2610.08701v1 Gaussian GEPP growth",
+        "arXiv:2610.10481v1 induced permutation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus published record Sharp one-step Frobenius growth under complete-pivot ACA concerns Frobenius norm under complete-pivot ACA, not law of GEPP final pivot.",
+        "arXiv:2610.10481v1 studies induced permutation statistics, not the conditional Gaussian distribution of the last pivot."
+      ],
+      "reasoning": "The candidate is a moment sequence for the scalar final pivot under iid Gaussian matrix entries. Permutation probabilities and deterministic growth norms are different random variables and do not logically yield this moment formula.",
+      "searches": [
+        "exact two by two Gaussian elimination partial pivoting growth factor probability distribution conditional row",
+        "instability of Gaussian elimination exponentially rare Trefethen 2026 partial result last pivot exact 2 x 2",
+        "published-finding corpus published similarity search on Gaussian elimination last pivot exact distributions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact n=2 last-pivot moment table was returned by the performed published-finding corpus similarity searches or public web searches.",
+        "The closest numerical pivoting published-finding corpus hit concerns Frobenius growth of complete-pivot adaptive cross approximation, not Gaussian two-by-two last pivots."
+      ],
+      "reasoning": "The statement is an exact distribution law for a natural statistic; a matching standalone table or exact coefficient formula would cover it, but none was located. A failed search alone is not proof of originality.",
+      "searches": [
+        "exact two by two Gaussian elimination partial pivoting growth factor probability distribution conditional row",
+        "Gaussian elimination pivoted last entry kurtosis pi Gaussian 2x2",
+        "Gaussian elimination partial pivoting 2 by 2 variance last pivot 4 pi"
+      ]
+    },
+    "rationale": "Direct implication comparisons with Spielman–Yu 2026, Gunawan et al. 2026, published similarity results, and older Gaussian elimination literature did not reveal the exact truncated-Cauchy Gaussian-mixture moment sequence. The 1990 classical article and 2026 Trefethen last-pivot work are plausible uninspected complete-text sources, an explicit residual priority risk rather than a claim of exhaustive novelty.",
+    "residual_risks": [
+      "Specialized n=2 result may already occur in the uninspected full text of Trefethen–Schreiber (1990).",
+      "The October 2026 Trefethen arXiv paper on the last pivot was accessible only as an abstract, leaving a narrower decisive comparison unresolved.",
+      "Other unindexed numerical linear algebra texts may contain an equivalent conditional-Gaussian formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not directly present the exact 2-by-2 moment sequence in material examined.",
+        "evidence": [
+          "Paper gives definition of GEPP growth and asymptotic quasi-polynomial bounds; full-text hits near 2-by-2 do not supply the target moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.08701v1",
+        "material_read": "Full introductory argument, problem definition, Sections 2.1 and 2.2, and searched surrounding full HTML for 2-by-2 distributions.",
+        "method": "Accessible arXiv HTML; inspected relevant sections and searches.",
+        "title": "Large Growth Happens: Gaussian Elimination with Partial Pivoting on Random Matrices",
+        "trigger": "Motivating contemporary exact-arithmetic random-GEPP growth problem and matching iid Gaussian model."
+      },
+      {
+        "assessment": "Focuses on induced row-swap permutations rather than Gaussian final-pivot moments.",
+        "evidence": [
+          "Results detail GOE/GUE first-pivot swap probabilities and butterfly permutations, not moments of the second pivot for iid real Gaussian input."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.10481",
+        "material_read": "Accessible HTML abstract, introduction, and main-results list; permutation results and n=2 GUE comparison.",
+        "method": "Read supplied full-text rendering introduction and main-results section.",
+        "title": "Random permutations using GEPP",
+        "trigger": "Same GEPP operation on random input; possible stronger exact low-dimensional description."
+      },
+      {
+        "assessment": "Related background; full-text special-case priority unresolved.",
+        "evidence": [
+          "Abstract discusses estimated average magnitudes and matrix-element statistics; does not disclose an exact 2-by-2 fourth moment."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0611023",
+        "material_read": "Accessible abstract and indexed paper metadata only; no reliable full text examined.",
+        "method": "Publisher and search-index excerpts; limited access.",
+        "title": "Average-Case Stability of Gaussian Elimination",
+        "trigger": "Older central reference on random-GEPP pivot and growth statistics."
+      },
+      {
+        "assessment": "Directly pertinent final-pivot focus, but inaccessible full text is an explicit originality risk.",
+        "evidence": [
+          "Abstract concerns the last upper-triangular entry in arbitrary dimension and high-growth tail behavior, not an explicit displayed 2-by-2 moment law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.04761",
+        "material_read": "Accessible abstract only.",
+        "method": "ArXiv metadata/abstract search result; full HTML attempt failed.",
+        "title": "Instability of Gaussian elimination is exponentially rare (proof of partial result)",
+        "trigger": "Contemporary analysis of the Gaussian last pivot."
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "Specialized n=2 result may already occur in the uninspected full text of Trefethen–Schreiber (1990).",
+    "The October 2026 Trefethen arXiv paper on the last pivot was accessible only as an abstract, leaving a narrower decisive comparison unresolved.",
+    "Other unindexed numerical linear algebra texts may contain an equivalent conditional-Gaussian formula."
+  ],
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82884921-f1bc-4397-96dd-d3df877dfe9c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The entire even-moment sequence gives an exact, natural finite-dimensional benchmark for random GEPP, including a sharp contrast between infinite second moment without pivoting and finite variance/near-Gaussian fourth moment under partial pivoting. This quantitatively isolates the variance regularization effected by selecting the larger pivot on the smallest nontrivial matrix. The specific covariance and kurtosis are suited to checking random-pivot analysis and simulation; no high-dimensional or rounding-error conclusion is claimed.",
+    "status": "PASS"
+  }
+}
