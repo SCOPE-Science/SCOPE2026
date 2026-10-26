@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A direct substitution reconstructs R_q(z)=1+z+(q/2)z²+(q/6)z³+(q²/24)z⁴ from source stage coefficients. On J²=−I the real and imaginary parts multiply energy by a_q²+b_q². Independence gives exact E||u_n||²=m^n||u_0||². Averaging q=1±ε reduces m−1 to θ⁴/576 times Q_s(θ²), with exact discriminant 64(1+2s−23s²−12s³). The cubic sign and Vieta positivity prove the complete cases, including ε=0 and the neutral double-root boundary. The standalone code passed 10007 deterministic checks, including exact arithmetic and direct matrix implementations; no finite tests are used to justify a universal quantifier.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bochacik, Goćwin, Morkisz, Przybyłowicz, arXiv:2006.12131, section 5; https://arxiv.org/abs/2006.12131",
+        "Bochacik, Przybyłowicz, arXiv:2404.19059, abstract; https://arxiv.org/abs/2404.19059",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b"
+      ],
+      "reasoning": "The 2020 paper gives general kinds of stability regions for a randomized *first-derivative* two-stage algorithm, not universal results covering arbitrary two-derivative oracles; its polynomial cannot be specialized to the present q² z⁴ coefficient while retaining its stage mechanism. The 2024 implicit method and the PAGE stochastic-optimization recurrence similarly have different transition laws. General stability definitions alone do not imply the exact quadratic energy sign or unique positive cubic threshold.",
+      "searches": [
+        "mixed precision two-derivative Runge Kutta perturbation stability stage truncation errors exact amplification",
+        "randomized Runge Kutta step perturbation positivity counterexample two derivative schemes",
+        "mean square stability sharp stochastic multiplicative perturbation two-stage fourth-order two-derivative Runge Kutta oscillator correction curvature low precision",
+        "unbiased stochastic rounding fourth-order Runge Kutta oscillator random second derivative mean square stability island threshold",
+        "mean-square stability frequency band one-step polynomial random coefficient oscillator 4th order numerical integrator",
+        "arXiv:2006.12131 region of mean-square stability",
+        "arXiv:2404.19059 randomized implicit Runge–Kutta A-stability",
+        "2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb, Grant, Herrera, arXiv:2602.14369v1, eq. (5.4), section 5.2 and Figure 3; https://arxiv.org/html/2602.14369v1",
+      "Bochacik, Goćwin, Morkisz, Przybyłowicz, arXiv:2006.12131, section 5; https://arxiv.org/abs/2006.12131",
+      "Bochacik, Przybyłowicz, arXiv:2404.19059, abstract; https://arxiv.org/abs/2404.19059",
+      "published-finding corpus 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-mean-square-stability-frontier-for-two-component-page--5d4a0f070f7b",
+      "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "published-finding corpus 2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gottlieb, Grant, Herrera, arXiv:2602.14369v1, eq. (5.4), section 5.2 and Figure 3; https://arxiv.org/html/2602.14369v1",
+        "Bochacik, Goćwin, Morkisz, Przybyłowicz, arXiv:2006.12131, section 5; https://arxiv.org/abs/2006.12131",
+        "Existing independent claim f6467403-47a0-4478-94a1-5f0e08a405f6: mean-square Gaussian-oracle extragradient on skew maps",
+        "Existing independent claim da48cbcb-25b3-4c38-9829-2e77f9022fc0: randomized test-line backward Euler for dissipative heat modes",
+        "Existing independent claim 33340664-eb63-4073-bdfb-e3006fc8617b: Haar-projector Euler oscillator",
+        "Existing independent claim 3730497a-7f20-4549-92e4-0d81a0184c77: RKL2 Markov positivity"
+      ],
+      "reasoning": "The earlier published work supplies the numerical integrator and perturbed deterministic stability plots, not an iid symmetric second-derivative noise model. Neither the earlier published papers nor compared existing precise statements imply E||u_n||²=m(ε,θ)^n||u_0||² with m−1=θ⁴[(1+6s+s²)θ⁴−(8+56s)θ²+192s]/576. Existing same-domain findings use different schemes (stochastic extragradient, randomized test-space backward Euler, Haar sketched Euler, RKL2 Markov positivity). The current claim is not an immediate parameter specialization of those recurrence laws.",
+      "searches": [
+        "own accessible current-week claims: TDRK2s4p1e, two-derivative, curvature perturbation, mean-square stability, stochastic oscillator",
+        "arXiv:2602.14369v1 section 5.2",
+        "arXiv:2006.12131 section 5",
+        "mean square stability sharp stochastic multiplicative perturbation two-stage fourth-order two-derivative Runge Kutta oscillator correction curvature low precision"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gottlieb, Grant, Herrera, arXiv:2602.14369v1, eq. (5.4), section 5.2 and Figure 3; https://arxiv.org/html/2602.14369v1",
+        "Bochacik, Goćwin, Morkisz, Przybyłowicz, arXiv:2006.12131, section 5; https://arxiv.org/abs/2006.12131"
+      ],
+      "reasoning": "The defining random object is the product of iid degree-four multipliers R_q(iθ)=1+iθ−qθ²/2−iqθ³/6+q²θ⁴/24 with q=1±ε equally likely. The derived energy multiplier is the mean of the two squared moduli, not a single deterministic stability polynomial, ordinary RK4, a first-derivative random-stage RK method, or a correlated-time skew extragradient recurrence. The source equation matches the exact stage coefficients, but its plotted perturbed deterministic stability regions do not give the random-product second moment. The randomized-RK full discussion uses a different scalar polynomial.",
+      "searches": [
+        "2-stage fourth-order two-derivative Runge Kutta multiplicative second derivative bias imaginary axis stability reentrant band disconnected stability interval oscillator",
+        "Gottlieb Grant Herrera mixed precision two derivative TDRK2s4p1e phase threshold underestimation curvature stability band",
+        "Runge Kutta stability polynomial 1+z+q z²/2+q z³/6+q² z⁴/24 exact imaginary axis roots discriminant",
+        "frequency selective stability islands perturbed Taylor 4 Runge Kutta two-derivative imaginary eigenvalues",
+        "arXiv:2602.14369v1 equation (5.4)",
+        "arXiv:2006.12131 section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Gottlieb, Grant, Herrera, arXiv:2602.14369v1, eq. (5.4), section 5.2 and Figure 3; https://arxiv.org/html/2602.14369v1",
+        "published-finding corpus claim 2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+        "published-finding corpus claim 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ],
+      "reasoning": "The public Figure 3 is a perturbed linear-stability region visualization at ε=0.1 and 0.5, not an exact two-point ensemble table or mean-square phase classification; it gives no exact ε_c root, ε-dependent pair of step boundaries, or expectation multiplier. Searched published records concern Fehlberg estimator resonance, Markov positivity, or skew splitting; none has the same object and distribution.",
+      "searches": [
+        "2-stage fourth-order two-derivative Runge Kutta multiplicative second derivative bias imaginary axis stability reentrant band disconnected stability interval oscillator",
+        "Runge Kutta stability polynomial 1+z+q z²/2+q z³/6+q² z⁴/24 exact imaginary axis roots discriminant",
+        "mean-square stability frequency band one-step polynomial random coefficient oscillator 4th order numerical integrator",
+        "2026/10/4/SCOPE-an-exact-error-estimator-resonance-in-the-classical-fehlberg-rk4--23eb200336ce",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "Gottlieb Grant Herrera TDRK2s4p1e equation 5.4 Figure 3 stability contour"
+      ]
+    },
+    "rationale": "Exact object/implication checks against the motivating 2026 scheme, two relevant randomized-RK papers, public discovery records, and the accessible claim archive did not identify a mathematically equivalent or stronger result for the iid symmetric shared-curvature TDRK4 energy multiplier and sharp cubic noise threshold. The closest method paper plots deterministic perturbed stability contours, not this ensemble classification; the closest stochastic-RK research has a different amplification polynomial. This is best-knowledge originality, with unindexed older specialized results a recorded residual risk.",
+    "residual_risks": [
+      "Possibility of equivalent results in unindexed stochastic multiderivative integration literature.",
+      "The 2024 randomized implicit RK paper was compared using its abstract; full text was not accessed, but the named method and assumptions differ from this explicit perturbed-curvature method.",
+      "The source shows numerical perturbed stability regions; their precise stochastic perturbation distribution is distinct or unspecified, so those plots cannot be interpreted as an exact mean-square classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes perturbation-order analysis and presents deterministic random-perturbation stability-region plots; the article does not supply the stated iid common-within-step two-point moment polynomial or its sharp threshold.",
+        "evidence": "Eq. (5.4) coefficients 1/2, 1/8, 1/6(1,2); Figure 3 states ε=0.1,0.5 linear stability plots; no mean-square root condition.",
+        "identifier_or_url": "arXiv:2602.14369v1; https://arxiv.org/html/2602.14369v1",
+        "material_read": "Full accessible HTML: framework in sections 3–4, fourth-order equations (5.4) and (5.5), section 5.2 and its Figure 3, numerical tests and concluding discussion.",
+        "method": "Read public full HTML, inspect concrete stage coefficients and figure interpretation; compare exact objects, perturbation laws, and conclusions.",
+        "title": "Mixed Precision and Mixed Accuracy Explicit Two-Derivative Runge–Kutta Methods",
+        "trigger": "Same concrete two-stage fourth-order TDRK scheme and low-precision derivative perturbations."
+      },
+      {
+        "assessment": "Random stage-point selection and first-derivative two-stage scheme give a different random amplification law. The exact TDRK4 correlated-curvature threshold is not covered.",
+        "evidence": "Section 5 analyzes a randomized first-derivative Runge–Kutta stability polynomial rather than R_q(z)=1+z+qz²/2+qz³/6+q²z⁴/24.",
+        "identifier_or_url": "arXiv:2006.12131; https://arxiv.org/abs/2006.12131",
+        "material_read": "Accessible HTML text including method definition, discussion of stability types, and section 5 mean-square/asymptotic/in-probability regions.",
+        "method": "Compare stochastic variables, scalar test stability polynomial and hypotheses, not just title.",
+        "title": "Randomized Runge–Kutta method — stability and convergence under inexact information",
+        "trigger": "Plausibly dominating earlier exact mean-square stability results for random Runge–Kutta methods."
+      },
+      {
+        "assessment": "Different implicit scheme; abstract asserts no mean-square A-stability, not the exact explicit-curvature-noise island. Residual text-priority uncertainty remains.",
+        "evidence": "Title and abstract explicitly say randomized implicit two-stage RK and A-stability comparison; no matching TDRK2s4p1e formula appears in material read.",
+        "identifier_or_url": "arXiv:2404.19059; https://arxiv.org/abs/2404.19059",
+        "material_read": "Available public arXiv abstract, not full paper.",
+        "method": "Compare explicit versus implicit numerical class and known A-stability assertion; record text-access limit.",
+        "title": "Convergence and stability of randomized implicit two-stage Runge–Kutta schemes",
+        "trigger": "Randomized two-stage RK work discussing mean-square A-stability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "980ee5bd-2be3-4b9d-8f0a-b9e629a20f0b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a complete sharp stability phase diagram for a named fourth-order mixed-accuracy time integrator on the canonical conservative oscillator under a natural zero-mean relative curvature-error model. It reveals low-frequency mean-square instability for every positive perturbation, a surviving intermediate band, and a rigorous finite perturbation threshold beyond which no positive step is stable. The exact threshold is motivated by algorithmic robustness, not chosen as an arbitrary slice; the coalescence and small-error asymptotics make the finding reusable in assessment of derivative-oracle perturbations.",
+    "status": "PASS"
+  }
+}
