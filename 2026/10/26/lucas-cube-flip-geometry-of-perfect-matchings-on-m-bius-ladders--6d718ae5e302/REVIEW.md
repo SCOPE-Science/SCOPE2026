@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** Each perfect matching containing a rung decomposes uniquely into rung columns and even horizontal runs, yielding an independent matching of the \(n\)-cycle; the two no-rung alternating boundary matchings are fully classified by parity. All local square switches correspond exactly to one-bit changes in the resulting Lucas word. The distance, vertex and edge counts follow by explicit bijection and elementary counting, with both separate checkers verifying \(4\le n\le16\). This is an infinite symbolic argument, not extrapolation from finite trials.
+
+**Originality (PASS, with risk).** The Lucas cube and its order, edge count and metric properties are established literature, and the 2026 perfect-matching-complex study already identifies two exceptional odd-width perfect matchings. Those prior results are credited. The distinct contribution is the natural four-cycle-switch graph isomorphism, complete component classification and matching switch metric for the Möbius ladder family. Targeted mathematical-record queries and primary source comparisons located no prior result containing the switch-preserving isomorphism. Unindexed papers or work under resonance-graph terminology are a residual risk, not proof of priority.
+
+**Mathematical value (PASS).** This determines the entire configuration-space geometry under a natural local physical/combinatorial move for a canonical nonorientable cubic graph family. It connects graph-dimer moves with a classical median partial-cube structure; the parity-specific frozen states exhibit exactly where local reconfiguration fails despite the presence of perfect matchings. The theorem provides exact distances and counts for every width, not a single numerical example.
+
+The closest sources are Ashrafi et al., arXiv:1407.4962, and Codara–D'Antona, arXiv:1410.4080, for Lucas-cube combinatorics; Agarwal–Basak, arXiv:2608.30601, for the distinct Möbius-ladder perfect-matching simplicial complex; and Dyer–Müller (2018) for general switch-chain context. The topological homotopy analysis does not assert four-cycle flip connectivity or metric distances. A resonance-graph reformulation in less indexed tiling literature cannot be excluded.
+
+Self-review: passed. Independent audit: not yet performed.
