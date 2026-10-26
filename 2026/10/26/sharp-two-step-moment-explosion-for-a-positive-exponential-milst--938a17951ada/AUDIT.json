@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The source update is reconstructed with F=-a, f(x)=sigma*x/(1+x), q(x)=sigma^2*x^2/(1+x)^3. The normal integral is finite iff p*h*q(x)<1, as follows by completing the square. q attains its unique maximum 4 sigma^2/27 at x=2, proving the uniform finite-moment half. For any x0>0, the quadratic-normal first-step map has positive density at 2, since its minimum is <2. At the critical h, delta_p has a quadratic zero with positive Gaussian-linear numerator, producing a nonintegrable exp(c/(x-2)^2) singularity; above it, conditional moments are infinite on an open interval. Jensen gives uniform propagation of infinite moments. Standard globally Lipschitz SDE estimates provide finite exact-solution moments. The bundled standalone code verifies exact coefficient identities and finite Gaussian integral identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2608.25689v1 Proposition 9 chooses a sufficient small-step bound tau_p=1/(1+2p||f'g||_infinity), not a necessary-and-sufficient moment frontier.",
+        "arXiv:2608.25685v2 Lemma 25 bounds Gaussian-quadratic exponentials at small steps in a bounded-domain construction."
+      ],
+      "reasoning": "The prior moment estimates are sufficient and do not dominate the new sharp failure result. The companion source preserves a bounded cube and cannot realize the present unbounded positive-state moment blow-up.",
+      "searches": [
+        "2026 Bréhier Cohen positivity preserving scheme first order moments threshold sharp 2026",
+        "exponential Milstein scheme finite moments condition step size critical power law tails",
+        "arXiv:2608.25685 first order domain preserving numerical schemes moment Gaussian quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.25689v1, 2026-08-26 (method, assumptions, Proposition 9)",
+      "arXiv:2608.25685v2, 2026-08-26 (companion bounded-domain paper, Lemma 25)",
+      "arXiv:2106.11425, 2021-06-21 (linear-GBM exponential integrator)",
+      "arXiv:2010.16321, 2020-10-30 (logarithmic truncation)",
+      "Published mathematical finding index: the three explicit target searches recorded under exact_database_or_table."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2608.25689v1 Eq. (34) implies the deterministic-state one-step criterion but not the two-step critical-state reachability result stated here.",
+        "arXiv:2106.11425v1 uses an exponential flow of linear Gaussian increments and a tamed drift, not this nonlinear quadratic exponential.",
+        "arXiv:2010.16321v1 uses truncated Euler after a logarithmic transformation, not the same scheme."
+      ],
+      "reasoning": "The new theorem is logically derivable using the prior Gaussian identity plus new analytic ingredients; it is not a restatement of the source’s sufficient moment bound, nor a special case of the unrelated positive-integrator updates. The genuinely new asserted component is the sharp all-initial-state and critical-boundary two-step classification.",
+      "searches": [
+        "2608.25689 Bréhier Cohen Proposition 9 Gaussian integral step moments",
+        "2106.11425 GBM based tamed exponential integrator nonlinear diffusion moment bounds",
+        "2010.16321 positivity preserving logarithmic Euler Maruyama moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2608.25689v1, equations (3), (34), and Proposition 9 give the one-step conditional Gaussian moment identity and a sufficient small-step bound.",
+        "The new theorem specifies a nonlinear globally Lipschitz diffusion, proves a sharp two-step all-initial-state threshold and resolves equality via density/nonintegrability."
+      ],
+      "reasoning": "The one-step integrability condition is algebraically equivalent to a quadratic-Gaussian exponential moment criterion and is known. It is not equivalent to uniform finiteness after arbitrary many steps or divergence at the exact global boundary from all starts; those require additional support and singular-integral information.",
+      "searches": [
+        "arXiv:2608.25689 positivity preserving scalar SDE PP(1.0) strong order one Milstein quadratic noise finite moments",
+        "Brehier Cohen 2026 positivity preserving first order exponential Milstein scheme exp f'(x)g(x) Brownian increment squared Gaussian moment explosion threshold infinite p moments critical time step"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches of published mathematical finding records surfaced positivity thresholds for deterministic integrators and unrelated SDE stability examples, not the present scheme and two-step p-moment frontier.",
+        "Closest thematic records included an SDE stability-step-size bias example and an eight-state Padé positivity barrier; neither addresses exponential-quadratic Gaussian p-moment explosion."
+      ],
+      "reasoning": "No exact numerical table or previously published mathematical record providing the stated threshold was identified. Negative search results alone are not evidence of uniqueness, so residual bibliographic risk is retained.",
+      "searches": [
+        "Brehier Cohen 2026 positivity preserving first order exponential Milstein scheme exp f'(x)g(x) Brownian increment squared Gaussian moment explosion threshold infinite p moments critical time step",
+        "two-step full support sharp moment explosion threshold SDE Bréhier Cohen g=x^2/(1+x)",
+        "numerical SDE integrator polynomial Gaussian exponent moment critical boundary non-linear diffusion rare-event heavy tails"
+      ]
+    },
+    "rationale": "The method, Gaussian quadratic-exponential identity and sufficient small-step moment bound already occur in arXiv:2608.25689v1 and are not claimed. The proposed sharp all-initial-state, all-finite-index phase dichotomy—including the exact boundary where almost every conditional moment is finite but the unconditional second-step moment diverges—requires a positive-density reachability lemma and a critical nonintegrability argument not supplied by that prior bound. No equivalent full claim was located in the examined primary or published mathematical research records; specialized antecedents remain possible.",
+    "residual_risks": [
+      "Gaussian quadratic-exponential moment identities are classical; earlier specialized treatments could implicitly derive the same sharp threshold.",
+      "No claim of exhaustive bibliographic uniqueness or independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_METHOD_AND_ONE_STEP_GAUSSIAN_IDENTITY; does not give the sharp universal second-step p-moment failure criterion on the specific saturated diffusion.",
+        "evidence": [
+          "Scheme (3): positive strong-order-one exponential update with a quadratic Brownian correction.",
+          "Proposition 9 provides a sufficient tau_p and normal MGF identity; no converse all-initial-state threshold."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.25689v1",
+        "material_read": "Full-text HTML: introduction, regularity assumptions, scheme formulas (2)-(3), construction, Proposition 9 proof and Gaussian integral (34), stated convergence and bibliography.",
+        "method": "Examined mathematical assumptions, equations and proof statements in the article’s openly available full text.",
+        "title": "Analysis of a first-order explicit positivity preserving scheme for a class of scalar SDEs",
+        "trigger": "Exact source method and most plausible prior coverage"
+      },
+      {
+        "assessment": "RELATED_DIFFERENT_OBJECT; bounded hypercube schemes and sufficient small-step exponential moment bounds do not cover unbounded positive-state moment explosion.",
+        "evidence": [
+          "Lemma 25 estimates exp(c|delta B|^2) under a sufficiently small time step.",
+          "Numerical states lie in a compact hypercube, unlike the present positive unbounded domain."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.25685v2",
+        "material_read": "Open full-text HTML: abstract, bounded-domain setup and Lemma 25 with Gaussian-quadratic exponential-moment bound.",
+        "method": "Compared update/object domains and precise moment estimate scopes.",
+        "title": "Explicit domain preserving numerical schemes for a class of stochastic differential equations",
+        "trigger": "Companion work of same authors with quadratic-noise terms and stronger bounded-domain conclusions"
+      },
+      {
+        "assessment": "NOT_COVERING; principal analyzed scheme uses a linear multiplicative Gaussian flow rather than the present nonlinear Gaussian-square correction.",
+        "evidence": [
+          "Equation (5) gives a Gaussian-linear exponential fundamental matrix; equations (7)-(9) give drift-tamed updates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.11425",
+        "material_read": "Open text: introduction, equations (2)-(9), definition of GBM exponential flow and moment-control discussion.",
+        "method": "Compared stochastic exponential factors and discrete updates.",
+        "title": "Strong Convergence of a GBM Based Tamed Integrator for SDEs and an Adaptive Implementation",
+        "trigger": "Earlier exponential SDE numerical solver with nonlinear diffusion extension"
+      },
+      {
+        "assessment": "NOT_COVERING; method is logarithmically transformed and truncated Euler rather than this source’s corrected exponential step.",
+        "evidence": [
+          "Section 5 establishes moment and strong-convergence estimates for the logTE method; its update differs from source equation (3)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.16321",
+        "material_read": "Open text: method context, Sections 4-5 convergence and moment discussion, examples and bibliography.",
+        "method": "Compared transformations and step formulas, and identified whether the same quadratic-exponential update appears.",
+        "title": "Positivity preserving logarithmic Euler-Maruyama type scheme for stochastic differential equations",
+        "trigger": "Prior positivity-preserving log-coordinate numerical scheme with moment analyses"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "938a1795-1ada-4f41-adc8-fe1c7626eae6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a globally Lipschitz positive SDE with bounded smooth coefficient derivatives and finite true moments of every order, the positive first-order numerical scheme can have infinite mathematical p-moments after exactly two steps. The sharp p*h*sigma^2=27/4 safety frontier is a usable structural timestep criterion; the equality and all-initial-state properties cannot be detected from a single deterministic-state integrability check or finite Monte Carlo samples. The saturated per-capita diffusion is a natural smooth nonlinear multiplicative-noise model, not an arbitrary finite table or normalizing example.",
+    "status": "PASS"
+  }
+}
