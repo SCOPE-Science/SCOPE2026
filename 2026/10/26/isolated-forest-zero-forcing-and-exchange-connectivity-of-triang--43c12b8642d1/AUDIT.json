@@ -1,0 +1,170 @@
+{
+  "correctness": {
+    "rationale": "The blue-edge local rule is exact: for blue uv the white neighbor count is d_H(u)+d_H(v). Every force deletes a white leaf-edge and requires a white isolated base vertex; cycles cannot be deleted. Conversely a leaf paired with an isolate iteratively forces every forest edge. The coefficient formula follows from the labeled-forest exponential formula, and Cayley counts every optimum. The exchange criterion is proved using leaf attachments and unique common tree U; within-class tree exchanges and star-mediated cross-class moves prove connectivity. A standalone C++17 check exhaustively compares independent forcing algorithms on all 2^(n choose 2) subsets for 3<=n<=7, checks all polynomial coefficients via independent recurrence, and confirms exchange connectivity/cross-edge counts through n=6. These finite checks corroborate, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fallat–Soltani Theorem 3.4 repeats the earlier zero-forcing scalar equality for Hamilton-path line graphs; K_n meets the hypothesis.",
+        "Abiad–Simoens–Zeijlemaker Corollary 9 determines ordinary and connected scalar zero forcing numbers for more general Johnson graphs.",
+        "Fallat–Meagher–Soltani–Yang Lemma 8.3 determines positive zero forcing number of J(n,2), not the ordinary set family."
+      ],
+      "reasoning": "The published broad-class theorems cover the known minimal cardinality but do not cover the present all-set criterion or enumerate or reconfigure all minimum sets. Positive zero forcing has a different rule and matching scalar does not entail matching families.",
+      "searches": [
+        "zero forcing of Johnson graphs J(n,2) minimum bases forcing configurations",
+        "line graph of complete graph zero forcing complement is forest with isolated vertex Cayley tree minimum forcing sets",
+        "reconfiguration of minimum zero forcing sets in triangular graph spanning trees one isolated vertex",
+        "arxiv:2302.07757 Corollary 9",
+        "dmlcz:145869 Theorem 3.4",
+        "arxiv:1508.07357 Lemma 8.3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1508.07357 Section 8 Lemma 8.3 (full PDF)",
+      "dmlcz:145869 Theorem 3.4 (full PDF)",
+      "arxiv:2302.07757 Corollary 9 (full PDF)",
+      "arxiv:2009.00220 reconfiguration definitions/results (full PDF)",
+      "arxiv:1801.08910 Section 4 and Conclusion (complete primary PDF)",
+      "Indexed published zero-forcing literature and primary-paper comparison in the research evidence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier ordinary zero forcing research proves Z(L(K_n))=|E(K_n)|-n+2.",
+        "The current criterion implies the prior scalar and in addition classifies all B, counts all cardinalities by forests, and determines connectivity and cross-class edge counts of optimum reconfiguration.",
+        "The 2020 general reconfiguration theorem about forest *base graphs* does not apply because T_n contains triangles."
+      ],
+      "reasoning": "The implication is one-way from this criterion to the already-known scalar. The converse is invalid without added structure. Neither Johnson-grundy arguments nor general reconfiguration statements inspected derive the exact all-set forest condition or the indicated exchange structure.",
+      "searches": [
+        "minimum zero forcing sets line graph complete graph triangular graph T(n) exchange graph classification",
+        "reconfiguration of minimum zero forcing sets in triangular graph spanning trees one isolated vertex",
+        "triangular graph Johnson J(n,2) zero forcing iff complement of initially blue edges is an acyclic forest with isolated vertex",
+        "exact zero forcing polynomial L(K_n) enumerating labelled forests with isolated vertex, Cayley trees, connected exchange graph",
+        "dmlcz:145869 Theorem 3.4",
+        "arxiv:2302.07757 Corollary 9",
+        "arxiv:2009.00220"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The triangular graph is the Johnson graph J(n,2) and the line graph L(K_n), identified explicitly in Fallat et al. (2015), Section 8.",
+        "Arxiv:2302.07757 Corollary 9 yields the same scalar ordinary zero forcing number, but no equivalence for arbitrary blue subsets.",
+        "Indexed papers on zero forcing polynomials of fan, friendship and chain graphs do not give a triangular-graph criterion."
+      ],
+      "reasoning": "J(n,2), T(n), and L(K_n) are exactly equivalent objects and were all considered. Complementing a blue set makes its white-edge forest condition a statement about labeled base graphs. Known scalar equalities are strictly weaker: minimum cardinality cannot imply which arbitrary blue subsets work, the complete size distribution, or the full exchange structure.",
+      "searches": [
+        "minimum zero forcing sets line graph complete graph triangular graph T(n) exchange graph classification",
+        "zero forcing of Johnson graphs J(n,2) minimum bases forcing configurations",
+        "zero forcing polynomial of triangular Johnson graphs J(n,2) forests isolated vertices generating function complete coefficients",
+        "line graph of complete graph zero forcing complement is forest with isolated vertex Cayley tree minimum forcing sets",
+        "triangular graph Johnson J(n,2) zero forcing iff complement of initially blue edges is an acyclic forest with isolated vertex",
+        "arxiv:1508.07357",
+        "arxiv:2302.07757"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed research on zero forcing polynomials of nonpath trees, fan graphs and friendship graphs concerns other base graph families.",
+        "Boyer et al. arXiv:1801.08910 Section 4 treats cliques, complete multipartite graphs, paths, cycles, wheels and threshold graphs, not the Johnson J(n,2) forest-with-isolate polynomial.",
+        "Geneson–Haas–Hogben develops minimum-set reconfiguration for general graphs and gives forest base graph connectivity; T_n is not itself a forest."
+      ],
+      "reasoning": "No inspected exact table, polynomial or family-level database entry implied the complete coefficient sequence or cross-isolate edge formula here. A negative indexed search is not itself uniqueness evidence, so this check is limited to inspected material.",
+      "searches": [
+        "zero forcing polynomial triangular graphs line graphs complete graphs",
+        "zero forcing polynomial of triangular Johnson graphs J(n,2) forests isolated vertices generating function complete coefficients",
+        "exact zero forcing polynomial L(K_n) enumerating labelled forests with isolated vertex, Cayley trees, connected exchange graph",
+        "arxiv:2009.00220",
+        "arxiv:1801.08910",
+        "doi:10.1016/j.dam.2018.11.033"
+      ]
+    },
+    "rationale": "The original characterizing predicate, entire size polynomial, classification and reconfiguration graph are not implied by the earlier known scalar forcing number or by positive zero forcing. Relevant primary papers were read at the exact Johnson J(n,2) claims and line-graph theorems. Semantic literature searches for aliases, forest-with-isolate equivalences, Cayley enumeration and reconfiguration yielded only nearby but noncovering graph families; possible unindexed earlier statements remain a residual risk.",
+    "residual_risks": [
+      "An unindexed previous forest-enumeration result, unpublished graph database or alternate notation could cover part of the forest criterion or polynomial.",
+      "Uninspected parts of the 2013 thesis Zero Forcing Sets for Graphs and unindexed studies under alternate terminology remain potential prior coverage.",
+      "Only documented primary full-text claims support noncoverage; global novelty is not certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "J(n,2) appears explicitly; establishes positive zero forcing scalar, not the ordinary all-blue-subset forest criterion or optimum exchange counts",
+        "evidence": [
+          "arXiv:1508.07357v1 publicly dated 28 Aug 2015",
+          "Section 8 Lemma 8.3: Z_+(J(m,2))=binom(m,2)-m+2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.07357",
+        "material_read": "Full searchable PDF, title/abstract, Sections 1, 7 and 8 including exact definitions and Lemma 8.3 on page 15",
+        "method": "Primary PDF text inspection plus page screenshots",
+        "title": "Compressed Cliques Graphs, Clique Coverings and Positive Zero Forcing",
+        "trigger": "Archived primary work specifically studying Johnson J(n,2) and forcing"
+      },
+      {
+        "assessment": "Theorem 3.4 restates prior scalar equality for Hamilton-path line graphs; does not classify all minimum blue sets or count all forcing sets",
+        "evidence": [
+          "Theorem 3.4: Z(L(G))=|E(G)|-|V(G)|+2 when G has a Hamilton path or K_{k,n-k}"
+        ],
+        "identifier_or_url": "https://dml.cz/dmlcz/145869",
+        "material_read": "Primary 14-page article; abstract, sections 2–3, Theorems 3.1–3.4 and proofs and their references",
+        "method": "Full-text PDF inspection and theorem-page screenshot",
+        "title": "Line graphs: their maximum nullities and zero forcing numbers",
+        "trigger": "Possible stronger covering line-graph ordinary forcing theorem"
+      },
+      {
+        "assessment": "The all-Johnson result establishes scalar zero forcing values, not polynomial or every-set criterion",
+        "evidence": [
+          "Corollary 9: Z(J(n,k))=binom(n,k)-binom(n-2,k-1), n>=2k"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.07757",
+        "material_read": "Primary 17-page searchable PDF, abstract, preliminaries, Johnson proofs and Corollary 9 on page 9",
+        "method": "PDF text inspection and theorem-page screenshot",
+        "title": "On the diameter and zero forcing number of some graph classes in the Johnson, Grassmann and Hamming association scheme",
+        "trigger": "Potentially dominating all-Johnson-graph theorem"
+      },
+      {
+        "assessment": "Establishes zero-forcing reconfiguration definition and forest-base-graph connectedness; no all-triangular-graph exchange description",
+        "evidence": [
+          "Abstract describes forest connectedness and many disconnected examples; base graph T_n is not a forest"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2009.00220",
+        "material_read": "Primary 21-page PDF, abstract, definitions, and sections describing connectivity and base graph examples",
+        "method": "Full-text inspection and first-page screenshot",
+        "title": "Reconfiguration graphs of zero forcing sets",
+        "trigger": "Potential connectedness theorem covering optimum exchange on T_n"
+      },
+      {
+        "assessment": "Defines the polynomial; Section 4 classifies complete, complete multipartite, paths, cycles, wheels and threshold graphs but does not list or subsume J(n,2) via an all-set criterion",
+        "evidence": [
+          "arXiv:1801.08910 Section 4 states the treated graph families; no Johnson or triangular graph classification appears there",
+          "The Conclusion invites characterization of all zero forcing sets for further nontrivial graph families"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2018.11.033",
+        "material_read": "Complete primary arXiv:1801.08910 searchable PDF, including introduction and all Section 4 polynomial classes and Section 6 conclusion",
+        "method": "Primary arXiv PDF text inspection, source term searches and Section 4 page screenshot",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Potential exact polynomial for triangular graph"
+      },
+      {
+        "assessment": "The abstract and contents concern general zero forcing and positive variants; no matching specialized terminology was found in the searchable text, but the complete thesis was not read and possible disguised coverage remains a risk",
+        "evidence": [
+          "arXiv:1311.7672v1 publicly dated 29 Nov 2013, title Zero Forcing Sets for Graphs",
+          "The table of contents lists ordinary forcing basics and operation studies, plus positive forcing; searched triangular, Johnson and line graph do not occur as topical source terms"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1311.7672",
+        "material_read": "Primary arXiv thesis accessible; inspected abstract, chapter table of contents and source-text searches for triangular, Johnson and line graph, but not all 141 pages",
+        "method": "Primary PDF full-text search, table-of-contents text inspection and screenshot",
+        "title": "Zero Forcing Sets for Graphs",
+        "trigger": "Plausible earlier thesis with broad zero forcing coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43c12b86-42d1-4348-8a1a-a4728d89b437",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The graph J(n,2)=L(K_n) is a canonical Johnson/line graph with independently studied zero forcing, matrix nullity and reconfiguration. The theorem replaces a known scalar optimum with an exact all-input characterization, a full generating function for every forcing-set cardinality, a labeled-Cayley classification of every minimizer and a connected optimum-exchange structure with exact cross-class bridge count. This is a natural infinite graph-family classification and gives exact solution-space and reconfiguration information not supplied by the scalar.",
+    "status": "PASS"
+  }
+}
