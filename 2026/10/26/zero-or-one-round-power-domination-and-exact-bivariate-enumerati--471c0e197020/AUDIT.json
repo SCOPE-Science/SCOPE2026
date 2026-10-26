@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For nonempty selected edges S the initially white vertices are exactly E(G[U]), U consisting of vertices not incident with S. For any observed boundary edge xy with y in U its white-neighbor count equals deg_{G[U]}(y). A complete multipartite residual H with an edge has a degree-one vertex exactly when precisely two parts remain nonempty and one has size one, hence H is a star; all its edges force in one parallel round because S touches two original parts. Otherwise either H is edgeless (zero rounds) or every nonisolated vertex has degree at least two (no legal force). Exact support-based inclusion-exclusion counts nonempty selected edge covers of each complement, with an explicit empty-support adjustment. Exhaustive independently computed forcing-round simulation agreed on 203826 subsets in 57 small positive-part tuples; 168672 subsets in 38 tuples belong to the newly claimed domain. Coefficients checked with independent inclusion-exclusion on eight instances. These finite checks supplement a complete argument, not infinite certification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brimkov et al. introduce the graph-wide polynomial and general forcing relationships, but do not state a complete-multipartite-line-graph closed enumerator, nor classify one-round versus stalled behavior on that family.",
+        "Shahbaznejad et al. treat middle graphs M(G) with vertices V(G) union E(G), which are not L(G) whose vertices are E(G) only.",
+        "Mertens 2024 Theorem 4 counts all ordinary dominating rook arrangements; its coefficient minimum is min(p,q) whereas power domination already permits min(p,q)-1."
+      ],
+      "reasoning": "A general definition, generic exact counting by running the forcing process, and a theorem about scalar minima do not logically imply the new explicit residual-star iff, its all-parameter bivariate polynomial, or its complete propagation-round classification. Known ordinary domination polynomial is a strict subcount, and known middle-graph theorem has different graph objects. Thus no inspected stronger theorem dominates the specifically new mixed multipartite statement.",
+      "searches": [
+        "2018 full text arXiv:1805.10984v1 sections 1-4 (power domination polynomials structural decomposition and family formulas)",
+        "2021 full text arXiv:2106.13496v1 Section 6 middle graphs",
+        "published-finding corpus: Complete classification of power dominating sets in line graphs of complete multipartite graphs: selected-edge endpoint complement induces empty graph or star K1t; exact power domination polynomial",
+        "Mertens 2024 rook graph Theorem 4 (ordinary domination)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1805.10984v1 (2018) Brimkov et al., definition and structural results",
+      "arXiv:2106.13496v1 (2021) Shahbaznejad et al., middle graph distinction",
+      "Soh & Koh (2014), diameter-two rook scalar theorem (indexed extract only)",
+      "Mertens (2024) Journal of Integer Sequences 27, Article 24.3.7, full ordinary domination graph polynomial",
+      "Dorbec et al. (2008), Power Domination in Product Graphs (partial PDF text)",
+      "Earlier exact rook and triangular power-domination classifications (statement comparisons)",
+      "published-finding corpus semantic results for 10 actual statements/aliases, top 25-50 each"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known rectangular rook power domination says selected squares meet all but at most one row or all but at most one column and gives the entire univariate polynomial, on two underlying parts only.",
+        "Known triangular result says at most two untouched singleton parts, gives univariate polynomial and inclusion-minimal results, on part sizes all one only.",
+        "The candidate considers arbitrary r >= 3 with max(n_i) >= 2: three or more uncovered occupied parts always stall, and two positive residual parts force exactly when the smaller has size one. This interaction is absent in both prior restricted parameter spaces."
+      ],
+      "reasoning": "Neither union nor logical consequence of these two earlier families determines graphs such as L(K_{2,2,2}) or L(K_{3,2,1}), or their forced-versus-instant size distributions. The new theorem is restricted to their uncovered domain (three or more parts and a nonsingleton part) and proves a distinct class-wide structural characterization and bivariate enumerator. The proof is elementary and uses analogous incidence reasoning, an acknowledged limitation rather than evidence that known boundary theorems imply the result.",
+      "searches": [
+        "Mertens 2024 sections 2-3 complete rook ordinary domination polynomial",
+        "Soh and Koh 2014 scalar rook graph power domination theorem, available indexed theorem extract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The algebraic identities L(K_{p,q})=K_p square K_q and L(K_n)=J(n,2) were compared explicitly with previous complete power domination polynomials for these boundary cases.",
+        "2018 Brimkov et al. Definition 1 defines the same polynomial, but not the mixed multipartite edge-support criterion."
+      ],
+      "reasoning": "Both known boundary classes are strict subfamilies of the new domain and are EXCLUDED from novelty claims: they have either exactly two parts or all parts of size one. Line-graph language, rook-board coordinates, power-monitoring-unit placements and endpoint incidence are equivalent representations, not independent novelty. The classification and bivariate enumerator for at least three parts including a nonsingleton part are not implied by those boundary-only theorems.",
+      "searches": [
+        "published-finding corpus: power domination of line graphs of complete multipartite graphs residual untouched vertices induces star",
+        "published-finding corpus: line graph of a complete multipartite graph L(K_ni) power dominating sets stars uncovered vertices",
+        "published-finding corpus: Power domination of Cartesian products of complete graphs K_m square K_n line graph of complete bipartite graph polynomial counting all PMU placements",
+        "Literature: power domination polynomial line graph complete multipartite graph line graph of complete bipartite graph exact power dominating sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus power-domination-polynomial records concern book graphs, spider trees and proper double stars, not multipartite line graphs.",
+        "Two preexisting complete results classify and count rectangular rook graphs and all-singleton triangular graphs, respectively; these overlap only excluded boundary subfamilies, not the genuinely mixed multipartite domain.",
+        "The 2024 Mertens rook polynomial is explicitly ordinary domination, not a power-domination database/table."
+      ],
+      "reasoning": "Direct record and formula comparisons identified existing enumerators at two strict boundary subclasses and no matching all-part-size result for at least three parts with a nonsingleton part. The absence of a search hit is treated as evidence of search coverage, never proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus: power domination triangular graphs line graphs of complete graphs exact polynomial minimum power dominating sets",
+        "published-finding corpus: power domination polynomials line graphs of complete multipartite graphs rook graphs triangular graphs exact generating function",
+        "published-finding corpus: power domination number of line graphs of complete multipartite graphs",
+        "published-finding corpus: Complete classification of power dominating sets in line graphs of complete multipartite graphs: selected-edge endpoint complement induces empty graph or star K1t; exact power domination polynomial",
+        "published-finding corpus: All inclusion-minimal power dominating sets of triangular Johnson graphs J(n,2) star forests, matchings, upper power domination number n-3"
+      ]
+    },
+    "rationale": "The statement is explicitly restricted to >=3 multipartite parts with at least one nonsingleton part, excluding the formerly published exact rook-graph (r=2) and triangular-graph (all singleton) power-domination polynomials. Checked 2018 foundational polynomial paper, 2021 middle-graph distinction, 2024 ordinary rook domination polynomial, indexed 2014 scalar theorem, relevant published-finding corpus searches and accessible own claim history. No inspected statement implies the mixed-part structural condition or its exact cardinality-by-forcing-round bivariate polynomial. The inaccessible 2011 line-graph thesis and unindexed results present residual priority risk; search absence alone is not proof of uniqueness.",
+    "residual_risks": [
+      "Unindexed or privately circulated results may already enumerate power dominating sets of mixed multipartite line graphs.",
+      "2011 Varghese thesis on generalizations of line graphs and power domination was not materially readable; this is a relevant yet currently unresolved priority risk.",
+      "2014 Soh and Koh original paper was available as a theorem excerpt but not a complete inspected text; coverage claims about its remaining contents are limited.",
+      "The proof adapts elementary endpoint and edge-cover tools that already cover the rook and triangular boundary subfamilies; the mathematical gain is the genuinely mixed three-plus-part classification and joint propagation-round enumeration, not the known special cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines target invariant and standard general properties, but the stated family formulas do not cover new three-plus-part mixed multipartite line graphs",
+        "evidence": [
+          "arXiv:1805.10984v1 sections 1-4; first posted 2018-05-28"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1805.10984v1",
+        "material_read": "Abstract and full-text Sections 1 through 4, including polynomial definitions and family theorems",
+        "method": "Accessible arXiv HTML, navigated section and theorem text",
+        "title": "Power domination polynomials of graphs",
+        "trigger": "Definitional foundational counting paper and broad possible structural coverage"
+      },
+      {
+        "assessment": "Middle graph is not line graph; discussion cites scalar existing rook product results, not an exact mixed multipartite line-graph polynomial",
+        "evidence": [
+          "arXiv:2106.13496v1 Section 6, Definition 40 and results through Theorem 50; reference 23"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2106.13496v1",
+        "material_read": "Accessible full-text Section 6 (middle graphs), reference list, and adjoining definitions",
+        "method": "arXiv HTML direct inspection",
+        "title": "Some Families of Graphs with Small Power Domination Number",
+        "trigger": "Possible older theorem about edge-derived graph operation and rook graphs"
+      },
+      {
+        "assessment": "Calculates ordinary (one-step) domination polynomial on rook graphs; no power forcing is included in the polynomial definition, and its graph family is bipartite only",
+        "evidence": [
+          "Journal of Integer Sequences 27 (2024), Article 24.3.7, Theorem 4 and PDF page 5"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf",
+        "material_read": "PDF abstract, introduction, sections 2-3 including Theorems 1-4 (pages 1-6), specific page 5 screenshot; searched PDF text for power domination",
+        "method": "Accessible full PDF text plus rendered page inspection",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Exact graph class and very plausible competing polynomial"
+      },
+      {
+        "assessment": "Studies graph-product power domination and numerical bounds; no exact mixed multipartite-line-graph bivariate enumerator located in read material",
+        "evidence": [
+          "Dorbec, Mollard, Klavzar, Spacapan, SIAM J Discrete Math 22 (2008), 554-567"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060661879",
+        "material_read": "Open author copy introduction and product-graph results, not every appendix",
+        "method": "Author-accessible PDF pages and page image",
+        "title": "Power Domination in Product Graphs",
+        "trigger": "Earlier results about Cartesian products possibly including graph class"
+      },
+      {
+        "assessment": "Confirms previously known scalar rook graph power domination result; insufficient full text to make a noncoverage claim for all of the paper; thesis/literature residual risk recorded",
+        "evidence": [
+          "Soh and Koh (2014), AKCE Int J Graphs Combin. 11(1), 41-53, accessible indexed theorem passage"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/09728600.2014.12088762",
+        "material_read": "Search-indexed PDF excerpt containing conclusion of scalar minimum; original publisher PDF access denied",
+        "method": "Publisher search indexed excerpt and cross-reference in 2021 arXiv Section 6",
+        "title": "A note on power domination problem in diameter two graphs",
+        "trigger": "Known exact scalar theorem for complete graph Cartesian products"
+      },
+      {
+        "assessment": "Unresolved plausible priority overlap; no assertion that its full text fails to cover the present theorem",
+        "evidence": [
+          "2011 thesis citation in arXiv:2106.13496v1 reference 26"
+        ],
+        "identifier_or_url": "Shahbaznejad et al. 2021 reference 26; 2011 doctoral thesis by S. Varghese",
+        "material_read": "Bibliographic reference, thesis-cover metadata only; full PDF not obtained",
+        "method": "Open-archive/PDF retrieval attempts timed out, not treated as full text",
+        "title": "Studies on some generalizations of line graph and the power domination problem in graphs",
+        "trigger": "Plausible exact edge-derived-graph prior work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "471c0e19-7020-4a26-b803-0f1aeb0dc1bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete classification for the natural new graph family of all mixed complete multipartite line graphs with three or more parts is neither a fixed numerical slice nor an already known boundary case. It exposes a genuine three-part obstruction to propagation, proves the zero-or-one forcing-round phenomenon in all parameters, and supplies a self-contained bivariate enumerator of successful placements by both cardinality and propagation behavior. The elementary edge-support method is acknowledged, but the mixed-part all-parameter enumeration and propagation-time refinement are not obtainable merely by substituting values into either earlier boundary-family theorem; the full distribution has plausible use in PMU placement and enumerative studies.",
+    "status": "PASS"
+  }
+}
