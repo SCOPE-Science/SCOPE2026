@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The impulse kernel is exactly the Green-function convolution of three-dimensional diffusion with constant linear loss. Its logarithmic derivative has one zero, giving a single post-pulse peak, and equality of impulse terms leads without approximation to equation (1). Setting z=a/(p*delta) gives z-log z=B+E(z), where 0<E(z)<=2a/(pT) uniformly for all k>=0. Inverting the monotone scalar function proves the stated B+log B+O(log B/B+a/T) asymptotic. A standard-library script checks test values, not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2008 review explicit point-source uptake solution is exact for all pulse durations after subtraction of two step responses, but does not give a peak-lag uniform expansion in the inspected model discussion.",
+        "1997 paper displays diffusion pulse trajectories and post-pulse maxima for a fixed three-second release, without a claimed asymptotic theorem."
+      ],
+      "reasoning": "A stronger exact concentration formula covers the physical model as a premise, but does not by itself explicitly resolve the singular peak location for all joint k,T regimes. Generic inverse-function asymptotics may cover the algebraic part and remain a residual literature risk; no claim is made that log-inversion as an abstract method is new.",
+      "searches": [
+        "t to infinity point source diffusion off-time lag inverse logarithmic pulse duration with first order clearance absorption heat kernel",
+        "exponentially killed 3-dimensional heat kernel rectangular pulse peak time asymptotic logarithmic clearance",
+        "heat equation point source release duration source turned off maximum concentration after shutdown Lambert W"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1254/jjp.75.161, source PDF and dated open journal listing",
+      "doi:10.1152/physrev.00027.2007, accessible full-text equations (9), (13), (14), bibliographic record",
+      "https://pubmed.ncbi.nlm.nih.gov/9414031/, print metadata",
+      "Earlier peak-timing statement 9ffbbf72-ea33-4363-ad31-4dd47d15bd48, mathematical equivalence of the k=0 impulse kernel",
+      "Semantic literature-record searches using the recorded full queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previously documented peak-timing statement 9ffbbf72-ea33-4363-ad31-4dd47d15bd48: unique finite-pulse maximum and strict timing/monotonicity for loss-free Glover–Balmer kernel, mathematically identical temporal kernel at k=0.",
+        "Remmers et al. 1997 pulse traces show the qualitative phenomenon; Syková–Nicholson 2008 Eqs. (13)–(14) define uptake-dependent point-source concentration."
+      ],
+      "reasoning": "Prior qualitative peak theorems and plots imply neither the displayed two-term denominator B+log B+O(log B/B+a/T) nor uniformity over variable uptake k(T) by direct statement. Re-derivation uses a separate singular limiting argument. A sufficiently general published inverse-function theorem could imply the result, and this possibility remains flagged.",
+      "searches": [
+        "diffusion pulse at distance Green function t^-d/2 exp(-a/t) rectangular forcing peak unique logarithmic lag",
+        "Glover Balmer stream depletion finite pulse maximum delay logarithmic asymptotic after cessation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Remmers et al. 1997, Fig. 7 and associated pulse-profile discussion: delayed peaks are explicitly observed; doi:10.1254/jjp.75.161.",
+        "Syková and Nicholson 2008, Eqs. (13)–(14): step-release solution from which the finite-pulse kernel follows; doi:10.1152/physrev.00027.2007."
+      ],
+      "reasoning": "The temporal Green kernel is exactly the same after temporal superposition; the already-known delayed pulse maximum and step response are not novel. The new claim is confined to a two-term large-release-duration lag and uniformity in every uptake rate, neither stated in the read passages.",
+      "searches": [
+        "Fickian diffusion Gaussian heat kernel point source continuous finite-duration emission pulse shutdown observation point delayed concentration maximum time logarithmic delay",
+        "diffusion pulse at distance Green function t^-d/2 exp(-a/t) rectangular forcing peak unique logarithmic lag"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Remmers 1997 Fig. 7 shows concentration curves at several distances after a three-second pulse, not a table of large-T uniform uptake peak lags.",
+        "Published mathematical-record search of retrieved titles/summaries did not return a matching uptake-crossover statement; a negative semantic search is not evidence of exhaustive absence."
+      ],
+      "reasoning": "This is an exact limiting-rate law, not a finite numerical tabulation; inspected graphical traces do not supply the uniform expansion.",
+      "searches": [
+        "Glover Balmer stream depletion finite pulse maximum delay logarithmic asymptotic after cessation",
+        "Sykova Nicholson 2008 extracellular diffusion first-order loss peak lag long pulse asymptotic"
+      ]
+    },
+    "rationale": "The inspected source paper and review provide delayed pulse response and the loss-dependent point-source Green formula; they do not state the nontrivial two-term peak-lag inversion uniformly in loss, with a joint kT/log(T/a) crossover. The loss-free qualitative peak uniqueness and localization already appear elsewhere and are explicitly not novel. Residual risks regarding fuller literature and generic inverse-function lemmas are stated.",
+    "residual_risks": [
+      "The complete 2008 review and older point-source diffusion papers were not all inspected end-to-end; inaccessible relevant text may contain the same asymptotic.",
+      "The result may be an unstated specialization of a general singular inverse-function expansion or an existing pulse-transport asymptotic, so originality is narrowly scoped.",
+      "Earlier October 1997 print publicity exists but has no verified day in inspected evidence; 2006-03-27 is a precisely verified date of the same paper becoming publicly available in the open online archive, not claimed to be its original publication date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Describes delayed post-pulse peaks versus separation and computes finite profiles. No uniform large-duration uptake-dependent lag theorem located in read material.",
+        "evidence": [
+          "Fig. 7 and its narrative: concentration at 50–100 micrometers peaks after iontophoretic current terminates.",
+          "Article open archive date 2006-03-27 on issue contents page."
+        ],
+        "identifier_or_url": "doi:10.1254/jjp.75.161; https://www.jstage.jst.go.jp/article/jphs1951/75/2/75_2_161/_pdf",
+        "material_read": "Source PDF, discussion and figures of theoretical concentration response, especially Fig. 7 and description of the three-second glycine pulse; article bibliographic landing page.",
+        "method": "Public full PDF text and source-page inspection.",
+        "title": "A Modified Coaxial Compound Micropipette for Extracellular Iontophoresis and Intracellular Recording: Fabrication, Performance and Theory",
+        "trigger": "Finite pulse point-source extracellular diffusion with described delayed concentration peak."
+      },
+      {
+        "assessment": "Provides the full constant point-source response including loss, not the stated uniform peak-lag crossover in inspected portions.",
+        "evidence": [
+          "Equation (13) includes loss coefficient k-prime and point-source erfc terms.",
+          "Equation (14) is its no-loss specialization.",
+          "Online publication date 2008-10-01 verified from publisher record."
+        ],
+        "identifier_or_url": "doi:10.1152/physrev.00027.2007; https://pmc.ncbi.nlm.nih.gov/articles/PMC2785730/",
+        "material_read": "Publisher-indexed and public manuscript-indexed passages around equations (9), (13), (14), discussion of iontophoresis, diffusion and removal; abstract and bibliographic record.",
+        "method": "Accessible full-text indexed excerpts; direct host page returned an access challenge, so the complete review was not read end-to-end.",
+        "title": "Diffusion in Brain Extracellular Space",
+        "trigger": "Exact Green-function source response with first-order extracellular loss and volume fraction."
+      },
+      {
+        "assessment": "Print issue verified as October 1997 without an exact day; the inspected archive posting date provides a precisely verified public online date.",
+        "evidence": [
+          "1997 October print month appears in PubMed; public archive posting is 2006-03-27 in the issue contents."
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/9414031/",
+        "material_read": "Publication metadata and abstract.",
+        "method": "Public indexed PubMed record.",
+        "title": "A modified coaxial compound micropipette (bibliographic publication record)",
+        "trigger": "Resolve the earlier print date without inventing a precise day."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a7fd3e7c-03ba-4dde-9675-12de2d175670",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The concentration peak after cessation of extracellular iontophoresis is a motivated and experimentally monitored quantity. The exact asymptotic determines a sharp transition between logarithmically slow post-pulse lag in nearly conservative diffusion and inverse-duration lag under fixed first-order removal. Its error bound uniform for arbitrary joint scaling of uptake and release length makes the threshold more than a fixed-parameter Taylor expansion, and does not require a separate large-T simulation at each uptake rate.",
+    "status": "PASS"
+  }
+}
