@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact disjoint-partition integration gives \\(\\phi_1+\\phi_2=2\\sqrt{\\pi}\\sqrt{x}\\). Positive-argument cumulant ODEs are global and cooperative. The square-root derivative of the sum lies between sqrt(pi) and sqrt(2 pi), giving a nontrivial zero-argument cumulant by monotone limit and genuine finite-time explosion. Bounded phi_2 gives u_2<=2Lt and u_1>=pi t^2-2Lt. This forces both arguments to infinity; hence u_2/t->2L. Differentiation of sqrt(u_1) gives the explicit next-order coefficient 4 sqrt(2 pi L), and the Laplace semigroup yields survival probabilities. The local uniqueness used is only for strictly positive initial arguments; no uniqueness at zero is assumed. Numerical checks were replayed from the included checker; infinite-time proof does not rely on them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chaumont--Lamoureux (2026), arXiv:2610.23649v1, §§2--4, especially §3.2 example after Theorem 3.3 Theorem 3.1 assumes a divergent aggregate diagonal integral, whereas in this example the aggregate stable integral is finite",
+        "Chaumont--Lamoureux (2026), arXiv:2610.23649v1, §§2--4, especially §3.2 example after Theorem 3.3 Theorem 3.2 requires finite integrals for all selected typewise diagonal functions; its example explicitly makes the needed single-coordinate integrals divergent",
+        "Chaumont--Lamoureux (2026), arXiv:2610.23649v1, §§2--4, especially §3.2 example after Theorem 3.3 Theorem 3.3 applies to 2-cyclic mechanisms with zero same-type reproduction, not to this mechanism",
+        "Duffie--Filipović--Schachermayer (2003), Section 9, Proposition 9.1 is an abstract backward-equation criterion, not an explicit calculation for these sets"
+      ],
+      "reasoning": "The main paper itself identifies a gap between its sufficient tests for this example. The general backward-equation criteria are used in the argument, but they do not alone give the two different survival scales or coefficients. The new content is an explicit comparison and asymptotic evaluation for the source mechanism.",
+      "searches": [
+        "Multitype branching processes vector Laplace exponent nonunique ODE and explosion time survival quadratic Gaussian bound",
+        "two-type continuous state branching process explosivity conservativity Levy measure disjoint alternating intervals",
+        "\"Affine processes and applications in finance\" Duffie Filipovic Schachermayer section 9 conservativity explosion Osgood comparison"
+      ]
+    },
+    "checked_sources": [
+      "Chaumont--Lamoureux (2026), arXiv:2610.23649v1, §§2--4, especially §3.2 example after Theorem 3.3",
+      "Li--Li (2024), arXiv:2405.05879v1, Theorem 4.1 (p. 11)",
+      "Duffie--Filipović--Schachermayer (2003), Section 9, Proposition 9.1",
+      "Chaumont--Marolleau (2023), arXiv:2109.02912v1, abstract (extinction rather than explosion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chaumont--Lamoureux (2026), arXiv:2610.23649v1, §§2--4, especially §3.2 example after Theorem 3.3 explicitly sets out the partition and concludes that its current criteria give no verdict",
+        "Li--Li (2024), arXiv:2405.05879v1, Theorem 4.1 (p. 11) gives necessary equivalence but not an explicit positive solution",
+        "Chaumont--Marolleau (2023), arXiv:2109.02912v1, abstract (extinction rather than explosion) concerns extinction and does not classify this explosion example"
+      ],
+      "reasoning": "A theorem covering arbitrary two-type branching systems with the same lower comparison might imply nonconservativity, but none was identified in inspected sources. The explicit two-scale survival expansions require the additional \\(A_2\\subset[1,\\infty)\\) structure; they do not follow by wording alone from the general criteria.",
+      "searches": [
+        "Interleaved stable subordinators phi1 phi2 sum sqrt lambda multitype continuous state branching nonconservative example",
+        "\"multitype\" \"nonconservative\" \"sum\" \"stable\" \"branching\" \"explosion\" 2026",
+        "\"multitype\" \"explosion\" \"diagonal\" \"integral\" \"Grey\"",
+        "\"Chaumont\" \"Lamoureux\" \"conservativity\" \"counterexample\" 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chaumont--Lamoureux (2026), arXiv:2610.23649v1, §§2--4, especially §3.2 example after Theorem 3.3 gives the exact same interleaved example but states that the displayed criteria do not determine its conservativity",
+        "Li--Li (2024), arXiv:2405.05879v1, Theorem 4.1 (p. 11) equates zero-equation uniqueness with conservativity, without treating the interleaved example"
+      ],
+      "reasoning": "An equivalent statement would characterize the specific oscillating Lévy partition as explosive, or compute its zero-argument cumulants or survival exponents. The inspected full texts instead provide the model and general equivalence; no such quantitative statement was found. An alternative formulation in the specialized literature remains possible.",
+      "searches": [
+        "On conservativity of multitype continuous-state branching processes Chaumont Lamoureux oscillating Lévy measure A1 A2 explosion probability Gaussian tail",
+        "Interleaved stable subordinators phi1 phi2 sum sqrt lambda multitype continuous state branching nonconservative example",
+        "\"Chaumont\" \"Lamoureux\" \"phi_1\" \"phi_2\" conservative non conservative branching 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-record searches returned no retrieved title or summary asserting the interleaved-partition explosion result or its two-type survival-tail asymptotics. Highest-ranked records concerned unrelated models, including an alternating-renewal aliasing result and an endpoint-positivity result."
+      ],
+      "reasoning": "The claim is an analytic result for a specified process, not a tabulated finite invariant. Retrieval is an overlap screen, not proof of novelty; no known exact table is claimed.",
+      "searches": [
+        "On conservativity of multitype continuous-state branching processes Chaumont Lamoureux oscillating Lévy measure A1 A2 explosion probability Gaussian tail",
+        "branching cumulant semigroup u1(t) asymptotic pi t squared u2(t) linear in time stable subordinator",
+        "Grey condition fails for each subordinator but two-type branching explodes almost surely"
+      ]
+    },
+    "rationale": "The 16 October 2026 motivating article states its criteria do not determine conservativity for the displayed interleaved Lévy mechanism. The presented proof classifies that very mechanism and derives an explicit quadratic-versus-linear explosion-survival dichotomy and subleading coefficient. Full texts of the most closely related primary results were compared by implication, not only by title; no covering statement was identified. Novelty remains subject to specialized unindexed literature.",
+    "residual_risks": [
+      "A specialized older theorem for cooperative sublinear vector ODEs might subsume the nonconservativity conclusion without sharing terminology.",
+      "The exact asymptotic coefficient could be implicit in general asymptotic-ODE literature not retrieved by the targeted searches.",
+      "Only the abstract of the earlier extinction paper was inspected, so no claim of full-text exclusion is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact example and notes it is not decided by the existing stated sufficient criteria; no type-specific survival-tail expansion is presented",
+        "evidence": [
+          "§3.2 defines a_n, A_1, A_2, phi_i and psi_i; the text immediately before (3.3) says no conclusion can be drawn regarding conservativity"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.23649v1",
+        "material_read": "Full article, Sections 1--4; especially definitions (2.2)--(2.7), Theorems 3.1--3.3 and the construction after Theorem 3.3",
+        "method": "Read accessible arXiv HTML including mathematical formulas, assumptions, and example",
+        "title": "On conservativity of multitype continuous-state branching processes",
+        "trigger": "Identical oscillating Lévy partition and conservativity question"
+      },
+      {
+        "assessment": "Supplies the general equivalence, without the new partition calculation or large-time asymptotics",
+        "evidence": [
+          "Theorem 4.1 equates zero-start ODE uniqueness with conservativity"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.05879",
+        "material_read": "Full PDF, including introduction, generator setup and Theorem 4.1 on p. 11",
+        "method": "Read PDF text and inspected rendered Theorem 4.1 page",
+        "title": "Uniqueness Problem for the Backward Differential Equation of a Continuous-State Branching Process",
+        "trigger": "Strongest possible equivalence between backward-equation uniqueness and conservative branching"
+      },
+      {
+        "assessment": "General affine backward-equation condition; no explicit interleaved two-type Lévy example or coefficients",
+        "evidence": [
+          "Proposition 9.1 addresses only-zero-solution sufficiency for conservativity and a necessary condition"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~duffie/affine.pdf",
+        "material_read": "Introduction and Section 9 on p. 39, Proposition 9.1 and nearby conditions",
+        "method": "Read PDF extracted text and inspected the rendered Section 9 page",
+        "title": "Affine Processes and Applications in Finance",
+        "trigger": "Prior general conservativity result explicitly cited by the motivating work"
+      },
+      {
+        "assessment": "Its advertised scope is extinction at zero rather than explosion at the cemetery; limited inspection precludes any whole-paper negative coverage assertion",
+        "evidence": [
+          "Abstract identifies finite-time extinction criteria as its main object"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2109.02912",
+        "material_read": "Abstract and bibliographic entry",
+        "method": "Read accessible abstract; did not inspect full text",
+        "title": "Extinction times of multitype, continuous-state branching processes",
+        "trigger": "Earlier multitype Grey-type work by related authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d45cf3b-231b-4088-91b1-e2e52a9c39ec",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This resolves the specific two-type Lévy-partition example set aside as undecidable by the motivating paper's criteria and identifies opposite tail scales depending on the initial type. The new result is a natural exact classification plus quantitative explosion-time laws, not a routine finite test or parameter renaming. Its sharp leading constants and the \\(t^{3/2}\\) correction give useful structure for multitype explosion studies.",
+    "status": "PASS"
+  }
+}
