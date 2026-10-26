@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "C=S−E in every induced forest, yielding exact mean/variance formulas. Every cross-tree third raw-moment difference reduces to −E[E³], and counting the four three-edge configurations gives −6 delta(P4) p^4(1−p)^2. Equal mean/variance converts this to third-cumulant difference. Factors p^4,q^2,z,(z−1)^3 follow from subset/deletion boundary cases and equal low factorial moments, with coprimality over the integer polynomial ring. At n6 exactly the two indicated degree-matched trees exist and 64-subset exhaustive counts yield the full PGF factor. Python Prüfer enumeration checks 1/1/2/3/6 nonisomorphic classes and the finite moment identities. The proof, not the enumeration, covers all n and p.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tittmann et al. introduce a general-purpose two-variable polynomial encompassing all induced component-count coefficients; they discuss percolation probabilities.",
+        "Allard et al. analyze exact component-size probabilities on finite random graphs rather than the third cumulant of total site components on deterministic degree-matched trees."
+      ],
+      "reasoning": "The graph class and parent statistic are indeed subsumed by Q, a background tool; the new comparison is a specific *difference identity* and degree-equivalence classification, not an implied restatement of the general definition. A general algorithm for computing Q could reproduce each finite case but does not itself assert the all-n factorization or minimality theorem.",
+      "searches": [
+        "https://arxiv.org/pdf/0812.4147 general Q and percolation properties",
+        "https://arxiv.org/pdf/1509.01207 finite arbitrary-graph percolation approach",
+        "site percolation on forest fragmentation component number, first two moments determined by degree sequence and third cumulant depends on length-three paths"
+      ]
+    },
+    "checked_sources": [
+      "Urban and Keitt, Ecology 82 (2001), DOI listed above (publisher metadata/abstract).",
+      "Tittmann–Averbouch–Makowsky, arXiv:0812.4147, section text and figures.",
+      "Liao–Hou, arXiv:1311.6856, introduction and Theorem 3.4.",
+      "Allard et al., arXiv:1509.01207, introduction and Section II.",
+      "Published 2026 result \"Three-point connectivity exactly controls component–triangle covariance\""
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.4 of Liao–Hou pertains to regular bipartite graphs, whereas the six-vertex witness has degrees 1,2,3.",
+        "Tittmann et al. give the Q polynomial; published small-tree Q-uniqueness is a full-polynomial inequivalence, not equality of low moments and exact third-cumulant difference.",
+        "Published 2026 result \"Three-point connectivity exactly controls component–triangle covariance\" concerns covariance between component count and triangle count under bond percolation, not the proposed site-percolated forest third moment."
+      ],
+      "reasoning": "None of these statements supplies the all-order moment difference via degree matching and the length-three-path count. They neither rule out nor establish the claimed polynomial identity. The scientifically significant claim is not that Q distinguishes these trees, already broadly understood, but the precise first invisible moments and universally quantified third-cumulant law.",
+      "searches": [
+        "arxiv:1311.6856 Theorem 3.4 P4 count and Q",
+        "arxiv:0812.4147 definition and Q-unique trees",
+        "randomly surviving habitat patch number of connected components third moment path motif degree assortativity",
+        "Published 2026 result \"Three-point connectivity exactly controls component–triangle covariance\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For site retention, H_T(p,z)=(1-p)^n Q(T;p/(1-p),z), the direct specialization of Tittmann–Averbouch–Makowsky general Q definition.",
+        "Liao–Hou regular-bipartite P4 count from Q is conceptually adjacent but does not state tree cumulants."
+      ],
+      "reasoning": "The Q specialization makes the claim an exact graph-polynomial coefficient-and-derivative statement. Inspected primary claims define Q and extract some graph invariants but do not state the exact degree-paired third-cumulant polynomial law or smallest six-vertex witness. This is a materially plausible alias; broad parent formulation itself is not the asserted quantitative result.",
+      "searches": [
+        "site percolation on forest fragmentation component number, first two moments determined by degree sequence and third cumulant depends on length-three paths",
+        "site percolation retained induced components skewness distinguishes degree-matched trees at six vertices",
+        "randomly surviving habitat patch number of connected components third moment path motif degree assortativity",
+        "arxiv:0812.4147 induced-subgraph component Q(G;x,y) and percolation sections",
+        "arxiv:1311.6856 Section 3 Theorem 3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tittmann et al. show small trees can be separated by full Q; their result does not identify the six-vertex degree-matched equal-mean/variance pair or its p-dependent third moment.",
+        "Independent Prüfer enumeration generated unlabeled class counts 1,1,2,3,6 for n=2,...,6 and one degree-matched pair at n=6."
+      ],
+      "reasoning": "No exact published table or database entry checked here gives the present four coefficient differences or the universal path-count law. A Q-distinguishability result can distinguish full distributions without determining their first differentiating cumulant order.",
+      "searches": [
+        "https://arxiv.org/pdf/0812.4147 small-tree Q distinguishability and finite tree examples",
+        "site percolation retained induced components skewness distinguishes degree-matched trees at six vertices"
+      ]
+    },
+    "rationale": "The inspected parent Q polynomial is known (Tittmann et al. 2008), but its existence or small-tree Q-uniqueness does not imply the specific uniform degree-sequence invariance of the first two site-fragmentation moments, the exact path-count third-cumulant difference for all finite trees, the universal factor, or the six-vertex sharp witness. Liao–Hou path extraction assumes regular bipartite graphs; Allard studies a different component observable. Searches of published mathematical findings and actual prior local claim records did not reveal a dominating exact theorem. This is a qualified self-review bibliographic assessment, not an independent uniqueness certificate.",
+    "residual_risks": [
+      "General component-polynomial literature may contain an unstated or alternatively named degree-sequence cumulant identity not exposed by searches.",
+      "Some publisher-only sources and the later portions of the Allard manuscript were not comprehensively reviewed.",
+      "Full Q-polynomial computations could subsume the small example as a calculable special case; the assessed independent contribution is the universal all-order structural identity and exact low-moment boundary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates graph representation; no inspected claim gives the exact third-cumulant degree-matched tree formula",
+        "evidence": [
+          "Ecology 82:1205–1218 (2001), Urban and Keitt; graph-based landscape connectivity and habitat patches."
+        ],
+        "identifier_or_url": "doi:10.1890/0012-9658(2001)082[1205:LCAGTP]2.0.CO;2",
+        "material_read": "Publisher abstract and bibliographic/introductory information, not the full restricted publisher article",
+        "method": "Publisher landing page abstract and metadata",
+        "title": "Landscape Connectivity: A Graph-Theoretic Perspective",
+        "trigger": "Ecological grounding for graph-based habitat fragmentation"
+      },
+      {
+        "assessment": "General subgraph-component polynomial subsumes the PGF as a specialization; no inspected theorem implies the specific degree-paired all-n cumulant identity or minimal witness",
+        "evidence": [
+          "Tittmann–Averbouch–Makowsky arXiv:0812.4147, general Q(G;x,y) and percolation application; small-tree Q-distinguishability is weaker than degree-matched third-moment law."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0812.4147",
+        "material_read": "Definitions and sections on properties/percolation and small-tree discrimination in the accessible 24-page primary manuscript; text searched for variance, degree sequence, and moment; figures inspected",
+        "method": "Full-text accessible arXiv PDF, section reading and text matching",
+        "title": "The Enumeration of Vertex Induced Subgraphs with Respect to the Number of Components",
+        "trigger": "Directly defines the strongest relevant parent polynomial for induced component counts"
+      },
+      {
+        "assessment": "Theorem 3.4 recovers four-vertex path count in regular bipartite graphs; trees of six vertices are not regular, and the work does not state the site-percolation cumulant difference or six-vertex classification",
+        "evidence": [
+          "Liao–Hou, arXiv:1311.6856, Theorem 3.4 assumes k-regular bipartite graphs and recovers P4/C4 counts from Q."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1311.6856",
+        "material_read": "Introduction, polynomial definition, Theorem 3.4 and proof on regular bipartite graphs, plus checked relevant sections in accessible 13-page PDF",
+        "method": "Full-text arXiv PDF, inspected theorem/proof and keyword searches",
+        "title": "Note on the Subgraph Component Polynomial",
+        "trigger": "Path-count extraction from component polynomial could dominate the claimed path-statistic observation"
+      },
+      {
+        "assessment": "The inspected work concerns component size/composition distributions under random-network/bond-hybrid percolation, rather than degree-matched fixed-tree total component-count cumulants",
+        "evidence": [
+          "Allard et al., arXiv:1509.01207, Section II studies probabilities for individual components of specified size/type."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1509.01207",
+        "material_read": "Full-text accessible PDF introduction and Section II model/outcome definitions; searched for cumulant; did not read every later page",
+        "method": "Direct PDF text and page-image inspection of Section II",
+        "title": "General and exact approach to percolation on random graphs",
+        "trigger": "Potential general finite percolation theory could cover component-count distributions and cumulants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "54bd1228-5874-4ab8-a308-6241cbcc5b66",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Habitat fragmentation counts are natural ecological network observables. Equal degree distributions can conceal the whole first two count moments, so ecological models based only on degree/wedge summaries cannot detect this shape dependence. The exact P4-based third cumulant detects it for all 0<p<1, and the unique six-patch threshold proves it is already relevant in the smallest structurally ambiguous habitat trees. This is a motivated universality-and-sharp-boundary result, not a trivial Q polynomial recomputation. Homogeneous independent survival and unconditioned fragment counts delimit the value.",
+    "status": "PASS"
+  }
+}
