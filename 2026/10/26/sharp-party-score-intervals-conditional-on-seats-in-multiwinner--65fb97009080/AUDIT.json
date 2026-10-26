@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For all integers m>=2, 1<=r<m, 1<=k<=m, feasible t, score averages lie in the convex hull of Borda permutations. Committee inequalities compare each losing A candidate to each winning complement candidate. This yields an exact weighted rearrangement majorant and the stated closed upper bound; party complementation yields the lower. Two explicit finite cyclic-permutation profiles realize endpoints with the same elected committee, rational mixtures fill the interval, and strict mixing separates every winner from every loser. Zero-middle-block and endpoint cases are handled. An extracted stand-alone verification program passed 304959 exact assertions, including 51-voter witness; finite checks are supporting evidence only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grofman–Feld–Fraenkel 2017 DOI:10.1016/j.mathsocsci.2016.11.004, original PDF pp.52–54: general scoring-rule exclusion threshold is based on the size of voter blocs, with an inequality using top and bottom positional scores.",
+        "Boratyn et al. DOI:10.3233/FAIA251258, §7.2: party Borda totals feed independent apportionment rules rather than selecting the k highest-scoring candidates."
+      ],
+      "reasoning": "The 2017 result ranges over all positional rules, but the parameter controlled is a faction fraction of voters who cast strategically grouped ballots. The present ψ is a normalized sum over every candidate affiliated with a party, and no assumption identifies it with that faction fraction. Thus the broader rule class of the exclusion-threshold theorem does not dominate the present complete score-share/seat-count interval. The separate-apportionment result likewise does not imply the seat count of top-scoring individual candidates.",
+      "searches": [
+        "Finding the Threshold of Exclusion for all single seat and multi-seat scoring rules Grofman Feld Fraenkel pdf",
+        "multiwinner Borda party 0 seats aggregate party Borda score upper bound",
+        "Spoiler Susceptibility in Party Elections Boratyn Borda scores apportionment 2026"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2602.10083 (2026-02-10), original HTML, §§4–7",
+      "DOI:10.3233/FAIA251258, full open HTML, §§1,7–8",
+      "DOI:10.1007/s00355-016-0982-z, original open HTML, intro and definitions",
+      "DOI:10.1016/j.mathsocsci.2016.11.004, author-hosted original five-page PDF, §§1–3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boratyn–Stolicki 2026 Eq.(1) defines ψ; their separable k-Borda rule fixes winners, but they do not derive bounds from the combined definitions.",
+        "Darmann–Klamler 2016 DOI:10.1007/s00355-016-0982-z studies proportional assignment of indivisible goods to agents, not party-marked winning committees.",
+        "Grofman–Feld–Fraenkel 2017 distinguishes first-choice supporting bloc share from cardinal aggregate candidate Borda scores."
+      ],
+      "reasoning": "The new theorem simultaneously quantifies party candidate count r, seat count t, committee size k, and normalized summed candidate Borda score ψ, with tight endpoints and rational-complete attainability. The nearest earlier results either provide these definitions without the implication, optimize different objective functions, or place conditions on voter faction size rather than ψ. The rearrangement lemma itself is an acknowledged classical tool.",
+      "searches": [
+        "aggregate party score Borda bound allocation proportionality",
+        "Borda seat shares aggregate party upper",
+        "Proportional Borda allocations Darmann Klamler 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boratyn–Stolicki 2026, arXiv:2602.10083, Definitions 9 and 14: committee maximizes top-k additive Borda totals while aggregate party score sums the Borda points of ALL affiliated candidates.",
+        "The candidate-score vector is a convex combination of Borda rank permutations; the new claim adds exact extremization under a prescribed count of winners and affiliations."
+      ],
+      "reasoning": "Reformulated the claim as a permutahedral linear maximum with cross-class score-order inequalities. The classical rearrangement theorem supplies the inequality but neither the literature inspected nor the originating article states the interval, all-rational attainability, or strict-winner interior. Also compared terminology of quota, exclusion, and party seat bias; those sources constrain party-voter bloc fractions or separate apportionment rules.",
+      "searches": [
+        "k-Borda party share zero winners conditional on candidate affiliation",
+        "party allocation proportionality inverse Borda upper lower feasible score interval given seat count permutahedron",
+        "arxiv:2602.10083 Sections 4,5 Definitions 9 and 14"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Boratyn–Stolicki 2026 §6 reports simulations and plots (Figs.1–4), §7 identifies analytic investigation as future work; no seat-conditioned sharp interval or exhaustive table is given.",
+        "The published 2017 paper Table 1 gives bloc-vote exclusion thresholds, not the inverse Borda aggregate score range."
+      ],
+      "reasoning": "No exact published table or database of the same score-interval invariant was identified in the inspected primary sources or research-record searches. Absence from these searches is not a priority proof; the risk is stated separately.",
+      "searches": [
+        "Allocation Proportionality of OWA--Based Committee Scoring Rules Boratyn Stolicki arxiv 2602.10083",
+        "sharp score-share interval for two-party multiwinner Borda seat composition",
+        "maximal Borda total of losing candidates when k outsiders ranked ahead every losing candidate"
+      ]
+    },
+    "rationale": "Primary 2026 source introduces ψ and k-Borda but reports experimental proportionality comparisons rather than a seat-conditioned feasible score interval. Full available primary texts on first-choice-bloc exclusion, Borda-derived apportionment, and fair item allocation were compared for implication coverage; their objects and quantifiers differ. Historical priority remains uncertain despite actual research-record and scholarly searches.",
+    "residual_risks": [
+      "A differently titled score-inversion or majorization statement could have established the exact interval earlier; finite literature/database searches cannot eliminate this priority possibility.",
+      "Classical rearrangement is essential and acknowledged; novelty rests on the complete seat-conditioned Borda score range and attainability, not on that inequality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines both ingredients and assesses allocation proportionality empirically; no complete score range conditional on party size and seats found in inspected text.",
+        "evidence": [
+          "§4 Definition 9: separable k-Borda",
+          "§5 Equation (1): party score ψ normalized over all candidate positional scores",
+          "§6.3 and §7: empirical results and intended theoretical future work"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.10083",
+        "material_read": "Public full HTML, sections 1,4,5,6,7, including Definitions 9,14–17, Equation (1), discussion, and future work",
+        "method": "Read mathematical definitions and comparison sections in primary HTML",
+        "title": "Allocation Proportionality of OWA--Based Committee Scoring Rules",
+        "trigger": "Exact origin of normalized party-score statistic and k-Borda committee rule"
+      },
+      {
+        "assessment": "Uses Borda-derived party vote surrogates as inputs to apportionment methods, not top-k score selection; its spoiler theorems do not imply this inverse range.",
+        "evidence": [
+          "§7.2: FPTP, Jefferson–D’Hondt, Webster–Sainte-Laguë, Largest Remainders applied to party totals",
+          "§8: spoiler-resilience findings"
+        ],
+        "identifier_or_url": "https://journals.sagepub.com/doi/10.3233/FAIA251258",
+        "material_read": "Full open HTML, introductory contributions, definitions, §7.2 allocation methods, §7.3 experimental results, §8",
+        "method": "Compared seat mapping and Borda-score usage in original text",
+        "title": "Spoiler Susceptibility in Party Elections",
+        "trigger": "Same authors use normalized party Borda scores with seat allocation"
+      },
+      {
+        "assessment": "Borda valuations are used for allocating goods among agents subject to each agent’s proportionality; no implication for the present party-marked committee-score inversion from inspected material.",
+        "evidence": [
+          "Abstract and §1: indivisible items shared among agents",
+          "Proposition 1: proportionality invariant under affine transformation of Borda valuations"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00355-016-0982-z",
+        "material_read": "Open-access HTML abstract, introduction, definition of proportional item allocations, and first propositions",
+        "method": "Compared agents/items assignment with affiliated candidates/top-k committee scoring",
+        "title": "Proportional Borda allocations",
+        "trigger": "Possible broader Borda allocation theorem"
+      },
+      {
+        "assessment": "Threshold is the fraction of voters in a strategic supporting bloc whose preferred candidate is excluded, not an extremum over a designated party’s normalized Borda candidate-total fraction conditional on r and t. No direct implication of the complete interval.",
+        "evidence": [
+          "Original PDF p.52 defines TE as largest party voter share denied seats",
+          "p.53 §2 states the strategic-bloc inequality",
+          "p.54 derives Borda TE and analyzes 3-candidate bloc example"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mathsocsci.2016.11.004",
+        "material_read": "Complete author-hosted five-page original PDF, pp.52–56, including §2 theorem, proof, Borda table and example",
+        "method": "Read extracted mathematical text and inspected original page images, compared variable interpretations and objective",
+        "title": "Finding the Threshold of Exclusion for all single seat and multi-seat scoring rules: Illustrated by results for the Borda and Dowdall rules",
+        "trigger": "Strongly relevant all-positional-rule theorem on party receiving no seats"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65fb9700-9080-456a-a91c-c51db27f7825",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The interval gives an exact classification for the natural inverse allocation-proportionality question: how much of all aggregate candidate Borda points may a party hold, given its number of candidates and the seats it received? The boundary is attained across all feasible parameters, not an arbitrary slice, and its zero-seat corollary shows candidate-cardinality sensitivity of the new fairness proxy: normalized party score can approach one without any elected party member. This directly informs interpretation of aggregate score–seat bias, and is not just a verification or normalization observation.",
+    "status": "PASS"
+  }
+}
