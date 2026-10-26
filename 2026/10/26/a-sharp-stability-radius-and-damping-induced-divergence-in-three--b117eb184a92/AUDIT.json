@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exact K=aI+bJ normal matrix gives P3=1-z+z²-z³. Its direction-independent squared norm is 1+G/(1+r²+2rc); endpoints and 0<r<=1/2 are strictly negative. Any first crossing has interior G=Gc=0, whose exact resultant is 65536 r^16 (4r^6+4r^4+4r²+3)^2 H(r²). The substitution u=t/(1+t) yields a coefficient sequence with one sign change, ensuring H has exactly one root in (0,1). An exact rational witness at r=19/20,c=2/3 demonstrates the crossing is real; continuity forces its location to rho*. Direct exact matrix multiplication gives P3^T P3 = (1773279907/1728000000)I, proving exponential norm growth for all nonzero initializations. verify.py replays symbolic identities, not used as infinite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cevher et al., arXiv:2301.03931, Lemma 3.5 and Algorithm 2, bound inner approximation at \\(\\gamma=1/(2L)\\) and select logarithmic inner depth.",
+        "Nemirovski, SIAM J. Optim. 15 (2004), sections 1–2, studies a separate prox/extragradient VI construction, not three explicit Picard calls.",
+        "Published record 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0 covers a distinct degree-two minimax polynomial on strongly monotone normal systems."
+      ],
+      "reasoning": "A bound on distance of the inner output to the implicit proximal solution does not imply that the restarted outer map is contractive for fixed budget three at all \\(\\gamma L<1\\). The source does not state this implication; indeed the exact witness disproves it. Prox/extragradient convergence for a different sequence or safer step does not subsume the sharp three-call radius.",
+      "searches": [
+        "Clairvoyant Extra Gradient contraction maps finite lookahead inner iteration scalar bilinear two-period stability exact",
+        "Clairvoyant Extra Gradient exact stability for fixed inner depth oscillatory saddle",
+        "monotone variational inequality iterative resolvent Picard contraction truncation instability finite iteration count",
+        "Clairvoyant Extra Gradient fixed point iterations bilinear saddle finite termination reciprocal singular value parity four stage stability"
+      ]
+    },
+    "checked_sources": [
+      "Cevher–Piliouras–Sim–Skoulakis, arXiv:2301.03931, article text and primary PDF pp. 1–8",
+      "Nemirovski, SIAM J. Optim. 15 (2004), DOI 10.1137/S1052623403425629, primary PDF pp. 229–232",
+      "Published finding: Exact degree-two minimax and asymmetric extragradient on normal strongly monotone systems, 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0 (summary and implication)",
+      "Published finding: Sharp coupling frontier for sequential implicit proximal minimax on a bilinear saddle, 2026/10/4/SCOPE-sharp-coupling-frontier-for-sequential-implicit-proximal-minimax--c800095f428f (summary and implication)",
+      "Relevant indexed search results on fixed-point proximal iterations and stability polynomials, searched by exact method names, aliases and degree-three geometric truncation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cevher et al., arXiv:2301.03931, source Algorithm 1 defines \\(w_j=z-\\gamma F(w_{j-1})\\); Algorithm 2 fixes \\(\\gamma=1/(2L)\\) and \\(k=\\Theta(\\log T)\\).",
+        "Nemirovski, doi:10.1137/S1052623403425629, develops a different prox-type update for variational inequalities.",
+        "The published sharp normal-extragradient record optimizes a different degree-two polynomial; the published sequential-implicit-proximal record studies two staggered implicit updates, not the truncated-resolvent cubic."
+      ],
+      "reasoning": "The fixed-three-call radius could be computed from the cited recursion but is not a stated corollary of any located bound: the known inner approximation bound is pointwise to a proximal subproblem, while strict outer stability asks for norm control after restart. No identified stronger theorem directly implies the exact radius plus the strongly convex divergence and two stable endpoints. Risk remains from unseen inexact-proximal literature.",
+      "searches": [
+        "arxiv:2301.03931 Algorithm 1 Lemma 3.5 Algorithm 2 fixed point gamma 1/2L",
+        "doi:10.1137/S1052623403425629 proximal method monotone variational inequalities",
+        "2026/10/4/SCOPE-sharp-coupling-frontier-for-sequential-implicit-proximal-minimax--c800095f428f",
+        "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0",
+        "three step Picard iteration approximate proximal point saddle point stability threshold finite number inner steps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cevher et al., arXiv:2301.03931, Algorithm 1 (three fixed-point evaluations); the iteration polynomial follows by direct substitution.",
+        "The polynomial is the third geometric truncation of the resolvent \\(1/(1+z)\\), not the exponential Runge–Kutta truncation.",
+        "The closest indexed degree-two minimax polynomial record concerns \\(1-az+bz^2\\), not three inner resolvent Picard evaluations."
+      ],
+      "reasoning": "Compared the full update map, characteristic stability function, scalar-field domain, fixed budget, and contraction threshold, rather than matching a numerical constant alone. No examined source asserts the same all-angle threshold or the intermediate damping-induced instability. A classical absolute-stability chart with identical geometric polynomial is a remaining possible equivalence.",
+      "searches": [
+        "three Picard fixed point steps polynomial 1-z+z²-z³ normal monotone operator sharp contractivity radius half disk",
+        "polynomial 1-z+z^2-z^3 sharp absolute stability for accretive normal matrices radius 0.9405",
+        "finite Picard iterations proximal point bilinear skew symmetric truncated Neumann four cycle zero polynomial instability inner iterates",
+        "three step Picard iteration approximate proximal point saddle point stability threshold finite number inner steps"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact polynomial resultant and angular boundaries from the supplied derivation identify \\(\rho_*\\) via the degree-six polynomial \\(H\\).",
+        "No relevant exact table entry was exposed by these query results; one must not infer uniqueness merely from a negative search."
+      ],
+      "reasoning": "Checked for the exact radius, reciprocal-resolvent truncation, equivalent angular stability chart, and higher-level stability-region tabulations. No specific checked table or database cell covers the result. Historic numerical-analysis stability tables not represented in retrieved material remain a residual risk.",
+      "searches": [
+        "truncated Neumann resolvent third iterate disk contractivity threshold sixth degree algebraic",
+        "four stage Picard approximation implicit proximal point spectral radius 0.940521",
+        "polynomial 1-z+z^2-z^3 sharp absolute stability for accretive normal matrices radius 0.9405",
+        "finite-step Picard iteration proximal point extragradient eigenvalues stability region three updates"
+      ]
+    },
+    "rationale": "Source Algorithm 1 is credited, with actual comparison of algorithmic map, variable inner budget, and fixed safe source step. The exact all-angle three-call threshold and reentrant strong-convex damping instability were not identified in source materials, related primary prox literature or actual similarity searches. This is a best-knowledge novelty assessment, not uniqueness or independent priority certification.",
+    "residual_risks": [
+      "A classical absolute-stability region table for geometric resolvent truncations may imply the same algebraic radius without using proximal terminology.",
+      "Older fixed-depth inexact-proximal or contraction iteration results may contain an equivalent angular stability condition under different notation.",
+      "The compared primary text passages do not constitute an exhaustive search of all supplementary appendices or all numerical analysis literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivating source, not identified as covering fixed-three-call sharp radius or divergence at gamma L=19/20; recommends gamma=1/(2L), k growing logarithmically",
+        "evidence": [
+          "arXiv:2301.03931 first posted 2023-01-10; PDF pp. 5–8 (zero-index pages 4–7); Algorithm 1 lines w0=z, w_m=z−gamma F(w_{m−1}), Algorithm 2 gamma=1/(2L)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.03931",
+        "material_read": "arXiv abstract and first posting date; PDF introduction, definitions, §3.1 Algorithm 1 and Lemma 3.5, Algorithm 2, and relevant §4–§5 convergence theorem/stepsize passages",
+        "method": "Primary arXiv open-access PDF and associated article text read; explicit algorithm and convergence hypotheses compared to candidate polynomial and scope",
+        "title": "Min-Max Optimization Made Simple: Approximating the Proximal Point Method via Contraction Maps",
+        "trigger": "Exact motivating contraction-map inner iteration and possible dominance by source convergence theorem"
+      },
+      {
+        "assessment": "Different prox/extragradient construction; no precise three-call restarted polynomial claim identified in material inspected",
+        "evidence": [
+          "SIAM J. Optim. 15 (2004), 229–251, DOI 10.1137/S1052623403425629; §1 and §2.1–2.2"
+        ],
+        "identifier_or_url": "https://www2.isye.gatech.edu/~nemirovs/SIOPT_MP_2004.pdf",
+        "material_read": "Full-text PDF title, abstract, introduction and §2 prox mapping setup and relevant update descriptions (pp. 229–232); no inference of exhaustive whole-document exclusion",
+        "method": "Author-accessible primary PDF text and page-image inspection; compared update construction and assumptions",
+        "title": "Prox-method with rate of convergence O(1/t) for variational inequalities with Lipschitz continuous monotone operators and smooth convex-concave saddle point problems",
+        "trigger": "Original monotone VI prox/extragradient method may subsume the finite-Picard approximation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b117eb18-4a92-4d35-9271-4101954fb765",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact step-safety frontier addresses the natural cost-vs-stability question of using a fixed three-call approximation to a published implicit proximal saddle step. It quantifies a nontrivial gap between inner Picard contraction and outer stability, and exhibits strong-convex damping making a method diverge between stable pure-bilinear and scalar-gradient endpoints. A sharp entire-parameter classification and explicit geometric counterexample are structurally informative. No claim that the original safer logarithmic-budget implementation fails.",
+    "status": "PASS"
+  }
+}
