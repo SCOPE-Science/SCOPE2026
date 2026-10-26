@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The equilibrium conditions are necessary and sufficient: no buyer can be nominated, every nonbuyer must be nominated, each buyer nominates k distinct vertices, and all q nonbuyers must be covered. Inclusion-exclusion gives the exact count. The asymptotic proof uses an explicit lower bound at q=floor(n/log n), a uniform upper envelope g_n(q), strict concavity, and an exponential gap outside every fixed relative neighborhood of n/log n. The cost-ratio corollaries follow from Q_n/n→0 in probability.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 10 of arXiv:2511.11475 gives pure price of anarchy \\(k+1\\) and uses an inefficient complete-digraph equilibrium with \\(n-k\\) buyers.",
+        "The 2021 directed-network paper studies a binary action profile and complexity, with no per-buyer nomination subset.",
+        "The 2007 paper studies undirected continuous effort, not fixed-capacity nominations."
+      ],
+      "reasoning": "The current result does not claim the already-published price-of-anarchy bound as new. It adds an exact count of all labelled equilibrium profiles and proves concentration under the uniform measure on those profiles, neither of which follows from the worst-equilibrium example alone.",
+      "searches": [
+        "arXiv:2511.11475, Theorem 10 and introduction lines 29–32",
+        "arXiv:2106.00718, model and Theorem 3.1",
+        "DOI:10.1016/j.jet.2006.06.006, Theorem 1 and Examples 1–2"
+      ]
+    },
+    "checked_sources": [
+      {
+        "id": "arXiv:2511.11475",
+        "what": "Primary full text, model definitions, pure-equilibrium characterization, and Theorem 10 complete-digraph efficiency example."
+      },
+      {
+        "id": "arXiv:2106.00718",
+        "what": "Primary full text for the earlier directed public-goods model and equilibrium-complexity results."
+      },
+      {
+        "id": "doi:10.1016/j.jet.2006.06.006",
+        "what": "Accessible full text for the classical undirected continuous-effort public-goods model."
+      },
+      {
+        "id": "Semantic literature index",
+        "what": "Seven targeted searches for equivalent formulations, broader coverage, exact counts, and the n/log n profile asymptotic; the nearest returned records are compared in the originality checks."
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published theorem bounds the worst-to-optimal cost ratio and identifies an equilibrium with \\(n-k\\) buyers, but does not enumerate all nomination assignments.",
+        "The count formula depends on the number of covering lists of \\(k\\)-subsets, and the concentration theorem compares their total counts across \\(q\\)."
+      ],
+      "reasoning": "The asymptotic profile law requires an additional counting argument: inclusion-exclusion for each q, a covering-probability lower bound at q≈n/log n, and a strictly concave exponential upper envelope. These steps are not implied by the prior price-of-anarchy statement.",
+      "searches": [
+        "arXiv:2511.11475, Theorem 10",
+        "arXiv:2511.11475, definitions of pure-Nash sets and extensions, sections 2–3",
+        "arXiv:2106.00718, lines 70–109",
+        "DOI:10.1016/j.jet.2006.06.006, lines 88–215 and 236–262"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target count concerns labelled profiles consisting of a buyer set plus one k-subset nomination choice per buyer, with every nonbuyer covered and no buyer nominated.",
+        "Bramoullé–Kranton characterize a different continuous-effort undirected game through maximal independent sets; Papadimitriou–Peng use buy/abstain actions without nomination subsets."
+      ],
+      "reasoning": "The closest formulations have different strategy spaces and payoff/coverage conditions. In the target model, nomination choices themselves are part of the pure strategy profile; inclusion-exclusion counts covering lists of k-subsets. No equivalent statement was found in the inspected sources or semantic literature-index results.",
+      "searches": [
+        "exact count of pure Nash equilibrium strategy profiles in the complete digraph public goods game with sharing capacity k, by buyer count",
+        "number of m by q binary incidence matrices with every row sum k and no zero columns in best-shot public goods games",
+        "complete digraph best-shot game equilibrium multiplicity nomination profiles count",
+        "complete graph capacity constrained sharing public goods game pure equilibrium count inclusion exclusion",
+        "arXiv:2511.11475, sections 2, 3, and 5; arXiv:2106.00718, section 2; DOI:10.1016/j.jet.2006.06.006, sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic literature-index searches returned the five closest records listed in closest_results, all on different invariants or strategy spaces.",
+        "No exact indexed record for the equilibrium-profile count or the n/log n asymptotic appeared in the returned results."
+      ],
+      "reasoning": "This is a bounded database comparison, not an exhaustive novelty proof. A semantic index cannot establish uniqueness; the primary-source comparison carries the substantive distinction.",
+      "searches": [
+        "exact count of pure Nash equilibrium strategy profiles in the complete digraph public goods game with sharing capacity k, by buyer count",
+        "number of m by q binary incidence matrices with every row sum k and no zero columns in best-shot public goods games",
+        "complete digraph best-shot game equilibrium multiplicity nomination profiles count",
+        "complete graph capacity constrained sharing public goods game pure equilibrium count inclusion exclusion",
+        "uniform random pure Nash equilibrium profile complete digraph capacity constrained best-shot public goods game asymptotic nonbuyers n/log n",
+        "asymptotic number of pure equilibria complete digraph public goods sharing k, count nominations",
+        "equilibrium profile entropy capacity constrained public goods game complete graph buyer set asymptotics"
+      ]
+    },
+    "rationale": "The nearest primary paper proves the price-of-anarchy bound and identifies an extremal equilibrium, but does not count all labelled equilibrium profiles or establish their uniform-profile asymptotic distribution. Inspected earlier public-goods models use different strategy spaces. Targeted literature-index searches found no directly equivalent record; this supports but does not prove novelty.",
+    "residual_risks": [
+      "Semantic literature-index retrieval and the inspected literature cannot prove absence of all unpublished, unindexed, or differently phrased prior work.",
+      "Uniform sampling over labelled pure-equilibrium profiles is a mathematical reference measure, not a claim about empirically realistic equilibrium selection.",
+      "The asymptotic theorem requires fixed k; the proof does not cover k growing with n or non-complete digraphs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model family and the closest primary source. It proves the price-of-anarchy factor and gives an extremal equilibrium but does not state the labelled profile count or the uniform-profile asymptotic law.",
+        "evidence": [
+          "Theorem 10 states pure price of anarchy \\(k+1\\) and describes an inefficient complete-digraph equilibrium with \\(n-k\\) buyers.",
+          "The paper frames its contribution around existence, computation, and efficiency, not equilibrium-profile multiplicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2511.11475",
+        "material_read": "arXiv HTML: model and pure-Nash-set definitions (lines 43–78); efficiency theorem 10 (lines 347–353); introduction summary of contributions (lines 22–32).",
+        "method": "Compared strategy spaces, equilibrium coverage conditions, the complete-digraph example, and the exact statements about buyer counts and efficiency.",
+        "title": "Public Goods Games in Directed Networks with Constraints on Sharing",
+        "trigger": "Primary recent source for the exact capacity-constrained directed best-shot game and its complete-digraph price-of-anarchy example."
+      },
+      {
+        "assessment": "Not covering the claim: each player chooses buy/abstain and the good spreads through fixed incoming neighborhoods; there is no nomination-subset strategy and no count of profiles under fixed sharing capacity.",
+        "evidence": [
+          "The model defines a common binary strategy space and neighborhood-max utility.",
+          "Its main results concern complexity of equilibrium existence and computation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2106.00718",
+        "material_read": "arXiv HTML: model and equilibrium characterization (lines 70–96), complexity theorem and reduction discussion (lines 88–109), related-work framing (lines 24–39).",
+        "method": "Compared action sets and utility definition with the nomination-capacity model.",
+        "title": "Public Goods Games in Directed Networks",
+        "trigger": "Earlier primary work on directed public-goods equilibria and possible equivalence with the best-shot model."
+      },
+      {
+        "assessment": "Not covering the claim: the paper has undirected links and continuous effort; its maximal-independent-set classification concerns specialized effort equilibria, not fixed-k nomination profiles.",
+        "evidence": [
+          "The model permits effort in [0,∞) and assumes symmetric benefits along undirected links.",
+          "Theorem 1 relates specialized equilibria to maximal independent sets, a different invariant."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jet.2006.06.006",
+        "material_read": "Full accessible PDF: model (pages 2–3 / lines 88–139), equilibrium characterization via maximal independent sets (lines 188–215), complete-graph example and stable equilibria (lines 236–262).",
+        "method": "Compared network directionality, strategy space, payoffs, and the object counted.",
+        "title": "Public goods in networks",
+        "trigger": "Classical primary literature on equilibrium structure and multiplicity in public-goods networks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92fccbb6-2b6d-4571-8049-a8f56464d0bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result quantifies equilibrium multiplicity in the canonical complete-digraph benchmark and shows that, under uniform profile counting, almost all pure equilibria have near-maximal buyer count and asymptotically worst-case cost. This adds a distinct equilibrium-selection baseline beyond existence and price-of-anarchy extrema.",
+    "status": "PASS"
+  }
+}
