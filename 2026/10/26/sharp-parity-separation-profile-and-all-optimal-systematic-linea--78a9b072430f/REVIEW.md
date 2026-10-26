@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof reduces the two simultaneous distances to a weight-at-least-three sum-free column set, invokes the independently published Davydov--Tombak structural bound with the precise threshold needed, counts the excluded weight-one and weight-two vectors in affine hyperplanes, proves equality and uniqueness, and verifies the two small exceptional dimensions. Exhaustive small-dimension enumeration and direct distance checks are reproduced in `verify.py`; finite data are not substituted for an infinite proof.
+
+**Originality — PASS with residual risk.** The closest framework literature (Rajput et al. 2025/2026 and Verma--Singh 2026) defines and bounds the relevant code class but does not derive the constrained parity profile or all extremizers. Ho's 2026 abstract states an exact systematic linear separation analysis for thresholds at most three, not the distance-four joint requirement here; another 2026 systematicity paper optimizes the generator of a fixed code instead of message dimension at fixed redundancy. The 1989 Davydov--Tombak theorem provides the critical structural inequality and cannot be presented as new; combining it with the restricted low-weight column geometry yields the explicit complete coding classification. The recent systematicity sources were not available as full text despite bounded access attempts, and unindexed equivalence remains a risk.
+
+**Value — PASS.** The quantity is a natural fixed-overhead optimization for a systematic linear code protecting a parity attribute more strongly than the data. The theorem identifies exact dimension losses relative to a conventional distance-three code, a genuine exceptional four-check-bit case, and all maximizing structures. In the large-\(r\) regime it distinguishes \(r\) strictly protected data-distance-three designs from an equally large conventional distance-four design. This structural distinction is not conveyed by existence bounds alone.
+
+The result covers linear systematic encoders only. Distance four means stronger pairwise detection, not a second additional correctable Hamming error. The proof uses a previously established sum-free-set theorem; separate expert reproduction has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
