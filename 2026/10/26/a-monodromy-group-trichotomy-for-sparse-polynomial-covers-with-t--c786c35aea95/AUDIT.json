@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For the displayed cactus c,a,b, the conjugates c^j b c^-j produce a family of transpositions sharing the fixed d point after canceling their common disjoint factor; their pairwise products produce all centered three-cycles and generate A on d+1 letters. Conjugating alternating subgroups by a and b adds the remaining three letters. The generator parity gives \\(A_n\\) for odd d and \\(S_n\\) for even d. The even symmetric construction is an explicit signed-pair cactus with local cycles 2k and (2,2), n-cycle product, and unsigned S_m together with a single flip, hence full \\(C_2\\wr S_m\\). Riemann existence and the proved two braid-orbit classification transfer the representatives to all polynomials in their classes. The staged verify_monodromy.py executed exact group-order checks for d=3..14 and k=2..9. No infinite conclusion relies on this finite range.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Behajaina, Konig, Neftin, arXiv:2603.27609v1, Theorem 2.6: in the nonsolvable-composed-with-AGL1 case the kernel contains C_p^(deg(g)-1), with stated exceptional cases; no full three-stratum passport classification.",
+        "Esterov arXiv:1801.08260v3 Theorem 1.5: S_V for reduced irreducible generic systems of equations, in particular generic coefficient systems, not polynomial-cover monodromy in the restricted discriminant locus."
+      ],
+      "reasoning": "The composition theorem generally yields a kernel lower bound (and possible exception families); it does not logically enforce a full \\(2^m\\) kernel for this source family. Generic-system full symmetry cannot hold for the odd-degree constrained passport because all generators are even, nor for even quadratic composites due to the paired block system.",
+      "searches": [
+        "web: Galois group polynomial x^d (a+b x+c x²) degree d+4 two double transpositions alternating symmetric monodromy",
+        "web: monodromy groups of polynomials with passport (d,1,1,1,1) (2,2) (2,2) hyperoctahedral",
+        "web: polynomial monodromy group two double transpositions d cycle hyperoctahedral group classification",
+        "arXiv:2603.27609v1 full text Section 2.2 Theorems 2.5-2.7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.15550v1 (relevant full-text sections)",
+      "arXiv:2603.27609v1 (relevant full-text sections)",
+      "arXiv:1801.08260v3 (relevant full-text sections)",
+      "arXiv:2306.14386 (abstract only)",
+      "arXiv:2401.17872 (abstract and introduction only)",
+      "published-finding corpus targeted semantic searches for support, passport, monodromy and wreath group"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 4.1 and 4.6 imply exactly one/two topological classes and identify the even composition component, but do not assert \\(A_n\\), \\(S_n\\), or \\(C_2\\wr S_m\\) for the groups.",
+        "Theorem 2.6 of arXiv:2603.27609v1 has a large-kernel lower bound \\(C_p^{m-1}\\), potentially index two in the full wreath: equality with \\(C_\\(2^m\\)\\) requires the new explicit single-block-flip argument.",
+        "arXiv:2306.14386 gives embeddings of Galois closures into wreath products, which likewise give containment, not equality."
+      ],
+      "reasoning": "New proof computes exact groups in all classes, a strict conclusion compared with topological classes, generic coefficient monodromy, wreath containment, and coarse kernel estimates. The distinction is particularly nontrivial for even d, where \\(S_{d+4}\\) and \\(C_2\\wr S_{(d+4)/2}\\) coexist with identical branch passport.",
+      "searches": [
+        "arxiv.org/html/2610.15550v1 Proposition 4.1 displayed representatives, Proposition 4.6 symmetric locus",
+        "arxiv.org/html/2603.27609v1 Theorems 1.2, 2.2, 2.6 and Section 3.3",
+        "arxiv.org/html/1801.08260v3 Theorem 1.5",
+        "arxiv.org/abs/2306.14386",
+        "arxiv.org/abs/2401.17872"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Vladimirov arXiv:2610.15550v1, Section 4.1, explicitly lists the cacti and proves braid orbit counts, without a group-generation theorem; arxiv.org/html/2610.15550v1",
+        "Web results include Artebani--Pirola, Algebraic Functions with Even Monodromy, for broad alternating-cover existence rather than this branch passport."
+      ],
+      "reasoning": "Group order and primitive/imprimitive dichotomy are stronger than orbit counting, and neither a braid-orbit count nor a cactus tuple by itself identifies its generated group without additional argument. General existence of alternating covers does not classify these particular classes.",
+      "searches": [
+        "published-finding corpus: topological classes of sparse polynomial degree d+4 passport d-cycle and two double transpositions full alternating symmetric and wreath Galois monodromy groups",
+        "web: \"Topological Classification of Univariate Sparse Polynomials\" \"monodromy\" \"wreath\"",
+        "web: \"monodromy\" \"double transpositions\" \"d-cycle\" polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus searches returned different finite permutation-group and monodromy results (for example published 2026/10/11/SCOPE-exact-type-b-conjugacy-class-fourier-spectra-and-tight-sampling--a41852442f2b), not the named polynomial passport or geometric groups.",
+        "Vladimirov Proposition 4.6 lists C0,C1,C2 and their geometric defining conditions; its tables concern Newton/tropical weights, not their covering Galois groups."
+      ],
+      "reasoning": "No exact table of these group orders was identified. A group-theory database can verify each fixed degree, but finite orders cannot substitute for the infinite-d proof or establish novelty.",
+      "searches": [
+        "published-finding corpus: polynomial passport (d,1,1,1,1) (2,2) (2,2) two classes odd one class wreath signed permutation group",
+        "published-finding corpus: monodromy group of polynomial x^d (a+b x+ c x^2) squared even support {d,d+2,d+4} hyperoctahedral wreath product",
+        "source: Vladimirov arXiv:2610.15550v1 Sections 4.1-4.5 and Theorem 5.1"
+      ]
+    },
+    "rationale": "The precise new statement is the complete geometric monodromy-group trichotomy for the three branch-cycle topological classes in arXiv:2610.15550v1: \\(A_{d+4}\\) for odd d, \\(S_{d+4}\\) for even nonsymmetric, and full \\(C_2\\wr S_{(d+4)/2}\\) for even quadratic-composite. The 2026 originating full text states the orbit and tropical-fan classification (Propositions 4.1, 4.5, 4.6), and provides a cactus representative, but does not calculate these three generated groups. Esterov treats generic coefficient systems, not the constrained critical-value passport; Behajaina--Konig--Neftin treat general lower bounds and possible exceptions of composition monodromy, not this exact trichotomy. Barquero-Sanchez--Calvo-Monge proves a wreath embedding, not equality. Targeted exact-phrase and alias searches and published-finding corpus searches found no statement implying the full new trichotomy. An implicit deduction by earlier experts remains possible, documented as residual risk.",
+    "residual_risks": [
+      "An earlier exact geometric-group classification may be implicit in classical polynomial-cactus literature not indexed by the searches.",
+      "The broad composition papers were compared at their materially relevant theorems, not all 900+ lines of each work.",
+      "The wreath-embedding and 2024 arithmetic composition full texts were not inspected throughout; their abstracts alone cannot establish whole-paper noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers topological classes and symmetric component but not the geometric permutation groups; cited as a proof input",
+        "evidence": "Propositions 4.1 and 4.6; first displayed cactus; Proposition 4.5 f=g(x^2)",
+        "identifier_or_url": "arXiv:2610.15550v1; https://arxiv.org/html/2610.15550v1",
+        "material_read": "abstract, Section 2 branch cycles, Section 4.1 full cactus classification and proof, Section 4.2 Propositions 4.5 and 4.6, Section 5 theorem and limitations",
+        "method": "public full HTML text read and direct assertion comparison",
+        "title": "Topological Classification of Univariate Sparse Polynomials via Tropical Geometry",
+        "trigger": "same branch passport and all topological classes"
+      },
+      {
+        "assessment": "Bounds/exception classification does not furnish this exact three-branch-passport monodromy trichotomy; strong related theory remains priority risk",
+        "evidence": "Theorem 2.6 lower bound \\(C_p^{m-1}\\), special \\(S_4\\) exceptions in Theorem 2.2",
+        "identifier_or_url": "arXiv:2603.27609v1; https://arxiv.org/html/2603.27609v1",
+        "material_read": "abstract, introduction and Theorems 1.2, 2.2, 2.5-2.7, preliminaries on wreath kernels",
+        "method": "public full HTML text inspected at the theorem and exception lists",
+        "title": "Monodromy groups of polynomials of composition length 2",
+        "trigger": "potential stronger exact group theorem for even symmetric composition"
+      },
+      {
+        "assessment": "Generic coefficients not the fixed critical-passport stratum; no domination",
+        "evidence": "Theorem 1.5 requires reduced irreducible generic system",
+        "identifier_or_url": "arXiv:1801.08260v3; https://arxiv.org/html/1801.08260v3",
+        "material_read": "abstract and Section 1 including Theorems 1.5, 1.19, 1.22-1.23",
+        "method": "public full HTML text and theorem scope comparison",
+        "title": "Galois theory for general systems of polynomial equations",
+        "trigger": "generic symmetric-monodromy theorem might dominate"
+      },
+      {
+        "assessment": "Abstract asserts embedding and not equality. Limited inspection remains a residual source risk",
+        "evidence": "Abstract describes embedding of Galois closures into wreath products",
+        "identifier_or_url": "arXiv:2306.14386; https://arxiv.org/abs/2306.14386",
+        "material_read": "abstract and statement of embedding objective only; full text not inspected",
+        "method": "arXiv abstract",
+        "title": "On the embedding of Galois groups into wreath products",
+        "trigger": "possible general wreath equality"
+      },
+      {
+        "assessment": "General results over Q for factors of degrees at least five do not apply directly to the quadratic inner factor; not a whole-paper noncoverage certificate",
+        "evidence": "Abstract specifies factors degree >=5 and lower bounds",
+        "identifier_or_url": "arXiv:2401.17872; https://arxiv.org/abs/2401.17872",
+        "material_read": "abstract and introduction passage describing compositions of degree at least five",
+        "method": "open-access text and arXiv metadata",
+        "title": "Polynomial compositions with large monodromy groups and applications to arithmetic dynamics",
+        "trigger": "possible stronger theorem for compositions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c786c35a-ea95-4edc-a419-e2c61fbf0b48",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Geometric monodromy is an intrinsic algebraic invariant of a branched polynomial cover, and the source classification naturally prompts its calculation. The result completely separates three distinct infinite strata by Galois structure and, for even degrees with identical ramification passport, exposes a nontrivial primitive/imprimitive dichotomy. This gives a precise structural refinement of the 2026 orbit classification, not an arbitrary numerical slice. The signed-wreath equality is stronger than the general wreath embedding and composition kernel lower bounds. Uses an exact infinite proof rather than isolated tests.",
+    "status": "PASS"
+  }
+}
