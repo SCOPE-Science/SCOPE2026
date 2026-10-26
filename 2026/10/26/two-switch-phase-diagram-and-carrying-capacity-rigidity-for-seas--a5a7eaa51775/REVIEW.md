@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness (C): PASS.** The log of the positive output ratio, divided by the input, is an explicit two-exponential function. Its derivative has at most one positive root; when present it is a strict minimum. Endpoint inequalities then give a necessary-and-sufficient open wedge for exactly two positive crossovers and exclude a third. Exact substitutions prove the rational witness, the common-capacity convexity bound, and the local square-root onset. The included standard-library checker independently confirms representative formulas and parameter tests, but numerical testing is not a global proof.
+
+**Originality (O): PASS with residual risks.** The 2006 Syta--Litak full public article concerns static-map chaos; Sacker's 2007 article studies stability of periodic Ricker compositions with fixed crowding coefficient; Yang and Sacker's 2014 full PDF concerns \(\lambda\)-Ricker with \(\lambda>1\) and Allee thresholds. Relevant published mathematical research records also concern periodic mosquito scaling and invariant Ricker distributions, not this pointwise sign classification. A related earlier harvest-pulse timing result compares a different pair of maps and has different exponential coefficients; it neither supplies the stated sharp wedge nor common-equilibrium tangency for season swaps. A general theorem for noncommuting unimodal maps or two-term exponential polynomials may nonetheless subsume parts of the claim. The complete Cánovas (2022) proper-periodic-Ricker text was unavailable and remains a priority risk; no categorical noncoverage is asserted.
+
+**Mathematical value (V): PASS.** The theorem characterizes an application-motivated full four-parameter regime rather than an arbitrary slice, distinguishes two strict order switches from rigid common-carrying-capacity non-reversal, and quantifies how the switches appear. Environmental sequencing in a density-dependent recruitment law is a natural decision-relevant structure even without a claim of empirically achievable control. The result is restricted to two deterministic updates and does not establish cycle stability, ecology field relevance, stochastic robustness or long-run ordering.
+
+## Closest literature and limits
+
+Sacker (2007), doi:10.1080/10236190601008752; Yang--Sacker (2014), doi:10.3934/dcdsb.2014.19.589; and Syta--Litak (2006), arXiv:nlin/0610019v1, were examined with substantive primary text. The 2022 Cánovas article, doi:10.1063/5.0085571, is an unresolved full-text priority risk, as is potential broad exponential-composition coverage. Independent validation remains unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
