@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The connected simplex is convex and the trace-inverse objective is strictly convex since each edge weight uniquely determines its Laplacian. Global symmetry follows from uniqueness rather than an unproved symmetric-optimizer ansatz. The exact nonzero Laplacian spectrum gives the two-term rational formula with correct budget and normalizations. Substitution \\(x=ra+sb\\) and Cauchy–Schwarz yield unique unconstrained ratio \\(x/b=H\\); clipping at \\(x=sb\\) yields the boundary optimum. The increasing threshold test and strict signs at integers \\(s=r\\) and \\(s=r+1\\) prove the exact support change. A standalone program replays 176 spectral cases, 1,760 symmetric and 1,056 asymmetric budget comparisons, six characteristic-polynomial identities, and five exact rational matrix identities. These are corroboration, not exhaustive proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2008, Section 5 treats trees, wheels, and barbells; it supplies general uniqueness and symmetry but not this network’s formulas.",
+        "Sedlák–Slavík 2025, §3 derives graph-join resistance formulas for the unit-resistance case, including complete split graphs.",
+        "The contemporary general network-augmentation setting is discussed in Bhoite et al., arXiv:2609.29790, but its objective couples edge selection and costs and the abstract gives algorithmic relaxation rather than an all-integer split-graph optimizer."
+      ],
+      "reasoning": "A stronger general theorem could cover the claim as a specialization even without matching its words. Inspected general ERMP supplies a method, not an explicit support classification. The unweighted graph-join theorems are evaluated at a single fixed allocation; they do not dominate the budget-optimized statement. No stronger closed-form coverage was identified in the actual searches.",
+      "searches": [
+        "Optimal allocation of a fixed conductance budget to edges of complete split graph clique plus independent vertices minimizing Kirchhoff index with sharp edge support at independent set size equals clique size",
+        "complete split graph Kirchhoff index optimal edge weights conductance minimization total resistance graph core periphery",
+        "\"Resistance distances and Kirchhoff indices in graph joins\" arxiv"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS proceedings, 2006)"
+      },
+      {
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review, 2008)"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1155/2014/794781",
+        "title": "Some Bounds for the Kirchhoff Index of Graphs (Yang, 2014)"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1088/1751-8121/ae2997",
+        "title": "Resistance distances and Kirchhoff indices in graph joins (Sedlák and Slavík, 2025)"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi 2006/2008 give the ERMP objective and its general strict convexity; their concrete solutions have different topologies.",
+        "Yang 2014, §2.1 uses edge-addition monotonicity to compare graphs at unit weights and fixed independence number.",
+        "Sedlák–Slavík 2025, §3.3 assumes unit resistances on split graphs."
+      ],
+      "reasoning": "The claimed support criterion \\(s\\ge r+1\\), unique per-edge weights, and exact two-branch minimum require a constrained minimization after the split-graph spectral reduction. Existing generic convexity plus fixed-weight formulas make the derivation possible but do not already state or automatically imply its threshold without solving a new constrained allocation problem. The prior exact claims do not logically force the all-optimizer zero-clique-edge statement.",
+      "searches": [
+        "Minimizing effective resistance on split or threshold graphs exact optimum clique conductance zero and core-periphery cross conductance",
+        "Optimal allocation of a fixed conductance budget to edges of complete split graph clique plus independent vertices minimizing Kirchhoff index with sharp edge support at independent set size equals clique size",
+        "\"complete split\" \"effective resistance\" optimal conductance edge allocation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-budget ERMP is equivalent to minimization of the trace of the inverse Laplacian on the mean-zero subspace (Ghosh–Boyd–Saberi, Proceedings MTNS 2006; SIAM Review 2008, §§2,5).",
+        "Yang 2014, §2.1 and Sedlák–Slavík 2025, §3.3 compute the related fixed unit-conductance case, not an optimized conductance simplex."
+      ],
+      "reasoning": "The graph join and sum-of-resistances are alias formulations of the same object, so both were checked. An expression for the index at prescribed unit weights does not give a minimizer with arbitrary individual budgeted weights or determine its zero-weight edge support. General convex ERMP covers the abstract problem, but the inspected examples and conclusions do not imply the stated closed-form integer transition.",
+      "searches": [
+        "Minimizing effective resistance on split or threshold graphs exact optimum clique conductance zero and core-periphery cross conductance",
+        "Weighted graph total effective resistance budget optimizing Laplacian trace pseudoinverse complete split join of clique and edgeless graph",
+        "\"complete split\" \"optimal\" \"effective resistance\" conductance 2008"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Y. Yang, DOI 10.1155/2014/794781, gives a graph-structural extremum using the ordinary, unit-resistance Kirchhoff index.",
+        "Sedlák–Slavík, DOI 10.1088/1751-8121/ae2997, §3.3 explicitly tabulates analytic resistance-distance types for unit-resistance split graphs."
+      ],
+      "reasoning": "The closest exact published tables describe unit edge resistances or graph joins, not the optimum subject to a variable conductance budget. Unit-weight data agree with the spectral formula at \\(a=b\\) but cannot decide the support phase of the optimization.",
+      "searches": [
+        "complete split graph Kirchhoff index optimal edge weights conductance minimization total resistance graph core periphery",
+        "\"complete split\" \"minimizing\" \"effective resistance\" edges",
+        "Optimal allocation of a fixed conductance budget to edges of complete split graph clique plus independent vertices minimizing Kirchhoff index with sharp edge support at independent set size equals clique size"
+      ]
+    },
+    "rationale": "The closest general conductance optimization is Ghosh–Boyd–Saberi (2006/2008), which explicitly solves other graph families but not the complete-split optimum. Yang (2014) and Sedlák–Slavík (2025) treat the same graph/invariant at unit conductances, not a resource allocation problem. The exact all-integer support threshold and all-weight optimizer are not implied by their fixed-weight statements or a generic convex-program formulation. Targeted scientific phrase/equivalence searches did not identify a dominating exact classification; residual specialized prior art is possible.",
+    "residual_risks": [
+      "A specialized budgeted-weight result on threshold, core-periphery or join graphs might use unsearched terminology.",
+      "The 2006 proceedings confirm a public conference interval, not a separate initial-release day; the end date is a conservative public-source bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes generic conductance-budget ERMP and convexity, not the presented complete-split support phase.",
+        "evidence": "Title page dates conference July 24–28, 2006; describes sum-of-pairwise-resistances minimization. The visible specific analytic examples do not include complete split graphs.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "The title page, abstract and introduction, definitions and convex optimization problem, and analytical-examples material within the twelve-page proceedings PDF.",
+        "method": "Direct review of the public proceedings PDF and its dated title page.",
+        "title": "Minimizing Effective Resistance of a Graph (MTNS proceedings, 2006)",
+        "trigger": "Earliest focal general budgeted conductance-optimization paper; verify first-public era and any covered split topology."
+      },
+      {
+        "assessment": "General uniqueness, strict convexity and group symmetry are covered; exact complete-split allocation is not one of the exhibited analytical solutions.",
+        "evidence": "Section 5.2 lists wheel and barbell conductance classes; section 5.1 treats trees; no split-graph analysis or threshold \\(s=r+1\\) in inspected text.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Full-length accessible PDF introduction and ERMP formulation; section 5 analytical solutions, §§5.1–5.2, including tree, wheel, and barbell calculations, plus section 6 comparative bounds.",
+        "method": "Read the original lawful author-hosted PDF, with relevant sections and pages visually examined.",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review, 2008)",
+        "trigger": "Closest general work with analytic optima and symmetry reduction; investigate potentially dominating formulas."
+      },
+      {
+        "assessment": "Its extremum is across unit-edge graphs of given independence number; no variable edge conductances or fixed-budget optimum.",
+        "evidence": "Section 2.1 explicitly treats unit resistor graphs and the graph \\(K_{n-\u0007lpha}\u000bee\\overline K_\u0007lpha\\); the proof invokes edge insertion rather than conductance allocation.",
+        "identifier_or_url": "https://doi.org/10.1155/2014/794781",
+        "material_read": "Open-access HTML abstract and §§1–2.1, especially Theorem 4, graph join spectra and its proof for the unweighted extremal graph.",
+        "method": "Direct reading of full publisher-hosted HTML relevant section and theorem.",
+        "title": "Some Bounds for the Kirchhoff Index of Graphs (Yang, 2014)",
+        "trigger": "Same complete-split topology and the same Kirchhoff index may imply optimized values."
+      },
+      {
+        "assessment": "Same graph and invariant at a fixed unit-conductance allocation, no unrestricted budgeted conductance minimization.",
+        "evidence": "The introduction explicitly specifies unit resistors, and §3.3 supplies fixed-weight resistance distances and their summed index for the complete split graph.",
+        "identifier_or_url": "https://doi.org/10.1088/1751-8121/ae2997",
+        "material_read": "Publicly indexed substantive complete text of introduction, §2 theorem 2.6, §3.3 split-graph resistance formulas and Kirchhoff index, and stated unit-edge assumptions.",
+        "method": "Read the publisher-indexed article text of relevant sections and its theorem/equations.",
+        "title": "Resistance distances and Kirchhoff indices in graph joins (Sedlák and Slavík, 2025)",
+        "trigger": "An especially plausible newer paper directly addresses split-graph Kirchhoff indices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8bbe491e-5fd5-4577-a278-ac98f615efc4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete split graph is a canonical dense-core/independent-periphery network. The threshold is a natural integer population boundary and an exact topology-design decision: for a larger periphery, every core edge must receive zero conductance despite existing in the original connected graph, and for a smaller or equal periphery every edge must be invested in. Unique global optimality against all asymmetric weights, closed-form resource shares, and a whole-family sharp transition go beyond a textbook fixed-weight Kirchhoff computation. The natural graph type and precisely motivated resource/invariant relation give plausible use as an analytical design benchmark.",
+    "status": "PASS"
+  }
+}
