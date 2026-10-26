@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Exact spectral projectors give all matrix entries; an elementary positive decomposition proves H_28(x)>0 on the entire nonnegative real axis, and sign monotonicity in n covers n<=28. H_n(12)=2640-92n<0 for n>=29 with positive endpoints and two Descartes sign changes yields exactly two simple positive roots and full classification. Four symbolic identities and 21 direct exact-matrix calculations were replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2008 source, §2, equations (2.1) and (2.3a), constructs the Euler-extrapolation tableau and studies order/linear stability.",
+        "Related public notices on Crank–Nicolson and [2/2] Padé positivity use different numerical propagators."
+      ],
+      "reasoning": "The earlier methods paper establishes the construction (which is not claimed new), but the inspected passages and vocabulary search give no sharper graph-specific unconditional nonnegativity theorem. Different rational propagators cannot directly dominate this method-specific if-and-only-if.",
+      "searches": [
+        "published-finding corpus semantic search: second order backward Euler Richardson extrapolation nonnegative stochastic transition matrices complete graphs",
+        "published-finding corpus semantic search: extrapolated resolvents matrix positivity transient loss recovery complete graph",
+        "published-finding corpus semantic search: Richardson extrapolation backward Euler complete graph stochastic matrix loses positivity dimension 29 recovers large timestep",
+        "2008 full technical report https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf; §§1–2, document-wide term searches for positivity, nonnegative, Markov and complete graph"
+      ]
+    },
+    "checked_sources": [
+      "https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+      "https://epubs.siam.org/doi/10.1137/080732833",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical two-level Richardson identity and second-order accuracy are supplied by the 2008 technical report and expressly excluded from novelty.",
+        "The closest 2026 result proves R(x)<0 beyond x=2+2sqrt(2); this can coexist with positive entries of P0+R(x)Pperp on many complete graphs."
+      ],
+      "reasoning": "The new assertion is the sharp universal-in-h characterization for the fixed graph family, including first failure at n=29 and recovery beyond beta_n/n. Neither prior method construction nor scalar sign bound alone logically establishes this. Proof needs the graph eigenspace structure, rational diagonal polynomial and positive-root count.",
+      "searches": [
+        "published-finding corpus semantic search: Richardson extrapolated backward Euler complete graph heat diffusion positivity sharp 28 29 vertices reentry",
+        "published-finding corpus semantic search: second order backward Euler Richardson extrapolation nonnegative stochastic transition matrices complete graphs",
+        "published-finding corpus semantic search: extrapolated resolvents matrix positivity transient loss recovery complete graph",
+        "published-finding corpus semantic search: Richardson extrapolation backward Euler complete graph stochastic matrix loses positivity dimension 29 recovers large timestep",
+        "Primary full-text extrapolation construction https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest publicly readable full result derives the identical rational scalar amplification R(x), declares its claim scalar, and obtains scalar negativity for x>2+2sqrt(2).",
+        "Complete-graph matrix entries additionally depend on J/n and I-J/n: their positivity is governed by 1+(n-1)R(x), not by R(x) alone."
+      ],
+      "reasoning": "Scalar negative R(x) is not an equivalent formulation of entrywise negativity of the full Markov matrix. Indeed for n<=28 the matrix remains nonnegative even when R(x)<0. The documented prior scalar result does not imply the graph-order threshold or two-root nonnegative windows.",
+      "searches": [
+        "published-finding corpus semantic search: Richardson extrapolated backward Euler complete graph heat diffusion positivity sharp 28 29 vertices reentry",
+        "published-finding corpus semantic search: second order backward Euler Richardson extrapolation nonnegative stochastic transition matrices complete graphs",
+        "Public full RESULT.md: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result is a symbolic scalar threshold rather than a table indexed by complete graph order.",
+        "The exact cubic H_n and the 28/29 dimension threshold were not present in the closest retrieved mathematical result statements."
+      ],
+      "reasoning": "No identified prior exact table or database directly records the complete-graph node-order positivity frontier or endpoint roots. Negative searches alone do not prove novelty; uncovered records are retained as residual risk.",
+      "searches": [
+        "published-finding corpus semantic search: Richardson extrapolated backward Euler complete graph heat diffusion positivity sharp 28 29 vertices reentry",
+        "published-finding corpus semantic search: second order backward Euler Richardson extrapolation nonnegative stochastic transition matrices complete graphs",
+        "published-finding corpus semantic search: extrapolated resolvents matrix positivity transient loss recovery complete graph",
+        "published-finding corpus semantic search: Richardson extrapolation backward Euler complete graph stochastic matrix loses positivity dimension 29 recovers large timestep",
+        "published-finding corpus semantic search: nonnegative second order extrapolated resolvent complete graph threshold 28",
+        "Public indexed record/result: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1"
+      ]
+    },
+    "rationale": "The classical extrapolation formula and scalar sign obstruction are carefully excluded. The complete-graph-specific sharp order 28/29, bounded negativity window, and large-step return follow from additional projector/threshold analysis not identified in the inspected primary source or nearest published mathematical claim. This is best-knowledge originality, subject to unindexed prior coverage.",
+    "residual_risks": [
+      "Unindexed or non-English literature may already contain an equivalent complete-graph positivity result.",
+      "Only selected sections of the 2008 full PDF were read closely; negative vocabulary searches do not exclude differently phrased hidden results.",
+      "The closest Crank–Nicolson and Padé sources were compared through published summaries, not full text; their propagators differ.",
+      "No independent mathematical audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides classical Euler Aitken–Neville extrapolation and linear-stability context; inspected text does not establish complete-graph entrywise positivity. Other paper material not fully reviewed.",
+        "evidence": [
+          "Report TR-08-13 dated July 18, 2008 on cover; §2 equations (2.1), (2.3a) for extrapolation",
+          "Searches for positiv, nonnegative, Markov, complete graph returned no matching text"
+        ],
+        "identifier_or_url": "https://eprints.cs.vt.edu/archive/00001037/01/ExImex.pdf",
+        "material_read": "Cover/date/abstract, introduction, section 2 through equation (2.3), plus all-document exact-term searches for positiv, nonnegative, Markov, complete graph",
+        "method": "Accessible 52-page PDF page-text inspection and targeted document-wide term searching",
+        "title": "Achieving Very High Order for Implicit Explicit Time Stepping: Extrapolation Methods",
+        "trigger": "Original archived source of the two-level Euler extrapolation construction"
+      },
+      {
+        "assessment": "Claims positivity of scalar decay amplification and its threshold, not entrywise complete-graph stochastic matrix positivity. Scalar theorem is treated as covered prior work.",
+        "evidence": [
+          "The document says the positivity statement is deliberately scalar",
+          "The formula R_2(z)=(-z^2+4z+4)/((1+z)(2+z)^2) and scalar root 2+2sqrt(2) are identical base facts"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+        "material_read": "Entire publicly posted RESULT.md including finding, proof, scope, prior work and limitations",
+        "method": "Read published primary finding via GitHub repository file API",
+        "title": "Richardson acceleration creates a sharp positivity barrier for backward Euler",
+        "trigger": "Same extrapolated rational function and possible implication coverage"
+      },
+      {
+        "assessment": "Confirms journal publication 2010-01-15 and MSC 65L06; the 2008 report predates it and is the archive date anchor.",
+        "evidence": [
+          "SIAM Journal on Scientific Computing 31 (2010), 4452–4477, online Jan 15 2010, MSC 65L06"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/080732833",
+        "material_read": "Publisher DOI landing page, abstract, publication history, MSC listing; not full publisher PDF",
+        "method": "Primary publisher landing-page reading",
+        "title": "Extrapolated Implicit-Explicit Time Stepping",
+        "trigger": "Published continuation of the 2008 original methods source and MSC ownership"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a2e7e9b6-b59f-4fa6-95ae-a24aae462e3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a sharp natural size limit on unconditional probability preservation for a widely used second-order extrapolated diffusion integrator. Negative scalar amplification need not make graph transition entries negative, and reentrance for large timesteps is a meaningful stability/positivity distinction. The result classifies all orders and real timesteps, not a single example.",
+    "status": "PASS"
+  }
+}
