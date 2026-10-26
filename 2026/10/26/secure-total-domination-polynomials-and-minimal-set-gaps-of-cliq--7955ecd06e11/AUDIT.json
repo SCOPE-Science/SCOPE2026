@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For every t>=2 and every vector of clique orders r_i>=2, the center-in and center-out proof derives necessary and sufficient occupancy conditions from the original open-neighborhood total domination and one-guard exchange predicates. Center-in requires every blade met: attacking a vertex in an empty blade forces center removal and isolates the attacking vertex; any nonempty blade supplies an internal defender. Center-out requires at least two per blade already for total domination, and these occupancy counts are maintained by every allowed rim attack; an attack on the center removes one guard from a blade with at least two, so all blades remain met and the new center is totally dominated. The two disjoint cases yield the complete product polynomial. Deleting guards to the minimum allowed counts proves the inclusion-minimal polynomial, and both positivity products give exactly two minimal cardinalities. Independent adjacency checks (verify.py) tested 127904 vertex subsets on 66 vectors and all expected coefficients. The infinite result depends on the proof, not the finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jha, 2020, DOI 10.1016/j.akcej.2019.10.005, Sections 1, 3, and 5 describe a linear-time algorithm for the secure total domination *number* in cographs, which includes this graph family.",
+        "Cabrera Martínez et al., 2019, DOI 10.3390/sym11091165, Introduction and Conclusions describe bounds, scalar equalities, and structural relationships, not complete cardinality distributions.",
+        "A polynomial for all secure total dominating sets and a classification of all inclusion-minimal sets are stronger data than a number."
+      ],
+      "reasoning": "The scalar minimum t+1 is consistent with broader published optimization tools and is not asserted novel. Those tools do not state the exact coefficients or the upper inclusion-minimal cardinality 2t. The studied family is a subclass of cographs and chordal block graphs; the broader optimization coverage is explicitly acknowledged.",
+      "searches": [
+        "Web search \"secure total domination in chain graphs and cographs\" arxiv pdf 2019",
+        "Web search \"On the Secure Total Domination Number of Graphs\" arxiv 2019 preprint",
+        "published-finding corpus query: unbounded gap in inclusion-minimal secure total dominating set cardinality spectrum chordal block graphs windmill"
+      ]
+    },
+    "checked_sources": [
+      "DOI 10.3390/sym11091165 (2019), sections and corrections metadata",
+      "DOI 10.1016/j.akcej.2019.10.005 (2020), relevant indexed sections 1,3,5",
+      "DOI 10.3390/math8040600 (2020), abstract/intro only",
+      "2026/10/4/SCOPE-secure-total-domination-polynomial-of-complete-multipartite-grap--03760d8f9284",
+      "2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+      "2026/10/4/SCOPE-secure-domination-polynomial-of-complete-multipartite-graphs--0ae94d81bd3c",
+      "2026/10/4/SCOPE-all-k-tuple-total-dominating-sets-of-connected-threshold-graphs--c55ba8c2a25c"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 cograph article concerns gamma_st and a minimum-finding algorithm; knowing gamma_st=t+1 does not determine all coefficient counts or the distinct inclusion-minimal size 2t.",
+        "The 2019 paper establishes general bounds and classifications for gamma_st, not a general domination-set enumerator.",
+        "The other published published-finding corpus windmill record is on dissociation, not secure total domination."
+      ],
+      "reasoning": "Published scalar results can imply t+1 as a minimum but cannot by themselves imply that exactly prod(r_i) minimum sets exist and exactly prod(binomial(r_i,2)) larger inclusion-minimal sets exist, with no other minimal cardinalities. The supplied proof establishes this strictly stronger family claim.",
+      "searches": [
+        "published-finding corpus query: secure total domination polynomial and inclusion-minimal secure total dominating sets of one-point union of cliques generalized friendship windmill graphs; formulas z product((1+z)^r-1) plus product((1+z)^r-1-rz); gap between sizes t+1 and 2t",
+        "Web searches: \"secure total domination\" \"windmill\" graph; \"secure total domination\" \"clique bouquet\"",
+        "Primary indexed full text DOI:10.3390/sym11091165",
+        "Primary indexed full text DOI:10.1016/j.akcej.2019.10.005"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proposed objects are secure total dominating vertex subsets of the one-point union of complete graphs, equivalently K_1 joined to a disjoint union of cliques.",
+        "Closest same-property database hit: 2026/10/4/SCOPE-secure-total-domination-polynomial-of-complete-multipartite-grap--03760d8f9284, whose abstract specifies complete multipartite graphs.",
+        "Every bouquet here contains an induced 2K2, unlike complete multipartite graphs; the family-specific formulas do not follow by relabeling a multipartite result."
+      ],
+      "reasoning": "Aliases clique bouquet, generalized windmill, one-point union and friendship graph were compared along with the original guard-exchange definition. Complete multipartite enumeration is same property but on a different noncontaining graph class. The generalized-windmill dissociation result is the same graph shape but a different predicate.",
+      "searches": [
+        "published-finding corpus query: minimal secure total dominating set of bouquet of cliques center present or absent product generating polynomial",
+        "published-finding corpus query: secure total domination polynomial and inclusion-minimal secure total dominating sets of one-point union of cliques generalized friendship windmill graphs; formulas z product((1+z)^r-1) plus product((1+z)^r-1-rz); gap between sizes t+1 and 2t",
+        "Web query: \"secure total domination\" \"clique bouquet\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published published-finding corpus record for secure-total-domination polynomials is 2026/10/4/SCOPE-secure-total-domination-polynomial-of-complete-multipartite-grap--03760d8f9284, on complete multipartite graphs.",
+        "published-finding corpus record 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc enumerates a distinct dissociation invariant for generalized windmills.",
+        "No exact secure-total-dominating-set enumeration of clique bouquets was retrieved by the actual targeted queries."
+      ],
+      "reasoning": "No matching complete polynomial or cardinality table was observed in the queried indexed sources. This negative result is not a proof of novelty and is recorded with residual bibliographic risk.",
+      "searches": [
+        "published-finding corpus query: secure total dominating sets of generalized windmill graphs friendship graphs exact polynomial all sets",
+        "published-finding corpus query: upper secure total domination number friendship graphs windmill all inclusion minimal configurations",
+        "published-finding corpus query: secure total domination polynomial and inclusion-minimal secure total dominating sets of one-point union of cliques generalized friendship windmill graphs; formulas z product((1+z)^r-1) plus product((1+z)^r-1-rz); gap between sizes t+1 and 2t",
+        "Web queries: \"secure total domination\" \"windmill\" graph; \"secure total domination polynomial\" windmill friendship; \"secure total domination\" \"generalized windmill\"; \"minimal secure total dominating sets\" \"windmill\""
+      ]
+    },
+    "rationale": "Targeted published research and primary-literature checks found scalar secure-total-domination bounds (2019), general cograph minimum-computation methods (2020), and a different-class complete-multipartite secure-total enumerator, but no exact all-set and inclusion-minimal-set polynomial for one-point clique bouquets. The cograph result already covers optimization on the whole present family, so the scalar minimum is not claimed as new. The discrete spectrum and unbounded missing-cardinality gaps are not consequences of scalar optimization. This is a priority assessment subject to the documented indexed-search and full-text access limits.",
+    "residual_risks": [
+      "Some complete primary publisher pages could not be fetched directly (403/429), so no global whole-text exclusion is asserted.",
+      "The complete published published-finding corpus finding artifacts were not retrievable; comparison is on indexed scientific summaries and graph-class implications.",
+      "Unindexed literature or terminology variations could contain an equivalent enumerator, and negative search does not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Article scope is scalar bounds and parameter relationships, not a stated complete set polynomial; not a whole-document absence certificate.",
+        "evidence": [
+          "2019 publisher date and MSC05C69; Introduction and Conclusions of the primary article returned in indexed web results",
+          "Publisher cites the 2021 correction to a general lemma, not used in the present direct proof"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/sym11091165",
+        "material_read": "Indexed open-access publisher text including definition, Introduction, article scope, section summary and Conclusions; direct page open subsequently rate-limited (429).",
+        "method": "Web indexed full-text excerpts and direct open attempt",
+        "title": "On the Secure Total Domination Number of Graphs",
+        "trigger": "Foundational same-parameter article, 2019-09-15"
+      },
+      {
+        "assessment": "Explicit minimum-parameter algorithm for cographs, so minimum is covered; no complete polynomial or all-inclusion-minimal spectrum in material examined, with remaining text priority risk acknowledged.",
+        "evidence": [
+          "Section 5 Min-STDN-CG algorithm for gamma_st on cographs",
+          "DOI10.1016/j.akcej.2019.10.005, published online 2020-05-27"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.akcej.2019.10.005",
+        "material_read": "Indexed primary article Sections 1-3 and 5, definitions, algorithm statement and Lemmas 5.3, 5.7, and 5.8 in retrieved full-text excerpts; direct opening returned 403.",
+        "method": "Indexed publisher full-text sections and direct open attempt",
+        "title": "Secure total domination in chain graphs and cographs",
+        "trigger": "Broader graph class contains the present cograph family"
+      },
+      {
+        "assessment": "Studies minimum numbers of rooted products; a clique bouquet is a one-vertex identification of complete blocks, not the specified rooted product of copies. Inaccessible full proof remains a minor priority risk.",
+        "evidence": [
+          "Paper abstract specifies bounds and closed formulas for the minimum secure total domination number of rooted product graphs"
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/math8040600",
+        "material_read": "Publisher indexed abstract and introductory scope statement only; direct open returned 429.",
+        "method": "Web source metadata/abstract",
+        "title": "Secure Total Domination in Rooted Product Graphs",
+        "trigger": "Potentially broader graph operation affecting the present one-cut-vertex family"
+      },
+      {
+        "assessment": "Different noncontaining graph family; can not directly settle the clique-bouquet polynomial. Risk from uninspected full text is disclosed.",
+        "evidence": [
+          "published-finding corpus hit asserts complete multipartite all-set enumeration, not one-point union of cliques"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-secure-total-domination-polynomial-of-complete-multipartite-grap--03760d8f9284",
+        "material_read": "published-finding corpus indexed title and scientific abstract/summary only; GitHub open was disabled.",
+        "method": "published-finding corpus semantic search and bounded GitHub access attempt",
+        "title": "Secure-total-domination polynomial of complete multipartite graphs",
+        "trigger": "Exact same invariant and all-set polynomial"
+      },
+      {
+        "assessment": "Does not imply secure-total guard-exchange cardinality enumerator; the graph family name alone is not an overlap.",
+        "evidence": [
+          "published-finding corpus hit explicitly defines the property as induced-degree-at-most-one dissociation, not domination"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc",
+        "material_read": "published-finding corpus indexed title and scientific summary only; GitHub direct open disabled.",
+        "method": "published-finding corpus semantic search and bounded GitHub access attempt",
+        "title": "Dissociation polynomial and all maximal dissociation sets of generalized windmills",
+        "trigger": "Same graph family under a different parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7955ecd0-6e11-4543-b9f9-b183c365c761",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Relocation-robust total domination is a motivated graph-protection problem, and clique bouquets are an infinite natural connected chordal block-graph/cograph class with arbitrary heterogeneous blade sizes. The full all-set polynomial and all inclusion-minimal-set polynomial contain information not deducible from scalar gamma_st bounds. The theorem also provides an explicit family whose inclusion-minimal secure-total-dominating cardinality spectrum has two isolated values t+1 and 2t with t-2 missing intermediate sizes, unbounded on connected chordal graphs. This gives a structural boundary for possible minimal-set spectra rather than merely a renamed parameter or a table of finite calculations.",
+    "status": "PASS"
+  }
+}
