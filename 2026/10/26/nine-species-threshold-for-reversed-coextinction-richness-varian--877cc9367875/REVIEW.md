@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The claim is exactly the nine-vertex sharp threshold for extinction-intensity reversal of plant-richness **variance** in bidegree-matched bipartite networks under homogeneous independent pollinator extinction. Formula (1) follows from survival/extinction indicators and unions of neighbor sets. The two four-by-five witnesses match plant and pollinator degree multisets, and subtracting their fully determined variance polynomials gives the factorization \(-2q^2(1-q)^2(1-2q)\). A complete finite exhaustive computation covers every matrix with both guilds nonempty and total vertex count at most eight; sorted row masks preserve all graphs. Within matching degree classes, all 93 distinct-polynomial comparisons reduce to 13 differences with strictly positive factors, proving global no-crossing on \(0<q<1\), not merely sampled probabilities. The supplied exact-rational verifier independently enumerates all 32 extinction configurations of the witness at five rational probabilities. Isolates and one-member guilds are treated explicitly. Limits: no heterogeneity, rewiring, or propagation beyond immediate coextinction.
+
+## Originality — PASS with residual uncertainty
+
+Targeted published-literature and published mathematical-record searches were performed for degree-matched bipartite coextinction volatility, small-network reliability polynomial comparisons, and aliases including variance of surviving plants and stochastic species-richness robustness. The closest accessible full text was Burgos et al. (arXiv:0809.3681), particularly the complete Sections 1–3: it characterizes nestedness through average attack-tolerance curves, not matched-degree *variance* reversals or a sharp nine-species census. Memmott et al. (2004) motivates one-stage pollinator coextinction, and Kaiser-Bunbury et al. (2010), James et al. (2012), and Vieira–Almeida-Neto (2015) address related network robustness or different models. Not all of those primary articles could be inspected in full, and classical reliability-polynomial results might contain a dominating small-order classification. The novelty claim excludes formula (1) itself, which is elementary, and excludes the general observation that structure beyond degrees can affect risk. The new finite classification is supported by actual exhaustive checked evidence, not by absence of database search hits alone.
+
+## Mathematical value — PASS
+
+Degree-preserving comparisons are central to assessing ecological interaction architecture independently of guild degree heterogeneity. The result demonstrates that even matching *both* degree distributions and the entire expected plant-survival curve does not impose a stable ranking on the volatility of coextinction outcomes. Nine total species is a natural sharp finite cutoff, not an arbitrary parameter slice: all smaller bipartite networks are ruled out. The closed witness difference has a unique biologically interpretable extinction-intensity threshold; the finite census resolves the minimal complexity needed for this disagreement. This is a structural boundary in an established one-stage coextinction model, not a claim of ecological field prediction.
+
+## Closest sources and limitations
+
+Memmott–Waser–Price (2004), DOI 10.1098/rspb.2004.2909 (public online date 2004-12-06); Burgos–Ceva–Hernández–Perazzo (2008), arXiv:0809.3681 (entire HTML article inspected); Kaiser-Bunbury et al. (2010), DOI 10.1111/j.1461-0248.2009.01437.x; James–Pitchford–Plank (2012), DOI 10.1038/nature11214; Vieira–Almeida-Neto (2015), DOI 10.1111/ele.12394. Bibliographic risk remains for equivalent reliability-theory or tabulated small-network results and for inaccessible full papers. Scientific conclusions are conditional on the explicitly independent and homogeneous one-stage model. Independent corroboration and review have not been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
