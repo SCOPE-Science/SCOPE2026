@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Exact B-spline formulas supply all positive spectral densities in sharp odd dimensions and explicit odd-dimensional obstructions. The even-dimensional gap is closed separately: projected radial measures cannot have positive-radius atoms or inner spectral holes, and the upward jump for the fourth power violates monotonicity of the double Abel transform of any positive projection measure. The included exact SymPy checker independently reconstructs spline pieces, differential identities, jump sizes, and sign witnesses; the analytic projection/Bochner argument covers arbitrary configurations and integer dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gneiting arXiv:1111.7077, Section 2, explicitly discusses nested Euclidean radial-positive classes and Schoenberg representations; its sine-power model on spheres is 1-(sin(theta/2))^alpha, a distinct function.",
+        "Gneiting DOI:10.1006/jmva.1998.1800 develops Euclid-hat positive-definiteness criteria and dimension walks; no exact claim here was identified in the available abstract."
+      ],
+      "reasoning": "General dimension-walk/Schoenberg criteria are mathematically broader methods, but they do not themselves give the claimed sharp cutoffs or the detailed spectral holes for these five kernels without the new spline derivative and projection sign analysis. No strong covering implication was found in inspected material.",
+      "searches": [
+        "radial positive definiteness products spherical Bessel 3d sinc powers dimensions",
+        "\"sinc\" \"dimension 7\" \"positive definite\"",
+        "\"sinc\" \"radial\" \"positive definite\" \"powers\" Schoenberg dimension"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.7077 (relevant full-text HTML)",
+      "doi:10.1007/s00591-023-00342-5 (relevant full-text HTML)",
+      "doi:10.1006/jmva.1998.1800 (abstract only)",
+      "Schoenberg 1938 radial-characteristic-function representation (via Gneiting review)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schoenberg radial representation quoted and explained in Gneiting arXiv:1111.7077, Section 2: a necessary-and-sufficient positivity criterion but no evaluation here.",
+        "Abel--Kushnirevych, Sections 3--4: explicit one-dimensional transforms and B-spline expressions; these imply the starting spline formulas but not the sign comparisons and even-dimensional projection obstructions without additional argument."
+      ],
+      "reasoning": "This result applies Schoenberg and known spline identities to calculate exact odd-dimensional spectral densities, then supplies independent even-dimensional exclusions using spectral atoms, gaps, and an Abel jump obstruction. An explicit prior derivation of those final consequences would cover the claim; none was established by actual inspections.",
+      "searches": [
+        "\"B-spline\" \"sinc\" \"Schoenberg\" radial positive definite",
+        "\"sin r / r\" \"positive definite\" dimension 5 power",
+        "positive definite radial functions dimension walks projection Abel transform"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gneiting arXiv:1111.7077, Section 2: Schoenberg radial Fourier representation in arbitrary Euclidean dimension, no sinc-power cutoff enumerated in inspected material.",
+        "Abel--Kushnirevych DOI:10.1007/s00591-023-00342-5, Sections 2--4: finite sinc-power one-variable Fourier transforms and cardinal B-splines, without Euclidean multivariate positive-definiteness classifications."
+      ],
+      "reasoning": "The exact equivalent form is the existence of a nonnegative rotationally invariant Bochner spectral measure in each ambient Euclidean dimension. Exact dimension walk plus positivity/Abel obstructions produce the five cutoff dimensions and support features. The inspected broader Fourier identities do not state this dimension-by-dimension classification.",
+      "searches": [
+        "\"sinc\" \"positive definite\" \"R^5\" powers dimension",
+        "\"sin(x)/x\" \"powers\" \"radial positive definite\"",
+        "\"sinc^4\" \"positive definite\" Euclidean",
+        "sharp maximal Euclidean dimension of positive definite radial sinc power functions (sin r/r)^m for m=1,2,3,4,5; dimensions 3,5,5,7,7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Abel--Kushnirevych DOI:10.1007/s00591-023-00342-5, Eq. (10) and Theorems 1--2: one-dimensional B-spline/Fourier transform formulas; inspection found no multidimensional radial Bochner cutoff table.",
+        "Semantic mathematical-record search for exact dimensions, aliases and Bessel-product formulations did not return a matching five-power cutoff claim; nearby records concern different Bessel kernels and geometries."
+      ],
+      "reasoning": "The claim includes a concrete 3,5,5,7,7 dimension table, surface atoms and spectral holes, not merely sinc-power Fourier integral values. Failed database searches are not evidence of uniqueness; published identities can support computations without covering the finished classification.",
+      "searches": [
+        "\"sinc\" \"positive definite\" \"seven dimensions\"",
+        "\"sinc\" \"positive definite\" \"powers\" Schoenberg",
+        "sinc powers spectral holes 5 dimensional 7 dimensional Euclidean Fourier B spline"
+      ]
+    },
+    "rationale": "Direct comparison of claims with inspected general Euclidean Schoenberg theory and one-dimensional sinc/B-spline Fourier identities found no exact five-power maximal-dimension and spectral-hole classification. The new contribution is the complete sign and even-dimensional nonlift analysis rather than the starting spline formulas. Bounded literature risk is noted; absence of search results is not taken as proof of absolute novelty.",
+    "residual_risks": [
+      "Unindexed classical radial/spline treatments may already derive equivalent cutoff values.",
+      "The Euclid-hat paper full text was not materially inspected; only the publicly exposed abstract was checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact general criterion and strictness framework, but does not state the cutoff 3,5,5,7,7 for radial sinc powers. Its sine-power family on spheres is a different kernel.",
+        "evidence": [
+          "Section 2 defines Phi_d and gives radial Bochner--Bessel representation, and discusses nonconstant radial strict positive-definiteness.",
+          "Table 1 uses a distinct 1-(sin(theta/2))^alpha spherical sine-power model."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1111.7077v5",
+        "material_read": "Abstract, introduction, Section 2 lines 74--121 including the Euclidean Schoenberg representation and nesting, and dimension-walk discussion in Section 3.",
+        "method": "Read accessible full-text HTML relevant sections; searched for sinc powers and dimension walks.",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Schoenberg classes and Euclidean radial-positive dimension nesting may already imply the claim."
+      },
+      {
+        "assessment": "One-variable Fourier transform and integral identities provide source technology but not the five-power multivariate dimension and support-gap theorem.",
+        "evidence": [
+          "Theorem 1 evaluates one-variable sinc-power Fourier transforms and Theorem 2 weighted transforms.",
+          "No Euclidean-dimensional radial positive-definiteness classification appears in the inspected sections."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00591-023-00342-5",
+        "material_read": "Abstract, Sections 2--4 including B-spline formula (10), powers formula (14), transform theorems 1 and 2, and adjacent discussion.",
+        "method": "Read accessible full-text HTML and searched for Euclidean dimensions, radial and positive definite.",
+        "title": "Sinc integrals revisited",
+        "trigger": "Its exact sinc-power B-spline Fourier formulas might directly contain the proposed classification."
+      },
+      {
+        "assessment": "Generic construction/criteria could overlap method, but final sinc-power thresholds were not resolved from available abstract.",
+        "evidence": [
+          "Abstract discusses Euclid-hat radial autocorrelations, completely/multiply monotone criteria, and dimension-dependent positivity."
+        ],
+        "identifier_or_url": "https://doi.org/10.1006/jmva.1998.1800",
+        "material_read": "Available bibliographic abstract describing the classes H_n and Pólya-type criteria; full text not available from accessed source.",
+        "method": "Abstract-level comparison only; not represented as full-document exclusion.",
+        "title": "Radial Positive Definite Functions Generated by Euclid’s Hat",
+        "trigger": "Classical multidimensional radial positivity and monotonicity machinery might dominate the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b182710-30a8-4bdf-9c9e-8082e83bb746",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sinc powers are canonical diffraction and cardinal-B-spline Fourier building blocks; deciding the maximal ambient Euclidean dimension for a radial covariance is a motivated exact invariant. The five-power initial classification exhibits a nontrivial two-step dimension staircase, a positive boundary sphere atom, two genuine unit-radius spectral gaps, and an upward jump yielding a sharp obstruction to an even-dimensional lift. These structural features go beyond routine positivity reparameterizations.",
+    "status": "PASS"
+  }
+}
