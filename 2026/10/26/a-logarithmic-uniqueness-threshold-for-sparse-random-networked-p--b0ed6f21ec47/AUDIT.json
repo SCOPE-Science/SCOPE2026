@@ -1,0 +1,135 @@
+{
+  "claim": "For fixed \\(p_0>0\\) and \\(q>0\\), every integer \\(n\\ge\\max\\{2,p_0\\}\\), and model parameters \\(b,c_0>0\\), let \\(B\\in\\{0,1\\}^{n\\times n}\\) have \\(B_{ii}=1\\) and independent \\(B_{ij}\\sim\\mathrm{Bernoulli}(p_0/n)\\) for \\(i\\ne j\\). Define \\(S_{ij}=\\sum_{k\\ne i}B_{ki}B_{kj}\\), \\(K_R=\\exp\\!\\big(p_0[\\exp(2+p_0(e-1))-1]\\big)\\), \\(K_C=\\exp\\!\\big(p_0(e-1)+p_0[\\exp(1+p_0(e-1))-1]\\big)\\), and \\(u_n=(q+1)\\log n+\\log(K_R+K_C)\\). In the homogeneous quadratic-benefit, quadratic-cost networked public-goods model of Cheng, Deng, and Ma, if \\(c_0/(2b)>u_n\\), then the Nash equilibrium is unique with probability at least \\(1-n^{-q}\\).",
+  "correctness": {
+    "rationale": "For each fixed row, the exact exponential moment is \\(\\mathbb{E}e^{R_i}=[1-p+pe^2(1-p+pe)^{n-2}]^{n-1}\\); for each fixed column it is \\(\\mathbb{E}e^{C_j}=(1-p+pe)^{n-1}[1-p+pe(1-p+pe)^{n-2}]^{n-1}\\). Using \\((1-p+pe)^{n-2}\\le\\exp(p_0(e-1))\\) and \\(1+x\\le\\exp(x)\\) bounds these by \\(K_R\\) and \\(K_C\\). Markov's inequality and a union bound give probability at most \\(n^{-q}\\) that any row or column sum exceeds \\(u_n\\). The induced-norm inequality \\(\\|S\\|_2\\le\\sqrt{\\|S\\|_1\\|S\\|_\\infty}\\) then yields \\(\\|S\\|_2\\le u_n\\), and the cited uniqueness criterion applies when \\(c_0/(2b)>u_n\\). The proof does not rely on independence among row or column sums.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lugosi–Mendelson–Zhivotovskiy, arXiv:1801.02157, studies the spectral norm of a symmetric undirected Erdős–Rényi adjacency matrix and emphasizes regimes \\(p\\) at least of order \\(\\log n/n\\) for its main concentration results.",
+        "The matrix here is \\(S_{ij}=\\sum_{k\\ne i}B_{ki}B_{kj}\\), a generally nonsymmetric overlap matrix in the fixed-expected-degree directed regime \\(p=p_0/n\\)."
+      ],
+      "reasoning": "The random-graph spectral-norm paper does not directly bound this overlap matrix in the stated regime, and its matrix/model differ. The present proof instead derives exponential moments for both row and column sums of S and uses the induced-norm inequality. No stronger inspected result was found that implies this exact game-theoretic bound.",
+      "searches": [
+        "published-finding corpus query: compound binomial random variable sum Bernoulli(p0/n) times 2 plus Binomial(n-2,p0/n) maximum row sum concentration logarithmic bound",
+        "Web search: random directed graph maximum row sum matrix norm Bernoulli p=c/n log n operator norm common neighbors",
+        "https://arxiv.org/abs/1801.02157, Introduction and main-result overview"
+      ]
+    },
+    "checked_sources": [
+      {
+        "identifier": "arxiv:2502.01001",
+        "url": "https://arxiv.org/abs/2502.01001",
+        "use": "Primary model, Theorems 3.6 and 4.3, explicit future-work statement."
+      },
+      {
+        "identifier": "doi:10.1145/3696410.3714869",
+        "url": "https://doi.org/10.1145/3696410.3714869",
+        "use": "Publication record for the primary work."
+      },
+      {
+        "identifier": "arxiv:1604.08910",
+        "url": "https://arxiv.org/abs/1604.08910",
+        "use": "Prior network public-goods uniqueness condition."
+      },
+      {
+        "identifier": "arxiv:1801.02157",
+        "url": "https://arxiv.org/abs/1801.02157",
+        "use": "Random graph spectral-norm concentration comparison."
+      },
+      {
+        "identifier": "doi:10.3150/19-BEJ1192",
+        "url": "https://doi.org/10.3150/19-BEJ1192",
+        "use": "Published record for the random graph concentration paper."
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper's displayed threshold contains a \\(\\sqrt{n}\\) term and gives probability at least 1/2.",
+        "The same paper explicitly notes that a polylogarithmic dependence could be established in further study.",
+        "The proof here supplies the missing explicit exponential-moment estimates for row and column sums and derives a failure probability \\(n^{-q}\\).",
+        "Appendix A.10 of the primary paper estimates the maximum row sum; the proof here instead controls the maximum row and column sums and applies \\(\\|S\\|_2\\le\\sqrt{\\|S\\|_1\\|S\\|_\\infty}\\)."
+      ],
+      "reasoning": "The claim is not the paper's stated theorem or a direct restatement of its sufficient condition: it independently derives a logarithmic bound and a tunable polynomial failure probability. The proof does not assume that a one-sided row-sum bound controls the nonsymmetric operator norm; it bounds both induced norms. The standard norm inequality and Markov bound are established tools, so the contribution is the exact application to the paper's overlap matrix and uniqueness criterion.",
+      "searches": [
+        "https://arxiv.org/abs/2502.01001, Theorem 4.3 and Section 4.2.1",
+        "https://arxiv.org/abs/2502.01001, Theorem 3.6 and Appendix A.5",
+        "https://arxiv.org/abs/1604.08910, Theorem 1",
+        "https://arxiv.org/abs/1801.02157, Introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cheng–Deng–Ma, arXiv:2502.01001, Theorem 3.6: a near-potential uniqueness criterion in terms of the operator norm of an overlap matrix.",
+        "Cheng–Deng–Ma, arXiv:2502.01001, Theorem 4.3: a Chebyshev-based random-network threshold of order \\(\\sqrt{n}\\) with probability at least 1/2; the discussion says polylogarithmic dependence remains for further study.",
+        "Naghizadeh–Liu, arXiv:1604.08910, Theorem 1: a P-matrix characterization for a linear-cost, unbounded-effort public-goods model."
+      ],
+      "reasoning": "The general uniqueness criterion is a premise used in the proof, but it does not itself give the logarithmic probability bound. The P-matrix result concerns a different payoff/cost model and has no corresponding sparse-Bernoulli high-probability threshold. No equivalent statement was identified in the inspected formulations.",
+      "searches": [
+        "published-finding corpus query: Networked Digital Public Goods Games with Heterogeneous Players and Convex Costs equilibrium uniqueness convex costs",
+        "published-finding corpus query: Networked Digital Public Goods Games with Heterogeneous Players and Convex Costs random directed graph Bernoulli p0/n uniqueness log n threshold",
+        "https://arxiv.org/abs/2502.01001, Sections 3.2 and 4.2.1",
+        "https://arxiv.org/abs/1604.08910, Theorem 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned published-finding corpus IDs: 2026/10/4/SCOPE-the-omitted-jury-factor-selects-the-upper-cubic-cournot-equilibr--970e86047447; 2026/10/4/SCOPE-a-quadratic-pairwise-game-where-assortativity-creates-an-evoluti--f981c124b719; 2026/9/13/SCOPE022; 2026/9/20/SCOPE-poisson-binomial-cumulant-effective-trial-hierarchy--c64930932dda.",
+        "These results concern cubic Cournot stability, evolutionary branching, a mean-field approximation, and Poisson-binomial cumulants, respectively; none states the sparse network public-goods logarithmic uniqueness bound."
+      ],
+      "reasoning": "published-finding corpus semantic search returned no direct match for the exact claim. The closest items were checked by their titles and summaries and concern different objects or implications. A failed or approximate database search is not itself proof of novelty; the originality assessment also relies on the primary paper's stated gap and comparison of mathematical statements.",
+      "searches": [
+        "published-finding corpus query: Networked Digital Public Goods Games with Heterogeneous Players and Convex Costs random directed graph Bernoulli p0/n uniqueness log n threshold",
+        "published-finding corpus query: exact condition uniqueness Nash equilibrium random networked public goods convex costs max row sum concentration",
+        "published-finding corpus query: compound binomial random variable sum Bernoulli(p0/n) times 2 plus Binomial(n-2,p0/n) maximum row sum concentration logarithmic bound"
+      ]
+    },
+    "rationale": "The primary paper states an \\(O(\\sqrt{n})\\) random-network threshold and explicitly leaves polylogarithmic dependence for further study. The present claim independently establishes a concrete \\(O(\\log n)\\) sufficient threshold with probability at least \\(1-n^{-q}\\) for the same sparse directed Bernoulli model. The proof controls both row and column sums, so it does not rely on a one-sided row-sum bound for the nonsymmetric operator norm. The inspected general uniqueness and random-matrix results use different assumptions or matrices. This is an application-level sharpening, not a new general concentration theorem.",
+    "residual_risks": [
+      "The bound is an application of standard exponential-moment and matrix-norm inequalities; unindexed or unpublished work may contain a related sharpening.",
+      "The constants are conservative and not optimized; the result does not prove a sharp threshold or a matching lower bound.",
+      "published-finding corpus semantic retrieval and bounded literature comparison cannot prove global uniqueness of the claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant primary source. It states an \\(O(\\sqrt{n})\\) random-network threshold and identifies polylogarithmic dependence as future work, but does not state the logarithmic high-probability bound here. The new proof independently controls both row and column sums.",
+        "evidence": "Sections 3.2 and 4.2.1; Theorems 3.6 and 4.3; Appendix A.5.",
+        "identifier_or_url": "https://arxiv.org/abs/2502.01001",
+        "material_read": "Relevant full-text sections: model definitions, Theorem 3.6, Theorem 4.3 and its discussion, and Appendices A.5 and A.10.",
+        "method": "Reconstructed the overlap matrix and uniqueness criterion; derived row and column exponential moments from the independent Bernoulli entries and compared the resulting bound with the paper's displayed threshold.",
+        "title": "Networked Digital Public Goods Games with Heterogeneous Players and Convex Costs",
+        "trigger": "The exact model, uniqueness criterion, and stated random-network gap are the foundation of the claim."
+      },
+      {
+        "assessment": "Relevant background but not covering: it gives a P-matrix condition for a linear-cost, unbounded-effort model, not the convex-cost random-network threshold.",
+        "evidence": "Theorem 1 states uniqueness iff \\(I+G\\) is a P-matrix for its model.",
+        "identifier_or_url": "https://arxiv.org/abs/1604.08910",
+        "material_read": "Model section and Section III-A, especially Theorem 1 and its two-node examples.",
+        "method": "Compared the payoff/cost assumptions and the exact uniqueness statement.",
+        "title": "Provision of Public Goods on Networks: On Existence, Uniqueness, and Centralities",
+        "trigger": "Closest prior general uniqueness theorem for network public-goods games."
+      },
+      {
+        "assessment": "Not covering the exact claim: it studies the symmetric adjacency matrix of an undirected \\(G(n,p)\\), with main concentration results in denser regimes than \\(p=p_0/n\\); it does not derive the network public-goods uniqueness threshold.",
+        "evidence": "Introduction, especially the definition of the adjacency matrix and the stated p-regimes.",
+        "identifier_or_url": "https://arxiv.org/abs/1801.02157",
+        "material_read": "ArXiv full-text page, Introduction and stated main-result overview, including the definition of the symmetric adjacency matrix and the probability regime for the main concentration results.",
+        "method": "Compared matrix symmetry, matrix definition, and edge-probability regime with the overlap matrix S.",
+        "title": "Concentration of the spectral norm of Erdős-Rényi random graphs",
+        "trigger": "Plausible prior literature on random graph spectral norms."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b0ed6f21-ec47-4b93-ac93-c3e512400e6c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source paper explicitly leaves a polylogarithmic random-network uniqueness bound as a future direction. The logarithmic sufficient threshold improves the asymptotic curvature scaling from \\(\\sqrt{n}\\) to \\(\\log n\\) and upgrades the probability statement from at least \\(1/2\\) to at least \\(1-n^{-q}\\). This is a concrete, mathematically motivated improvement for a model of networked digital public-goods provision, while the result clearly states that its constants are conservative and the threshold is not sharp.",
+    "status": "PASS"
+  }
+}
