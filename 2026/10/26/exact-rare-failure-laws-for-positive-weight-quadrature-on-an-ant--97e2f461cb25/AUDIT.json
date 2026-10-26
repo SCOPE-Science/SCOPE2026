@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The k(x,y)=1+x dot y feature map makes simplex quadrature error the origin-to-hull distance because antipodal symmetry centers the sample law. A single angular gap above pi is equivalent to nonzero distance, whose magnitude is sin((G-pi)/2). Complementary-arc integration proves the exact tail and exact anchor law. Positive minimum density gives uniform exponential domination, validating all p>0 moment limits. Strict Jensen gives the moment-order sampling extremum. A standard-library script passed 578 finite diagnostics; infinite quantifiers are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hayakawa 2026, arxiv:2605.05705v1, Sections 3–5: broad convex-hull and RKHS worst-case high-probability error bounds.",
+        "Liu and Yang 2014, DOI:10.1016/j.crma.2014.08.015, Theorem 3.1: exact ball-hitting probability for samples uniformly distributed in the full planar disk.",
+        "Jewell and Romano 1982, DOI:10.2307/3213513: abstract treats arc coverage and random convex hulls; full text not accessible."
+      ],
+      "reasoning": "General quadrature bounds do not determine this exact error distribution. An exact formula for points in the disk is not an identity for nonuniform random points restricted to its boundary; the asymptotic density power integral and moment-order reversal require additional derivation. Jewell–Romano is a plausible broader precursor and is retained as uncertainty rather than declared not covering in full.",
+      "searches": [
+        "doi:10.1016/j.crma.2014.08.015",
+        "Jewell Romano 1982 Coverage problems and random convex hulls pdf exact formula arc coverage",
+        "arxiv:2605.05705v1",
+        "probability convex hull random points small ball nonuniform density circle"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.05705v1",
+      "doi:10.7146/math.scand.a-10655",
+      "arxiv:1405.6114",
+      "doi:10.1016/j.crma.2014.08.015",
+      "doi:10.2307/3213513 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hayakawa: positive-weight convex-hull reduction plus O(d/N) high-probability guarantee.",
+        "Wendel: probability N2^{-(N-1)} for planar centrally symmetric origin avoidance.",
+        "Schlemm: iid uniform-angle largest-gap law.",
+        "Liu and Yang: radius-exclusion formula for iid uniform samples in a planar filled disk.",
+        "Jewell and Romano: abstract only; full coverage unresolved."
+      ],
+      "reasoning": "The exact result claimed is the conditional rate mixture and all-p sharp moment coefficient across strictly positive nonuniform antipodally symmetric circle sampling. The proved prior statements concern general high-probability bounds, the probability of failure without magnitude, uniform-angle spacings, or filled-disk sampling; none inspected mathematically implies the nonuniform moment-order reversal without new analysis. A potentially stronger unpublished or inaccessible earlier coverage identity remains possible.",
+      "searches": [
+        "arxiv:2605.05705v1",
+        "doi:10.7146/math.scand.a-10655",
+        "arxiv:1405.6114",
+        "doi:10.1016/j.crma.2014.08.015",
+        "doi:10.2307/3213513",
+        "random points circle nonuniform antipodal density convex hull distance origin asymptotic integral f inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wendel 1962, DOI:10.7146/math.scand.a-10655: halfspace/semicircle avoidance in centrally symmetric planar sampling.",
+        "Schlemm 2014, arxiv:1405.6114: maximal circular spacing for iid uniform angles."
+      ],
+      "reasoning": "Optimal simplex quadrature, Euclidean distance to the sampled convex hull, and longest cyclic gap are proved equivalent here. Wendel covers only the zero-distance indicator, and uniform largest-spacing formulas cover a strict subclass; neither gives the nonuniform density mixture or full moment-order reversal.",
+      "searches": [
+        "random points circle nonuniform antipodal density convex hull distance origin asymptotic integral f inverse",
+        "random polygon circle convex hull origin distance conditional failure exponential mixture distribution",
+        "circular spacing semicircle coverage Wendel moment distribution convex hull distance origin",
+        "arxiv:1405.6114"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wendel 1962 supplies the exact classical origin-outside probability.",
+        "Schlemm 2014 supplies well-known uniform circular-gap statistics.",
+        "The full inspected Liu–Yang Theorem 3.1 gives a different sampling model with uniform points inside the unit disk."
+      ],
+      "reasoning": "The claimed nonuniform angular-density exact risk distribution and p-dependent integral were not located as numerical tables or exact entries. The uniform specialization is not claimed as new by itself. Absence of a table is not a proof of originality.",
+      "searches": [
+        "uniform points circle convex hull distance origin expected squared distance exact probability",
+        "random uniform circle nodes optimal simplex quadrature linear kernel expected squared error asymptotic pi squared N 2^-N",
+        "random convex hull of points uniform circle positive weight kernel quadrature exact worst case error distance to origin largest angular gap distribution tail"
+      ]
+    },
+    "rationale": "Best-knowledge comparison shows no exact nonuniform antipodally symmetric circle kernel-quadrature risk and all-positive-moment law implied by the inspected primary work. The distribution-free zero-event law, uniform angular spacing background and existing disk-hitting formula are explicitly excluded from the novelty claim. Full Jewell–Romano text was inaccessible and remains a named priority risk.",
+    "residual_risks": [
+      "Jewell and Romano (1982) full paper not accessible: circular-coverage formulations might be stronger than its abstract indicates.",
+      "Specialized prior circular spacing and convex-hull inclusion literature may contain an equivalent nonuniform risk law not found by available searches.",
+      "Independent specialist validation and historical-priority certification have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS baseline RKHS convex-hull relation; DOES NOT directly provide exact nonuniform rare-failure risk or moment spectrum",
+        "evidence": "arxiv:2605.05705v1, Sections 3–5; high-probability O(d/N) and Frank–Wolfe positive quadrature bounds",
+        "identifier_or_url": "https://arxiv.org/html/2605.05705v1",
+        "material_read": "full HTML: introduction, setup, convex-hull approximation theorem, RKHS application, experiments/limitations and relevant proofs",
+        "method": "read HTML text and compared hypotheses and conclusions",
+        "title": "Convex-Geometric Error Bounds for Positive-Weight Kernel Quadrature",
+        "trigger": "same positive-weight numerical quadrature problem and convex-hull error"
+      },
+      {
+        "assessment": "COVERS the exact zero-distance failure probability; not the positive-error severity",
+        "evidence": "Wendel, Mathematica Scandinavica 11 (1962), 109–111",
+        "identifier_or_url": "https://doi.org/10.7146/math.scand.a-10655",
+        "material_read": "original short 1962 article pages containing theorem and proof",
+        "method": "read original PDF page images",
+        "title": "A Problem in Geometric Probability",
+        "trigger": "origin exclusion probability for centrally symmetric random points"
+      },
+      {
+        "assessment": "Uniform circular gaps; does not directly imply nonuniform antipodal density conditional severity",
+        "evidence": "Schlemm, arxiv:1405.6114 (2014)",
+        "identifier_or_url": "https://arxiv.org/abs/1405.6114",
+        "material_read": "accessible full online article introductory and principal uniform-spacing results",
+        "method": "examined statements for distribution assumptions and moment orders",
+        "title": "Limiting distribution of the maximal distance between random points on a circle: A moments approach",
+        "trigger": "equivalence to maximum angular gap"
+      },
+      {
+        "assessment": "Strong adjacent exact radial risk formula but for samples uniformly distributed in the full disk, rather than nonuniform boundary angular densities",
+        "evidence": "Liu and Yang (2014), Theorem 3.1, DOI:10.1016/j.crma.2014.08.015",
+        "identifier_or_url": "https://www.numdam.org/item/CRMATH_2014__352_11_935_0.pdf",
+        "material_read": "full 6-page primary PDF, especially Theorem 3.1, geometric proof and Section 4",
+        "method": "read PDF text and page images showing Theorem 3.1",
+        "title": "Probabilities of hitting a convex hull",
+        "trigger": "exact probability that a small ball hits a random planar convex hull"
+      },
+      {
+        "assessment": "UNRESOLVED priority risk; no definitive stronger identity extractable from the accessible material",
+        "evidence": "Jewell and Romano (1982), J. Appl. Probab. 19, 546–561",
+        "identifier_or_url": "https://doi.org/10.2307/3213513",
+        "material_read": "abstract, source bibliographic metadata and later-paper discussion only; full text inaccessible",
+        "method": "examined publisher abstract and citations; did not assert whole-paper noncoverage",
+        "title": "Coverage problems and random convex hulls",
+        "trigger": "general arc-coverage and random-hull formulas potentially equivalent to gap-tail classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "97e2f461-cb25-4b27-8e6a-aee87c5c3e8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact first-harmonic kernel is a canonical finite-rank quadrature testbed; nonnegative optimized weights are central in stable integration. Rare nonrepresentability is exponentially unlikely but its conditional magnitude controls high-order loss. The exact mixture law, all-p coefficients, universal leading mean, and strict optimality reversal of uniform sampling are useful and not a mere bound on a contrived quantity. Does not overclaim general RKHS implications.",
+    "status": "PASS"
+  }
+}
