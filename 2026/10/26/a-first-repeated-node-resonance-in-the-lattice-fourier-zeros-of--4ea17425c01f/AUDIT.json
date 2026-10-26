@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The standard simplex integral equals the divided difference of the exponential at the five vertex-phase nodes. At distinct integer nodes, all exponential values equal one and the fourth divided difference of a constant is zero. At repeated nodes, the exact confluent-residue formula is a polynomial over the rationals in \\(i/(2\\pi)\\); transcendence of \\(\\pi\\) means only the zero polynomial can vanish. A unique maximal multiplicity yields a nonzero lowest coefficient. The only tied maximum is the two-endpoints-plus-singleton pattern, whose lowest coefficient vanishes exactly at the midpoint; direct residues then sum to zero. The proof covers every integer frequency. The included checker verifies 210 bounded multisets exactly, without treating finite enumeration as the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2008 source gives a general exponential-simplex formula for regular phase values and explains analytic cancellation of poles in its meromorphic representation.",
+        "The 2016 source gives a representation for arbitrary simplex Fourier transforms and treats higher-order poles caused by coincident projections.",
+        "The 2024 source proves that certain entire complex spheres and parametrized curves cannot be contained in a polytope transform's zero set; a discrete integer lattice is not such a variety."
+      ],
+      "reasoning": "The prior formula has broader function-level coverage and is sufficient input for the present derivation, so no originality is claimed for transform evaluation. The exact lattice zero classification is not stated in those sources; it requires a separate exhaustive multiplicity argument, the rational-polynomial nonvanishing step, and an explicit cancellation calculation for the midpoint pattern. The broader formula is a genuine residual novelty risk, but it is not a previously stated zero-set classification.",
+      "searches": [
+        "arXiv:0809.2083v1",
+        "arXiv:1608.02417v1",
+        "arXiv:2404.03405v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:0809.2083v1, full PDF Corollary 12 and Remark 15",
+      "arXiv:1608.02417v1, Section 2.3, Theorem 3",
+      "arXiv:2404.03405v1, Theorem 1.1 and Sections 2-3",
+      "DOI:10.1107/S160057672201130X, abstract and related public implementation only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 source states the general vertex-sum formula for regular phase values and notes that poles cancel in the analytic continuation; it does not give the zero-set classification.",
+        "The 2016 source treats coincident projections as higher-order poles but does not state when their residues sum to zero at integer frequencies.",
+        "The 2024 zero-variety theorem excludes continuous complex varieties from the zero set; it does not determine isolated lattice points or the multiplicities that produce them."
+      ],
+      "reasoning": "The new result is not a claim that the Fourier transform formula is new. It is the complete classification of its integer-frequency zeros in dimension four, including the unique repeated-node cancellation. The old tetrahedron statement has a different dimension and local-topology invariant; it does not imply the four-dimensional multiplicity classification.",
+      "searches": [
+        "arXiv:0809.2083v1",
+        "arXiv:1608.02417v1",
+        "arXiv:2404.03405v1",
+        "For the standard four-dimensional simplex, classify all integer frequency vectors k where the Fourier transform of its indicator vanishes; five integer nodes 0,k1,k2,k3,k4 are distinct or form a repeated 3-term arithmetic progression with endpoint multiplicities two"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Baldoni et al., arXiv:0809.2083v1, Corollary 12 formula (10), gives the exponential-simplex vertex sum for distinct projected vertex values and Remark 15 discusses analytic cancellation of poles.",
+        "Borda, arXiv:1608.02417v1, Section 2.3, Theorem 3, represents the Fourier transform of an arbitrary simplex and explicitly notes that coincident projections create higher-order poles.",
+        "The prior tetrahedron statement found in the accessible research ledger concerns local real-zero topology at distinct phase nodes in dimension three and explicitly does not classify repeated-phase nodes or higher-dimensional simplex cases."
+      ],
+      "reasoning": "The equivalent-form search tested standard-simplex indicator, integer lattice frequencies, repeated phase nodes, confluent divided differences, and arithmetic-progression multiplicities. The closest same-family statement is three-dimensional and local, while the present claim is a complete lattice zero-set classification in dimension four. The classical formula is acknowledged as the source of the transform, but its stated results do not present the exact exceptional multiplicity pattern.",
+      "searches": [
+        "Exact Fourier transform zero set of the standard simplex on its dual integer lattice; repeated vertex projections and divided differences",
+        "For the standard four-dimensional simplex, classify all integer frequency vectors k where the Fourier transform of its indicator vanishes; five integer nodes 0,k1,k2,k3,k4 are distinct or form a repeated 3-term arithmetic progression with endpoint multiplicities two",
+        "Fourier transform of simplex integer lattice frequencies repeated nodes arithmetic progression"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results included finite-field simplex Fourier-support classifications and finite cyclic-group Fourier-zero classifications, but these use different domains and invariants.",
+        "The inspected continuous-polytope zero-set paper addresses complex spheres and parametrized curves, not the exact discrete lattice slice."
+      ],
+      "reasoning": "No exact finite table is applicable because the claim is an infinite classification over all integer frequency vectors. The search results are recorded as nearby formulations, not as proof of novelty.",
+      "searches": [
+        "For the standard four-dimensional simplex, classify all integer frequency vectors k where the Fourier transform of its indicator vanishes; five integer nodes 0,k1,k2,k3,k4 are distinct or form a repeated 3-term arithmetic progression with endpoint multiplicities two",
+        "Exact Fourier transform zero set of the standard simplex on its dual integer lattice; repeated vertex projections and divided differences",
+        "For the indicator of a nondegenerate planar triangle, the complete real Fourier zero set is reciprocal-lattice points whose three barycentric frequency nodes are pairwise distinct"
+      ]
+    },
+    "rationale": "The general simplex transform formula is prior work and is explicitly credited. The contribution is the exact integer-lattice zero classification and the exceptional repeated-node resonance. The inspected prior literature supplies transform formulas, discusses coincident projection poles, or studies zero sets containing continuous complex varieties; none of the inspected statements gives this five-node multiplicity classification. Priority is qualified because a short consequence of the classical formula could appear in unindexed literature and one adjacent 2023 form-factor article could not be read in full.",
+    "residual_risks": [
+      "The classification is a short but exact consequence of the classical exponential-simplex formula and may occur in unindexed literature as a corollary.",
+      "The 2023 polyhedral form-factor article is adjacent; its full text was not accessible, and the abstract alone cannot establish noncoverage.",
+      "The claim is restricted to the standard 4-simplex and integer frequencies; it does not classify higher-dimensional or affine-simplex zero sets."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the exact transform input and acknowledges removable poles, but does not state the integer-lattice zero set or the exceptional repeated-node pattern.",
+        "evidence": [
+          "Corollary 12 writes the exponential integral as a sum over simplex vertices divided by products of linear-form differences.",
+          "Remark 15 explains that poles of the individual meromorphic summands cancel in the total analytic function."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0809.2083",
+        "material_read": "ArXiv metadata for the first submission date and full PDF pp. 11-14, especially Corollary 12 formula (10) and Remark 15.",
+        "method": "Read the primary PDF text around the vertex-sum formula and the discussion of analytic cancellation at poles.",
+        "title": "How to Integrate a Polynomial over a Simplex",
+        "trigger": "The classical exponential-simplex formula could dominate the claimed zero classification."
+      },
+      {
+        "assessment": "Supplies a general Fourier representation and explains why repeated projections require higher-order residues; it does not classify the zero set on the integer lattice.",
+        "evidence": [
+          "Section 2.3 gives a line-integral representation for an arbitrary simplex.",
+          "The accompanying discussion explicitly allows coincident vertex projections and higher-order poles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.02417",
+        "material_read": "ArXiv submission date and full-text Section 2.3, Theorem 3, including the discussion of coincident poles and higher-order residues.",
+        "method": "Read the complete relevant section of the primary arXiv text.",
+        "title": "Lattice points in algebraic cross-polytopes and simplices",
+        "trigger": "A direct primary treatment of simplex Fourier transforms and coincident vertex projections."
+      },
+      {
+        "assessment": "The theorem concerns continuous complex varieties that cannot lie entirely in the zero set; it does not classify isolated integer-lattice zeros.",
+        "evidence": [
+          "Theorem 1.1 excludes complex spheres from the Fourier-Laplace zero set of a finite union of polytopes.",
+          "Section 3 excludes specified rationally parametrized curves, not individual lattice points."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2404.03405",
+        "material_read": "Full-text introduction and Sections 2-3, including Theorem 1.1 and the stated results for complex spheres and parametrized curves.",
+        "method": "Read the primary arXiv full text and compared the exact zero-set domains and quantifiers.",
+        "title": "Curves in the Fourier zeros of polytopal regions and the Pompeiu problem",
+        "trigger": "A modern primary study of zero sets of Fourier-Laplace transforms of polytopes."
+      },
+      {
+        "assessment": "The accessible material concerns singularities in the form-factor formula and numerical handling; it does not state the integer-lattice zero classification. The uninspected full text remains a residual risk.",
+        "evidence": [
+          "The abstract describes a general polyhedron form factor and discusses singularities of its formula.",
+          "The public implementation distinguishes apparent denominator singularities from values of the underlying Fourier transform."
+        ],
+        "identifier_or_url": "DOI:10.1107/S160057672201130X",
+        "material_read": "Accessible abstract, issue metadata, and a related public tetrahedron form-factor implementation; the full article text was not accessible.",
+        "method": "Read the abstract and public implementation documentation; attempted the publisher full-text route but could not obtain the full text.",
+        "title": "Form factor of any polyhedron and its singularities derived from a projection method",
+        "trigger": "A highly relevant polyhedral form-factor paper discussing singularities of general formulas."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ea17425-c01f-47a6-acc2-58ee0b8ac5aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The integer-lattice zeros are exact blind frequencies for a canonical simplex sampling window. The result gives a complete infinite classification in dimension four and identifies the first repeated-node cancellation, rather than a finite numerical example or a routine normalization check. The exceptional arithmetic-progression pattern provides a structural warning against extrapolating the distinct-node criterion from lower-dimensional simplex transforms.",
+    "status": "PASS"
+  }
+}
