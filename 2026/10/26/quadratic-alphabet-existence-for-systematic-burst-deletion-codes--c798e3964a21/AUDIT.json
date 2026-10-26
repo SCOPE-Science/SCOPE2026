@@ -1,0 +1,133 @@
+{
+  "claim": "For every pair of integers \\(n,t\\ge1\\), there exists a literal-systematic code \\(E(x)=x\\Vert p(x)\\) from \\(\\mathcal A^n\\) to \\(\\mathcal A^{n+t+1}\\) that corrects every contiguous deletion burst of length at most \\(t\\), using \\(t+1\\) deletion-prone trailer symbols, whenever the alphabet size \\(q\\) is a power of two with \\(q>2(n+t+1)^2+1\\); the least such power of two satisfies \\(q<4(n+t+1)^2+2\\).",
+  "correctness": {
+    "rationale": "For each burst length \\(r\\), a fixed word has at most \\(B_r=M-r+1\\) descendants, and each descendant has at most \\(B_r q^r\\) length-\\(M\\) superwords. Thus \\(d \\le \\sum_{r=1}^{t}B_r(B_rq^r-1) < M^2 q^{t+1}/(q-1)\\). If \\(q>2M^2+1\\), then \\(q-1>2M^2\\) and \\(d<q^{t+1}/2\\). Haxell’s independent-transversal criterion applies to parts of size \\(q^{t+1}\\), producing one word per prefix with no shared burst descendant of any length from one through \\(t\\). Length-zero correction follows from distinct prefixes. The least power of two above \\(2M^2+1\\) is below \\(4M^2+2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.38259v1 gives a Haxell benchmark for arbitrary k-deletions using a bound on the full deletion shadow, and a uniform adjacent-burst construction with a quartic-order alphabet for t=2.",
+        "The published-finding corpus records 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea and 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c concern redundancy in bits for q-ary deletion codes, not this literal-prefix/full-symbol resource model."
+      ],
+      "reasoning": "The arbitrary-deletion result has a stronger channel guarantee but a degree bound that counts many noncontiguous deletion patterns, giving an alphabet exponent that grows with \\(t\\). It does not imply the same \\(O((n+t)^2)\\) alphabet bound. The new count uses at most \\(M-r+1\\) burst descendants for each \\(r\\) and sums the corresponding degrees for \\(r=1,\\ldots,t\\).",
+      "searches": [
+        "published-finding corpus query: Haxell independent transversal adjacent burst deletion code t consecutive deletions systematic alphabet quadratic bound",
+        "published-finding corpus query: Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets adjacent burst nonuniform Haxell benchmark",
+        "arXiv:2609.38259v1, Theorem 2.5 and conclusion",
+        "arXiv:2210.11818, Tables I-II and Sections IV-V"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.38259v1 — Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets",
+      "arXiv:2210.11818 — Non-binary Codes for Correcting a Burst of at Most t Deletions",
+      "DOI:10.1002/jgt.23085 — Degree criteria and stability for independent transversals",
+      "published-finding corpus records: 2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea, 2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c, 2026/10/4/SCOPE-exact-initial-profile-for-binary-one-0-deletion-or-adjacent-tran--da86d12c66bc, 2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea, 2026/10/4/SCOPE-exact-syndrome-sizes-for-ternary-parity-lifted-two-burst-coverin--c224daa8ff6c",
+      "MSC2020 classification table: 94B20 is the burst-correcting-codes class"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The generic benchmark in arXiv:2609.38259v1 uses \\(B(Bq^t-1)\\) with \\(B\\) counting arbitrary deletion descendants; for fixed \\(t\\), \\(B\\) can be \\(O(M^t)\\), which yields \\(q=O(M^{2t})\\) by that stated estimate.",
+        "For the burst-conflict graph here, \\(B_r=M-r+1\\) and the degree is bounded by \\(M^2\\sum_{r=1}^{t}q^r < M^2 q^{t+1}/(q-1)\\).",
+        "The independent-transversal criterion in DOI:10.1002/jgt.23085 states that a graph of maximum degree d has an independent transversal when every part has size at least 2d; the proof uses a strict inequality."
+      ],
+      "reasoning": "The result is a burst-specific application of a known independent-transversal theorem, not a new graph theorem. The prior coding paper does not state this degree sum or the resulting alphabet bound independent of t in the exponent. The exact claim therefore is not covered by the retrieved stronger-code result or by the closest database entries, though the application is a short consequence of the classical transversal criterion.",
+      "searches": [
+        "published-finding corpus query: Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets adjacent burst nonuniform Haxell benchmark",
+        "arXiv:2609.38259v1, Theorem 2.5; Sections 7-9 and 11",
+        "arXiv:2210.11818, Sections I-II and IV-V",
+        "DOI:10.1002/jgt.23085, Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.38259v1 defines literal-systematic encoders as an unchanged length-n prefix followed by a trailer, and models correction by disjoint deletion descendants.",
+        "arXiv:2210.11818 defines a burst as deletion of consecutive coordinates and treats all burst lengths up to t, but optimizes code size/bit redundancy rather than the same trailer-count/alphabet tradeoff."
+      ],
+      "reasoning": "The graph formulation is equivalent to zero-error burst correction: a shared descendant is exactly a conflict edge. No retrieved published-finding corpus record states the same literal-systematic, t+1-trailer, quadratic-alphabet existence claim.",
+      "searches": [
+        "published-finding corpus query: literal-systematic code corrects one adjacent burst of any length up to t using t+1 deletion-prone trailers alphabet size O((n+t)^2) via Haxell independent transversal",
+        "published-finding corpus query: Haxell independent transversal adjacent burst deletion code t consecutive deletions systematic alphabet quadratic bound",
+        "arXiv:2609.38259v1, Sections 2.4 and 7-9",
+        "arXiv:2210.11818, model and definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        {
+          "id": "2026/9/18/SCOPE-fixed-qary-deletion-codes-2t-minus-1--0b8ba422fcea",
+          "title": "Fixed-alphabet q-ary deletion codes attain the 2t-1 coefficient"
+        },
+        {
+          "id": "2026/9/19/SCOPE-qary-deletion-codes-leading-coefficient--51ca25167f9c",
+          "title": "The 2t-1 deletion-code redundancy coefficient extends to q-ary alphabets"
+        },
+        {
+          "id": "2026/10/4/SCOPE-exact-initial-profile-for-binary-one-0-deletion-or-adjacent-tran--da86d12c66bc",
+          "title": "Exact initial profile for binary one-0-deletion-or-adjacent-transposition codes"
+        },
+        {
+          "id": "2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea",
+          "title": "Exact binary (3,1)-burst code sizes through length 8"
+        },
+        {
+          "id": "2026/10/4/SCOPE-exact-syndrome-sizes-for-ternary-parity-lifted-two-burst-coverin--c224daa8ff6c",
+          "title": "Exact syndrome sizes for ternary parity-lifted two-burst covering codes"
+        }
+      ],
+      "reasoning": "These are the closest returned records, but they concern fixed-alphabet bit redundancy, small binary code-size profiles, or different burst channels. The bounded published-finding corpus searches returned no record stating a quadratic-alphabet literal-systematic code with t+1 exposed trailers for all burst lengths up to t.",
+      "searches": [
+        "published-finding corpus query: literal-systematic code corrects one adjacent burst of any length up to t using t+1 deletion-prone trailers alphabet size O((n+t)^2) via Haxell independent transversal",
+        "published-finding corpus query: Haxell independent transversal adjacent burst deletion code t consecutive deletions systematic alphabet quadratic bound",
+        "published-finding corpus query: Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets adjacent burst nonuniform Haxell benchmark"
+      ]
+    },
+    "rationale": "The retrieved recent coding paper gives a generic arbitrary-deletion Haxell bound and a uniform adjacent-burst construction, but not the quadratic-alphabet nonuniform bound for all burst lengths. The closest published-finding corpus entries optimize different metrics or different channels. The proof is a new parameter-specific degree estimate, not a claim of a new independent-transversal theorem.",
+    "residual_risks": [
+      "The independent-transversal theorem is existential; no pointwise efficient encoder or uniform family is obtained.",
+      "The result is a burst-specific corollary of a classical transversal theorem, and a related prior source already uses that theorem for arbitrary deletion codes; the new point is the smaller burst-specific degree bound.",
+      "The bounded published-finding corpus and literature searches may miss an equivalent literal-systematic alphabet-size result.",
+      "No optimality claim is made for t+1 trailer symbols when t>2, or for the quadratic alphabet bound."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides a generic Haxell existence benchmark for arbitrary deletions and a uniform quartic-order alphabet construction for adjacent bursts of length at most two. It does not state the quadratic-alphabet nonuniform bound for the union of burst lengths 1 through t.",
+        "evidence": "Theorem 2.5; Sections 7-9; conclusion and further directions, especially the separate uniformity and alphabet-size questions.",
+        "identifier_or_url": "arXiv:2609.38259v1",
+        "material_read": "Full text sections covering the model and Theorem 2.5, the adjacent-burst construction and converse, and the conclusion/open questions.",
+        "method": "Compared the exact code model, descendant counts, alphabet metric, uniformity requirements, and stated bounds.",
+        "title": "Systematic Codes Correcting Two Deletions with Three Redundant Symbols over Large Alphabets",
+        "trigger": "Closest recent source on literal-systematic deletion codes and the Haxell benchmark."
+      },
+      {
+        "assessment": "It explicitly discusses a systematic at-most-two-burst construction with redundancy log(q) log(n)+O(log(q)) and notes low-redundancy systematic non-binary burst coding as future work. It does not state a fixed t+1-trailer construction with a quadratic-size alphabet; that is a different full-symbol tradeoff.",
+        "evidence": "Abstract and Sections I-II, Section IV-D (systematic construction and its redundancy), and Section V (general t-burst construction).",
+        "identifier_or_url": "arXiv:2210.11818",
+        "material_read": "Abstract, introduction, definitions, Section IV-D systematic-construction discussion, and Section V general burst construction; not the entire article.",
+        "method": "Compared burst-length conventions, systematicity, code cardinality, bit redundancy, and trailer alphabet metric.",
+        "title": "Non-binary Codes for Correcting a Burst of at Most t Deletions",
+        "trigger": "Closest primary literature for general q-ary burst-deletion correction."
+      },
+      {
+        "assessment": "The stated criterion supports the existence step. The coding-specific conclusion follows only after the burst-conflict degree estimate.",
+        "evidence": "Theorem 1 states the independent-transversal condition for a partition whose parts are large relative to the maximum degree.",
+        "identifier_or_url": "DOI:10.1002/jgt.23085",
+        "material_read": "Abstract and stated Haxell maximum-degree criterion; full proof not inspected.",
+        "method": "Checked the degree/part-size hypothesis against the derived bound d < q^(t+1)/2.",
+        "title": "Degree criteria and stability for independent transversals",
+        "trigger": "Primary source for the graph theorem used in the proof."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c798e396-4a21-4d6f-b6db-91285be98fad",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The alphabet-size exponent drops from the generic arbitrary-deletion Haxell estimate \\(O(M^{2t})\\) to \\(O(M^2)\\) for the natural family of contiguous-burst channels, while retaining a literal unchanged prefix and \\(t+1\\) deletion-prone trailers. At \\(t=2\\) and \\(n\\ge3\\), three trailers match the known necessary count for the at-most-two-burst systematic model. The tradeoff is useful in the full-symbol metric, although it is nonuniform and does not improve fixed-alphabet bit redundancy.",
+    "status": "PASS"
+  }
+}
