@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The binary-digit parity recurrence proves the 4-letter coding. A 3-state weighted automaton counts exact greedy arches, which equal the fixed-binary-alphabet subsequence universality index by the earliest-embedding argument. All 12 transfer entries are proved by an explicit level-4 base and a one-level morphism induction (including incoming states and final-state behavior). A dyadic interval decomposition, at most two chunks per scale, gives the uniform logarithmic error for every position and length. The exact dyadic values follow from the a-block. Standalone verify.py independently confirms digit coding to length 32768, all transfer entries for 23 levels, direct target-subsequence enumeration on 266 short factors, and the bound on 22890 intervals. Computation is only a finite check; all unbounded quantifiers rest on the induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schnoebelen–Veron give algorithms for ι of arbitrary compressed words, not a uniform statement for an infinite automatic word.",
+        "The published finding Closed-form law for binary subsequence universality counts all binary words by index, not indices on factors of one substitution fixed point.",
+        "Barker et al. give linear-time arch computation for an input word, not a deterministic uniform-density formula."
+      ],
+      "reasoning": "General algorithms allow individual finite instances to be evaluated but do not themselves state the explicit density or the position-uniform factor bound. A distribution across all binary words does not imply a property of every factor of a specified automatic word.",
+      "searches": [
+        "subsequence universality binary words factor avoidance and regular languages",
+        "Rudin Shapiro infinite word scattered subsequence universality index greedy complete arches density 5/16 prefixes dyadic powers",
+        "published finding 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "arXiv:2304.11932"
+      ]
+    },
+    "checked_sources": [
+      "Barker–Fleischmann–Harwardt–Manea–Nowotka, arXiv:2003.04629, initial 2020-03-10",
+      "Meleshko–Ochem–Shallit–Shan, arXiv:2207.10171, initial 2022-07-20",
+      "Schnoebelen–Veron, arXiv:2304.11932, initial 2023-04-24",
+      "Published record 2026/9/8/SCOPE079, exact string-attractor counts for Rudin–Shapiro",
+      "Published record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+      "OEIS A020987, definition of binary Rudin–Shapiro sequence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Meleshko et al., Section 4.4, prove minimal four-pseudoperiodicity; existence of shifted equal symbols is different from the greedy availability of every scattered subsequence.",
+        "Barker et al., Proposition 10, identify the finite-word greedy computation but give no Rudin–Shapiro density.",
+        "Schnoebelen–Veron, Algorithm 5.7, compose signatures on arbitrary finite words; their statements do not provide the four-letter transfer identity or factor-uniform coefficient."
+      ],
+      "reasoning": "Pseudoperiodicity, string-attractor bounds, and whole-language counts do not imply an exact greedy-arch density. The closest general signature algorithm supplies a method for finite evaluation but requires the independent substitution-specific induction and dyadic tiling to deduce the present statement for all factors.",
+      "searches": [
+        "uniform factor density 5/16 Rudin-Shapiro greedy arch count bounded logarithmic discrepancy all factors",
+        "Rudin Shapiro infinite automatic word scattered subsequence full universality index locally uniform",
+        "arXiv:2207.10171",
+        "arXiv:2003.04629",
+        "arXiv:2304.11932"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barker et al. (2020), Section 4, use the same invariant under the name scattered-factor universality.",
+        "Schnoebelen and Veron (2023), Sections 3 and 5, use the equivalent arch-jumping/arch-factorization language.",
+        "In-document searches of those two full-text PDFs found no occurrence of Rudin, and the inspected theorems contain no sequence-specific 5/16 law."
+      ],
+      "reasoning": "The nomenclature is deliberately compared at the level of the same greedy arch count, not merely by titles. The proposed all-factor asymptotic and parity-dependent exact counts do not occur among the inspected equivalently formulated results.",
+      "searches": [
+        "Rudin Shapiro infinite automatic word scattered subsequence full universality index locally uniform",
+        "Rudin-Shapiro subsequence universality index density 5/16",
+        "Rudin-Shapiro arch factorization",
+        "arXiv:2003.04629",
+        "arXiv:2304.11932"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A020987 identifies the Rudin–Shapiro binary symbol sequence, not an entry establishing its greedy-arch prefix counts.",
+        "The published finding on Rudin–Shapiro and paperfolding string attractors tabulates attractor sizes, not the scattered-subsequence invariant.",
+        "No matching value table was identified by the cited searches."
+      ],
+      "reasoning": "An exact match to a sequence of numerical values would not alone decide ownership; the comparison checked whether tables or stronger results enumerate precisely this universality index. None of the retrieved table evidence did so, subject to unindexed-table risk.",
+      "searches": [
+        "site:oeis.org \"10, 19, 40, 79, 160\" Rudin Shapiro",
+        "\"4, 10, 19, 40, 79, 160\" \"OEIS\"",
+        "Rudin Shapiro 2^m prefix number of complete binary alphabet arches 5*2^(m-4) even odd correction",
+        "published finding 2026/9/8/SCOPE079"
+      ]
+    },
+    "rationale": "The primary 2020 universality paper gives the general arch method, the 2023 signatures paper gives compositional algorithms, and the 2022 Rudin–Shapiro pseudoperiodicity paper concerns another invariant. Their inspected theorem statements do not provide the explicit 5/16 density, the all-factor logarithmic discrepancy, or the exact dyadic arch counts. Searches of published mathematical findings and literature for the exact coefficient, prefix counts, alias terminology, and stronger automatic-word statements found adjacent results on string attractors or general binary-word distributions, not a statement implying the proposed theorem. Residual unindexed coverage is acknowledged.",
+    "residual_risks": [
+      "Unindexed or inaccessible pre-existing work may contain an equivalent density theorem.",
+      "Generic compositional-signature machinery might yield another proof, but no inspected published theorem directly asserts this numerical specialisation.",
+      "The order and leading constant of the error bound are not asserted optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_GENERAL_METHOD_NOT_THE_CLAIM",
+        "evidence": [
+          "Section 4, Proposition 10 computes the index by the number of greedy arches in linear time.",
+          "No Rudin-specific statement was found."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2003.04629",
+        "material_read": "Primary PDF introduction/definitions, Section 4 especially Proposition 10, algorithms and further theorem sections; full-document term search for Rudin",
+        "method": "Read relevant primary PDF text sections and their theorem statements, inspect first-page image and search across PDF",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Foundational equivalent definition and possible general theorem dominating the claim"
+      },
+      {
+        "assessment": "METHOD_RELATED_NOT_STATEMENT_COVERING",
+        "evidence": [
+          "Section 5 constructs and composes signatures for arbitrary finite words.",
+          "The text does not state all-factor Rudin–Shapiro density or exact dyadic formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2304.11932",
+        "material_read": "Primary PDF introduction, definitions, Section 5 on signatures and Algorithm 5.7, Section 6 outline; full-document term search for Rudin",
+        "method": "Read primary PDF text in relevant sections, inspect first-page image, and search all pages for Rudin",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "Compositional signatures could subsume a substitution computation"
+      },
+      {
+        "assessment": "SAME_SEQUENCE_DIFFERENT_INVARIANT",
+        "evidence": [
+          "Theorem 28 establishes four-pseudoperiodicity of the Rudin–Shapiro sequence.",
+          "No scattered-subsequence-universality claim occurs in the inspected relevant results."
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/9919/download",
+        "material_read": "Primary PDF introductory definitions, Sections 2 and 4.3–4.6, including Theorem 28 on Rudin–Shapiro and contrasting Tribonacci and paperfolding cases",
+        "method": "Read primary PDF theorem text, inspect first-page image and search named sequence sections",
+        "title": "Pseudoperiodic Words and a Question of Shevelev",
+        "trigger": "Specific primary study of the same Rudin–Shapiro sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "893531ec-9160-4385-8a44-2098abadf30c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-factor uniform statement is a new structural quantitative feature of a classical 2-automatic word and a standard deletion-robustness invariant, not a finite spot check. The exact 5/16 coefficient is calculated by a nontrivial weighted substitution transfer and is valid uniformly over all possible factor locations. The explicit parity correction at dyadic lengths strengthens the asymptotic assertion, and the all-factor bound provides usable quantitative guarantees for arbitrarily far-away factors. The question is motivated by the existing scattered-subsequence universality literature rather than by an ad hoc parameter slice.",
+    "status": "PASS"
+  }
+}
