@@ -1,0 +1,122 @@
+{
+  "claim": "For the explicit complete strict cyclic marriage market with three men and three women whose preferences are \\(m_1:w_1\\succ w_2\\succ w_3\\), \\(m_2:w_2\\succ w_3\\succ w_1\\), \\(m_3:w_3\\succ w_1\\succ w_2\\), \\(w_1:m_2\\succ m_3\\succ m_1\\), \\(w_2:m_3\\succ m_1\\succ m_2\\), and \\(w_3:m_1\\succ m_2\\succ m_3\\), the middle stable matching \\(\\mu_0=\\{(m_1,w_2),(m_2,w_3),(m_3,w_1)\\}\\) is unreachable by any history using only terminal agents but is reachable by a preference-preserving augmented history with exactly one temporary woman; hence the minimum number of temporary agents for this market-target pair is exactly one.",
+  "correctness": {
+    "rationale": "The no-agent lower bound follows by considering the first full-market occurrence of the middle stable matching: the six unique five-agent submarkets each force the last entrant to produce the men-optimal or women-optimal matching. The explicit preference-preserving one-temporary-woman chain reaches the middle matching, leaves the temporary woman unmatched, and then removes her with a zero-length continuation. The shipped checker verifies the finite preference profile, all six predecessor submarkets, and every event in the witness history.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang's Theorem 2 covers all finite marriage markets using a general larger augmentation; §6.3 explicitly says the construction does not minimize the number of historical agents.",
+        "The present result covers one explicit \\(3\\times3\\) market-target pair and proves the sharp minimum is 1, improving the generic construction's count for this instance."
+      ],
+      "reasoning": "The primary paper is broader in market coverage, but its general construction does not imply a one-agent bound for this particular obstruction. This result is narrower in domain and sharper in the quantitative invariant; it makes no general claim.",
+      "searches": [
+        "arXiv:2609.20176v1 Theorem 2 and §6.3",
+        "doi:10.1137/140996690 full text, §§1–3",
+        "published-finding corpus query: minimum number of temporary agents needed to reach a target stable matching via stable entry exit proposal-chain history; one auxiliary agent suffices or impossible"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.20176v1, full accessible HTML text, §§2–6",
+      "doi:10.1137/140996690, full 17-page PDF, especially pp. 2047–2053",
+      "doi:10.1007/BF01211824, abstract and bibliographic record; full text not obtained",
+      "published-finding corpus record 2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1",
+      "published-finding corpus record 2026/10/4/SCOPE-exact-proposal-law-for-three-by-three-gale-shapley-under-uniform--6adf82ec232d",
+      "published-finding corpus record 2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-stable--57631882a89b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang proves terminal-agent nonreachability and constructs a general augmentation but expressly leaves the minimum number of historical agents unresolved.",
+        "Cheng's cyclic profile is unreachable under the entry-only random-order mechanism; that mechanism does not permit the temporary agent to exit before the terminal date.",
+        "The attached exact checker verifies the six unique five-agent predecessor markets and the one-temporary-woman proposal chain for the stated preference lists."
+      ],
+      "reasoning": "The prior nonreachability result supplies the zero-agent lower bound, but not the one-agent upper bound. The explicit preference-preserving one-agent history supplies that upper bound, so the exact minimum for this market-target pair is 1. No implication for other markets is claimed.",
+      "searches": [
+        "arXiv:2609.20176v1 §§3–4, §6.3",
+        "doi:10.1137/140996690, pp. 2047–2053",
+        "doi:10.1007/BF01211824 abstract",
+        "published-finding corpus query: historical reachability stable marriage market temporary agents target-dependent augmentation minimum auxiliary agents; cyclic 3x3 middle stable matching"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang distinguishes terminal-agent histories from preference-preserving augmented histories and permits temporary agents to exit before termination.",
+        "Cheng's random-order mechanism adds terminal agents one by one and has no exits; its auxiliary agents in the NP-completeness construction remain in the final instance."
+      ],
+      "reasoning": "The entry-only and temporary-exit formulations are not equivalent. The witness depends on a temporary woman entering after the original market reaches the women-optimal stable matching, displacing along a proposal chain, and then exiting unmatched. Neither prior process allows that event class.",
+      "searches": [
+        "published-finding corpus query: minimum number of temporary agents needed to reach a target stable matching via stable entry exit proposal-chain history; one auxiliary agent suffices or impossible",
+        "published-finding corpus query: historical reachability stable marriage market temporary agents target-dependent augmentation minimum auxiliary agents; cyclic 3x3 middle stable matching",
+        "arXiv:2609.20176v1 §§2–4",
+        "doi:10.1137/140996690, pp. 2048–2052"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/10/4/SCOPE-full-symmetry-census-of-three-by-three-stable-marriage-profiles--58b281ed93c1 counts profile classes and stable-matching multiplicities, not historical reachability or temporary-agent minima.",
+        "Closest published-finding corpus record 2026/10/4/SCOPE-exact-proposal-law-for-three-by-three-gale-shapley-under-uniform--6adf82ec232d studies proposal-count distributions, not temporary-agent exits.",
+        "Closest published-finding corpus record 2026/10/4/SCOPE-sharp-coincidence-boundary-for-egalitarian-and-minimum-regret-stable--57631882a89b compares fairness objectives, not reachability histories."
+      ],
+      "reasoning": "No exact published-finding corpus record for a one-temporary-agent history or the minimum temporary-agent count was returned. The closest records concern different invariants. A failed semantic search is not a novelty proof; the main evidence is the statement-level comparison with the primary paper's explicit quantitative limitation and the entry-only prior literature.",
+      "searches": [
+        "published-finding corpus query: minimum number of temporary agents needed to reach a target stable matching via stable entry exit proposal-chain history; one auxiliary agent suffices or impossible",
+        "published-finding corpus query: historical reachability stable marriage market temporary agents target-dependent augmentation minimum auxiliary agents; cyclic 3x3 middle stable matching",
+        "published-finding corpus query: arXiv 2609.20176 Stable Matchings and Their Histories Historical Reachability under Population Shocks quantitative minimum temporary agents"
+      ]
+    },
+    "rationale": "The exact one-agent minimum is not asserted as a general theorem. The primary paper explicitly leaves temporary-agent minimization open; its general construction does not imply the one-agent witness. The older random-order literature restricts histories to entry-only procedures or keeps auxiliary agents in the terminal instance.",
+    "residual_risks": [
+      "The primary preprint page's displayed date string is 2026-07-24 while identifier prefix 2609 suggests a later month; the explicit displayed date is retained. Either interpretation is within the recent two-year window, but the exact day should be independently confirmed.",
+      "The full text of Ma (1996) was not accessible; Cheng (2016) provides a full-text account of the entry-only random-order mechanism and its relation to Ma's result.",
+      "Unindexed or unpublished work may exist; semantic database searches alone cannot establish novelty.",
+      "The exact minimum is only for the stated cyclic \\(3\\times3\\) market and target, not a general minimization theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes nonreachability with terminal agents and gives a general construction using a larger temporary population; §6.3 explicitly says that the number of temporary agents is not minimized. It does not state the one-temporary-woman construction or the exact minimum for this target.",
+        "evidence": [
+          "arXiv:2609.20176v1, §§3–4 and §6.3; the final section explicitly leaves sharper quantitative bounds for future work."
+        ],
+        "identifier_or_url": "arXiv:2609.20176v1",
+        "material_read": "Full accessible HTML text, especially §§2–6: definitions of terminal and augmented histories, Example 1, Theorem 1, Theorem 2, and §6.3.",
+        "method": "Compared the exact history definitions, the six-agent obstruction, the generic augmentation construction, and the stated limitations.",
+        "title": "Stable Matchings and Their Histories: Historical Reachability under Population Shocks",
+        "trigger": "Direct primary source for the cyclic \\(3\\times3\\) terminal-agent obstruction and the open quantitative question about temporary-agent counts."
+      },
+      {
+        "assessment": "The random-order mechanism is entry-only. The auxiliary agents in the complexity construction remain in the terminal instance; this does not imply that one temporary agent who exits can realize the middle matching.",
+        "evidence": [
+          "DOI 10.1137/140996690, pp. 2048–2052: entry-only ROM definition and the cyclic profile / auxiliary-agent gadget."
+        ],
+        "identifier_or_url": "doi:10.1137/140996690",
+        "material_read": "Full 17-page PDF, including the random-order mechanism definition, the cyclic \\(3\\times3\\) profile, and the auxiliary-agent NP-completeness construction (pp. 2047–2053).",
+        "method": "Compared allowed population events, terminal population, and the status of auxiliary agents.",
+        "title": "On the Stable Matchings That Can Be Reached When the Agents Go Marching in One By One",
+        "trigger": "Same cyclic \\(3\\times3\\) stable-marriage profile and possible equivalence with entry-only reachability."
+      },
+      {
+        "assessment": "The abstract establishes that some stable matchings are not generated by the random-order mechanism, but does not address temporary agents absent at termination. The inaccessible full text remains a residual risk, not evidence of novelty.",
+        "evidence": [
+          "DOI 10.1007/BF01211824 abstract; Cheng (2016), pp. 2048–2050."
+        ],
+        "identifier_or_url": "doi:10.1007/BF01211824",
+        "material_read": "Abstract and bibliographic record; the full text was not obtained. The mechanism's scope was also checked in Cheng (2016), pp. 2048–2050.",
+        "method": "Compared the stated mechanism and reachability scope against histories allowing temporary agents to exit before the terminal date.",
+        "title": "On randomized matching mechanisms",
+        "trigger": "Foundational nonreachability result for the random-order mechanism."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "859b8538-7aba-4f28-9cca-51cf63898490",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact minimum number of historical agents is a natural quantitative invariant explicitly left open by the primary paper. Reducing the canonical \\(3\\times3\\) obstruction from a general six-temporary-agent construction to a sharp one-agent minimum is a concrete, self-contained refinement useful for understanding how much unobserved history is needed. The claim is deliberately restricted to one market-target pair.",
+    "status": "PASS"
+  }
+}
