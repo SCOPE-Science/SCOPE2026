@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The four-state de Bruijn graph is reconstructed from all eight Rule-54 triples. Exhaustive multiplication closure yields precisely 109 Boolean relations (77 admitting a loop, 31 acyclic, one with cycles but no loop). The unique exceptional relation is R_1 and has sole incoming right-product edge I --1--> R_1, with no incoming edge to I, so only the length-one word 1 can realize it. A finite four-vertex directed graph has a directed cycle iff some cycle of length at most four exists, making these checks exhaustive. For n>=2 every periodic image word yields a loop and hence an n-periodic input; shift equivariance gives the converse. Fixed inputs both map to zero and the alternating input maps to all ones. The standard-library checker closes the full finite state spaces and separately corroborates ring lengths 1–12; no finite sample is mistaken for an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mariot et al., pp. 1–3 and Sections 3 and 6 (postprint), gives period-multiplier bounds and graph algorithm under surjectivity; Rule 54 has forbidden output 10101, hence is not onto the full shift.",
+        "Published record on Rule-54/Rule-18 phase filtration describes Rule 54 as an invariant stripe phase of a different dynamical model, rather than periodic predecessors under the Rule-54 map."
+      ],
+      "reasoning": "The general bound of at most four times target period, or a procedure for each fixed target in surjective models, does not imply the sharp uniform multiplier one for every period >=2 in a non-surjective image. Embedding Rule 54 into another model does not prove the stated lifting property.",
+      "searches": [
+        "periodic configurations cellular automata periodic preimages preimages same period surjective on periodic points finite alphabet",
+        "periodic preimages rule 54 de Bruijn relation monoid 109 finite states",
+        "Computing the periods of preimages in surjective cellular automata"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1410.3096, manuscript sections 2–5",
+      "doi:10.1007/s11047-016-9586-x, postprint §§1,3,6",
+      "https://mathworld.wolfram.com/Rule54.html (basic rule context)",
+      "Public mathematical result on a distinct Rule-54 embedded phase (published 2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The evaluated property is F(P_n)=F({0,1}^Z)∩P_n for every n>=2 and a unique failure at n=1.",
+        "The 2017 general preimage-period work establishes methods and bounds, but Rule 54 violates its surjectivity premise.",
+        "The 2014 subset automaton recognizes all finite words but does not retain the vertex-to-vertex Boolean relation matrix needed to infer periodic antecedent loops."
+      ],
+      "reasoning": "An implication from the published claims would need to show that every periodic word of length >=2 with a cycle in its four-state relation also has a diagonal edge. This special finite-monoid property does not follow merely from surjectivity arguments or the published subset-language table. The new certificate proves it by exhaustive closure. Earlier specialized unpublished calculations remain possible.",
+      "searches": [
+        "Rule 54 all period n output configurations same n periodic preimage except constant one n=1",
+        "periodic preimages rule 54 de Bruijn relation monoid 109 finite states",
+        "rule 54 preimage tree in degree cyclic configurations image Garden Eden"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Martínez–Adamatzky–McIntosh (arxiv:1410.3096), Sections 3.4 and 4, gives a labelled subset recognizer and studies specific ring attractors; no global equality F(P_n)=Y∩P_n for every n>=2 is stated.",
+        "Mariot–Leporati–Dennunzio–Formenti (doi:10.1007/s11047-016-9586-x) studies graph periods of preimages primarily for surjective CA, not the non-surjective Rule 54 specialization."
+      ],
+      "reasoning": "Looked for equivalent uniform cyclic-preimage surjectivity, fixed-point-only failure, non-surjective relative periodic lifting, and Boolean relation-monoid formulations. None of the two materially read primary papers gives this all-period classification. The shared de Bruijn language is an acknowledged method, not an equivalent evaluated statement.",
+      "searches": [
+        "Rule 54 all period n output configurations same n periodic preimage except constant one n=1",
+        "Rule 54 cyclic preimage lifting period exact obstruction twofold 2 period",
+        "Rule 54 cellular automaton periodic preimages cyclic words Garden of Eden"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Martínez et al. Table 4 gives a concrete subset-diagram transition table (2014 manuscript, pp. 275–277) for finite output-word recognition, and Section 3.4.1 discusses sample Garden-of-Eden configurations.",
+        "No period-complete Boolean relation product table or equivalent list of cyclic-image lifting exceptions was located in the inspected manuscript; the new exact finite computation uses an additional 109-matrix right-multiplication monoid, not just the subset recognizer."
+      ],
+      "reasoning": "The source is substantial prior exact coverage of output-word feasibility, so no novelty is claimed for the underlying four-state de Bruijn graph or generic recognizability. Its subset-transition data discard source-target correlations that determine existence of same-period antecedent cycles; they do not themselves tabulate or explicitly state the all-n periodic lifting theorem.",
+      "searches": [
+        "Rule 54 one-step image shift exactly minimal forbidden blocks 01101 10101 10110 10111101 entropy",
+        "Complete Characterization of Structure of Rule 54",
+        "rule 54 cellular automaton subshift forbidden words 01101 10101 10110 10111101"
+      ]
+    },
+    "rationale": "The uniform sharp cyclic-lifting classification for the non-surjective Rule 54 is not identical to the 2014 subset-word recognition tables or the 2017 surjective-CA preimage-period algorithm. New proof identifies the unique two-cycle-only element of the 109-element Boolean relation monoid, an implication not supplied by the inspected primary statements. Search is evidence of best-knowledge originality, not universal priority proof.",
+    "residual_risks": [
+      "An early finite automaton table or unindexed catalogue could have evaluated the exact periodic-lift profile without being retrieved.",
+      "Generic Boolean relation algorithms already exist; only the evaluated Rule-54 uniform periodic-lift theorem is asserted as new, not the technique.",
+      "Independent priority validation remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The previously developed subset diagram and examples support prior image-language methods. No unrestricted same-period preimage-lifting classification for Rule 54 appears in the inspected material.",
+        "evidence": [
+          "arxiv:1410.3096, Section 3.4.1 and Table 4, and Section 4 on specific ring attractors"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.3096",
+        "material_read": "Accessible full manuscript text, including Sections 2–4, de Bruijn and subset diagrams/Table 4, Garden-of-Eden discussion, cycle diagrams, and later glider sections.",
+        "method": "Read the complete accessible manuscript text in the HTML transcript; inspected exact substantive sections and searched for preimage/entropy/surjectivity terminology.",
+        "title": "Complete Characterization of Structure of Rule 54",
+        "trigger": "Same elementary cellular automaton and plausible global graph or periodic claims."
+      },
+      {
+        "assessment": "Establishes general methodology and multiplier bounds with a surjectivity hypothesis and detailed specialized linear/bipermutive cases. No Rule-54 all-period specialization is present.",
+        "evidence": [
+          "doi:10.1007/s11047-016-9586-x, abstract; introduction; §§3,6"
+        ],
+        "identifier_or_url": "https://lucamariot.org/files/papers/mldf_naco_2017_postprint.pdf",
+        "material_read": "Author postprint opening definitions and results, Section 3 on the preimage-period graph algorithm, and Section 6 conclusions and scope; PDF pages 1–11 and 22–23 selectively inspected, with page images checked.",
+        "method": "Read searchable primary manuscript text and visual PDF pages, and searched full text for Rule 54 and surjectivity limitations.",
+        "title": "Computing the Periods of Preimages in Surjective Cellular Automata",
+        "trigger": "Strongest general literature comparison for periods of spatially periodic preimages."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "81544982-d7d1-4999-b3a8-89ff8c755357",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Spatial periodic-point lifting is an intrinsic dynamical invariant for an important non-surjective classical CA. This is an exact global statement for every spatial period >=2, sharply isolating the sole fixed-point obstruction and specifying its minimal doubling remedy. It distinguishes relative surjectivity on image periodic points from full-shift surjectivity and from generic period-multiplier bounds; the result is more than an arbitrary finite-catalogue entry, despite using an exhaustive finite algebraic proof.",
+    "status": "PASS"
+  }
+}
