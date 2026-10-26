@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Under positive k,u,T1,T2 with T1 != T2 the positive-definite OU drift has eigenvalues k,k+2u, so unique stationary Gaussian covariance C solves AC+CA=2diag(T1,T2). Its diagonal difference is (T2-T1)/(k+u), and symmetric matrix exponential gives the exact antisymmetric lag covariance. Exponential differentiation yields its unique positive-lag peak; integration gives J. In x=2u/k the area h=x/((x+1)(x+2)) has derivative (2-x²)/((x+1)²(x+2)²), while the peak logarithmic derivative has sign F(x)=(x+2)log(1+x)-x² with F(0)=0, F_prime(0)=2, F_second=x/(1+x)²-2<0 and F -> -infinity. Hence each has exactly one positive global maximum, at sqrt(2) and unique x_*>2, respectively. Packaged actual verify.py validates the Lyapunov, propagator, transformations, derivatives and 113 deterministic checks. Analytic concavity, not finite sampling, proves uniqueness. Equal-temperature degeneracy and non-Gaussian exclusions explicitly stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Crisanti et al. full text https://arxiv.org/pdf/1202.0508, equations (10), (11), (18), supplies generic OU stationary/two-time covariances: fully subsumes the covariance reconstruction, but not an explicit claim of these maxima.",
+        "Dotsenko et al. https://arxiv.org/pdf/2302.07716, equation (44), gives mean circulation u(T2-T1)/(k+u), whose magnitude increases with coupling; not a delayed maximum.",
+        "Earlier Dotsenko et al. https://arxiv.org/abs/2208.12768, section 3.1, equations (23)–(25), already studies a nonmonotone integrated **spatial current curl**, a mathematically different function of u.",
+        "Ohga–Ito–Kolchinsky https://arxiv.org/pdf/2303.13116, main theorem addresses thermodynamic bounds on asymmetry rather than peak/area coupling optimization of this linear Gaussian model."
+      ],
+      "reasoning": "General OU matrix covariance formulas imply the intermediate unoptimized lag kernel; such formulas do not by themselves state, classify, or compare the two global spring-coupling optimization problems. The explicit scalar maximization is elementary after reduction, so priority risk remains that it was done in a different Brownian-gyrator context. Spatial integrated curls, angular momentum, and temporal position cross-correlation have different definitions and are not interchangeable.",
+      "searches": [
+        "Crisanti Puglisi Villamaina two coupled temperatures Ornstein Uhlenbeck position cross-correlations maximization integrated lag signed covariance",
+        "two optically trapped particles thermal nonequilibrium time-lag cross covariance antisymmetry maximum at 1.111627 trap stiffness",
+        "Crisanti Puglisi Villamaina coupled Langevin cross correlations time lag matrix exponent",
+        "Dotsenko Imparato Viot Oshanin 2302.07716 two interacting optically-trapped particles steady state time-lag asymmetry spring coupling"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.07716, sections 2-5 and appendix (full text)",
+      "arXiv:2208.12768, model and section 3 stationary-current/curl calculations (full text)",
+      "arXiv:1202.0508, section 2 and appendices (full text)",
+      "arXiv:2303.13116, main thermodynamic-bound result and assumptions (full text)",
+      "Bérut et al., arXiv:1408.5319, optical-tweezer experiment and cross-correlation discussion (open PDF)",
+      "Gnesotto et al., 2020, Brownian movies nonequilibrium dynamics (open article)",
+      "Thermodynamic asymmetries in dual-temperature Brownian dynamics (2020; abstract only)",
+      "Published mathematical record 2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95",
+      "Published mathematical record 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4",
+      "Published mathematical record 2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Equation (18) of Crisanti–Puglisi–Villamaina https://arxiv.org/pdf/1202.0508 yields exp(-At)C; combining with the present drift matrix gives Delta_u(t) directly. This aspect is explicitly excluded from the original contribution.",
+        "Dotsenko–Imparato–Viot–Oshanin https://arxiv.org/pdf/2302.07716, equation (44) is the known u/(k+u) circulation factor; comparison with nonmonotone P and J is only a contrast, not an independent novelty claim.",
+        "Dotsenko et al. https://arxiv.org/abs/2208.12768, equation (25), spatially integrated absolute curl is not equal to integral over time of lag-asymmetric position covariance.",
+        "Ohga et al. https://arxiv.org/pdf/2303.13116, general entropy/asymmetry bounds do not give sharp peak/area optimizers for this parameterized OU process."
+      ],
+      "reasoning": "The final asserted mathematical advance is the joint optimization statement, including uniqueness and strict ordering, not the solvability of the model or delayed propagator. The older equations can be used to derive the new statement by additional nontrivial but short analytic optimization; no inspected stronger statement entails its two exact optima without performing that analysis. This is a qualified best-knowledge originality judgment, not independent proof of priority.",
+      "searches": [
+        "Brownian gyrator time delayed antisymmetric correlation unique optimal spring coupling for two thermal baths",
+        "Crisanti Puglisi Villamaina two coupled temperatures Ornstein Uhlenbeck position cross-correlations maximization integrated lag signed covariance",
+        "(x+2)log(1+x)=x^2 Brownian two temperatures cross covariance peak optimal coupling",
+        "two temperature coupled optical tweezers time-lag antisymmetric cross covariance integral optimal u/k sqrt 2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dotsenko et al., https://arxiv.org/pdf/2302.07716, sections 2–5 and Appendix A: stationary currents and mean angular momenta are evaluated, including equation (44); no temporal-covariance two-objective optimum in these sections.",
+        "Crisanti et al., https://arxiv.org/pdf/1202.0508, section 2.1 and equation (18): time-lag covariance propagates as exp(-At) Sigma; this DOES already entail unoptimized two-time covariance as a substitution.",
+        "Relevant publicly indexed record 2026/10/11/SCOPE-exact-physical-time-correlations-in-a-quadratic-reset-hybrid-osc--be0909ad6a95 concerns a quadratic-reset hybrid oscillator, not a two-temperature coupled OU system."
+      ],
+      "reasoning": "Equivalently the temporal antisymmetry is the antisymmetric part of the stationary matrix exp(-At)C, or a time-antisymmetric Onsager correlation. The general propagator and known circulation are not original; the single claim is optimization over physical coupling of (a) the supremum over all positive lags and (b) the absolute integral over positive lags, with distinct unique ratios. Neither is asserted in the inspected source treatments. A title/term mismatch alone is not evidence of novelty.",
+      "searches": [
+        "(x+2)log(1+x)=x^2 Brownian two temperatures cross covariance peak optimal coupling",
+        "arxiv 2302.07716 delayed covariance anti-symmetry unique maximum coupling 1.111627470",
+        "Brownian gyrator time delayed antisymmetric correlation unique optimal spring coupling for two thermal baths",
+        "Brownian gyrator antisymmetric time correlations two time C12(t)-C21(t) optima"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted record searches returned no entry stating the specific equation (x+2) log(1+x)=x² together with x_area=sqrt(2). Record 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4 optimizes a slow-mode random sensor in a high-dimensional OU system; its observable and parameters differ.",
+        "Record 2026/10/4/SCOPE-sampling-lag-reversal-of-inertial-autocorrelation-near-a-saddle--d60d72986906 concerns sampling lag for inertial autocorrelation in saddle-node dynamics, not optimizing inter-particle coupling in unequal-temperature OU.",
+        "Primary source https://arxiv.org/pdf/2302.07716, equations (44)–(49), reports circulation and angular-velocity optimizations but no table of the proposed time-asymmetry extrema."
+      ],
+      "reasoning": "Neither the queried index results nor inspected relevant primary-paper tables contain the evaluated sharp ratios. A search miss is not a global novelty certificate, and possible unpublished or differently indexed calculations remain an explicit residual risk.",
+      "searches": [
+        "(x+2)log(1+x)=x^2 Brownian two temperatures cross covariance peak optimal coupling",
+        "two temperature coupled optical tweezers time-lag antisymmetric cross covariance integral optimal u/k sqrt 2",
+        "arxiv 2302.07716 delayed covariance anti-symmetry unique maximum coupling 1.111627470",
+        "Brownian gyrator temporal irreversibility peak cross correlation maximum versus spring stiffness sqrt2 logarithmic x=2.22325",
+        "two temperature coupled optical tweezers time lag antisymmetry exact u=k/sqrt2 table"
+      ]
+    },
+    "rationale": "Qualified priority assessment only: the general two-time OU propagator of Crisanti et al. (2012) already yields the unoptimized kernel, and Dotsenko et al. (2022,2023) already calculate stationary circulation, spatially integrated curl and angular velocity. None of the inspected primary results or targeted indexed searches gives both exact distinct extrema of the peak and temporal-area cross-covariance antisymmetry. The final claim is expressly only their joint sharp optimization and strict separation, not the old model, propagator or circulation. An implicit earlier optimization in the wider gyrator literature remains a real risk.",
+    "residual_risks": [
+      "The general 2012 OU correlation formula makes this a relatively short calculus optimization; this novelty assessment concerns the two exact optimized observables and their contrast, not the kernel formula.",
+      "An equivalent peak/area optimization may have appeared in a broader or differently named Brownian-gyrator experiment or review; absence from indexed results does not show uniqueness.",
+      "The 2020 dual-temperature asymmetry paper had only an abstract materially read; no whole-document NOT_COVERING inference was made.",
+      "Independent scholarly priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model, stationary density, and circulation are established prior work. Neither the two-time covariance asymmetry as an optimized signal nor the two distinct unique coupling maxima are given in inspected results.",
+        "evidence": "arXiv first public v1 2023-02-15; section 2 Hamiltonian (2), SDE (4); section 5 equation (44) angular momentum, equations (46)–(49) angular velocities.",
+        "identifier_or_url": "arXiv:2302.07716; https://arxiv.org/pdf/2302.07716",
+        "material_read": "Full open-access text, model section 2, steady-state section 3, current/spinning sections 4 and 5 including equations (40)–(49), and appendix of the arXiv v1 PDF.",
+        "method": "Opened manuscript and examined its definitions, derived formulas, physical limitations and appendix; independently compared the stationary drift/circulation against the proposed claim.",
+        "title": "Out-of-equilibrium dynamics of two interacting optically-trapped particles",
+        "trigger": "Exact motivating model: two positive-temperature thermostats, harmonic inter-particle coupling and displaced traps."
+      },
+      {
+        "assessment": "Explicit nonmonotone integrated spatial current curls are previously established, not claimed. Does not establish the peak-lag or integrated-lag cross-position covariance coupling optimum.",
+        "evidence": "Equations (23)–(25) are spatial absolute curl; figures 4–6 and sections 3.1–3.2 discuss stationary current patterns, distinct from lagged position covariances.",
+        "identifier_or_url": "arXiv:2208.12768; https://arxiv.org/abs/2208.12768",
+        "material_read": "Open full-text model/sections 2 and 3, especially subsection 3.1 on nonmonotonic integrated curl, subsection 3.2 on correlations of steady currents, multi-particle section and conclusion.",
+        "method": "Read accessible primary full text and compared definitions of integrated spatial-current curl with integrated temporal covariance asymmetry.",
+        "title": "Cooperative dynamics in two-component out-of-equilibrium systems: Molecular spinning tops",
+        "trigger": "Closely related earlier same-author two-temperature harmonic model and possibly stronger u-dependent optimization."
+      },
+      {
+        "assessment": "Its generic two-time covariance formula directly covers the unoptimized lag covariance specialization; no two spring-coupling optimum values or comparison of peak and lag area in inspected material.",
+        "evidence": "Equation (18) gives C(t)=exp(-At)Sigma; equations (10)–(11) stationary Lyapunov covariance.",
+        "identifier_or_url": "arXiv:1202.0508; https://arxiv.org/pdf/1202.0508",
+        "material_read": "Full primary open-access PDF: section 2.1 model and stationary covariance, section 2.2 correlations and linear response; remaining related sections and appendices surveyed for lag optimization.",
+        "method": "Inspected actual arXiv PDF pages, equations (10), (11), (16)–(18), and related materials, checking the mathematical implication.",
+        "title": "Non-equilibrium and information: the role of cross-correlations",
+        "trigger": "Two-temperature coupled OU with general covariance and lag propagator could dominate the claimed statement."
+      },
+      {
+        "assessment": "General bounds do not supply this parameter-specific exact two-objective maximization; may motivate temporal asymmetry measurement.",
+        "evidence": "Title, main statement and finite-state Markov bound setup in arXiv:2303.13116.",
+        "identifier_or_url": "arXiv:2303.13116; https://arxiv.org/pdf/2303.13116",
+        "material_read": "Open-access main text, model assumptions, stated thermodynamic inequality and examples; inspected introductory and central-result pages.",
+        "method": "Read primary PDF and compared whether its observable is an exact sharp coupling parameter optimum or a thermodynamic bound.",
+        "title": "Thermodynamic Bound on the Asymmetry of Cross-Correlations",
+        "trigger": "Strong mathematical coverage of cross-correlation antisymmetry might dominate any new bound or extremum."
+      },
+      {
+        "assessment": "No reliable full-document no-coverage conclusion; unresolved low-to-moderate priority risk because its asymmetry observable might overlap indirectly.",
+        "evidence": "Article title and abstract describe fluctuation-theorem asymmetries, not expressly the two universal optimum coupling ratios.",
+        "identifier_or_url": "2020 article, accessible abstract https://doi.org/10.1088/1742-5468/abc4e4",
+        "material_read": "Bibliographic abstract and citations; not full text.",
+        "method": "Read available abstract and checked an open-source search before treating as a priority caveat.",
+        "title": "Thermodynamic asymmetries in dual-temperature Brownian dynamics",
+        "trigger": "Same general Brownian-gyrator setting, possibility of unreported exact temporal optimization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b79eb483-2ba5-46ba-83bc-d72b136678f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Broken-detailed-balance temporal cross-covariance asymmetry is a natural measured nonequilibrium signature in dual-temperature optically coupled colloids. Maximizing the highest single-lag asymmetry and maximizing accumulated lag-asymmetry are two different, experimentally meaningful design objectives. The exact universal optimum ratios 1.11162747005 k and 0.707106781187 k are strictly separated independent of bath temperatures; both decrease for sufficiently strong coupling even though the known instantaneous circulation continues growing. This yields a complete qualitative parameter-design dichotomy, not just a renamed table entry. It makes no unsupported claims on finite sample variance or nonlinear apparatus, and the narrow physical object is directly motivated by published correlation/thermal literature.",
+    "status": "PASS"
+  }
+}
