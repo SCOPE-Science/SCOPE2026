@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Two-sided Brownian stochastic integral conditioned on the marked Poisson history yields a finite-all-moment stationary solution. Strict contraction gives synchronous L2 coupling and uniqueness. The modulus reflected-diffusion generator involves only absolute multiplier marks. Conditional stationary Gaussian variance involves only mark squares. The conditional nth-moment leading coefficient is the exact compound-Poisson product expectation exp(-r(1-E[Q^n])t). Its rates converge to r by uniform contraction, and compact moment determinacy plus a Vandermonde argument establish infinite/finite inverse uniqueness. Generator identities yield exact signed/squared covariance rates and three-observable deterministic-factor inversion. 211 exact checker assertions reproduce the algebra; stochastic and infinite claims are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benth and Lavagnini 2021 give a general linear combination of matrix exponentials for polynomial jump-diffusion correlators, providing an established route to parts of the polynomial-moment calculations.",
+        "Tal-Friedman et al. 2022 Eq. (1) restricts the multiplier to 0<=a<=1, and Eq. (5) gives the stationary Fourier product for that case."
+      ],
+      "reasoning": "General correlator machinery includes the moment-generator ingredient and is cited as such. It does not, in the inspected descriptions, establish complete pathwise blindness to reset signs, reconstruction of an arbitrary signed multiplier distribution from the full relaxation hierarchy, or the finite-atom/three-observable identification theorems for this model.",
+      "searches": [
+        "polynomial jump diffusion identifiability jump distribution transition moments leading coefficients parameter recovery",
+        "Correlators of Polynomial Processes Benth Lavagnini DOI:10.1137/21M141556X",
+        "\"Diffusion with Partial Resetting\" arxiv:2205.03363 Sections II-V"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2305.13722",
+      "arxiv:2104.14866",
+      "arxiv:2205.03363",
+      "arxiv:2204.07215",
+      "doi:10.1137/21M141556X"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2023 positive-contraction propagator and stationary PDF: the fixed factor is restricted to (0,1), and no signed-factor inverse theorem is stated.",
+        "2021 sign-bearing random-amplitude protocol is additive rather than state-proportional; its proportional-factor protocol excludes negative multipliers.",
+        "2022 Pierce and Tal-Friedman established moment recursion and stationary densities for nonnegative proportional factors.",
+        "Generic polynomial-process cross-moment formulas provide a computational superframework, but their cited result is a representation formula, not the claimed identifiability/observational equivalence classification."
+      ],
+      "reasoning": "The exact-positive-factor stationary distribution and generic polynomial generator method are prior work. The claimed conjunction concerns an entire magnitude trajectory quotient and unique signed-law reconstruction with unknown reset parameters. Applying a known matrix-exponential formula computes ingredients but does not, without the specific identifiability and path-law arguments, logically settle the new observation-equivalence theorem. A later specialized result may still imply all or part; this is the main originality risk.",
+      "searches": [
+        "\"Time-dependent probability density function for partial resetting dynamics\" arxiv:2305.13722",
+        "\"Stochastic resetting by a random amplitude\" arxiv:2104.14866",
+        "\"An advection-diffusion process with proportional resetting\" arxiv:2204.07215",
+        "\"Diffusion with Partial Resetting\" arxiv:2205.03363",
+        "\"Correlators of Polynomial Processes\" DOI:10.1137/21M141556X"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Di Bello et al. 2023 use a constant factor 0<c<1 and give the fixed-positive-factor stationary Fourier product; their rendered document contains no stated autocorrelation/two-time signed identification result.",
+        "Dahlenburg et al. 2021 Section III uses independent additive (often negative) resets; Section IV uses dependent multipliers c_n in [0,1)."
+      ],
+      "reasoning": "The positive-factor stationary product is not claimed as new. Signed random state-dependent factors have a nontrivial indistinguishable magnitude-path quotient and a sign-sensitive time-correlation/inverse hierarchy; neither equivalent statement was located in these relevant primary texts.",
+      "searches": [
+        "\"partial resetting\" \"negative\" \"autocorrelation\" \"Brownian\"",
+        "\"stochastic resetting by a random amplitude\" sign autocorrelation two time",
+        "partial resetting Brownian diffusion c between zero and one 2023 Di Bello Chechkin stationary time dependent density correlation",
+        "arxiv:2305.13722 Section 3.1 Eq. (27), arxiv:2104.14866 Sections III-IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant retrieved record with superficially similar information loss concerns paired autocovariances of reversible discrete chains (public record 2026/10/4, exact-information-loss-of-paired-autocovariances...), not Brownian state-dependent signed contraction resets.",
+        "No exact table for the signed multiplier inverse hierarchy or fixed-factor three-observable inversion was located."
+      ],
+      "reasoning": "A stationary table of positive-factor densities would not encode sign-sensitive conditional moment relaxation. Searches are not proof of uniqueness; residual specialized-table risk remains.",
+      "searches": [
+        "signed proportional resetting Brownian motion x maps to negative contraction factor; same invariant distribution but different covariance relaxation rates and even observable equivalence",
+        "stationary Brownian absolute value process insensitive to reset reflection sign, correlation identifies signed contraction",
+        "stochastic multiplicative resetting moments temporal correlation exponent odd even Brownian"
+      ]
+    },
+    "rationale": "Existing positive-factor partial-reset papers and the related fixed signed-factor stationary Fourier product determine stationary laws and basic moments; generic polynomial-process papers cover correlation calculations. The inspected literature and accessible own claim history do not cover the conjunction of signed-random-factor complete modulus-path indistinguishability and the full-law/finite-atomic/two-correlation inverse theorem. The fixed-sign stationary marginal equivalence is explicitly treated as background and not as the original contribution. Priority risk remains for broader inverse-problem literature.",
+    "residual_risks": [
+      "Generic polynomial jump-diffusion correlation and identification literature may provide an equivalent parameter-inverse result not identified in this review.",
+      "The SIAM full paper was not confirmed readable, so only its abstract was assessed; it plausibly covers correlator ingredients.",
+      "The positive-factor stationary Fourier product applies unchanged to negative fixed factors after squaring; that consequence is not claimed novel on its own.",
+      "No literature search can certify priority; independent review remains necessary.",
+      "A previous mathematical analysis of signed deterministic multiplicative resetting establishes rare stationary displacement laws depending on the square of the factor; the current claim is limited to new temporal/path-level observational equivalence and reconstruction, not that marginal formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Positive fixed multiplier propagator and stationary laws are known; signed random multipliers and trajectory-level magnitude blindness plus inverse decay-rate recovery not stated.",
+        "evidence": [
+          "Initial posted 2023-05-23. Section 2 stipulates 0<c<1. Section 3.1 Eq. (27) is the known Fourier stationary product."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.13722",
+        "material_read": "Full rendered article text: Sections 1-5, Eq. (2), Section 3.1 Eqs. (26)-(30), conclusions and searches for negative, autocorrelation, two-time",
+        "method": "Open-access HTML full-text reading and within-document term searches",
+        "title": "Time-dependent probability density function for partial resetting dynamics",
+        "trigger": "Direct motivating model with the same Brownian partial-reset mechanism"
+      },
+      {
+        "assessment": "Negative random shifts are additive independent jumps. Random state-proportional multipliers in its dependent protocol are restricted to [0,1). Its results do not state the signed-multiplier magnitude-path quotient or full inverse hierarchy.",
+        "evidence": [
+          "Section III Eq. (10) uses additive negative z_n. Section IV Eq. (52) uses multiplier c_n in [0,1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.14866",
+        "material_read": "Rendered complete article sections on independent vs dependent jumps, definitions Eqs. (10), (52)-(55), and conclusions",
+        "method": "Open-access HTML full-text reading and in-document searches of dependent, negative, multiplicative",
+        "title": "Stochastic resetting by a random amplitude",
+        "trigger": "Closest random-amplitude resetting work and potential signed jumps"
+      },
+      {
+        "assessment": "Fixed multiplier is 0<=a<=1; stationary Laplace decomposition is acknowledged. No signed-factor observational equivalence or inverse decay-spectrum identified.",
+        "evidence": [
+          "Section II Eq. (1) stipulates 0<=a<=1. Eqs. (5)-(8) identify known stationary characteristic product and Laplace-sum representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+        "material_read": "Full rendered text, especially Introduction, Section II Eqs. (1)-(8), sections on time evolution and conclusions, searched autocorrelation and covariance",
+        "method": "Open-access HTML reading of full sections and exact term searches",
+        "title": "Diffusion with Partial Resetting",
+        "trigger": "Exact stationary Brownian proportional reset and temporal propagator"
+      },
+      {
+        "assessment": "Positive-multiplier moments and density covered, not claimed; signed multipliers and inverse observational completeness not stated.",
+        "evidence": [
+          "Section I restricts resetting proportion to 0<epsilon<1, section II develops jump diffusion and moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.07215",
+        "material_read": "Rendered text Sections I-III, model Eq. (1), range restriction and discussion",
+        "method": "Open-access HTML article inspection",
+        "title": "An advection-diffusion process with proportional resetting",
+        "trigger": "Exact moments of proportional reset diffusion might subsume simple generator identities"
+      },
+      {
+        "assessment": "General multitime correlator representation is prior, plausibly implying the simple covariance algebra; cannot establish full-text non-coverage and is a stated residual risk.",
+        "evidence": [
+          "SIAM Journal on Financial Mathematics abstract states correlators for one-dimensional polynomial jump diffusions via generator-matrix exponentials."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/21M141556X",
+        "material_read": "Accessible abstract/description; no publisher full text confirmed accessible",
+        "method": "Publisher abstract and supporting bibliographic search",
+        "title": "Correlators of Polynomial Processes",
+        "trigger": "Potential broader correlation formula for this polynomial jump diffusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6dfc6932-c2a0-4c6f-a8f1-286c91731455",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A physical partial-reset particle can undergo backtracking either with or without a sign reversal. Entire stationary magnitude trajectories and stationary signed histograms cannot resolve that distinction, giving a sharp experimental identifiability obstruction. Exact sign-sensitive conditional moment rates overcome the obstruction; unknown r and D are jointly recovered, at most m multiplier atoms require only 2m-1 rates when r is known, and a deterministic factor requires just two covariance decays and one variance. This is a motivated distinguishability classification rather than a small numeric gain or stationary-density recomputation; finite-sample performance is not claimed.",
+    "status": "PASS"
+  }
+}
