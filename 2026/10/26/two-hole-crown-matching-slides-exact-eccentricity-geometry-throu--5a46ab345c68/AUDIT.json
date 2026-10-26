@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The explicit deficiency-two matching-to-derangement map and two possible swaps are bijective and exhaust the legal moves; resulting all-order degree, edge and sign formulas are algebraically reconstructed. The S_n conjugacy action has orbit parameters (k,lambda) and exactly the stated orbit sizes, so one BFS per orbit is an exhaustive proof of finite metric data. Two independent checkers enumerated all size-(n-1) crown matchings for 3 <= n <= 8, in distinct partial-injection versus derangement representations, checked reciprocal transitions, reached every state from each orbit representative, and produced byte-for-byte identical detailed distance outputs. There is no unproved infinite diameter claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonsma-Kamiński-Wrochna, 2014, Lemma 8 and Corollary 3: nonmaximum independent sets in connected claw-free graphs are reachable by token slides; this already covers connectivity for line graphs of crowns.",
+        "Bousquet-Hatanaka-Ito-Mühlenthaler, arxiv:1812.05419, Theorem 18 and Appendix D: connectedness of size-k matching graphs for k below matching number, stated for token jumping; no exact crown slide diameter.",
+        "Avis-Hoang, arxiv:2203.16861, Appendix Table 3 and discussion: generic connected claw-free case and polynomial upper bound, no crown family metric table."
+      ],
+      "reasoning": "The broad literature dominates generic reachability and some polynomial bounds, which are therefore excluded from novelty. No inspected theorem gives the exact radius, parity-split eccentricity, pair distances or finite diameter values stated here.",
+      "searches": [
+        "published-finding corpus: Near-perfect crown matching reconfiguration marked derangement two distinguished endpoint slides orbit distance sphere decomposition n 3 through 8",
+        "Web: \"near-perfect matching\" \"diameter\" \"token sliding\"; \"matching reconfiguration\" \"token sliding\" \"claw-free\" diameter; \"crown graph\" \"token sliding\" matchings diameter",
+        "Primary full text: arxiv:1403.0359v1 Sections 1-7, especially Lemma 8 and Theorem 16; arxiv:1812.05419 Section 4 and Appendix D; arxiv:2203.16861 Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1403.0359v1",
+      "arxiv:1812.05419",
+      "arxiv:2203.16861",
+      "OEIS:A000166",
+      "OEIS:A144085",
+      "published-finding corpus similarity search, three initial queries and three alias/coverage follow-ups"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier complete-graph result concerns almost-perfect matchings in odd K_{2m+1}, with only one free vertex and no forbidden diagonal bipartite edges. Its distance formula uses alternating cycle counts; this is not the same graph or move system.",
+        "An earlier derangement-switch result allows swaps at any two positions. The present crown encoding restricts the swapped positions to 0 or its current inverse image of 0, so the earlier graph is strictly larger, e.g. at six symbols 1260 versus 840 edges.",
+        "General claw-free connectivity for nonmaximum independent sets is already known, so its application here is explicitly not new."
+      ],
+      "reasoning": "The available statements give either a different underlying graph or a supergraph with more moves. Graph distance in a supergraph is a lower bound, not an equality certificate, for this restricted subgraph. None implies the exact order-eight center, radius or 11-step antipodal count.",
+      "searches": [
+        "published-finding corpus: Exact distance enumerator for one-edge flips of almost-perfect matchings in odd complete graphs and the crown graph token sliding near-perfect matchings",
+        "published-finding corpus: Inverse antipodes at the first eccentricity split of the derangement switch graph fixed point free permutations exchanging images",
+        "Own accessible combinatorics historical ledger: claims with IDs d5410ea0-a4d8-4c40-bf8f-d6a43ca0d1d6 and d3f5bb36-3925-447d-a8ad-ac2cad26c371"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct bijection: matching with one free vertex per side corresponds to a derangement on n+1 points with distinguished 0; slides are only transpositions involving 0 or its preimage, so this is a strict spanning subgraph of the graph allowing arbitrary valid transpositions.",
+        "For n=5 the target graph has 265 states and 840 edges; the broader all-position derangement-swap graph on six symbols has 265 states and 1260 edges. Identical state counts alone do not imply identical distances."
+      ],
+      "reasoning": "The derangement relabeling is handled as a genuine equivalence, not hidden behind distinct terminology. Generic full-swap metrics and other matching-exchange operations cannot supply the exact restricted-slide distance census without an additional, unlocated equivalence theorem.",
+      "searches": [
+        "published-finding corpus: Near-perfect matchings of crown graph K_{n,n} with diagonal removed reconfigured by sliding one matched edge along an endpoint into a free row or column; graph is a bipartite subgraph of derangements on n+1 points, vertex count subfactorial, vertex degrees 2n-4 or 2n-2, distances and diameter n+floor(n/2)-1 for small n.",
+        "published-finding corpus: Token-sliding matching reconfiguration on bipartite crown graphs and permutations derangements, exact diameter, connectivity, exchange distance near-perfect rook placements.",
+        "Web: \"crown graph\" \"matching reconfiguration\" \"token\"; \"derangements\" \"near-perfect matchings\" \"crown graph\"; \"matching reconfiguration\" \"token sliding\" \"diameter\" complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000166 lists the classical derangement numbers 9,44,265,1854,14833,133496 (indices four through nine); its crown comment concerns maximum matchings, and does not tabulate matching-slide shortest paths.",
+        "OEIS A144085 enumerates all partial derangements/matchings on a crown, not the size n-1 slide graph distance distribution.",
+        "No exact matching-slide distance spectrum was encountered in the inspected databases and full texts."
+      ],
+      "reasoning": "The matching cardinalities, state counts, and partial-derangement enumerations are not new; the orbital shortest-path census and parity-controlled centrality are distinct measurements absent from the inspected tables. Failure to locate a table is not proof one does not exist.",
+      "searches": [
+        "OEIS A000166 subfactorials derangements; OEIS A144085 partial derangements and matchings on crown graph",
+        "Web: \"crown graph\" \"n-1\" \"derangements\" matchings; \"crown graph\" \"partial derangements\" matchings",
+        "Web: \"crown graph\" \"token sliding\" matchings diameter; \"near perfect matching\" \"reconfiguration graph\" crown"
+      ]
+    },
+    "rationale": "The claimed novelty is the exact finite token-slide metric through eight crown sizes, including the parity-dependent eccentricity split and the 133,496-state, 2,593,920-antipodal-pair order-eight census. Generic connectivity, all-order derangement enumeration and signed imbalance are explicitly credited and not treated as sufficient novelty. Source comparisons inspected the most relevant primary sections; no covering theorem was found, but possible unindexed exact tables are a material residual risk.",
+    "residual_risks": [
+      "An unindexed published or archived computation could give an identical finite crown matching-slide distance table, or a stronger general result could imply the table.",
+      "The finite data establish no diameter or centrality law for n >= 9; continuing the observed parity pattern is conjectural.",
+      "Model conventions in other reconfiguration papers vary between token jumping and token sliding and require care when comparing implications."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers connectivity as a corollary, not the precise family metric or eccentricity classification",
+        "evidence": [
+          "2014 submission date verified from arXiv:1403.0359v1",
+          "Lemma 8 for nonmaximum independent sets, Corollary 3 for sliding/jumping reachability, Theorem 16 and Section 7 polynomial component diameter bound",
+          "No crown-specific distance computation in inspected sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1403.0359v1",
+        "material_read": "Full mathematical main sections 1-7, especially definitions, Lemma 8, Theorem 16, discussion; term crown checked",
+        "method": "Open-access HTML primary-text inspection",
+        "title": "Reconfiguring Independent Sets in Claw-Free Graphs",
+        "trigger": "Primary matching/line-graph token-sliding reachability result potentially covering the family"
+      },
+      {
+        "assessment": "Primarily unrestricted token jumping, generic algorithms and hardness. Does not tabulate crown token-slide distances. Covers connectivity when k is below maximum.",
+        "evidence": [
+          "Lines defining token jumping as default model and separately distinguishing token sliding",
+          "Theorem 18 for graph connectivity; Appendix D for k less than maximum matching size",
+          "No occurrence of crown in searchable full text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.05419",
+        "material_read": "Full text rendered in arXiv view; introduction and model, Section 4 exact distance/diameter and Appendix D Theorem 18 proof inspected",
+        "method": "Open-access HTML-rendered arXiv primary text with section/term inspection",
+        "title": "Shortest Reconfiguration of Matchings",
+        "trigger": "General shortest paths for matchings, exact-diameter complexity and potential dominance"
+      },
+      {
+        "assessment": "States generic connected claw-free case with polynomial upper bound; no exact crown matchings metric",
+        "evidence": [
+          "Appendix Table 3 claw-free connectedness and polynomial diameter estimate",
+          "No occurrence of crown in searchable full text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.16861",
+        "material_read": "Introduction and Appendix 0.A table and explanatory text on claw-free graph connectivity/diameters",
+        "method": "Open-access HTML-rendered arXiv primary text with section/term inspection",
+        "title": "On Reconfiguration Graphs of Independent Sets under Token Sliding",
+        "trigger": "Broad structural claims for token-slide reconfiguration graphs"
+      },
+      {
+        "assessment": "Classical derangement numbers and partial matchings are known; no exact slide-graph metric table in these entries",
+        "evidence": [
+          "A000166 terms through !9=133496",
+          "A144085 identifies partial derangements with crown matchings"
+        ],
+        "identifier_or_url": "https://oeis.org/A000166 ; https://oeis.org/A144085",
+        "material_read": "Sequence entries, interpretations, comments and references",
+        "method": "Database entries inspected as count/equivalence evidence",
+        "title": "OEIS A000166 / A144085",
+        "trigger": "Exact database/table coverage of underlying state counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a46ab34-5c68-4565-be00-ecc727530d9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact radius, diameter, eccentricity partition and full all-pairs distances are natural reachability invariants of matching slides on standard crown graphs. The finite census has 133,496 vertices, 15 symmetry orbits and 2,593,920 antipodal unordered pairs at n=8, going materially beyond counting or generic connectivity. The parity-controlled centrality split from n=3 through n=8 is structural, constrains hypotheses for larger n, and supplies a reproducible benchmark. The all-order count and elementary sign obstruction are contextual, not the sole significance justification.",
+    "status": "PASS"
+  }
+}
