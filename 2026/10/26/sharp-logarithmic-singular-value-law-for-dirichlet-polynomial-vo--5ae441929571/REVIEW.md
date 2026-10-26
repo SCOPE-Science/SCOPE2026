@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The coefficient formula follows from elementary integration; the factorization into a compact diagonal operator and a finitely supported multiplier gives compactness and a rank-truncation upper singular bound. The sharp lower bound uses unit polynomials nearly attaining the torus multiplier norm, infinitely many pairwise orthogonal coprime prime-fibers at positive density, and the compact Hilbert-space min-max formula. The final logarithmic limit follows with every parameter fixed before the frequency cutoff grows. The factorial power bound follows from the exact multiplicative support growth. Finite tests verify local identities only.
+
+**Originality (PASS, historical qualification).** Brevig–Perfekt–Seip (arXiv:1602.04729, Section 7.1) prove polynomial-symbol compactness and non-Schatten membership, but their relevant full-text treatment does not specify the sharp universal coefficient of \(s_N\log N\). Tong–Wang–Yuan (arXiv:2610.21873v1) analyze other Dirichlet-series Banach function spaces and do not give this singular sequence. Bommier-Hato (2020) treats weighted Bergman-Dirichlet spaces and Schatten questions without the corresponding sharp unweighted logarithmic asymptotic. The nearest previously recorded monomial Volterra **commutator** result concerns a different composite operator with cubic logarithmic decay. Searches did not locate a covering result, but abstract slowly varying diagonal-times-multiplier theorems remain a possible priority risk.
+
+**Value (PASS).** The earlier non-Schatten statement gives no exact singular-scale coefficient. The result identifies the full first-order rate \(s_N\sim C_g/\log N\) for every nonconstant finite symbol and detects simultaneous frequency interference through the torus supremum, not only coefficient sizes. It is a natural quantitative refinement of the compactness/Schatten dichotomy on a classical Dirichlet coefficient Hilbert space. No claim is made of a new general compactness or non-Schatten theorem.
+
+**Limitations.** Finite symbols only; no uniformity in symbol degree or coefficients, no higher-order asymptotics, and no independent historical-priority certification. The fully read primary sources are listed in the associated result and structured review.
+
+Self-review: passed. Independent audit: not yet performed.
