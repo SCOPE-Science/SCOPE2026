@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The base-clique lower bound is proved by splitting each length-(n-2) prefix into its m final-coordinate cliques. A nonempty clique has >=r=m-k selected; if one is empty, every distinct adjacent clique has >=r+1 selected because its forced linking endpoint already sees an omitted outside neighbor. Hence its block contains at least (m-1)(r+1)=mr+k-1>=mr vertices; all cases n>=2, including boundary m=2 and k=1, are covered. The n=1 complete-graph case is independent. For the upper bound, an inversion-symmetric r-subset of Z/m selects exactly r vertices per clique and is constant across each possible linking edge. Therefore it dominates and has exactly k outside neighbors per selected vertex. The equality-case property for k>=2 follows from the strictly positive extra block cost. The standalone checker independently reconstructs coordinate adjacency and verifies 31 construction cases, 263568 enumerated candidate masks and 1225 cost identities. This is a complete all-parameter symbolic proof; the finite experiments are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Božović arXiv:2610.01584v1 Theorem 10: k=1, arbitrary m; Theorem 11: m=3, k in {1,2}; Conjecture 12: full range.",
+        "Closest indexed exact k-limited domination result: complete multipartite graphs, a non-containing host class for general S(n,m).",
+        "Tepeh arXiv:2606.22428 accessible abstract concerns Cartesian products and provides no Sierpiński specialization."
+      ],
+      "reasoning": "Previous proven Sierpiński formulas cover strict parameter slices of the new theorem. The graph-product and multipartite statements do not dominate the full Sierpiński family; no implication from their hypotheses to this theorem was identified.",
+      "searches": [
+        "Sierpiński graphs k-limited domination exact formula gamma_k^L(S(n,m))=(m-k)m^{n-1} any k 1<=k<=m-1, conjecture Bozović",
+        "Sierpinski graphs domination number k limited Bozovic conjecture general m k",
+        "\"Sierpiński\" \"k-limited\" domination conjecture \"m-k\" 2026",
+        "Sierpinski graphs k-limited domination general n m k formula Bozovic conjecture",
+        "arxiv:2606.22428",
+        "published-finding corpus 2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.01584",
+      "https://arxiv.org/abs/2610.01584",
+      "https://arxiv.org/abs/2606.22422",
+      "https://arxiv.org/abs/2606.22428",
+      "https://arxiv.org/abs/2610.01796",
+      "published-finding corpus published research index, targeted 25- and 300-result searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 10 only fixes k=1; Theorem 11 fixes the m=3 family; Conjecture 12 has precisely n>=1, m>=2, 1<=k<=m-1 as quantified.",
+        "For m>=4 and 2<=k<=m-1 the previous Sierpiński theorems give no exact value, whereas the new grouped-clique lower bound and symmetric-residue upper bound give equality."
+      ],
+      "reasoning": "The value was conjectured but not proved in the cited primary text; its reported special theorems do not logically imply the general assertion. The additional optimum-clique occupancy restriction (n>=2,k>=2) is likewise not a corollary of those numerical special cases.",
+      "searches": [
+        "Sierpiński graphs k-limited domination exact formula gamma_k^L(S(n,m))=(m-k)m^{n-1} any k 1<=k<=m-1, conjecture Bozović",
+        "\"Sierpiński\" \"k-limited\" domination conjecture \"m-k\" 2026",
+        "arxiv:2610.01584v1 Section 5 Theorems 10 and 11 and Section 6 Conjecture 12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.01584v1 Section 2 defines the graph and k-limited property; Section 6 Conjecture 12 uses exactly the same invariant and quantifiers.",
+        "arXiv:2606.22422 abstract reports equivalence to (1,t)-domination for regular graphs; classical S(n,m) with n>=2 has both degree m-1 and degree m, so regular-graph reductions do not cover it."
+      ],
+      "reasoning": "The precise equivalent formulation is bounded outside degree in a dominating set. Regular-graph (1,t)-domination can coincide only under a regularity hypothesis not met in the new general range; a generalized Sierpiński graph and Cartesian powers are different families. The modular-residue construction is a proof method, not a different statement.",
+      "searches": [
+        "Conjecture 12 general k limited domination Sierpinski graphs modular residue symmetric last coordinates construction",
+        "S(n,m) Sierpiński k-limited domination modulo symmetric residues clique blocks",
+        "\"Sierpiński graphs\" \"defensive\" \"domination\" \"(1\"",
+        "\"Sierpiński\" \"(1,t)\" \"dominating set\"",
+        "arxiv:2606.22422"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary arXiv:2610.01584v1 states the full formula as Conjecture 12 rather than a determined table or theorem.",
+        "Best 300 semantic indexed records include an exact complete-multipartite formula, but no Sierpiński k-limited record."
+      ],
+      "reasoning": "Neither matching exact database rows nor an external table establishing this whole range surfaced. Failure to retrieve one does not prove that no such table exists.",
+      "searches": [
+        "Sierpiński S(n,m) all k limited domination number exact result 2026",
+        "\"gamma_k\" \"S(n,m)\" \"m-k\" domination",
+        "Sierpiński graphs k-limited domination exact formula gamma_k^L(S(n,m))=(m-k)m^{n-1} any k 1<=k<=m-1, conjecture Bozović",
+        "published-finding corpus semantic search limit=300 on Sierpinski graphs domination number k limited Bozovic conjecture general m k"
+      ]
+    },
+    "rationale": "The publicly accessible main primary text (arXiv:2610.01584v1) labels the exact full-parameter formula as Conjecture 12 and establishes only k=1 for arbitrary m and k=1,2 when m=3. The new result supplies a proof for all m>=2, 1<=k<=m-1, and a minimum-set rigidity corollary for k>=2. Semantic comparisons with the available published research records, related public records, and public literature found no stronger or equivalent theorem. The closest published-finding corpus hit treats complete multipartite rather than classical Sierpiński graphs. Search absence is not a uniqueness certificate, and accessible-abstract-only sources leave residual priority risk.",
+    "residual_risks": [
+      "Search/ranking and unavailable full texts could conceal earlier equivalent results under alternate terminology.",
+      "The two related June 2026 preprints were not inspected in full, although the full directly relevant October preprint was.",
+      "No independent external mathematical audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorems 10 and 11 establish the two special ranges, while Conjecture 12 explicitly proposes the full formula; no supplied proof covers all m,k.",
+        "evidence": [
+          "arxiv:2610.01584v1, Sections 2,5,6",
+          "https://arxiv.org/abs/2610.01584 submitted 2026-10-01"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01584",
+        "material_read": "Public primary HTML full text accessed; graph definition in Section 2, all of Section 5 (including proofs), Conjecture 12 in Section 6, and references inspected in detail.",
+        "method": "Lawful arXiv HTML full text read and cross-compared at mathematical-statement level.",
+        "title": "On k-limited domination: complexity and Sierpiński graphs",
+        "trigger": "Identical graph family and exact public Conjecture 12"
+      },
+      {
+        "assessment": "General bounds, regular-graph equivalence, and standard families are stated in the abstract; no Sierpiński theorem established from the accessible material.",
+        "evidence": [
+          "arxiv:2606.22422 accessible abstract",
+          "https://arxiv.org/abs/2606.22422"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22422",
+        "material_read": "Public abstract and bibliographic material; full article not obtained through attempted HTML route.",
+        "method": "Public arXiv abstract/author bibliographic record; HTML full-text attempt returned unavailable.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Original introduction and global comparisons for same invariant"
+      },
+      {
+        "assessment": "Visible description covers Cartesian products, not the recursive classical Sierpiński graphs; possible uninspected results remain a modest priority risk.",
+        "evidence": [
+          "arxiv:2606.22428 accessible abstract",
+          "https://arxiv.org/abs/2606.22428"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.22428",
+        "material_read": "Public abstract and bibliographic material; full article not obtained through attempted HTML route.",
+        "method": "Public arXiv abstract/author bibliographic record; HTML full-text attempt returned unavailable.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Potentially broader exact k-limited graph-family result"
+      },
+      {
+        "assessment": "Exact result for complete multipartite graphs does not include the general recursive classical Sierpiński family.",
+        "evidence": [
+          "Published published-finding corpus record ID 2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-k-limited-domination-of-complete-multipartite-graphs--1c4ae0b1465b",
+        "material_read": "Published title, record ID, and mathematical summary returned by the index; not full paper.",
+        "method": "published-finding corpus semantic index title/summary comparison, checked host-class implications.",
+        "title": "Exact k-limited domination of complete multipartite graphs",
+        "trigger": "Closest semantic research-record hit for k-limited domination"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5b98fe55-9ced-48b0-8c4f-c82ce8d7c0ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem resolves the exact, prominently stated Conjecture 12 in a recent primary graph-theory paper over the entire unbounded n,m,k range, beyond its proven k=1 and m=3 slices. The two-level clique charging lemma is a nontrivial needed extremal mechanism, and the inversion-symmetric residue construction works uniformly across all dimensions; an equality-case rigidity property follows. The mathematical value is the completion of a live natural family invariant, not finite benchmarking or a merely renamed result.",
+    "status": "PASS"
+  }
+}
