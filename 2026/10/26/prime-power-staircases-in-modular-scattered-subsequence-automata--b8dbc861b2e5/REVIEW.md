@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** A full all-primes, all-pattern-lengths, all-residues proof is supplied. Lucas congruences give the exact periodic state invariant; a directly constructed word reaches every state; a prime-power cyclic subgroup argument eliminates nonzero support translations; finite-field affine-hyperplane equality separates all reachable states. The code reproduces the upper-state rule, performs distinct partition minimization, and compares 85,995 words against direct embeddings. The finite tests are supporting evidence rather than an infinite certificate.
+
+**Originality — PASS, with residual literature risk.** The nearest primary paper, Renard–Rigo–Whiteland (arXiv:2402.05838, Section 6.2, Figure 4), supplies general permutation recognizability and the already-known \(01\) modulo-two four-state example, but no \(r\ge2\) formula. Their companion arXiv:2402.05657 supplies \(q\)-Parikh connections, not the state staircase. Searches for modular subsequence state complexity, equivalent names, Lucas periods, and relevant published records found no claim encompassing \(p^{2+\lfloor\log_p r\rfloor}\) for all \(r\ge2\). The prior special case is explicitly excluded as a contribution. Residual risk: unindexed or terminologically different finite-group and automata results might imply the formula.
+
+**Mathematical value — PASS.** The classification gives an exact minimal-state invariant of a natural prime-modular subword-counting language across every prime and every repeated-zero exponent. The prime-power plateaux reveal an abrupt digital complexity threshold and replace a naive exponential-size subsequence-counter construction by a sharp linear-in-\(r\) size for fixed \(p\). Its minimality rests on a nontrivial structure theorem for cyclic shifts of the Lucas-support indicator, not on a parameter substitution or enumeration alone.
+
+The theorem does not address general patterns, composite moduli, or syntactic group order. One narrow published case and a general existence theorem are already known; neither is presented as new. The primary manuscript's Section 6.2 and Figure 4 were examined, alongside the companion manuscript and relevant slides. No human or independent review is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

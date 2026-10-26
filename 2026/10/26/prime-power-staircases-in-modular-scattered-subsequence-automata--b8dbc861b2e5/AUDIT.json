@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Lucas periodicity supplies the pq-state DFA. Every (a,t) is reached by 0^r 1^t 0^(N-r). Lucas support has no nonzero cyclic translation stabilizer, since r belongs to its support but r-p^(d-1) does not. Affine suffix-incidence hyperplanes force equal n-residue and count-residue for equivalent states. The standalone verifier independently minimized 44 automata for all acceptance residues and directly checked 85,995 binary inputs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2402.05838 Theorem 6.3 establishes p-group language characterization; Section 6.2 Figure 4 explicitly depicts p=2,01 minimal four-state DFA",
+        "arXiv:2402.05657 Theorem 2.1 describes q-Parikh matrix coefficients and its remaining sections study recurrences and minors"
+      ],
+      "reasoning": "Recognition by a finite p-group and characterization by binomial residue constraints are broader object-level statements, not stronger state-complexity results. They provide no all-prime, all-r>=2 minimal-state formula or separating lower bound. This classification supplies that missing exact invariant.",
+      "searches": [
+        "Web: \"scattered subword\" count modular \"minimal DFA\"",
+        "arXiv:2402.05838 Section 6.2 Theorems 6.2 and 6.3, final examples",
+        "arXiv:2402.05657 Sections 1-2, 4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2402.05838",
+      "https://arxiv.org/abs/2402.05657",
+      "https://orbi.uliege.be/bitstream/2268/322138/1/Journ%C3%A9es_Montoises_2024__Nice_.pdf",
+      "published-finding corpus indexed search, six exact queries above",
+      "Related comparator claims 983ea373 and f6aae7c8, which concern nonmodular languages"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source proves general prime-group membership and an example (p,r)=(2,1); it leaves higher repeated-zero patterns out of the examples",
+        "New proof computes exact Lucas digit period and uses a trivial support stabilizer to force pairwise distinguishability"
+      ],
+      "reasoning": "A general p-group recognizability theorem and an example at r=1 do not imply the claimed sharp state count for r>=2. That inference needs two separate uniform lemmas absent from the inspected prior statements. The new claim is not a corollary merely by changing parameters.",
+      "searches": [
+        "arXiv:2402.05838 Theorem 6.2 group order exponent; Section 6.2 Figure 4 minimal DFA",
+        "arXiv:2402.05657 Introduction and q-Parikh results",
+        "published-finding corpus: For prime p and r>=2 binary language of words with number of occurrences of scattered subsequence 0^r1 congruent to zero modulo p minimal DFA has p^(floor(log_p r)+2) states. Lucas theorem cyclic support stabilization."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2402.05838 Section 6.2, definition of L_{v,r,p} and Figure 4; direct matching pattern 01 only",
+        "Lucas f(n)=binom(n,r) mod p is q-periodic; no exact state-count identity for r>=2 observed in inspected sources"
+      ],
+      "reasoning": "Prime-modular scattering/subword binomials and p-group languages are equivalent terminology for the present language. The broad equivalences certify regularity, not the p^(d+1) minimal count. The four-state p=2,r=1 example is already known and excluded as a new instance.",
+      "searches": [
+        "published-finding corpus: For prime p and r>=2 binary language of words with number of occurrences of scattered subsequence 0^r1 congruent to zero modulo p minimal DFA has p^(floor(log_p r)+2) states. Lucas theorem cyclic support stabilization.",
+        "published-finding corpus: modular scattered subsequence pattern 0^r1 modulo prime p minimal deterministic automaton p-adic Lucas binomial coefficient period",
+        "Web: \"binomial coefficients of words\" \"modulo\" \"regular\" languages"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026/10/4/SCOPE-unconditional-polynomial-sparsity-of-m-unambiguous-words--68116579b62c (Parikh-matrix fibers rather than modular DFA states)",
+        "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e (contiguous compositions, not scattered modular counts)",
+        "2026/9/18/SCOPE-qeacom-membership-pspace-neutral-letter--97ba5069cc3b (commutative language complexity rather than exact modular-pattern DFA states)",
+        "2026/10/4/SCOPE-exact-shortest-reset-letter-marginals-for-the-six-state-five-let--55d4de687fe9 (automaton reset counting, different object)",
+        "Comparator claim 983ea373 concerns a NON-modular count-01 automaton; comparator claim f6aae7c8 concerns an upward-closed subsequence containment language and its syntactic monoid",
+        "arXiv:2402.05838 Figure 4 gives only the r=1,p=2 four-state minimal automaton"
+      ],
+      "reasoning": "No indexed exact-table hit equates the r>=2 prime-modular language with a stronger previously tabulated automaton; the identified comparator claims measure different statistics. The source Figure 4 is an exact small case and is acknowledged rather than claimed new.",
+      "searches": [
+        "published-finding corpus: state complexity prime group languages defined by binomial coefficients of words 0^r1 modulo p and exact minimal automaton number of states",
+        "published-finding corpus: q-deformed binomial coefficients words Eilenberg 2024 Renard Rigo Whiteland minimal automaton r repeated zeros followed one 0^r1",
+        "Available local ledger claim search: modular; modulo; binomial; scattered; p.group; syntactic; automaton",
+        "Web: \"a^k b\" \"modulo\" \"minimal\" subsequence state complexity"
+      ]
+    },
+    "rationale": "The closest 2024 source proves general p-group recognition and gives exactly the r=1,p=2 four-state case; it does not state or imply the uniform exact minimum for r>=2 without the new Lucas-support and hyperplane arguments. Searches across indexed results and inspected full primary text found no stronger formula, subject to unindexed-literature risk.",
+    "residual_risks": [
+      "Unindexed older results on finite p-groups and modular scattered-subsequence recognition might explicitly compute the same minimal states under different names.",
+      "Unindexed research claims could exist beyond the currently accessible scientific evidence.",
+      "The 2024 manuscript has an already-known four-state (r=1,p=2) special case, excluded from the newly claimed range."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS exact small case r=1,p=2 and p-group recognizability, NOT the r>=2 all-prime minimum-state count",
+        "evidence": [
+          "Section 6.2 Figure 4 gives minimal 4-state L_{01,r,2}",
+          "Theorem 6.3 gives language class characterization, not p^(d+1) formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05838",
+        "material_read": "Introduction, definitions, Section 6.2 through Theorems 6.2 and 6.3, Figure 4 discussion, conclusions; source text and searched pattern 001 and 0^r",
+        "method": "Accessible arXiv full-text extraction and statement/implication comparison",
+        "title": "Introducing q-deformed binomial coefficients of words",
+        "trigger": "Exact modular subword languages and p-group automata; decisive plausible full-text overlap"
+      },
+      {
+        "assessment": "Provides q-deformed matrices and recurrence/minor properties, not exact DFA complexity of modular 0^r1",
+        "evidence": [
+          "Section 1 contribution inventory and Theorem 2.1 concern q-Parikh matrices",
+          "No modular automaton-state theorem identified in examined paper"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2402.05657",
+        "material_read": "Introduction, statements and explanations of Theorem 2.1, Sections 2-3, end-of-paper results and relevant search hits",
+        "method": "Accessible arXiv full-text extraction and sections comparison",
+        "title": "q-Parikh Matrices and q-deformed binomial coefficients of words",
+        "trigger": "Same binomial-of-words quantities, matrix reformulations that might dominate the claim"
+      },
+      {
+        "assessment": "Covers general residue languages and 01 examples, not a repeated-zero r>=2 all-parameter formula",
+        "evidence": [
+          "Page 28 Eilenberg language form; page 48 group property; page 49 characterization; page 50 exact example for different pattern"
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/322138/1/Journ%C3%A9es_Montoises_2024__Nice_.pdf",
+        "material_read": "Slides on classical p-group language characterization and q-group quotient (pages 28,44,48-50), including visual checks of pages 28,44,48,49,50",
+        "method": "PDF extracted text, located theorem statements, and visual page screenshots",
+        "title": "q-deformed binomial coefficients of words (presentation)",
+        "trigger": "Standalone contemporary review of p-group recognition and explicit automaton examples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b8dbc861-b2e5-44b4-9e63-4d0863edf0c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural exact Myhill–Nerode state invariant for all prime residue detectors of the first nontrivial repeated-letter subword patterns. The prime-power staircase and linear-in-r state compression are structural, not a finite-table increment. Every state is proved necessary by a support-rigidity plus hyperplane argument, giving a reusable method for modular subsequence languages.",
+    "status": "PASS"
+  }
+}
