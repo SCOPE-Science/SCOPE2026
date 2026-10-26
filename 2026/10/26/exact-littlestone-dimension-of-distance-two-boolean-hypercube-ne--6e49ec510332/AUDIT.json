@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For exact-distance-two concepts on the binary cube, translation changes any positive root branch into the weight-two vectors, which are the edges of K_d. A query of support size 0/2/4 induces respectively all edges/a two-vertex cut/the six edges of an induced K_4; other weights induce no positive edges. Within a K_{2,m} cut, only tests with one fixed hub and one outside vertex can have a positive branch large enough for rank four. Such a branch is a punctured star plus one opposite edge, and every further test has one side with at most three hypotheses, ruling out depth three there. Therefore K_{2,m} has dimension at most 3, the weight-two layer at most 4, and the full class at most 5. Complement twins give the rank-2 ceiling in d=4; size C(d,2) yields d=1,2,3,5,6 upper bounds. Explicit complete trees with depths 1,2,4,5 at dimensions 2,3,5,7, verified by the adjacent independent Python checker, and zero-padding prove all lower bounds. The script separately confirms dimensions one through seven and the 5-dimensional VC=3 comparison; finite execution is not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adler–Benediktsson–Macpherson arXiv:2007.16042v1, Theorems 4.6–4.8, give VC dimension and density for distance-one Hamming graph adjacency.",
+        "Malliaris–Moran arXiv:2108.05569, pp. 3–5, introduce generic Littlestone rank and its relation to model-theoretic stability."
+      ],
+      "reasoning": "Neither primary source asserts a bound matching the all-dimensional exact-distance-two Littlestone rank. A generic rank/VC connection is not an exact formula, and the distance-one adjacency is a different relation.",
+      "searches": [
+        "Littlestone dimension of edge relation in Hamming graphs H(d,q) and hypercube; online learning exact Hamming neighbors",
+        "\"Littlestone dimension\" \"distance-2\" hypercube neighborhoods",
+        "Littlestone dimension graph neighborhoods stability finite Hamming schemes 2020 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042v1 (2020-07-31), primary paper, Section 4 and introduction",
+      "arxiv:2108.05569v1 (2021-08-12), primary paper, special-tree definitions",
+      "accessible preceding finding aa804f0c-6690-4ad3-81cd-ec9a2ad5d772, same exact sphere but VC dimension",
+      "current public searches using exact-distance, halved-cube, Hamming-sphere, thicket, online-mistake and intersection terminology",
+      "Chase and Mehalel, Optimal Randomized Proper Online Learning, arXiv:2609.21445v1 (2026), Sections 3.1 and 5 via verbatim full-text mirror; direct original URL blocked."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorems 4.6–4.8 of arXiv:2007.16042v1 have a different relation and a nonadaptive invariant.",
+        "The 2021 Malliaris–Moran paper defines special trees and optimal realizable online mistake bounds but supplies no dimensional Hamming-shell classification.",
+        "The earlier exact VC table for the same relation lacks adaptive tree witnesses or an upper bound for Littlestone rank.",
+        "Chase–Mehalel 2026 Section 5: sparse functions on tagged block-coordinate inputs have Ldim d+1; not distance-two sphere incidence on Q_d, whose Ldim is uniformly ≤5."
+      ],
+      "reasoning": "VC dimension is bounded by Littlestone dimension, but equality is false in general and is actually false here at d=5. General bounds do not imply the exact rank. The new two-star upper bound and depths-four/five trees supply information not deducible from inspected prior statements.",
+      "searches": [
+        "Littlestone dimension Hamming balls Boolean hypercube radius r online learning",
+        "Malliaris Moran Littlestone dimension Shelah 2021 stable graph learning paper arxiv",
+        "\"Littlestone\" \"distance-2\" hypercube neighborhoods"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The distance-two sphere is also the open adjacency relation of the distance-two graph of Q_d, called the halved cube on each parity class.",
+        "Searches for halved-cube and exact-distance-two Littlestone/thicket rank returned no covering numerical formula; results instead discuss other invariants."
+      ],
+      "reasoning": "The theorem is invariant under replacing binary vectors by subsets and XOR distance by symmetric-difference cardinality. It treats adaptive mistake trees, not fixed-sample shattering. No retrieved equivalent theorem covers the function 0,1,2,2,4,4,5.",
+      "searches": [
+        "Littlestone dimension of Boolean distance-two Hamming sphere {x:d(x,c)=2} exact thresholds, shell",
+        "\"Littlestone dimension\" \"halved cube\" graph",
+        "\"Littlestone dimension\" \"Hamming distance\" \"exactly 2\" concepts",
+        "web: Chase Mehalel Optimal Randomized Proper Online Learning \"Hamming spheres\" 2026; exact primary arXiv HTML fetch inaccessible, mirrored full text Section 5 read"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible same-family comparison: aa804f0c-6690-4ad3-81cd-ec9a2ad5d772 reports VC dimension 0,1,2,2,3,4,5 for dimensions 1,2,3,4,5,6,≥7, not Littlestone rank.",
+        "Closest public search hits for weight-two binary Hamming shells concerned Turán extremizers and Fourier concentration, not online learning dimension."
+      ],
+      "reasoning": "The only same-object exact dimension table compared concerns ordinary VC dimension. Its strict inequality in dimension five is independently reproduced by the new checker; it does not give the present adaptive tree thresholds.",
+      "searches": [
+        "\"distance-two graph\" \"Littlestone dimension\"",
+        "Littlestone dimension of Boolean distance-two Hamming sphere {x:d(x,c)=2} exact thresholds, shell",
+        "binary Hamming distance exactly two sphere centered at every cube vertex: Littlestone (online mistake-tree) dimension; d=1,2,3,4,5,6,7; formula 0,1,2,2,4,4,5; compare VC dimension of shell"
+      ]
+    },
+    "rationale": "Primary full-text material in arXiv:2007.16042v1 concerns VC dimension for Hamming graph distance-one edge neighborhoods; its Section 4 distance-two neighborhood observations do not bound adaptive complete binary mistake trees for the distance-two relation. The primary text of arXiv:2108.05569 describes generic Littlestone definitions and stability equivalences, not this exact family. A preceding result with identifier aa804f0c-6690-4ad3-81cd-ec9a2ad5d772 gives the exact ordinary VC dimension for the same binary radius-two shell, but VC dimension is a different parameter and in d=5 differs (3 versus 4); it neither states nor implies the adaptive formula. Search results on Hamming two-shells predominantly concerned Turán constants, spectral or topological invariants. The literature comparisons establish no known statement that implies the new all-dimensional Littlestone formula. Alternative naming and undiscovered priority remain risks.",
+    "residual_risks": [
+      "A published priority claim may exist under alternative halved-cube/online-special-tree/thicket terminology not discovered by these searches.",
+      "No independent review of novelty or all-dimensional proof has occurred.",
+      "Direct arXiv delivery of the 2026 Chase–Mehalel paper was blocked; the publicly accessible full-text reproduction was materially inspected and supports the distinct-object comparison, but not a certification of identical original bytes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new adaptive exact-distance-two theorem",
+        "evidence": "Theorems 4.6–4.8 quantify VC rank/density of the distance-one edge relation. Corollary 4.4 only identifies the graph induced in an open two-neighborhood; no Littlestone dimension statement in relevant section.",
+        "identifier_or_url": "arxiv:2007.16042v1; https://arxiv.org/pdf/2007.16042",
+        "material_read": "Full PDF opened; abstract, introduction, Theorem 1.1 and Hamming-graph Section 4 (pp. 19–23, including Lemmas 4.1–4.5, Corollary 4.4 and Theorems 4.6–4.8) were inspected; page 1 visually checked.",
+        "method": "Primary arXiv PDF text reading with page screenshot",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Hamming adjacency and possible distance-two neighborhood coverage"
+      },
+      {
+        "assessment": "NOT_COVERING the exact distance-two binary shell formula",
+        "evidence": "The source develops general stable-graph and online-learning results; the definitions and abstract statements do not specialize to numerical ranks for distance-two Hamming sphere concepts.",
+        "identifier_or_url": "arxiv:2108.05569v1; https://arxiv.org/pdf/2108.05569 (accessible revised PDF)",
+        "material_read": "Accessible revised PDF opened and first page visually checked; pp. 3–5 including special-tree definition and the Ldim/optimal mistake statement were read; searched for Littlestone uses in later sections. Original publication date checked against v1 record.",
+        "method": "Primary arXiv PDF with targeted full-text sections and page screenshot",
+        "title": "Agnostic Online Learning and Excellent Sets / Model Theory and Agnostic Online Learning via Excellent Sets",
+        "trigger": "Foundational Littlestone rank and possible stronger generic theorem"
+      },
+      {
+        "assessment": "DIFFERENT_CLASS_AND_QUESTION: its d-Hamming spheres are the set of d-sparse 0-1 concepts indexed by subsets S of [n], evaluated on the n separate labeled coordinate instances of disjoint blocks plus block indicators, and it proves Ldim(H_d)=d+1 for their disjoint-union family. The current class instead ranges centers over all 2^d vectors and uses Hamming-distance-two sphere indicator evaluated at every 2^d cube vertex, and has Ldim ≤5 independently of d. Neither theorem implies the other.",
+        "evidence": [
+          "Section 5 at mirrored lines 289-305 defines H_{d,n}={h_{n,S}:S subset [n], |S|=d}, X_{d,n}={I_n,x_{n,i}}, labels indicators of i in S, and states Ldim(H_d)=d+1. This is not the distance-two sphere incidence relation on Q_d."
+        ],
+        "identifier_or_url": "arxiv:2609.21445v1; accessible full-text mirror https://bittide.aicompass.dev/article/c5fa1e3c-1853-4809-a3e9-24641c6747c9",
+        "material_read": "Introduction (Section 2), definition of Littlestone trees (Section 3.1), and lower-bound construction in Section 5, especially Theorem 5.1 and Observation 5.2 (full-text mirror); direct arXiv HTML and PDF blocked.",
+        "method": "Read public full-text reproduction, checking precise domain, sample points, center hypotheses and implication to present claim.",
+        "title": "Optimal Randomized Proper Online Learning",
+        "trigger": "The term d-Hamming spheres and explicit Littlestone dimensions could appear to cover the distance-two Boolean-cube sphere family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e49ec51-0332-411c-a1f4-7465ff1c6988",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the exact optimal deterministic realizable online mistake bound for a natural binary association-scheme relation, with a sharp dimension-independent ceiling and all finite transition points. The central two-star reduction is a structural upper-bound lemma, not just a table enumeration. The d=5 jump from two to four and strict difference between VC and adaptive Littlestone rank provide a concrete conceptual reason this invariant is worth calculating. The result makes no unsupported claim about randomization, higher radii, or downstream theorems.",
+    "status": "PASS"
+  }
+}
