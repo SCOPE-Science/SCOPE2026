@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The finite-difference Gaussian covariance splits into a Poisson extension of \(w_m=(2-2\cos\theta)^m\) and an independent rank-one atom. Its exact Fourier polynomial establishes \(W_m=w_m+O_m(t)\), \(W_m\ge c_m(t+|\theta|^{2m})\), and the needed derivative bounds. Jensen differentiation identifies the zero-count deficit as the derivative of the circular mean of \(\log(W_m+\kappa t/d)\). Rescaling \(\theta=t^{1/(2m+2)}x\) produces an integrable dominating function \((1+|x|^{2m+2})^{-1}\) and the exact beta-integral constant. Independent radial/angular differentiation of the same covariance gives the angular intensity limit, with the origin treated by harmonic factorization. A standalone checker corroborates exact finite Fourier identities and asymptotics in 132 finite tests. The limits are proven analytically, not inferred from these tests.
+
+## Originality — PASS, with residual risk
+Noda–Shirai, arXiv:2106.02860v1, Theorem 1.3 treats finite dependence with a continuous spectral density vanishing at a point, whereas Example 2.6 treats a spectral atom with a flat, nonvanishing absolutely continuous background. Neither model has an atom superposed on an order-\(2m\) zero for \(m\ge1\), and the respective results do not supply the stated fractional deficit exponent. Shirai, arXiv:2501.02586, Proposition 3.1 permits general spectral measures in an exact zero-intensity representation but Theorem 2.1's smooth-direction asymptotics assume absolute continuity. That integral framework is compatible with, but does not itself state, the singular mixed-measure limit. Targeted semantic searches for the mixed atomic-zero model and equivalent powers yielded no covering record. The existing continuous-zero and spectral-jump claims concern atom-free measures and do not imply the mixed asymptotic. This is a best-knowledge comparison, not an exhaustive priority certification; a hidden derivation from general covariance formulas remains possible.
+
+## Mathematical value — PASS
+The atom-plus-continuous-zero combination is a natural spectral singularity not encompassed by either of two standard pure regimes, and the exact deficit exponent \((2m+1)/(2m+2)\) changes for every integer vanishing order. The beta-integral leading coefficient and nontrivial angular crossover show how the spectral atom and vanishing background interact quantitatively. The result classifies an infinite family of stationary Gaussian analytic functions and supplies a sharp expected-zero observable, beyond a normalization identity or small finite calculation.
+
+## Limitations
+The result is not a universality theorem for arbitrary smooth densities, does not assert correlation or fluctuation convergence, and gives no uniformity in \(m\) or \(\kappa\). The closest known pure-atom and pure-continuous formulas and the general spectral-measure intensity representation are explicitly separated from the new mixed limit. Independent verification and historical priority remain open.
+
+Self-review: passed. Independent audit: not yet performed.
