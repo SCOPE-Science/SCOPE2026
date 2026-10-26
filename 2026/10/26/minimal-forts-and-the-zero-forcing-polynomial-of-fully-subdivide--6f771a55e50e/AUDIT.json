@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Every fort is decomposed by its selected original vertices and underlying selected edges. Crossing-edge constraints and the absence of degree-one outside original vertices force inclusion-minimal forts to be precisely all originals, one star-type fort per original vertex, or an edge-only simple-cycle fort. Direct fort–forcing obstruction equivalence then gives the forest/singleton characterization. The subset sum is exactly the graphic matroid forest expansion of T(1+z,1) with n exceptional stars removed. Cayley's formula gives the leading nonzero coefficient. The independent brute-force forcing/fort checker reproduces all coefficients for n=3,4,5; n=6 has 25,000 seeded trials. Finite trials are not the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barrett et al. 2014 determine the minimum size of zero forcing sets on complete subdivisions, exactly the already-known scalar recovered here.",
+        "Menon and Singh arxiv:2405.01423 study graph operations and zero-forcing-set inequalities but do not derive the complete subdivision-graph Tutte enumerator in inspected sections."
+      ],
+      "reasoning": "The known minimum number is explicitly excluded from novelty. A theorem determining the maximum nullity or minimum zero forcing cardinality cannot imply all cardinality coefficients or characterize each minimal fort without an additional exact enumeration. Graph operation inequalities also do not yield the displayed equality.",
+      "searches": [
+        "\"number of minimum zero forcing sets\" \"subdivided complete graph\"",
+        "https://journals.uwyo.edu/index.php/ela/article/download/1381/1381/",
+        "arxiv:2405.01423"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.17904 (fort transversal definitions and fractional context; initial v1 2023-10-27)",
+      "Barrett et al., Electronic Journal of Linear Algebra 27 (2014), Corollary 2.2 (known minimum)",
+      "arxiv:1801.08910 (zero forcing polynomial and other graph families)",
+      "arxiv:2405.01423 (graph-operation zero forcing sets)",
+      "Published mathematical research records for zero-forcing polynomials of fan, friendship and chain graphs, and minimal forts of complete multipartite graphs (distinct families)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fort-hitting characterization is a general tool in arxiv:2310.17904, not the explicit minimal-fort set for S(K_n).",
+        "Barrett et al. determine Z(S(K_n)), so they cover one corollary but not the complete polynomial or all minimum sets.",
+        "Boyer et al. introduce polynomial counting and families other than H_n."
+      ],
+      "reasoning": "The new assertion requires a complete obstruction classification. General definitions, known minimum-size corollaries and adjacent-family formulas do not logically imply its exact set characterization. It is still possible that an unindexed general subdivision theorem specializes directly to this result.",
+      "searches": [
+        "arxiv:2310.17904",
+        "arxiv:1801.08910",
+        "arxiv:2405.01423",
+        "Barrett et al. 2014 complete subdivision zero forcing number"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fort transversal characterization converts the theorem into an edge-cycle hitting condition plus n singleton star exceptions.",
+        "The general fort definitions in arxiv:2310.17904 and family polynomials in arxiv:1801.08910 do not give this graph-specific equivalence."
+      ],
+      "reasoning": "Replacing hits of every simple cycle by the complement being a spanning forest (the independent sets of the graphic matroid) is the core equivalent formulation. Prior generic fort definitions do not determine the n exceptional singleton original-vertex selections or the resulting polynomial.",
+      "searches": [
+        "\"zero forcing polynomial\" \"subdivision\" \"complete graph\"",
+        "\"minimal forts\" \"subdivision\" \"complete graph\"",
+        "arxiv:2310.17904; arxiv:1801.08910"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2018 polynomial article enumerates other graph classes and discusses a one-edge K4 subdivision in a coincidental small-graph example, not the all-edge subdivision H_n.",
+        "Published mathematical research-record searches identified zero forcing polynomials of fans and friendship graphs rather than S(K_n)."
+      ],
+      "reasoning": "An isolated numerical sequence, polynomial coincidence for one small graph or table of extremal values would not itself establish the all-n fort/forest correspondence. No exact all-n table or enumerator was identified in the checked materials; absence from searches is not proof of uniqueness.",
+      "searches": [
+        "\"zero forcing generating polynomial for subdivided complete graphs\"",
+        "\"subdivision S(K_n) forest zero forcing\"",
+        "arxiv:1801.08910"
+      ]
+    },
+    "rationale": "The 2014 complete-subdivision paper determines the zero forcing number but not the full forcing-set distribution. The 2018 zero forcing polynomial and 2024 graph-operation papers do not state the full-subdivision K_n enumeration in the inspected sections. The 2023 fort article supplies general fort methods but not this explicit hypergraph and graphic-matroid characterization. Searches of the published mathematical research collection under exact and equivalent descriptions returned unrelated family-specific forcing and fort findings. A hidden equivalence in more general graph-subdivision/graphic-matroid literature is the main residual originality risk.",
+    "residual_risks": [
+      "Unindexed older graph subdivision theorems or matroid-transversal identities may already yield the full characterization in equivalent language.",
+      "No independent external priority audit or peer review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generic fort machinery applies but this explicit complete-subdivision fort taxonomy and polynomial are not stated in the inspected text.",
+        "evidence": [
+          "General fort transversals and fractional zero forcing framework; unrelated leaf-subdivision occurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.17904",
+        "material_read": "Full-text sections defining forts and relating them to zero forcing and fractional variants; term checks for subdivisions.",
+        "method": "Read open-access manuscript PDF and inspected relevant propositions and occurrences of subdivision.",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Direct fort definition and relevant general characterization"
+      },
+      {
+        "assessment": "The numerical minimum Z(S(K_n)) agrees and is prior, but the paper does not enumerate all forcing sets or their polynomial in the inspected main results.",
+        "evidence": [
+          "Corollary 2.2 supplies minimum zero forcing number and a construction, not n(n^(n-2)-1) minimum-set count."
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1381/1381/",
+        "material_read": "Statements including Corollary 2.2 and proof near pages 6–7 on complete graph subdivisions.",
+        "method": "Read primary open full text and verified minimum-cardinality specialization.",
+        "title": "The Maximum Nullity of a Complete Subdivision Graph is Equal to its Zero Forcing Number",
+        "trigger": "Same exact graph family; strongest suspected predecessor"
+      },
+      {
+        "assessment": "Defines polynomial and computes familiar families; a single-edge subdivision example is not full subdivision of K_n.",
+        "evidence": [
+          "Graph examples and sections on paths, cycles, threshold graphs; no all-edge subdivision K_n Tutte formula found."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.08910",
+        "material_read": "Definitions, main family enumeration sections and subdivision term contexts in the manuscript.",
+        "method": "Read open manuscript and checked graph-family formulas and example contexts.",
+        "title": "The zero forcing polynomial of a graph",
+        "trigger": "Direct invariant and possible preexisting polynomial"
+      },
+      {
+        "assessment": "Provides bounds and coefficients for other graph families; no equality specializing to the complete subdivision H_n.",
+        "evidence": [
+          "Operations on graph classes and coefficient inequalities rather than this complete exact enumerator."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.01423",
+        "material_read": "Introduction, graph-operation lemmas, resulting structural families and future directions.",
+        "method": "Inspected open manuscript text and relevant operation results.",
+        "title": "Exploring the Influence of Graph Operations on Zero Forcing Sets",
+        "trigger": "Potential broad implication about subdivision operations and zero forcing polynomial coefficients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f771a55-e50e-4272-bcdf-3fceba082fb7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full exact cardinality enumerator refines a previously known extremal scalar and reveals a natural graphic-matroid/Tutte-polynomial structure; the simple-cycle and star taxonomy of every minimal obstruction is the structural mechanism, not a numerical reparameterization. It simultaneously enumerates all ordinary forcing sets and a nontrivial class of minimum sets for all graph orders n≥3, with future utility for coefficient inequalities, random initial sets, and related fort hypergraphs.",
+    "status": "PASS"
+  }
+}
