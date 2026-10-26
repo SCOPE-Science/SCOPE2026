@@ -1,0 +1,11 @@
+# Scientific review: two-to-one binomial reconstruction in the Cantor word
+
+**Correctness — PASS.** The proof makes a complete block-type partition for power-of-three windows, reduces binary length-two scattered-subsequence counts to ones count and their positional sum, and proves injectivity in each of two families. It then constructs \(2n/27+1\) distinct signatures, each shared by different words, using exact palindrome centroid computations. The endpoint and divisibility conditions are explicit, including \(k\ge3\). The independent finite checker tests factors and signatures at seven scales; it is supporting evidence and not a substitute for the infinite proof.
+
+**Originality — PASS (best-knowledge, residual priority risk).** Rigo–Salimov's main 2015 full-text results concern Sturmian words and Parikh-constant substitutions; the Cantor substitution is not Parikh-constant. Chen–Lü–Wu's full 2017 Cantor paper concerns contiguous-factor \(k\)-Abelian equivalence rather than scattered-subsequence binomial equivalence. Their characterization does not entail the specific second-binomial two-to-one rigidity or the explicit linear-size construction. Relevant broad research records and targeted exact searches were compared without identifying coverage. No search establishes absolute uniqueness; alternate terminology or a previously overlooked theorem remains a risk.
+
+**Value — PASS.** The question is a natural inverse problem for binomial complexity on a classical non-uniformly recurrent automatic word. The simultaneous phenomenon is structural: a sharp *uniform* class-size ceiling of two alongside \(\Omega(n)\) genuinely ambiguous classes at infinitely many scales. It is not a finite-table increment or a reparameterized known bound, and the construction identifies explicit colliding factor pairs. The exact total number of classes is intentionally left open.
+
+The closest full texts checked were Rigo–Salimov (2015, definitions, Sections 3 and 5 and relevant Section 7) and Chen–Lü–Wu (arXiv:1703.04063v1, Sections 1–4). The 2016 Cantor-like permutation-complexity article was accessible only through its public excerpt. The general binary binomial-class-size work of 2026 concerns all binary words and is not claimed to settle this factor-restricted problem.
+
+Self-review: passed. Independent audit: not yet performed.
