@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact convolution integration gives p_beta(t)=2(1-sin t/t)(beta+t^-2), with positive symbol and limits 1/3 and 2beta. A continuous maximum of H(t) exists beyond 2pi; exact polynomial bounds locate beta_star in (1/6,9/50). Any global symbol maximum at beta_star occurs below 2pi, while its minimum is attained above 2pi and at t=0 in the limit. Comparing a fixed numerator/denominator pair proves strict global minimax uniqueness for beta<beta_star, and direct monotonicity handles beta>beta_star. Rigorous sine Taylor inequalities bound K(1/6)<=2 and an exact rational sine upper bound proves K(1/2)>4. The standalone check.py was run from its actual package preparation path and passed; finite grids are not the proof. Scope is uniform-over-periods ideal Fourier spectral condition numbers only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.24143v1, Sections 1, 2, 5-7: uniform finite-element condition-number bounds for beta determined by kernel mass, not an optimization over beta.",
+        "Zhang et al., DOI:10.1007/s10915-025-03150-2, accessible abstract: τ-algebra sine-transform preconditioner for two-level Toeplitz matrices, spectrum in [1/4,9/4]; not the inverse-Poisson-plus-mass periodic multiplier."
+      ],
+      "reasoning": "The source's general spectral-equivalence bounds contain the canonical kernel as a case but are not parameter-minimization theorems; their upper/lower constants do not identify a unique beta. The earlier τ preconditioner is a different operator family, so its abstract does not dominate the new claim. Lack of the full τ paper leaves residual bibliographic risk; the distinct construction reduces but does not eliminate that risk.",
+      "searches": [
+        "2026 Lu Nie Zhang nonlocal diffusion horizon robust preconditioner kernel mass scaling",
+        "Lu Nie Haolun Zhang Pingrui Zhang 2609.24143 preconditioner beta kernel mass versus minimax beta",
+        "Spectral analysis of τ-preconditioners for two-level Toeplitz systems with applications in nonlocal diffusion models"
+      ]
+    },
+    "checked_sources": [
+      "Lu et al., arXiv:2609.24143v1, primary PDF https://pdfs.assets.alphaxiv.org/2609.24143v1.pdf",
+      "Zhang et al., DOI:10.1007/s10915-025-03150-2, abstract/index",
+      "Ran and Yan (2022), DOI:10.4208/eajam.290921.230122, abstract/index",
+      "published-finding corpus: 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 (different polynomial-iteration setting)",
+      "published-finding corpus: 2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995 (different coordinate-sampling object)",
+      "published-finding corpus: 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba (different additive matrix inverse)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source theorem proves independent-of-horizon and mesh spectral comparability for its beta, not that its beta has least condition number; finite-element comparability alone permits many beta choices.",
+        "The new proof compares the *same* periodic symbol for all positive beta, constructs a maximizer of H(t), shows separated maximizing/minimizing frequencies, and obtains universal strict ordering on both sides of beta_star.",
+        "A related 2026 τ-algebra source addresses two-level Toeplitz structure rather than the periodic additive preconditioner and does not, in its abstract, state these comparisons."
+      ],
+      "reasoning": "Neither a generic spectral-equivalence bound nor a distinct τ-preconditioner spectrum implies the specific unique minimax beta and factor improvement. The new theorem also does not imply a stronger finite-element bound from the source; the statements are logically separate. A hidden theorem in unavailable full text remains possible, so uniqueness in the literature is not asserted.",
+      "searches": [
+        "nonlocal diffusion volume constrained top hat box kernel Fourier multiplier inverse Laplacian mass optimized beta spectral condition number",
+        "2026 Lu Nie Zhang nonlocal diffusion horizon robust preconditioner kernel mass scaling",
+        "Spectral optimal coefficient of inverse Poisson plus diagonal mass correction for nonlocal diffusion with interval kernel, Fourier multiplier sinc, condition number",
+        "Lu Nie Haolun Zhang Pingrui Zhang 2609.24143 preconditioner beta kernel mass versus minimax beta",
+        "arxiv:2609.24143v1 sections 1 2 5 6 7",
+        "doi:10.1007/s10915-025-03150-2 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lu et al., arXiv:2609.24143v1, pages 1-2 and Section 2.1: inverse-symbol heuristic and fixed beta=1/(2 kernel mass).",
+        "The proposed periodic multiplier is exactly 2(1-sinc t)(beta+t^{-2}), so alternative terminology may include additive Fourier-symbol scaling or inverse-Laplacian/mass splitting."
+      ],
+      "reasoning": "Checked the coefficient problem against the equivalent Fourier multiplier, top-hat/boxcar kernel, inverse Poisson plus mass correction, and minimax spectral spread formulations. The motivating paper establishes bounded spectra for a fixed coefficient, which does not imply the unique worst-over-periods minimizer or the certified >2 improvement. No exact-equivalent result was found in returned ranked records; this is not proof of global novelty.",
+      "searches": [
+        "nonlocal diffusion volume constrained top hat box kernel Fourier multiplier inverse Laplacian mass optimized beta spectral condition number",
+        "additive Poisson inverse plus inverse mass preconditioner optimal scaling Fourier sinc flat compact support kernel",
+        "optimal parameter beta for 1d box nonlocal diffusion preconditioner symbol (1-sin t/t) (beta+1/t^2)",
+        "sinc optimal preconditioner nonlocal diffusion Fourier multiplier",
+        "box kernel inverse Laplacian mass preconditioner optimal parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record searches returned no tabulated value or formula for the interval-kernel function H(t)=1/[6(1-sin(t)/t)]-1/t^2.",
+        "Lu et al. arXiv:2609.24143v1 Tables 2-4 tabulate finite-element condition numbers for a fixed prescribed coefficient; the theorem concerns a different uniform periodic condition number."
+      ],
+      "reasoning": "The claim is a continuum-frequency minimax theorem, not an unmotivated fixed-number computation; no located table exactly covers the object and invariant. Source tables cannot decide the ideal periodic beta minimizer. Negative search results are treated as limited evidence only.",
+      "searches": [
+        "additive Poisson inverse plus inverse mass preconditioner optimal scaling Fourier sinc flat compact support kernel",
+        "optimal parameter beta for 1d box nonlocal diffusion preconditioner symbol (1-sin t/t) (beta+1/t^2)",
+        "one dimensional boxcar nonlocal Laplacian spectral preconditioner 1/xi squared plus beta optimal conditioning",
+        "nonlocal diffusion optimized Poisson mass preconditioner parameter",
+        "sinc condition number nonlocal diffusion preconditioner"
+      ]
+    },
+    "rationale": "The source arXiv:2609.24143 establishes robust Poisson/mass preconditioning with kernel-mass weight and not spectral condition-number minimization over that coefficient. Distinct τ/Toeplitz spectral preconditioning does not imply this periodic ideal-symbol optimization. Searches of the published mathematical research index, exact aliases and prior accessible claims found no directly dominating formula. This is a self-review provisional originality judgment; bibliographic gaps remain and no uniqueness certificate is claimed.",
+    "residual_risks": [
+      "Full text of the 2026 two-level Toeplitz τ-preconditioning article could not be inspected; its published abstract describes a distinct construction but cannot exclude every hidden special case.",
+      "Older continuum-symbol optimal-scaling literature could contain the same interval-kernel formula under different terminology; indexed search absence is not a novelty proof.",
+      "A uniform periodic Fourier-symbol optimum is not implied to be optimal for source's finite-element volume-constrained Dirichlet implementation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_CONSTRUCTION_NOT_COVERING_CLAIM",
+        "evidence": "arXiv:2609.24143v1 (2026-09-21), formula (2.4), spectral theorem (2.23)-(2.24), Tables 2-4, Section 7. Source selects beta by kernel mass and proves robustness; does not state periodic Fourier-symbol minimax optimization.",
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2609.24143v1.pdf",
+        "material_read": "Full primary PDF portions: first two pages, kernel/preconditioner definitions (pages 3-4), spectral theorem (page 7), comparison/numerical-result tables (pages 14-17), conclusions/references (pages 18-19). The full 19-page document was accessible; this description does not imply every word was read.",
+        "method": "Viewed PDF text and page renderings, checked definition beta=1/(2 kernel mass), Fourier-symbol justification, theorem scope, numerical tables and concluding claim.",
+        "title": "A mesh- and horizon-robust preconditioner for finite element discretizations of volume-constrained nonlocal diffusion problems",
+        "trigger": "Exact motivating inverse-Poisson plus mass construction and canonical kernel, potentially covering weight optimization"
+      },
+      {
+        "assessment": "DISTINCT_TAU_MECHANISM_BUT_INCOMPLETE_TEXT_RISK",
+        "evidence": "Journal of Scientific Computing 106(1):21 (2026); available abstract reports two-level Toeplitz τ preconditioner with eigenvalues in [1/4,9/4], without ideal periodic inverse-Poisson-plus-mass coefficient optimization.",
+        "identifier_or_url": "doi:10.1007/s10915-025-03150-2",
+        "material_read": "Bibliographic record and abstract only; full article unavailable.",
+        "method": "Compared indexed summary with DOI/bibliographic record and source's bibliography; sought lawful OA/arXiv representation.",
+        "title": "Spectral Analysis of τ-Preconditioners for Two-Level Toeplitz Systems with Applications in Nonlocal Diffusion Models",
+        "trigger": "Closest earlier 2026 nonlocal diffusion spectral preconditioning with plausible stronger coverage"
+      },
+      {
+        "assessment": "DISTINCT_TOEPLITZ_COLLLOCATION_NO_DECISIVE_COVERAGE",
+        "evidence": "Ran and Yan, East Asian Journal on Applied Mathematics 12 (2022), 421–434, employ Toeplitz/circulant PCG for collocation, not the specified periodic additive Poisson/mass tuning.",
+        "identifier_or_url": "doi:10.4208/eajam.290921.230122",
+        "material_read": "Journal description/abstract only.",
+        "method": "Compared discretization and preconditioner family as described in indexed abstract.",
+        "title": "Preconditioned CG Methods for a Variable-Coefficient Nonlocal Diffusion Model",
+        "trigger": "Older spectral preconditioning for nonlocal diffusion, possible implicit analogous Fourier parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a33e8a43-6e1f-4828-9bfd-0aa62ff5ad19",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Kernel-mass weighting is a motivated natural coefficient in a new nonlocal diffusion preconditioner. The theorem answers the associated exact parameter-selection problem uniformly over all periodic scales, proves uniqueness via a structural separation of spectral extrema, and shows a certified more-than-twofold condition-number improvement for the canonical admissible kernel. This is a substantively motivated failure of an intuitive mass-based tuning criterion, not a numerical recomputation of source tables. It supplies a baseline for future discrete or multikernel design, without claiming an iteration-count theorem.",
+    "status": "PASS"
+  }
+}
