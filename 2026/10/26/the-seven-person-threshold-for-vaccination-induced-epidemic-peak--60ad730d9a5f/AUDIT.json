@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For fixed preassigned edges, infection-time layers are directed BFS layers. With original peak 1 each unique layer vertex is a cut vertex for later distance layers; otherwise a strict increase needs a vaccinated layer of at least three vertices at distance at least three, requiring six survivors and one vaccine recipient, so n>=7. The seven-vertex example has exact layers {0},{1,2},{3,4},{5,6} before deletion and {0},{1},{3},{4,5,6} after. Exhaustive 128/128 edge-subset census yields p^2(p^5-2p^4+3p^3-1), with a unique root as the fifth-degree factor derivative is p^2(5p^2-8p+9)>0 for p>0. Standalone verify.py execution passed, including 20,000 supplemental random small graphs; randomness is not the proof of the universal bound.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kenah–Miller (2011) identifies infection times via shortest paths and vaccination via vertex deletion, then studies major-epidemic probability and final attack rate, not an explicit seven-person peak theorem in inspected sections.",
+        "Sherborne–Blyuss–Kiss (2015) studies how gamma-distributed infectious-period stages affect peak prevalence and final size in pairwise/network models, rather than one-generation vertex deletion."
+      ],
+      "reasoning": "General EPN representation supplies a method but does not by itself state or compute a universal six-person obstruction, seven-person witness, or exact seven-edge expected-peak polynomial. A broader unlocated combinatorial graph theorem remains a risk.",
+      "searches": [
+        "Vaccinating one node in static directed Reed Frost SIR epidemic raises the maximum number of concurrent infections/peak incidence. Sharp minimum of seven nodes despite lower final size, BFS layer width under vertex deletion.",
+        "web: vaccination peak incidence static network shortest path",
+        "doi:10.1155/2011/543520 full text Sections 2–5",
+        "doi:10.1007/s11538-015-0109-1 full text Sections 3–4"
+      ]
+    },
+    "checked_sources": [
+      "Floyd–Kay–Shapiro, DOI 10.1007/s11538-007-9275-0 (abstract only)",
+      "Kenah–Miller, DOI 10.1155/2011/543520 (full text)",
+      "Sherborne–Blyuss–Kiss, DOI 10.1007/s11538-015-0109-1 (full text)",
+      "Searches for vaccination-induced peak changes, vertex-deletion layer widths, and the seven-edge expected-peak polynomial",
+      "Published work on vaccination effects on epidemic duration and time-dependent infection risk"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Floyd–Kay–Shapiro abstract establishes nonincrease of another person’s eventual infection risk under time-independent transmission; it does not itself state peak prevalence monotonicity.",
+        "A published sharp bound on the last-infection-generation delay concerns a different graph statistic from the largest generation width.",
+        "The seven-person witness decreases the set of ever-infected individuals from seven to six, while increasing simultaneous infectious peak from two to three."
+      ],
+      "reasoning": "Eventual reachability monotonicity cannot imply peak-width monotonicity because time to infection can change after a deletion. Likewise duration/last-generation changes do not determine concurrent layer width. The sharp minimal cut-off and expected-peak polynomial require additional arguments not implied by the quoted prior statements.",
+      "searches": [
+        "doi:10.1007/s11538-007-9275-0 abstract PubMed PMID 18060461",
+        "doi:10.1155/2011/543520 full text vaccination section",
+        "Vaccinating one node in static directed Reed Frost SIR epidemic raises the maximum number of concurrent infections/peak incidence. Sharp minimum of seven nodes despite lower final size, BFS layer width under vertex deletion.",
+        "Smallest directed graph whose maximum breadth-first search layer width increases after vertex deletion (BFS layers peak), minimal seven vertices, directed one-source shortest path."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A one-round network epidemic generation equals a shortest-path layer; peak incidence is maximum layer cardinality (Kenah–Miller 2011, DOI 10.1155/2011/543520, Section 3).",
+        "No equivalent graph vertex-deletion layer-width cutoff was located among inspected sources."
+      ],
+      "reasoning": "The correct alias is maximal BFS-layer width under deletion of a single nonsource vertex, not only vaccination peak. Existing nearest results concern graph burning or different monotonicity invariants; lack of a search hit alone does not certify novelty.",
+      "searches": [
+        "Smallest directed graph whose maximum breadth-first search layer width increases after vertex deletion (BFS layers peak), minimal seven vertices, directed one-source shortest path.",
+        "web: \"removing a vertex\" \"BFS\" \"width\" \"increase\"",
+        "web: vertex deletion increases maximum breadth-first search layer width diameter shortest path peak",
+        "Smallest directed graph whose maximum breadth-first search layer width increases after vertex deletion (BFS layers peak), minimal seven vertices, directed one-source shortest path."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Compared mathematical results concern epidemic extinction, size or duration rather than this maximum-generation-width invariant or the seven-edge distribution table.",
+        "The 128-row Bernoulli subgraph enumeration compressed by successful-edge count is reproduced with integers in verify.py."
+      ],
+      "reasoning": "No exact graph database or pre-existing enumeration matching the seven-edge witness, peak differences and fifth-degree polynomial was identified in the actual checked resources; no claim is made that none exists.",
+      "searches": [
+        "7-vertex vaccination peak incidence increase despite unchanged independent transmission probability in time homogeneous SIR, polynomial p^2 (p^5 -2 p^4 +3 p^3 -1)",
+        "web: vaccination 7 vertex peak increased epidemic stochastic network",
+        "7-vertex vaccination peak incidence increase despite unchanged independent transmission probability in time homogeneous SIR, polynomial p^2 (p^5 -2 p^4 +3 p^3 -1)"
+      ]
+    },
+    "rationale": "Relevant published results and the full publisher text of the 2011 epidemic-percolation source and the 2015 multistage source were compared on statements and implications. The known monotonicity of eventual infection sets and results on epidemic duration do not imply peak-generation-width monotonicity; the sharp n=7 boundary and exact expected-peak polynomial were not identified in inspected sources. However the original Floyd paper full text and potential broader graph-theoretic formulations remain residual risks; no global historical uniqueness is asserted.",
+    "residual_risks": [
+      "The complete Floyd–Kay–Shapiro 2008 article could contain a peak-statistic example or theorem not visible in its abstract.",
+      "Unlocated graph-theory results on maximum BFS-layer width after vertex deletion might imply the threshold.",
+      "Bibliographic search incompleteness cannot establish historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant monotonicity is about eventual infection probabilities, not necessarily peak size; full-text uninspected coverage remains unresolved risk",
+        "evidence": [
+          "PMID 18060461 abstract states monotonicity of individual infection risk when transmission does not vary with time",
+          "OpenAlex W2037363739 gives online date 2007-11-30"
+        ],
+        "identifier_or_url": "doi:10.1007/s11538-007-9275-0",
+        "material_read": "PubMed abstract, publication metadata, and accessible record; complete paper unavailable",
+        "method": "PubMed and OpenAlex pages; searched for legal preprint and OA copies; authorized institutional retrieval unavailable",
+        "title": "Some Elementary Properties of SIR Networks or, Can I Get Sick because You Got Vaccinated?",
+        "trigger": "Closest primary vaccination monotonicity theorem in time-homogeneous SIR networks"
+      },
+      {
+        "assessment": "Gives exact graph modeling bridge, but the inspected analysis concerns outcomes, major-epidemic probability and vaccination targeting, not an explicit minimal seven-person maximum-BFS-layer-width paradox",
+        "evidence": [
+          "Section 3 says epidemic infection times equal shortest-path edge lengths",
+          "Section 4 represents perfect vaccination by deleting incident edges",
+          "Section 5 concentrates on threshold/outbreak size/targeting"
+        ],
+        "identifier_or_url": "doi:10.1155/2011/543520",
+        "material_read": "Open full-text Sections 1–5, especially 2.2, 3.3 and 4 plus discussion",
+        "method": "Read publisher full HTML https://onlinelibrary.wiley.com/doi/full/10.1155/2011/543520",
+        "title": "Epidemic Percolation Networks, Epidemic Outcomes, and Interventions",
+        "trigger": "General weighted-shortest-path framework and perfect-vaccination vertex deletion"
+      },
+      {
+        "assessment": "Its peak variation arises from altered infectious-period staging in large networks; no single-vertex deletion sharp minimal population result in the inspected material",
+        "evidence": [
+          "Abstract and Section 4 describe higher prevalence peaks with more infection stages",
+          "Theorem 1 is on final epidemic size in a pairwise network model"
+        ],
+        "identifier_or_url": "doi:10.1007/s11538-015-0109-1",
+        "material_read": "Full open HTML, introduction, Sections 2–4 including the peak-prevalence discussion and cases",
+        "method": "Read publisher full HTML https://link.springer.com/article/10.1007/s11538-015-0109-1",
+        "title": "Dynamics of Multi-stage Infections on Networks",
+        "trigger": "Relevant article discussing exact/estimated epidemic peak and temporal dynamics on networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "60ad730d-9a5f-4bb0-bfdb-a82f1075b9bc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Peak concurrent infections quantify a health-service-capacity observable independent from infection risk and epidemic termination time. A universal, sharp minimal-population cutoff in arbitrary directed graphs is a natural finite structural classification. A minimal seven-person witness has a nontrivial exact stochastic phase threshold under homogeneous transmissibility; its exhaustive 128-case table and monotone quintic distinguish rare-contact protection from high-contact peak amplification. This is mathematically motivated without claiming policy applicability.",
+    "status": "PASS"
+  }
+}
