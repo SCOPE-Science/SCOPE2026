@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof starts from the exact forth/back conditions for finite reflexive posets. Maximal vertex-worlds must map to fan tips. Each edge-world is then uniquely determined by endpoint colors, and the two-tip/three-or-more-tip distinction gives the all-size count. The marked polynomial is the binary cut enumerator, and orthogonality gives cycle-matroid recovery. Small-order sharpness is proved structurally and checked by independent exhaustive enumeration. Finite tests supplement, not substitute for, the proof.
+
+**Originality — PASS, qualified.** The identified preceding theory includes the classical p-morphism definition, Whitney's cycle/cut-matroid correspondence, and Almeida's (2024) general maximal-color extension to nonempty-subset posets. The local coloring principle is close to, and may be viewed as a special case of, Almeida's general construction. The assessed joint statement goes further in a specific motivated Kripke-source family: it completely classifies scalar fan spectra, identifies exactly the graphic-matroid content of edge-marked morphisms, and proves the two sharp information-loss thresholds. Targeted published and mathematical-record searches located no direct covering claim. Implicit unpublished or previously unindexed coverage remains possible.
+
+**Value — PASS.** The question is whether natural families of simple finite modal targets and reasonable marking of maps distinguish source frames. The answer is a complete information hierarchy with sharp first failures: scalar data forget almost all graph structure, whereas marking recovers cycle-matroid structure but not tree branching. These are structural limitations of an entire family of invariants, rather than an arbitrary finite calculation or relabelling of a known parameter.
+
+**Closest known work and limitations.** Katz (2012) reviews Whitney's cycle-space theorem; Almeida (2024), Proposition 5.2, is the strongest general maximal-extension comparison. Neither is claimed to be superseded. The central mathematical risk is that combining this existing machinery could render the presented Kripke-incidence characterization implicit in specialized literature. Independent audit has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
