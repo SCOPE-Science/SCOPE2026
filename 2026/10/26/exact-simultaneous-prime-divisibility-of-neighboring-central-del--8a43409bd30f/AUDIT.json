@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Lucas factorization follows directly from the binomial-square identity, including exact endpoint handling because D_1 and D_(p-1) are nonzero for p>=5. The carry recurrence I_L=c*a^(L-1)+I_(L-1) is exhaustive and disjoint. Inclusion-exclusion and the odd-degree finite-field reflection prove the entire statement. Verifier independently checked 19 complete blocks and midpoint congruences through 199; finite checks only corroborate the complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf, Theorem 8.5 is valid for all generalized central trinomial coefficients but addresses one sequence entry at a time.",
+        "https://arxiv.org/abs/1008.3887, full-text Theorems concern weighted sums and generalized trinomial congruences, not consecutive zero-density."
+      ],
+      "reasoning": "More general digitwise Lucas congruences specialize to Delannoy numbers but do not alone specify exact adjacent carry counts, while the new result does not claim a new Lucas theorem. The relevant broad one-point result is explicitly acknowledged as prior; no stronger matching adjacent-count theorem was located. Residual general-automata implications remain possible.",
+      "searches": [
+        "Central Delannoy numbers Lucas theorem p congruent 3 mod 4 vanishing D_((p-1)/2), density of zeros and consecutive zeros",
+        "Zhi-Wei Sun 2010 central Delannoy modulo primes Lucas congruence paper pdf",
+        "Noe 2006 on divisibility of generalized central trinomial coefficients pdf Delannoy primes p3 mod4"
+      ]
+    },
+    "checked_sources": [
+      "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+      "https://arxiv.org/abs/1009.2486",
+      "https://arxiv.org/abs/1008.3887",
+      "https://doi.org/10.1111/j.1467-9590.2006.00337.x",
+      "https://oeis.org/A001850"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://doi.org/10.1111/j.1467-9590.2006.00337.x, public abstract says Lucas-congruence methods for central Delannoy numbers; full text unavailable.",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf, §6–8 gives Schur-type digit factors and divisibility criteria, not adjacent carry enumeration.",
+        "https://arxiv.org/abs/1009.2486, Theorem 1.1 concerns weighted sums of Delannoy residues, not neighbor gcds.",
+        "https://arxiv.org/abs/1008.3887, introduction and main theorem formulae cover individual coefficients and weighted sums."
+      ],
+      "reasoning": "An implied corollary of one-point digit products is not automatically claimed original; the novelty being assessed is the explicit adjacency counting identity with its boundary treatment and the consequent arbitrarily large gcd in density, not the original digits theorem or any already-known factor zero. These would be covered if a primary source stated an adjacent-index count, gave a general formula subsuming the two-state carry recurrence, or explicitly proved the density-one gcd result. None was identified in the inspected scientific portions; incompletely accessible Eu paper remains a caveat.",
+      "searches": [
+        "Central Delannoy D_n and D_(n+1) both divisible by prime p; exact count modulo p powers; consecutive gcd density 1",
+        "Central Delannoy numbers Lucas theorem p congruent 3 mod 4 vanishing D_((p-1)/2), density of zeros and consecutive zeros",
+        "Consecutive central Delannoy gcd prime divisibility and digit automaton, exact histogram of simultaneous zeros",
+        "central Delannoy numbers consecutive terms share prime divisor almost all n density"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf, §7 formula (13), §8 Theorem 8.5: digit-zero characterization; neither statement gives a count for adjacent indices."
+      ],
+      "reasoning": "The assertion is equivalent to a two-state carry count for runs with both D_n and D_(n+1) vanishing modulo p, plus a density-one conclusion for their gcd. The one-point digit-product description of Noe supplies the key known input but is not itself an adjacent-index count or a gcd-density theorem.",
+      "searches": [
+        "Central Delannoy D_n and D_(n+1) both divisible by prime p; exact count modulo p powers; consecutive gcd density 1",
+        "Consecutive central Delannoy gcd prime divisibility and digit automaton, exact histogram of simultaneous zeros",
+        "central Delannoy numbers consecutive values gcd divisible prime density p Lucas theorem",
+        "OEIS A001850 central Delannoy neighbors common factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf, table on page 11 maps the central Delannoy case (a,b,c)=(1,3,2) to OEIS A001850, which tabulates values, not a joint gcd-count table.",
+        "https://arxiv.org/abs/1008.3887, reference [Sl] points to OEIS A001850."
+      ],
+      "reasoning": "Individual coefficient tables supply enough finite terms for tests, but no full p^L consecutive zero count or density-one gcd classification was found in inspected database references.",
+      "searches": [
+        "OEIS A001850 central Delannoy sequence",
+        "central Delannoy numbers consecutive gcd primes exact formula",
+        "Central Delannoy D_n and D_(n+1) both divisible by prime p; exact count modulo p powers; consecutive gcd density 1"
+      ]
+    },
+    "rationale": "Noe equation (13) and Theorem 8.5 give the single-index digit criterion and are explicitly acknowledged; no novelty is claimed for that premise. The exact adjacent-index carry count and density-one unbounded neighboring gcd were not found in the materially examined Noe and Sun papers or the targeted published-record comparisons. Inaccessible full text of Eu and general automata implications remain residual risks.",
+    "residual_risks": [
+      "The full text of Eu–Liu–Yeh (2005/2006) was not accessible, so a non-abstract neighboring-index result there cannot be ruled out.",
+      "General automatic-sequence occurrence-count formulae could imply the explicit special case without matching title or notation.",
+      "This is a self-review mathematical and literature review, not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers digitwise divisibility of each coefficient, but no simultaneous consecutive-zero block count or density-one neighboring gcd result in the examined results.",
+        "evidence": [
+          "Page 4 equation (13)",
+          "Page 6 Theorem 8.5",
+          "Page 11 table entry (1,3,2)"
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL9/Noe/noe35.pdf",
+        "material_read": "PDF pages 1, 3–7, including recurrence (4), Schur formula (13), Theorems 8.4–8.6, and the identification of central Delannoy numbers with A001850 in the concluding table.",
+        "method": "Open-access primary PDF, searchable text and actual page images.",
+        "title": "On the Divisibility of Generalized Central Trinomial Coefficients",
+        "trigger": "This covers exactly the underlying generalized central trinomial digit criterion and hence potentially subsumes the proposed count."
+      },
+      {
+        "assessment": "Known Delannoy weighted reciprocal sums and related congruences use different quantities; no neighboring-index gcd count in examined sections.",
+        "evidence": [
+          "arXiv 1009.2486 Theorem 1.1, formulas (1.1)–(1.3)",
+          "Corollary 1.1 and Conjecture 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1009.2486",
+        "material_read": "Open-access arXiv PDF abstract, introduction and statement of Theorem 1.1, Corollary 1.1, and Conjecture 1.1 (pages 1–4).",
+        "method": "Primary arXiv PDF, text and page images.",
+        "title": "On Delannoy Numbers and Schröder Numbers",
+        "trigger": "Same central Delannoy coefficients and modular prime arithmetic."
+      },
+      {
+        "assessment": "Studies generalized trinomial residues and sums; material read does not furnish adjacent Delannoy gcd distribution.",
+        "evidence": [
+          "arXiv 1008.3887 introduction, equation D_n=T_n(3,2)",
+          "main theorem statements in abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1008.3887",
+        "material_read": "Primary arXiv PDF abstract, sections 1 and coefficient definition in the introduction (pages 1–4), index search for gcd and consecutive.",
+        "method": "Primary arXiv PDF, searchable text and page images.",
+        "title": "Congruences Involving Generalized Central Trinomial Coefficients",
+        "trigger": "Central Delannoy identification and broad coefficient congruences."
+      },
+      {
+        "assessment": "Digitwise congruences claimed in abstract; a possible adjacency result elsewhere in unavailable text cannot be excluded.",
+        "evidence": [
+          "Publisher abstract explicitly names central Delannoy numbers and Lucas theorem",
+          "First published 20 Dec 2005"
+        ],
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9590.2006.00337.x",
+        "material_read": "Publisher abstract, bibliographic details and online-first date; full article inaccessible.",
+        "method": "Wiley public page and an inaccessible full-text link; no claims to reading full text.",
+        "title": "On the Congruences of Some Combinatorial Numbers",
+        "trigger": "Earliest precisely verified public source on the same Delannoy Lucas property."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a43409b-d30f-4078-80b5-330f53abc308",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact joint gcd statistic for all prime-power block lengths is a natural invariant of a classical combinatorial sequence. The result identifies infinitely many primes dividing neighboring coefficients on density-one sets, and hence proves neighboring gcds grow beyond any fixed bound in natural density. This is not an arbitrary finite slice or tabular recomputation.",
+    "status": "PASS"
+  }
+}

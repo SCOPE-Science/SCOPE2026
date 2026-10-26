@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The binomial-square identity and Lucas digit factorization prove a precise digit criterion; the last-digit carry split proves \(I_L=c_pa_p^{L-1}+I_{L-1}\) with nonzero terminal digit \(1\), and inclusion-exclusion yields the stated integer formula. The odd-exponent reflection \(x\mapsto2-x\) on \(x(x-1)(x-2)\) forces the midpoint forbidden digit when \(p\equiv3\pmod4\). The density-one conclusion follows by a uniform base-\(p\) exceptional-set bound; the unbounded-gcd-in-density corollary follows from finite intersections. Each step holds for the stated prime, index and cutoff ranges.
+
+**Originality — PASS with residual risk.** Noe's published digit-product congruence already gives individual zero sets and is explicitly treated as prior art; it is not novel here. The new mathematical statement is the exact count for two *consecutive* indices, with carry handling across arbitrary digit lengths, and the density-one divergence of neighboring gcds for infinitely many primes. The inspected Noe and Sun sources address digits, individual residues and sums without an explicit analogous adjacent-index count. The publisher abstract of Eu–Liu–Yeh was readable but full text was not; stronger unlocated automatic-sequence results remain a possible overlap.
+
+**Mathematical value — PASS.** Consecutive central Delannoy numbers provide an especially natural multiplicative gcd statistic. The exact \(p^L\) count resolves the entire sequence of natural digit-block cutoffs for every prime \(p\ge5\), including allowed and forbidden primes. The midpoint obstruction for infinitely many primes upgrades the calculation to an index-density-one theorem: neighboring gcds exceed every fixed bound almost surely over indices. This is a substantive distributional arithmetic statement rather than an isolated small table or a claim to have rediscovered Lucas congruences.
+
+Closest literature: Eu–Liu–Yeh (2005/2006), Noe (2006), Sun (2010/2011, 2010/2014). Limitations: no universal classification of one-digit forbidden sets and no pointwise lower bound on gcd. Residual originality risk from the inaccessible Eu primary full text and general automatic-word counting theory. Finite tests are corroboration, not proof of the infinite result.
+
+Self-review: passed. Independent audit: not yet performed.
