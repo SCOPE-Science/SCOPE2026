@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All 24 edges are defined explicitly. A first-uncovered-vertex exhaustive matching recursion yields all 33 matchings and 20 unordered three-perfect-matching factorizations. Independent edge-colour backtracking fixing colours at one vertex yields precisely the same 20. Two independently formulated exhaustive adjacency computations agree on every one of the 27 edges. A displayed bijection maps all 24 edges of the 16-state component exactly onto GP(8,3); the other four states have precisely the claw edges. Connected-component profiles, all-pairs distances and cycle lengths are checked by the included standalone verifier. The claim is finite, with no inference from sampled cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Belcastro–Haas 2017 Theorem 2.15 gives general degree correspondence, and Theorem 4.2 classifies crossed prisms, not the graph GP(8,3).",
+        "Goedgebeur–Östergård 2021 §3 enumerates cubic graphs through order 30 and bipartite cubic graphs through 36, but publishes aggregate tables of numbers of classes without this exact twenty-state graph."
+      ],
+      "reasoning": "A theorem that merely constrains component count, degrees, or their aggregate frequency cannot imply the individual component graph isomorphism or cycle profiles without additional graph-specific information. The 2021 computational work plausibly already knew the number of components for this graph; this numerical ingredient is therefore not claimed as novel.",
+      "searches": [
+        "Edge-kempe-equivalence graphs of class-1 regular graphs full pdf",
+        "Switching 3-edge-colorings of cubic graphs 2021 arXiv",
+        "3-edge-coloring Möbius Kantor GP(8,3) Kempe equivalence components isomorphic to graph itself"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.1730",
+      "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+      "arxiv:2105.01363v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Belcastro–Haas 2012 Theorem 5.1 treats Möbius ladders, prism graphs and crossed prism graphs; the Möbius–Kantor graph is GP(8,3), not the Möbius ladder M_16.",
+        "Belcastro–Haas 2017 discusses KE_v(G) degrees and topology of crossed-prism examples, without the named GP(8,3) bijection.",
+        "Goedgebeur–Östergård 2021 computes equivalence counts for all graph inputs but does not print individual component isomorphism types."
+      ],
+      "reasoning": "The object is fixed unambiguously, so misleading shared names (Möbius ladder vs Möbius–Kantor) do not transfer coverage. A full graph-classification statement would imply a two-component count; the converse is false. Similarly, an abstract degree formula needs the nontrivial 20-state enumeration and exact adjacency certificate before any self-isomorphism follows.",
+      "searches": [
+        "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs 2012 full text",
+        "Edge-Kempe-equivalence graphs of class-1 regular graphs 2017 Theorem 2.15",
+        "Switching 3-edge-colorings cubic graphs 2021 §3",
+        "three-edge-colouring equivalence graphs edge Kempe Möbius Kantor class size 16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact equivalent language is an unordered one-factorization, proper 3-edge-colouring modulo global colour names, or KE_v(G) after fixing the three incident colours (Belcastro–Haas 2017, §2.2).",
+        "Searches reached Möbius–Kantor matching/homology claims but no exact edge-Kempe graph statement."
+      ],
+      "reasoning": "The change of presentation is explicit: each colour class is a perfect matching, and fixing colours at a cubic vertex chooses one representative of each permutation orbit. Thus comparisons were made against these stronger aliases rather than relying on word-for-word titles. No retrieved claim with these equivalent objects determines the displayed graph isomorphism.",
+      "searches": [
+        "3-edge-colourings Möbius-Kantor GP(8,3) 20 factorisations Kempe-switch graph Möbius Kantor and claw",
+        "3-edge-coloring Möbius Kantor GP(8,3) Kempe equivalence components isomorphic to graph itself",
+        "Möbius Kantor incidence graph 16 vertices proper three edge coloring one factorization 20 16-vertex Kempe component same graph and four-vertex star",
+        "\"Möbius-Kantor\" \"edge Kempe\" reconfiguration",
+        "\"GP(8,3)\" \"Kempe\" \"K1,3\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2021 arXiv HTML Tables 1–2 report counts of graphs by possible numbers of edge-Kempe classes at a given order, not the full state-graph adjacency or isomorphism of each input graph.",
+        "Direct exact program constructs 20 individual colour partitions and the complete 27-edge graph; explicit index-to-vertex graph isomorphism is checked."
+      ],
+      "reasoning": "The exact fixed-graph graph-isomorphism claim is more specific than aggregate census outputs. Potential unretrieved supplemental data or other small-graph tables remain a genuine residual risk.",
+      "searches": [
+        "arxiv:2105.01363 Table 1 order 16 Table 2 cubic bipartite",
+        "Möbius Kantor GP(8,3) Kempe switching graph 20 states 16 plus 4",
+        "GP(8,3) edge Kempe reconfiguration states 16 component and 4 component two color cycle lengths 6 10 8 8"
+      ]
+    },
+    "rationale": "The complete statement is a finite graph isomorphism K(GP(8,3)) ≅ GP(8,3) ⊔ K1,3 with exactly 20 states, 27 edges, explicit state-level mapping and full cycle-profile decomposition. Prior primary literature establishes the state relation, general facts and (from a later census) class-count coverage, but the inspected complete primary results do not give this specific graph structure or a theorem implying it. The closest accessible earlier own results concern distinct graphs. Exhaustive global priority is not asserted.",
+    "residual_risks": [
+      "The 2021 full cubic-graph census may have unpublished per-graph adjacency data or supporting code not examined; its aggregate published tables do not give the present precise statement.",
+      "An older thesis, unpublished computation, or independently indexed graph-library example could contain the same twenty-state graph classification.",
+      "The 2017 general degree identity captures part of the observed degree sequence after graph-specific cycle profiles are known; degree counts alone do not imply the explicit component isomorphism."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers definitions, class counts of several other cubic families and natural Kempe-equivalence questions, not the state graph of GP(8,3) or its self-isomorphic component.",
+        "evidence": [
+          "arXiv:1209.1730 §§1–5, especially Theorem 5.1 and §6; source first posted 2012-09-08."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+        "material_read": "Accessible full arXiv text: introduction, edge-cut decompositions, results on equivalence classes, applications to Möbius ladders/prisms/crossed prisms, and future-work section.",
+        "method": "Read primary full text, searched for Möbius–Kantor, Desargues and Heawood, and compared theorems with the specific twenty-state graph claim.",
+        "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+        "trigger": "Foundational treatment of exactly the same edge-Kempe equivalence relation and normalization in cubic graphs."
+      },
+      {
+        "assessment": "Its general degree and connectivity reductions do not determine the twenty states, twenty-seven adjacencies, cycle-profile partition, or graph-isomorphism certificate of the fixed Möbius–Kantor graph. The worked example is the distinct crossed-prism family.",
+        "evidence": [
+          "Australasian J. Combin. 69(2) (2017), pp.197–214, Theorems 2.14–2.15, §3, Theorem 4.2; no named GP(8,3) statement in searched accessible text."
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+        "material_read": "Original journal PDF pp.197–213 including introduction, general structural results, the fixed-vertex-color normalization, graph-product results and the crossed-prism worked calculation; final references/closing not used as absence proof.",
+        "method": "Inspected primary PDF text and representative page image; compared normalization, Theorem 2.15, and the named worked example with the exact GP(8,3) graph.",
+        "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+        "trigger": "Directly investigates the full Kempe-equivalence reconfiguration graph rather than merely equivalence classes."
+      },
+      {
+        "assessment": "The census certainly covers the relevant graph at the level of class-count computation, so class count alone is not advanced as new. It does not present the individual GP(8,3) adjacency graph, its sixteen-state self-isomorphism, or its three specific bichromatic profiles.",
+        "evidence": [
+          "arXiv:2105.01363v1 §3, Algorithm 1, Table 1 row n=16, Table 2 row n=16; first posted 2021-05-04."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2105.01363v1",
+        "material_read": "Accessible full arXiv HTML abstract, introduction and §3, including algorithm, Tables 1–4, and explicit example/theorem discussions; examined first PDF page for source confirmation.",
+        "method": "Compared the resolution of each printed table (aggregate distribution by order) and stated theorems (class counts and general families) against the exact fixed-graph adjacency/isomorphism claim.",
+        "title": "Switching 3-Edge-Colorings of Cubic Graphs",
+        "trigger": "Large computational census of 3-edge Kempe classes through orders covering the sixteen-vertex graph; strongest plausible coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "94ffa913-49b9-4f94-8514-c22d6a58c6a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a canonical 16-vertex cubic symmetric nonplanar graph, the minimum-palette colouring state space literally reproduces the base graph as one connected component, while four other states form a dissimilar star. The full twenty-state exchange graph and the three distinct cycle-profile types answer a natural structural reconfiguration question beyond already studied scalar class counts, and provide a concrete finite benchmark for the general Kempe-equivalence-graph theory.",
+    "status": "PASS"
+  }
+}
