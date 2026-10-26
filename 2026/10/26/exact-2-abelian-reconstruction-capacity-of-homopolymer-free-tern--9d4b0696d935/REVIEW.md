@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A labelled 2-abelian profile is equivalent to a starting letter and its six directed transition multiplicities, since the end letter and all one-letter counts are recoverable. Euler-trail feasibility is exact because nonempty support on three vertices is connected. Opposite-arc difference generating functions enumerate balanced and unit-flow profiles, with correct two-vertex and empty-vector boundary corrections. The displayed rational function follows algebraically. Independently implemented finite enumeration reproduces the coefficients for lengths through 13 and direct arc flow enumeration through twelve transitions. Neither check is presented as an infinite proof.
+
+**Originality — PASS under inspected evidence, with residual risk.** The closest 2017 and 2018 literature establishes general 2-abelian equivalence, class-cardinality regularity, and unrestricted quotient rationality; the unrestricted ternary sequence is a different count. The reviewed 2017 cardinality paper's early pages and original results on class sizes do not give this restricted linear quotient. The 2018 chapter's accessible abstract addresses regular languages of fixed-size equivalence classes, not this enumeration; its full text was inaccessible, so an alternative equivalent result cannot be ruled out. Existing cyclic digram rankings and balanced cyclic profiles do not imply the open-trail, count-profile formula. Directed-graph start/end corrections and the exact no-repeat condition are essential to the claim.
+
+**Mathematical value — PASS.** The exact number of observable reconstruction classes is a natural constrained channel capacity, with all-length closed enumeration and cubic asymptotic rather than a finite small-case list. Homopolymer-free sequence design supplies a concrete motivation for adjacent-distinctness; the arc-balance argument connects a constrained word-reconstruction invariant to Euler-trail flow geometry. No new theorem about unconstrained or larger-alphabet cases is asserted.
+
+**Risks and limits.** Restricted alphabet and observation; exact class-size distribution remains open here. Main novelty risk is the inaccessible full 2018 chapter and any unindexed prior enumeration. Results are self-review only.
+
+Self-review: passed. Independent audit: not yet performed.
