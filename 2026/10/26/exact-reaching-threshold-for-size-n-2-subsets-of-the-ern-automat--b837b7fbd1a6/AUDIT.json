@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The hole-set transition rules are explicit. For every two-hole target, b a^d b a^t reaches it in at most 2n letters. For the target Q\\{n-3,n-2}, the oriented-gap argument forces at least 2n letters; the word b a^(n-1) b a^(n-1) attains the bound. These steps prove the claim for all n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The closest exact-results record, 'Two-defect reachability in cyclic defect-one automata', supplies a general 2n upper construction for codimension-two targets (with a stated exceptional displacement case); it does not state shortest distances or a unique extremizer.",
+        "The 2022 general bound is 2n(n-|S|)-n H_{n-|S|}, which is 5n/2 when |S|=n-2."
+      ],
+      "reasoning": "The present theorem is restricted to the canonical Cerny transition maps. It adds a matching lower bound and uniqueness of the target attaining 2n; neither follows from a generic upper bound alone.",
+      "searches": [
+        "Search query: Don conjecture reaching threshold n-2 completely reachable automata binary exact worst-case",
+        "Search query: standardized completely reachable automata reaching threshold exact subsets size n-2",
+        "Search query: exact maximum shortest reaching-word length over size n-2 subsets of the Cerny automaton unique hardest target Q minus {n-3,n-2}",
+        "arXiv:2208.05956, general reaching-threshold bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.05956 — abstract, Sections 1–2, Example 2.4, and stated reaching-threshold bound.",
+      "arXiv:2402.19089 — abstract, introduction, and relevant size-(n-2) construction in Section 4.",
+      "Exact-results index queries — closest records concern two-defect upper reachability and Cerny avoiding thresholds, not the exact reaching-threshold extremizer."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2208.05956 reports the general harmonic-number upper bound and, for the four-state Cerny automaton, the size-two target with threshold 8.",
+        "arXiv:2402.19089 provides a broad reaching-threshold context and counterexamples for other automata, but no universal exact formula for the Cerny size-(n-2) targets.",
+        "The closest exact-results record gives the 2n upper scale, but not the lower bound or uniqueness assertion."
+      ],
+      "reasoning": "The prior statements establish context and upper bounds, not that the maximum is exactly 2n for every n>=3 or that Q\\{n-3,n-2} is its unique maximizer. The symbolic lower bound and construction in RESULT.md establish those additional assertions.",
+      "searches": [
+        "arXiv:2208.05956, Example 2.4 and reaching-threshold theorem",
+        "arXiv:2402.19089, discussion of Don's conjecture and size-(n-2) counterexamples",
+        "Search query: Cerny automaton reaching threshold subset Q\\{n-3,n-2} length 2n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2208.05956 defines the reaching threshold as the shortest word mapping Q to S and proves the bound 2n(n-|S|)-n H_{n-|S|}.",
+        "arXiv:2402.19089 studies Don's bound and gives examples in other binary automata families; the inspected statement does not classify the canonical Cerny target distances."
+      ],
+      "reasoning": "The complement-hole representation is equivalent to the reaching-threshold formulation: a target of size n-2 is a two-hole set. The exact maximum and unique extremizer are a statement about shortest reaching words, not about avoiding a state set or shortest reset words.",
+      "searches": [
+        "Search query: exact maximum shortest reaching-word length over size n-2 subsets of the Cerny automaton unique hardest target Q minus {n-3,n-2}",
+        "arXiv:2208.05956, definition of reaching threshold and Section 5 bound",
+        "arXiv:2402.19089, Sections 1 and 4 on reaching thresholds and size-(n-2) targets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-results search returned 'Exact k-avoiding thresholds of the Cerny automata', which concerns avoiding a k-set, not reaching a specified subset.",
+        "The exact-results search returned 'Two-defect reachability in cyclic defect-one automata', an upper-bound result that does not state the exact Cerny reaching-threshold extremizer."
+      ],
+      "reasoning": "The closest table/index entries use related automata but a different objective or only a universal upper construction. No exact table giving the shortest reaching threshold for every two-hole target in the canonical Cerny automaton was found by the recorded queries.",
+      "searches": [
+        "Search query: Cerny automaton reaching threshold subset Q\\{n-3,n-2} length 2n",
+        "Search query: exact maximum shortest reaching-word length over size n-2 subsets of the Cerny automaton unique hardest target Q minus {n-3,n-2}"
+      ]
+    },
+    "rationale": "The inspected primary sources give general reaching-threshold bounds and counterexamples in other automata families, not the exact Cerny size-(n-2) profile or unique maximizing target. Related exact-results entries concern a general upper construction or the different avoiding-threshold objective. The claim is limited to the exact maximum and unique extremizer.",
+    "residual_risks": [
+      "An unindexed or unpublished source may already state the exact extremizer.",
+      "The nearest general two-defect result covers a 2n upper construction; novelty is limited to the matching lower bound and unique extremizer for the canonical Cerny family.",
+      "The finite checker covers n=3..10 only; the universal claim depends on the symbolic proof, not extrapolation from enumeration."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant context and a general bound; it does not state the all-n exact maximum or unique target claimed here.",
+        "evidence": "The source states 2n(n-|S|)-n H_{n-|S|}; for |S|=n-2 this equals 5n/2. Its Example 2.4 gives threshold 8 for a size-two target only when n=4.",
+        "identifier_or_url": "arXiv:2208.05956",
+        "material_read": "Read the abstract, Sections 1–2, Example 2.4, and the stated general bound in Section 5; not every appendix page was inspected.",
+        "method": "Compared the quantified bound at |S|=n-2 with the proposed exact value and checked the source's four-state example.",
+        "title": "Completely reachable automata: a quadratic decision algorithm and a quadratic upper bound on the reaching threshold",
+        "trigger": "Closest primary source for the definition and general upper bounds on reaching thresholds."
+      },
+      {
+        "assessment": "The paper gives context and other examples violating Don's bound; it does not provide the exact Cerny profile or the unique target asserted here.",
+        "evidence": "The paper describes infinitely many binary completely reachable automata violating Don's conjecture, including subsets of size n-2, in a constructed family distinct from the canonical Cerny automaton.",
+        "identifier_or_url": "arXiv:2402.19089",
+        "material_read": "Read the abstract, definitions and introduction, plus the relevant Section 4 construction and lower-bound discussion; not every appendix page was inspected.",
+        "method": "Compared the target family and exact threshold statement against the paper's general bounds and counterexample family.",
+        "title": "Around Don's conjecture for binary completely reachable automata",
+        "trigger": "Recent primary treatment of reaching thresholds and size-(n-2) targets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b837b7fb-d1a6-4bf7-9575-1f32fdd56057",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Reaching thresholds are a central invariant in complete reachability and Don's conjecture. The exact maximum and unique extremizer give a sharp, parameterized benchmark at codimension two in the canonical Cerny family, separating reaching thresholds from the more familiar reset and avoiding thresholds.",
+    "status": "PASS"
+  }
+}
