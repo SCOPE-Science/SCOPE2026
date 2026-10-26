@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The exact arcsine pushforward formula converts the coefficient norm into a measure-comparison problem. The global Chebyshev Christoffel bound and a size-\(N^{-1}\) split at all new internal endpoints give the \(N^{1/2}\) bound for the *squared* norm. A normalized reproducing kernel concentrated at one internal endpoint yields the matching lower bound. Leading coefficients supply the triangular eigenvalues. The affine fixed-point limit and exact evaluation-functional norm establish the power-limit identity. The attached independent-of-experiment analytical proof covers all fixed nondegenerate proper subintervals; finite checks are diagnostic only.
+
+**Originality — PASS, subject to historical risk.** The motivating paper's Section 2 gives entry formulas and a recurrence, not this growth theorem or the exact powers limit. The claim was compared against previously published mathematical claims and mathematical-record search results using the source name, affine restriction aliases, arcsine-weight ratios, Chebyshev spectral norms, and quarter-power growth. No matching or stronger covering claim was found in the checked sources. General Jacobi-weight Nikolskii inequalities may eventually subsume the exponent; this priority uncertainty is not erased by unsuccessful search.
+
+**Mathematical value — PASS.** The restriction block is a named foundational operation in a current fast spectral Volterra method. Its dimension-growing Chebyshev \(\ell^2\)-gain and much larger repeated gain quantify a structural, norm-dependent stability limitation invisible from the triangular eigenvalues and conventional full-interval spectral analysis. The result motivates choosing or tracking norm-compatible representations; it does not claim the entire solver fails.
+
+The checked earlier numerical spectral-conditioning literature uses different assembled operators; relevant details and specific comparisons appear in the structured audit. Norm estimates are limited to fixed intervals, degree spaces, and exact arithmetic. No leading one-step constant, uniform moving-endpoint estimate, or finite-precision growth theorem is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

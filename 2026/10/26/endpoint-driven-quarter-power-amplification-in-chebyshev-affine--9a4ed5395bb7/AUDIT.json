@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Pushforward of arcsine density is exact. Evaluation Christoffel bound O(N) and mass O(N^-1/2) on endpoint windows give squared norm O(sqrt N). Normalized kernel at fixed interior endpoint has N-sized mass on a 1/N window and yields squared norm Omega(sqrt N). Triangular diagonal alpha^j and fixed point alpha^k contraction prove exact power limit; every quantifier and boundary is specified. Checker is only finite diagnostic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General Chebyshev/Jacobi orthogonality is classical; no specific norm-comparison theorem for the two noncoincident arcsine endpoints was materially retrieved.",
+        "Olver and Townsend arXiv:1202.1347 address assembled differential spectral methods and do not formulate this restriction-matrix growth in their accessible abstract."
+      ],
+      "reasoning": "A weighted Nikolskii or Christoffel theorem could dominate the exponent even without naming this matrix. No decisive such statement was found in inspected material. This remains an explicit priority risk.",
+      "searches": [
+        "web: polynomial reverse Holder inequality Jacobi weights w2/w1 singular endpoints n^1/4 exact",
+        "web: polynomial weighted L2 norm Jacobi weights endpoint singularity change weight Nikolskii Christoffel",
+        "web: orthogonal polynomial weight embedding Jacobi norms weights ratio singular interior sqrt n operator norm",
+        "Jacobi polynomial change of weight arcsine-to-subinterval arcsine, endpoint singularity n power one quarter, Christoffel Dirichlet kernel"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.20206v1 §2, §7, Appendix A (primary object)",
+      "arxiv:1202.1347 abstract (adjacent assembled-operator conditioning)",
+      "Published mathematical record:2026/10/11/SCOPE-exact-singular-value-coefficient-of-generalized-ces-ro-operators--d56b622eed1d (different object)",
+      "Published mathematical record:2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69 (different object)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.20206v1 §2 Theorem 2.1: triangular recurrence and matrix-entry integral; §2 Theorem 2.2: endpoint Jacobi entry formula. Neither yields the two growth rates as a stated result.",
+        "arXiv:1202.1347 abstract: well-conditioned spectral method for differential equations with almost-banded reformulation; no affine Chebyshev restriction claim."
+      ],
+      "reasoning": "The recurrence is compatible with norm growth but does not logically furnish the \\Theta(N^{1/4}) result or spectral projector identity. The present claim adds a new quantitative norm invariant; old general weighted-norm inequalities could subsume the proof if an applicable stronger theorem is later identified.",
+      "searches": [
+        "Chebyshev affine restriction operator on proper subinterval, weighted L2 spectral norm of n-by-n Chebyshev coefficient matrix grows n^(1/4); interval endpoint arcsine weight",
+        "Volterra Xi Chen Kuan Xu 2610.20206 restriction R(a,b) norm conditioning finite Chebyshev section",
+        "web: Chebyshev restriction matrix norm growth polynomial restriction subinterval coefficients"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact identity of input/output: comparison of full-interval and [a,b] arcsine measures, RESULT.md Proof step 1.",
+        "Published research record d56b622eed1d concerns generalized Cesaro compact operators, not affine Chebyshev reexpansion."
+      ],
+      "reasoning": "The equivalent arcsine-weight comparison and unbounded affine composition formulations were queried. Retrieved records do not state the same polynomial-subspace norm law; no uniqueness proof is inferred from absence.",
+      "searches": [
+        "Chebyshev affine restriction operator on proper subinterval, weighted L2 spectral norm of n-by-n Chebyshev coefficient matrix grows n^(1/4); interval endpoint arcsine weight",
+        "Jacobi polynomial change of weight arcsine-to-subinterval arcsine, endpoint singularity n power one quarter, Christoffel Dirichlet kernel",
+        "web: Chebyshev polynomial composition operator affine disk [-1,1] unbounded weighted L2 norm",
+        "web: Chebyshev affine transformation restriction matrix operator norm n 1/4 arcsine measure"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched public mathematical records returned no direct table for this restriction family; d56b622eed1d and 502b7b013a69 concern Cesaro-like operators.",
+        "Chen--Xu Theorem 2.2 tabulates individual restriction entries, not largest singular values or their degree growth."
+      ],
+      "reasoning": "Entry formulas or tabulated orthogonal-polynomial norms cannot directly answer the extremal singular-value question without a uniform proof and lower-bound construction. No matching exact database values found.",
+      "searches": [
+        "Volterra Xi Chen Kuan Xu 2610.20206 restriction R(a,b) norm conditioning finite Chebyshev section",
+        "Chebyshev restriction to subinterval matrix singular values norm N^0.25 triangular diagonal alpha^j",
+        "web: Chebyshev mapping subinterval matrix singular values growth n quarter"
+      ]
+    },
+    "rationale": "Directly inspected arXiv:2610.20206v1 Section 2, closing remarks and Appendix A: entry recurrences and Jacobi formulas do not imply a stated spectral-norm exponent or fixed-point power norm without a separate weighted polynomial extremal argument. Semantic record search on four claim aliases and literature searches found no exact covering statement. Plausible older weighted-polynomial comparison literature leaves historical priority uncertainty.",
+    "residual_risks": [
+      "Equivalent or stronger result may be implicit in an older general theorem on embeddings between polynomial spaces with distinct Jacobi/arcsine weights; not all such monographs were checked.",
+      "Search-based noncoverage is not proof of mathematical priority.",
+      "Finite numerical tests do not establish asymptotic estimates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines restriction and triangular entry recurrences but no degree-dependent induced spectral-norm or power-limit result. The numerical stability of assembled Volterra solvers is a different object.",
+        "evidence": [
+          "§2 equation (5), (8)-(13); Theorems 2.1--2.2; §7 final paragraph; Appendix A equation (74c)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.20206v1",
+        "material_read": "Full-text HTML relevant Sections 1 and 2 including both theorems and proofs, Section 7 and Appendix A; searched for norm/conditioning",
+        "method": "Direct open-access HTML, inspected equations (5)-(14), stated theorems, algorithm commentary, conclusion and classical identities",
+        "title": "Fast spectral methods for Volterra integral equations",
+        "trigger": "Exactly the same affine Chebyshev restriction object and R(a,b) coefficient matrix"
+      },
+      {
+        "assessment": "Discusses a transformed differential-equation spectral system, not coefficient restriction to a proper interval. Not used to infer whole-document absence.",
+        "evidence": [
+          "Abstract explicitly identifies almost-banded differential equations, suitable norms and adaptive QR."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.1347",
+        "material_read": "Accessible abstract and metadata (not asserted to be a full-text inspection)",
+        "method": "Open online abstract",
+        "title": "A fast and well-conditioned spectral method",
+        "trigger": "Adjacent well-conditioned spectral-operator methodology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9a4ed539-5bb7-4bc6-ab71-06255fc76628",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The restriction matrix is a central building block of an actual 2026 fast spectral Volterra construction; one-step gain Theta(N^1/4) and long-power gain Theta(N^1/2) show distinct degree-dependent sensitivity invisible from its eigenvalues. Contrasting uniform Lebesgue L2 control identifies the specific endpoint-weight mechanism. Quantitative stability limits can inform norm selection and high-degree recursive restriction; not merely an isolated arithmetic check.",
+    "status": "PASS"
+  }
+}
