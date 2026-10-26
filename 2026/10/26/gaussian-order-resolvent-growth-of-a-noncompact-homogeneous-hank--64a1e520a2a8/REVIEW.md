@@ -1,0 +1,12 @@
+# Scientific review
+
+## Correctness: PASS
+The Mellin transform and beta integral fix the normalization. The Gamma modulus is positive and continuous; strict convexity places the unique maximum of every power multiplier at the explicit midpoint. The exact product yields a uniform-in-power logarithmic remainder. The Neumann series gives the matching Gaussian upper bound. For the lower bound, choosing a short interval whose successive translates are disjoint makes all resolvent powers orthogonal on one input, while a Lipschitz logarithm bounds the weight loss. Taking the optimizing power proves the exact logarithmic-square coefficient for complex parameters without a phase gap. The multiplier essential-range argument verifies noncompactness and the spectral side-claims. Computations are supplementary only.
+
+## Originality: PASS
+Sang (2026), arXiv:2609.25184, is the closest source and already proves qualitative quasinilpotence, the Mellin weighted-translation representation, and the general power supremum: these are not claimed as independent discoveries. The sharp resolvent coefficient requires quantitative power optimization plus an additional phase-insensitive lower-bound localization absent from the inspected text. Ignatev (2026), arXiv:2607.16743, addresses local resolvent growth of monotonically weighted backward unilateral shifts and gives a relevant general saddle-point lemma; it does not treat this bilateral Hankel model or imply the exact parameter coefficient directly. Pushnitski–Sobolev (2025) concerns self-adjoint dilation-periodic operators, not this model. Indexed research queries and accessible published mathematical claims yielded no covering result. Residual risk: equivalent treatments in historical bilateral weighted-translation pseudospectral literature may exist.
+
+## Value: PASS
+The 2026 construction solves a qualitative existence problem for noncompact quasinilpotent Hankel operators. The exact logarithmic-square resolvent blow-up rate quantifies its pseudospectral instability in terms of the homogeneous oscillation parameter, while its powers remain noncompact despite Gaussian-in-power norm decay. This is a motivated numerical invariant of the specific canonical family, not an arbitrary matrix slice. The coefficient is sharp and requires both upper and lower bounds; there is no claim to an exact finite-parameter resolvent norm.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Direct Mellin-beta calculation establishes the shift multiplier and coefficient. The exact power norm is a strictly convex unimodal product; its log has quadratic term -pi|a| n^2/4 and a uniformly bounded remainder after the linear correction. Gaussian summation gives the resolvent upper bound. For each optimized power, a normalized short-interval Mellin input makes all Neumann terms orthogonal, giving a phase-uniform matching lower bound. Spectral-range and noncompactness statements follow from multiplication on nonatomic L2. The source and finite numerical checks were inspected; finite checks are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sang Proposition 2.1 gives qualitative quasinilpotence for any C0 weighted translation and norm powers as a supremum; generality in the symbol does not itself give an evaluated parameter-dependent resolvent coefficient.",
+        "Pushnitski and Sobolev, arXiv:2307.09242, investigate self-adjoint Hankel operators commuting with a fixed dilation; the target is non-self-adjoint and dilation covariant with nonzero exponent.",
+        "Ignatev Theorem 4 assumes monotone unilateral backward shifts, not an oscillatory homogeneous Hankel integral kernel."
+      ],
+      "reasoning": "None of these inspected theorem statements directly implies the exact numerical constant for the full complex resolvent in the same operator class. The techniques have overlap and are explicitly credited, particularly the general saddle-point approach.",
+      "searches": [
+        "Yuanqi Sang Examples of Noncompact Quasinilpotent Hankel Operators 2026 exact norm powers gamma Carleman",
+        "norm of n-th powers of Mellin multiplication translation operator gamma factors cosh pi s cosh pi(s-a), quadratic Gaussian rate",
+        "arXiv:2307.09242 self-adjoint dilation-periodic Hankel band spectra",
+        "arXiv:2607.16743 weighted shift resolvent growth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25184v1",
+      "arXiv:2607.16743v1",
+      "arXiv:2307.09242",
+      "DOI:10.1215/00127094-2024-0043"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sang proves r(H_a)=0 and noncompactness, rather than the quantitative resolvent asymptotic. His norm-supremum formula is used as a credited input; the new exact finite-product norm is a specialization of it.",
+        "Ignatev proves a log-sum/supremum estimate for a restricted unilateral shift class; no result about H_a or its parameter-dependent coefficient appears in inspected material."
+      ],
+      "reasoning": "The novelty claim is deliberately centered on the sharp resolvent constant, not on quasinilpotence, the Mellin symbol, or the formal general power-supremum identity. The matching lower bound is proved with localized Mellin support and orthogonal resolvent powers; this is not a stated corollary of the compared results. Residual risk is a broader pseudospectral theorem not indexed in the searched sources.",
+      "searches": [
+        "Yuanqi Sang Examples of Noncompact Quasinilpotent Hankel Operators 2026 exact norm powers gamma Carleman",
+        "noncompact quasinilpotent integral Hankel kernel (x+y)^(-1+ia) resolvent growth log ||(z-H)^{-1}|| asymptotic (log 1/|z|)^2 / (pi |a|) Mellin translation and Gaussian power norms",
+        "quasinilpotent weighted shift resolvent norm logarithmic square asymptotic Gaussian products",
+        "arXiv:2609.25184 equations (2.1)-(2.4) and Theorem 2.4",
+        "arXiv:2607.16743 Section 3 Lemma 1 and equation (11)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sang arXiv:2609.25184 equations (2.3) and (2.4) give a general power norm supremum and the special gamma translation weight, but no asymptotic logarithmic-square resolvent coefficient.",
+        "Ignatev arXiv:2607.16743 Section 3, equation (11), contains a saddle-point resolvent growth principle for strictly decreasing unilateral backward weighted shifts."
+      ],
+      "reasoning": "The new target is the concrete sharp constant 1/(pi|a|) for the operator with Mellin bilateral weight increasing and then decreasing. Sang supplies part of the power representation, whereas the phase-insensitive lower bound for the full resolvent requires a localized disjoint-support vector. Ignatev does not directly cover the bilateral/nonmonotone model, and no equivalent formulation was identified.",
+      "searches": [
+        "noncompact quasinilpotent integral Hankel kernel (x+y)^(-1+ia) resolvent growth log ||(z-H)^{-1}|| asymptotic (log 1/|z|)^2 / (pi |a|) Mellin translation and Gaussian power norms",
+        "quasinilpotent weighted shift resolvent norm logarithmic square asymptotic Gaussian products",
+        "resolvent growth weighted translation quasinilpotent",
+        "arXiv:2609.25184; arXiv:2607.16743"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual indexed queries ranked related quasinilpotent weighted shifts, Hankel norm testing and generalized Hilbert matrices; their statements have different operators or invariants.",
+        "No accessible published research statement found in the searches mentions this gamma-Hankel resolvent coefficient or Sang's Mellin model."
+      ],
+      "reasoning": "No direct exact-result entry or known table entry was found. The absence of a search hit is not a proof of novelty, and missed/unindexed publications remain a risk.",
+      "searches": [
+        "noncompact quasinilpotent integral Hankel kernel (x+y)^(-1+ia) resolvent growth log ||(z-H)^{-1}|| asymptotic (log 1/|z|)^2 / (pi |a|) Mellin translation and Gaussian power norms",
+        "Hankel kernel t^{-1+ia} exact operator norm powers product cosh parity q-Pochhammer",
+        "noncompact quasinilpotent Hankel resolvent asymptotic weighted translation Mellin",
+        "accessible published mathematical claims and arXiv-related searches"
+      ]
+    },
+    "rationale": "Closest Sang 2026 source contains the operator, qualitative result, Mellin weight and general power supremum, all expressly credited. The final claim is the sharp full-complex-resolvent coefficient, with new localization lower bound. Ignatev 2026 supplies a related saddle point result for different unilateral monotone shifts and is not a same-object exact constant theorem. No stronger covering exact statement was identified in the actual indexed and primary-source searches; priority uncertainty is retained.",
+    "residual_risks": [
+      "Older or unindexed bilateral weighted-translation pseudospectral results might imply the coefficient.",
+      "Only the primary abstract and class overview were read for the self-adjoint band-spectra comparison.",
+      "Self-review is not independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Quasinilpotence, noncompactness, the gamma weight and the generic supremum for powers are previously established. No logarithmic-square resolvent asymptotic or matching localization lower bound appears in the inspected paper.",
+        "evidence": [
+          "arXiv:2609.25184 sections 1-2, especially (2.3), (2.4), Proposition 2.1 and Theorem 2.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.25184",
+        "material_read": "Full HTML scientific text, introduction, Proposition 2.1, Theorems 2.2 and 2.4, proof details, and references.",
+        "method": "Direct full-text HTML reading, equations (2.1)-(2.13) and statements.",
+        "title": "Examples of Noncompact Quasinilpotent Hankel Operators",
+        "trigger": "Exact same kernel and Mellin representation, the closest potentially dominating source."
+      },
+      {
+        "assessment": "The shift is unilateral and its positive weights strictly decrease; its theorem describes local resolvent power sets. It does not classify the bilateral Mellin translation of the oscillatory Hankel operator or evaluate the coefficient.",
+        "evidence": [
+          "arXiv:2607.16743 Section 3, Lemma 1, equation (11), Theorem 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.16743v1",
+        "material_read": "Full HTML, especially Section 3, Lemma 1, Theorem 4, and equation (11).",
+        "method": "Direct primary-text HTML reading with hypothesis and implication comparison.",
+        "title": "The power set of a quasinilpotent backward weighted shift",
+        "trigger": "Potential broader theorem on resolvent growth and saddle-point principles."
+      },
+      {
+        "assessment": "Its self-adjoint fixed-dilation-commuting Hankel class does not contain this non-self-adjoint nonzero-homogeneity-covariant operator as stated. No conclusion of NOT_COVERING is inferred from unread full text.",
+        "evidence": [
+          "arXiv:2307.09242 abstract; DOI:10.1215/00127094-2024-0043."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.09242",
+        "material_read": "Abstract, class description and publication overview; not the full paper.",
+        "method": "Primary abstract and open-access repository overview, class comparison.",
+        "title": "Hankel operators with band spectra and elliptic functions",
+        "trigger": "Earlier homogeneous/periodic Hankel spectral theory cited by Sang."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64a1e520-a2a8-449f-ba36-17cf20dc8268",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A 2026 existence construction of noncompact quasinilpotent Hankel operators poses a natural quantitative pseudospectral question. The exact 1/(pi|a|) resolvent coefficient measures how the noncompact operator can have an essential singularity despite spectrum {0}; it complements Gaussian-decaying yet noncompact power norms. The lower bound is sharp and prevents a superficial upper-only estimate. The problem is a motivated full-parameter canonical model rather than a tiny unmotivated example.",
+    "status": "PASS"
+  }
+}
