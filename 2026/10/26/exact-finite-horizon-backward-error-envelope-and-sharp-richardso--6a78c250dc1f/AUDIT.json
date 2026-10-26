@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Diagonalize PSD A, verify positive geometric-sum solution multiplier for 0<alpha<2, derive scalar residual-to-solution ratio. Monotonicity on beta in [0,1] and [1,alpha] gives an exact two-endpoint supremum attained by explicit 2D null and 1D top eigenvectors. The minimax step is the unique intersection of a decreasing and increasing branch; all-horizon safety follows from the exact k=2 obstruction and parity inequalities. A direct standard-library checker validates finite instances but is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.16075, Section 3.2, Theorem 1 fixes step 1/(C||A||) with C>=1; proof treats scalar 0<x<=1, whereas (1) uses both 0<x<=1 and 1<x<2.",
+        "Bindel (2025) optimizes ||I-omega A|| over a fixed SPD spectral interval; the backward-error denominator and nullspace are absent.",
+        "published-finding corpus stagewise-safe Richardson finding concerns stepwise Euclidean nonexpansion on SPD intervals; not the denominator-based matrix-only backward error."
+      ],
+      "reasoning": "The source covers all PSD matrices but only eta||A||<=1, so does not dominate alpha>1; classical fixed-SPD spectral-radius tuning and published-finding corpus two-step safe Richardson statements use different loss functions and/or restrict positive spectral gaps, so neither implies the universal semidefinite backward-error envelope.",
+      "searches": [
+        "2026 Towards Universal Convergence of Backward Error in Linear System Solvers Derezinski Nakatsukasa Rebrova relaxation sharp",
+        "2026 numerical linear algebra randomized sketch preconditioner rank error conditioning spectral counterexample",
+        "Richardson iteration normwise backward error overrelaxation optimal stepsize 1+1/sqrt(3)",
+        "Exact worst-case matrix-only backward error for Richardson iterative PSD systems, horizon-k optimal constant stepsize alpha and sharp all-horizon relaxation 1+1/sqrt(3); compare normwise residual over iterate"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.16075 Section 3.1 and Section 3.2 (full relevant mathematical section)",
+      "Cornell CS 6210 stationary iterations lecture, 2025-11-10, classical iterations and SPD Richardson",
+      "published-finding corpus indexed record 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+      "Public-web exact-threshold and backward-error optimization search results",
+      "Final targeted published-finding corpus semantic search for matrix-only backward-error envelope (60 results), closest ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2604.16075, Section 3.2, Theorem 1 fixes step 1/(C||A||) with C>=1; proof treats scalar 0<x<=1, whereas (1) uses both 0<x<=1 and 1<x<2.",
+        "Bindel (2025) optimizes ||I-omega A|| over a fixed SPD spectral interval; the backward-error denominator and nullspace are absent.",
+        "published-finding corpus 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705 is a different error-polynomial criterion; the independent rank-zero witness is admissible for the source PSD model but excluded by classical positive-gap SPD tuning."
+      ],
+      "reasoning": "The original theorem is recovered at alpha=1 but does not imply an exact supremum outside alpha<=1. In particular, knowing norm contraction for each positive SPD mode says nothing about the universal residual divided by the iterate norm when b lies in ker(A). The upper-bound transition is forced by the scalar second step, while horizon-optimality additionally balances two distinct extremal instances. An equivalent published theorem on that quotient would cover the new claim; none was verified.",
+      "searches": [
+        "Sharp universal normwise backward error envelope Richardson iteration stepsize overrelaxation alpha 1+1/sqrt(3) singular positive semidefinite",
+        "Exact minimax finite-horizon relaxation Richardson PSD matrix backward error from zero 1/(k alpha) scalar eigenvalue overshooting 2",
+        "2026 Towards Universal Convergence of Backward Error in Linear System Solvers Derezinski Nakatsukasa Rebrova relaxation sharp",
+        "Richardson iteration normwise backward error overrelaxation optimal stepsize 1+1/sqrt(3)",
+        "\"Richardson\" \"backward error\" \"minimax\" \"stepsize\"",
+        "Exact worst-case matrix-only backward error for Richardson iterative PSD systems, horizon-k optimal constant stepsize alpha and sharp all-horizon relaxation 1+1/sqrt(3); compare normwise residual over iterate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact scalar eigencomponent form is beta|1-beta|^k/(alpha(1-(1-beta)^k)), with competing beta=0 and beta=alpha. No retrieved source stated its two-endpoint supremum.",
+        "arXiv:2604.16075, Section 3.2, Theorem 1 fixes step 1/(C||A||) with C>=1; proof treats scalar 0<x<=1, whereas (1) uses both 0<x<=1 and 1<x<2."
+      ],
+      "reasoning": "The envelope can be expressed as a Richardson residual-to-solution polynomial quotient; searched under matrix-only backward error, normwise backward stability, and relaxation. The source establishes only nonnegative iteration eigenmodes (eta lambda<=1). The new oscillatory range has a different maximizing spectral endpoint, and the exact all-k window is not implied by its stated restricted theorem.",
+      "searches": [
+        "Sharp universal normwise backward error envelope Richardson iteration stepsize overrelaxation alpha 1+1/sqrt(3) singular positive semidefinite",
+        "Exact minimax finite-horizon relaxation Richardson PSD matrix backward error from zero 1/(k alpha) scalar eigenvalue overshooting 2",
+        "Richardson iteration normwise backward error overrelaxation optimal stepsize 1+1/sqrt(3)",
+        "\"Richardson\" \"backward error\" \"overrelaxation\" sharp bound",
+        "\"Richardson\" \"backward error\" \"minimax\" \"stepsize\"",
+        "Exact worst-case matrix-only backward error for Richardson iterative PSD systems, horizon-k optimal constant stepsize alpha and sharp all-horizon relaxation 1+1/sqrt(3); compare normwise residual over iterate"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus indexed matches include ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705; there is no directly matching envelope/step-root in the retrieved ranked summaries.",
+        "General public web searches for the exact algebraic threshold and backward-error horizon minimax did not return an equivalent table."
+      ],
+      "reasoning": "The formula is continuous in alpha with a discrete horizon, not a tabulated small finite invariant. No retrieved mathematical table or exact database record supplied the same objective and answer; search absence cannot establish uniqueness.",
+      "searches": [
+        "Sharp universal normwise backward error envelope Richardson iteration stepsize overrelaxation alpha 1+1/sqrt(3) singular positive semidefinite",
+        "Exact minimax finite-horizon relaxation Richardson PSD matrix backward error from zero 1/(k alpha) scalar eigenvalue overshooting 2",
+        "\"Richardson\" \"backward error\" \"1+1/sqrt(3)\"",
+        "Exact worst-case matrix-only backward error for Richardson iterative PSD systems, horizon-k optimal constant stepsize alpha and sharp all-horizon relaxation 1+1/sqrt(3); compare normwise residual over iterate"
+      ]
+    },
+    "rationale": "The inspected 2026 source fixes eta||A||<=1 and proves a condition-number-independent O(1/k) backward-error guarantee, but does not give the exact finite-k envelope, horizon-minimax step, or sharp all-horizon overrelaxation window. Classical Richardson optimality concerns forward spectral-radius contraction. Dedicated published-finding corpus semantic searches and published literature queries found no implication covering the precise backward-error statement. Novelty remains best-knowledge, not independent historical certification.",
+    "residual_risks": [
+      "published-finding corpus-linked GitHub full text of the less-direct two-step Richardson comparator was inaccessible; only the indexed scientific claim could be compared.",
+      "An unindexed historical analysis of scalar normwise backward-error tuning could contain an equivalent minimax formula; coverage is not independently certified.",
+      "Only the relevant Richardson sections of the primary 2026 manuscript were deeply inspected; this is not a claim of complete bibliographic census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 gives a universal bound in nonoscillatory range eta||A||<=1. It does not state the negative-mode branch, the exact overrelaxed minimax envelope, the horizon-optimal steps, or the all-horizon sharp bound 1+1/sqrt(3).",
+        "evidence": [
+          "arxiv:2604.16075 Section 3.2, Theorem 1 and its proof (arxiv HTML lines 122-145)",
+          "Section 3.1, Definition 1 and Lemma 1 (HTML lines 101-118)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.16075",
+        "material_read": "Accessible arXiv HTML: manuscript introduction and main results; Section 3.1 definitions; full Section 3.2 including Theorem 1, proof and following discussion; context on normal equations.",
+        "method": "Read HTML full-text content and compared the iteration, step-range quantifiers and backward-error objective; searched in-document for overrelaxation and optimal step.",
+        "title": "Towards Universal Convergence of Backward Error in Linear System Solvers",
+        "trigger": "Same PSD Richardson algorithm and same matrix-only normwise backward error; decisive primary comparator"
+      },
+      {
+        "assessment": "Classical choice omega=2/(lambda_min+lambda_max) optimizes ||I-omega A||, depends on a positive spectral gap and does not determine the solution-normalized backward error including singular inconsistent systems.",
+        "evidence": [
+          "Cornell lecture notes (10 November 2025), lines 97-129"
+        ],
+        "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6210/2025fa/lec/2025-11-10.html",
+        "material_read": "Lecture section on classical Richardson, over-relaxation, and SPD spectral-radius optimality (HTML lines 97-129).",
+        "method": "Compared objective and parameter domain of classical SPD spectral contraction to the proposed universal backward-error minimax.",
+        "title": "CS 6210: Matrix Computations — Stationary iterations",
+        "trigger": "Classical Richardson overrelaxation and potential implied optimal step"
+      },
+      {
+        "assessment": "Summary concerns two-step Euclidean nonexpansion of error polynomials for SPD spectra bounded away from zero, not matrix-only backward error across all semidefinite systems. Full-text comparison unavailable, so treat this source with bounded residual uncertainty.",
+        "evidence": [
+          "published-finding corpus ID 2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705; summary reports an SPD two-stage contraction frontier"
+        ],
+        "identifier_or_url": "2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705",
+        "material_read": "published-finding corpus indexed title and scientific summary only; attempted linked manuscript was not accessible.",
+        "method": "Compared published indexed claim, assumptions, metric, and quantifiers; attempted linked GitHub tree retrieval.",
+        "title": "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier",
+        "trigger": "Closest published-finding corpus title invoking sharp Richardson step frontiers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a78c250-dc1f-49aa-aec7-3167894ae1d8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source universal backward-error convergence result uses a conservative eta<=1/||A||. The exact optimized envelope quantifies a dimension- and conditioning-independent advantage of overrelaxation for finite budgets, shows the maximum step preserving the original all-horizon guarantee is 1+1/sqrt(3), and distinguishes inconsistent singular and high-frequency oscillatory extremizers. It changes practical stepsize decisions for matrix-only backward-error stopping and is neither a renamed fixed-SPD spectral-radius result nor a single arbitrary numerical example.",
+    "status": "PASS"
+  }
+}
