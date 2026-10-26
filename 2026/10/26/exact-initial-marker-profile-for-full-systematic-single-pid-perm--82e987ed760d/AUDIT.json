@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Complete cardinality lower bounds for r=0 and r=1, with singleton rank-deletion shadows only for monotone permutations. Explicit exhaustive verification of 6 and 24 marker-augmented codewords, including every message exactly once and 16/97 pairwise-unshared descendants, establishes r=2 at n=3 and n=4. The verified package includes code and output.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu et al., arXiv:2609.37578v1, Corollary 2: four markers suffice for all sufficiently large n",
+        "Gabrys et al., ISIT 2014, Theorem 1: asymptotic cardinality upper bound for non-systematic single-PID codes",
+        "Zhou et al., ISIT 2012, systematic two-marker codes correct one adjacent swap in the Kendall metric, not one rank-standardized deletion"
+      ],
+      "reasoning": "Wu et al. provide a four-marker existence bound in a different length regime, which does not imply the exact two-marker feasible-and-optimal values at n=3,4. Non-systematic codebook bounds do not supply the required per-message representative mapping. The one-marker lower bound is proved independently. Kendall minimum distance three is insufficient for PID correction, since moving a letter from one end of a word to another can preserve a deletion descendant while changing many inversions.",
+      "searches": [
+        "systematic permutation codes single deletion redundancy two marker 2026",
+        "full systematic permutation code one stable deletion with one redundancy marker from perfect Levenshtein single deletion permutation code"
+      ]
+    },
+    "checked_sources": [
+      "Wu et al., arXiv:2609.37578v1, full HTML, especially Section II and Corollary 2",
+      "Gabrys et al., ISIT 2014, accessible PDF",
+      "Published mathematical finding index, matching and near-result searches",
+      "Zhou et al., ISIT 2012, accessible PDF, systematic extra-label representation but Kendall-error metric"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wu et al., Section VI-A, Corollary 2: sufficient r=4 in the limit n large, rather than sharp r=2 at n=3,4",
+        "Gabrys et al., Corollary 2: one-PID ball sizes equal consecutive run count, without embedding constraints",
+        "Zhou et al., ISIT 2012, Section III corrects one Kendall transposition by two markers, which is not a deletion-code guarantee."
+      ],
+      "reasoning": "The previous asymptotic sufficient construction and general deletion-shadow size characterization can help verify individual words, but do not entail existence of one disjoint-shadow representative for each of all 24 messages with two markers. Explicit representatives and the tight lower bound are additional facts.",
+      "searches": [
+        "two-marker full-systematic PID rank-normalized permutation single deletion exact redundancy n=3 n=4 codebook 24",
+        "Order-Optimal Systematic Permutation Codes for Correcting t Deletions Wu Bui Niu Vu Wang September 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2609.37578v1 (definitions of full-systematic encoders and PID standardization)",
+        "https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf (same deletion model but unrestricted codebooks)"
+      ],
+      "reasoning": "Rank-normalized deletion, permutation-invariant deletion, and single PID refer to the same channel. Full-systematic is more restrictive than ordinary permutation code size because all messages must occur as projections. The checked works define these concepts but do not identify the 0,1,2,2 marker profile.",
+      "searches": [
+        "full systematic permutation code one stable deletion with one redundancy marker from perfect Levenshtein single deletion permutation code",
+        "every perfect single deletion correcting permutation code is systematic for arbitrary deleted marker, r=1",
+        "minimum redundant markers full-systematic permutation single symbol-invariant deletion exact 1 vs 3 markers",
+        "full-systematic permutation-invariant single deletion codes two redundancy markers finite block length 3 4 5 6 exact minimum markers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research-index near hit: Complete classification of maximum ternary length-four single-deletion codes (word codes, not permutations)",
+        "Research-index near hit: Exact length-six binary two-list two-deletion code size (binary words, not systematic permutation codes)",
+        "Direct-source search: Wu et al. supplies no matching short-length table or marker lower bound"
+      ],
+      "reasoning": "Available tables concern different alphabets/error metrics or maximize total code size, while this quantity minimizes markers subject to complete full-systematic message coverage. No exact profile match surfaced, but negative search is not novelty proof.",
+      "searches": [
+        "full-systematic permutation-invariant single deletion codes two redundancy markers finite block length 3 4 5 6 exact minimum markers",
+        "two-marker full-systematic PID rank-normalized permutation single deletion exact redundancy n=3 n=4 codebook 24",
+        "full-systematic permutation codes single deletion small blocklength minimum redundant markers"
+      ]
+    },
+    "rationale": "Compared exact full-systematic minimum-marker question with the motivating 2026 full-text theorem, classic single-PID paper and actual research-index searches. Existing results provide asymptotic four-marker sufficiency or general PID code size, not a two-marker finite optimum for every message. Unindexed equivalent computations remain a risk. A 2012 two-marker systematic construction is for adjacent-swap correction in Kendall metric, not PID deletion correction.",
+    "residual_risks": [
+      "Finite two-marker feasibility might have been enumerated in an unindexed source or appendix not surfaced by searches.",
+      "No claim is made for n>=5; larger-length necessity and existence remain open in this work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Corollary 2 uses four markers for sufficiently large n; it does not state exact minimum two markers at lengths three and four",
+        "evidence": "HTML Section II-B; Section VI-A Corollary 2 and its proof; DOI/preprint date in header",
+        "identifier_or_url": "arxiv:2609.37578v1; https://arxiv.org/html/2609.37578v1",
+        "material_read": "Full accessible HTML; model and definitions, construction, Corollary 2, generic compiler, introduction and related work, concluding limitations",
+        "method": "Read substantive full-text sections and compare code object, marker count, quantifier range and explicit finite tables",
+        "title": "Order-Optimal Systematic Permutation Codes for Correcting t Deletions",
+        "trigger": "Same full-systematic permutation-invariant deletion model; potential direct coverage"
+      },
+      {
+        "assessment": "Supplies standard PID model and run count, but does not establish full-systematic 24-message two-marker codebook",
+        "evidence": "PDF pp.1–4, definition and Theorem 1/Corollary 2; published ISIT 2014",
+        "identifier_or_url": "doi:10.1109/ISIT.2014.6875337; https://yaakobi.net.technion.ac.il/files/2015/04/40_Single_Deletion_Permutations_ISIT14.pdf",
+        "material_read": "Accessible five-page PDF; model/definitions, single-ball structure (Corollary 2), extremal bound and code construction sections",
+        "method": "Inspected PDF text and page-image of theorem page; compared scope against requirement to preserve every message as a subsequence",
+        "title": "Single-Deletion-Correcting Codes over Permutations",
+        "trigger": "Identical rank-standardized channel, singleton-shadow lemma and broad nonsystematic code coverage"
+      },
+      {
+        "assessment": "Two-marker sufficiency corrects Kendall-distance-one errors, not arbitrary rank-normalized deletions. An example with moving one letter multiple positions shows no containment of error models.",
+        "evidence": "PDF pp.1–3: systematic definition, Kendall metric and Theorem 3/Section III two-marker construction.",
+        "identifier_or_url": "doi:10.1109/ISIT.2012.6284106; https://people.engr.tamu.edu/ajiang/Publications/Systematic_ISIT2012.pdf",
+        "material_read": "Accessible conference PDF Sections I–III, systematic construction/model, distance criterion, and explicit two-marker statement",
+        "method": "Compared the specified Kendall adjacent-transposition error against standardized single deletion; inspected PDF page image and text",
+        "title": "Systematic Error-Correcting Codes for Rank Modulation",
+        "trigger": "Same systematic rank-modulation object and a potentially dominating two-marker construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "82e987ed-760d-4e0b-8e4f-503083d036bb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum distinct redundant markers is the exact natural resource measured in systematic permutation codes. The first two nontrivial complete-message lengths n=3,4 attain the universal nontrivial lower bound 2, unlike the asymptotic four-marker sufficiency guarantee. A finite but sharp resource boundary and explicit codebooks are useful as short-block benchmarks without asserting asymptotic improvement.",
+    "status": "PASS"
+  }
+}
