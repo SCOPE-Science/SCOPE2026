@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness:** PASS. The polar expressions follow from explicit differentiation. At the Fermat parameter the factor test gives exactly 52 incidence points, and the pure-cube Jacobian is invertible at each. The complete fixed-section remainder distinguishes 24 horizontal components from 28 reduced vertical points. Properness and finite-shrinking yield the relative decomposition. The exterior quasi-Galois identification is the Miura--Taki criterion and an explicit involution. The packaged exact symbolic checks corroborate the critical polynomial equalities; they are not treated as a proof of the global geometric steps.
+
+**Originality:** PASS relative to the checked sources, with residual historical-priority risk. Miura--Taki compute the Fermat quartic's 28 exterior points and provide the general polar criterion; Miura--Takahashi also address Fermat varieties. Neither inspected result states the 24-horizontal/28-vertical Dwork deformation scheme. General Dwork symmetry literature could imply part of the generic count, but not the computed special-fiber local rings without further calculation. Mathematical-record queries on Dwork quartics, polar-divisibility, deformations, and quasi-Galois points found no equivalent recorded claim. A full text of Miura--Takahashi was not retrieved, so priority uncertainty remains.
+
+**Mathematical value:** PASS. This addresses a concrete moduli question left after the Fermat count: which projection symmetries survive its natural one-parameter Dwork deformation, and how does the incidence scheme fail to be flat? It supplies all scheme-theoretic local lengths and exact generic outer-point count; it is not a count for an arbitrary hand-picked parameter. The exact exceptional nonzero parameters are not determined.
+
+Self-review: passed. Independent audit: not yet performed.
