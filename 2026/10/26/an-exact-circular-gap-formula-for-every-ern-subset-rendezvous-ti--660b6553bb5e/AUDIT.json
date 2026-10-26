@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Universal proof explicitly checks b(0)=1, cyclic gap and phase boundaries, exhibits shortest word by the map j↦max(j−1,0), and proves that the exact potential decreases by at most one for a,b, including the {0,1}→{1} boundary. For n=2..15 all 65,518 nonempty subsets agree with independent reverse power-automaton BFS. No finite run is mistaken for all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2008.12166 (Behague–Johnson), introduction pp.1–4, treats generic rendezvous bounds.",
+        "arxiv:2207.05495v1 (Szykuła–Zyzik), sections 1 and 3, gives generic bidirectional search, not a family-specific pointwise expression.",
+        "published-finding corpus 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f addresses avoiding a specified target set, a different quantified problem."
+      ],
+      "reasoning": "Generic algorithms can compute finite instances but do not already supply the symbolic all-n metric; k-avoidance and earliest full-state deficiency do not imply shortest time from each specified subset.",
+      "searches": [
+        "Shortest rendezvous length for arbitrary subset in Černý automaton compared to exact pair-distance labeling and Cardoso equal-spacing k-set weight",
+        "Cerny automaton shortest synchronizing word subset gaps distances explicit all subsets"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2008.12166 v2 relevant sections and reference list",
+      "arxiv:2207.05495v1 relevant full-text sections",
+      "DOI:10.34626/607f-t921 bibliographic record and 2022 secondary quotation",
+      "DOI:10.37236/5616 abstract only",
+      "published-finding corpus published record 766d362d36d3 rank compression",
+      "published-finding corpus published record 5cdbaf373a0f k-avoiding",
+      "published-finding corpus published record c176f0fc06e0 five-state triple rendezvous",
+      "Previous pair-distance statement e77b532a-ed29-4f4a-a886-c79323fdf716"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Behague–Johnson arxiv:2008.12166 v2 p.4 quotes Cardoso (2014) heavy k-set construction and known minimum k-set weight, not a formula for each S.",
+        "Prior exact pair-distance labeling e77b532a-ed29-4f4a-a886-c79323fdf716 does not quantify over |S|≥3.",
+        "published-finding corpus exact-early-deficiency profile 766d362d36d3 starts from full Q, whereas the present metric is for arbitrary prescribed S."
+      ],
+      "reasoning": "The present result implies these classical special cases, but reversing any one of them is logically invalid: knowing a maximum, minimum, or pair layer cannot determine the distances of every three-or-more-element subset. The lower-bound potential uses the maximum cyclic gap over actual occupied positions, information omitted from those prior claims.",
+      "searches": [
+        "Černý automaton three-element subset shortest synchronizing word quadratic balanced gap unique worst triple",
+        "Exact all-subset synchronizing distance formula for Černý automaton in terms of cyclic predecessor gap or largest gap and phase; D(S) min over source states",
+        "Cerny automaton length shortest word synchronizing given subset exact formula gap 2017 2020"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behague–Johnson arxiv:2008.12166 v2 pp.2–4 defines weight t(S), but gives only size-wise extremal bounds in the Černý family.",
+        "A previous exact pair-merging statement e77b532a-ed29-4f4a-a886-c79323fdf716 treats |S|=2 only.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3 concerns first rank drops of full Q."
+      ],
+      "reasoning": "Pointwise weight for each S is stronger than extrema over all S of a size; all |S|=2 values are strictly weaker than the ≥3-set distance formula. None of the inspected results translates by state relabeling into the all-S statement.",
+      "searches": [
+        "The classical Černý automaton synchronizes every prescribed nonempty subset S at exact distance min over x in S of r(x)+n(n-g(x)-1)+1 where g is predecessor circular gap and r rotates x to zero",
+        "all subsets Černý automaton exact gap formula shortest words synchronizing sets potential max ng-r",
+        "Exact all-subset synchronizing distance formula for Černý automaton in terms of cyclic predecessor gap or largest gap and phase; D(S) min over source states",
+        "\"Černý\" \"weight\" \"subset\" \"gap\" synchronizing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest published records address Cerny rank compression, k-avoiding thresholds, automata-wide triple rendezvous, and finite automaton enumerations; no retrieved indexed entry claims this exact labeled all-subset distance function.",
+        "A prior pair-distance labeling gives only the two-state layer."
+      ],
+      "reasoning": "The indexed comparisons do not contain a complete family of exact t(S) values for every subset and arbitrary n. Search incompleteness is expressly retained as a risk, not construed as uniqueness proof.",
+      "searches": [
+        "The classical Černý automaton synchronizes every prescribed nonempty subset S at exact distance min over x in S of r(x)+n(n-g(x)-1)+1 where g is predecessor circular gap and r rotates x to zero",
+        "all subsets Černý automaton exact gap formula shortest words synchronizing sets potential max ng-r",
+        "Shortest rendezvous length for arbitrary subset in Černý automaton compared to exact pair-distance labeling and Cardoso equal-spacing k-set weight"
+      ]
+    },
+    "rationale": "Pointwise closed formula and optimal word for every labeled nonempty subset of each classical Černý automaton, not merely the known two-state distances, all-state threshold, or k-set extremal weight. Behague–Johnson pp.1–4 define the same weight and present extremal comparisons but not this all-subset formula. Related published record titles and substantive summaries treat deficiency, avoidance, or single k-set extremals. Full 2014 Cardoso thesis was not available and remains a specific duplication risk.",
+    "residual_risks": [
+      "The complete 2014 Cardoso dissertation was not available; its detailed Černý subset computations could contain an equivalent expression.",
+      "Unindexed or differently phrased literature could give an equivalent max-plus distance function.",
+      "Other generic subset-search methods are computationally broader but were compared only for their stated results; absence of a named theorem is not itself novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected original-results discussion supplies cardinality-wise k-set bounds and examples; it does not state the exact value for each labeled subset. Source remains directly relevant, not a novelty certificate.",
+        "evidence": [
+          "p.4 definition of t(S), m(k,Ω), M(k,Ω)",
+          "p.4 explicit Cardoso lower bound for one k-set and conjectured universal upper bound",
+          "p.2 classical (n−1)^2"
+        ],
+        "identifier_or_url": "arxiv:2008.12166; https://arxiv.org/pdf/2008.12166",
+        "material_read": "Full 24-page text indexed and searched; directly inspected pages 1–4 including definitions, Černý facts and Cardoso bounds, plus references; located all occurrences of Černý and Cardoso",
+        "method": "Primary full-text article and mathematical comparison",
+        "title": "Synchronizing Times for k-sets in Automata",
+        "trigger": "Same object: Černý subsets and weight t(S)"
+      },
+      {
+        "assessment": "An algorithmic exponential-space/general search contribution, not an all-n closed-form t(S) for the classical family.",
+        "evidence": [
+          "Section 1.3 outlines 2^n subset search",
+          "Section 3.1 describes Černý family as algorithmically tractable",
+          "Conclusion focuses on improved bidirectional BFS"
+        ],
+        "identifier_or_url": "arxiv:2207.05495v1; https://arxiv.org/html/2207.05495v1",
+        "material_read": "HTML full-text section 1.3, section 3.1, section 4, plus searches for Černý and subsets",
+        "method": "Primary arXiv full-text comparison",
+        "title": "An Improved Algorithm for Finding the Shortest Synchronizing Words",
+        "trigger": "General subset-power-automaton shortest paths may imply the computational result"
+      },
+      {
+        "assessment": "No claim of noncoverage: uninspected plausible source introduces a residual overlap risk.",
+        "evidence": [
+          "2014 official dissertation listing, title, 828-kB file",
+          "Behague–Johnson arxiv:2008.12166 v2 p.4 cites a k-set heavy-weight construction"
+        ],
+        "identifier_or_url": "DOI:10.34626/607f-t921; https://sigarra.up.pt/fcup/pt/pub_geral.pub_view?pi_pub_base_id=32442",
+        "material_read": "Official thesis bibliographic entry and quotation of Cardoso theorem on p.4 of Behague–Johnson; dissertation body not accessible",
+        "method": "Public repository metadata and indirect description; no assumption of full-text noncoverage",
+        "title": "The Černý Conjecture and Other Synchronization Problems",
+        "trigger": "Cited by the closest primary article for heavy k-set weights"
+      },
+      {
+        "assessment": "Shows reachability of subsets and reset-threshold context, not enough material to exclude a related distance claim; residual risk noted.",
+        "evidence": [
+          "2016 abstract states reachability of all subsets in aperiodically 1-contracting automata"
+        ],
+        "identifier_or_url": "DOI:10.37236/5616; https://www.combinatorics.org/ojs/index.php/eljc/article/view/v23i3p12",
+        "material_read": "Journal abstract and article metadata only",
+        "method": "Primary bibliographic contextual comparison",
+        "title": "The Černý Conjecture and 1-Contracting Automata",
+        "trigger": "Circular automata and subset reachability potentially dominate formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "660b6553-bb5e-40e2-8477-95bcf637fcb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact distances and constructive shortest words for every prescribed subset in an extremal synchronizing family form a natural full state-uncertainty metric. This is not the already known pair-only distance or all-state reset time. The max-plus one-step potential is structurally explanatory and gives an O(|S|) evaluation for cyclically ordered S; it supplies new benchmarks and explicit control words for all initial uncertainty sets.",
+    "status": "PASS"
+  }
+}
