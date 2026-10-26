@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Derive the precise two-step flip affinity from the strong-dephasing transition rates. Strict concavity of F on the positive axis forces equality of absolute excluded-neighbor spin sums; all-plus assignments give equal degrees, and comparing degree-two spin-character coefficients forces identical other-neighbor sets whenever degree is at least three. Connected regular components are then cliques (degree at least three), cycles (degree two), edges or singletons. Explicit clique magnetization potentials and cycle Ising weights prove the converse. Strict positivity of rates gives unique stationary law and positive entropy production exactly when detailed balance fails. A standalone standard-library program tests 1,099 labelled graphs of order at most five and 608 detailed-balance equations on larger reversible examples; these are diagnostics, not a replacement for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Godrèche–Bray, arXiv:0911.4011, Secs. 1–4, treats directed Glauber-type lattice dynamics and Gibbs stationary distributions rather than the specific nonlinear symmetric rate on all finite graphs.",
+        "Wang et al., arXiv:2609.36836v1, accessible abstract, studies finite-interval measurements and feedback, not the stated asynchronous strong-dephasing population process."
+      ],
+      "reasoning": "Neither inspected family includes a theorem that directly implies the exact uniform-coupling graph classification. The latter uses parameter-dependent strict curvature and a neighborhood-identity argument. The companion paper was not readable in full and remains a qualified residual risk.",
+      "searches": [
+        "Nonequilibrium Stationary States and Phase Transitions in Directed Ising Models 0911.4011",
+        "nonlinear Glauber spin flip rates reversibility graph topology complete graph cycle",
+        "Ordering controlled by the measurement-feedback interval in quantum Boltzmann samplers 2609.36836"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.19591v1 main and supplemental sections",
+      "arXiv:0911.4011 full text",
+      "arXiv:2609.36836v1 abstract",
+      "Phys. Rev. E 73, 062101 (2006) abstract",
+      "published topic-record searches for graph-dependent detailed balance and nonlinear spin-flip rates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source proves detailed balance on a periodic one-dimensional chain and gives an irreversible square-lattice four-flip cycle, and separately analyzes complete-graph mean-field dynamics. Those examples alone do not classify open chains, graphs with leaves, general regular graphs, or unions of graph components.",
+        "The new proof requires characterizing when endpoint-excluded neighbor sums have equal absolute value for all spin assignments, forcing true-twin neighborhoods at degrees at least three.",
+        "The 2006 Michael–Trimper–Schulz abstract concerns a different reversible Glauber formulation; its full text was not inspected."
+      ],
+      "reasoning": "The new theorem implies the known cycle/complete/square cases, but neither antecedent special case implies the universal necessity direction. The general Kolmogorov test is standard; the exact neighborhood classification under strict response curvature is the new claim.",
+      "searches": [
+        "arXiv:2609.19591v1 section S4 exact affinity",
+        "arXiv:0911.4011 directed Ising detailed balance lattice",
+        "Glauber model in a quantum representation Michael Trimper Schulz 2006"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.19591v1, Eq. (11), Supplement S4 Eq. (S62) gives the flip-rate ratio and Eq. (S93) a particular square-lattice affinity.",
+        "The present equivalent formulation is vanishing of every hypercube-square affinity, which reduces to equality of absolute neighbor-spin sums at the two endpoints of each edge."
+      ],
+      "reasoning": "The cited source supplies inputs and special-case square affinities, not the graph-wide equivalence between their simultaneous vanishing and the disjoint union of cycles and cliques. A search of alternative phrasings found no exact equivalent claim; search failure alone does not prove priority.",
+      "searches": [
+        "strong dephasing quantum Boltzmann sampler graph detailed balance nonlinear local response",
+        "nonlinear Glauber spin flip rates detailed balance arbitrary graph degree local field",
+        "nonlinear local-field response atanh(s tanh(x)) Kolmogorov square criterion graph degree reversible all cliques and cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published-record results and accessible previous-claim summaries did not display this exact topology classification.",
+        "The independent finite test enumerates 1,099 labelled simple graphs through five vertices but is not a prior literature table and is not an infinite proof."
+      ],
+      "reasoning": "No directly matching exact database entry or theorem was identified. The absence of a hit is not a guarantee of novelty; the analytic implication comparison against the closest full primary document carries the argument.",
+      "searches": [
+        "complete characterization of reversible strong dephasing spin flip Markov chains on undirected finite graphs",
+        "Dephasing-Enhanced Response and Phase Transitions in Quantum Boltzmann Samplers Zhang Chen Kwek Wang 2609.19591 reversibility detailed balance",
+        "spin flip detailed balance clique cycle nonlinearity"
+      ]
+    },
+    "rationale": "A literature-led comparison recognizes the strong-dephasing rates and explicit cycle/square lattice/complete-graph cases in the motivating 2026 source. The new all-finite-graph if-and-only-if characterization, including a minimal open-path obstruction and the distinction between complete-graph reversible many-body potentials and nonreversible non-cliques, was not identified as a stated or dominated theorem in the examined full primary texts and indexed summaries. Kolmogorov integrability itself is classical, and novelty is best-knowledge rather than certified priority.",
+    "residual_risks": [
+      "No independent expert validation or literature-wide guarantee of priority.",
+      "The 2026 measurement-feedback companion paper and 2006 Glauber representation were not inspected in full; their visible descriptions do not present the specific graph classification.",
+      "A more general published criterion for nonlinear local-field reversible spin-flip systems, not located in the examined sources, could imply the theorem as a corollary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct primary model antecedent. The graph-wide reversibility iff classification is not stated in the inspected main or supplemental text.",
+        "evidence": [
+          "main Eq. (11)",
+          "supplement Eq. (S62), (S87), (S93), (S94), (S95)",
+          "main discussion of the one-dimensional chain and square lattice"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.19591v1",
+        "material_read": "Main text, Eqs. (1)–(14), Supplemental S3 and S4 including the local rate, response, square-lattice affinity and stationary expansions",
+        "method": "Read accessible full HTML text, compared exact rate conventions, known special graphs and theorem scope",
+        "title": "Dephasing-Enhanced Response and Phase Transitions in Quantum Boltzmann Samplers",
+        "trigger": "Identical stochastic spin-flip generator in strong dephasing"
+      },
+      {
+        "assessment": "Different directed and lattice-specific rates; does not give the exact graph-wide classification for the nonlinear dephasing-response rates.",
+        "evidence": [
+          "sections 1–4, especially statements distinguishing directed and symmetric Glauber dynamics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0911.4011",
+        "material_read": "Full accessible HTML text, especially introductory classification and sections on 1D, 2D and 3D lattice rate conditions",
+        "method": "Compare directionality, rates, target Gibbs measure and graph families at statement and mechanism level",
+        "title": "Nonequilibrium Stationary States and Phase Transitions in Directed Ising Models",
+        "trigger": "Possible broader stationary-rate classification for Glauber spin dynamics"
+      },
+      {
+        "assessment": "Finite-interval synchronous measurement-feedback protocol differs from the strong-dephasing asynchronous population generator. Residual full-text coverage risk is noted.",
+        "evidence": [
+          "arXiv:2609.36836 abstract: finite-interval kernel and Curie–Weiss transition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.36836",
+        "material_read": "ArXiv abstract and independently indexed public abstract; full paper was not accessible in the available sources",
+        "method": "Compare protocol definitions and advertised conclusions rather than inferring missing contents",
+        "title": "Ordering controlled by the measurement-feedback interval in quantum Boltzmann samplers",
+        "trigger": "Recent companion study by overlapping authors"
+      },
+      {
+        "assessment": "Abstract describes conventional Gibbs/detailed-balance spin-flip rates, not the stated nonlinear sampler; uninspected full text remains a limited risk.",
+        "evidence": [
+          "2006 publisher abstract: general quantum representation of reversible Glauber rates"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.73.062101",
+        "material_read": "Publisher abstract only; full article restricted in accessible source",
+        "method": "Check model summary and stated reversible-rate emphasis",
+        "title": "Glauber model in a quantum representation",
+        "trigger": "Older similarly named quantum/Glauber rate paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce1c2e0a-aa68-4c24-8a43-429ce085d23e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating strong-dephasing sampler has equilibrium on a periodic chain but nonequilibrium circulation on a square lattice. The exact graph topology criterion resolves the natural design question across all finite simple graphs and shows a surprising boundary: deleting one cycle edge or adding a pendant vertex can turn equilibrium into irreversible steady current, whereas cliques remain reversible despite nonzero many-body Gibbs couplings. The classification determines when entropy-producing currents must exist, without assuming particular graph sizes or estimating unknown stationary measures.",
+    "status": "PASS"
+  }
+}
