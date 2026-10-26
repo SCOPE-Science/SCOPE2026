@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The prism has exactly three neighbors per vertex; the local triple condition therefore characterizes every P3-convex subset. The ten-state table excludes precisely adjacent unequal nonzero columns and enumerates all remaining globally compatible cyclic column words. Each closed walk has one canonical start at labeled column zero, hence exact weight trace. Symbolic computation of det(I-tM) from the actual ten-state matrix produces the claimed quadratic-times-quintic; direct graph-neighborhood enumeration for all n=3..9 and independent polynomial recurrence comparisons to n=20 corroborate it. The complement min-degree-two argument and girth-cycle census rigorously prove the extremal coefficients for all n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dourado et al. (2026), arXiv:2603.04706v1: full PDF sections 2--4 give exact tree/threshold algorithms and improved exact-exponential algorithms for general graphs, plus an unrefined path recurrence; the graph-product prism polynomial is not stated.",
+        "Brešar--Valencia-Pabón (2019), Theorem 1: connected convex sets in Cartesian products are products of convex factor sets.",
+        "Borges--Nascimento (2026), published abstract: decision problems for partitioning Cartesian/strong products into P3-convex classes, not enumeration of individual sets."
+      ],
+      "reasoning": "General exact counting algorithms theoretically calculate each fixed prism, but do not supply a symbolic all-order cardinality-resolved generating function, the evaluated transfer determinant, or a recurrence with fixed coefficients. Connected-subset product factorization and convex partition feasibility are not broader equal-weight enumerations of arbitrary subsets.",
+      "searches": [
+        "\"Counting P3-convex sets in graphs\" MSC 05C",
+        "\"P3-convex\" \"ladder\" \"number\"",
+        "\"P3 convex\" \"circular ladder\" counting",
+        "\"P3-convex\" \"C_n\" \"K_2\" polynomial"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2603.04706",
+      "https://arxiv.org/abs/2603.04706",
+      "https://lipn.univ-paris13.fr/~valenciapabon/papers/P_3-convexity-RV2.pdf",
+      "https://proceedings.science/sbpo-2026/papers/p3-convex-partitions-in-cartesian-product-and-strong-product-of-graphs?lang=en"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2603.04706v1 gives the definition, tree recursion, a path recurrence, and general algorithms but no stated n-uniform prism all-cardinality formula.",
+        "Brešar--Valencia-Pabón 2019, Theorem 1 controls connected P3-convex sets, not general sets.",
+        "The 2026 Cartesian-product convex-partition abstract concerns p disjoint convex blocks jointly covering the vertices."
+      ],
+      "reasoning": "The new assertion logically implies all n-unweighted counts, each cardinality coefficient, and extremal size/count on one family. The compared earlier claims do not establish those coefficients as immediate corollaries: tree formulas exclude the cycle product, product factorization loses disconnected sets, and partition existence is a distinct predicate. Lack of full access to one proceeding is retained as a risk.",
+      "searches": [
+        "Counting P3 convex sets Dourado Grippo Lin Protti 2026 refined cyclic prism transfer matrix",
+        "\"P3-convex\" \"prism\" counting sets",
+        "\"P3-convex\" \"ladder\" \"number\"",
+        "P3 convex vertex-set enumerator circular ladders C_n square K_2 rational generating function denominator two quintic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A P3-convex set is a closed configuration of two-neighbor bootstrap percolation (arXiv:2603.04706v1, Definition 1). On this cubic graph, its complement induces minimum degree at least two (proof in RESULT.md). The 2019 paper describes Cartesian-product P3-convex sets only when the selected subset induces a connected graph (Theorem 1)."
+      ],
+      "reasoning": "These equivalent formulations were searched and compared at the implication level. The 2019 theorem is limited to connected selected sets; the polynomial enumerates arbitrary sets, including large numbers of disconnected ones. Neither that theorem nor a generic closure definition evaluates the precise polynomial.",
+      "searches": [
+        "\"P3-convex\" \"circular ladder\" \"prism\" subsets polynomial enumeration",
+        "\"2-neighbour bootstrap percolation\" closed configurations in C_n Cartesian K_2 cyclic ladder exact generating function",
+        "number of induced subgraphs minimum degree at least 2 in circular ladder C_n × K_2",
+        "\"P3-convex\" \"prism\" counting sets"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The verified unweighted totals for n=3 through 10 are 13, 32, 69, 157, 361, 824, 1894, 4379, computed by graph-subset enumeration and recurrence.",
+        "Search for these initial terms yielded no reliable exact sequence/table match with the specified graph-convexity interpretation. The OEIS search endpoint itself was not accessible for a conclusive database lookup."
+      ],
+      "reasoning": "No matched indexed table was found, but a failed sequence search is not a proof of novelty. Even an unweighted sequence match alone would not automatically cover the full size-resolved polynomial; a matching formula or stronger theorem would need comparison.",
+      "searches": [
+        "\"13, 32, 69, 157, 361, 824\" graph",
+        "\"13 32 69 157 361\" convex sets",
+        "OEIS 13 32 69 157 361 824",
+        "prism graph exact number of P3-convex sets by cardinality 13 32 69 157"
+      ]
+    },
+    "rationale": "The 2026 original 27-page counting article addresses the same P3-convexity and tree/threshold/path/general algorithms but does not state the complete cardinality polynomial for circular ladders. The 2019 general Cartesian-product theorem factors only connected P3-convex sets and does not enumerate disconnected sets. The 2026 Cartesian-product paper addresses convex partitions rather than individual subsets; its accessible abstract cannot settle the all-weight count. Focused published-record and literature searches found no equivalent evaluated denominator or prism cardinality profile. The remaining inaccessible full partition paper is an explicit priority risk.",
+    "residual_risks": [
+      "The complete 2026 proceedings article on Cartesian-product P3-convex partitions was not accessible; the abstract comparison alone cannot justify declaring its full text non-covering.",
+      "Unindexed earlier equivalences under two-neighbor bootstrap-percolation closed configurations or induced minimum-degree-two subset counting might exist.",
+      "Published-record search results are ranked semantic retrieval, not a complete uniqueness certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates the counting problem and supplies general algorithms, not an evaluated full weight polynomial or prism-specific recurrence.",
+        "evidence": [
+          "arXiv:2603.04706v1 (2026-03-05), Definition 1, Theorem 3, path recurrence in section 2.2, sections 3--4 (PDF pp. 1--24)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+        "material_read": "27-page primary PDF: definitions and introduction; sections on extremal graphs, rooted trees and paths; complexity on split/threshold graphs; sections 4.1--4.3 on general counting algorithms and specialized graph classes. Also inspected arXiv HTML first two sections.",
+        "method": "Read mathematical statements, algorithms, and proof portions relevant to prism enumeration and implication comparison.",
+        "title": "Counting P3-convex sets in graphs",
+        "trigger": "Same convex-set counting invariant, 2026 first public source"
+      },
+      {
+        "assessment": "Product form holds for connected selected convex sets only; does not count disconnected subsets or provide full prism polynomial.",
+        "evidence": [
+          "Brešar--Valencia-Pabón (2019), section 3, Theorem 1."
+        ],
+        "identifier_or_url": "https://lipn.univ-paris13.fr/~valenciapabon/papers/P_3-convexity-RV2.pdf",
+        "material_read": "Full nine-page PDF; read full general-product Theorem 1 and proof (page 3), introduction, Hamming-graph consequences and closing references.",
+        "method": "Compared full theorem hypotheses and conclusion with the claim, including the connectedness assumption.",
+        "title": "On the P3-hull number of Hamming graphs",
+        "trigger": "Plausible dominating theorem for Cartesian products"
+      },
+      {
+        "assessment": "Studies partitions into p convex classes, not all individual convex subsets; full-text noncoverage cannot be certified.",
+        "evidence": [
+          "Borges--Nascimento, 2026 conference abstract, published September 2026 (section Abstract)."
+        ],
+        "identifier_or_url": "https://proceedings.science/sbpo-2026/papers/p3-convex-partitions-in-cartesian-product-and-strong-product-of-graphs?lang=en",
+        "material_read": "Accessible conference-article entry, title, date and full abstract; full text not available in inspected response.",
+        "method": "Compared the problem and claimed decision result described by the abstract.",
+        "title": "P3-convex partitions in Cartesian product and strong product of graphs",
+        "trigger": "Direct graph-product/P3-convex terminology and 2026 timing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba3fde2e-5e76-4888-b6da-f43eb2278e20",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit new 2026 program of counting P3-convex graph sets makes cyclic products a natural extension beyond tree/threshold subclasses. The uniform rational cardinality polynomial simultaneously determines exponentially many valid configurations, every set-size coefficient, and all maximally large proper convex sets for a canonical cubic infinite family. Neither generic dynamic programming nor the bare existence of a transfer representation gives the particular evaluated degree-seven denominator or coefficient consequences. The extremal structural corollary links enumerative and graph-convexity questions.",
+    "status": "PASS"
+  }
+}
