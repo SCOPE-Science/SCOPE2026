@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All quantifiers and boundaries reconstructed for n>=2, 0<mu<=L and nonsingular sampled scalar. Direct orthogonal split gives exact residual identity, SPD quadratic polynomial gives p/a<=q with equality, c>=1/sqrt(n) gives finite sharp bound, explicit rank-one A yields equality, continuous orientation yields arbitrarily large nonsingular ratios at/above pole. Equality and strictly unique pivot limits checked. Standalone independent exact-rational witness plus 2,014 numerical configurations passed; enumeration is supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa–Tropp 2024 obtains relative guarantee assuming subspace embedding of the full search plane; one row cannot embed two independent vectors.",
+        "Güttel–Pearson 2025 forces monotonicity using an additional FGMRES outer minimization, not present here."
+      ],
+      "reasoning": "General randomized embedding and outer stabilization results do not dominate a nonoversampled DEIM row sketch. The assumption and algorithm differences are logically decisive. Historical one-row oblique-projection theory remains a risk.",
+      "searches": [
+        "published-finding corpus: deterministic sketched GMRES DEIM maximal residual coordinate one step two dimensional SPD sharp condition number residual amplification",
+        "web: \"sketched GMRES\" \"residual\" \"diverge\" row sampling DEIM",
+        "doi:10.1137/23M1565413",
+        "arxiv:2506.18408"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.07158 (full text)",
+      "doi:10.1137/23M1565413 (full PDF)",
+      "arxiv:2506.18408 (abstract and description)",
+      "doi:10.1137/25M1744629 (publisher abstract)",
+      "published-finding corpus search IDs: 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc; 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "own claims: f91c50c6-702b-4326-9871-9ee9fb5e3b11; 15c0a9d2-0140-449c-9962-650e34d56964"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own prior applies only if a sketch approximately embeds span{r,Ar}; a one-row selector has rank at most one and fails for linearly independent r,Ar.",
+        "Bergermann supplies algorithmic definitions and sample residual plots, not a bound as function of n and kappa."
+      ],
+      "reasoning": "This theorem establishes a sharp finite/infinite true-residual ratio for deterministic data-dependent coordinate selection, including the finite safe condition and singular approach. It is neither a corollary of valid-embedding bounds nor a restatement of numerical examples.",
+      "searches": [
+        "own ledger exact claim f91c50c6-702b-4326-9871-9ee9fb5e3b11",
+        "arxiv:2604.07158 Algorithm 5.2",
+        "doi:10.1137/23M1565413",
+        "published-finding corpus: one-step DEIM deterministic sketched GMRES single row maximum residual component exact true residual amplification dimension n spectral condition number infinite when kappa exceeds ((sqrt n+1)/(sqrt n-1))"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest: 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc, an unsketched solution-error bound; not same sampled residual.",
+        "Bergermann arxiv:2604.07158, Algorithm 5.2 gives the one-row method without this exact extremal theorem."
+      ],
+      "reasoning": "Equivalent aliases include interpolatory least-squares residual update, one-coordinate Petrov–Galerkin Krylov step and one-row DEIM–GMRES. Similar sketched GMRES titles did not imply the same formula; search noncoverage is not independently a novelty proof.",
+      "searches": [
+        "published-finding corpus: one-step DEIM deterministic sketched GMRES single row maximum residual component exact true residual amplification dimension n spectral condition number infinite when kappa exceeds ((sqrt n+1)/(sqrt n-1))",
+        "published-finding corpus: one row selected by DEIM in m=1 Krylov GMRES residual unbounded near singular sampled Ar eigenvalue 2x2",
+        "web: \"DEIM\" \"GMRES\" \"sharp\" residual amplification row",
+        "web: \"coordinate\" \"sketched GMRES\" \"unbounded\" SPD"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest: 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f concerns Kaczmarz row projection; no matching GMRES-DEIM exact table surfaced."
+      ],
+      "reasoning": "There is a closed-form continuum of condition and dimension parameters, not merely a lookup of isolated table values. No identical prior exact-bound record was returned; incompleteness of search remains a risk.",
+      "searches": [
+        "published-finding corpus: max component sampling worst case Euclidean residual inflation SPD at one Krylov iteration",
+        "published-finding corpus: row subset sketched minimal residual descent 2x2 SPD largest component pivot condition threshold 3+2 sqrt 2",
+        "web: maximum entry DEIM sketched GMRES one step residual amplification dimension condition number"
+      ]
+    },
+    "rationale": "Exact DEIM m=s=1 selection and sampled solve were verified against the primary full text. Closest own prior sharp sketched-GMRES result assumes a two-vector subspace embedding impossible for one coordinate in the nontrivial case. The dimension-sensitive attained residual formula, finite safe frontier and unbounded singular approach are neither supplied by the inspected source nor implied by the compared embedding/FGMRES results. Targeted published-finding corpus searches found related but implication-distinct methods. Classical Kantorovich inequality is acknowledged; remaining historical-priority risk is explicitly retained.",
+    "residual_risks": [
+      "Older coordinate-interpolation or deterministic oblique-projection literature could contain an equivalent unlocated theorem.",
+      "Complete text of Burke–Carson–Ma 2026 and Güttel–Pearson 2025 was not systematically inspected; their stated goals and method conditions differ.",
+      "Independent mathematical priority audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides DEIM coordinate row rule and dsGMRES sampled least squares, but does not derive exact true-residual one-row SPD amplification or the dimension-conditioned singular frontier.",
+        "evidence": [
+          "https://www.researchgate.net/publication/403642501_Deterministic_sketching_for_Krylov_subspace_methods",
+          "https://arxiv.org/abs/2604.07158"
+        ],
+        "identifier_or_url": "arxiv:2604.07158",
+        "material_read": "Full author-uploaded article text, Sections 2.3, 4.1, 5.2, Algorithm 5.2 and residual plots in 6.2; arXiv original metadata.",
+        "method": "Direct inspection of full paper, comparison of definitions, hypotheses, and conclusions",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Same single-row DEIM sketch and dsGMRES algorithm"
+      },
+      {
+        "assessment": "Its quasi-optimality guarantee uses sketches preserving the two-dimensional residual search plane; a one-row DEIM sketch cannot satisfy that prerequisite except if dimension collapses. Thus it does not imply the stated one-row formula.",
+        "evidence": [
+          "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+          "doi:10.1137/23M1565413"
+        ],
+        "identifier_or_url": "doi:10.1137/23M1565413",
+        "material_read": "Complete 32-page author-hosted PDF indexed; examined the sketched least-squares construction and Section 1.2.1 as well as embedding prerequisites.",
+        "method": "Direct full-PDF retrieval and inspection of sketched GMRES setting",
+        "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Potentially stronger sketched GMRES residual guarantee"
+      },
+      {
+        "assessment": "Its nonincreasing residual comes from a different outer flexible-GMRES algorithm, not the unwrapped one-row DEIM step; not a covering theorem.",
+        "evidence": [
+          "https://arxiv.org/abs/2506.18408"
+        ],
+        "identifier_or_url": "arxiv:2506.18408",
+        "material_read": "Accessible arXiv abstract and publicly indexed article text excerpts, including the FGMRES outer wrapper claim; complete article was not systematically compared.",
+        "method": "Abstract and method comparison",
+        "title": "Stabilizing randomized GMRES through flexible GMRES",
+        "trigger": "Published monotone residual guarantee might dominate conclusion"
+      },
+      {
+        "assessment": "Backward stability in finite precision is distinct from exact-arithmetic sharp worst-case true-residual amplification; full text remains a priority risk.",
+        "evidence": [
+          "https://epubs.siam.org/doi/10.1137/25M1744629"
+        ],
+        "identifier_or_url": "doi:10.1137/25M1744629",
+        "material_read": "Publisher abstract, methods overview and bibliographic description; full text not inspected.",
+        "method": "Scope and stated hypotheses comparison",
+        "title": "On the Numerical Stability of Sketched GMRES",
+        "trigger": "Same method family and numerical stability topic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "67008dbf-dce1-408f-bf44-f89fe8dd85f0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Source proposes nonoversampled deterministic DEIM row selection with reported quality/runtime tradeoffs but lacks an exact stability guarantee. An attained necessary-and-sufficient dimension/condition-number bound identifies when this natural algorithm cannot guarantee residual decrease; the distinct unbounded branch for arbitrarily well-conditioned matrices in sufficiently large dimensions materially motivates oversampling or true-residual safeguards. The exact threshold is an algorithm design criterion, not a minor numerical constant.",
+    "status": "PASS"
+  }
+}
