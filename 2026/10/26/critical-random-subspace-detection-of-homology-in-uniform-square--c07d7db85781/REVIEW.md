@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite differential census factors as a choice of image, kernel and quotient isomorphism. The nested-flag census follows by choosing the two intersections and a graph map. The limiting marginal homology defect is summably dominated; Gaussian-coefficient cancellation gives the random-subspace excess law, and projection into finite-dimensional homology gives the conditional matrix-rank law. All three conditionals are normalized. The existential witness is equivalent to positive detected-homology dimension. The checker independently validates 11,227 finite flags and 141 all-rank normalizations. The proof, not the finite checker, establishes the infinite statements.
+
+**Originality — PASS, qualified.** Ginzburg–Pasechnik already give the random square-zero homology-rank limit; those probabilities are not claimed as new. Standard \(q\)-intersection and matrix-rank laws are also known. The contribution is the coupled three-statistic law for an *independent half-dimensional random subspace*, with an explicit first-order parity obstruction. Ginzburg–Pasechnik, Catanzaro–Zabka, Ababneh–Kahle, and Koponen were compared at the statement level. No inspected result quantifies this joint probe construction. A prior general random-flag theorem might imply the formula after specialization; this is a residual priority risk, not a proof of uniqueness.
+
+**Value — PASS.** A half-dimensional probe is the natural critical-size linear test of a half-dimensional cycle space; at smaller or larger dimensions generic intersection behavior changes. The law distinguishes ambient homology, extra probe intersection and detectable quotient homology, and shows that the same elementary first-order assertion has sharply different parity limits. It gives exact finite enumeration, an effective infinite law, and a reproducible small-case benchmark, rather than a narrow arbitrary numeric slice.
+
+The result is limited to uniform square-zero maps, a uniform half-dimensional subspace, and the stated statistics and witness formula. No general first-order convergence theorem is asserted. Historical-priority uncertainty and the absence of external validation remain.
+
+Self-review: passed. Independent audit: not yet performed.
