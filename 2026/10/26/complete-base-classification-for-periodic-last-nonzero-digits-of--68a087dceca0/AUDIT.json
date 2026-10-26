@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary b with distinct primes p,q and any T,N, factor T as its b-smooth part and coprime part, select k with T_parallel|b^k and b^k>=N, then by CRT construct u≡0(p),1(q),1(T_perp). Indices n=b^k,m=b^ku are congruent modulo T. The equalities n^n=b^{kn}, m^m=b^{km}u^m and q∤u imply exactly nu_b(n^n)=kn and nu_b(m^m)=km. Hence F_b(n)=1 but F_b(m)=u^m mod b is divisible by p. This treats all bases/multiplicities and all possible periods; it depends only on CRT. The prime-power classification is explicitly imported from [1, Theorem 7/Prop 10]. The extracted standalone verifier passes 352 CRT constructions, 75 direct huge-integer checks, and 512 positive-case period checks; finite checks corroborate but do not prove the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sobolewski, 2023, Abstract and §2: analytic p-adic tuple setting, k-regularity and automaticity.",
+        "Source’s introduction explicitly cites Grau--Oller-Marcén for the prime-base self-power sequence, not an arbitrary-base periodicity theorem."
+      ],
+      "reasoning": "The analytic-function framework is related but its hypotheses are not a statement that the variable-exponent function n↦n^n is globally an analytic p-adic function on all integers, nor does its stated conclusion provide the arbitrary-base classification. No inspected stronger theorem subsumes the CRT witness.",
+      "searches": [
+        "https://link.springer.com/article/10.1007/s11139-023-00710-8",
+        "\"last nonzero digit\" \"n^n\" \"composite\" \"periodic\"",
+        "last nonzero digit n^n in base b with at least two distinct prime factors non eventual periodicity",
+        "last significant digit self-powers n^n arbitrary radix eventual periodic iff power of two Fermat exponent"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1203.4066",
+      "https://link.springer.com/article/10.1007/s11139-023-00710-8",
+      "https://oeis.org/A260031",
+      "doi:10.4134/BKMS.2014.51.5.1325",
+      "Research-record semantic results examined with six explicit formulations; no directly covering result among inspected ranked hits"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1, Theorem 7] establishes the prime-power portion, and [1, Proposition 10] the affirmative periods.",
+        "[1, §3 and Conjecture 11] explicitly say the general case remains a conjecture and earlier negative cases include even squarefree bases.",
+        "Independent CRT construction yields different last nonzero digits at two arbitrarily large indices congruent modulo every proposed T for any base with at least two prime factors."
+      ],
+      "reasoning": "Prior prime-power results plus the new lemma imply the complete classification; neither prior prime-power results nor published even-squarefree obstructions alone imply the all-mixed-prime CRT lemma. The analytic-sequence article is a different class and quantitative property; base-12 tabulation does not imply universal nonperiodicity.",
+      "searches": [
+        "https://arxiv.org/abs/1203.4066",
+        "https://link.springer.com/article/10.1007/s11139-023-00710-8",
+        "https://oeis.org/A260031",
+        "n to the n last nonzero digit base multiple prime factor elementary CRT 2012 Conjecture 11",
+        "Grau Oller Marcen last nonzero digits self powers full classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grau and Oller-Marcén, 2012, Theorem 7: prime powers only; Conjecture 11: same global iff still conjectural in source.",
+        "Original source defines the final nonzero digit by removing maximal full factors of the base, not by reducing to a unit modulo the base."
+      ],
+      "reasoning": "The equivalent formulations “eventual last nonzero digit periodicity”, “last significant base digit of self-powers” and arbitrary-base Conjecture 11 were compared. The all-base conclusion is literally the conjecture statement but was not proved by the published source; the new mixed-prime lemma supplies the missing implication.",
+      "searches": [
+        "https://arxiv.org/abs/1203.4066",
+        "\"Conjecture 11\" \"last non-zero digit\" \"periodic\"",
+        "\"Grau\" \"Oller\" \"conjecture\" \"periodic\"",
+        "Grau Oller-Marcen conjecture last non-zero digits n^n base 2012",
+        "trailing base digits n to n periodic composite bases nonprime powers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A260031 tabulates self-power last nonzero digits in base 12 and gives code for computing terms.",
+        "Research-record search returned near matches about unrelated base digits and modular dynamical objects rather than the arbitrary-period nonperiodicity theorem."
+      ],
+      "reasoning": "Numerical data for base 12 are compatible with the constructed nonperiodicity but prove no universal exclusion of periods, and are only one of infinitely many mixed-prime bases. There is no exact table equivalent to the all-base iff.",
+      "searches": [
+        "https://oeis.org/A260031",
+        "OEIS A260031 final nonzero digit n^n base 12",
+        "trailing base digits n to n periodic composite bases nonprime powers"
+      ]
+    },
+    "rationale": "The 2012 initiating paper explicitly states the arbitrary-base iff as Conjecture 11 and proves only the prime-power classification and selected composite classes. The universal mixed-prime CRT obstruction is a strictly stronger new theorem than its even-squarefree subcase: it handles bases such as 12, 18, 45 and all other two-prime-support bases and every possible period. The 2023 full article addresses analytic-function valuations/automaticity, not the global variable-exponent self-power periodicity claim. Exact base-12 OEIS data are finite sequences, not an all-period theorem. Six targeted mathematical research-record searches and four own-week/archival ledgers found no implication. The positive cases are acknowledged as previously established. This is a best-knowledge scientific-priority assessment, not a proof of uniqueness.",
+    "residual_risks": [
+      "Unknown, unindexed earlier proofs or obscure equivalences could affect publication priority.",
+      "The 2014 journal article is represented by the same complete preprint and bibliographic metadata; separate publisher PDF version was not independently collated line by line.",
+      "The 2023 analytic-function framework is wide; an indirect reduction not evident in the inspected text cannot be excluded solely from search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "PUBLISHED PARTIAL: prime-power iff and even-squarefree nonperiodicity; global mixed-prime nonsquarefree obstruction absent and explicitly conjectural.",
+        "evidence": [
+          "arXiv:1203.4066v1, abstract; §3; Theorem 7; Proposition 10; Conjecture 11."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.4066",
+        "material_read": "Complete accessible text including definition, sections 3.1–3.2, all prime-power statements, final conjecture and proof boundaries; 2012 arXiv v1 publicly dated 2012-03-19.",
+        "method": "Full-text HTML scientific comparison with specific Theorem 7, Proposition 10, Conjecture 11 and earlier special composite cases",
+        "title": "On the last digit and the last non-zero digit of self-powers in base b",
+        "trigger": "Exact originating conjecture and potentially dominating theorems"
+      },
+      {
+        "assessment": "RELATED NOT COVERING: its p-adic analytic-function/automaticity results do not assert the periodicity classification for n^n.",
+        "evidence": [
+          "Sobolewski (2023), Abstract; §1 and §2; discussion of Grau--Oller-Marcén."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11139-023-00710-8",
+        "material_read": "Accessible full article HTML: abstract, introduction, definitions of b-adic valuation/last nonzero digits, §2 principal analytic-function hypotheses and results, examples and cited prior self-power work.",
+        "method": "Full-text reading and hypothesis-versus-claim comparison",
+        "title": "On k-regularity of sequences of valuations and last non-zero digits",
+        "trigger": "Potential general last-nonzero-digit theorem covering arbitrary composite bases"
+      },
+      {
+        "assessment": "EXACT DATA ONLY: no all-period certificate or all-mixed-prime theorem.",
+        "evidence": [
+          "OEIS A260031, entry heading, terms, code, original-paper reference."
+        ],
+        "identifier_or_url": "https://oeis.org/A260031",
+        "material_read": "Sequence statement, displayed values, comments/links and direct code for base 12.",
+        "method": "Read original table entry and compared statement with universal arbitrary-period theorem",
+        "title": "OEIS A260031, Final nonzero digit of n^n in base 12",
+        "trigger": "Exact database entry for a mixed-prime base"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68a087dc-eca0-4a4d-b347-2039d422b011",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem settles the explicit full-base Conjecture 11 of a 2012 number-theory paper, replacing partial examples with an infinite exact classification. The CRT construction is useful structurally because it manufactures contradictions for every proposed eventual period, at arbitrary thresholds, without any squarefree restriction. The result is not a mere recomputation of digit values or a relabeling of the known prime-power theorem; even though the obstruction proof is short, completing the natural conjecture is a motivated and substantial resolution.",
+    "status": "PASS"
+  }
+}
