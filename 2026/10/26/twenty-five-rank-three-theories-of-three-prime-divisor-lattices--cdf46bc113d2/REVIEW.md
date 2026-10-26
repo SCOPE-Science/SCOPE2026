@@ -1,0 +1,11 @@
+# Scientific review: three-prime divisor lattices
+
+**Correctness — PASS.** Three-round equivalence of finite chains under the length-seven cutoff and the coordinatewise EF strategy establish a valid infinite reduction to 56 three-factor posets. The exact rank-three Hintikka invariant records every one-point, two-point and three-point atomic response and its existential/universal back-and-forth profiles. Exhaustive evaluation of all 56 cases yields 25 signatures, and all 36 six-versus-seven side replacements are explicitly checked. The 35-classified six-capped cases have exactly 25 classes; the greatest least representative cardinality is 150. Independent direct vertex enumeration reproduces twelve nontrivial signatures. The proof does not infer infinite behavior from finite samples.
+
+**Originality — PASS, with qualified residual risk.** The inspected 2010 and 2018 works of Mwesigye–Truss address coloured linear orders and their rank-bounded representatives, not three-factor divisor lattices or the exact 25-class table. Searches under the formulations three-prime divisor posets, three-dimensional products of chains and rank-three EF grids did not uncover a covering published theorem. One- and two-factor classifications provide useful comparison but do not imply the full three-factor mergers, improved cutoff or sharp 150-element bound. The literature search is not exhaustive and unindexed equivalent results remain possible.
+
+**Value — PASS.** Divisor lattices of three-prime integers are natural arithmetic distributive lattices with three independent valuation directions. The exact bounded-depth theory exposes a sharp collapse in expressible exponent information that is absent from single chains, including equivalences between distinct six-capped exponent patterns. The complete classification and sharp 150-divisor bound are reusable invariants for low-depth definitions on divisor posets; no downstream theorem is asserted.
+
+The first source was publicly available on 7 September 2010. Limits: pure divisibility signature, exactly three distinct primes, rank three; later literature might alter the novelty assessment. The included classifier is independently replayable but has not been externally audited.
+
+Self-review: passed. Independent audit: not yet performed.
