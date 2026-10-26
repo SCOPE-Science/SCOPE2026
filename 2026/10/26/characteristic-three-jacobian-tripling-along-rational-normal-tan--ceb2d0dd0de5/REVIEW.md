@@ -1,0 +1,11 @@
+# Scientific review: characteristic-three Jacobian tripling
+
+**Correctness — PASS.** The coordinate ring on each affine curve chart is proved to equal the cusp ring \(k[u,y,z]/(z^2-y^3)\), rather than inferred from a truncated parametrization. The Fitting-ideal computation gives lengths three in characteristic three and two in other odd characteristics. The opposite-chart tangent-parameter transformation gives the nilpotent graded pieces \(\mathcal O(-4j)\), proving the global Hilbert polynomial. Tangent-direction coordinates establish smoothness outside the curve, and the cubic twisted-curve specialization provides an independent complete-intersection cross-check.
+
+**Originality — PASS, qualified.** Raicu's *Syzygies of the tangential variety to a rational normal curve* explicitly establishes the characteristic-two smooth scroll and characteristic-three generator anomalies; neither the inspected note nor Oeding–Raicu arXiv:1111.6202 states the intrinsic characteristic-three singular-scheme thickening, nilpotent line-bundle filtration, or Hilbert polynomial. Relevant mathematical-record searches on Jacobian, Fitting, thickening, and characteristic-three tangential surfaces returned other singular schemes and tangential invariants, not these claims. This is a qualified literature comparison, not a proof of exhaustive novelty. Classical modular singularity references may contain equivalent material.
+
+**Mathematical value — PASS.** The answer determines the intrinsic infinitesimal singular geometry of a standard infinite family, exhibiting the special jump from multiplicity two to three at characteristic three and calculating its globally twisted nilpotent structure. It distinguishes scheme-theoretic singularity from the familiar reduced cuspidal curve and from characteristic-sensitive Betti tables. No downstream application is required for the natural invariant to be useful.
+
+Limitations: the work assumes an algebraically closed field and the reduced tangential image; the characteristic-two result is cited antecedent, not new. Independent scientific validation and exhaustive historical-language searching have not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
