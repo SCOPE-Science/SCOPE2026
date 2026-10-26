@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For an odd prime p, every radix digit sum of 2p that divides 2p must equal 1, 2 or p. Sum 1 forces radix 2p. Sum p implies b-1|p, leaving b=p+1 after excluding binary. Sum 2 allows one nonzero digit 2 (forcing b=p), or two 1 digits: if the trailing place has positive exponent then b=2 and p is a Fermat prime; if the trailing exponent is zero, the base is 2p-1 or a 2-power root of 2p-1, by the odd-exponent factorization. Reverse implications and disjointness are proved. Exceptional primes up to X arise from at most O(log log X) Fermat indices or O(sqrt X) integer squares. The complete proof is in RESULT.md. The separately runnable checker verifies exact sets for 195 primes and a nine-base larger example, without extrapolating from finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A271311 six-base patterns include the Fermat and square-root cases: https://oeis.org/A271311",
+        "OEIS A271313 seven-base patterns include the fourth-root example 82: https://oeis.org/A271313",
+        "The fixed-base arithmetic Harshad literature concerns a chosen radix, rather than a count ranging over all integer radices."
+      ],
+      "reasoning": "The 2016 six/seven-base descriptions are documented finite patterns, not a theorem ruling out all further bases for every prime, nor a quantitative density theorem. The apparent dominating result in fixed-base Harshad counting has different quantifiers and does not imply the all-radix classification.",
+      "searches": [
+        "count of bases n Harshad number semiprime 2p exact characterization theorem",
+        "distribution Niven numbers multiple bases \"2p\" digit sums"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A080221",
+      "https://oeis.org/A100263",
+      "https://oeis.org/A271311",
+      "https://oeis.org/A271313",
+      "https://oeis.org/wiki/Harshad_numbers",
+      "https://en.wikipedia.org/wiki/Harshad_number"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A080221 discusses 2p as the natural minimal-count case: https://oeis.org/A080221",
+        "A100263 provides three non-unary baseline examples: https://oeis.org/A100263",
+        "A271311 and A271313 identify exceptional 2, square and fourth-power cases: https://oeis.org/A271311 and https://oeis.org/A271313"
+      ],
+      "reasoning": "The stated observations imply some positive examples, not exclusion of every other base b for arbitrary primes p. The new proof needs the exhaustive digit-sum-divisor trichotomy and odd-exponent cyclotomic obstruction. The O(sqrt X) bound is a distinct consequence of the complete classification, not present in the inspected sequence statements.",
+      "searches": [
+        "Harshad number all bases count A080221 classification Fermat 2p-1",
+        "number of bases for which 2p is a Harshad number exact square root",
+        "OEIS A271311 H(n)=6 bases Fermat prime"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A080221 defines H(n) across radices: https://oeis.org/A080221",
+        "OEIS A100263 gives the sublevel H(n)=5: https://oeis.org/A100263"
+      ],
+      "reasoning": "Reformulating the theorem as an all-radix Harshad count, an all-radix Niven count or a classification of radix digit sums dividing 2p leads to the same case analysis. A080221 and A100263 identify the objects and some observed values but do not assert exhaustive bases for every odd prime.",
+      "searches": [
+        "Harshad in multiple bases 2p semiprime classification digit sum",
+        "OEIS A080221 Harshad 2p Fermat numbers b²+1 prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A080221 supplies initial values and a table reference through n=10000: https://oeis.org/A080221",
+        "A100263 has H(n)=5 values and baseline bases p,p+1,2p-1: https://oeis.org/A100263",
+        "A271313 explicitly gives roots 3 and 9 for n=82: https://oeis.org/A271313"
+      ],
+      "reasoning": "Finite tables overlap the base patterns at small inputs, including H(82)=7, but no finite table certifies the infinite classification or density. The integer 43046722 lies above the displayed table ranges and its nine-base calculation is verified separately.",
+      "searches": [
+        "OEIS A080221 n is Harshad in a(n) bases from 1 to n",
+        "OEIS A100263 Values n such that A080221(n)=5",
+        "OEIS A271313 H(n)=7 digit bases n=82"
+      ]
+    },
+    "rationale": "OEIS A080221 introduced the all-base Harshad count in 2003. A100263 lists the five-base family; 2016 entries A271311/A271313 already exhibit square-root, binary and fourth-root examples. These finite examples and the known five/six/seven-base patterns are explicitly credited. The new statement is the exhaustive classification at all odd prime arguments, every higher 2-power root and an O(sqrt X) exceptional-prime theorem. None of the accessible source statements inspected or retrieved implies this complete combined claim. Unlocated stronger previous work remains a real risk.",
+    "residual_risks": [
+      "Searches and available source material cannot rule out an unlocated paper or unpublished proof treating all-base Harshad counts of 2p.",
+      "The OEIS six/seven-base patterns overlap several finite cases, so those examples alone are not novel.",
+      "A general theorem about radix digit-sum representation could imply this specialization without mentioning Harshad numbers; no such dominating statement was identified in inspected materials.",
+      "No independent priority review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines H(n), identifies the relevance of 2p and some bounds for other factorization types, but states no exhaustive odd-prime classification or prime-density result.",
+        "evidence": [
+          "OEIS A080221, March 16, 2003 initial entry; comments by Layman (2004) and Adams-Watters (2006)."
+        ],
+        "identifier_or_url": "https://oeis.org/A080221",
+        "material_read": "Full accessible sequence entry: definition, values, 2004 and 2006 comments on twice-prime cases, examples, linked tables, author/date and references.",
+        "method": "Read public primary sequence entry and compare exact mathematical statements.",
+        "title": "A080221: Harshad in a(n) bases from 1 to n",
+        "trigger": "Primary definition and dated original all-base problem."
+      },
+      {
+        "assessment": "Lists examples with baseline p,p+1,2p-1, but contains no proof that these are the only bases for every nonexceptional prime or an exceptional-prime estimate.",
+        "evidence": [
+          "OEIS A100263 (November 10, 2004), comment of April 3, 2016."
+        ],
+        "identifier_or_url": "https://oeis.org/A100263",
+        "material_read": "Full accessible sequence entry including comments, all displayed examples, the baseline bases and original entry date.",
+        "method": "Read definition and comments and compare implication to universal condition.",
+        "title": "A100263: Exactly five Harshad bases",
+        "trigger": "Possible table or theorem of the claimed generic five-base case."
+      },
+      {
+        "assessment": "Documents two types of six-base examples; neither yields all higher 2-power roots or an exhaustive all-prime theorem.",
+        "evidence": [
+          "OEIS A271311, April 3, 2016; examples n=26 and n=514."
+        ],
+        "identifier_or_url": "https://oeis.org/A271311",
+        "material_read": "Full accessible entry including pattern A (square roots), pattern B (binary), illustrative n=6,26,34,514, and source date.",
+        "method": "Compare exact exceptional patterns and reverse implications.",
+        "title": "A271311: Exactly six Harshad bases",
+        "trigger": "Possible coverage of Fermat and square-root exceptional branches."
+      },
+      {
+        "assessment": "Already covers the 82 example (credited), but the entry gives an empirical classification of H(n)=7 examples, not the exact formula at all 2p including H>=8.",
+        "evidence": [
+          "OEIS A271313, April 3, 2016; pattern B, example n=82."
+        ],
+        "identifier_or_url": "https://oeis.org/A271313",
+        "material_read": "Full accessible entry including pattern B (n=82 with bases 3 and 9), other groups, displayed examples, and source date.",
+        "method": "Compare fourth-power example with arbitrary iterated square roots and density.",
+        "title": "A271313: Exactly seven Harshad bases",
+        "trigger": "Fourth-root exceptional case might subsume the new exceptional family."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ea6c8b2-1987-402a-96a3-792618b46c7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Even semiprimes are the natural four-divisor test family singled out in A080221/A100263 for unusually small all-base Harshad counts. The theorem replaces empirical five/six/seven-base categories by a complete arithmetic classification for every odd prime, quantitatively identifies the generic five-base regime (at most O(sqrt X) exceptional primes), and exhibits a natural nine-base witness produced by a sixteenth power. The exact count and density are mathematically motivated by the existing sequence questions and require an exhaustive structural proof; no unproved downstream conjecture is used as value.",
+    "status": "PASS"
+  }
+}
