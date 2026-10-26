@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The stable equations force attacker choices across a fixed bipartition, producing binomial(n,k)*(n-k)^k*k^(n-k) maps with a marked size-k extension. Negative h-second derivative and gamma log-convexity yield strict log concavity. Uniform Stirling gives exact Gaussian scale sqrt(n)/4, and a central Gaussian tail bound plus exponential edge bound proves normalization 1/2 and variance n/16. Finite exact all-map and all-subset replay at n<=6 agrees; computation is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yakymiv 2015 abstract proves a normal limit for the number of components in random A-mappings (not stable-extension sizes).",
+        "Yakymiv 2022 describes parametric component-volume weights and cycle length restrictions, but the displayed statements do not resolve the size of the chosen bipartition class."
+      ],
+      "reasoning": "The new quantity weights exact numbers of accepted vertices, not number or volume of components; even-count conditioning and the known CLT are deliberately not claimed.",
+      "searches": [
+        "random mapping all directed cycles even enumeration probability asymptotics",
+        "doi:10.1137/S0040585X97986928",
+        "doi:10.1007/s10958-022-06128-9"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.13332",
+      "https://epubs.siam.org/doi/abs/10.1137/S0040585X97986928",
+      "https://paperity.org/p/296517223/random-mappings-with-constraints-on-the-cycle-lengths",
+      "https://arxiv.org/abs/2111.05720",
+      "https://doi.org/10.4230/LIPIcs.MFCS.2019.74"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fichte et al. formulate diversity and counting of argumentation extensions without a size-marked uniform random one-attacker formula.",
+        "Gaspers and Li bound preferred-extension enumeration in broad digraph classes, without producing the annealed stable cardinality polynomial."
+      ],
+      "reasoning": "The present statement is an exact expected marked-cardinality law, its strict shape and Gaussian local limit; worst-case enumeration bounds and distances between extensions do not imply that value.",
+      "searches": [
+        "arxiv:2605.13332",
+        "doi:10.4230/LIPIcs.MFCS.2019.74",
+        "expected number of stable extensions of each cardinality in uniformly random argumentation framework in-degree one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The stable constraint for unique attacker is proper two-colouring of the functional edges with a distinguished colour class; this reduction is proved in the package. Searches for size-resolved formula or its Gaussian constant found no matching exact statement."
+      ],
+      "reasoning": "A pair of complementary color classes produces two marked stable sets; the known existence criterion and cycle-count CLT do not determine the cardinality profile. Searches considered the equivalent bipartite-colouring language.",
+      "searches": [
+        "Random one-attacker argumentation framework annealed size distribution of stable extensions binomial n k (n-k)^k k^(n-k) strictly log concave Gaussian variance n/16",
+        "random functional digraph expected proper two colorings with exactly k black vertices binomial color class occupancy CLT width sqrt(n)/4",
+        "stable extension cardinality functional digraph proper 2-colouring one predecessor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus similarity search did not return the exact marked-cardinality counts or variance formula; nearest hits include 2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69 (different graph family and colouring invariant), and 2026/10/4/SCOPE-exact-quadratic-1-type-profile-of-simon-s-monotone-two-order-fra--ee696f008d98 (model-theoretic types)."
+      ],
+      "reasoning": "The negative indexed comparisons are limited evidence, not proof that no equivalent old table exists.",
+      "searches": [
+        "Random one-attacker argumentation framework annealed size distribution of stable extensions binomial n k (n-k)^k k^(n-k) strictly log concave Gaussian variance n/16",
+        "random functional digraph expected proper two colorings with exactly k black vertices binomial color class occupancy CLT width sqrt(n)/4",
+        "expected number of stable extensions of each cardinality in uniformly random argumentation framework in-degree one"
+      ]
+    },
+    "rationale": "The exact annealed accepted-size histogram and sharp variance n/16 are neither a statement about even functional cycles nor an implication of the cited CLT for component counts. The inspected 2026 argumentation paper deals with extension diversity, not random accepted cardinality. Conditional mapping-cycle results by Yakymiv are explicitly treated as established prior coverage rather than as new findings. An equivalent two-colouring calculation in older literature remains possible.",
+    "residual_risks": [
+      "The marked-cardinality formula is equivalent to a two-coloring size enumerator; an unpublished or older exact enumeration may give equal or stronger coverage.",
+      "The general weighted random A-mapping machinery could subsume a close transformation of this polynomial, though displayed formulas weight component numbers rather than colour-class sizes.",
+      "The cited 2015 A-mapping paper and 2019 enumeration paper were compared from abstracts only; no whole-document NOT_COVERING claim is made for them."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the annealed size-profile theorem",
+        "evidence": [
+          "First version 2026-05-13; treats extension diversity in general abstract frameworks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.13332",
+        "material_read": "Full accessible HTML document, including definitions, main results and discussion; searched for random/function/cycle terms",
+        "method": "Full text browsing and targeted find",
+        "title": "Diversity of Extensions in Abstract Argumentation",
+        "trigger": "Recent motivating primary source on extension size and diversity"
+      },
+      {
+        "assessment": "Covers general A-mapping constructions, component-size weighted generating functions; does not state accepted-color-class histogram; priority risk from broader theory remains.",
+        "evidence": [
+          "Theorem statements concern random A-permutations and component maximum of A-mappings; parameter H_n(theta) weights component counts, not bipartition occupancy."
+        ],
+        "identifier_or_url": "https://paperity.org/p/296517223/random-mappings-with-constraints-on-the-cycle-lengths",
+        "material_read": "Paperity HTML exposes substantive paper sections 1-2, theorem statements and general component-weight EGF; no PDF verification",
+        "method": "Read rendered primary text and compare observable parameters",
+        "title": "Random Mappings with Constraints on the Cycle Lengths",
+        "trigger": "Potential dominating A-mapping enumerator and cycle-count theorems"
+      },
+      {
+        "assessment": "Covers earlier candidate cycle-count CLT; does not establish selected stable-extension cardinality profile.",
+        "evidence": [
+          "Abstract gives Gaussian number of components and variance density/2 log n for random A-mapping."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/abs/10.1137/S0040585X97986928",
+        "material_read": "Publisher abstract, metadata, references; not full text",
+        "method": "Abstract-level statement and implications comparison",
+        "title": "On a Number of Components in a Random A-Mapping",
+        "trigger": "Decisive stronger prior result for cycle-count Gaussian, distinct from accepted-size Gaussian"
+      },
+      {
+        "assessment": "Background on random mapping decomposition and component statistics, no matching annealed marked cardinality result.",
+        "evidence": [
+          "Mapping component/cycle sections focus on largest components/cycles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.05720",
+        "material_read": "Accessible arXiv full text section on random mapping components/cycles",
+        "method": "Reviewed relevant sections",
+        "title": "Permute, Graph, Map, Derange",
+        "trigger": "Closest survey of random mappings"
+      },
+      {
+        "assessment": "Worst-case preferred enumeration, not marked random stable-set profile.",
+        "evidence": [
+          "Bounds number and enumeration runtime of preferred extensions, not stable accepted-set cardinality fluctuations."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2019.74",
+        "material_read": "Published abstract, bibliographic metadata; not complete paper",
+        "method": "Abstract-level comparison",
+        "title": "Enumeration of Preferred Extensions in Almost Oriented Digraphs",
+        "trigger": "Closest primary general result on numbers of preferred extensions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66d3f6f4-c709-4ef8-9c35-9c8b65ec7094",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete annealed marked-cardinality profile is a naturally motivated invariant for Dung semantics. Exact finite counts, global strict log-concavity, exact Gaussian width n/16, and average 1/2 establish a quantitative benchmark and expose a significant distinction between counting extensions across all instances and sampling a typical solvable instance. The new quantity is not a minor numeric increment to an existing count and is not simply the known cycle-count CLT.",
+    "status": "PASS"
+  }
+}
