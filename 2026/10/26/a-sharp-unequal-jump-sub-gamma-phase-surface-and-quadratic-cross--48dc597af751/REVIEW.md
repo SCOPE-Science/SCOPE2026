@@ -1,0 +1,11 @@
+# Scientific self-review
+
+**Correctness — PASS.** The Poisson/Gaussian log-MGF and its entire series are explicit. A coefficient-ratio comparison propagates the quadratic cumulant threshold to every degree, yielding a global admissible pole, while the opposite regime has strict local/interior improvement. The implicit-function argument combines strict boundary separation, uniform control at infinity, and negative curvature, establishing a unique nearby maximizer with a quadratic onset. Independent high-precision and exact rational calculations check the coefficients and asymptotics; they do not replace the proof. Residual limitation: uniqueness far from the critical surface is unproved.
+
+**Originality — PASS (qualified).** Chen and Wang's full text establishes the signed variational formula and the equal-amplitude \(b=1\) Skellam transition, so neither is claimed as new. The unequal-jump surface, Gaussian endpoint and quadratic onset are not stated in its Sections 3–7. Chen's spectrally positive framework yields a general transform for the Gaussian limit, not its explicit sharp critical fraction. Earlier sub-Poisson optimization uses a different envelope. Multiple title, statement, parameter and equivalence searches did not locate an already stated formula. Residual risk: the specialized classification could be implicit in a stronger concentration theorem or unlocated literature.
+
+**Value — PASS.** The sharp phase surface gives an interpretable structural boundary between global and third-cumulant control in concentration with asymmetric signed jumps. Varying the size of the adverse jump creates a continuum from a genuinely Gaussian-smoothed process to the known symmetric-jump model, and the quadratic onset quantifies how fast a locally chosen Bernstein pole becomes suboptimal. This is a natural exact concentration invariant, not a preselected numerical slice.
+
+**Literature limits.** General Lévy formulas and the equal-amplitude case are attributed to arXiv:2609.02590; the positive-jump framework is attributed to arXiv:2610.00032; variance-proxy results in arXiv:2508.12103 are distinguished from variance-fixed pole optimization. Scientific novelty has not been independently validated.
+
+Self-review: passed. Independent audit: not yet performed.
