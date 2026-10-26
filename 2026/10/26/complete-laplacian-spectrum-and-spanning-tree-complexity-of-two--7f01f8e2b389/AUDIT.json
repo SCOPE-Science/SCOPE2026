@@ -1,0 +1,171 @@
+{
+  "correctness": {
+    "rationale": "For all integers both part sizes at least three, the three vertex layers and their exact unsigned incidence blocks give an orthogonal direct sum. The B_m and B_n Gram identities prove rank and invariant-subspace dimensions. Two 2x2 block families have explicitly factored characteristic polynomials; the constant 3x3 block has eigenvalues 0,N,\\(2N-2\\) from rank, trace and principal minors. The multiplicities sum to \\(\\binom{N}{2}\\), the zero eigenvalue is simple, and the matrix-tree theorem supplies the claimed product. The packaged independent graph builder checked 14 spectra and two-prime cofactor residues for nine pairs; no finite evidence is substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dalfó et al. (2021) gives a general commutation/complement relationship; its matching of three Johnson eigenspaces does not state the specialized full biclique factorization.",
+        "Song et al. (2026), Corollary 4.14 gives a maximum-eigenvalue lower bound; Reyes et al. (2023) imply equality in the bipartite case.",
+        "Verma (2026), Theorem 3.6 shows integrality for all token graphs of cographs, including complete bipartite graphs.",
+        "Reyes–Dalfó–Fiol (2024) provides partial quotient eigenvalues for distance-regular graphs, not a complete biclique token-graph spectrum."
+      ],
+      "reasoning": "Known general theorems cover shared endpoints, integrality, and an abstract complement reduction. We do not advertise those as novel. Establishing how each complement eigenspace aligns with the Johnson eigenbands (or equivalently proving the direct incidence decomposition) is necessary for the exact ten-group table and tree count; no checked stronger theorem supplies that instantiated answer as stated.",
+      "searches": [
+        "arxiv:2012.00808 Section 6 Theorem 6.2",
+        "arxiv:2309.07089 Section 2.2",
+        "arxiv:2610.00500 Corollary 4.14 and Remark 4.15",
+        "https://journals.uwyo.edu/index.php/ela/article/download/10053/7371/28463 Theorem 3.6",
+        "two-token graph of complete bipartite Laplacian full spectrum largest eigenvalue 2(m+n-1)",
+        "https://link.springer.com/article/10.1007/s40590-023-00583-3 Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.00500v1 Sections 4.13-4.15",
+      "arxiv:2309.07089 Section 2.2 and complete-bipartite discussion",
+      "arxiv:2012.00808 Lemma 6.1 and Theorem 6.2",
+      "Verma 2026 Electronic Journal of Linear Algebra 42(2026), Theorem 3.6",
+      "Barik–Verma 2024 accessible abstract only",
+      "Relevant research-record hits for complete-bipartite symmetric edge polytopes, rank-two matroid polytopes, and multipartite configurations",
+      "Reyes–Dalfó–Fiol (2024), On the spectra and spectral radii of token graphs, Section 5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 Corollary 4.14 supplies 2(m+n−1) as a lower bound, and 2023 equitable-quotient comparison already implies exact equality, but neither enumerates the full spectrum.",
+        "2021 Theorem 6.2 implies the token-complement Laplacians commute; substituting two disjoint cliques does not automatically specify pairwise alignment for every eigenspace.",
+        "2026 Verma gives all-integer eigenvalues for biclique token graphs but not their individual values or multiplicities.",
+        "Reyes–Dalfó–Fiol (2024) gives quotient matrices and spectral-radius results for distance-regular hosts; these do not by themselves identify all other eigenvalue multiplicities."
+      ],
+      "reasoning": "The final claim includes every eigenvalue, every multiplicity, and the resulting exact spanning-tree product for all \\(m,n\\ge3\\). None is a one-parameter special case of the earlier precise published endpoint claims. General complement machinery makes this tractable and is acknowledged, but still needs the specific incidence-rank/harmonic calculation that the new proof supplies. Prior endpoints and integrality are excluded from independent novelty.",
+      "searches": [
+        "arxiv:2610.00500 4.13-4.15",
+        "arxiv:2309.07089 2.2, 3.6",
+        "arxiv:2012.00808 6.1-6.4",
+        "Verma 2026 Theorem 3.6",
+        "doi:10.1016/j.laa.2024.02.004 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dalfó et al. (2021), Theorem 6.2: simultaneous diagonalization of token graph Laplacians for a graph and its complement; the complement of a biclique is the disjoint union of two cliques.",
+        "Reyes et al. (2023), Section 2.2: equitable quotient largest Laplacian eigenvalue equality for bipartite graphs.",
+        "Public 2024 Barik–Verma abstract covers structural and eigenvalue-bound properties but not an explicit entire biclique spectrum."
+      ],
+      "reasoning": "We compared both two-token/symmetric-square terminology and the complement representation. Although complement alignment can be used as an alternative derivation, it requires locating the Johnson eigenspace alignments; the full multiplicity list and exact tree product are not stated in the inspected papers. Exact spectral radius \\(2(m+n-1)\\) and algebraic connectivity \\(\\min\\{m,n\\}\\) are separately prior-implied and are not proposed as the new contribution.",
+      "searches": [
+        "complete bipartite token graph Laplacian spectrum F2 K_mn exact eigenvalues spanning trees",
+        "symmetric square of complete bipartite graph spectral decomposition",
+        "F_2(K_{m,n}) all Laplacian eigenvalues multiplicity spanning trees token graph complete bipartite",
+        "symmetric square of complete bipartite graph entire Laplacian eigenvalue list 2n n m m+2n-2",
+        "arxiv:2012.00808 Theorem 6.2 symmetric-power complement spectral alignment",
+        "arxiv:2309.07089 Section 2.2 regular partition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual relevant research-record closest result 2026/10/11/SCOPE-laplacian-spectrum-and-tree-complexity-of-complete-bipartite-sym--3feaadaf9c02 concerns a signed two-cover graph of symmetric edge polytopes, not a two-token graph.",
+        "2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680 concerns basis-exchange graphs of matroid polytopes; its spectra do not imply a token-biclique spectrum.",
+        "Searches for full biclique two-token Laplacian spectra and spanning-tree counts did not locate a matching published formula."
+      ],
+      "reasoning": "Compared graph construction, vertex count and adjacency, not just shared phrases. The cited similar-looking records concern other natural graphs. Searches are negative evidence of limited scope, not a uniqueness proof; an unindexed table or appendix remains possible.",
+      "searches": [
+        "complete bipartite token graph Laplacian spectrum F2 K_mn exact eigenvalues spanning trees",
+        "F_2(K_{m,n}) all Laplacian eigenvalues multiplicity spanning trees token graph complete bipartite",
+        "token graph K_{p,q} exact tree count complexity Kirchhoff",
+        "\"F_2(K_{m,n})\" spectrum multiplicities",
+        "\"symmetric square\" \"complete bipartite\" \"Laplacian\" eigenvalues",
+        "\"two-token\" \"complete bipartite\" \"spanning trees\""
+      ]
+    },
+    "rationale": "The public 2026 prompting theorem supplies only a spectral-radius quotient bound, the 2023 bipartite quotient principle already covers the exact radius and spectral gap, the 2021 complement-commutation theorem is a general identity without the aligned multiplicity table or tree count, and Verma 2026 covers only integrality for cographs. The proposed contribution is the full two-parameter eigenvalue/multiplicity formula and its exact spanning-tree product. Related research-record findings about complete-bipartite symmetric edge polytopes or rank-two matroid polytopes concern different graphs and different spectral parameters. A plausible 2024 article remains inaccessible in full and poses a real historical-priority uncertainty.",
+    "residual_risks": [
+      "Full text and possible appendices of Barik–Verma (2024) were inaccessible; an unexamined biclique computation could compromise historical priority.",
+      "Another equivalent two-particle exclusion-process/symmetric-square formula could exist under an unindexed title or in a table.",
+      "Independent review of the spectral decomposition and originality has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Only quotient spectral-radius lower bound and balanced equality in the pertinent section; no full multiplicity or spanning-tree formula",
+        "evidence": [
+          "Corollary 4.14: rho(F2(K_{m,n}))>=2(m+n-1).",
+          "Remark 4.15: balanced equality; no complete biclique Laplacian spectrum stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00500v1",
+        "material_read": "Full HTML paper including definitions, Section 4 theorems and Corollary 4.14 / Remark 4.15",
+        "method": "Read and compared stated inequalities and quotient expressions to the proposed entire spectral list",
+        "title": "The Algebraic Connectivity and Laplacian Spectral Radius of Token Graphs",
+        "trigger": "Very recent exact host family and two-token bound"
+      },
+      {
+        "assessment": "Covers the algebraic connectivity and implies exact maximum eigenvalue; does not state the full biclique two-token spectrum or spanning-tree count",
+        "evidence": [
+          "Section 2.2: the maximal Laplacian quotient eigenvalue equals the full maximum for bipartite graphs.",
+          "Theorem 2.2(ii): algebraic connectivity matches original complete bipartite host."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2309.07089",
+        "material_read": "HTML paper, especially Sections 2.2, 3 and complete-bipartite discussion",
+        "method": "Compared exact statement and implication of largest bipartite quotient and known spectral gap",
+        "title": "On the spectra of token graphs of cycles and other graphs",
+        "trigger": "Known biclique spectral gap and equitable-quotient implication"
+      },
+      {
+        "assessment": "Establishes simultaneous eigenspace alignment with Johnson graph; not an instantiated full biclique factorization or tree-complexity product",
+        "evidence": [
+          "Lemma 6.1: commuting Laplacians of token graphs of G and complement G.",
+          "Theorem 6.2: Johnson eigenspaces pair spectrally with complement token graphs."
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2012.00808",
+        "material_read": "HTML paper, Sections 5–7, particularly Lemma 6.1 and Theorem 6.2, plus known complete bipartite gap",
+        "method": "Inspected complement commutation and spectral alignment, examined whether it directly provides all multiplicities",
+        "title": "On the Laplacian spectra of token graphs",
+        "trigger": "Potentially dominating theorem via token-graph complement"
+      },
+      {
+        "assessment": "Proves integrality for token graphs of cographs, including bicliques; no two-parameter list of all eigenvalues of F2(K_mn) or exact spanning-tree product",
+        "evidence": [
+          "Theorem 3.6: for any connected cograph G, all F_k(G) are Laplacian integral."
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/10053/7371/28463",
+        "material_read": "OA 12-page PDF, including abstract, Sections 2–3 and Theorem 3.6; visual inspection of PDF page 9",
+        "method": "Checked cograph statement against biclique token graph and searched for full biclique eigenvalue list",
+        "title": "Laplacian spectral radius and integrality of token graphs",
+        "trigger": "Potentially stronger cograph integrality coverage"
+      },
+      {
+        "assessment": "Abstract emphasizes structural properties, bounds and certain spectral-gap cases; no conclusion of full-paper noncoverage is claimed",
+        "evidence": [
+          "Barik and Verma (2024), DOI 10.1016/j.laa.2024.02.004, pp.181–206; full text not obtained."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/377965155_Spectral_properties_of_token_graphs",
+        "material_read": "Accessible full abstract and bibliographic record only; manuscript full text unavailable",
+        "method": "Searched arXiv, open-access sites, publisher and a permitted institutional-paper route, then inspected abstract",
+        "title": "Spectral properties of token graphs",
+        "trigger": "Plausibly relevant early full spectral result"
+      },
+      {
+        "assessment": "Provides regular-partition eigenvalues and maximal-eigenvalue equality for bipartite distance-regular hosts, not full eigenvalue multiplicities or a spanning-tree product for unbalanced complete bipartite graphs",
+        "evidence": [
+          "Reyes–Dalfó–Fiol (2024), Proposition 5.2(b): Laplacian quotient maximum equals full maximum if host is bipartite.",
+          "Section 5.1 gives only a 2-by-2 quotient for strongly regular hosts; no whole spectrum is stated."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40590-023-00583-3",
+        "material_read": "Full accessible HTML article, including Sections 2 and 5, Lemma 5.1, Proposition 5.2 and strong-regular examples",
+        "method": "Compared entire quotient-spectral statement and graph hypotheses against the required full Laplacian multiset",
+        "title": "On the spectra and spectral radii of token graphs",
+        "trigger": "Potentially stronger quotient-eigenvalue result on distance-regular hosts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7f01f8e2-b389-4387-aeae-9eb14a0e618f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact Laplacian multiplicity table and spanning-tree complexity of an unbounded two-parameter family of two-particle exclusion graphs remain mathematically meaningful once previously known spectral endpoints and integrality are removed. A complete matrix factorization is not simply a numerical improvement or arbitrary finite slice, and the tree product enumerates a natural exact invariant. The approach provides an explicit structural characterization rather than republishing the general complement theorem.",
+    "status": "PASS"
+  }
+}
