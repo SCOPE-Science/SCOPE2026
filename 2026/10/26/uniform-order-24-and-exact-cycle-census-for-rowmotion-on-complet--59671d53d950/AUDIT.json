@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The order ideal/column-bit representation is bijective for each n>=2. The successor is derived directly from the minimal complement and yields an exact finite-state support projection. All 48 possible nonempty support configurations are classified into 13 explicit cycles, with correctly computed symbol permutation orders; a surjective word uses every symbol, forcing exact period p*q. Orbit formulas follow by onto-word inclusion-exclusion. A standalone package verifier recomputes the support orbits and tests an independently implemented direct ideal/toggle map for n=2..6; finite enumerations are checks, not the uniform proof. Boundary n=2 is included and has no 6/24 cycles; n>=3 has 24 cycles.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grinberg–Roby arxiv:1402.6178 Section 9 constructs skeletal families and Section 10 discusses their classical orders; no six-length census for the present incidence family is stated in examined portions.",
+        "Plante–Roby arxiv:2405.07984 studies C_m times [k], with different comparabilities and rank sizes.",
+        "Striker arxiv:1601.03710 generalizes toggle groups but does not list the target orbit counts."
+      ],
+      "reasoning": "Broader periodicity theorems may share the mechanism of toggles, but a bound or period cannot imply exact orbit multiplicities. Neither the stated source hypotheses nor their reported conclusions give the presented parameter-wide expressions.",
+      "searches": [
+        "Web: rowmotion height two posets complete bipartite graph incidence period 24",
+        "Web: \"rowmotion\" \"height two\" \"complete bipartite\" poset",
+        "Web: \"rowmotion\" \"incidence posets\" graph",
+        "published-finding corpus: rowmotion height two posets with bounded minimal side and unbounded maximal side periodicity",
+        "arxiv:1402.6178 Section 9 skeletal posets, Section 10 classical order",
+        "arxiv:2405.07984 Section 4 claw-by-chain products"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1108.1172",
+      "arxiv:1402.6178",
+      "arxiv:1601.03710",
+      "arxiv:2405.07984",
+      "published-finding corpus 2026/9/17/SCOPE-extremal-interval-endomorphism-global-dimension--15e3312baa42 (different poset-algebra problem)",
+      "published-finding corpus 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 (unrelated graph parity dynamics)",
+      "published-finding corpus 2026/10/4/SCOPE-two-point-sequence-b-spectrum-of-crown-graphs--30764919deff (different graph-coloring invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing star-incidence rowmotion formula applies to K_{1,n}; only K_{2,1} is a star, and the present claim is restricted to n>=2.",
+        "Existing cube/Wagner rowmotion data concern two fixed cubic graphs and cannot imply K_{2,n} formulas for every n.",
+        "The foundational references establish rowmotion concepts or results on structurally different posets, not the 48-support automaton and surjection census."
+      ],
+      "reasoning": "Compared implications rather than shared words: one-parameter star and two fixed cubic-graph cases do not cover the two-hub complete-bipartite family. Known definitions and broad toggle-theory statements do not yield the exact six multiplicities without the new case-specific support proof.",
+      "searches": [
+        "Previously reported star-graph incidence-poset rowmotion cycle census for K_{1,n}",
+        "Previously reported rowmotion metric comparison of cube and Wagner incidence posets",
+        "published-finding corpus: rowmotion on complete bipartite graph vertex-edge incidence poset; orbits 2 3 4 6 8 24",
+        "arxiv:1108.1172 Definition 1.1 and Sections 2–3",
+        "arxiv:1601.03710 abstract/introduction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The poset has n+2 minimal elements and 2n maximal edge-elements, with each edge-element covering its two endpoints.",
+        "The investigated literature treats product, root, skeletal or claw-product posets, not the two-hub graph-incidence relation.",
+        "The result is a six-length orbit **census**, rather than merely an order-24 observation."
+      ],
+      "reasoning": "Equivalence was tested at the level of incidence order, individual rowmotion action, and orbit-count conclusion, including possible alternative terminology (Fon-der-Flaass action, toggles, antichain map). The retrieved work supplies framework but not an equivalent enumerator. The single shared period 24 is explicitly not offered as novelty in isolation.",
+      "searches": [
+        "published-finding corpus: Classical rowmotion orbit length 24 on incidence posets of K_{2,n}; full orbit census with surjections and Stirling numbers",
+        "published-finding corpus: rowmotion on complete bipartite graph vertex-edge incidence poset; orbits 2 3 4 6 8 24",
+        "Web: \"rowmotion\" \"incidence poset\" \"bipartite\" orbit",
+        "Web: \"rowmotion\" \"K_{2,n}\" incidence",
+        "arxiv:1108.1172 full-text searches: incidence; bipartite; graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No returned published record or sequence-table match identified the full six-length census.",
+        "The package verifies the numerical orbit distributions at n=2 through 6 directly, rather than relying on a database entry."
+      ],
+      "reasoning": "No matching exact tabulation was found by the targeted queries. This is evidence of a bounded search only, not proof that no unindexed table exists.",
+      "searches": [
+        "published-finding corpus: rowmotion uniform period 24 two hubs with n leaves edge elements",
+        "published-finding corpus: rowmotion incidence poset crown graph complete bipartite K2n period classification",
+        "Web: OEIS \"rowmotion\" \"K_{2,n}\" \"24\"",
+        "Web: OEIS \"rowmotion\" \"2^n\" \"3^n\" \"5^n\" incidence",
+        "Web: \"5^n\" \"7*3^n\" \"11*2^n\" rowmotion"
+      ]
+    },
+    "rationale": "The nearest primary works on classical/birational rowmotion and generalized toggle actions, plus a recent claw-product periodicity paper, were compared by object and implication, not merely title. None of the inspected statements supplies this labeled K_{2,n} vertex–edge incidence orbit census; the earlier star case is not this graph family, and fixed cube/Wagner results do not imply it. Bounded published-finding corpus, primary-literature and table searches found no covering claim. Inaccessible or unindexed previous results remain possible, so novelty is evaluated on inspected evidence rather than search silence.",
+    "residual_risks": [
+      "Unindexed or unpublished exact cycle census for these incidence posets might exist.",
+      "An unknown equivalence with a differently named poset family could imply the same formulas; targeted comparisons found no such equivalence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines precisely the same classical rowmotion operator, but the stated product/root-poset results do not identify the vertex–edge incidence poset of K_{2,n} or its six cycle-count formulas.",
+        "evidence": [
+          "arxiv:1108.1172 PDF pp. 1–4: Definition 1.1, discussion of products of chains and positive root posets",
+          "arxiv:1108.1172, abstract and Section 1 scope"
+        ],
+        "identifier_or_url": "arxiv:1108.1172; https://arxiv.org/pdf/1108.1172",
+        "material_read": "25-page downloadable full-text PDF: title, abstract, introduction, Sections 2–3 containing definition and product/root-poset periodicities, and full-text term searches for incidence and bipartite graph families.",
+        "method": "Read arXiv PDF rendered page and text, scanned table of contents and relevant theorem descriptions, searched the full PDF for incidence and bipartite (no matches).",
+        "title": "Promotion and Rowmotion",
+        "trigger": "Foundational first-public archive source for classical rowmotion and potentially strong rowmotion periodicity frameworks"
+      },
+      {
+        "assessment": "Its skeletal-poset/order results are not stated for these incidence posets, and the inspected theorems do not provide an exact six-length cycle distribution for the family.",
+        "evidence": [
+          "arxiv:1402.6178, Section 9 Definition 9.5 and Proposition 9.7",
+          "arxiv:1402.6178, Section 10 Proposition 10.27 and Corollary 10.33"
+        ],
+        "identifier_or_url": "arxiv:1402.6178; https://arxiv.org/pdf/1402.6178",
+        "material_read": "139-page current arXiv full-text PDF: title/abstract/contents, initial definition, Section 9 skeletal-poset constructions and Section 10 excerpts on classical orders including Proposition 10.27 and Corollary 10.33.",
+        "method": "PDF full-text navigation and targeted reading of Sections 9–10, including classes, hypotheses, and displayed statements.",
+        "title": "Iterative properties of birational rowmotion",
+        "trigger": "Possible broader periodicity results for graded and skeletal posets, including special classical rowmotion consequences"
+      },
+      {
+        "assessment": "Develops a general toggle-group and cover-closure framework. No stated exact family rowmotion census for the incidence poset of K_{2,n} was found in inspected material.",
+        "evidence": [
+          "arxiv:1601.03710, p. 1 abstract and pp. 1–2 introduction",
+          "arxiv:1601.03710, no full-text match for bipartite or graph incidence"
+        ],
+        "identifier_or_url": "arxiv:1601.03710; https://arxiv.org/pdf/1601.03710",
+        "material_read": "26-page current arXiv PDF: abstract and introduction through overview of generalized toggle groups and their graph-subset applications; full-text checks for bipartite and graph incidence terminology.",
+        "method": "Read rendered and parsed PDF introduction, general theorem summary, and sought the target graph class via PDF text search.",
+        "title": "Rowmotion and generalized toggle groups",
+        "trigger": "Potential universal description for rowmotion of graph-incidence ideals through toggles"
+      },
+      {
+        "assessment": "Treats posets C_m times [k]. Their rank structure differs from the vertex–edge incidence poset of K_{2,n}, so those stated results do not imply this exact orbit classification.",
+        "evidence": [
+          "arxiv:2405.07984, Definition 3.1 and Theorem 3.2",
+          "arxiv:2405.07984, Section 4 Definition 4.1 and Proposition 4.2"
+        ],
+        "identifier_or_url": "arxiv:2405.07984; https://arxiv.org/pdf/2405.07984",
+        "material_read": "26-page current arXiv PDF: abstract and introduction, Section 3 definition for V times a chain, Section 4 definition of C_m times a chain, related periodicity results.",
+        "method": "Read PDF title, definitions, relevant theorem statements, and Section 4 text on the target-like claw products.",
+        "title": "Rowmotion on the chain of V's poset and whirling dynamics",
+        "trigger": "A recent study of rowmotion on claw products that could encompass the two-hub family by isomorphism or specialization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59671d53-d950-4f53-9172-92b43c1dd77d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete all-n enumeration, not a small empirical increment: arbitrarily large incidence posets with exponentially many ideals have uniformly bounded rowmotion order exactly 24. The six explicit orbit formulas, period spectrum and primitive-cycle threshold expose the dynamical mechanism via just 48 support states. Such parameter-wide orbit structure is a natural and reusable invariant in algebraic combinatorics. The result does not claim a new general birational period theorem.",
+    "status": "PASS"
+  }
+}
