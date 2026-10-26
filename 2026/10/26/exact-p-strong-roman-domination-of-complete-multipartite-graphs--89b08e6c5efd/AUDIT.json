@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For any zero profile, an effective defender covers all zeros outside its part. Any feasible function can be reduced without greater weight to one zero-free defender or two distinct effective defenders: two cover every zero because a zero belongs to at most one of their parts. With one defender, converting all positive vertices outside its part to zeros never raises weight and gives a_i+ceil((N-a_i)/p). With two defenders, converting every other positive within their parts to zero costs at most the unit saved, yielding F(t)=2+t+ceil((N-a_i-1-t)/p)+ceil((N-a_j-1-t)/p). Write t=qp+s: F(t)=F(s)+q(p-2); for 2<=s<p there can be at most two ceiling drops and no improvement, while s=1 improves precisely when both baseline numerator residues are 1 mod p. A third nonempty part allows t=1. Direct witness constructions achieve both modes. Actual executable verification checked 844 complete zero-profile optimizations, 90 direct named-labeling enumerations, and four nontrivial congruence examples. The proof does not infer infinite truth from these checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Valenzuela-Tripodoro et al., p-Strong Roman Domination in Graphs, DOI:10.37394/23206.2024.23.104; arXiv:2501.10140, Definitions 1 and Proposition 15, full sections 1 and 4, source date 2024-12-17 in university record.",
+        "Published Strong Roman domination of complete multipartite graphs with at least three parts (published-finding corpus published RESULT.md, 2026/10/4, id 28025f4386ef): p=2 value ceil((N+m)/2).",
+        "Published Exact total strong Roman domination of complete multipartite graphs (published-finding corpus published RESULT.md, 2026/9/30, id f1a2cc307443): p=2 variant with positive-support totality condition."
+      ],
+      "reasoning": "Proposition 15 of the defining paper covers complete bipartite graphs. Its general graph upper bound gives a single-defender term m+ceil((N-m)/p), but the exhibited K_(5,5,5), p=4 has actual optimum 7 versus upper bound 8. The published ordinary p=2 exact formula ceil((N+m)/2) cannot determine p>=3, and total strong p=2 is not a dominating implication due to its changed admissibility condition. No known cited stronger general result covers this case.",
+      "searches": [
+        "p-strong Roman domination complete multipartite canonical two defenders",
+        "p strong Roman domination graphs product clique partitions",
+        "exact p strong Roman domination number complete tripartite graphs for p 3",
+        "p strong Roman domination complete multipartite r greater 3 modulo p saving",
+        "complete multipartite p strong Roman dominating set two defender vertices positive in third part congruence saving"
+      ]
+    },
+    "checked_sources": [
+      "Valenzuela-Tripodoro et al., p-Strong Roman Domination in Graphs, DOI:10.37394/23206.2024.23.104; arXiv:2501.10140, Definitions 1 and Proposition 15, full sections 1 and 4, source date 2024-12-17 in university record.",
+      "Published Strong Roman domination of complete multipartite graphs with at least three parts (published-finding corpus published RESULT.md, 2026/10/4, id 28025f4386ef): p=2 value ceil((N+m)/2).",
+      "Published Exact total strong Roman domination of complete multipartite graphs (published-finding corpus published RESULT.md, 2026/9/30, id f1a2cc307443): p=2 variant with positive-support totality condition.",
+      "Nikolić et al., Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283: different all-pattern simultaneous-attack definition.",
+      "Universidad de Cádiz public 2024-12-17 repository record; WSEAS DOI publication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Valenzuela-Tripodoro et al., p-Strong Roman Domination in Graphs, DOI:10.37394/23206.2024.23.104; arXiv:2501.10140, Definitions 1 and Proposition 15, full sections 1 and 4, source date 2024-12-17 in university record.",
+        "Published Strong Roman domination of complete multipartite graphs with at least three parts (published-finding corpus published RESULT.md, 2026/10/4, id 28025f4386ef): p=2 value ceil((N+m)/2).",
+        "Published Exact total strong Roman domination of complete multipartite graphs (published-finding corpus published RESULT.md, 2026/9/30, id f1a2cc307443): p=2 variant with positive-support totality condition.",
+        "Nikolić et al., Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283: different all-pattern simultaneous-attack definition.",
+        "New example K_(5,5,5), p=4 has optimum 7, while old one-defender upper bound is 8; for fixed p>=3, balanced tripartite optimum grows like (4/p)s rather than the one-defender (1+2/p)s."
+      ],
+      "reasoning": "The new equality requires a two-effective-defender reduction and a general-modulus ceiling minimization. The original p-strong bipartite proof does not include a third part or extra one-labelled witness; the existing complete multipartite equalities specialize a different parameter. The distinct k-strong attack pattern parameter has neither the same permissible functions nor an implication to this formula.",
+      "searches": [
+        "p strong Roman domination number complete multipartite graph arbitrary parts",
+        "\"p-strong Roman\" \"complete multipartite\"",
+        "complete multipartite p strong Roman dominating set two defender vertices positive in third part congruence saving"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Valenzuela-Tripodoro et al., p-Strong Roman Domination in Graphs, DOI:10.37394/23206.2024.23.104; arXiv:2501.10140, Definitions 1 and Proposition 15, full sections 1 and 4, source date 2024-12-17 in university record.",
+        "Published Strong Roman domination of complete multipartite graphs with at least three parts (published-finding corpus published RESULT.md, 2026/10/4, id 28025f4386ef): p=2 value ceil((N+m)/2).",
+        "Published Exact total strong Roman domination of complete multipartite graphs (published-finding corpus published RESULT.md, 2026/9/30, id f1a2cc307443): p=2 variant with positive-support totality condition.",
+        "Nikolić et al., Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283: different all-pattern simultaneous-attack definition."
+      ],
+      "reasoning": "The current quantity is the minimum weight for the ceiling-capacity condition with integer p>=3. Ordinary strong Roman has p=2, total strong Roman additionally constrains positive support, and k-strong Roman protects every simultaneous attack pattern rather than satisfying this ceiling constraint. The r=2 exact result in the defining paper does not classify r>=3.",
+      "searches": [
+        "p strong Roman domination number complete multipartite graph arbitrary parts",
+        "\"p-strong Roman\" \"complete multipartite\"",
+        "gamma^p_StR(K_{5,5,5}) p=4 equals 7 p strong Roman domination multipartite residue correction",
+        "exact p-strong Roman domination number K_{a,b,c} all integers p>=3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search returned nearest id 2026/10/4/SCOPE-strong-roman-domination-of-complete-multipartite-graphs-with-at--28025f4386ef and 2026/9/30/SCOPE-exact-total-strong-roman-domination-of-complete-multipartite-gra--f1a2cc307443; both full result statements concern p=2 (ordinary or total).",
+        "The 2024 p-strong source publishes bipartite values and general bounds, not a mixed-part r>=3 table."
+      ],
+      "reasoning": "No published-finding corpus hit returned the r>=3 p>=3 ceiling-capacity formula or the mod-p one-unit correction; the closest published-finding corpus records are explicitly p=2. Absence from this database is not itself a uniqueness proof.",
+      "searches": [
+        "gamma^p_StR(K_{5,5,5}) p=4 equals 7 p strong Roman domination multipartite residue correction",
+        "exact p-strong Roman domination number K_{a,b,c} all integers p>=3",
+        "p strong Roman domination number complete multipartite graph arbitrary parts"
+      ]
+    },
+    "rationale": "The 2024 defining source proves complete bipartite values and general bounds, but not the exact generalized p-strong r>=3 multipartite formula. Closest published r>=3 complete-multipartite record is ordinary strong Roman (p=2); the related total strong Roman result imposes an extra support constraint at p=2. The different k-strong Roman model is not equivalent. The correction produces a strict one-unit improvement and arbitrarily large gain over the old single-defender bound. Exact novelty remains contingent on indexed/unindexed literature coverage.",
+    "residual_risks": [
+      "Semantic indexing is not complete; an unindexed equivalent p-strong r>=3 multipartite formula could exist.",
+      "The related k-strong Roman attack-pattern literature uses a different definition; no implication is asserted without a separate bridge theorem.",
+      "First public date is established from university repository metadata, but earlier unrecorded releases cannot be excluded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defining and closest primary literature. Covers two parts and general bounds; does not derive the r>=3 parameter-sensitive exact minimum",
+        "evidence": [
+          "Valenzuela-Tripodoro et al., p-Strong Roman Domination in Graphs, DOI:10.37394/23206.2024.23.104; arXiv:2501.10140, Definitions 1 and Proposition 15, full sections 1 and 4, source date 2024-12-17 in university record.",
+          "Section 4, Proposition 15; Section 6 calls for other graph families and products."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.10140",
+        "material_read": "Full mathematical definitions, introduction, general bounds, complete bipartite Proposition 15 and proof, following exact-values propositions, and future directions",
+        "method": "Read the open full-text article in HTML representation, including actual formulas and relevant proof sections",
+        "title": "p-Strong Roman Domination in Graphs",
+        "trigger": "Foundational definition and exact values for complete bipartite graphs"
+      },
+      {
+        "assessment": "Ordinary p=2 theorem; does not determine p>=3 or the mod-p correction",
+        "evidence": [
+          "Published Strong Roman domination of complete multipartite graphs with at least three parts (published-finding corpus published RESULT.md, 2026/10/4, id 28025f4386ef): p=2 value ceil((N+m)/2)."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-strong-roman-domination-of-complete-multipartite-graphs-with-at--28025f4386ef/RESULT.md",
+        "material_read": "Complete published RESULT.md, including statement, assumptions, proof, limitations, references",
+        "method": "Read full public result source",
+        "title": "Strong Roman domination of complete multipartite graphs with at least three parts",
+        "trigger": "Same graph class with the ordinary strong Roman parameter"
+      },
+      {
+        "assessment": "Distinct p=2 total variant; useful closest analogue but not a covering theorem for p>=3",
+        "evidence": [
+          "Published Exact total strong Roman domination of complete multipartite graphs (published-finding corpus published RESULT.md, 2026/9/30, id f1a2cc307443): p=2 variant with positive-support totality condition."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/9/30/SCOPE-exact-total-strong-roman-domination-of-complete-multipartite-gra--f1a2cc307443/RESULT.md",
+        "material_read": "Complete published RESULT.md including theorem, proof and limitations",
+        "method": "Read full public result source",
+        "title": "Exact total strong Roman domination of complete multipartite graphs",
+        "trigger": "Similar pair-of-defenders and parity-improvement mechanism"
+      },
+      {
+        "assessment": "Different simultaneous-attack condition, not equivalent to p-strong ceiling capacity",
+        "evidence": [
+          "Nikolić et al., Theoretical studies of the k-strong Roman domination problem, DOI:10.1016/j.kjs.2024.100283: different all-pattern simultaneous-attack definition."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.kjs.2024.100283",
+        "material_read": "Full accessible text of abstract, definition, introduction, studied families, conclusions",
+        "method": "Inspected readable article text and the precise mathematical definition",
+        "title": "Theoretical studies of the k-strong Roman domination problem",
+        "trigger": "Possible parameter alias in Roman domination literature"
+      },
+      {
+        "assessment": "Records 2024-12-17 and published 2024 journal volume; earliest verified source date used",
+        "evidence": [
+          "University repository Date 2024-12-17, DOI:10.37394/23206.2024.23.104."
+        ],
+        "identifier_or_url": "https://rodin.uca.es/xmlui/handle/10498/35960",
+        "material_read": "Repository bibliographic metadata, date and DOI",
+        "method": "Read public repository record",
+        "title": "University of Cadiz repository date and journal record",
+        "trigger": "Earliest public date and provenance of foundational source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "89b08e6c-5efd-4f58-b21d-f0f3c3868564",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original p-strong Roman study identifies exact values for further graph families as a natural problem. This theorem resolves arbitrary part-size vectors with >=3 parts for every nontrivial p, using O(r^2) arithmetic, and exposes an unanticipated third-part congruence helper. K_(5,5,5) at p=4 genuinely needs weight 7 instead of the standard one-defender upper bound 8; fixed-p balanced tripartite graphs improve that bound by a quantity linear in part size. The result is a complete natural-family optimization, not a routine special-case substitution.",
+    "status": "PASS"
+  }
+}
