@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The ensemble identity makes the claim equivalent to concavity of \\(g_c\\). The radial Hessian is positive definite on the open Bloch ball, and the Schur complement reduces the condition to \\(Q_c\\). Direct determinant expansion gives the stated threshold. The series bound \\(\\delta\\ge1/3\\) and the limiting family \\( (X,Y,Z)=(s-Z,0,Z)\\), with \\(Z\\downarrow0\\), prove sufficiency and sharpness. Nonconcavity for any \\(c>c_*\\) yields a finite two-state counterexample by a local symmetric perturbation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang et al., arXiv:2608.04916v1, lines 25-29 and Appendix B, state the inequality for arbitrary finite labels and arbitrary qubit conditional states with coefficient 1/2.",
+        "Iqbal, DOI:10.1007/s11128-026-05258-2, develops sufficient conditions for CQC and an extension to more MUBs; the inspected statements do not optimize the one-sided qubit ensemble coefficient.",
+        "Qian, arXiv:2608.14806v2, states that CQC is true at 2x2 and false in several higher-dimensional pairs; the present result is restricted to the qubit ensemble lemma and a two-qubit corollary, so it does not assert higher-dimensional CQC validity."
+      ],
+      "reasoning": "The new theorem covers the same full finite-ensemble domain as the 2026 lemma, strictly strengthens its coefficient, and adds a two-qubit corollary with a positive cross-basis term. It does not claim broader Hilbert-space dimension, generalized measurements, or nonorthogonal axes.",
+      "searches": [
+        "web query: exact best coefficient for information exclusion in two complementary qubit bases arbitrary ensemble",
+        "arXiv:2608.04916v1, Appendix B and Appendix C",
+        "DOI:10.1007/s11128-026-05258-2, full open-access article sections on CQC sufficient conditions and ECQC",
+        "arXiv:2608.14806v2, full text, Sections 8-8.1 and discussion of the two-qubit case"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.04916v1",
+      "DOI:10.1007/s11128-026-05258-2",
+      "arXiv:1404.6496v1",
+      "DOI:10.1103/PhysRevLett.74.3307",
+      "arXiv:2608.14806v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 qubit CQC paper explicitly uses \\(\\chi-I(C:X)\\ge\\frac12 I(C:Z)\\) and gives a determinant certificate for that coefficient, but no optimized constant appears in the inspected sections.",
+        "The exact determinant condition yields \\(a_* = \\sup_s s(1-2\\delta(s))/\\delta(s)\\), and the limiting family proves that any \\(a<a_*\\) fails; equivalently any \\(c>c_*\\) fails.",
+        "The resulting two-qubit inequality has the additional term \\((2c_*-1)I(X_A:Z_B)\\), which is positive because \\(c_*>1/2\\).",
+        "Qian, arXiv:2608.14806v2, Eq. (42) uses a state-dependent correction built from marginal entropy terms and measurement losses; Proposition 8.3 shows that correction is incomparable with plain CQC at 2x2. It does not give the optimal universal coefficient in chi-minus-classical-X versus classical-Z information."
+      ],
+      "reasoning": "The prior theorem implies the weaker coefficient \\(1/2\\), not the optimized constant or its sharpness. The new proof supplies both the exact threshold and a failure mechanism for every larger coefficient, so the prior result does not imply the new claim. The additional cross-basis bound follows by the same oriented pairing and data-processing argument with the improved constant. The later state-dependent correction is a different bound and does not imply or refute the exact one-sided coefficient; the two-qubit corollary is consistent with the separately stated validity of CQC at 2x2.",
+      "searches": [
+        "arXiv:2608.04916v1, full text, Eq. (2) and Appendix B",
+        "DOI:10.1007/s11128-026-05258-2, CQC sufficient-condition sections",
+        "arXiv:1404.6496v1, abstract and available repository record",
+        "DOI:10.1103/PhysRevLett.74.3307, abstract and indexed opening text",
+        "arXiv:2608.14806v2, full text, Sections 8-8.1 and discussion of the two-qubit case"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang, Wang, Chen, arXiv:2608.04916v1, Eq. (2), state \\(\\chi(C:Q)-I(C:X)\\ge\\frac12 I(C:Z)\\) for arbitrary qubit ensembles; Appendix B identifies this with concavity of \\(g_{1/2}\\).",
+        "The new claim keeps the same ensemble, Holevo quantity, and complementary Pauli measurements but gives \\(c_*=1/(1+a_*)\\), with \\(a_*\\) defined by the exact supremum.",
+        "Qian, arXiv:2608.14806v2, Theorem 8.1 and Proposition 8.3 give a state-dependent corrected CQC inequality and show its incomparability with CQC at 2x2; these are not the same one-sided ensemble coefficient optimization."
+      ],
+      "reasoning": "The new statement is not merely an equivalent formulation: it optimizes the coefficient in the same inequality. The fully read 2026 source establishes only the coefficient \\(1/2\\) in the inspected text; the sharpness proof here shows \\(c_*\\) is the largest universal coefficient. The 2014 CQC paper concerns the bipartite CQC relation and special cases, rather than this sharp one-sided optimization.",
+      "searches": [
+        "web query: qubit ensemble Holevo information classical X measurement complementary Z mutual information sharp inequality",
+        "web query: Complementary Quantum Correlations Are Universal for Qubits equality states qubit CQC equality condition",
+        "arXiv:2608.04916v1, full text, equations (2), (28)-(45)",
+        "literature search: sharp optimal constant c in qubit ensemble inequality Holevo information minus X measurement mutual information >= c times complementary Z mutual information; best coefficient and equality cases",
+        "arXiv:2608.14806v2, full text, Sections 8-8.1 and discussion of the two-qubit case"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related literature searches surfaced distinct topics such as equality cases for binary entropic uncertainty, a pure-loss information-variance coefficient, and qubit divergence-orbit geometry; none states the same qubit Holevo-vs-Pauli optimal coefficient.",
+        "The result is a continuous analytic optimization, not an enumerated finite table; the exact variational expression and Hessian proof are supplied in the result itself."
+      ],
+      "reasoning": "No exact database/table entry directly matching the optimized coefficient was returned by the semantic searches. The nearest records concern different entropy inequalities, pure-loss information variance, or qubit divergence orbits. This negative search is supporting evidence only, not a proof of novelty.",
+      "searches": [
+        "literature search: sharp strengthening of qubit half-information exclusion inequality coefficient 1/2 Bloch ball Hessian concavity",
+        "literature search: exact best coefficient for information exclusion in two complementary qubit bases arbitrary ensemble",
+        "web query: qubit Holevo information exclusion inequality equality conditions complementary Pauli measurements"
+      ]
+    },
+    "rationale": "The central 2026 qubit CQC source proves the coefficient 1/2 but the inspected proof does not optimize it. Qian (2026) gives a different state-dependent corrected CQC bound and identifies the two-qubit CQC case as valid; its correction does not state the one-sided sharp coefficient. The present result solves the universal coefficient optimization exactly as a one-variable supremum and proves both sufficiency and failure for every larger coefficient. This is a best-knowledge conclusion, with the access limits listed below.",
+    "residual_risks": [
+      "The full text of the 2014 CQC paper was not accessible; its available abstract reports special-case CQC results, not the optimized one-sided coefficient, but this comparison remains access-limited.",
+      "The 1995 information-exclusion paper was inspected only through its abstract and indexed opening; it describes different information quantities. A hidden equivalent theorem in inaccessible material cannot be ruled out absolutely.",
+      "The numerical value is not a certified interval and no uniqueness proof for the numerical maximizer is claimed; the exact supremum formula and optimality proof are the accepted mathematical claim.",
+      "Semantic literature search is not exhaustive and does not establish global uniqueness of the result by itself.",
+      "Qian (2026) supplies a different state-dependent corrected CQC bound and reports higher-dimensional counterexamples. The present statement is limited to the one-sided qubit ensemble inequality and its two-qubit corollary; no higher-dimensional CQC claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the same underlying inequality with coefficient 1/2, but no sharp-coefficient optimization was found in the inspected text.",
+        "evidence": [
+          "arXiv:2608.04916v1, Eq. (2), Appendix B Eqs. (28)-(45), Appendix C Eqs. (46)-(55)."
+        ],
+        "identifier_or_url": "arXiv:2608.04916v1",
+        "material_read": "Full arXiv HTML: abstract, one-sided inequality, Bloch-ball Hessian and Schur-complement proof, determinant bound, oriented pairing, two-qubit corollary, limitations, and references (including Appendix B and Appendix C).",
+        "method": "Compared the exact inequality and proof steps; independently optimized the determinant threshold in the coefficient parameter.",
+        "title": "Complementary Quantum Correlations Are Universal for Qubits",
+        "trigger": "Primary source for the qubit half-information-exclusion inequality"
+      },
+      {
+        "assessment": "Related CQC bounds and higher-MUB extension; no sharp one-sided qubit ensemble coefficient matching this claim was found.",
+        "evidence": [
+          "Iqbal (2026), propositions on CQC/ECQC sufficient conditions and discussion of the earlier CQC special cases."
+        ],
+        "identifier_or_url": "DOI:10.1007/s11128-026-05258-2",
+        "material_read": "Full open-access HTML sections on CQC sufficient conditions, ECQC, and isotropic states; searched the text for qubit and coefficient references.",
+        "method": "Compared the objects, measurement families, and implications rather than title similarity.",
+        "title": "On the CQC conjecture: a sufficient condition and an extension",
+        "trigger": "Recent related CQC sufficient-condition result"
+      },
+      {
+        "assessment": "Relevant background for the bipartite CQC relation and special cases, but not a decisive comparison for the sharp one-sided coefficient. Full-text access remains a residual risk.",
+        "evidence": [
+          "The available abstract states special-case CQC results for pure states, one maximally mixed subsystem, and minimally disturbing measurements."
+        ],
+        "identifier_or_url": "arXiv:1404.6496v1; DOI:10.1103/PhysRevA.90.062119",
+        "material_read": "Available arXiv and repository abstracts/bibliographic record only. The arXiv full-text endpoint was unavailable and the lawful repository download returned 403; the full article was not read.",
+        "method": "Checked the stated theorem scope and relatedness from the abstract; no whole-document noncoverage inference is made.",
+        "title": "Uncertainty Relation for Mutual Information",
+        "trigger": "Foundational CQC source cited by the 2026 paper"
+      },
+      {
+        "assessment": "Related theme, but the described result concerns position-momentum and other observable information gains, not the exact qubit Holevo-minus-Pauli coefficient here.",
+        "evidence": [
+          "Hall (1995), abstract: information gains for complementary observables are bounded in terms of measurement uncertainties."
+        ],
+        "identifier_or_url": "DOI:10.1103/PhysRevLett.74.3307",
+        "material_read": "Abstract and indexed opening text; full article text was not available in the inspected view.",
+        "method": "Compared the described information quantities and observables at the statement level.",
+        "title": "Information Exclusion Principle for Complementary Observables",
+        "trigger": "Older general information-exclusion literature"
+      },
+      {
+        "assessment": "The paper records CQC as true at 2x2 and provides a different state-dependent corrected inequality. It does not optimize the one-sided Holevo-minus-Pauli coefficient; the present corollary is limited to 2x2 and is consistent with that source.",
+        "evidence": [
+          "arXiv:2608.14806v2, Section 8, Eq. (42), and Section 8.1, Proposition 8.3."
+        ],
+        "identifier_or_url": "arXiv:2608.14806v2",
+        "material_read": "Full arXiv HTML, including the two-qubit scope discussion, Section 8 corrected inequality, and Section 8.1 incomparability proposition.",
+        "method": "Compared the stated quantities, domains, and implications against the one-sided qubit ensemble coefficient and its two-qubit corollary.",
+        "title": "Separable Counterexamples to Complementary Quantum Correlations, and Why Random Search Missed Them",
+        "trigger": "Highly related 2026 paper on CQC counterexamples and a corrected universal inequality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7bfce2aa-174e-4382-9f10-ce0016d7e5b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimized coefficient is a natural sharp constant in the exact entropy inequality used by the recent qubit CQC theorem. It improves \\(1/2\\) to \\(c_*>1/2\\) and yields a stronger two-qubit lower bound with the explicit positive cross-basis coefficient \\(2c_*-1\\). The result gives an analytic variational characterization and proves optimality, not just a numerical improvement.",
+    "status": "PASS"
+  }
+}
