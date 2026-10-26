@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The product-zero equations imply the common-image/common-kernel dichotomy, with two proper-incidence component maps. Their intersection is a flag bundle with a recoverable flag away from zero. Direct linearization at canonical representatives yields tangent dimensions \(2r+2\), \(4r+1\), and \(9r\). Crucially, a trace coordinate vanishes on all actual representations but has nonzero differential at an overlap point, proving genuine nilpotents in the local scheme rather than merely singularity of the reduced variety. Exact finite-field counts follow from unique incidence parameters. The executable verifier checks the matrix and tangent computations in sample fields.
+
+**Originality — PASS, qualified.** Morrison (1980) and Schröer (2002) already treat the two-loop algebra and reduced components, while Bleher–Chinburg–Huisgen-Zimmermann (2014) classifies radical-square-zero irreducible components generally. These results subsume any novelty of the two-component *reduced* classification. The checked primary materials did not provide the asserted **scheme-level nonreduced support** of the quadratic presentation, its uniform tangent profile across every number of loops, or these precise intersection point counts. A formulation through module deformation theory might imply portions without the same terminology, and that is the principal historical-priority risk.
+
+**Value — PASS.** A component classification of the reduced space does not determine whether the moduli presentation has nilpotent functions, nor where infinitesimal deformations fail to lift to the reduction. The exact nonreduced support, all-stratum tangent jumps, and codimension \(r-1\) of the problematic locus give useful scheme-theoretic and deformation-theoretic information uniformly across a natural infinite algebra family. Finite-field formulas quantify the meeting locus separately rather than merely recomputing known component counts.
+
+**Limitations.** The proof addresses three-dimensional representations and the unreduced *quadratic presentation*. It does not compute local multiplicities or provide an independent audit; original sources may contain implicit equivalent deformation-theoretic statements.
+
+Self-review: passed. Independent audit: not yet performed.
