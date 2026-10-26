@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every finite connected simple unicyclic graph, weighted matrix-tree enumeration factors into a product over all bridge weights and an elementary cycle-deletion polynomial. The grounded Laplacian is an injective linear map in its independent edge weights, so logdet is strictly concave on its positive-definite domain and feasible KKT conditions are globally sufficient and unique. Euler homogeneity fixes \\(\\lambda=(N-1)/B\\); bridge costs are spent equally. The omitted-edge derivative is sum reciprocal other cycle weights, giving the exact necessary-and-sufficient edge-deletion price inequality. For an entirely positive cycle, exclusion probabilities \\(x_i\\) satisfy \\(x_i(1-x_i)=t c_i\\) and \\(\\sum_i x_i=1\\); elementary monotonicity proves exactly one of the two explicit root branches exists. The constructed solutions satisfy the KKT equations, the budget and support positivity. Four exact rational grounded determinant calculations, 168 numerical test graphs, and 6720 feasible competitor tests confirm implementation and examples; all-parameter proof is analytic and does not treat finite tests as exhaustive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Convex Optimization of Graph Laplacian Eigenvalues (2006), pp. 1–9: general weighted Laplacian spectral convex programming, no explicit cycle conductance determinant classification in inspected full text.",
+        "Sagnol and Harman, arXiv:1307.4953 abstract: general D-optimal information-matrix optimization under linear constraints via conic formulations; specific unicyclic graphs or price-phase boundary not described.",
+        "Osting et al., arXiv:1207.6430 pp. 2, 9–10 and 26: D-optimality defined, numerical study emphasizes E-optimality with integer additional comparisons; later costs mentioned as an extension."
+      ],
+      "reasoning": "The general logdet optimization frameworks are mathematically broad enough to formulate and computationally solve an instance, but a formulation or algorithm does not itself imply the analytical all-topologies closed classification. A stronger general structural theorem containing this case was not located in consulted full texts; potential specialized coverage is retained as risk.",
+      "searches": [
+        "optimal experimental design cycle graph edge weights heterogeneous costs circuit exact D-optimal",
+        "optimal edge conductance budget determinant spanning tree unicyclic multiple fringe trees arbitrary per-edge costs and unique KKT allocation",
+        "Solving log-determinant optimization problems graph weighted matrix tree D-optimal costs",
+        "Computing exact D-optimal designs mixed integer second order cone programming arbitrary linear constraints"
+      ]
+    },
+    "checked_sources": [
+      "Stephen Boyd, Convex Optimization of Graph Laplacian Eigenvalues, ICM 2006, primary PDF.",
+      "Osting, Brune, Osher, Optimal Data Collection for Informative Rankings Expose Well-Connected Graphs, arXiv:1207.6430, primary PDF.",
+      "R. A. Bailey and P. J. Cameron, Combinatorics of optimal designs, §§4.1–4.2, primary PDF.",
+      "Sagnol and Harman, Computing exact D-optimal designs by mixed integer second-order cone programming, arXiv:1307.4953 abstract."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Boyd (2006) discusses general convex spectral graph-Laplacian optimization rather than this arbitrary-price determinant optimum.",
+        "Osting et al. (2012 initial preprint) give D-optimality formula; no unicyclic conductance allocation or cost threshold in pertinent pp. 2, 9–10, 26.",
+        "Bailey and Cameron Theorem 4.1 determines an optimal unit-weight graph topology among unicyclic graphs, not the design on one fixed graph under independent edge costs.",
+        "Previously known equal-price cycle examples cover restricted parameters, so the equal-price instance is expressly not claimed original."
+      ],
+      "reasoning": "Known objective equivalences and uniform examples recover some special cases, but do not state or directly entail the full heterogeneous-price KKT root classification without a substantive all-parameter derivation. The new claim includes different graph attachments, costs on every bridge, the dominant-price deletion phase boundary and exact optimizer uniqueness. An uninspected specialized result could still dominate this theorem; no absolute uniqueness is asserted.",
+      "searches": [
+        "Bailey Cameron D-optimal unicyclic graph topology theorem 4.1 fixed number edges",
+        "Boyd convex optimization graph Laplacian eigenvalues determinant graph edge weight",
+        "Osting Brune Osher optimal data collection D-optimal weighted Laplacian Proposition 4.2",
+        "unicyclic cycle graph D-optimal log determinant conductance design heterogeneous edge prices dominant edge deletion threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Osting, Brune and Osher, arXiv:1207.6430, Proposition 4.2 (15c): determinant information equals product of positive weighted Laplacian eigenvalues; Remark 1 converts this to spanning-tree count.",
+        "Weighted matrix-tree theorem makes the new objective identical to determinant of a grounded Laplacian and weighted spanning tree enumerator.",
+        "Bailey and Cameron, Combinatorics of optimal designs, §4.2 Theorem 4.1: D-optimal unweighted unicyclic topology is the unweighted cycle."
+      ],
+      "reasoning": "The alternate determinant, Fisher-information and weighted-tree-ensemble formulations were searched as aliases; the cited sources establish objective equivalence but do not state all-positive-price optimum with deletion threshold or per-bridge allocation. Topology selection at uniform unit conductance is not allocation of arbitrary conductances on a fixed topology.",
+      "searches": [
+        "\"D-optimal\" \"cycle\" graph conductance price threshold",
+        "weighted spanning tree enumerator maximize under edge-specific linear cost budget",
+        "\"unicyclic\" \"D-optimal\" \"conductance\"",
+        "graph edge weight allocation maximize log determinant weighted Laplacian one cycle analytical solution 2010"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bailey and Cameron, Combinatorics of optimal designs, pp. 37–38, Theorem 4.1: one unit-weight topology optimum and unweighted cycle-tree counting, not a table of conductances parameterized by edge prices.",
+        "Osting et al. 31-page report pp. 10–11 tabulates E-optimal spectral comparisons of graph topologies, not an arbitrary price-vector weighted-tree allocation table."
+      ],
+      "reasoning": "Named graph-design tables and classical unicyclic statements do not tabulate arbitrary continuous edge-price vectors. The theorem solves an infinite real-parameter family rather than a finite table; a direct covering table or identity was not found.",
+      "searches": [
+        "D-optimal designs unicyclic graph table exact optimal edge weights cost",
+        "unicyclic graph weighted determinant design dominant edge cost",
+        "Combinatorics of optimal designs theorem 4.1 unicyclic graphs",
+        "cost-weighted cycle graph optimal spanning tree determinant tabulation"
+      ]
+    },
+    "rationale": "Earlier literature supplies the graph-Laplacian D-optimality objective, the matrix-tree theorem, general logdet optimization, and unit-weight unicyclic topology classification, but the inspected statements do not imply the complete unique arbitrary heterogeneous edge-price conductance allocation on every fixed unicyclic graph. In particular, the precise \\(c_j\\ge\\sum_{i\\ne j}c_i\\) deletion frontier, its irrelevance to attached tree topology and bridge prices, the global bridge-spend law and the constructive one-root formula are a strictly larger parameterized theorem than an equal-price cycle example. Searches for heterogeneous cost aliases, price-varying circuits, weighted spanning tree maximum and graph D-optimality found no direct coverage; non-retrieval is not proof of novelty. Risks remain from specialized classical optimal-design literature, finite scope of published-record search, and one general numerical-design paper inspected only in abstract.",
+    "residual_risks": [
+      "The consulted literature does not exhaust all historical experimental-design and graph electrical-network work; absence of a retrieved equivalent theorem is not proof of novelty.",
+      "The full text of the Sagnol–Harman general numerical D-optimality paper was not inspected, so an equivalent worked example cannot be ruled out.",
+      "The previously treated equal-price cyclic restricted case is not itself new; only the heterogeneous-price complete classification is the assessed contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General spectral optimization framework but no explicit continuous-price unicyclic D-optimal determinant edge allocation in inspected full text.",
+        "evidence": [
+          "Boyd ICM 2006, weighted Laplacian spectral optimization formulations; PDF 9 pages, no match for determinant in text search."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+        "material_read": "Nine-page primary PDF, introduction, formulation and spectral optimization sections and electronic text search for determinant; pp. 1 and 6 visually inspected.",
+        "method": "Primary PDF sections and direct page visual inspection; full-document text search.",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "Seminal general weighted graph-Laplacian convex optimization potentially dominating a special allocation theorem"
+      },
+      {
+        "assessment": "Defines determinant information objective; focuses on discrete edge-addition and spectral-gap design. Costs discussed as a possible extension; no unicyclic all-price optimum found in inspected portions.",
+        "evidence": [
+          "Osting et al. arXiv:1207.6430, (3c), (15c), Remark 1, final discussion of costs p. 26."
+        ],
+        "identifier_or_url": "https://ww3.math.ucla.edu/camreport/cam12-32.pdf",
+        "material_read": "Primary PDF 31 pages; material on pp. 2, 9–11, 26, D-optimal Proposition 4.2 and Remark 1; searches for unicyclic and edge cost.",
+        "method": "Source PDF text passages and page screenshots, targeted term searches.",
+        "title": "Optimal Data Collection for Informative Rankings Expose Well-Connected Graphs",
+        "trigger": "Exact identification of D-optimal weighted Laplacian information criterion and possibility of covering design parameters"
+      },
+      {
+        "assessment": "Direct unicyclic D-optimality result but only identifies the best unweighted topology for a prescribed vertex/edge count, rather than arbitrary continuous edge-price conductance allocation on a fixed graph.",
+        "evidence": [
+          "R. A. Bailey and P. J. Cameron, §4.2, Theorem 4.1: unweighted cycle maximizes number of trees among unweighted unicyclic graphs."
+        ],
+        "identifier_or_url": "https://webspace.maths.qmul.ac.uk/l.h.soicher/designtheory.org/library/preprints/optimal.pdf",
+        "material_read": "Primary 55-page paper, title/authors first page and §4.1–4.2 pp. 37–38 including Theorem 4.1; relevant pages visually inspected.",
+        "method": "Full source PDF retrieved and exact theorem/page screenshots examined.",
+        "title": "Combinatorics of optimal designs",
+        "trigger": "Potentially direct D-optimality result on unicyclic graphs"
+      },
+      {
+        "assessment": "General conic representation and algorithms under linear constraints; no specific unicyclic heterogeneous-price result in the accessible abstract. Cannot exclude a hidden equivalent example without full text.",
+        "evidence": [
+          "Sagnol and Harman arXiv:1307.4953 abstract; publication initial 2013."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.4953",
+        "material_read": "Public original arXiv abstract and summary only; full manuscript not examined.",
+        "method": "Preprint abstract inspection.",
+        "title": "Computing exact D-optimal designs by mixed integer second-order cone programming",
+        "trigger": "General constrained logdet design may supply stronger algorithmic or structural implication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93ce11e2-66fa-496c-b2fb-a9d07f751ec1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed arbitrary unicyclic graph with independently priced conductances is a natural rank \\(N-1\\) D-optimal information-design instance with N variables, broad tree attachments and a real k-dimensional positive cost vector. The theorem gives a globally unique complete classification via one monotone scalar root, exact allocation on all bridges, and sharp dominant-cost edge deletion that can change the optimal support. The exact edge-deletion threshold and independence of all attached-tree geometry provide motivated structural information beyond routine normalization or a computational sample. It offers a reproducible exact benchmark for budgeted graph sensing and logdet Laplacian optimization.",
+    "status": "PASS"
+  }
+}
