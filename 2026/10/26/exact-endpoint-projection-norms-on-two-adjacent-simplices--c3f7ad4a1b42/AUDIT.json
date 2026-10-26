@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Explicit nodal reproducing functions satisfy all mass-matrix pairings. The beta-marginal absolute-integral identity is derived by direct integration. Convex barycentric decomposition proves nodal domination of every kernel row. The exact derivative of N_d is strictly negative on (0,1), yielding both extrema and strict nonattainment; dimensions d>=2 and positive simplex volumes are maintained throughout. The distributed checker independently passed 432 exact rational nodal comparisons and 54 whole-norm comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1987 stability article is publicly described as Lp/W1p boundedness under mesh restrictions, with no visible numerical sharp endpoint constant.",
+        "Karkulik–Pavlicek–Praetorius prove an H1 estimate for adaptive 2D meshes, whose constant depends on shape regularity; their Theorem 6 is not a formula for unrestricted two-simplex L-infinity amplification.",
+        "Bramble–Pasciak–Steinbach is H1 stability under local mesh conditions."
+      ],
+      "reasoning": "A qualitative Lp-stability result or a Sobolev estimate with an unspecified geometry-dependent constant neither dominates nor determines an exact, shape-independent nodewise endpoint amplification profile for a fixed two-simplex complex.",
+      "searches": [
+        "10.2307/2007825",
+        "arXiv:1210.0367v1",
+        "10.1090/S0025-5718-01-01314-X",
+        "arXiv:1307.0917"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1210.0367v1",
+      "10.2307/2007825",
+      "10.1090/S0025-5718-01-01314-X",
+      "arXiv:1307.0917",
+      "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+      "10.4208/nmtma.2014.1218nm"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Single-simplex affine projection has norm S_d=-1+2(d+2)((d+1)/(d+2))^(d+1), equal to the shared-facet nodal row, but each tip has strictly larger norm N_d(q).",
+        "Related 1D two-interval spline results do not include shared (d-1)-dimensional faces for d>=2.",
+        "The inspected 2012 FEM paper establishes H1 stability, not exact L-infinity kernels or the balancing law."
+      ],
+      "reasoning": "The new claim requires inversion across two different local element masses and exact signed kernel integration; neither the one-simplex formula nor general finite-element stability gives N_d(r), its decreasing derivative, or sharp supremum by implication.",
+      "searches": [
+        "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "10.2307/2007825",
+        "arXiv:1210.0367v1",
+        "arXiv:1307.0917"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Author-uploaded 2012 preprint treats lowest-order Courant FEM on graded triangulations and its H1 stability (Theorem 6, Section 5), not endpoint norm of a two-simplex patch.",
+        "Published single-simplex exact affine projection norm matches only the shared-facet row S_d; two-simplex tip rows contain an additional area-ratio parameter."
+      ],
+      "reasoning": "Checked aliases including Courant P1 projection, L2 least-squares hat-function projector, endpoint Lebesgue function, adjacent finite elements, and glued simplices. The displayed formulas are not present in material examined; matching operators without the same norm theorem is not coverage.",
+      "searches": [
+        "arXiv:1210.0367v1",
+        "10.2307/2007825",
+        "arXiv:1307.0917",
+        "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact two-triangle benchmark with values 49/18 or 7/2 was identified in published sources searched.",
+        "The 2014 transfer-operator comparisons concern projections between nonnested spaces, not a tabulation of this fixed-mesh endpoint projector."
+      ],
+      "reasoning": "Queries used adjacent simplices/two triangles, Gram matrix, Courant elements, L-infinity projector and exact constants. Lack of a hit is treated only as a limited novelty check; it cannot exclude uncatalogued sources.",
+      "searches": [
+        "arXiv:1210.0367v1",
+        "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "10.4208/nmtma.2014.1218nm"
+      ]
+    },
+    "rationale": "Exact two-simplex L-infinity norm profile, equal-volume minimizer and sharp degenerating supremum have not been found in the examined full primary paper or relevant publication searches. General H1 stability and the sharp single-simplex projector constant do not logically imply the two-simplex exclusive-tip formula. This is best-knowledge originality subject to explicitly identified access and indexing risks.",
+    "residual_risks": [
+      "The 1987 Crouzeix–Thomée article was not inspectable in full; an exact ancillary calculation in it or its appendices cannot be excluded.",
+      "The published single-simplex result could not be fully read; comparison of its exact stated claim rules out direct implication but not every possible supplementary calculation.",
+      "An unindexed or differently formulated local patch stability computation remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Theorem 6 bounds ||grad Πu||_2 by C ||grad u||_2 on adaptively refined triangulations.",
+          "Section 5 uses local mass matrices to establish H1 stability, not sharp L-infinity norming rows."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/231513374_On_2D_Newest_Vertex_Bisection_Optimality_of_Mesh-Closure_andH1-Stability_of_L2-Projection",
+        "material_read": "Full author-uploaded technical report text: introduction, Theorem 6, Section 5 proof, local mass-matrix definitions and scaling arguments.",
+        "method": "Read accessible HTML transcription of author-uploaded full text and verified the original arXiv submission date.",
+        "title": "On 2D Newest Vertex Bisection: Optimality of Mesh-Closure and H1-Stability of L2-Projection",
+        "trigger": "Same Courant P1 finite-element projector, mesh grading and Gram matrix."
+      },
+      {
+        "assessment": "LIMITED_ACCESS",
+        "evidence": [
+          "Available abstract describes Lp/W1p stability under less restrictive mesh regularity than quasi-uniformity.",
+          "No full-text NOT_COVERING conclusion is claimed."
+        ],
+        "identifier_or_url": "https://www.ams.org/mcom/1987-48-178/S0025-5718-1987-0878688-2/S0025-5718-1987-0878688-2.pdf",
+        "material_read": "Public abstract and indexed introduction excerpt only; complete PDF not accessible through the available browsing route.",
+        "method": "Read bibliographic abstract and indexed opening material; attempted original full-text URL.",
+        "title": "The Stability in Lp and Wp1 of the L2-Projection onto Finite Element Function Spaces",
+        "trigger": "Older foundational work might contain stronger endpoint estimates."
+      },
+      {
+        "assessment": "LIMITED_ACCESS; synopsis covers the shared row but not the two-simplex area-ratio theorem.",
+        "evidence": [
+          "The synopsis gives exact single-simplex affine endpoint norm.",
+          "The new gluing formula has two distinct exclusive tip rows and a varying volume fraction absent from the stated single-simplex theorem."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "material_read": "Published mathematical summary; repository full text was not accessible.",
+        "method": "Compared the published precise single-simplex claim with explicit shared and tip rows.",
+        "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+        "trigger": "Exact endpoint projector norm on a single simplex may dominate shared-node calculations."
+      },
+      {
+        "assessment": "LIMITED_ACCESS; abstract concerns numerical comparisons of transfer operators, not an exact operator norm on a fixed two-element mesh.",
+        "evidence": [
+          "Article reports numerical comparisons of transfer operators between unrelated meshes, with examples on ball/cylinder/torus models."
+        ],
+        "identifier_or_url": "https://www.global-sci.com/nmtma/article/view/14057",
+        "material_read": "Abstract, article history, and reference list visible on publisher page; PDF not inspected.",
+        "method": "Read publisher article page.",
+        "title": "Evaluating Local Approximations of the L2-Orthogonal Projection Between Non-Nested Finite Element Spaces",
+        "trigger": "Numerical transfer operators for non-nested meshes might tabulate local benchmarks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c3f7ad4a-1b42-455a-8d03-1c2676214065",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two facet-adjacent simplices form the minimal higher-dimensional conforming patch in which the L2 finite-element projector couples distinct element masses. The exact norm and optimizing area balance quantify mesh-grading amplification with a shape-independent constant for all d>=2. The sharp planar range from 49/18 to unattained 7/2 and universal d-dimensional degeneration laws are useful local stability benchmarks, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
