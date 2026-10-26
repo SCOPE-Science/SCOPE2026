@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof partitions selected vertices into old and subdivision vertices, derives independent local capacity constraints, and proves both necessity and sufficiency of maximality by considering insertion of each omitted vertex type. The two-omitted-original case requires surjectivity and is counted by \(2^a-2\), not by the unrestricted \(2^a\). The convex-quadratic endpoint argument establishes the exact extremal cardinalities and their uniqueness with the stated small-order exceptions. Direct definition-based enumeration validates every coefficient for four small orders; the general assertion has a separate written proof.
+
+**Originality — PASS (residual bibliographic risk).** An accessible text of Brešar–Hartnell–Rall (2017), the full arXiv text of Tu–Li–Du (2021), and the publisher statement of Tu–Xiao–Lang (2023) were checked against the precise formula and maximal-set structural implication. Their results concern uniformity, universal extremal bounds, and cubic-graph partition-function inequalities respectively. None implies the full maximality classification for the variable-degree incidence graph \(S(K_n)\). Searches also covered the dual three-vertex-path-cover wording and related graph families. Priority cannot be inferred solely from negative search results; equivalent unindexed statements remain possible.
+
+**Value — PASS.** The exact complete and maximal enumerators resolve the face-size and facet-size distributions for a natural, two-degree bipartite graph family obtained by an elementary subdivision operation. The surjective-function exceptional layer, unique extremal maximal sets and quadratically unbounded maximal-set-size separation are structural features not recoverable from a mere dissociation number. The full polynomial also identifies gaps and multiplicities that a single optimization invariant cannot express.
+
+**Scope and residual limitations.** Only full subdivisions of complete graphs, beginning at \(n=3\), are covered; results for partial subdivisions and arbitrary incidence graphs are not asserted. The code confirms finitely many cases and is not an independent proof. No independent mathematical validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

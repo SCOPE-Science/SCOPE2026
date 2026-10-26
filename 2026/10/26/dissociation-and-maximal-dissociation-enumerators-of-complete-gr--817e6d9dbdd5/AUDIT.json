@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For each selected old-vertex set A, all choices of selected edge vertices are classified by independent original-vertex capacity-one constraints, establishing the complete polynomial. Maximality is proved by testing insertions of every type of missing vertex; the sole nonautomatic boundary b=2 imposes surjectivity onto the two omitted originals, explaining inclusion-exclusion. Exact b=0,1,2,>=3 enumeration and convex extremal comparison cover n>=3 including exceptional cases. The adjacency-based verifier exhaustively confirmed 2,131,008 subsets, but finite tests are not used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tu–Li–Du arXiv:2103.01402v1, Theorems 1.1–1.5, bound maximal-set counts for all graphs and triangle-free graphs and classify equality cases rather than enumerate S(K_n).",
+        "Brešar–Hartnell–Rall 2017 Theorems 2.4, 3.2 and 4.8 concern uniformly dissociated graph classes and constructions; S(K_n) has varying maximal-set sizes, and no count is given.",
+        "Tu–Xiao–Lang 2023 DOI 10.3934/math.2023507 treats partition-function upper bounds for regular cubic graphs, not the claimed variable-degree family."
+      ],
+      "reasoning": "A general inequality on total maximal-set counts or partition functions does not determine labeled coefficient distributions, the surjectivity boundary, or the exact corresponding maximal-set families. Uniform-dissociation classification is not applicable since this graph family is not uniformly dissociated.",
+      "searches": [
+        "dissociation number subdivided complete graph S(K_n) incidence graph minimal maximal dissociation sets",
+        "\"maximal dissociation sets\" \"subdivision\" \"complete\" graph",
+        "\"dissociation polynomial\" \"subdivision\" \"complete\" graph",
+        "For the incidence graph of the complete graph K_n, every maximal dissociation set is determined by omitted original vertices C: select all edge vertices within C and exactly one cross edge per selected original vertex; if |C|=2 the choices must be onto both omitted vertices. Maximal dissociation polynomial sum binomial n b b^(n-b) z^(2n-2b+binomial b2)."
+      ]
+    },
+    "checked_sources": [
+      "doi:10.26493/1855-3974.1013.46a",
+      "arXiv:2103.01402v1",
+      "doi:10.3934/math.2023507"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brešar–Hartnell–Rall, *Uniformly dissociated graphs* (2017), full article sections 1–4: dissociation definitions, uniform classes, and high-girth results; none provides the incidence-graph cases or surjective-assignment enumeration.",
+        "Tu–Li–Du *Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs* (arXiv:2103.01402v1), text of all main theorems and scope: numerical extremal bounds, no complete polynomial for this class.",
+        "Tu–Xiao–Lang *Counting the number of dissociation sets in cubic graphs* (2023): its stated coefficientwise bound for cubic graphs does not apply for n≥5 (selected originals have degree n-1 and subdivision vertices degree 2)."
+      ],
+      "reasoning": "The new claim requires a necessary-and-sufficient maximality criterion on the incidence graph and exact labeled counts per omitted-original size. The published general bounds, uniformity criteria, and cubic inequalities neither imply nor determine these counts, and no stronger covering statement was found in the material inspected.",
+      "searches": [
+        "\"dissociation\" \"subdivision graph\" \"complete graph\" maximal",
+        "\"dissociation polynomial\" graphs definition complete bipartite",
+        "all k-dependent independent vertex subsets induced maximum degree one, subdivision complete graph all size polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brešar–Hartnell–Rall 2017 §1 (DOI 10.26493/1855-3974.1013.46a) explicitly identifies dissociation-set complements with 3-path vertex covers; no exact S(K_n) enumerator in its inspected structural results.",
+        "Accessible published work on dissociation polynomials for complete multipartite graphs and generalized windmills concerns distinct graph families rather than incidence graphs of complete graphs."
+      ],
+      "reasoning": "Complementation maps dissociation sets to 3-path vertex covers, and inclusion-maximal dissociation sets to inclusion-minimal such covers, with cardinalities related by the graph order. The searched dual wording found no exact cover-counting theorem for the present incidence graphs; complete multipartite graphs and generalized windmills are not the same objects.",
+      "searches": [
+        "minimal three-vertex path cover enumeration of fully subdivided complete graph K_n or Levi incidence graph, all inclusion-minimal covers",
+        "\"dissociation\" \"incidence graph\" \"complete graph\"",
+        "all k-dependent independent vertex subsets induced maximum degree one, subdivision complete graph all size polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches of available mathematical research records returned dissociation enumerations for fan graphs and multipartite graphs, but no exact table or polynomial for fully subdivided complete graphs.",
+        "The coefficient checks for n=3..6 are original adjacency-based calculations in verify_subdivision.py and are not substituted for a prior-art table search."
+      ],
+      "reasoning": "No exact database, sequence table, or published polynomial on the same fully-subdivided clique parameters was located by these actual searches. A negative search result is not proof of global novelty.",
+      "searches": [
+        "\"dissociation polynomial\" \"incidence graph\" complete",
+        "\"3-path vertex cover\" \"subdivision graph\" complete",
+        "incidence graph of K_n with complete edge subdivision maximal dissociation family size minimum n maximum n(n-1)/2",
+        "dissociation polynomial of subdivision graph of complete graphs: incidence graph B(K_n) all vertex subsets with induced max degree one"
+      ]
+    },
+    "rationale": "Actual broad and alias searches in the research index and published literature found no statement of the full incidence-graph dissociation polynomial, the inclusion-maximal surjective-fiber classification, or its exact facet-size enumerator. Full relevant primary texts from 2017 and 2021 were compared at the theorem/implication level; the 2023 coefficientwise cubic inequality is inapplicable to this variable-degree graph family. Residual risk remains from unindexed equivalent literature, not from a known covering result.",
+    "residual_risks": [
+      "Possible equivalent coefficients under incidence, Levi graph, two-dependent set, or minimal 3-path-cover terminology in unindexed publications.",
+      "The 2023 cubic-graph article full body was not accessed, but its stated main result is an inequality for a different graph class.",
+      "Literature checks establish best-knowledge noncoverage, not an absolute publication priority guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: characterizes only uniform-dissociation classes and constructions; no all-maximal-family incidence-graph classification or size enumerator.",
+        "evidence": [
+          "Published online 9 March 2017, 2017 article DOI 10.26493/1855-3974.1013.46a; §1 explains minimal 3-path vertex cover dual, §4 classifies girth>=7 uniformly dissociated graphs."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/321667565_Uniformly_dissociated_graphs",
+        "material_read": "Accessible author-public full-text transcription, including publication header, §1, theorems of §§2–4, text around Theorems 2.4, 3.2 and 4.8; full-text search for subdivision/incidence.",
+        "method": "Primary full-text HTML inspection and terminology search.",
+        "title": "Uniformly dissociated graphs",
+        "trigger": "Primary literature on the cardinality spectrum and maximal dissociation of special graphs."
+      },
+      {
+        "assessment": "NOT_COVERING: provides universal exponential bounds and equality-characterizations rather than exact incidence-graph family enumerators.",
+        "evidence": [
+          "Theorems 1.1–1.5 are global bounds; arXiv:2103.01402v1 dated 2021-03-02."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2103.01402",
+        "material_read": "Open-access 16-page PDF text, introduction and main Theorems 1.1–1.5, preparatory lemmas, proof organization, and full-document keyword checks for subdivision/incidence/polynomial.",
+        "method": "PDF parsed text and first/main-theorem-page visual reading.",
+        "title": "Maximal and Maximum Dissociation Sets in General and Triangle-Free Graphs",
+        "trigger": "The closest explicit treatment of inclusion-maximal dissociation counts on arbitrary triangle-free graphs."
+      },
+      {
+        "assessment": "NOT_IMPLYING: cubic-graph partition-function inequality does not enumerate the fully subdivided clique family; residual risk from unread full article is small but not zero.",
+        "evidence": [
+          "Explicit graph hypothesis regular degree 3 and inequality D_G(lambda) <= D_K4(lambda)^{|V|/4} for 0<lambda<=1; the candidate is irregular for n>=4 and has degree n-1 at old vertices."
+        ],
+        "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/math.2023507",
+        "material_read": "Publisher article page, complete abstract, stated main inequality, explicit degree hypothesis and bibliographic details; full article text not retrieved.",
+        "method": "Publisher primary abstract and theorem inspection with comparison to graph degree sequence.",
+        "title": "Counting the number of dissociation sets in cubic graphs",
+        "trigger": "The dissociation-polynomial literature potentially containing a stronger universal coefficient formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "817e6d9d-bdd5-4b30-857e-2bfa42119b28",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural full-subdivision incidence family links maximal dissociation sets with minimal 3-path vertex covers, whose full inclusion-maximal cardinality distribution is not determined by the ordinary dissociation number. The exact facet polynomial, surjectivity obstruction for two omitted originals, unique extremal configurations for n>=5 and quadratically increasing size gap provide structural and enumerative information with genuine mathematical motivation.",
+    "status": "PASS"
+  }
+}
