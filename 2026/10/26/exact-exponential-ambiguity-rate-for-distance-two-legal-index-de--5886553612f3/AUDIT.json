@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The sourced {2}-LID recurrence is checked in the complete motivating primary text. Exact disjoint-path independent-set counts yield D_j, the recurrence gives sum_{i<=n-3} a_i=a_n-4, and every representation of m<a_n uses indices <n. These imply the finite bounds. Normalizing by the unique positive rho satisfying rho^-1+rho^-3=1 makes the recurrence a positive convex combination and proves a_n=Theta(rho^n). Binet Fibonacci growth gives D_j=Theta(phi^j), proving the strict exponential mean rate. The accompanying verifier independently checks finite mex construction and complete sums through index 17; finite checks are not used to infer the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016 Fibonacci-quilt mean growth theorem has a different exclusion set and a different characteristic polynomial.",
+        "Lemma 4.1 in the 2022 source assumes 2c<k; setting k=2,c=1 does not meet its assumption."
+      ],
+      "reasoning": "The earlier counting-and-squeezing method is acknowledged. The claimed singleton-distance-two exponent and exact n-dependent inequalities are not a corollary of the cited theorems without proving a different legal-subset count and cutoff bound.",
+      "searches": [
+        "arXiv:1606.09312v2 Section 3",
+        "arXiv:2210.10577v2 Lemma 4.1 and Section 4",
+        "\"Recurrence Relations for S-Legal Index Difference Sequences\" \"average\" answer"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2210.10577v2, full HTML; initial arXiv posting 2022-10-19",
+      "arXiv:1606.09312v2, full HTML; initial posting 2016-06-30",
+      "OEIS:A164316 HTML",
+      "Targeted web literature searches for S-LID singleton distance-two multiplicity and exact rate",
+      "Published mathematical-record semantic searches, closest hits not equivalent"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 recurrence implies a_n growth with real root rho but does not itself determine representation counts.",
+        "The 2016 theorem establishes a growth rate for a different legal-sequence construction.",
+        "The new exact count is D_j=F_{ceil(j/2)+2}F_{floor(j/2)+2} and cutoff bounds are D_{n-3} <= sum_{m<a_n} r(m) <= D_{n-1}."
+      ],
+      "reasoning": "The new conclusion requires combining two facts not established for this object in the closest works: a parity-factorized independent-set count and the three-index-shift total-sum cutoff. No surveyed prior theorem alone implies the full stated conclusion.",
+      "searches": [
+        "arXiv:2210.10577v2 Proposition 2.3, Question 5",
+        "arXiv:1606.09312v2 Theorem 1.11 and Section 3",
+        "\"S-legal index difference\" \"number of decompositions\" \"2\" growth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The paper defines S-LID decompositions and asks for average representation counts in Question 5.",
+        "The new mean is equivalently the number of weighted independent index subsets with sums below a_n, divided by a_n."
+      ],
+      "reasoning": "The parity-chain independent-set formulation yields exact total subset counts but is not itself the cutoff-restricted average. The latter requires the independent prefix-sum sandwich. The primary text does not formulate this exact singleton mean rate.",
+      "searches": [
+        "\"S-legal index difference\" \"average number\" \"singleton\"",
+        "\"distance 2\" \"legal decompositions\" exponential average \"Fibonacci\"",
+        "arXiv:2210.10577v2 Sections 2.1 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A164316 lists a(n)=1,2,4,5,7,11,... and a generating function, not the mean of S-legal representations.",
+        "Proposition 2.3 identifies this sequence with singleton-distance-two legality."
+      ],
+      "reasoning": "A database tabulation of the underlying sequence does not contain the exact Fibonacci-product legal-subset count or the asymptotic rate for the arithmetic representation mean.",
+      "searches": [
+        "OEIS:A164316",
+        "\"A164316\" \"average\" representations legal decompositions",
+        "arXiv:2210.10577v2 Proposition 2.3"
+      ]
+    },
+    "rationale": "The new exact mean exponential rate and finite Fibonacci-product cutoff bounds for the singleton forbidden difference 2 answer a concrete question in Moura et al. (2022), Section 4. Proposition 2.3 gives only the underlying sequence recurrence; their Lemma 4.1 explicitly assumes 2c<k and thus excludes the k=2,c=1 boundary representing {2}. The Fibonacci-quilt work covers another legality graph and neither proves the present exponent nor exact bounds. OEIS A164316 records the sequence, not its restricted-representation mean. No equivalent result was found in targeted literature or mathematical-record searches. Residual risks include unindexed earlier derivations and the possibility that a broader uninspected combinatorial theorem implicitly yields it.",
+    "residual_risks": [
+      "Earlier unindexed or uninspected work may contain the same calculation.",
+      "The proof establishes an exact exponential rate but not an asymptotic leading constant.",
+      "No independent mathematical audit is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Recurrence already known; target mean rate and exact squeeze not stated. Lemma 4.1 inapplicable at k=2,c=1.",
+        "evidence": [
+          "Proposition 2.3: a_{n+1}=a_n+a_{n-2}.",
+          "Question 5 asks how S-LID mean decompositions grow.",
+          "Lemma 4.1 assumes 2c<k."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.10577v2",
+        "material_read": "Full-text Sections 1, 2.1 (including Proposition 2.3 proof), 3 and 4 (including Question 5 and Lemma 4.1); the HTML text and linked original abstract/submission dates.",
+        "method": "Direct inspection of openly available HTML full text, checking theorem scopes and exact parameters.",
+        "title": "Recurrence Relations for S-Legal Index Difference Sequences",
+        "trigger": "Exact motivating object, same forbidden singleton and explicit multiplicity question"
+      },
+      {
+        "assessment": "Related method but Fibonacci quilt rules and roots differ; no statement for S={2}.",
+        "evidence": [
+          "Fibonacci-quilt legality excludes differences 1,3,4 and an exceptional pair.",
+          "Section 3 establishes average-multiplicity growth for that distinct sequence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1606.09312v2",
+        "material_read": "Full-text introduction, definitions, recurrence and Section 3 mean-multiplicity proof.",
+        "method": "Direct inspection of openly available HTML full text.",
+        "title": "Legal Decompositions Arising from Non-positive Linear Recurrences",
+        "trigger": "Closest cited published exponential-growth theorem for representation multiplicity"
+      },
+      {
+        "assessment": "Contains recurrence data only, not the claimed legal-representation mean.",
+        "evidence": [
+          "The entry gives 1,2,4,5,7,11,... and generating function."
+        ],
+        "identifier_or_url": "https://oeis.org/A164316",
+        "material_read": "Sequence, formula, comments, links, and references on the accessible entry.",
+        "method": "Direct HTML entry inspection.",
+        "title": "OEIS A164316",
+        "trigger": "Primary paper identifies the singleton sequence with a known recurrence entry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58865536-12f3-4855-87ec-c37c44030733",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Question 5 in the motivating S-LID paper asks for the growth of average legal-decomposition counts; S={2} is the first non-Fibonacci singleton forbidden-distance case, already separately analyzed for its recurrence. The result determines a previously unspecified exact mean exponential growth constant and gives strong finite all-index Fibonacci-product inequalities, exhibiting a genuine entropy-versus-arithmetic-growth gap. It does not claim general-case resolution or a limiting prefactor.",
+    "status": "PASS"
+  }
+}
