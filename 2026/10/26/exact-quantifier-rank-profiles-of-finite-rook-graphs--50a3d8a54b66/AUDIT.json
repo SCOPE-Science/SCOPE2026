@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every q, matching coordinate truncations guarantee Duplicator q-round EF strategy, preserving both equality and rook adjacency. Conversely rank-2 nonedge detects 1-dimensional complete cases; rank-s clique existence detects max(a,b)>=s and rank-s universal common-neighbor formula detects min(a,b)>=s for s>=3. Boundary q=1,2 and all factor-size-one cases are accounted for. This yields an exact iff, exact q(q+1)/2 quotient count and sharp q^2 least-representative maximum; a standalone finite EF checker reproduces small cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pikhurko–Veith–Verbitsky, arXiv:math/0311041, general first-order graph definability upper bounds.",
+        "Pikhurko–Verbitsky, arXiv:1003.4865, general survey of graph quantifier rank."
+      ],
+      "reasoning": "General universal upper bounds for distinguishing graphs do not imply exact equivalence classes for every rank in a two-parameter Hamming subfamily or tight smallest representatives. No checked source gives a stronger theorem subsuming the claim.",
+      "searches": [
+        "Ehrenfeucht Fraisse game on rook graphs K_m Cartesian K_n quantifier rank",
+        "rook graphs elementary equivalence Ehrenfeucht Fraisse quantifier rank line graph complete bipartite",
+        "first order logic rook graph parameter sizes quantifier depth"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0311041 (full primary text relevant parts)",
+      "doi:10.1002/jgt.20084 (full author manuscript relevant sections)",
+      "arXiv:1003.4865 (full survey relevant sections)",
+      "published-finding corpus published rook-homology and directed-path exact-rank summaries (different invariants or families)",
+      "published-finding corpus published graph Bernays–Schönfinkel and proper S5 grid RESULT.md (full text)",
+      "Public searches on rook graph, lattice graph, Hamming graph, Cartesian products of complete graphs, line graph K_{m,n}, FO, EF games"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Pikhurko–Veith–Verbitsky prove global graph distinguishability bounds.",
+        "Klavzar–Peterin give characterizations of Hamming subgraphs using edge labels and triangle behavior.",
+        "Published published-finding corpus rank-q directed-path theorem SCOPE-exact-quantifier-rank-threshold-for-finite-directed-paths--75a6b05e7112 concerns directed successor graphs, not rook graphs."
+      ],
+      "reasoning": "The present iff requires reconstructing both *unlabeled* row and column factor cardinalities by rank-s graph sentences; these are not corollaries of general bounds, Hamming embeddings, or exact profiles of directed paths.",
+      "searches": [
+        "arXiv:math/0311041 full paper: graph distinguishability depth and EF games",
+        "doi:10.1002/jgt.20084 full paper: Cartesian/Hamming subgraphs and common coordinate triangles",
+        "arXiv:1003.4865 full survey: graph logical complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graphs = lattice graphs = K_a Cartesian K_b = line graphs L(K_{a,b}); all aliases included in queries.",
+        "Klavzar–Peterin (2005), Hamming-graph characterization discusses clique/triangle coordinate structure but not FO rank."
+      ],
+      "reasoning": "Existing structural characterizations give graph embeddings and line-graph interpretations, but do not establish an iff at every quantifier rank; a formula interpretation could change rank and needs its own sharp proof.",
+      "searches": [
+        "Exact FO quantifier rank Ehrenfeucht Fraisse types rook graphs K_m square K_n classifying unordered factor sizes truncated at q",
+        "First order rank q equivalence of line graphs of complete bipartite graphs exact rook grid m n threshold",
+        "q Ehrenfeucht Fraisse types for Cartesian products of cliques rook graphs exact count q(q+1)/2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Independent recursive EF checker covers all 21 pairs for q=1,2 with size cap 3, and all 55 pairs for q=3 size cap 4; not a prior published table.",
+        "Targeted published-finding corpus semantic matches for q-rank returned directed paths, one-red orders, rook homology, and complete multipartite logical depth rather than a rook FO rank classification."
+      ],
+      "reasoning": "No matched exact database or published table of rank-q rook types was found; finite experimental tables generated here are not novelty evidence by themselves. A search failure is not proof of novelty.",
+      "searches": [
+        "Exact FO quantifier rank Ehrenfeucht Fraisse types rook graphs K_m square K_n classifying unordered factor sizes truncated at q",
+        "First order rank q equivalence of line graphs of complete bipartite graphs exact rook grid m n threshold",
+        "q Ehrenfeucht Fraisse types for Cartesian products of cliques rook graphs exact count q(q+1)/2"
+      ]
+    },
+    "rationale": "Direct comparison of the full statements and implications finds the historical graph EF work proves general upper bounds, whereas the Hamming-graph paper gives structural embeddings/triangle descriptions, not exact rook q-equivalence profiles; closest published ranked search results concern other graph families. The complete adjacency-only rank-q census and q^2 rook-representative bound are not stated or immediately implied in inspected sources. Residual risk of folklore equivalence is expressly retained.",
+    "residual_risks": [
+      "A folklore or unindexed statement could already give this elementary sharp truncation law.",
+      "No independent researcher has vetted the theorem or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING inspected results; general graph bounds but no exact rook profiles",
+        "evidence": "arXiv abstract states minimum distinguishing rank for graphs of equal order and general upper bounds, not a rook q-type census.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0311041",
+        "material_read": "arXiv primary full text introduction and relevant sections on Ehrenfeucht–Fraïssé games, upper graph distinction bounds and defining sentences",
+        "method": "Lawful arXiv public full text and PDF inspection",
+        "title": "The First Order Definability of Graphs: Upper Bounds for Quantifier Rank",
+        "trigger": "Closest graph-specific quantifier-rank foundation, 2003 archive source"
+      },
+      {
+        "assessment": "NOT_COVERING inspected text; characterizes embeddings and edge labels, not quantifier-rank equivalence",
+        "evidence": "The paper explicitly states triangle edges have the same Hamming coordinate label and characterizes Hamming subgraphs; searches in full PDF have no occurrence of first-order or quantifier.",
+        "identifier_or_url": "https://users.fmf.uni-lj.si/klavzar/preprints/20084-scan.pdf",
+        "material_read": "Full lawful author manuscript; introduction, Hamming-graph edge-label characterization, relevant theorem and proof, and publication metadata",
+        "method": "Author-hosted full PDF text and page screenshot inspection",
+        "title": "Characterizing Subgraphs of Hamming Graphs",
+        "trigger": "Same mathematical object: products of complete graphs and structural triangle property"
+      },
+      {
+        "assessment": "NOT_COVERING the rook rank-type census in inspected sections",
+        "evidence": "Survey treats general graph definability and logic fragments; no displayed exact all-rank rook graph q-type formula in inspected material.",
+        "identifier_or_url": "https://arxiv.org/abs/1003.4865",
+        "material_read": "Public arXiv full text, sections concerning graph logical complexity and finite-model spectra",
+        "method": "Full scholarly PDF text and relevant page inspection",
+        "title": "Logical Complexity of Graphs: a Survey",
+        "trigger": "Survey of FO graph definability and bounded-quantifier complexity"
+      },
+      {
+        "assessment": "NOT_COVERING; theorem about existential-universal finite graph model spectra and Ramsey bounds",
+        "evidence": "Theorem states k+(R(ell,ell)-1)2^k finite-spectrum endpoint; it does not characterize rook graph equivalences at rank q.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-ramsey-cutoff-for-bernays-sch-nfinkel-graph-spectra--c4aa47f31882",
+        "material_read": "Entire public RESULT.md including theorem, proof and limitations",
+        "method": "Read-only GitHub repository source text",
+        "title": "Sharp Ramsey cutoff for Bernays–Schönfinkel graph spectra",
+        "trigger": "Published finite-model-spectrum result in graph logic"
+      },
+      {
+        "assessment": "NOT_COVERING; m^2 is a modal bounded-morphism cover bound, not a graph FO rank-quotient threshold",
+        "evidence": "The theorem classifies optimal proper S5 covers by Latin squares, unrelated to rook-graph rank q equivalences.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-quadratic-proper-cover-blow-up-is-sharp-for-two-agent-mathsf-s5--95d4da0a4f72",
+        "material_read": "Entire public RESULT.md including theorem, proof and limitations",
+        "method": "Read-only GitHub repository source text",
+        "title": "Quadratic proper-cover blow-up is sharp for two-agent S5",
+        "trigger": "Published grid construction potentially implying q^2 bound"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50a3d8a5-4b66-43dc-a1b4-97f308d58954",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete natural two-parameter finite graph family with exact q-type partition, exact minimal distinguishing rank, and sharp representative cardinality q^2. Unlike product languages with named coordinates, simple adjacency conceals axes; graph-language rank-optimal clique/common-neighbor formulas recover both. This is a motivated structural classification rather than an arbitrary small census or renaming.",
+    "status": "PASS"
+  }
+}
