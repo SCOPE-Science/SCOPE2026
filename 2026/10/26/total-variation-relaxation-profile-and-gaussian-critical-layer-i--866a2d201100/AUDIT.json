@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Published exact solution (Britton et al., 2026, eq. 2.10) gives Gaussian variance mixing with min(Gamma(n,r),t); equivalent Poisson-renewal expression is checked. The finite-n signed-density ratio is strictly decreasing in |y|, proving unique crossing. L1 concentration of Gamma(n,n) gives the closed TV normal-vs-normal profile. Gamma Chernoff gives postcritical exponential bound. CLT and UI, a uniform L1 bound on the second variance derivative of normal density for v>=1/2, and an exponentially small Gamma left tail yield the critical signed-L1 limit; the exact Gaussian derivative norm yields phi(1)[phi(s)-s(1-Phi(s))]. Replayed standalone program passed 84 deterministic numerical checks from the actual package path, including an independent finite-n Fourier integral identity. No finite computation is used to assert infinite-index proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bressloff 2021 equation (2.4) analyzes single-particle renewal and section 2.1 its spatial accumulation time; no growing tagged-index asymptotics.",
+        "Britton et al. 2026 eq. (3.21) gives the large-index-related spatial accumulation-time quantity using a Bessel ratio, not a TV profile.",
+        "published-finding corpus top semantic comparisons include 2026/10/11/SCOPE-sharp-random-sensor-threshold-for-a-single-slowing-ornstein-uhle--69b9e842d5b4, concerned with an unrelated slow OU sensor; 2026/10/11/SCOPE-exact-mixing-norms-and-time-reversal-obstruction-for-binary-cond--8cff936fbe0f, concerning finite-state projection chains, not Brownian resetting."
+      ],
+      "reasoning": "The earlier dynamic-resetting analyses cover local accumulation fronts, stationary laws or different stochastic processes. They do not state or imply as an immediate specialization the explicit TV profile and first-order critical coefficient for the nested Brownian Gaussian-Gamma clock. The search and selected full-text comparison cannot exclude unindexed broader Gaussian-mixture limit theorems.",
+      "searches": [
+        "published-finding corpus: Brownian nested stochastic resetting gamma chain relaxation total variation profile and spatial Gaussian stationary mix",
+        "published-finding corpus: Deep nested Poisson-reset chain time-dependent density gamma minimum variance total variation exact crossing",
+        "published-finding corpus: Variance gamma Brownian motion Poisson reset hierarchy 2609.25252 local accumulation comparison",
+        "Bressloff, arXiv:2104.09365v1 full HTML, sections 2 and 2.1",
+        "Alston, Britton, Bertrand, arXiv:2502.03225v1 full HTML"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.25252v1 sections 2.1, 2.2, 3.1-3.3, 4 and appendix",
+      "arXiv:2502.03225v1 complete accessible main text",
+      "arXiv:2104.09365v1 full HTML sections 1-4",
+      "MSC2020 code 82C22 classification"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Britton et al. eq. (2.10) directly implies the exact finite-time Gaussian-Gamma variance mixture and eq. (2.19) the stationary one. No novelty is assigned to them.",
+        "The total-variation asymptotic requires additional Gaussian-density L1 convergence and a parameter-derivative expansion of the mixture at time n/r; those steps and resulting constants are not supplied by the source sections inspected.",
+        "The prior source results for accumulation time measure local time-integrated relative density deviation and do not determine global tagged-marginal total variation through a stated implication."
+      ],
+      "reasoning": "Known exact mixtures cover the basic model and distributions. The explicit crossover profile is a new mathematical analysis of a known formula, not a new physical model or density. As a scientific result it provides a nontrivial global relaxation metric and sharp local coefficient, while potential implicit coverage by a stronger general theorem remains a genuine risk.",
+      "searches": [
+        "Britton et al. 2026 full HTML, eqs. (2.10),(2.19),(3.15),(3.21), discussion and appendix",
+        "Alston et al. 2025 full HTML, eqs. (5)-(9) and discussion",
+        "Bressloff 2021 full HTML, secs. 2-2.1 and conclusion",
+        "published-finding corpus: Nested resetting full transient law Brownian convolution Gamma residence time total variation relaxation cutoff profile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Britton et al. 2026 eq. (2.10) gives a Gamma-time mixture of free heat kernels; the present proof derives exactly that mixture as its starting identity. The source uses the local relative-deviation accumulation-time functional, eq. (3.15), rather than the integrated total variation of full marginals.",
+        "The source full text has no stated total-variation, cutoff, or mixing-metric theorem; absence of a phrase is not a novelty certificate.",
+        "Alston et al. 2025 eqs. (1), (5)-(9) give steady-state convolutions, moments, and correlations but not the transient n-dependent TV profile."
+      ],
+      "reasoning": "The source transient law is equivalent to the Gamma clock p=E g_min(U,c), and is credited. The proposed claim is the resulting global TV limit function, universal \\(n^{-1/2}\\) critical coefficient and exact finite-index crossing. Those implications are not identical to an already-stated time-dependent density or local accumulation-time result. Generic variance-mixture CLT could subsume some conclusions and remains a risk.",
+      "searches": [
+        "published-finding corpus: Nested stochastic resetting chain equal rates Gaussian Brownian variance Gamma n time mixing total variation cutoff n/r critical error function prefactor",
+        "published-finding corpus: Nested resetting full transient law Brownian convolution Gamma residence time total variation relaxation cutoff profile",
+        "Source arXiv:2609.25252v1: equations (2.9)-(2.14); keyword checks total variation, cutoff, mixing",
+        "Web: \"nested stochastic resetting\" \"total variation\" cutoff global relaxation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching tabulation of total-variation values, crossing roots, or critical n^{-1/2} coefficient was identified. The motivating source explicitly supplies exact finite-time density and stationary Bessel-formula from which such outputs could be computed.",
+        "SCOPE indexed item 2026/9/18/SCOPE-variance-gamma-gaussian-jump-selfdecomposability--69b2cf5f0f2e addresses self-decomposability of perturbed variance-Gamma laws, not finite-time nested resetting."
+      ],
+      "reasoning": "The claimed closed scaling laws are not a table lookup. Searching did not establish unique originality; existing exact density formulas permit derivation, and that qualification is preserved.",
+      "searches": [
+        "published-finding corpus: Approach to Steady-State in Nested Resetting Processes Britton Le Jeune Alston Bressloff Bertrand 2609.25252",
+        "published-finding corpus: Nested stochastic resetting chain equal rates Gaussian Brownian variance Gamma n time mixing total variation cutoff n/r critical error function prefactor",
+        "Web: \"Approach to Steady-State in Nested Resetting Processes\" \"distance\" \"variation\"",
+        "Published 2026 paper section 2.1, equations (2.10)-(2.14); section 3.3, equations (3.15)-(3.21)"
+      ]
+    },
+    "rationale": "The starting stochastic model, stationary law, exact transient density and local accumulation times are all credited to the 2025 and 2026 primary papers. Their inspected complete text does not state the global tagged-marginal total-variation profile, its \\(n^{-1/2}\\) critical window coefficient, or unique crossing theorem; actual published-finding corpus searches did not identify an equivalent claim. Unlike local accumulation times, the new profile takes a global L1 norm after scaling n and t together. The published formula implies the claimed results after additional analysis, so implicit broader coverage by Gaussian scale-mixture limit results is a material residual risk, not falsely excluded.",
+    "residual_risks": [
+      "Implicit or immediate consequence of an earlier general Gaussian variance-mixture TV theorem not identified by indexed search.",
+      "Britton et al. 2026 contains a complete finite-time solution; novelty rests on derived global TV scaling and exact critical coefficient, not on the mixture formula.",
+      "Same mathematical model literature comparison cannot replace an independent expert originality assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact transient Gamma-time mixture and stationary laws are prior art and used as premises. The inspected article does not state the TV distance crossover, exact one-crossing or n^{-1/2} coefficient; it is closest and poses important implicit-coverage risk.",
+        "evidence": [
+          "eq. (2.10): full time-dependent density; eq. (2.19): stationary transform; eqs. (3.15)-(3.21): local accumulation-time formalism and Bessel ratio",
+          "arXiv first posted 2026-09-21"
+        ],
+        "identifier_or_url": "arXiv:2609.25252v1; https://arxiv.org/abs/2609.25252",
+        "material_read": "Accessible full-text HTML, including introduction, sections 2.1-2.2, 3.1-3.3, section 4 and discussion; specifically equations (2.9)-(2.14), (2.19), (3.15)-(3.21), appendices and relevant cross references",
+        "method": "Scientific statement and implication comparison of full transient mixture and local accumulation-time results against global TV limit and critical expansion",
+        "title": "Approach to Steady-State in Nested Resetting Processes",
+        "trigger": "Exact same nested-resetting model and relaxation problem; decisive overlap source"
+      },
+      {
+        "assessment": "Covers steady distributions, moment limits, two-point correlations, not tagged finite-time total variation or critical-time asymptotics.",
+        "evidence": [
+          "eqs. (1)-(9) and discussion; stationary variance 2nD/r, Gaussian limiting kurtosis"
+        ],
+        "identifier_or_url": "arXiv:2502.03225v1; https://arxiv.org/html/2502.03225v1",
+        "material_read": "Full accessible short original article, definitions, Fokker-Planck equation, steady-state transform and higher moments, two-point correlations and discussion",
+        "method": "Comparison of original stationary n-fold Gaussian-mixture/convolution consequence with finite-time TV theorem",
+        "title": "Nested Stochastic Resetting: Nonequilibrium Steady-states and Exact Correlations",
+        "trigger": "Original nested chain and stationary marginal law"
+      },
+      {
+        "assessment": "Single-particle resetting and accumulation time; not a stronger theorem implying this nested-index TV profile.",
+        "evidence": [
+          "eqs. (2.4) and (2.14)-(2.15): single-particle renewal and accumulation time; n-index absent"
+        ],
+        "identifier_or_url": "arXiv:2104.09365v1; https://arxiv.org/html/2104.09365v1",
+        "material_read": "Full-text HTML, sections 1, 2, 2.1 and sections on delays/run-and-tumble; renewal and accumulation formulas",
+        "method": "Distinguished spatial accumulation-front analysis from large nested-index TV metric",
+        "title": "Accumulation time of stochastic processes with resetting",
+        "trigger": "Prior general relaxation/accumulation-time method and single-particle reset case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "866a2d20-1100-4212-907b-9267a903fe06",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physically natural question is how much of the tagged position law remains out of its nonequilibrium stationary distribution as depth n increases. The source provides local accumulation time but no quantitative global probability-metric profile. The exact F(theta) distinguishes substantial persistent precritical deviation from postcritical exponential convergence, while the critical coefficient quantifies finite-depth corrections at the wavefront. The single-crossing theorem provides an exact central-interval observational interpretation. These are nontrivial functional (TV) and critical-index statements rather than routine single-parameter substitution, although extension beyond this solvable model is not shown.",
+    "status": "PASS"
+  }
+}
