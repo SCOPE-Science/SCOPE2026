@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The full three-layer Laplacian is a Kronecker sum, permitting exact splitting of clique-constant and clique-mean-zero potentials. The explicit inverse of the three-by-three shifted path Laplacian is verified by multiplication, the horizontal and vertical source-current distributions satisfy Kirchhoff's equations, and all absolute-current signs are controlled for every integer \(n\ge2\). The three edge orbits are exhaustive. The rational endpoint expressions and both thresholds follow by exact factorized differences. A separate rational matrix inversion tests all \(322\) edge columns for \(2\le n\le8\); it supports but does not replace the analytical proof.
+
+**Originality — PASS subject to bibliographic risk.** The primary 2023/2024 cut/cycle projection paper's sections on Hamming graphs, tori, and Hamming cubes were materially read and compared by statement. They do not cover the path factor or its three edge-orbit endpoint norms. The transportation-cost quotient representation is acknowledged. Prior exact results for two-layer clique prisms or rectangular rook graphs concern distinct objects, while a previously available general clique-factor dominance bound and asymptotic formulas do not determine these finite exact norms or the distinct sharp thresholds. A targeted research-record comparison using the graph names and electrical-current aliases found no matching covering claim. Such a negative search does not establish exhaustive novelty; an equivalent calculation in electrical-network literature remains a risk.
+
+**Mathematical value — PASS.** The result gives a complete infinite-family calculation of two natural Banach-space projection invariants on a non-edge-transitive product graph. The two different extremizer-switch thresholds and a separate dominance transition identify a meaningful finite-size geometric phenomenon absent from a limiting estimate. This is not a renaming of an existing graph-family formula and does not rely on an arbitrary finite cutoff.
+
+No norm-minimization theorem over arbitrary projections is asserted. Checks of seven finite graphs do not establish an all-integer theorem by themselves; that step is analytical.
+
+Self-review: passed. Independent audit: not yet performed.
