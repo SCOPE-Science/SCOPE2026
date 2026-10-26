@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** A deterministic sum over all cyclic roots gives exactly twice the maximum–intermediate cross moment equal to the intermediate second moment. Cyclic invariance supplies zero mean; negated time reversal yields the claimed equality of full joint distributions. The conditional law is therefore not inferred from finite experiments. The exact verifier covers 59,387 orbit-lag cases, complete two-coordinate histograms, symmetric bridge examples, and a boundary counterexample. Brownian consequences use the Gaussian bridge's shift/reversal invariances.
+
+**Originality: PASS within inspected sources; historical priority remains uncertain.** Bertoin–Chaumont–Pitman (2003) establish bridge rerooting and related path transformations; Lupu–Pitman–Tang (2013/2015) develop Vervaat decompositions. The closest inspected public maximum–endpoint result concerns a different terminal variable and imposes reversal plus sign symmetry. The new skew cyclic-bridge covariance does not follow from that assertion: its terminal value is identically zero and the skew three-step example violates global sign symmetry. Classical Brownian reflection theory covers the illustrative Brownian specialization and is not claimed new. Anis–Gharib (1980) is a residual comparison risk because only its abstract was accessible.
+
+**Mathematical value: PASS.** The result gives an exact non-Gaussian and distribution-free coupling statistic relating a global extreme to *every* marked intermediate position in finite random bridges, including dependent and skew cycling laws. The full joint reflection when a second symmetry is present supplies infinitely many test-function identities. The skew three-step example separates the minimum covariance assumptions from stronger conditional symmetry, and the random-walk/Brownian formulas connect the structure to familiar bridge calibration problems. This is not a numerical fit or a mere change of normalization.
+
+**Limits.** Independent verification was not conducted, historical sources cannot establish absolute priority, the stronger reflection needs the stated additional symmetry, and the Brownian consequence alone is classical in scope.
+
+Self-review: passed. Independent audit: not yet performed.
