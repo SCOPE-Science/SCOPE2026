@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "A left-minimal two-symbol interval starts at the last letter of one binary constant run and ends anywhere in the next run, giving \\(L_w(h)=\\sum_{i\\ge2}\\mathbf 1_{2\\le h\\le a_i+1}\\). First differences give the number of noninitial runs and the multiplicities of their lengths, except the unique endpoint case with noninitial length \\(n-1\\), detected by \\(\\Delta(2)=1\\) with no later negative differences. Any integer partition with total at most \\(n-1\\) is realized by an initial run of leftover length and alternating subsequent runs. Permuting those runs yields \\(2k!/\\prod_j m_j!\\) words per ordinary nonempty profile (two words for empty and exceptional). Distinct positive lengths cost at least \\(k(k+1)/2\\), yielding the sharp bound and 2k! critical examples. The dependency-free program independently enumerated all 65,534 binary words through \\(n=15\\) and compared window counts, partitions, complete fiber multisets and maximum d. Tests corroborate rather than prove the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "P. Bille, I. L. Gørtz, T. Stordalen, The Complexity of the Co-Occurrence Problem, arXiv:2206.10383 (first public version 2022-06-21), Lemma 1 and Theorem 1: gives O(√(nq)) bound on sparse differences and O(d) representation, valid for broader alphabets and queries.",
+        "J. Sobel et al., AWLCO: All-Window Length Co-Occurrence, arXiv:2011.14460 (2020-11-29), §§1–5 and CPM 2021: computes all-window co-occurrences by gap histograms and a general triangular cost estimate."
+      ],
+      "reasoning": "The general results cover algorithms, minimal-interval identities and asymptotic upper bounds, which are compatible with but strictly weaker than identifying every attainable binary profile and its exact preimage size. Ordinary all-window co-occurrence statistics are distinct from the left-minimal-count vector defined here. Their general algorithms do not directly state the exact enumeration or full inverse fibers.",
+      "searches": [
+        "arxiv:2206.10383 Theorem 1, Lemma 1, §4, appendix",
+        "arxiv:2011.14460 §§1–5",
+        "left-minimal co-occurrences binary words sparse difference encoding triangular maximum sharp n"
+      ]
+    },
+    "checked_sources": [
+      "P. Bille, I. L. Gørtz, T. Stordalen, The Complexity of the Co-Occurrence Problem, arXiv:2206.10383 (first public version 2022-06-21), Lemma 1 and Theorem 1",
+      "J. Sobel et al., AWLCO: All-Window Length Co-Occurrence, arXiv:2011.14460 (2020-11-29), §§1–5 and CPM 2021",
+      "OEIS A000070, partial sums of partition numbers, https://oeis.org/A000070",
+      "Indexed public research findings on left-minimal binary co-occurrences and partition profiles (actual queries in four named comparisons)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "P. Bille, I. L. Gørtz, T. Stordalen, The Complexity of the Co-Occurrence Problem, arXiv:2206.10383 (first public version 2022-06-21), Lemma 1 and Theorem 1: a broad structural lemma accounts for left-minimal intervals and an O(√(nq)) bound.",
+        "J. Sobel et al., AWLCO: All-Window Length Co-Occurrence, arXiv:2011.14460 (2020-11-29), §§1–5 and CPM 2021: related but differently defined co-occurrence profile; does not supply binary left-minimal-profile equivalence classes."
+      ],
+      "reasoning": "The new result subsumes the specialization of the broad interval formula to binary runs as a proof step. In the published statements actually inspected, neither paper gives the two-sided identification of all profile vectors with integer partitions, nor its stabilizer/fiber count. The finite exact maximum strengthens the broad order bound. These additional conclusions require the explicit partition and injectivity argument; an unindexed corollary remains possible.",
+      "searches": [
+        "arxiv:2206.10383 Lemma 1, Theorem 1 and proofs",
+        "arxiv:2011.14460 gap histogram and interval bounds",
+        "Exact binary co-occurrence left-minimal query difference support run lengths, parameter d, distinct-part partition characterization sharp finite length",
+        "Bille Gørtz Stordalen co-occurrence parameter d exact binary support set possible difference indices 2 and run lengths plus 2",
+        "left-minimal co-occurrences binary words sparse difference encoding triangular maximum sharp n",
+        "distinct nonzero differences binary co-occurrence string window lengths combinatorial partitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. Bille, I. L. Gørtz, T. Stordalen, The Complexity of the Co-Occurrence Problem, arXiv:2206.10383 (first public version 2022-06-21), Lemma 1 and Theorem 1: minimal co-occurrence interval decomposition and O(√(nq)) difference support, not binary profile census.",
+        "J. Sobel et al., AWLCO: All-Window Length Co-Occurrence, arXiv:2011.14460 (2020-11-29), §§1–5 and CPM 2021: gap histogram for all-window answers, no left-minimal partition bijection in the material examined."
+      ],
+      "reasoning": "The target claim is an exact cardinality plus explicit inverse mapping from profiles to multisets of noninitial alternating-run lengths, and full fiber cardinalities. An interval decomposition can imply the individual run formula but does not itself provide the partition-level image and fiber classification; published material examined did not state this equivalent enumeration.",
+      "searches": [
+        "Exact binary co-occurrence left-minimal query difference support run lengths, parameter d, distinct-part partition characterization sharp finite length",
+        "Bille Gørtz Stordalen co-occurrence parameter d exact binary support set possible difference indices 2 and run lengths plus 2",
+        "arxiv:2206.10383 Lemma 1 and Theorem 1",
+        "arxiv:2011.14460 §§1–5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000070, partial sums of partition numbers, https://oeis.org/A000070: numerical values of the cumulative partition-count sequence are already tabulated."
+      ],
+      "reasoning": "The numerical sequence alone is existing mathematics and is not novel. The result claims a new bijection between this classical enumerated set and binary left-minimal co-occurrence profiles, their factorial-sized fibers, and the exact sparse-difference thresholds. A database of integers does not show the domain-specific statement or proof.",
+      "searches": [
+        "OEIS A000070 partial sums of partition numbers",
+        "distinct nonzero differences binary co-occurrence string window lengths combinatorial partitions"
+      ]
+    },
+    "rationale": "The directly inspected co-occurrence papers analyze minimal-interval structure and general sparse-output algorithms, but do not state a bijection of all binary full left-minimal answer profiles with partitions of integers 0..n−1, classify each profile fiber, or give the exact finite-length maximum of nonzero differences. The OEIS value sequence is independently known, so originality attaches to the query-profile interpretation and the complete fibers, not the integer-partition arithmetic. Actual indexed research queries on these objects returned only different problems or broader bounds. This remains a best-knowledge, not independent exhaustive, literature judgment.",
+    "residual_risks": [
+      "An unindexed publication or appendix may independently obtain this elementary binary specialization and partition enumeration.",
+      "The known general minimal-interval formula makes the first run lemma a relatively direct specialization; the asserted novelty is specifically the complete partition census, ambiguity fibers and sharp extremal count.",
+      "No independent systematic literature audit or external formal proof verification was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Partially covering: general interval decomposition and bounds, but exact binary partition image/fibers not found in inspected primary text.",
+        "evidence": "Lemma 1 minimal-interval decomposition; Theorem 1 difference support O(√(nq)); neither is an exact binary profile census.",
+        "identifier_or_url": "https://arxiv.org/abs/2206.10383",
+        "material_read": "Abstract, Sections 1–4, key statements and proofs around Lemma 1 and Theorem 1, and relevant appendices in the full public PDF.",
+        "method": "Read publicly accessible full text with targeted theorem/lemma checks and page inspection.",
+        "title": "The Complexity of the Co-Occurrence Problem",
+        "trigger": "Defines left-minimal co-occurrence sparse profile and is the leading candidate for mathematical coverage."
+      },
+      {
+        "assessment": "Related different statistic: all-window counts, not an exact classification of left-minimal binary query-answer vectors.",
+        "evidence": "All-window length co-occurrence algorithm, gap histogram representation and triangular support bound.",
+        "identifier_or_url": "https://arxiv.org/abs/2011.14460",
+        "material_read": "Abstract and Sections 1–5, including model, gap histogram and sparse complexity estimates in the primary full text.",
+        "method": "Read publicly accessible full PDF and inspected relevant pages.",
+        "title": "AWLCO: All-Window Length Co-Occurrence",
+        "trigger": "Plausible prior characterization via gap histograms and triangular-number bounds."
+      },
+      {
+        "assessment": "Covers numerical values but not their interpretation as full binary left-minimal profile vectors or fiber multiplicities.",
+        "evidence": "Sequence counts cumulative integer partitions.",
+        "identifier_or_url": "https://oeis.org/A000070",
+        "material_read": "Sequence description and numerical values.",
+        "method": "Read public sequence entry.",
+        "title": "A000070: Partial sums of partition numbers",
+        "trigger": "Output cardinality equals a classical integer sequence; check prior numerical tables."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b8e0785-c35d-43fa-99cc-26e8e096464d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact number of realizable full answer profiles is the noiseless distinguishability capacity of this natural query observation, and the explicit fiber sizes quantify all inverse ambiguity classes rather than just the number of outcomes. The partition bijection gives a complete infinite-length structural classification with an exact generating function and explicit finite-length support thresholds, directly motivated by the sparse-output representation problem of the 2022 primary paper. No new general co-occurrence algorithm or new integer-partition sequence is asserted.",
+    "status": "PASS"
+  }
+}
