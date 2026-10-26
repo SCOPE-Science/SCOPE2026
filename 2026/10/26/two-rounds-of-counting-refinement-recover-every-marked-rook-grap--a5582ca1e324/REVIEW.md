@@ -1,0 +1,15 @@
+# Scientific review: two-round marked rook-graph refinement
+
+## Correctness — PASS
+The proof characterizes graph automorphisms of Cartesian products of two complete graphs and their pointwise-stabilizer orbits. Two marks on the same row or column yield a line recognizable from the first-round colour partition. Every other marked row and column becomes recognizable by the second round. In the disjoint-row-and-column case, marked-neighbour signatures classify square-board orbits immediately; the nonsquare orientation ambiguities have distinct counts of neighbours in identifiable first-round classes at round two. These arguments prove the all-dimensional result. The embedded Python check exhausts 70,480 mark subsets of six small rook graphs and tests 2,500 larger reproducibly sampled sets, comparing refinement, orbit descriptions, orbit counts and explicit small-board automorphisms. A sharp two-round example is checked.
+
+## Originality — PASS, qualified
+The directly inspected open-access work of Arvind, Köbler, Rattan and Verbitsky (2015), arXiv:1502.01255, establishes a Tinhofer property for the triangular graph family \(J(n,2)=L(K_n)\), but not the present rectangular rook graphs \(K_m\square K_n=L(K_{m,n})\), arbitrary pointwise marking, explicit two-round bound, or both exact class-count formulas. The open-access treatment by Bhattacharjee, Panse and Sarma (2026), arXiv:2605.19702, explains the general orbit/colour-refinement correspondence without the stated finite-family classification. Klavžar (2005) studies Hamming-graph subgraph recognition; Kersting et al. (2014) investigate computational colour-refinement algorithms. Their available abstracts, not their complete texts, were inspected. Targeted repository-index searches found work on rook graph homology and complete bipartite line-graph structure but no matching refinement theorem. Non-indexed and inaccessible specialist results may still subsume the claim; no publication-priority guarantee is given.
+
+## Mathematical value — PASS
+This natural rank-two Hamming family includes both rectangular and square rook boards, has a nontrivial direction-swap symmetry, and is commonly used to test refinement versus automorphism-orbit identification. The theorem proves orbit exactness for every arbitrary individualization, gives a uniform sharp two-round rate, and classifies every class count and class size by the marked row/column pattern. The matching square-board exceptional formula records the genuinely different stabilizer caused by the residual transpose symmetry. These are complete structural conclusions rather than small numerical increments.
+
+## Limitations
+The claim concerns ordinary 1-dimensional counting colour refinement with singleton colours for all marks; it does not cover general initial colourings or arbitrary graph products. Exhaustive finite checking alone is not an infinite proof. The independent scientific audit is outstanding and specialised publication-priority coverage is a residual uncertainty.
+
+Self-review: passed. Independent audit: not yet performed.
