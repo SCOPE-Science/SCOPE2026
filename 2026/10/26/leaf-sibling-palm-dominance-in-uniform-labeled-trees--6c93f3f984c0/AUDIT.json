@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Fixing a pair of sibling leaves with a named neighbor and deleting them is a bijection to all labeled trees on n-2 vertices. Its uniform Prüfer code gives every Palm factorial moment. The occupancy-count coupling has exactly derived kernels p_n(k)=(n-1-k)/n and q_n(k)=(n-3-k)/(n-2) with difference 2(k+1)/(n(n-2))>0, and the longer dominating chain has one extra step. The resulting strictly ordered leaf laws imply the covariance identity. The finite checker independently decoded 280388 actual labeled trees for n=4..8 and checked all Palm probabilities, stochastic tails, exact mixed moments, and kernel inequalities through n=500. Limits follow from explicit log expansions; no infinite claim depends on enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Erdős–Rényi, Asymmetric graphs, Theorem 6 and equations (5.1)–(5.3), derive cherry moments, not joint leaf totals.",
+        "Choi–Kaur–Wu (2021), Introduction and Section 2, binary PDA/YHK phylogenetic trees with prespecified leaf number, not unrestricted Cayley trees."
+      ],
+      "reasoning": "Existing stronger theorems about cherry frequency or multiple-cherry existence do not imply the entire leaf-count Palm distribution. Fixed-leaf phylogenetic models have a deterministic leaf count and cannot directly imply positive covariance for a random leaf count in the Cayley model.",
+      "searches": [
+        "uniform random tree count of sibling leaf pairs covariance number of leaves sharp constant (2-3/e)/(2e^2)",
+        "\"cherry\" \"leaf count\" \"stochastic\" \"Cayley\" tree",
+        "\"cherries\" \"number of leaves\" \"covariance\" \"random labelled trees\"",
+        "random Cayley tree cherry count leaf count covariance"
+      ]
+    },
+    "checked_sources": [
+      "Erdős and Rényi (1963), Asymmetric graphs, pp. 312–313: original PDF, Theorem 6, equations (5.1)–(5.3).",
+      "Junk, Schmidt and Weber (2020), Almost all trees have quantum symmetry, open HTML Sections 1, 3.",
+      "Choi, Kaur and Wu (2021), On asymptotic joint distributions of cherries and pitchforks..., open HTML Introduction and Section 2.",
+      "Seo and Shin (2005), arxiv:math/0601009 abstract (background only).",
+      "Previously accessible scientific finding descriptions on marked Cayley degree/leaf and recursive-tree sibling-leaf dependence, compared for distinct model/event."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Erdős–Rényi (1963), Eq. (5.1): same exact fixed-cherry event count as Step 1, hence that mean is not original.",
+        "Erdős–Rényi (1963), Theorem 6: probability of >=1 cherry tends to one; this does not constrain an entire leaf-count size-biased distribution.",
+        "Junk et al. (2020), Definition 3.1 imposes center degree three and examines >=2 cherries."
+      ],
+      "reasoning": "The first deletion count is contained in the original 1963 work, but the theorem requires jointly tracking all remaining leaves under conditioning. The nonstandard ingredient is the explicit occupancy comparison between two different alphabet/sample-size processes, yielding strict stochastic dominance and the exact covariance limit. No inspected theorem directly covers this stronger statement.",
+      "searches": [
+        "Uniform Cayley labeled trees number of leaves and number of cherry leaf-sibling pairs joint law conditional distribution size bias stochastic dominance",
+        "Cayley labeled tree leaf count under cherry count size biased Palm stochastic order complete conditional leaf distribution",
+        "uniform random tree count of sibling leaf pairs covariance number of leaves sharp constant (2-3/e)/(2e^2)",
+        "\"cherry\" \"leaf count\" \"stochastic\" \"Cayley\" tree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Erdős–Rényi (1963), pp. 312–313, event E(a,b,w) and cherry count, but no conditional leaf PGF.",
+        "Junk–Schmidt–Weber (2020), Section 3, different center-degree constraint; no Palm law."
+      ],
+      "reasoning": "An equivalent formulation would size-bias a uniform Cayley tree by the number of sibling-leaf pairs, condition on two specified sibling leaves, or give a joint (C,L) law. Inspected texts supply cherry marginals but do not state such a conditional distribution or first-order stochastic dominance.",
+      "searches": [
+        "Uniform Cayley labeled trees number of leaves and number of cherry leaf-sibling pairs joint law conditional distribution size bias stochastic dominance",
+        "Cayley labeled tree leaf count under cherry count size biased Palm stochastic order complete conditional leaf distribution",
+        "\"cherries\" \"number of leaves\" \"covariance\" \"random labelled trees\"",
+        "\"number of cherries\" \"number of leaves\" Cayley tree conditional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original 1963 cherry indicator count and leading mean are explicitly identified as prior facts.",
+        "The complete conditional occupancy polynomial and exact (C,L) covariance are not in the inspected original statistical tables/results."
+      ],
+      "reasoning": "A table of mean cherry numbers or marginal leaves does not determine a mixed covariance or Palm stochastic order; no exact matching table or database record was identified in accessible searched sources.",
+      "searches": [
+        "random Cayley tree cherry count leaf count covariance",
+        "\"number of cherries\" \"number of leaves\" Cayley tree conditional",
+        "uniform random tree count of sibling leaf pairs covariance number of leaves sharp constant (2-3/e)/(2e^2)"
+      ]
+    },
+    "rationale": "The 1963 original derives the probability of a prescribed cherry and its total count first and second moments, not the conditional law of all remaining leaves or their stochastic order. A 2020 strengthened cherry-existence result restricts center degree to three, while 2021 phylogenetic cherry-pitchfork laws use binary fixed-leaf models. The present unrestricted Cayley-tree C-size-biased leaf distribution is neither a verbatim restatement nor a corollary of those inspected theorems without new conditional Prüfer analysis and coupling. Historical priority remains uncertain for unindexed results.",
+    "residual_risks": [
+      "The 1963 paper already has the fixed-cherry probability; the new result is the *joint leaf count* Palm law and stochastic comparison, not the cherry count mean.",
+      "Unindexed older exact joint (cherries, leaves) results could reduce priority; inspected sources do not establish their absence.",
+      "The size-biased statement must not be mistaken for conditioning on at least one cherry or for degree-three-restricted cherries.",
+      "The recent phylogenetic literature covers different fixed-leaf binary models; further historical expert comparison could still find a reduction."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS fixed-cherry count and expected cherry number, NOT_COVERING leaf-count Palm PGF or dominance",
+        "evidence": [
+          "Page 312 defines two leaves on a common center as a cherry.",
+          "Page 313 equation (5.1) equals (n-2)^(n-4)/n^(n-2), which is reused and attributed.",
+          "Pages 312–313 conclude existence probability and cherry second-moment bounds, without an L statistic."
+        ],
+        "identifier_or_url": "https://static.renyi.hu/~p_erdos/1963-04.pdf",
+        "material_read": "Pages 312–313, definition, Theorem 6, and full proof formulas (5.1)–(5.3) including cherry indicator moments",
+        "method": "Original full PDF text plus visual inspection of pages 18 and 19 in one-based numbering",
+        "title": "Asymmetric graphs",
+        "trigger": "Foundational identical definition of cherry in a uniformly random Cayley tree"
+      },
+      {
+        "assessment": "NOT_COVERING: demands central degree three and studies multiple motif occurrence/symmetry, not leaf-count size bias",
+        "evidence": [
+          "Definition 3.1 has extra condition center degree three.",
+          "Section 3 notes that this differs from Erdős–Rényi original.",
+          "Theorem 3.10 establishes at least two cherries with probability tending to one."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00013-020-01476-x",
+        "material_read": "Open-access HTML Sections 1 and 3, Definitions 3.1, Lemmas 3.5 onward, main cherry theorem",
+        "method": "Full-text HTML read of relevant portions",
+        "title": "Almost all trees have quantum symmetry",
+        "trigger": "Highly relevant later cherry counting in uniform labeled trees"
+      },
+      {
+        "assessment": "NOT_COVERING: PDA/YHK binary phylogenetic models fix leaf number, unlike the variable leaf count in uniform labeled Cayley trees",
+        "evidence": [
+          "Introduction explicitly restricts cherry-pitchfork joint statistics to YHK/PDA.",
+          "Section 2 defines rooted binary phylogenetic trees and labels leaves as the fixed sampling size."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-021-01667-2",
+        "material_read": "Open-access HTML abstract, Introduction, and Section 2 defining the model",
+        "method": "Full-text HTML consulted for scope/model and reported theorem summaries",
+        "title": "On asymptotic joint distributions of cherries and pitchforks for random phylogenetic trees",
+        "trigger": "Possible stronger joint-statistic cherry law"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: proves a different enumeration identity for leaders and root degree, and does not mention cherry-Palm leaf counts in its abstract",
+        "evidence": [
+          "Version 1 dated December 31, 2005; describes an RP-code and leader-degree generating formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0601009",
+        "material_read": "Abstract and bibliographic metadata only",
+        "method": "Accessible arXiv record",
+        "title": "A Generalized Enumeration of Labeled Trees and Reverse Prüfer Algorithm",
+        "trigger": "Earlier dated labeled-tree encoding source and model background"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6c93f3f9-84c0-48d4-b04a-190ba1d0e355",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical cherry count is a local motif for automorphism abundance; total leaf count is a basic global structural statistic. Determining the entire leaf-count Palm distribution and its stochastic dominance, not just a motif mean, quantifies how sampling trees in proportion to their leaf-sibling symmetries biases shape. The sharp positive linear covariance constant (2-3/e)/(2e^2) is a nontrivial dependence scale not implied by either separate marginal mean.",
+    "status": "PASS"
+  }
+}
