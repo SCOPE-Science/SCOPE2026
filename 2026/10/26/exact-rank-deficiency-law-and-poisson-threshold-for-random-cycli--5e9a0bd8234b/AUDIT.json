@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "For every n≥2, r in [1,n−1], and q≥1, the reachable columns are coordinate vectors, so rank is the number of covered coordinates. Missing coordinate s is exactly the pair of extreme independent binomial events C_s=q and C_{s−r}=0 (probability 4^(−q)). Their joint-event conflict graph is g cycles of length n/g, including K2 for order-two offset; expanding the PGF gives the exact cycle independence polynomial. The independent-set count, quadratic recurrence, q=1 specialization, bounded-degree factorial-moment Poisson limit, and Var(X)≤EX high-mean bound have complete analytical proofs with stated quantifiers. A standalone, standard-library exact-rational enumerator reproduces the full rank-deficiency law in 74 distinct parameter cases and validates selected roots. Finite verification is not substituted for the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1805.00606 samples/weights actuators with performance approximation rather than independent equiprobable single-channel selections",
+        "arxiv:2407.12125v1 Algorithm 4 optionally preserves feasible rank and has a different law from unguided fair choices"
+      ],
+      "reasoning": "Neither rank-preserving deterministic design nor randomized weighted-approximation bounds imply an exact success probability for independent fair schedules, let alone \\(2^g\\) successes at shortest horizon or a \\(\\operatorname{Poisson}(n4^{-q})\\) window. Generic existence of a full-rank schedule does not imply uniform random success probability.",
+      "searches": [
+        "published-finding corpus: cyclic shift dynamics two input channels one per time surjective assignment partial permutation permanent schedule count at horizon n or n+1",
+        "published-finding corpus: gcd actuator separation count full rank scheduling repeated cycles cardinality 2^g",
+        "Siami–Olshevsky–Jadbabaie arxiv:1805.00606 randomized actuator performance guarantees",
+        "Ballotta–Joseph–Thete arxiv:2407.12125v1 feasible MCMC schedules"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2407.12125v1 (2024-07-16) and later revision",
+      "arxiv:2407.00385v1",
+      "arxiv:1805.00606",
+      "arxiv:2203.02321v2",
+      "published-finding corpus:2026/10/4/SCOPE-an-arithmetic-row-ordering-obstruction-for-sparse-binary-cyclic--28c824b86202",
+      "published-finding corpus:2026/10/11/SCOPE-a-parity-law-for-sparse-two-frame-observation-of-separated-symbo--c15848fbcc1a",
+      "published-finding corpus:2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e",
+      "published-finding corpus:2026/10/11/SCOPE-exact-arithmetic-rank-of-two-hole-cyclic-gabor-measurements--6aad25598ee0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2024 pointwise-sparse paper proves existence and algorithms for feasible rank, and its MCMC may reject rank-decreasing moves",
+        "2022 convex-relaxation paper derives finite-horizon Riccati/LQG cost and suboptimal scheduling, not the law of a uniformly random rank",
+        "The new proof requires exact residue-level binomial conflicts, the cycle independence polynomial, and Poisson factorial moments"
+      ],
+      "reasoning": "A guarantee that a schedule exists or can be constructed is strictly weaker than its exact probability under uniform independent choices. LQG cost comparison and weighted random actuator performance bounds provide no monotone implications to the stated all-parameter PGF, arithmetic minimal-horizon count, and growing-dimension Poisson threshold. The only directly reused elements are the standard reachability-column formula and classical polynomial/probabilistic methods.",
+      "searches": [
+        "arxiv:2407.12125v1 §§II–IV & Appendix I",
+        "arxiv:2407.00385v1 full HTML",
+        "arxiv:1805.00606 full preprint",
+        "arxiv:2203.02321v2 full preprint"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Motivating paper defines scheduled reachability columns but analyzes rank-constrained selection, not uniform binary choices",
+        "The exact deficiency distribution equals the independence polynomial of \\(g\\) cycles with activity \\(4^{-q}(z-1)\\); the classical independence polynomial alone does not express its actuator-scheduling realization"
+      ],
+      "reasoning": "Aliases checked include cyclic permutation reachability, independent binary pointwise-sparse schedules, random two-column controllability, cyclic occupancy, coverage failures, and cycle hard-core/independence polynomials. The combinatorial cycle enumeration is classical and not claimed as independently novel. No retrieved mathematical statement applies that classical polynomial to this full scheduling-rank distribution and its universal random-horizon limit.",
+      "searches": [
+        "published-finding corpus: pointwise sparse actuator scheduling cyclic permutation dynamics two adjacent coordinate actuators count full rank schedules gcd controllability minimum horizon",
+        "published-finding corpus: exact probability uniformly random pointwise one-sparse actuator schedule controllability cyclic shift P_n two coordinate actuators as function repeated horizon qn independence polynomial",
+        "published-finding corpus: random single-actuator scheduling exact controllability probability cyclic permutation two columns B=[e0,er] q cycles independence polynomial of cycle 4^-q rank deficiency Poisson threshold logarithmic horizon",
+        "arxiv full text 2407.12125v1;2203.02321v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest related record 2026/10/4/SCOPE-an-arithmetic-row-ordering-obstruction-for-sparse-binary-cyclic--28c824b86202 concerns row-order numerical power proxy, not a reachability distribution",
+        "published-finding corpus record 2026/10/11/SCOPE-a-parity-law-for-sparse-two-frame-observation-of-separated-symbo--c15848fbcc1a concerns symbolic sensor observation, not scheduled linear control",
+        "published-finding corpus record 2026/10/4/SCOPE-two-defect-reachability-in-cyclic-defect-one-automata--3d0ad329ab1e concerns finite automaton rank compression, not real-linear controllability"
+      ],
+      "reasoning": "Searches of published mathematical records for the exact \\(2^g\\) minimal-horizon count, cycle independence polynomial rank PGF and logarithmic Poisson rank law retrieved no exact table or theorem with the same statement. This search is not an exhaustive novelty certificate.",
+      "searches": [
+        "published-finding corpus: Ballotta Joseph Thete 2407.12125 rotational cyclic system sparse actuator schedule exact combinatorial enumeration",
+        "published-finding corpus: full rank cyclic shift random control schedules gcd offset 2^g count at n time steps",
+        "published-finding corpus: Poisson limiting distribution uncontrollable coordinates periodically sampled cyclic permutation two-actuator discrete-time finite reachability",
+        "Published mathematical research records queried for exact cyclic actuator scheduling counts and occupancy law"
+      ]
+    },
+    "rationale": "Comparisons were made by mathematical implication, including the direct source defining pointwise-sparse scheduled reachability, randomized performance sampling, rank-conditioned MCMC, the one-actuator LQG scheduling relaxation, and related cyclic rank records. None of the inspected statements specifies the independent equiprobable two-channel cyclic shift rank PGF, exact 2^g minimal-horizon schedule count, or offset-uniform Poisson transition. The cycle independence polynomial and Poisson factorial-moment method are established classical tools, not asserted new. Remaining possibility of an equivalent cyclic occupancy formulation outside inspected literature is acknowledged. The published-finding corpus retrieval is semantic, finite and not an exhaustive proof of novelty.",
+    "residual_risks": [
+      "An equivalent exact binomial cycle-cover or coupon-coverage result may appear under combinatorial rather than actuator-scheduling terminology in unexamined literature.",
+      "Semantic published-results retrieval and the selected primary full texts do not constitute an exhaustive novelty proof.",
+      "The result does not compare rank-preserving randomized optimization or weighted/specialized actuator selection."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the reachable-column matrix and gives rank-safe design algorithms; does not state the two-actuator cyclic fair-sampling rank generating polynomial, minimal-horizon count or Poisson full-rank threshold",
+        "evidence": [
+          "arxiv:2407.12125v1 §§II–IV, Algorithm 4 and Appendix I",
+          "https://arxiv.org/abs/2407.12125"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.12125v1",
+        "material_read": "Definition of sparse reachability matrix and objective, Theorems/Lemmas on feasible schedules, greedy algorithm, MCMC rank-check pseudocode, numerical experiments and appendices of accessible v1; later revision also checked",
+        "method": "Opened searchable arXiv PDF and inspected mathematical text and relevant rendered pages",
+        "title": "Pointwise-Sparse Actuator Scheduling for Linear Systems with Controllability Guarantee (v1 and later revision)",
+        "trigger": "Direct motivating primary-source definition of pointwise-sparse schedules, rank guarantee, and random alternatives"
+      },
+      {
+        "assessment": "Algorithmic sparse schedule design and comparisons; no law of the rank of independent uniform schedules on cyclic shifts",
+        "evidence": [
+          "arxiv:2407.00385v1",
+          "https://arxiv.org/abs/2407.00385"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.00385",
+        "material_read": "Accessible arXiv full HTML introduction, discrete-time model, optimization methods, guarantees and conclusions",
+        "method": "Read lawful open-access arXiv full text in HTML form",
+        "title": "Sparse Actuator Scheduling for Discrete-Time Linear Dynamical Systems",
+        "trigger": "Contemporary one-step sparse actuator schedule design and control guarantee"
+      },
+      {
+        "assessment": "Randomized performance approximation samples an actuator-time collection using leverage/weights and bounds controllability metrics; does not imply the full rank-deficiency law for independent fair binary cyclic schedules",
+        "evidence": [
+          "arxiv:1805.00606",
+          "https://arxiv.org/abs/1805.00606"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1805.00606",
+        "material_read": "Accessible open preprint model, randomized scheduling theorem, discussion of weighting/sampling and proof sections",
+        "method": "Read arXiv PDF text and inspected rendered pages",
+        "title": "Deterministic and Randomized Actuator Scheduling with Guaranteed Performance Bounds",
+        "trigger": "Earlier randomized actuator selection with controllability-performance guarantees"
+      },
+      {
+        "assessment": "Optimizes stochastic LQG finite-horizon cost, using a random-selection baseline; no exact cyclic permutation reachability rank distribution or offset-uniform Poisson transition follows from its statements",
+        "evidence": [
+          "arxiv:2203.02321v2, §§II–VI",
+          "https://arxiv.org/abs/2203.02321"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2203.02321",
+        "material_read": "All sections of accessible 8-page arXiv PDF: model, convex SDP relaxation, reference tracking algorithm, suboptimality bounds, simulation and conclusions",
+        "method": "Searched readable full PDF and inspected a rendered central algorithm page",
+        "title": "Actuator Scheduling for Linear Systems: A Convex Relaxation Approach",
+        "trigger": "Exactly-one-actuator-per-time literature and random comparator"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e9a0bd8-234b-42f3-8425-6741eca3134d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2024 pointwise-sparse control paper treats rank loss as a central feasibility hazard and motivates guaranteed algorithms, but gives no exact estimate for unguided sampling. The exact all-parameter deficiency distribution quantifies that hazard, showing exponentially small success at the shortest feasible horizon for coprime offsets and a sharp logarithmic-repetition Poisson recovery transition. The gcd dependence separates arithmetic geometry of actuator placement from the asymptotic onset; the result is a natural, motivated benchmark for independently sampled actuator schedules, not an arbitrary finite slice. The theorem is deliberately restricted to two channels, cyclic shifts and uniform independent choices, so no claimed significance for rank-aware MCMC performance.",
+    "status": "PASS"
+  }
+}
