@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof derives \(f(0)\leq f(a)\) and monotonicity directly from the quasi-identity. Substituting \((a\vee b,a,b)\) proves the join-preservation inequality in the nontrivial direction; monotonicity gives the reverse. The converse follows by decomposing two Boolean elements into common and symmetric-difference parts. The coordinatewise OR-or-constant-one normal form is unique and proves the finite enumeration and prescribed-bottom counts. The explicit three-set instance independently refutes satisfaction of the quasi-identity by the motivating example. The standalone checker corroborates the identities exhaustively on powersets of at most two atoms and the normal-form enumeration through three atoms. It is not relied on for the infinite proof.
+
+## Originality — PASS within inspected evidence
+The 2026 primary source presents the exact quasi-identity as strictly weaker than additivity and offers a map that the displayed triple shows fails it. Standard Boolean-with-operators literature defines additivity, but does not by itself establish that this specific alleged weakening collapses. The closest published published-finding corpus finding concerns the least Boolean carrier where CEP fails and an exact CEP census; its full RESULT.md was inspected and it does not classify the source's quasi-identity. Keyword/implication searches of accessible own claims and targeted mathematical-result searches did not identify prior exact coverage. A separate earlier paper on varieties without CEP studies the wider CEP property; only its accessible abstract and bibliographic evidence were checked. The possibility of unlocated algebraic restatements remains a priority risk.
+
+## Value — PASS
+This is a structural diagnosis of a sufficient condition actively used to motivate the separation between additivity and deduction-theorem behavior. Instead of merely finding one failing substitution, it proves a universal equivalence on arbitrary Boolean algebras and a complete finite enumeration. It sharply distinguishes the rigid sufficient condition from the much broader CEP phenomenon, avoiding a false inference that nonadditive CEP examples are impossible. The result is useful for identifying which nonadditive constructions truly require different sufficient principles, and for finite Boolean-frame benchmarking.
+
+## Limitations and relationship to literature
+The correction affects the claim that the displayed quasi-identity is a strict weakening, including its stated example, but does not evaluate the paper's unrelated constructions. The finite counts concern the quasi-identity, not all CEP operators. A published CEP carrier threshold gives related context but not a stronger theorem implying the new assertion. General join-additivity facts are prior art; the contribution is the exact implication in this context, its witness, and the finite family classification. Complete priority and independent validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
