@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Hub degree 2t forces at least t paths. Equality forces every path to use two spokes; same-cycle spoke pairing is impossible by internal path coverage and simplicity. Forbidden-pair perfect matchings and a single cut vertex on each hub-deleted path give a reversible bijection. Inclusion-exclusion counts the matchings. Nine unrestricted brute-force edge-partition checks agree with the exact formula; experiments are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2306.06487 Introduction, degree lower bound and Figure 1",
+        "arXiv:2211.07159 Theorem 1 for all connected 2-degenerate graphs"
+      ],
+      "reasoning": "Both primary works discuss existence bounds in strictly wider graph families. An upper bound on path number or a lower bound from degree does not classify or enumerate the minimum edge partitions; general odd-cover comparisons do not entail the bijection.",
+      "searches": [
+        "Path odd-cover numbers and optimal path decomposition counts for bouquets of cycles with one shared hub, maximum degree lower bound tight",
+        "Gallai path decomposition cactus graphs enumeration minimal decompositions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.06487",
+      "arXiv:2211.07159",
+      "published-finding corpus published mathematical records on Gallai path partitions and path odd-covers",
+      "accessible current-week own ledger through g000057",
+      "accessible prior-week own-claims retrieval for cycle bouquets and path partition"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2306.06487 §§1–2: p2 and p distinguished and degree lower bound",
+        "arXiv:2211.07159 Theorem 1: only a general upper bound on number of paths",
+        "own prior 422ed186-b6a2-454e-ab82-fbcd60ab3fde: exact odd BICLIQUE cover of cycle bouquets"
+      ],
+      "reasoning": "The new enumeration counts all minimum ordinary path edge partitions, not just their number of members. The rank/parity exact odd-biclique-cover formula from own history is a different invariant and neither counts nor constrains these path decompositions. Previously known general path-count bounds alone do not imply the enumerative bijection.",
+      "searches": [
+        "Path Odd-Covers of Graphs arXiv:2306.06487 cycle bouquet friendship enumeration",
+        "Gallai Path Decomposition for 2-degenerate Graphs arXiv:2211.07159 exact number of minimum decompositions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2306.06487 §1 (ordinary path partition p versus odd-cover p_2)",
+        "arXiv:2211.07159 Theorem 1"
+      ],
+      "reasoning": "Compared Gallai path-number and path-decomposition aliases, friendship and windmill specializations, and exact enumerative minimum-certificate claims; neither inspected primary work determines the full matching-plus-cut bijection or its count.",
+      "searches": [
+        "Minimum path decomposition of friendship graph windmill graph into edge-disjoint simple paths count number of decompositions, matching derangements",
+        "Gallai path decomposition enumeration generalized friendship windmill graphs t cycles meeting central vertex exact number of minimum path families"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exhaustive original-definition checks for nine parameter tuples in verify_path_partitions.py",
+        "published-finding corpus nearest path-free-family record 2026/9/17/SCOPE-cover-free-path-cycle-wheel-exact-values--d0cab96518f2"
+      ],
+      "reasoning": "The nearest retrieved tables concern graph cover-free families, a different invariant. No exact minimum-path-decomposition table was found for the same graph family; finite examples verify the formula but are not evidence of novelty.",
+      "searches": [
+        "Optimal edge-disjoint simple-path decomposition of cycle bouquet one-point union of cycles, enumerate all minimal path partitions by spoke perfect matchings forbidden same-cycle pair, product (length-1)",
+        "cycle bouquet decomposition t paths counting matching forbidden spokes"
+      ]
+    },
+    "rationale": "Published primary general path-decomposition and path-odd-cover theorems imply only bounds on how many paths are needed. The claim determines a different, stronger combinatorial object: the full family and exact cardinality of all minimum ordinary edge partitions. Actual published-finding corpus, accessible own-ledger, and primary-source comparisons did not reveal its enumeration; residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "An equivalent exact formula may occur in unindexed graph-path-enumeration literature, including general circuit-partition work.",
+      "Generalized cactus decompositions and nonedge-canceling path odd-covers are not covered.",
+      "Finite brute force does not prove the infinite bijection; the proof is required."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Distinguishes odd-covers and ordinary edge partitions and gives general bounds; no matching-and-cut enumeration for bouquets located",
+        "evidence": [
+          "arXiv:2306.06487 pp.1–4; definition on p.2; no occurrences friendship, windmill, bouquet"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.06487",
+        "material_read": "Full preprint parsed, including Introduction, page 2 definition of p versus p2, §1.1 and lower-bound discussion, and searches of body for friendship/windmill/bouquet/enumeration",
+        "method": "Full PDF text inspection and direct search of key aliases",
+        "title": "Path Odd-Covers of Graphs",
+        "trigger": "Same family of covering invariants, possibility that an odd-cover theorem implies the path census"
+      },
+      {
+        "assessment": "Upper bound for 2-degenerate graphs does not give the exact number or classification of minimum decompositions",
+        "evidence": [
+          "arXiv:2211.07159, pp.1–4, Theorem 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2211.07159",
+        "material_read": "Full article text including Introduction, main Theorem 1, and its proof context",
+        "method": "Primary PDF text with direct theorem inspection",
+        "title": "Gallai's Path Decomposition for 2-degenerate Graphs",
+        "trigger": "All cycle bouquets are 2-degenerate; broader published theorem might dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5223dd02-95b3-41bc-95bc-7c2c0b5818f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact count concerns a natural optimal-certificate family for Gallai path decomposition, on all cycle bouquets, a canonical class of Eulerian cactus graphs. The matching-with-forbidden-pairs and freely variable cuts give a structural interpretation, all-size parameters, and nontrivial multiplicities (e.g. 8,64,96), rather than a routine restatement of the degree bound. The enumeration distinguishes path partitions from the strictly larger collection of optimal odd-covers.",
+    "status": "PASS"
+  }
+}
