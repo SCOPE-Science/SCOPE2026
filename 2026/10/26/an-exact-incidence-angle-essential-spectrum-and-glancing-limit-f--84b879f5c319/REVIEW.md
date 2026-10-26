@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The exact Bergman reproducing kernel is converted to a positive weighted integral kernel on the chord. Separate boundary endpoints have Hilbert--Schmidt cross terms. At either transverse endpoint, the full kernel differs by a Hilbert--Schmidt term from the homogeneous complex-angle kernel. The logarithmic change of variables and a contour-shifted beta Fourier integral yield a positive, decaying gamma multiplier. Its entire range is essential by translated long-packet Weyl sequences, and the Calkin identity transfers the result to the chord trace. Stirling's formula with a moving maximizer gives the positive grazing limit. Explicit normalization and limits were numerically sanity-checked, not substituted for proof.
+
+**Originality — PASS under inspected evidence.** Halder--Kumar's 2026 convex-curve and Frazer trace bounds do not imply a sharp Fredholm essential spectrum. Ma--Lu--Zu's weighted Hankel spectral model supplies related prior Mellin theory but no complex incidence-phase chord model or glancing limit. Classical Hilbert-matrix spectral theorems and the previously treated centered-diameter case are credited, not claimed. Research-record comparisons of incidence-angle, chord, essential spectrum, and gamma multiplier found no covering theorem. Residual risk: an unindexed generalized Carleson spectral limit-operator theorem may imply the formula; independent historical assessment is needed.
+
+**Value — PASS.** A complete angle-indexed essential-spectrum theorem for natural weighted Bergman chord restrictions quantitatively resolves the dependence on the geometry of a convex curve. The finite nonzero limit as chord length tends to zero is a structurally significant boundary-concentration phenomenon; the exact gamma variational profile makes it reproducible without spectral discretization.
+
+Self-review: passed. Independent audit: not yet performed.
