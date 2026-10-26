@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Full proof from the source mean-field ODE: exact density/polarization Bloch blocks, negative trace, determinant proportional to h times an affine function of h=1−cos k, strict positivity for low densities, and reduction to the shortest allowed Fourier mode otherwise. The quadratic activity threshold and the sharp L≥5 condition follow algebraically; strict concavity in density yields the global zero-diffusion activity optimizer; analytic implicit differentiation yields the positive L^{-2} shift. The standalone script passed 318 deterministic symbolic/numerical assertion groups including independently differentiated full spatial Jacobians. This proves only linear mean-field statements, not nonlinear/stochastic transitions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kourbane-Houssene et al. derive a hydrodynamic description for active lattice gases. Mason et al. use hydrodynamic/integro-differential limits for an active exclusion process. Neville gives continuum density/polarization spectral rates and long-wave criticality. The 2026 source itself supplies the full lattice Bloch matrix but says finite lattice stability is treated numerically."
+      ],
+      "reasoning": "A general continuum spinodal is not a finite lattice spectral classification. A general spectral matrix is stronger algorithmic input, but does not itself state or prove the nontrivial exact all-k inequality and five-site minimization result. Possible broader general spectral classification is a residual risk.",
+      "searches": [
+        "\"Exact hydrodynamics and onset of phase separation for an active exclusion process\" periodic domain finite size criterion",
+        "arXiv:1801.08952",
+        "arXiv:2307.11673",
+        "https://doi.org/10.1088/1742-5468/adbefe"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.07823v1 (relevant HTML Sections II–III.2 and supplement headings)",
+      "arXiv:1801.08952 (abstract only)",
+      "arXiv:2307.11673 (abstract and repository records only)",
+      "Neville 2025 DOI 10.1088/1742-5468/adbefe (indexed equation extracts)",
+      "Scientific literature searches for active lattice gas finite-size spinodal and short periodic rings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original paper explicitly computes the coefficient of the k² term at k≈0 and notes finite-size numerical analysis. It does not in examined material determine the exact smallest unstable discrete wave number for arbitrary L or the global optimal activity. The new determinant calculation yields an affine function of 1−cos k and proves shortest-mode dominance."
+      ],
+      "reasoning": "The infinite-system k² coefficient predicts the infinite-volume threshold and is a limit of the present formulas, not a dominating finite-volume claim. Although the exact published 2×2 Bloch matrix makes the classification derivable by algebra, it lacks the global sign reduction and associated finite-size theorem. The new conclusion is a motivated complete finite-ring classification rather than mere replacement of constants.",
+      "searches": [
+        "One-dimensional active exclusion finite-wavelength instability versus hydrodynamic spinodal, density threshold 1/(1+cos(2pi/L))",
+        "2026 Hawthorne Woellner Freire arXiv 2606.07823 finite ring motility-induced phase separation exact spectrum finite length threshold",
+        "arXiv:2606.07823v1, equations (3), (12), (19)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source 2026 Bloch matrix determines linear stability mode-by-mode but does not report the finite all-mode sign equivalence. The current proof explicitly shows the first mode dominates because the determinant quotient increases with 1−cos k."
+      ],
+      "reasoning": "Equivalent variables are density/polarization versus the two orientation probabilities; the two are related by an invertible linear transform. The source long-wave spinodal is not an equivalent exact finite-volume threshold: all discrete nonzero k must be considered, and none exists below 2π/L.",
+      "searches": [
+        "One-dimensional active exclusion finite-wavelength instability versus hydrodynamic spinodal, density threshold 1/(1+cos(2pi/L))",
+        "\"active lattice gas\" \"linear stability\" \"finite ring\" exact",
+        "arXiv:2606.07823v1, equation (12)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching explicit table of exact ring-size thresholds or minimal five-site instability was located in the retrieved scientific records. The originating paper tabulates long-wave lattice geometry coefficients, not finite-ring minimal site numbers."
+      ],
+      "reasoning": "The new threshold concerns every integer L≥3, not a recomputation of an existing finite-value table. A negative search does not establish uniqueness, and limited access to some supplementary and historical materials is recorded.",
+      "searches": [
+        "Periodic one-dimensional mean-field active lattice gas with hard-core exclusion and two opposite orientations: exact finite Fourier-mode Jacobian, determinant linear in one minus cosine, sharp stability threshold versus ring size, minimum five lattice sites",
+        "2026 Hawthorne Woellner Freire arXiv 2606.07823 finite ring motility-induced phase separation exact spectrum finite length threshold",
+        "\"motility-induced phase separation\" \"small system\" \"five\" sites",
+        "\"Exact mean-field phase diagram\" \"finite lattice systems\" \"numerically\""
+      ]
+    },
+    "rationale": "The 2026 source states the exact general Bloch matrix and infinite-volume spinodal, so those are not claimed. Its Section III.2 describes finite-lattice mode stability numerically. The newly classified proposition controls *every discrete Fourier mode* analytically, gives the sharp minimum ring size five and the exact finite-size optimal activity/density and leading correction; deriving those statements requires a density/polarization reduction and a monotone affine determinant quotient rather than plugging a numerical wavenumber into the source spinodal. Actual prior-work searches below did not identify a statement implying this full classification. General finite-ring diagonalization and unread portions of earlier work remain priority risks, not proof of uniqueness.",
+    "residual_risks": [
+      "The complete supplementary text of arXiv:2606.07823v1 was not accessible for material inspection; its finite-size discussion could contain an unstated equivalent or special classification.",
+      "Some relevant older active-exclusion articles were accessible only as abstracts or equation excerpts; full-text priority comparison remains incomplete.",
+      "A more general finite-mode lattice-gas spectral theorem may imply the result after parameter specialization; independent priority assessment is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source supplies the matrix and an infinite-volume small-wave-number spinodal; it says that finite-system stability requires numerical mode analysis. The all-L criterion, minimum L=5, global density optimizer, and inverse-square finite-size shift are not stated in the examined body. The source matrix is an essential antecedent and may make the new result accessible by additional algebra.",
+        "evidence": [
+          "Eq. (3) mean-field flow",
+          "Eq. (12) Bloch eigenproblem",
+          "Eq. (19) infinite-system spinodal",
+          "Section III.2 finite-lattice paragraph explicitly using numerical stability analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.07823v1",
+        "material_read": "Accessible HTML: model definition and equation (3), one-dimensional specialization, linearization equations (6)–(12), spectral discussion, equation (19), Table 1, and the finite-system paragraph in Section III.2. Table of contents and supplement headings were examined; the remaining supplement was not fully available.",
+        "method": "Direct scientific comparison of the stated source matrix and the new all-wave-number determinant criterion.",
+        "title": "Exact mean-field phase diagram for self-avoiding active particles in a lattice",
+        "trigger": "Same mean-field model and exact finite-dimensional Bloch generator."
+      },
+      {
+        "assessment": "The inspected hydrodynamic result concerns a continuum limit and critical long waves, not an exact finite-ring lattice-size cutoff for the current source flow.",
+        "evidence": [
+          "Equations (24)–(27) and associated continuum-scaling text as available from indexed article"
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/1742-5468/adbefe",
+        "material_read": "Accessible article excerpt showing continuum hydrodynamic equations (24), modal rates (26), and critical-wave-number asymptotics (27), plus text explaining the vanishing-lattice-spacing limit.",
+        "method": "Compared continuum PDE spectral branches with the discrete ring Bloch determinant and finite-site criterion.",
+        "title": "Hydrodynamic equations and near critical large deviations of active lattice gases",
+        "trigger": "Same density-polarization mechanism, possible broader long-wave instability analysis."
+      },
+      {
+        "assessment": "Earlier macroscopic hydrodynamics precedent. Limited material read; possible extensions in full text remain a residual priority risk.",
+        "evidence": [
+          "2018 publication abstract describing two active lattice gases and hydrodynamic PDEs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.08952",
+        "material_read": "ArXiv abstract and Physical Review Letters bibliographic/abstract information only.",
+        "method": "Checked subject/model/scope; no whole-document noncoverage inference.",
+        "title": "Exact Hydrodynamic Description of Active Lattice Gases",
+        "trigger": "Earlier rigorous hydrodynamic theory for active lattice gases."
+      },
+      {
+        "assessment": "Important earlier work on active exclusion, not evidence of an explicit identical finite ring formula from the limited material inspected. Residual coverage uncertainty acknowledged.",
+        "evidence": [
+          "2023 arXiv abstract and university repository publication record"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.11673",
+        "material_read": "ArXiv abstract and Cambridge/Oxford repository summary and bibliographic entries; no complete full text.",
+        "method": "Compared stated hydrodynamic model and continuum stability remit with the new periodic finite mean-field lattice formula.",
+        "title": "Exact hydrodynamics and onset of phase separation for an active exclusion process",
+        "trigger": "A mathematically developed earlier active exclusion model with phase-separation instability."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "aa831385-c7f6-482d-98cd-dfa57be6a438",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The originating finite-size question is physically motivated by numerical finite-domain mean-field stability calculations; the source has only an infinite-volume analytic spinodal and calls for numerical mode assessment at finite size. The exact finding supplies a sharp minimum ring size (five) independent of rates, an exact density/activity domain, and an explicit finite-size correction with positive coefficient. It is a natural complete classification of permitted linear instability in the self-review, not an arbitrary numerical slice or normalization change; useful when interpreting small periodic simulation cells. Actual finite-particle phase separation is not asserted.",
+    "status": "PASS"
+  }
+}
