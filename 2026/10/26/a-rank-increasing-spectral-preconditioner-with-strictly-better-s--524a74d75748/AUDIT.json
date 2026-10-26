@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "For all r>1 the two error norms follow from exact rank-one projectors. The surrogate singular values give the precise spectral scaling operators P1 and P2. The B^T B invariants are T=(r²+3)/2 and D=2r²/(r²+1); 1-T+D=-(r²-1)²/(2(r²+1))<0 ensures the singular values straddle 1. The exact identity T²-D(r+1/r)²=(r²-1)²/4>0 proves strict worsening, and the asymptotics follow from the quadratic formula. Reconstructed calculations and packaged checker were executed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kahl–Rittich [2] studies symmetric deflated CG with approximate invariant subspaces and a small-angle bound.",
+        "The Huh–Cartis–Nakatsukasa estimate requires approximation hypotheses absent at μ=0 in the constructed family."
+      ],
+      "reasoning": "Neither conditional small-error/small-angle theorem dominates a fixed-45-degree angle with target levels varying and strict surrogate-error improvement. Source [1] notes qualitative overpreconditioning risk, not this exact separation.",
+      "searches": [
+        "Rank-adaptive CUR preconditioning nonmonotone condition number increasing rank singular vector",
+        "arXiv:1209.1963 approximate deflation condition number theorem 4.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.05065v1",
+      "https://arxiv.org/abs/1209.1963",
+      "published-finding corpus semantic record searches using six actual query formulations",
+      "Accessible same-slot weekly ledgers 2026-10_week2 p0001 g000130 and 2026-10_week3 p0001 g000026 (source and recoverable claims for deduplication)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's spectral formula and warning about rank selection are prior; their stated condition-number guarantee uses assumptions not met by this μ=0 family.",
+        "Approximate-deflation CG bounds involve a distinct singular projector and do not force rank-monotonic spectral right-preconditioner conditioning."
+      ],
+      "reasoning": "A rank-dependent bound does not yield this strict quantified counterexample; the construction supplies the nontrivial counterexample and unbounded penalty. Broad qualitative caution in source [1] is acknowledged.",
+      "searches": [
+        "arXiv:2604.05065 §4.1, §7.2 and Appendix A",
+        "Sharp convergence counterexamples optimal step size recent 2026 numerical linear algebra Krylov stochastic preconditioner",
+        "arXiv:1209.1963 Theorem 4.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Paper [1] gives the spectral P formula for rank-ℓ surrogate; this theorem inserts nested right projections and derives a quantified strict rank worsening.",
+        "published-finding corpus's SOAP spectral-basis record studies an adaptive update rather than this spectral right preconditioner."
+      ],
+      "reasoning": "Reformulations as right-preconditioned singular values, Gram matrix extremal roots and generalized whitening are addressed by the invariant T,D comparison. Checked sources do not establish this quantitative phenomenon.",
+      "searches": [
+        "Low rank singular vector spectral preconditioner rank increase worsens condition number despite better approximation arbitrarily 2026",
+        "Inexact low-rank approximate SVD preconditioner condition number worse than unpreconditioned unbounded",
+        "arXiv:2604.05065v1 §3.1 equation 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned ACA pivot-history error and SOAP stale-basis singular-value examples, but no table of spectral Pℓ condition numbers for these matrices."
+      ],
+      "reasoning": "No exact database row with the present matrix, rank pair and κ2 formula was identified; no negative database search is treated as proof of uniqueness.",
+      "searches": [
+        "Low rank singular vector spectral preconditioner rank increase worsens condition number despite better approximation arbitrarily 2026",
+        "Inexact low-rank approximate SVD preconditioner condition number worse than unpreconditioned unbounded",
+        "Rank-adaptive CUR preconditioning nonmonotone condition number increasing rank singular vector"
+      ]
+    },
+    "rationale": "Against the inspected motivating primary full text and relevant earlier deflation analysis, the specified nested-surrogate error-decrease/condition-number-increase identity and unbounded quantitative ratio are not stated or entailed by the cited conditional bounds. Actual published-finding corpus searches returned related but noncovering records. Historical literature equivalence risk remains and is explicitly bounded; no claim of exhaustive uniqueness is made.",
+    "residual_risks": [
+      "Nested right-projection surrogates are not proven possible outputs of the motivating algorithm's CUR sampling; claims are limited to the general spectral formula.",
+      "Some historical spectral preconditioning literature might have an equivalent exact counterexample not found through the reported searches.",
+      "Ill-conditioning does not prove slow LSQR for any particular right-hand side or finite-precision outcome."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Formula is source prior work; the strict error-improvement versus κ-worsening exact family is not presented; paper's guarantees are inapplicable without their error assumptions.",
+        "evidence": [
+          "arXiv:2604.05065v1 equation (3.2)",
+          "arXiv:2604.05065v1 sections 4.1 and 7.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.05065v1",
+        "material_read": "Full-text HTML: §3.1 (rank-ℓ formula and CUR restriction), §4.1 (preconditioned singular-value conditions), §7.2 (overpreconditioning), Appendix A (proof of bounds).",
+        "method": "Read arXiv HTML sections and compared displayed equations, assumptions and consequences with the constructed matrices.",
+        "title": "Adaptive LSQR Preconditioning from One Small Sketch",
+        "trigger": "Exact spectral preconditioner formula and paper's rank-selection discussion"
+      },
+      {
+        "assessment": "Distinct deflation framework with conditional small-angle controls; does not yield the exact nested rank-reversal characterization.",
+        "evidence": [
+          "arXiv:1209.1963, approximate-eigenspace deflation analysis"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.1963",
+        "material_read": "Abstract/introduction and relevant theorem and proof statements on approximate invariant subspaces and effective condition number.",
+        "method": "Read freely available arXiv text and checked relation of their singular deflation operator to right spectral scaling.",
+        "title": "Analysis of the Deflated Conjugate Gradient Method Based on Symmetric Multigrid Theory",
+        "trigger": "Possible covering condition-number analysis for inaccurate eigenspaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "524a74d7-5748-413d-a698-d9d18d3efb78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is motivated by adaptive low-rank preconditioner rank selection: better low-rank approximations are often expected to make preconditioning safer. The theorem separates spectral and Frobenius surrogate accuracy from actual right-preconditioned conditioning with explicit natural singular-level targets, giving a strict all-r>1 reversal and an unbounded worst-case penalty. This is a substantive warning for rank-selection policies rather than a routine numerical example.",
+    "status": "PASS"
+  }
+}
