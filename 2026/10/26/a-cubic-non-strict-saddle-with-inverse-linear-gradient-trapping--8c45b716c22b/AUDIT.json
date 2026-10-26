@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "Direct differentiation gives the critical point and Hessian spectrum \\(\\{0,4,4\\}\\). The exact diagonal factorization gives the cubic energy term and the recurrence \\(\\delta_{k+1}=\\delta_k-12\\eta a^3\\delta_k^2+O(\\delta_k^3)\\); reciprocal increments prove the limit. The proof explicitly restricts the asymptotic to the invariant diagonal.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper classifies non-scalar critical point types and gives the corresponding parameter equality, while noting that the fully scalar case is separate; it does not state the cubic expansion coefficient or reciprocal-increment asymptotic in the inspected sections.",
+        "A related block-nuclear regularization result concerns quadratic neural-network regularization rather than this scalar regularized deep matrix-factorization trajectory."
+      ],
+      "reasoning": "The existing critical-point classification is broader for static landscape type but does not supply the discrete-time asymptotic coefficient. The result here is narrower in model and trajectory, and is not presented as a generalization of the classification theorem.",
+      "searches": [
+        "\"regularized deep matrix factorization critical points local minimizers strict saddles depth and rank exact landscape\"",
+        "\"deep linear neural network squared Frobenius regularization balanced factorization critical points Hessian non-strict saddles\"",
+        "Primary source full text: arXiv:2506.20344, Theorem 2.2 and Corollary 2.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2506.20344 full PDF",
+      "The primary source’s cited landscape literature, as identified in its introduction"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source gives the threshold equality and non-strict-saddle classification in the non-scalar setting, and notes that the fully scalar case can be handled separately. It does not state the exact invariant-diagonal recurrence asymptotic or its coefficient.",
+        "The direct factorization identity and reciprocal-increment argument in RESULT.md prove the exact coefficient independently."
+      ],
+      "reasoning": "Prior work covers the threshold and qualitative possibility of convergence to non-strict saddles. It does not state, in the inspected full text, the precise limit \\(\\lim_{k\\to\\infty}k(x_k-a)=1/(12\\eta a^3)\\). The accepted claim is limited to that explicit scalar trajectory law.",
+      "searches": [
+        "Primary source full text: arXiv:2506.20344, especially PDF lines 365–428 and the displayed threshold at lines 370–415",
+        "\"arXiv 2506.20344 regularized deep matrix factorization critical points equivalent formulations prior implication\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen–Jiang–Wang, arXiv:2506.20344, states the regularized objective at PDF lines 23–40, says the fully scalar case can be handled separately at lines 197–201, and gives the non-strict-saddle threshold and classification at lines 365–428."
+      ],
+      "reasoning": "Equivalent descriptions of the objective as regularized deep linear factorization do not alter the claim. The threshold and existence of the non-strict saddle are prior-covered; the new claim is narrowed to the local cubic coefficient and the exact diagonal gradient-descent limit.",
+      "searches": [
+        "\"regularized deep matrix factorization critical points local minimizers strict saddles depth and rank exact landscape\"",
+        "\"arXiv 2506.20344 regularized deep matrix factorization critical points equivalent formulations prior implication\"",
+        "\"deep linear neural network squared Frobenius regularization balanced factorization critical points Hessian non-strict saddles\"",
+        "Primary source full text: arXiv:2506.20344, Sections 2.1–2.2 and scalar-case statement at lines 197–201 of the PDF extraction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The recorded searches did not surface a matching statement of the exact recurrence and coefficient. Related results concerned other regularized matrix factorizations, matrix completion, or quadratic-optimizer behavior."
+      ],
+      "reasoning": "The database search is a deduplication check only, not a proof of novelty. No external numerical table is applicable because the claim is an exact analytic recurrence and limit, not a tabulated dataset.",
+      "searches": [
+        "\"arXiv 2506.20344 regularized deep matrix factorization critical points equivalent formulations prior implication\"",
+        "\"regularized deep matrix factorization critical points local minimizers strict saddles depth and rank exact landscape\""
+      ]
+    },
+    "rationale": "The primary paper gives the corresponding threshold equality in its non-scalar classification and notes that the fully scalar case is treated separately, so the threshold itself is not claimed as new. The exact cubic coefficient and one-sided inverse-linear discrete-gradient asymptotic are additional, model-specific statements not stated in the inspected classification.",
+    "residual_risks": [
+      "The 2024 second-order landscape paper was not fully inspected; a broader generic theorem on degenerate gradient dynamics could cover the rate order, though not necessarily this exact model-specific coefficient.",
+      "Novelty is limited to the exact diagonal asymptotic and coefficient; no claim is made that the threshold or non-strict-saddle existence is new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the non-scalar threshold/classification and explicitly defers the fully scalar case to a separate scalar argument; it does not state the cubic coefficient or one-sided inverse-linear discrete-time limit in the inspected full text.",
+        "evidence": [
+          "PDF lines 197–201 say the fully scalar case can be handled separately.",
+          "PDF lines 395–428 state the strict-saddle threshold and discuss possible convergence to non-strict saddles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.20344",
+        "material_read": "Full PDF inspected, including objective and MSC (PDF lines 13–40), scalar-case note (lines 197–201), critical-point classification and threshold (lines 331–428), and relevant proof discussion (lines 2805–2825).",
+        "method": "Compared the objective, threshold equality, critical-point classification, and claims about gradient methods against the proposed local expansion and diagonal recurrence.",
+        "title": "A Complete Loss Landscape Analysis of Regularized Deep Matrix Factorization",
+        "trigger": "Same objective family, same depth-three regularization setting, and explicit classification of non-strict saddles."
+      },
+      {
+        "assessment": "Related unregularized setting; possible general degenerate-saddle dynamics implications remain a residual risk.",
+        "evidence": [
+          "The primary source’s introduction distinguishes this unregularized work from the regularized objective considered here."
+        ],
+        "identifier_or_url": "https://www.jmlr.org/papers/v25/23-0493.html",
+        "material_read": "Bibliographic reference and the primary source’s characterization of it were read; the full article was not inspected in this run.",
+        "method": "Used only to identify a plausible broader literature risk, not to assert noncoverage.",
+        "title": "The loss landscape of deep linear neural networks: A second-order analysis",
+        "trigger": "Related second-order analysis of deep linear-network landscapes cited by the primary source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c45b716-c22b-4674-b341-9c59a2c390f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact coefficient quantifies the time scale of trapping at a degenerate saddle in a concrete regularized factorization model. It refines a qualitative warning about non-strict saddles with a reproducible, non-asymptotic-model-specific dynamical law. The invariant diagonal is selected by the model’s permutation symmetry and coincides with the Hessian null direction, rather than being an arbitrary slice.",
+    "status": "PASS"
+  }
+}
