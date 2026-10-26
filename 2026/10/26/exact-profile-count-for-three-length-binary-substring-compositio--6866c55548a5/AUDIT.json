@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every nonconstant binary word the 1-,2-,3-composition observations are explicitly recoverable from the number of ones, zero/one run counts, singleton-run counts, and endpoint correction. The reverse recovery is shown algebraically. Exhaustive end-status cases give 11 diagonal coefficient sums with exactly one inclusion-exclusion term. The run-inventory series counts each feasible signature once, each long-run excess independently, and the geometric diagonal formula holds for all indices. Cross-multiplication of the 11 rational terms is an exact integer-polynomial identity yielding the asserted generating function. A standard residue/partial-fraction coefficient extraction gives the stated period-four quartic for all n>=2, with n=1 handled separately. The standalone code passed the exact identity, exhaustive word/run checks for n=3..14, and independent DP for n=3..35. This proof does not infer generality from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye–Elishco, arXiv:2208.14963, Introduction and Section VIII, discusses r(n) proportional to n and poses constant-r and capacity questions.",
+        "Acharya et al. 2015 studies all substring lengths; this produces a strictly finer observation than cutoff three.",
+        "The cutoff-two published-finding corpus study derives a quadratic bound but does not yield the cutoff-three run-singleton/end-status classification."
+      ],
+      "reasoning": "An exact count for all-length compositions, or for ordered length-three substrings, would not itself imply the number of classes of the coarser cutoff-three composition observation. No stronger theorem enumerating the same r=3 profiles was located.",
+      "searches": [
+        "published-finding corpus: Ye Elishco 2022 length-limited composition multiset rate capacity optimal fixed r three",
+        "published-finding corpus: substring-composition spectrum lengths at most three binary rank statistics run singleton counts",
+        "Web: fixed r substring composition spectrum number different profiles polynomial n r=3",
+        "Web: three-mer composition spectrum binary reconstruction maximum code size quartic growth"
+      ]
+    },
+    "checked_sources": [
+      "Ye and Elishco, arXiv:2208.14963v1, 2022-08-31, especially Section VIII",
+      "published-finding corpus 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e, complete public RESULT.md",
+      "published-finding corpus 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71, complete public RESULT.md",
+      "Acharya et al., SIAM J Discrete Math 29 (2015), DOI:10.1137/140962486 (abstract/model)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ye–Elishco 2022 Section VIII Corollary VIII.3 proves unique reconstruction of a special Lyndon-based code with r linear in n; this is not an all-word profile classification or exact optimal code size at r=3.",
+        "The published r=2 formula determines only 1- and 2-length counts and lacks the singleton-run observables needed at r=3."
+      ],
+      "reasoning": "Neither source implies the displayed quartic quasipolynomial. In particular a lower-bound construction does not determine the exact number of observation classes, and the r=2 statistic collapses words still separated at r=3.",
+      "searches": [
+        "published-finding corpus: limited read substring composition length r=3 DNA storage code maximum distinguishable 3-composition profiles",
+        "published-finding corpus: substring composition multiset restricted to length at most three binary strings 3-spectrum exact reconstruction ambiguity, number of profiles",
+        "Web: reconstruction of a single string from part composition multiset Ye Elishco section VIII"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ye–Elishco 2022 Section VIII defines the same binary length-limited composition observation, but presents a Lyndon construction for cutoff growing with block length, not an exact fixed-cutoff-three enumeration.",
+        "A published cutoff-two note counts profiles at r=2; its theorem does not include substring compositions of length three."
+      ],
+      "reasoning": "No equivalent exact r=3 profile enumeration was identified. Composition multiset means unordered symbol counts with multiplicities, not ordered 3-mers or the full-length composition spectrum. Literature-index coverage remains incomplete.",
+      "searches": [
+        "published-finding corpus: three-length-limited substring composition multiset binary words exact number of distinct profiles quartic quasipolynomial generating function",
+        "published-finding corpus: r=3 composition reconstruction code binary length n 3mer composition profiles polynomial size n^4",
+        "Web: \"3-length\" \"composition multiset\" reconstruction code number equivalence classes",
+        "Web: \"C_{\\le 3}\" \"reconstruction\" code"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest indexed item 2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e is explicitly for r=2.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 counts ordered adjacent pair multispectra, not compositions of substrings of lengths at most three."
+      ],
+      "reasoning": "No matching exact r=3 profile sequence, table or closed rational generating function appeared in the searches. This negative evidence is not a uniqueness certificate.",
+      "searches": [
+        "published-finding corpus: three-length-limited substring composition multiset binary words exact number of distinct profiles quartic quasipolynomial generating function",
+        "published-finding corpus: binary length 3 adjacent substring composition multiset reconstructibility singleton classes equivalence fibers",
+        "Web: \"length-limited composition\" \"three\" \"exact\" binary"
+      ]
+    },
+    "rationale": "Searches of published-finding corpus, local prior claim ledgers, and the full primary Ye–Elishco 2022 source found the r=3 profile count uncovered. The closest published cutoff-two formula does not imply r=3, which distinguishes by singleton runs and endpoint flags; all-length and ordered-spectra models are different/finer. Residual risk: an unindexed exact formula could exist.",
+    "residual_risks": [
+      "published-finding corpus search is semantic rather than complete mathematical implication checking; an unindexed theorem/table may coincide.",
+      "The full 2015 Acharya paper was not inspected end-to-end; however it studies all lengths rather than the truncated cutoff.",
+      "No external independent mathematical assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact r=3 all-profile count; source treats a Lyndon construction and linear-r rate, and asks about constant r and capacity",
+        "evidence": [
+          "First public arXiv date 2022-08-31; Sections I, VIII and IX."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.14963",
+        "material_read": "Full parsed article introduction, definitions and Section VIII (lines 957-1041) including Definition VIII.1, Corollary VIII.3, proof discussion and conclusion",
+        "method": "Read HTML full text provided by arxiv abstract landing page; compared the exact observation and quantified theorem",
+        "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+        "trigger": "Origin of length-limited composition model and explicit constant-r question"
+      },
+      {
+        "assessment": "NOT_COVERING r=3; exact r=2 formula and class sizes explicitly leave r>=3 unproved",
+        "evidence": [
+          "Explicit limitation to cutoff two; R2 is quadratic versus newly derived R3 quartic."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, run proof, and limitations",
+        "method": "Read approved public GitHub scientific result through GitHub read connector",
+        "title": "Exact binary r=2 length-limited composition reconstruction",
+        "trigger": "Nearest indexed theorem for identical observation type and binary alphabet"
+      },
+      {
+        "assessment": "NOT_COVERING three-length composition data; observes ordered adjacent pairs only",
+        "evidence": [
+          "Read length exactly two; 01 and 10 not merged."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71/RESULT.md",
+        "material_read": "Complete RESULT.md proof, exact formulas and limitations",
+        "method": "Read approved public GitHub scientific result through GitHub read connector",
+        "title": "Exact binary two-multispectrum code size and singleton classification",
+        "trigger": "Potential dominating exact adjacent-pair profile table"
+      },
+      {
+        "assessment": "Broader observations of all substrings; cannot infer exact truncated-r3 quotient from abstract",
+        "evidence": [
+          "2015 study reconstructs from full composition multiset; full-text coverage remains a residual source risk."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/140962486",
+        "material_read": "Abstract and model definition in accessible literature result, not full paper",
+        "method": "Read public paper abstract; no whole-document exclusion asserted",
+        "title": "String Reconstruction from Substring Compositions",
+        "trigger": "Original full substring-composition reconstruction model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6866c555-48a5-485c-8269-53ea4a571031",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source introduces length-limited molecular substring-composition readings and explicitly asks for fixed-cutoff performance. The first cutoff beyond the published exact binary r=2 case needs new singleton-run/end-condition structure; resolving it gives a full all-length rational enumeration and period-four quartic, sharp capacity constant n^4/32, and the exact maximum size of every noiseless block code. This is a natural complete classification of observations, not a renaming of an adjacent-pair formula or a finite sample.",
+    "status": "PASS"
+  }
+}
