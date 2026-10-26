@@ -1,0 +1,12 @@
+# Scientific review: characteristic-five Clebsch cubic
+
+## Correctness — PASS
+The defining gradient equations identify only \([1:1:1:1:1]\); the local quadratic form in three independent coordinates is nondegenerate, proving an \(A_1\) point. The projection construction has a six-point reduced base scheme, certified symbolically by distinct permutations and transverse gradients plus Bézout. One blowup at the six rational conic points gives the minimal resolution. The class calculation, adjunction and Cauchy–Schwarz eliminate any additional geometric lines. The point-count formula follows from an explicit blowup and contraction of a split conic. Exact enumeration in the supplied program checks all rational lines over \(\mathbb F_5\), point counts in \(\mathbb F_5\) and \(\mathbb F_{25}\), and all \(120\) permutation actions. Its finite-field tests are not used as an infinite proof.
+
+## Originality — PASS, subject to historical risk
+Dolgachev–Martin (arXiv:2303.16170, 2023-03-28) and Vikulova (arXiv:2407.09997, 2024-07-13) already state characteristic-five singularity of the Clebsch cubic, the latter explicitly naming the singular point. Those facts are excluded from the novelty claim. Their inspected treatments of smooth del Pezzo surfaces do not establish the six-point blowup model, \(21\) rational geometric lines, sharply three-transitive action on the six node-lines, or uniform special-fiber zeta function. McKean and Karaoglu–Betten address smooth cubics, so their results do not imply the given singular model's exact configuration without additional work. Searches for algebraic aliases, nodal cubic equivalences, lines, and point counts revealed no directly covering published statement or matching research record. General nodal cubic geometry underlies some proof steps; historical or unindexed complete computations remain the residual risk.
+
+## Mathematical value — PASS
+The singular fiber at the prime dividing the order of the classical \(S_5\) action is a natural exceptional reduction singled out by current cubic-surface classification. The result resolves its configuration of lines and its entire extension-field arithmetic, not merely the already-known failure of smoothness. The six rational points of a conic explain both the loss of six lines from the smooth count and the exceptional six-point symmetry. The result is restricted to this distinguished cubic and does not claim a broader classification of nodal cubics.
+
+Self-review: passed. Independent audit: not yet performed.
