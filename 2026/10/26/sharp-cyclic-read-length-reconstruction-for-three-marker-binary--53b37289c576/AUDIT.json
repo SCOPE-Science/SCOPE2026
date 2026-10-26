@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the exact all-n proof: below a triple-marker factor, two-marker windows recover every gap below k−1; one-marker multiplicities simplify by inclusion–exclusion because two short neighboring gaps would force a third gap larger than the maximum; zero-only windows use the total zero count. At the first triple-marker read the oriented gap cycle is fixed. Constructive spectrum-equivalent competitor triples show every lower bound, while integer compositions and uniform-simplex lattice limits give exact T_n(k), the worst-case threshold and the limiting moments. Boundary n=3,4 separately handled. Independent direct-string program exhaustively checked 23,751 three-one words, 1,098 necklaces, 23,841 spectra through n=28 and rational moment integration; all passed. Finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bresler et al., 2013, sections “Ukkonen’s condition” and “K-mer algorithms”, Theorems 1 and 3: repeat statistics characterize reconstruction and yield a sufficient Eulerian uniqueness condition.",
+        "Pevzner (1989), DOI 10.1080/07391102.1989.10507752, describes l-tuple composition reconstruction by graph methods (abstract consulted)."
+      ],
+      "reasoning": "These general procedures are broader on the source class but weaker on explicit quantitative enumeration. The result does not reassert the general reconstruction theorem as original. The possible derivation of isolated individual thresholds from a generic repeat test is credited; the single final claim includes an exact all-length distribution and limit law requiring additional proof.",
+      "searches": [
+        "Shotgun sequencing k-spectrum reconstruction from full noiseless cyclic k-mer multiplicity, interleaved repeats, Ukkonen condition",
+        "https://link.springer.com/article/10.1186/1471-2105-14-S5-S18",
+        "Pevzner 1995 DNA physical mapping sequencing by hybridization spectrum exact unique"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1301.0068 (original 2013-01-01), accessible primary full-text through published open article",
+      "arXiv:1301.5104 (2013-01-22), accessible primary full HTML, MSC 68R15",
+      "Pevzner 1989, DOI 10.1080/07391102.1989.10507752 (abstract)",
+      "Ukkonen 1992, DOI 10.1016/0304-3975(92)90143-4 (bibliography and 2013 quoted criterion)",
+      "Publicly indexed mathematical research records: read-spectrum, gap-order, Ukkonen, and limiting-law semantic comparisons returned adjacent-pair multispectrum and unrelated cyclic-structure results, but no direct quantitative claim match."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karhumäki–Saarela–Zamboni (arXiv:1301.5104) MSC 68R15, Section 2: linear k-Abelian equivalence counts occurrences of every factor of length at most k and studies growth/periodicity.",
+        "Bresler–Bresler–Tse (arXiv:1301.0068), §K-mer algorithms: general Eulerian-cycle uniqueness criterion based on repeats; no distribution over sparse circles.",
+        "Existing published related research gives unrestricted adjacent-pair multispectrum counts and fixed-content bracelet orbital enumeration, without evaluating this model’s read-length statistic."
+      ],
+      "reasoning": "Linear k-Abelian equivalence is not the cyclic spectrum of a circle with fixed content, though for any single circle the k-spectrum determines shorter cyclic spectra. General unique reconstruction conditions logically decide instances, but the new explicit gap formula, orbit-count distribution and broken-stick moments are not pre-stated, tabulated or dominated by an explicit stronger parameter theorem found in the inspected literature.",
+      "searches": [
+        "https://arxiv.org/abs/1301.5104",
+        "k-Abelian equivalence classes fixed composition binary words subword occurrence",
+        "Three-marker binary necklace reconstruction sharp read length and limiting longest spacing Dirichlet broken-stick",
+        "https://link.springer.com/article/10.1186/1471-2105-14-S5-S18"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bresler–Bresler–Tse (arXiv:1301.0068, 2013), Ukkonen’s condition and Theorem 3: generic unique Eulerian reconstruction in the absence of triple/interleaved repeats.",
+        "The 2013 primary article has no exact three-marker circular zero-gap threshold law or distribution in inspected sections."
+      ],
+      "reasoning": "The same observation is called a circular k-spectrum, cyclic k-gram profile, or sequencing-by-hybridization read multiset. Unlike linear substring-composition observations, it preserves factor order and multiplicity. The general reconstruction criterion is an important prior implication for unique reconstruction, but its published statement does not supply the exact classwise population law, extremizer counts or limiting distribution.",
+      "searches": [
+        "Circular k-mer spectra of words with exactly three ones; orientation indistinguishability of distinct zero gap permutations",
+        "\"three ones\" \"k-spectrum\" circular reconstruction",
+        "\"k-gram\" \"three ones\" circular necklace reconstruction",
+        "https://arxiv.org/abs/1301.0068"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching three-marker necklace threshold table was identified in the returned sequence/database and public research-search records.",
+        "The closest indexed cyclic/linear multispectrum counts concern adjacent-pair or two-gram profiles, not the full variable-read-length orientation-sensitive spectrum."
+      ],
+      "reasoning": "The exact distribution is provided in a reproducible formula and is not asserted novel merely because a search returned no matching sequence. Current priority inference rests on substantive differences from inspected general results, with residual uncertainty retained.",
+      "searches": [
+        "site:oeis.org cyclic kmer reconstruction three ones threshold",
+        "\"floor(2n/3)\" circular word reconstruction k-mer spectrum",
+        "\"weight three\" \"k-gram\" \"reconstruction\" circular",
+        "Exact individual uniqueness threshold for cyclic binary 3-sparse necklaces from multisets of fixed-length k-grams: floor two n over three, three zero gaps"
+      ]
+    },
+    "rationale": "The classical Ukkonen/Pevzner condition and the Bresler–Bresler–Tse (2013) de Bruijn/Eulerian uniqueness treatment cover qualitative reconstruction for general strings. They are credited rather than claimed new. The inspected full 2013 reconstruction article contains no closed three-one necklace threshold distribution or probability law. The quantitative theorem here includes a five-case individual gap formula, all-length exact threshold counts, precise two/four extremizer numbers, and a nondegenerate Dirichlet limit with rational moments. These do not follow as stated from the generic reconstruction criterion without the new gap case analysis and lattice counting. Karhumäki–Saarela–Zamboni define linear k-Abelian equivalence but do not enumerate the present circular sparse-read spectra. A genuinely equivalent unindexed specialization remains a priority risk.",
+    "residual_risks": [
+      "Classical general uniqueness criteria imply an algorithmic solution for each given input; originality must be attributed to the explicit closed distribution and limiting law, not mere decision of uniqueness.",
+      "Uninspected original full text of Ukkonen (1992) and Pevzner (1989) may contain a specialization or reference to prior enumeration.",
+      "An earlier unindexed fixed-three-marker count may use an alternative nomenclature for directed cyclic read-length spectra.",
+      "Published broad circular k-spectrum results may imply a classwise distribution after nontrivial additional counting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_CRITERION_COVERAGE; it covers the qualitative repeat-based uniqueness problem, but does not state the fixed-three-marker five-case enumeration or probability distribution.",
+        "evidence": [
+          "arXiv first version 2013-01-01.",
+          "Published full HTML sections explicitly state Ukkonen criterion and a sufficient unique Eulerian cycle condition for general strings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.0068 ; https://link.springer.com/article/10.1186/1471-2105-14-S5-S18",
+        "material_read": "Full accessible publisher HTML: Introduction, Lower bounds/Ukkonen’s condition, K-mer algorithms Background and Theorem 3; arXiv original posting date confirmed.",
+        "method": "Primary-text section reading and explicit statement/implication comparison.",
+        "title": "Optimal Assembly for High Throughput Shotgun Sequencing",
+        "trigger": "Exactly the cyclic noiseless k-mer reconstruction model and strongest plausible covering criterion."
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING_EXACT_DISTRIBUTION; studies linear/infinite-word k-Abelian equivalence and complexity, not the exact length threshold of cyclic sparse necklaces.",
+        "evidence": [
+          "arXiv first posting 2013-01-22 and explicit MSC 68R15.",
+          "Section 2 compares linear words by counts of all factors of length at most k."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.5104",
+        "material_read": "Accessible arXiv full HTML abstract, MSC listing, introduction and Section 2 definitions; general results and stated scope.",
+        "method": "Primary-text comparison of domain, linear/cyclic boundary handling, and enumerated invariant.",
+        "title": "On a Generalization of Abelian Equivalence and Complexity of Infinite Words",
+        "trigger": "Plausible alias in terms of k-Abelian equivalence and factor-multiplicity profiles."
+      },
+      {
+        "assessment": "UNRESOLVED_FULLTEXT_PRIORITY_RISK; cannot infer noncoverage of all content.",
+        "evidence": [
+          "The abstract describes reconstructing DNA from l-tuple composition with a graph algorithm."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/07391102.1989.10507752",
+        "material_read": "Accessible original abstract and bibliographic description; full article not available to inspect.",
+        "method": "Metadata and abstract only.",
+        "title": "l-Tuple DNA Sequencing: Computer Analysis",
+        "trigger": "Foundational spectrum-reconstruction method plausibly related to all circular reads."
+      },
+      {
+        "assessment": "BROADER_GENERAL_METHOD; exact three-marker enumeration in original not verified; residual risk.",
+        "evidence": [
+          "Bresler et al. attribute the interleaved/triple-repeat uniqueness condition to Ukkonen; original 1992 article has not been fully inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90143-4",
+        "material_read": "Bibliographic record and cited theorem description in full 2013 article; original PDF request failed.",
+        "method": "Indirect theorem inspection and bounded original-full-text attempt.",
+        "title": "Approximate String-Matching with q-Grams and Maximal Matches",
+        "trigger": "Original Ukkonen q-gram framework quoted by the 2013 primary reconstruction article."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "53b37289-c576-4bdc-b59d-8de4707660cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural noisy-free sparse circular-genome model asks for the minimum length of complete exact reads needed for unique reconstruction. The result fully determines this for every three-one circle and every length, not just a small table. It pinpoints orientation ambiguity when all three zero gaps differ, gives a sharp family-wide 2n/3 worst case with only 2 or 4 extremizers, and obtains the exact entire threshold distribution plus a nondegenerate broken-stick limit with mean 7/18 and variance 13/648. These quantitative structural population results are not routine reindexings of a single run or arbitrary finite cutoffs; they go beyond the algorithmic fact that a generic de Bruijn graph can test uniqueness.",
+    "status": "PASS"
+  }
+}
