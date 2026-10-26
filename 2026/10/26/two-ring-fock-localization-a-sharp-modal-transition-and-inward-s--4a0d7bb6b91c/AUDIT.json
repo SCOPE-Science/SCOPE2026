@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Polar Fock diagonalization is exact. The adjacent-eigenvalue difference is a four-term exponential polynomial with at most three real zeros and strict endpoint signs. A differentiated uniform gamma-density expansion gives the even leading Gaussian mixture and odd cubic correction; three simple crossings for fixed delta>1 yield globally exactly two modal plateaus, whereas delta<1 yields one. The odd correction equals G(r)r(r^2-delta^2-3)/6 at the right peak, implying the explicit positive inner-minus-outer \\(T^{-1}\\) coefficient. The proof accounts for integer rounding with O(T^-3/2) in eigenvalue height. The 144 finite numerical assertions are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Daubechies/Knutsen: general diagonalization and single-ring localization norm asymptotic.",
+        "Galbis: norm bound for bounded integrable real radial Toeplitz symbols.",
+        "Dewage–Ólafsson: quasi-radial spectral sequences and the square-root metric structure."
+      ],
+      "reasoning": "A theorem giving radial eigenvalue formulas or a norm inequality covers a preliminary step but does not determine the number or relative heights of local spectral maxima for two moving annuli. Those stronger analytic steps are explicitly supplied by the new zero-count and uniform saddle expansion.",
+      "searches": [
+        "arXiv:1907.00848 Theorem 2.1 and Proposition 3.1",
+        "arXiv:2102.02031 Theorem 1 and Section 2",
+        "arXiv:2107.01465 spectral results and introduction"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1907.00848",
+      "https://link.springer.com/article/10.1007/s00041-020-09751-9",
+      "https://arxiv.org/abs/2102.02031",
+      "https://arxiv.org/abs/2107.01465",
+      "https://arxiv.org/abs/2201.11705 (abstract only; Bergman disk wavelet fractal-annulus setting differs)",
+      "I. Daubechies, Time-Frequency Localization Operators: A Geometric Phase Space Approach (1988), foundational diagonalization acknowledged as prior work"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Knutsen determines the one-ring scaling but does not compare two competing ring peaks.",
+        "Galbis yields bounds not a sign-resolved difference of sharp local maxima.",
+        "Dewage–Ólafsson gives a structural radial spectral algebra rather than the stated asymptotic transition."
+      ],
+      "reasoning": "The new statement strictly adds a count of all spectral maxima and a positive \\(T^{-1}\\) coefficient distinguishing inner and outer peaks; none is a formal consequence of cited norm bounds or of leading-order symmetric Gaussian behavior without further analysis.",
+      "searches": [
+        "arXiv:1907.00848 sections 3.1 and 3.3",
+        "arXiv:2102.02031 theorem 1",
+        "arXiv:2107.01465 introduction and radial spectral decomposition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The eigenvalue is a sum of two Gamma(n+1,1) interval probabilities; a nearby equivalent language is Poisson mass at two separated locations.",
+        "Knutsen 2019 §2.3 formula (2.6) identifies the known eigenvalue reduction; §3.1 treats a single thin ring."
+      ],
+      "reasoning": "The equivalent gamma-density formulation was explicitly searched. Its basic Gaussian limit and symmetric two-Gaussian modal threshold are not counted as original. The distinguishing claim is a global exact count of discrete modal plateaus for large T plus a signed O(\\(T^{-1}\\)) resolution of the inner/outer tie. No inspected equivalent result yields those claims.",
+      "searches": [
+        "two annuli Fock localization eigenvalues gamma density two ring",
+        "Poisson Erlang gamma densities summed at two shifted points normalized spectral concentration modes 2 Gaussian peak transition",
+        "arXiv:1907.00848 sections 2.3 and 3.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public source searches returned no numerical table or exact two-ring phase diagram corresponding to the stated family.",
+        "Known single-ring formulas evaluate individual gamma-integral eigenvalues but not the new moving-two-ring mode-count and gap theorem."
+      ],
+      "reasoning": "No matched reference tables or exact parameter catalogs were found. The result describes an infinite family indexed by real delta and large T, with a parameter-dependent analytic constant, rather than recomputing a tabulated finite case.",
+      "searches": [
+        "Gaussian localization annular windows eigenvalues two rings maximizer",
+        "Bargmann Fock Toeplitz annuli bimodal eigenvalues poisson mixture",
+        "Daubechies localization two thin concentric rings sharp top eigenvalues split asymmetry T inverse"
+      ]
+    },
+    "rationale": "The exact gamma-integral spectrum and one-ring norm asymptotic are known. Comparison of inspected primary sources, relevant public searches, and semantic similarity records found no result that determines the complete two-ring modal bifurcation and strictly signed first-order peak gap. The symmetric Gaussian-mixture transition explains the first term but does not imply which of its tied peaks wins at finite radius. This is a qualified best-knowledge judgment, with the specific residual risks recorded below.",
+    "residual_risks": [
+      "An older equivalent two-component Poisson/gamma-mode result, potentially phrased entirely in probability rather than Toeplitz terminology, may exist outside inspected sources.",
+      "The source search is best knowledge; no independent priority verification or complete bibliographic census was performed.",
+      "At delta=1 and in joint delta(T) approaching one the fixed-parameter asymptotic arguments do not resolve the critical transition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers radial eigenvalue formula and one thin ring, but no two moving unit-width rings with separation 2delta sqrt(T), no three-zero modal transition and no inward O(\\(T^{-1}\\)) selection.",
+        "evidence": [
+          "First public arXiv July 1, 2019; §2.3 formula (2.6) Gamma-integral eigenvalues; §3.1 Proposition 3.1 thin single ring; §3.3 Cantor-type upper/lower localization bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.00848",
+        "material_read": "Full text §§1, 2.2–2.3, 3.1–3.3 including statements and proofs of single-ring and multiring/Cantor estimates",
+        "method": "Open-access arXiv HTML with source-level formula and theorem comparison",
+        "title": "Daubechies’ Time-Frequency Localization Operator on Cantor Type Sets",
+        "trigger": "Explicit Gaussian radial gamma-spectrum and thin-ring asymptotic overlap"
+      },
+      {
+        "assessment": "General norm inequalities for radial integrable symbols do not evaluate the two competing largest local eigenvalues or the sharp asymptotic inner-minus-outer gap.",
+        "evidence": [
+          "First public arXiv February 3, 2021; theorem about operator norm strictly below the symbol supremum and its radial proof."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.02031",
+        "material_read": "Introduction, Theorem 1 and Section 2 with proofs and radial estimates",
+        "method": "Open-access arXiv full text, statement and assumption comparison",
+        "title": "Norm estimates for selfadjoint Toeplitz operators on the Fock space",
+        "trigger": "Potentially dominating radial Fock Toeplitz norm result"
+      },
+      {
+        "assessment": "General structural spectral classification for radial symbols does not contain or imply an explicit two-ring critical mode threshold and sign-resolved first correction.",
+        "evidence": [
+          "First public arXiv July 3, 2021; quasi-radial spectral sequences and square-root-metric algebra."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2107.01465",
+        "material_read": "Introduction, spectral representation and quasi-radial algebra main results",
+        "method": "Open-access arXiv HTML with spectral formula and theorem comparisons",
+        "title": "Toeplitz operators on the Fock space with quasi-radial symbols",
+        "trigger": "Spectral theory potentially encompassing arbitrary radial annular symbols"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4a0d7bb6-b91c-4f79-ad64-3fcb9e53fe46",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two disconnected concentric localization windows make mode competition natural. The exact count of maximal Hermite degrees and the strict, parameter-explicit \\(T^{-1}\\) inward preference resolve a physical spectral-selection ambiguity that persists after a leading Gaussian approximation. The nontrivial exponential-polynomial zero bound turns local asymptotics into a complete global modal classification. The result is self-contained for the infinite fixed-delta family, and is not a trivial numeric slice or a restatement of an existing theorem.",
+    "status": "PASS"
+  }
+}
