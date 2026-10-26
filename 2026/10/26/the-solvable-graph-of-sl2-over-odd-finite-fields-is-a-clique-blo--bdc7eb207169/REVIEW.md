@@ -1,0 +1,15 @@
+# Review of the solvable-graph structural and spectral theorem
+
+## Correctness — PASS
+The proof classifies two-dimensional subalgebras by their invariant projective line, identifies the three eigenline possibilities for trace-zero matrices, and records every adjacency through Borel incidence or scalar collinearity. The nonempty incidence quotient is the line graph of a complete graph with one leaf at each core vertex. A direct incidence-matrix block decomposition yields the complete Laplacian characteristic polynomial; fiber decomposition for clique blowups then yields every eigenvalue, and the matrix-tree theorem gives the exact tree count. The graph orders, degrees, and all predicted adjacency entries have been checked independently at \(q=3,5\) with exact modular arithmetic. The argument handles odd prime powers, not characteristic two. Computational checks are finite illustrations, not substitutes for the general proof.
+
+## Originality — PASS, with explicit residual risks
+Towers, Gutierrez, and Fernandez, arXiv:2511.08290 (first version 2025-11-11, subsequently DOI:10.1007/s11587-026-01093-w), had already defined the solvable graph, classified its three vertex degree classes, noted disconnectedness, and analyzed the numbers of invariant eigendirections. Those statements are prior work, not part of the novelty claim. Their §4 does not supply the complete all-field graph isomorphism or any Laplacian factorization and spanning-tree product. Published general tools for middle graphs, incidence matrices, and the matrix-tree theorem apply only *after* identifying the Lie-theoretic graph with the new combinatorial model; they are not claimed as new. The closest mathematical-record comparisons address three-dimensional Lie-subalgebra incidence or spectral invariants for different graph families rather than this complete solvable-graph structure. The main residual risk is that the graph identification may be implicit in the earlier eigenline proof or appear explicitly in other incidence-geometry literature; and a general middle-graph spectral theorem may independently imply the numerical spectral portion. The claim therefore does not assert proved global uniqueness or independent literature certification.
+
+## Value — PASS
+The finite-field solvable graph is a natural new Lie-theoretic invariant. Degree sequences alone leave connectivity, component graph types, Laplacian spectra, and tree complexity undetermined. The theorem determines every edge up to graph isomorphism and provides an exact Laplacian spectrum, component count, spanning-tree count, chromatic number, and independence number for an infinite family over all odd prime powers. These invariants are useful for distinguishing Lie-generated solvability from more familiar group solvability graphs and for testable spectral questions in related rank-one Lie algebras.
+
+## Limits
+This is a self-review mathematical and literature comparison, not an independent audit. Broader theorems not inspected could subsume the finding. The proof does not extend to characteristic two or higher-rank simple Lie algebras.
+
+Self-review: passed. Independent audit: not yet performed.
