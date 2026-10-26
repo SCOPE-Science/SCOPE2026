@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Enumerated exactly 1344 Latin completions with first row fixed, yielding 161280 uniquely labeled squares after 120 symbol permutations. The explicit cyclic and noncyclic representatives have computed isotopy stabilizers 100 and 12, generating disjoint orbits 17280 and 144000 which exhaust all squares. All four noncyclic intercalates map by recorded even isotopies; the even-isotopy orbit has size 60^3/12=18000 and is switch-closed. BFS reaches precisely 18000 nodes, proving it is a full connected component. Its H-equivariant transitive action means BFS eccentricity 13 equals diameter. A second complete 161280-vertex adjacency traversal finds 17280 isolates, eight 18000-vertex components, four parity types occurring twice each, and degree 4 on the mobile set. All loops are finite and exhaustive; the standalone included verifier returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wanless 2004, Proposition 1 and §4, establishes that intercalate switches preserve the three parity signs and that four parity signatures can occur at order five.",
+        "Jacobson–Matthews 1996 DOI 10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J abstract proves connectivity under a broader family of proper moves, not intercalates alone.",
+        "Cavenagh–Stones 2011 DOI 10.1002/jcd.20282 abstract concerns the existence and structure of near-automorphisms, not a full graph metric."
+      ],
+      "reasoning": "A general proper-move ergodicity theorem does not imply intercalate-only connectivity or exact diameter. Four parity classes give only a coarse lower bound: the present graph has eight nontrivial components. The 2004 quotient collapses each entire 144000-element noncyclic isotopy class, so its known two quotient vertices cannot dominate the labeled classification.",
+      "searches": [
+        "Web: \"Latin squares\" \"order 5\" \"intercalate\" \"8\" components switching",
+        "Web: Jacobson Matthews 1996 generating random Latin squares proper intercalate switches disconnected components",
+        "Web: \"Near-automorphisms of Latin squares\" Cavenagh Stones 2011",
+        "Record search: intercalate switches Latin square proper Markov chain irreducibility components sign triples odd order"
+      ]
+    },
+    "checked_sources": [
+      "Wanless 2004 author PDF https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf (targeted full-text sections)",
+      "Cavenagh and Stones 2011 publisher abstract https://onlinelibrary.wiley.com/doi/abs/10.1002/jcd.20282 (first public 2011-03-03)",
+      "Jacobson and Matthews 1996 publisher abstract https://onlinelibrary.wiley.com/doi/10.1002/%28SICI%291520-6610%281996%294%3A6%3C405%3A%3AAID-JCD3%3E3.0.CO%3B2-J",
+      "McKay and related public order-five reduced Latin squares https://users.cecs.anu.edu.au/~bdm/data/latin.html",
+      "Earlier labeled order-four Latin-square classification, compared by scientific claim (576 vertices)",
+      "Semantic record queries listed under four named originality checks; no equivalent covering result returned."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier parity-preservation result implies only that switches cannot cross four parity signatures; our computation shows two separate components inside each signature.",
+        "Earlier order-five isotopy quotient statement has two isolated vertices, one cyclic and one noncyclic; it supplies neither labeled connectivity nor a numeric diameter.",
+        "Cavenagh–Stones studies self-switching/isomorphic neighbors, not transitive 18000-state components.",
+        "Earlier order-four claim establishes a different finite graph with 576 vertices, unlike the new order-five graph."
+      ],
+      "reasoning": "The new result strictly refines both the old parity invariant and order-five quotient picture, but neither follows as a corollary: the quotient permits any number of labeled components, and parity allows at least four but cannot distinguish the extra twofold splitting. None of the compared statements implies diameter thirteen.",
+      "searches": [
+        "Wanless 2004 pp. 550–551 and 555–560 full-text inspection, DOI 10.1007/s00373-004-0567-7",
+        "Cavenagh–Stones 2011 publisher abstract, DOI 10.1002/jcd.20282",
+        "Jacobson–Matthews 1996 publisher abstract, DOI 10.1002/(SICI)1520-6610(1996)4:6<405::AID-JCD3>3.0.CO;2-J",
+        "Prior-order comparison: labeled order-four Latin-square intercalate graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The record search returned SCOPE015 (order-eight K3,3-free Latin squares) and SCOPE007 (order-eight isotopy census) as closest Latin-related hits; neither concerns labeled order-five switches.",
+        "Wanless 2004 DOI 10.1007/s00373-004-0567-7, pp. 550 and 559-560: graphs have isotopy/main classes as vertices, n=5 quotient two isolated vertices.",
+        "The accessible own order-four finding has 576 vertices and an order-four adjacency characteristic polynomial; it does not determine the 161280-vertex order-five graph."
+      ],
+      "reasoning": "Equivalent terminology includes intercalate reversals, two-by-two Latin trades, cycle switches, and proper Latin-square local moves. Identical local moves in a quotient graph are not equivalent to the fully labeled transition graph. Similar order-four data do not imply the order-five values.",
+      "searches": [
+        "Record search: exact connected component decomposition of labeled 5 by 5 Latin squares under elementary 2x2 intercalate trades 8 components 18000 vertices",
+        "Record search: 5 by 5 Latin square intercalate trade reconfiguration graph eight parity sectors 18000",
+        "Web: Latin square order five 8 components 18000 intercalate switch graph",
+        "Web: \"161280\" \"intercalate\" \"18000\"",
+        "Prior-order comparison: labeled order-four Latin-square intercalate graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "McKay public reduced Latin square data lists 56 reduced order-five squares, a catalog of squares rather than a 161280-vertex switch graph or distances.",
+        "Wanless 2004 Tables 1–3 enumerate quotient graph parameters for orders six to eight; order-five isotopy quotient is two singleton vertices.",
+        "Closest returned record identifiers SCOPE015 and SCOPE007 report different order-eight parameters; no equal-valued component census was returned."
+      ],
+      "reasoning": "A table of reduced or isotopy classes cannot identify connectivity among labeled representatives. No accessible exact table or database was found giving eight size-18000 labeled components or diameter thirteen. Absence in search results is not a uniqueness certificate.",
+      "searches": [
+        "Web: \"5x5\" \"intercalate\" \"diameter\" switch graph",
+        "Web: \"order five\" \"intercalate\" \"switch\" \"components\" latin squares graph",
+        "Web: \"161280\" \"intercalate\" \"18000\"",
+        "Web: users.cecs.anu.edu.au/~bdm/data/latin.html reduced order-five Latin squares",
+        "Record search: Latin squares of order five intercalate switching graph components degrees isolated cyclic group"
+      ]
+    },
+    "rationale": "No identified earlier result implies the full labeled order-five graph decomposition, parity-sector doubling, and exact common diameter 13. Wanless 2004 considers isotopy/main-class quotient graphs and parity invariants, not 161280 labeled vertices; earlier order-four labeled graph result does not cover order five. The broader-move Markov-chain theorem and near-automorphism existence result also do not subsume the claim. The explicit searches below leave an unindexed-data risk.",
+    "residual_risks": [
+      "The 2011 primary paper could not be inspected beyond its publisher abstract; the full text was unavailable. Unread exact n=5 discussion is possible though not indicated by the abstract.",
+      "Unindexed theses, labeled-square adjacency tables, or papers phrased in ternary hypergraph trade terminology might contain this exact spectrum.",
+      "Wanless 2004 has an issue-month public date (November 2004) but no verified exact day; first_public_date records the directly verified 2011-03-03 first-online day of the separately selected primary near-automorphism paper, not a fabricated exact date for 2004."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers cycle-switch definitions, n=5 isotopy/main-class quotient and parity preservation, but its vertices are classes and its order-five quotient cannot yield labeled component counts or diameter.",
+        "evidence": "DOI 10.1007/s00373-004-0567-7, pp. 550, 555–557 and 559–560; the paper explicitly says its switching graph has isotopy/main classes as vertices and order five yields two isolated quotient vertices.",
+        "identifier_or_url": "https://users.monash.edu.au/~iwanless/papers/cycleswapgr.GC.pdf",
+        "material_read": "Full-text PDF text in the introductory definitions, pp. 546–551, parity analysis pp. 555–557, and intercalate graph scope pp. 559–560; scanned/rendered view of pp. 550, 555, 559; not all 26 pages.",
+        "method": "lawful author-hosted open-access PDF, targeted full-text passage inspection and page screenshots",
+        "title": "Cycle Switches in Latin Squares",
+        "trigger": "Exactly matching local move definition and older order-five quotient and parity statements"
+      },
+      {
+        "assessment": "Abstract concerns existence and restrictions for near-automorphisms; no abstract-level implication for all-state n=5 components, but an unread theorem or appendix is residual novelty risk.",
+        "evidence": "Publisher explicitly records first publication on 2011-03-03 and describes a near-automorphism as an isomorphism differing within one 2×2 subsquare.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jcd.20282",
+        "material_read": "Publisher abstract and publication-history metadata only; no access to main text.",
+        "method": "Publisher web page; arXiv and repository open-access search negative, additional full-text access was unavailable.",
+        "title": "Near-automorphisms of Latin squares",
+        "trigger": "Primary dated archive source on one-intercalate near-automorphisms, possible stronger local classification"
+      },
+      {
+        "assessment": "Its ergodicity uses improper or more general grouped proper moves; an intercalate-only 8-component decomposition does not contradict its theorems.",
+        "evidence": "The abstract explicitly states the move system includes improper tables and grouped moves with a general diameter bound; it does not claim 2×2 intercalate-only connectivity.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/%28SICI%291520-6610%281996%294%3A6%3C405%3A%3AAID-JCD3%3E3.0.CO%3B2-J",
+        "material_read": "Publisher abstract and methods summary only; full article not inspected.",
+        "method": "Publisher indexed abstract and bibliography",
+        "title": "Generating uniformly distributed random latin squares",
+        "trigger": "Broader switching-based Markov chain connectivity might imply result under an equivalent move set"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8c526bb9-770b-4da7-a86b-9c46e8b4a6b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the first nontrivial odd order of a canonical and extensively studied Latin-square local-trade graph, not a cherry-picked subset. The full labeled state space is essential for transition and sampler irreducibility questions. The eight equal vertex-transitive components reveal a genuine extra twofold obstruction within each classically invariant parity signature, invisible in Wanless’s order-five isotopy quotient, and establish a complete exact transition diameter 13. The new geometric structure is motivated by local switching and is not a textbook algebraic count alone.",
+    "status": "PASS"
+  }
+}
