@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact finite theorem established by two exhaustive, logically distinct search spaces and an explicit edge-preserving and edge-reflecting bijection. Enumerating perfect matchings by least exposed vertex gives 60 without omitting any matching; 36 have complement (10,10) and 24 (20). Splitting every complement cycle gives (36*2+24)/3=32 unlabeled factorizations. Each of the three color pairs and all its connected cycles are switched, yielding exactly 36 undirected edges and component orders [20,2,2,2,2,2,2]. An explicit mapping witnesses isomorphism of the 20-vertex component with GP(10,3) by exact 30-edge-set equality. Independent direct coloring backtracking reconstructs the 32 states and all 36 edges without using matchings. All supplied programs executed successfully and matched packaged records. Scope is finite, exact, and no infinite generalization is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Belcastro–Haas 2012/2014 give a general product theorem for the *number* of classes under graph compositions and analyze prism/Möbius-ladder/crossed-prism families; they do not name or decompose the Desargues color quotient.",
+        "Belcastro–Haas 2017 define and investigate the full graph KE(G) and vertex-fixed KE_v(G); their explicit Section 4 calculation is for crossed prisms, not GP(10,3), and gives different component structures.",
+        "Goedgebeur–Östergård 2021/2022 enumerate components in all small cubic graphs; their Table 2 is aggregate counts by graph order, not a state-graph isomorphism specification for Desargues."
+      ],
+      "reasoning": "The broader works apply the *method* and may account for the number of connected classes, but none of the inspected stated theorems or displayed tables logically establishes an isomorphism of a particular 20-state component with the original Desargues graph. This is not a claimed improvement to their algorithms.",
+      "searches": [
+        "arxiv:1209.1730 full accessible rendered text: sections 1-5",
+        "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf sections 2-4",
+        "arxiv:2105.01363 full accessible rendered text: section 3, Tables 1-2",
+        "web: \"Desargues graph\" \"Kempe\" \"edge\" coloring graph"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.1730 (full rendered primary text)",
+      "Belcastro–Haas 2017 Australasian J. Combin. 69(2), pp. 197–214 (primary PDF, relevant sections inspected)",
+      "arxiv:2105.01363 (full rendered primary text, especially Algorithm 1 and Tables 1–2)",
+      "MathWorld Desargues Graph classical graph identity",
+      "Semantic mathematical-record searches (five actual queries, including GP(10,3), Kempe graph, quotient aliases and six K2)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 Theorem 2.15 gives general degree relations and component correspondence between KE(G) and KE_v(G); it does not identify a specific GP(10,3) quotient graph.",
+        "2017 Theorem 4.2 gives a cubical-leaf description for crossed prisms, which are a different family; the corresponding 20-vertex crossed prism contains 4-cycles whereas Desargues has girth 6."
+      ],
+      "reasoning": "The prior statements can constrain possible classes and teach enumeration, but none entails the claimed canonical exact isomorphism D ⊔ 6K2 for GP(10,3). The present mathematical content is the entire quotient graph and its intrinsic two-factor profile partition, rather than merely the general fact that components are computationally enumerable.",
+      "searches": [
+        "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf Theorem 2.15 and Theorem 4.2",
+        "arxiv:1209.1730 Theorems 3.8 and 5.1",
+        "arxiv:2105.01363 Algorithm 1 and Tables 1-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belcastro and Haas 2017, Proposition 2.13: swapping either of two color cycles produces color-permutation equivalent states; all bichromatic cycle factors in the present graph have at most two cycles.",
+        "Goedgebeur and Östergård 2021 preprint, Algorithm 1: bitvector unordered one-factorizations and Kempe-cycle traversal compute connected components, but the reported tables list aggregate class counts.",
+        "The nearest indexed mathematical-record hits inspected concerned matching-complex homology and 3-cut complexes, not three-edge-coloring Kempe geometry."
+      ],
+      "reasoning": "The color-permutation quotient and the fixed-colors-at-one-vertex form are equivalent here because a switched two-color factor has either one or two cycles: for two cycles the complementary switch differs by global transposition; a Hamiltonian switch only transposes color names. Search comparisons used both formulations. No cited general theorem fixes the complete 32-vertex adjacency for the specified graph.",
+      "searches": [
+        "Semantic mathematical-record query: Desargues graph three edge Kempe coloring reconfiguration graph a component isomorphic to Desargues graph and six isolated edges, 32 colorings",
+        "Semantic mathematical-record query: The graph KE_v(GP(10,3)) of 3-edge-colorings of the Desargues graph up to global permutations has 32 states, with one connected component itself isomorphic to GP(10,3) and six isolated K2 components.",
+        "web: \"Desargues graph\" \"edge-Kempe\" \"seven\"",
+        "web: \"Desargues graph\" \"one-factorizations\" 32",
+        "arxiv:2105.01363 section 3, Algorithm 1",
+        "Australasian Journal of Combinatorics 69(2) (2017), Section 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2022 paper Table 2 reports which *numbers* of Kempe classes occur among the 703 connected bipartite cubic graphs of order 20; it does not list the 32 Desargues color partitions, the 36 switches, or the 20-to-20 isomorphism.",
+        "The associated dataset describes graphs achieving maximum class counts and an algorithm to compute class counts, rather than a published full Desargues quotient adjacency table.",
+        "An explicit complete 32-state, 36-edge adjacency table and mapping are supplied in certificate.json."
+      ],
+      "reasoning": "Even if the scalar seven-class count for GP(10,3) was computable or previously tabulated, that count does not determine six K2 components plus one self-isomorphic 20-vertex component. Prior data might contain unpublished equivalent full adjacency and are acknowledged as a priority risk.",
+      "searches": [
+        "arxiv:2105.01363 Table 2 (20-vertex bipartite cubic graphs)",
+        "https://research.aalto.fi/en/datasets/dataset-and-code-for-switching-3-edge-colorings-of-cubic-graphs/",
+        "web: \"Desargues graph\" \"one-factorizations\" \"Kempe\"",
+        "Semantic mathematical-record query: For G=GP(10,3) Desargues graph 3-edge-coloring Kempe switch equivalence classes 7 components counts 20 and 2"
+      ]
+    },
+    "rationale": "The closest same-object literature studies three-edge-coloring Kempe dynamics in cubic graphs but neither the inspected full relevant 2017 article nor the 2012 and 2021 preprints state the exact Desargues color-quotient adjacency graph, its self-isomorphic twenty-state component, or its six two-state components. Known general switch algorithms and aggregate class-count tables do not imply an explicit, already published structural identification for GP(10,3); a reproducible computation is provided here. Targeted semantic mathematical-record searches and mathematical-record comparisons found no covering statement. Historical publication priority is not guaranteed: an unindexed equivalent classification or detailed data may exist.",
+    "residual_risks": [
+      "The 2017 source already develops the precise quotient graph framework, making unindexed particular-example duplications a live publication-priority risk.",
+      "The 2022 computation and supplementary programs could yield the same adjacency upon rerunning, although the paper does not state the explicit Desargues self-isomorphism.",
+      "Bibliographic searches and semantically ranked mathematical databases cannot prove historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines equivalence and class counts, but no exact Desargues edge-Kempe graph decomposition located; families analyzed differ",
+        "evidence": [
+          "Section 1: defines number of classes K-prime(G,3) and global color permutation equivalence.",
+          "Theorems 3.8, 4.1, 5.1 discuss component counts and prism/Möbius ladder/crossed prism families; source-text find showed no occurrence of Desargues."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.1730",
+        "material_read": "Accessible full-text rendering, introduction, decomposition and composition theorems, explicit results Sections 4–5, search for Desargues and Pappus",
+        "method": "Read the arXiv-rendered primary manuscript and compared exact statements and graph families",
+        "title": "Counting edge-Kempe-equivalence classes for 3-edge-colored cubic graphs",
+        "trigger": "Direct foundation and potential stronger theorem for the same Kempe transformation"
+      },
+      {
+        "assessment": "General graph results and crossed-prism reconfiguration classification; no Desargues named and no decomposition of this graph stated in inspected relevant sections",
+        "evidence": [
+          "Theorem 2.15 relates KE and KE_v, while Proposition 2.13 treats dual cycle switches.",
+          "Section 4 specifically classifies crossed prism graphs; the crossed-prism base graph is different from GP(10,3).",
+          "Relevant opened PDF pages 0 and 14–16, and find search Desargues returned none."
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/69/ajc_v69_p197.pdf",
+        "material_read": "18-page primary PDF, pages 1–3, 5–10, 14–17 textual theorem excerpts and first-page visual inspection; targeted full-document Desargues/Pappus search",
+        "method": "Inspected the genuine source PDF, its abstract, Sections 2–4, Theorems 2.14–2.15 and 4.2 and related explicit examples, plus PDF page screenshot",
+        "title": "Edge-Kempe-equivalence graphs of class-1 regular graphs",
+        "trigger": "Direct same kind of quotient/fixed-vertex reconfiguration graph and likely dominating result"
+      },
+      {
+        "assessment": "The tables establish distribution of class counts among graphs of given orders, but do not provide the asserted full Desargues adjacency graph or an explicit 20-state self-isomorphism",
+        "evidence": [
+          "Algorithm 1 explores unordered three-color bitvector classes and switches.",
+          "Table 2: 703 connected bipartite cubic graphs on 20 vertices; class counts occurring include 7, but no named Desargues decomposition.",
+          "The term Desargues was absent from the accessible rendered text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.01363",
+        "material_read": "Full accessible rendered manuscript, Sections 2–3, Algorithm 1 and Tables 1–2; full-text find for Desargues",
+        "method": "Read primary algorithm and numerical-table paragraphs and compared output granularity to exact 32-state adjacency claim",
+        "title": "Switching 3-edge-colorings of cubic graphs",
+        "trigger": "Computational census over bipartite cubic graphs includes the same 20-vertex base object"
+      },
+      {
+        "assessment": "Corroborates the standard base graph identity and its classical distance profile, not the coloring reconfiguration theorem",
+        "evidence": [
+          "Identifies the Desargues graph with GP(10,3) and H(5,2)."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/DesarguesGraph.html",
+        "material_read": "Graph identification and distance-regularity summary",
+        "method": "Compared GP(10,3), Desargues incidence and bipartite Kneser aliases",
+        "title": "Desargues Graph (MathWorld)",
+        "trigger": "Normalization of the canonical base graph and its alternative names"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e4cc13d-96d8-4e12-ad8c-d25f0233c07b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a canonical distance-transitive cubic graph and natural one-factorization move, an entire connected component of the coloring reconfiguration graph is unexpectedly isomorphic to the original graph itself, while twelve more states have a distinct one-neighbor mobility profile. This determines global adjacency, components, and metric structure, addressing more than the previously tabulated number of Kempe-equivalence classes. The isomorphism is a motivated, exact, non-subsumed natural invariant and is fully reproducible.",
+    "status": "PASS"
+  }
+}
