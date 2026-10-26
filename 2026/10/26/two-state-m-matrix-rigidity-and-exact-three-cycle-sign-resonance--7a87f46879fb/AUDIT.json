@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For all one/two-state Markov generators, Q²=−(a+b)Q implies the exact inverse I−γQ with γ>0; its off-diagonals are nonpositive and φ1(tQ)≥0. For the directed three-cycle, the integrated Poisson coefficients satisfy a0>a1>a2, giving positive diagonal and negative nearest-neighbor inverse coefficients; Fourier diagonalization yields b2=(cosh(√3h)−cos h−2h sin h)/(3(cosh(√3h)−cos h)). Its numerator has absolutely convergent coefficients [3^k+(−1)^k(4k−1)]/(2k)! strictly positive for all k≥2, so b2>0 for all real h>0. The exact sine term locates all crossings. The independent Taylor-series matrix checker returned VERIFY_OK 88, which is only a consistency test, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2018 paper gives magnitude decay bounds for ψ1 of symmetric band matrices, while directed Q=C−I is nonsymmetric and the new conclusion is an exact sign formula.",
+        "Published Crank–Nicolson and SSP-SDIRK2(2) results concern forward rational propagators, not inverse time averaging."
+      ],
+      "reasoning": "No identified result with a larger allowed generator class or stronger parameter coverage implies the signed inverse two-jump coefficient. The two-state result is exact for arbitrary nonnegative rates; the three-state witness is exact for all t>0, not a special small-step expansion.",
+      "searches": [
+        "Sharp two-state versus three-state M-matrix property for the inverse of time-integrated stochastic transition matrix, positive offdiagonal on directed 3 cycle",
+        "Continuous time Markov chain three-state directed cycle occupation time transition matrix inversion yields negative nearest neighbor positive next-nearest neighbor coefficient and damped resonance",
+        "arxiv:2302.07565 §3",
+        "arxiv:1801.04573 §3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2302.07565",
+      "arxiv:1801.04573",
+      "arxiv:2406.01437",
+      "doi:10.1007/s10444-025-10231-1",
+      "Published mathematical results on Markov time-step positivity, cited by title in scientific comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Bernoulli expansion of ψ1 gives a positive distance-two coefficient t²/12+O(t³) on Q=C−I, an explicitly acknowledged covered local deduction.",
+        "Global positivity uses the nontrivial all-positive coefficient identity 3^k+(−1)^k(4k−1)>0 for all k≥2 and is valid beyond the radius of the local Bernoulli series.",
+        "The paper on forward Crank–Nicolson Markov positivity does not imply signs of ψ1(tQ)."
+      ],
+      "reasoning": "Prior scalar ψ1 representations imply evaluability and a small-t sign, but not the all-time sign theorem or an exact infinite resonance set without additional global argument. They are credited and the claim is confined to the additional deductions. A different hidden classical identity remains a search risk.",
+      "searches": [
+        "Inverse matrix phi_1 function z/(e^z-1) of directed three-cycle continuous-time Markov generator; exact sign pattern of circulant inverse and positive two-step coupling for every time, spectral oscillations",
+        "Bernoulli function of graph Laplacian and inverse averaged heat semigroup on 3 cycle; M-matrix failure via positive distance-two coefficient, cosine hyperbolic formula",
+        "Sharp two-state versus three-state M-matrix property for the inverse of time-integrated stochastic transition matrix, positive offdiagonal on directed 3 cycle",
+        "arxiv:1801.04573 §§1–3",
+        "arxiv:2302.07565 §§2–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Inverse time-average of a Markov semigroup equals ψ1(tQ)=tQ/(e^{tQ}−I); circulant inverse for Q=C−I is Fourier-evaluable.",
+        "The 2018 study includes cyclic permutation matrix tests, but only approximation error; 2023 treats general ψ1 and ψ2 inverses, not all-time offdiagonal signs."
+      ],
+      "reasoning": "A generic analytic formula for ψ1(A) is not by itself a global sign theorem for all t. The equivalence to inverse occupation/averaged transition matrices was explicitly included in semantic and literature queries; no theorem giving b2(t)>0 for all t or exact equality b2=1/3 at 2kπ/√3 was found.",
+      "searches": [
+        "Inverse matrix phi_1 function z/(e^z-1) of directed three-cycle continuous-time Markov generator; exact sign pattern of circulant inverse and positive two-step coupling for every time, spectral oscillations",
+        "Bernoulli function of graph Laplacian and inverse averaged heat semigroup on 3 cycle; M-matrix failure via positive distance-two coefficient, cosine hyperbolic formula",
+        "Continuous time Markov chain three-state directed cycle occupation time transition matrix inversion yields negative nearest neighbor positive next-nearest neighbor coefficient and damped resonance",
+        "arxiv:1801.04573 §§1–3",
+        "arxiv:2302.07565 §§1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2018 table contains approximation errors for cyclic permutation matrices of dimension 1024, not exact inverse signs for a three-state Markov generator.",
+        "The 2023 numerical tables concern conditioning and ψ2 numerical performance."
+      ],
+      "reasoning": "The asserted coefficient is not a recomputation of a located entry in a published exact coefficient table. Formula, strict sign and resonance proof are derived analytically rather than interpolated from numerical data.",
+      "searches": [
+        "Exact formula cosh(sqrt(3)*h) minus cos(h) minus 2 h sin(h) for reciprocal phi1 of cyclic Markov generator, positive coefficient across all times",
+        "Inverse matrix phi_1 function z/(e^z-1) of directed three-cycle continuous-time Markov generator; exact sign pattern of circulant inverse and positive two-step coupling for every time, spectral oscillations",
+        "arxiv:1801.04573 numerical examples and Table 4",
+        "arxiv:2302.07565 numerical sections"
+      ]
+    },
+    "rationale": "Best-knowledge: general ψ1 Bernoulli and rational representations are known and directly imply only the leading local sign. Full text of the closest 2018 and 2023 numerical papers was compared by claim and implication. Their general function evaluation does not establish the strict all-time second-neighbor sign, universal sharp state-count obstruction or the exact damped equality set. Searches of available mathematical records on equivalent integrated Markov/ψ1 formulations returned no directly stronger statement; remaining classical-function rediscovery risk is documented.",
+    "residual_risks": [
+      "A classical theorem on inverses of circulant completely positive/stochastic matrices might contain an equivalent sign formula under other terminology.",
+      "Aceto–Gemignani 2025 complete article text was not inspected; available title/abstract concern computation rather than Markov entry signs.",
+      "Semantic searches are not a proof of uniqueness or publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_SIGN_CLASSIFICATION: the paper establishes methods for ψ1/ψ2 inversion and a Bernoulli expansion, but no theorem on the sign pattern of inverse averaged Markov transitions or its all-time three-cycle resonances.",
+        "evidence": [
+          "Sections 1–2: ψ1(z)=z/(e^z−1), Bernoulli series, and inverse problems; §3: Newton/GMRES convergence conditions; §5: inverse φ-function numerical examples. arxiv:2302.07565."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.07565",
+        "material_read": "Full publicly accessible preprint rendered at the arXiv abstract URL, including introduction, reciprocal/Bernoulli preliminaries, propositions, structured matrices, numerical examples and conclusions.",
+        "method": "Read sections 1–5 and checked cycle/Markov terminology.",
+        "title": "Efficient Inversion of Matrix φ-Functions of Low Order",
+        "trigger": "Same reciprocal matrix φ-function with algorithms for inverse problems"
+      },
+      {
+        "assessment": "NOT_COVERING_SIGN_CLASSIFICATION: general ψ1 approximation/decay estimates are prior work; the cyclic test does not derive the positive distance-two inverse entry for Q=C−I at all times or the sine equality set.",
+        "evidence": [
+          "§2 numerical tests use the scaled cyclic permutation algebra, but analyze approximation accuracy rather than exact entry signs; §3 bounds absolute off-diagonal decay on symmetric band matrices. arxiv:1801.04573."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.04573",
+        "material_read": "Full arXiv-rendered paper: introduction, rational approximation construction and numerical experiments including a cyclic permutation generator, symmetric band-matrix decay theory and conclusion.",
+        "method": "Read sections 1–3 and identified experiments on scaled cyclic permutation matrix.",
+        "title": "Computing the Reciprocal of a φ-Function by Rational Approximation",
+        "trigger": "Earlier reciprocal ψ1 approximation theory, including circulant/permutation experiments"
+      },
+      {
+        "assessment": "NO_DIRECT_EVIDENCE_OF_COVERAGE_BUT_LIMITED_READ: advertised Fourier/Krylov computation of Bernoulli generating functions, not Markov cycle entrywise sign classification.",
+        "evidence": [
+          "Preprint arxiv:2406.01437 and 2025 journal DOI 10.1007/s10444-025-10231-1 summary do not mention Markov positivity or directed-cycle inverse signs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.01437",
+        "material_read": "Public preprint bibliographic abstract and publisher open-access article overview (not the article PDF or complete mathematical text).",
+        "method": "Compared the stated aims and references; full-text sign comparison incomplete.",
+        "title": "Computing the action of the matrix generating function of Bernoulli polynomials on a vector with an application to non-local boundary value problems",
+        "trigger": "Later related reciprocal/Bernoulli matrix-function numerical algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a87f468-79fb-4c3d-ba7e-13ad3c4446b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sign of the inverse integrated semigroup matters when inferring forcing rates or initial conditions from time-averaged positive dynamics: positivity of forward averages does not imply a generator-like inverse. The result proves a universal state-count cutoff (all one/two-state generators versus a fixed irreducible three-state witness at every time), and computes exact infinitely many damped crossing times for the globally positive two-jump entry. These are natural structural boundaries and a complete all-time classification for the minimal nonreversible cycle, not an arbitrary numerical slice or trivial local series calculation.",
+    "status": "PASS"
+  }
+}
