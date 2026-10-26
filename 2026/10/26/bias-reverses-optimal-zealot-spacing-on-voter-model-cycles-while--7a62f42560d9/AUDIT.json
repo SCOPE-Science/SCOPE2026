@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Each of the two voter arcs has a unique absorbing recurrent interface class; a positive-rate path from every state reaches it. Independent arc interfaces have detailed balance pi_{i+1}/pi_i=beta/alpha and generate the exact convolution and its two tails. Strict positive convexity of x/(1-r^{-x}) at r>1 reverses at r<1; normalization-product differences have strict positive sign for all r>0, a+2<=b. Boundary cases r=1, arc length one, and n>=4 are explicit. Exact rational full-generator tests are reproduced by verify.py and certificate.json but not treated as universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yildiz et al. Sec. 2–5 assume adopting a uniformly chosen neighbor, which is opinion-symmetric.",
+        "Vendeville et al. Sec. 3 equation (1) uses a unit-rate Poisson clock and uniformly chosen neighbor, and their Theorem 1 averages over uniformly random zealot placement.",
+        "Mobilia 2015 nonlinear q-voter source studies q>=2 in a fully mixed group."
+      ],
+      "reasoning": "Neither a general neutral expected-opinion placement result nor a random-position averaging theorem entails the strict fixed-spacing ranking for biased rates. Nonlinear q>=2 dynamics are not the linear nearest-neighbor rate-asymmetric cycle.",
+      "searches": [
+        "Mobilia Petersen Redner 2007 two-zealot biased persuasive voter ring segment stationary truncated geometric optimal placement and both consensus-tail extremes",
+        "Yildiz Ozdaglar Acemoglu Saberi 2013 fixed zealots network optimal location biased voter model different persuasion strengths",
+        "Vendeville Guedj Zhou 2022 optimal stubborn placement biased opinion imitation cycle finite exact",
+        "Discrete Opinion Dynamics with Stubborn Agents 2011 Yildiz Ozdaglar Acemoglu Saberi Scaglione full text",
+        "Vendeville Guedj Zhou Towards control of opinion diversity 2022 full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0706.2892",
+      "doi:10.1088/1742-5468/2007/08/P08029",
+      "https://web.mit.edu/Asuman/Desktop/asuman/www/documents/voter-submit.pdf",
+      "arxiv:2006.07265",
+      "arxiv:1506.04911",
+      "published mathematical research record queries using the listed scientific terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Uniform neutral two-wall model is in 2007 source; finite exact unbiased case is an elementary refinement.",
+        "Vendeville et al. Theorem 1 averages over positions and so is insensitive to particular fixed arc lengths; their model does not incorporate positive/negative persuasion asymmetry.",
+        "In the present biased dynamics the mean changes strictly as one zealot moves toward the other for all n>=4, r!=1; this cannot be obtained by setting r=1 in any inspected statement."
+      ],
+      "reasoning": "The claimed result consists of the strict bias-controlled spacing order and same-direction monotonicity of both extreme probabilities, with full biased law needed for proof. Neutral interface geometry and all neutral special cases are acknowledged covered; no currently inspected stronger theorem implies both strict biased conclusions.",
+      "searches": [
+        "Mobilia Petersen Redner Section 4.1 eqs. (13)–(15) and Appendix",
+        "Vendeville Guedj Zhou Sec. 3 Theorem 1, Sec. 4",
+        "Yildiz et al. model equations and optimal stubborn placement chapters"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mobilia–Petersen–Redner Section 4.1 explicitly uses free unbiased random walks and equal persuasion strength; r=1 is a covered special case.",
+        "For r≠1, stationary interfaces have geometric rather than uniform weights and expected support changes strictly with spacing."
+      ],
+      "reasoning": "Compared finite-cycle geometric-interface formulation, biased birth-death reduction, averaged magnetization, and opposing zealot distance. Neutral special cases are not claimed new; no source located containing the biased all-parameter strict placement theorem.",
+      "searches": [
+        "cycle voter model two opposite zealots stationary number of supporters triangular distribution convolution uniforms variance distance optimal zealot placement",
+        "biased voter model unequal opinion copying rates opposing fixed zealots ring two segments geometric stationary occupation",
+        "two fixed opposing voters circular graph biased voter model optimal zealot separation expected majority",
+        "arxiv:0706.2892 Section 4.1 and Appendix (full text)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed mathematical findings returned by these queries included a three-candidate Black-voting aggregation census, not a finite biased-zealot voter model.",
+        "Another nearby indexed finding concerned confidence-bound dynamics, which uses a different state space and update rule.",
+        "The inspected primary source tables and formulas concern unbiased domain-wall motion, uniform neighbor imitation or nonlinear well-mixed voting, not the proposed biased all-n cycle separation theorem."
+      ],
+      "reasoning": "Mathematical-literature and published-result queries reported no exact finite biased two-zealot cycle placement theorem in the inspected material. Negative queries cannot prove uniqueness or global novelty.",
+      "searches": [
+        "cycle voter model two opposite zealots stationary number of supporters triangular distribution convolution uniforms variance distance optimal zealot placement",
+        "biased voter model unequal opinion copying rates opposing fixed zealots ring two segments geometric stationary occupation",
+        "two fixed opposing voters circular graph biased voter model optimal zealot separation expected majority",
+        "Mobilia Petersen Redner 2007 two-zealot biased persuasive voter ring segment stationary truncated geometric optimal placement and both consensus-tail extremes",
+        "Yildiz Ozdaglar Acemoglu Saberi 2013 fixed zealots network optimal location biased voter model different persuasion strengths",
+        "Vendeville Guedj Zhou 2022 optimal stubborn placement biased opinion imitation cycle finite exact"
+      ]
+    },
+    "rationale": "Primary 2007 ring source gives the neutral two-wall law; the current theorem claims only unequal opinion-dependent copying-rate effects and strict global zealot-placement ranking plus joint endpoint-tail monotonicity. Accessible general stubborn-agent position theories assume uniform neighbor-copying or location averaging. A hidden weighted-voter reduction remains a live possibility, so originality is provisional pending independent review.",
+    "residual_risks": [
+      "A general weighted/stubborn voter theorem not discovered could imply the biased finite-cycle stationarity and convex ranking.",
+      "Birth-death geometric stationary measures are textbook facts; the distinct mathematical contribution depends on the strict fixed-spacing phase change and simultaneous tail statement, not on the weights.",
+      "The neutral equal-persuasion case and two-domain-wall picture are substantially covered by the 2007 primary literature.",
+      "No independent bibliographic or scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS neutral equal-persuasion interface picture and neutral continuum distribution; does not state unequal imitation rates or bias-sign strict location reversal.",
+        "evidence": [
+          "Page 3 model text states same persuasion strength for agents.",
+          "Section 4.1 uses freely diffusing equiprobable domain-wall locations; eq. (14) is the neutral continuum position-conditioned distribution."
+        ],
+        "identifier_or_url": "https://faculty.ucmerced.edu/apetersen3/MyPapers/Zealot.pdf (arxiv:0706.2892)",
+        "material_read": "Full 17-page accessible PDF; in particular model Section 2, one-dimensional Section 4.1 pp.9–11, Appendix references",
+        "method": "Read equations, model assumptions, domain-wall argument and stationary magnetization discussion",
+        "title": "On the Role of Zealotry in the Voter Model",
+        "trigger": "Identical graph and exactly two opposite zealots"
+      },
+      {
+        "assessment": "COVERS location-optimization methods for uniform neighbor-copying; assumptions do not imply opinion-dependent biased finite-cycle spacing order.",
+        "evidence": [
+          "The update rule copies uniformly chosen adjacent users; no pair of per-opinion rates beta and alpha."
+        ],
+        "identifier_or_url": "https://web.mit.edu/Asuman/Desktop/asuman/www/documents/voter-submit.pdf",
+        "material_read": "Full 2011 manuscript, model assumptions Sections 2–3, placement Sections 4–5 and proofs/appendix",
+        "method": "Compare Markov chain transition rule, general mean and placement statements",
+        "title": "Discrete Opinion Dynamics with Stubborn Agents",
+        "trigger": "Same stochastic stubborn agents and optimal-position design"
+      },
+      {
+        "assessment": "COVERS mean for random locations under uniform neighbor imitation; no biased local rate asymmetry or strict fixed-distance cycle optimum.",
+        "evidence": [
+          "Page 4: agent updates at unit-rate by a uniformly chosen neighbor.",
+          "Page 5: zealot positions are uniformly random; Theorem 1 averages over placements."
+        ],
+        "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10160674/1/2006.07265v7.pdf",
+        "material_read": "Full 14-page PDF; Sections 2–4 and exact model/theorem on pp.4–5",
+        "method": "Inspect Poisson imitation definition and whether fixed versus random zealot positions are covered",
+        "title": "Towards control of opinion diversity by introducing zealots into a polarised social group",
+        "trigger": "More recent optimal influence design and average opinions"
+      },
+      {
+        "assessment": "NOT_COVERING: well-mixed nonlinear q>=2 differs from linear per-neighbor biased cycle.",
+        "evidence": [
+          "Paper assumes a homogeneous well-mixed population and q>=2 matching neighbors."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1506.04911",
+        "material_read": "Full 11-page arXiv PDF; Section II and stationary analysis",
+        "method": "Check q-voter update rule, interaction graph and parameter regime",
+        "title": "Nonlinear q-voter model with inflexible zealots",
+        "trigger": "Zealot models with asymmetric stationary outcomes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a62f425-60d9-4903-a3ac-f6c78c8a1902",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivated zealot-placement problem has a complete strictly ordered, all-size, all-bias answer whose optimum abruptly reverses at symmetric persuasion. The two extreme outcomes become jointly more likely under zealot clustering even as the favored camp mean rises, an interpretable tradeoff for opinion design and risk. This is not merely a parameter substitution or computational one-off; the global strict convexity and tail identities drive nontrivial comparative statics.",
+    "status": "PASS"
+  }
+}
