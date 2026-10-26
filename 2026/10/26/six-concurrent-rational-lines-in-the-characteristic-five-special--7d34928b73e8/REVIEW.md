@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** Direct integral symmetric-polynomial expansion and its exact characteristic-five specialization yield the two homogeneous local equations. The smooth conic meets the three factors of the cubic transversely at six distinct \(\mathbb F_5\)-points. Complete-intersection degree and Cohen–Macaulayness exclude additional components and embedded points, while the standard Hilbert-series calculation gives \(\delta=9\). The standalone verifier checks the critical finite-field identities independently.
+
+**Originality — PASS, with residual risk.** Serre's cited exercise supplies good reduction outside \(2,5\) and a characteristic-two semistable description, but neither states or implies the exact characteristic-five fibre, its six lines, or its local normalization length. Braden–Northover explain the defining equations and complex geometry, without characteristic-five reduction analysis in the inspected full text. Targeted web and published-record searches with characteristic-five, Bring curve, six lines, reduction, and singularities returned no equivalent complete statement. Residual risk: obscure arithmetic literature might describe this particular fibre. The statement concerns the integral embedding, not its stable model.
+
+**Mathematical value — PASS.** The geometry is a natural missing boundary case of a famously symmetric genus-four integral curve excluded from the known good-reduction range: the special fibre splits entirely over the residue field, and its genus-four arithmetic contribution is concentrated in one six-branch singularity of \(\delta=9\). It distinguishes the special embedded fibre from the much harder stable reduction problem and gives a reproducible exact boundary classification.
+
+Self-review: passed. Independent audit: not yet performed.
