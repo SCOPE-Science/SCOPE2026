@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "The source-derived binary deletion-distance identity h=2+max(r+ell) is applied with four completely explicit runwise distance sums. All four positive run-length boundaries, including b=1 and c=1, are represented. The derived decoupling h=max(g(a,c),g(d,b)) gives two exactly independent weighted pair counts; their product is the stated polynomial. Direct greedy-subsequence BFS checks 4096 quadruples independently, direct subword sets check 8192 insertions, and coefficient enumerations check H=3..11. Finite tests are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2412.16560v1 Theorem 5.6: general binary wordwise computation from run-length notation; Theorem 5.7: global maximum word length at fixed height.",
+        "arXiv:2311.15431v1 Corollary 4.3: wordwise algorithm for computing h."
+      ],
+      "reasoning": "The prior methods dominate any *algorithm to compute an individual four-run height*, and the global max-length consequence is already known; neither presents all fixed-length cardinalities for the four-run family. The present contribution is a sum over all parameter tuples and is not presented as an improvement of their algorithms. This specialization is readily derivable from the prior machinery, a material novelty risk rather than a hidden fact.",
+      "searches": [
+        "minimality index rho binary alternating blocks run length parameter exact distribution",
+        "Web: \"On the piecewise complexity of words\" enumeration distribution block",
+        "Web: \"piecewise complexity\" \"generating function\" binary words run"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.15431v1 (2023-11-26), relevant full-text sections",
+      "arXiv:2412.16560v1 (2024-12-21), relevant full-text sections and Appendix A.1",
+      "Published mathematical research records queried for the stated invariants, aliases and coefficient formulas"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2412.16560v1 Lemma 5.3 entails h=max(a+3,b+2,c+2,d+3) when b,c>=2, exactly this claim’s non-singleton height subcase.",
+        "arXiv:2311.15431v1 Theorem 3.11 and Proposition 3.4 imply the intermediary height formula once four-run side distances are evaluated.",
+        "Neither paper in the sections inspected states the length generating polynomial or proves its pairwise square factorization."
+      ],
+      "reasoning": "The new enumerator is compatible with and derivable by a further case split and weighted summation of the published wordwise theory. This is a short, narrow enumerative extension rather than an independent new theory of piecewise height. The individual-word formula and sharp global longest-word bound are excluded from the novelty claim. The polynomial and its all-coefficient counting interpretation are the only accepted new statement, subject to the residual risk that an unstated or unindexed source already performs the summation.",
+      "searches": [
+        "At fixed height h, length generating polynomial for four-run binary words is a perfect square (z sum_{i=1}^{h-2}z^i plus sum_{i=1}^{h-3} z^i sum_{j=2}^{h-2} z^j)^2, Simon piecewise height",
+        "Web: \"piecewise complexity\" \"block\" \"binary\" h(u) four",
+        "arXiv:2412.16560v1 Section 5 and Appendix A.1, Lemmas 5.3--5.5, Theorem 5.7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2311.15431v1 Proposition 3.4 and Theorem 3.11 give the general individual-word computation; no full fixed-four-run length enumerator observed in its inspected relevant Sections 3--4.",
+        "arXiv:2412.16560v1 Lemma 5.3 gives non-singleton interior-run wordwise values, but the checked Section 5 and Appendix A.1 do not give a perfect-square generating polynomial."
+      ],
+      "reasoning": "A binary word and its bit complement produce the same height, so the result counts one start-symbol orientation; the other is its factor-two counterpart. No inspected source states the full length-marked coefficient family or the square decomposition. The wordwise height formula has strong overlap and is deliberately attributed rather than claimed original.",
+      "searches": [
+        "piecewise complexity Simon congruence height h(u) four-run binary words 0^a1^b0^c1^d closed formula",
+        "Simon congruence singleton piecewise complexity bounded-height enumeration binary words four alternating runs",
+        "Web: \"piecewise complexity\" \"four runs\" binary word height Simon",
+        "Web: \"Simon congruence\" \"enumeration\" \"piecewise complexity\" word"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record retrieval returned no exact height/count polynomial; closest relevant hits concerned unrelated binary multispectra and finite Fourier moments.",
+        "arXiv:2412.16560v1 Theorem 5.7 concerns a sharp maximal *length*, not a table of counts at each length."
+      ],
+      "reasoning": "Neither an exact table containing the height-vs-length counts nor a database containing the displayed square identity was found in actual searches. This is negative evidence only and not a uniqueness proof.",
+      "searches": [
+        "Count of binary words with four nonempty runs and subsequence piecewise height at most k equals (k^2-5k+7)^2",
+        "four-run piecewise height language bounded subword length complete length distribution perfect-square polynomial",
+        "Web: \"piecewise height\" \"number of words\" binary four blocks generating"
+      ]
+    },
+    "rationale": "The source overlap is substantial and explicitly credited: general Simon-congruence height characterization (2023) and a non-singleton binary-run formula plus global length bound (2024) are already known. The inspected primary sections and actual search hits do not supply the *all-length bounded-height four-run counting polynomial* or perfect-square factorization. The contribution is restricted to this weighted enumeration, and the readily derivable-corollary risk is disclosed, not concealed.",
+    "residual_risks": [
+      "The complete polynomial is a short weighted-enumeration consequence of published individual-word machinery; its level of originality may be judged modest, especially given the 2024 run-block result.",
+      "Search indexing may miss an already-published aggregate count or an equivalent generating-function statement.",
+      "The work has not received independent mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the h/rho machinery but no complete four-run length-counting polynomial in inspected sections",
+        "evidence": [
+          "Proposition 3.4 (rho via per-position distances), Theorem 3.11 (binary h=rho+1), Lemma 3.6, Corollary 4.3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2311.15431",
+        "material_read": "Relevant full-text Sections 2, 3.1--3.4, and 4; equations for side distances, binary h=rho+1, and algorithms; abstract and related work",
+        "method": "Open-access arXiv PDF text and page-image inspection, including the side-distance definition page",
+        "title": "On the piecewise complexity of words and periodic words",
+        "trigger": "Original definition and strongest candidate source for individual-word height"
+      },
+      {
+        "assessment": "Directly covers the wordwise b,c>=2 subcase and global max-length phenomenon; not the displayed full all-length enumeration",
+        "evidence": [
+          "Lemma 5.3, Equation (25), Lemmas 5.4--5.5, Theorem 5.7, Appendix A.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2412.16560",
+        "material_read": "Relevant full-text introductory definitions, Section 5 and Appendix A.1, especially Lemmas 5.3--5.5, Theorems 5.6--5.7, and run-vector proof",
+        "method": "Open-access arXiv PDF text with inspected page images",
+        "title": "On the piecewise complexity of words",
+        "trigger": "Plausible direct domination by generalized binary run formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "951e6db8-c395-4448-adf9-243a8e1508ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For piecewise-testable singleton languages, wordwise height specifies the maximum subsequence length needed to identify an exact word. The result enumerates *all* binary four-run words by height and length, not just selected samples; the unexpected square reflects separability of opposite-run constraints and includes singleton exceptions. It yields exact counts at every finite length and every threshold, useful as a structural benchmark for short run-length compressed strings. This is a natural complete classification, not an arbitrary finite cutoff, and does not claim a general downstream theorem.",
+    "status": "PASS"
+  }
+}
