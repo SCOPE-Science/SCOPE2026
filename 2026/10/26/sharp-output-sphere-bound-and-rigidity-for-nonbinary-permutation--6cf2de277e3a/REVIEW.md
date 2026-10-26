@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The theorem follows from a unique first/last-changed-position partition and an exact inclusion-exclusion count of admissible multiset permutations. For every block length at least four, a repeated letter cuts the total distinct anagrams to at most half, while a distinct-letter block permits more than half the permutations to change both endpoints. Length-two and length-three boundaries are separately verified. The pointwise inequality yields the sharp all-block sum, the converse extremal characterization and its exact population. A direct enumerator checked 100,978 words in 43 finite parameter triples; the finite experiment is corroboration rather than the general proof.
+
+**Originality (PASS, with risk).** Chen and Milenkovic (arXiv:2610.15701v1) introduce the permutation-burst model and study binary code redundancy and sphere averages, explicitly reserving larger alphabets for future work. An earlier exact all-alphabet three-position burst distribution includes the k=3 case, which is not presented as new. The present unrestricted k>=4 nonbinary sharp maximum and all equality classes are not stated by those results. Searches of matching aliases, extremal output counts and related coding channels found no dominating claim. An unindexed earlier arbitrary-k result remains a risk.
+
+**Value (PASS).** The exact worst-case output ambiguity and equality classification describe a natural invariant of nanopore-inspired local permutation channels, simultaneously for all finite word lengths and arbitrarily large burst windows where alphabet permits. For the four-letter length-four case, maximum volume is linear with exact coefficient and precisely 24 extremizers, independent of the blocklength. This is not a claim about decoding guarantees.
+
+The source proof technique may suggest related enumerations; novelty rests on the complete nonbinary all-k extremal theorem and rigidity, not on claiming the channel or the k=3 special case. Published formula comparisons do not prove uniqueness against inaccessible or unindexed material. No independent mathematical validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
