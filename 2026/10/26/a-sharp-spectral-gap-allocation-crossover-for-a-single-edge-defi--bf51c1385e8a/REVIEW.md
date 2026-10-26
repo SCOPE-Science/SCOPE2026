@@ -1,0 +1,11 @@
+# Scientific review: a sharp spectral-gap allocation crossover
+
+**Correctness — PASS.** The Laplacian block spectrum follows from the two side-permutation orbits and the even/odd constant-coordinate decomposition. The Schur complement of the explicit odd block reduces the unit-gap semidefinite condition to two scalar lower bounds. A complete convex scalar analysis proves the piecewise global optimum, including equality cases and the branch transition. Concavity and group averaging lift the two-orbit result to every nonsymmetric feasible allocation. The matrix spectrum and algebraic identities have been checked against the separately assembled exact/finite program. Numerical tests are corroborating only, not an all-parameter proof.
+
+**Originality — PASS, with residual risk.** The continuous-time formulation and symmetry averaging are general ideas from Sun–Boyd–Xiao–Diaconis (2006); no inspected portion of that full text yields the specific optimal allocation for a balanced complete bipartite graph after deleting one edge. The later discrete-time fastest-mixing result on this same graph is an especially close comparison, but it minimizes a two-sided stochastic spectral modulus under local holding constraints, not a single Laplacian gap under a global edge-conductance budget. The optimal ratios differ already for three vertices per side (\(4/3\) versus \(6/5\)); thus the present statement is not an immediate restatement or corollary. A broader graph minimax result from 1993 could not be inspected beyond bibliographic material and remains a material but nondispositive coverage risk.
+
+**Value — PASS.** Removing a single link from an otherwise homogeneous bipartite network forces a nontrivial optimization of resources. The exact continuous-time rate and optimal conductances exhibit a sharp all-family boundary, plus an independent eigenspace-multiplicity jump at one smaller graph size. These provide interpretable robust network-design benchmarks and clarify what can and cannot be transferred from discrete-time chain optimization.
+
+Scientific limits: only the stated graph family and conductance budget; no classification of all asymmetric maximizers. No independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.

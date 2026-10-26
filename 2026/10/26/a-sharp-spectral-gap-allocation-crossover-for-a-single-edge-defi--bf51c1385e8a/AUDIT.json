@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Concavity-plus-averaging reduces globally to two edge orbits. The computed full invariant-subspace Laplacian spectrum and Schur complement produce exact two-scalar inequalities, whose complete minimization yields the branches and multiplicities. Unit-gap rescaling handles all B>0. Fractional identities and direct finite matrix spectra corroborate the fully analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2006 article gives a general SDP and small graph examples but not this graph family; the 2007 symmetry paper treats intact bicliques and other specific examples"
+      ],
+      "reasoning": "General SDP or automorphism averaging supplies an optimization method, not an evaluated closed-form branch threshold or Fiedler multiplicity for the graph with one missing link.",
+      "searches": [
+        "\"maximum algebraic connectivity\" \"K_{n,n}\" \"edge\" weights",
+        "\"algebraic connectivity\" \"edge removed\" \"complete bipartite\" \"optimal weights\""
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao, and Diaconis (2006), full 18-page author-hosted PDF, https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+      "Boyd, Diaconis, Parrilo, and Xiao (2007), arXiv:0709.0955; full HTML/text and symmetry/bipartite examples",
+      "Boyd et al., Symmetry Analysis of Reversible Markov Chains (2005), https://stanford.edu/~boyd/papers/pdf/symmetry.pdf",
+      "Fiedler, Some minimax problems for graphs (1993), DOI 10.1016/0012-365X(93)90538-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:0709.0955 treats a discrete-time stochastic SLEM criterion; published 2006 process paper has framework but not the evaluated broken-biclique formula",
+        "The 1993 minimax publication could not be inspected in full"
+      ],
+      "reasoning": "Existing general concavity/symmetry techniques do not by themselves imply the stated two-branch scalar optimum. The close discrete-time claim differs in constraint/criterion and fails to imply the optimal continuous-time ratio for n=3; full legacy minimax coverage remains a stated risk.",
+      "searches": [
+        "\"Fastest Mixing Markov Chain on Graphs with Symmetries\" complete bipartite missing link",
+        "\"Some minimax problems for graphs\" Fiedler 1993 algebraic connectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2006 continuous-time rate formulation and spectral-gap SDP; 2007 discrete-time fastest mixing full paper; distinct three-vertex-per-side design ratio 6/5 versus 4/3"
+      ],
+      "reasoning": "An equivalent result would need total undirected conductance budget with no stochastic row cap. Two-sided SLEM on a stochastic chain is not equivalent: constraints and objective differ, and the minimizing designs disagree at n=3.",
+      "searches": [
+        "\"fastest mixing\" \"K_{n,n}\" \"deleted edge\" continuous time conductance optimal",
+        "\"algebraic connectivity\" \"complete bipartite\" \"one edge\" \"weight\" optimization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No examined closed table or exact matching classification for continuous-time budgeted conductances; published literature accessed instead contains unweighted spectra or different graph objectives"
+      ],
+      "reasoning": "The target is a continuous family of weighted optimal designs with a radical transition, not the unweighted Laplacian eigenvalue or a tabulation of graph counts.",
+      "searches": [
+        "\"complete bipartite\" \"one edge removed\" optimal \"spectral gap\"",
+        "\"algebraic connectivity\" \"complete bipartite\" \"one edge removed\" \"optimal\""
+      ]
+    },
+    "rationale": "Inspected continuous-time primary theory provides generic SDP and graph examples, not this explicit deleted-link biclique solution. The close discrete-time deleted-link result has a different stochastic SLEM objective and constraint: its n=3 optimal weight ratio 4/3 differs from the new continuous-time 6/5. Unavailable older minimax full text remains explicit risk.",
+    "residual_risks": [
+      "An early graph minimax article was unavailable in full; an unknown equivalent specialization cannot be excluded.",
+      "Published discrete-time optimal chains on the same deleted-link biclique have a matching n>=8 branch transition; the scientific contribution here is distinct continuous-time budget normalization, all-n optimum and multiplicity, not the mere branch index."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_FRAMEWORK_NOT_EXACT_CASE",
+        "evidence": "General fastest-mixing SDP, examples for paths and cycles; no explicit K_(n,n)-one-edge budget formula found.",
+        "identifier_or_url": "doi:10.1137/S0036144504443821; https://web.stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Author-hosted PDF full article; introduction, central SDP/duality, and graph examples in multiple sections",
+        "method": "Read text and inspect page images of title and examples; compare graph and objective",
+        "title": "The fastest mixing Markov process on a graph and a connection to a maximum variance unfolding problem",
+        "trigger": "Same continuous-time global rate budget and spectral gap"
+      },
+      {
+        "assessment": "DIFFERENT_OBJECTIVE_AND_GRAPH_SPECIALIZATION",
+        "evidence": "Fastest reversible discrete-time chain and intact complete bipartite solutions, not the claimed continuous-time budget optimum.",
+        "identifier_or_url": "arxiv:0709.0955; https://arxiv.org/abs/0709.0955",
+        "material_read": "Full accessible HTML/text, including symmetry-reduction sections, intact biclique and two-clique examples",
+        "method": "Compare normalized stochastic constraints and two-sided SLEM criterion against global conductance gap",
+        "title": "Fastest mixing Markov chain on graphs with symmetries",
+        "trigger": "Group averaging and intact complete bipartite examples"
+      },
+      {
+        "assessment": "GENERAL_SYMMETRY_NOT_EXACT_BROKEN_BICLIQUE",
+        "evidence": "Reversible discrete-time symmetry methods and examples, no matching explicit continuous-time conductance formula.",
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/symmetry.pdf",
+        "material_read": "Accessible author PDF, symmetry principles and network examples",
+        "method": "Compared graph families and objective normalization",
+        "title": "Symmetry analysis of reversible Markov chains",
+        "trigger": "Possible stronger generic symmetry reduction"
+      },
+      {
+        "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_RESIDUAL_RISK",
+        "evidence": "General minimax title and abstract are insufficient to establish coverage or noncoverage.",
+        "identifier_or_url": "doi:10.1016/0012-365X(93)90538-5",
+        "material_read": "Bibliographic record and abstract only; full article not accessible",
+        "method": "ArXiv/open-access versions were unavailable and the complete publisher text could not be inspected",
+        "title": "Some minimax problems for graphs",
+        "trigger": "Earlier minimax optimization potentially dominates graph spectral design"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf51c138-5e8a-46ba-8af6-6f92a0d2907d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural missing-link failure in a homogeneous bipartite network leads to an exact global-rate resource allocation, positive optimal edge weights, an eigenspace collision at n=7 and a new rate branch at n=8. The result yields explicit network-design and reproducible optimization benchmarks rather than arbitrary special-case arithmetic.",
+    "status": "PASS"
+  }
+}
