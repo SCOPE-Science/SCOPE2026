@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact stationary age representation and a quantitative Wasserstein bound give the full independent polar limit. The angular reset-diffusion stationary law is solved by a distributional elliptic equation. A radial resetting PDMP gives the fast relaxation \(1+c\); disjoint recent reset ages and the angular harmonic semigroup give the slower relaxation \(h+D_R\). The explicit two-time formulas and the positive radial covariance gap follow analytically. The standalone deterministic checker passed 640 tests; tests are corroboration, not proofs.
+
+**Originality — PASS (self-review).** The closest full-text source, Shee (arXiv:2409.06920v1), resets position and orientation simultaneously, whereas the proved model uses two independent reset clocks. Free active Brownian resetting (arXiv:2008.03294) and harmonic trapping without resetting (Chaudhuri–Dhar, 2020) do not imply this joint limit. Earlier Beta stationary profiles for run-and-tumble particles (arXiv:1910.10083; arXiv:2309.12537) are acknowledged; the contribution is the independent-clock polar law and noncommuting fast/slow correlations, not Beta distributions per se. Semantic comparisons with earlier scientific results did not identify a covering result. This is not a guarantee against prior generic switching-process coverage; independent bibliographic priority assessment remains necessary.
+
+**Value — PASS.** Two independent resetting mechanisms are a natural refinement of jointly reset trapped active particles, and the fast/slow correlation discontinuity is a structural obstacle to modeling the measured fluctuations with a single relaxation scale. The radial edge classification is exact, observable, and physically motivated; the complete limiting law and time covariance give reproducible benchmarks.
+
+**Scientific and evidence limits.** No translational Brownian noise, nonlinear confinement, clock dependence, large particle number, or finite-sample inference is covered. Rare-reset and fast-reset extensions stated in the result concern the stationary one-time distribution only. The finite checker does not certify general infinite-time convergence, which is supplied by the proof. The literature comparisons cannot prove absolute novelty.
+
+Self-review: passed. Independent audit: not yet performed.
