@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every real epsilon strictly between zero and one and every fixed positive integer trial count, the actual two-matrix joint diagonalization loss is derived from the exact spectral projectors of the Gaussian weighted sum. Its squared off-diagonal objective is exactly twice epsilon squared times (g1 squared plus g2 squared) divided by (g1 squared plus epsilon squared times g2 squared). Uniform Gaussian angle and independence establish the finite-parameter survival function. Exact integration establishes one-trial expected squared loss of twice epsilon, as well as the first-moment elliptic integral. For two trials, tail integration has an integrand asymptotic to 8 divided by pi squared and z over a logarithmically widening central interval, with the endpoint contributions negligible on the logarithmic scale. For three or more trials, a power-integrable envelope justifies dominated convergence; the three-trial constant is 24 log(2) divided by pi squared. Catalan's definite integral gives the two-trial first-moment coefficient. Direct rotation proves that the deterministic optimum squared loss is twice epsilon squared. The embedded verifier independently corroborates exact rational matrix identities, angles, CDF values, and representative integrals. No finite experiment substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2212.07248 Theorem 8 supplies a universal one-trial O(1/(R-1)) failure upper bound and Section 3.4 reports empirical L-trial inverse-power behavior.",
+        "arXiv:2402.16557 Algorithms 1 and 2 diagonalize by congruence using generalized eigenvalue pencils, rather than orthogonal one-sum Gaussian RJD."
+      ],
+      "reasoning": "A universal upper tail can suggest moment upper bounds after imposing a finite loss cutoff, but it does not imply exact equalities, the sharp matching necessity from one explicit family, or the constants computed here. The 2024 congruence algorithm acts in a different feasible transformation class.",
+      "searches": [
+        "He Kressner RJD worst-case sharp probabilistic tail mean squared error repeated Gaussian trials offdiagonal Frobenius error and restart complexity",
+        "randomized joint diagonalization multiple trials expected error",
+        "randomized joint diagonalization mean off diagonal loss 2024"
+      ]
+    },
+    "checked_sources": [
+      "He and Kressner, arXiv:2212.07248 (2022, multiple full-text sections)",
+      "He and Kressner, arXiv:2402.16557 (2024, pertinent full-text sections)",
+      "Li, Lu and Yu, arXiv:2205.15519 (2022, pertinent full-text sections)",
+      "Targeted published mathematical record searches for exact RJD loss, two-by-two Pauli matrices, order-statistic restarts and elliptic integrals"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2212.07248 Algorithm 1 defines the identical selection metric and Theorems 6 and 8 give high-probability error guarantees.",
+        "The same paper Section 3.4 says L independent trials empirically give inverse-L failure-tail improvement, without a proved sharp mean-square trial threshold for the displayed 2x2 matrices."
+      ],
+      "reasoning": "The algorithm itself, the option to restart and the qualitative inverse-power failure tail are not novel. Generic one-sided bounds do not logically imply a tight exact finite-epsilon survival law, the one-trial identity E R^2=2epsilon, the two-trial epsilon^2 log coefficient, the finite three-trial ratio or their optimality witnesses. These are the limited claims asserted.",
+      "searches": [
+        "randomized joint diagonalization expected squared Frobenius loss Gaussian nearly commuting matrices",
+        "He Kressner RJD worst-case sharp probabilistic tail mean squared error repeated Gaussian trials offdiagonal Frobenius error and restart complexity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2212.07248 Sections 2, 3.2, 3.3 and 3.4 concern Gaussian RJD, Frobenius off-diagonality and its generic high-probability bound.",
+        "arXiv:2205.15519 describes a different vector-wise optimization algorithm for almost commuting matrices."
+      ],
+      "reasoning": "Aliases random linear combination, simultaneous orthogonal diagonalization, joint off-diagonal Frobenius objective, and mean-square restarts were checked. The algorithm and generic tail scaling are explicitly pre-existing; the precise two-matrix distribution and its moment coefficients were not located. A mathematical rephrasing as angular order statistics could still exist elsewhere.",
+      "searches": [
+        "randomized joint diagonalization expected squared Frobenius loss Gaussian nearly commuting matrices",
+        "randomized joint diagonalization elliptic integral error",
+        "randomized joint diagonalization nearly commuting Gaussian RJD",
+        "elliptic integral two 2 by 2 symmetric random linear combination offdiag"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record searches returned adjacent but different topics, including an extremizer transition for a joint numerical radius and stochastic-delay laws for randomized Gauss-Seidel, with no direct same-object exact-loss table.",
+        "arXiv:2212.07248 Section 3.4 plots empirical failure probability but gives no tabulation of this Pauli-pair law."
+      ],
+      "reasoning": "Exact numerical constants and full distribution were compared against primary text and targeted published research record searches. No known table was found; the presence of unrelated nearby hits does not demonstrate uniqueness.",
+      "searches": [
+        "Randomized joint diagonalization two 2x2 nearly commuting symmetric matrices gaussian combination exact expected off-diagonal loss elliptic integral small epsilon log restart threshold",
+        "sharp expected loss orthogonal simultaneous diagonalization Gaussian weights repeated trials",
+        "Gaussian randomized joint diagonalization repeated trials failure probability square moments 2 by 2 anticommuting Pauli matrices"
+      ]
+    },
+    "rationale": "The 2022 He-Kressner RJD paper supplies the algorithm, loss and general high-probability inverse-amplification bounds; it observes faster failure-tail decrease under restarts. The present exact 2x2 noncommuting family supplies finite-noise equality in law, sharp attained lower bounds and the minimal trial budget for optimal-order expected squared loss, including explicit logarithmic/Catalan constants. Primary full text and two adjacent full-text sources were compared; neither includes the exact law or implication. Absence from sampled searchable records is not proof of novelty. This is best-knowledge with a residual risk of an equivalent older 2x2 random-eigenbasis calculation.",
+    "residual_risks": [
+      "An unlocated equivalent two-dimensional Gaussian-angle computation might predate this result under a probability or signal-processing title.",
+      "A sharper published theorem not returned by available semantic retrieval might imply the exact model as a special case.",
+      "No independent originality or expert audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the algorithm and generic high-probability amplification tails, but not the specified exact two-Pauli loss law or sharp mean-square crossover coefficients.",
+        "evidence": "Algorithm 1 uses iid Gaussian weights and minimizes the summed squared Frobenius off-diagonal objective; Theorem 8 bounds output larger than R times input noise with probability proportional to (R-1)^(-1); Section 3.4 empirically studies L-trial improvement.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.07248",
+        "material_read": "Full-text HTML and PDF sections 1, 2.1 (Algorithm 1), 3.2 (Theorem 6), 3.3 (Theorem 8), 3.4 (restart failure probabilities), and 4 (deflation variant).",
+        "method": "Read mathematical statements, algorithm definition and proof portions; compared random data, selection rule, objective and implications.",
+        "title": "Randomized Joint Diagonalization of Symmetric Matrices",
+        "trigger": "Direct source of the algorithm and exact loss function; strongest plausible coverage."
+      },
+      {
+        "assessment": "Different algorithm and transformation class; no stated finite-noise law for the orthogonal 2x2 RJD objective.",
+        "evidence": "Algorithm 1 builds two independent random matrix combinations and solves generalized eigenvalue equations by congruence; its Algorithm 2 repeats these generalized pencils, unlike the original one-sum orthogonal RJD.",
+        "identifier_or_url": "https://arxiv.org/abs/2402.16557",
+        "material_read": "Full PDF abstract/introduction, Section 2 algorithm construction, Section 4 randomized error discussion, and Section 5.1 multiple-trial selection.",
+        "method": "Compared congruence generalized-pencil method against orthogonal one-random-combination eigenbasis method.",
+        "title": "A randomized algorithm for simultaneously diagonalizing symmetric matrices by congruence",
+        "trigger": "Same authors' nearby randomized simultaneous diagonalization method, potentially stronger coverage."
+      },
+      {
+        "assessment": "Analyzes manifold-optimization construction of individual approximate eigenvectors, not an iid Gaussian combination with best-of-L selection; its guarantees do not cover the exact law.",
+        "evidence": "Its main OP minimizes Frobenius discrepancy by choosing diagonal matrices and an orthogonal transform; the vector-wise Riemannian Newton construction is algorithmically distinct.",
+        "identifier_or_url": "https://arxiv.org/abs/2205.15519",
+        "material_read": "Full PDF abstract and introduction, optimization formulation and reported probabilistic model, concluding algorithmic summary.",
+        "method": "Compared objects, numerical objective and the sampling mechanism.",
+        "title": "Vector-wise Joint Diagonalization of Almost Commuting Matrices",
+        "trigger": "Primary near-commuting matrix source that optimizes the same general off-diagonal objective."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf5db335-c780-4e2e-a9cb-9900e73ad696",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating randomized diagonalization paper offers high-probability perturbation guarantees and empirically observes improved failure tails under independent trials, raising the natural question whether the approximation has optimal-order expected squared loss at a fixed restart budget. This exact two-by-two noncommuting benchmark proves a substantive three-way distinction: one trial incurs expected squared loss of order epsilon, two incur epsilon squared times log(1/epsilon), and three achieve order epsilon squared, matching the deterministic optimum up to a finite constant. The finite-noise survival function and explicit elliptic, Catalan and log(2) coefficients give reproducible quantitative benchmarks for robust restart policies. The result is confined to this family and does not claim a general runtime or convergence theorem.",
+    "status": "PASS"
+  }
+}
