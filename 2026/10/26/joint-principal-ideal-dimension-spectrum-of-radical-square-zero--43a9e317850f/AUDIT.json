@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For every quiver, direct basis multiplication gives L_x(a)=lambda_source(a)*a and R_x(a)=lambda_target(a)*a; vertex columns contribute one dimension for each nonzero scalar. Modulo those images, zero-scalar vertex columns have disjoint arrow-coordinate supports by target for L_x and source for R_x, adding exactly the numbers of target/source vertices of internally supported arrows. Multiplicity of each disjoint (S,F)-stratum is (q-1)^(n-|S|+|F|) q^(m-|E[S]|), yielding every coefficient. The q>=2 strict inequalities of the three path rank-one coefficients are exact. The Python verifier independently constructs literal multiplication matrices and exhaustively agrees in 56 finite-field configurations; these checks corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Męcel Theorem 2.8 provides a criterion for finiteness of conjugacy classes of left ideals under field and block-size hypotheses, but no all-q formula for element-weighted rank pairs.",
+        "Nasr-Isfahani arXiv:1603.04191v1 Theorem 3.1 discusses singular equivalence and quiver moves, not principal-ideal generator dimensions.",
+        "Lanzilotta--Marcos--Mata arXiv:1506.05894v1 Theorems on homological phi/psi dimensions are categorically different from finite-field point counts."
+      ],
+      "reasoning": "A theorem classifying ideals up to unit conjugacy does not determine the number of elements x in every two-dimensional (dim xA,dim Ax) fiber without additional generator counts. An abstract equivalence of singularity categories and bounds on homological functions likewise cannot directly give the stated polynomial.",
+      "searches": [
+        "quiver algebra principal ideals count finite field",
+        "radical square zero left multiplication rank polynomial",
+        "arxiv:1403.7920v1",
+        "arxiv:1506.05894v1",
+        "doi:10.4064/cm142-1-1",
+        "arxiv:1603.04191v1"
+      ]
+    },
+    "checked_sources": [
+      "M. Elia, E. Gorla, Computing the dimension of ideals in group algebras, with an application to coding theory, arXiv:1403.7920v1 (2014-03-31).",
+      "M. Lanzilotta, E. N. Marcos, G. Mata, Igusa-Todorov functions for radical square zero algebras, arXiv:1506.05894v1 (2015-06-19).",
+      "A. Nasr-Isfahani, Singular equivalence of finite dimensional algebras with radical square zero, arXiv:1603.04191v1 (2016-03-14).",
+      "A. Męcel, On the finiteness of the semigroup of conjugacy classes of left ideals for algebras with radical square zero, Colloq. Math. 142 (2016), 1-49, DOI:10.4064/cm142-1-1.",
+      "Published mathematical claim on commutator fibers of finite Kronecker path algebras, contrasted by operator identity ad_x=L_x-R_x.",
+      "Published mathematical claim on orientation-independent adjoint-rank and pairwise-commuting equations of radical-square-zero quivers."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A published Kronecker-quiver result computes commutator fibers and commuting probabilities; these are values of ad_x, not independent ranks of L_x and R_x.",
+        "Earlier orientation-invariance of pairwise-commuting tuple equations for kQ/J^2 does not imply the new polynomial: the outward star, inward star and directed path have the same underlying undirected path and commuting equations, but right-ideal rank-one counts 2(q-1)(q+1), (q-1)(q^2+q+1), and (q-1)(q+2)."
+      ],
+      "reasoning": "The commutator ad_x=L_x-R_x loses separate one-sided image information. The explicit equal-commutation/different-principal-spectrum pair rules out recovering the bivariate formula from previously established orientation-independent commutator counts. The individual ideal-rank computation of Elia--Gorla over group algebras supplies no all-quiver finite-field bivariate distribution. The finite conjugacy-class criterion also lacks the element-fiber weights needed for the claimed enumerator.",
+      "searches": [
+        "Quiver algebra kQ/J² rank(L_x) rank(R_x) joint distribution dimensions of principal one-sided ideals",
+        "finite-field commutator fibers and commuting probabilities of Kronecker quiver algebras",
+        "published commutator-rank formula for arrow-square-zero quiver algebras"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lanzilotta--Marcos--Mata arXiv:1506.05894v1, Sections 1,2,4: Igusa--Todorov functions, not dimension distributions of element-generated one-sided ideals.",
+        "Elia--Gorla arXiv:1403.7920v1, Proposition 1 and Corollary 7: individual group-algebra ideals through regular-representation ranks, not a quiver rank-spectrum census.",
+        "Męcel DOI:10.4064/cm142-1-1, pp.1-10: unit-conjugacy classes of left ideals, rather than the cardinalities of element fibers of principal right and left ideal dimensions."
+      ],
+      "reasoning": "The exact equivalent formulation dim(xA)=rank(L_x), dim(Ax)=rank(R_x) was used in the searches and compared with literature on principal ideals and left/right multiplication. Neither a bivariate generator-rank enumerator nor an equivalent support-stratum formula was found in the inspected statements. Search failure is not itself proof.",
+      "searches": [
+        "radical square zero left multiplication rank polynomial",
+        "Quiver algebra kQ/J² rank(L_x) rank(R_x) joint distribution dimensions of principal one-sided ideals",
+        "counting principal left and right ideals by size in finite radical square zero path algebra"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No directly indexed coefficient table or database formula for the joint distribution was returned by these actual searches.",
+        "Exact rank-one path coefficients in the theorem are proved symbolically and tested over F_2; they are not claimed to be newly discovered numerical sequences in isolation."
+      ],
+      "reasoning": "The theorem is not an assertion that a new sequence exists; it is a uniform two-variable quiver formula. Absence of a table is a limited search outcome, not a novelty certificate.",
+      "searches": [
+        "principal right ideal dimensions finite quiver finite fields rank distribution",
+        "rank polynomial of all left multiplication maps of finite-dimensional algebra finite field quiver",
+        "Counting principal left and right ideals by size in finite radical square zero path algebra"
+      ]
+    },
+    "rationale": "Elia--Gorla establish regular representation rank as a way to compute individual ideal dimensions in group algebras; the claimed coefficient formula is not their result. The assessed claim is the full element-weighted bivariate spectrum (dim xA,dim Ax) for all finite quivers, plus the exact orientation-separation corollary. The closest accessible studies concern conjugacy finiteness of ideals, quiver homological invariants, singular equivalence, or commutator ranks, none of whose inspected statements supplies these generator-weighted two-sided rank coefficients. Priority remains subject to older alternative terminology.",
+    "residual_risks": [
+      "An older generator-count formula could occur in a paper on principal ideals or finite semigroup algebras under another name.",
+      "Not every page of the 50-page ideal-conjugacy classification was read continuously; its main claims and relevant definitions were directly inspected.",
+      "The historical-priority literature search is not exhaustive; another name for the same polynomial could exist.",
+      "Independent audit of proof and historical priority has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A per-generator rank method for group algebras; it does not count all generators by a two-sided dimension pair for radical-square-zero quiver algebras",
+        "evidence": "Proposition 1 relates ideal dimensions to regular representation ranks and Corollary 7 gives a rank-computation algorithm, with group-algebra domain and no bivariate quiver formula.",
+        "identifier_or_url": "https://arxiv.org/abs/1403.7920",
+        "material_read": "Primary full-text HTML Abstract, Sections 1 and 2, Proposition 1, Theorem 5, Corollary 7",
+        "method": "Read explicit definitions and proofs of rank-to-ideal-dimension results",
+        "title": "Computing the dimension of ideals in group algebras, with an application to coding theory",
+        "trigger": "Direct precursor on principal left/right ideal dimensions as regular operator ranks"
+      },
+      {
+        "assessment": "Finiteness of unit-conjugacy classes of left ideals, not the pair of element-generated ideal dimensions over finite fields",
+        "evidence": "Theorem 2.8 equivalence (a) semigroup of ideal conjugacy classes finite, (b) finitely many matrix-group orbits, (c) skeleton restrictions; no q-parametric enumerator in these inspected statements.",
+        "identifier_or_url": "https://doi.org/10.4064/cm142-1-1",
+        "material_read": "PDF title/abstract, introduction, pp.1-10 including Theorems 1.6, 1.7 and 2.8; full-text term searches for principal and finite field; remaining pages not read continuously",
+        "method": "Read primary PDF with page display and extracted theorem passages",
+        "title": "On the finiteness of the semigroup of conjugacy classes of left ideals for algebras with radical square zero",
+        "trigger": "Identical radical-square-zero setting and study of left ideals"
+      },
+      {
+        "assessment": "Homological phi/psi and quiver combinatorics, not principal ideal generator-rank counts",
+        "evidence": "Remark 2.1 explicitly defines kQ/J^2 and outgoing-arrow projective syzygy sums; Theorem 4.34 classifies maximal homological phi-dimension.",
+        "identifier_or_url": "https://arxiv.org/html/1506.05894v1",
+        "material_read": "Primary full-text HTML, Abstract, Sections 1-3, introductory and relevant portions of Section 4, definition and Theorem 4.34; finite-field text search",
+        "method": "Inspected main statements and the paper structure",
+        "title": "Igusa-Todorov functions for radical square zero algebras",
+        "trigger": "Same quiver quotient and explicit left/right homological invariants"
+      },
+      {
+        "assessment": "Theorems concern quiver contractions and singular/graded Morita equivalences, not elementwise one-sided ideal ranks",
+        "evidence": "Introduction specifies kQ/J^2 and states the Crisp--Gow quiver-operation singular-equivalence theorem as its aim.",
+        "identifier_or_url": "https://arxiv.org/abs/1603.04191",
+        "material_read": "Primary arXiv HTML abstract, introduction, definitions, main theorem discussion; finite-field term search",
+        "method": "Inspected primary HTML text and scope of stated theorem",
+        "title": "Singular equivalence of finite dimensional algebras with radical square zero",
+        "trigger": "Same arbitrary finite-quiver radical-square-zero family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "43a9e317-850f-4a2d-a0c6-da0e75e1a6f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distribution of dim(xA) and dim(Ax) is an intrinsic, natural element-weighted invariant of any finite-dimensional algebra. In this infinite quiver family the formula gives all joint multiplicities for any finite field, including disconnected graphs, loops and parallel arrows. It directly resolves a structural distinction invisible to commuting tuple equations: the rank-one coefficient separates all three orientations of a 3-vertex path for every finite field. The result is not based on an arbitrary finite slice or a tiny numerical gain; it supplies a general exact invariant and an orientation-reconstruction boundary.",
+    "status": "PASS"
+  }
+}
