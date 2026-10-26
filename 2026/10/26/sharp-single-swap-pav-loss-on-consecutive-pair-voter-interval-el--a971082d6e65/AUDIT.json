@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For exactly 2k voters and path-edge candidate supports, 2k incidences imply PAV=2k-a/2. Locally nonimprovable words forbid runs 111, empty zero neighborhoods, 1100, 0011 and boundary 011/110; a extra zeros can be charged injectively in aggregate to s singleton selected runs, giving a<=s and k=2a+s>=3a. The explicit (110)^q(100)^q final-zero-deleted family extended by (10)^t attains a=floor(k/3) and has no improving swap. Exact standalone finite enumeration for k<=10 agrees; not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026 global VI tractability/size concavity, global LP integrality; 2026 local-PAV general 2/3 approximation; 2024 local-search path length lower bound"
+      ],
+      "reasoning": "A 2/3 general lower bound is weaker than the exact 11/12 bound on this subclass; global polynomial winner algorithms and concavity across k do not bound all one-swap maxima.",
+      "searches": [
+        "arxiv:2604.05953",
+        "arxiv:2605.03067",
+        "arxiv:2609.07554",
+        "doi:10.4230/LIPIcs.ESA.2024.82"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2604.05953",
+      "https://arxiv.org/pdf/2605.03067",
+      "https://arxiv.org/abs/2609.07554",
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.82/LIPIcs.ESA.2024.82.pdf",
+      "https://arxiv.org/abs/2605.30490"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General 2/3 example has baseline/auxiliary candidates and dense cross approvals; Schuenke considers all Pareto-efficient committee swaps regardless of PAV score; VI concavity compares different committee cardinalities."
+      ],
+      "reasoning": "None of the inspected theorems implies that all local maxima of the canonical pair-incidence fixed-k election have adjacent-pair penalty at most floor(k/3), nor its sharp universal construction.",
+      "searches": [
+        "arxiv:2609.07554 Appendix B 2/3 construction",
+        "arxiv:2605.30490 Pareto reconfiguration",
+        "arxiv:2604.05953 concavity theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "PAV score transforms exactly into fixed-weight binary-word adjacent-one energy; web searches returned binary adjacent-swap sorting, a different operation."
+      ],
+      "reasoning": "Every fixed-size one-swap PAV local maximum is precisely a single-token-exchange local minimum of the number of occupied edges in a path on 2k-1 candidate positions; did not find exact k/3 theorem.",
+      "searches": [
+        "local PAV path graph incidence candidates adjacent pairs",
+        "binary strings local minimum number adjacent ones swap one one with zero 1/3 bound",
+        "one swap local optimum induced edges path among k selected vertices 1/3 bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted research-record searches returned no matching path-edge/PAV exact bound; related recorded claims about VI Chamberlin–Courant concavity concern a different objective."
+      ],
+      "reasoning": "No exact database/table matching these parameters was located; negative search is evidence only, not proof of novelty.",
+      "searches": [
+        "2026 local PAV local search bounds path incidence degree two committee interval approvals maximal matching versus maximum matching",
+        "Thiele voter interval local optimum 11/12 ratio edge intervals path local PAV",
+        "single-candidate swap local optimum not globally optimal proportional approval voting voter interval elections path edges consecutive two voter supporters",
+        "For a path approval election with 2k voters and 2k-1 candidates each supported by consecutive voter pair, every single-swap local Proportional Approval Voting committee has score at least 2k-floor(k/3)/2, and this is sharp asymptotic approximation 11/12.",
+        "path graph maximize coverage selected k edges one swap local maximum approximation ratio 11/12"
+      ]
+    },
+    "rationale": "Inspected exact global VI optimization papers, 2026 general local PAV efficiency proof and its non-VI 2/3 witness, 2024 local-search trajectory lower bound, and 2026 Pareto-reconfiguration domain result. None of those inspected statements directly implies the exact single-swap restricted path sharp factor. Targeted research-record and literature searches found no equivalent record. Possible alternative graph-energy terminology remains a priority risk.",
+    "residual_risks": [
+      "The exact fixed-cardinality path-adjacency exchange result may have appeared under lattice gas or graph independent-set local energy terminology.",
+      "A broader specialized local-search theorem might imply the bound without naming PAV.",
+      "No independent historical-priority assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves global score tractability and size concavity, not quality of all one-swap local maxima",
+        "evidence": [
+          "Theorem/abstract and pp. 1-4, lines 9-84 and 91-170 in public PDF"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2604.05953",
+        "material_read": "PDF abstract, introduction, definition of VI and main theorem description on pages 1-4; main structural concavity and optimization approach summarized",
+        "method": "direct full-text PDF page inspection",
+        "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+        "trigger": "Same VI domain and exactly optimized PAV objective"
+      },
+      {
+        "assessment": "Computes global winners; no claimed one-swap local 11/12 ratio for consecutive-pair elections",
+        "evidence": [
+          "PDF introduction and domain definitions, pp. 1-4; global LP discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.03067",
+        "material_read": "PDF abstract and pp. 1-4 including Thiele scoring and VI/CI/VCI definitions",
+        "method": "direct full-text PDF text and page image",
+        "title": "Computing Thiele Rules on Interval Elections and their Generalizations",
+        "trigger": "Independent 2026 exact Thiele VI tractability result"
+      },
+      {
+        "assessment": "General 2/3 worst-case uses k-by-k cross-approvals, not a path-edge VI instance; gives no exact restricted 11/12 result",
+        "evidence": [
+          "HTML lines 39-60 and 528-536, explicit baseline/auxiliary construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.07554",
+        "material_read": "Full accessible arXiv HTML, introduction, local PAV guarantees, Appendix B counterexample and related-work discussion",
+        "method": "full-text HTML inspection, including Appendix B general 2/3 counterexample",
+        "title": "Finding Representative and Approximately Efficient Committees",
+        "trigger": "Direct theorem on local PAV score approximation, strongest overlap risk"
+      },
+      {
+        "assessment": "Analyzes improvement path length and pivot dynamics, not exact objective gap in pair-supported path elections",
+        "evidence": [
+          "PDF pp. 1-6, algorithm lines 84-118 and lower-bound discussion pp. 3 and 6"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol308-esa2024/LIPIcs.ESA.2024.82/LIPIcs.ESA.2024.82.pdf",
+        "material_read": "Full-text PDF opening, algorithm definition, lower-bound statement and illustrative paths on pp. 1-6",
+        "method": "direct PDF text inspection",
+        "title": "A Lower Bound for Local Search Proportional Approval Voting",
+        "trigger": "Could subsume lower-bound constructions for local PAV"
+      },
+      {
+        "assessment": "Reconfigures Pareto-optimal committees, not PAV score maximizers or improving PAV swap trajectories",
+        "evidence": [
+          "HTML lines 0-7 and 51-70"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.30490",
+        "material_read": "Accessible full-text HTML introduction and restricted-domain theorem summary",
+        "method": "direct HTML inspection of theorem scope and main results",
+        "title": "Pareto Optimality in Approval-Based Multiwinner Voting",
+        "trigger": "VI-domain single-swap reconfiguration might dominate local result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a971082d-6e65-4de8-8029-712c1b9e53f1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses the recently studied quality of local PAV on a currently tractable VI family by computing its exact nontrivial finite-k price for every k. The proven 11/12 asymptotic loss and linear absolute score gap distinguish local improvement from exact optimization even when every candidate has two consecutive supporters; complete sharpness and all-k classification exceed an isolated negative example.",
+    "status": "PASS"
+  }
+}
