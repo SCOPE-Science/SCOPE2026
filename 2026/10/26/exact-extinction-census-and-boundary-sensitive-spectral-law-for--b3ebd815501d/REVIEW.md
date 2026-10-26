@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The proof derives an integer phase-gradient conservation law by explicitly checking the three oriented unequal-edge cases and then constructs bounded monotone integer heights for zero circulation, proving eventual extinction without assuming a published convergence theorem. The elementary squares generate the cycle group of an open ladder. The complete four-entry transition table is justified by an exhaustive local nine-state count (also independently checked by the verifier). Its characteristic polynomial gives the claimed recurrence, generating function and asymptotics with the stated initial conditions. An independently coded finite simulation agrees on every initial state for the first four nontrivial ladder lengths. Risk: finite simulation alone would not establish the infinite family, hence the full phase-height and transfer proof is essential.
+
+## Originality — PASS (bounded)
+Doba (2018), inspected in full through its defining rule, circulation lemmas, Section 6 Theorem 1 and conclusion, proves the general graph-zero-winding criterion, which is explicitly credited as prior work. It does not enumerate open-ladder initial configurations or the \(2\times2\) recurrence. The 1993 Durrett–Griffeath work concerns spiral existence and phase diagrams; its accessible abstract supports model provenance but not a full-paper novelty exclusion. The closest accessible previous research finding concerns circular ladders and uses a nine-state Laurent trace with an extra winding constraint; its statement supplies neither the finite-open recurrence nor the boundary scaling. published research database and web searches for ladder extinction and recurrence did not identify an equivalent formula; this absence is not a proof of uniqueness. Residual risk: an unindexed graph-coloring or strip-transfer enumeration may cover the formula.
+
+## Mathematical value — PASS
+For excitable media a natural exact statistic is the number of initial conditions which have no sustained waves. On a minimal two-row spatial domain with arbitrarily many independent cycles, the answer is an exact integer sequence, not just a test for single initial conditions. The classification compresses a nine-state transfer to a two-type \(2\times2\) transfer, yielding a closed recurrence and sharp extinction probability across all lengths. The contrast between an open strip (purely exponential probability) and a periodic strip (Gaussian prefactor in addition to the same exponential rate) makes the boundary topology mathematically consequential. Although derived from a known winding criterion, the all-length count and boundary effect are not a mere renaming of that criterion.
+
+## Scope and remaining risks
+The work does not claim a new general finite-graph winding theorem, an independent expert audit, attractor enumeration, transient lengths, or exhaustive worldwide literature coverage. The Durrett–Griffeath arXiv PDF was not retrieved, and a primary 1991 article was not materially read; novelty remains a bounded assessment.
+
+Self-review: passed. Independent audit: not yet performed.
