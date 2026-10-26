@@ -1,0 +1,113 @@
+{
+  "claim": "Let \\(x\\ge1\\) be an integer, \\(\\tau>0\\), \\(\\beta\\ge0\\), \\(\\delta\\in\\mathbb R\\), and \\(0<\\alpha\\le1\\). A continuous-time simple symmetric nearest-neighbour walk on \\(\\{0,1,2,\\ldots\\}\\), started at \\(x\\) and absorbed on hitting \\(0\\), has conditional Poisson jump rate \\(\\lambda_j\\) during the \\(j\\)-th deterministic refresh interval of length \\(\\ell_j=\\tau j^\\beta[\\log(ej)]^\\delta\\), where the \\(\\lambda_j\\) are independent positive random variables with Laplace transform \\(\\mathbb E e^{-s\\lambda_j}=(1+s^\\alpha)^{-1}\\) and are independent of jump directions. Write \\(T\\) for the absorption time, \\(\\gamma=(1+\\alpha\\beta)/[2\\alpha(1+\\beta)]\\), and \\(\\eta=\\delta(\\gamma-1/2)\\). Then, as \\(t\\to\\infty\\), \\(\\Pr(T>t)\\sim C_{\\alpha,\\beta,\\delta,\\tau,x}\\,t^{-\\gamma}(\\log t)^\\eta\\), with the explicit positive constant \\(C_{\\alpha,\\beta,\\delta,\\tau,x}= [x\\sqrt2\\,\\Gamma(1/(2\\alpha))/(\\alpha\\pi)]\\tau^{\\gamma-1/2}(1+\\alpha\\beta)^{1/(2\\alpha)}(1+\\beta)^{-\\gamma-\\eta}\\). Consequently for any \\(q>0\\), \\(\\mathbb E[T^q]<\\infty\\) exactly when \\(q<\\gamma\\) or \\(q=\\gamma\\) and \\(\\eta<-1\\). In particular, \\(\\mathbb E[T]<\\infty\\) exactly when \\(\\alpha<1/(\\beta+2)\\), or \\(\\alpha=1/(\\beta+2)\\) and \\(\\delta<-2\\).",
+  "correctness": {
+    "rationale": "The exact Poisson operational-time identity and reflected Bessel heat kernel give survival f_x(u)~x sqrt(2/pi) u^-1/2. The clock Laplace transform is a product of 1/(1+(s length)^alpha), and the maximal normalized alpha-weight vanishes for every beta>=0 and real delta, giving the positive alpha-stable operational-time limit. A Mellin–beta integral provides uniform negative q moments for q>1/2, justifying the unbounded inverse-square-root expectation. Karamata-type sum asymptotics and explicit logarithmic clock inversion give the displayed constant/exponents; tail integration gives the if-and-only-if q-moment criterion including eta<-1 at equality. Five exact rational exponent cases and four independently computed nonnegative spectral quadratures passed from the included executable path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2026 source states its half-line asymptotics for constant tau_r and conjectures extension to more general finite-relaxation dynamics; ageing refresh is unbounded for beta>0.",
+        "The 2023 paper derives the general integrated-rate transform but no sharp half-line tail for a nonstationary regularly varying redraw schedule."
+      ],
+      "reasoning": "A general transform identity does not alone state or certify the new tail conversion: the weighted stable limit and negative-moment bound, plus the logarithmic moment test, are additional claims. Broader subordination/regular-variation coverage cannot be excluded categorically.",
+      "searches": [
+        "https://arxiv.org/abs/2609.26925",
+        "https://arxiv.org/abs/2302.07041",
+        "random rate resampled at deterministic nonuniform times increasing intervals first passage survival",
+        "\"first passage\" \"Mittag Leffler\" \"power-law growing\" rate resampling intervals"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.26925",
+      "https://arxiv.org/abs/2302.07041",
+      "https://orca.cardiff.ac.uk/id/eprint/143088/",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=60K37"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fixed-refresh theorem: survival exponent 1/(2alpha) and mean threshold alpha=1/2.",
+        "Derived new survival exponent (1+alpha beta)/(2 alpha(1+beta)), logarithmic modifier delta(gamma-1/2), and mean boundary alpha=1/(beta+2), delta<-2 at equality.",
+        "For beta=1 and alpha=1/3 the finite-mean decision flips between delta=-3 and delta=-2."
+      ],
+      "reasoning": "The prior main theorem is recovered by beta=delta=0 but does not imply the shifted phase without proving a nonstationary weighted stable-clock asymptotic; general Poissonization identities permit starting the derivation but do not subsume the explicit threshold statements.",
+      "searches": [
+        "https://arxiv.org/abs/2609.26925",
+        "https://arxiv.org/abs/2302.07041",
+        "Mittag Leffler doubly stochastic continuous time random walk first passage with polynomial-logarithmic increasing refresh intervals j^beta (log j)^delta critical alpha=1/(beta+2) log delta=-2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper computes the survival exponent for fixed refresh length and offers an operational-time transform for arbitrary rate histories.",
+        "The new result uses a weighted triangular-array stable limit with effective scale given by the alpha-power sum of growing redraw intervals."
+      ],
+      "reasoning": "An equivalent formulation would be a sharp first-passage tail for a Cox time change driven by regularly varying deterministic refresh durations. The fixed-refresh special case is recovered when beta=delta=0, while the shifted critical exponent and delta=-2 boundary lie outside that case.",
+      "searches": [
+        "first passage doubly stochastic continuous time random walk Mittag Leffler rate resampling intervals increasing as j to beta nonstationary relaxation mean survival exponent",
+        "Mittag Leffler doubly stochastic continuous time random walk first passage with polynomial-logarithmic increasing refresh intervals j^beta (log j)^delta critical alpha=1/(beta+2) log delta=-2",
+        "\"aging\" \"random diffusivity\" \"first passage\" power law switching time",
+        "https://arxiv.org/abs/2609.26925"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic hits were on unrelated first-passage, relaxation and stochastic-rate subjects; no direct polynomial–logarithmic refreshing threshold was identified.",
+        "The result is derived analytically and its finite numeric checks concern the integral representation, not a lookup table."
+      ],
+      "reasoning": "No exact table of this phase boundary was found. An absent database match is not taken to prove novelty, and the analytic proof carries the substantive result.",
+      "searches": [
+        "random jump rate first hitting time polynomially growing holding intervals heavy-tailed intensity survival power exponent threshold",
+        "Levit Reuveni 2026 First Passage in Presence Jump Rate Fluctuations Mittag Leffler 1/(2alpha)",
+        "Mittag Leffler doubly stochastic continuous time random walk first passage with polynomial-logarithmic increasing refresh intervals j^beta (log j)^delta critical alpha=1/(beta+2) log delta=-2",
+        "\"doubly stochastic continuous time random walk\" \"nonconstant\" \"interval\" \"first passage\"",
+        "\"first passage\" \"polynomial\" \"resampling\" \"jump rate\" random walk"
+      ]
+    },
+    "rationale": "The two fully inspected primary works supply general operational-time transforms but report fixed refresh lengths and different asymptotic regimes. The nonstationary polynomial–logarithmic clock yields the explicit new exponent, full positive-moment frontier, and exact logarithmic integrability endpoint. Actual published-finding corpus and published-literature searches found no statement implying the same sharpened ageing schedule, although general regular-variation sources remain a documented residual risk.",
+    "residual_risks": [
+      "An equivalent regular-variation or subordinated first-passage theorem may exist under broader mathematical terminology not identified by the focused searches.",
+      "The fractional time-changed diffusion comparison was inspected only at abstract level and is not used as decisive full-document noncoverage evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_NONSTATIONARY_SCHEDULE",
+        "evidence": "The theorem assumes intervals of a single fixed duration tau_r, proves t^{-1/(2 alpha)}, and obtains mean threshold alpha=1/2. Its general rate-transform representation does not calculate polynomial-log refresh ageing or delta=-2.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.26925",
+        "material_read": "The full accessible arXiv article text was inspected, including main equations (1)–(7), Appendix A universality (8)–(12), and the S1 and S3 supporting derivations specifying constant refresh time.",
+        "method": "Compared refresh schedule, integrated-rate Laplace transform, survival exponent, and moment thresholds directly.",
+        "title": "First Passage in the Presence of Jump Rate Fluctuations: A Transition from Infinite to Finite Mean",
+        "trigger": "Same absorbing half-line walk, same Mittag–Leffler rate-law Laplace transform, closest phase-transition theorem."
+      },
+      {
+        "assessment": "FRAMEWORK_ONLY_NOT_SAME_ASYMPTOTIC_CLAIM",
+        "evidence": "General formulas are valid for random integrated clocks, but the worked rate-redraw model has constant-length intervals; the first-exit section treats a finite interval and does not give the claimed growing-refresh moment phase.",
+        "identifier_or_url": "https://arxiv.org/abs/2302.07041",
+        "material_read": "Read the full accessible arXiv paper text including the Poisson time-change formulas (1)–(4) and the finite-interval first-exit derivation (5)–(7).",
+        "method": "Checked the range of allowed random rate dynamics, specific examples and whether an asymptotic half-line nonstationary refresh theorem is stated.",
+        "title": "Doubly stochastic continuous time random walk",
+        "trigger": "Original primary framework for Cox-rate randomized random walks and operational-time transforms."
+      },
+      {
+        "assessment": "DIFFERENT_CLOCK_IN_ABSTRACT_UNRESOLVED_FULLTEXT",
+        "evidence": "Abstract describes inverse-alpha-stable-subordinator transformed diffusions, without identifying the polynomial-log Cox-rate refresh schedule or sharp mean phase.",
+        "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/143088/",
+        "material_read": "Abstract and publication description only; full text not inspected.",
+        "method": "Compared inverse-stable-subordinator time changes and fractional diffusions with a Cox clock built from weighted independent Mittag–Leffler rate redraws.",
+        "title": "First passage times for some classes of fractional time-changed diffusions",
+        "trigger": "Plausible broader time-change/first-passage literature found through alias search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61cc5297-6c25-422e-a4ff-5551f3a54445",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a physically natural ageing mechanism absent from constant-relaxation-time analysis and gives an exact two-parameter first-passage and moment phase diagram. The sharp mean boundary moves from alpha=1/2 to alpha=1/(beta+2), and the logarithmic correction is decisive precisely at equality, including explicit opposite decisions for delta=-3 and delta=-2. The constant and full positive-moment frontier make this a substantive structural extension, rather than merely a simulation or relabeling.",
+    "status": "PASS"
+  }
+}
