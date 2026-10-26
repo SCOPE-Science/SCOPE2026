@@ -1,0 +1,11 @@
+# Review: anchor-constrained Gaussian-minimum completion
+
+**Correctness — PASS.** The two-dimensional Gaussian polar representation gives the exact gap-tail identity. Strict convexity yields the one-insertion universal rule. For two additions, strict concavity of sine reduces the complete second-moment design problem to three integer allocations. Two strict comparisons have rational certificates based on alternating power-series bounds, with the weaker gaps exceeding \(0.028\) and \(0.8\). A standard endpoint Laplace principle proves the reversed large-tail ordering, contradicting the existence of a stochastic minimizer. The included verifier reproduces the rational bounds and ancillary quadratures; finite tests are not used to establish the infinite statements.
+
+**Originality — PASS, with residual priority risk.** Kunisky (arXiv:2605.02023v1, 2026-05-03) introduced the cosine Gaussian-minimum question, and the 2026-10-18 *Local stability of cosine configurations for Gaussian minima* source already states the general planar gap identity and unconstrained equal-gap extremality. Those are antecedents and are not claimed as new. The exact resource-constrained conclusion—that one added direction has a universal optimum whereas two need not—was not stated in the inspected full texts or found in the reported mathematical-result searches. A classic circular subdivision/covering result could still imply it; priority remains provisional.
+
+**Mathematical value — PASS.** The distinction between optimizing a single Gaussian-minimum moment and optimizing its whole tail law is consequential for constrained sensor-direction completion. The construction demonstrates a genuine loss of stochastic optimality precisely when the number of added directions rises from one to two, rather than a tiny numerical improvement to an unconstrained bound. It persists on an open angle interval and supplies an exact finite obstruction.
+
+**Closest literature and limitations.** Source Proposition 2 supplies the key gap integral; the new conclusion depends on nonuniform fixed-anchor allocation, explicit moment ordering and opposing Laplace tail exponents. This does not settle the global Gaussian-minimum conjecture or establish a full classification of anchor layouts. Independent audit is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
