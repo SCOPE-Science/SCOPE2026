@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For any factors, testing all fiber-constant lift modes bounds λ2 by α_i B_i/(N/n_i), and separable factor optimizers attain every bound at equalized spectral gaps. For grids, centered coordinate vectors yield the sharp exact budget upper bound. The weighted path polynomial flag gives the full spectrum; saturation makes each coordinate vector an eigenvector and a fiberwise first-order recurrence forces all edge weights uniquely. Exact and numerical checks of eight grid shapes and 1440 nonsymmetric competitors agree; no finite test substitutes for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Indrani et al., JISSI 2 (2026), Section “Computational Efficiency and Interpretation”: expressly says the model uses equal weights for edges parallel to each factor and “does not perform per edge optimization.”",
+        "Wan et al., CDC 2008, optimal edge-design general structural conditions rather than arbitrary-grid closed formula."
+      ],
+      "reasoning": "Restricted constant-per-direction weights and their balancing fall within the new admissible set but are not the full set; the 2026 source explicitly leaves per-edge optimization untreated. General SDP formulations can represent the optimization abstractly but do not, in these sources, supply the closed unrestricted factor reduction, strict grid uniqueness and full spectra.",
+      "searches": [
+        "maximizing algebraic connectivity on graph Cartesian products heterogeneous individual edge weights",
+        "general semidefinite fastest mixing Markov process budgeted grid uniqueness",
+        "generalized graph products exact Laplacian spectra Indrani 2026"
+      ]
+    },
+    "checked_sources": [
+      "Sun et al. (2006), DOI 10.1137/S0036144504443821",
+      "de Abreu (2006 online), DOI 10.1016/j.laa.2006.08.017",
+      "Wan et al. (2008), DOI 10.1109/CDC.2008.4738734",
+      "Indrani et al. (2026), DOI 10.29121/JISSI.v2.i2.2026.93",
+      "Shakeri et al. (2015), arXiv:1510.06785v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun et al. Result 5 gives a single path parabolic edge profile but no Cartesian grid uniqueness across all fibers.",
+        "Indrani et al. formula (24) optimizes only factor multipliers and explicitly excludes individual-edge optimization.",
+        "Shakeri et al. arxiv:1510.06785v1 optimizes interlayer edges while layer Laplacians are fixed."
+      ],
+      "reasoning": "Putting path-optimal factors into a Cartesian product provides a feasible candidate, not by itself an upper bound against every nonseparable edge-rate design or uniqueness across cycles. Fiber aggregation and Rayleigh equality forcing provide those extra assertions. Prior general mechanisms are sufficient tools for proof but the checked explicit results do not state or imply the full conclusion without this further argument.",
+      "searches": [
+        "Sun Boyd Xiao Diaconis fastest mixing Markov process paths 2006 Result 5",
+        "Indrani 2026 weighted Cartesian product exact allocation limitations",
+        "Shakeri 2015 maximizing algebraic connectivity interconnected networks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al., SIAM Review 48 (2006), Section 5.2: exact single-path optimal profile for unweighted costs.",
+        "de Abreu (2006/2007), Section 3: ordinary fixed-weight Cartesian product spectral relationship."
+      ],
+      "reasoning": "The normalization λ2=1 with minimum total cost is equivalent by positive homogeneity to fixed-budget maximum λ2. Hence the known path solution is covered and excluded from novelty. Ordinary product spectrum with fixed factors and independently optimized factors is not the claim that arbitrary fiber-asymmetric edge rates cannot improve its optimum.",
+      "searches": [
+        "\"absolute algebraic connectivity\" Cartesian product optimized edge conductances",
+        "\"fastest mixing Markov process\" Cartesian product optimum",
+        "\"spectral gap\" grid optimal edge weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2026 product paper tables cover uniformly multiplied factor edges only.",
+        "No source-specific exact table matching unrestricted independent edge allocations was located among checked literature or indexed records."
+      ],
+      "reasoning": "The theorem is an all-dimensional continuum-budget statement, not a finite graph table. The closest numerical grids reported in the product paper use homogeneous directional multipliers; such entries cannot certify the unique arbitrary per-edge optimum.",
+      "searches": [
+        "\"algebraic connectivity\" \"grid\" \"optimal\" \"weights\" edges",
+        "\"optimal\" \"spectral gap\" weighted rectangular grid",
+        "indexed scientific mathematical claims: parabolic edge weights Cartesian products rectangular grids"
+      ]
+    },
+    "rationale": "The path parabola in Sun et al. (2006), standard Cartesian eigenvalue sums in de Abreu (2006/2007), and 2026 direction-multiplier balancing are explicitly treated as prior. The finding addresses all independently adjustable edge rates under a global budget and a unique nonhomogeneous profile for every rectangular grid, neither established by the inspected restricted product paper. General spectral-edge design literature could hide an unrecognized stronger equivalent; this remains a risk.",
+    "residual_risks": [
+      "A specialized earlier Cartesian-grid spectral-allocation result may not have been indexed or surfaced in the inspected sources.",
+      "An exact all-product statement might be an implicit but unstated corollary in the general semidefinite graph-design literature; the present claim supplies and proves the missing unrestricted optimization and uniqueness comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the one-dimensional path parabola; does not give the unrestricted all-factor product or grid uniqueness theorem in the inspected material",
+        "evidence": [
+          "Result 5 and displayed path rates, pages 15–16 of the PDF; direct citation of earlier absolute algebraic connectivity."
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Section 5.2, Result 5, proof and the preceding setup and optimization discussion",
+        "method": "Full publicly available PDF with page inspection",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same fixed-cost maximum spectral-gap objective and sharp path rates"
+      },
+      {
+        "assessment": "COVERS fixed-weight product spectral relationships and historical definitions; not unrestricted budgeted edge-rate optimization",
+        "evidence": [
+          "Page 1 states available online 17 October 2006; Section 2 defines absolute algebraic connectivity; Section 3 discusses Cartesian product."
+        ],
+        "identifier_or_url": "https://www.math.ucdavis.edu/~saito/data/graphlap/deabreu-algconn.pdf",
+        "material_read": "Title/date, Sections 2–3 including definitions and product entries",
+        "method": "Full lawful university-hosted PDF, with first-page inspection",
+        "title": "Old and new results on algebraic connectivity of graphs",
+        "trigger": "Fixed Cartesian product formula and absolute algebraic connectivity definitions"
+      },
+      {
+        "assessment": "COVERS one scalar multiplier per factor; EXPLICITLY EXCLUDES independently optimized per-edge rates, so does not dominate the unrestricted theorem",
+        "evidence": [
+          "Setup gives identical edge multiplier α or β along each factor; paragraph in Computational Efficiency explicitly states no per-edge optimization."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/413797976_ALGEBRAIC_CONNECTIVITY_AND_EXACT_LAPLACIAN_SPECTRA_OF_GENERALIZED_GRAPH_PRODUCTS",
+        "material_read": "Full accessible author text: abstract, setup (1–6), exact allocation (7–11), computations, limitation, multi-factor formula (24), conclusion",
+        "method": "Publicly accessible full-text HTML extraction",
+        "title": "Algebraic Connectivity and Exact Laplacian Spectra of Generalized Graph Products",
+        "trigger": "Very close title, products, spectral optimization and grid examples"
+      },
+      {
+        "assessment": "General structure and necessary conditions; no inspected all-grid exact spectral and unique-design classification",
+        "evidence": [
+          "Structural edge-design characterization and Fiedler conditions examined."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/CDC.2008.4738734",
+        "material_read": "Accessible full-text reproduction with main structural theorems and conclusions",
+        "method": "Full author-uploaded scientific text and comparison of scope",
+        "title": "On the Structure of Graph Edge Designs that Optimize the Algebraic Connectivity",
+        "trigger": "Potentially stronger general SDP optimality and uniqueness conditions"
+      },
+      {
+        "assessment": "Fixes within-layer Laplacians and optimizes interlayer edges; its feasible set and constraints differ",
+        "evidence": [
+          "2015 arXiv version describes interconnection tuning with fixed layers."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.06785",
+        "material_read": "Accessible full arXiv abstract and HTML body, model assumptions and allocation results",
+        "method": "Open-access arXiv full-text inspection",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Graph multilayer optimization could subsume Cartesian product budget setting"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a74a2b4c-22d7-4dba-9c28-84bff3acb1d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural resource-constrained diffusion/consensus spectral design; exact tensorization despite unrestricted per-fiber rates, full arbitrary-dimensional rectangular grid unique optimizer and spectrum, sharp slow-mode multiplicity, and a 12/π² dimension-independent limiting improvement over naive uniform rates. This is substantive all-parameter analysis rather than one graph computation or mere restatement of the known 1D path formula.",
+    "status": "PASS"
+  }
+}
