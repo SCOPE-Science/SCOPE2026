@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Multiplicativity gives \\(\\sigma^*(p^a q)-\\sigma^{(e)}(p^a q)=1+p^a-q\\Delta_a(p)\\), \\(\\Delta_a(p)=\\sum_{d\\mid a,\\ d<a}p^d-1\\). The exact integer inequality and finite prime-counting formula follow. With d=max proper divisor of a and b=a-d, the cutoff is \\(p^b(1+O_a(1/p))\\). Replacing it incurs at most \\(O_a(T^b+T)\\) for \\(T=X^{1/(a+b)}\\). The prime number theorem and partial summation yield lower-range constant \\(1/[b(b+1)]\\) and upper-range constant \\(1/[b(a-1)]\\) in units \\(T^{b+1}/(\\log T)^2\\); the upper tail is negligible by a two-stage bound. Excluding \\(p=q\\) is also lower-order. The rational K values and exact inequalities were checked from packaged verify.py for \\(2\\le a\\le6\\) at three finite X values. There is no extrapolation from finite data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The density-bound research gives a global positive lower bound from finitely many exponent cylinders; \\(p^a q\\) is zero density globally.",
+        "Decker and Moree count pq with \\(p<q<rp\\) for fixed r, not the weighted \\(p^a q\\) hyperbola with unbounded polynomial cutoff.",
+        "The standard PNT plus partial summation indeed supplies the analytic prime-pair counting mechanism once the arithmetic comparison cutoff is known."
+      ],
+      "reasoning": "A general weighted prime-pair asymptotic theorem could subsume the analytic estimate, but no inspected result provides the combined divisor-comparison consequence or its parameter-dependent constant. No novelty is claimed for the generic prime-counting technique.",
+      "searches": [
+        "asymptotic prime products p^a q with q < p^b and exponent (b+1)/(a+b)",
+        "counting primes p q with p^k q ≤ x and q < p^r asymptotic",
+        "count p^2 q with q < p asymptotic 27/2",
+        "arxiv:0801.1451",
+        "2026/10/4/SCOPE-an-explicit-0-753659844-ldots-lower-bound-for-the-unitary-expone--831dd476bf82"
+      ]
+    },
+    "checked_sources": [
+      "Trudgian arXiv:1312.4615 full accessible HTML",
+      "Decker–Moree arXiv:0801.1451 abstract",
+      "OEIS A236474 entry",
+      "Published 49-layer equality RESULT.md full text",
+      "Published 0.753659844... density RESULT.md full text",
+      "Published research record semantic queries on fixed exponent, prime-power inequality, broader prime-pair counting"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Trudgian, Section 4, poses overall proportion and equality-infinitude questions without fixed-exponent power laws.",
+        "The full published 49-layer RESULT.md proves only exhaustive equality for \\(2\\le a\\le49\\).",
+        "The full published density RESULT.md proves an ambient lower bound, not a count of a zero-density family.",
+        "RSA-integer abstract concerns \\(a=1\\) and bounded q/p."
+      ],
+      "reasoning": "None of these statements implies the asserted exponent-dependent asymptotic and constant for each fixed \\(a\\ge2\\). Conversely, the new result does not resolve ambient density or equality.",
+      "searches": [
+        "https://arxiv.org/html/1312.4615",
+        "2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e",
+        "2026/10/4/SCOPE-an-explicit-0-753659844-ldots-lower-bound-for-the-unitary-expone--831dd476bf82",
+        "https://arxiv.org/abs/0801.1451"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact equivalence: (1+p^a)(1+q)>q sum_{d|a}p^d iff \\(q\\Delta_a(p)\\le p^a\\).",
+        "For fixed a, Delta_a(p) has leading term p^{d(a)}, giving effective comparison \\(q<p^{a-d(a)}\\) up to relative O_a(1/p).",
+        "The 49-layer equality study handles the equation q Delta_a(p)=p^a+1, not the strict inequality or its asymptotic count."
+      ],
+      "reasoning": "The inequality and its asymptotic prime-pair interpretation were both searched; the equality equation, despite using exactly the same objects, is a level set and cannot imply the counting law for a strict half-space.",
+      "searches": [
+        "exact solutions sigma star(n) equals sigma exponential divisor(n) prime power factors p^a q^b",
+        "asymptotic count n=p^a q primes where unitary divisor sum larger than exponential divisor sum fixed a and largest proper divisor",
+        "prime pair inequality q < p^{a-d(a)} under sigma star versus exponential divisor sum general fixed exponent",
+        "arxiv:1312.4615",
+        "2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A236474 lists integers satisfying equality sigma*=sigma^(e), including 20,45,320 and larger values, not the positive strict inequality count.",
+        "The exact finite count at \\(X=10^6\\) is {a=2:861,a=3:261,a=4:63,a=5:124,a=6:28}; no inspected table contained this all-exponent asymptotic."
+      ],
+      "reasoning": "A table of equality cases does not determine strict inequality counts. Finite enumerations are supporting checks rather than uniqueness evidence.",
+      "searches": [
+        "https://oeis.org/A236474",
+        "asymptotic count n=p^a q primes where unitary divisor sum larger than exponential divisor sum fixed a and largest proper divisor"
+      ]
+    },
+    "rationale": "The published motivating work treats ambient natural density, upper bounds and the equality question; it does not assert the all-fixed-exponent asymptotic. Inspected published records on exact equality through exponent 49 and a lower bound on ambient density have mathematically distinct conclusions and do not imply a positive-count asymptotic on the sparse \\(p^a q\\) strata. RSA-prime ratio results concern pq, not the divisor comparison on \\(p^a q\\). Searches for exponent threshold, prime-product estimates, exact tables and equivalent formulations found no covering formula. Prime number theorem methodology is standard and not claimed as new. Equivalent coverage in other general weighted prime-pair literature remains a residual risk.",
+    "residual_risks": [
+      "A general or poorly indexed weighted-prime-pair asymptotic could imply the generic analytic counting formula without using this divisor-function terminology.",
+      "The RSA-integer full text was not read; its abstract concerns a different exponent regime, but exact full-text noncoverage is not certified.",
+      "An unlocated subsequent treatment of the strict comparison on \\(p^a q\\) could include the complete claim.",
+      "The result has not received independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the fixed-a prime-product asymptotic; Section 4 concerns ambient natural density and equality existence.",
+        "evidence": "Section 4 explicitly notes sigma*(p)>sigma^(e)(p) and the reverse for p^a,\\(a\\ge2\\), then asks about the proportion for general n.",
+        "identifier_or_url": "https://arxiv.org/html/1312.4615",
+        "material_read": "Complete accessible HTML body, including introduction, theorem, proof, application, Section 4 conclusion, and bibliography.",
+        "method": "Section-by-section reading of the full HTML text and direct comparison of the quantified claims.",
+        "title": "The sum of the unitary divisor function",
+        "trigger": "Primary original source defining both divisor sums and posing comparison questions."
+      },
+      {
+        "assessment": "NOT_COVERING: solves finitely many equality fibers \\(a\\le49\\), not inequality counts or asymptotics.",
+        "evidence": "It reduces equality to p^a+1=q Delta_a(p) and lists four solutions through exponent 49.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-first-49-exponent-layers-of-the-unitary-exponential-divisor--59314f8e910e/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, verification, prior-work relationship, limitations and references.",
+        "method": "Read full publicly available claim/proof and compared the equality condition to the strict-inequality count.",
+        "title": "The first 49 exponent layers of the unitary–exponential divisor-sum equality",
+        "trigger": "Exact same prime-power \\(p^a q\\) domain and divisor functions; strongest plausible equality coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: an ambient lower density bound cannot give a sharp asymptotic for sparse fixed-exponent layers.",
+        "evidence": "Its proof counts integers with six specified small-prime exponent patterns and squarefree tails to obtain a global lower bound.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-an-explicit-0-753659844-ldots-lower-bound-for-the-unitary-expone--831dd476bf82/RESULT.md",
+        "material_read": "Complete RESULT.md including the finite-cylinder proof and limitations.",
+        "method": "Read entire scientific statement and density computation, checked scope implications.",
+        "title": "An explicit 0.753659844... lower bound for the unitary--exponential divisor-sum comparison density",
+        "trigger": "Potential general stronger assertion about the same strict comparison."
+      },
+      {
+        "assessment": "Related standard method; full-document noncoverage not asserted. No direct coverage is visible from its statement.",
+        "evidence": "The abstract counts pq with p<q<rp, r fixed, yielding 2 log(r) X/log^2 X.",
+        "identifier_or_url": "https://arxiv.org/abs/0801.1451",
+        "material_read": "Author abstract and bibliographic description; full text not read.",
+        "method": "Compared the explicit abstract claim with \\(p^a q\\) for \\(a\\ge2\\) and a growing exponent-dependent cutoff.",
+        "title": "Counting RSA-Integers",
+        "trigger": "Related two-prime asymptotic counting with a ratio constraint."
+      },
+      {
+        "assessment": "NOT_COVERING: equality-table objects only.",
+        "evidence": "The entry definition expressly requires equality and provides 20,45,320, and further examples.",
+        "identifier_or_url": "https://oeis.org/A236474",
+        "material_read": "Sequence definition, listed terms, comments, references and examples.",
+        "method": "Checked whether the entries target strict-inequality counting or equality.",
+        "title": "OEIS A236474: unitary and exponential divisor sums equal",
+        "trigger": "Potential existing exact database of comparison cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "52d69b82-6daa-4e10-aa13-b4b534e521ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The original work asks for quantitative understanding of the comparison of unitary and exponential divisor sums. The fixed exponent layers \\(p^a q\\) are the simplest non-squarefree strata where the local factors pull in opposite directions. Rather than a small finite enumeration or a formal rephrasing, the claim gives every fixed exponent a precise infinite asymptotic, an explicit constant, and a growth exponent controlled by the divisor lattice of a; it also proves relative density zero inside each sparse stratum despite positive ambient density. This answers a natural conditional counting question and provides a checkable framework for comparisons in more complicated exponent patterns, without claiming to solve the original global density problem.",
+    "status": "PASS"
+  }
+}
