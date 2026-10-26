@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For state zero the probability of an upward jump is floor(K eta b)/K; for state one the probability of a downward jump is ceil(K eta(1-b))/K. Since 0<eta<1 the sum is in (0,1], so solving two-state balance gives a unique invariant distribution and its finite-time convergence. The ideal kernel has upward and downward rates eta b, eta(1-b), hence invariant Bernoulli(b). The normalized error b-floor(vb)/(floor(vb)+ceil(v(1-b))) is nonnegative. Writing v=n+theta, vb=k+u, the rate denominator is n+1 when u<theta and n when u>=theta. Both cases bound the error by 1/v; targets b increasing to 1/v from below attain that upper bound as a supremum. If v<=1 the chain is absorbed at zero and errors approach one. The bit-budget condition follows exactly. The executable verifies 41,776 exact-rational cases but is supplementary to the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "El Arar et al. arxiv:2408.03069: Definition 4, Lemma 5, finite-horizon sum-product error bounds, Rosenbrock and learning experiments.",
+        "Fitzgibbon & Felix arxiv:2504.20634: §III single-operation averaged bias and §IV quantized training experiments."
+      ],
+      "reasoning": "A generic one-step bias of order 1/K may suggest the order of stationary error divided by eta, but does not establish the exact sharp constant, absorbing phase at K eta<=1, or the iff uniform convergence law. Existing broad rounding-error results are finite horizon and do not provide a dominating statement for the long-time invariant law in this specific deterministic chain.",
+      "searches": [
+        "limited-precision stochastic rounding probability quantization stationary distribution weak consistency optimal bit budget inverse stepsize",
+        "arxiv:2408.03069 Definition 4 Lemma 5 and Theorems 1-4",
+        "arxiv:2504.20634 §§III-IV Appendix A",
+        "\"probability truncation\" \"stationary\" \"two state\" stochastic rounding gradient"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.06060v1 (2026 first release; HTML §§2–4)",
+      "arxiv:2504.20634v1 (2025 full primary text and PDF bias derivation)",
+      "arxiv:2408.03069v3 (2024 first release, revised 2025; primary full-text relevant sections)",
+      "arxiv:1706.02379v3 (2017 first release; Theorem 5 and Appendix F)",
+      "arxiv:2301.09511v1 (2023 fixed-point convergence primary text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 survey supplies only the rounding implementation: upward mass floor(Ky)/K, with no iterative stationary claim.",
+        "Li et al. 2017 prove an ideal-stochastic-rounding stationary limit under nondegenerate stochastic gradient assumptions.",
+        "Fitzgibbon & Felix 2025 analyze average rounding bias under random input distributions, not stationary distributions after feedback."
+      ],
+      "reasoning": "The new theorem requires jointly analyzing two different floor/ceiling transition probabilities of a deterministic strongly convex gradient map and optimizing an error over all target locations. The ideal SR stationary theorem, generic finite-bit bias bounds and one-step rounding tables do not imply the exact threshold as stated. The 2017 result is a relevant precursor and appropriately credited.",
+      "searches": [
+        "arxiv:2603.06060 §§2-4 StochasticA floor probability",
+        "arxiv:1706.02379 Theorem 5 invariant law for exact stochastic rounding",
+        "arxiv:2504.20634 SRFF bias §III-C",
+        "\"fixed-point\" \"rounding\" \"stationary distribution\" gradient descent two-state"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al. 2017 arxiv:1706.02379, Theorem 5 and Appendix F: a Markov stationary law under ideal rounding with nondegenerate gradient noise.",
+        "Xia et al. 2023 arxiv:2301.09511, §§1 and 4: fixed-point gradient rounding with exact stochastic probabilities and alternate biased rules."
+      ],
+      "reasoning": "Stationary distributions and two-state kernels are established mathematical concepts; the claimed novelty is not Markov balance itself, but its exact finite-randomness parameterized minimax consequence. Theorem 5 in Li et al. requires gradient-noise support on both signs and describes ideally randomized rounding, whereas this deterministic-gradient chain uses a downward-biased finite random-bit threshold. The inspected text does not subsume the new bit-count phase transition.",
+      "searches": [
+        "\"stochastic rounding\" \"two-state\" \"stationary\" \"gradient descent\"",
+        "\"stochastic rounding\" \"stationary distribution\" \"binary\" optimizer",
+        "exact two state Markov chain stochastic rounding stationary b versus floor(K eta b) ceil(K eta(1-b)) finite bits",
+        "arxiv:1706.02379 Theorem 5 and Appendix F"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fitzgibbon & Felix 2025 give averaged bias formulas and experimental validation-loss curves, not a tabulation of the two-state stationary law.",
+        "The 2026 survey lists StochasticA, StochasticB, StochasticC and hardware applications without a table of the target-uniform invariant error."
+      ],
+      "reasoning": "No inspected exact table or database supplies floor(vb)/(floor(vb)+ceil(v(1-b))) as a family or the sharp worst-target envelope. A negative search alone is not a novelty proof; primary text was compared as described in the source inspections.",
+      "searches": [
+        "fixed step gradient descent 2-point binary quantization random Bernoulli stationary bias finite bit budget 2^r step size",
+        "StochasticA limited random bit rounding two-state gradient descent stationary law exact bias floor probability and absorbing threshold K step size",
+        "\"finite random bits\" \"stationary distribution\" stochastic rounding"
+      ]
+    },
+    "rationale": "The inspected 2026 StochasticA survey defines the floor-based finite-random-bit probability but provides no invariant-law or minimax bit-budget theorem; Fitzgibbon-Felix 2025 calculate one-round bias and correct it, not the stationary amplification. El Arar et al. 2024/2025 study stochastic rounding and finite-horizon bounds, including empirical gradient descent, not this sharp two-state invariant. Li et al. 2017 analyze ideally rounded quantized Markov training; their stationary-limit theorem assumes stochastic gradients with both positive and negative support and does not treat truncated random thresholds. Xia et al. 2023 consider distinct exact stochastic fixed-point rounding models. A previous numerical summation absorption result uses repeated positive additions on a floating point binade, not a two-state gradient stationary law. None of those statements implies the combined exact floor/ceiling invariant mass, sharp min(1,1/(K eta)) supremum, and if-and-only-if random-bit scale. Universal historical-priority proof is not claimed.",
+    "residual_risks": [
+      "The search cannot establish global historical priority. Other finite-state quantized optimization or stochastic rounding treatments may imply this exact special-case envelope.",
+      "The result is a minimal two-level fixed-point model and should not be extrapolated to floating-point binades, high-dimensional training, stochastic gradients, or corrected/nearest-based stochastic rounding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_MODEL_NOT_COVERING_STATIONARY_MINIMAX",
+        "evidence": "§3 gives floor(K q)+R>=K; §§2 and 4 give ideal unbiasedness and finite-precision bias context; no explicit two-state gradient invariant or sharp min(1,1/(K eta)) budget law in inspected pertinent sections.",
+        "identifier_or_url": "https://arxiv.org/html/2603.06060",
+        "material_read": "HTML source abstract; §§1–4 (definitions of ideal versus limited precision, StochasticA floor test, links to relevant methods and error analyses).",
+        "method": "Read accessible arXiv HTML, compared equations for rounding probabilities and literature scope.",
+        "title": "What is New in Stochastic Rounding: a Survey on Theory, Hardware, and Applications",
+        "trigger": "2026 literature identifies IEEE-P3109-style StochasticA finite-bit floor and stochastic rounding hardware cost"
+      },
+      {
+        "assessment": "RELATED_SINGLE_ROUND_BIAS_NOT_COVERING_MINIMAX",
+        "evidence": "§III-C computes the average bias of SRFF; §III-F proposes correction; §IV gives quantization-aware training experiments. No exact invariant stationary law or sharp bit-versus-stepsize phase transition appears in inspected results.",
+        "identifier_or_url": "https://arxiv.org/abs/2504.20634",
+        "material_read": "Accessible full-text HTML §§II–V and Appendix A; PDF cover and printed bias derivation on page 4 inspected.",
+        "method": "Read primary text on arXiv and inspected PDF page images for definitions and single-round bias computation.",
+        "title": "On Stochastic Rounding with Few Random Bits",
+        "trigger": "Direct predecessor on biased few-bit rounding and quantized gradient training"
+      },
+      {
+        "assessment": "GENERAL_FINITE_HORIZON_RESULTS_NOT_COVERING_STATIONARY",
+        "evidence": "Definition 4 quantizes the upward probability via additional precision; Lemma 5 decomposes bias; §6 evaluates finite-time Rosenbrock training. Neither establishes a two-state exact stationary distribution nor the present sharp uniform cutoff.",
+        "identifier_or_url": "https://arxiv.org/pdf/2408.03069",
+        "material_read": "Primary 22-page PDF: §§2.3–4 (Definition 4, Lemma 5 and associated bounds), §6 gradient descent/Rosenbrock experiment and §7 conclusion; relevant page images inspected.",
+        "method": "Read PDF text and screenshots of pp. 1, 5, 6, 20; compared Theorem 1/Lemma 5 and experiment with invariant-law claim.",
+        "title": "Probabilistic error analysis of limited-precision stochastic rounding",
+        "trigger": "Foundational probability-quantized SR error bounds and low-precision optimization experiments"
+      },
+      {
+        "assessment": "IDEAL_ROUNDING_PRECURSOR_NOT_COVERING_FINITE_BITS",
+        "evidence": "Theorem 5 gives a stationary limit under ideally rounded stochastic gradients, and requires gradient distributions with both positive/negative support. No truncated probability floor K-bit mechanism; the new deterministic quadratic violates those noise hypotheses.",
+        "identifier_or_url": "https://arxiv.org/abs/1706.02379",
+        "material_read": "Full accessible HTML around §3, §5.2 Theorems 5–6 and Appendix F; corresponding PDF pp. 1 and 7 inspected visually.",
+        "method": "Compared exact theorem hypotheses (nondegenerate stochastic-gradient support) and stationary implications against present deterministic-gradient finite-bit model.",
+        "title": "Training Quantized Nets: A Deeper Understanding",
+        "trigger": "Direct older Markov-chain formulation of stochastic rounding invariant laws"
+      },
+      {
+        "assessment": "DIFFERENT_ROUNDING_REGIME",
+        "evidence": "Studies fixed-point stochastic rounding gradients and convergence-rate bounds under PL hypotheses, without specified r-bit random thresholds or the exact two-state invariant minimax law.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.09511",
+        "material_read": "Accessible primary full text: abstract, introduction, §§1.1–1.2 summary and later theorem locations via document navigation.",
+        "method": "Read primary arXiv page and contrasted exact SR and alternative deliberately biased rounding modes with bit-truncated random probability.",
+        "title": "On the Convergence of the Gradient Descent Method with Stochastic Fixed-point Rounding Errors under the Polyak–Łojasiewicz Inequality",
+        "trigger": "Potential broader coverage for fixed-point quantized gradient dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "51e52c98-14bf-42e2-9117-1fb6765dd72f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The invariant probability is a natural long-run accuracy invariant for a repeatedly quantized optimizer. Its target-uniform total-variation difference from an ideal stochastic-rounding chain directly measures damage from finite random-bit budget. The sharp threshold K eta<=1 produces universal absorption at one endpoint despite strongly convex real drift; above it the exact minimax error is 1/(K eta), proving that fixed learning-rate-scaled bit budgets are insufficient for uniform small-step fidelity. The iff asymptotic and exact prescribed-tolerance bit count specify an operational resource law that finite-time average rounding-bias estimates do not supply. This is a complete motivated classification on the smallest nontrivial quantization cell, not a numerical curiosity chosen after calculating unrelated parameters.",
+    "status": "PASS"
+  }
+}
