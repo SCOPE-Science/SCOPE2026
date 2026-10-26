@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "OR propagation is union-preserving so singleton seeds govern worst convergence. Chronological first-infection tracing proves the two-arc path-clock formula. The bound, all-size construction, even-ring two-chain characterization, n>=6 unique-witness proof, source interleaving count, n=4 exception, and probability algebra are reconstructible and hold with explicit edge cases. The standalone checker independently corroborates n=3..10, not infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2008 dynamics groups paper provides general asynchronous ECA periodic dynamics, including a duality table for Rule128 and Rule254",
+        "published-finding corpus parity and finite automaton census results treat different state maps and invariants"
+      ],
+      "reasoning": "General qualitative convergence/group theorems do not quantify the worst number of full sweeps or enumerate orders attaining it. No inspected theorem implies the claimed count.",
+      "searches": [
+        "sequential rule 254 cellular automaton cycle convergence number update permutations",
+        "arxiv:0808.1238 dynamics group Rule128 Rule254",
+        "published-finding corpus search: asynchronous cellular automata convergence update permutations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0707.2360 (2007, full paper, asynchronous ECA rule classifications)",
+      "arxiv:0808.1238 (2008, full paper, dynamics groups and Rule128/254 duality)",
+      "B. Schönfisch and A. de Roos, Biosystems 51 (1999) 123-143 (abstract only)",
+      "published-finding corpus: 2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b",
+      "published-finding corpus: 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+      "published-finding corpus: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+      "published-finding corpus: 2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2007 paper identifies relevant long-term behavior; the present claim concerns finite-time extrema across all n! permutations",
+        "The 2008 paper classifies periodic sets/groups, which can be identical across schedules with very different transient durations"
+      ],
+      "reasoning": "A terminal-state result cannot yield a sharp finite-time integer or exact extremal-schedule proportion without additional estimates and enumeration; source statements do not dominate the new theorem.",
+      "searches": [
+        "arxiv:0707.2360 Section 5 Rule128",
+        "arxiv:0808.1238 Rule128/254 group table",
+        "Sequential disjunctive Boolean network on a cycle infection propagation time under fixed permutation sweeps; exact counts of slow schedules."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rule254 is the three-site OR map and its complemented dynamics is Rule128",
+        "The 2007 Rule128 work treats convergence/periodic behavior, not counts of permutation orders with maximal sweep delay"
+      ],
+      "reasoning": "Complementation preserves schedules and converts infection to extinction, but an eventual-state classification lacks the descent-chain and binomial-enumeration conclusions.",
+      "searches": [
+        "Sequential disjunctive Boolean network on a cycle infection propagation time under fixed permutation sweeps; exact counts of slow schedules.",
+        "cyclic Boolean OR dynamical systems permutation sweep antipodal infection delay chains and extremal scheduling count.",
+        "\"rule 254\" asynchronous update order cyclic ring stabilization time",
+        "arxiv:0707.2360 Rule128 complementary Rule254"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Local exhaustive simulation gives extrema 216, 1280, 7000 at n=6,8,10, but this is independently computed data, not a preexisting database citation",
+        "Closest published-finding corpus tables count parity-rule or other cellular automata orbits, not Rule254 extremal schedules"
+      ],
+      "reasoning": "No exact online table with these exact object/parameters was located. Absence of a search hit is not treated as proof of novelty.",
+      "searches": [
+        "Sharp number of permutation update schedules of asynchronous Rule 254 OR-neighborhood binary cyclic cellular automata attaining worst-case convergence latency floor(n/2); n^2 binomial coefficient.",
+        "\"216, 1280, 7000\" cellular automata update schedules",
+        "published-finding corpus search: permutation update schedules asynchronous Rule254 sharp convergence"
+      ]
+    },
+    "rationale": "Full-text primary comparison with arxiv:0707.2360 and arxiv:0808.1238 separates established qualitative Rule128/254 periodic-state results from the new sharp sweep-latency count; published-finding corpus searches on exact object and aliases returned no covering claim. Residual risk remains in unindexed combinatorial schedule literature; no priority certification is asserted.",
+    "residual_risks": [
+      "Equivalent results may occur under monotone disjunctive Boolean networks, infection propagation, or complement Rule128 terminology in literature not retrieved or not freely readable.",
+      "The 1999 Schönfisch–de Roos paper was compared at abstract level only; no full-paper noncoverage is claimed.",
+      "Independent historical priority assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers qualitative eventual dynamics and order independence but does not count extremal propagation delays or update order permutations",
+        "evidence": [
+          "Section 2 studies dynamics of asynchronous elementary rules",
+          "Section 5 treats Rule128 and its OR-complement eventual configurations; no fixed-sweep time enumeration or extremal count identified"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0707.2360",
+        "material_read": "Full open-access primary manuscript, introduction/definitions, Section 2 theorem, Section 5 Rule128 discussion and proof, conclusions",
+        "method": "Compared hypotheses, complement duality, exact statements and implications for sweep latency and permutation enumeration",
+        "title": "Order Independence in Asynchronous Cellular Automata",
+        "trigger": "Rule 254 qualitative period/fixed-state classification and potential overlap of Rule128 complement"
+      },
+      {
+        "assessment": "Periodic states/dynamics groups can be trivial for all schedules without determining which schedules have maximum transient delay; no extremal binomial census identified",
+        "evidence": [
+          "Rule128 and complementary Rule254 dynamics group comparison",
+          "Periodic-set classification does not imply the distribution of transient arrival times"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0808.1238",
+        "material_read": "Full open-access primary manuscript, introduction, model and Theorem discussion, Rule128/254 table and group structures",
+        "method": "Compared periodic states/groups against sharp nonperiodic sweep-length question",
+        "title": "Dynamics Groups of Asynchronous Cellular Automata",
+        "trigger": "May have stronger description of all Rule254 schedules and their orbits"
+      },
+      {
+        "assessment": "General schedule-dependence background; inaccessible full text leaves residual risk, but no indicated exact Rule254 extremal census",
+        "evidence": [
+          "1999 abstract concerns broad synchronous/asynchronous dynamics, without formula for the proposed cyclic OR extremal order census"
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/10530753/",
+        "material_read": "Bibliographic record and abstract only",
+        "method": "Compared abstract-level scope; did not infer full-paper noncoverage",
+        "title": "Synchronous and asynchronous updating in cellular automata",
+        "trigger": "General prior treatment of schedule dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4ac269e2-ea64-4ea2-9004-46650a309a4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural fixed-permutation disjunctive cellular automaton on a cycle has a sharp and mathematically motivated finite-time invariant: its largest number of full sweeps before occupation. The result not only realizes the obvious distance bound, but characterizes all extremal schedules, uniquely locates their slow source, and gives their superfactorially small proportion. These structural and exact combinatorial distinctions are not furnished by mere convergence or entropy assertions.",
+    "status": "PASS"
+  }
+}
