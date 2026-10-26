@@ -1,0 +1,9 @@
+# Scientific assessment
+
+**Correctness (PASS).** The proof gives a necessary-and-sufficient inverse-deletion criterion, paying special attention to deletion of a singleton second run and possible merger of the first and third runs. It then counts distinct supersequences with a constrained initial run, using the standard binomial subsequence counting identity. It covers all nonempty binary seeds, all nonnegative exact insertion radii, and constant seeds. Direct generation and independent finite membership checks agree on 2,550 seed/radius cases and the inverse-step test on 84,490 admissible pairs.
+
+**Originality (PASS, residual risk).** The closest earlier study, Ben-Tolila and Schwartz (arXiv:2112.11811v1), gives a regular-language factorization of the unbounded descendant cone; this is stronger as a language-membership resource, and is explicitly credited. It does **not** state this exact distinct radius-by-radius sphere-size law, its collapse to the initial-run parameter, or the extremal and density conclusions. Yohananov and Schwartz (arXiv:2312.00394v1) address coding capacity and common descendant cones rather than distinct per-radius counts. The formula could be latent in an alternative enumeration of that regular language or appear elsewhere under other terminology. The standard supersequence identity is not itself new.
+
+**Value (PASS).** Exact forward channel sphere sizes, rather than only reachable-language or coding-capacity results, are a natural structural quantity in duplication-based storage channels. The all-seed, all-radius closed form and striking independence from all bits after the seed's first run support comparisons of extremal growth and error-ball volume without enumerating insertion histories. This is not a code-size theorem or a generalization to longer duplications.
+
+Self-review: passed. Independent audit: not yet performed.
