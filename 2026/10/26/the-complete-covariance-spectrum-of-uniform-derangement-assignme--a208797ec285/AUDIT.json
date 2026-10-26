@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Independent two-edge inclusion-exclusion yields exact covariance values by four support patterns. Orthogonal elimination of deterministic margins and covariance action (Sigma A)_ij=(p+p²+nr+s)A_ij+s A_ji establish both eigenspaces, dimensions, positivity, uniqueness of the size-five scalar case. Full rational enumeration n=3..8 passed 3,771 checks; the proof handles arbitrary n.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kagey 2022 Section 4 gives arbitrary prefix counts by rook polynomials, enough to recover two-edge probabilities, but no covariance eigenspaces.",
+        "Diaconis–Graham–Holmes 2001 full PDF, especially Sections 2–4, studies restricted-position tests, Markov chains, and limit theorems; text search finds no full covariance spectral result."
+      ],
+      "reasoning": "The general inclusion-exclusion counting formula strongly covers local count ingredients, so those are not originality claims. Reconstructing all covariance modes, kernel, eigenvalues, and unique scalar case requires the additional operator decomposition proved here. The general sample-space description in older work does not directly state or mechanically subsume this specific spectral classification.",
+      "searches": [
+        "arXiv:2210.17021 derived complementary board corollary 22",
+        "Statistical problems involving permutations with restricted positions covariance matrix Diaconis Graham Holmes",
+        "permutation matrices conditioned zero diagonal full covariance operator rank spectrum"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.13831v1",
+      "arXiv:2210.17021v2",
+      "Diaconis-Graham-Holmes DOI 10.1214/lnms/1215090070",
+      "OEIS A000166/A047920 (enumerative inputs)",
+      "Published work on inversion-indicator precision for unrestricted permutations (different comparison observables)",
+      "Established derangement cycle-count covariance studies (different assignment statistic)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 paper of da Silva, Jamshidpey and Tavaré is about cycle-type chains and their asymptotics, not entrywise permutation matrix covariance.",
+        "Kagey 2022 Corollary 22 explicitly covers prescribed two-entry probabilities as a straightforward use of unrestricted prefix counting.",
+        "Diaconis–Graham–Holmes 2001 gives the general restricted-permutation testing setting without the symmetric/skew eigenvalue and isotropy statements."
+      ],
+      "reasoning": "The new final claim is the full covariance-operator spectrum and its unique n=5 isotropic case. None of the cited prior statements directly gives the positive eigenvalue formulas, their exact multiplicities, or the equality criterion. Previously known local enumeration is treated solely as a premise; a future discovery of a general second-moment representation theorem with these consequences would change priority assessment.",
+      "searches": [
+        "arXiv:2211.13831 Markov chains biased random derangements",
+        "arXiv:2210.17021 Ranking and Unranking Restricted Permutations",
+        "2001 Diaconis Graham Holmes restricted positions eigenvalue covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2210.17021 Corollary 22 counts restricted prefixes; the proposed spectrum concerns quadratic assignment-score variances, not counts.",
+        "No equivalent spectral theorem returned by the mathematical-result searches."
+      ],
+      "reasoning": "Equivalent statements could appear as the covariance spectrum of zero-diagonal permutation matrices, isotropic centered derangement designs or a closed assignment-score variance. Results found on inversion indicators or cycle counts use different observables and do not imply this operator identity.",
+      "searches": [
+        "eigenvalues covariance matrix of all offdiagonal indicators of uniform derangement symmetric antisymmetric score",
+        "random derangement linear assignment score variance symmetric antisymmetric eigenvalues",
+        "derangement covariance entries eigenvalues symmetric skew representation variance permutation linear statistic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000166 provides the already-known derangement sequence, not the covariance spectrum.",
+        "The derangement prefix formula is given by Kagey as OEIS A047920, a pre-existing count input."
+      ],
+      "reasoning": "The claimed eigenvalue decomposition is not a table lookup or small-n census; it applies to every n>=3, with finite checks used only to corroborate the general proof.",
+      "searches": [
+        "random permutation conditioned no fixed points pairwise edge correlations rook polynomial",
+        "uniform random derangement off-diagonal permutation matrix entry pair covariance transpositions two cycles positive negative",
+        "OEIS A000166 derangement number D_n"
+      ]
+    },
+    "rationale": "Full symmetric/skew covariance spectrum and exceptional size-five isotropy were not stated by the relevant primary articles inspected. Rook-based prefix counting is prior mathematics and supplies the local inputs; novelty is restricted to global covariance eigenspaces, exact nonzero eigenvalues and sharp isotropy classification, subject to residual historical-priority risk.",
+    "residual_risks": [
+      "Unindexed older work on restricted assignment statistics may derive a stronger full covariance spectrum; finite searches cannot prove absence.",
+      "The pair-incidence counts themselves follow directly from existing rook-polynomial enumeration, so they are deliberately not claimed as new.",
+      "The spectral theorem may admit an alternative representation-theoretic proof that has not been located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the assignment-incidence covariance spectrum; measures cycle types and Markov chain limits",
+        "evidence": [
+          "arXiv:2211.13831v1, Sections 3–5",
+          "arXiv first-submission timestamp 2022-11-24T23:53:37Z"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.13831v1",
+        "material_read": "Abstract, Introduction, section headings and relevant Sections 3–5 including chain and cycle theorems",
+        "method": "Read lawful openly accessible primary HTML full text and search for covariance, spectral, permutation matrix",
+        "title": "Markov chains arising from biased random derangements",
+        "trigger": "First public 2022 probability paper with precisely the derangement sample space and primary MSC 60C05"
+      },
+      {
+        "assessment": "Covers two-edge inclusion-exclusion inputs and raw probabilities, but does not state/evaluate the complete covariance operator spectrum or singular-mode classification",
+        "evidence": [
+          "arXiv:2210.17021v2, Section 4.3, Corollary 22",
+          "first submitted 2022-10-31, revised 2023-11-09"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.17021v2",
+        "material_read": "Sections 2–4, in particular Lemmas 19–21 and Corollary 22, including displayed prefix enumeration formula",
+        "method": "Read lawful open full-text HTML and compare the precise implication of its general rook count",
+        "title": "Ranking and Unranking Restricted Permutations",
+        "trigger": "Explicit potentially dominating restriction-board counting result for prescribed permutation entries"
+      },
+      {
+        "assessment": "The inspected relevant sections give the general restricted-permutation testing framework and counting methods; no direct derangement incidence covariance spectrum or five-size isotropy was identified",
+        "evidence": [
+          "DOI:10.1214/lnms/1215090070",
+          "PDF pp. 195–222; discussion of derangements in Introduction and Section 3"
+        ],
+        "identifier_or_url": "https://dornsife.usc.edu/sergey-lototsky/wp-content/uploads/sites/211/2023/06/euclid.lnms_.1215090070.pdf",
+        "material_read": "Introduction and relevant Sections 2–4, including derangements and restricted-position tests; targeted searches across the 28-page PDF for covariance and second moments",
+        "method": "Inspected openly accessible primary PDF rendered page plus extracted pages/targeted full-document searches for covariance and second moment",
+        "title": "Statistical problems involving permutations with restricted positions",
+        "trigger": "Foundational publication on restricted-permutation statistical linear scores and possible general second-moment coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a208797e-c285-4d94-a74e-a4c4c32baf05",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full covariance spectrum is a natural complete second-moment classification of conditioned permutation assignment statistics. Its two orthogonal modes characterize every score variance; exact deterministic directions correspond to row/column effects. The exceptional isotropic 11-dimensional n=5 case and its sharp uniqueness provide a structural tight-frame result and a meaningful boundary, rather than an arbitrary finite calculation.",
+    "status": "PASS"
+  }
+}
