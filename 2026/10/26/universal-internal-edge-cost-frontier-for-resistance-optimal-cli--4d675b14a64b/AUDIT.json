@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The proof covers arbitrary positive real budgets and cost coefficients and all finite heterogeneous clique bouquets. Strict convexity on connected weighted Laplacians and injective edge representation make the global optimum unique; symmetries force classwise weights without restricting the original domain. Grounded Laplacian blocks invert exactly and give the Kirchhoff-index formula, which is independently checked against rational pair resistances. Lagrange multiplier KKT has exhaustive interior/boundary regimes, including when the transformed coefficient alpha is negative; the directional derivative gives the exact threshold (N-1)d < 2Nc. The resulting positive spokes, optional nonnegative rims, global budget and S²/B optimum follow algebraically. The standard-library verifier checks 8 exact-rational direct-Laplacian cases (170 pair entries), 8 cost regimes and 256 feasible perturbations, as corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2006 proceedings §IV provides generic KKT conditions and §V solves a two-clique barbell joined by one edge, not cliques sharing a vertex.",
+        "The complete 2008 article supplies global convexity, duality, and illustrations including trees, wheels and a barbell.",
+        "The bouquet ground-vertex decomposition and class-dependent cost constraint are not part of the inspected example calculations."
+      ],
+      "reasoning": "General convexity and KKT framework can be specialized to this design, and is credited as the method source; deriving the nontrivial exact cost activation threshold, explicit unique optimizer and heterogeneous-petal formula requires new block inverse, symmetry and boundary analysis. Generic solvability is not an implication of the explicit claimed threshold absent those steps.",
+      "searches": [
+        "Kirchhoff-index minimizing weights in block graphs with a cut vertex and unequal clique blocks compared with Ghosh Boyd Saberi",
+        "Cost-weighted Kirchhoff index minimization on windmill friendship graphs with multiple nonidentical clique petals, closed form threshold independent of petal size",
+        "Graph resistor network optimal allocation for general block graph at cut-vertex with independent budgets and sharp interior edge-cost phase transition",
+        "doi:10.1137/050645452",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "https://epubs.siam.org/doi/abs/10.1137/050645452",
+      "https://arxiv.org/pdf/2309.02704",
+      "Published research-record identifiers: 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc, 2026/10/4/SCOPE-all-minimal-fractional-edge-resolvers-of-friendship-graphs--a2711a0dec94, 2026/10/4/SCOPE-exact-curvature-distortion-number-of-pineapple-graphs--de350c5f72a5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ghosh–Boyd–Saberi gives uniqueness and convexity for unit-cost ERMP; the present theorem allows heterogeneous spoke/internal edge costs and gives closed-form coordinates.",
+        "Haritha–Chithra computes fixed-weight coalescence resistance; no global design optimization.",
+        "Published mathematical record IDs 2026/10/4/SCOPE-dissociation-polynomial-and-all-maximal-dissociation-sets-of-gen--2c55298c97bc, 2026/10/4/SCOPE-all-minimal-fractional-edge-resolvers-of-friendship-graphs--a2711a0dec94, 2026/10/4/SCOPE-exact-curvature-distortion-number-of-pineapple-graphs--de350c5f72a5 refer to graph objectives other than Kirchhoff-index allocation."
+      ],
+      "reasoning": "A generic optimization method does not directly assert the particular bouquet phase diagram; graph-coalescence distances do not optimize over conductances. There is no stronger inspected theorem whose displayed conclusion subsumes the new exact activation-and-weight formulas. Priority risk remains for unindexed specialized literature.",
+      "searches": [
+        "Optimal conductance allocation minimizing Kirchhoff index total effective resistance on heterogeneous windmill clique bouquet graph one point union of complete graphs with distinct petal sizes; exact weights and minimum",
+        "Threshold 2N/(N-1) between optimized zero and positive within-clique edge conductances for minimizing total effective resistance on clique bouquet graph with per-edge cost and total budget",
+        "Exact globally optimal nonuniform conductance budget on one-vertex join of heterogeneous cliques: hub spokes versus internal clique edges and Kirchhoff index",
+        "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph 2006 proceedings optimum barbell",
+        "arxiv:2309.02704 windmill resistance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same network is called a windmill, generalized friendship graph, bouquet, clique coalescence, block graph, or K1 join of disjoint cliques.",
+        "Ghosh–Boyd–Saberi 2006 proceedings pp. 1185–1196 examines general edge allocation and a barbell, not a one-vertex clique bouquet.",
+        "Haritha–Chithra 2023 §3 gives resistance distances of fixed unweighted windmills, with no conductance cost optimization."
+      ],
+      "reasoning": "Comparing objects and conclusions rather than keyword matches, the published general ERMP does not give a graph-specific closed optimizer or cost phase boundary. Fixed-weight windmill resistance-distance computations cannot imply design weights without a separate global constrained minimization argument.",
+      "searches": [
+        "Optimal conductance allocation minimizing Kirchhoff index total effective resistance on heterogeneous windmill clique bouquet graph one point union of complete graphs with distinct petal sizes; exact weights and minimum",
+        "Graph effective resistance optimal edge weight allocation for cactus and block graphs, windmill generalized friendship clique sum universal within-block spectral stiffness",
+        "Optimal weights for the graph K1 join disjoint union of complete graphs, minimizing sum pairwise resistance under a fixed total edge conductance",
+        "\"optimal weights\" \"friendship graph\" \"Kirchhoff index\"",
+        "\"effective resistance\" \"clique sum\" \"optimal conductance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2023 coalescence paper tabulates resistances for fixed unit edge weights, not minimum objective under linear edge costs.",
+        "Targeted published mathematical record search for exact cost/optimizer parameters returned no matching optimizer table; closest 2026-10-04 windmill records concern unrelated dissociation and fractional edge metric invariants."
+      ],
+      "reasoning": "A known effective-resistance table gives objective values at specified weights, not the optimal choice and active-edge transition for all positive real class costs; available results do not contain a dominating parameter table.",
+      "searches": [
+        "Optimal weights for the graph K1 join disjoint union of complete graphs, minimizing sum pairwise resistance under a fixed total edge conductance",
+        "Exact globally optimal nonuniform conductance budget on one-vertex join of heterogeneous cliques: hub spokes versus internal clique edges and Kirchhoff index",
+        "\"resistance minimization\" \"block graphs\" weighted network",
+        "\"optimal\" \"conductance\" \"windmill graph\" \"effective resistance\""
+      ]
+    },
+    "rationale": "The exact global minimizer with individual edge variables and positive/zero mixed regimes is not supplied by the closest general convexity framework (Ghosh–Boyd–Saberi 2006/2008) or by unit-weight resistance tables of clique coalescences (Haritha–Chithra 2023). The new claim is a derived graph-family-specific closed formula including a universal per-class cost ratio and sharp sparsification boundary. Actual published mathematical record searches returned graph-related but nonimplicative mathematical findings. This is best-knowledge originality, not a priority certificate.",
+    "residual_risks": [
+      "A more specialized or incompletely indexed graph resistance-design treatment could derive the same cost frontier; negative targeted search is not proof of global originality.",
+      "The proceedings is dated July 2006 without independently established public release day; exact day of earliest public version is unresolved. 2008-02-01 is the earliest day-resolved public publication checked, not asserted to predate the 2006 proceedings.",
+      "The conclusion does not extend to class-varying internal edge costs, nonlinear procurement costs, or arbitrary block graph topology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: unit-cost general ERMP and an edge-connected barbell, with no heterogeneous one-vertex clique bouquet sharp cost threshold.",
+        "evidence": [
+          "2006 proceedings p.1185 states unit total conductance ERMP; §§IV–V give KKT and barbell example; first-page conference date spans July 24–28 2006."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "Proceedings pp. 1185–1196: introduction, §II Laplacian/resistance foundations, §IV global optimality conditions, §V barbell calculation, §VII extensions and examples.",
+        "method": "Read primary PDF text covering these sections and inspect page 1 and the Kuhn–Tucker formula page; compare source graph, constraints and theorems. This is a targeted material review, not a claim that every sentence of the proceedings was analyzed.",
+        "title": "Minimizing Effective Resistance of a Graph (conference proceedings)",
+        "trigger": "Earlier-public source version of the closest framework and a possible covering theorem"
+      },
+      {
+        "assessment": "Foundational generic framework and different worked graph families, not the present explicit heterogeneous clique-bouquet optimizer.",
+        "evidence": [
+          "SIAM Review 50 (2008), 37–66, DOI 10.1137/050645452; published online February 1 2008; examples include paths, wheels, barbell."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Article introduction and mathematical development of convexity, §§2, 4–5 and 8, with worked graph examples and discussion; read rendered example pages.",
+        "method": "Read primary full-text PDF sections and examine original mathematical claims and example figures; targeted review of relevant proofs, not only abstract/snippets.",
+        "title": "Minimizing Effective Resistance of a Graph (SIAM Review full version)",
+        "trigger": "Most directly relevant convex resistance-design primary work"
+      },
+      {
+        "assessment": "Fixed unit-weight graph resistance distances, not a global cost-budget design result.",
+        "evidence": [
+          "Haritha and Chithra, arXiv:2309.02704v1 (September 6 2023), §3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.02704",
+        "material_read": "Primary arXiv PDF: introduction, resistance-distance setup, §3 windmill/coalescence calculations, §4 conclusion, and first-page figure/text.",
+        "method": "Read original theorem statements, formulas and proof contexts in relevant sections and inspect opening PDF page; compare variables (fixed conductances versus optimized allocation).",
+        "title": "Resistance distance in k-coalescence of certain graphs",
+        "trigger": "Exact graph alias and fixed-resistance computations for clique bouquet and windmill"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d675b14-a64b-4cca-a57c-3d0e604974be",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The full individual-edge global Kirchhoff-index conductance design is a recognized network optimization problem, with a natural finite family of hub-connected dense communities. Cost heterogeneity creates a real, sharp phase transition between retaining and deleting entire internal edge classes. The unexpected N-only cost threshold, exact formulas for all weights and optimal resistance, and simultaneous active/inactive petals are substantial and reusable structural results, not a renaming or a fixed-parameter computation; method and mathematical scope are explicit.",
+    "status": "PASS"
+  }
+}
