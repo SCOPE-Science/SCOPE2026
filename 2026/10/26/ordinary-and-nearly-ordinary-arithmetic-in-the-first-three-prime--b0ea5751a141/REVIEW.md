@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The family equation agrees with Asgarli–Ghioca (Theorem 1.2). Exact enumeration checks all admissible parameters for the three primes, and all 12 dehomogenized Jacobian ideals have Gröbner basis consisting of the unit. The standard Hasse–Witt coefficient formula computes every entry without approximation; determinants and two complementary rank certificates establish the stated arithmetic types. The Frobenius-stable rank and genus yield the Newton slopes. The local package recomputes the certificates with two coefficient-expansion methods. No extrapolation to further primes is asserted.
+
+**Originality — PASS, subject to residual literature risk.** The defining primary source (arXiv:2307.03072) gives the geometric family and rational-point smoothness criterion, but does not determine these Jacobian ranks. Duran Cunha (arXiv:1805.07345) proves ordinarity for a different family of degree-\(p+2\) curves. Adolphson–Sperber and Kudo–Harashita give general machinery, without tabulating the specific smooth \(p+3\) members. Targeted literature and mathematical-database comparisons disclosed no equivalent statement. General methods can of course reproduce the result, and incomplete indexing of specialized tables remains a risk.
+
+**Value — PASS.** The arithmetic transition is motivated by the published extremal plane-filling construction: all its smooth members for the first two odd primes are ordinary, while all those at the next odd prime have a single nonordinary factor in their Newton data. The precise \(p\)-rank and \(a\)-number are natural invariants relevant to Jacobian arithmetic, and the all-admissible-parameter classification identifies a first finite-field boundary rather than an arbitrary slice of a parameter space. The scope is deliberately finite, with no unsupported general-prime theorem.
+
+Self-review: passed. Independent audit: not yet performed.
