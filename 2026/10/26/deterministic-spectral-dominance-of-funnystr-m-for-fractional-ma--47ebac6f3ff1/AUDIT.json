@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "For every nonzero sketch vector w, m_w(t)=w^T A^t w is an exponential sum with log-convex logarithm g. Comparing p g′(pt) with p g′(t) for t>=1 gives the exact pointwise quotient inequality for each Rayleigh quotient of the positive-definite generalized pencils (M_{2pq},M_{(2q-1)p}) and (M_{2q},M_{2q-1}). Courant–Fischer yields all k ordered eigenvalues. The PSD projector factorization for Nyström plus Löwner–Heinz yields both PSD fractional-power residuals, permitting a trace/nuclear comparison. The two-by-two family gives exact alpha and beta and ratio asymptotic 2 L^{1/4}. Symbolic verification and 1728 finite matrix-pencil comparisons passed; finite checks are not treated as proof of universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Persson and Kressner, arXiv:2209.11023, formula (3), Algorithm 1, Lemma 3.2, Sections 3.3 and 4.3, Figure 2.",
+        "Persson, Meyer and Musco, arXiv:2311.14023v2, Section 1.2 and Theorems 1.1, 2.5, 2.7, 2.8."
+      ],
+      "reasoning": "A bound on error relative to the best rank-k approximation does not order two distinct, nonoptimal approximations formed from the same seed. The original 2022 work proves norm/error expectation bounds for funNyström and reports comparative experiments in its Section 4.3, but not the asserted all-sketch, eigenvaluewise dominance. The 2023 work transfers near-optimality from an approximation of A to a matrix function; its hypotheses do not entail relative performance against a separate sketch of A^p.",
+      "searches": [
+        "trace funNystrom always smaller error than direct Nystrom matrix fractional power spectral minmax inequality",
+        "Nyström matrix function approximation funNyström singular-value comparison q power fractional square root directly sketching f(A)",
+        "spectral majorization power Nyström monotone matrix function direct Nyström same range",
+        "Web: Nyström approximation matrix power sketches comparison operator concavity f(N_A) trace direct Nyström(f(A))"
+      ]
+    },
+    "checked_sources": [
+      "Persson and Kressner, arXiv:2209.11023, formula (3), Algorithm 1, Lemma 3.2, Sections 3.3 and 4.3, Figure 2.",
+      "Persson, Meyer and Musco, arXiv:2311.14023v2, Section 1.2 and Theorems 1.1, 2.5, 2.7, 2.8.",
+      "published-finding corpus semantic research index queries: 8 actual mathematical query variants.",
+      "Accessible preceding mathematical record 2de19f1b-d1ef-46d8-9c6a-5c4fe693781f (monotonicity in subspace power parameter for one funNyström method, not comparison with Nyström of a matrix power).",
+      "Comparison against related rank-one monotonicity-in-iteration-count claim (distinct statement, not a same-sketch method comparison)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Persson and Kressner, arXiv:2209.11023, formula (3), Algorithm 1, Lemma 3.2, Sections 3.3 and 4.3, Figure 2.",
+        "Persson, Meyer and Musco, arXiv:2311.14023v2, Section 1.2 and Theorems 1.1, 2.5, 2.7, 2.8."
+      ],
+      "reasoning": "The new claim compares the eigenvalues of N_q(A^p;Ω) and N_q(A;Ω)^p for the identical Ω and q, gives the resulting deterministic trace-error direction, and proves an unbounded ratio by exact 2x2 algebra. The 2022 paper numerically observes that funNyström can outperform direct matrix-function Nyström but develops independent error bounds rather than this deterministic pairwise law; its Lemma 3.2 compares a funNyström output to a projector compression of f(A), not to the Nyström approximation of f(A) itself. The later near-optimality-transfer theorem compares a funNyström approximation with the best rank-k error, not with direct Nyström for fixed seed. The related power-iteration monotonicity property does not compare these two matrices. The bridge uses standard log-convexity and generalized Courant–Fischer, explicitly acknowledged.",
+      "searches": [
+        "Source full text: arXiv:2209.11023 formula (3), Lemma 3.2, Figure 2",
+        "Source full text: arXiv:2311.14023v2 Section 1.2, Theorem 1.1",
+        "funNyström fractional powers A^p eigenvaluewise domination of direct Nyström of A^p same sketch same power iterations all sketch ranks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Persson and Kressner, arXiv:2209.11023, formula (3), Algorithm 1, Lemma 3.2, Sections 3.3 and 4.3, Figure 2.",
+        "Persson, Meyer and Musco, arXiv:2311.14023v2, Section 1.2 and Theorems 1.1, 2.5, 2.7, 2.8.",
+        "published-finding corpus ID 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 (Rayleigh-residual filtering, not matrix-function Nyström)."
+      ],
+      "reasoning": "Aliases include funNyström/power-Nyström, direct Nyström of a spectral power, generalized Ritz values, and logarithmic convexity of spectral moments. The source works define the algorithms but state probabilistic or near-optimal transfer bounds; a pointwise same-sketch eigenvalue order between distinct constructions was not found. The published-finding corpus residual-filtering result concerns residuals of normalized filtering of a normal matrix and does not imply the present generalized-eigenvalue inequality.",
+      "searches": [
+        "funNystrom monotone matrix function square root rank one 2x2 Gaussian sketch exact error comparison direct f(A) Nystrom projector",
+        "funNyström fractional powers A^p eigenvaluewise domination of direct Nyström of A^p same sketch same power iterations all sketch ranks",
+        "generalized Rayleigh quotient moment ratios log convexity matrix power Nystrom eigenvalues comparison",
+        "Web: funNystrom direct Nystrom trace inequality comparison same sketch sqrt operator monotone"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus ID 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0 (Rayleigh-residual filtering, not matrix-function Nyström).",
+        "published-finding corpus searches returned no exact paired-algorithm Nyström-power eigenvalue comparison in retrieved results."
+      ],
+      "reasoning": "The output is an all-dimensional analytical comparison and a parameterized unbounded-gap family, not a numerical database value. The closest retrievable own-record claim only compares q values within one funNyström construction. Search failure alone is not offered as uniqueness proof.",
+      "searches": [
+        "funNyström fractional powers A^p eigenvaluewise domination of direct Nyström of A^p same sketch same power iterations all sketch ranks",
+        "rank one power Nystrom approximation monotonic function error q",
+        "Nyström funNystrom spectral eigenvalue trace error same Gaussian sketch comparing power function and direct Nyström, generalized eigenvalue minmax fractional power",
+        "published-finding corpus semantic search: matrix powers Nyström fractional trace eigenvalue ordering"
+      ]
+    },
+    "rationale": "The literature defines funNyström and observes empirical competitiveness, while subsequent work transfers generic near-optimality; neither source was found to state the deterministic equal-sketch, equal-iteration, eigenvalue-by-eigenvalue comparison and unbounded residual-ratio family. published-finding corpus searches and comparison of related recorded claims revealed no implication-covering result. Standard matrix moment log-convexity and min-max theory are not claimed original; novelty is the comparison and consequence, with non-exhaustive historical coverage acknowledged.",
+    "residual_risks": [
+      "Equivalent unindexed or differently worded theorem in numerical matrix-function approximation literature may exist.",
+      "The theorem follows from standard spectral-moment log-convexity; this mathematical ingredient is explicitly not claimed new.",
+      "The unbounded ratio uses a deterministic parameter-dependent seed and has no asserted typical Gaussian probability."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the method and experimentally observes competitive accuracy. No explicit all-sketch, same-q fractional-power ordered-eigenvalue law or unbounded nuclear-residual ratio was located; this absence is a bounded reading assessment, not proof of priority.",
+        "evidence": "Formula (3) gives the exact Nyström construction. Section 4.3 says Algorithm 1 was not worse than directly applying Nyström to f(A) in the reported plots, rather than proving a deterministic universal theorem.",
+        "identifier_or_url": "https://arxiv.org/pdf/2209.11023",
+        "material_read": "Primary full-text material on pages 1–14, 18–21 and 24–26: introduction, formula (3), Algorithm 1, Lemma 3.2, structural and probabilistic norm bounds, Section 4.3 and Figure 2, Section 5, and reference list; other material queried by full-text search.",
+        "method": "Primary arXiv PDF text and page-image inspection (including page 6).",
+        "title": "Randomized low-rank approximation of monotone matrix functions",
+        "trigger": "Introduces exactly the named construction and directly compares it experimentally with Nyström of the matrix function."
+      },
+      {
+        "assessment": "The main theorem transfers near-optimal nuclear-norm guarantees from A to f(A). This does not directly compare two specific Nyström constructions from the same Ω with an exact per-eigenvalue order or quantify the unbounded gap.",
+        "evidence": "Theorem 1.1 states a (1+epsilon) relative-to-optimum nuclear-error transfer; Section 1.2 explains its algorithm-agnostic purpose.",
+        "identifier_or_url": "https://arxiv.org/pdf/2311.14023",
+        "material_read": "Primary full-text material on pages 1–5 and relevant results in Sections 2 and 5: abstract, Nyström definitions, Sections 1.1–1.2, Theorems 1.1–1.2, norm/eigenvalue transfer discussion, counterexamples and citations; other sections searched by relevant terms.",
+        "method": "Primary arXiv PDF text and page-image inspection (page 4).",
+        "title": "Algorithm-agnostic low-rank approximation of operator monotone matrix functions",
+        "trigger": "Plausible stronger, subsequent general result about funNyström and operator monotone powers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "47ebac6f-3ff1-429f-b7db-fb5560faf300",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For approximate traces of fractional matrix powers, both Nyström constructions are known and may have drastically different cost. The theorem provides an unconditional quantitative decision rule comparing their captured traces for the exact same sketch and number of subspace iterations, not just a generic near-optimality estimate; it rigorously explains the empirical advantage in the primary paper for the trace metric. The exact 2x2 family shows the alternative can have an arbitrarily larger trace/nuclear residual, so it is a meaningful structural separation, not an arbitrary small improvement. The scope is carefully restricted to the trace/nuclear residual and power functions.",
+    "status": "PASS"
+  }
+}
