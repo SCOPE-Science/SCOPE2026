@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The four-dimensional invariant quotient is derived from normalized degrees, and the dark sector is characterized exactly. The Schur complement yields an effective rank-one perturbation with upper eigenvalue gap \(a^{-2}+b^{-2}+O(k^{-3})\); eigenprojection control is uniform in time and proves both the \(ab\)-scale law and the global supremum. A separate direct dark-mode decomposition gives the sharp \(1/a\) suppression for localized starting states. Independent full-graph computations corroborate, but do not replace, these proofs.
+
+**Originality — PASS (best-knowledge).** The 2026 equal-size normalized-adjacency barbell study provides spectral and vertex-localization antecedents. The 2024 barbell quantum-search work uses an oracle and different Hamiltonians. General normalized-Laplacian state-transfer and graph-reduction papers do not state the unequal-size all-time collective-fidelity ceiling. Closest possible implication: the balanced-ratio case may follow from the known equal-clique spectrum, so this special case alone is not claimed as new. The new statement is the size-ratio phase diagram, all-time optimization, and localized-versus-collective transfer law.
+
+**Value — PASS.** A single-edge bottleneck naturally raises the question of whether macroscopic cliques exchange an excitation coherently. The result resolves that question with an exact imbalance obstruction, a sharp transfer time scale, and a preparation-dependent change from order-one to order-inverse-size efficiency. These quantify a physical design constraint rather than a mere eigenvalue reformulation.
+
+**Closest literature and risks.** See arXiv:2603.05643v1 (equal-size spectrum and vertex IPR), arXiv:2408.08244v2 (oracle-assisted search), arXiv:2209.04668 (vertex transfer), and arXiv:1412.7209 (general invariant reductions). A broader, uninspected spectral perturbation or transfer theorem could implicitly imply the present specialization; checked searches cannot certify universal priority. The asymptotics require comparable growing clique sizes and no environmental noise. Finite diagnostics do not establish limits by themselves.
+
+Self-review: passed. Independent audit: not yet performed.
