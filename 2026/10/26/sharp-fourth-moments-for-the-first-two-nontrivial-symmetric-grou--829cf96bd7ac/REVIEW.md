@@ -1,0 +1,15 @@
+# Review of sharp two-character fourth moments
+
+## Correctness — PASS
+The object, measure, and norm are stated explicitly. Orthogonality of distinct normalized Specht irreducible characters makes the squared input norm exactly \(|a|^2+|b|^2\). The two characters are explicit polynomials in one- and two-cycle counts. Their mixed fourth moments follow from the exact cycle factorial-moment identity with the degree-eight cutoff, giving an all-degree rank stabilization rather than numerical extrapolation. With nonzero coefficients, phase dependence is a strictly convex quadratic and selects aligned phases. All scalar stationary-point polynomials have precisely one positive root by Descartes' rule and a sign change; endpoint cases are strictly suboptimal. The numerator comparisons yield each strict finite-rank transition. The embedded independent class-count checker passed 84 assertions; the infinite proof is analytical.
+
+## Originality — PASS, subject to historical-priority risk
+The focal 2022 finite-group central Fourier algebra paper computes amenability constants rather than sharp \(L^2\)-to-\(L^4\) norm for this particular two-dimensional Specht-character span. Prior character-polynomial and random permutation cycle facts supply the inputs but do not report the optimized mixed-character constant, uniqueness of the optimizing phase/amplitude ratio, or the complete rank-four-through-rank-eight crossover. The closest published symmetric-group isotypic Fourier result computes endpoint projection norms for the full block, which is a different object and exponent. Records and literature searches for equivalent, broader, and numeric formulations found no statement subsuming the final claim. An unpublished or differently named character-packet inequality remains possible; this review is not an independent priority determination.
+
+## Value — PASS
+The first two nontrivial symmetric-group irreducibles form a canonical small nonabelian Fourier packet, rather than an arbitrarily selected spectrum. Its sharp fourth-moment constant and all maximizers are natural finite-group harmonic invariants; the mixed amplification is about \(25.2673\) versus the larger single-character moment \(16\). The exact stabilization at degree eight follows structurally from the maximal cycle weight in the fourth moment, while lower degrees exhibit four strict jumps. This supplies an explicit nonabelian sharp Fourier moment with a clear boundary for finite-rank effects.
+
+## Sources and limitations
+Sawatzky (arXiv:2210.16262v1), Hamaker–Rhoades (arXiv:2206.06567), and Ford (arXiv:2104.12019) were inspected for their stated objects and relevant character/cycle facts. The public symmetric-group endpoint projection-norm record was read and compared at statement level. The theorem covers only the specified two-character span and fourth exponent. The finite checker does not independently certify every degree; the proof supplies that quantifier. Residual historical priority uncertainty and the lack of an independent audit are disclosed in the accompanying structured record.
+
+Self-review: passed. Independent audit: not yet performed.
