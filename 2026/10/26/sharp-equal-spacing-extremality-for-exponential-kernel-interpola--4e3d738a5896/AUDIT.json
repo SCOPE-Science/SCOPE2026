@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The Gram matrix is a Gauss–Markov innovation covariance and is SPD. Its exact tridiagonal inverse, checked by exact rational reconstruction, becomes irreducible nonnegative after sign conjugation. Raising any adjacent correlation strictly raises both the Perron root of K and that of the sign-conjugated precision, so the spectral condition number strictly rises. The Toeplitz Fourier-symbol interval is strict for nonzero finite trigonometric polynomials. Constant and alternating unit vectors converge to the two symbol edges, yielding sharpness. All n>=2, ell>0, h>0 and target Gamma>1 boundary cases are covered; finite checker examples are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Avesani et al. Proposition 4.10 bounds kernel condition numbers by an unspecified kernel-dependent constant times a scale/separation power.",
+        "Terenin et al. establish existence of upper/lower separated-kernel spectral bounds from packing and Fourier comparisons."
+      ],
+      "reasoning": "These broad estimates imply that separation controls conditioning, but their estimates neither select the unique finite extremizer nor give the optimal hyperbolic-cotangent constant. Thus they do not dominate the claimed sharp statement.",
+      "searches": [
+        "arxiv:2610.21615v1 Sections 4.5 and 5.1",
+        "arxiv:2210.07893v4 Section 3.1 and Appendix A",
+        "2026 web: exponential kernel matrix irregular nodes condition number sharp uniform spacing"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.21615v1 Sections 2, 4.5, 5.1",
+      "arxiv:2210.07893v4 Section 3.1 and Appendix A",
+      "arxiv:1804.08140 (primary PDF; Kac–Murdock–Szegő definitions/eigenvalue analysis)",
+      "Higham (2021) complete exposition on Kac–Murdock–Szegő matrices",
+      "public searches for nonuniform exponential covariance spectral monotonicity, equal-spacing extremizers, and sharp kernel separation condition bounds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 paper gives κ <= unspecified constant from general kernel assumptions, and a converse rate at fixed scale.",
+        "The 2022/2024 paper proves existence of separated-condition bounds, not sharp constants.",
+        "The Toeplitz references assume one repeated ρ and establish the baseline special case."
+      ],
+      "reasoning": "Combining the general papers with the equal-grid Toeplitz special case does not alone prove that no irregular arrangement has a larger condition number; the new monotonicity argument is the essential logical link. Uniform-grid spectral-edge asymptotics then make the bound optimal.",
+      "searches": [
+        "arxiv:2610.21615v1 Proposition 4.10 and Theorem 4.12",
+        "arxiv:2210.07893v4 Proposition 6 and Result 8",
+        "Higham-KMS-2021 and arxiv:1804.08140 Kac-Murdock-Szegő formulas"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fikioris defines the Kac–Murdock–Szegő matrix as constant-parameter Toeplitz, not with freely varying adjacent correlations.",
+        "Higham discusses the equal-correlation AR(1) inverse and matrix norms; his explicit condition-number formula is for the 1- and infinity-norms on the Toeplitz family."
+      ],
+      "reasoning": "The equispaced case and its inverse are classical, but they do not state or automatically imply strict monotonicity of the two spectral extrema over every *irregular* adjacent gap. No inspected equivalent statement was found; a standard matrix-theory specialization remains an originality risk.",
+      "searches": [
+        "2026 web: Kac Murdock Szego irregular spacing covariance matrix condition number bound maximum equal intervals",
+        "2026 web: OU covariance arbitrary observation times maximum condition number uniform spacing",
+        "arxiv:1804.08140; Higham-KMS-2021"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available explicit matrices and tabulated formulas treat equal adjacent correlation; no table of sharp irregular-spacing condition numbers identified."
+      ],
+      "reasoning": "An exact finite-dimensional eigenvalue table for the equispaced Toeplitz kernel would compute the endpoint for a given size, but could not certify the worst-case comparison against every irregular grid without an additional theorem.",
+      "searches": [
+        "2026 web: nonuniform Kac-Murdock-Szegő eigenvalue monotonicity",
+        "2026 web: exponential distance matrix condition number gaps",
+        "arxiv:1804.08140 uniform Toeplitz eigenvalues; Higham-KMS-2021"
+      ]
+    },
+    "rationale": "The claim is the conjunction of strict gap-by-gap spectral monotonicity, uniqueness of the equal-gap maximizer at every finite size, and the sharp separation-only uniform condition-number constant. Existing inspected sources supply general nonsharp separation estimates or only the equal-gap Toeplitz case. No actual matching theorem was found in mathematical or public literature searches; equivalence to an older Gaussian Markov or total positivity theorem remains a residual priority risk.",
+    "residual_risks": [
+      "A classical Gaussian Markov covariance or total-positivity monograph may have an equivalent strict all-gaps spectral comparison, despite the inspected primary papers and targeted searches.",
+      "The exact extremizer does not extend from the 1D exponential kernel to arbitrary radial kernels without a different proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the original bounds do not identify exact minimax arrangement or constant for the 1D exponential kernel.",
+        "evidence": [
+          "Section 4.5 gives a kernel-dependent upper bound C_k max(1,ell/q)^(2 tau) with unspecified constant.",
+          "The conditioning-controlled method uses geometric exclusion based on separation but not this sharp guarantee."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21615v1",
+        "material_read": "Primary accessible HTML material read: Introduction, kernel assumptions in Section 2, Section 4.5 Proposition 4.10 and Theorem 4.12, and Section 5.1 experimental choices.",
+        "method": "Primary open-access arXiv HTML reading, including definitions, hypotheses, proof outlines, and stability theorem statements.",
+        "title": "Greedy multiscale kernel algorithms",
+        "trigger": "2026 first-public emerging numerical approximation paper whose Section 4.5 studies kernel conditioning and Section 5.1 uses conditioning-controlled center separation."
+      },
+      {
+        "assessment": "NOT_COVERING: establishes finite upper and lower eigenvalue bounds, not their exact sharp simultaneous ratio or finite extremizing geometry.",
+        "evidence": [
+          "Section 3.1 specifies constants C_max and C_min from broad assumptions.",
+          "Appendix A derives generic packing and comparison estimates rather than an irregular-mesh exact extremum."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.07893v4",
+        "material_read": "Primary open-access HTML Section 3.1, including Proposition 6 and Result 8, and Appendix A on upper and lower eigenvalue bounds.",
+        "method": "Compared theorem hypotheses and mathematical consequences; traced packing and Fourier lower-bound arguments.",
+        "title": "Numerically Stable Sparse Gaussian Processes via Minimum Separation using Cover Trees",
+        "trigger": "Highly relevant published general separation versus stability theory for Gram matrices."
+      },
+      {
+        "assessment": "NOT_COVERING the irregular-spacing comparison: the analyzed family has one common correlation parameter.",
+        "evidence": [
+          "The matrix is defined as K_n(rho) with entries rho^|j-k|, forcing all adjacent correlations to be equal."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1804.08140",
+        "material_read": "Primary PDF abstract, introductory definition and assumptions, eigenvalue characterization and references to large-size Toeplitz asymptotics; relevant wording and Toeplitz sections.",
+        "method": "Read primary PDF text and visually inspected introductory pages; compared the matrix family directly.",
+        "title": "Spectral properties of Kac–Murdock–Szegő matrices with a complex parameter",
+        "trigger": "Classic matrix underlying the proposed equispaced extremal family and possible theorem supersession."
+      },
+      {
+        "assessment": "NOT_COVERING: its conditioning formula concerns 1- and infinity-norms of the equal-grid Toeplitz family, not 2-norm for arbitrary gaps.",
+        "evidence": [
+          "Equation (1) is the fixed-parameter Toeplitz family; equation (2) gives its constant-coefficient tridiagonal inverse; later formulas concern 1- and infinity-norms."
+        ],
+        "identifier_or_url": "https://nhigham.com/2021/07/06/what-is-the-kac-murdock-szego-matrix/",
+        "material_read": "Entire article including definition, tridiagonal inverse, matrix norm formulas, and cited works.",
+        "method": "Read complete author-written technical exposition and compared definitions and the norm types.",
+        "title": "What Is the Kac–Murdock–Szegö Matrix?",
+        "trigger": "Directly related accessible analysis of inverse and condition numbers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e3d738a-5896-4024-b4d3-86ffff215039",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating kernel-algorithm work expressly trades center separation against condition-number growth and uses conditioning-controlled center exclusion. An exact extremal point geometry and optimal quantitative separation radius for a canonical Matérn kernel is a natural structural stability result, not a purely renamed classical inequality. It provides an optimal uniform certificate for an arbitrary target condition-number budget and shows that the limiting worst case cannot be attained by any finite sample. It is distinct from mere computation of a known equal-grid eigenvalue table or a general pre-existing nonsharp separation estimate.",
+    "status": "PASS"
+  }
+}
