@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The exchangeable restaurant rule gives three explicit marked-block probabilities, and each expectation follows by counting marked singleton and doubleton choices. Their quotient yields the covariance ratio. Every factor in the simplified ratio decreases with the discount, its endpoints straddle one, and the sample-size ratio is increasing in discount and greater than one at \(2/5\). The beta-function limit and uniform reciprocal-square derivative bound prove the sharp \(2/n\) boundary. A standard-library checker independently enumerates exact rational restaurant distributions for \(n=3\) through \(9\); no infinite claim is inferred from the enumeration.
+
+**Originality — PASS (bounded comparison).** The source most directly governing the same objects is Maller–Shemehsavar, arXiv:2309.00815v1, especially Section 4.2 and formula (4.16), which supplies the classical joint sampling law and fixed-parameter asymptotics. The sign reversal, strict ordering of discount thresholds and moving-discount limit are not stated in the inspected portions. Gnedin–Stark, arXiv:2209.12781v1, studies the different Ewens permutation setting with positive strength and no stable discount. Related published records on ordinary occupancy and uniformly random set partitions switch covariance signs for different statistics; their conclusions do not imply this threshold. Available previous results with compatible wording were compared by their actual implications. A full global literature census is unavailable; unindexed identities may cover the result.
+
+**Value — PASS.** Singleton and doubleton frequencies are standard sample-diversity statistics. Their dependence changes sign, so a blanket positive-dependence or negative-dependence approximation fails for stable Poisson–Dirichlet data. The exact unique threshold for every sample size and its \(1-\alpha_n\sim2/n\) scaling give a natural finite-sample-to-boundary classification, not an arbitrary numerical slice.
+
+**Limits.** Only \(\mathrm{PD}(\alpha,0)\) and two block sizes are established; no general dependence theorem is asserted. No external audit or independent validation has taken place.
+
+Self-review: passed. Independent audit: not yet performed.

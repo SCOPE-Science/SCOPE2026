@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Three exchangeably marked block probabilities follow from the Chinese restaurant process. Counting singleton/pair selections gives the exact first and mixed moments. The product ratio is strictly decreasing in alpha, its endpoint values straddle 1, the consecutive-n ratio has an explicit positive comparison at alpha=2/5 and is increasing in alpha, and gamma ratios plus uniform derivative bounds establish n(1-alpha_n)->2. Exact rational enumeration of all restaurant block-size states at n=3..9 and five rational discounts matches all three moments; numerical root checks through n=1000 corroborate but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maller–Shemehsavar, arXiv:2309.00815v1, Theorems 3.1 and 4.2, study joint frequency count limits for fixed parameters.",
+        "Gnedin–Stark, arXiv:2209.12781v1, eq. (3), describes Ewens sampling, with limiting independent Poisson counts."
+      ],
+      "reasoning": "The fixed-parameter large-sample laws and their count covariances do not determine the unique finite n zero or the boundary with alpha_n approaching one. The Ewens partition family is not the present stable zero-strength family.",
+      "searches": [
+        "Pitman sampling formula stable random partition size-one size-two blocks covariance positive negative crossover finite n alpha asymptotic 1-alpha_n ~ 2/n",
+        "2023 arxiv 2309.00815 Limiting Behaviour Poisson Dirichlet Generalised Poisson Dirichlet frequency counts",
+        "\"Ewens-Pitman\" \"frequency counts\" \"covariance\" sign"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.00815v1, Maller–Shemehsavar (2023), sections 1, 3, 4.2, Eq. (4.16)",
+      "arXiv:2209.12781v1, Gnedin–Stark (2022), pages 1–3",
+      "Targeted indexed scientific-literature and published-result searches for PD stable singleton/doubleton moment and covariance thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Maller–Shemehsavar (2023), Eqs. (3.1), (4.15)–(4.16), and discussion of fixed-alpha limit laws.",
+        "Published result: Block-size counts switch covariance sign at the Lambert-W scale — uniform set partitions, covariance of total block count and r-block count.",
+        "Published result: A one-switch covariance law for occupancy richness and frequency counts — iid uniform occupancy, not stable random partitions.",
+        "Published result: Exact missing-mass covariance identity and sign reversal for successive species discoveries — different time indices and statistics."
+      ],
+      "reasoning": "A general joint-distribution formula formally implies the covariance via summation, but the new sign theorem requires proving strict monotonicity in alpha, cross-n threshold ordering and critical 2/n scaling; none of the inspected statements imply these classifications without additional analysis. Uniform set partitions, iid uniform occupancy, and missing-mass discoveries concern different probability laws and observables; those phase transitions do not dominate this theorem.",
+      "searches": [
+        "Poisson-Dirichlet PD(alpha,0) sampling partition singleton count M1 doubleton count M2 covariance changes sign at unique discount alpha_n increasing to 1 as sample n increases",
+        "Pitman sampling formula stable random partition size-one size-two blocks covariance positive negative crossover finite n alpha asymptotic 1-alpha_n ~ 2/n",
+        "Ewens Pitman exchangeable partition frequency of frequencies covariance pair of counts r=1 s=2 exact discount threshold",
+        "PD alpha zero species sampling singleton doubleton joint moments thresholds n=3 phase switch",
+        "\"Pitman-Yor\" \"singleton\" \"doubleton\" \"correlation\" threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Maller–Shemehsavar, arXiv:2309.00815v1, Section 4.2, Eq. (4.16), and Section 3 concern the same partition vector but give joint sampling and fixed-parameter limiting distributions.",
+        "Gnedin–Stark, arXiv:2209.12781v1, Section 2 treats Ewens cycle counts, not the stable-discount phase boundary."
+      ],
+      "reasoning": "Searched for the singleton/doubleton covariance, its correlation/independence reformulations, and moving discount phase boundary. The exact finite-sample joint law in the first source permits derivation of moments but does not state the root classification or strict threshold ordering; the second source has distinct zero-discount, positive-strength dynamics.",
+      "searches": [
+        "Poisson-Dirichlet PD(alpha,0) sampling partition singleton count M1 doubleton count M2 covariance changes sign at unique discount alpha_n increasing to 1 as sample n increases",
+        "Ewens Pitman exchangeable partition frequency of frequencies covariance pair of counts r=1 s=2 exact discount threshold",
+        "\"Pitman-Yor\" singleton doubleton covariance sign threshold",
+        "\"Poisson Dirichlet\" \"M_1\" \"M_2\" \"covariance\" alpha"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected Pitman sampling formula, arXiv:2309.00815v1, Eq. (4.16), expresses the complete joint count distribution, not a tabulated collection of exact covariance-sign thresholds.",
+        "Targeted searches returned related distributional articles but no exact alpha_n table or root identity."
+      ],
+      "reasoning": "No exact parameter table, catalogue entry, or published result equating to this threshold classification was identified; the classical sampling formula itself is acknowledged as prior coverage of the joint distribution, rather than misrepresented as absent.",
+      "searches": [
+        "Poisson-Dirichlet PD(alpha,0) sampling partition singleton count M1 doubleton count M2 covariance changes sign at unique discount alpha_n increasing to 1 as sample n increases",
+        "PD alpha zero species sampling singleton doubleton joint moments thresholds n=3 phase switch",
+        "\"singleton\" \"doubleton\" \"Poisson-Dirichlet\" \"covariance\""
+      ]
+    },
+    "rationale": "Primary literature provides the Pitman sampling law and fixed-parameter count limits but no identified finite-sample one-zero singleton-doubleton covariance classification or n-dependent critical discount asymptotic. Related published records on occupancy, uniform set partitions, and discoveries concern different distributions and statistics; priority remains subject to unindexed sources.",
+    "residual_risks": [
+      "Classical Pitman–Yor 1997 material is cited through Maller–Shemehsavar; a direct full-text comparison of every appendix theorem was not completed.",
+      "Unindexed or independently phrased factorial-moment results may already yield the same sign threshold.",
+      "The sample-size ordering and moving-boundary limit are deductions from the known EPPF; originality depends on their not being an already-covered corollary in another source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical joint sampling law and fixed-parameter asymptotics; no inspected theorem establishes monotone root or critical alpha_n",
+        "evidence": "Eq. (4.16) states the exact two-parameter sampling formula; Theorem 4.2 is a large-n limit with fixed parameter, and the article contains no occurrence of the term covariance.",
+        "identifier_or_url": "arXiv:2309.00815v1; https://arxiv.org/pdf/2309.00815",
+        "material_read": "PDF sections 1, 3 and 4.2, in particular pages 1–2, 9–10 and 14–15, Theorems 3.1 and 4.2, Eq. (4.16), plus targeted in-document searches and cited references",
+        "method": "Accessible preprint PDF text and rendered page 14 checked against formulas",
+        "title": "Limiting Behaviour of Poisson-Dirichlet and Generalised Poisson-Dirichlet Distributions",
+        "trigger": "Same PD(alpha,0) block-frequency vector and exact Pitman sampling formula"
+      },
+      {
+        "assessment": "Addresses an Ewens random-permutation law with positive strength rather than zero-strength stable PD(alpha,0); does not cover the discount threshold",
+        "evidence": "Section 2 states Ewens sampling formula with theta>0, and limiting independent Poisson small-cycle counts.",
+        "identifier_or_url": "arXiv:2209.12781v1; https://arxiv.org/pdf/2209.12781",
+        "material_read": "PDF pages 1–3: abstract, Section 1, Section 2, Eq. (3), and the discussion of small-cycle Poisson limits",
+        "method": "Accessible preprint PDF text and rendered page 2 inspected",
+        "title": "Random Permutations and Queues",
+        "trigger": "Singleton/doubleton count vector under a related Chinese restaurant dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "af9a916c-c50a-4ca2-9afa-d2fa414a58a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Singleton and doubleton frequencies are basic species-diversity diagnostics. Their covariance changes direction across a unique discount threshold, ruling out uniform positive- or negative-dependence assumptions. Strict monotonicity of the thresholds and the universal 2/n critical window give a motivated finite-to-asymptotic classification and a quantitative boundary between two dependence regimes.",
+    "status": "PASS"
+  }
+}
