@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For every arc \\((p,q)\\), the internal worth contains \\(a_{pq}\\) times the unanimity game \\(u_{\\{p,q\\}}\\); that game's Shapley value is \\(1/2\\) at each endpoint. Linearity proves the all-incident-arcs formula. The exact three-cycle witness has coalition worths \\(0,1,2,3\\) by coalition size and Shapley value \\(1\\) for each player, whereas the displayed reciprocal-only term plus its external component gives \\(0\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The internal term in both the 2024 trust-game definition and the 2026 restatement sums over every directed arc inside the coalition.",
+        "The unanimity identity applies to every finite loopless weighted digraph, not just the three-cycle witness."
+      ],
+      "reasoning": "The corrected internal contribution covers arbitrary finite directed networks. The three-cycle is only a minimal exact witness. No directly matching published-finding corpus result appeared among the returned closest results; a semantic-search miss is not a proof of novelty.",
+      "searches": [
+        "exact Shapley value weighted directed graph induced subgraph game each arc contributes half to endpoints external trust game",
+        "Trust in Shapley A Cooperative Quest for Global Trust in P2P Network 2024 Shapley core trust game",
+        "doi:10.5555/3635637.3662860, Section 3, Definition 3.1"
+      ]
+    },
+    "checked_sources": [
+      {
+        "id": "arXiv:2605.18157v1",
+        "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value"
+      },
+      {
+        "id": "DOI:10.5555/3635637.3662860",
+        "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network"
+      },
+      {
+        "id": "MSC2020:91A12",
+        "title": "Cooperative games"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source decomposition in Lemma 3.2 includes one unanimity game for every directed arc.",
+        "Corollary 3.3 displays an internal term only for reciprocal pairs.",
+        "For the unit-weight directed 3-cycle, the exact coalition worths are 0 for the empty set, 1 for each singleton, 2 for each pair, and 3 for the grand coalition."
+      ],
+      "reasoning": "Each directed arc \\((p,q)\\) contributes \\(a_{pq}/2\\) to each endpoint by the Shapley value of \\(u_{\\{p,q\\}}\\). The displayed reciprocal-only term omits both incident one-way arcs for every vertex of the directed 3-cycle, while the external Shapley component is zero there. Direct permutation enumeration therefore gives exact total values \\(1\\) rather than \\(0\\).",
+      "searches": [
+        "arxiv:2605.18157v1, Definition 2.1; Lemma 3.2; Corollary 3.3",
+        "doi:10.5555/3635637.3662860, Section 3, Definition 3.1",
+        "Ryzák Kroupa 2026 trust game Shapley value Corollary 3.3 one-way directed edge internal induced subgraph",
+        "Trust in Shapley A Cooperative Quest for Global Trust in P2P Network 2024 Shapley core trust game"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.18157v1 defines the internal coalition worth as the sum of all directed arc weights with both endpoints in the coalition (Definition 2.1).",
+        "Lemma 3.2 writes the internal term as a sum of two-player unanimity games over directed arcs.",
+        "For each two-player unanimity game, the Shapley value is one half for each endpoint."
+      ],
+      "reasoning": "The equivalent formulation is the unanimity-game decomposition of the internal induced-subgraph term. The formula is independent of whether an arc is reciprocated; the reciprocal-only expression in Corollary 3.3 is not equivalent to that decomposition when a positive one-way arc is incident to the player.",
+      "searches": [
+        "Ryzák Kroupa 2026 trust game Shapley value Corollary 3.3 one-way directed edge internal induced subgraph",
+        "exact Shapley value weighted directed graph induced subgraph game each arc contributes half to endpoints external trust game",
+        "arxiv:2605.18157v1, Definition 2.1; Lemma 3.2; Corollary 3.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned published-finding corpus records concern voting-power rankings and graph invariants, not this trust-game formula.",
+        "The accessible current-week ledger was searched for overlap by recoverable claims and item IDs; no claim on this specific directed-trust internal Shapley term was found."
+      ],
+      "reasoning": "No finite external table is applicable to a symbolic Shapley identity. The exact witness is independently reproducible by enumerating the eight coalitions and six player orders. published-finding corpus and the ledger are deduplication evidence only and cannot establish global uniqueness.",
+      "searches": [
+        "Ryzák Kroupa 2026 trust game Shapley value Corollary 3.3 one-way directed edge internal induced subgraph",
+        "exact Shapley value weighted directed graph induced subgraph game each arc contributes half to endpoints external trust game",
+        "Trust in Shapley A Cooperative Quest for Global Trust in P2P Network 2024 Shapley core trust game",
+        "weighted directed trust game core singleton incoming weights Shapley formula marginal effect edge perturbation epsilon"
+      ]
+    },
+    "rationale": "This is a source-specific correction of the displayed internal term, not a claim to novelty of the standard unanimity-game identity. The checked 2024 precursor defines internal trust by summing all directed arcs inside a coalition, and the 2026 source itself decomposes that term over all arcs. No directly matching correction appeared in the actual published-finding corpus searches or accessible ledger; this is limited evidence, not proof of global novelty.",
+    "residual_risks": [
+      "The comparison is against the inspected arXiv v1; a subsequent author correction may change the source text.",
+      "published-finding corpus semantic retrieval and the accessible ledger do not prove global uniqueness.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The internal worth includes every directed arc, but the displayed first term in Corollary 3.3 includes only reciprocal pairs; the three-cycle provides an exact counterexample.",
+        "evidence": [
+          "arXiv:2605.18157v1, Definition 2.1; Lemma 3.2; Corollary 3.3."
+        ],
+        "identifier_or_url": "arXiv:2605.18157v1",
+        "material_read": "Full arXiv PDF, including Definition 2.1, Lemma 3.2, Corollary 3.3, and the proof of the unanimity decomposition.",
+        "method": "Compared the definition of internal coalition worth with the unanimity decomposition and independently derived the Shapley value of each arc term.",
+        "title": "A Tractable Class of Cooperative Games Defined by Directed Networks: Unanimity Decomposition and Shapley Value",
+        "trigger": "The displayed reciprocal-edge-only first term in Corollary 3.3."
+      },
+      {
+        "assessment": "The predecessor also defines internal trust as the sum of all local trust weights on directed arcs internal to the coalition; it does not supply the disputed reciprocal-only closed form.",
+        "evidence": [
+          "AAMAS 2024, Section 3, Definition 3.1; DOI:10.5555/3635637.3662860."
+        ],
+        "identifier_or_url": "DOI:10.5555/3635637.3662860",
+        "material_read": "Full AAMAS 2024 PDF, Section 3, Definition 3.1, and the explanation of internal and external trust.",
+        "method": "Compared the coalition-worth definition and the stated internal-trust summation with the 2026 formulation.",
+        "title": "Trust in Shapley: A Cooperative Quest for Global Trust in P2P Network",
+        "trigger": "Closest primary predecessor for the trust-game definition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "be9c8c83-9fb6-42a2-b845-e25ced1e9be8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The omitted half-weights change computed Shapley trust values whenever positive one-way arcs are incident to a player. In the exact unit-weight directed 3-cycle, the displayed expression returns 0 for each player while direct Shapley enumeration gives 1, making the correction material to the stated trust-ranking use.",
+    "status": "PASS"
+  }
+}
