@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every fixed n, q times the derivative of expected total cycle count equals its covariance with inversion count. Direct two-arc completion yields exact covariance -(2n-1)/12 at q=1. The identity and reversal are the unique minimum- and maximum-inversion permutations; their n-1 adjacent-transposition neighbors give exact coefficients -(n-1) at q down to 0 and +a_n/q at q to infinity, with a_n=n-1 for odd n, n-3 for even n. Since a_n>0 for n>=3, continuity gives a zero strictly above q=1 and a local minimum of expected cycles. The n=2 exact rational formula excludes reversal; n=3 sign uniqueness follows from Descartes on the explicit quartic. verify.py checks n=2,...,8 exactly but is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gladkich and Peled, arXiv:1601.06991, Theorem 1.5 (printed page 4), give E[number of cycles] of order (1-q)n+log(n+1) for 0<q<1; pp.44–45 discuss q>1 but no exact derivative sign.",
+        "He, Müller, Verstraaten arXiv:2201.11610, Theorems 1.1–1.3 (printed pages 2–3) study fixed-q large-n limiting cycle-count laws for both sides of 1; theorems do not supply finite-n global q response.",
+        "published-finding corpus earlier uniform-cycle/inversion formula is stronger only at q=1 and supplies no q>1 coefficient."
+      ],
+      "reasoning": "Neither order-of-magnitude cycle expectation on the q<1 side nor large-n laws at fixed q cover an all-n fixed-size q-to-infinity coefficient or assert a covariance sign transition. A theorem for one parameter point does not cover behavior on the whole parameter half-line. Primary abstracts alone were not used for these comparisons: the relevant source sections were inspected in the accessible PDFs.",
+      "searches": [
+        "Web search: \"expected number of cycles\" \"Mallows\" \"non-monotone\"",
+        "Web search: Mallows permutation cycles parameter q local minima expectation number of cycles",
+        "Primary PDF search arXiv:1601.06991 terms: expected number of cycles; monoton; Section 5",
+        "Primary PDF search arXiv:2201.11610 terms: expected number of cycles; monoton"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1601.06991; verified first public posting 2016-01-26; MSC context math.PR",
+      "arXiv:2201.11610; originally publicly posted 2022-01-27",
+      "published-finding corpus 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known published-finding corpus local covariance implies V_n(1)<0 but cannot imply the sign as q tends to infinity.",
+        "The q<1 estimates bound expected cycles up to constant factors, not even its derivative sign.",
+        "The fixed-q n-to-infinity asymptotics cannot be differentiated in q and cannot be interchanged with the fixed-n high-q asymptotics without additional theory."
+      ],
+      "reasoning": "The joint contribution requires nearest-neighbor analysis at the *maximum* inversion permutation, giving a new positive coefficient a_n and n-dependent parity. This ingredient is not supplied by the prior uniform case, q<1 order estimates, or published fixed-q limit laws. The known uniform lemma was independently reproved and acknowledged as prior; it is not recast as the novel finding.",
+      "searches": [
+        "published-finding corpus query: covariance number of cycles inversion count random permutation -(2n-1)/12",
+        "published-finding corpus query: Mallows cycle count inversion statistic q covariance sign",
+        "Primary inspection: Gladkich–Peled arXiv:1601.06991, Section 4.1 expected cycles and Section 5 reflected regime",
+        "Primary inspection: He–Müller–Verstraaten arXiv:2201.11610 introduction and limit theorems"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identity q d(E_q C)/dq=Cov_q(C,inv) equates the covariance reversal to nonmonotonicity of expected total cycle count.",
+        "Relevant published-finding corpus hit 2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051 states a q=1 derivative only, not a global sign profile.",
+        "Gladkich–Peled arXiv:1601.06991 Section 5 discusses q versus 1/q reflection but emphasizes that composition with reversal changes cycles substantially."
+      ],
+      "reasoning": "Global monotonicity/nonmonotonicity of expected total cycle count, inversion–cycle covariance sign, and q-to-infinity reverse-neighbor expansion are equivalent routes to the proposed phenomenon. A q-to-1/q reflection does not preserve cycle counts because composing with the reverse permutation changes their cycle decomposition. The located q=1 derivative gives a single negative point and cannot imply a positive high-bias sign.",
+      "searches": [
+        "published-finding corpus query: Mallows q-weighted permutation expected cycle count is nonmonotonic, derivative sign switches negative positive high q",
+        "published-finding corpus query: inversion weighted permutations as q increases number of cycles initially decreases then increases back toward cycles of reverse permutation",
+        "Web search: Mallows expected number cycles non-monotone q expected cycles reverse permutation",
+        "Web search: Mallows permutation cycles expected number increasing q>1 near infinity non-monotonicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest exact entry is the pointwise inversion-gap covariance, not a q-parametric table.",
+        "A separate published-finding corpus hit on inversion-indicator precision concerns covariance among inversion indicators, not covariance with cycle count.",
+        "Exact finite enumerators Z_3(q) and G_3(q) are directly calculated; no retrieved published table was found that states the claimed all-size sign transition."
+      ],
+      "reasoning": "The new claim is an analytic theorem for every n>=3 rather than an isolated database cell. Even if a finite-q enumeration table listed small sizes, that alone would not establish the general parity-dependent expansion, sharp n=2 boundary, and all-n crossing. Unsearched catalogs may exist; no search absence is treated as a uniqueness proof.",
+      "searches": [
+        "published-finding corpus query: Mallows n permutation expected cycle count change covariance sign inversion and cycles",
+        "published-finding corpus query: uniform permutations covariance inversions total cycle count joint generating function",
+        "Web search: Mallows permutation fixed points covariance number of inversions exact sign"
+      ]
+    },
+    "rationale": "The new all-size high-q positive covariance and phase reversal are not implied by the known uniform-point negative covariance, the 2016 q<1 expected-cycle order estimates, or the 2022 large-n fixed-q cycle-count limit theory. Actual targeted searches and primary-source comparisons did not locate an equivalent statement; undiscovered alternative formulations remain a genuine priority risk.",
+    "residual_risks": [
+      "Published finite-n Mallows covariance or sign reversal could exist under alternative cycle enumeration or ranking-temperature terminology not found by the targeted searches.",
+      "The full repository content of the most relevant published-finding corpus uniform-point result was not obtainable through the web interface; its published summary clearly limits the reported new comparison to the q=1 slice.",
+      "Primary full PDFs were accessible and targeted relevant sections inspected, but not all 91 pages were read line by line.",
+      "No independent audit or expert priority validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.5 covers q<1 expected-cycle order estimates. q>1 is discussed via reflection but no exact finite-size positive covariance or reversal located in inspected material.",
+        "evidence": [
+          "arXiv v1 first released 2016-01-26; arXiv:1601.06991.",
+          "Theorem 1.5 expected cycles order bound at PDF text lines 224–225; Section 5 reflected q>1 discussion around lines 3477–3499."
+        ],
+        "identifier_or_url": "arXiv:1601.06991; https://arxiv.org/pdf/1601.06991",
+        "material_read": "PDF printed pages 1–4, Section 4.1 around printed pages 28–29, Section 5 discussion around printed pages 44–45, and targeted text searches for monotonicity and expected cycles.",
+        "method": "Full PDF accessible; textual section inspection and visual inspection of printed page 2.",
+        "title": "On the Cycle Structure of Mallows Permutations",
+        "trigger": "Earliest verified archive-class primary direction and direct expected-cycle analysis."
+      },
+      {
+        "assessment": "Asymptotic-in-n cycle count laws at fixed q, including q>1, do not imply the proposed fixed-n derivative crossing; no exact finite-size cycle/inversion covariance-sign result found in those inspected sections.",
+        "evidence": [
+          "arXiv:2201.11610 title/abstract and Theorems 1.1–1.3.",
+          "Theorem 1.6 concerns q>1 fixed-point counts in a different limit; not the finite-n derivative of total cycle count."
+        ],
+        "identifier_or_url": "arXiv:2201.11610; https://arxiv.org/pdf/2201.11610",
+        "material_read": "PDF abstract, introduction and Theorems 1.1–1.3 on printed pages 1–3, discussion and main-results passages through printed pages 4–7, and targeted full-text searches for monotonicity and expected cycles.",
+        "method": "Accessible full PDF with text inspection and visual inspection of printed page 2.",
+        "title": "Cycles in Mallows random permutations",
+        "trigger": "Potential stronger coverage of q>1 and counts of permutation cycles."
+      },
+      {
+        "assessment": "Exactly covers the known q=1 slice, transparently acknowledged; does not cover the q-to-infinity positive coefficient or global reversal based on available material.",
+        "evidence": [
+          "published-finding corpus record gives Cov(C,inv)=-(2n-1)/12 under uniform permutations and q=1 linear response.",
+          "Repository URL: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051"
+        ],
+        "identifier_or_url": "published-finding corpus:2026/10/4/SCOPE-linear-inversion-gap-profile-for-cycle-count-in-a-uniform-random--efaa92233051",
+        "material_read": "Published title and published-finding corpus query summary, including pointwise inversion-gap formula and its summed covariance; the repository full text was not accessible through the web interface.",
+        "method": "published-finding corpus semantic queries, returned record and implication comparison.",
+        "title": "Linear inversion-gap profile for cycle count in a uniform random permutation",
+        "trigger": "Direct mathematical overlap for V_n(1) and derivative at q=1."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ca88979b-ce14-44e4-90da-02ba4649080a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem reveals a universal sign reversal between inversion bias and cycle count for the canonical Mallows ranking distribution. Its threshold is sharp across all sample sizes: n=2 has no reversal, every n>=3 does. The parity-dependent large-q coefficient identifies an exact structural mechanism involving the central two-cycle of the reverse permutation. It supplies a meaningful boundary to the intuitive but false monotonic decrease of cycle count as inversion bias increases, distinct from the already-known q=1 derivative.",
+    "status": "PASS"
+  }
+}
