@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "A binary order-five de Bruijn rotation class has a unique 00000 window. Its cyclic length-five windows make a Hamiltonian cycle in the five-bit binary overlap graph, and conversely; exhaustive DFS rooted at 00000 covers all and only 2048 such classes, with explicit closing-edge and window checks. An independently implemented Euler-edge traversal in the four-bit graph yields 4096 rooted trails and exactly the same 2048 canonical cycles. The exact shortest-absent-subsequence dynamic program follows by choosing the earliest instance of the candidate first bit and inducting on remaining suffix length; its answer for every one of 32 rotations is independently equal to the standard greedy arch count. Exact integer tallies are 512 at circular index 10 and 1536 at 11, with verified canonical-index and symmetry-orbit refinements. The supplied executable re-enumerates and byte-compares all 2048 certificates; this is exhaustive finite proof, not inference from random tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barker et al., arXiv:2003.04629, Section 4 Lemma 20 proves an index comparison for a word and its rotations, not the distribution among de Bruijn cycles.",
+        "Fleischmann et al., arXiv:2104.09063, Sections 1-4 address powers, remainders and general circular universality, without specifying this restricted order-five spectrum.",
+        "Schnoebelen and Veron, arXiv:2304.11932, Section 4 computes the circular index of a given word, which requires applying it separately to an enumerated set to obtain counts."
+      ],
+      "reasoning": "A stronger general computation method is not by itself a conditional enumeration. The known two-valued upper/lower relation between a fixed rotation and the circular index does not determine how many of the 2048 de Bruijn cycles have each value.",
+      "searches": [
+        "de Bruijn sequence universality index subsequences arches",
+        "\"de Bruijn\" \"circular universality\" subsequence",
+        "subsequence universality index of binary de Bruijn cycles, maximal and minimal arches, exact distribution over order four five six"
+      ]
+    },
+    "checked_sources": [
+      "N. G. de Bruijn, A combinatorial problem (1946): classical cycle definition and enumeration, citation checked through primary bibliography.",
+      "J.-J. Hébrard, TCS 82(1) (1991): abstract and citation only; original full text inaccessible.",
+      "Barker et al., Scattered Factor-Universality of Words, arXiv:2003.04629: primary full text inspected.",
+      "Fleischmann, Germann, Nowotka, arXiv:2104.09063: primary full text inspected in relevant portions.",
+      "Schnoebelen and Veron, arXiv:2304.11932: primary full text inspected in relevant portions.",
+      "Closed-form law for binary subsequence universality: published search-summary inspected; unrestricted language statistic, not an order-five de Bruijn table."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2020 general inequality compares two indices on one given word, not a tally over all constrained cycles.",
+        "A general distribution over all length-32 binary words cannot be restricted to order-five de Bruijn words without additional correlated factor information.",
+        "Both index values have concrete order-five witness cycles in RESULT.md, so the classical de Bruijn count alone cannot force a single index."
+      ],
+      "reasoning": "The proposed theorem is not implied solely by the classical 2048 count, the arch theorem, or general circular-index inequalities; one needs additional exhaustive or structural information determining which de Bruijn cycles have each index.",
+      "searches": [
+        "de Bruijn necklaces order five, circular k-subsequence universal, arch index rotation, exhaustive classification",
+        "\"de Bruijn\" \"subsequence universal\" 2015 OR 2014",
+        "Closed-form law for binary subsequence universality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Barker et al., arXiv:2003.04629, definition of k-circular universality and Lemma 20; de Bruijn appears in motivation, not an order-five distribution.",
+        "Schnoebelen and Veron, arXiv:2304.11932, Sections 3-4 on circular indices and arch-jumping algorithms; no de Bruijn-specific enumeration in inspected full-text PDF.",
+        "Targeted semantic catalog returned a general binary subsequence-universality law, not a de Bruijn-conditioned one."
+      ],
+      "reasoning": "Equivalent terminology includes scattered factor, subsequence universality, circular universality, necklace, de Bruijn cycle, and arch index. The new statement is a frequency distribution on rotation classes satisfying a length-five exact-factor constraint. General definitions, algorithms or a count of all binary cycles do not specify this distribution.",
+      "searches": [
+        "de Bruijn sequence scattered subsequence universal words shortest absent subsequence greedy arches",
+        "de Bruijn necklaces order five, circular k-subsequence universal, arch index rotation, exhaustive classification",
+        "binary de Bruijn cycles order 5 exact distribution circular scattered-subsequence universality index 10 11 512 1536"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2048-cycle enumeration is classical (de Bruijn 1946), but contains no circular scattered-subsequence statistic.",
+        "Targeted scientific record searches returned unrestricted universality counts and unrelated de Bruijn cycle facts; no table matching this statistic was identified.",
+        "The accessible main primary 2020 paper was checked at the text level for 'de Bruijn' and '2048'; the relevant occurrence describes classical factor universality as motivation."
+      ],
+      "reasoning": "Searching a database without a hit is not a uniqueness proof. No directly matching fixed-order-five conditional table was identified in the inspected materials. The exact 512/1536 figures remain subject to discovery of unindexed prior tables.",
+      "searches": [
+        "binary de Bruijn cycles order 5 exact distribution circular scattered-subsequence universality index 10 11 512 1536",
+        "\"de Bruijn cycles\" \"scattered factor universality\"",
+        "all B(2,5) cyclic words count 2048 their subsequence universality index",
+        "\"de Bruijn sequences\" \"arch factorization\""
+      ]
+    },
+    "rationale": "The verified archival starting point is the 1991 work on distinguishing binary strings by subsequences. Later inspected primary work (Barker et al. 2020; Fleischmann et al. 2021; Schnoebelen and Veron 2023) develops definitions, general bounds and algorithms for circular scattered-subsequence universality, mentioning de Bruijn cycles as motivating objects, but the inspected relevant results do not give the conditional distribution over all 2048 binary order-five cycles. A published unrestricted binary-word distribution and the classical de Bruijn count alone do not imply the 512/1536 split. No matching table emerged from targeted semantic or title/parameter searches. Remaining risk concerns unindexed or inaccessible specialized enumerations, not a known covering theorem.",
+    "residual_risks": [
+      "Historical priority could be affected by specialized enumeration tables not indexed under subsequence or circular universality terminology.",
+      "The 1991 foundational full text was not available and was not assigned a whole-document not-covering verdict.",
+      "The finite computer-assisted proof has not received an independent external audit; general order formulas are not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General circular index definitions and bounds, with de Bruijn cycles used as motivation; no exact order-five distribution found in materially inspected sections or full-PDF text search.",
+        "evidence": [
+          "arXiv:2003.04629, pp. 2-3 motivation, Section 4 Lemma 20, references to de Bruijn (1946)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+        "material_read": "Full-text PDF introduction, preliminaries, Section 4 definitions and Lemmas 20-21, theorem and references; full-PDF searchable text checked for de Bruijn and 2048.",
+        "method": "Lawful open preprint PDF, extracted text and visually inspected rendered page.",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "First primary definition of circular scattered-subsequence universality and explicit mention of de Bruijn cycles."
+      },
+      {
+        "assessment": "General arch remainders and circular index behavior; de Bruijn cited historically in bibliography, not an exact fifth-order enumeration.",
+        "evidence": [
+          "arXiv:2104.09063, Introduction and Section 2, bibliography."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.09063",
+        "material_read": "Full-text PDF introduction, preliminaries and general theorem discussion; PDF searched for 'de Bruijn'.",
+        "method": "Lawful open arXiv full-text PDF.",
+        "title": "Scattered Factor Universality — The Power of the Remainder",
+        "trigger": "Direct predecessor of general circular-universality index computation."
+      },
+      {
+        "assessment": "Algorithm for the circular index of one word, without a class-conditional count of the de Bruijn cycles of order five.",
+        "evidence": [
+          "arXiv:2304.11932, pp. 2, 5-7, Sections 3-4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+        "material_read": "Full-text PDF Introduction, Section 3 arch-jumping functions, Sections 3.2-4 circular index algorithm, and full-PDF text search for de Bruijn.",
+        "method": "Lawful open arXiv full-text PDF, extracted text and visually inspected page.",
+        "title": "On arch factorization and subword universality for words and compressed words",
+        "trigger": "Direct newer method for circular universality and possibility of a dominating computation theorem."
+      },
+      {
+        "assessment": "The historical arch factorization is established, but original full-text coverage cannot be conclusively assessed. No evidence linking the paper to de Bruijn order-five counts was found.",
+        "evidence": [
+          "Theoretical Computer Science 82(1), 35-49, journal issue date May 22 1991; descriptions in arXiv:2003.04629 and 2304.11932."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(91)90170-7",
+        "material_read": "Bibliographic date and page range, abstract in secondary scientific citation material and descriptions in later primary papers; original complete text unavailable.",
+        "method": "Bibliographic/citation search and lawful access attempts.",
+        "title": "An algorithm for distinguishing efficiently bit-strings by their subsequences",
+        "trigger": "Earliest verified archive-era source for the subsequence arch method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "964dfe5e-22aa-436c-8f97-76b1db8be1ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The intersection of minimal-length contiguous-factor coverage (de Bruijn cycles) with deletion-tolerant scattered-subsequence coverage is natural, motivated by primary papers that explicitly connect these notions. Complete order-five classification is a motivated finite cutoff: the preceding orders have 1,1,2,16 rotation classes, whereas this is the first order with 2048 instances and a nonuniform 1:3 split between attainable circular indices. The result identifies the proportion of optimal scattered-universality cycles, with concrete witnesses and a symmetry refinement, providing a small exact benchmark and a selection criterion for universal-cycle constructions. This significance does not rely on computational correctness or mere novelty alone.",
+    "status": "PASS"
+  }
+}
