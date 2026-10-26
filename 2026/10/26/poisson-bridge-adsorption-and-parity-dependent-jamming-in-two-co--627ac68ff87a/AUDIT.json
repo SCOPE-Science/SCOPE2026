@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exact Markov transitions and parity identity; bounded-time martingale/ODE convergence to x=y=(1+u)^{-1}, z=(1+u)^{-2}; time-change gives Poisson bridge limit on finite horizons; explicit generator super-solution K_lambda*Phi with Phi=c/a+c/b controls all late cross-events, hence terminal Poisson(lambda). Directly replayed verify.py passes 1923 finite-state assertions, including independently enumerated labeled-graph rates. Finite checks support but do not replace the infinite-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dyer–Frieze (1991) abstract describes a randomized greedy matching algorithm and general bounds, emphasizing forests; the full article remains inaccessible.",
+        "Gerin (2015), PDF pages 1–13, proves coverage laws for dimers on a path, not bridge counts between growing complete communities.",
+        "Dhara et al. (2016), OA HTML text, treats vertex-oriented greedy independent sets on random graphs."
+      ],
+      "reasoning": "A stronger general result for greedy matching on all graphs could imply the specialization; no inspected statement does. Abstract-only coverage of Dyer–Frieze cannot rule out a broader theorem, so its full text is a residual risk.",
+      "searches": [
+        "random sequential adsorption dimers two complete graphs joined perfect matching random greedy matching asymptotic",
+        "random greedy matching Cartesian product complete graph K_n square K_2 number cross edges Poisson limit",
+        "random sequential adsorption on complete graph hub star coupled clique jamming",
+        "Dyer Frieze randomized greedy matching 1991",
+        "random sequential adsorption on a ladder Evans Nord Fan Percus",
+        "Dhara generalized random sequential adsorption Erdős Rényi 2016"
+      ]
+    },
+    "checked_sources": [
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p4/pdf/",
+      "https://link.springer.com/article/10.1007/s10955-016-1583-z",
+      "https://doi.org/10.1002/rsa.3240020104",
+      "https://doi.org/10.1007/BF01053787",
+      "arXiv:1411.8002",
+      "published mathematical research-record results identified by search IDs in the four named comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gerin full text (PDF pages 1–13) assumes adjacent line segments; its occupation density does not determine a rare bridge-dimer count.",
+        "Evans–Nord abstract studies fixed-width infinite lattice ladders, whereas this graph has two cliques of diverging degree.",
+        "Prior local ledger records of clique blades with a universal hub yield a single-hub vacancy law, not a Poisson inter-clique bridge law."
+      ],
+      "reasoning": "Shared use of irreversible dimers and the word ladder does not imply the theorem: local geometry, accepted-edge observable, and fixed-parameter scaling differ. Exact parity is elementary after identifying cross-count, but the limit law and its uniform late-time control are not consequences of inspected prior statements.",
+      "searches": [
+        "Poisson(1) number of cross-community matching edges in random sequential irreversible dimer adsorption on Cartesian product K_n square K_2 two cliques joined by matching",
+        "Random sequential dimer adsorption two dense cliques joined by corresponding paired links fixed bridge rate Poisson number accepted inter-clique dimers parity of unfilled sites",
+        "\"Random sequential adsorption on a ladder\" 1992 Fan Percus",
+        "\"Random and cooperative sequential adsorption on infinite ladders and strips\" Evans Nord"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No equivalent terminal cross-dimer law in returned record summaries; the nearest matching-complex and Poisson-projection records have different state spaces and observables.",
+        "Local historical claims concerning hub-and-clique adsorption and wheel adsorption refer to different graphs and terminal observables."
+      ],
+      "reasoning": "A formulation in terms of random edge order or random greedy maximal matching would be equivalent to Poisson edge attempts, so both were searched. Neither the local-claim statements nor retrieved record summaries establish the Poisson(lambda) bridge count on K_n Cartesian K_2.",
+      "searches": [
+        "Poisson(1) number of cross-community matching edges in random sequential irreversible dimer adsorption on Cartesian product K_n square K_2 two cliques joined by matching",
+        "Random greedy edge matching perfect matching bridges between two complete graphs K_n K_n jamming parity 0 or 2 unmatched vertices e^{-2}",
+        "Poisson limit for rare accepted edges in random greedy matchings on graph K_n Cartesian product K_2",
+        "local records: cross-clique Poisson, paired bridge dimers, edge-greedy matching"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published-result searches returned matching-complex, clique-invariant, and Poisson-overlap entries, not finite or asymptotic jamming tables for the proposed dimer process.",
+        "The finite-size exact values in verify.py were calculated for this work from two independently specified finite Markov chains."
+      ],
+      "reasoning": "Matching-complex topology and counts of combinatorial matchings do not give the distribution produced by sequential exponential edge priorities. No directly comparable exact jamming table was found; absence is not proof of exhaustive novelty.",
+      "searches": [
+        "Random greedy edge matching perfect matching bridges between two complete graphs K_n K_n jamming parity 0 or 2 unmatched vertices e^{-2}",
+        "Random sequential dimer adsorption two dense cliques joined by corresponding paired links fixed bridge rate Poisson number accepted inter-clique dimers parity of unfilled sites",
+        "\"K_n square K_2\" \"random greedy\" matching",
+        "\"two cliques\" \"random greedy matching\" random sequential adsorption"
+      ]
+    },
+    "rationale": "Checked accessible prior statements and full primary Page–Rényi paper, general greedy matching abstract, vertex RSA and narrow-ladder abstracts; no inspected statement implies the combined Poisson bridge-count/alternating jamming theorem. Full Dyer–Frieze text was inaccessible and remains material priority risk; searches alone do not prove uniqueness.",
+    "residual_risks": [
+      "Full text of Dyer and Frieze (1991) not inspected; the general algorithm paper may contain a stronger relevant theorem.",
+      "Historical random greedy matching and adsorption papers may encode an equivalent result without using the same graph name.",
+      "No independent historical-priority or scientific validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different one-dimensional path model, coverage observable; no same paired-clique Poisson bridge count",
+        "evidence": [
+          "PDF pages 1–2 define nearest-neighbor cars and Page coverage law; page 12 references narrow-ladder work; no clique geometry in full-text keyword check"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p4/pdf/",
+        "material_read": "Full 13-page PDF, including model, theorems, later-time results, and references; pages 1–2 also inspected visually",
+        "method": "Web PDF text pages and rendered images; scanned for clique, complete, Poisson, and appendices",
+        "title": "The Page–Rényi parking process",
+        "trigger": "Primary full-text comparison: irreversible size-two adsorption and Poissonization"
+      },
+      {
+        "assessment": "Greedy vertex-activation and independently random graph, not edge-dimer matching on a deterministic two-community graph",
+        "evidence": [
+          "Article section 1 identifies maximal greedy independent set and three vertex rules"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-016-1583-z",
+        "material_read": "Open-access HTML abstract, introduction, and model distinctions",
+        "method": "Read published source HTML",
+        "title": "Generalized Random Sequential Adsorption on Erdős–Rényi Random Graphs",
+        "trigger": "Potentially broader graph jamming theorem"
+      },
+      {
+        "assessment": "General method is related; abstract emphasizes forests and performance bounds but no valid whole-text noncoverage conclusion",
+        "evidence": [
+          "Publisher abstract: fixed graphs, randomized greedy selection, main theorem forests"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240020104",
+        "material_read": "Abstract and publisher/bibliographic record only; full text unavailable through accessible routes",
+        "method": "OA and preprint searches; institutional full-text request returned unavailable connection",
+        "title": "Randomized greedy matching",
+        "trigger": "Closest general greedy edge-matching predecessor"
+      },
+      {
+        "assessment": "Two-by-infinite lattice ladder rather than two growing cliques; no full-text noncoverage asserted",
+        "evidence": [
+          "University listing describes 2-by-infinite square ladder and coverage 0.91556671"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01053787",
+        "material_read": "Abstract from university research listing",
+        "method": "Read abstract and geometry description",
+        "title": "Random and cooperative sequential adsorption on infinite ladders and strips",
+        "trigger": "Plausible ladder title mentioned in related full-text bibliography"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "627ac68f-f87a-4ad0-8218-69f60fd46e65",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fixed positive-rate matching of only n bridges competes with n(n−1) internal edges, yet creates a nondegenerate Poisson(lambda) number of irreversible intercommunity dimers and parity-dependent order-one probability of two permanently uncovered sites; this is a natural structural finite-size jamming statistic rather than an arbitrary subcase or a new label for a known table. The Lyapunov tail bound addresses the nontrivial interchange of large-system and infinite-time limits.",
+    "status": "PASS"
+  }
+}
