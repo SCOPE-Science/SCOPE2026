@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The three diagonal quadrics have a coefficient matrix with all 20 three-column minors nonzero modulo five; the Jacobian is therefore everywhere rank three. The complete intersection is a geometrically integral K3. Reproducible normalized-projective enumeration gives exactly 96 and 1176 points over the base field and its quadratic extension. The second count saturates the Weil bound for the sum of squares of all 22 middle-cohomology Frobenius eigenvalues; hence every square equals 25, and the first count fixes their signs (18 positive, four negative). This is an infinite-field extension theorem based on a finite input and a general proof, not inference from test cases. Remaining scientific dependence: standard K3 cohomology and Weil theorems.
+
+**Originality — PASS, with residual historical risk.** Bonnafé–Sarti (arXiv:1910.05955, Section 5) give the source equations and the complex K3/Kummer description. Brandhorst–Hashimoto (arXiv:1910.05952) classify complex automorphism actions; neither text's inspected relevant sections supplies the specified mod-five two counts or exact Frobenius polynomial. Bonnafé–Sarti (arXiv:2112.12400, Section 6.4 and Remark 6.17) treat distinct reflection-group K3 models at other primes, not this reduction. Exact-parameter and algebraic-equivalence searches in the mathematical research index and published literature did not identify a dominating theorem or identical table. The full historical literature is not exhaustively indexed; a preexisting unindexed arithmetic computation remains possible.
+
+**Mathematical value — PASS.** The specialized arithmetic is a natural consequence of reducing a singled-out, maximally symmetric K3 model at the ramified prime of its golden-ratio coefficient field; it is not an arbitrary surface census. Two small exact counts unexpectedly force a complete degree-22 Frobenius factorization, a supersingular Newton polygon, and every extension-field count. These are motivated arithmetic invariants beyond the source's complex-geometry model.
+
+The claim is scoped to this explicit \(\mathbb F_5\) model; neither an Artin invariant nor persistence of its characteristic-zero symmetry is asserted. The review is not independent.
+
+Self-review: passed. Independent audit: not yet performed.
