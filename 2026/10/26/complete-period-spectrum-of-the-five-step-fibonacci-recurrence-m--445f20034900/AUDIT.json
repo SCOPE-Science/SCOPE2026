@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The all-k fixed-point formulas are proved by Hensel splitting at a unique 2-adic root of the characteristic polynomial, exact integer Smith bases for exponents 3, 6 and 12, and a mod-2 invertibility induction. Each possible least orbit length divides 3*2^k and its cycle count follows by inclusion-exclusion and division by that length. Exact gcd-minor and exhaustive small-level computations were executed successfully from the embedded standalone verifier; the infinite step is deductive, not numerical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Waddill 1996 title and abstract address arbitrary k-order recurrences modulo m, but provide no inspectable full theorem. Karaduman 2009 treats k-nacci orbits of generating sets in finite polyhedral/triangle groups rather than all 5-vectors of Z/2^k."
+      ],
+      "reasoning": "The generic modular recurrence formalism may encompass the matrix but its located abstract does not establish the specific elementary-divisor and multiplicity law. The full chapter could dominate the result; this unresolved risk is expressly retained. Group-generator orbit periods have a different quantification and do not imply all-vector counts.",
+      "searches": [
+        "published-finding corpus: finite ring Z/2^k pentanacci companion matrix fixed points primitive periods 3 times powers of two",
+        "Web: Waddill Properties of a k-order linear recursive sequence modulo m 1996 DOI arxiv pdf",
+        "Web: Waddill k-order linear recursive sequence mod m 1996 full text pdf",
+        "DOI:10.1007/978-94-009-0223-7_41",
+        "DOI:10.1155/2009/453750"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A106287",
+      "https://oeis.org/A106290",
+      "https://doi.org/10.1007/978-94-009-0223-7_41",
+      "https://doi.org/10.1155/2009/453750"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Noe 2005 finite tables do not logically entail an all-k theorem. Waddill 1996 may contain matrix theory applicable to the proof, but its full content is not established. Karaduman 2009 imposes generating-set hypotheses and examines other group structures."
+      ],
+      "reasoning": "The strongest actually inspected five-step results imply the finite cases only; there is no verified implication of the all-k multiplicity and count formulas. Plausible stronger uninspected material prevents a categorical priority claim, but does not supply decisive published coverage.",
+      "searches": [
+        "published-finding corpus: Five step Fibonacci pentanacci recurrence cycle length spectrum modulo powers of 2 fixed point Smith forms orbit count",
+        "published-finding corpus: finite ring Z/2^k pentanacci companion matrix fixed points primitive periods 3 times powers of two",
+        "Web: five step recursion modulo powers 2 periodic orbits pentanacci exact cycle distribution",
+        "OEIS:A106287",
+        "DOI:10.1007/978-94-009-0223-7_41"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A106287 gives 5-step orbit counts at particular n; OEIS A106290 lists six orbit lengths modulo 8 and a brute-force method."
+      ],
+      "reasoning": "Equivalent forms would count all cycles under the fifth-order companion automorphism over Z/2^k, or fixed points of each power via Smith invariants. The OEIS values are matched but no general exact multiplicity statement is present in the inspected entries.",
+      "searches": [
+        "published-finding corpus: Five step Fibonacci pentanacci recurrence cycle length spectrum modulo powers of 2 fixed point Smith forms orbit count",
+        "published-finding corpus: A106287 A106290 pentanacci five step recursion powers two 257 720 16^k exact orbits",
+        "OEIS:A106287",
+        "OEIS:A106290"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A106287 at modulus 2,4,8,16,32 reports 8,96,1468,23400,374292; A106290 reports numbers of distinct orbit lengths 3,4,6,8 for corresponding moduli."
+      ],
+      "reasoning": "The theorem reproduces known table entries but distinguishes itself through a complete symbolic law for every k and every least length. The inspected database contains no universal formula and no equivalent table of infinitely many exact orbit multiplicities.",
+      "searches": [
+        "OEIS:A106287",
+        "OEIS:A106290",
+        "published-finding corpus: A106287 A106290 pentanacci five step recursion powers two 257 720 16^k exact orbits"
+      ]
+    },
+    "rationale": "The 2005 OEIS A106287/A106290 material explicitly contains only specific orbit counts and possible lengths; the all-k multiplicities and closed form go beyond that data. Searches by aliases and mathematical implication did not identify a stronger published five-step full distribution. Earlier k-order recurrence chapters remain a material priority risk because only abstract material was accessible.",
+    "residual_risks": [
+      "Full text of Waddill (1996), a plausible broad-coverage source, was not accessible through authorized routes; it may contain a stronger theorem or a route to this law.",
+      "Other unlocated publications about 5-step recurrences over 2-power rings may state the same cycle counts.",
+      "Self-review correctness checks are not independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FINITE_DATA_ONLY, no all-k multiplicities present",
+        "evidence": [
+          "OEIS A106287 explicitly records n=8 1468 orbits with six possible lengths and entry date May 02 2005."
+        ],
+        "identifier_or_url": "https://oeis.org/A106287",
+        "material_read": "Complete displayed OEIS entry including comments, values, bibliography, author/date",
+        "method": "Read HTML entry and compared powers-of-two terms and claimed quantifiers",
+        "title": "Number of orbits of the 5-step recursion mod n",
+        "trigger": "Exact object and matching first five totals"
+      },
+      {
+        "assessment": "FINITE_DATA_ONLY, no universal period multiplicities",
+        "evidence": [
+          "OEIS A106290 lists lengths 1,2,3,6,12,24 at modulus 8, without numbers of cycles for all k."
+        ],
+        "identifier_or_url": "https://oeis.org/A106290",
+        "material_read": "Complete displayed OEIS entry, all comments and executable finite search program",
+        "method": "Read HTML and compared six lengths modulo 8 to universal formula",
+        "title": "Number of different orbit lengths of the 5-step recursion mod n",
+        "trigger": "Closest possible-period classification"
+      },
+      {
+        "assessment": "MATERIAL_PRIORITY_RISK_UNRESOLVED",
+        "evidence": [
+          "Chapter by M. E. Waddill, 1996, pp. 505-519; abstract states general work on recurrence modulo m but no theorem statement accessible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-94-009-0223-7_41",
+        "material_read": "Title, bibliographic record, limited abstract only; full chapter unavailable",
+        "method": "Searched public sources for arXiv and lawful OA; no full text obtained. Authorized institutional retrieval request was not permitted by access controls.",
+        "title": "Properties of a k-Order Linear Recursive Sequence Modulo m",
+        "trigger": "Potential stronger 1996 generic modular-recurrence theorem"
+      },
+      {
+        "assessment": "DISTINCT_DOMAIN; not evidence of an all-vector pentanacci power-of-two census",
+        "evidence": [
+          "Karaduman defines k-nacci group sequences from generating sets and examines finite triangle/polyhedral groups."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2009/453750",
+        "material_read": "Open HTML abstract, introduction, definitions and group-specific setting",
+        "method": "Compared seed-generator orbit definition to all vectors of the commutative ring",
+        "title": "K-nacci Sequences in Finite Triangle Groups",
+        "trigger": "Other k-nacci cycle-period theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "445f2003-4900-4c0d-bd8e-449a0ad12aa1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural classification of the periodic points of a standard fifth-order recurrence, whose orbit census is explicitly listed as an independent OEIS object. It identifies every admissible length and its exact multiplicity for infinitely many moduli, with a nontrivial mixed 2-adic/third-root structural mechanism. It is not a routine single numerical instance, finite table extrapolation, or renaming of an existing formula.",
+    "status": "PASS"
+  }
+}
