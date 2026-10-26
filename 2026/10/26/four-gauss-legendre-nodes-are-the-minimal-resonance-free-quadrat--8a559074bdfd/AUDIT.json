@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The Cauchy–Binet determinant is an exact positive sum, so singularity is equivalent to collinearity of the sampled rotation vectors. Explicit Legendre root differences give the complete 1–3-node resonance sets. For four nodes, a simultaneous resonance would make the ratio of the outer and inner positive roots rational, contradicting its squared value (23+4 sqrt(30))/7. The undamped Rayleigh quotient along the continued-fraction subsequence is at most pi^2/q_k^2; trace one then gives the stated condition bound. Direct integration yields the exact continuous eigenvalues and the normalized operator-norm error limit. The standalone verifier executed 163 assertions from the actual candidate package path. Floating-point diagnostics are not used to certify the infinite statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.researchgate.net/publication/45925143_Characterisation_of_observability_and_controllability_for_nonuniformly_sampled_discrete_systems §3.1 derives reachability from determinant of modal samples under general sampling.",
+        "https://arxiv.org/abs/2606.15703 §2 and §3 analyze matrix Lyapunov positivity for IF-SSPRK2/3, not Gaussian direct-integral quadrature."
+      ],
+      "reasoning": "The 2010 source dominates the rank-criterion principle and is not claimed as new. Its broader rank characterization does not calculate the universal-in-step Gauss-Legendre threshold and does not contain a quantitative infinitely recurring discrepancy with the normalized continuous Gramian. The 2026 source proves semidefinite preservation under distinct schemes; that alone does not imply strict definiteness.",
+      "searches": [
+        "integrating factor SSP Runge Kutta differential Lyapunov covariance rank deficient strict positive definite resonant time steps rotational dynamics sampled Gramian",
+        "four-node Gauss Legendre quadrature positive definite finite-horizon controllability Gramian damped oscillator rank irrational nodes nonresonant all time steps",
+        "minimal Gauss quadrature nodes resonance-free controllability Gramian two-dimensional rotations Simpson trapezoid",
+        "\"controllability\" \"Gauss-Legendre\" \"quadrature\" \"rank\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.15703",
+      "https://www.researchgate.net/publication/45925143_Characterisation_of_observability_and_controllability_for_nonuniformly_sampled_discrete_systems",
+      "https://people.maths.ox.ac.uk/trefethen/exactnessRev2.pdf",
+      "https://dlmf.nist.gov/3.5",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/10/11/SCOPE-exact-arithmetic-aliasing-and-prime-optimal-time-quadrature-for--0049864e4447",
+      "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.researchgate.net/publication/45925143_Characterisation_of_observability_and_controllability_for_nonuniformly_sampled_discrete_systems Lemma 1 eq. (28) is a general nonsingularity condition requiring sample-dependent evaluation.",
+        "https://arxiv.org/abs/2606.15703 Theorem 3.2 proves SPSD for IF-SSPRK2.",
+        "https://people.maths.ox.ac.uk/trefethen/exactnessRev2.pdf Legendre nodes and positive weights.",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: entrywise positivity of a different Padé integrator."
+      ],
+      "reasoning": "Neither the motivating positivity theorem nor the quadrature exactness theorem entails the exact threshold without further node arithmetic. The general sampled determinant criterion entails a conditional rank test; the new steps resolve it uniformly for Gaussian abscissae, give exact singular step sets at orders 2 and 3, and quantify unbounded conditioning at order 4. The identified Padé theorem is neither a stronger Gramian rank result nor a reduction to the same numerical algorithm.",
+      "searches": [
+        "Four Gauss Legendre quadrature nodes sharp strict positivity sampled Lyapunov controllability Gramian planar rotations resonance two three node singular",
+        "integrating factor SSP Runge Kutta differential Lyapunov covariance rank deficient strict positive definite resonant time steps rotational dynamics sampled Gramian",
+        "Gauss quadrature strict positive definiteness Lyapunov covariance irrational root gaps rational commensurability near singular Diophantine",
+        "\"Gauss Legendre\" \"strictly positive definite\" \"Gramian\"",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.researchgate.net/publication/45925143_Characterisation_of_observability_and_controllability_for_nonuniformly_sampled_discrete_systems §3.1 eqs. (17),(23),(28): general sampled-modal rank criterion, not a Gaussian-node arithmetic classification.",
+        "https://arxiv.org/abs/2606.15703 §3 Theorem 3.2: positive semidefiniteness for different integrating-factor methods.",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: Padé end-step stochastic-matrix entry positivity, not rank of positive-weight Gramian forcing quadrature."
+      ],
+      "reasoning": "Equivalent mathematical formulations are sampled reachability, positive definiteness of a finite weighted Gramian, and rank of rotated forcing vectors. The general sampled criterion is acknowledged and is the starting step of the proof; it lacks the exact Gauss-node resonance sets and quantitative conditioning loss. The Padé result concerns a different numerical map and notion of positivity.",
+      "searches": [
+        "Four Gauss Legendre quadrature nodes sharp strict positivity sampled Lyapunov controllability Gramian planar rotations resonance two three node singular",
+        "Gauss Legendre finite horizon Gramian positive definite for every step size P4 Legendre irrational root ratio sampled oscillator",
+        "sampled controllability Gramian trapezoidal Simpson quadrature rotational oscillator aliasing rank singular commensurate time step",
+        "\"Gauss Legendre quadrature\" \"controllability Gramian\" \"resonance\"",
+        "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "The minimum four Gauss–Legendre nodes for strict positive definiteness of oscillatory two-dimensional controllability Gramian for all steps, exact two three node resonances, and unbounded condition number along irrational root ratios"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://people.maths.ox.ac.uk/trefethen/exactnessRev2.pdf §4 tabulates general Legendre quadrature properties but no Gramian rank classification.",
+        "https://dlmf.nist.gov/3.5 §3.5 standard Gauss nodes and weights.",
+        "2026/10/11/SCOPE-exact-arithmetic-aliasing-and-prime-optimal-time-quadrature-for--0049864e4447: quadratic Fourier-flow moment aliasing and prime sample size.",
+        "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648: positive-weight Romberg quadrature and noise amplification."
+      ],
+      "reasoning": "The Gauss node table supplies necessary algebraic parameters, not the claimed all-step arithmetic phase diagram or the quantitative near-resonance theorem. The nearest located numerical-integration results treat other quadrature targets. No exact table of this joint claim was identified.",
+      "searches": [
+        "Four Gauss Legendre quadrature nodes sharp strict positivity sampled Lyapunov controllability Gramian planar rotations resonance two three node singular",
+        "Gauss Legendre finite horizon Gramian positive definite for every step size P4 Legendre irrational root ratio sampled oscillator",
+        "sampling resonance strict positivity Gauss quadrature Gramian four nodes arbitrarily poor conditioning Dirichlet approximation",
+        "\"Gauss Legendre quadrature\" \"controllability Gramian\" \"resonance\"",
+        "2026/10/11/SCOPE-exact-arithmetic-aliasing-and-prime-optimal-time-quadrature-for--0049864e4447",
+        "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648"
+      ]
+    },
+    "rationale": "Relevant full-text material establishes the general sampled-modal rank criterion and matrix Lyapunov positivity framework but does not already classify exact resonant sets of the standard Gauss–Legendre orders 1–4 or establish the arithmetic inverse-square near-singularity of the nonresonant four-node rule against its well-conditioned exact integral. The new arithmetic and quantitative statements are not implied by the existing positivity results alone. The 2010 rank criterion is a strong antecedent and is explicitly credited; priority uncertainty remains.",
+    "residual_risks": [
+      "Specialized historical oscillator sampling and numerical controllability literature may derive the exact four-node arithmetic classification under other terminology; not all full texts were accessible.",
+      "The 2010 general sampled-modal rank criterion is a conceptual predecessor; no novelty is claimed for rank equivalence itself.",
+      "Independent priority assessment and independent proof review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different integrator class; preserves semidefinite matrices, does not derive a Gauss–Legendre sampled Gramian rank threshold.",
+        "evidence": [
+          "https://arxiv.org/abs/2606.15703 equations (1)–(6) and Theorem 3.2"
+        ],
+        "identifier_or_url": "arXiv:2606.15703v1",
+        "material_read": "arXiv rendered full-text equations and discussion in introduction and §§2–3, including variation-of-constants equation (2), IF-SSPRK2/3 equations (5)–(6), and Theorem 3.2.",
+        "method": "Read article HTML mathematical content and compare equations/theorem conclusion.",
+        "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+        "trigger": "Same Lyapunov matrix evolution, preservation of semidefiniteness, and recent source motivating the gap."
+      },
+      {
+        "assessment": "Directly supplies general sampled-vector rank equivalence; specifically resolved Gauss–Legendre node arithmetic and near-singular sequence are not stated in the inspected material.",
+        "evidence": [
+          "https://www.researchgate.net/publication/45925143_Characterisation_of_observability_and_controllability_for_nonuniformly_sampled_discrete_systems lines 132–158 and 286–614"
+        ],
+        "identifier_or_url": "arXiv:1006.4288v1",
+        "material_read": "Author-supplied full manuscript rendering: Introduction, Section 2, §§3–3.1 including determinant identities (17),(23) and Lemma 1 eq. (28).",
+        "method": "Read original mathematical statements and proof in public author manuscript rendered text; search full document for Gauss/Legendre terms.",
+        "title": "Characterisation of observability and controllability for nonuniformly sampled discrete systems",
+        "trigger": "Plausibly stronger arbitrary-sampling controllability rank criterion."
+      },
+      {
+        "assessment": "Establishes standard Gaussian nodes and positive weights; does not study rank of an oscillatory controllability Gramian.",
+        "evidence": [
+          "https://people.maths.ox.ac.uk/trefethen/exactnessRev2.pdf §4"
+        ],
+        "identifier_or_url": "arXiv:2101.09501",
+        "material_read": "Open-access paper section on Gauss–Legendre quadrature and standard nodes, weights and polynomial accuracy.",
+        "method": "Read mathematical PDF section and visually inspect the relevant page.",
+        "title": "Exactness of Quadrature Formulas",
+        "trigger": "Possible broad Gaussian quadrature structural coverage."
+      },
+      {
+        "assessment": "Background definitions; not offered as a comprehensive novelty exclusion.",
+        "evidence": [
+          "https://dlmf.nist.gov/3.5"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/3.5",
+        "material_read": "Public reference-page summary of Gaussian quadrature construction.",
+        "method": "Search-result and referenced page summary; no whole-document negative claim.",
+        "title": "Digital Library of Mathematical Functions, §3.5",
+        "trigger": "Standard quadrature tabulation and definition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a559074-bdfd-4e10-8b3a-8908db8efebe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest all-step rank-safe positive Gaussian quadrature is a natural efficiency/robustness target for finite-horizon covariance and controllability computations. The result distinguishes positivity, strict positivity, and uniform conditioning; it exhibits an all-step rank-safe quadrature that becomes arbitrarily ill-conditioned and asymptotically fails to approximate a well-conditioned normalized continuous Gramian. These distinctions matter for reliability of finite-horizon Gramian computation. The precise Gauss-node arithmetic and inverse-square subsequence are not arbitrary parameter slices.",
+    "status": "PASS"
+  }
+}
