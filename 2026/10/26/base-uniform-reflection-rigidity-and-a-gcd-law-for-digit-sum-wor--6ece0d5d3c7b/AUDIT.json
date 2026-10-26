@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "An explicit base-b carry computation realizes exactly all adjacent residue pairs satisfying c-a≡1 mod gcd(b-1,m). The block recurrence gives exact 3/4-factor families and short counts. Any length-4 factor crosses at most one base-b block boundary for b>=3 and thus has at least two +1 increments; its reversal would have at least two -1 increments, impossible for m>=3. No distinct reverse triple is possible; the gcd-based length-two reversal orbit formula follows by directly checking the pair congruence. Symbolic verification across 104 parameter pairs and separate direct prefixes support the algebra. Factor complexity for long lengths is accurately attributed to Starosta.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Š. Starosta, arXiv:1104.2476, Property IV–V and Table 2 (full text studied, factor sets and factor complexity, not reflection orbits)",
+        "J.-P. Allouche and J. Shallit, Sums of Digits, Overlaps, and Palindromes (2000), Theorem 8 (ordinary palindromes, distinct reverse-pair property not addressed)",
+        "Starosta covers full factors C(n) for all bases and moduli, a broader parameter range for another invariant; absence of palindromes alone cannot eliminate distinct reversed factor pairs."
+      ],
+      "reasoning": "Full factor-complexity knowledge alone does not determine how reversal partitions the factor set. General dihedral antimorphism invariance is not ordinary reversal invariance. No stronger inspected theorem implies the no-mutual-reversal statement for every b,m>=3.",
+      "searches": [
+        "\"generalized Thue-Morse\" \"factors\" \"reversal\" \"b\" \"m\"",
+        "\"generalized Thue-Morse\" \"reflection complexity\" \"3\"",
+        "\"reflection complexity\" \"t_{b,m}\" \"reversal\"",
+        "For generalized Thue Morse sequence base b >= 3 and alphabet mod m >=3, ordinary reflection complexity equals factor complexity for every length at least three, no reverse pairs at length four, gcd(b-1,m) dichotomy for reversal orbits length two"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2406.09302",
+      "arXiv:1104.2476",
+      "Allouche–Shallit DMTCS (2000)",
+      "Reflection on the Reflection Complexity (open accessible text)",
+      "arXiv:2610.14637 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2406.09302, Section 9, Question 62, pp.30–31 (complete question and stated binary-modulus-three case)",
+        "Š. Starosta, arXiv:1104.2476, Property IV–V and Table 2 (full text studied, factor sets and factor complexity, not reflection orbits)",
+        "J.-P. Allouche and J. Shallit, Sums of Digits, Overlaps, and Palindromes (2000), Theorem 8 (ordinary palindromes, distinct reverse-pair property not addressed)",
+        "Earlier exact base-two modulo-m result in the accessible earlier research claims covers b=2 only."
+      ],
+      "reasoning": "Question 62 provides an explicit motivating gap; Starosta supplies factor sets but not their reflection-orbit calculation; Allouche–Shallit excludes ordinary palindromes but not nonpalindromic reversed pairs. The b=2 result is a strict excluded subfamily, not a covering theorem for b>=3. The new proof uses the b>=3 fact that any four-window crosses at most one substitution-block boundary, yielding a two-increment reversal contradiction.",
+      "searches": [
+        "\"generalized Thue-Morse\" \"factors\" \"reversal\" \"b\" \"m\"",
+        "\"generalized Thue Morse\" \"no palindromes\" length",
+        "For generalized Thue Morse word s_2(n) modulo m >= 3, no factor of length four has its reversal anywhere; palindrome spectrum only lengths 1 2 3 and reflection complexity equals factor complexity from length 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2406.09302, Section 9, Question 62, pp.30–31 (complete question and stated binary-modulus-three case)",
+        "Š. Starosta, arXiv:1104.2476, Property IV–V and Table 2 (full text studied, factor sets and factor complexity, not reflection orbits)",
+        "Allouche et al. define ordinary reversal as the equivalence relation on factors; the recent generalization literature focuses partly on larger antimorphism groups."
+      ],
+      "reasoning": "Ordinary reversal without alphabet relabeling is distinguished from D_m-antimorphism closure and from absence of palindromes. The old exact base-two result has the same reversal mechanism only for b=2; it does not assert all b>=3 nor the gcd-dependent short-orbit census. No equivalent all-base statement surfaced in the actual searches.",
+      "searches": [
+        "\"reflection complexity\" \"generalized Thue-Morse\" \"base\" modulo m",
+        "\"reflection complexity\" \"digit sum\" base b modulus",
+        "Digit sum t_{b,m}(n)=s_b(n) modulo m: exact reflected factor counts r(2), r(3), no reversed length-4 factors for bases b>=3, gcd(b-1,m)",
+        "generalized Thue-Morse base b>=3 m>=3 ordinary reversal factor reflection-free length 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Š. Starosta, arXiv:1104.2476, Property IV–V and Table 2 (full text studied, factor sets and factor complexity, not reflection orbits)",
+        "Symbolic proof explicitly recovers short factor counts 2m²/d−m and 3m²/d−2m, with prior factor counts not misrepresented as new."
+      ],
+      "reasoning": "The relevant existing numerical table is Table 2 of Starosta, which is a factor-complexity table, not an ordinary reversal-orbit table. The newly tested claims are the reversal absence and gcd-sensitive reflection formulas, not recomputed coefficients.",
+      "searches": [
+        "\"reflection complexity\" \"generalized Thue-Morse\" \"base\" modulo m",
+        "\"reflection complexity\" \"digit sum\" base b modulus",
+        "Digit sum t_{b,m}(n)=s_b(n) modulo m: exact reflected factor counts r(2), r(3), no reversed length-4 factors for bases b>=3, gcd(b-1,m)",
+        "\"reflection complexity\" \"generalized Thue\" 2026"
+      ]
+    },
+    "rationale": "The exact reflection-orbit theorem uniformly covers base b>=3 and all m>=3, including a sharp gcd trichotomy absent from the closest inspected prior results. The most directly relevant paper posed generalized Thue-Morse reflection as a question. Prior factor complexity, small factor languages, and palindrome avoidance are credited. Accessible own historical claims were checked and the base-two all-modulus result is expressly excluded. Searches are negative evidence with residual unindexed-literature risk, not proof of absolute uniqueness.",
+    "residual_risks": [
+      "Unindexed equivalent theorem in another notation",
+      "The recently surfaced generalized-reflection manuscript was only abstract-inspected; its full text may contain unadvertised implications.",
+      "A literature result about generalized antimorphism groups might yield ordinary-reversal exclusion implicitly; no such decisive implication was located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Reports b=2,m=3 and conjectural extension; no stated all-base b>=3 gcd law",
+        "evidence": [
+          "arXiv:2406.09302, Section 9, Question 62, pp.30–31 (complete question and stated binary-modulus-three case)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.09302",
+        "material_read": "Full PDF, especially definitions, automatic-sequence discussion, and Section 9 Question 62; arXiv metadata verified 2024-06-13 v1, primary MSC 68R15",
+        "method": "Open-access full-text PDF with page inspection and text comparison",
+        "title": "The reflection complexity of sequences over finite alphabets",
+        "trigger": "Defines invariant and explicitly raises generalized Thue–Morse Question 62"
+      },
+      {
+        "assessment": "Covers factor counts and generalized antimorphism symmetry but not the claimed ordinary reversal no-companion theorem",
+        "evidence": [
+          "Š. Starosta, arXiv:1104.2476, Property IV–V and Table 2 (full text studied, factor sets and factor complexity, not reflection orbits)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1104.2476",
+        "material_read": "Full preprint, especially Properties IV–V and factor-complexity Table 2",
+        "method": "Open-access arXiv full text and table page inspection",
+        "title": "Generalized Thue-Morse words and palindromic richness",
+        "trigger": "Exact prior source for all generalized digit-sum factor complexity and small factor languages"
+      },
+      {
+        "assessment": "Prior absence of long palindromes is acknowledged; does not rule out two different reversed factors",
+        "evidence": [
+          "J.-P. Allouche and J. Shallit, Sums of Digits, Overlaps, and Palindromes (2000), Theorem 8 (ordinary palindromes, distinct reverse-pair property not addressed)"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/282",
+        "material_read": "Full research paper, with particular focus on Theorem 8 and preceding definitions",
+        "method": "Lawful open-access full-text PDF and page inspection",
+        "title": "Sums of Digits, Overlaps, and Palindromes",
+        "trigger": "Potential stronger palindrome-avoidance coverage"
+      },
+      {
+        "assessment": "No directly covering all-base digit-sum gcd law identified",
+        "evidence": [
+          "Background general results and open directions on reflection complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/search/?query=Reflection+on+the+Reflection+Complexity&searchtype=all",
+        "material_read": "Accessible full text, introduction and statements relevant to generalized complexity",
+        "method": "Open-access full text search and targeted reading",
+        "title": "Reflection on the Reflection Complexity",
+        "trigger": "Recent comprehensive ordinary-reflection literature"
+      },
+      {
+        "assessment": "Abstract describes generalized symmetry for binary Thue–Morse; full-document implication remains unverified, retained as risk",
+        "evidence": [
+          "Abstract-only source, not used to claim full-text noncoverage."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.14637",
+        "material_read": "Abstract and bibliographic record only; full text was not obtained",
+        "method": "Accessible preprint landing-page abstract search",
+        "title": "Generalized reflection complexity",
+        "trigger": "Contemporary plausibly overlapping work on broader reversal groups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6ece0d5d-3c7b-4846-9a74-21933e7c8e4b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The b>=3 theorem answers a natural multi-base variant of the published Question 62 with a structural local-to-global rigidity proof; the gcd(b-1,m) trichotomy is a meaningful arithmetic phase transition distinguishing periodic and aperiodic languages and gives exact small reflection spectra. The b=2 previously known claim does not subsume the result. This is an all-parameter language classification, not arbitrary finite enumeration.",
+    "status": "PASS"
+  }
+}
