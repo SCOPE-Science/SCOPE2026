@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Incidence-block powers classify all six off-diagonal pair types; the one potentially sign-changing distance-three entry factors as c*h^3*(1-(d+2)*h/2)/6. Incident mixed entries have a positive bound on the claimed interval, other positive quadratics have exact negative discriminants, and all diagonals are positive by a sum-of-squares scalar RK4 polynomial. Every connected d-regular base graph d>=2 has the negative witness for every h>2/(d+2). Exact eigenvector and Perron sign conjugacy give max Laplacian eigenvalue d+2. The packaged checker passed 24 structurally distinct regular base graph tests and 9,338 exact coefficient comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb, Shu and Tadmor (2001), DOI 10.1137/S003614450036757X, full paper sections 1–7, no original/edge-subdivision incidence class or sharp RK4 graph-specific positivity cutoff.",
+        "Khalsaraei (2015), DOI 10.1016/j.asej.2015.05.018, full text sections 1–5, Theorem 1 is a sufficient advection flux-limiter CFL condition and experiments concern advection and Burgers equations; no universal regular-subdivision Laplacian result.",
+        "General SSP RK4 nonlinear guarantee has zero universal coefficient, whereas this result concerns exact positivity on a restricted but infinite matrix class; generic spectral stability admits a strictly longer interval."
+      ],
+      "reasoning": "A stronger general result would need to imply the universal equality H=2/(d+2), and to identify a negative witness for every graph and every larger timestep. The inspected broad SSP theories give sufficient coefficients and advection-specific bounds, not this equality or necessary graph-class cutoff.",
+      "searches": [
+        "Runge Kutta fourth order nonnegative transition matrix subdivision graph incidence graph 2/(d+2)",
+        "regular graph full subdivision numerical diffusion positivity Euler 2d/(d+2)",
+        "classical fourth order Runge Kutta positivity preserving graph Laplacian regular bipartite networks timestep 1 over degree",
+        "doi:10.1137/S003614450036757X",
+        "doi:10.1016/j.asej.2015.05.018"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S003614450036757X (2001 full primary)",
+      "doi:10.1016/j.asej.2015.05.018 (2015 full primary)",
+      "arxiv:1801.02183 (full HTML manuscript sections 1–2)",
+      "published-finding corpus semantic search query variants 7",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "Previously checked specialized graph families (cycles, crown, Hamming, rook, Johnson, strongly regular, complete multipartite)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gottlieb, Shu and Tadmor (2001), DOI 10.1137/S003614450036757X, full paper sections 1–7, no original/edge-subdivision incidence class or sharp RK4 graph-specific positivity cutoff.",
+        "Khalsaraei (2015), DOI 10.1016/j.asej.2015.05.018, full text sections 1–5, Theorem 1 is a sufficient advection flux-limiter CFL condition and experiments concern advection and Burgers equations; no universal regular-subdivision Laplacian result.",
+        "Steinerberger (2018), arXiv:1801.02183, full publicly readable HTML (sections 1–2), exact continuous-time heat-semigroup asymptotics and bipartite next-coefficient sign, not the sharp completed-RK4 polynomial positivity horizon.",
+        "Closest published-finding corpus IDs: 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac, 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7, 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab, 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+      ],
+      "reasoning": "The earlier specialized RK4 claims cover complete multipartite, Hamming, Johnson, rook, crown, strongly regular or small-degree graphs, none of which represents arbitrary regular-base full subdivisions with unbounded degree and topology. The primary RK4 literature does not calculate incidence blocks. published-finding corpus adjacent results use Padé, Crank–Nicolson, SSP-SDIRK, or filtered methods rather than classical RK4 on this class. Therefore no inspected prior statement implies the exact present theorem; hidden general coverage remains possible.",
+      "searches": [
+        "classical RK4 positivity heat diffusion on full edge subdivisions of regular graphs incidence graph d degree and 2 threshold",
+        "classical fourth order Runge Kutta positivity preservation graph Laplacian line graphs and Cartesian products threshold negative transition",
+        "doi:10.1137/S003614450036757X",
+        "doi:10.1016/j.asej.2015.05.018",
+        "arxiv:1801.02183"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Steinerberger (2018), arXiv:1801.02183, full publicly readable HTML (sections 1–2), exact continuous-time heat-semigroup asymptotics and bipartite next-coefficient sign, not the sharp completed-RK4 polynomial positivity horizon.",
+        "Incidence graph of G, full edge subdivision S(G), semiregular bipartite graph, and (V,E) nonoriented incidence block Laplacian denote the equivalent candidate objects."
+      ],
+      "reasoning": "The full edge subdivision of a d-regular base graph is the degree-(d,2) incidence graph with a special pair design. Heat semigroup short-time positivity and RK4 Taylor-polynomial endpoint positivity are not equivalent; a semigroup statement alone does not yield the sharp finite-step bound. The retrieved records did not state this class-specific equivalence, although incomplete indexing remains a risk.",
+      "searches": [
+        "classical RK4 positivity heat diffusion on full edge subdivisions of regular graphs incidence graph d degree and 2 threshold",
+        "semiregular bipartite network graph Laplacian explicit Taylor exponential positivity finite time step",
+        "Taylor polynomial R_m(-hL) adjacency walks distance m-1 bipartite positivity radius 1/d",
+        "arxiv:1801.02183"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact small graph transition matrices are mathematically subordinate to the all-connected d-regular incidence theorem; published-finding corpus returned only related methods and unrelated graph invariants, not a database of this universal cutoff.",
+        "Previously investigated special graph-family claims include cycles and other specialized RK4 classes, not a table dominating every regular source graph."
+      ],
+      "reasoning": "No actual database, closed form enumeration, or table over this infinite regular-subdivision class was identified. Non-detection is a residual novelty risk, not positive evidence of mathematical independence.",
+      "searches": [
+        "classical RK4 positivity heat diffusion on full edge subdivisions of regular graphs incidence graph d degree and 2 threshold",
+        "Runge Kutta fourth order nonnegative transition matrix subdivision graph incidence graph 2/(d+2)",
+        "regular graph full subdivision numerical diffusion positivity Euler 2d/(d+2)",
+        "published-finding corpus semiregular bipartite network graph Laplacian explicit Taylor exponential positivity finite time step"
+      ]
+    },
+    "rationale": "The main theorem concerns all complete edge subdivisions of connected regular graphs, not an arbitrary spectral-stability claim, complete multipartite RK4 (previously treated), or generic RK4 SSP bounds. Full texts of 2001 Gottlieb-Shu-Tadmor and 2015 Khalsaraei were compared at the level of mathematical implication; neither provides a graph-class sharp cutoff. Steinerberger 2018 addresses the exact semigroup. published-finding corpus and accessible historical claims were compared. Unindexed specialized work and an inaccessible relevant 2003 article remain risks.",
+    "residual_risks": [
+      "Very broad published positivity theory or an unindexed regular-subdivision-graph analysis could imply the result; negative searches are not mathematical uniqueness proofs.",
+      "Gottlieb and Gottlieb (2003), linear constant-coefficient Runge–Kutta monotonicity, not read in full; potential stronger published general statement.",
+      "Steinerberger arXiv 1801.02183 gives short-time exact-semigroup coefficients, not RK4 global positivity; broader specialized graph-diffusion literature may still overlap.",
+      "Independent mathematical audit and separate historical expert review are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General SSP methods and linear high-order time-discretization bounds, but no exact entrywise RK4 positivity classification for all subdivided regular graphs",
+        "evidence": [
+          "Gottlieb, Shu and Tadmor (2001), DOI 10.1137/S003614450036757X, full paper sections 1–7, no original/edge-subdivision incidence class or sharp RK4 graph-specific positivity cutoff.",
+          "Publisher/index listing MSC 65L06 and publication event visible in original 2001 PDF"
+        ],
+        "identifier_or_url": "doi:10.1137/S003614450036757X; https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+        "material_read": "Full accessible 24-page PDF, including introduction, SSP/linear sections, conclusions; page 1 front matter shows publication 2001-02-02",
+        "method": "Accessible institutional open-access PDF text and title-page image inspection",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Primary archival SSP/RK4 foundation; exact first public date evidence"
+      },
+      {
+        "assessment": "Studies a positivity CFL sufficient condition for upwind flux-limited advection and nonlinear Burgers numerical problems; no edge-subdivision graph incidence theorem or necessary topology-independent limit",
+        "evidence": [
+          "Khalsaraei (2015), DOI 10.1016/j.asej.2015.05.018, full text sections 1–5, Theorem 1 is a sufficient advection flux-limiter CFL condition and experiments concern advection and Burgers equations; no universal regular-subdivision Laplacian result."
+        ],
+        "identifier_or_url": "doi:10.1016/j.asej.2015.05.018; https://www.researchgate.net/publication/282534406_Positivity_of_an_explicit_Runge-Kutta_method",
+        "material_read": "Open full-text sections 1–5, theoretical Theorem 1 and proof, advection/Burgers applications, numerical tests and conclusion; embedded PDF text displayed in accessible article page",
+        "method": "Full public article text / theorem and model comparison",
+        "title": "Positivity of an explicit Runge–Kutta method",
+        "trigger": "Exact classical RK4 positivity may imply this theorem"
+      },
+      {
+        "assessment": "Exact heat-semigroup small-time and next-term sign theorem does not provide sharp completed-fourth-degree-RK4 global entrywise positivity horizon",
+        "evidence": [
+          "Steinerberger (2018), arXiv:1801.02183, full publicly readable HTML (sections 1–2), exact continuous-time heat-semigroup asymptotics and bipartite next-coefficient sign, not the sharp completed-RK4 polynomial positivity horizon."
+        ],
+        "identifier_or_url": "arxiv:1801.02183; https://arxiv.org/abs/1801.02183",
+        "material_read": "Full arXiv HTML manuscript, sections 1 and 2, theorem and induction proof",
+        "method": "ArXiv HTML full-text theorem, proof and graph heat-kernel expansions inspected",
+        "title": "Varadhan Asymptotics for the Heat Kernel on Finite Graphs",
+        "trigger": "Graph short-time heat-kernel positivity and walk-distance expansions might dominate the fourth-degree Taylor entry computation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57088809-6e27-49d7-99a8-2b871d460624",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full edge subdivisions form a natural incidence-based coupled-site/edge diffusion model. Universality of the sharp threshold across every connected d-regular source graph, topology-independent failure witness, and strict separation of entrywise positivity from spectral contractivity provide an exact structural classification and a reusable positive-integration benchmark. For d>=3 the allowable positive RK4 timestep improves sharply over Euler by factor 2d/(d+2).",
+    "status": "PASS"
+  }
+}
