@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The signed-balance argument proves that every literal border of a Dyck word is Dyck. Unbordered shortest borders give a bijective outer-pair decomposition, yielding the formal identity U(z)=C(z)-1-C(z)U(z^2); recursive greedy peeling yields F(z,t)=(1+tU(z))/(1-t^2U(z^2)). The square-root singularity of C at 1/4, with U(z^2) analytic there, gives fixed-width odd-geometric limits, vanishing even widths, and the expected-width limit. The 290511-word enumeration for semilengths 1..12 and exact 0..80 coefficient checks agree with direct computations; they support but do not prove the infinite assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gabrić–Shallit Theorem 2 counts all words of a given length over a fixed k-letter alphabet; its proof uses shortest unbordered borders.",
+        "Goto–Itagaki–Bannai–Inenaga, arXiv:1806.00198, introduces the general greedy factorization."
+      ],
+      "reasoning": "An unrestricted finite-alphabet length count cannot be specialized to Dyck paths by a letter count or parameter setting: the Dyck language is a nonregular context-free sublanguage of binary words. The generic greedy method is applicable, but deriving literal-border closure, the Catalan recursion and asymptotic odd-geometric parameter requires new object-specific arguments. This is the principal originality risk and is not disguised.",
+      "searches": [
+        "largest block palindrome factorization width longest greedy prefix suffix decomposition in binary words",
+        "block palindrome factorization of Dyck paths prime excursions matching borders and width exact distribution",
+        "Dyck word shortest border Catalan limit distribution"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.13147",
+      "arXiv:1806.00198 (background metadata)",
+      "DOI:10.1007/978-3-030-81508-0_4",
+      "arXiv:2301.06145",
+      "DOI:10.4204/EPTCS.252.9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blanchet-Sadri–Chen–Hawes, EPTCS 252 (2017), Theorem 1 counts minimal Abelian borders in arbitrary binary strings, not exact borders of all Dyck words.",
+        "Barcucci–Bernini–Pinzani, DLT 2021 chapter, constructs and counts particular strong nonoverlapping subsets of Dyck paths.",
+        "Mol–Rampersad–Shallit arXiv:2301.06145, section overview and section 2, treat automatic sequence factors and pattern avoidance.",
+        "Gabrić–Shallit, Theorem 4, studies an unrestricted alphabet expected-width limit but not the Dyck geometric distribution or its value."
+      ],
+      "reasoning": "Even where both strings and Dyck paths are discussed, prior hypotheses or statistics differ: selected nonoverlapping code sets do not count every unbordered Dyck word; Abelian borders do not force literal prefixes equal suffixes; unrestricted fixed-alphabet expectations are not the Catalan-conditioning geometric law. The closest known greedy-borders principle is reused openly as background rather than attributed as new.",
+      "searches": [
+        "\"Dyck words\" \"border\" \"unbordered\" \"Catalan\" count",
+        "\"Dyck Words, Lattice Paths, and Abelian Borders\" ordinary vs abelian",
+        "\"A Strong Non-overlapping Dyck Code\" unbordered",
+        "Uniform random Dyck path largest block palindrome factorization width limiting odd geometric distribution parameter U(1/16)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gabrić–Shallit, arXiv:2302.13147, sections 1–5, shortest-border peeling and unrestricted width enumeration.",
+        "Barcucci–Bernini–Pinzani, DLT 2021, pages 43–53, discusses selected bifix-free Dyck codes.",
+        "The inspected full-text searches of Mol–Rampersad–Shallit, arXiv:2301.06145, contain no literal border or block-palindrome result."
+      ],
+      "reasoning": "Rewriting Dyck paths as balanced-parenthesis words or as sequences of primitive excursions preserves the claimed object, but the available literature does not give the Dyck-specific series or odd-geometric limit. Ordinary borders are compared distinctly from abelian borders.",
+      "searches": [
+        "Dyck words block palindrome factorization width generating function Catalan unbordered Dyck words balanced parenthesis prefix suffix borders",
+        "unbordered Dyck words generating function Catalan least border enumeration",
+        "All Dyck words ordinary shortest borders are Dyck; enumeration of unbordered Dyck paths by Catalan series U(z)=C(z)-1-C(z)U(z²).",
+        "\"Dyck words\" \"block palindrome\" factorization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct generated coefficients U_1..U_11=1,1,4,11,36,112,378,1265,4360,15120,53236.",
+        "These targeted searches did not produce a verified matching OEIS entry or previously tabulated complete distribution; no database exhaustion is claimed."
+      ],
+      "reasoning": "The exact sequence was queried under coefficient strings and border/Dyck aliases. A failed or inaccessible database search is not novelty proof; the residual risk remains that a table, recurrence or equivalent species identity is indexed elsewhere.",
+      "searches": [
+        "\"1, 1, 4, 11, 36, 112, 378\" unbordered",
+        "\"4, 11, 36, 112, 378, 1265\" Dyck",
+        "site:oeis.org \"1, 4, 11, 36, 112\" Dyck",
+        "\"unbordered Dyck words\" counting"
+      ]
+    },
+    "rationale": "Full material from Gabrić–Shallit (2023) establishes unrestricted fixed-alphabet block-palindrome enumeration, rather than Dyck-specific enumeration or its geometric limit. The 2021 Dyck-code source concerns selected cross-bifix-free families, not the count of all Dyck words by their ordinary borders. The 2023 Dyck/automatic-sequences paper treats different invariants, and the 2017 Dyck/Abelian-border paper studies nonliteral Abelian borders. Semantic published-finding searches returned Dyck topics but no equivalent border-width statement. Existing general machinery is expressly acknowledged; unindexed equivalent specialization is a real residual risk.",
+    "residual_risks": [
+      "A generalized weighted-free-monoid extension of the 2023 fixed-alphabet width recurrence might appear explicitly in other sources and could imply the finite formula.",
+      "Unindexed literature or an uncatalogued sequence table may already enumerate unbordered Dyck paths.",
+      "No independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General unrestricted alphabet width counts; no Dyck-restricted generating function or odd-geometric law.",
+        "evidence": [
+          "Theorem 2 counts LBP_k(n,t) for words over Sigma_k.",
+          "Theorem 4 concerns the limiting expected width for uniformly random unconstrained k-ary strings.",
+          "No Dyck wording in the searched full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.13147",
+        "material_read": "Full preprint text as publicly displayed, including definitions, Theorem 2 and proof, width limits, smallest-factorization section and section 5.",
+        "method": "Accessible author-posted full-text HTML transcription and targeted searches for Dyck.",
+        "title": "Smallest and Largest Block Palindrome Factorizations",
+        "trigger": "Directly studies the same block-palindrome width invariant."
+      },
+      {
+        "assessment": "Counts selected strong cross-bifix-free Dyck codes, not the full unbordered set or block widths.",
+        "evidence": [
+          "Introduction defines self/non/cross-overlap separately.",
+          "Main propositions count prescribed elevated Dyck code sets.",
+          "Conclusion describes variable-length three-piece code construction."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-030-81508-0_4",
+        "material_read": "Full chapter text of pages 43–53 as accessible in the DLT 2021 volume transcript, including definitions, propositions and final construction.",
+        "method": "Publisher-volume-derived public full-text transcription and search within chapter.",
+        "title": "A Strong Non-overlapping Dyck Code",
+        "trigger": "Potentially covers unbordered balanced paths."
+      },
+      {
+        "assessment": "Study of Dyck factors, automatic sequences and pattern avoidance; no ordinary border-width classification.",
+        "evidence": [
+          "Contents list repetitions, Dyck factors, and automatic sequences.",
+          "Full-text search returned no border or palindrome matching term."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.06145",
+        "material_read": "Contents, introduction and Dyck definitions, section 2 and theorem statements; full-text targeted checks of border and palindrome terminology.",
+        "method": "Accessible author-posted full-text transcription and literal searches.",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Potential exact results about all Dyck words."
+      },
+      {
+        "assessment": "Counts minimal Abelian borders of arbitrary binary words; does not cover literal shortest borders of Dyck words.",
+        "evidence": [
+          "Theorem 1 counts binary strings with a given minimal Abelian border length.",
+          "Abelian equivalence only requires symbol counts to match."
+        ],
+        "identifier_or_url": "https://doi.org/10.4204/EPTCS.252.9",
+        "material_read": "Abstract and the central theorem on minimal Abelian-border lengths from accessible full-text transcription.",
+        "method": "Published full-text excerpt and comparison of border definitions.",
+        "title": "Dyck Words, Lattice Paths, and Abelian Borders",
+        "trigger": "Could contain a stronger border enumeration under different terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ce310699-9fd5-4b8f-8948-4330bc9160f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete width-refined Catalan census is a natural invariant of balanced-parenthesis words, and the odd-geometric limit identifies a qualitative asymptotic feature absent from unconstrained fixed-alphabet counts. Literal-border closure is a structural bridge between Dyck excursions and maximal block palindromes; the result is an all-length family theorem with a computable limiting constant, not a finite table or routine parameter increment.",
+    "status": "PASS"
+  }
+}
