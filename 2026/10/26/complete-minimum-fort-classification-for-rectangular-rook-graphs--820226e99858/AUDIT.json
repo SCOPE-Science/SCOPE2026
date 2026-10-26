@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For an unselected cell the exact neighbor count is row occupancy plus column occupancy; the only forbidden one-neighbor support pairs are (1,0) and (0,1). Four exhaustive row/column support cases prove the bound, and inspecting equality classifies every min fort including all exceptional column surjections. Independent original-definition exhaustive script reproduces the formula for 26 boards with 120168 tested candidate subsets and additionally checks the criterion on 10190 subsets. Finite checks do not prove all dimensions; the written proof does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Becker et al. arXiv:2404.05963 treats minimal forts of several families and product constructions; no all-rook minimum-fort count in inspected relevant passages.",
+        "Brimkov et al. arXiv:2507.10826 concentrates on hypercube minimum forts and general Cartesian-product constructions, not the complete rook-graph classification."
+      ],
+      "reasoning": "General constructions produce some forts but do not imply an exhaustive equality classification or exact multiplicity without the row-column support argument; the inspected proofs concern different product families.",
+      "searches": [
+        "all minimum forts and four vertex forts of Cartesian products of cliques",
+        "forts of rook graphs Cartesian product complete graphs minimum cardinality number row column support",
+        "arxiv:2404.05963 (graph products and named families)",
+        "arxiv:2507.10826 (minimum forts of hypercubes and product constructions)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.17904 (Cameron et al., 2023)",
+      "arxiv:2404.05963 (Becker et al., 2024)",
+      "arxiv:2507.10826 (Brimkov et al., 2025)",
+      "published-finding corpus record 2026/10/4/SCOPE-minimal-forts-of-complete-multipartite-graphs-have-rank-at-most--408da78a029d",
+      "published-finding corpus record 2026/10/4/SCOPE-minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484",
+      "published-finding corpus record 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cameron et al. arXiv:2310.17904 Example 3.4 handles forts of the complete bipartite graph K_{p,q}, not forts of its line graph.",
+        "Earlier published-finding corpus two complete-multipartite fort results classify bases with edges between parts, not rook graphs with edges along rows or columns."
+      ],
+      "reasoning": "Neither equality of minimum cardinalities in a few degenerate cases nor general fort-product construction supplies the all-(p,q) complete list and the exceptional surjection/permutation corrections. The new theorem is not a direct corollary of inspected prior claims.",
+      "searches": [
+        "minimum forts of line graphs of complete bipartite graphs rectangular line graph enumeration",
+        "arxiv:2310.17904 full-text relevant product/fort sections",
+        "arxiv:2404.05963 relevant family/product sections"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph is isomorphic to L(K_{p,q}); Source arXiv:2310.17904 discusses forts and Cartesian graph products."
+      ],
+      "reasoning": "The alias L(K_{p,q}) was searched directly. Previously reported forts of K_{p,q} as a base graph do not imply the minimum fort structure of L(K_{p,q}), since line-graph adjacency is a distinct neighbor relation.",
+      "searches": [
+        "minimum fort size and number on rook graphs K_m square K_n line graph of K_{m,n}",
+        "minimum forts of line graphs of complete bipartite graphs rectangular line graph enumeration",
+        "rook graph = line graph of complete bipartite; rectangular Cartesian product of cliques"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest fort entries 2026/10/4/SCOPE-minimal-forts-of-complete-multipartite-graphs-have-rank-at-most--408da78a029d and 2026/10/4/SCOPE-minimal-forts-and-fractional-zero-forcing-of-complete-multiparti--6afb52747484 have different graph families."
+      ],
+      "reasoning": "No exact precomputed table or prior published-finding corpus entry was found for the symbolic rook-graph minimum-fort multiplicity function. This negative retrieval observation is not a proof that unpublished tables do not exist.",
+      "searches": [
+        "minimum fort size and number on rook graphs K_m square K_n line graph of K_{m,n}",
+        "fort hypergraph of rook graph all size-four forts rectangles transversal permutation matrices"
+      ]
+    },
+    "rationale": "Five targeted published-finding corpus searches of rook/line-graph/Cartesian-product aliases and selective primary-paper inspections were compared at the statement level: base complete-bipartite and complete multipartite results do not cover their rook line graphs, and general product constructions do not supply the full explicit equality families and count. No directly covering result observed; possible unindexed equivalent remains a documented risk.",
+    "residual_risks": [
+      "Possible unindexed rook-graph minimum-fort count or stronger theorem.",
+      "Selective rather than full page-by-page reading of long comparators; relevant method and family sections were inspected.",
+      "Product constructions in later literature could imply fragments of the result but no complete count was identified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the framework and treats the complete bipartite graph itself, but inspected material does not count smallest forts of its line graph (rook graph).",
+        "evidence": [
+          "arXiv:2310.17904, Example 3.4 (forts of K_{p,q}); introduction and fort-hypergraph methods."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.17904",
+        "material_read": "Definitions, fort hypergraph, Example 3.4 about K_{p,q}, product-related portions and searches for rook terminology in the available 25-page PDF",
+        "method": "HTML/PDF text inspection and term search, including rook and fort",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Closest foundational product/fort-hypergraph paper; line graph of complete bipartite comparison"
+      },
+      {
+        "assessment": "Enumerates distinct graph families and provides constructions rather than an exact all-parameter bottom-layer rook-graph formula in the inspected passages.",
+        "evidence": [
+          "arXiv:2404.05963, family-enumeration and product-construction discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.05963",
+        "material_read": "Introduction, definitions, listed path/cycle/spider/wheel/sunlet/windmill families, relevant Cartesian-product and graph-product construction sections; PDF first page visually inspected",
+        "method": "PDF text and cited family/product portions; term searches",
+        "title": "On the number of minimal forts of a graph",
+        "trigger": "Primary family-enumeration comparison with graph-product constructions"
+      },
+      {
+        "assessment": "Treats hypercubes and general constructions; neither the rook graph family nor its exact minimum-fort multiplicity is concluded in inspected material.",
+        "evidence": [
+          "arXiv:2507.10826, hypercube minimum-fort characterization and product constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.10826",
+        "material_read": "Introduction, minimum-fort hypercube theorem, Cartesian-product construction and concluding portions; last relevant PDF page visually inspected",
+        "method": "PDF text and page inspection",
+        "title": "On the forts and related parameters of the hypercube graph",
+        "trigger": "Highly related minimum-fort theorem for another Cartesian product"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "820226e9-9858-458d-8f5c-107b96f8c103",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The bottom layer of the fort hypergraph is a natural obstruction object for zero forcing. On canonical rook products it has a sharp exact all-parameter classification and explicit exceptional rank patterns; its multiplicity grows quartically in the long dimension for two rows and quadratically for any fixed at least three rows. The result gives every minimum certificate, not just a routine minimum-cardinality value or isolated small computation.",
+    "status": "PASS"
+  }
+}
