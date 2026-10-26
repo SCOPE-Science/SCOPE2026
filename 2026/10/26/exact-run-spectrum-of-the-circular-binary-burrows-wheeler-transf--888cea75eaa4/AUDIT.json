@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact 365-class BWT gap-layer argument, with integer-polynomial identities in the embedded standalone verifier and direct BWT agreement for 2401 gap tuples plus full length 4–19 enumeration. Handles all-zero gaps separately and counts periodic words using four marked ones.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici et al., DOI:10.4230/LIPIcs.CPM.2023.10, contains a two-run balancedness characterization but not exact finite-content counts for all run numbers.",
+        "2017 fixed-point paper has an additional equality constraint on BWT input/output."
+      ],
+      "reasoning": "General BWT definitional/computational algorithms are broad in scope but do not assert or immediately give the nontrivial rational enumerators. The two-run theorem does not subsume the four-, six-, and eight-run counting laws.",
+      "searches": [
+        "\"Burrows Wheeler\" \"weight four\" exact number runs",
+        "\"BWT-runs\" \"four occurrences\" binary",
+        "\"Burrows-Wheeler\" \"fixed Parikh\" run distribution",
+        "\"BWT\" \"Parikh vector\" \"run\" distribution enumerating necklaces",
+        "On the Impact of Morphisms on BWT-Runs fixed weight four characterization"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0908.0239",
+      "https://pages.di.unipi.it/rosone/Papers/MRRRS_FI2017.pdf",
+      "doi:10.4230/LIPIcs.CPM.2023.10",
+      "published-record:2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925",
+      "published-record:2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published record 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71 studies length-two substring multispectra.",
+        "Kufleitner (2009) defines BWT variants; Mantaci et al. (2017) specifies BWT fixed-point constraints; Fici et al. (2023) addresses runs under morphisms."
+      ],
+      "reasoning": "The all-length four-one BWT distribution neither follows from the title of a generic BWT result nor from fixed-point formulas without enumerating 365 gap rank/difference cells. The fixed-point subset and adjacent-pair multispectrum class are not dominating implication statements.",
+      "searches": [
+        "Burrows Wheeler transform number of runs for binary circular words of Hamming weight three; distribution 2 4 6 and exact formulas",
+        "binary Burrows Wheeler transform exact run distribution fixed Hamming weight four 4 ones length n cyclic necklaces 2 4 6 8 generating functions",
+        "BWT number of equal-letter runs for binary words with exactly four ones; exact generating functions",
+        "sparse binary BWT four-marker gap tuple rank order and runs classification",
+        "circular BWT four-one fixed point word formula and sorted rotations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kufleitner arXiv:0908.0239: circular transform definitions and variants; Mantaci et al. 2017: fixed points at small Hamming weight; Fici et al. CPM2023: balanced run characterizations."
+      ],
+      "reasoning": "Explicitly distinguish sorted-rotation BWT runs of all four-one inputs from BWT fixed points, factors, or compression of specific morphic families. No equivalent all-input fixed-content run enumerator found in inspected sources.",
+      "searches": [
+        "Burrows Wheeler transform number of runs for binary circular words of Hamming weight three; distribution 2 4 6 and exact formulas",
+        "binary Burrows Wheeler transform exact run distribution fixed Hamming weight four 4 ones length n cyclic necklaces 2 4 6 8 generating functions",
+        "BWT number of equal-letter runs for binary words with exactly four ones; exact generating functions",
+        "sparse binary BWT four-marker gap tuple rank order and runs classification"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result 2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925 deals with string attractors, not BWT runs.",
+        "The 2017 fixed-point primary text tables are for fixed points, not the full run frequency distribution."
+      ],
+      "reasoning": "No covering table or closed series of fixed-weight-four BWT run counts observed; the displayed functions prescribe all lengths and their denominator identities are exact.",
+      "searches": [
+        "fixed weight four binary BWT run distribution table exact generating function",
+        "BWT run count statistics 4 ones necklaces"
+      ]
+    },
+    "rationale": "Searched published-finding corpus by aliases, fixed-content parameters and BWT-run equivalences; inspected 2009 full text, 2017 fixed-point full sections, 2023 run-morphism source. None has statements that cover or immediately imply the five exact all-length weight-four run enumerators. Unindexed specialized sources remain a residual risk.",
+    "residual_risks": [
+      "Some specialized fixed-Parikh-vector BWT enumerations might not be indexed or visible; priority is provisional.",
+      "Existing higher-level BWT algorithms can compute individual strings but may hide an equivalent formula without stating it."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines cyclic/bijective transform context; no fixed-weight-four run count enumerator in studied material.",
+        "evidence": [
+          "arXiv:0908.0239 initially public 2009-08-03; explicit transform definitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0908.0239",
+        "material_read": "Full arXiv HTML document, definitions and principal transform constructions",
+        "method": "Open-access preprint HTML direct reading",
+        "title": "On Bijective Variants of the Burrows–Wheeler Transform",
+        "trigger": "Early source for circular BWT convention and date"
+      },
+      {
+        "assessment": "Characterizes words satisfying BWT(w)=w; does not count BWT runs among all weight-four words. Three-one candidate was discarded after reading this source.",
+        "evidence": [
+          "Fixed-point qualification in the theorem statements; the weight-four cases are restricted by the fixed-point property."
+        ],
+        "identifier_or_url": "https://pages.di.unipi.it/rosone/Papers/MRRRS_FI2017.pdf",
+        "material_read": "Open-access PDF relevant sections on BWT fixed points and small-weight cases, especially pages 6–12",
+        "method": "PDF full-section reading with rendered page screenshots",
+        "title": "On Fixed Points of the Burrows–Wheeler Transform",
+        "trigger": "Directly handles binary inputs with three or four one-symbol occurrences"
+      },
+      {
+        "assessment": "Different level of generality: specific morphisms and balancedness; no rational fixed-Hamming-weight-four run spectrum.",
+        "evidence": [
+          "Circular BWT definition and two-run balancedness; no distribution law for all four-one inputs."
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2023.10",
+        "material_read": "Publisher open-access full PDF, initial definitions and results including balanced two-run case and morphism theorems",
+        "method": "Full-text PDF inspection, rendered pages",
+        "title": "On the Impact of Morphisms on BWT-Runs",
+        "trigger": "Most directly relevant paper on BWT run counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "888cea75-eaa4-406c-a4c8-5f135e6d95e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Run count is the fundamental statistic of run-length compressed BWT indexes; the exact uniform all-length distribution for the first genuinely nontrivial four-one sparse stratum reveals four possible even run counts, a sharp 8-run appearance threshold, and a reusable 365-cell method beyond small experiments.",
+    "status": "PASS"
+  }
+}
