@@ -1,0 +1,11 @@
+# Scientific review: terminal curling-transform fibers
+
+**Correctness — PASS.** Prefix heredity and the overlap-at-last recurrence prove that the three-branch prefix search exhausts all valid words. The square-suffix rule for curling values is valid because overlap-free words are cubefree. The full normalized terminal manifest has \(2016\) words, the normalized depth-\(83\) prefix layer has \(1680\), and depth \(85\) is empty. Two separately implemented enumerators agree. The independent direct-definition prefix-curling checks and all-factor overlap checks pass for every terminal word and its transform. All \(672\) normalized extendible parents have three children; all terminal transforms are the two specified words with normalized fibers \(1344\) and \(672\).
+
+**Originality — PASS within examined evidence.** Theorem 7 of Caveney–Dong–Shallit (arXiv:2608.15670v1, 2026), read with Section 2.3 and Appendix B, reports the length-\(84\) maximum and the count \(6048\) but only an individual transform example. Neither its count nor the original curling-number literature logically implies that all maximal transform outputs share a unique length-\(83\) prefix or that the inverse fibers have the stated sizes. Targeted research-record and literature searches did not identify an equivalent image classification. Equivalent unpublished or unindexed analyses remain possible.
+
+**Mathematical value — PASS.** This is a nontrivial structural classification of *all* fibers of a natural transformation at the exact extremal boundary, not merely another example or a recomputation of the published maximum size. The all-or-none continuation property explains the sharp \(2:1\) fiber ratio and the collapse of \(6048\) distinct longest words to two images. It is a complete finite answer relevant to inverse reconstruction from curling-number data, without asserting broader consequences.
+
+**Scope and evidence.** The finite computation is exhaustive through depth \(85\), but no broader-length theorem or external independent audit is claimed. The full normalized witness list, source programs and level counts are included. The primary paper is available in open-access HTML and was inspected beyond abstracts; older background material was consulted at abstract level only.
+
+Self-review: passed. Independent audit: not yet performed.
