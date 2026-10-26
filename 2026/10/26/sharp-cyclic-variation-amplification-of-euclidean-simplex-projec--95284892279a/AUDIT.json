@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "KKT affine-cell Jacobians are proved, and generic segment integration is valid for a continuous polyhedral projection. The cyclic zero-sum gradient transport generates interval indicators as the V-unit-ball tests. For A and interval I, the exact quotient (br+as)/(a+b) is verified via positive/negative component counts and separated-run boundary variation. The inequalities br+as<=2ab and br+as<=b(N-2b), with N=n+2, prove the exact floor/ceil bound for every integer n>=2. Distinct constructive run patterns for even/odd N attain equality, using actual projected input pairs in a common open active-set cell. Exact rational diagnostics check 115226 selector-interval cases and nine attaining pairs; finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lellmann et al. Eq. (2) measures spatial gradients across image pixels and uses a simplex constraint on label vectors, not the cyclic coordinate variation.",
+        "Condat Proposition 2 specifies projection but Sections II-IV study efficient algorithms.",
+        "Wang full article establishes the KKT map but no two-data variation stability classification."
+      ],
+      "reasoning": "Graph BV denoising or spatial TV with simplex labels controls different objective maps and different index geometry; neither implies the sharp norm of Euclidean projection under a cyclic-edge seminorm. Classical Hilbert nonexpansiveness is in ell2 and cannot furnish the sharp V_n factor.",
+      "searches": [
+        "total variation seminorm projection onto probability simplex Lipschitz constant edge graph nonexpansive derivative",
+        "discrete bounded variation simplex projection stability Lipschitz gradient seminorm",
+        "https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf",
+        "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1309.1541v1",
+      "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf",
+      "https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf",
+      "https://doi.org/10.1145/1390156.1390191",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-ell-4-stability-of-metric-projection-onto-a-probability-si--ade1ccb04ed3/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The known KKT Jacobian is reused and identified as an established premise, not a new contribution.",
+        "The complete published ell4 proof optimizes ||J_A||_(ell4->ell4); it does not optimize ||J_A||_(V_n->V_n), which varies with the order of active coordinates.",
+        "Lellmann spatial-gradient problem constrains simplex labels but studies a different proximal/operator splitting map."
+      ],
+      "reasoning": "The new claim needs a graph-order-sensitive cut decomposition and integer component extremization; neither follows as a special case of the permutation-invariant ell4 theorem or the optimization-algorithm theorems. The published ell4 statement and the new V_n statement apply to the same P but neither norm inequality determines the other sharp constant.",
+      "searches": [
+        "https://arxiv.org/html/1309.1541v1",
+        "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf",
+        "https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-ell-4-stability-of-metric-projection-onto-a-probability-si--ade1ccb04ed3/RESULT.md",
+        "Sharp cyclic-variation simplex projection two-input cut norm",
+        "Simplex threshold projection active set centering Jacobian norm quotient cycle cut interval components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang 2013 and Condat 2014 prove threshold formula but not a graph seminorm bound.",
+        "Same-map published ell4 RESULT.md uses a coordinatewise ell4 metric rather than cyclic V_n.",
+        "Cyclic zero-sum gradient transport reduces the new norm to interval indicators and run counts, not to the symmetric quartic problem."
+      ],
+      "reasoning": "Equivalences considered: thresholded simplex/ell1-ball projection, affine active-set mean centering, zero-sum cycle gradient and interval-cut norm, cyclic graph BV. The published symmetric ell4 modulus is not equivalent because it is insensitive to vertex order and uniformly dimension-bounded, while V_n depends on cyclic adjacency and has a sharp linear-in-dimension constant.",
+      "searches": [
+        "sharp total variation seminorm Lipschitz stability Euclidean projection probability simplex cycle graph active support mean subtraction",
+        "Euclidean probability simplex projection exact Lipschitz cyclic discrete bounded variation total variation seminorm growth one fourth dimension",
+        "Simplex threshold projection active set centering Jacobian norm quotient cycle cut interval components",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-ell-4-stability-of-metric-projection-onto-a-probability-si--ade1ccb04ed3/RESULT.md"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected primary text or indexed closest research entry gives the formula floor((n+2)^2/8)/ceil((n+2)/2).",
+        "The closest same-map record lists a finite-coordinate ell4 expression and limit about 1.2116, not the growing cyclic-gradient modulus."
+      ],
+      "reasoning": "A finite graph norm can in principle be tabulated by a support/cut algorithm, so exact-value tables and equivalent parameterizations were queried; no matching exact table was found. A negative search is not proof of novelty.",
+      "searches": [
+        "simplex projection total variation norm discrete bounded variation nonexpansive",
+        "simplex projection cyclic variation sharp constant 4/3 12/5",
+        "Euclidean simplex projection graph total variation sensitivity cut",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-ell-4-stability-of-metric-projection-onto-a-probability-si--ade1ccb04ed3/RESULT.md"
+      ]
+    },
+    "rationale": "Same operator and active-set derivative occur in published simplex projection literature and a later sharp ell4 modulus, but the exact graph-cycle total-variation two-input modulus, residue formula and accumulating sharp extremizers are not implied by the coordinate ell4 norm or by spatial-TV-constrained optimization. Published indexed searches, own accessible claims and primary material were compared. Unindexed equivalent calculations remain possible.",
+    "residual_risks": [
+      "Classical earlier projection papers, especially Duchi et al. 2008, were not all available in full text; an implicit graph-variation sensitivity result could have been overlooked.",
+      "Search index coverage is incomplete; an unindexed theorem, table or equivalent cut formula may predate this calculation.",
+      "The analogous published ell4 work shares the active-set reduction, but the full-text comparison finds the cyclic-variation optimization absent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents threshold projection and active set but no two-input variation operator norm or cycle component maximization",
+        "evidence": [
+          "Sec. 2 gives x_i=max(y_i+lambda,0); Sec. 3 proves the KKT active-set algorithm; Sec. 5 studies Laplacian K-modes."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1309.1541v1",
+        "material_read": "HTML complete article, sections 1-5 including Algorithm 1, KKT proof, application, and references",
+        "method": "Read the primary HTML text; compare theorem and proof statements with cyclic-gradient quotient",
+        "title": "Projection onto the probability simplex: An efficient algorithm with a simple proof, and an application",
+        "trigger": "Exact same Euclidean projection map and earliest KKT shape"
+      },
+      {
+        "assessment": "Computes threshold projection and runtime performance, not sharp cyclic BV perturbation constants",
+        "evidence": [
+          "Proposition 2, p. 2 gives x_n=max(y_n-tau,0); Sections II-IV compare algorithms; Section V describes conclusions."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf",
+        "material_read": "All seven pages, including abstract, propositions, algorithms, numerical tests, conclusion, references",
+        "method": "Read primary preprint PDF text and visually inspected the first two pages",
+        "title": "Fast Projection onto the Simplex and the l1 Ball",
+        "trigger": "Algorithmic and active-set classical prior for simplex projection"
+      },
+      {
+        "assessment": "Their TV is across spatial image domain for vector-valued label maps; the theorem here uses cyclic differences of coordinates within a single simplex vector and two-data map stability",
+        "evidence": [
+          "Eq. (2) uses spatial gradients of the class-assignment field; sections 3-6 concern splitting and image labeling."
+        ],
+        "identifier_or_url": "https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf",
+        "material_read": "Primary PDF abstract, introduction, variational formulation and definitions, operator splitting application, numerical results, conclusion, and references; not a line-by-line read of every page",
+        "method": "Read targeted primary sections and visually inspected title/first page",
+        "title": "Convex Multi-Class Image Labeling by Simplex-Constrained Total Variation",
+        "trigger": "Title joins simplex and total variation and could cover stability"
+      },
+      {
+        "assessment": "Exact norm in coordinate ell4, which is permutation-invariant; does not calculate graph cyclic-gradient seminorm. Its active-set linearization is acknowledged but not the new norm estimate.",
+        "evidence": [
+          "Prior finding computes sup ||Px-Py||_4/||x-y||_4 with uniformly bounded dimension-free modulus; current theorem computes V_n differences and obtains growth of order n."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-ell-4-stability-of-metric-projection-onto-a-probability-si--ade1ccb04ed3/RESULT.md",
+        "material_read": "Complete published RESULT.md: finding, scope, proof, verification, prior relation, limitations and references",
+        "method": "Read public full result and compared precise norm, quantifiers, all-dimensional constants and implications",
+        "title": "Sharp ell4 stability of metric projection onto a probability simplex",
+        "trigger": "Published same projection map, same active-set derivative technique and exact Lipschitz modulus in another norm"
+      },
+      {
+        "assessment": "Indexed content addresses projection computation, not cyclic TV. Full-text exclusion not asserted.",
+        "evidence": [
+          "Publisher 2008-07-05 publication, DOI 10.1145/1390156.1390191; abstract focuses on efficient algorithms."
+        ],
+        "identifier_or_url": "https://doi.org/10.1145/1390156.1390191",
+        "material_read": "Publisher bibliographic entry, abstract, publication history and cited secondary discussions; full article not obtained",
+        "method": "Read author/publisher abstract and chronology; compared what could and could not be excluded",
+        "title": "Efficient projections onto the l1-ball for learning in high dimensions",
+        "trigger": "Older originating efficient simplex/cross-polytope thresholding algorithm"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "95284892-279a-40d1-b5bd-5dfd9069704f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Simplex projection is a standard nonlinear retraction in learning and imaging; when coordinates represent cyclically adjacent categories or phases, BV perturbation sensitivity is a natural quantity. The exact formula demonstrates linear-in-dimension two-input variation amplification despite one-input BV contraction, identifies n=4 as first strict amplification, proves actual sharp attainment in all dimensions, and quantifies residue-class arithmetic defects. This is a substantive stability boundary, not a single numerical computation or a renaming of the KKT formula.",
+    "status": "PASS"
+  }
+}
