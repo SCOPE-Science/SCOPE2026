@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For each rank configuration, the right-shift operator is coordinatewise nilpotent: k successive active edges force a rank drop of k, so the XOR inverse terminates in at most the starting rank. The fixed-control map is a compact binary-group automorphism and preserves conditional Haar data, giving independent fair output bits. Given any window [-R,R], the truncated parity is correct if the rank chain stops; otherwise at least one unseen fair bit makes the true parity conditionally unbiased. Its Bayes error is exactly half the continuation probability, and no local decoder can improve it. Disjoint descending-rank cylinders give the arbitrary-rank distribution formula. The geometric series evaluates exactly, with quadratic logarithmic decay. Explicit opposite inverse outputs with the same finite window show nonreversibility. Exhaustive exact forward/inverse, finite-tail and Bayes-posterior checks are recorded in CHECK_OUTPUT.txt; finite checks are not treated as proof of the general statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Harvey, Holroyd, Peres and Romik (2007) address existence of finitary codes with exponential coding-length tails between other Bernoulli processes.",
+        "Campos, Romero and Vivas (2022) address continuous inverses of shift morphisms on discrete alphabets."
+      ],
+      "reasoning": "The general finitary-coding literature does not, on accessible material, imply a sharp best-possible same-input prediction error for this specific nonuniform inverse. A stronger unknown universal theorem remains a risk; an unreviewed full text is not claimed to be excluded.",
+      "searches": [
+        "\"inverse coding radius\" \"cellular automaton\" measurable",
+        "\"geometric\" rank decreasing run Bernoulli coding radius local inversion",
+        "finitary isomorphism countable alphabet cellular automata inverse coding radius tails"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.29958",
+      "https://arxiv.org/abs/0910.0863",
+      "https://doi.org/10.33044/revuma.1795",
+      "https://doi.org/10.1112/plms/pdl018"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yang (arXiv:2606.29958), Lemmas 4.1–4.3: the triangular inverse and absence of uniform finite memory; no stochastic optimal decoder.",
+        "Ceccherini-Silberstein and Coornaert (arXiv:0910.0863), Lemma 5.1: a separate nilpotent-block construction of a nonreversible bijection."
+      ],
+      "reasoning": "The current construction is a specialization, so existence and nonreversibility are covered and explicitly excluded from the novelty assertion. The new implication establishes a universal Bayesian lower bound for all window decoders from conditional Haar independence, an exact rank-cylinder sum, and a geometric quadratic logarithmic error law; these are not statements of the inspected prior theorems.",
+      "searches": [
+        "arXiv:2606.29958",
+        "arXiv:0910.0863",
+        "\"nonreversible\" \"finitary inverse\" \"cellular automata\" infinite alphabet"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang 2026, Section 4, describes pointwise nilpotent inverse but contains no Bernoulli-rank coding-error theorem.",
+        "Ceccherini-Silberstein and Coornaert 2009/2011, Section 5, use nilpotent blocks for nonreversibility, but give no optimal stochastic inverse-risk formula."
+      ],
+      "reasoning": "Aliases considered include finitary inverse, coding radius, almost-everywhere finite memory, triangular XOR shift, and local Bayes reconstruction. Structural inverses in these sources explain why an inverse exists, but do not fix a product probability law or optimize reconstruction over all radius-R rules.",
+      "searches": [
+        "\"nonreversible\" \"finitary inverse\" \"cellular automata\" infinite alphabet",
+        "\"bijective cellular automaton\" \"almost surely\" \"finite\" inverse radius",
+        "Exact distribution of inverse coding radius and local Bayes error in rank-decreasing cellular automata; inverse xor chain"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact geometric descending-rank tail or Bayes-optimal inverse error matching the stated object was found in the indexed scientific comparisons reviewed.",
+        "Related indexed results concern reversibility under finite boundaries and finite-volume clock factors, not Bernoulli local inversion statistics."
+      ],
+      "reasoning": "The result is an analytic identity, not a lookup from a known numerical table. Negative search outcomes are not represented as proof of originality.",
+      "searches": [
+        "Bernoulli random rank cellular automaton inverse optimal finite-memory prediction error geometric ranks exact superexponential approximation",
+        "Sharp minimum Bernoulli Hamming prediction error for inverse of bijective nonreversible countable alphabet cellular automaton; geometric rank drop tails",
+        "\"inverse radius\" \"probability\" \"cellular automata\" infinite alphabet",
+        "A Reversibility Characterization of Locally Finite Groups by Cellular Automata Jiang Yang 2026"
+      ]
+    },
+    "rationale": "The rank-directed pointwise-nilpotent construction and nonreversibility themselves are already present in the June 2026 source; the claimed result is instead an exact optimal same-input finite-window inverse prediction risk for all iid rank laws, including a sharp superexponential closed form for geometric ranks. The closest inspected primary results concern global reversibility, continuous inverses, or existence of finitary codes, and no identified statement gives or implies this exact conditional Bayes-risk law without the new independence and rank-tail calculation. Novelty is provisional pending independent priority work.",
+    "residual_risks": [
+      "Equivalent sharp local-decoding formula could exist in the wider finitary-code or random-environment automata literature under different terminology.",
+      "Two compared secondary papers were available only through abstracts, which cannot support definitive whole-document noncoverage.",
+      "The exact formula is for the specified source measure and same-input decoding criterion, not a general transport or Ornstein d-bar result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the basic rank-track mechanism, bijectivity, and nonreversibility; does not state the rank-distributed sharp Bayes inverse error or geometric superexponential scale.",
+        "evidence": [
+          "Section 4 inverse as finite pointwise sum over rank-descending chains; Lemma 4.3 uses arbitrarily long finite directed chains to disprove finite memory.",
+          "The inspected source does not formulate a Bernoulli rank law, a conditional prediction problem, or a sharp fixed-radius risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.29958",
+        "material_read": "Public full-text HTML: title/abstract, definitions, Sections 2–4 including Lemmas 4.1–4.3, and Sections 5–6 including the main theorem.",
+        "method": "Direct inspection of publicly available article text and theorem/proof comparison.",
+        "title": "A Reversibility Characterization of Locally Finite Groups by Cellular Automata",
+        "trigger": "Direct motivating source: same pointwise rank-decreasing inverse and full-shift nonreversibility."
+      },
+      {
+        "assessment": "Covers existence of nonreversible bijective linear cellular automata with unbounded nilpotence indices, not optimal probabilistic decoding for the rank-decreasing binary triangular rule.",
+        "evidence": [
+          "Theorem 1.2, Lemma 5.1 and formulas (5.1)–(5.2) classify construction/inversion without the claimed rank-law optimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0910.0863",
+        "material_read": "Public full-text HTML: introductory theorems and Section 5, including the construction, inverse formulas (5.1)–(5.2), and Lemma 5.1.",
+        "method": "Direct inspection of published preprint theorem/proof text.",
+        "title": "On the reversibility and the closed image property of linear cellular automata",
+        "trigger": "Earlier infinite-alphabet nonreversibility construction could dominate a specialization."
+      },
+      {
+        "assessment": "No claimed exclusion based on unseen full text; abstract concerns continuous inverse conditions, not exact Bayes prediction error.",
+        "evidence": [
+          "Official abstract describes continuous inverse/closed-image conditions for shift morphisms on discrete alphabets."
+        ],
+        "identifier_or_url": "https://doi.org/10.33044/revuma.1795",
+        "material_read": "Official open article page: abstract and references; full paper not inspected.",
+        "method": "Primary publisher bibliographic page and abstract read.",
+        "title": "On the image set and reversibility of shift morphisms over discrete alphabets",
+        "trigger": "Could subsume inverse continuity and shift-equivariance observations."
+      },
+      {
+        "assessment": "Known existential coding-tail result on other processes; no whole-document noncoverage claim. The possibility of a relevant general result outside the abstract is retained as residual risk.",
+        "evidence": [
+          "Publisher abstract asserts existence of finitary homomorphisms with exponential tails between finite-alphabet Bernoulli processes of differing entropy."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/plms/pdl018",
+        "material_read": "Publisher abstract and bibliographic record; full paper not inspected.",
+        "method": "Primary publication page abstract read.",
+        "title": "Universal finitary codes with exponential tails",
+        "trigger": "Possible broader quantitative finitary-coding theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5df7808a-1cd5-4dd0-b69a-0ab699841c57",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A central obstruction in infinite-alphabet dynamics is loss of a uniform inverse memory even for a bijective nearest-neighbor cellular automaton. For a natural full-support geometric distribution on the source rank track, the exact optimal reconstruction error is not merely small: its logarithm has a sharp negative quadratic-in-radius law. The theorem identifies the measurable-vs-uniform locality boundary and supplies an optimal finite-window decoder with a matching Bayes lower bound, rather than an arbitrary parameter slice, a simple restatement of bijectivity or a finite-only computation. It gives a reproducible quantitative benchmark for noncompact symbolic inversion and for model-specific finitary coding.",
+    "status": "PASS"
+  }
+}
