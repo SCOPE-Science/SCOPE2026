@@ -1,0 +1,13 @@
+# Scientific assessment
+
+**Correctness — PASS.** The Fourier multiplication identity is obtained directly by summing characters and uses only the stated splitting and nonmodularity assumptions. The exceptional fixed Fourier characters are precisely the 3-torsion characters; there are no nontrivial two-cycles of the \(\chi\mapsto\chi^{-2}\) permutation. Every remaining orbit has length at least three. The explicitly proved determinant-cycle lemma realizes every possible coefficient pattern on each orbit, giving an actual single commutator, not merely membership in the linear span. `verify.py` independently checks representative cases in the original quandle basis. Boundary cases with \(3A=0\), characteristic two, and a nontrivial 3-primary part are covered. No conclusion is asserted for non-split or modular fields.
+
+**Originality — PASS with residual risk.** The originating August 2026 paper [2] provides finite computations and states the general dihedral-width problem, without an all-parameter split-field theorem. The 2022 source [1] gives upper bounds and three special exact cases. The October 2026 group-ring theorem [3] already proves the linear span and its dimension: neither the span equality nor its Fourier-codimension consequences are claimed as new. The claim assessed here is the stronger nonlinear assertion that every element is *one* commutator. Searches for that exact statement and Fourier-orbit equivalent formulations in published-finding corpus and available published literature found no decisive coverage. A hidden consequence of broader work on bilinear commutator images remains possible.
+
+**Value — PASS.** The result supplies an all-odd-order abelian-family solution to a specifically published commutator-width problem in a natural semisimple regime, with explicit witnesses. It distinguishes linear span from decomposable bilinear image and contrasts sharply with the known modular width-two example. This resolves infinitely many field/group cases beyond earlier finite enumerations, not an arbitrary parameter slice.
+
+Closest literature: Bardakov–Passi–Singh, *Zero-divisors and idempotents in quandle rings* (2022), Section 7; Sangare–Ta, *Idempotents, automorphism groups, and commutator widths of quandle algebras* (arXiv:2608.01550), Section 5; Zhang, *Group-ring methods for Alexander quandle rings* (arXiv:2610.08204), Theorem 2.3.
+
+Limitations: nonmodular split fields and odd-order finite abelian groups only; broad non-split or modular questions are not settled. Independent validation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
