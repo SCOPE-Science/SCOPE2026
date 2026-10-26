@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Explicit cyclic Green kernel solves the massive Laplacian recurrence with sum 1/m. The graph Laplacian splits orthogonally into constant and zero-sum clique sectors, yielding both signed edge-column profiles. Exact absolute-value sums and the 1+||Qe||_1-2Q_ee complementary-projection identity give four orbit formulas. Elementary lower bounds on the Green profile prove strict rim domination. The remaining projector comparison simplifies to -1+2/(mn)+2(m-1)R0; exact rational n=5,6 values plus monotonicity settle m=3 and an elementary inequality settles m>=4. Uniform fixed-m cutoff estimates give the same sharp log(n)/n coefficient for both norms. The standalone rational checker reconstructs every projection column on seven graphs (398 columns total); numerical evidence is explicitly non-exhaustive.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dilworth–Kutzarova–Ostrovskii identify their explicit graph families as tori and Hamming graphs, without evaluating K_m square C_n for m>=3,n>=5.",
+        "Existing exact mixed Hamming results treat products of complete factors (record 762a1a7a-6a32-4099-a4b9-29b13f6db4f2); a cycle factor C_n with n>=5 is not complete or a Cartesian product of nontrivial complete factors.",
+        "Rook-graph results require the second factor to be a complete graph (record e14221e8-997e-4a30-b6ef-c37f9452194f)."
+      ],
+      "reasoning": "A general Laplacian pseudoinverse description is an algorithmic starting identity rather than a theorem implying the explicit absolute-sum evaluations and orbit/dominance thresholds without further analysis. The established graph-family theorems either have a clique factor in place of the rim cycle or the binary cross-section.",
+      "searches": [
+        "published-finding corpus: orthogonal cut projection on toroidal rook graph K_m Cartesian C_n exact edge norm and phase transition",
+        "published-finding corpus: minimum cycle projection on cartesian product complete graph and cycle invariant norm",
+        "web: cycle space l1 projection Cartesian product 2022 2023",
+        "arXiv:2305.12582v1 sections 2.1, 2.4-2.7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.12582v1, full relevant sections",
+      "Dilworth–Kutzarova–Ostrovskii, 2024 author-posted published offprint, relevant graph family sections",
+      "Lim, Hodge Laplacians on Graphs (2020), publisher abstract only",
+      "Prior circular ladder claim affc3559-d21c-4be8-bc56-2afcad6b5d9f",
+      "Prior mixed Hamming claim 762a1a7a-6a32-4099-a4b9-29b13f6db4f2",
+      "Prior rook claim e14221e8-997e-4a30-b6ef-c37f9452194f",
+      "Actual published-finding corpus searches reported under the four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier circular-ladder statements compute m=2, where there is no intra-clique triangle and only one edge per clique fiber.",
+        "The newest mixed complete-factor result allows C_4 as K_2 square K_2 but does not contain any C_n, n>=5.",
+        "The published projection paper states exact results for Hamming cubes and low finite tori and does not imply the claimed rim-edge inequalities or projection comparison."
+      ],
+      "reasoning": "The final claim has domain m>=3,n>=5, beyond every compared special family. Neither a special m=2 formula, an all-complete-factor product, a general incidence identity, nor a theorem for discrete tori contains its sharp m=3,n=6 transition and common log/n coefficient.",
+      "searches": [
+        "published-finding corpus: clique cycle cylinder K_m C_n Hodge norm 4-2/m logarithmic",
+        "published-finding corpus: sharp logarithmic finite-size correction Hodge projection clique-cycle cylinders",
+        "arXiv:2305.12582v1 contents and section 2.1 results summary",
+        "previous claims affc3559-d21c-4be8-bc56-2afcad6b5d9f and 762a1a7a-6a32-4099-a4b9-29b13f6db4f2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The target is the induced norm of the Euclidean edge Hodge projector, equivalently the maximal absolute edge-gradient response to one edge dipole. The cyclic clique cylinders have two edge orbits.",
+        "The nearest prior circular-ladder calculation is limited to \\(C_n\\square K_2\\) (record affc3559-d21c-4be8-bc56-2afcad6b5d9f)."
+      ],
+      "reasoning": "Reformulating the target as Green-function total variation or effective-resistance derivative does not yield the exact two-parameter formulas, strict orbit inequalities, unique crossing, and logarithmic coefficient from prior statements. The m=2 result has different clique-edge structure and cannot imply m>=3.",
+      "searches": [
+        "published-finding corpus: Euclidean Hodge cut cycle projection edge l1 norm Cartesian product cycle C_n complete graph K_m cylinder prism with multiple layers",
+        "published-finding corpus: exact absolute Green kernel norm Cartesian products cycle complete graph",
+        "web: graph Hodge decomposition edge projection l1 norm circular complete graph cylinder"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-rational calculation gives cut norm \\(352/145\\) and cycle norm \\(353/145\\) at \\(K_3\\square C_5\\), and \\(53/21\\), \\(158/63\\) at \\(K_3\\square C_6\\).",
+        "The directly searched research records did not return a matching table or exact constants for these graph instances."
+      ],
+      "reasoning": "The queried exact fractions and graph aliases showed no existing tabulation; this is negative search evidence only, not proof that no database contains the values.",
+      "searches": [
+        "published-finding corpus: 352/145 353/145 cut cycle projection K3 C5",
+        "published-finding corpus: cycle projection K_3 square C_5 353/145",
+        "web: K_m C_n cut space l1 projection cycle"
+      ]
+    },
+    "rationale": "Primary full-text comparison with the 2023/2024 cycle-projection paper, recoverable neighboring circular-ladder and complete-factor results, published-finding corpus semantic/alias/parameter searches, exact-constant searches, and external literature found no statement implying the new m>=3,n>=5 exact formulas, strict orbit law, crossover, or logarithmic coefficient. This is a qualified best-knowledge judgment, not proof of global uniqueness.",
+    "residual_risks": [
+      "Semantic search cannot rule out unindexed equivalent formulas or specialized electrical-network tables.",
+      "The Lim (2020) article was not fully read, so no whole-document noncoverage assessment is claimed; its accessible abstract is background rather than decisive competing evidence.",
+      "Prior related results cover n=3,4 or m=2, but inaccessible earlier ledgers beyond the accessible relevant records may contain unknown duplicates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General invariant-projection framework and explicit tori/Hamming statements, not the two-parameter cyclic-clique exact norm or crossover",
+        "evidence": [
+          "arXiv:2305.12582v1 p.1 MSC 46B04 and contents; pp.9-10 summary; §§2.4-2.7 graph families"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+        "material_read": "Full paper sections 1.1, 1.4-1.6, 2.1 and 2.4-2.7, plus contents and result statements",
+        "method": "Inspected PDF text and page layout; compared graph object, projector and parameter quantifiers",
+        "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+        "trigger": "Primary literature for minimal and canonical cycle projections and neighboring graph families"
+      },
+      {
+        "assessment": "Same research line, no result stating canonical endpoint formulas for K_m square C_n with n>=5; not counted as an independent corroborating paper",
+        "evidence": [
+          "Proceedings of Symposia in Pure Mathematics 106 (2024), §2.1 results summary; sections on tori and Hamming graphs"
+        ],
+        "identifier_or_url": "https://denka.web.illinois.edu/CycleSpaces.pdf",
+        "material_read": "Full-text headings/results summary and relevant torus/Hamming sections; compared with preprint",
+        "method": "Inspected open-access author-hosted PDF text including result summary and named graph families",
+        "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost (published offprint)",
+        "trigger": "Check a plausible later version of the same central paper for extra coverage"
+      },
+      {
+        "assessment": "Background on algebraic Hodge decomposition; full-text noncoverage is not asserted",
+        "evidence": [
+          "SIAM Review 62 (2020), abstract, DOI and classification"
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/18M1223101",
+        "material_read": "Open abstract, subject classification, and bibliographic presentation, not the complete article",
+        "method": "Read publisher-hosted open abstract and available front matter",
+        "title": "Hodge Laplacians on Graphs",
+        "trigger": "Check broad Hodge representation coverage"
+      },
+      {
+        "assessment": "Restricted to m=2, so excludes the present theorem; logarithmic mechanism conceptually related",
+        "evidence": [
+          "Claim gives m=2, rho=2-sqrt(3), and corresponding circular-ladder norms"
+        ],
+        "identifier_or_url": "affc3559-d21c-4be8-bc56-2afcad6b5d9f",
+        "material_read": "Recoverable claim statement and parameter range",
+        "method": "Compared theorem quantifiers and explicit norm/asymptotic with m>=3 claim",
+        "title": "Exact canonical endpoint norms for circular ladder graphs",
+        "trigger": "Nearest prior single complete factor K_2 square C_n"
+      },
+      {
+        "assessment": "All factors are complete; not a covering theorem for n>=5 cyclic rim",
+        "evidence": [
+          "Claim covers K_{q_1} square ... square K_{q_d} with all factors complete"
+        ],
+        "identifier_or_url": "762a1a7a-6a32-4099-a4b9-29b13f6db4f2",
+        "material_read": "Recoverable claim statement and parameter range",
+        "method": "Compared allowed complete factors to n>=5 rim cycles",
+        "title": "Exact canonical endpoint norms for mixed-alphabet Hamming products",
+        "trigger": "Potential strong prior for a Cartesian product with one clique factor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "58fa50f7-a7be-41c7-8ea6-27688dac5847",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural infinite two-parameter Banach-space projection invariant for cyclic clique products, distinguishing two graph-edge orbits and proving a uniform strict orbit law. The exact m=3 reversal between rim lengths five and six and non-reversal for m>=4 are structural rather than mere computations. Both complementary projection norms share a precise Green-screening log(n)/n correction at fixed m. The theorem advances known circular-ladder and all-complete-factor examples without asserting global minimality.",
+    "status": "PASS"
+  }
+}
