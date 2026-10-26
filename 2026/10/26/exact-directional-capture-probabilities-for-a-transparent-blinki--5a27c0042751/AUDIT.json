@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Boundary eigenmodes solve the coupled active/inactive killed backward equations; active boundary has opposite signed approach marks and inactive solution is C1 at the transparent interface. Retained-gate Poisson-reset renewal K-L identity follows by subtracting post-capture gate occupancy. Its unique two-by-two solution simplifies to the proposed formulas. Strict reset monotonicity follows from decreasing positive factors. Both r→0 and fixed-x0 r→infinity expansions are checked. The packaged high-precision independent renewal calculation and exact Brownian-bridge event simulation passed 2346 programmatic checks. Finite tests supplement but do not prove the theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bressloff, Phys. Rev. E 102, 022115 (2020), provides general multiple-target splitting probabilities in a time-independent search domain, rather than a single transparent Markov-switched target with state retention at resetting.",
+        "Bressloff, arXiv:2009.02739, explicitly models a reflecting rather than transparent closed boundary; a two-sided approach mark is absent."
+      ],
+      "reasoning": "General renewal and splitting methods are clearly prior; their existence limits novelty of the technique. Neither inspected description addresses the specific retained-gate, transparent one-target side-mark probability or proves the three monotonicity statements and universal rate α/(4r). Residual implicit derivability risk remains.",
+      "searches": [
+        "published-finding corpus: Two-state gated Brownian search splitting probabilities and resetting monotonicity from either side",
+        "Web: Search processes with stochastic resetting and multiple targets Bressloff arxiv",
+        "Web: Brownian motion blinking target stochastic resetting probability absorption from left right exact formula"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2512.09739v1",
+      "arxiv:2512.09739v2",
+      "arxiv:2009.02739",
+      "doi:10.1103/PhysRevE.102.022115",
+      "arxiv:1911.11041"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2512.09739 Section III.1.2 yields first-capture-time Laplace transforms and Section III.3 restricts directional data to numerical experiment.",
+        "arXiv:2009.02739 Section 1 and Section 2 state reflecting closed-boundary and survival/MFPT scope.",
+        "Bressloff (2020) multiple-target paper abstract is a plausible general antecedent, but its full technical body was not materially inspected; remaining priority uncertainty is stated."
+      ],
+      "reasoning": "An unmarked capture-time law sums over the two directional contributions and does not by itself determine the marked probability. Reflection symmetry combined with the gated backward problem and retained-gate matrix renewal provides additional steps. A broader theory of marked Markov renewal could in principle subsume the derivation; only this explicit model-specific formula and sharp consequences are claimed.",
+      "searches": [
+        "Web: arxiv:2512.09739 full HTML Sections II–IV and Appendix overview",
+        "Web: arxiv:2009.02739 full parsed text Sections 1–5",
+        "Web: Search processes with stochastic resetting and multiple targets (2020) abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zbik et al. arXiv:2512.09739v2 Section III.3 / Figure 5 report simulation of the capture side, whereas Sections III.1.1–III.1.2 give unmarked capture-time transforms.",
+        "published-finding corpus hits with IDs 2026/10/4/SCOPE-exact-two-crossing-transport-law-for-bernoulli-pair-balancing--952d735cb8e8 and 2026/9/18/SCOPE-rare-bernoulli-tv-sign-cancellation--adcb7befe3ff concern discrete Bernoulli transport, not gated Brownian capture."
+      ],
+      "reasoning": "Tested aliases side of capture, capture from left/right, splitting probability, mark of first active hit. Source time-transform formulas are not equivalent to a displayed directional splitting formula; extracting a side mark requires solving a distinct odd boundary problem. The closest returned database hits concern different objects and do not imply this theorem.",
+      "searches": [
+        "published-finding corpus: Exact absorption from left versus right of a transparent blinking target with independent gate switching and Poisson resetting",
+        "published-finding corpus: One-dimensional Brownian hitting target on either side Markovian gating reset unaffected gate hitting-side splitting probability",
+        "Web: Hitting the blinking target probability from either side exact analytical"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The original arXiv:2512.09739 Figure 5 plots directional capture probabilities without analytic values or asymptotic coefficients.",
+        "No exact table or matching documented coefficient appeared among searched published-finding corpus returned records; a nonmatching hit 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783 concerns catastrophe counts, not gated diffusion."
+      ],
+      "reasoning": "Numerical plots of the same observable are acknowledged, not characterized as absent. The exact closed forms, three initial-gate cases and limiting coefficients are not numerical table recomputations.",
+      "searches": [
+        "published-finding corpus: Universal high-reset rate wrong-side capture probability alpha/(4 r) for randomly opening and closing target",
+        "published-finding corpus: Analytical crossing-side probabilities for intermittently reactive Brownian target with position resets and continued gate memory",
+        "Web: blinking target splitting probability side stochastic resetting Brownian"
+      ]
+    },
+    "rationale": "The motivating source analytically solves the unmarked capture-time distribution and reports capture-side fractions numerically, without deriving their exact directional laws. Earlier gated-reset literature addresses reflecting targets, and general splitting-probability literature addresses multiple static targets. Searches and scientific implication comparisons did not establish a stronger covering result. Broad renewal machinery is recognized as prior and implicit-equivalence risk is retained.",
+    "residual_risks": [
+      "An exact generic marked-renewal theorem, particularly in full text of the multiple-target 2020 work or in older intermittent-target literature, could imply part of the formulas.",
+      "Original manuscript discusses monotonic numerical direction trends; no claim of priority for the numerical observation is made.",
+      "The standalone stochastic verification has finite sampling error; the algebraic derivation carries the proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Most closely related; numerically studies side of capture, but publishes unmarked analytical transforms rather than these side-resolved formulas",
+        "evidence": [
+          "Section II equations 10–11 define active-gate capture; Section III.1.2 equations 22–26 derive time transforms; Section III.3 paragraphs around Figure 5 state side fractions were obtained through simulation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.09739",
+        "material_read": "Full main HTML Sections I–IV, including model, time-transform equations 12–26 and directional Figure 5 discussion; source appendices described by main text.",
+        "method": "Read primary arXiv HTML source and compared stated observables to the marked boundary-value claim",
+        "title": "Hitting the blinking target under stochastic resetting",
+        "trigger": "Exact same stochastic model and simulated capture-side observable"
+      },
+      {
+        "assessment": "No two-sided capture because inactive target is reflecting, hence does not imply directional probability for transparent gate without a changed model",
+        "evidence": [
+          "Introduction states reflecting closed-target boundary and MFPT/reset optimization; Section 2 develops standard renewal for target search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+        "material_read": "Parsed arXiv full-text article Sections 1–2 and discussion of model and target geometries; boundary setup includes reflecting inactive target.",
+        "method": "Read full-text available on arXiv record, reviewed model boundaries and stated results",
+        "title": "Diffusive search for a stochastically-gated target with resetting",
+        "trigger": "Gating and Poisson reset in prior literature"
+      },
+      {
+        "assessment": "Plausible renewal-method antecedent, uncertain implicit coverage because full text not inspected",
+        "evidence": [
+          "Publisher abstract specifies splitting probabilities for multiple targets, not arrival direction at a single transparent switching gate."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.102.022115",
+        "material_read": "Publisher abstract and study examples only; full mathematical sections not inspected",
+        "method": "Read publisher synopsis; searched for side-resolved gated Brownian extensions",
+        "title": "Search processes with stochastic resetting and multiple targets",
+        "trigger": "Potential broader theory of splitting probability under resetting"
+      },
+      {
+        "assessment": "Antecedent of gated first-passage theory, no evident Poisson-reset direction-mark classification in inspected material",
+        "evidence": [
+          "Abstract focuses on hitting-time distributions, crypticity and Robin-boundary approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.11041",
+        "material_read": "Public abstract and model statement only",
+        "method": "Read arXiv metadata and available synopsis",
+        "title": "First hitting times to intermittent targets",
+        "trigger": "Transparent target gating without reset"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a27c004-2751-48df-a382-a0d738b60db2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source specifically studies from which side a temporally available target is first contacted, but only through simulation. The closed-form split, rigorous strict improvement under every reset rate, universal 1/r wrong-side rarity independent of opening rate/diffusivity/distance, and nonanalytic weak-reset susceptibility furnish physically interpretable, parameter-free calibration not inferable from the unmarked mean hitting time alone. These are model-specific structural assertions, not arbitrary tabulated cases.",
+    "status": "PASS"
+  }
+}
