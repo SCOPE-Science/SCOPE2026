@@ -1,0 +1,15 @@
+# Scientific review of the five-good maximin-share obstruction classification
+
+## Correctness
+**PASS.** Every three-part partition of a five-good set is either of type \((3,1,1)\) or \((2,2,1)\). The proof uses a complete division by the coincidence pattern of singleton blocks, Hall's theorem in the case of three distinct available singleton goods, and complementary-pair matching on four goods in the only residual case. These arguments establish both directions without assuming additive valuations. The explicit construction has normalized monotone binary valuations and no MMS-fair allocation; the four-good argument separately proves minimality. The standalone reproducibility checker confirms all \(15{,}625\) partition triples, all \(30\) obstructions, and all \(243\) allocations for the witness. The proof rather than the enumeration handles the valuation-space quantifiers.
+
+## Originality
+**PASS with priority qualification.** Feige's *On MMS allocations with few items* (arXiv:2610.06125) already gives a general construction whose three-agent, five-good case is the example here, so neither that counterexample nor its first-occurrence threshold is claimed as new. The new statement classifies **all** such ordered partition triples, proves the exceptional structure is necessary for every monotone-MMS failure at that size, counts the exactly \(30\) labeled certificates, and shows they form one relabeling class. The relevant primary full-text construction, existence bounds, and matching reduction were materially compared; they did not contain the five-good *only-if* classification. The related Feige–Sapir–Tauber paper addresses additive valuations, a strictly narrower domain, and does not imply this partition-level characterization. Targeted searches for the matching formulation, aliases, and exact small-instance census did not surface an equivalent result. An unindexed or uninspected combinatorial lemma could still have stronger coverage; this residual publication-priority risk is not ruled out by negative searches.
+
+## Mathematical value
+**PASS.** The uniqueness is a complete structural description of the first possible failure for monotone maximin-share allocations with three agents. It turns a known example into a unique forbidden local certificate and makes the rainbow-matching obstruction transparent: all three agents share a singleton while their other acceptable minimal blocks are the three perfect matchings of a four-element set. The exact count and symmetry classification distinguish a genuine complete finite case from an arbitrary small numerical slice. The result offers a precise base case for small-market extension and for restricted valuation classes that rule out the forbidden certificate.
+
+## Limitations
+The result does not classify every monotone valuation function or prove that one exceptional triple alone forces failure under arbitrary valuations. Its count is sensitive to ordered agents and labeled goods. Additive/nonadditive domains are distinguished. Independent scientific validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
