@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The theorem fixes the quadrature construction: independent uniform nodes, an unweighted affine least-squares fit, and integration against the same uniform probability measure. Direct inversion of the two-column Gram matrix gives \(w_i=1/M-\bar X(X_i-\bar X)/S\). Orthogonal coordinates around the constant-vector line yield a radial volume element proportional to \(r^{M-2}\); scaling \(r\) by the large-condition-number threshold proves the tail exponent \(M-1\) and the stated positive integral prefactor. Its small-radius singularity also proves the exact finite-moment and noise-variance thresholds. For three nodes the centered unit sphere is a circle and elementary arc integration gives \(C_3=1/2+\pi/(3\sqrt3)\). Ordered-node volume integration yields the exact all-positive-weights probability \((14-\pi)/16\), with disjoint endpoint-negativity events. The proof handles the measure-zero coincident-node and zero-weight boundaries. The standalone numerical verifier corroborates the algebraic identities, probability, angular integral, tail convergence, and collision scaling; it is not used as an infinite proof.
+
+## Originality — PASS, subject to unresolved historical-priority risk
+
+The principal 2026 least-squares quadrature source establishes broad high-probability bounds, positivity conditions, and its Gramian construction but does not state this exact fixed-sample distributional theorem. Its related polynomial tail discussion concerns a reference-weight concentration assumption, rather than singular empirical affine Gramians. Closest published comparisons include work on deterministic affine \(L^2\) projection, general randomized cubature, and stability of least-squares approximation; none of the fully inspected material contains the combined condition-number tail prefactor, three-node positivity probability, and exact noise-variance cutoff. Closely related older randomized cubature and discrete least-squares papers were identified, but their full text could not all be inspected. This leaves priority uncertainty rather than a proof of uniqueness.
+
+## Mathematical value — PASS
+
+Positive sample weights are operationally important because they prevent overshoot on bounded nonnegative data, whereas the absolute sum of weights is an exact bounded-data amplification factor. The theorem measures the nonasymptotic conflict sharply: a three-node affine rule has a substantial chance of positive weights yet infinite unconditional squared noise amplification, and four nodes are the exact first finite-variance sample size. The exponent \(M-1\) makes that transition structural across all sample counts. It supplies a motivated fixed-sample reliability benchmark complementary to high-probability large-sample results, not merely a recomputation of a standard design-matrix identity.
+
+## Closest literature and limitations
+
+Bělík, Narayan and Turnage, arXiv:2609.09506v1 (2026), full accessible HTML inspected; Migliorati and Nobile, arXiv:1812.07761 (2018), relevant full arXiv HTML Sections 2–3 and positivity proof inspected; Cohen and Migliorati, arXiv:1608.00512 (2016), main/noise/stability sections inspected; Xu and Zhang, arXiv:2407.10221 (2024), introduction/main sampling-rate/stability sections inspected; Wilson, *Discrete Least Squares and Quadrature Formulas* (1970), abstract and bibliographic material inspected. Wilson 1970 could be checked only through abstract/bibliographic material; possible unrecognized historical overlap still makes mathematical priority tentative. The theorem concerns a fixed random affine design, unregularized weights, uniform node law, and independent centered homoscedastic noise only. It does not address other bases, adaptive node selection, regularization, or other quadrature construction algorithms.
+
+Self-review: passed. Independent audit: not yet performed.

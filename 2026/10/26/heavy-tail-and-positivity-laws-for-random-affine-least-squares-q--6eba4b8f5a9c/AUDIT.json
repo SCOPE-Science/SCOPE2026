@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Direct inversion of the random affine Gram matrix gives weights and squared noise amplification. The orthogonal mean/deviation polar change of variables has Jacobian sqrt(M) r^(M-2); dominated convergence under r=s/u yields the exact positive tail constant, moment threshold and M=4 finite-noise-variance threshold. On the three-node centered circle, six angular arcs give the explicit tail coefficient, and sorted-node integration over the two possible negative endpoint configurations yields the positive-weight probability (14-pi)/16. All hypotheses, boundary-measure-zero cases, and finite/infinite moment quantifiers are explicit in RESULT.md. A standalone Python standard-library verification checks 3000 exact reproduction identities, 350000 positivity simulations, 7200-angle moment integration and finite-threshold tail integrals. Computation is corroborative, not a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bělík et al. Sections 2.4, 2.6, 4.5: high-probability stability and positivity over appropriately large sample budgets.",
+        "Bělík et al. Section 2.7.2 treats reference-weight concentration tail assumptions, not the same empirical Gram collision singularity.",
+        "Migliorati and Nobile, arXiv:1812.07761, Sections 2 and 3, present Gramian-based randomized cubature; Theorem 6 proves high-probability positivity and equation (3.11) expressly conditions the estimator to remove ill-conditioned designs from expected-error bounds."
+      ],
+      "reasoning": "General high-probability sufficient bounds are compatible with an unbounded unconditional amplification distribution at fixed sample count. In particular the 2018 study explicitly separates an unmodified rule from a conditioned rule for expected-error guarantees. Neither the general stability results nor that conditioning argument determine the exact fixed-sample tail asymptotic or negative-weight probability.",
+      "searches": [
+        "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares arxiv 2609.09506 full text",
+        "\"Stable high-order randomized cubature formulae in arbitrary dimension\" positivity",
+        "\"Optimal weighted least-squares methods\" random samples stability",
+        "\"Stability of Least Square Approximation under Random Sampling\""
+      ]
+    },
+    "checked_sources": [
+      "Bělík, Narayan and Turnage (2026), arXiv:2609.09506v1, full accessible HTML",
+      "Migliorati and Nobile (2018/2022), arXiv:1812.07761, relevant full arXiv HTML sections",
+      "Cohen and Migliorati (2016/2017), arXiv:1608.00512, relevant full arXiv HTML sections",
+      "Xu and Zhang (2024), arXiv:2407.10221, relevant full arXiv HTML sections",
+      "Wilson (1970), DOI:10.1090/S0025-5718-1970-0275677-3, abstract/bibliography",
+      "Published exact-affine-projection, positive-Romberg and randomized-sampling mathematical records (closest statement comparisons)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 constructive quadrature theorem provides an expression for the weights and general high-probability control under admissibility assumptions; it does not determine this unconditional exact asymptotic.",
+        "Deterministic \\(L^2\\)-projection positivity defects and Savitzky–Golay smoothing extrema use fixed coefficient structures and cannot imply the random-collision probability law.",
+        "Wilson 1970 provides historical deterministic discrete least-squares quadrature context; full text not inspected."
+      ],
+      "reasoning": "The exact algebraic weight identity is a specialization of known methods and is not presented as novel alone. The claimed result is its nontrivial probability law obtained by integrating the singular radial/angular geometry. Neither general Gramian inversion nor high-probability bounds determine its precise constant, the integrated three-node volume, or the sharp unconditional moment threshold.",
+      "searches": [
+        "\"affine\" \"least squares\" \"quadrature\" \"infinite\" variance random points",
+        "\"quadrature weights\" \"sample variance\" affine random nodes positivity",
+        "\"Discrete Least Squares and Quadrature Formulas\" Wilson 1970",
+        "2026/10/4/SCOPE-seven-points-maximize-the-positivity-defect-of-quadratic-savitzk--401e21174d7a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For distinct nodes, the exact amplification factor is the sum of absolute quadrature weights; equivalently it is the ℓ-infinity-to-scalar operator norm.",
+        "The exact noise variance is σ² times ∑_i w_i²; this is a different but related risk statistic.",
+        "Bělík et al. arXiv:2609.09506v1 Section 3.3 defines the general Gramian-inverse quadrature weights; Sections 2.4, 2.6 and 4.5 focus on concentration/stability and sufficient conditions."
+      ],
+      "reasoning": "Searching both quadrature weights and least-squares regression leverage/condition-number aliases exposed the natural alternative formulations. The 2026 general weight formula yields the starting identity but its concentration bounds do not force the exact collision tail constant, integrability cutoff or the π-valued probability. The new proof adds a radial density calculation and a sorted-node integral.",
+      "searches": [
+        "\"least squares quadrature\" \"heavy tails\" weights",
+        "\"random least squares quadrature\" moments infinite conditioning uniform samples",
+        "\"14-pi\" \"least squares\" \"quadrature\" 3 nodes",
+        "arxiv:2609.09506 least squares cubature three uniform samples exact positivity mass (14-pi)/16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest exact affine least-squares positivity-defect record concerns deterministic \\(L^2\\) projection on a simplex, not a random-node integration rule.",
+        "The positive-weight generalized Romberg record addresses deterministic nested trapezoidal extrapolation, not random affine least-squares weights.",
+        "No located published exact table listed the \\((14-π)/16\\) three-node positivity probability or the prefactor \\(1/2+π/(3√3)\\) for this distribution."
+      ],
+      "reasoning": "The exact constants were compared with matching-parameter queries and closest mathematical records, including object and implication rather than title matching. Absence from located records does not prove all possible historical tables have been searched.",
+      "searches": [
+        "randomized least-squares quadrature positive weights finite sample threshold Tchakaloff polynomial basis",
+        "affine polynomial least squares quadrature uniform samples conditioning heavy tail exact moment threshold M minus one",
+        "random quadrature affine polynomial least squares condition number power-law tail exponent sample count minus one infinite second moment three nodes",
+        "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "2026/9/21/SCOPE-generalized-romberg-positive-weights-integer-refinement--b7c2819b6648"
+      ]
+    },
+    "rationale": "The 2026 source develops general constructive least-squares quadrature and high-probability concentration, not an exact law for the absolute amplification factor under fixed iid uniform affine sampling. The computed precise angular prefactor, three-node positive-weights probability, and unconditional finite-noise-variance transition are not implied by the published statements inspected. Scientific statement comparisons were made against relevant original work and published mathematical records. The 2018 cubature, 2017 least-squares and 2024 stability articles were inspected through accessible arXiv HTML; Wilson 1970 remained abstract-only, so priority is contingent on those residual risks.",
+    "residual_risks": [
+      "Older specialized discrete least-squares and quadrature literature may contain an unindexed or differently named exact positivity distribution.",
+      "Wilson (1970) was available only in abstract and bibliographic materials, not full text, so its historical priority relationship is not decisively assessed.",
+      "The arXiv HTML inspections focused on mathematically relevant sections; an unrecognized appendix or a wider equivalence may have been missed.",
+      "No independent priority check or independent mathematical review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General construction and probabilistic large-sample guarantees; no same exact fixed-sample affine tail/positivity/noise theorem identified",
+        "evidence": [
+          "Section 3.3 Gramian-inverse weights; Sections 2.4/2.6/4.5 probability estimates; Section 2.7.2 separately concerns reference-weight tail assumptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.09506v1",
+        "material_read": "HTML manuscript: abstract, Sections 2.4, 2.6, 2.7.2, 2.8, 3.3, 4.5, numerical experiments, discussion/conclusion, Appendix B",
+        "method": "Inspected full accessible HTML and compared theorem hypotheses, sample regimes, and conclusions",
+        "title": "Constructive Tchakaloff results and well-conditioned quadrature through randomized least squares",
+        "trigger": "Direct 2026 source for the randomized quadrature algorithm and possible dominating theorems"
+      },
+      {
+        "assessment": "Same general algorithm family and positive-weight guarantees, but its proof uses high-probability control and explicit Gram conditioning; no exact uniform-affine absolute-weight tail constant, three-node positivity probability or all-M noise moment threshold in inspected sections",
+        "evidence": [
+          "Theorem 2 and Theorem 6 supply high-probability sufficient conditions; Section 3 formula (3.1) defines general quadrature weights; formula (3.11) conditions away ill-conditioned empirical Gramians to obtain expectation estimates; Remark 8 concerns high-probability absolute-weight bounds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1812.07761",
+        "material_read": "Full publicly accessible arXiv HTML: introduction, Section 2 weighted empirical least-squares, Section 3 formula and conditioned-vs-unconditioned cubature, Section 3.2 positivity theorem, Section 5 relevant proofs and remarks",
+        "method": "Inspected relevant full HTML sections and checked exact formula (3.1), conditional cutoff (3.11), positivity theorem and high-probability bounds against the new fixed-sample statement",
+        "title": "Stable high-order randomized cubature formulae in arbitrary dimension",
+        "trigger": "Historically closest general positive randomized cubature"
+      },
+      {
+        "assessment": "Its finite expected noise-error bounds concern truncated/conditioned least-squares approximations, not the exact unmodified random affine cubature statistic; no matching exact positive-weight probability or collision tail was found in the inspected material",
+        "evidence": [
+          "Section 4 Theorem 3, equations (27)–(28), gives noisy-data expected-error bounds for truncated or conditioned estimators."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.00512",
+        "material_read": "Full publicly accessible arXiv HTML: introduction, main least-squares stability theorems, noise model and Theorems 3–4, related proof portions",
+        "method": "Inspected the unconditioned-versus-conditioned estimator distinction and noise error estimates in relevant full HTML sections",
+        "title": "Optimal weighted least-squares methods",
+        "trigger": "Original high-probability stability theory of weighted random least squares"
+      },
+      {
+        "assessment": "Main result addresses degree and sample-rate stability with high probability, not the three-node exact positivity volume or sharp unconditional moment law",
+        "evidence": [
+          "Introduction reports uniform random sampling rate n proportional to m^2 for stable recovery; main theorem and proof characterize high-probability stability rather than exact fixed-m amplification distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.10221",
+        "material_read": "Full publicly accessible arXiv HTML: introduction, sampling-rate/condition-number results, random Jacobi sample analysis, main stability proof and final conclusions",
+        "method": "Inspected the polynomial degree-dependent sampling-rate objective and the quantities controlled, compared with current fixed affine degree-one quadrature weights",
+        "title": "Stability of Least Square Approximation under Random Sampling",
+        "trigger": "Recent random least-squares conditioning in polynomial spaces"
+      },
+      {
+        "assessment": "Relevant historical source not decisively assessed for priority",
+        "evidence": [
+          "Foundational work on discrete least squares and quadrature formulas (1970)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-1970-0275677-3",
+        "material_read": "Bibliographic and abstract material, not full article",
+        "method": "Compared problem type and accessible findings",
+        "title": "Discrete Least Squares and Quadrature Formulas",
+        "trigger": "Foundational historical connection between least squares and quadrature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6eba4b8f-5a9c-4c57-8181-6ee91f0a1c10",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact absolute-weight sum is a natural operator condition number for bounded sampled data; weight positivity guarantees range preservation for nonnegative data. For unmodified random-node least-squares quadrature, the theorem explicitly quantifies both risks and shows a sharp conflict: three sampled nodes produce all-positive weights with probability (14-pi)/16 but have infinite unconditional squared noise amplification; four nodes are the smallest count with finite squared noise risk. The M-1 tail law gives a meaningful dimensional scaling and bridges exact small-sample reliability with general high-probability stability methods. No claim is made for different sampling laws, modified algorithms or higher-degree polynomial spaces.",
+    "status": "PASS"
+  }
+}
