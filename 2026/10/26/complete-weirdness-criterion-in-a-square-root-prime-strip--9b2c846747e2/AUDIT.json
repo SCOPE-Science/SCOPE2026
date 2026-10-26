@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof derives a=M(p+1)-xq, identifies all possible subset sums of a<pq, and uses two distinct terminal residues to contradict p>x(x-1) whenever a>=q. The exact converse follows from one residue. Range boundaries (positive k, strict prime ordering, x>=2, nonnegative coefficients) are explicitly covered. An exact standalone verifier agrees on 48596 eligible pairs through k=9; only the proof is used for the universal assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The previous all-k estimate bounds a by 3M²/4+M.",
+        "The original conjectured target is (M+1)(M+2)/3."
+      ],
+      "reasoning": "The all-prime three-quarter bound does not imply the strictly smaller conjectured threshold or the short-strip if-and-only-if, even after specializing x<=sqrt(M)+1. The archived census handles only k<=14.",
+      "searches": [
+        "primitive weird numbers of form 2^k p q Iannucci conjecture upper bound excess M(M+1)/2, residue pigeonhole",
+        "weird numbers 2^k p q gap p-M <= sqrt p square root, abundance a < q",
+        "2026/10/4/SCOPE-a-uniform-three-quarter-abundance-bound-for-weird-numbers-of-for--b810d8b66c9f"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1504.02761",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-uniform-three-quarter-abundance-bound-for-weird-numbers-of-for--b810d8b66c9f",
+      "https://arxiv.org/abs/1802.07178",
+      "https://oeis.org/A258333"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Iannucci: general necessary-and-sufficient forbidden subset representations and a conjectural abundance bound.",
+        "Published three-quarter bound: a<3M²/4+M for every 2^kpq weird number.",
+        "2016 multi-factor construction: sufficient weird-number constructions, not the universal strip condition."
+      ],
+      "reasoning": "A separate two-residue incompatibility proof is needed to force a<q from p>x(x-1). None of the read claims has a hypothesis/conclusion chain that implies the new exact criterion or proves the conjectured numerical bound throughout this strip.",
+      "searches": [
+        "primitive weird numbers of form 2^k p q Iannucci conjecture upper bound excess M(M+1)/2, residue pigeonhole",
+        "weird numbers 2^k p q gap p-M <= sqrt p square root, abundance a < q",
+        "Iannucci conjecture true p-(2^(k+1)-1) smaller than square root p, modular short interval residues",
+        "weird 2^k p q weird abundance less than q under d(d-1)<p",
+        "primitive weird near Fermat prime gap surplus below q"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Iannucci 2015 gives a general subset-sum obstruction, not the automatic short-strip collapse.",
+        "The short-strip characterization is equivalent to a<q plus a single terminal residue."
+      ],
+      "reasoning": "Compared the exact semiperfectness obstruction against a one-residue equivalence and its gap hypotheses; the general obstruction requires a range of t and does not by itself eliminate every t>=1.",
+      "searches": [
+        "weird numbers 2^k p q gap p-M <= sqrt p square root, abundance a < q",
+        "Iannucci conjecture true p-(2^(k+1)-1) smaller than square root p, modular short interval residues",
+        "weird 2^k p q weird abundance less than q under d(d-1)<p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A258333 enumerates counts through k=16 and lists finite examples.",
+        "The new theorem has a universal k quantifier and a congruence characterization."
+      ],
+      "reasoning": "A table of values for bounded k cannot imply the complete conditional classification for all positive k; its entries only serve as finite corroboration.",
+      "searches": [
+        "OEIS A258333 weird numbers 2^n*p*q list",
+        "primitive weird numbers of form 2^k p q Iannucci conjecture upper bound excess M(M+1)/2, residue pigeonhole"
+      ]
+    },
+    "rationale": "Checked the original 2015 full paper and the full 3/4-bound result: neither has the square-root-gap two-residue exclusion, exact one-residue classification or the conjectured 1/3-scale bound in this strip. Relevant finite database and constructions do not dominate. An unseen equivalence remains a possible publication-priority risk.",
+    "residual_risks": [
+      "Index coverage is incomplete; an unpublished or differently worded short-gap classification may exist.",
+      "The result does not resolve the conjecture outside the gap strip."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Underlying exact subset-sum test and conjecture established; short-strip criterion not stated.",
+        "evidence": [
+          "2015 first-public arXiv v1; all k<=14 census, conjectured (M+1)(M+2)/3 bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1504.02761",
+        "material_read": "Full primary arXiv HTML, including definitions, central theorem, proof criterion, proposed bound and finite tables",
+        "method": "Read the original theorem and its forbidden divisor-subset representation",
+        "title": "On primitive weird numbers of the form 2^k p q",
+        "trigger": "Original definition, classification and proposed abundance bound"
+      },
+      {
+        "assessment": "Universal 3/4 bound weaker than the new 1/3-style gap-strip bound; does not classify strip weirdness.",
+        "evidence": [
+          "Proves a<3M²/4+M by counting residues; no exclusion a>=q for p-M=O(sqrt M)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-uniform-three-quarter-abundance-bound-for-weird-numbers-of-for--b810d8b66c9f",
+        "material_read": "Full RESULT.md including proof, hypotheses, verification and references",
+        "method": "Inspected interval-residue packing and compared numerical inequalities and logical implications",
+        "title": "A uniform three-quarter abundance bound for weird numbers of form 2^k p q",
+        "trigger": "Closest stronger prior universal estimate"
+      },
+      {
+        "assessment": "Provides different constructive claims, not the present necessary-and-sufficient strip theorem.",
+        "evidence": [
+          "2016 paper treats more distinct prime factors and sufficient constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.07178",
+        "material_read": "Accessible primary text including introduction, theorems and construction lemmas",
+        "method": "Compared all claimed constructions with necessary constraints for exactly 3 prime supports",
+        "title": "Primitive weird numbers having more than three distinct prime factors",
+        "trigger": "Nearby primitive-weird sufficient construction literature"
+      },
+      {
+        "assessment": "Bounded enumeration, not universal coverage.",
+        "evidence": [
+          "Counts finite k layers; includes examples p=19, q=61 and q=71 for k=3."
+        ],
+        "identifier_or_url": "https://oeis.org/A258333",
+        "material_read": "Sequence page including all displayed counts, references and comments",
+        "method": "Compared the finite table domain with the unbounded k theorem",
+        "title": "OEIS A258333",
+        "trigger": "Possible exact numerical database prior"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9b2c8467-47e2-4bf6-be1d-a76ca397faed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Closes the source conjectural inequality on a natural widening prime-gap regime and gives a necessary-and-sufficient arithmetic criterion, not a finite table. This isolates when any q-supported divisor subset is impossible using prime congruences; the property is structurally motivated by the original subset-sum question.",
+    "status": "PASS"
+  }
+}
