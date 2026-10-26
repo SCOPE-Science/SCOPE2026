@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The proof reduces a possible shattered five-set to five swaps in a rook grid or four swaps plus its center. Johnson distance 0,1,2,>=3 gives exactly all, crosses, two-by-two rectangles, and empty traces. The complete abstract partition census proves fewer than 32 traces in both cases. A separately implemented direct-distance exact check covers every exceptional finite case and every required positive witness; same-rank complement and common-element padding then give all remaining parameters. The certificate ran successfully from the package path.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2007.16042, Sections 1 and 3, proves an optimal bound for open-neighborhood incidence; the statement only implies some unspecified finite bound for closed neighborhoods.",
+        "arxiv:2405.07588, abstract, introduction and definitions, provides a general-purpose closed-neighborhood VC algorithm, not the exact parametric formula."
+      ],
+      "reasoning": "An instance-by-instance algorithm is not the claimed uniform symbolic theorem; the open-neighborhood theorem is not a stronger covering statement for closed neighborhoods. Direct inspection of the relevant claims found no implication subsuming the new rank-at-least-three classification.",
+      "searches": [
+        "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs Theorem 3.7",
+        "Practical Computation of Graph VC-Dimension Johnson",
+        "Johnson graphs closed neighborhood shattering dimension 3 J(6,3) J(7,2)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042, Johnson open-neighborhood primary theorem and associated proofs",
+      "arxiv:2405.07588, closed-neighborhood algorithm primary introduction/definitions",
+      "Earlier record aa1d4bd0-454c-4344-98b4-5cfb5aace6ed, J(n,2) overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arxiv:2007.16042 Figure 4, open-neighborhood four-point shattering is witnessed in J(7,2) and J(6,3); in the present theorem the *closed*-neighborhood value is three in each graph.",
+        "Our kernel checks 1,153 row/column partition pairs for five off-center cells and 113 pairs for four cells plus center, ruling out every closed five-set."
+      ],
+      "reasoning": "The explicit contradiction in behavior at the two small graphs demonstrates why the open-neighborhood result does not imply the present formula. The rank-two special case is subsumed by the earlier derived edge-hit formula; the independently new claim is the sharp all-rank bound and classification for rank at least three.",
+      "searches": [
+        "arxiv:2007.16042 Theorem 3.7 Johnson open neighborhoods J(7,2) J(6,3)",
+        "closed Johnson graph radius one balls shattered five vertices rook crosses 2 by 2 rectangles",
+        "arxiv:2405.07588 closed neighborhood algorithm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2007.16042 explicitly defines and proves edge-relation/open-neighborhood VC dimensions; its abstract and introduction state only that closed-neighborhood VC dimension is bounded.",
+        "Fixed-weight binary-code radius-one balls are the same closed Johnson neighborhoods because \\(d_{J}(A,B)=k-|A\\cap B|\\)."
+      ],
+      "reasoning": "Open-neighborhood VCdim four does not imply the exact closed-neighborhood values. The previous open-neighborhood four-witnesses in J(7,2) and J(6,3) cannot be used as closed witnesses, as checked directly. Equivalent fixed-weight coding and rook-cell formulations were also included in the search vocabulary.",
+      "searches": [
+        "exact closed neighborhood VC dimension Johnson graphs J(n,k) all n k universal four ceiling exceptional J(6,3) J(7,2)",
+        "closed Johnson graph radius one balls shattered five vertices rook crosses 2 by 2 rectangles",
+        "radius-one fixed-weight Hamming ball VC dimension Johnson slice closed neighborhoods",
+        "arxiv:2007.16042 Section 3, Theorems 3.6–3.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prior result aa1d4bd0-454c-4344-98b4-5cfb5aace6ed classifies closed neighborhoods of triangular graphs J(n,2).",
+        "The inspected public mathematical record on Johnson clique/Rips complexes and two-coordinate concentration has different invariants and does not provide a VC-dimension table."
+      ],
+      "reasoning": "The complete rank-two subcase is acknowledged as already known; it neither gives the all-rank upper bound nor determines J(n,k) for ranks at least three. No exact higher-rank closed-neighborhood table was located in the actual searches.",
+      "searches": [
+        "exact closed neighborhood VC dimension Johnson graphs J(n,k) all n k universal four ceiling exceptional J(6,3) J(7,2)",
+        "closed neighborhood set system on Johnson graphs sharp VC dimension four rank three except J(6,3)",
+        "J(7,3) J(6,3) closed neighborhoods VC dimension"
+      ]
+    },
+    "rationale": "The full Johnson-family sharp closed-neighborhood VC classification for rank at least three, including the bounded five-point obstruction and the exceptional J(6,3), was not found in the examined primary literature or accessible earlier claims. The rank-two triangular-graph case was already known in the local mathematical record and is not claimed independently original. The related published 2020 theorem determines open, not closed, neighborhoods; the two versions differ on its cited test graphs.",
+    "residual_risks": [
+      "Specialized coding-theory or set-system literature under fixed-weight Hamming-ball language may contain equivalent all-rank statements despite the searches.",
+      "The arxiv:2405.07588 PDF was not inspected in every experimental appendix; an obscure precomputed Johnson table there remains a low but nonzero risk.",
+      "Computer-assisted finite obstruction lacks independent external reproduction.",
+      "No exhaustive publication-priority claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "OPEN-neighborhood classification and upper bound, with a boundedness remark for closed neighborhoods; does not give the new exact CLOSED-neighborhood family formula.",
+        "evidence": [
+          "Theorem 3.7 states the open-edge-relation VC condition in terms of \\(\\binom{n}{k}\\ge16\\).",
+          "Figure 4 gives four-shattered open-neighborhood configurations for J(7,2), J(6,3).",
+          "Introduction and abstract explicitly distinguish open edge relation from the closed-neighborhood boundedness corollary."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Abstract, introduction, Johnson definitions, Section 3 classification and proof cases (PDF pages 1–19, relevant text passages and Figure 4).",
+        "method": "Original arXiv primary PDF; inspected mathematical theorem statements, grid cases, and example witness table.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Exact same Johnson graphs and VC-dimension, potentially dominating theorem."
+      },
+      {
+        "assessment": "General graph exact algorithm and unrelated parameter bounds; no Johnson-family parametric classification in examined sections.",
+        "evidence": [
+          "Abstract and Section 1 state the computational and general-bounds contributions.",
+          "Definition uses closed vertex neighborhoods; it does not state a symbolic Johnson classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2405.07588",
+        "material_read": "Primary PDF abstract, introduction, definitions, claimed contributions, and within-document Johnson-term search; not all experimental appendices read.",
+        "method": "Original arXiv primary PDF; compared theorem scope and variable-radius conventions.",
+        "title": "Practical Computation of Graph VC-Dimension",
+        "trigger": "Explicit treatment of graph closed-neighborhood VC dimension."
+      },
+      {
+        "assessment": "Covers the rank-two portion, but none of the rank-at-least-three classification.",
+        "evidence": [
+          "Earlier claim includes the piecewise VCdim of closed neighborhoods of triangular graphs J(n,2)."
+        ],
+        "identifier_or_url": "aa1d4bd0-454c-4344-98b4-5cfb5aace6ed",
+        "material_read": "Previously recorded claim and its explicit J(n,2) consequence, solely for overlap.",
+        "method": "Comparison of mathematical claim scope (not a re-audit).",
+        "title": "Previously derived triangular-graph closed-neighborhood result",
+        "trigger": "Exact overlap at the slice k=2."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba5e7fd0-6c13-4d26-a09d-7cf2c32017c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete sharp infinite-family complexity invariant for fixed-weight Hamming radius-one balls, with structurally meaningful exceptional cases. Unlike the open-neighborhood theorem, its closed-neighborhood values distinguish J(6,3) and J(7,2), and the rook-grid trace reduction supplies a broadly motivated finite-obstruction technique rather than an arbitrary small computation.",
+    "status": "PASS"
+  }
+}
