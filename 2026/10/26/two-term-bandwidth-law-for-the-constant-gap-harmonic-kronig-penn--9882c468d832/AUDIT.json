@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "For fixed n the exact repulsive gamma=a Bloch edge factorization gives the band width as the difference of two confined harmonic-oscillator Dirichlet shifts. With u_n=H_n exp(-x²/2), the Wronskian derivative with respect to energy gives a growing-solution coefficient equal to minus the half-line L² mass. Reciprocal endpoint integration of 1/u_n² gives an explicit relative (n²+n+1)/(2a²) correction, while Dirichlet root Taylor remainders are exponentially smaller than the claimed O(a^-4) relative error. Subtracting the preceding shift changes the relative coefficient to (n+1)²/(2a²). The gamma function/Hermite norm fixes the prefactor. The actual standalone program passed 61 high-precision root, Robin-shift and coefficient checks; these are corroborating rather than exhaustive proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gannot 2014 Corollary 1.1: confined oscillator shift is C_n a^(2n+1)exp(-a²)(1+O(a^-2)); Theorem 1 proves existence of a full asymptotic expansion without computing this coefficient.",
+        "Helffer et al. 2026 Eq. (B.9) supplies a first-parameter-zero leading term (1+o(1)), with a distinct singular radial application.",
+        "Moore–Marsiglio treat harmonic wells connected by flat, positive-width barriers, not a periodic delta lattice at coupling gamma=a."
+      ],
+      "reasoning": "The strongest mathematical antecedent implies that a complete confined-oscillator shift expansion exists, but its published evaluated harmonic-oscillator formula leaves the first correction unspecified; it does not state the spectral-band difference or its coefficient (n+1)²/2. These are additional evaluations at a natural physical observable. This assessment does not claim the generic expansion or the leading exponential term as new.",
+      "searches": [
+        "Gannot confinement harmonic oscillator two-term spectral shift coefficient (n+1)^2/2 band widths",
+        "Gannot 2014 arXiv:1410.0068 Theorem 1 and Corollary 1.1",
+        "Helffer Kachmar Nicoleau 2026 Appendix B Eq. (B.9)",
+        "Moore Marsiglio arXiv:2605.08032 Sections II–IV"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.00879v1",
+      "https://arxiv.org/abs/1410.0068",
+      "https://arxiv.org/pdf/2609.28076",
+      "https://arxiv.org/html/2605.08032v1",
+      "https://dlmf.nist.gov/13.7",
+      "https://doi.org/10.1016/j.jde.2026.114450"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gibbons–Veselov exact identities yield B_n=[2+Lambda_(n-1),Lambda_n] for n>=1 but give no asymptotic precision for their difference.",
+        "Gannot supplies only the leading explicit shift, with a relative O(a^-2) remainder.",
+        "The present proof computes the coefficient (n²+n+1)/2 from two independent endpoint-integral effects and subtracts the previous shift to obtain (n+1)²/2; the previous-level subtraction is of the same relative order."
+      ],
+      "reasoning": "The claimed evaluated coefficient is not a direct special case of an earlier numerical formula: knowing only the leading shift leaves the first bandwidth correction undetermined. The existence of a general complete expansion is stronger in formal order coverage, but its unspecified next coefficient does not settle the quantitative bandwidth statement without further calculation. The proved new content is specifically this calculation, not the generic method.",
+      "searches": [
+        "Gibbons Veselov harmonic Kronig Penney gamma a n-th band width two-term exp(-a^2) finite interval Dirichlet harmonic oscillator",
+        "Gannot confinement harmonic oscillator two-term spectral shift coefficient (n+1)^2/2 band widths",
+        "arXiv 2610.00879 spectral bands shrinking harmonic oscillator width asymptotic",
+        "Gibbons–Veselov 2026 Proposition 5.1 Section 7",
+        "Gannot 2014 Theorem 1 Eq. (1.6)",
+        "Helffer et al. 2026 Appendix B (B.9)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the exact solvable family the width equals the n-th Dirichlet shift minus the previous one; the displayed correction is equivalently the coefficient of a^-2 in this difference.",
+        "Gibbons–Veselov Section 7 asks for precise low-band shrinking asymptotics.",
+        "Generic Kummer expansions identify the two saddle components, not this evaluated coefficient."
+      ],
+      "reasoning": "Searched the exact width definition, shifted Dirichlet equivalent, Kummer first-parameter zeros and natural aliases. The paper with the exact edge formula does not give the correction. Generic special-function identities allow a derivation but do not themselves identify the evaluated bandwidth coefficient.",
+      "searches": [
+        "fixed band index harmonic Kronig-Penney constant gap 2 asymptotic 2^(n+2)/(n! sqrt pi) a^(2n+1) exp(-a^2)",
+        "arXiv 2610.00879 spectral bands shrinking harmonic oscillator width asymptotic",
+        "Gibbons–Veselov arXiv:2610.00879 Sections 4–7",
+        "NIST DLMF §13.7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper tabulates selected exact algebraic band edges but no large-a coefficient table.",
+        "Gannot 2014 Eq. (1.6) gives a leading formula, while prior confined-oscillator studies report finite-radius energies or leading limits.",
+        "Published research-record searches returned unrelated quantum-graph bandwidths, not a two-term table for this exact lattice."
+      ],
+      "reasoning": "Neither an exact table of the coefficient for all fixed indices nor a directly equivalent parameter entry was found. This is best-knowledge search evidence, not a proof of literature-wide absence.",
+      "searches": [
+        "Gibbons Veselov harmonic Kronig Penney gamma a n-th band width two-term exp(-a^2) finite interval Dirichlet harmonic oscillator",
+        "fixed band index harmonic Kronig-Penney constant gap 2 asymptotic 2^(n+2)/(n! sqrt pi) a^(2n+1) exp(-a^2)",
+        "https://arxiv.org/html/2610.00879v1",
+        "https://arxiv.org/abs/1410.0068",
+        "https://arxiv.org/pdf/2609.28076"
+      ]
+    },
+    "rationale": "Scientific statement-level comparison: Gibbons–Veselov (2026) gives an exact gap length and Weber-function band edges and marks their precise low-band shrinkage as unresolved. Gannot (2014) proves existence of an all-orders confined-oscillator shift expansion and prints the leading coefficient with an unspecified O(a^-2) error, not its explicit next coefficient nor its modification by subtraction of adjacent shifts. Helffer–Kachmar–Nicoleau (2026) establish leading first-parameter Kummer zero asymptotics but not the displayed O(a^-2) coefficient. The other Kronig–Penney oscillator-well paper uses flat barriers rather than the point-interaction model. Targeted mathematical-record searches and accessible prior claims produced no identical evaluated two-term band-width statement. A previous paper or a further evaluation of generic confinement formulas could duplicate the coefficient; priority is not independent certification.",
+    "residual_risks": [
+      "A not-yet-located older evaluation of a higher-order harmonic-oscillator confinement expansion could yield the same coefficient.",
+      "A general all-orders theorem of Gannot already proves existence of the asymptotic series, so novelty is restricted to the explicit band-width coefficient and its adjacent-edge contribution; literary priority remains best-knowledge only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct motivating result supplies exact constant gaps and endpoints, but no quantitative fixed-index shrinking law",
+        "evidence": [
+          "Proposition 5.1 states gap length two for gamma=+a and gamma=-a",
+          "Section 7 states precise exponential low-band shrinking asymptotics require further investigation"
+        ],
+        "identifier_or_url": "arXiv:2610.00879v1 | https://arxiv.org/html/2610.00879v1",
+        "material_read": "Full available HTML including Sections 2–7, Propositions 4.1, 5.1–5.4, Section 7, references",
+        "method": "Compared exact band-edge root families and explicit statement of open asymptotic regime",
+        "title": "On spectrum of the harmonic Kronig-Penney model",
+        "trigger": "Exact same operator, coupling, band edges and large-cell question"
+      },
+      {
+        "assessment": "Leading coefficient agrees with proposed shift, and full asymptotic expansion existence is prior; explicit next coefficient and bandwidth difference are not given",
+        "evidence": [
+          "Corollary 1.1 Eq. (1.6) ends with (1+O(R^-2 h))",
+          "Theorem 1 establishes asymptotic expansion but does not print next evaluated harmonic coefficient"
+        ],
+        "identifier_or_url": "arXiv:1410.0068 | https://arxiv.org/abs/1410.0068",
+        "material_read": "HTML abstract, Theorem 1, Corollary 1.1, proof of corollary, proof construction and historical remarks",
+        "method": "Compared quantifiers, published evaluated formulas and existence-versus-evaluation of correction coefficients",
+        "title": "Effects of confinement for single-well potentials",
+        "trigger": "Broader semiclassical all-orders theorem might cover the confined oscillator shift"
+      },
+      {
+        "assessment": "Establishes leading confinement/Kummer zero term, not evaluated O(a^-2) correction for the claimed band widths",
+        "evidence": [
+          "Eq. (B.9) gives a_k(z)=-k-z^(2k+b)exp(-z)/(k!Gamma(k+b)) times (1+o(1))"
+        ],
+        "identifier_or_url": "arXiv:2609.28076v1 | https://arxiv.org/pdf/2609.28076",
+        "material_read": "PDF pages 1–3 and Appendix B around physical page 49, including Theorem 1.1 and Eq. (B.9), inspected as text and page image",
+        "method": "Compared fixed-index leading exponential and relative error orders with needed explicit next term",
+        "title": "Spectral Asymptotics of a Singular Harmonic Oscillator with Aharonov–Bohm Flux",
+        "trigger": "Potentially stronger uniform Kummer a-zero results"
+      },
+      {
+        "assessment": "Finite flat barriers, not a point-interaction comb with exact length-two gaps; no direct coverage",
+        "evidence": [
+          "Equation (1) and Figure 1 describe truncated wells separated by flat barriers"
+        ],
+        "identifier_or_url": "arXiv:2605.08032v1 | https://arxiv.org/html/2605.08032v1",
+        "material_read": "Full accessible HTML, Sections II–IV and Appendix description",
+        "method": "Compared interaction type, cell model, barrier geometry and tunneling amplitude parameter",
+        "title": "Analytical Solution to the Kronig-Penney Model with Harmonic Oscillator Wells: Insights to Tight-Binding",
+        "trigger": "Closest physically themed periodic harmonic-well dispersion model"
+      },
+      {
+        "assessment": "General mathematical technique acknowledged; not a published evaluated bandwidth theorem",
+        "evidence": [
+          "13.7.2 displays growing and algebraic asymptotic series"
+        ],
+        "identifier_or_url": "https://dlmf.nist.gov/13.7",
+        "material_read": "Section 13.7(i), formulas 13.7.1–13.7.3, Section 13.7(ii) bounds",
+        "method": "Verified that generic confluent hypergeometric asymptotics do not directly assert the specialized band coefficient",
+        "title": "DLMF: §13.7 Asymptotic Expansions for Large Argument",
+        "trigger": "Foundational two-component Kummer expansion and parameter-root estimates"
+      },
+      {
+        "assessment": "Covers a-zero locations and first-order bounds, not the present difference-of-shifts expansion",
+        "evidence": [
+          "Theorem 1.6 describes strict ordering and exponential root localization rather than this two-term fixed-index band width"
+        ],
+        "identifier_or_url": "DOI:10.1016/j.jde.2026.114450",
+        "material_read": "Open-access abstract and relevant published summary of Theorem 1.6 and first-parameter-zero bounds",
+        "method": "Compared uniform root localization and leading asymptotic with explicit a^-2 coefficient",
+        "title": "Spectral asymptotics for a class of singular Sturm–Liouville operators with applications to magnetic Laplacian and a-zeros of Kummer functions",
+        "trigger": "Related broader Kummer parameter-zero asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9882c468-d832-4a0b-8a8d-deea9d547cfa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper explicitly names precise exponentially shrinking low-index spectral bands as a natural open asymptotic regime. Their widths control the low-energy Bloch/tunneling scale. The displayed coefficient is the first nonleading correction for a canonical family with the unusual exact uniform gap length; it is not just the isolated-well correction, because the adjacent edge contributes at the same relative order. This improves relative accuracy from O(a^-2) to O(a^-4) for each fixed band and distinguishes neighboring excited bands. It is physically and mathematically motivated, and the statement does not assert a broader dispersion theorem.",
+    "status": "PASS"
+  }
+}

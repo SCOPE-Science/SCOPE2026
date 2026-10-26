@@ -1,0 +1,15 @@
+# Scientific review: two-term harmonic Kronig–Penney bandwidth law
+
+## Correctness
+PASS. The operator, jump strength, and band indexing agree with the original harmonic Kronig–Penney spectral factorization. The exact edge identity reduces each sufficiently separated low band to the difference of adjacent Dirichlet shifts. An energy derivative of the parity-normalized oscillator solution, the Wronskian identity, and a growing-solution variation formula yield the displacement as the reciprocal of a Hermite-square integral. The explicit endpoint Laplace expansion gives \((n^2+n+1)/2\) for the Dirichlet shift, while subtraction changes it to \((n+1)^2/2\) for the actual band width. The normalization \(\int_0^\infty H_n(t)^2e^{-t^2}dt=2^{n-1}n!\sqrt\pi\) fixes the prefactor. Analytic root localization controls the neglected energy-Taylor terms beyond inverse powers. The bundled independent high-precision numerical checks passed 61 assertions; these do not replace the asymptotic proof.
+
+## Originality
+PASS, best-knowledge. The motivating Gibbons–Veselov paper establishes the constant gap and exact edge roots, but leaves precise low-band shrinking asymptotics open in its closing discussion. Gannot's 2014 Corollary 1.1 provides the exact leading confined-oscillator prefactor and a relative \(O(a^{-2})\) error; its abstract general theorem establishes existence of all orders, not an explicit second-order coefficient. The newer Helffer–Kachmar–Nicoleau Kummer result has the same leading exponential structure but likewise no explicit next coefficient for these widths. Moore–Marsiglio studies a different harmonic-well array with flat interwell barriers. Relevant published mathematical results and all accessible records in the existing collection were searched by model, coupling, special functions, and equivalent asymptotic expressions, with no equivalent two-term band-width result found. Residual risk: an unlocated specialization of existing all-order spectral-shift results could contain the coefficient or imply it after computation.
+
+## Value
+PASS. Fixed-index spectral-band widths set the tunneling scale for low-lying Bloch excitations in a periodic model with the unusual exact constant-gap feature. The explicit relative correction \((n+1)^2/(2a^2)\) distinguishes the physical bandwidth from the shift of an isolated confined state at the first non-leading order, and permits controlled large-cell extrapolation beyond a leading exponentially small estimate. The claim addresses a specific asymptotic regime explicitly singled out for investigation in the motivating article rather than an arbitrary parameter slice.
+
+## Scope and risks
+The index is fixed before the large-cell limit; there is no uniformity for moving indices or global dispersion. The paper relies on known exact edge identities and leading confinement results, and claims neither those results nor independent validation. Literature-wide priority remains to be independently assessed.
+
+Self-review: passed. Independent audit: not yet performed.
