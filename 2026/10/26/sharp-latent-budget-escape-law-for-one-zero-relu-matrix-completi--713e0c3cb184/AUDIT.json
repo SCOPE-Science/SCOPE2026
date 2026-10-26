@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "For rank-one A, det([[A,u],[v^T,z]])=-gamma for every z; the gamma=0/unequal-zero exactness classes are exhaustive and exact ReLU rank cannot be one with the eight prescribed positives. The exact constructive witness t=-gamma/(B||A||^2+eta) has determinant zero via adj(A+t adj(A)^T)=adj(A)+t A^T and all eight observed entries positive for large B, with loss t^2||A||^2. Every small-loss rank-two candidate has observed perturbation O(1/B); its vanishing determinant forces B|det(A+H)|>=|gamma|-O(1/B), while |det(A+H)|<=||A||delta+delta^2/2. This supplies the matching global coefficient, not just an experimental bound. Compactness shows E(B)>0 for all finite B. 1600 exact symbolic determinant and norm checks were executed on random rational examples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2608.21607v1 Section 3.1 minimizes a latent matrix distance to a low-rank factor, not directly rectified loss",
+        "Epperly–Govindarajan–Chandrasekaran Theorem 1 concerns compatible rank minimizers for overlapping blocks",
+        "Previous indexed-literature rank-minimization and ReLU-related hits optimize different matrix classes and error criteria"
+      ],
+      "reasoning": "A general matrix-completion method would dominate only if it yielded the same quantitative optimal bounded-negative-corner approximation law. The inspected broader results do not supply that asymptotic; a generic differential perturbation theorem may still furnish a derivation, and this is retained as a risk.",
+      "searches": [
+        "arxiv:2608.21607v1 exact subzero matrix completion and rank bounds",
+        "doi:10.1016/j.laa.2021.06.011 minimal rank completions for overlapping blocks",
+        "\"low-rank\" \"single missing entry\" \"unbounded\" \"approximation\" rate",
+        "matrix completion rank deficient observed block cofactor unbounded missing entry Frobenius approximation",
+        "low rank completion missing single matrix entry rank deficient 2x2 block unbounded missing value least squares singular perturbation scaling",
+        "arxiv 2610.22255 ill-posedness bounded latent entry approximation gamma cofactor norm rate"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.22255v1 (full relevant primary HTML sections)",
+      "arxiv:2608.21607v1 (relevant primary HTML sections)",
+      "arxiv:2503.23832v1 (abstract + available section excerpt)",
+      "doi:10.1016/j.laa.2021.06.011 (public abstract/introduction/theorem)",
+      "arxiv:2610.22261v1 (different recent numerical source, not an implication)",
+      "own-ledger item 4ce79759-57e9-48a9-ad58-982fff0030a8 (claim deduplication)",
+      "indexed-literature database similarity matches as identified in searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Original 2026 witness changes only its (2,2) entry by t and takes bottom-right 1-1/t, giving error t^2; for cap B this path has leading constant one",
+        "New balanced perturbation modifies the entire 2-by-2 observed block and yields exact rank-two feasibility with leading constant one quarter; the matching lower bound is new to the inspected material",
+        "The complete stratum formula gamma^2/||A||_F^2 specializes to the original example but also gives a generic exactness dichotomy and an inverse tolerance law"
+      ],
+      "reasoning": "No inspected prior theorem states a stronger result that automatically specializes to the exact global infimum leading constant for the bounded negative corner. The source establishes nonattainment and a feasible path only; it does not establish the full global optimality bound. The 2025 and 2026 related sources address distinct objectives/ranks or structural rank existence.",
+      "searches": [
+        "arxiv:2610.22255v1 Proposition 2.1; arxiv:2608.21607v1 Section 3.1; arxiv:2503.23832v1 rank-one latent ill-posedness",
+        "\"ReLU\" \"low rank\" \"ill-posed\" capped negative entries",
+        "\"latent\" \"Frobenius\" \"ReLU\" nonattainment asymptotic rate",
+        "rank two 3x3 single missing entry rank one subblock unbounded completion perturbation",
+        "indexed-literature: ReLU matrix decomposition nonclosed rank two infimum not attained 3 by 3 positive entries near singular rank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.22255v1 Proposition 2.1 treats the same three-by-three matrix with a one-coordinate perturbation, giving an upper path but not the minimizing coefficient",
+        "arxiv:2503.23832v1 discusses rank-one latent nonattainment, distinct objective and rank",
+        "No indexed-literature records returned an equivalent one-zero capped rank-two rectified-loss asymptotic"
+      ],
+      "reasoning": "Equivalent formulations include direct Frobenius ReLU rank-two approximation, nonclosed rectification of low-rank varieties, single-missing-entry completion with bounded negative value, and perturbative distance to a determinantal hypersurface. The original example implies existence of error tending to zero, but its path cannot imply optimality of the leading coefficient. The new lower bound is uniform over all eight-entry perturbations.",
+      "searches": [
+        "ReLU rank exact matrix completion positive entries nonpositive zeros diagonal matrices block sparse rank support graphs sign rank",
+        "ReLU matrix decomposition nonclosed rank two infimum not attained 3 by 3 positive entries near singular rank",
+        "ReLU matrix factorization 3x3 ill-posed rank two latent clipping bounded negative zero entry convergence error rate inverse B squared sharp",
+        "\"ReLU rank\" \"ill-posedness\" \"bounded\" \"error\" 3x3 matrix",
+        "\"low-rank\" \"single missing entry\" \"unbounded\" \"approximation\" rate",
+        "matrix completion rank deficient observed block cofactor unbounded missing entry Frobenius approximation",
+        "\"ReLU matrix decomposition\" \"rank two\" \"regularization\" ill posed",
+        "arxiv:2610.22255v1 section 2.1",
+        "arxiv:2503.23832v1 abstract and section 3.1 excerpt"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "One earlier own-ledger record, id 4ce79759-57e9-48a9-ad58-982fff0030a8, proves a global rank-one rectified approximation formula and the minimal rank/dimension of a rank-two nonattainment example; it does not quantify rank-two clipped-error asymptotics",
+        "Retrieved indexed-literature entries concern nonnegative rank censuses, singular-value thresholding or other matrix norms; no exact bounded-latent three-by-three table was identified"
+      ],
+      "reasoning": "There is no finite classification table required for the theorem; database matches were checked at implication level. Prior rank-one direct-ReLU attainment does not cover rank-two generic nonattainment or the tight budget error.",
+      "searches": [
+        "ReLU rank exact matrix completion positive entries nonpositive zeros diagonal matrices block sparse rank support graphs sign rank",
+        "ReLU matrix decomposition nonclosed rank two infimum not attained 3 by 3 positive entries near singular rank",
+        "ReLU matrix factorization 3x3 ill-posed rank two latent clipping bounded negative zero entry convergence error rate inverse B squared sharp",
+        "low rank completion missing single matrix entry rank deficient 2x2 block unbounded missing value least squares singular perturbation scaling",
+        "arxiv 2610.22255 ill-posedness bounded latent entry approximation gamma cofactor norm rate",
+        "arxiv:2610.22255v1 example matrix [[1,1,1],[1,1,2],[1,2,0]]",
+        "own week ledger source arxiv:2610.22255v1 and term ReLU",
+        "indexed-literature result IDs 2026/9/7/entry-008; 2026/10/4/entry--exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f"
+      ]
+    },
+    "rationale": "The 2026 source proves nonattainment for a single special example and supplies a feasible path but does not establish the complete positive rank-one-block alignment dichotomy or global sharp clipping-budget coefficient. Earlier work studies either latent-variable rather than direct ReLU losses, rank-one nonattainment, or structured rank-completion problems without the bounded-corner minimax asymptotic. Database and own-ledger searches retrieved related rank questions but no dominating statement. Residual priority risk remains for older perturbative matrix completion.",
+    "residual_risks": [
+      "The full 2025 direct/latent ReLU-NMD paper was not materially read; the available abstract and section excerpt may miss a more general bound.",
+      "Classical structured low-rank completion and matrix-perturbation texts may express the optimal asymptotic in equivalent terminology; no uniqueness or priority certification is claimed.",
+      "The theorem describes a bounded single latent entry and asymptotic squared Frobenius loss, not optimal finite-cap loss or factor-norm regularization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers nonattainment of the seed example but no full positive rank-one-block class or bounded-latent optimal asymptotic constant",
+        "evidence": [
+          "Proposition 2.1 displays X with A all-ones, border (1,2), and rank-two path perturbing only one observed entry",
+          "Its displayed path has squared error t^2 and hidden negative entry 1-1/t, giving a feasible upper rate but not a global sharp clipping coefficient",
+          "Section 3.2 concerns exact rank bounds for sparse block and diagonal families"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22255v1",
+        "material_read": "Abstract, introduction, complete Proposition 2.1 proof, exact-rank discussions in Section 3.2, and conclusion in full arXiv HTML",
+        "method": "Statement-by-statement determinant and optimality-claim comparison",
+        "title": "The ReLU Matrix Decomposition: NP-Hardness, Ill-Posedness, and ReLU-Rank",
+        "trigger": "Direct rank-two Frobenius ReLU nonattainment on the identical three-by-three example"
+      },
+      {
+        "assessment": "Uses geometric exact subzero completions and latent loss; no clipping asymptotic for direct Frobenius rectification identified in inspected material",
+        "evidence": [
+          "Definition 1 defines subzero completion, Equation (26) imposes an auxiliary latent Z and minimizes its distance to a low-rank L",
+          "Discussion identifies regularization as future work; no one-zero adjugate budget law found in inspected material"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.21607v1",
+        "material_read": "Full arXiv HTML introduction, definitions and Section 2.1, Section 3.1 objective and related-work/regularization discussion, relevant section searches",
+        "method": "Compared exact and approximate objective definitions, constraints and quantity optimized",
+        "title": "Subzero matrix completion for sparse data analysis: large-scale learning of latent low-rank structure",
+        "trigger": "Closest earlier exact ReLU/subzero rank formalism and regularized low-rank numerical objectives"
+      },
+      {
+        "assessment": "Rank-one Latent-ReLU nonattainment differs from rank-two direct Frobenius one-zero budget law; full-document priority risk remains",
+        "evidence": [
+          "Abstract states latent and direct ReLU formulations may differ and provides rank-one latent ill-posedness",
+          "Accessible excerpt gives a two-by-two rank-one latent example, not the positive-one-zero three-by-three direct-loss asymptotic"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2503.23832",
+        "material_read": "arXiv abstract and accessible optimization-online excerpt surrounding Section 3.1; full text not inspected",
+        "method": "Objective and rank comparison",
+        "title": "An extrapolated and provably convergent algorithm for nonlinear matrix decomposition with the ReLU function",
+        "trigger": "Previous nonattainment in ReLU matrix decomposition"
+      },
+      {
+        "assessment": "Concerns simultaneous rank minimizers for overlapping block completions, not rectified-loss error with a bounded negative corner; equivalent perturbative bound not ruled out",
+        "evidence": [
+          "Theorem 1 asserts simultaneous minimal rank completion for nested block triangular arrays",
+          "No Frobenius ReLU clipping-loss asymptotic appears in publicly inspected sections"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2021.06.011",
+        "material_read": "Public article page abstract, introduction and stated main theorem; not full paper",
+        "method": "Compared the optimized objective and data geometry",
+        "title": "Minimal rank completions for overlapping blocks",
+        "trigger": "Broader mathematical implication from structured missing-block rank completion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "713e0c3c-b184-434a-9a28-6436ac568908",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This quantifies how bounding the hidden negative entry, a direct numerical remedy for nonattaining low-rank rectified reconstruction, forces an unavoidable positive error. The sharp inverse budget/tolerance law is structural and geometry-dependent, applies to an open dense class rather than one arbitrarily chosen instance, and distinguishes exactly attainable alignments from generic escape; the leading constant is fixed by the adjugate coupling and observed-block norm.",
+    "status": "PASS"
+  }
+}
