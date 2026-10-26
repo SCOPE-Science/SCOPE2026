@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The exact degree-two Bernoulli expansion, orthogonality, squared-gap identity, and variance formulas are fully derived in RESULT.md. In the critical window, a connected joint-cumulant graph count gives O_k(n^(k+1)) versus n^(3k/2), with limiting variance 1/32+c²/12; off-window Lindeberg and an L²-small quadratic remainder complete the proof. Exact rational exhaustive checks on n=3..6 at four biases, 135,456 orientation states, passed. Finite tests do not prove the CLT.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Andersson (Random Structures & Algorithms 13, 1998, 249–260) explicitly describes independent fair orientations, not a rank-biased triangular array.",
+        "Generalized U-statistic limit methods concern overlapping polynomial observables and pose a plausible implicit-coverage risk.",
+        "Saile–Suksompong prove thresholds for selection sets and graph strong connectivity, not triangle-count fluctuations."
+      ],
+      "reasoning": "The fixed-fair special case is credited as potentially covered. A generic multivariate or quadratic-statistic CLT could be adapted but does not by itself contain the exact model-specific orthogonal variance components and n^(-1/2) moving-bias coefficient. No verified general source was found whose hypotheses and explicit conclusions directly imply the claimed full transition.",
+      "searches": [
+        "\"central limit theorem cyclic triangles biased tournaments transitive background independent edge reversals\"",
+        "\"random tournament with edge probability p depending on order number of cyclic triangles asymptotic variance\"",
+        "Andersson 1998 On the asymptotic distributions of subgraph counts in a random tournament",
+        "Janson and Nowicki 1991 asymptotic distributions generalized U-statistics random graphs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1804.02743v1",
+      "arxiv:2206.08461v1",
+      "arxiv:2104.01450v1",
+      "Andersson (1998) abstract, DOI:10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+      "OEIS A373775"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Saile–Suksompong: edge-bias model and choice-set/strong-connectivity thresholds; no triangle-count Gaussian law in inspected full text.",
+        "Malinovsky–Rinott: score negative association; a general dependence inequality does not provide cycle-count cumulants or the crossover coefficient.",
+        "Malinovsky–Moon: negative dependence bounds and maximum scores, not cyclic triple count variance.",
+        "Andersson 1998: published abstract restricts to p=1/2; full text unavailable for direct assessment."
+      ],
+      "reasoning": "The current claim uses the same biased edge model as the first source but a distinct global nonlinear observable and varying-parameter limit. The fair limit is already plausible prior art; the new claim is narrowly the explicit crossover. Strong coverage has not been found among materially inspected sources.",
+      "searches": [
+        "arxiv:1804.02743v1 full text Condorcet random model",
+        "arxiv:2206.08461v2 full text negative association",
+        "arxiv:2104.01450v3 full text maximal tournament score",
+        "On the asymptotic distributions of subgraph counts in a random tournament Andersson 1998"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The ordered-edge-bias model occurs in Saile–Suksompong (arxiv:1804.02743), pp. 2–6; its investigated observables are choice-set properties.",
+        "Malinovsky–Rinott (arxiv:2206.08461), pp. 1–10, proves negative association of vertex score vectors.",
+        "A cyclic-triangle count can alternatively be expressed as a quadratic sum of vertex outdegrees; this equivalence does not itself establish a moving-bias CLT."
+      ],
+      "reasoning": "Equivalent formulations through degree scores and second-order Hoeffding/U-statistic expansions were compared. The present conclusion is an explicit triangular-array Gaussian crossover with a sharp c-dependent variance coefficient; none of the inspected full texts establishes that statement.",
+      "searches": [
+        "\"random tournament\" \"cycles of length 3\" \"p\" \"variance\" independent order",
+        "\"Condorcet random model\" \"cyclic triangles\" \"central limit\"",
+        "arxiv:2206.08461 Sections 1.4, 2 and 3; arxiv:1804.02743 Sections 1–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A373775 describes polynomial variance degrees for counts in fair random tournaments, citing Andersson (1998).",
+        "No exact table or published formula in the consulted searches listed the varying-p coefficient 1/32+c²/12."
+      ],
+      "reasoning": "Known fair-tournament variance data do not dominate the moving-bias triangular-array theorem. Lack of a located table is not proof of historical novelty; residual priority uncertainty is retained.",
+      "searches": [
+        "OEIS A373775 random tournament subgraph variance polynomial",
+        "\"biased random tournament\" \"cyclic triangles\" \"central limit\"",
+        "\"biased tournament\" \"number cycles of length 3\" \"variance\""
+      ]
+    },
+    "rationale": "The claimed novel object is an explicit triangular-array, near-symmetry Gaussian crossover of directed cycle counts, not the known bias model, score negative association, or fair-tournament subgraph CLT. Materially inspected primary texts do not state that result. General U-statistic theory and an inaccessible fair-tournament paper remain priority risks; priority is not certified.",
+    "residual_risks": [
+      "A general higher-order U-statistic limit theorem may imply the specialized crossover after a nontrivial calculation; no explicit published statement was verified.",
+      "Full Andersson (1998) fair-tournament article unavailable for material inspection; only fair-model coverage is established by the accessible abstract.",
+      "Historical priority is not equivalent to absence of web/search hits."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_MODEL_NOT_CLAIM",
+        "evidence": "Section 1.1/2 identifies the uniform order-bias model and proves tournament selection-set/connectivity threshold results; no cyclic-triangle fluctuation law.",
+        "identifier_or_url": "https://arxiv.org/pdf/1804.02743",
+        "material_read": "Abstract; model definitions and prior-model comparisons on pp. 1–6; the full-paper theorem/section targets",
+        "method": "Full-text HTML/PDF inspection and searches for cyclic triangles/3-cycles",
+        "title": "Robust Bounds on Choosing from Large Tournaments",
+        "trigger": "Exactly the rank-biased independent-edge Condorcet tournament model"
+      },
+      {
+        "assessment": "NOT_COVERING_CYCLIC_TRIANGLE_CRITICAL_WINDOW",
+        "evidence": "Theorem framework concerns negative association of player scores and knockout counterexamples, not a triangle-count centered Gaussian limit.",
+        "identifier_or_url": "https://arxiv.org/pdf/2206.08461",
+        "material_read": "Abstract and Sections 1–3, including statement of main score-negative-association theorem; full-text searches for cycles/triangles",
+        "method": "Primary PDF text and page inspection",
+        "title": "On Tournaments and Negative Dependence",
+        "trigger": "Probability-theory primary paper on independent tournament outcomes"
+      },
+      {
+        "assessment": "NOT_COVERING_MOVING_BIAS_CYCLE_LIMIT",
+        "evidence": "Focus is negative dependence inequality and maximum score, with no cyclic triangle result.",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.01450",
+        "material_read": "Abstract, introduction, model and main-results discussion; full-text query for triangles",
+        "method": "Primary PDF text and page inspection",
+        "title": "On negative dependence inequalities and maximal scores in round-robin tournaments",
+        "trigger": "Potential broad score-dependence result implying cycle-count fluctuation inequalities"
+      },
+      {
+        "assessment": "FAIR_CASE_POSSIBLY_COVERED_FULL_TEXT_INACCESSIBLE",
+        "evidence": "Published abstract specifies independent orientations with probability 1/2, not p_n approaching 1/2.",
+        "identifier_or_url": "doi:10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+        "material_read": "Published abstract, references and public bibliographic record only; no accessible article text",
+        "method": "Search for arXiv/OA copies, publisher record, institutional access attempted but unavailable",
+        "title": "On the asymptotic distributions of subgraph counts in a random tournament",
+        "trigger": "Closest probable prior asymptotic theorem for fair directed triangle counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "50ae031a-4356-490f-9ea9-9dfe129d0a78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Cycle count is a natural measure of intransitivity in Condorcet/noisy-ranking tournaments. The theorem proves a distinct bias-driven change in fluctuation order and an exact n^(-1/2) Gaussian crossover with coefficient 1/32+c²/12; this is a genuinely parameter-sensitive limit mechanism, not a numerical certificate, simple renaming, or unmotivated special graph slice.",
+    "status": "PASS"
+  }
+}
