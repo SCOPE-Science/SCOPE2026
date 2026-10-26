@@ -1,0 +1,98 @@
+{
+  "claim": "For a continuous-time birth–death population with \\(N=3\\), unit birth rates, and two environments whose death-to-birth ratios are \\( (x,y)\\) and \\( (y,x)\\) at mutant counts \\(1,2\\), let switching be composition-dependent: \\( +\\to- \\) occurs at rate \\(e\\) at count \\(1\\) and \\(M\\) at count \\(2\\), with reverse rates \\(M\\) and \\(e\\). For \\(0<x<y\\) and \\(e,M>0\\), fixation from one mutant in environment \\(+\\) exceeds both fixed-environment probabilities if and only if \\(xM^2+(xy-e)M-e(e+1)(y+1)>0\\), equivalently \\(M>M_*\\) for the positive root \\(M_*=[e-xy+\\sqrt{(xy-e)^2+4xe(e+1)(y+1)}]/(2x)\\). With only \\(N=2\\) individuals and one transient mutant-count state, switching cannot exceed the best fixed-environment fixation probability. For \\(x=2,y=3,e=1/10,M=10\\), the switching model gives \\(181/1373\\), above the fixed-environment values \\(1/9\\) and \\(1/10\\).",
+  "correctness": {
+    "rationale": "The fixed-environment probabilities follow from the birth–death increment recurrence. The \\(N=2\\) backward equations give nonpositive differences from the better frozen probability. For \\(N=3\\), the four-state backward system has a strictly diagonally dominant Z-matrix, so its determinant is positive; exact elimination gives the signed difference as \\((y-x)F/((1+x+xy)\\Delta)\\). The example is checked by exact rational arithmetic. The claim is restricted to this model and initial state.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 source treats arbitrary birth–death rates but keeps the environmental transition matrix independent of population state.",
+        "The 2017 source treats random carrying capacity and demographic noise, but its environmental switch rate is exogenous."
+      ],
+      "reasoning": "The closest broader models couple environment and demography through changing population size or rates driven by the environment, not through a switching generator conditioned on mutant count. The claim is not generalized beyond the displayed model family.",
+      "searches": [
+        "state-dependent Markov switching rates depending on population composition stochastic population genetics",
+        "density-dependent environmental switching finite population Moran process fixation probability",
+        "endogenous environmental switching population frequency birth death process ecology"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.5619",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC4191092/",
+      "https://arxiv.org/abs/1708.08841"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ashcroft et al. state in §2.2 that the environment evolves independently of the population and use that model in their fixation recursion.",
+        "Wienand et al. define carrying capacity as an independent dichotomous Markov noise with switching rate ν in §§2–3."
+      ],
+      "reasoning": "Those assumptions exclude the state-conditioned transition rates used here. Their general formulas therefore do not imply the exact \\(F>0\\) threshold without a new generator calculation. An unindexed source on endogenous switching could still cover a similar result.",
+      "searches": [
+        "Fixation in finite populations evolving in fluctuating environments Ashcroft Altrock Galla 2014 full text",
+        "Evolution of a Fluctuating Population in a Randomly Switching Environment Wienand Frey Mobilia 2017 full text",
+        "population-dependent switching rates environmental state Markov process evolutionary dynamics fixation probability feedback"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ashcroft, Altrock, and Galla (2014), arXiv:1406.5619, §§2.2–4, model the environment as an independent Markov process and derive fixation equations under that assumption.",
+        "Wienand, Frey, and Mobilia (2017), arXiv:1708.08841, §§2–3, use an externally switching carrying capacity; demographic noise is coupled to population size, but the switching rate is not conditioned on mutant count."
+      ],
+      "reasoning": "The model cannot be obtained by merely renaming the independent environment in the 2014 formulation: its generator has transition rates that change with \\(i\\). The exact threshold is derived from a different four-state generator.",
+      "searches": [
+        "population-dependent environment switching fixation probability birth death process",
+        "eco-evolutionary feedback environment switching rates depend on mutant frequency fixation",
+        "three-individual birth-death process population-dependent environmental switching fixation probability exact threshold",
+        "N=3 state-dependent switching rates fixation probability exceed both static environments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest search returns concerned unrelated three-species equilibrium diagrams, age-structured population models, and Markov-chain numerical positivity; no same mathematical model parameter table was identified."
+      ],
+      "reasoning": "No finite empirical database or published lookup table applies to this exact continuous-time generator. The threshold is obtained algebraically, not by recomputing a table. The semantic search is not a novelty proof.",
+      "searches": [
+        "three-individual birth-death process population-dependent environmental switching fixation probability exact threshold",
+        "N=3 state-dependent switching rates fixation probability exceed both static environments"
+      ]
+    },
+    "rationale": "The central distinction is population-conditioned switching, not environmental switching in general. The closest inspected 2014 theory explicitly assumes that the environmental chain evolves independently of the population state; the 2017 fluctuating-carrying-capacity model also uses exogenous switching. Neither supplies the exact state-conditioned threshold or the N=2/N=3 sharp cutoff. Search failure is not treated as proof of novelty.",
+    "residual_risks": [
+      "The targeted semantic literature search may miss papers using different terminology for endogenous or state-dependent environmental switching.",
+      "The result is model-specific; no empirical mechanism or parameter calibration is asserted.",
+      "The exact arithmetic script verifies the representative case, while the universal threshold relies on the analytic elimination in RESULT.md."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering: the source explicitly makes environmental switching independent of population state.",
+        "evidence": "§2.2 and §§3–5; arXiv:1406.5619.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.5619 ; https://pmc.ncbi.nlm.nih.gov/articles/PMC4191092/",
+        "material_read": "HTML full text for the model and main results, including the independence assumption, general fixation equations, and two-environment application; supplementary material not inspected.",
+        "method": "Compared the generator assumptions and backward equations against the population-conditioned switching generator used in the claim.",
+        "title": "Fixation in finite populations evolving in fluctuating environments",
+        "trigger": "Closest primary literature on fixation probabilities in two-state environmental switching."
+      },
+      {
+        "assessment": "Related but not covering: the carrying-capacity environment switches exogenously; the coupling occurs through population size and demographic noise.",
+        "evidence": "Model setup and equations (3)–(6) in arXiv:1708.08841.",
+        "identifier_or_url": "https://arxiv.org/abs/1708.08841",
+        "material_read": "HTML full text for the model setup and main fixation results; supplementary material not inspected.",
+        "method": "Checked whether the environmental transition intensity depends on population composition.",
+        "title": "Evolution of a Fluctuating Population in a Randomly Switching Environment",
+        "trigger": "Related work coupling demographic fluctuations and environmental randomness."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9ab61ce6-476e-47dd-817f-cde0bb2bdec7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact criterion identifies the smallest population size at which composition-dependent switching can beat both frozen environments in this model family, and it gives a necessary-and-sufficient threshold in the feedback rate. The worked example shows that the effect can occur even when both fixed environments have death-to-birth ratios above one at every transient count. This is a motivated structural boundary, not merely a numerical example or a general claim about all biological populations.",
+    "status": "PASS"
+  }
+}
