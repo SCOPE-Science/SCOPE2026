@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For the two-node Gauss–Lobatto one-sweep SPIDeC specialization, the source update is exactly exponential trapezoidal quadrature on componentwise logarithmic rates. Substitution yields the predictor ratio R=r exp(s(r^{-1}-r)) and explicit positive corrected components. Strict weighted Jensen establishes predictor mass increase. Symbolic expansion cancels first and second corrected mass coefficients and gives the strictly negative cubic -m(r-1)^4/(12r^2), for fixed r !=1. Log-sum-exp asymptotics show the double-exponential-scale limit equals min(r,r^{-1})/2; continuity proves a positive sign crossing. Independently checked 324 assertions include exact symbolic Taylor comparisons and numeric tests, not a substitute for the proof. All quantifiers and boundaries are stated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1905.09237 develops conservative flux-weighted deferred correction",
+        "arxiv:2610.21857 develops mass-conserving modified-Patankar methods",
+        "arxiv:2606.29523 Theorem 5.1 covers scalar/diagonal linear equations only"
+      ],
+      "reasoning": "Mass conservation of flux-weighted modified-Patankar updates cannot be transferred to a componentwise exponential logarithmic-rate update; Pezzella’s scalar/diagonal exactness has no implication for off-diagonal Markov exchange.",
+      "searches": [
+        "positive logarithmic trapezoidal deferred correction two-component Markov conserves mass negative cubic mass defect",
+        "arxiv:1905.09237 Patankar conservative deferred correction positive",
+        "arxiv:2610.21857 modified Patankar well-balanced positivity"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.29523",
+      "arxiv:1905.09237",
+      "arxiv:2108.07347",
+      "arxiv:2610.21857"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2606.29523 unconditional positivity stages and diagonal-exact scalar stability",
+        "arxiv:1905.09237 conservative Patankar schemes",
+        "arxiv:2108.07347 exchange ODE with distinct Patankar steps"
+      ],
+      "reasoning": "Published positive-stage guarantees agree with the new theorem; no conservation claim is refuted. Source nonlinear contractivity has extra hypotheses not asserted for the exchange test. Known mass-conserving methods do not provide the exponential SPIDeC defect or growth rate. The new statement is a strictly algorithm-specific invariant error and limit result.",
+      "searches": [
+        "Pezzella SPIDeC 2606.29523 Gauss Lobatto two-stage first correction mass defect invariant two-state linear exchange",
+        "exponential Picard corrector stochastic matrix offdiagonal conservative mass grows superexponentially",
+        "arxiv:2606.29523 Sections 2-6 Theorem 3.1 5.1 positive stages diagonal linear stability",
+        "arxiv:2108.07347 two component exchange modified Patankar"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2606.29523 defines the source method and its two-node specialization",
+        "arxiv:2108.07347 analyzes a related two-compartment test problem with a different update"
+      ],
+      "reasoning": "The same step can be described as componentwise exponential trapezoidal integration of the numerical logarithmic rates; direct derivation was compared with the published update. No inspected equivalent formula contains the corrected total-mass cubic and large-step laws.",
+      "searches": [
+        "Pezzella SPIDeC 2606.29523 Gauss Lobatto two-stage first correction mass defect invariant two-state linear exchange",
+        "SPIDeC-GL(2) mass cancellation cubic negative then positive h large exponential exponential",
+        "SPIDeC-GL(2) two-state Markov exchange h exp exp mass first correction",
+        "arxiv:2606.29523 SPIDeC GL2 logarithmic exponential trapezoidal correction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full formulas and exact benchmark in arxiv:2606.29523 examined",
+        "Exchange test model in arxiv:2108.07347 compared as a possible benchmark",
+        "No exact same-scheme mass-error table or known parameter identity found in searches"
+      ],
+      "reasoning": "Compared explicit stage map and complete signed asymptotic rather than matching titles or numbers. Retrieved related results concerned different algorithms and did not contain this same formula; search absence alone does not prove uniqueness.",
+      "searches": [
+        "Pezzella SPIDeC 2606.29523 Gauss Lobatto two-stage first correction mass defect invariant two-state linear exchange",
+        "SPIDeC-GL(2) mass cancellation cubic negative then positive h large exponential exponential",
+        "positive logarithmic trapezoidal deferred correction two-component Markov conserves mass negative cubic mass defect",
+        "exponential Picard corrector stochastic matrix offdiagonal conservative mass grows superexponentially",
+        "SPIDeC-GL(2) two-state Markov exchange h exp exp mass first correction"
+      ]
+    },
+    "rationale": "Comparison with the defining 2026 full text and three relevant open-access primary articles finds no statement or theorem implying the sharp signed mass reversal and double-exponential mass asymptotic for this same specific componentwise exponential deferred-correction sweep. Classical Markov mass invariance concerns the exact ODE, while Patankar conservation results concern different numerical schemes. Scoped best-knowledge conclusion; specialized earlier equivalent remains possible.",
+    "residual_risks": [
+      "An unlocated earlier specialized examination of this exact two-node exponential correction could contain the same result; indexed and inspected sources cannot rule out all unpublished or differently named equivalents.",
+      "Full-source findings concern a fixed exact-arithmetic one-sweep specialization; no claim of uniqueness of its finite crossing or broader stepsize behavior is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published exponential stages and diagonal/scalar stability are antecedents, not a result controlling mass of a coupled Markov generator. The precise signed mass defect and double-exponential scale were not stated or implied by the inspected theorems.",
+        "evidence": [
+          "arxiv:2606.29523, Sections 2–6, Theorems 3.1 and 5.1 and nonlinear contractivity assumptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.29523",
+        "material_read": "Full open-access article, Sections 2–6, including formulas (3), (5)–(8), (10), the positivity theorem, scalar/diagonal stability theorem and stated hypotheses of contractivity; method derivation reconstructed at the two-node specialization.",
+        "method": "Open-access arXiv HTML full-text reading and direct symbolic specialization",
+        "title": "Stable Positive Integral Deferred Correction Methods for Positive Dynamical Systems",
+        "trigger": "Defining method, closest algorithm and possible dominance by its positivity and stability theorems"
+      },
+      {
+        "assessment": "Conservation is enforced by flux-weighted modified-Patankar steps rather than the source SPIDeC exponential logarithmic-rate correction. Its general conservation conclusions do not dominate the present specified map.",
+        "evidence": [
+          "arxiv:1905.09237, method and mass-conservation construction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1905.09237",
+        "material_read": "Open-access full article, especially introduction, numerical update definition, correction scheme and structural preservation results.",
+        "method": "Open-access primary preprint full text",
+        "title": "Arbitrary high-order, conservative and positive preserving Patankar-type deferred correction schemes",
+        "trigger": "Potential stronger conservation or positivity covering deferred-correction schemes"
+      },
+      {
+        "assessment": "Its tested exchange ODE is related, but the integration maps are modified Patankar schemes rather than the source method’s one-sweep componentwise exponential update. No stated result implies this map’s exact cubic defect or double-exponential asymptotic.",
+        "evidence": [
+          "arxiv:2108.07347, Section 1.1 and numerical schemes"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.07347",
+        "material_read": "Open-access full article, the two-component exchange example and the modified-Patankar scheme formulas and numerical results.",
+        "method": "Open-access primary preprint full text",
+        "title": "Issues with Positivity-Preserving Patankar-type Schemes",
+        "trigger": "Use of a closely related two-compartment exchange model for numerical qualitative analysis"
+      },
+      {
+        "assessment": "Different flux-conservative modified-Patankar mechanism, not an equivalent statement about Pezzella’s componentwise exponential algorithm.",
+        "evidence": [
+          "arxiv:2610.21857, method definitions and mass balance"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.21857",
+        "material_read": "Open-access full article, the construction, mass-balanced update and defining statements of the modified-Patankar integrator.",
+        "method": "Open-access primary preprint full text",
+        "title": "High-order positivity-preserving well-balanced schemes: combining flux globalization with modified Patankar deferred correction methods",
+        "trigger": "Newer high-order positivity-preserving deferred-correction scheme might give stronger conservation coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9d0cd78d-08d4-4a19-8c3e-d101970157a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Total mass is the defining conservation law of a symmetric two-state transfer system, and preserving it is a natural requirement for chemical and population applications. Explicitly quantifying the negative cubic defect and the reversed, extremely large-step mass inflation isolates a motivated gap between unconditional positivity and physically bounded conservative dynamics, with exact asymptotic constants and a reproducible benchmark. No unspecified downstream theorem or arbitrary parameter slice is needed.",
+    "status": "PASS"
+  }
+}
