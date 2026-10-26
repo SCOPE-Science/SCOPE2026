@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The proof explicitly partitions the six low-level cyclotomic factors into small-prime and odd-prime groups. Every exceptional product is treated; the slice bound \(T_r(F)\le4\) follows from the flat/nonflat cases, the reciprocity argument for \((X+1)\Phi_q\Phi_{4q}\), and the signed convolution bound. The three high-level factors are lifts from the odd-prime group with flat products. A disjoint cyclotomic-factor witness has coefficient four. Exact exhaustive computations independently cover all 512 divisors for each of five sample primes, but the analytic argument, not the finite data, proves the infinite theorem.
+
+**Originality — PASS, with residual risk.** Ryan--Ward--Ward (2010), published Conjecture 4.1 / preprint Conjecture 3.3, records \(p^2q^2\) as conjectural and verifies examples numerically; their lower bound four does not imply the needed universal upper bound. Decker--Moree (2010/11) explicitly proves coefficient ranges only for \(p^2q\), and Wang (2013) considers \(pq^b\); neither stated family implies the claimed \(4q^2\) case. Searches for the precise value, coefficient-slice aliases, prime-square conjecture, and indexed mathematical claims did not locate a dominating exact theorem. Existing finite tables and an inaccessible full version of Kaplan (2009) are residual risks; bibliographic non-detection is not a proof of novelty.
+
+**Value — PASS.** The result settles an entire previously conjectural infinite subfamily of a natural polynomial-height invariant. The residue-slice inequality supplies a structural mechanism explaining a constant maximal coefficient despite increasing polynomial degree and number of divisors, rather than merely computing a new small table entry. It does not address the general two-odd-prime conjecture.
+
+Self-review: passed. Independent audit: not yet performed.

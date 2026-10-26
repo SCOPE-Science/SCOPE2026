@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact cyclotomic factorization has nine distinct irreducible factors; arbitrary divisors are subset products. For each low-level subset, the residue-slice bound T_r≤4 follows from six one-term-per-residue choices of the q-factors and a complete exceptional analysis of ΦqΦ4q and Φ2qΦ4q; reciprocal coefficients control the only delicate product (X+1)ΦqΦ4q. All lifted q² factors are products G(X^q) with |coeff G|≤1, so convolution gives universal height≤4. The explicit disjoint-factor witness has [X³]=4, proving exact height. Independent standard-library integer enumeration verifies 512 divisors for q=3,5,7,11,13; no inference from those finite tests to all q is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Decker--Moree, arXiv:1010.3938, Theorems 3--5 give coefficient sets for divisors of X^(p²q)−1.",
+        "Wang, arXiv:1312.3108, studies prime exponents (1,b) in X^(pq^b)−1.",
+        "Kaplan (2009) is credited with B(p²q)=min(p²,q), not the exponent pair (2,2), by both Ryan--Ward--Ward and Decker--Moree."
+      ],
+      "reasoning": "The exponent pair (2,1) or (1,b) does not dominate (2,2), because the degree and irreducible cyclotomic factor families differ. General upper bounds quoted in the literature do not give the uniform value four for all q. The full Kaplan text was not obtained, leaving its general bounds an explicit risk.",
+      "searches": [
+        "\"maximal height of divisors of x^{pq^{b}}-1\" Wang",
+        "\"Bounds for the maximal height of divisors\" Kaplan 2009",
+        "\"Coefficient convexity of divisors of x^n-1\" Decker Moree",
+        "\"On coefficients of divisors of x^n-1\" Somu"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1009.5970 (full preprint and published PDF)",
+      "arXiv:1010.3938 (full HTML, particularly Theorems 3–5)",
+      "arXiv:1312.3108 (research paper and text preview)",
+      "doi:10.1016/j.jnt.2009.04.015 (abstract and indirect theorem comparisons)",
+      "OEIS A114536 (height table context)",
+      "Semantically queried indexed mathematical results including prime-square-pair height and coefficient residue-slice analogues"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ryan--Ward--Ward, Theorem 3.1 gives B(4q²)≥min(4,q²)=4, strictly one inequality of the equality.",
+        "Decker--Moree treats every one of 64 divisors for X^(p²q)−1, but not 512 divisors at X^(p²q²)−1.",
+        "Nearby indexed studies of cyclotomic prime extraction or φ-practical divisor-degree multiplicities study different invariants."
+      ],
+      "reasoning": "A formula for degrees of polynomial divisors does not control their coefficient height. Lower bounds of four do not force an upper bound. The new coefficient-mass statement at exponent 4q implies the missing upper bound through flat q-lift factors; nothing inspected supplies this implication outright.",
+      "searches": [
+        "Ryan Ward Conjecture 4.1 p²q² prime-squared height and lower bound",
+        "Residue class l1 norm coefficient slices of divisors of x^(4q)-1 uniformly bounded by four",
+        "Maximum coefficient height B(4q^2)=4 for all odd primes q of integer polynomial divisors of x^(4q^2)-1; cyclotomic 2^2 q^2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ryan--Ward--Ward, arXiv:1009.5970, published Conjecture 4.1 / preprint Conjecture 3.3: maximal height at p²q² is posed, not resolved; finite examples tabulated for p<q<60.",
+        "The equivalent statement is a uniform bound |[X^j]F|≤4 for every monic F | X^(4q²)−1 plus a height-four witness."
+      ],
+      "reasoning": "The conjectured extremizer equality specializes to the present result because the second listed product for p=2 is Φ2ΦqΦ4Φ(q²), whose height is four. The published conjecture is not a proof of the specialized equality; its known lower bound does not yield the required upper bound.",
+      "searches": [
+        "\"B(4q²)\" cyclotomic height",
+        "\"B(4p^2)\" \"divisors\" polynomial",
+        "\"B(2^2q^2)\" polynomial divisors",
+        "Ryan Ward conjecture 4.1 B(p^2 q^2) case p=2, B(4 q^2)=4 for all odd primes q"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Ryan--Ward--Ward (2010), Table 1: numerical tests for (p,q) with 2≤p<q<60, hence several values for 4q².",
+        "The theorem quantifies over all odd primes, and the proof avoids a finite-prime cutoff."
+      ],
+      "reasoning": "Any previously tabulated individual height equal to four is covered prior data, not a novelty claim. The contribution is a proved formula for all odd primes and its structural slice inequality, which are not entailed by a finite table.",
+      "searches": [
+        "OEIS A114536 B(n) polynomial divisors",
+        "Ryan Ward computational database B(p²q²) 2≤p<q<60",
+        "\"4q^2\" \"height\" \"divisors\" x"
+      ]
+    },
+    "rationale": "The sharp analytic upper bound for all odd primes q at exponent 4q squared, together with the residue-slice invariant, is not stated or implied by the inspected maximal-height papers. Ryan, Bryan C. Ward and Ryan Ward formulated the square-prime-pair extremizer as a conjecture, computed finite cases only, and already established the lower bound. Kaplan and Decker--Moree treat p-squared times q, not both squared; Wang addresses p times q-to-b, not four times q squared. Indexed research records found no statement with equivalent objects and quantified scope. A literature omission remains possible.",
+    "residual_risks": [
+      "Equivalent theorem may be stated in terminology not recovered by indexed searches or in later unlocated literature.",
+      "Full Kaplan 2009 paper was not accessible; its general upper bounds were compared through abstracts and citing primary papers, not read line by line.",
+      "The existing computed B(n) database contains finite individual values, and a proof could in principle be implicit in a resource not inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Lower bound proved, uniform equality left conjectural; finite q<60 computation is prior data.",
+        "evidence": [
+          "Published Conjecture 4.1 states maximizer candidates; authors explicitly say proof and formula unavailable.",
+          "Theorem 3.1 proves a general coprime-factor lower bound; Table 1 finite coverage p<q<60."
+        ],
+        "identifier_or_url": "arXiv:1009.5970; https://msp.org/involve/2010/3-4/involve-v3-n4-p08-s.pdf",
+        "material_read": "Full paper, particularly published Theorem 3.1, Conjecture 4.1, computational Table 1, and references.",
+        "method": "Read full HTML preprint and publisher PDF pages 2–6; inspected the conjecture page image.",
+        "title": "Some conjectures on the maximal height of divisors of X^n−1",
+        "trigger": "Exact B(p²q²) conjecture, specializing p=2"
+      },
+      {
+        "assessment": "Complete case analysis pertains to the different exponent pair (2,1), not (2,2).",
+        "evidence": [
+          "Theorems 3–5 explicitly concern divisors of X^(p²q)−1 with 64 monic divisors.",
+          "Their Theorem 4 refines coefficient ranges in the (2,1) family."
+        ],
+        "identifier_or_url": "arXiv:1010.3938; https://arxiv.org/html/1010.3938v2",
+        "material_read": "Full HTML and the introduction, Theorems 1–5, Sections 3–5 and case tables.",
+        "method": "Searched full-text for squared-prime-pair, four-times-square forms and read the theorems and associated scope statements.",
+        "title": "Coefficient convexity of divisors of X^n−1",
+        "trigger": "Possible stronger classification of divisor coefficient heights"
+      },
+      {
+        "assessment": "The family pq^b has p exponent one, and does not contain n=4q².",
+        "evidence": [
+          "Title and main stated problem fix the first prime exponent to one.",
+          "No claim for all exponent pairs (2,2) was located in the examined material."
+        ],
+        "identifier_or_url": "arXiv:1312.3108; doi:10.1142/S1793042115500049",
+        "material_read": "ArXiv manuscript available in the literature review and publisher text preview, including statement/scope of principal results.",
+        "method": "Compared exponent-family hypotheses and conclusions with both-squared exponents.",
+        "title": "Maximal height of divisors of X^(pq^b)−1",
+        "trigger": "Later claimed resolutions of maximal-height conjectures"
+      },
+      {
+        "assessment": "Known sharp formula described there is B(p²q)=min(p²,q); general bounds not fully resolved against this specialized claim.",
+        "evidence": [
+          "Both later full-text works cite Kaplan for exponent family (2,1), not an exact (2,2) formula."
+        ],
+        "identifier_or_url": "doi:10.1016/j.jnt.2009.04.015",
+        "material_read": "Publisher/secondary abstracts and precise attribution of theorems in Ryan--Ward--Ward and Decker--Moree; primary full text inaccessible.",
+        "method": "Compared described theorem scopes rather than claiming full-text noncoverage.",
+        "title": "Bounds for the maximal height of divisors of X^n−1",
+        "trigger": "Earlier general upper bounds might dominate sharp constant four"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c0fb0db7-29c7-46a5-90df-669e8c41209d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The height B(n) is a natural, previously studied invariant; the 2010 authors explicitly posed the two-prime-squared extremizer problem and computed only finite parameters. An exact infinite subclass, settling p=2 of their conjecture, is a substantive nonroutine answer. The new structural residue-class coefficient-mass inequality explains a dimension-independent bound and supplies a reusable technique, not a numerical restatement or an arbitrary slice.",
+    "status": "PASS"
+  }
+}
