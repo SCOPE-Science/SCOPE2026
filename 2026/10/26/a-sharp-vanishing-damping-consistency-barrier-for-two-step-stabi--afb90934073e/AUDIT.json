@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Starting from the primary-source two-stage stage equations and order conditions, independently derive the positive-radical q(e), both forcing weights and both stage times. Exact cancellation on constant/linear forcing gives the cubic defect h^3 E, with E=1/epsilon-11/8+O(epsilon). The exact forced two-step error recurrence is solved in closed form, yielding all three limits and the subsequence necessity proof. verify.py replays independent exact-rational and deterministic checks; no infinite result relies on the tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Doehring et al. discuss internal errors and large-stage conditioning for one-step methods, without the particular forced two-step damping recurrence or its global cutoff in material read.",
+        "The 2024 Moisa follow-up abstract announces a broader two-step family, but its full text was inaccessible."
+      ],
+      "reasoning": "Generic internal stability warnings do not imply the exact three-regime consistency theorem. A general result specifically covering the cited two-step family could subsume it, but was not established from accessible material. This unresolved possibility is recorded as a risk.",
+      "searches": [
+        "two-step Chebyshev method stage time abscissae epsilon inverse quadratic forcing truncation error",
+        "Two step stabilized Runge Kutta Chebyshev method internal error amplification parasitic root damping coefficient alpha over alpha minus eta squared",
+        "Doehring Gassner Torrilhon Many-Stage Optimal Stabilized Runge–Kutta Methods 2024 section 9.1",
+        "A family of two-step second order Runge–Kutta–Chebyshev methods 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2303.16267v1",
+      "doi:10.1007/s10915-024-02478-5",
+      "doi:10.1016/j.cam.2024.115868 (abstract only)",
+      "doi:10.33581/2520-6508-2021-2-82-98 (excerpted material)",
+      "previous finding fa022d97-1173-4c20-bb6b-d3ee532b39b2 (claim for overlap)",
+      "published-finding corpus semantic queries q1–q6 with closest IDs listed in exact_database_or_table/claim_vs_prior_implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest previously published local claim analyzes positivity of an *undamped* two-stage Chebyshev two-step formula for autonomous scalar decay. It has no variable damping or nonautonomous forcing.",
+        "The primary source supplies polynomial consistency and coefficients; obtaining the new theorem requires a separate forcing reduction, a singular local-defect expansion and solving the global recurrence with simultaneous mesh/damping scaling."
+      ],
+      "reasoning": "Neither the earlier undamped scalar-decay positivity statement nor the source fixed-damping stability bound implies the if-and-only-if consistency threshold for y'=t^2. The equations and exact implications were compared rather than relying on title differences.",
+      "searches": [
+        "Moisa Faleichik 2303.16267 vanishing damping mesh coupling quadratic forcing nonautonomous Runge Kutta Chebyshev consistency",
+        "stabilized two-step Runge Kutta damping dependent on stepsize nonuniform convergence nonautonomous forcing",
+        "two-step Chebyshev method stage time abscissae epsilon inverse quadratic forcing truncation error",
+        "Moisa Faleichik two-step stabilized Runge Kutta method large internal stage abscissae c0 18.99 damping epsilon internal amplification stage 1",
+        "Two step stabilized Runge Kutta Chebyshev method internal error amplification parasitic root damping coefficient alpha over alpha minus eta squared",
+        "Runge Kutta large stage abscissae nonautonomous forcing future evaluation outside step and instability",
+        "prior own item fa022d97-1173-4c20-bb6b-d3ee532b39b2",
+        "arxiv:2303.16267v1 (21)-(24)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source has damping coefficients and stage abscissae (9)–(10),(21)–(25), but its inspected proof and experiments do not give the mesh-dependent error sequence or equivalent limiting theorem.",
+        "The new equation for the accumulated defect is exact and is stronger than merely observing large c0."
+      ],
+      "reasoning": "The same result could be phrased as loss of uniform consistency or as a noncommutation of damping and time-step limits. Searched both expressions. No equivalence was found, with a residual risk from the inaccessible related full text.",
+      "searches": [
+        "Moisa Faleichik 2303.16267 vanishing damping mesh coupling quadratic forcing nonautonomous Runge Kutta Chebyshev consistency",
+        "stabilized two-step Runge Kutta damping dependent on stepsize nonuniform convergence nonautonomous forcing",
+        "arxiv:2303.16267v1 sections 2–5 and appendix A"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source displays c0=18.991... for five stages at fixed damping 0.05 and fixed-damping spectral stability/error tables, not the two-stage exact branch or vanishing-damping global bias.",
+        "The algebraic threshold formula here is not a recomputation of the source numerical stability table."
+      ],
+      "reasoning": "The claimed quantity is the exact variable-damping global integration error, not stage abscissa alone or a tabulated fixed-parameter stability interval; no covering database/table was identified.",
+      "searches": [
+        "Moisa Faleichik two-step stabilized Runge Kutta method large internal stage abscissae c0 18.99 damping epsilon internal amplification stage 1",
+        "Runge Kutta large stage abscissae nonautonomous forcing future evaluation outside step and instability",
+        "arxiv:2303.16267v1 Table 1, equation (25)",
+        "Moisa 2024 115868 numerical tables abstract"
+      ]
+    },
+    "rationale": "The damped two-stage algorithm and its large time abscissa are explicitly pre-existing. The compared new proposition is the closed-form damping branch together with sharp simultaneous mesh/damping global error, including a nonzero critical bias and divergence. Targeted searches and accessible primary comparisons found no equivalent or dominating theorem. This is self-review best-knowledge assessment, with genuine residual risk from a directly related inaccessible 2024 publication.",
+    "residual_risks": [
+      "The closely related 2024 paper by Moisa could contain an equivalent statement: full text unavailable and its abstract is not evidence of noncoverage.",
+      "Other unindexed numerical ODE literature may recast the critical limit as variable-coefficient multistep consistency; search failure is not a uniqueness proof.",
+      "No independent publication-priority audit performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the algorithm, its order-two damping conditions and unusually large stage times, but not the derived two-stage vanishing-damping forcing/bias theorem in the inspected text.",
+        "evidence": [
+          "Equations (9)–(10) parameterize the damping branch; (21)–(25) define the actual internal stages and give an example c0 near 19; section 6 uses constant step and fixed damping."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.16267v1",
+        "material_read": "Full accessible HTML sections 1–7, including formulas (4)–(25), error constant/stability tables, numerical experiments and Appendix A Mathematica construction.",
+        "method": "Read arXiv HTML and directly reconstruct its recurrence and order conditions; compared theorem statements and limits.",
+        "title": "Second order stabilized two-step Runge-Kutta methods",
+        "trigger": "Exact originating two-step scheme, polynomial damping coefficients and stage abscissae"
+      },
+      {
+        "assessment": "General stage internal error concerns are established; inspected results do not supply the specific two-step forcing threshold.",
+        "evidence": [
+          "Section 9.1 discusses internal stability polynomials and sensitivity to stage abscissae for many-stage one-step RK, not the two-step recurrence examined here."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10915-024-02478-5",
+        "material_read": "Accessible publisher HTML, introduction, stabilized-polynomial methods, section 9.1 internal stability and abscissa discussion.",
+        "method": "Compared one-step internal-stability framework with the specific multistep forcing and damping limit.",
+        "title": "Many-Stage Optimal Stabilized Runge–Kutta Methods for Hyperbolic Partial Differential Equations",
+        "trigger": "Possible more general treatment of internal-stage errors and unusual abscissae"
+      },
+      {
+        "assessment": "Unresolved publication-priority risk; no claim is made that this inaccessible full text lacks an equivalent result.",
+        "evidence": [
+          "2024 description presents a larger two-step RK–Chebyshev family and theory; no accessible theorem text permits a decisive implication comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2024.115868",
+        "material_read": "Title, abstract and bibliographic descriptions only; full text could not be obtained from searched public locations. Institutional retrieval was unavailable.",
+        "method": "Searched preprint/open-access full text first; inspected bibliographic/abstract material and attempted authorized institutional access.",
+        "title": "A family of two-step second order Runge-Kutta-Chebyshev methods",
+        "trigger": "Directly related later paper by the same first author and potentially stronger coverage"
+      },
+      {
+        "assessment": "Different method family; observed discussion of damping and fixed-parameter error constants does not logically cover the derived two-stage nonautonomous crossover.",
+        "evidence": [
+          "The described results concern stabilized Adams-type methods and damping transformations rather than the source two-stage RK recurrence."
+        ],
+        "identifier_or_url": "https://doi.org/10.33581/2520-6508-2021-2-82-98",
+        "material_read": "Accessible abstract, displayed error-constant and damping discussions, conclusion through public HTML excerpts.",
+        "method": "Compared the order-one Adams-type scheme with the damped two-stage Runge–Kutta forcing theorem.",
+        "title": "Stabilised explicit Adams-type methods",
+        "trigger": "Earlier damped multistep stabilization by overlapping authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "afb90934-073e-414a-bf42-e77b2d86dfd4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A concrete stabilized ODE construction with a tunable numerical damping parameter has a sharp parameter/mesh noncommutation on an entire-polynomial test and exact startup: fixed-parameter second order does not imply consistency when epsilon is co-refined with h. The theorem gives an if-and-only-if safe scaling and exact finite/divergent failures, directly relevant to tuning numerical damping. This is not merely computing a known stability table or highlighting a large stage coordinate.",
+    "status": "PASS"
+  }
+}
