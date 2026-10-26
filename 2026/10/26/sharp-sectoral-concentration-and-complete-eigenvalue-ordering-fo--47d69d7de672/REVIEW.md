@@ -1,0 +1,12 @@
+# Mathematical assessment
+
+## Correctness — PASS
+For any integer \(\ell\ge0\), longitude orthogonality reduces hemisphere concentration on \(\mathcal H_\ell\oplus\mathcal H_{\ell+1}\) to explicit \(2\times2\) fixed-order matrices and two singleton half-energy blocks. A Sturm–Liouville Wronskian identity evaluates the cross-degree integrals. The products of normalized central-binomial factors have opposite strict log-convexity and log-concavity. They establish not just the eigenvalues but exact inter-order ordering and sectoral optimality. The ratio \(a_{\ell+1}/a_\ell=\sqrt{1-1/(4(\ell+2)^2)}\) proves strict decrease of the maximal coupling and hence the sharp all-degree leakage bound. The checker independently integrates the associated Legendre factors and diagonalizes sampled blocks. Numerical tests are corroborative only.
+
+## Originality — PASS, qualified
+Simons–Dahlen–Wieczorek (arXiv:math/0408424v1, Sections 3 and 5) provide general cap concentration operators and order blocks. Ramamoorthi (2002, section on hemisphere orthogonality) studies low-degree hemispherical lighting matrices. The published record *Exact half-energy multiplicities for hemispherical spherical Slepian concentration with arbitrary degree masks* establishes parity splitting, general Cauchy rank and central half-energy multiplicities; its explicit limitations leave noncentral singular values undetermined. These results subsume block decomposition and center multiplicities, neither of which is asserted new. The distinct claim is the strict inter-order ordering for every adjacent-degree pair, sharp maximizing absolute order, and best leakage bound uniform in degree, proved by Wallis-factor monotonicity. Equivalent special-function or spectral inequalities might occur elsewhere; specialist publication-priority review remains necessary.
+
+## Mathematical value — PASS
+A two-degree spherical spectral window is a natural minimal nontrivial bandpass localization problem. The theorem settles which azimuthal order concentrates best for **every** degree, determines all concentration eigenvalues and their strict order, and identifies a sharp universal leakage barrier, together with its asymptotic behavior. The all-degree sharp optimizer is not an arbitrary finite computation or a direct statement of the general parity-rank law. No claims extend to three or more degrees or to nonhemispherical caps.
+
+Self-review: passed. Independent audit: not yet performed.
