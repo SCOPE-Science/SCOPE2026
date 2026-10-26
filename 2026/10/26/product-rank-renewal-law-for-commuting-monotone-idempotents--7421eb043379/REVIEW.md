@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof classifies each fiber of the common idempotent product as a rooted interval, proves the left/right fixed-point exclusion in both directions, and shows that arbitrary compatible blocks concatenate uniquely. Its anchored-retraction count gives a rational series without extrapolating from finite data. The simple-dominant-pole argument and the differentiated rank series justify the two asymptotic assertions. Exhaustive independent integer checks for chain lengths one through nine agree with every product-rank coefficient.
+
+**Originality — PASS within examined coverage.** The basic monotone monoid, its Fibonacci idempotent count, and comparable-idempotent pairs are prior work, not discoveries here. The full 2009/2010 endomorphism paper addresses pairs with \(ef=fe=f\), whereas the present formula counts pairs whose common product may be distinct from both factors. The full 2022 monotone-endomorphism paper classifies homomorphisms, not the present bivariate common-product-rank series. The unrestricted-transformation centralizer characterization is mathematically broader in allowed maps but not a formula for the order-restricted enumerator. Searches of published research records, primary mathematical literature, alternate phrases and exact initial coefficients found no directly dominating identity. The 2006 individual-idempotent-count paper was available only at abstract level, and hidden priority in it or other earlier enumerations remains possible.
+
+**Mathematical value — PASS.** Commuting idempotents encode compatible retractions, a natural structural issue for order-preserving transformation semigroups. The theorem identifies the exact obstruction on each common-product fiber and determines the full joint statistic of commutativity and common image size for every chain length. It also yields a sharp decay rate and a linear law for the expected common rank, not just an isolated small numerical count.
+
+The finite checker is corroboration rather than infinite proof. Independent validation has not been carried out. These assessments are bounded by the documented literature-access risk.
+
+Self-review: passed. Independent audit: not yet performed.
