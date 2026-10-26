@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Under precisely 0<a<b, positive load ratio and travel-time separation, direct solution of L′=-aL and D′=aL-bD yields continuous superposition with derivative jump of size A k(b-a) at the second outfall. Before that jump g′ has exactly one zero t0; after, a difference of two exponentials has at most one zero tp and has a strictly negative eventual derivative. Its initial sign is exactly sign(k−κ(s)) for s>t0. Thus the extrema count includes boundaries s=t0 and k=κ(s). The derivative κ′ has a unique sign switch at 2t0, κ″(2t0)=−abκ*, and all asserted small-k and fold expansions follow from Taylor inversion. The r=b/a logarithmic derivative proves the universal κ*<e^{-2} bound. Three rational exact separation witnesses and 15,000 finite randomized derivative checks passed using the package verifier, supporting rather than replacing proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arbabi, Elzinga, and ReVelle (1974), Water Resources Research 10(5), 921–929, DOI:10.1029/WR010i005p00921, public abstract: convexity and linear approximation of the single-source critical deficit, not the two-inflow separation phase diagram.",
+        "Bhargava (1986), Journal of Environmental Engineering 112(3), 572–585, DOI:10.1061/(ASCE)0733-9372(1986)112:3(572), public abstract: extended settling/rapid-purification formulae and case examples for simple and compound DO sags; full text unavailable.",
+        "Bhargava 2007/2008, DOI:10.1007/s10669-007-9120-x, published online 6 September 2007, public abstract: settling and overlapping outfall fields with varying outlet locations."
+      ],
+      "reasoning": "A full analytical characterization for arbitrary multi-outfall inputs or a total-positivity theorem for translates of the oxygen-deficit kernel would dominate the specialized two-outfall statement. The accessible 1974 abstract focuses critical-value geometry and does not report extrema count under a secondary source. The 1986 and 2007 multi-outfall papers plausibly contain the stronger comparison but their full text was not accessible; no assertion of noncoverage is made from abstracts alone.",
+      "searches": [
+        "The Oxygen Sag Equation New properties and a linear equation for the critical deficit Arbabi Elzinga ReVelle 1974",
+        "Dissolved oxygen sag analysis settling fields overlapping type multi wastewater outfall Bhargava DOI 10.1007/s10669-007-9120-x",
+        "DO Sag Model for Extremely Fast River Purification Bhargava 1986"
+      ]
+    },
+    "checked_sources": [
+      "Streeter and Phelps 1925 full primary scan, pp.18–21 inspected; U.S. Public Health Bulletin 146.",
+      "Bhargava 1986 Modelling for compounded DO sags, bibliographic record only.",
+      "Bhargava 1986 DO Sag Model for Extremely Fast River Purification, DOI:10.1061/(ASCE)0733-9372(1986)112:3(572), publisher abstract.",
+      "Bhargava 2007 first-online multi-wastewater-outfall paper DOI:10.1007/s10669-007-9120-x, publisher abstract and references.",
+      "Arbabi et al. 1974 oxygen sag critical deficit DOI:10.1029/WR010i005p00921, publisher abstract."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1925 source gives the single-inflow critical time log(b/a)/(b-a) but not the derivative jump criterion k>κ(s) nor the unimodal κ(s).",
+        "The 2007 abstract concerns a different, more elaborate removal model and example calculations; it may subsume the no-settling specialization if a general extrema-count theorem is in its uninspected full text."
+      ],
+      "reasoning": "Linear superposition itself implies the algebraic composite formula, and a routine derivative yields the inequality for a chosen s. The substantive new claim is the global phase: κ increases then decreases, producing two disjoint two-sag separation intervals for any k<κ*, with its universal critical-load envelope, exact reentrant witness, and fold asymptotics. The prior single-source formula alone does not state or logically quantify the multi-outfall global separation behavior, although it supplies the starting ODE and easy algebra. Inaccessible compound-sag analyses leave a real priority uncertainty.",
+      "searches": [
+        "Streeter Phelps oxygen deficit one outfall maximum t_c",
+        "Modelling for compounded DO sags Bhargava 1986",
+        "Dissolved oxygen sag analysis for a settling fields overlapping type multi-wastewater-outfall"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Streeter and Phelps, Public Health Bulletin 146 (1925), pp. 18–21, derives g(t)=e^{-at}-e^{-bt} for an outfall and acknowledges intermediate additions to loading.",
+        "Bhargava (1986), Modelling for compounded DO sags, Civil Engineering Transactions 28(3), 222–230, bibliographic title supports checking the double-sag alias; full text unavailable.",
+        "Bhargava, Dissolved oxygen sag analysis for a settling fields overlapping type multi-wastewater-outfall, DOI:10.1007/s10669-007-9120-x, publisher abstract accessible, full text not."
+      ],
+      "reasoning": "Exact equation for two impulses is equivalently a sum of translated exponential-difference kernels, or a continuity-preserving two-inflow Streeter–Phelps reach with a derivative jump at the second source. Two peaks are the two local dissolved-oxygen minima of the composite sag. The new threshold counts strict peaks, not merely computing an individual critical point. Only primary accessible 1925 text was fully inspected, so equivalent hidden statements in older multi-outfall papers remain a named risk.",
+      "searches": [
+        "two point source oxygen sag curve double maxima critical separation Streeter Phelps downstream pollution load threshold reentrant bimodality",
+        "Streeter Phelps two biochemical oxygen demand outfalls local extrema critical load ratio two minima",
+        "compounded dissolved oxygen sag two outfalls mathematical conditions two minima source separation critical bifurcation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact witness a=1,b=2,k=1/16 yields 2,1,2 strict maxima at separations log(9/4), log4, log16, respectively, from symbolic rational derivatives 17/1296, -1/16, 1/128.",
+        "Accessible historical papers and public abstracts do not report an exact tabulated analytic count for all positive a<b, load ratio k and separation s."
+      ],
+      "reasoning": "This is a continuous-parameter analytical classification, not a new entry in a finite published parameter table. Searches for the precise transition and sample witness uncovered no exact table; this is not a proof that no earlier complete theorem exists.",
+      "searches": [
+        "Streeter Phelps multiple point pollution sources local extrema bimodal sag curve double peak exact condition",
+        "double oxygen sag distance separation BOD two point sources linear river deoxygenation reaeration",
+        "reentrant two source Streeter Phelps oxygen sag local maxima weak second discharge load separation exactly two"
+      ]
+    },
+    "rationale": "The exact reentrant phase diagram, weak-load two-separation window, universal e^{-2} upper critical ratio and square-root fold split were not located in the accessible historical and contemporary comparisons. The 1925 full primary bulletin derives the linear single-outfall sag and discusses intervening polluting inflows, whereas the new conclusion compares the number of distinct local minima as the second load, rates and separation change. Bhargava 1986 and 2007 address compound or multi-outfall DO sags, making them relevant and residual risks; accessible abstracts present modeling and illustrative cases, not the exact theorem, but their unavailable full texts cannot support any claim of absence. General exponential-kernel extrema theory could imply the special case, and historical uniqueness remains unverified.",
+    "residual_risks": [
+      "The full text of Bhargava (1986), Modelling for compounded DO sags, was inaccessible and may establish an equivalent two-outfall mathematical result.",
+      "The full text of Bhargava (2007), multi-wastewater-outfall overlapping settlement, was inaccessible; it is plausible relevant prior coverage.",
+      "General translated-kernel extrema or scalar linear systems results may imply the same phase diagram without hydrological wording.",
+      "A complete historical literature survey and independent verification of historical priority are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the single-source BOD–DO transport and mentions later additions; inspected material does not state the new sharp two-outfall reentrance.",
+        "evidence": [
+          "Streeter and Phelps (1925), U.S. Public Health Bulletin 146, pp. 18–21: deoxygenation and reaeration rates, critical-distance discussion."
+        ],
+        "identifier_or_url": "https://udspace.udel.edu/server/api/core/bitstreams/6f57c427-5f4f-4435-9d8c-87e3c8c02a66/content",
+        "material_read": "Primary full scan opened; text and visual PDF pages containing model and classical critical point, including printed pp. 18–21, inspected.",
+        "method": "Full public-domain scan with page-level visual inspection.",
+        "title": "A Study of the Pollution and Natural Purification of the Ohio River, III",
+        "trigger": "Foundational model and possibility of multiple additions to biochemical oxygen demand."
+      },
+      {
+        "assessment": "Plausible stronger coverage; publisher abstract describes settling-field interactions and varying outlet locations but does not establish presence or absence of the exact two-peak phase theorem.",
+        "evidence": [
+          "Bhargava, online 6 September 2007, The Environmentalist 28, 128–136 (2008); DOI:10.1007/s10669-007-9120-x."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10669-007-9120-x",
+        "material_read": "Publisher landing page, abstract, first-online date and reference list; complete paper unavailable.",
+        "method": "Lawful public landing/abstract and bibliographic record; publicly accessible full-text routes did not furnish the paper.",
+        "title": "Dissolved oxygen sag analysis for a settling fields overlapping type multi-wastewater-outfall",
+        "trigger": "Direct overlap in multi-outfall DO sag and changing source locations."
+      },
+      {
+        "assessment": "Potential decisive prior source not verified; explicitly retained as priority risk, not asserted to be noncovering.",
+        "evidence": [
+          "Bhargava (1986), Modelling for compounded DO sags, 28(3), 222–230."
+        ],
+        "identifier_or_url": "Civil Engineering Transactions (Institution of Engineers Australia) 28(3), 222–230 (1986)",
+        "material_read": "Bibliographic reference and title in later multi-outfall primary source; complete paper unavailable.",
+        "method": "Public bibliographic/secondary reference search with failed lawful complete-text acquisition.",
+        "title": "Modelling for compounded DO sags",
+        "trigger": "Highly relevant title and possible direct derivation of compound sag extrema."
+      },
+      {
+        "assessment": "Includes compound sags and fast settling not modeled here; exact reentrant phase theorem not ascertainable from abstract.",
+        "evidence": [
+          "Bhargava (1986), Journal of Environmental Engineering 112(3), 572–585; DOI given."
+        ],
+        "identifier_or_url": "https://doi.org/10.1061/(ASCE)0733-9372(1986)112:3(572)",
+        "material_read": "Publisher full abstract and article description; full article unavailable.",
+        "method": "Publisher publicly readable abstract inspection.",
+        "title": "DO Sag Model for Extremely Fast River Purification",
+        "trigger": "Same author, physical model with simple and compound DO sags."
+      },
+      {
+        "assessment": "Abstract focuses convexity of a single critical deficit and its linear approximation, not explicit two-outfall extrema-count reentrance; more general material could remain.",
+        "evidence": [
+          "Arbabi, Elzinga, ReVelle (1974), Water Resources Research 10(5), 921–929."
+        ],
+        "identifier_or_url": "https://doi.org/10.1029/WR010i005p00921",
+        "material_read": "Wiley abstract and bibliographic metadata; full text not obtained.",
+        "method": "Publisher abstract reading.",
+        "title": "The Oxygen Sag Equation: New Properties and a Linear Equation for the Critical Deficit",
+        "trigger": "Classical analytical oxygen-sag critical-value and convexity theory may dominate two-outfall statements."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "92e4f7ef-eacb-4feb-84d1-eb5476f94e2d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Multiple wastewater outfalls are an explicit motivation of the original stream water-quality modeling literature. Merely deriving the standard single-source sag or superposing two responses would be routine, but the theorem globally classifies whether one or two distinct local DO minima arise, proves a nonobvious reentrant two–one–two extrema transition for weak downstream load, identifies the optimal maximum load ratio and sharp universal e^{-2} bound, and quantifies the fold splitting. This provides a precise, reproducible mathematical boundary relevant to whether monitoring must resolve one or two river reaches. No empirical quality-standard compliance, robustness or practical intervention value is asserted.",
+    "status": "PASS"
+  }
+}
