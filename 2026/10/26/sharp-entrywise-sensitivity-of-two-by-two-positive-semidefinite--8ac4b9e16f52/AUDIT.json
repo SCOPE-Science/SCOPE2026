@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The analytic proof reconstructs the mixed-spectral divided-difference Jacobian, computes all three absolute coefficient row sums for both endpoint operators, factors the sharp 3/2 diagonal gap into a nonnegative polynomial, and shows the other endpoint norm is strictly below 3/2. Every nonsingular segment point has derivative norm strictly below 3/2; absolute continuity and the rank-one determinant-zero-line exception prove strict global inequality. Explicit rank-one spectral data give directional ratios tending to 3/2. The standalone check.py replay passed 2,711 assertions, including exact fractional Jacobians and an exact polynomial identity; finite checks are not substituted for universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "J. Malick and H. S. Sendov (2006), DOI 10.1007/s11228-005-0005-1, preprint §2 and theorem 2.7: generalized derivative of positive-semidefinite cone projection in the Frobenius geometry, including mixed spectral divided differences.",
+        "M. Šilhavý (2015), J. Convex Analysis 22, theorem 4.8 and equations (36)–(37): differentiability of metric projection, including the symmetric-matrix positive cone; no componentwise sharp Lipschitz modulus stated there.",
+        "Their broader general-matrix derivative results supply the mixed-eigenvalue divided difference but no evaluated sharp entrywise two-by-two condition number in the inspected statements."
+      ],
+      "reasoning": "A general differentiation theorem is stronger regarding class of matrices, but it does not automatically imply the exact optimization without establishing all rotation extrema, the strict interior bound and integration across determinant-zero segments. Those conclusions are independently derived. Potential uninspected stronger semidefinite sensitivity bounds remain a priority risk.",
+      "searches": [
+        "positive semidefinite repair sharp componentwise perturbation sensitivity 3/2 entrywise infinity norm",
+        "Clarke Jacobian of PSD projection dimension two operator norm absolute row sum boundary",
+        "Malick-Sendov full preprint theorem 2.7",
+        "Šilhavý 2015 full article theorem 4.8"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1016/0024-3795(88)90223-6",
+      "doi:10.1007/s11228-005-0005-1",
+      "https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf",
+      "https://journalofconvexanalysis.com/articles/jca22052/jca22052.pdf?v=2",
+      "Publicly indexed mathematical records for planar l_p-cone metric projection, mixed-norm disk projection and positive-cone matrix truncation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "N. J. Higham (1988), DOI 10.1016/0024-3795(88)90223-6: Frobenius-nearest positive-semidefinite matrix is obtained from the symmetric polar factor (equivalently eigenvalue clipping).",
+        "J. Malick and H. S. Sendov (2006), DOI 10.1007/s11228-005-0005-1, preprint §2 and theorem 2.7: generalized derivative of positive-semidefinite cone projection in the Frobenius geometry, including mixed spectral divided differences.",
+        "M. Šilhavý (2015), J. Convex Analysis 22, theorem 4.8 and equations (36)–(37): differentiability of metric projection, including the symmetric-matrix positive cone; no componentwise sharp Lipschitz modulus stated there.",
+        "The present proof bounds \\(\\|H-QHQ\\|\\) via \\((t-1)^2(3t^2+2t+1)\\ge0\\), bounds \\(\\|RHR\\|<(3/2)\\), then integrates along arbitrary matrix segments and treats rank-one lines separately."
+      ],
+      "reasoning": "Known formulas determine the projector and its Jacobian; none of the inspected source statements asserts the optimized sharp cross-norm coefficient and universal strict inequality. The additional derivation is needed to pass from local Fréchet formulas to global modulus and absence of finite equality. This is evidence-limited, not proof that no earlier equivalent result exists.",
+      "searches": [
+        "Higham 1988 positive-part representation",
+        "Malick-Sendov 2006 Fréchet and Clarke derivative formulas",
+        "Šilhavý 2015 theorem 4.8",
+        "Frobenius projection onto 2x2 positive semidefinite matrices spectral positive part sharp entrywise sup norm Lipschitz constant three halves never attained finite pair rank one boundary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "N. J. Higham (1988), DOI 10.1016/0024-3795(88)90223-6: Frobenius-nearest positive-semidefinite matrix is obtained from the symmetric polar factor (equivalently eigenvalue clipping).",
+        "J. Malick and H. S. Sendov (2006), DOI 10.1007/s11228-005-0005-1, preprint §2 and theorem 2.7: generalized derivative of positive-semidefinite cone projection in the Frobenius geometry, including mixed spectral divided differences.",
+        "The 2-by-2 positive-semidefinite cone can be represented as a 3-dimensional Lorentz cone under a Frobenius-isometric linear coordinate change, but the entrywise maximum norm becomes anisotropic in those coordinates."
+      ],
+      "reasoning": "Spectral eigenvalue clipping, nearest-Lorentz-cone projection and positive-part functional calculus are equivalent descriptions of the same map, so titles alone do not distinguish originality. The inspected spectral-derivative formulas do not specify the required anisotropic induced operator norm, the exact 3/2 supremum, or nonattainment. The optimization and exceptional singular-line argument establish those extra statements.",
+      "searches": [
+        "2x2 symmetric positive part map optimal elementwise max-entry infinity norm global Lipschitz constant 1.5 strict nonattainment",
+        "semidefinite cone projection mixed norm Lipschitz 2 by 2 covariance eigenvalue clipping sharp row sum",
+        "Frobenius projection onto 2x2 positive semidefinite matrices spectral positive part sharp entrywise sup norm Lipschitz constant three halves never attained finite pair rank one boundary",
+        "Higham 1988 DOI:10.1016/0024-3795(88)90223-6",
+        "Malick-Sendov 2006 DOI:10.1007/s11228-005-0005-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A semantic search of publicly indexed mathematical findings identified planar l_p-cone and Euclidean-disk projection results, not the three-dimensional positive-semidefinite cone with its entrywise anisotropic norm.",
+        "N. J. Higham (1988), DOI 10.1016/0024-3795(88)90223-6: Frobenius-nearest positive-semidefinite matrix is obtained from the symmetric polar factor (equivalently eigenvalue clipping)."
+      ],
+      "reasoning": "The target is a spectral cone in a three-dimensional real symmetric matrix space, not a planar cone or a disk. Neither related domain implies the target sharp ratio as a literal special case. No exact table among examined sources recorded the 3/2 sharp modulus or the unattainment phenomenon.",
+      "searches": [
+        "2x2 symmetric positive part map optimal elementwise max-entry infinity norm global Lipschitz constant 1.5 strict nonattainment",
+        "Frobenius projection onto 2x2 positive semidefinite matrices spectral positive part sharp entrywise sup norm Lipschitz constant three halves never attained finite pair rank one boundary",
+        "public mathematical finding: Sharp Lipschitz constants and nonexpansivity for every planar l_p cone",
+        "public mathematical finding: Sharp stability of mixed-norm metric projection onto the Euclidean disk"
+      ]
+    },
+    "rationale": "Higham gives the spectral positive-part rule, while Malick–Sendov and Šilhavý give broad derivative formulas. These are genuine prerequisites but the inspected statements do not evaluate the induced entrywise maximum norm at sharp value 3/2 or prove strict finite-pair nonattainment. The present argument performs a nontrivial rotation-dependent absolute-row-sum optimization and a global singular-line integration argument. Database similarity searches on PSD clipping, crossed norms, Jacobians and exact 3/2 returned neighboring projection results for different target sets/norms, not an implication of this theorem; this is not a guarantee of historical uniqueness.",
+    "residual_risks": [
+      "Historical priority is not independently certified. An older Lorentz-cone or matrix positive-part entrywise perturbation result may be equivalent under a coordinate transformation.",
+      "The entire original 1988 article and all background papers were not accessible or read; only its abstract and author-written exposition were inspected.",
+      "A general Jacobian formula could enable another author to derive the same optimal constant, but an explicit covering derivation was not found in the inspected primary texts."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes known projection, but available material does not evaluate its induced entrywise max-norm Lipschitz modulus.",
+        "evidence": [
+          "N. J. Higham (1988), DOI 10.1016/0024-3795(88)90223-6: Frobenius-nearest positive-semidefinite matrix is obtained from the symmetric polar factor (equivalently eigenvalue clipping).",
+          "Research Explorer University of Manchester records original article as published May 1988; catalog bibliographic records identify 1988-05-01."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0024-3795(88)90223-6",
+        "material_read": "Publisher/university abstract and author-authored technical exposition of the spectral clipping theorem; entire 1988 publisher paper was not accessible.",
+        "method": "University publication bibliography; author-authored public explanation https://nhigham.com/2021/01/26/what-is-the-nearest-positive-semidefinite-matrix/",
+        "title": "Computing a nearest symmetric positive semidefinite matrix",
+        "trigger": "Original Frobenius-nearest PSD repair and spectral clipping baseline"
+      },
+      {
+        "assessment": "Provides the general spectral derivative formula, not in the inspected material the optimized induced entrywise norm or nonattainment.",
+        "evidence": [
+          "J. Malick and H. S. Sendov (2006), DOI 10.1007/s11228-005-0005-1, preprint §2 and theorem 2.7: generalized derivative of positive-semidefinite cone projection in the Frobenius geometry, including mixed spectral divided differences.",
+          "Preprint dated 2005-08-03 on its cover; bibliographic journal publication dated 2006-10-25."
+        ],
+        "identifier_or_url": "https://www.stats.uwo.ca/faculty/hssendov/Publications/CGJPCPSDM.pdf",
+        "material_read": "Preprint cover, abstract, introduction, spectral differentiability discussion and theorem 2.7 with formulas; full PDF available but remainder not exhaustively read.",
+        "method": "Primary author-hosted full-text PDF, searched and inspected relevant displayed theorem pages",
+        "title": "Clarke Generalized Jacobian of the Projection onto the Cone of Positive Semidefinite Matrices",
+        "trigger": "Same positive-semidefinite projection and possibly dominating derivative theorem"
+      },
+      {
+        "assessment": "Gives local differentiability/spectral representation but does not state the sharp componentwise two-by-two global stability result in inspected material.",
+        "evidence": [
+          "M. Šilhavý (2015), J. Convex Analysis 22, theorem 4.8 and equations (36)–(37): differentiability of metric projection, including the symmetric-matrix positive cone; no componentwise sharp Lipschitz modulus stated there."
+        ],
+        "identifier_or_url": "https://journalofconvexanalysis.com/articles/jca22052/jca22052.pdf?v=2",
+        "material_read": "Cover, statement of projection setting and theorem 4.8, particularly displayed equations (36) and (37), accessed in primary journal full-text PDF.",
+        "method": "Full-text PDF, targeted visual inspection of theorem pages",
+        "title": "Differentiability of the Metric Projection onto a Convex Set with Singular Boundary Points",
+        "trigger": "Potential stronger differentiation and boundary analysis for the exact projection"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ac4b9e1-6f52-4db9-a683-8ce03b58a407",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Frobenius-positive-semidefinite repair is the standard local eigenvalue-clipping primitive in covariance denoising and semidefinite approximation, but errors may be bounded per entry rather than in Frobenius norm. The exact 50% worst-case amplification and its strict nonattainment quantify a natural stability mismatch. The smallest nonpolyhedral PSD cone is a motivated natural cutoff, not an arbitrary parameter slice; the proof identifies the boundary/rotation mechanism rather than reporting a simple numerical constant. No extension to higher order is claimed.",
+    "status": "PASS"
+  }
+}
