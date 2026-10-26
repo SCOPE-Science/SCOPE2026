@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "The transition maps commute on all three states. The accepted language is exactly the empty word plus words with an odd number of a's; its projection is epsilon together with all odd powers of a. Three residual languages are pairwise distinct, so the projected minimal DFA has three states. The hidden-closure subset states are exactly {1,2}, {0}, and {1}, with an overlap. For one or two states, the visible transition is identity, a transposition, or constant; the two-state case analysis shows every infinite two-state-minimal projected language forces a state-partition construction. The supplied verifier reproduces the finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hoffmann's theorem gives a general at-most-\\(|Q|\\) construction, while its Example 1 does not retain the input state count in the projected minimal DFA.",
+        "Jiraskova–Masopust show every regular language has a state-partition representation, but that representation can differ from the given minimal commutative DFA."
+      ],
+      "reasoning": "Neither broader result implies that a specific minimal commutative input DFA can fail the state-partition property while its infinite projected language still requires every input state. The present result is a concrete boundary witness, not a stronger general upper bound.",
+      "searches": [
+        "commutative automata projection at most input number of states state-partition counterexample",
+        "arXiv:2108.06976v1, Theorem 2, Example 1 and conclusion",
+        "2012 state-partition automata paper, Theorem 1 and definition"
+      ]
+    },
+    "checked_sources": [
+      {
+        "assessment": "Primary theorem and closest non-state-partition example inspected; no equivalent minimality-threshold statement found in the inspected sections.",
+        "identifier": "arXiv:2108.06976v1",
+        "title": "State Complexity of Projection on Languages Recognized by Permutation Automata and Commuting Letters"
+      },
+      {
+        "assessment": "Definition and representation theorem inspected; they do not imply the exact witness claim.",
+        "identifier": "doi:10.1007/978-3-642-33475-7_12",
+        "title": "On Properties and State Complexity of Deterministic State-Partition Automata"
+      },
+      {
+        "assessment": "Closest indexed projection result; concerns finite-language NFA blow-up, not the present deterministic commutative boundary.",
+        "identifier": "2026/9/20/SCOPE-fixed-hidden-alphabet-finite-projection-blowup--b068c755f7ab",
+        "title": "Fixed hidden alphabets preserve almost all finite-language projection blow-up"
+      },
+      {
+        "assessment": "Related commutative-language complexity vocabulary, but no projection state-partition implication.",
+        "identifier": "2026/9/18/SCOPE-qeacom-membership-pspace-neutral-letter--97ba5069cc3b",
+        "title": "QEACom membership is PSPACE-complete even for neutral-letter NFAs"
+      },
+      {
+        "assessment": "Different class-membership problem; no implication to the claim.",
+        "identifier": "2026/9/19/SCOPE-neutral-letter-dfa-constant-circuit-membership--4bebc481365c",
+        "title": "Neutral-letter DFA constant-circuit membership is NL-complete for arbitrary DFAs"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2 in arXiv:2108.06976v1 proves only that some DFA with at most \\(|Q|\\) states recognizes the projection of a commutative language.",
+        "Example 1 in that paper establishes non-state-partition behavior, but not an infinite projected language with minimal state complexity equal to \\(|Q|\\).",
+        "The 2012 paper defines the structural property and proves general representation results; it does not state the two-state impossibility or the three-state witness."
+      ],
+      "reasoning": "The exact witness and lower bound require the transition construction and the two-state case analysis; neither follows solely from the cited upper-bound theorem or the general state-partition representation theorem. The priority conclusion remains limited to the inspected sources and searches.",
+      "searches": [
+        "arXiv:2108.06976v1, Theorem 2 and Example 1",
+        "doi:10.1007/978-3-642-33475-7_12, state-partition definition and projected automaton construction",
+        "\"state-partition automaton\" \"commutative\" \"minimal\" projection language",
+        "\"commutative automaton\" \"state-partition\" projection minimal DFA",
+        "\"infinite unary language\" \"state-partition automaton\" projection commutative"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hoffmann, arXiv:2108.06976v1, Section 6, Theorem 2: commutative projections are recognizable with at most \\(|Q|\\) states.",
+        "Hoffmann, arXiv:2108.06976v1, Example 1: a commutative automaton is not state-partition, but the projections described there collapse to one-state unary languages.",
+        "Jiraskova and Masopust, 2012, pages 1–4: the state-partition property is defined by pairwise-disjoint reachable subset states."
+      ],
+      "reasoning": "The equivalent formulation searched was an automaton with overlapping reachable hidden-closure subsets whose infinite unary projection still has minimal state count equal to the number of input states. The inspected sources establish related upper bounds and definitions, not this exact conjunction or its three-state minimum.",
+      "searches": [
+        "commutative DFA projection state-partition automaton projected unary language minimal state complexity same number of states non-state-partition",
+        "three-state commutative automaton projection infinite unary language minimal DFA three states hidden-letter orbit closures overlap",
+        "\"state-partition automaton\" commutative DFA projection minimal projected language",
+        "arXiv:2108.06976v1, Section 6, Theorem 2 and Example 1",
+        "2012 state-partition automata preprint, definition of projected automaton and state-partition property"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest indexed records were about finite-language NFA projection blow-up, QEACom membership for commutative syntactic monoids, and neutral-letter DFA circuit membership; none contained the exact state-partition/minimal-projection claim.",
+        "The primary article has no table classifying the minimum state count for this property."
+      ],
+      "reasoning": "No exact database or published table was applicable. Search absence is treated only as a comparison result, not as proof of novelty.",
+      "searches": [
+        "commutative DFA projection state-partition automaton projected unary language minimal state complexity same number of states non-state-partition",
+        "three-state commutative automaton projection infinite unary language minimal DFA three states hidden-letter orbit closures overlap",
+        "minimum number states commutative automaton not state-partition for projection infinite unary language state complexity",
+        "\"state-partition automaton\" commutative DFA projection minimal projected language",
+        "published-record search: state-partition automaton commutative DFA infinite unary projected language minimal state complexity three"
+      ]
+    },
+    "rationale": "The closest primary theorem gives an upper bound and a non-state-partition example, but does not give an infinite projected language of unchanged minimal state complexity or the exact smallest witness size. The explicit construction and lower-bound case analysis address that narrower structural boundary.",
+    "residual_risks": [
+      "An unindexed or inaccessible automata-theory source may contain an equivalent small witness; novelty is not asserted globally.",
+      "The result is limited to complete commutative DFAs with one visible letter and a nonempty hidden alphabet; multiple visible letters and noncommutative automata are outside scope.",
+      "The finite enumerator covers binary two-state automata only; the arbitrary-hidden-alphabet lower bound rests on the written case proof, not exhaustive computation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant but not covering the claim: it proves an at-most-\\(|Q|\\) construction and gives a non-state-partition example, not an infinite projection of minimal state complexity \\(|Q|\\) with a sharp three-state threshold.",
+        "evidence": [
+          "arXiv:2108.06976v1, Section 6, Theorem 2 and Example 1",
+          "https://arxiv.org/abs/2108.06976"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.06976",
+        "material_read": "Abstract; Section 2 definitions; Section 6, Theorem 2, Example 1, and conclusion; relevant arXiv HTML and PDF passages.",
+        "method": "Compared theorem hypotheses, the state-count conclusion, and the language and closure behavior of Example 1 against the exact claim.",
+        "title": "State Complexity of Projection on Languages Recognized by Permutation Automata and Commuting Letters",
+        "trigger": "Primary literature on commutative automata, projection state complexity, and non-state-partition examples."
+      },
+      {
+        "assessment": "Relevant definition and background, but not covering the minimal commutative witness or the two-state lower bound; its general representation theorem concerns a constructed representation, not the specific input automaton.",
+        "evidence": [
+          "2012 preprint, lines 113–153 and 198–242",
+          "doi:10.1007/978-3-642-33475-7_12"
+        ],
+        "identifier_or_url": "https://users.math.cas.cz/~masopust/pubs/2012/ifiptcs2012.pdf",
+        "material_read": "Abstract, introduction, projected-automaton construction, and the definition of a state-partition automaton in the accessible preprint.",
+        "method": "Compared the pairwise-disjoint reachable-subset definition and general representation theorem with the given-automaton claim.",
+        "title": "On Properties and State Complexity of Deterministic State-Partition Automata",
+        "trigger": "Foundational definition of the state-partition property and earlier projection-state-complexity results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b604b735-873e-497e-97be-427dda3e823d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "State-partition structure is a stronger condition than merely preserving the projected language's minimal state count. This sharp three-state witness shows that overlapping hidden-closure subsets can coexist with an infinite projection requiring all input states, and the two-state lower bound isolates the first possible boundary case.",
+    "status": "PASS"
+  }
+}
