@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "All n>=2, 1<=k<=floor(n/2) and W>0: the star Laplacian invariant splitting isolates n-1 leaf-zero-sum eigenvalues. Added weighted-edge matrix is positive semidefinite with rank<=k and trace 2T. A sharp Jensen inequality yields the bound; equality of Gram matrix eigenvalues forces k equal weights and zero off-diagonal edge-incidence products, hence a matching. Strong concavity and the exact Gram-square expansion give the quantitative penalty. Actual NumPy script checked 14,107 finite cases and the bound, which supplements but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhoite et al. (2026) includes a general joint selection/weight-budget optimization model but develops relaxations, repair and heuristics; no star-specific closed theorem was located.",
+        "Kooij–Achterberg Theorem 2 concerns general NP-hardness of unweighted link selection, not an explicit solution on a star."
+      ],
+      "reasoning": "Broader problem formulation alone does not logically imply a specialized global minimizer without solving the problem. Tested for dominating exact theorems, not just exact wording: the inspected sources do not derive a matching optimizer or this gap inequality.",
+      "searches": [
+        "star network coherence joint limited edge cardinality and total conductance budget equal-weight disjoint added matching exact theorem",
+        "theorem optimal graph Laplacian pseudoinverse trace after k weighted edge insertions into a fixed star with leaf matching",
+        "https://arxiv.org/pdf/2609.29790",
+        "https://arxiv.org/pdf/2302.12628"
+      ]
+    },
+    "checked_sources": [
+      "Topology Design for Optimal Network Coherence — https://arxiv.org/pdf/1411.4884",
+      "Minimizing Effective Resistance of a Graph — https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+      "Minimizing the Effective Graph Resistance by Adding Links Is NP-hard — https://arxiv.org/pdf/2302.12628",
+      "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization — https://arxiv.org/pdf/2609.29790"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2008 fixed-topology convexity is compatible with—but does not itself select—the disjoint candidate edges.",
+        "The 2014 greedy topology selection fixes link weights, while the theorem optimizes both support and conductances under a global budget.",
+        "The 2023 complexity theorem gives no explicit optimum even for an unweighted star.",
+        "The 2026 general weighted model is algorithmic/numerical, with no documented analytic star matching/equality theorem in inspected material."
+      ],
+      "reasoning": "The new theorem is not merely the existing general optimization model recast as an example: it proves a sharp analytic value for every n,k,W, uniquely characterizes optimizers, and produces a quantitative overlap-and-heterogeneity gap. Existing general algorithms would need this substantive spectral argument to recover it.",
+      "searches": [
+        "https://arxiv.org/pdf/1411.4884",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "https://arxiv.org/pdf/2302.12628",
+        "https://arxiv.org/pdf/2609.29790",
+        "star graph edge augmentation k leaf-to-leaf links exact minimum Kirchhoff index and matching optimality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Trace Laplacian pseudoinverse equals Kirchhoff index divided by n+1 for connected graphs; both quantities are compared using the same normalization.",
+        "Summers et al. optimize link selection without continuous added-link budget; Ghosh et al. optimize conductances on fixed topology."
+      ],
+      "reasoning": "Kirchhoff-index and network-coherence normalizations are identical up to a graph-size/noise factor. Changing terminology does not make the result new, so both literature lines were compared directly. Neither inspected result yields the exact matching equality classification for the joint constrained star problem.",
+      "searches": [
+        "star graph edge augmentation k leaf-to-leaf links exact minimum Kirchhoff index and matching optimality",
+        "graph base star Laplacian trace pseudoinverse optimal edge addition any conductance allocation edge disjoint",
+        "trace Laplacian pseudoinverse star augmentation matching equal edge weights optimum",
+        "https://arxiv.org/pdf/1411.4884",
+        "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest returned semantic-search records concern Laplacian simplex geometry, ellipsoids of fractional matching polytopes, apex transfer or matroid polytope spectra, not this cardinality/budget constrained trace minimization.",
+        "Primary relevant arXiv papers do not present tables of star support patterns or universal optimal formula under these constraints."
+      ],
+      "reasoning": "Searched public semantic result records and web phrases including graph star, new weighted leaf edges, Kirchhoff index, matching, and budget. No exact data table or stronger recorded formula encountered. Absence is evidence with limited recall, not uniqueness proof.",
+      "searches": [
+        "network coherence minimization weight budget cardinality constraint star graph",
+        "Kirchhoff index matching augmentation star weighted",
+        "star graph optimal network coherence adding weighted edges between leaves disjoint matching budget",
+        "augmenting a star graph with k edges minimum Kirchhoff index vertex-disjoint triangles"
+      ]
+    },
+    "rationale": "Actual semantic database queries and accessible prior-record claims did not show this exact two-budget star theorem. Primary full-text comparison distinguishes fixed-weight topology selection (Summers et al., 2014), continuous optimization on a fixed topology (Ghosh et al., 2008), general unweighted NP-hardness (Kooij–Achterberg, 2023) and general weighted mixed-integer relaxation (Bhoite et al., 2026) from the proved analytical closed form, all-minimizer matching rigidity, and nonzero overlap/imbalance penalty. Unindexed specialized prior results remain possible, not ruled out by a failed search.",
+    "residual_risks": [
+      "Targeted searches cannot rule out an unindexed star-specific effective-resistance design theorem or a simple previously published consequence of a stronger spectral majorization result.",
+      "The 2026 general-budget preprint was inspected for relevant statements but not verified line by line in every ancillary appendix; concealed coverage of this instance is possible.",
+      "A restricted unweighted version could appear as a known matching extremal for graphs formed by adding edges to a star; this exact continuous-budget plus quantitative-rigidity result was not found."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "It selects edges with prescribed weights via a general greedy framework, not joint edge support and continuous weight budget on a fixed star; no corresponding all-optimizer matching theorem.",
+        "evidence": "Abstract and Introduction pages 1-2, greedy algorithms and numerical comparisons, appendix star as base-tree comparison; arXiv first posted 2014-11-18.",
+        "identifier_or_url": "https://arxiv.org/pdf/1411.4884",
+        "material_read": "Seven-page PDF: abstract, problem and main results, graph-selection theorems, numerical examples and appendix containing star comparison.",
+        "method": "Lawful open-access arXiv full text; inspected text and page image.",
+        "title": "Topology Design for Optimal Network Coherence",
+        "trigger": "Closest pre-2016 network-coherence edge-selection framework"
+      },
+      {
+        "assessment": "Optimizes weights on a predetermined edge set; its star example reallocates spoke weights, unlike installing limited leaf links while spokes remain fixed. Its convexity framework neither fixes optimal support nor implies matching equality.",
+        "evidence": "SIAM Review 50 (2008), pp. 37–66, especially printed p.58 star example and DOI 10.1137/050645452.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+        "material_read": "Introduction, convex fixed-topology formulation, Section 5.1 original-star example and Section 5.2 symmetry.",
+        "method": "30-page author-hosted lawful full text, targeted substantive section reading including page images.",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Classical continuous conductance-allocation optimization and star example"
+      },
+      {
+        "assessment": "Shows the general unweighted candidate-link problem is NP-hard, without closed star optimum or tunable link weights; no implication in either direction for our weighted-star classification.",
+        "evidence": "Problem 1 and Theorem 2, preprint pp. 3–4; arXiv 2302.12628.",
+        "identifier_or_url": "https://arxiv.org/pdf/2302.12628",
+        "material_read": "Six-page original preprint: abstract, Problem 1, Theorem 2, NP-hardness reduction and references.",
+        "method": "arXiv full-text inspection with theorem page screenshot.",
+        "title": "Minimizing the Effective Graph Resistance by Adding Links Is NP-hard",
+        "trigger": "Direct k-link Kirchhoff-index augmentation formulation"
+      },
+      {
+        "assessment": "Addresses an encompassing optimization model via relaxation, rounding and greedy methods, but inspected claims give no analytic closed star optimum, uniqueness classification or overlap gap. Its shared problem definition cannot be mistaken for coverage of the new theorem.",
+        "evidence": "Abstract and Introduction of arXiv:2609.29790, submitted 24 September 2026; no matching/star theorem located.",
+        "identifier_or_url": "https://arxiv.org/pdf/2609.29790",
+        "material_read": "Abstract, introduction, mixed-integer model statements and numerical/heuristic methods; searched the full accessible PDF for star-specific and matching-specific statements.",
+        "method": "13-page lawful open-access arXiv PDF; targeted theorem/claim inspection and text searches.",
+        "title": "Budget-Constrained Graph Augmentation for Robust Network Design via Kirchhoff Index Minimization",
+        "trigger": "Most direct general mixed selection and weighted budget framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "70daf0cc-826b-49aa-b850-5bffb77e71a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The known network-coherence improvement problem jointly involves discrete topology and continuous reinforcement cost. A sharp, full-family closed solution on the natural hub-and-spoke base identifies disjoint links as optimal and quantifies the exact cost of physical link concentration or weight unevenness. This is a structural and resource-allocation boundary, not a mere numerical benchmark or renaming of a standard convex fixed-topology calculation.",
+    "status": "PASS"
+  }
+}
