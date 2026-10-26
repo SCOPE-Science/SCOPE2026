@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact distance formula on Cartesian products yields mutual exclusion of selected columns at gaps 0 or 1. A cyclic gap >=4 makes a fully undominated rung; a gap of 2 between same rows violates packing; a gap of 3 between same rows leaves adjacent undominated vertices. One selected vertex fails including n=3. Conversely all even alternating 2/3-gap configurations satisfy both requirements, as checked by local gap inspection. Rooted cyclic gap words have exactly k possible marked starts, proving 2n/k times binomial(k,n-2k), and a formal derivative gives the rational series. Exact independent graph-enumeration tests n=3..21, mask-by-mask comparisons n=3..14, and a 120-term recurrence check corroborate all boundaries; no finite check substitutes for the universal proof. Source: RESULT.md Steps 1–5; verify.py, verify_output.txt.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2606.18172v1 §3 Theorems 2–3 concern all trees and hardness in general, with counterexample graphs; neither yields prism structure.",
+        "arxiv:2309.04963v1 Theorem 2.2 concerns maximum open packing for bipartite prism bases; an unrelated optimization constraint.",
+        "arxiv:2507.18272 abstract concerns distance-d domination and p-packing, with cycles and trees."
+      ],
+      "reasoning": "The comparison checks whether stronger graph families or stronger conditions imply the claim. Trees do not include cubic cycle prisms; NP hardness does not enumerate them. The 2023 general bipartite-prism theorem concerns a different invariant and omits the edge-isolation test. Cycle distance-domination under a radius bound is not an edge-isolation enumerator. The natural candidate covers neither the exact object nor the cardinality-refined conclusion.",
+      "searches": [
+        "Boyer Goddard Henning 2026 packing isolating sets cycles prisms cubic graphs",
+        "exact enumeration and characterization of vertex sets simultaneously packing and isolating on circular ladder graphs or prism graphs",
+        "\"packing isolating set\" \"prism graph\"",
+        "\"vertex-edge domination\" \"packing\" prism cycle"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2606.18172",
+      "https://arxiv.org/pdf/2309.04963",
+      "https://arxiv.org/abs/2507.18272",
+      "https://link.springer.com/article/10.1007/s00010-026-01266-w",
+      "2026/10/11/SCOPE-scale-two-rips-homotopy-types-of-finite-circular-ladders--ccd7a360a668",
+      "2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4",
+      "2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+      "2026/10/4/SCOPE-the-franklin-graph-is-the-unique-twelve-vertex-cubic-bipartite-e--f490f3f3f842",
+      "2026/10/11/SCOPE-a-high-girth-prism-ech-collapse-and-its-integral-symmetry-module--e4f536ceab68"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2606.18172v1 Theorem 2: existence for trees, Section 3.2: nonexistence examples and decision hardness, no prism census.",
+        "arxiv:2309.04963v1 Theorem 2.2: maximal open-packing number of prisms over bipartite bases in terms of ordinary packing.",
+        "Published finding comparisons: 2026/10/11/SCOPE-scale-two-rips-homotopy-types-of-finite-circular-ladders--ccd7a360a668, 2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4, 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528."
+      ],
+      "reasoning": "The new statement is a bijection between feasible sets on each circular ladder and even alternating-row cyclic words of 2/3 gaps, including a bivariate rational enumerator. Existence on trees is logically weaker for a cyclic graph, hardness is orthogonal, open-packing number does not determine simultaneous packing-isolating multiplicities, and geometric-topological ladder results have distinct outputs. No inspected prior theorem has a conclusion or stronger hypothesis that entails this new statement.",
+      "searches": [
+        "packing isolating sets of circular ladder prism graph C_n Cartesian K2, number and existence via alternating two-or-three gaps",
+        "Boyer Goddard Henning 2026 packing isolating sets cycles prisms cubic graphs",
+        "the lower packing, isolation, or packing-isolating polynomials of Cartesian products C_n square K2",
+        "\"packing isolating\" \"prism\" \"cycle\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2606.18172v1, §2 definition of packing and isolation; arxiv:2309.04963v1 §1.1 conventional 2-packing definition.",
+        "Published comparator records 2026/10/11/SCOPE-scale-two-rips-homotopy-types-of-finite-circular-ladders--ccd7a360a668 and 2026/10/4/SCOPE-all-k-limited-packings-of-complete-multipartite-graphs--04ebf7f4faa4 concern distinct invariants and different main implications."
+      ],
+      "reasoning": "The simultaneously required properties are disjoint closed neighborhoods and an edgeless complement of their union, equivalently a 2-packing that vertex-edge dominates every edge. This differs from ordinary maximal packing (which only distance-2 dominates every vertex), perfect code (which fully dominates), open packing, and distance-packing domination. The located named records address those other conditions and do not assert a circular ladder bijection.",
+      "searches": [
+        "packing isolating sets of circular ladder prism graph C_n Cartesian K2, number and existence via alternating two-or-three gaps",
+        "vertex sets simultaneously 2-packings and vertex-edge dominating isolating sets of Cartesian product cycle K2",
+        "\"packing isolating\" \"circular ladder\"",
+        "\"2-packing\" \"isolating\" \"circular ladder\"",
+        "\"packing-isolating\" \"cylindrical\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact arithmetic checker generates 0,4,10,6,0,4,18,30,22,10,26,70 for n=3 through 14.",
+        "No returned search result or published comparator furnished a table attached to packing-isolating sets of C_n Cartesian K2."
+      ],
+      "reasoning": "A numerical sequence may coincide accidentally with other combinatorial sequences. Matching or nonmatching initial terms does not prove statement coverage or novelty. The searched exact candidate sequence found no identifiably equivalent table; further specialist indexing remains a risk.",
+      "searches": [
+        "packing isolating set cycle prism, gap sizes 2 and 3 alternating layers, generating function 4z4+10z5+6z6",
+        "\"4, 10, 6, 0, 4, 18, 30, 22, 10\" graph",
+        "\"4, 10, 6, 0, 4, 18, 30\" OEIS"
+      ]
+    },
+    "rationale": "Primary full-text comparisons with the 2026 introduction of packing-isolating sets (arxiv:2606.18172v1) and the 2023 prism-packing paper (arxiv:2309.04963v1), along with abstract and theorem-scope comparison of the 2025 distance-packing domination paper, found no statement that implies the exact all-cardinality enumeration or the n=7 exception. Six published-research index searches recovered only records on other invariants such as topology of circular ladders, k-limited packing in complete multipartite graphs, and paired domination in other classes. Web searches of equivalent names, simultaneous packing and vertex-edge domination, gap formulas, and candidate initial counts supplied no equivalent proof or table. All searches are non-exhaustive and cannot certify publication uniqueness.",
+    "residual_risks": [
+      "Searches are not a proof of absolute priority; alternative names or unindexed prior articles could contain an equivalent prism-specific enumeration.",
+      "The 2025 distance-packing domination article was compared via abstracts and theorem scope, rather than its complete full text; its main abstract does not subsume the simultaneous edge-isolation enumerator.",
+      "The original 2026 study is a preprint; subsequent revisions after the inspected version or new 2026 papers could affect priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides a tree-existence theorem, a complexity result and examples of graphs without such a set, but no all-order prism existence characterization or circular ladder cardinality generating function.",
+        "evidence": [
+          "arxiv:2606.18172v1, §§2–3: definition, Theorems 2 and 3; §7: listed problems; introductory abstract; first posted 2026-06-16."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.18172",
+        "material_read": "Accessible full experimental HTML article, definitions and all seven substantive sections; in particular §§2, 3, 4, 7 and their theorem statements, examples, proof text and future-work discussion.",
+        "method": "Read the arXiv-hosted primary full text and compare the exact graph family, quantifiers, constraints and asserted conclusions.",
+        "title": "On the Relationships between Domination, Isolation, and Packing",
+        "trigger": "The source defines exactly the intersection of packing and isolating sets, and is the primary motivation."
+      },
+      {
+        "assessment": "Studies largest ordinary two-packing and largest open packing, particularly for bipartite prism bases, not packings that also isolate every edge. The prism theorem is an equality between optimization parameters and does not entail the new structural enumeration.",
+        "evidence": [
+          "arxiv:2309.04963v1, Theorem 2.2, Sections 2–5, pp. 4–10; first posted 2023-09-10."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2309.04963",
+        "material_read": "Accessible 11-page primary arXiv PDF: Introduction, definitions, Section 2 prism theorem and proof, remaining hypercube sections, concluding remarks and references. Page images were inspected for the prism section and conclusions.",
+        "method": "Read the primary PDF full text, including Theorem 2.2 and Section 5, and locate occurrences of the isolation concept.",
+        "title": "Packings in bipartite prisms and hypercubes",
+        "trigger": "Prism graphs, and the closely related two-packing condition, occur in the title and main theorem."
+      },
+      {
+        "assessment": "Distance-d domination is vertex coverage, not vertex-edge isolation. Its explicit cycle results are on the base cycle, not on two-row Cartesian prisms. This is not an implication of the target enumeration. A full-text search might reveal ancillary special cases; retain as low residual risk.",
+        "evidence": [
+          "arxiv:2507.18272, abstract; DOI 10.1007/s00010-026-01266-w, published 2026-02-20."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2507.18272",
+        "material_read": "Primary arXiv abstract and bibliographic metadata, plus open-access publication abstract and theorem-scope summary; complete paper text not inspected.",
+        "method": "Read precise defining conditions and graph families in the primary abstract and journal open-access overview.",
+        "title": "The d-distance p-packing domination number: complexity, cycles, and trees",
+        "trigger": "The title joins packing with domination, raising a possible reduction or stronger-coverage issue."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ba731088-7a14-4a76-8af2-dd2c0b01841c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 graph-theory source introduces packing-isolating sets, establishes general tree existence and gives nonexistence examples beyond trees. Circular ladders are a natural cubic cyclic test family. The new structural bijection gives an exact all-order, all-cardinality enumeration, the rational generating function, the precise exceptional circumference 7 amid positive neighboring circumferences, and all supported minimum and maximum sizes. These conclusions are not routine single-number computations or arbitrary small slices, and are not implied by known ordinary packing or edge-isolation bounds. The finite checker and reproducibility are distinct support for C, not a substitute for this graph-theoretic motivation.",
+    "status": "PASS"
+  }
+}
