@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Both graph update matrices are derived directly from their distinct-neighbour lists. On M_2n the ring multiplier is z^{-1}(1+z²+z^{n+1}); its only possible root on z^{2n}+1 satisfies the primitive-cube relation, while derivative and Hasse derivative give exact multiplicity 1 (even n) or 2 (odd n). On the prism B²=(Phi_3/z)²I and its local Smith factors are (1,Phi_3²). These prove, for every n, all kernel dimensions, transient bounds, recurrent dimensions and fibre sizes. Direct bitset matrix rank verification for n=3..128 and independent scalar state enumeration for n=3..9 reproduced all proposed quantities. All dimensions, boundaries, timing quantifiers and the phase-fibre definition are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martin–Odlyzko–Wolfram (1984), DOI 10.1007/BF01223745: inspected accessible author-uploaded full-text sections on one-dimensional nearest-neighbour additive rules, cyclic orbit tables, and finite-field polynomial appendices.",
+        "Lettieri–Stevens–Thomas (2006), DOI 10.1216/rmjm/1181069447: inspected full-text Sections 2–4 and theorem statements treating Rule 90 and 150, not crossed-seam cubic ladder graphs.",
+        "Chang–Su, arXiv:1603.01679: submission dated 2016-03-05; abstract treats periodic-boundary cellular automata on Cayley trees, not ladder seams."
+      ],
+      "reasoning": "General polynomial/rational-canonical methods are broader in technique but do not state the new arithmetic comparison for two graph families, including unchanged stable-image size alongside opposite nilpotent-index changes. The generic algorithm would require the nontrivial explicit Phi_3-adic computations reconstructed in the proof. This is a real coverage risk rather than evidence of guaranteed uniqueness.",
+      "searches": [
+        "Linear cellular automata on generalized Petersen and Möbius ladder graphs over F2, adjacency polynomial gcd and cycle lengths",
+        "\"Algebraic Properties of Cellular Automata\" 1984 pdf Springer 1984 40 pages smaller",
+        "\"Characteristic and Minimal Polynomials of Linear Cellular Automata\" pdf lettieri",
+        "\"Möbius ladder\" \"binary\" adjacency matrix nullity"
+      ]
+    },
+    "checked_sources": [
+      "DOI:10.1007/BF01223745",
+      "DOI:10.1216/rmjm/1181069447",
+      "arXiv:1603.01679",
+      "DOI:10.1016/S0167-2789(97)00074-2",
+      "DOI:10.3233/FUN-2008-87202"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The previously available prism-XOR result gives the untwisted sizes and depths but does not determine the Möbius multiplier or its zero multiplicities; the same-family Möbius majority count uses a nonlinear rule and lacks this transient theorem.",
+        "Martin–Odlyzko–Wolfram gives established algebraic finite-CA techniques; the new comparison requires specifying two different spatial operators and proving their distinct nilpotent chains.",
+        "The Dow (1997) and Ganguly–Sikdar–Chaudhuri (2008) publisher abstracts describe general additive-CA injectivity and cycle structures but no inspected Möbius or prism graph specialization."
+      ],
+      "reasoning": "The exact Möbius formulas and the opposite twist effects do not follow by simply restating the prism calculation: the Möbius primary factor lives in F_2[z]/(z^{2n}+1) and has multiplicity 1 or 2, whereas the prism factor is a two-row matrix with local Smith factors (1,Phi_3²). The comparison is not a title/parameter match and includes genuinely different nilpotent indices.",
+      "searches": [
+        "Binary parity additive cellular automata on Möbius ladder graphs, XOR neighbour update, periodic points, transient and invertibility",
+        "Exploring Cycle Structures of Additive Cellular Automata Ganguly Sikdar Chaudhuri 2008 PDF",
+        "\"Additive cellular automata and global injectivity\" R A Dow 1997 pdf",
+        "\"Möbius ladder\" \"modulo 2\" \"adjacency\" \"rank\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact graph definition makes Möbius parity the circulant multiplier 1+z²+z^{n+1} on F_2[z]/(z^{2n}+1). Targeted published-finding corpus retrieval ranked unrelated Möbius-ladder homology and distinct parity graphs, not this multiplier. The inspected 2006 Rule 90/150 full-text calculations use radius-one self-inclusive or self-exclusive cycles."
+      ],
+      "reasoning": "The root and multiplicity calculations depend on the length-dependent antipodal term z^n. This is not the ordinary nearest-neighbour Rule 90 or 150, nor the previously studied majority map on the same graph. Generic linear-CA normal forms do not record the asserted explicit parity-of-n seam comparison.",
+      "searches": [
+        "Binary parity additive cellular automata on Möbius ladder graphs, XOR neighbour update, periodic points, transient and invertibility",
+        "Möbius ladder parity automaton recurrent configurations depth 2^{v_2(n)+1} kernel",
+        "\"Möbius ladder\" \"GF(2)\" \"adjacency\" rank",
+        "\"Möbius ladder\" \"linear cellular automata\" xor neighbor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Martin–Odlyzko–Wolfram Table 1 tabulates lengths for the classical nearest-neighbour rules; it does not tabulate Möbius adjacency updates or the twisted-versus-untwisted census.",
+        "Lettieri–Stevens–Thomas Table 1 gives Rule 90/150 lengths, not Möbius ladder update lengths.",
+        "Ranked public research records on Möbius ladders concerned perfect-matching homology, not parity state counts."
+      ],
+      "reasoning": "No examined exact table is a Möbius-ladder XOR recurrence census. Since a failed search does not prove historical absence, unindexed tables are acknowledged as a residual possibility.",
+      "searches": [
+        "Möbius ladder parity automaton recurrent configurations depth 2^{v_2(n)+1} kernel",
+        "\"Möbius ladders\" \"singular\" adjacency \"mod 2\"",
+        "Circulant graph M(2n;n) binary neighbor XOR dynamics modulo three nullity gcd x^{2n}-1 polynomial x^{n+1}+x^2+1"
+      ]
+    },
+    "rationale": "The inspected prior works give general linear/additive-automaton techniques, standard Rule 90/150 spectra, or reversibility on Cayley trees; no compared statement covers the exact Möbius-ladder zero-primary multiplicity and its twisted-versus-untwisted sharp depth law while the eventual recurrent counts stay identical. The closest same-family prior claim concerns majority rather than XOR, and the closest same-rule result covers the untwisted prism only. General polynomial methods are credited, and unindexed specialization remains a stated residual risk.",
+    "residual_risks": [
+      "An unindexed explicit Möbius-ladder parity result might exist.",
+      "Classical generic polynomial-CA machinery may make some components immediate for specialists, although the exact twisted-versus-untwisted Phi_3-adic comparison was not found in inspected statements.",
+      "The Dow 1997 and Ganguly et al. 2008 full texts were not accessible; neither abstract establishes that it contains this precise pair-family theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides polynomial factorization framework and classical state-graph characterization. Inspected explicit family is nearest-neighbour 1D periodic rules; no Möbius/prism twist theorem located. General-technique scope remains an acknowledged novelty risk.",
+        "evidence": "Original publication DOI:10.1007/BF01223745, Section 3/4 and Table 1 on nearest-neighbour additive rules.",
+        "identifier_or_url": "https://www.researchgate.net/publication/38329520_Algebraic_Properties_of_Cellular_Automata",
+        "material_read": "Accessible author-uploaded full-text transcription: introduction, nearest-neighbour table and polynomial-rule sections, finite-field appendix; searched for Möbius terminology",
+        "method": "read full-text portions and theorem context via accessible HTML transcription",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "Classical general result on full state-transition graphs of additive CA, potentially dominating specialization"
+      },
+      {
+        "assessment": "Theorem 2.1 connects nilpotent factors to transient lengths; named explicit models are Rule 90/150. Does not assert Möbius cubic ladder twist equalities.",
+        "evidence": "DOI:10.1216/rmjm/1181069447; Rule 90/150 local operators vs antipodal graph edge.",
+        "identifier_or_url": "https://www.researchgate.net/publication/38371117_Characteristic_and_Minimal_Polynomials_of_Linear_Cellular_Automata",
+        "material_read": "Accessible full-text Section 2 Theorem 2.1, Section 3 Theorems 3.1–3.4, Section 4 Rule 150 and Table 1",
+        "method": "read primary full-text HTML transcription and compare definitions/operators",
+        "title": "Characteristic and Minimal Polynomials of Linear Cellular Automata",
+        "trigger": "Generic linear CA minimal-polynomial and transient-length theorems"
+      },
+      {
+        "assessment": "Different graph family (Cayley trees), not a Möbius or prism graph census; material access limited to abstract.",
+        "evidence": "arXiv:1603.01679, first submitted 2016-03-05.",
+        "identifier_or_url": "https://arxiv.org/abs/1603.01679",
+        "material_read": "Title, authors, initial submission timestamp 2016-03-05, and complete abstract; full arXiv PDF endpoint inaccessible during retrieval",
+        "method": "arXiv public abstract and submission record; attempted full-text retrieval",
+        "title": "Reversibility of Linear Cellular Automata on Cayley Trees with Periodic Boundary Condition",
+        "trigger": "Verified dated early public source on boundary-dependent linear CA invertibility"
+      },
+      {
+        "assessment": "General global-injectivity statements may cover algebraic methodology but full-body comparison unavailable; overlap risk stated.",
+        "evidence": "Physica D 110 (1997), 67–91, DOI.",
+        "identifier_or_url": "https://doi.org/10.1016/S0167-2789(97)00074-2",
+        "material_read": "Publisher abstract and bibliographic description; arXiv/OA lookups yielded no full text; institutional download returned internal error",
+        "method": "publisher abstract and access attempts; no unsupported full-document assessment",
+        "title": "Additive Cellular Automata and Global Injectivity",
+        "trigger": "Potentially dominating general additive-CA reversibility theory"
+      },
+      {
+        "assessment": "General additive/affine cycle characterization, not available in full, remains an explicit historical risk.",
+        "evidence": "Fundamenta Informaticae 87 (2008), 137–154; DOI.",
+        "identifier_or_url": "https://doi.org/10.3233/FUN-2008-87202",
+        "material_read": "Publisher abstract and bibliography; arXiv/OA lookup no full copy, institutional retrieval blocked by VPN disconnect",
+        "method": "abstract only and retrieval attempts; no whole-document NOT_COVERING conclusion",
+        "title": "Exploring Cycle Structures of Additive Cellular Automata",
+        "trigger": "Potentially dominating cycle-structure result for XOR automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ae5ae549-14ed-4681-bcd1-ba0c38a7d9b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An n-rung cubic ladder and the same ladder with one crossed seam are a canonical controlled comparison of boundary topology under a fixed local rule. The exact infinite-family law shows the twist preserves the number of recurrent states and uniform eventual-phase fibre size, yet changes maximum entrance time from 2 to 1 for odd n and multiplies it by 2 for even n divisible by 3. It therefore isolates a structural, quantitatively sharp boundary effect invisible from attractor counts, including unbounded two-adic delays and complete entrance-depth distributions. The motivator is not arbitrary parameter slicing or recomputation of a pre-existing table.",
+    "status": "PASS"
+  }
+}
