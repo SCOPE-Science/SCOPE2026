@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The periodic hat Gram matrix equals (4I+S+S^{-1})/(6n) for \\(n\\ge3\\). The infinite Green row with u=-2+sqrt(3) satisfies the Kronecker recurrence and periodizes to the exact inverse. A nodal kernel is linear on each mesh arc, so its L1 norm is exactly six times the stated H-sum. Convexity makes nodal evaluation globally maximal and the kernel sign is a sharp input. Infinite Green absolute mass is exactly 2; periodization gives the strict finite upper bound and the universal 4q^m error upper estimate. For even/odd n, two period images have rigorously opposite signs on fixed-width windows with explicit lower masses, proving a positive c_* q^m defect. Taking nth roots yields the sharp limit. check.py separately reconstructs 26 inverse rows in exact rationals, performs 1,722 finite assertions, and matches exact small n values. No finite computation is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Passenbrunner arXiv:1608.06720 Theorem 1.4 gives norm bounded independent of arbitrary periodic knot sequences; §3 gives geometric localization, without sharp finite-uniform-grid constants.",
+        "Oswald arXiv:math/0611573 introduction recalls the dimension-one knot-independent bound 3 and gives a high-dimensional counterexample; no finite periodic improvement.",
+        "The established uniform bi-infinite piecewise-linear spline projection has sharp endpoint norm two, but this does not determine finite-circle corrections."
+      ],
+      "reasoning": "General spline stability applies to this subspace only as an upper bound and gives no equality or exponentially sharp defect. The infinite-line exact norm =2 is a limit, not the finite-rank finite-circle formula. Thus the present finite periodic theorem is not a corollary of the examined statements.",
+      "searches": [
+        "de Boor Schoenberg spline projector sharp norm periodic piecewise linear 2",
+        "Crouzeix Thomée exact L infinity stability constant piecewise linear L2 projection periodic uniform mesh",
+        "Lebesgue function piecewise linear spline L2 projection norm 2 periodic mesh",
+        "arxiv:1608.06720",
+        "arxiv:math/0611573"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0408418",
+      "arxiv:math/0611573",
+      "arxiv:1608.06720",
+      "Exact endpoint norms and residue law for consecutive cyclic Fourier projections",
+      "Exact three-frequency Fourier-projection norm on every cyclic group",
+      "Exact nearest-neighbor Shapiro doubling on finite cycles"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The exact bi-infinite spline projection norm agrees with limiting 2 but contains no periodization cancellation argument on finite circle.",
+        "Kayumov arXiv:math/0408418 §1 describes a sharp 3 uniform-over-all-partitions bound for classical interval linear splines, not the strict finite-circle 2 bound.",
+        "The finite projection-norm equality uses direct cyclic inverse and exact piecewise sign integration; the lower convergence bound uses two overlapping opposing period images."
+      ],
+      "reasoning": "Even granting strongest inspected general bound and the full-line equality, there is no implication establishing finite Lambda_n<2 with the correct \\(q^{\\lfloor n/2\\rfloor}\\) two-sided size, or the exact rational \\(n=3,\\ldots,6\\) values. Shared inverse-Green techniques are acknowledged, not offered as novelty.",
+      "searches": [
+        "Exact endpoint norms and residue law for consecutive cyclic Fourier projections",
+        "arxiv:1608.06720 §3",
+        "arxiv:math/0408418 §1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1608.06720 §1 and §3 discuss periodic spline orthoprojection and inverse Gram localization but provide a uniform bound rather than the exact uniform-grid finite-n norm.",
+        "Nearest published cyclic spectral projection match: Exact endpoint norms and residue law for consecutive cyclic Fourier projections has a sampled trigonometric Dirichlet kernel, not a piecewise-affine spline mass-matrix projection.",
+        "Inverse Gram expression derived independently from A=\\(4I+S+S^{-1}\\) and periodized Green coefficients."
+      ],
+      "reasoning": "A periodic B-spline projector is equivalently a cyclic finite-element mass-matrix inverse acting on hats; that equivalence is addressed directly by the proof. Finite-group Fourier band projections and cyclic Shapiro doubling are different operators whose norm identities do not imply the formula.",
+      "searches": [
+        "periodic uniform linear spline L2 projection exact L infinity operator norm finite number knot mesh 2 convergence",
+        "exact Lebesgue constant periodic linear spline orthogonal projection circulant tridiagonal mass matrix",
+        "periodic linear spline L2 orthogonal projection exact L infinity norm uniform knots 2",
+        "Lebesgue constant periodic piecewise linear spline L2 projection max norm cardinal hat"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The three-consecutive-frequency cyclic projection has a Dirichlet kernel and sample-size residue classes; here the kernel is the periodization of a signed cardinal hat dual, with different closed finite-n values.",
+        "Nearest-neighbor cyclic Shapiro doubling concerns a positive-type dual trigonometric extremum, not an L² spline projection.",
+        "Finite values 16/9, 17/9, 257/132, 2923/1485 independently recomputed as exact rationals."
+      ],
+      "reasoning": "No inspected database/table entry provides these spline projection norms or the \\(\\sqrt{2-\\sqrt3}\\) exponential defect rate. The result does not assert that no unsearched table can exist.",
+      "searches": [
+        "exact Lebesgue constant periodic linear spline orthogonal projection circulant tridiagonal mass matrix",
+        "For the L2 orthogonal projector onto periodic piecewise linear splines on the uniform n knot circle, exact L infinity norm via cyclic tridiagonal \\(4I+S+S^{-1}\\) inverse, strictly below 2 and exponentially approaching 2 at rate \\((2-\\sqrt3)^{n/2}\\), parity defect",
+        "Exact three-frequency Fourier-projection norm on every cyclic group",
+        "Exact nearest-neighbor Shapiro doubling on finite cycles"
+      ]
+    },
+    "rationale": "The finite-circle exact L-infinity norm and its sharp \\(q^{\\lfloor n/2\\rfloor}\\) deficit were not found in the actual searches, previously accessible spline statements, or the inspected periodic-spline and classical-stability source material. Crucially the known exact uniform bi-infinite norm 2 does not imply strict finite-period norm, the exact finite formula, or a lower defect estimate. Residual historical risk is recorded; this is not a uniqueness certificate.",
+    "residual_risks": [
+      "Older periodic finite-element mass-matrix, cardinal B-spline, circulant inverse, or Lebesgue-constant tables might contain equivalent finite-n formulas; their full texts were not all obtainable.",
+      "Kayumov historical discussion mentions Oskolkov and Ciesielski, whose complete original papers were not inspected.",
+      "semantic coverage and access to historical literature cannot establish global uniqueness; historical priority is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem covers boundedness, not sharp norm at uniform finite n or geometric two-sided defect.",
+        "evidence": [
+          "§1.2 Theorem 1.4: uniform L∞ bound independent of knot sequence",
+          "§3 proof uses localization and geometric series; no explicit n-dependent endpoint norm"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.06720",
+        "material_read": "Complete HTML-accessible text, especially §1 Theorem 1.4, §3 Lemma 3.1 and its proof, and §4-5.",
+        "method": "Primary author text read as HTML with theorem/derivation comparison",
+        "title": "Orthogonal projectors onto spaces of periodic splines",
+        "trigger": "Same periodic L² spline projector, arbitrary knots, possible covering theorem"
+      },
+      {
+        "assessment": "One-dimensional boundedness is background; example is multivariate and does not cover finite uniform circles.",
+        "evidence": [
+          "Introduction reports one-dimensional sharp all-partition upper bound 3",
+          "§2 uses hat Gram matrix and nodal equations; no periodic circulant formula"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0611573",
+        "material_read": "Full HTML-accessible Introduction and §§2–3; the theorem concerns dimensions greater than one.",
+        "method": "Primary author text inspected with explicit statement/domain comparison",
+        "title": "A counterexample concerning the L_2-projector onto linear spline spaces",
+        "trigger": "Classical finite element mass matrix, potentially stronger endpoint norm"
+      },
+      {
+        "assessment": "Historical fixed-interval and general-knot bounds do not imply finite periodic corrections; unexamined later sections retain residual priority risk.",
+        "evidence": [
+          "§1.2 identifies sharp global bound 3 for degree-one splines over arbitrary partitions",
+          "Objects are intervals and L-splines rather than the finite uniform torus"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+        "material_read": "Author abstract and French introductory historical account §§1.1–1.3, including the cited Ciesielski/Oskolkov 3 bound.",
+        "method": "Primary author text read in accessible HTML; partial rather than exhaustive full-thesis inspection",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "Earlier explicit linear-spline projector norm and generalized spline analogue"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93171c0c-cb28-4f2e-8879-8661879656c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves the natural finite-size endpoint robustness question for periodic lowest-order spline least-squares projection on a standard uniform mesh, directly relevant to the stability coefficient in near-best approximation. Earlier theory bounds arbitrary partitions by 3 and periodic ones uniformly without exact constants, while the infinite uniform mesh has norm 2. The theorem identifies the strict finite periodic improvement, a computable exact constant at every n, and the optimal exponential speed of convergence of that improvement (not just an algorithmic recomputation of the full-line limit). The input and output norms, object, and optimal rate are mathematically natural, and the lower bound needs a sign-cancellation argument not supplied by the known general stability bounds.",
+    "status": "PASS"
+  }
+}
