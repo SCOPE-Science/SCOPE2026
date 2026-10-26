@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Conditioning on a prescribed r-cycle gives exactly r vertices with 1+Bin(n-r,1/n) indegree and n-r vertices with Bin(n-r,1/n) indegree. The resulting mixed moment minus the unconditional binomial mean produces P_n(r). The difference P_n(r+1)-aP_n(r)=r[n^2-n-(2n-1)r-r^2]/n makes the scaled sign function unimodal. Its initial equality and strict rise for n>=4, final zero, and coprime divisibility excluding any r>=3 equality prove the unique sign switch. Limiting normalized scaled sign F_n(floor(nx))/n^3=(1-x)(1+x^2)e^x has unique interior crossing by explicit derivative. An independent program enumerated all 50,068 maps with n<=6 and completed 11,828 exact rational tests, with no discrepancies. Small n=2,3 handled separately; finite enumeration does not prove the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hansen–Jaworski 2007 abstract specifies cyclic points, components, and typical component size, not individual r-cycle and global indegree-two joint laws.",
+        "Hansen–Jaworski 2008 Local Properties full PDF (doi:10.1239/aap/1208358892), introductory definitions and section 3 results give local predecessor/successor distributions and first moments.",
+        "Berg–Jaworski 1992 chapter identified from bibliography but not available in full text."
+      ],
+      "reasoning": "Exchangeable-indegree frameworks include the uniform independent-image law as a special case; their generality in model class does not by itself imply stronger coverage of the specific statistic. If the inaccessible chapter establishes its two-variable generating function, it might determine the formula as a corollary; this remains a residual concern, not a checked NOT_COVERING assertion.",
+      "searches": [
+        "\"Random mappings with exchangeable in-degrees\" Hansen Jaworski 2007 full paper",
+        "\"Local properties of random mappings with exchangeable in-degrees\" pdf",
+        "\"Probability distributions related to the local structure of a random mapping\" Berg Jaworski PDF"
+      ]
+    },
+    "checked_sources": [
+      "Arney and Bender 1982, Pacific Journal of Mathematics 103:269–294",
+      "Flajolet and Odlyzko 1990, Random Mapping Statistics",
+      "Hansen and Jaworski 2007 first-publication metadata / 2008 RSA abstract",
+      "Hansen and Jaworski 2008, Advances in Applied Probability 40:183–205, full PDF relevant sections",
+      "Berg and Jaworski 1992 chapter bibliographic identification, not full-text checked",
+      "Distinct earlier mathematical claims regarding loop counts and fixed indegree profiles, and origin counts versus total cyclic points, were compared by implication.",
+      "Public semantic research-index search of aliases, parameters, and stronger coverage."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Odlyzko 1990 Section 3 marks components, cyclic points, and terminal nodes separately; inspected EGF calculations do not state the length-by-degree-two cross moment.",
+        "Arney–Bender 1982 begins with indegree-r frequencies, cyclic-point and coalescence quantities, and treats restricted random mappings; a joint conditional formula with one crossover was not found in read material.",
+        "2008 local-properties paper derives distributions of orbit-related statistics at marked vertices, not the length-resolved covariance stated here."
+      ],
+      "reasoning": "The new finding is not implied solely by any cited marginal mean or one-vertex distribution, since covariance needs a joint law. The older generating-function frameworks could permit a derivation after new marking/algebra, which is not the same as an explicit prior theorem. Full chapter-level priority cannot be settled without the 1992 source.",
+      "searches": [
+        "\"random mapping statistics\" Flajolet Odlyzko 1990 indegree generating functions",
+        "\"Random mappings with constraints on coalescence and number of origins\" Arney Bender 1982",
+        "\"Local properties of random mappings with exchangeable in-degrees\" Hansen Jaworski 2008"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arney–Bender 1982, Flajolet–Odlyzko 1990, and Hansen–Jaworski 2008 relevant full-text sections were inspected; the cycle-length/indegree-two mixed covariance is not stated in inspected material.",
+        "Published search hit “Linear inversion-gap profile for cycle count in a uniform random permutation” concerns permutation cycles, not independently assigned mapping images."
+      ],
+      "reasoning": "An equivalent claim could use degree-two vertices, binary coalescence, preimage multiplicities, fixed-length recurrent orbits, or covariance sign of cycle count with in-degree histogram. Matching terminology alone does not imply coverage; the inspected sources do not yield the exact sign classification as an asserted theorem.",
+      "searches": [
+        "uniform random mapping indegree two count covariance number of cycles of a given length sign change around 0.585 n",
+        "functional digraph cycle length r indegree-2 vertices conditional expected count threshold random mapping",
+        "random mapping indegree histogram cycle count first moment exact one-switch dependence",
+        "\"random mappings\" \"cycle length\" \"in-degree\" \"covariance\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Prior available mathematical results on fixed indegree profiles versus loops and on indegree-zero vertices versus the total number of cyclic points concern distinct statistics and do not imply the length-specific indegree-two covariance.",
+        "Relevant public index searches did not return a table or theorem of these exact mixed moments; a nonhit is not a novelty certificate."
+      ],
+      "reasoning": "The result is a general formula and all-n single-crossing theorem, not a finite table lookup. Own mapping claims cover different conditioning and different statistics; search nonhits do not certify uniqueness.",
+      "searches": [
+        "uniform random mapping indegree two count covariance number of cycles of a given length sign change around 0.585 n",
+        "functional digraph cycle length r indegree-2 vertices conditional expected count threshold random mapping",
+        "random mapping indegree histogram cycle count first moment exact one-switch dependence",
+        "\"number of vertices of indegree 2\" \"cycles\" \"random mapping\" covariance"
+      ]
+    },
+    "rationale": "The conditional branch-count law gives an explicit covariance with individual cycle lengths and a nontrivial universal signed cutoff; inspected predecessor theorems give indegree statistics, separate mapping cycle statistics, local-vertex laws, or cyclic-point/component counts, without asserting this length-resolved mixed moment or sign transition. Specific inaccessible historical local-structure material remains a priority risk and absence of search hits is not proof of novelty.",
+    "residual_risks": [
+      "The 1992 Berg–Jaworski local-structure chapter could contain a stronger joint generating function or exact mixed moment; its full text was not obtained.",
+      "The 2007 Hansen–Jaworski exchangeable in-degree companion paper was available only as abstract/bibliography; a general formula in its full text could subsume a special case.",
+      "Older random-mapping enumerators can generate multivariate coefficient identities; unindexed equivalent formulas may exist. Database nonhits are not a novelty certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related setup, not observed to assert cycle-length/indegree-two mixed covariance or unique crossing",
+        "evidence": [
+          "Journal p.269 defines immediate predecessor count n_r, origins, coalescence and cyclic-vertex notions; PDF 1982, Vol.103 No.2"
+        ],
+        "identifier_or_url": "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-p.pdf",
+        "material_read": "Original PDF front matter, definitions on journal page 269 and inspected sections on constrained random mapping counts and asymptotic models; did not claim exhaustive word-by-word inspection of all pages",
+        "method": "lawful full PDF, page-text review plus screenshot",
+        "title": "Random mappings with constraints on coalescence and number of origins",
+        "trigger": "Indegree-r and coalescence statistics in historical mapping theory"
+      },
+      {
+        "assessment": "Marginal generating functions and their asymptotics, not the specified mixed covariance sign-spectrum in reviewed sections",
+        "evidence": [
+          "Page 337 (equations 21–27) marks distinct parameters separately, with leaves/terminal-node marking in equation 24"
+        ],
+        "identifier_or_url": "https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf",
+        "material_read": "Full PDF accessible; inspected overview, Section 3 generating-function calculation and page 337 for separately marked components, cyclic points, terminal nodes",
+        "method": "lawful public PDF extracted text and page screenshot",
+        "title": "Random Mapping Statistics",
+        "trigger": "Most plausible earlier generic generating-function treatment of cycles and indegrees"
+      },
+      {
+        "assessment": "Abstract treats cyclic points and component laws; not enough material for whole-paper NOT_COVERING",
+        "evidence": [
+          "Wiley page states first published 04 September 2007; cyclic points, components, typical component sizes in abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20187",
+        "material_read": "Public abstract and dated bibliographic details; original full 2007/2008 article not acquired",
+        "method": "publisher html abstract and references; alternate OA and arXiv searches unsuccessful",
+        "title": "Random mappings with exchangeable in-degrees",
+        "trigger": "Broad mapping model with exact cyclic statistics; source anchored to a verifiable day"
+      },
+      {
+        "assessment": "Section 3 is centered on a marked vertex predecessor/successor laws, not C_r versus aggregate N_2 covariance",
+        "evidence": [
+          "Printed pp.183–205; Section 3 first-moment results and Theorem 3.1. Same primary MSC 60C05 listed in PDF"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1208358892",
+        "material_read": "Public full 23-page PDF accessible, including introduction, model definition and Section 3 formulas for predecessor/successor statistics",
+        "method": "PDF text inspection, term search, screenshot of page 187",
+        "title": "Local properties of random mappings with exchangeable in-degrees",
+        "trigger": "Potentially stronger local degree/mapping connection"
+      },
+      {
+        "assessment": "Inaccessible plausible source; cannot conclude whole-document noncoverage",
+        "evidence": [
+          "Cited as a chapter in Hansen–Jaworski 2007 references and book table of contents"
+        ],
+        "identifier_or_url": "Berg and Jaworski, in Random Graphs, vol. 2 (1992), pp.1–22",
+        "material_read": "Bibliographic entries and third-party publisher contents only; full chapter unavailable",
+        "method": "Public preprint and open-access searches unsuccessful; institutional full-text access also unavailable",
+        "title": "Probability distributions related to the local structure of a random mapping",
+        "trigger": "Directly plausible local-structure predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "610d4202-ffd1-4241-b4f9-25c49b7df4e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The indegree-two count is a canonical statistic of binary merging/branching in functional graph components, while the number of length-r recurrent cycles probes global core scale. The theorem gives the full finite dependence spectrum, an unexpectedly sharp positive-to-negative threshold, and a nontrivial universal 0.584724... asymptotic cutoff. Marginal counts do not determine the covariance. The scope is a natural full parameter family, not an arbitrary slice or a tiny improvement.",
+    "status": "PASS"
+  }
+}
