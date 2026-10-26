@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The cubic cancellation condition forces the complete positive quadratic metric classification. Antipodal inward-boundary inequalities imply negative semidefiniteness of the entire shifted quadratic drift; two-by-two principal minors then force the center to scale linearly with the parameter. The exact drift along the displaced \(y\)-axis produces the sharp \(3\rho^2\) obstruction. The primary source's explicit trapping ball has precisely the same leading semiaxis, establishing sharpness. The packaged symbolic checker reproduced the nonstandard polynomial coefficients and the subleading radius asymptotic. This proof concerns forward-invariant ellipsoids only, not the actual attractor.
+
+**Originality — PASS under inspected evidence.** The original ETM-3D article provides an upper ellipsoid but no lower bound against optimizing fixed energy-compatible quadratic metrics. A published ETM-3D threshold result studies centered quadratic stability near the first saddle-node, not large-parameter absorbing radius optimization. Multiple semantically targeted mathematical database searches retrieved no stronger implication; those searches alone are not a uniqueness proof. The closest published result's full text was not accessible, so a residual historical-priority risk remains.
+
+**Value — PASS.** High-parameter absorbing-set conservatism is a concrete open design issue identified by the original article. The theorem supplies a class-wide obstruction with an optimal universal leading constant, explaining rigorously why changing fixed energy-compatible quadratic weights or centers cannot shrink the certificate from quadratic to linear growth. It delineates when a genuinely nonlinear or otherwise broader trapping technique is needed, rather than merely giving another loose bound.
+
+Self-review: passed. Independent audit: not yet performed.
