@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A transfer matrix with eigenvalues q-1 and -1 gives all two-point moments. Exact multiplication establishes the cyclic Green inverse; a rank-one update yields precision. Fourier positivity and \\(b^n\\ge n(b+1)-1\\) with equality only at \\((n,b)=(3,2)\\) determine all singular cases. A strict elementary bound settles adjacent signs; c=(b-1)(-1/b)^n settles every nonadjacent sign. The derivation covers all integers n,q in the claim. Independent finite enumeration and exact-rational matrix multiplication passed 6605 assertions using the embedded verify.py; this is corroboration, not an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen–Liu–Mani–Moitra, arXiv:2304.01954, Section 5.1.2 defines a general influence matrix and proves bounds for random colorings, not a closed exact finite-cycle precision sign law.",
+        "Turban, arXiv:1701.09058, Section 4 equations (4.1)–(4.12) concerns the ferromagnetic multi-site Potts model and free-boundary spin correlations.",
+        "Chang–Shrock, arXiv:cond-mat/0404373, introduction and strip transfer-matrix construction target chromatic polynomials and zeros."
+      ],
+      "reasoning": "The strongest apparent broader framework is Potts transfer-matrix theory, which supplies a method and related two-point formulas rather than a theorem asserting all nonneighbor signs of the inverse marginal covariance after color coarsening. The general spatial-mixing results provide bounds or influence control but not exact inverse entries.",
+      "searches": [
+        "\"Potts\" \"inverse susceptibility\" \"one-dimensional\" cycle",
+        "one dimensional Potts chain periodic boundary correlation inverse matrix single color susceptibility exact",
+        "Antiferromagnetic zero temperature Potts model on cycle: one-spin same-color two-point susceptibility inverse correlation kernel Sherman Morrison nonlocal correction",
+        "arxiv:2304.01954 spectral independence influence matrix random colorings"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2304.01954 (public full-text rendering and mathematical statements)",
+      "arxiv:1701.09058 (public full-text rendering, Section 4)",
+      "arxiv:cond-mat/0404373 (public full-text rendering, main framework)",
+      "Public mathematical result: Incidence precision law for all inversion indicators of a random permutation",
+      "Public mathematical result: Occupied-box indicators have a strictly positive precision matrix",
+      "Public mathematical result: Exact marginal and full-order linear dependence signs in weighted edge covers of K_{2,n}"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source arXiv:2304.01954 treats strong spatial mixing on trees and general large-girth random coloring sampling, whereas the claim fixes a simple finite cycle and inverts a one-color covariance matrix.",
+        "arXiv:1701.09058 studies nonzero-temperature ferromagnetic multi-site correlations; its displayed correlation function does not yield the claimed inverse-covariance signs by parameter specialization.",
+        "arXiv:cond-mat/0404373 treats chromatic partition functions of cyclic and Möbius lattice strips; marking one color at two vertices and inverting the resulting covariance is additional analysis.",
+        "The public mathematical record \"Incidence precision law for all inversion indicators of a random permutation\" concerns permutation comparisons; \"Occupied-box indicators have a strictly positive precision matrix\" concerns independent occupancy; neither graph-coloring law is covered."
+      ],
+      "reasoning": "Exact moment computation alone is not the full assertion: the rank-one inverse, strict n-parity signs and positivity exception must also follow. None of the compared results states an implication furnishing these for the random proper-coloring model. An unlocated general inverse-susceptibility formula remains a possible source of implicit coverage.",
+      "searches": [
+        "Uniform proper q-coloring of a cycle: covariance of single-color occupancy indicators and inverse circulant precision matrix; parity-dependent nonlocal partial correlation and dense rank-one fill-in",
+        "Antiferromagnetic zero temperature Potts model on cycle: one-spin same-color two-point susceptibility inverse correlation kernel Sherman Morrison nonlocal correction",
+        "Color count indicator random proper graph coloring covariance exact q cycle Potts transfer matrix",
+        "\"proper colorings\" \"inverse covariance\" cycle indicator",
+        "\"q-coloring\" \"precision matrix\" cycle vertices"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2304.01954 defines vertex-color influence matrices for general graphs but not their inverse restricted to one color on cycles.",
+        "arXiv:1701.09058, Section 4, studies two-point Potts-spin correlations for multi-site interactions with free boundary conditions, not the present inverse covariance.",
+        "Classical cyclic Green kernels and rank-one matrix inversion are background, not a recorded equivalent full parity theorem."
+      ],
+      "reasoning": "A fixed-color indicator covariance is a projected spin-susceptibility kernel, and its inverse could conceivably be described as an effective precision. The inspected references do not identify its exact rank-one fill-in, all-pair parity signs, and (3,3) boundary. Treating a known transfer-matrix calculation as an equivalence without the inversion/sign argument would overstate prior coverage.",
+      "searches": [
+        "Uniform proper q-coloring of a cycle: covariance of single-color occupancy indicators and inverse circulant precision matrix; parity-dependent nonlocal partial correlation and dense rank-one fill-in",
+        "Antiferromagnetic zero temperature Potts model on cycle: one-spin same-color two-point susceptibility inverse correlation kernel Sherman Morrison nonlocal correction",
+        "one-dimensional Potts model ring exact two point function partial correlation inverse covariance",
+        "\"inverse correlation matrix\" \"Potts\" \"one-dimensional\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned classical Potts and cycle-coloring results, but no exact catalog/table row for the present inverse matrix.",
+        "No finite numerical database is needed in the claim: its parameters are arbitrary integers \\(n\\ge3\\) and \\(q\\ge3\\)."
+      ],
+      "reasoning": "This is a complete symbolic family, not a lookup of finitely tabulated values. A negative search is not proof of priority; the full analytic comparison is essential.",
+      "searches": [
+        "Uniform proper q-coloring of a cycle: covariance of single-color occupancy indicators and inverse circulant precision matrix; parity-dependent nonlocal partial correlation and dense rank-one fill-in",
+        "Color count indicator random proper graph coloring covariance exact q cycle Potts transfer matrix",
+        "cycle proper colouring color indicators covariance matrix inverse",
+        "uniform proper colorings of cycles precision matrix sign pattern"
+      ]
+    },
+    "rationale": "The asserted result is not the classical proper-coloring count or two-point function, but the all-size complete inverse-covariance identity, unique singular case and parity-controlled full-order linear partial-correlation signs for one marked color. Relevant primary full text and public mathematical result summaries were compared by statement and implication. Spatial-mixing and influence inequalities do not determine the exact inverse, multi-site Potts correlation results concern a different interaction, and chromatic transfer matrices treat partition functions. Existing precision results on other models do not entail cycle-coloring precision. Earlier implicit derivations are a genuine residual priority risk.",
+    "residual_risks": [
+      "Classical Potts, graphical-model, or inverse-susceptibility texts might implicitly derive the precise projected finite-cycle rank-one correction without using the searched terms.",
+      "A search of available literature and mathematical records cannot establish first-ever priority or independence.",
+      "The inferred precision is a linear projection quantity and is not a characterization of conditional independence for binary observations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the stated finite-cycle inverse covariance: general mixing/influence bounds do not determine exact parity-signed off-diagonal entries.",
+        "evidence": [
+          "arXiv v1 first public on 2023-04-04; full-text introduction and Theorems 1.3/1.5 concern tree colorings and large-girth sampling.",
+          "Definition 5.2 defines vertex-color influence matrices, not the inverse of fixed-color indicator covariance on a cycle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.01954",
+        "material_read": "Public full-text rendering: introduction, stated theorems and sampling results, Section 5.1.2 definitions of influence matrices and spectral independence, and Section 8 discussion of factorization and influence bounds; text searched for cycle, inverse covariance and precision.",
+        "method": "arXiv full-text HTML/text rendering; section and phrase comparison",
+        "title": "Strong spatial mixing for colorings on trees and its algorithmic applications",
+        "trigger": "Motivating 2023 random-coloring literature and possible general influence-matrix coverage"
+      },
+      {
+        "assessment": "NOT_COVERING for zero-temperature uniform proper cycle colorings or all inverse covariance signs; the paper calculates free-boundary ferromagnetic multi-site Potts-spin two-point functions.",
+        "evidence": [
+          "Section 4 explicitly assumes a free boundary and multi-site interaction m>1, and evaluates Potts-spin correlations.",
+          "No one-color covariance inverse or nearest/nonnearest parity law is stated in the inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1701.09058",
+        "material_read": "Full-text introduction and Section 4 (equations (4.1)–(4.12)), plus context for free and periodic boundary conditions.",
+        "method": "arXiv full-text HTML/text rendering; direct object/model and theorem comparison",
+        "title": "One-dimensional q-state Potts model with multi-site interactions",
+        "trigger": "Possible equivalent one-dimensional Potts correlation calculation"
+      },
+      {
+        "assessment": "NOT_COVERING for a fixed-color vertex-indicator inverse covariance: studies chromatic partition functions and eigenvalue-based lattice-strip enumeration.",
+        "evidence": [
+          "Introduction identifies partition functions and chromatic zeros as main objects.",
+          "No marked-color inverse susceptibility or all-pair parity sign classification is stated in the inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0404373",
+        "material_read": "Full-text introduction, transfer-matrix/chromatic-polynomial framework and stated results for cyclic lattice strips and chromatic zeros.",
+        "method": "arXiv full-text rendering; comparison of observables and objectives",
+        "title": "Transfer matrices for the zero-temperature Potts antiferromagnet on cyclic and Möbius lattice strips",
+        "trigger": "Plausible stronger coverage from cycle/periodic antiferromagnetic Potts transfer matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c38552fd-2fd6-434c-807f-8b21e737e5a8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single observed color of a proper categorical coloring is a natural hidden-state coarsening. Despite local graph constraints, its full-order linear precision generically contains nonzero interactions between every nonneighbor, with a nontrivial exact parity reversal between odd and even cycles, a unique singular triangle and an exponential fill-in coefficient. The result supplies the entire signed matrix across a natural infinite two-parameter family, not a special numerical instance, and clarifies the difference between marginal and adjusted dependence.",
+    "status": "PASS"
+  }
+}
