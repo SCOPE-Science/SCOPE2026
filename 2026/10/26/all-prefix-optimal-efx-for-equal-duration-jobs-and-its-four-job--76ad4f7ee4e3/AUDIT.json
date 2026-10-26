@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "A universal lexicographic exchange proves greedy cardinality optimality for any prefix when durations are equal; a chronological-cyclic feasibility invariant proves simultaneous conflict-freeness and EFX. For every epsilon, four explicit rational intervals realize exact 4-to-3 obstruction, while all feasible sets of size at most three are recolorable equitably on two machines. Standalone independent enumerations on 19,305 plus 455 grid instances and four rational perturbations corroborate all proof components.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borst et al. Theorem 4: general \\(2-1/m\\) online upper bound and Theorem 5 matching general lower bound",
+        "Borst et al. Theorem 2: unweighted \\(3/2\\) offline upper/lower; Theorem 3: equal duration but unequal item weights",
+        "Fung–Poon–Yung (2012) weighted equal-length scheduling abstract"
+      ],
+      "reasoning": "The prior general upper bounds are weaker on the equal-duration unit-weight subdomain. Their varying-duration lower bounds cannot imply loss at arbitrarily small duration spread; their weighted equal-duration counterexamples use different valuations. A weighted online competitive theorem may contain special-case facts, but abstract access limits firm comparison.",
+      "searches": [
+        "\"equal length\" \"envy free\" \"interval scheduling\" fair",
+        "\"online fair\" \"unit length\" \"interval scheduling\" \"EF1\"",
+        "Fair Division Meets Scheduling Approximately Envy-Free Interval Scheduling EF1 identical machines offline unit intervals exact price of fairness number machines",
+        "online interval scheduling same length intervals greedy optimal all machines maintains equitable loads one-competitive without revocation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.15159",
+      "https://doi.org/10.23638/DMTCS-21-1-8",
+      "https://doi.org/10.1016/j.ipl.2012.01.015",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=91B05"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Borst et al. Sections 3 and 4 compare arbitrary lengths with equal-duration weighted lower bound",
+        "Static coloring of claw-free graphs is weaker than prefixwise online irrevocable optimization",
+        "Fung et al. (2012) access-limited weighted abstract"
+      ],
+      "reasoning": "Known offline equitable coloring plus classical greedy throughput results are related ingredients, but do not directly state or logically entail the same machine commitments at each arrival; the explicit cyclic realization bridges that gap. The parametric four-job obstruction is not obtained merely by substituting the published long interval length because its overlap relations require an independently verified geometric realization.",
+      "searches": [
+        "Fair Division Meets Scheduling Approximately Envy-Free Interval Scheduling EF1 identical machines offline unit intervals exact price of fairness number machines",
+        "Interval scheduling envy-free up to one interval m=2 price of fairness sharp 4/3",
+        "unit length identical duration intervals fair online scheduling EFX EF1 algorithm optimal ratio one cyclic round-robin accepted start times",
+        "\"online\" \"balanced\" \"unit interval\" \"machines\" schedule"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "de Werra claw-free equitable-coloring theorem cited in Gomes et al. (2019)",
+        "Borst–Shahkarami–Vaish (2026) Observation 1 equates EF1 and EFX with count balance for unit values"
+      ],
+      "reasoning": "Offline equal-length fair coloring of a preselected feasible set is already implied by known equitable-coloring results and not claimed as original. Those results do not provide an irrevocable online algorithm whose accepted cardinality is optimal after every prefix, or a near-unit perturbation witness. No same-claim equivalence identified.",
+      "searches": [
+        "\"online\" \"equitable coloring\" \"unit interval graphs\" greedy",
+        "\"unit-length\" \"equitable\" \"scheduling\" \"interval\"",
+        "unit length identical duration intervals fair online scheduling EFX EF1 algorithm optimal ratio one cyclic round-robin accepted start times",
+        "proper interval graph online equitable coloring circular first fit scheduling machines"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact four-job near-equal-duration EF1 instance found in examined primary text or retrieved comparable material",
+        "Small-count checker enumerates 455 rational-grid examples for minimality but is not a novelty database"
+      ],
+      "reasoning": "The four-job witness is an analytic parametric family and exact minimality statement, not a recomputation of an established tabulated constant. Absence from searches does not certify uniqueness.",
+      "searches": [
+        "\"near-unit\" \"equitable coloring\" interval graphs",
+        "\"arbitrarily close\" \"equal length\" \"equitable coloring\" interval",
+        "Interval scheduling envy-free up to one interval m=2 price of fairness sharp 4/3"
+      ]
+    },
+    "rationale": "New combined statement is the exact irreversible EFX/throughput-1 guarantee at every prefix under equal durations together with an arbitrarily small length-dispersion lower bound 4/3 with a cardinality-minimal four-job witness. Static equal-duration balanced coloring is attributed as prior. Primary theorem comparison and five targeted published-results searches found no covering statement; the incomplete 2012 paper is a stated priority risk.",
+    "residual_risks": [
+      "Full text of Fung–Poon–Yung (2012) could not be inspected, so possible equivalent equal-weight specialization remains.",
+      "Unindexed earlier online equitable-coloring and interval-scheduling notes may duplicate all or part of this elementary construction.",
+      "De Werra static equitable-coloring theorem subsumes the offline common-duration zero-price corollary; novelty is not claimed for that corollary alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state prefixwise optimality with no revocation under jointly unit values and equal lengths; its two-machine unweighted lower-bound witness uses length-3 long interval, while its equal-length lower bound uses unequal weights",
+        "evidence": [
+          "Theorem 2 (unweighted, varying length), Theorem 3 (equal length, weighted), Theorems 4–5 and model sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.15159",
+        "material_read": "HTML full article, model and assumptions, Section 3 lower bounds, Section 4 algorithm and full lower-bound construction, discussion, and citations",
+        "method": "Compared theorems 2–5 and proof constructions against both halves of the proposed statement",
+        "title": "Fair Division Meets Scheduling: Approximately Envy-Free Interval Scheduling",
+        "trigger": "Same fair scheduling model and general offline and online bounds"
+      },
+      {
+        "assessment": "Covers static equal-duration color-balancing via claw-free proper interval graphs, but not online prefix-optimal acceptance; static component is expressly attributed",
+        "evidence": [
+          "Source abstract notes de Werra 1985 equitable k-coloring of claw-free graphs for k at least chromatic number"
+        ],
+        "identifier_or_url": "https://doi.org/10.23638/DMTCS-21-1-8",
+        "material_read": "Abstract and source summary identifying de Werra (1985) claw-free equitable coloring",
+        "method": "Identified static colorability implication and compared to online irrevocable stronger property",
+        "title": "Parameterized Complexity of Equitable Coloring",
+        "trigger": "Known claw-free equitable-coloring theorem could imply offline part"
+      },
+      {
+        "assessment": "Abstract describes weighted scheduling with 2-competitive bound (even machine count), without EF1 or perturbation; exact unweighted subresults cannot be ruled out from abstract",
+        "evidence": [
+          "Author/institutional abstract; Information Processing Letters 112(10), 376–379 (2012)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ipl.2012.01.015",
+        "material_read": "Publisher and university abstract, bibliographic and results metadata; full article inaccessible",
+        "method": "Compared stated competitive ratios and weighting regime; full-article negative coverage not inferred",
+        "title": "On-line scheduling of equal-length intervals on parallel machines",
+        "trigger": "Equal-length online scheduling could encompass unit weights"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "76ad4f7e-e4e3-4d39-9613-19e9143d8433",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Equal-duration unweighted service requests form a natural controlled scheduling model; the result determines both a zero-loss online fair algorithm and a discontinuous worst-case fairness loss as soon as any positive duration heterogeneity is permitted. The four-job minimality distinguishes a structural boundary from an arbitrary parameter slice and identifies a hard obstruction for fair schedulers.",
+    "status": "PASS"
+  }
+}
