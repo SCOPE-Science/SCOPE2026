@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The optimal scalar constant follows from strict monotonicity of logarithmic elasticity (derivative contains u^2+2-2cosh u<0). Replacing the scalar inequality in the inspected published reverse-KL tensorization gives the nonlinear log-mgf inequality; Chernoff minimization yields c_p. Independent Bernoulli deficits and the exact binomial KL rate prove that any larger uniform tail exponent fails. The p=2 endpoint and p-downarrow-1 limit are addressed separately. The standalone deterministic program supplies 3600 checks but no finite computation is used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2003.13819, sections II and VI: iid heavy-tail upper deviations with a finite-variance assumption and truncation.",
+        "Pinelis, arXiv:1503.06482, specifies first and second moments of independent nonnegative inputs; finite second moments exclude part of the claimed p<2 regime.",
+        "Aminian (2026) PMLR abstract; arXiv:2610.21103v1 Remark 3.7 reports its coefficient (p-1)/p for empirical averages."
+      ],
+      "reasoning": "Earlier second-moment and additive-only results cannot directly dominate the uniform nonlinear, possibly infinite-variance result. The source tensorization lemma is broader in structure but gives the explicitly weaker coefficient; applying a new optimal scalar bound plus proving impossibility of improvement yields this sharper claim.",
+      "searches": [
+        "sharp one sided deviation inequality independent random variables bounded above finite p-th moment 1<p<2 sharp constant",
+        "Sharp Concentration Results for Heavy-Tailed Distributions"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.21103v1",
+      "https://proceedings.mlr.press/v300/aminian26a.html",
+      "https://arxiv.org/html/2003.13819",
+      "https://arxiv.org/abs/1503.06482"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eshima et al. arXiv:2610.21103v1, Theorem 3.1 and equations (5)–(7), gives c_old=(p-1)/p.",
+        "Present c_p>c_old for every 1<p<2, while an explicit Bernoulli large-deviation limit forces c_p as the optimal upper exponent.",
+        "Eshima et al. Appendix A.2 supplies the reverse-KL lemma, used with attribution."
+      ],
+      "reasoning": "A weaker numerical exponent cannot imply a strictly stronger universal bound; it certainly cannot imply matching global optimality without additional analysis. The known method is acknowledged as an ingredient, not claimed new. An earlier equivalent general theorem could still exist implicitly.",
+      "searches": [
+        "exact optimal exponential concentration rate for nonlinear functions independent variables with finite conditional p-th moments of distance to coordinatewise essential supremum; Bernoulli rare-event extremizers and sharp p-dependent coefficient one-sided McDiarmid reverse KL",
+        "sharp one sided deviation inequality independent random variables bounded above finite p-th moment 1<p<2 sharp constant",
+        "A One-Sided McDiarmid-Type Inequality for Heavy Tails via Reverse KL Tensorization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.21103v1 Theorem 3.1 and equation (5): upper tail coefficient (p-1)/p; Proposition 3.4 proves reverse-KL tensorization.",
+        "No directly equivalent published mathematical record in the returned targeted queries."
+      ],
+      "reasoning": "The claimed sharp coefficient is an exact minimax normalized tail rate and is equivalently the optimum scalar centered Laplace-moment constant via rare Bernoulli limits. The source treats the weaker coefficient but does not establish either optimality statement.",
+      "searches": [
+        "exact optimal exponential concentration rate for nonlinear functions independent variables with finite conditional p-th moments of distance to coordinatewise essential supremum; Bernoulli rare-event extremizers and sharp p-dependent coefficient one-sided McDiarmid reverse KL",
+        "sharp one sided deviation inequality independent random variables bounded above finite p-th moment 1<p<2 sharp constant",
+        "optimal constant e^-x -1+x over x^p moment generating one-sided 1<p<2",
+        "McDiarmid heavy tail sharp constant upper tail 1<p<2 exponential moments p-th deviations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published record searches returned sharp binomial exchangeability envelopes and unrelated concentration constants, including the published result on sharp infinitely exchangeable Bernoulli tails and the published result on sharp Beta-family variance-tail thresholds.",
+        "Neither result concerns conditional essential-supremum deficits or the constant optimized here."
+      ],
+      "reasoning": "No exact coefficient table or equivalent parameterized theorem was identified. Search nonappearance alone is not a novelty proof; the principal positive distinction comes from implication comparisons with the primary paper.",
+      "searches": [
+        "exact optimal exponential concentration rate for nonlinear functions independent variables with finite conditional p-th moments of distance to coordinatewise essential supremum; Bernoulli rare-event extremizers and sharp p-dependent coefficient one-sided McDiarmid reverse KL",
+        "optimal constant e^-x -1+x over x^p moment generating one-sided 1<p<2",
+        "Best constant exp(-x)-1+x over x power p upper tail concentration finite p moment independent variables"
+      ]
+    },
+    "rationale": "The October 2026 source derives a nonoptimal exponent (p-1)/p for the same conditional-deficit setup, not the sharp minimax coefficient. The exact sharp coefficient for arbitrary nonlinear product functions, its unique scalar optimizer, and a matching binomial large-deviation obstruction are not stated in the inspected full text. Earlier additive or finite-variance works do not imply the claim in the stated generality. Novelty risk: related sharp one-sided moment constants may be implicit in old analyses; this was not resolved by exhaustive historical access.",
+    "residual_risks": [
+      "An optimal scalar exponential-remainder coefficient or its concentration corollary may be implicit in classical sharp one-sided concentration literature.",
+      "Aminian full paper could not be read; source comparison uses its publisher abstract and precise statements reported in the motivating paper.",
+      "No independent scientific audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem gives weaker exponent, Appendix proves borrowed reverse-KL lemma, no matching sharpness classification stated",
+        "evidence": [
+          "Theorem 3.1 equation (1)",
+          "Proposition 3.4 equations (3)–(4)",
+          "Scalar equation (5)",
+          "Appendix A.2 equations (18)–(33)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.21103v1",
+        "material_read": "Introduction, related work, Section 3 through Theorem 3.1 and Proposition 3.4, proofs and Appendix A.2 including entropy telescoping, final discussion and references",
+        "method": "Open-access primary full HTML reading and equation-by-equation mathematical comparison",
+        "title": "A One-Sided McDiarmid-Type Inequality for Heavy Tails via Reverse KL Tensorization",
+        "trigger": "Direct match to the nonlinear conditional-deficit object and inequality"
+      },
+      {
+        "assessment": "Known empirical-average result with unoptimized coefficient reported; partial material access creates a residual risk",
+        "evidence": [
+          "PMLR official abstract",
+          "Eshima et al. Remark 3.7"
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v300/aminian26a.html",
+        "material_read": "Original paper metadata and abstract; full paper text unavailable in attempted publisher-PDF retrieval, so detailed comparison is indirect",
+        "method": "Official proceedings abstract plus specific Theorem 4.3 and coefficient as identified by Eshima et al. Remark 3.7",
+        "title": "Generalization Bounds Under Heavy-Tailed Losses",
+        "trigger": "Prior additive inequality explicitly compared in motivating paper"
+      },
+      {
+        "assessment": "Assumes bounded variances and iid summands, unlike arbitrary nonlinear finite p<2 deficit budget",
+        "evidence": [
+          "Section I lines 40–73",
+          "Theorem 2 lines 336–344",
+          "Conclusion lines 763–765"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.13819",
+        "material_read": "Sections I, II concentration, II-C large deviations, VI conclusions and statements on moment assumptions",
+        "method": "Accessible primary full HTML selected relevant sections",
+        "title": "Sharp Concentration Results for Heavy-Tailed Distributions",
+        "trigger": "Potential stronger sharp heavy-tail concentration literature"
+      },
+      {
+        "assessment": "Fixes first and second moments of additive nonnegative variables and therefore does not directly imply the p<2 nonlinear theorem; stronger implicit coverage is a risk",
+        "evidence": [
+          "Abstract states constraints on first and second moments and sums of independent nonnegative variables"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.06482",
+        "material_read": "Available authorized open abstract and mathematical assumptions; complete paper not inspected",
+        "method": "Open-access author and journal abstracts",
+        "title": "Optimal binomial, Poisson, and normal left-tail domination for sums of nonnegative random variables",
+        "trigger": "Classical potentially stronger left-tail bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b44d3268-3ebd-4a0b-8233-2e24596c571e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The normalized exponent coefficient is the natural minimax invariant for an entire class of one-sided nonlinear heavy-tail concentration bounds. Determining its exact value and matching obstruction closes the global optimality question left by the motivating inequality. For p=3/2 the exponent improves from 1/3 to about 0.917935; the improvement factor tends to infinity as p decreases to one. This is more than a minor bound sharpening and it directly controls optimal confidence exponents for nonlinear statistics under the same assumptions.",
+    "status": "PASS"
+  }
+}
