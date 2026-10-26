@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The normalized non-Hermitian generator is exponentially decaying for every fixed finite chain. The proof does not extrapolate small examples: it derives a general exact affine-in-loss Gramian identity from the Lyapunov equation, determines its weak-loss coefficient by reflection symmetry, and determines its strong-loss coefficient through a rank-one Schur complement and the explicitly evaluated singular spectrum of an odd alternating path. Symbolic \(m=1,2,3\) checks and 276 finite checks passed. The fixed-size spectral perturbation argument requires distinct reduced eigenvalues, which hold by positive Jacobi off-diagonals.
+
+**Originality — PASS relative to the records and literature inspected.** Rudner–Levitov's full arXiv presentation treats loss on an entire sublattice, primarily quantized mean displacement, and a near-transition continuum lifetime, not a finite SSH chain with one endpoint loss and a closed exact optimized time. Varbanov–Krovi–Brun use Poisson-timed projective detection rather than the rank-one non-Hermitian loss process. Burke–Wiersig–Haque treat scattering on a homogeneous lattice. An already known exact result for unweighted finite paths is a genuine special case, but does not imply the alternating-hopping geometric factor or the sharp optimized large-size dichotomy. A more general unpublished or unidentified non-Hermitian time-delay identity could cover this formula; exhaustive historical priority has not been verified.
+
+**Mathematical value — PASS.** The exact finite-size formula identifies a boundary-mode contribution that dominates exponentially when the intercell coupling is larger, and converts it into a sharp exponential-versus-linear transport optimization transition, a natural and physically motivated distinction not obtained by simply renaming the uniform-path parameters. The absorber optimal strength is also given exactly at all finite sizes.
+
+**Risk and scope.** The scientific result is limited to real two-periodic hopping, a pure local loss channel, and fixed finite chains before optimizing \(\gamma\). No multi-channel transport or probabilistic detection protocol is included. The algebraic results have been checked here but not independently replicated.
+
+Self-review: passed. Independent audit: not yet performed.
