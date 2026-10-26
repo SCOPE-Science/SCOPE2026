@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Two-by-two mPDeC linear stage equations yield an exact positive mass-preserving formula. Induction across arbitrary signed tableau weights yields asymptotic coefficient m*eta/B*ab(b-a)/(a+b); terminal Gauss–Lobatto coefficient and exact ODE error follow. 180 rational sample calculations independently check stage equations and the one-correction identity. No finite test is treated as proof of the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2206.07371v4 §2.1 explicitly assumes canonical linear rates p_ij=a_ij*y_j; §4 computes local stability for that class",
+        "arxiv:2610.21857v1 §§2–4 fixes numerical flux/rate construction and presents numerical well-balancing examples"
+      ],
+      "reasoning": "General mPDeC preservation and linear PDS local stability do not bound accuracy uniformly over nonlinear rate representations y_j+C of a fixed ODE. The closest positive-method numerical-record entries address different positivity/stability questions, not arbitrary representation offset.",
+      "searches": [
+        "two-component cyclic advection periodic upwind flux offset invariance modified Patankar deferred correction method arbitrary correction stages C infinity stalls identity coefficient",
+        "Patankar production destruction splitting invariance constant positive exchange rate addition frozen time stepping gauge",
+        "flux globalization modified Patankar deferred correction flux normalization constant offset dependence numerical solution 2026"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.21857v1",
+      "arxiv:1905.09237v2",
+      "arxiv:2206.07371v4",
+      "2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "2026/10/4/SCOPE-richardson-acceleration-creates-a-sharp-positivity-barrier-for-b--c9c2b9f6d7e1",
+      "2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.21857v1 eqs (3.5),(4.1) prescribe the algorithm and flux-to-rate split but no offset-limit theorem",
+        "arxiv:1905.09237v2 proves positivity/conservation/high order in fixed PDS representation",
+        "arxiv:2206.07371v4 §4 studies canonical linear p_ij=a_ij*y_j on fixed generator A"
+      ],
+      "reasoning": "The proposed theorem can be DERIVED from the prior algorithm (as new analysis) but is not already a consequence of the stated positivity/high-order/stability conclusions; it addresses two gauge-equivalent representations of the same physical ODE and the sharp 1/C law, neither provided by those results.",
+      "searches": [
+        "Patankar method arbitrary production destruction representation flux offsets noninvariant same vector field",
+        "flux globalization modified Patankar deferred correction flux normalization constant offset dependence numerical solution 2026",
+        "mPDeC quadrature signed negative Patankar flux shift large constant C asymptotics"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.21857v1 §4.1 rates are positive/negative numerical face fluxes",
+        "arxiv:1905.09237v2 mPDeC algorithm eq (25); arxiv:2206.07371v4 §4 rates in fixed canonical linear form"
+      ],
+      "reasoning": "Searched the same mechanism as flux-gauge dependence, non-unique PDS splitting, and constant exchange-rate addition. Generic Patankar formulas do not by themselves provide the sharp finite-correction identity-limit coefficient; no inspected equivalent found.",
+      "searches": [
+        "modified Patankar scheme flux gauge invariance adding spatially constant flux creates artificial rates and freezes numerical evolution production destruction",
+        "well balanced flux globalization Patankar artificial diffusion shifts constant integration reference two cell advection modified Patankar time stepping",
+        "Patankar method arbitrary production destruction representation flux offsets noninvariant same vector field",
+        "\"Patankar\" \"production destruction\" \"nonunique\" splitting invariance",
+        "\"modified Patankar\" \"flux shift\" \"constant\" numerical methods"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search outcomes contained no matching two-cell offset-stalling table; closest published-finding corpus entries include 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab and 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+      ],
+      "reasoning": "A continuous parameter C and every finite correction M are classified analytically, not read from a finite numerical table. No covering exact database or table identified; a negative search is not an exhaustion proof.",
+      "searches": [
+        "two-component cyclic advection periodic upwind flux offset invariance modified Patankar deferred correction method arbitrary correction stages C infinity stalls identity coefficient",
+        "mPDeC quadrature signed negative Patankar flux shift large constant C asymptotics",
+        "\"modified Patankar\" \"gauge invariance\" flux"
+      ]
+    },
+    "rationale": "The three materially inspected primary texts supply flux-to-rate mPDeC, the original algorithm and stability in a canonical linear-rate case, but none states or implies the evaluated arbitrary-finite-correction flux-offset asymptotic. Direct mathematical-record queries found no closer coverage; a hidden historical equivalent remains possible.",
+    "residual_risks": [
+      "Historically equivalent offset-sensitivity statement in unindexed numerical-method literature cannot be ruled out by available searches.",
+      "Generic production–destruction methods are representation-dependent; the new result is the sharp finite-correction law for the specified flux splitting, not a claim that all representation sensitivity is novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines gauge-sensitive splitting and positivity but does not classify added constant flux offsets or give arbitrary-M inverse-offset leading coefficient",
+        "evidence": "§2 global flux, §3 signed-weight mPDeC, §4 rate construction",
+        "identifier_or_url": "https://arxiv.org/html/2610.21857v1",
+        "material_read": "Abstract, §§2.1–2.2, 3.1–3.2, 4 including eqs (2.2)–(2.3),(3.4)–(3.5),(4.1), discussion of periodic boundaries",
+        "method": "Read arXiv full HTML equations and surrounding arguments",
+        "title": "High-order positivity-preserving well-balanced schemes: combining flux globalization with modified Patankar deferred correction methods",
+        "trigger": "Motivating flux-globalization mPDeC paper directly defining the construction"
+      },
+      {
+        "assessment": "Found the generic method, not quantified flux-representation offset asymptotics",
+        "evidence": "mPDeC correction formula (25); positivity/conservation proofs",
+        "identifier_or_url": "https://arxiv.org/pdf/1905.09237",
+        "material_read": "PDF method and main mPDeC algorithm including eq (25), core positivity and convergence analyses",
+        "method": "Read open-access primary PDF including rendered page with algorithm",
+        "title": "Arbitrary high-order, conservative and positive preserving Patankar-type deferred correction schemes",
+        "trigger": "Original construction might subsume claim"
+      },
+      {
+        "assessment": "Canonical linear PDS stability analysis, without the nonlinear rates y_j+C and without gauge-stalling law",
+        "evidence": "§2.1 eqs (2)–(5) and §4 eqs (41)–(46)",
+        "identifier_or_url": "https://arxiv.org/html/2206.07371v4",
+        "material_read": "Full HTML abstract, introduction, §2.1 linear PDS hypotheses, §4 mPDeC equations and stability derivations",
+        "method": "Read primary arXiv full HTML with mathematical formula comparisons",
+        "title": "A study of the local dynamics of modified Patankar DeC and higher order modified Patankar–RK methods",
+        "trigger": "Potentially broad stability theorem on same method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8a12fdc5-c04c-4b07-ab61-94aeeecc7d07",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Conservative fluxes are defined up to a constant; the positive flux-to-PDS representation is not invariant under this gauge, although the semidiscrete ODE is. Quantifying exact 1/C identity-stalling across any finite number of high-order corrections supplies a structural, design-relevant accuracy obstruction not implied by standard positivity/conservation and fixed-representation convergence theory.",
+    "status": "PASS"
+  }
+}
