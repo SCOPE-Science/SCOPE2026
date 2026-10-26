@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The exact weighted-backward-shift coefficients follow from the two dilations. Rational angles yield zeros exactly at multiples of the reduced denominator, giving the precise nilpotency index. At irrational angles, density of rotation phases converts power norms to maximum sine products, and truncation of the logarithmic sine singularity plus uniform Fourier averaging proves the normalized spectral-radius limit. The established general unilateral weighted-shift spectral theorem then supplies the entire disk. The eigenvector recurrence gives the stated convergent series exactly. Gayfulin--Hauke Theorem 1 proves the Diophantine disk inclusion; the explicit super-Liouville denominator approximations force eigenvector coefficients to blow up for every nonzero eigenvalue. No finite calculation is used in place of an infinite proof.
+
+## Originality — PASS, with historical-priority risk
+The motivating 2026 recurrence-calculus paper gives polynomial identities and qualitative classifications but no complete bounded-Hardy spectral radius or the two distinct irrational point spectra. General weighted-shift disk theorems and Sudler-product theorems provide essential ingredients, not a published statement of the combined trigonometric recurrence-shift spectral dichotomy. The norm limit requires the uniform-in-phase singular-cocycle argument, distinct from pointwise Sudler bounds. Published mathematical research records were searched with aliases for symmetric q-calculus, irrational sine weights, weighted backward shifts, Liouville point spectra and Sudler products. General ergodic weighted-shift spectral principles could subsume part of the result; no independent priority audit has been done.
+
+## Mathematical value — PASS
+The finding answers a concrete operator-spectrum question for the canonical second-order recurrence derivative: rational rotations give finite-index nilpotence, every irrational rotation gives an explicitly normalized full disk, yet irrational parameters with identical disk-spectrum law can have radically different point spectra. The latter distinction links arithmetic small divisors to observable operator eigenvalues, while the spectral radius remains independent of Diophantine quality. This is a natural complete spectral classification plus a motivated point-spectrum boundary phenomenon, not a finite-table calculation.
+
+## Closest literature and limits
+Orozco López, arXiv:2610.20593, is the source of the recurrence calculus. D'Aniello--Maiuriello, arXiv:2210.01510, proves the general weighted-shift spectral-disk principle. Gayfulin--Hauke, arXiv:2312.06548, proves the needed lower bound for Sudler products with partial quotients eventually at most three. Aistleitner--Technau--Zafeiropoulos, arXiv:2002.06602, studies pointwise Sudler products. Bakhtin's dynamical weighted-shift variational principle concerns a different setting. The exact boundary eigenvalues for general irrationals remain open within this statement, and historical equivalence under alternate terminology remains a risk.
+
+Self-review: passed. Independent audit: not yet performed.
