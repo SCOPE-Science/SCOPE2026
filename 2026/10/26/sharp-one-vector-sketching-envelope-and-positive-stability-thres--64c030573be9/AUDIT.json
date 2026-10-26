@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The two-vector metric compression, exact polynomial matrix inequality, Cauchy bound, and 2x2 symmetric-definite pencil determinant establish both sharp extremal values for all inputs. With epsilon<1 the denominator remains positive. Exact eigenvalue witness includes the threshold and strictly negative post-threshold case; verifier returned VERIFY_OK 1254. Finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Güttel–Schweitzer arxiv:2208.11447, Section 2.3, equation (2.7), supplies a coarse disk localization and warns of instability.",
+        "Simoncini–Wang DOI 10.1002/nla.70022 Lemma 5.2 gives cosine distortion; together with classical SPD cosine bounds it implies positivity under epsilon below the threshold, while Section 7 gives generic spectral proximity, not matching sharp scalar extremizers."
+      ],
+      "reasoning": "The primary general bound does not yield the optimal sharp interval. The later angle-distortion lemma implies a sufficient positivity criterion at the same threshold but not the negative and positive sharp extremal scalar values or their witnesses; its general spectral-localization estimate is weaker than the exact interval. No inspected broader theorem implies the equalities in Step 4.",
+      "searches": [
+        "sketched FOM sketched Galerkin positive definite Hermitian matrix unstable negative projected eigenvalue embedding epsilon condition number Kantorovich inequality",
+        "sketching destroys coercivity SPD bilinear form S^T S A, Kantorovich condition number threshold",
+        "sketching randomized Krylov FOM Ritz numerical range spectral pollution spurious negative eigenvalue SPD"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2208.11447 (Sections 1, 2.1–2.3 and 5–6, including (1.1), (2.3), (2.7))",
+      "https://arxiv.org/abs/2212.12758 (Sections 1–4, matrix-function sketching and randomized compression)",
+      "https://doi.org/10.1002/nla.70022 (Sections 1 and 7; spectral localization and embedding-angle analysis)",
+      "public mathematical finding: Sharp certification boundary for Lanczos-based proximal convexification (published 2026)",
+      "public mathematical finding: Exact Gaussian sketched-FOM one-vector heavy-tail law (published 2026; distinct unconditioned sampling setting)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Güttel–Schweitzer equation (2.7) admits negative Ritz values but does not solve the least possible scalar at a fixed distortion.",
+        "The previously recorded Gaussian one-vector FOM law gives a Student distribution for unconditioned sketches, but cannot imply the deterministic sharp envelope for all epsilon-subspace embeddings."
+      ],
+      "reasoning": "An existence-of-instability statement and a sufficient angle-preservation criterion are weaker than BOTH exactly attainable extremal values and the robust necessity witness; a sampling distribution without conditioning on an embedding is a different quantified claim. The classical Kantorovich inequality is an ingredient, not a stated sketched-FOM theorem. Residual possibility of unlocated equivalent general numerical-range results remains.",
+      "searches": [
+        "sharp subspace embedding distortion threshold for preserving positivity of sketched Rayleigh quotient (v^T S^T S A v)/(v^T S^T S v), Hermitian positive definite matrix and 1D Ritz projection",
+        "sketched FOM sketched Galerkin positive definite Hermitian matrix unstable negative projected eigenvalue embedding epsilon condition number Kantorovich inequality",
+        "sketching destroys coercivity SPD bilinear form S^T S A, Kantorovich condition number threshold",
+        "sketching randomized Krylov FOM Ritz numerical range spectral pollution spurious negative eigenvalue SPD"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The one-vector sketched scalar is a generalized Rayleigh quotient of the symmetric pencil (sym(MA),M); the same representation is compared against the primary sketched-FOM formula (2.3).",
+        "A previously published unconditioned Gaussian one-vector sketched-FOM law concerns heavy tails, not an embedding-conditioned deterministic envelope."
+      ],
+      "reasoning": "A classical generalized numerical-range inequality could be equivalent under variable substitution; however, neither examined primary source nor the closest returned mathematical claim states the universal jointly sharp interval with the exact sketch distortion. The elementary metric-angle inequality alone, without the application and sharp pencil extremizers, does not settle the published scheme-specific classification.",
+      "searches": [
+        "sharp subspace embedding distortion threshold for preserving positivity of sketched Rayleigh quotient (v^T S^T S A v)/(v^T S^T S v), Hermitian positive definite matrix and 1D Ritz projection",
+        "sketched FOM sketched Galerkin positive definite Hermitian matrix unstable negative projected eigenvalue embedding epsilon condition number Kantorovich inequality",
+        "one dimensional sketched FOM Rayleigh positive definite sharp Kantorovich angle threshold epsilon = 2 sqrt(kappa)/(kappa+1) Gaussian incomplete beta negative probability and exponential growth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact parameter-indexed table in the inspected primary works reports the envelope \\(\\alpha\\pm\\delta/\\sqrt{1-\\varepsilon^2}\\).",
+        "Published indexed related records chiefly treat random-sketch heavy tails, nonsymmetric FOM eigenvalues or Ritz-based convexification certification."
+      ],
+      "reasoning": "This is a continuous universal matrix inequality rather than a finite enumeration. Actual keyword and mathematical-semantic searches did not reveal an exact previously tabulated answer; absence of a hit is not treated as proof of novelty.",
+      "searches": [
+        "sharp subspace embedding distortion threshold for preserving positivity of sketched Rayleigh quotient (v^T S^T S A v)/(v^T S^T S v), Hermitian positive definite matrix and 1D Ritz projection",
+        "one dimensional sketched FOM Rayleigh positive definite sharp Kantorovich angle threshold epsilon = 2 sqrt(kappa)/(kappa+1) Gaussian incomplete beta negative probability and exponential growth",
+        "sketched Rayleigh Ritz eigenvalues \"2 sqrt\" condition number subspace embedding"
+      ]
+    },
+    "rationale": "Direct primary full-text comparisons credit qualitative negative sketched Ritz values, the embedding condition and general coarse localization as already known. The candidate derives the complete sharp attainable scalar envelope and threshold necessity witnesses, while clearly acknowledging that positivity sufficiency follows from an existing embedding-angle lemma plus a classical SPD angle bound. Public indexed results include related but not dominating finite-Ritz, heavy-tail and weak-projection obstructions. Classical sharp generalized numerical-range reductions remain a specifically acknowledged risk.",
+    "residual_risks": [
+      "A classical generalized Rayleigh quotient/numerical-range estimate under a positive metric with bounded condition number could already state the same sharp envelope in equivalent variables.",
+      "Semantic and keyword database searches cannot establish global uniqueness; later literature may contain equivalent sharp special cases.",
+      "The use of one-vector FOM and SPD assumptions is essential; no broader-rank assertion is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative negative-real-part warning and a general disk bound; no sharp attainable one-vector SPD envelope nor exact distortion frontier. Prior qualitative instability expressly credited.",
+        "evidence": [
+          "https://arxiv.org/pdf/2208.11447, page 7, equation (2.7) and paragraph after",
+          "https://arxiv.org/abs/2208.11447, Sections 1–2"
+        ],
+        "identifier_or_url": "arxiv:2208.11447",
+        "material_read": "Sections 1 and 2 including equations (1.1), (2.3), (2.7), Section 5 Ritz-value discussion and conclusion",
+        "method": "ArXiv full-text PDF, including page images and text, supplemented by arXiv HTML",
+        "title": "Randomized sketching for Krylov approximations of large-scale matrix functions",
+        "trigger": "Defines the exact sketching scheme and warns about spurious negative Ritz values"
+      },
+      {
+        "assessment": "Addresses randomized computation of Krylov compression, but not the claimed exact scalar embedding-conditioned envelope or sharp positivity threshold.",
+        "evidence": [
+          "https://arxiv.org/pdf/2212.12758, abstract and Sections 1–4"
+        ],
+        "identifier_or_url": "arxiv:2212.12758",
+        "material_read": "Full preprint Sections 1–4 and its stated approximation/compression results",
+        "method": "ArXiv full-text PDF, including first-page image and text",
+        "title": "Speeding up Krylov subspace methods for computing f(A)b via randomization",
+        "trigger": "Same matrix-function sketched compression and possible stronger coverage"
+      },
+      {
+        "assessment": "Lemma 5.2 combined with an SPD Kantorovich angle estimate implies the positive-sign sufficient half of the criterion. Generic spectral-region and angle estimates do not state the sharp attainable two-sided Ritz envelope nor the necessity witnesses.",
+        "evidence": [
+          "https://doi.org/10.1002/nla.70022, Sections 1 and 7"
+        ],
+        "identifier_or_url": "doi:10.1002/nla.70022",
+        "material_read": "Open-access article, Introduction, Lemma 5.2 angle distortion, and Section 7 spectral perturbation estimates",
+        "method": "Publisher full HTML textual inspection",
+        "title": "Stabilized Krylov Subspace Recurrences via Randomized Sketching",
+        "trigger": "Later spectral localization and angle-distortion lemmas might dominate the present result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "64c03057-3be9-49d2-8644-64d2f1f7be9a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivated problem is a design-level question: what squared-norm embedding distortion guarantees decay of one-step sketched Krylov exponentials for all SPD matrices with given spectral enclosure? The theorem supplies the sharp epsilon frontier and BOTH exact Ritz endpoints, giving a sqrt(kappa) rather than kappa asymptotic tolerance scale relative to a coarse spectral-gap argument, and a concrete exponential-growth pathology after the frontier. This is a complete natural continuous-parameter classification, not a single chosen counterexample.",
+    "status": "PASS"
+  }
+}
