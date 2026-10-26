@@ -1,0 +1,100 @@
+{
+  "claim": "For the valid four-asset correlation matrix \\(C=I_4+\\frac25A\\) defined in RESULT.md, the induced Euclidean condition-number ratio \\(\\operatorname{cond}_2(e^{-C})/\\operatorname{cond}_2(e^{-|C|})\\) equals \\(\\exp((4\\sqrt5-8)/5)>1\\), while the corresponding Schatten-1 ratio is \\(<0.989<1\\). Hence the trace-norm ratio is not interchangeable with worst-case Euclidean relative-perturbation sensitivity.",
+  "correctness": {
+    "rationale": "The characteristic polynomials are exactly (lambda^2-1)(lambda^2-5) for A and (lambda-3)(lambda+1)^3 for |A|. These yield a positive-definite correlation matrix C and the exact Euclidean ratio exp((4 sqrt(5)-8)/5)>1. The nuclear-norm ratio is proved strictly below 0.989 by exact rational Taylor inequalities; verify.py checks the polynomial expansions and all rational comparisons. No floating-point computation is needed for either strict inequality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The source proves formulas and a closed-walk classification for its trace-norm ratio; it does not establish equality of that ratio with the induced 2-norm ratio.",
+        "The explicit matrix is a positive-definite correlation matrix, so the comparison is within the financial-correlation-matrix domain rather than only an arbitrary signed adjacency example.",
+        "The Retrieved signed-graph spectral constructions and balance-index studies do not compare the two condition-number norms on this matrix."
+      ],
+      "reasoning": "The claim adds a norm-sensitive counterexample within the source's intended correlation-network setting. It is not a stronger theorem about all networks and does not replace the source's empirical analysis.",
+      "searches": [
+        "strict unbalanced signed graph with equal condition number ratio R=1 trace exponential",
+        "91G systemic risk signed correlation network structural balance condition number",
+        "Global Balance and Systemic Risk in Financial Correlation Networks, §4.2–4.3 and Appendix A",
+        "Higham and Relton, Higher order Frechet derivatives of matrix functions and the level-2 condition number, DOI 10.1137/130945259"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2407.14272, first public 2024-07-19, full text",
+      "DOI:10.1016/j.physa.2025.130698",
+      "MSC2020 official classification 91G45",
+      "signed graph condition number ratio R(A)=1 balanced or antibalanced counterexample",
+      "Global Balance and Systemic Risk in Financial Correlation Networks Proposition 3 Proposition 4 condition number ratio",
+      "strict unbalanced signed graph with equal condition number ratio R=1 trace exponential",
+      "91G systemic risk signed correlation network structural balance condition number"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source's Proposition 4 classifies the Schatten-1 ratio using even/odd signed closed-walk weights.",
+        "The source's Eq. (14) describes a vector perturbation supremum, whereas Eq. (15) uses trace/nuclear norms.",
+        "The exact 4 by 4 witness has opposite signs for the induced Euclidean and Schatten-1 ratios, as proved in RESULT.md and checked by verify.py."
+      ],
+      "reasoning": "The prior paper's trace-norm formula does not imply the Euclidean operator-norm comparison. The present claim is specifically the explicit sign reversal and the resulting need to qualify the norm in a worst-case sensitivity interpretation.",
+      "searches": [
+        "Global Balance and Systemic Risk in Financial Correlation Networks Proposition 3 Proposition 4 condition number ratio",
+        "signed graph condition number ratio R(A)=1 balanced or antibalanced counterexample",
+        "arXiv:2407.14272, Eq. (14)–(19), Proposition 4",
+        "Web: Global Balance and Systemic Risk in Financial Correlation Networks condition number norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source's Eq. (14) defines perturbation sensitivity through a supremum over vector perturbations.",
+        "The source's Eq. (15) evaluates the associated expression using products of sums of exponentiated eigenvalues, i.e. a Schatten-1/nuclear-norm product.",
+        "For C=I+(2/5)A, the induced Euclidean ratio is exactly exp((4 sqrt(5)-8)/5)>1, while the nuclear-norm ratio is <0.989."
+      ],
+      "reasoning": "For a fixed vector norm, the supremum over vector perturbations induces the corresponding operator norm. Under the Euclidean norm this is the spectral norm, not the nuclear norm. The exact example shows a strict sign reversal, so the two formulations are not equivalent for this application.",
+      "searches": [
+        "signed graph condition number ratio R(A)=1 balanced or antibalanced counterexample",
+        "Global Balance and Systemic Risk in Financial Correlation Networks Proposition 3 Proposition 4 condition number ratio",
+        "arXiv:2407.14272, §4.2, Eq. (14)–(17)",
+        "MSC2020 official classification 91G45"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is a closed-form analytic comparison for one explicitly specified 4 by 4 matrix; it is not a finite-catalogue, database, or lookup-table assertion.",
+        "No database or table is mathematically relevant to proving the exact spectra or rational inequality."
+      ],
+      "reasoning": "A database/table novelty check is inapplicable to this self-contained algebraic counterexample; the actual semantic searches above were still run for overlap.",
+      "searches": [
+        "correlation matrix signed K4 eigenvalues global balance condition number",
+        "Schatten 1 norm versus spectral norm signed graph systemic risk",
+        "Web: condition number matrix exponential 2-norm symmetric matrix eigenvalue spread Higham"
+      ]
+    },
+    "rationale": "The source paper owns the global-balance index and the trace-norm ratio. This claim is the explicit admissible four-asset norm-comparison reversal, not a claim to those prior definitions. Published-literature comparisons found no same norm-reversal claim. The closest signed-network balance result compares triangle balance with frustration, which does not imply a condition-number result.",
+    "residual_risks": [
+      "The comparison is scoped to the public preprint's stated perturbation-sensitivity interpretation; the published-version full text was not separately compared.",
+      "The result does not refute the trace-norm ratio as a distinct algebraic statistic or the paper's empirical association with losses; it shows that the trace-norm ratio is not interchangeable with Euclidean worst-case sensitivity on this matrix.",
+      "The claim is a single exact counterexample and makes no universal ordering claim for all signed correlation networks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPORTING_NOT_COVERING",
+        "evidence": "The paper supplies the global-balance index and trace-norm comparison, but does not state this explicit admissible matrix where the induced Euclidean ratio has the opposite sign.",
+        "identifier_or_url": "arXiv:2407.14272; DOI 10.1016/j.physa.2025.130698",
+        "material_read": "Full arXiv text: §4.2 Eq. (14)–(17), §4.3 Eq. (19)–(20), conclusion, and Appendix A context for the trace-norm ratio.",
+        "method": "Direct full-text reading followed by exact matrix and rational-inequality reconstruction.",
+        "title": "Global Balance and Systemic Risk in Financial Correlation Networks",
+        "trigger": "The source explicitly connects global balance with condition-number ratios for signed correlation networks."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "814052cf-485a-48a6-a4f2-19a82f5392dc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinction is consequential for interpreting a network statistic as worst-case perturbation sensitivity: the norm choice changes the direction of the comparison on a valid correlation matrix. The exact small example is independently reproducible and gives a concrete diagnostic before using the trace-norm proxy as a Euclidean robustness statement.",
+    "status": "PASS"
+  }
+}
