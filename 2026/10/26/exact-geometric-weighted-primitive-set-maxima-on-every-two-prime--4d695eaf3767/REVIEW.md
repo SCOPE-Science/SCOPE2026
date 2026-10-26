@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every primitive set on two primes is a finite antichain of exponent pairs. The coordinatewise lower bounds on the sorted exponents prove the sharp complete-layer extremal inequality with its equality case; the exact decreasing ratio formula proves the rank classification, and the monotone two-variable quotient proves the unique threshold and global \(\{2,3\}\) extremality. The standalone bounded exhaustive checks passed. This is a mathematical proof for all positive real exponents, not an extrapolation from the finite checks.
+
+**Originality — PASS under inspected sources, with remaining risk.** Banks–Martin's full accessible published paper defines the same optimization problem and supplies a sufficient condition for \(t>1\). For two prime generators its condition simplifies to the rank-one versus rank-two inequality, a genuine implication that is explicitly acknowledged, but its theorem is restricted to \(t>1\) and does not state the all-\(t>0\) exact optimum, every maximizing primitive set, and subcritical rank transitions. Comparisons with Chan–Lichtman–Pomerance's abstract, finite-grid antichain literature abstract and actual published-finding corpus searches returned no covering result. Unindexed classical weighted-Sperner theorems and extension of the Banks–Martin induction beyond its stated parameter range remain publication-priority risks; the source comparison is not a proof of novelty.
+
+**Value — PASS.** The literature's weighted restricted-prime problem has a natural first nontrivial support size of two. Rather than introducing an arbitrary finite threshold, the result completely classifies its infinite family of optimizers for all prime pairs and all positive exponents, identifies every phase change via an exact decreasing ratio, and gives a sharp global threshold with a unique worst support \(\{2,3\}\). This is a concrete phase diagram below the source's \(t>1\) setting and yields natural counterexamples to overly broad prime optimality.
+
+Limitations: no independent audit; possible unpublished or unindexed equivalent formulae; no three-prime or logarithmic-weight assertion.
+
+Self-review: passed. Independent audit: not yet performed.
