@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The live-edge coupling identifies infection generations with minimum directed path lengths. A positive delay requires original duration at least 2, and vaccinated graph has at most n−1 vertices, giving Tv−T0≤n−4; the shortcut/chain construction attains equality for every n≥5 while reducing infections. For the five-person six-edge graph, complete 64-configuration enumeration independently recovers Ev−E0=−p(p^5−p^4−3p^3+p+1). Strict negativity of Q double prime on (0,1), with endpoint signs, gives exactly one probability crossing, rationally bracketed. All quantified boundaries p=0,1 and n≤4 are included. Standalone code passed full 64-case enumeration, all directed graphs through 4, constructions through 60, and 999 exact rational probability tests; finite checks supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pulliam et al. study epidemic lengthening in partially immune populations with turnover/reintroduction, not the one-round fixed directed contact graph.",
+        "Gutfraind analyzes monotonicity of final size, not last-infection time.",
+        "Floyd et al. rule out increased ultimate infection probabilities when transmission is static, which is consistent with strictly increased extinction time."
+      ],
+      "reasoning": "Known qualitative epidemic-lengthening effects cannot yield the claimed sharp finite-vertex maximum or the named six-contact probability polynomial without further analysis. The sharp conclusion does not contradict monotonicity of the infected set.",
+      "searches": [
+        "\"vaccinating node prolongs SIR outbreak duration with iid homogeneous edge transmission threshold polynomial p\"",
+        "\"epidemic lengthen with vaccination static network Reed Frost duration\"",
+        "doi:10.1371/journal.pone.0000165",
+        "arxiv:1005.3470"
+      ]
+    },
+    "checked_sources": [
+      "Pulliam et al. (2007), PLOS ONE, DOI 10.1371/journal.pone.0000165, full text",
+      "Floyd, Kay and Shapiro, DOI 10.1007/s11538-007-9275-0, author full text",
+      "Gutfraind, arXiv:1005.3470v2, full HTML",
+      "Holme (2013), PLOS ONE, DOI 10.1371/journal.pone.0084429, full text",
+      "Rock et al. (2014), DOI 10.1088/0034-4885/77/2/026602, citation/limited text only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Floyd lemma gives shortest infection distances, not their maximal shift after vaccination; their static-contact monotonicity forbids new infected people but not increased distances.",
+        "Holme confirms the eccentricity interpretation, but analyzes transmission optimization without intervention.",
+        "Pulliam’s immunity-mediated duration mechanism is at population level with different model assumptions."
+      ],
+      "reasoning": "The new theorem requires (i) a sharp n−4 deletion inequality and attaining family and (ii) a quintic expected-duration crossing, both mathematically narrower than the full contexts of the sources but not their stated corollaries. The per-person monotonicity fact is credited, not presented as new. No decisive stronger covering theorem was identified; residual graph eccentricity literature may cover part (i).",
+      "searches": [
+        "doi:10.1007/s11538-007-9275-0",
+        "doi:10.1371/journal.pone.0084429",
+        "doi:10.1371/journal.pone.0000165",
+        "\"one vertex deletion directed graph root eccentricity can increase by n-4 epidemic longest shortest path vaccinated survivor\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Floyd-Kay-Shapiro Lemma 3.5 identifies infection time with shortest distance in an open-edge directed graph.",
+        "Holme (2013) relates deterministic full-transmissibility extinction to vertex eccentricity; no deletion comparison or sharp n−4 bound was found in its complete article."
+      ],
+      "reasoning": "The present pathwise theorem is equivalent to an upper bound on the increase of maximal finite directed source-distance after deleting a nonseed vertex. The general distance representation alone does not imply the sharp extremal constant or attaining family; such a vertex-deletion eccentricity theorem in unindexed graph literature remains a plausible implication risk.",
+      "searches": [
+        "\"vaccination increase duration epidemics network graph vertex removal maximum time to extinction n-4\"",
+        "\"one vertex deletion directed graph root eccentricity can increase by n-4 epidemic longest shortest path vaccinated survivor\"",
+        "doi:10.1007/s11538-007-9275-0",
+        "doi:10.1371/journal.pone.0084429"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The five-person expected-value polynomial was recomputed by complete independent enumeration of 64 outcomes and found not in inspected source-specific articles.",
+        "Holme (2013) optimizes extinction time versus transmission probability on sampled networks, rather than intervention contrast for this fixed directed graph."
+      ],
+      "reasoning": "No exact match for the 6-edge probability polynomial was identified in the searched scientific sources. A missing small-graph database or unpublished case table remains possible, and absence from search is not proof of uniqueness.",
+      "searches": [
+        "\"five vertex directed Reed Frost SIR perfect vaccination increases expected epidemic extinction time duration despite fewer infections sharp threshold uniform edge probability\"",
+        "\"Five-person directed SIR six edges s to v s to a v to b v to t a to b b to t vaccination expected last infection time root 0.8365901884 quintic\"",
+        "doi:10.1371/journal.pone.0084429"
+      ]
+    },
+    "rationale": "The precise sharp one-vertex delay bound and the homogeneous-edge probability threshold were not located in inspected primary full texts. Floyd et al. already supply the live-edge shortest-path identity and protection against increased infections, while Pulliam et al. demonstrate duration enhancement in different dynamical models. Holme treats extinction time and static-network distances but not vaccination-induced changes; Gutfraind treats final size. Direct logical comparisons are given in four checks below. The originality conclusion is best-knowledge with unindexed graph-theoretic reduction as a residual risk.",
+    "residual_risks": [
+      "A general directed-graph source-eccentricity vertex-deletion bound may imply the deterministic n−4 portion even when not indexed under vaccination terminology.",
+      "Small Reed–Frost graph or exact-duration tables outside inspected sources might contain the six-edge threshold; search absence is not proof of priority.",
+      "Rock et al. broad review could not be read fully; no NOT_COVERING assertion is made for this source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes prior shortest-path identity and monotone infection probability but not the specific deletion delay maximum or homogeneous 5-vertex polynomial",
+        "evidence": [
+          "Lemma 3.5 supplies the infection-time shortest-open-path correspondence; the static transmission monotonicity result concerns whether each person becomes infected."
+        ],
+        "identifier_or_url": "https://personal.math.vt.edu/floyd/research/papers/epidemics.pdf",
+        "material_read": "Full lawful author-hosted paper, particularly percolation formulation and Lemma 3.5",
+        "method": "Read original PDF material and compared proof assumptions, statements and implications",
+        "title": "Some Elementary Properties of SIR Networks or, Can I Get Sick because You Got Vaccinated?",
+        "trigger": "Same discrete SIR static-time model and live-edge coupling"
+      },
+      {
+        "assessment": "Broad duration-enhancement phenomenon known; model has population turnover and reintroductions and does not imply fixed-network sharp n−4 bound",
+        "evidence": [
+          "Pulliam et al. (2007) DOI 10.1371/journal.pone.0000165; duration enhancement in partially immune population models."
+        ],
+        "identifier_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0000165",
+        "material_read": "Full open-access PLOS article text",
+        "method": "Read model descriptions and effect of partial immunity on duration",
+        "title": "Epidemic Enhancement in Partially Immune Populations",
+        "trigger": "Pre-existing intervention-related lengthened epidemics"
+      },
+      {
+        "assessment": "Prior result concerns final size rather than duration; not a dominating duration result",
+        "evidence": [
+          "Gutfraind, arXiv:1005.3470; network epidemiological monotonicity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1005.3470v2",
+        "material_read": "Accessible full-text arXiv HTML, statement and proofs concerning final epidemic size",
+        "method": "Compared measured observable, intervention, graph assumptions",
+        "title": "Monotonic and Non-Monotonic Epidemiological Models on Networks",
+        "trigger": "Monotonicity under network intervention"
+      },
+      {
+        "assessment": "Has deterministic full-transmissibility eccentricity link and stochastic duration as a function of transmission, but not vertex-vaccination contrast or sharp bound/quintic",
+        "evidence": [
+          "Holme (2013) states extinction at full transmissibility is eccentricity plus disease duration; studies no vertex-vaccination comparison."
+        ],
+        "identifier_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084429",
+        "material_read": "Complete online PLOS article, abstract, results, methods and discussion",
+        "method": "Inspected graph-distance calculation and optimized transmission and searched within article for vaccination/immunization",
+        "title": "Extinction Times of Epidemic Outbreaks in Networks",
+        "trigger": "Directly same epidemic-extinction duration endpoint and graph eccentricity"
+      },
+      {
+        "assessment": "Inaccessible broad background source retained as risk, not marked not-covering",
+        "evidence": [
+          "Rock, Brand, Moir and Keeling (2014), DOI 10.1088/0034-4885/77/2/026602."
+        ],
+        "identifier_or_url": "https://doi.org/10.1088/0034-4885/77/2/026602",
+        "material_read": "Bibliographic and abstract-level material only; attempted author OA full text did not load",
+        "method": "Searched for open-access full article and attempted direct fetch, without claiming full-text coverage",
+        "title": "Dynamics of Infectious Diseases",
+        "trigger": "Broad epidemic timing overview and potential network intervention coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a3e5b705-6e87-4e19-9a2c-5b9a0f72bab8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The operational outcome time to final infection is different from final infected count and can move in the opposite direction despite strict per-person vaccination protection. The sharp worst-case n−4 pathwise bound identifies precisely the smallest size permitting this; its attaining family shows the gain can scale with network size. On the minimal five-person witness, the exact homogeneous-transmission root gives a quantitative switch between shortening and lengthening, beyond an arbitrary graph instance. This is motivated by network timing and intervention endpoint choice, without extrapolating to general vaccine policy.",
+    "status": "PASS"
+  }
+}
