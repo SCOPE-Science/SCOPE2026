@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness: PASS
+The theorem's core is a direct common-neighbor adjacency calculation: same-layer conflicts arise at cyclic separation two and cross-layer conflicts at separation one. The odd-cycle parity lift is bijective on \(2n\) labels; the even-cycle split gives two induced cycle squares. The cyclic-gap composition count yields the full enumerator including the zero subset and boundary cases \(n=3,4\). The chromatic statement uses the forced period-three condition and explicit concatenations of three- and four-color blocks; the perfect-colorability converse follows from integral equal-size class counts. Exhaustive direct-definition checks for \(3\le n\le10\) agree with every coefficient and the optimizer count. Risk: enumeration is finite, so it does not independently certify all \(n\); the manuscript supplies a universal combinatorial proof.
+
+## Originality: PASS (best-knowledge, subject to priority risk)
+The 2023 bipartite-prism theorem implies the even-case numerical maximum, which is explicitly excluded from the novelty claim in isolation. It does not imply the full all-set polynomial, exact maxima counts, odd-base results, or perfect injective coloring classification without the parity-sensitive common-neighbor graph identification and the subsequent counts. The 2021 injective-coloring treatment gives general two-step machinery and results on cycles themselves and hypercubes; the 2023 product-coloring treatment focuses on direct, lexicographic and corona products. Closest own archived claims concern *edge* open packing of cyclic prisms, not the vertex open packing studied here. The nearest external mathematical records concerning circular ladders study other invariants. Residual risk: an unindexed paper or a stronger general common-neighbor graph theorem might already yield the classification; search absence alone does not prove novelty.
+
+## Value: PASS
+The literature motivates both exact open packings of prisms and partitions into maximum open packings (perfect injective coloring). The result determines the *entire* counting polynomial, not merely one extremal number, and resolves the perfect-colorability question for a natural planar cubic family with a sharp periodic-plus-sporadic criterion. The odd-versus-even parity lifting is a structural reason for different enumerators. The precise exception \(n\in\{4,8\}\) is mathematically motivated by an equal-size partition obstruction. This is a natural exact classification; it is not presented as a general domination result or as a proof of broad conjectures.
+
+## Related literature and limits
+Primary sources examined: Brešar–Klavžar–Rall, arXiv:2309.04963, full HTML, especially Theorem 2.2; Brešar–Samadi–Yero, arXiv:2106.09823, full HTML, on two-step graphs and perfect coloring of cycles; Samadi–Soltankhah–Yero, arXiv:2306.01488, full HTML, on other graph products. Some older product-packing reports were available only as abstract/bibliographic descriptions. No absolute priority claim or independent review is made.
+
+Self-review: passed. Independent audit: not yet performed.
