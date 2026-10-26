@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed M=(ell/6)(4I+A), K=(1/ell)(2I-A), Q=6I-36(4I+A)^(-1), and spectrum Q in [-12,0]. Proved Q_{0,3}>0 for all n>=6 via a periodized alternating geometric inverse; eventual positivity via the simple zero mode. Exact-rational script checked 45 finite sizes and rational error margins at s=1/3, while Cauchy alias bounds control all sizes beyond 50. Fourier inversion and an exact Descartes two-root count give the six-cell horizon; explicit n=3,4,5 kernels give minimality. Full code executed successfully; finite enumeration alone is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jin et al. arXiv:1510.02825 introduction and Theorems 3.1-3.2; general nonpositivity and eventual-positivity context.",
+        "Chatzipantelidis–Horváth–Thomée 2015, DOI 10.1515/cmam-2015-0018, accessible abstract: standard Galerkin, lumped-mass, FVE analysis of homogeneous Dirichlet heat equation. Full author PDF inaccessible.",
+        "Schatz–Thomée–Wahlbin 2010, DOI 10.2478/cmam-2010-0025, verified abstract: fully discrete theta-method and Pade; not continuous-time periodic exponential."
+      ],
+      "reasoning": "Results about qualitative positivity and other boundary conditions do not logically supply the algebraic six-node root threshold or uniform negative distance-three coefficient for each finite periodic length. Full stronger coverage in the inaccessible 2015 paper cannot be excluded and is not represented as checked.",
+      "searches": [
+        "web: On Preservation of Positivity in Some Finite Element Methods for the Heat Equation Chatzipantelidis Horvath Thomee 2015 full PDF",
+        "web: On the existence of maximum principles in parabolic finite element equations Thomee Wahlbin 2008",
+        "web: On positivity and maximum-norm contractivity in time stepping methods for parabolic equations Schatz Thomee Wahlbin 2010",
+        "periodic uniform piecewise linear finite-element semidiscrete heat semigroup six vertices distance-three entry changes sign twice exact positivity threshold",
+        "consistent mass Galerkin heat equation reentrant positivity at opposite nodes all cycle lengths n at least six",
+        "first minimal periodic mesh where positive heat-kernel entry turns negative after small positive time"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1510.02825 (public 2015-10-09)",
+      "DOI:10.1515/cmam-2015-0018",
+      "DOI:10.1090/S0025-5718-07-02021-2",
+      "DOI:10.2478/cmam-2010-0025",
+      "published record da21753d4271",
+      "published record 1f6f56bd0eac"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorems 3.1 and 3.2 of Jin et al. do not identify a coefficient with positive-then-negative-then-positive signs.",
+        "The spectral-cardinality paper distinguishes operator positivity times, not this entrywise oscillation; the six-node Galerkin kernel has four spectral levels and a contiguous positive-operator tail, so its exact statement is neither a corollary nor a reparameterization.",
+        "The filtered-Crank-Nicolson paper explicitly uses a lumped-mass lattice Laplacian and the product CR, whereas the new formula is an exponential of a consistent-mass finite-element matrix."
+      ],
+      "reasoning": "Statement-level implications fail: generic eventual positivity plus some unspecified small-time negative entry does not determine which entry is negative at intermediate time, and the cited rational-stepping positivity cannot imply a continuous-time consistent-mass sign reversal. The sharp six-node algebraic threshold is additional exact information.",
+      "searches": [
+        "published-finding corpus MCP: semidiscrete consistent-mass piecewise linear finite element heat equation heat kernel nonmonotone sign entry positive then negative then positive six node periodic grid",
+        "published-finding corpus MCP: periodic uniform piecewise linear finite-element semidiscrete heat semigroup six vertices distance-three entry changes sign twice exact positivity threshold",
+        "web: 2015 Jin Lazarov Thomee Zhou On Nonnegativity Preservation arxiv 1510.02825",
+        "published repository record da21753d4271: RESULT.md",
+        "published repository record 1f6f56bd0eac: RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jin et al. 2015 Theorem 3.1: semidiscrete standard Galerkin fails small-time nonnegativity under normal triangulations; Theorem 3.2: eventual positive semidiscrete matrix under a positive inverse assumption.",
+        "Published three-spectral-value note (record da21753d4271), inspected RESULT.md: whole-operator positivity-time set has a tail for at most three spectral levels; four levels can give a time gap."
+      ],
+      "reasoning": "A generic early negative entry may differ from the entry positive at all sufficiently small times that later becomes negative. A positivity-time hole for the whole matrix does not imply reentrant signs for this particular Galerkin coefficient, and the examined spectral note does not treat the specific consistent-mass semigroup.",
+      "searches": [
+        "semidiscrete consistent-mass piecewise linear finite element heat equation heat kernel nonmonotone sign entry positive then negative then positive six node periodic grid",
+        "eventual positivity semidiscrete heat finite elements transient negativity distance-three kernel periodic grids",
+        "reentrant sign reversal heat semigroup Galerkin consistent mass P1 mesh signed kernels",
+        "web: finite element heat semidiscrete consistent mass eventually positive semigroup eventual positivity periodic uniform mesh negative transient",
+        "arxiv:1510.02825: Theorems 3.1 and 3.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Own ledger entry 77 concerns backward-Euler uniform periodic mesh threshold, not the exponential semigroup.",
+        "Own entries 86 and 90 concern backward-Euler alternating diffusivities and six-cell alternating lengths, respectively.",
+        "Published filtered Crank–Nicolson note (record 1f6f56bd0eac) has a positive composition of rational maps for a lumped-mass lattice, inspected in RESULT.md."
+      ],
+      "reasoning": "No inspected exact result, recovered prior claim, or indexed table computes the particular semigroup distance-three negative witness at time 1/3 across every mesh size, or its minimal-size polynomial horizon. The search is not a proof of global uniqueness.",
+      "searches": [
+        "published-finding corpus MCP: periodic uniform piecewise linear finite-element semidiscrete heat semigroup six vertices distance-three entry changes sign twice exact positivity threshold",
+        "published-finding corpus MCP: consistent mass Galerkin heat equation reentrant positivity at opposite nodes all cycle lengths n at least six",
+        "published-finding corpus MCP: first minimal periodic mesh where positive heat-kernel entry turns negative after small positive time",
+        "own ledger: examined recoverable claims in 2026-10_week3 p0001 g000091, including indices 77, 86, and 90",
+        "web: mass matrix six periodic linear finite element heat semigroup sign changes three steps positive negative positive"
+      ]
+    },
+    "rationale": "The inspected primary papers establish generic small-time failure and eventual positivity, not universal intermediate sign reversal of a coefficient already positive near zero, nor the minimal mesh and exact six-node threshold. Repository-level published spectral-cardinality and filtered-Crank-Nicolson results were read in relevant full-text sections and do not imply the same claim. A relevant 2015 full paper was not accessible, an explicit residual priority risk.",
+    "residual_risks": [
+      "Full author-hosted 2015 heat-equation article was inaccessible; possibly contains unindexed periodic-mesh examples.",
+      "Specialized older treatments of circulant consistent-mass heat kernels may have formulas under other terminology; negative search results alone do not certify global priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides generic nonpositivity and eventual positivity context, not the specified periodic six-node root theorem in material examined",
+        "evidence": [
+          "Theorem 3.1: semidiscrete nonnegative for all positive times impossible under stated conditions.",
+          "Theorem 3.2: positivity for sufficiently large times when H-inverse positive."
+        ],
+        "identifier_or_url": "arxiv:1510.02825 / https://arxiv.org/pdf/1510.02825",
+        "material_read": "Abstract, Introduction, equation 1.9, Theorems 3.1-3.2 and their proofs, later positivity-threshold discussion and tables (PDF textual extraction; initial page visually inspected)",
+        "method": "Open-access arXiv PDF; textual sections and PDF screenshot",
+        "title": "On Nonnegativity Preservation in Finite Element Methods for Subdiffusion Equations",
+        "trigger": "Direct foundational treatment of nonnegativity of standard Galerkin semigroups"
+      },
+      {
+        "assessment": "Potential stronger coverage unresolved, without contrary evidence sufficient to imply the new claim",
+        "evidence": [
+          "Abstract describes Dirichlet heat finite-element positivity and time thresholds; no specific periodic reentrant sign statement in available text."
+        ],
+        "identifier_or_url": "DOI:10.1515/cmam-2015-0018 / https://users.math.uoc.gr/~p.chatzipa/index_files/papers/CHV15.pdf",
+        "material_read": "Indexed abstract and an indexed page-14 excerpt only; complete PDF could not be fetched",
+        "method": "Search results; direct full-PDF retrieval was unsuccessful; additional authorized full-text retrieval also unavailable",
+        "title": "On Preservation of Positivity in Some Finite Element Methods for the Heat Equation",
+        "trigger": "Most plausible heat-specific primary source"
+      },
+      {
+        "assessment": "Known generic no-maximum-principle result, no evidenced exact periodic-kernel classification",
+        "evidence": [
+          "Abstract states standard semidiscrete maximum principle generally cannot hold, while mass-lumped conditions differ."
+        ],
+        "identifier_or_url": "DOI:10.1090/S0025-5718-07-02021-2",
+        "material_read": "Abstract and indexed description; no complete PDF",
+        "method": "Published journal and institutional abstract",
+        "title": "On the Existence of Maximum Principles in Parabolic Finite Element Equations",
+        "trigger": "Earlier obstruction to standard Galerkin maximum principles"
+      },
+      {
+        "assessment": "Focus is fully discrete theta and Pade maps, not the semidiscrete exponential operator",
+        "evidence": [
+          "Abstract explicitly places emphasis on time stepping."
+        ],
+        "identifier_or_url": "DOI:10.2478/cmam-2010-0025",
+        "material_read": "Institutional abstract and bibliographic metadata only",
+        "method": "Institutional repository and bibliographic search",
+        "title": "On Positivity and Maximum-Norm Contractivity in Time Stepping Methods for Parabolic Equations",
+        "trigger": "Nearby one-dimensional theta-method positive-step analysis"
+      },
+      {
+        "assessment": "Whole-operator positivity time-set statement, not the individual-entry reentrance and exact finite-element threshold",
+        "evidence": [
+          "Theorem characterizes positivity-time sets for at most three spectral values and a four-level counterexample."
+        ],
+        "identifier_or_url": "published record da21753d4271",
+        "material_read": "Complete available RESULT.md including theorem, proof, limitations, references",
+        "method": "Public repository file read",
+        "title": "A three-spectral-value barrier for gaps in positivity times of self-adjoint semigroups",
+        "trigger": "Potentially stronger generic positivity-time set theorem"
+      },
+      {
+        "assessment": "Different operator: lumped-mass lattice, rational backward-Euler and Crank-Nicolson composition",
+        "evidence": [
+          "Positive composite kernel is obtained from powers of a positive resolvent, not a consistent-mass exponential."
+        ],
+        "identifier_or_url": "published record 1f6f56bd0eac",
+        "material_read": "RESULT.md result, derivation, and periodic extension",
+        "method": "Public repository file read",
+        "title": "Unconditional lattice positivity from backward-Euler-filtered Crank–Nicolson",
+        "trigger": "Positivity on periodic uniform heat lattices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66f05a5d-b76c-4266-afb2-e12e1d63b85c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The positivity of consistent-mass nodal heat propagators is a natural discretization-quality invariant. A universal all-mesh reentrant sign of the same coefficient contradicts monotone intuition that a locally positive influence stays positive while diffusion proceeds, and the theorem gives a fixed rational-time witness, least dimension, and exact minimal-size positivity horizon. The all-size portion is proved using a finite rational certificate together with an analytic tail estimate; the six-node invariant is naturally motivated as the first dimension where this new phenomenon occurs, rather than an arbitrary matrix sample.",
+    "status": "PASS"
+  }
+}
