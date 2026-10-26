@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The characteristic polynomial and real cubic transformation are explicitly derived. The discriminant sign and its quadratic discriminant give a complete partition of the positive loss-rate axis, with strictly positive roots when the threshold is exceeded. Irreducible tridiagonal eigenvectors have one-dimensional eigenspaces, proving that repeated roots are defective; the triple factorization identifies the order-three point. The orthogonal bright/dark decomposition proves the complete-bipartite corollary, including singleton and two-vertex boundary cases. Exact symbolic assertions in the included checker passed; finite checks merely corroborate the proof.
+
+**Originality — PASS, subject to residual literature risk.** The 2018 Joglekar–Harter full-text trimer section has uniform hopping and a real detuning, not the positive unequal-edge cusp, third-order single-loss collision, or its graph-reduction obstruction. The 2010 Joglekar et al. source has paired gain and loss, and the 2021 Downing–Saroka model also involves balanced pumping and damping. Accessible comparison and indexed search returned no theorem implying the exact threshold or its graph counterpart. Nevertheless, broader treatments of non-Hermitian three-level chains could subsume the cubic discriminant, and a relevant 2018 extended-star source remained unavailable in full; priority is not certified.
+
+**Value — PASS.** The coupling-ratio threshold is a sharp topology-and-geometry feasibility criterion for exceptional points in a passive system, not a mere rescaling. At the boundary, two second-order degeneracies merge into a third-order one; above threshold, the all-imaginary spectral interval is bounded exactly. The graph reduction translates the criterion into an all-size obstruction for absorber placement on complete bipartite networks. This clarifies when site-local loss can or cannot produce defective spectra without gain.
+
+Scope is limited to one endpoint loss, strictly positive nearest-neighbor hopping, and the stated unweighted graph class; the result does not classify detuned or arbitrary networks. The comparison to Yalouz–Pouthier's extended-star study could not resolve all priority uncertainty because complete text was inaccessible.
+
+Self-review: passed. Independent audit: not yet performed.
