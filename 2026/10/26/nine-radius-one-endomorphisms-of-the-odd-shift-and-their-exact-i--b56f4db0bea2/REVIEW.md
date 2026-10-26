@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The odd shift is exactly the union of two parity-supported full binary shifts. Its five admissible three-neighborhoods yield one identity case and eight induced binary two-input maps with zero on `00`; every unspecified full-shift truth-table bit has multiplicity eight. Surjectivity and all five image languages follow from explicit coarse antecedent formulas and forbidden-word obstructions. The two exact integer characteristic-polynomial calculations give the four entropy values, and the difference map has precisely two coarse antecedents, with the zero-fibre intersection accounted for. The standalone verifier reproduces finite cases and exact matrix arithmetic, without treating finite samples as an infinite proof.
+
+**Originality — PASS within inspected evidence.** The 2014 Salo article treats odd-shift realizability as a class of rule-sequence problems, not the complete nine restricted centered-radius-one self-maps or their image entropy spectrum. The 2022 Salo discussion explicitly establishes Rule 18 = Rule 90 on the odd shift, so this relationship, and the immediate fibre calculation, are not asserted as independently original. Actual published-index searches and local overlap checks did not identify the complete census plus exact image spectrum. Historical priority remains uncertain, especially for unpublished enumerations or reductions using two-phase full shifts.
+
+**Value — PASS.** The odd shift is a canonical strictly sofic example. Classifying *all* its elementary endomorphisms by restricted map and image language exposes the sharp distinction between a full-shift-derived noninvertible surjection and five smaller images. The four exact entropy levels capture their dynamical complexity, whereas a list of 72 raw rule numbers would not. This is a motivated natural complete classification, not a parameter substitution or unmotivated finite slice.
+
+Closest prior treatment is Salo (2014), and the most specific overlap is Salo (2022) on the Rule-18/Rule-90 restriction. Residual risk is an unindexed equivalent complete census; the result applies only to centered radius one and concerns spatial image entropy, not temporal entropy.
+
+Self-review: passed. Independent audit: not yet performed.
