@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS (self-review).** The proof reduces the entire covariance matrix to matching time-shift diagonals by two independent Fourier orthogonality conditions; the exact Bernoulli kernel is reconstructed from its absolutely convergent Fourier series. Its uniform geometric bound justifies truncation, and the shift-counting identity yields the sharp leading variance and an explicit negative logarithmic correction. `CHECK.py` reports 358 exact-rational and numerical diagnostics, but the finite checks do not replace the proof.
+
+**Originality — PASS under inspected evidence.** Baker–Todd, arXiv:2606.17880, Theorem A concerns first-order typical-orbit limits, not this two-orbit sharp variance or logarithmic second-order law. The nearest published indexed calculation, *Sharp second-moment inflation for expanding circle-map pair correlations* (2026), is for two points **within one orbit**. Its exact statement and full mathematical proof were inspected; it contains no two-independent-seed cross-variance or its logarithmic correction. Classical lacunary papers provide Poissonian spacing laws or variance bounds rather than this coefficient. The relevant underlying primary paper was readable only in part in this investigation, so uninspected portions remain a priority risk; no absolute novelty certification is asserted.
+
+**Value — PASS.** The two-orbit question is explicitly central in the motivating literature. Exact selection of only simultaneous time shifts identifies the dependence mechanism, the variance inflation factor quantifies its strength, and the logarithmic bias gives a useful finite-size calibration absent for independent sampling. This is a structural second-moment refinement rather than an arbitrary parameter-specific calculation.
+
+**Closest work and limitations.** The one-orbit published variance law shares the expansion and a Bernoulli covariance kernel, but different index geometry gives different diagonal selection and the present explicit logarithmic correction. The theorem does not claim a central limit theorem, other metrics, dependent seeds, or a complete literature-priority guarantee.
+
+Self-review: passed. Independent audit: not yet performed.
