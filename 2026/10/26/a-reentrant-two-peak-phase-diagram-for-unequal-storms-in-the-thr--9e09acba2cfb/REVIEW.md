@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness (PASS).** The derivative after the second storm is exactly a strictly concave quadratic multiplied by a positive function. Its vertex and discriminant give necessary and sufficient conditions for two distinct post-storm stationary points and their strict sign reversals. Pre-storm and equality cases are addressed separately. Logarithmic differentiation proves the unique maximum of the amplitude threshold. Exact rational/exponential comparisons prove the explicit reentrant example. The included finite checks reproduce, but do not prove, the continuum claim.
+
+**Originality (PASS, provisional relative to accessible sources).** The closest directly accessible primary work models overlapping gamma pulses (Muneepeerakul et al., 2010) but investigates their probability distribution and autocorrelation; Gnecco et al. (2018) optimizes a global peak under constant-duration rainfall, not the number of local peaks from two instantaneous unequal impulses. Gioia (2016) analyzes routing of superposed equal-peak Weibull floods, but the full article could not be retrieved directly for an exhaustive comparison. The prior equal-impulse three-stage threshold \(d>2\) is explicitly excluded as a novelty claim and is logically weaker: fixing \(m=1\) cannot entail the free-ratio threshold or reentrant fixed-\(m\) behavior. No statement-level equivalent was found in the targeted bibliographic and semantic comparisons; this does not prove uniqueness. A broad gamma-translate mode theorem could encompass the result.
+
+**Value (PASS).** A flood hydrograph can appear single-peaked or double-peaked depending on both storm spacing and relative rainfall-excess volumes. The complete, sharp design chart and the nonmonotone resolution boundary are substantive information about a physically motivated three-stage routing model. The exact reentrant behavior shows why increasing separation need not monotonically increase the number of runoff peaks, despite that tempting assumption. This is not a claim about measured flood hazards.
+
+**Closest literature.** Nash (1959), DOI 10.1029/JZ064i001p00111; Muneepeerakul et al. (2010), DOI 10.1029/2010WR009286 (full HTML sections inspected); Gioia (2016), DOI 10.3390/w8120553 (incomplete direct full-text access); Gnecco et al. (2018), DOI 10.5194/hess-22-943-2018 (full HTML sections inspected).
+
+**Limits and risks.** Assumes ideal impulses and homogeneous linear cascades; mode counts need not be observable in noisy signals. Broader theorems on gamma/Erlang translations or inaccessible full texts may contain the boundary implicitly. No independent audit or observational validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
