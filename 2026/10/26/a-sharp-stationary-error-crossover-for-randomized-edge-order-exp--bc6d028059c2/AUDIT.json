@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For every h>0 (q in (0,1)), six explicit column-stochastic matrices contract zero-sum vectors uniformly. Cyclic symmetry forces the random-order stationary mean u and covariance VΠ/2. Direct expansion yields a(q), b(q), and V=b/(1-a), with D(q)>0. The two cyclic fixed-order classes have exactly the stated fixed points and biases. Exact factorizations of V-B_min and V-B_max, positivity of D and T, and strict monotonicity F′>0 prove a unique crossover and the complete all-h ordering. A packaged SymPy verifier reconstructs the operators and identities; finite rational tests are supplementary, not universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2102.08242 develops positivity-preserving graph-Laplacian integrators.",
+        "arxiv:1511.08240 provides long-time relative-entropy bounds for CTMC splitting.",
+        "doi:10.1137/120878641 studies deterministic balance-correction splitting for steady states."
+      ],
+      "reasoning": "These broader methods cover components (positivity, splitting, generic long-time error) but the inspected sections do not contain a theorem with the six randomized triangle edge products and exact stationary mean-square-error reversal; no accessible stronger theorem was found. The balanced-splitting full text was not inspected.",
+      "searches": [
+        "Sharp stationary distribution bias of Strang splitting of Markov generators on a three-state cycle, exact invariant measure and time step dependence",
+        "Positivity-preserving exponential integrator graph Laplacian nonlinear dynamics spurious stationary states periodic orbits three states",
+        "Exact optimal Markov chain splitting order and stationary bias two generators on three-state cycle",
+        "Randomly permuted Lie-Trotter edge exponential integrator directed three-state cycle stationary mean-square error with uniform permutations variance vs fixed order step size crossover",
+        "randomized Lie splitting Markov chain invariant distribution stationary variance",
+        "random permutation splitting Markov chains edge exponential splitting invariant distribution stationary variance randomized order",
+        "Speth Green Macnamara Strang 2013 balanced splitting rebalanced splitting steady states paper CTMC invariant measure"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2102.08242",
+      "arxiv:1511.08240",
+      "arxiv:1805.08385",
+      "arxiv:2109.07987",
+      "doi:10.1137/120878641 (abstract/metadata only)",
+      "Indexed published result: A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains (2026)",
+      "Indexed published result: Two-state immunity and three-state sharpness for endpoint positivity of SSP-SDIRK2(2) (2026)",
+      "Indexed published result: Stationary-circulation, coarse-ergodicity and entropy laws for switching graph flows (2026)",
+      "Indexed published result: Harmonic equilibrium bias and a one-gradient covariance obstruction for randomized ULMC (2026)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published record on repeated Crank–Nicolson positivity on directed cycles does not analyze random exact edge splitting stationarity.",
+        "Published resolvent-return law for Crank–Nicolson nonnegativity does not imply random edge-order MSE.",
+        "arxiv:1511.08240 studies Markov path relative entropy rate rather than a stationary random affine simplex-vector law."
+      ],
+      "reasoning": "The candidate is not obtained as a corollary of the inspected published or own results: finite-time norm bounds and positivity lack the stationary covariance comparison, and generic covariance identities do not determine the explicit threshold without six-product structure.",
+      "searches": [
+        "Sharp stationary distribution bias of Strang splitting of Markov generators on a three-state cycle, exact invariant measure and time step dependence",
+        "Positivity-preserving exponential integrator graph Laplacian nonlinear dynamics spurious stationary states periodic orbits three states",
+        "Exact optimal Markov chain splitting order and stationary bias two generators on three-state cycle",
+        "Randomly permuted Lie-Trotter edge exponential integrator directed three-state cycle stationary mean-square error with uniform permutations variance vs fixed order step size crossover",
+        "Sharp polynomial crossover q^3(1-q)^2+2q^2+8q-4 random permutation splitting on three state Markov cycle",
+        "Operator splitting random edge ordering CTMC simplex stationary second moment deterministic bias variance",
+        "Randomly ordered positivity-preserving graph Laplacian splitting stationary covariance invariant measure",
+        "Finite-state Markov splitting fixed cyclic order versus randomized permutations stationary distribution bias mean square"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1511.08240 uses Lie/Strang CTMC error expressed as path-space relative entropy rate.",
+        "arxiv:1805.08385 randomizes ordering for finite-horizon unitary operator error.",
+        "Indexed published mathematical records concerned distinct positivity and random-product questions; no exact three-edge stationary MSE formula was identified."
+      ],
+      "reasoning": "Alias checks included product formulas, Lie-Trotter edge flows, randomized permutations and Markov stationary covariance. General random affine operator covariance has a formally analogous Lyapunov equation, but without the exact triangle polynomial/bias classification it does not imply the claim.",
+      "searches": [
+        "Randomly permuted Lie-Trotter edge exponential integrator directed three-state cycle stationary mean-square error with uniform permutations variance vs fixed order step size crossover",
+        "Sharp polynomial crossover q^3(1-q)^2+2q^2+8q-4 random permutation splitting on three state Markov cycle",
+        "Operator splitting random edge ordering CTMC simplex stationary second moment deterministic bias variance",
+        "randomized Lie splitting Markov chain invariant distribution stationary variance",
+        "random permutation splitting Markov chains edge exponential splitting invariant distribution stationary variance randomized order"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Top hits on related matrix positivity, CTMC stationarity and randomized dynamics did not list this exact polynomial threshold.",
+        "Closest indexed published results address Crank–Nicolson positivity and switching-flow stationary geometry, not the six-permutation stationary covariance."
+      ],
+      "reasoning": "No exact table or database result was identified for the six-permutation Markov-triangle stationary second moment. Searches establish limited coverage only, not uniqueness.",
+      "searches": [
+        "Sharp polynomial crossover q^3(1-q)^2+2q^2+8q-4 random permutation splitting on three state Markov cycle",
+        "Operator splitting random edge ordering CTMC simplex stationary second moment deterministic bias variance",
+        "Randomly ordered positivity-preserving graph Laplacian splitting stationary covariance invariant measure",
+        "Finite-state Markov splitting fixed cyclic order versus randomized permutations stationary distribution bias mean square"
+      ]
+    },
+    "rationale": "The new object is a stationary distribution over three-component probability vectors generated by independently reordered exact Markov edge subflows. The inspected graph-Laplacian integrator paper supplies the method, long-time Markov-splitting literature provides different relative-entropy diagnostics, and quantum randomized product formulas concern unitary finite-time approximation. Targeted indexed-literature and claim-level searches found no statement implying this exact six-order stationary covariance and sharp sign reversal. Literature incompleteness and alternative generic random affine recursions remain genuine risks, not proof of global uniqueness.",
+    "residual_risks": [
+      "Independent publication-priority audit not performed; relevant random-matrix, Markov splitting or affine iterated-function literature could contain an equivalent example or general theorem.",
+      "Full text of balanced/rebalanced splitting (doi:10.1137/120878641) was not inspected; the comparison is limited to its abstract and metadata.",
+      "This conclusion is only for a three-state equal-rate directed cycle and uniform independent permutations, not arbitrary graph dimensions or order distributions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates edge-exponential positivity, but inspected material does not supply the six-order random stationary covariance or the exact deterministic comparison.",
+        "evidence": "ArXiv v1 history dated 2021-02-16; positivity-preserving graph-Laplacian formulations, journal MSC 65L05.",
+        "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+        "material_read": "ArXiv full-text HTML introduction and the graph-Laplacian method discussion; journal abstract, MSC and reference metadata.",
+        "method": "Reviewed construction and scope of positivity-preserving numerical flows and searched for permutation-randomized stationary distribution-vector covariance.",
+        "title": "Positivity-preserving methods for population models / Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Graph-Laplacian exponential integration and primary numerical-analysis source underlying the object"
+      },
+      {
+        "assessment": "The studied long-time relative entropy metrics/commutator bounds are different observables and do not state the exact stationary Euclidean MSE crossover here.",
+        "evidence": "Sections define relative entropy rate between split CTMC path laws, rather than stationary second moment of random simplex vectors.",
+        "identifier_or_url": "https://arxiv.org/pdf/1511.08240",
+        "material_read": "PDF introduction and sections 2, 3, 8 and 9, with a PDF-page screenshot inspected.",
+        "method": "Compared the analyzed Lie/Strang operators, invariant behavior and relative-entropy-rate observables against independent permutations on distribution vectors.",
+        "title": "Information metrics for long-time errors in splitting schemes for stochastic dynamics and parallel KMC",
+        "trigger": "Most relevant long-time continuous-time Markov-chain splitting-error framework"
+      },
+      {
+        "assessment": "Estimates finite-time quantum/unitary simulation error; it does not imply Markov-simplex stationary covariance/bias crossover.",
+        "evidence": "Unitary product formula randomization and diamond-norm error bounds.",
+        "identifier_or_url": "https://arxiv.org/pdf/1805.08385",
+        "material_read": "First three PDF pages and screenshot of page 2.",
+        "method": "Compared stochastic product-formula objectives and target operator class.",
+        "title": "Faster quantum simulation by randomization",
+        "trigger": "Random ordering of noncommuting exponential factors may dominate ordinary product formulas"
+      },
+      {
+        "assessment": "Addresses quantum Hamiltonian algorithmic error; no implication of stationary three-edge Markov triangle crossover.",
+        "evidence": "The objective is time-evolution simulation of Hamiltonians, not stationary invariant simplex-vector law.",
+        "identifier_or_url": "https://arxiv.org/abs/2109.07987",
+        "material_read": "Accessible arXiv HTML introduction and method section 2.",
+        "method": "Compared randomized Hamiltonian terms and objectives with edge-order-only Markov splitting.",
+        "title": "A partially random Trotter algorithm for quantum Hamiltonian simulations",
+        "trigger": "Alternative randomized splitting with different sampling of generators"
+      },
+      {
+        "assessment": "A deterministic bias-correction split introduces balancing terms; its abstract does not state the independently permuted six-order second-moment law, but the uninspected full text remains a priority risk.",
+        "evidence": "2013 abstract describes adding c_n and -c_n to two split vector fields to reduce steady-state error.",
+        "identifier_or_url": "https://doi.org/10.1137/120878641",
+        "material_read": "Publisher abstract and open-access institutional repository metadata/abstract; full text was not available in the inspected material.",
+        "method": "Compared correction terms and fixed step-splitting setup described in abstract.",
+        "title": "Balanced splitting and rebalanced splitting",
+        "trigger": "Known splitting methods explicitly designed to reduce steady-state bias"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bc6d0280-59c2-4191-b284-e423422ab6fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At fixed cost of three positive stochastic edge exponentials per step, randomization improves stationary Euclidean squared error from the optimal fixed-order order h² to order h³ for small h, but loses to the best fixed order after an exact nontrivial threshold. It gives an exact minimal noncommutative graph-Laplacian counterexample to global dominance of randomized versus fixed ordering, and a practical step-size decision boundary. The natural comparison is a stationary solver of an invariant Markov distribution, not an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
