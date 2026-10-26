@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Verified e^{As}B=v(s), H v(s)=1 and scalar Kalman conditioning gives precisely the weighted variance. Strict monotonicity proves m>=2 positive and m=1 zero; analytic integration yields exact variance, and dominant smallest Gauss node yields the sharp fixed-m stiff asymptotic. Zero mesh covariance follows induction. The forced ODE has a proven positive mean error by sinh inequality. 2,886 finite checks passed from packaged pure-Python code; asymptotic arguments are analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schmidt–Hennig–Nick–Tronarp arXiv:2306.07774, sections 3 and 5: deliberate low-rank Kalman approximation and a qualitative overconfidence limitation, but not conditioned IOUP Gauss-node formulas, the m=1 deterministic posterior, or stiff asymptotics.",
+        "arXiv:1810.03440 sets out noiseless derivative-as-observation filtering but its retrieved abstract does not determine the process-noise quadrature used here."
+      ],
+      "reasoning": "The general Kalman covariance projection and warnings about rank truncation are broader ideas, but do not determine this method-specific exact coefficient, full mesh-point rank collapse, forced linear counterexample, or fixed-Gauss-node exponential underresolution. No stronger covering theorem identified.",
+      "searches": [
+        "quadrature based square root process noise covariance Kalman filter rank deficient Gaussian conditioning one node collapse to deterministic state",
+        "weighted variance of exponential function Gauss Legendre quadrature conditioned integrated Ornstein Uhlenbeck process covariance stiff rate algebraic exponential error",
+        "rank-reduced Kalman filter overconfidence covariance approximation Schmidt Hennig Tronarp",
+        "probabilistic ODE solver low rank quadrature zero filtered uncertainty"
+      ]
+    },
+    "checked_sources": [
+      "Bosch–Hennig–Tronarp arXiv:2305.14978v2, main formulae and Appendix B",
+      "Schmidt–Hennig–Nick–Tronarp arXiv:2306.07774, relevant full-text sections and limitations",
+      "Tronarp–Kersting–Särkkä–Hennig arXiv:1810.03440, abstract only",
+      "Targeted mathematical-record searches for rank collapse, IOUP quadrature, conditional covariance and stiff underresolution"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bosch–Hennig–Tronarp arXiv:2305.14978v2 sections 2.3 and 3.2, Eqs. (10)–(12), (24)–(25), and Appendix B Eqs. (35)–(49), (79): q=1 and m=q gives one-node covariance quadrature, whereas their mean-equivalence proof assumes exact Q.",
+        "Schmidt–Hennig–Nick–Tronarp arXiv:2306.07774, sections 3 and 5: deliberate low-rank Kalman approximation and a qualitative overconfidence limitation, but not conditioned IOUP Gauss-node formulas, the m=1 deterministic posterior, or stiff asymptotics.",
+        "Original Appendix B gives H Q H^T=hI and QH^T via integrals, which uses Q_exact, not Q_Gauss(m=q). Original equations 24–25 define the finite-node rule, without their subsequent exact conditioned variance."
+      ],
+      "reasoning": "Exact-Q mean equivalence is not the same as its m=q quadrature implementation. In the exact-Q model a derivative observation leaves strictly positive position variance and solves the forced-linear example at one step; the quadrature m=1 substitutes one impulse-response column, making the conditioned variance identically zero and causing a strictly positive mean defect. This implication comparison rules out treating the published exact-integral results as coverage of the opposite quadrature behavior.",
+      "searches": [
+        "once-integrated Ornstein Uhlenbeck probabilistic exponential integrator Gauss Legendre q nodes process noise covariance rank degeneracy zero posterior variance",
+        "quadrature based square root process noise covariance Kalman filter rank deficient Gaussian conditioning one node collapse to deterministic state",
+        "Gauss Legendre m=q probabilistic exponential integrator stiffness underestimation conditioned covariance exponential decay versus algebraic",
+        "Probabilistic Exponential Integrators Bosch Hennig Tronarp exact stationary covariance scalar linear Ornstein Uhlenbeck Gaussian posterior"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bosch–Hennig–Tronarp arXiv:2305.14978v2 sections 2.3 and 3.2, Eqs. (10)–(12), (24)–(25), and Appendix B Eqs. (35)–(49), (79): q=1 and m=q gives one-node covariance quadrature, whereas their mean-equivalence proof assumes exact Q.",
+        "A published finding titled “Fractional midpoint noise creates configurational superconvergence in UBU-type Langevin sampling” concerns a different Langevin splitting covariance; arXiv:2306.07774 considers low-rank Gaussian filtering without the IOUP Gauss quadrature rule."
+      ],
+      "reasoning": "We compared aliases zero posterior uncertainty, degenerate Kalman update, rank-one process-noise quadrature, conditioned OU covariance and one-node Gaussian quadrature. Standard conditioning implies a weighted variance, but no searched document states or implies the combined IOUP m=q collapse and stiff/mean-error consequences.",
+      "searches": [
+        "once-integrated Ornstein Uhlenbeck probabilistic exponential integrator Gauss Legendre q nodes process noise covariance rank degeneracy zero posterior variance",
+        "Bosch Hennig Tronarp m=q Gauss Legendre integrated Ornstein Uhlenbeck q=1 zero filtered covariance with exact derivative observation",
+        "one-point square root covariance quadrature gives deterministic posterior despite inexact ODE estimate",
+        "\"probabilistic exponential integrators\" \"q=1\" quadrature degeneracy zero uncertainty",
+        "probabilistic ODE solver covariance quadrature nodes posterior covariance zero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical record queries returned no matching IOUP conditional-covariance table; nearest published findings concerned STORM optimization stationary covariance and random-sensor Ornstein–Uhlenbeck observation extremes, rather than the present quadrature filter."
+      ],
+      "reasoning": "The scalar exact one-step posterior-variance expressions and fixed-node stiff asymptotic were not found in a relevant published table or mathematical-record finding; nonmatches are not uniqueness proof.",
+      "searches": [
+        "Gauss Legendre m=q probabilistic exponential integrator stiffness underestimation conditioned covariance exponential decay versus algebraic",
+        "probabilistic numerical ODE solver too few quadrature nodes zero uncertainty integrated Ornstein Uhlenbeck",
+        "\"Probabilistic Exponential Integrators\" \"Gauss–Legendre\" covariance rank uncertainty q=1",
+        "integrated Ornstein Uhlenbeck covariance quadrature low rank Kalman filter deterministic posterior rank collapse",
+        "\"Probabilistic Exponential Integrators\" \"m=q\" \"covariance\" error",
+        "\"one node\" \"posterior covariance\" ODE filter Gauss Legendre",
+        "\"integrated Ornstein Uhlenbeck\" \"midpoint\" \"posterior variance\""
+      ]
+    },
+    "rationale": "The exact-q-one finite-node filtered-variance law, sharp node threshold, stiff covariance asymptotics, and forced-ODE zero-uncertainty numerical-error example were compared with the full applicable primary sections of arXiv:2305.14978 and with arXiv:2306.07774. The original uses m=q positive Gauss–Legendre quadrature (Sec 3.2); its Appendix B identity and mean equivalence use exact Q, and do not imply the analyzed finite quadrature conclusions. Rank-reduced Kalman work notes generic overconfidence, but does not quantify this specific filter. Targeted mathematical-record and publication searches did not find a covering statement. Residual equivalence in general filtering literature remains possible.",
+    "residual_risks": [
+      "The general Gaussian-conditioning calculation is classical; a specialized covariance-quadrature or reduced Kalman publication could state an equivalent sharp asymptotic under other notation.",
+      "The actual implementation may deviate from the paper’s stated m=q quadrature choice; no claim about installed code behavior is made.",
+      "General higher-order and non-EKL probabilistic ODE filtering remain outside this theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source supplies components and exact-Q equivalence but does not state the conditioned fixed-node formula, zero-covariance/incorrect-mean example, or stiff asymptotics.",
+        "evidence": [
+          "Bosch–Hennig–Tronarp arXiv:2305.14978v2 sections 2.3 and 3.2, Eqs. (10)–(12), (24)–(25), and Appendix B Eqs. (35)–(49), (79): q=1 and m=q gives one-node covariance quadrature, whereas their mean-equivalence proof assumes exact Q.",
+          "arXiv:2305.14978v2, Sec 3.2 says “Gauss–Legendre quadrature on m=q nodes”; Appendix B explicitly uses integrated Q in its identity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.14978v2",
+        "material_read": "HTML full-text mathematical sections 2.3 and 3.1–3.5, equations (10)–(12),(20)–(26), Appendix B.1–B.3 including init (79), and source references/limitations",
+        "method": "Read formulas and proofs, separately substituted m=q=1 into the quadrature covariance and EKL correction",
+        "title": "Probabilistic Exponential Integrators",
+        "trigger": "Primary source, identical IOUP prior and q-node Gauss–Legendre rule"
+      },
+      {
+        "assessment": "General rank reduction and overconfidence observation, but not exact scalar quadrature/conditioning theorem or forcing example.",
+        "evidence": [
+          "Schmidt–Hennig–Nick–Tronarp arXiv:2306.07774, sections 3 and 5: deliberate low-rank Kalman approximation and a qualitative overconfidence limitation, but not conditioned IOUP Gauss-node formulas, the m=1 deterministic posterior, or stiff asymptotics.",
+          "HTML limitations discussion acknowledges overconfidence when truncating covariance information."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.07774",
+        "material_read": "Accessible HTML full-text Introduction, Sections 2–3 and 5 limitation and conclusions",
+        "method": "Compared low-rank dynamical Lyapunov covariance approximation with fixed-order Gauss IOUP prediction and noiseless ODE information correction",
+        "title": "The Rank-Reduced Kalman Filter: Approximate Dynamical-Low-Rank Filtering In High Dimensions",
+        "trigger": "Possible broader coverage of low-rank covariance collapse and overconfidence"
+      },
+      {
+        "assessment": "Establishes broad ODE filtering context; full-text equivalence was not established from abstract alone.",
+        "evidence": [
+          "arXiv:1810.03440 abstract: nonlinear Bayesian filtering of ODE residuals; no specific IOUP q-node covariance formula in material read."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.03440",
+        "material_read": "Accessible abstract and bibliographic information only",
+        "method": "Checked conceptual relationship, not a whole-document noncoverage assertion",
+        "title": "Probabilistic Solutions To Ordinary Differential Equations As Non-Linear Bayesian Filtering: A New Perspective",
+        "trigger": "Original probabilistic ODE filtering observation model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "733da8b3-bb62-41b4-b152-27046c0e3fc8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit node-count prescription in a numerical probabilistic integrator produces a deterministic mesh-point posterior despite actual ODE numerical error; even adding a fixed number of quadrature nodes fails in stiff covariance scaling. The exact two-node repair and full stiff asymptotic form a substantive quadrature-design diagnostic, not a trivial isolated rank observation. Restricted scope and need for improved node adaptation are documented.",
+    "status": "PASS"
+  }
+}
