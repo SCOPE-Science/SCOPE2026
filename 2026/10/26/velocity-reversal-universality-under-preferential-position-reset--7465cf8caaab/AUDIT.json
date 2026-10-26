@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A pathwise Poisson construction proves existence and |X_t|<=vt. Conditional sign correlation is exp[-2(gamma+eta*r)(t-s)], because reversals form a thinned independent Poisson clock. The exact M,J,V,H moment equations and a first-crossing envelope imply M=v/(2gamma+r)+O(1/t). An integrating factor for H/t proves V=2v² log(rt)/[r(2gamma+r)]+C_eta+O(1/t). Independent one-event path counting proves the cubic coefficient, and algebra proves exact parameter recovery. Source CHECK.py passes 78 checks, including seeded direct path simulation, but finite checks do not prove limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1810.02735 definition sets the entire start state of the next Markov run to the sampled historical state; see p.4 of the preprint.",
+        "arxiv:2312.13439 Eq. (14) establishes v-squared/(gamma*r) for paired-history state restoration."
+      ],
+      "reasoning": "The very broad random-recursive-tree law addresses full state relocation followed by a Markov run. The present kernel deliberately retains a current internal velocity state, possibly reversed, while restoring a past position; using the position marginal as the underlying Markov process is invalid for persistent telegraph motion. Broad Gaussian/logarithmic laws alone do not imply the eta-independent exact coefficient or the short-time identifiability identity.",
+      "searches": [
+        "arxiv:1810.02735 model definition section 1.1",
+        "random walks with preferential relocations fading memory Markov process full state",
+        "active particle in one dimension subjected to resetting with memory generalizations",
+        "preferential relocations persistent random walk velocity reversal statistics logarithmic diffusion",
+        "preferential resetting velocity position orientation unchanged active particle 2024 2025"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2312.13439",
+      "arxiv:1808.06450",
+      "arxiv:1810.02735",
+      "published mathematical research-record index queries listed in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Paired copying in arxiv:2312.13439 has leading mean-square coefficient v-squared/(gamma*r), whereas the present process has 2v-squared/[r*(2gamma+r)].",
+        "Fixed-site resetting in arxiv:1808.06450 yields stationary position statistics, whereas uniform-past position relocation here yields unbounded logarithmic variance.",
+        "The general source arxiv:1810.02735 restores the whole Markov state, unlike the present split-state rule."
+      ],
+      "reasoning": "For all positive gamma,r the established paired-copy coefficient differs strictly from the current coefficient, and stationary fixed-site results cannot imply logarithmic spreading. Even when two mechanisms share a qualitative logarithmic law, the exact coefficient and independent Bernoulli reversal universality require the new split-state generator calculation. The short-time cubic coefficient additionally distinguishes eta and gives a complete three-parameter population-level identification.",
+      "searches": [
+        "arxiv:2312.13439 complete Fourier transform and asymptotic variance",
+        "arxiv:1808.06450 fixed-site position-only resetting section 6.3",
+        "arxiv:1810.02735 complete Markov state relocation definition",
+        "uniform in the past position resetting run tumble velocity reversal probability eta logarithmic variance",
+        "active particle resetting with memory variable velocity reset protocol preferential position",
+        "preferential relocations persistent random walk velocity reversal statistics logarithmic diffusion",
+        "preferential resetting velocity position orientation unchanged active particle 2024 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2312.13439 resets both position and propulsion sign to the same sampled historical state (Eq. (9), introduction).",
+        "arxiv:1808.06450 reverses sign with arbitrary probability at a reset, but resets position to a fixed reference site (section 6)."
+      ],
+      "reasoning": "Neither operator equals sampling a historical position while reversing the current sign with an independent Bernoulli mark. In particular, copying the past sign and retaining/flipping the present sign give distinct mixed-moment evolution equations. The present logarithmic slope is not a parameter substitution of the published paired-state Fourier formula.",
+      "searches": [
+        "run and tumble particle resetting to randomly selected past position and independent velocity reversal",
+        "preferential memory relocation active particle logarithmic dispersion orientation retention reversal",
+        "uniform in the past position resetting run tumble velocity reversal probability eta logarithmic variance",
+        "active particle resetting with memory variable velocity reset protocol preferential position",
+        "arxiv:2312.13439 equations (9)-(14) and sections II-VI",
+        "arxiv:1808.06450 section 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematical-record index searches returned results on unrelated dynamical systems, resetting oscillators, and other variance problems; no indexed result asserted the same partial-state historical relocation coefficient.",
+        "The object is a continuum-time active transport model rather than a finite enumerated table.",
+        "An additional targeted mathematical-record query gave its highest-ranked results in unrelated randomized samplers, oscillator variance balances, and dynamical systems; no equivalent preferential-position-only reset claim was identified among the 50 returned hits. This is a search outcome, not proof of novelty."
+      ],
+      "reasoning": "No exact matching tabulation or record was located. An unsuccessful indexed search is not evidence of uniqueness; the substantive overlap comparison rests on the model definitions and equations in the primary full texts.",
+      "searches": [
+        "uniform time past resetting one dimensional telegraph motion velocity probability eta",
+        "preferential relocation position-only run-and-tumble velocity retained covariance asymptotic 2v squared over r times 2gamma plus r",
+        "preferential relocation position-only run-and-tumble velocity retained covariance asymptotic 2v squared over r times 2gamma plus r",
+        "preferential position-only resetting random historical time independent velocity flip probability logarithmic MSD coefficient 2 v squared r 2 gamma plus r"
+      ]
+    },
+    "rationale": "Published full-state historical relocation and fixed-site position-only resetting differ from the new split-state kernel. Their established variance regimes or coefficients do not directly imply the eta-independent coefficient and exact three-observable inversion. Residual possibility of an equivalent result in broad stochastic-process literature is explicitly acknowledged.",
+    "residual_risks": [
+      "An equivalent partial-state history-resetting theorem may exist outside the examined literature or under another terminology.",
+      "The broad Markovian-reset theorem might admit a nontrivial encoding not established or ruled out by the source-level comparison."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different: both historical position and historical velocity sign are restored, not a local independent sign reversal",
+        "evidence": [
+          "The model explicitly restores both x(t-prime) and sigma(t-prime) (page 2).",
+          "Its Eq. (14) gives leading variance v-squared*log(rt)/(gamma*r)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2312.13439",
+        "material_read": "Introduction, model definition, equations (9)-(14), velocity-resolved master equations, conclusion and large-deviation discussion",
+        "method": "Read the arXiv full-text extract and inspected page 4 as rendered image",
+        "title": "Active particle in one dimension subjected to resetting with memory",
+        "trigger": "Same historical-uniform resetting model, potential direct coverage of asymptotic variance"
+      },
+      {
+        "assessment": "Different: position returns to a fixed site, not to the position sampled uniformly from the particle history",
+        "evidence": [
+          "Section 6 says position resets to X_r and velocity reverses with probability eta.",
+          "Section 6.3 concerns fixed-site survival and mean absorption rather than logarithmic preferential relocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.06450v2",
+        "material_read": "Abstract, introduction, sections 6 and 6.3, conclusion",
+        "method": "Read arXiv HTML full-text portions including the full resetting rule and comparison",
+        "title": "Run and tumble particle under resetting: a renewal approach",
+        "trigger": "Arbitrary velocity reversal probability and position-only reset, potentially broader protocol"
+      },
+      {
+        "assessment": "Complete Markov-state relocation differs from partial restoration of historical position with current telegraph state",
+        "evidence": [
+          "Definition on PDF page 4 initializes each next Markov run at V_{n+1}=X(R_n), the recalled entire process state.",
+          "It does not specify an independent reversal of a current hidden velocity coordinate at relocation."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1810.02735",
+        "material_read": "Abstract, introduction, section 1.1 complete-process definition",
+        "method": "Read arXiv PDF text and inspected the model-definition page image",
+        "title": "Random walks with preferential relocations and fading memory: a study through random recursive trees",
+        "trigger": "Broad Markov-process resetting theorem might subsume the proposed model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7465cf8c-aaab-458d-98b3-d2cc1e5ab3ba",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The distinction between copying a historical full state and restoring only position is physically motivated in active transport. The exact eta-independent logarithmic dispersion law is a protocol-level universality result, contrasted sharply with the previously derived full-state coefficient and its different high-reset scaling. The cubic transient recovers eta while the late mixed moment and logarithmic slope recover the two rates, giving a natural complete ideal-observation inverse result, not merely a numerical normalization or a routine single-parameter value.",
+    "status": "PASS"
+  }
+}

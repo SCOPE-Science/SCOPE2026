@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The definition distinguishes past-position restoration from any full-state reset. The proof derives the sign correlation by independent Poisson thinning, the exact coupled moment equations by conditioning on a uniform historical time, a uniform mixed-moment bound by a first-crossing argument, and the logarithmic variance through an integrating-factor quadrature. The initial cubic coefficient is independently derived by enumerating zero or one physical event. The three-parameter inversion is algebraic and unique on the stated positive-parameter domain. The packaged `CHECK.py` passed 78 assertions, including fixed-seed path-level simulations; these numerical tests are corroboration, not substitutes for proof.
+
+**Originality — PASS, subject to priority risk.** The closest 2023 source restores the position **and sign** from a sampled historical time and derives a different logarithmic coefficient. The closest 2018 sign-reversal source restores position to a **fixed** site and obtains stationary position laws. The broader random-recursive-tree theorem likewise restores an entire Markov state. None of the inspected definitions directly includes the current-position-memory/current-sign-mixing jump operator. Index and web searches did not disclose an equivalent result, but negative searches cannot certify novelty; an equivalent broad stochastic-process formulation may remain.
+
+**Scientific value — PASS.** This is a motivated distinction between two experimentally interpretable reset controls. The logarithmic transport rate is invariant under the *entire* Bernoulli reversal family but differs sharply from full-state historical copying. An exact short-time cubic term simultaneously detects the reversal probability, yielding a three-observable identifiability theorem for the kinetic rates. That information is not captured by variance scaling alone. No density limit theorem, finite-sample estimator guarantees, or general nonlinear extension is claimed.
+
+Closest sources: Evans and Majumdar, arXiv:1808.06450; Boyer and Majumdar, arXiv:2312.13439; Mailler and Uribe Bravo, arXiv:1810.02735.
+
+Self-review: passed. Independent audit: not yet performed.
