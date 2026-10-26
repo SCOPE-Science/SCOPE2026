@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The arithmetic-state transition updates the exact quotient of the shifted input and the capped boundary run, with parity of fully contained \\(1^m\\) blocks. A closed residual formula counts crossing blocks. Distinct parity and trailing-run coordinates have explicit separating continuations; distinct quotient states are separated by continuations \\(2^K-q\\prime\\), where the lower quotient residual alternates and the higher one does not. For shift \\(c=2^r\\), positive quotient levels are disjoint and contain exactly \\(A_m(k)\\) parity-run pairs, with one exceptional state at \\(r=m\\); the zero-quotient region has exactly \\(2m\\) reachable distinct states. Symbolic counting proves the sum and stable formula. The included partition-refinement program and direct output comparisons corroborate 190 dyadic and 405 additional shifts; finite checks do not prove universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zantema–Bosma https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf: general upper/lower bounds on state complexity; no matching exact all-one-pattern formula in inspected relevant sections.",
+        "Moradi–Rampersad–Shallit https://arxiv.org/abs/2512.10017: general most-significant-digit-first shift bounds; distinct digit-processing convention.",
+        "Hendel https://arxiv.org/abs/2505.20547: base parity sequence and states, no all-parameter power-of-two shift minimum."
+      ],
+      "reasoning": "Automaticity and generic upper bounds do not imply the sharp formula with its isolated \\(r=m\\) correction and eventual slope \\(2m\\). General \\(m=2\\) special cases do not dominate \\(m\\ge3\\) because a different transient parity profile occurs. No inspected theorem with a stronger domain was found.",
+      "searches": [
+        "All ones pattern parity automatic words s_m(n+2^r) state complexity exact",
+        "Binary automatic sequence generalized Rudin Shapiro pattern 1^m minimal DFAO shifted by powers of two",
+        "Exact shift state complexity of Rudin Shapiro sequence arbitrary shifts binary DFAO",
+        "minimal number of states for all-one-pattern parity sequence shifted by 2^r, count overlapping runs 1^m, LSD first, exact formula 2mr+m(5-2m), generalized Rudin-Shapiro",
+        "arxiv:2505.20547",
+        "arxiv:2512.10017",
+        "doi:10.1016/j.ic.2021.104710"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2505.20547",
+      "https://arxiv.org/abs/2512.10017",
+      "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+      "Research-record search summaries on Rudin–Shapiro string attractors (2026-09-08) and summatory all-one blocks (2026-10-04); summaries not treated as full-text exclusion."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hendel derives an automaton for all-one pattern parity but does not assert shifted-minimality for all \\(m\\ge3\\).",
+        "The general linear-subsequence upper bound does not determine the number of equivalence classes for the special function \\(s_m(n+2^r)\\).",
+        "Earlier \\(m=2\\) computations have a special two-run threshold and do not imply arbitrary \\(m\\ge3\\)."
+      ],
+      "reasoning": "An ordinary product construction offers an automaton but not exact minimality. The new residual carry/trailing-ones/parity distinguishing argument and level-by-level reachability computation give the claimed optimum and exceptional transition. This statement is not a direct corollary of the inspected generic results.",
+      "searches": [
+        "arxiv:2505.20547 Theorem 3 all-one block automaton; https://arxiv.org/abs/2505.20547",
+        "arxiv:2512.10017 Theorem 7 and Theorem 9; https://arxiv.org/abs/2512.10017",
+        "Zantema Bosma 2022 Theorems 16 and 20; https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+        "minimal number of states for all-one-pattern parity sequence shifted by 2^r, count overlapping runs 1^m, LSD first, exact formula 2mr+m(5-2m), generalized Rudin-Shapiro"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hendel https://arxiv.org/abs/2505.20547, Theorem 3: family and unshifted automata, not this shifted state-minimality count.",
+        "Moradi–Rampersad–Shallit https://arxiv.org/abs/2512.10017, Theorems 7 and 9: general linear-subsequence complexity setting, not the exact dyadic-shift formula.",
+        "A published 2026-09-08 mathematical record concerns finite Rudin–Shapiro string attractors rather than shifted DFAO state complexity."
+      ],
+      "reasoning": "The state-minimality formulation is equivalent to the number of distinct residual functions, or to the size of a canonical least-significant-digit-first automaton after minimization. This was compared to descriptions of shifted automatic sequences, binary-kernel complexity, Rudin–Shapiro special cases, and all-one-run parity; inspected sources do not state the formula for every \\(m\\ge3\\).",
+      "searches": [
+        "Minimal DFAO state complexity for shifted parity of occurrences of 111 and runs of consecutive ones in binary expansions, general pattern 1^m and additive shifts",
+        "Minimal automata for shifted all-ones pattern parity sequences, generalized Rudin Shapiro s_m(n+c), exact kernel size",
+        "Exact least significant digit first 2-kernel size shifted parity count occurrences pattern 111 1111 1^m, 2^r additive shift",
+        "\"state complexity\" \"shift\" \"pattern sequences\" \"1^m\" automata",
+        "\"Rudin Shapiro\" \"shift\" \"state complexity\" all ones pattern"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant indexed research-record summaries concern string attractors, coefficient valuations, and pattern summatory counts rather than a table of exact shifted automata.",
+        "The power-of-two values in the included checker are freshly generated from the construction rather than copied from an external database."
+      ],
+      "reasoning": "Searches and inspected sources revealed no exact parameter table or archived certificate covering the \\(m\\ge3\\) power-shift law. This is an absence in checked material, not a proof of global novelty.",
+      "searches": [
+        "site:oeis.org \"state complexity\" \"Rudin-Shapiro\" shift",
+        "Minimal automata for shifted all-ones pattern parity sequences, generalized Rudin Shapiro s_m(n+c), exact kernel size",
+        "minimal number of states for all-one-pattern parity sequence shifted by 2^r, count overlapping runs 1^m, LSD first, exact formula 2mr+m(5-2m), generalized Rudin-Shapiro"
+      ]
+    },
+    "rationale": "The exact two-parameter least-significant-digit-first automaton minimization for the all-one-run parity sequence is not implied by the inspected family paper, earlier generic state-complexity bounds or related 2-pattern special cases. Literature and research-record searches checked possible aliases, stronger coverage, tables and direct implications. Residual unindexed priority risk is disclosed.",
+    "residual_risks": [
+      "Search results from mathematical record repositories contain abbreviated summaries, not complete source texts; they cannot exclude unindexed equivalences.",
+      "Only the original 2025 full arXiv rendering, not all material in a later revision of Hendel, was read in full.",
+      "Possible equivalent exact shifted automaton complexity formula under different pattern-parity or kernel terminology outside checked literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the unshifted sequence framework; no theorem giving the proposed \\(m\\ge3\\) exact dyadic-shift minimum found in inspected version.",
+        "evidence": [
+          "arxiv:2505.20547, submitted 2025-05-26; unshifted automaton and sequence properties; no claim that the revised version was exhaustively read."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.20547",
+        "material_read": "Original 2025 arXiv HTML full-text rendering, including the automaton construction and main sequence properties; revised title/abstract and relevant later overview checked.",
+        "method": "Read source sections and theorem statements in rendered full text, comparing unshifted versus dyadically shifted automata.",
+        "title": "A Family of Sequences Generalizing the Thue Morse and Rudin Shapiro Sequences (revised title: Runs, Squares, Palindromes, and Unbordered Factors of a Family of Binary Pattern Sequences with the All-One Pattern)",
+        "trigger": "Exact pattern \\(1^m\\) defines the object and its base automaton; strongest same-family novelty risk."
+      },
+      {
+        "assessment": "Relevant general theory; does not derive the isolated \\(r=m\\) state or closed power-shift formula.",
+        "evidence": [
+          "arxiv:2512.10017, submitted 2025-12-10; Theorems 7 and 9, Section 4.2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+        "material_read": "arXiv full HTML-like page, introduction and Theorems 7, 9 and Section 4.2 on translations and complexity bounds.",
+        "method": "Compared quantifiers, digit direction, generic shift bounds with exact shifted \\(1^m\\) parity state count.",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Direct subject: minimal automata under linear input translations."
+      },
+      {
+        "assessment": "General bounds, not the displayed exact two-parameter minimum.",
+        "evidence": [
+          "H. Zantema and W. Bosma, Information and Computation 288 (2022), 104710; inspected relevant theorem pages."
+        ],
+        "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+        "material_read": "Lawful open-access article PDF; text and page images of relevant state-complexity proofs and Theorems 16 and 20.",
+        "method": "Inspected statements and compared their domain and strength to an exact all-one-pattern shifted-automaton formula.",
+        "title": "Complexity of automatic sequences",
+        "trigger": "Baseline state-complexity results for shifted automatic sequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9318e44f-1d50-49f8-854b-88923f0daa5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact minimal state complexity is a natural invariant for the recently introduced all-one-run parity family. The result detects a one-state carry threshold correction and then an exact linear regime of slope \\(2m\\); the structural all-shifts no-merging theorem identifies the complete residual-state geometry, rather than merely supplying a finite bound. It covers every \\(m\\ge3\\) and every dyadic shift, with explicit assumptions and limitations.",
+    "status": "PASS"
+  }
+}
