@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "A continuous piecewise-linear median map reduces global induced norms to its strict-order selector matrices. All 120 strict orders yield 60 matrices in eight dihedral orbits, which are checked exactly. Four of six nonwinning classes are strictly Loewner-dominated using 20 exact positive-coefficient leading-principal-minor certificates, another has identical spectrum to a dominated class, and the last is beaten by the positive-root cubic through a strict algebraic substitution. The winners have exact rational and cubic spectral branches. Descartes sign variation certifies a unique positive transversal crossing. Exact executable SymPy reconstruction, not numerical sampling, verifies all nonstandard finite and polynomial identities. Every branch is attained by pairs in a common open chamber.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arias-Castro and Donoho, arXiv:math/0612422, Sections 1-4 establish asymptotic risk comparisons for median and linear filters under noise models, not the deterministic Lipschitz norm in a cycle Sobolev metric.",
+        "Qiu 1994, both pages, establishes threshold-decomposition cost minimization and weighted-median interpretation, not uniform spectral perturbation envelopes."
+      ],
+      "reasoning": "A stronger theorem would need to cover the same nonlinear operator and all gamma>0 in this Sobolev norm; the inspected statistical or threshold-minimization conclusions do not imply the exact generalized eigenvalue profile.",
+      "searches": [
+        "two-point Sobolev Lipschitz modulus median nonlinear cyclic signal filter: rank-order chambers and sharp transition",
+        "median filter discrete H1 Lipschitz norm cycle gradient stability operator",
+        "median filtering stability discrete Sobolev seminorm sharp Lipschitz"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0612422 (first posted 2006-12-14; inspected sections)",
+      "Qiu, IEEE Signal Processing Letters 1 (1994), 64–65 (complete two pages)",
+      "Pasquini et al., A Deterministic Approach to Detect Median Filtering in 1D Data (inspected sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Qiu 1994 one-output cost minimization does not bound the change between two median-filtered inputs.",
+        "Arias-Castro–Donoho 2006 first preprint date 2006-12-14 treats stochastic mean-square risk, not deterministic finite-cycle Sobolev sensitivity.",
+        "Accessible nearby technical statements on sorting, clipping, and isotonic projection have different nonlinear maps and do not algebraically force these two median selection orbits."
+      ],
+      "reasoning": "Statement-level comparison: median order-selector matrices on C5 are not Euclidean isotonic pooling matrices, sorted-coordinate permutations or coordinatewise clipping masks. Prior exact norms of those maps cannot be reworded as this claimed phase law.",
+      "searches": [
+        "median filter nonlinear operator norm Dirichlet energy perturbation",
+        "two-point Sobolev Lipschitz modulus median nonlinear cyclic signal filter: rank-order chambers and sharp transition",
+        "Optimality of the Median Filtering Operator",
+        "graph-Sobolev isotonic regression sorting clipping two point stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Qiu 1994 Section II models running medians by threshold-level minimization, not two-input norm estimates (https://people.cs.nott.ac.uk/pszqiu/webpages/Papers/Functional%20Optimisation%20Properties%20of%20Median%20Filtering.pdf).",
+        "Pasquini et al. Section II uses local rank order feasibility in three-point windows, but not weighted quadratic perturbation norms (https://iris.unitn.it/retrieve/handle/11572/161311/110075/median_final.pdf)."
+      ],
+      "reasoning": "Aliases checked include cyclic median, order-statistic smoothing, rank selector, graph Dirichlet/Sobolev energy. The inspected results are not equivalent to a sharp supremum over distinct input pairs for all positive gradient weights.",
+      "searches": [
+        "five-cycle three point running median filter exact Lipschitz constant in cyclic discrete Sobolev norm 1+gamma Laplacian; phase transition at gamma around 0.370796",
+        "median filter selector matrices spectral generalized eigenvalues five periodic samples sharp perturbation energy",
+        "running median filter Lipschitz constant graph Dirichlet H1 exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact dihedral-orbit calculation performed from 120 input ranks; no matching five-cycle gamma-dependent phase table appeared in the cited primary works or retrieved relevant summaries."
+      ],
+      "reasoning": "The search yielded no identified pre-existing exact table. This is negative search evidence only, not a claim of exhaustive coverage of signal-processing tables.",
+      "searches": [
+        "five-cycle three point running median filter exact Lipschitz constant in cyclic discrete Sobolev norm 1+gamma Laplacian; phase transition at gamma around 0.370796",
+        "median filter selector matrices spectral generalized eigenvalues five periodic samples sharp perturbation energy",
+        "three-point median filter Sobolev norm Lipschitz constant sharp",
+        "median filter piecewise linear Jacobian spectral norm Euclidean graph"
+      ]
+    },
+    "rationale": "The distinctive statement is a full two-input discrete Sobolev operator-norm profile for a periodic 3-point median on five sites with one algebraic switch of attaining rank patterns. The inspected median-filter primary literature covers local rank minimization, statistical risk and output feasibility, rather than this precise two-input norm. Accessible related claims concern sorting, clipping or isotonic projection, whose operator identities do not imply this median-specific spectrum. Search absence is not a novelty proof: equivalent earlier nonlinear-filter or finite matrix results remain possible.",
+    "residual_risks": [
+      "A classical unindexed median-filter stability paper may contain an algebraically equivalent exact five-cycle result.",
+      "The 36-page statistical risk article and the forensic preprint were not each read line-by-line; the observed sections are mathematically distinct, but source inspection is bounded.",
+      "The search index is incomplete and semantic nonmatches cannot prove uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING stated two-input Sobolev modulus in inspected complete text.",
+        "evidence": "Section II equation (4) gives local binary median cost; no pairwise norm, cyclic five-site coupling or spectral phase.",
+        "identifier_or_url": "https://people.cs.nott.ac.uk/pszqiu/webpages/Papers/Functional%20Optimisation%20Properties%20of%20Median%20Filtering.pdf",
+        "material_read": "Both pages (64–65), including construction, threshold minimization, weighted variant and references.",
+        "method": "Opened full two-page PDF, inspected parsed text and rendered page images.",
+        "title": "Functional Optimization Properties of Median Filtering",
+        "trigger": "Close classical primary account of median rank structure and local optimization"
+      },
+      {
+        "assessment": "Inspected statements concern statistical MSE/bias–variance risk, not deterministic Sobolev Lipschitz amplification; uninspected sections remain a bounded residual risk.",
+        "evidence": "arXiv v1 2006-12-14; Theorems 2.1–2.2 analyze asymptotic risk on piecewise Lipschitz function classes.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0612422",
+        "material_read": "Abstract, introduction, mathematical risk statements in Sections 2–4, relevant term searches; not every section of the 36-page article.",
+        "method": "Checked dated arXiv abstract/version history, PDF text and rendered PDF pages.",
+        "title": "Does median filtering truly preserve edges better than linear filtering?",
+        "trigger": "Archival running-median theory and verifiable first public preprint date"
+      },
+      {
+        "assessment": "Inspected contributions classify impossible filtered-output patterns, not two-input operator sensitivity. The complete article was not read exhaustively.",
+        "evidence": "Section II checks order constraints among input and output samples for median-window size three.",
+        "identifier_or_url": "https://iris.unitn.it/retrieve/handle/11572/161311/110075/median_final.pdf",
+        "material_read": "Abstract, introduction, Section II definitions/properties and algorithm description; remaining experimental material not read in full.",
+        "method": "Opened accessible full-text preprint, inspected text, search hits and rendered initial pages.",
+        "title": "A Deterministic Approach to Detect Median Filtering in 1D Data",
+        "trigger": "Potentially similar exact rank-constraint analysis for three-point windows"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "885c3c1a-5373-4588-bee3-a10d3c403722",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A three-point median on five periodic sites is the first odd local (rather than global-window) case; the complete sharp two-input stability law across all positive gradient penalties is a natural response to sensitivity of robust nonlinear smoothing. It shows an exact, unique change in extremizing order geometry and supplies a nontrivial algebraic benchmark and strong-gradient limit. This is not a textbook application of median contraction or a single arbitrary parameter computation.",
+    "status": "PASS"
+  }
+}
