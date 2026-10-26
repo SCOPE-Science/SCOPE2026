@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Uniform fixed-composition sampling gives P(T_j=1)=2ab/[N(N-1)] and a hypergeometric conditional sample among N-2 residual locations. Its mean and variance yield the exact quadratic formula. Summing cancels centered squared position; endpoint-center threshold ordering is algebraically positive. 591 exact-rational checks directly replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bisewski, Jansen and Nazarathy, arXiv:2210.14546v1, §§1–8, develops partial sorting statistics and asymptotics.",
+        "Holcombe, arXiv:2501.10844v1, §4.3 gives general linear-rank indicator covariances but not the stated quadratic/transition cross-covariances."
+      ],
+      "reasoning": "Linear-rank second moments and individual run indicator covariances are weaker than the presented cross-variance formula. A completely explicit joint probability-generating function would cover the claim if it directly supplied the same mixed coefficient; none identified in the inspected materials.",
+      "searches": [
+        "Web: Wilcoxon rank sum sum of ranks and runs conditional quadratic regression or conditional variance given number of runs under permutation null",
+        "Web: joint distribution Wilcoxon rank sum statistic and number of runs Wald Wolfowitz runs variance covariance",
+        "Web: Wald Wolfowitz runs statistic Wilcoxon rank sum dependence correlation"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2210.14546v1 full HTML (2022-10-26)",
+      "arxiv:2501.10844v1 HTML §§2–4.3 (2025-01-18)",
+      "Published fixed-composition transition covariance, indexed scientific summary and source URL",
+      "Web searches for joint Wilcoxon/runs law and mixed moments; no direct match"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published research record 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d: reports adjacent/disjoint transition covariances and imbalance thresholds, not rank sum.",
+        "Holcombe, arXiv:2501.10844v1, §§3.2–3.3, expresses each separate statistic with block frequencies."
+      ],
+      "reasoning": "Transition-transition covariances cannot by themselves imply a mixed fourth-order moment of the label vector with two linear-rank factors. Common block representations contain enough raw information for a fresh derivation, but the examined statements do not imply the specific sharp phase classification without additional calculation.",
+      "searches": [
+        "Literature claim search: Exact covariance, threshold or dependence between numbers of patterns in random permutations including records descents peaks and cycle statistics",
+        "Literature claim search: Covariance phase transition between occupancy, missing mass, coverage and frequency counts in categorical samples",
+        "Web: Wald-Wolfowitz Wilcoxon joint distribution covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Holcombe, arXiv:2501.10844v1, §§3.2–3.3 and 4.3, presents separate classical test representations in statistically equivalent blocks.",
+        "Closest published comparison: Exact dependence phases of fixed-composition run transitions (2026), whose stated results concern transition-transition pairs."
+      ],
+      "reasoning": "Complementation and rank reversal identify the usual two-sample Mann–Whitney form. Neither the block-frequency discussion nor the closest transition/transition result states the mixed squared rank sum–transition quadratic covariance; marginal distributions alone do not imply a mixed moment.",
+      "searches": [
+        "Literature claim search: For fixed size two-sample random labeling under permutation null, Wilcoxon Mann-Whitney rank-sum statistic squared centered, Wald Wolfowitz total run count and individual run boundaries: exact covariance, conditional second moments, imbalance-dependent sign reversal, local quadratic profile",
+        "Web: joint Wilcoxon statistic runs count distribution two sample",
+        "Web: exact joint distribution Wilcoxon Mann Whitney U and Wald Wolfowitz runs number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "R statistical documentation describes only the marginal Wilcoxon rank sum null distribution.",
+        "The closest published fixed-composition transition finding describes indicator pair covariances rather than a joint rank-sum/run table."
+      ],
+      "reasoning": "Marginal exact critical-value tables are not joint mixed-moment tables. No table specifying these local covariances was found; negative search alone is not a proof of novelty.",
+      "searches": [
+        "Web: exact joint distribution Wilcoxon Mann Whitney U and Wald Wolfowitz runs number",
+        "Web: joint Wilcoxon statistic runs count distribution two sample",
+        "Literature claim search: For fixed size two-sample random labeling under permutation null, Wilcoxon Mann-Whitney rank-sum statistic squared centered, Wald Wolfowitz total run count and individual run boundaries: exact covariance, conditional second moments, imbalance-dependent sign reversal, local quadratic profile"
+      ]
+    },
+    "rationale": "Best-knowledge novelty applies specifically to the complete position-resolved covariance and its three threshold regimes, not to marginal rank/run distributions, pairwise transition covariances, or a universal binary-word enumeration. Full primary preprints and closest published results were compared; residual archival priority risk remains.",
+    "residual_risks": [
+      "Potential older archival joint generating functions for Wilcoxon rank sums and runs could subsume this identity; exhaustive historical priority not established.",
+      "Closest indexed transition-covariance work compared using detailed returned summary, not its full source.",
+      "Review is not independent."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state fixed-composition squared Wilcoxon/run-boundary covariance.",
+        "evidence": [
+          "Introduction lines 70–77 distinguishes WW order from KS distribution and presents bubble sorting; main results analyze a different curve statistic."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.14546v1",
+        "material_read": "Full 634-line HTML preprint, sections 1–8 and references, with Wald–Wolfowitz motivation in Introduction.",
+        "method": "Read article HTML, checked for target mixed covariance and rank sum.",
+        "title": "Nonparametric testing via partial sorting",
+        "trigger": "Dated 2022 mathematical-statistics motivation for order versus distribution sensitivity"
+      },
+      {
+        "assessment": "Describes each marginal test and general linear-rank indicator covariances, not mixed squared rank-sum and individual-run transition moments.",
+        "evidence": [
+          "Sections 3.2 and 3.3, equations (7)–(14) describe runs and rank sums separately; section 4.3 equation (16) is a covariance between label indicators."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2501.10844v1",
+        "material_read": "Article HTML sections 2, 3.2, 3.3, 4.3 and covariance discussion with respective equations.",
+        "method": "Inspected original definitions, equations and mixed-statistic coverage.",
+        "title": "The Building Blocks of Classical Nonparametric Two-Sample Testing Procedures: Statistically Equivalent Blocks",
+        "trigger": "Same classical test pair in a common block representation, plausible stronger coverage"
+      },
+      {
+        "assessment": "Pairwise adjacent/distant transition covariances do not directly give the claimed mixed Wilcoxon square statistic.",
+        "evidence": [
+          "Summary specifies adjacent/disjoint transition indicator covariance signs and square-sample-size independence."
+        ],
+        "identifier_or_url": "Published record: Exact dependence phases of fixed-composition run transitions (2026)",
+        "material_read": "Indexed title and full returned mathematical summary, not full linked manuscript.",
+        "method": "Semantic database search and statement-level implication comparison.",
+        "title": "Exact dependence phases of fixed-composition run transitions",
+        "trigger": "Closest indexed finite-composition transition-covariance result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "78d5ea74-c31e-4547-8053-f18ae879f525",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact cross-statistic law links two classical rank-based two-sample diagnostics; universal negative aggregate covariance masks genuine positive edge or center conditional interactions, with sharp rational thresholds. Three finite group compositions exhibit distinct qualitative regimes, permitting exact dependence interpretation.",
+    "status": "PASS"
+  }
+}
