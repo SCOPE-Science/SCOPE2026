@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For each active count pair, edge counts are C(x,2)y and xC(y,2), giving p=(x-1)/(s-2), E[d_next]=((s-3)/(s-2))d. The exact gamma product p_k makes d_k/p_k a stopped martingale; its quadratic variation normalized by 2n tends to one by a gamma-ratio Riemann sum, while the drift-square correction has expected total O(\\(n^{1/2}\\)) and normalized increments are o(1). Doob bounds exclude absorption above \\(n^{1/2}\\), and below n^(1/8) the surviving event would force the Gaussian-normalized martingale to vanish, an asymptotically null event. The martingale varies by o_P(sqrt(n)) in that boundary layer, and at jamming R=s=|d|. Thus R/(2n)^(1/4) converges to |N(0,1)|^(3/2). Full edge counts and gamma products were checked on actual embedded proof code; 622 exact-rational/computational checks passed. Finite checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bennett--Bohman general theorem estimates unmatched fraction by (L/D)^(1/4+o(1)) in regular 3-uniform hypergraphs; for this graph D is order \\(n^2\\) and L order n, so at most order \\(n^{3/4+o(1)}\\) unmatched sites, rather than sharp order \\(n^{1/4}\\) with a limiting law.",
+        "Penrose--Sudbury arXiv:math/0503519v1 Introduction and Section 2 define graph monomer/blocking and edge-dimer processes, not three-site-path depositions."
+      ],
+      "reasoning": "Neither inspected broad result dominates the explicit quarter-power, non-Gaussian limiting distribution. Standard martingale CLTs are proof tools, not prior evaluated claims about the particular boundary-hitting statistic. Broader unlocated theoretical coverage remains a residual priority risk.",
+      "searches": [
+        "random greedy 3 uniform hypergraph matching complete bipartite hypergraph edges two vertices of one class one of other unbalanced terminal residual one fourth scaling",
+        "arxiv:1210.3581 Theorem 1.1 and Section 2 regular uniform hypergraph hypothesis",
+        "arxiv:math/0503519v1 definitions and main results for monomer blocking and dimers"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0503519v1 (Penrose--Sudbury, first public 2005-03-24)",
+      "arxiv:1210.3581 (Bennett--Bohman, first public 2012-10-12)",
+      "arxiv:1309.7021v1 (Cieśla--Barbasz, first public 2013-09-26)",
+      "doi:10.1016/S0927-7757(99)00409-4 (Talbot et al., 2000 review)",
+      "d94b8bba-d564-45c1-b2bd-743b0b6a5dfc (earlier exact perfect-cover composition law)",
+      "9a74bf00-c1ee-413a-9ea4-f2ab41c54d24 (earlier unpartitioned mixed-adsorbate terminal law)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing exact f_t(a) for perfect coverage gives an event probability for each graph composition, and the cross-composition urn profile does not assert the terminal distribution of R_n for fixed equal starting counts.",
+        "Cieśla--Barbasz sections II-III treat off-lattice planar deposition, anisotropic molecules, and numerical jamming coverages, not the fully connected two-type graph.",
+        "General regular-hypergraph unmatched bounds are far larger than the order \\(n^{1/4}\\) claimed here."
+      ],
+      "reasoning": "The earlier evaluated perfect-cover theorem is the closest overlap and concerns the very same physical process. The present result is not an immediate renaming, special case or corollary of its reported perfect-cover/Gaussian-profile statement: it requires the full stopped-imbalance martingale and boundary crossing law to obtain nonzero terminal vacancies. An unrestricted full-process description could in principle be developed into this theorem, which does not make the new evaluated limit previously proved.",
+      "searches": [
+        "own scientific d94b8bba-d564-45c1-b2bd-743b0b6a5dfc finding and proof; f_t(a) recursion, composition Gaussian window",
+        "own scientific 9a74bf00-c1ee-413a-9ea4-f2ab41c54d24 competing dimer trimer complete substrate terminal law",
+        "arxiv:1309.7021v1 sections I-III planar trimer and hexamer RSA",
+        "arxiv:1210.3581 pages 1-4 terminal unmatched upper bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Previous scientific result d94b8bba-d564-45c1-b2bd-743b0b6a5dfc uses precisely the same admissible three-site paths but proves only all-covered probability as starting composition varies; its Gaussian is an across-composition profile, not the terminal vacancy law on a fixed balanced graph.",
+        "Bennett--Bohman arXiv:1210.3581, Introduction and Theorem 1.1, bounds the general random greedy matched fraction; neither law nor terminal distribution appears in the inspected portion."
+      ],
+      "reasoning": "Equivalent physical model was identified in the earlier trimer perfect-cover study. Its point probability and normalized cross-graph profile do not imply the distribution of all possible terminal nonzero vacancies for a fixed balanced graph. The new theorem requires a depletion-boundary martingale and proves a distinct observable; search absence alone is not treated as novelty proof.",
+      "searches": [
+        "random sequential adsorption of anisotropic trimers two species AAB ABB on bipartite fully connected mixture jamming",
+        "balanced two-color trimer adsorption complete bipartite 3-uniform hypergraph AAB ABB random greedy matching terminal residual n to one quarter folded Gaussian power three halves",
+        "arxiv:1210.3581 pages 1-4 definitions of random greedy matching and terminal bounds",
+        "previous scientific identifier d94b8bba-d564-45c1-b2bd-743b0b6a5dfc and its exact perfect-cover profile"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest exact composition-profile record d94b8bba-d564-45c1-b2bd-743b0b6a5dfc tabulates perfect-cover probabilities and explicitly excludes the entire jammed-coverage distribution.",
+        "The complete-substrate mixed dimer/trimer record 9a74bf00-c1ee-413a-9ea4-f2ab41c54d24 derives a bounded zero/one vacancy limit, not a two-class trimer-only boundary law.",
+        "Primary research search results on the complete two-class model gave no exact terminal distribution table."
+      ],
+      "reasoning": "No located exact table or evaluated result supplies the asserted limiting CDF. Finite experiments are used solely to test the new chain recurrence, not to establish prior-work absence.",
+      "searches": [
+        "random sequential adsorption three-site particles on two pools each deposited trimer contains at least one from each terminal vacancies non Gaussian 1/4 scaling",
+        "density dependent urn process removing one ball of each color plus one proportional to remaining population absorption fluctuations 1/4 exponent",
+        "own ledger search through 71 previous scientific claims for trimer, bipartite, hypergraph, quarter, adsorption"
+      ]
+    },
+    "rationale": "A direct earlier exact perfect-cover study of this *same* complete-bipartite three-site-path mechanism was found and compared. It reports only full-cover probabilities across compositions and explicitly leaves jammed-coverage distributions uncomputed. The new terminal-vacancy limit and its \\(n^{1/4}\\) non-Gaussian law are not entailed by that Gaussian cross-composition profile; general matching bounds are strictly weaker. No equivalent evaluated statement was found in inspected relevant primary text or accessible scientific records. Specialist unseen exact-match/urn theorems remain a priority risk, not a novelty certificate.",
+    "residual_risks": [
+      "Historical priority remains uncertain beyond inspected accessible literature; a specialized negative-reinforcement urn or hypermatching result could provide the same stopping-time distribution.",
+      "Other published scientific records outside the accessible and searched results may exist; no uniqueness proof follows from searching.",
+      "The earlier identical-graph perfect-cover profile supplies important partial information and should be cited, rather than presented as unrelated work."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model but distinct statistic. Earlier work does not give the new terminal vacancy law and expressly excludes entire jammed distribution.",
+        "evidence": "Its finding specifies f_t(a)=probability of complete coverage on K_(a,3t-a); its limitations exclude entire jammed-coverage distributions.",
+        "identifier_or_url": "d94b8bba-d564-45c1-b2bd-743b0b6a5dfc",
+        "material_read": "Claim and full theorem/proof/scope in accessible earlier research record",
+        "method": "Compared object, transition probability, full-cover observable, Gaussian-profile quantifiers and stated exclusions",
+        "title": "Balanced substrates optimize exact trimer adsorption: a Pólya-urn profile and a Gaussian design window",
+        "trigger": "Identical permitted three-site paths on a complete bipartite graph"
+      },
+      {
+        "assessment": "One unpartitioned pool with two competing adsorbate sizes, giving a bounded residue, not the claimed power-law number of vacancies.",
+        "evidence": "Its claim describes every unordered pair and every unordered triple with rate ratio lambda, and a fixed-scale limiting zero/one vacancy statistic.",
+        "identifier_or_url": "9a74bf00-c1ee-413a-9ea4-f2ab41c54d24",
+        "material_read": "Recoverable claim and title",
+        "method": "Compared allowed species, graph classes, normalization and limits",
+        "title": "Exact residual-vacancy law for competing dimers and trimers on a complete substrate",
+        "trigger": "Recent related terminal vacancy law for three-site adsorbates"
+      },
+      {
+        "assessment": "Graph blocking monomers and edge dimers, Gaussian vertex-count approximations; no equivalent three-site bipartite trimer terminal law in inspected relevant sections.",
+        "evidence": "ArXiv v1 dated 2005-03-24, PDF pages 1-4; definitions distinguish blocking RSA, dimer RSA and annihilation.",
+        "identifier_or_url": "arxiv:math/0503519v1",
+        "material_read": "Accessible PDF abstract, Introduction and Section 2 definitions/main results; searched relevant mechanisms",
+        "method": "Read PDF text and inspected first-page image",
+        "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+        "trigger": "Primary 2005 graph-RSA baseline and published comparison cited by related adsorption work"
+      },
+      {
+        "assessment": "General upper bound applies but is quantitatively weaker and does not give the distribution.",
+        "evidence": "D=3n(n-1)/2 and max codegree 2(n-1); Theorem 1.1 unmatched fraction upper bound of order (L/D)^(1/4+o(1)).",
+        "identifier_or_url": "arxiv:1210.3581",
+        "material_read": "Accessible 12-page PDF; read Introduction and Theorem 1.1 on pages 1-4, inspected first-page image",
+        "method": "Compared general regularity/codegree theorem with exact degree and pair-codegree of present graph",
+        "title": "A natural barrier in random greedy hypergraph matching",
+        "trigger": "General theorem for random greedy matchings in regular uniform hypergraphs"
+      },
+      {
+        "assessment": "Distinct geometry, no exact balanced bipartite terminal law.",
+        "evidence": "Section II planar square collector and random placement; Section III limiting coverage extracted by kinetic extrapolation.",
+        "identifier_or_url": "arxiv:1309.7021v1",
+        "material_read": "Accessible HTML article: abstract, Introduction, model and results in sections I-III",
+        "method": "Compared planar molecular placement and numerical kinetics with fully connected discrete model",
+        "title": "Random sequential adsorption of trimers and hexamers",
+        "trigger": "Older primary paper on trimer RSA and jammed coverage"
+      },
+      {
+        "assessment": "Establishes physical motivation for jamming but does not evaluate the new two-pool terminal limit.",
+        "evidence": "Opening model/review sections discuss spatial RSA, occupation and gap distributions, nonspherical particles and mixtures.",
+        "identifier_or_url": "doi:10.1016/S0927-7757(99)00409-4",
+        "material_read": "Accessible 38-page PDF: read abstract, model/introduction and relevant discussions; inspected first-page image",
+        "method": "Inspected scope of continuum/lattice and mixed-adsorbate frameworks",
+        "title": "From car parking to protein adsorption: an overview of sequential adsorption processes",
+        "trigger": "Historical primary overview of irreversible multisite adsorption"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ad462900-b3e2-4002-b71b-e3c7a92bcefd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The residual unoccupied count is the natural terminal observable for three-site adsorption. The balanced two-class capacity constraint produces a genuinely nonstandard \\(n^{1/4}\\) terminal scale and explicit power-of-folded-normal law, unlike fixed-size complete-substrate residuals or the earlier cross-composition full-cover Gaussian profile. The result gives a physically interpretable mean-field jamming universality mechanism from an exact martingale and identifies a new limiting law, not a parameter increment or routine table.",
+    "status": "PASS"
+  }
+}
