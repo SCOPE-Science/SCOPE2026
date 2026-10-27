@@ -1,0 +1,161 @@
+{
+  "correctness": {
+    "rationale": "Every non-spine vertex has degree two, so each page is forced to have one of the listed types relative to the two spine colours. When spine colours agree, complete pages are independently grouped and at least floor(b/2) share the spine colour. When spines differ, the exhaustive four page types are constrained exactly by p+x>=floor(b/2)+1 and p+y>=floor(b/2)+1. Factorials choose page types and Stirling numbers count unlabelled remaining colour classes without overcounting. Both cases are necessary and sufficient. Maximizing number of non-spine colour classes forces exactly the two stated extremal types; Pascal identity gives binomial count. The standalone direct graph-based set-partition exhaustive verifier tests b=1..4 (120333 partitions overall) and formula checks b=5..20, with VERIFY_OK. Finite checks are corroboration only; proof works for every b>=1.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bujtás et al., arXiv:2608.27669, lower product bound and special Hamming/grid families; no book-graph theorem in inspected text",
+        "Bujtás et al., arXiv:2604.20752 Sections 2-6, degree bounds and paths, cycles, cubic graphs, trees",
+        "Yero et al., arXiv:0901.4923 Section 3.1, Cartesian product general bounds and four-page example for defensive k=2"
+      ],
+      "reasoning": "Product lower bounds do not yield the exact all-b majority C number, much less all P_{b,k}; a bound with minimum degree at least the other factor maximum degree does not apply to K_2 Cartesian K_{1,b} when b>1. The historical four-page example treats defensive k=2, which is a strictly different condition from k=0. No checked broader theorem implies the complete enumeration.",
+      "searches": [
+        "majority C-coloring Cartesian product of stars double stars complete bipartite graphs exact upper chromatic number",
+        "satisfactory partitions majority C chromatic number of star Cartesian star graphs",
+        "majority C coloring cycle power hypercube Hamming results",
+        "The majority C-chromatic number and number of optimum majority C-colorings of book graph K_2 Cartesian product K_{1,n} with n square pages; full color partition enumeration",
+        "arxiv:2608.27669 product bounds full text"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.20752",
+      "https://arxiv.org/pdf/2608.27669",
+      "https://arxiv.org/pdf/0901.4923",
+      "https://arxiv.org/abs/2609.31674",
+      "https://www.cs.ucf.edu/courses/cap6411/cap5415/spring03/papers/SatisfactoryGraph.pdf",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-page-collapse-threshold-for-quadrilateral-book-matching--aa4a830c7ccd",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general majority C condition and equivalence to sum satisfactory are prior knowledge, not new claims",
+        "The new formula distinguishes two spine-colour cases and applies a Stirling sum to non-spine page groups; no such exact page-type count in inspected primary sources",
+        "The four-page older statement asserts a defensive two-alliance invariant, rather than this defensive zero-alliance spectrum"
+      ],
+      "reasoning": "The candidate is not merely the upper-bound inequality or a rename. Its all-k partition counts imply a complete new labelled-colouring enumeration and an optimal-structure dichotomy on an unbounded family. None of the compared theorems supplies the page constraints and enumeration; source priority risk remains for less accessible old sum-satisfactory literature.",
+      "searches": [
+        "The majority C-chromatic number and number of optimum majority C-colorings of book graph K_2 Cartesian product K_{1,n} with n square pages; full color partition enumeration",
+        "internal partitions sum satisfactory k-partitions of book graph Cartesian product edge star, consecutive quadrilateral pages",
+        "defensive 0-alliance partition number psi_0^d of square book graph K_{1,n} Cartesian K_2 equals floor((n+3)/2); count of optimal partitions binomial coefficient",
+        "majority C-coloring of K_2 Cartesian K_{1,n} optimal partitions classification two spine cases",
+        "arxiv:2604.20752 Sec.1.1,2-6",
+        "arxiv:2608.27669 Cartesian product Theorems",
+        "arxiv:0901.4923 Sec.3.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bujtás et al., arXiv:2604.20752v1 Section 1.1 explicitly identifies majority C-colourings as sum-satisfactory k-partitions",
+        "Yero et al., arXiv:0901.4923v1 defines partition into defensive k-alliances, with the k=0 local condition",
+        "No matching square-book full spectrum returned among closest published-finding corpus records"
+      ],
+      "reasoning": "The definition is not new independently of its older equivalent names. The claim is an all-k enumeration on K_2 Cartesian K_{1,b}; results about the existence of a two-class satisfactory partition, general defensive-alliance partitions, and unrelated graph families do not determine the Stirling polynomial. Residual older-literature risk is acknowledged.",
+      "searches": [
+        "internal partitions sum satisfactory k-partitions of book graph Cartesian product edge star, consecutive quadrilateral pages",
+        "defensive 0-alliance partition number psi_0^d of square book graph K_{1,n} Cartesian K_2 equals floor((n+3)/2); count of optimal partitions binomial coefficient",
+        "square book B_n maximum strong defensive alliance partitions majority C-coloring spectrum Stirling numbers",
+        "majority C-coloring of K_2 Cartesian K_{1,n} optimal partitions classification two spine cases",
+        "Bujtás et al. 2026 Section 1.1 sum satisfactory partitions",
+        "arxiv:0901.4923 defensive 0-alliances"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5 determines the invariant on complete multipartite graphs, unlike square-page books for b>=2",
+        "published-finding corpus 2026/10/11/SCOPE-a-three-page-collapse-threshold-for-quadrilateral-book-matching--aa4a830c7ccd treats quadrilateral-book matching complexes, not majority C-colouring",
+        "published-finding corpus 2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359 treats dual general-position sets of books",
+        "Own accessible ledger claims were searched for majority C-colouring, square-page book and sum-satisfactory partitions: no overlap"
+      ],
+      "reasoning": "The closest indexed exact table uses different graph classes or different graph parameters. A same-graph result for matching complexes or general position cannot imply a majority-cohesion partition enumerator. Negative index searches do not certify priority.",
+      "searches": [
+        "The majority C-chromatic number and number of optimum majority C-colorings of book graph K_2 Cartesian product K_{1,n} with n square pages; full color partition enumeration",
+        "majority C coloring square book graph cycle bouquet with common spine edge; exact maximum classes equals floor((n+3)/2), optimal colorings binomial",
+        "internal partitions sum satisfactory k-partitions of book graph Cartesian product edge star, consecutive quadrilateral pages",
+        "square book B_n maximum strong defensive alliance partitions majority C-coloring spectrum Stirling numbers",
+        "2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+        "2026/10/4/SCOPE-strong-alliance-polynomial-of-complete-multipartite-graphs--cf4980ea579a",
+        "2026/10/11/SCOPE-a-three-page-collapse-threshold-for-quadrilateral-book-matching--aa4a830c7ccd",
+        "2026/10/4/SCOPE-dual-general-position-sets-of-book-graphs--73254a416359",
+        "2026/10/4/SCOPE-exact-b-coloring-number-of-cactus-graphs--01451e4782ad"
+      ]
+    },
+    "rationale": "The exact unlabelled colour-partition spectrum of square-page books, its two exclusive optimal page structures and binomial extremal counts are not consequences of the inspected 2026 majority C-colouring theorems for paths, grids, Hamming graphs and general products, nor of the earlier defensive two-alliance example on a four-page book. An equivalent result under the older sum-satisfactory or defensive zero-alliance vocabulary remains a meaningful priority risk.",
+    "residual_risks": [
+      "An earlier equivalent formula may be unindexed under defensive zero-alliance or sum-satisfactory multi-partition terms.",
+      "The 2026 Hamming/grid exact-colouring article was inspected through accessible primary text rather than its unavailable PDF.",
+      "Literature search and database overlap comparisons cannot establish global nonpublication."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering square-book all-k spectrum; explicitly credits sum-satisfactory alias",
+        "evidence": [
+          "arXiv:2604.20752v1 22 April 2026, Section 1.1, Definition 1, Sections 3 and 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.20752",
+        "material_read": "Full accessible HTML Sections 1, 2, 3, 5, 6, 7 and definition/intro; text search for page/book/star",
+        "method": "Read arXiv author version full HTML and sections; compared graph families and quantifiers",
+        "title": "Majority C-coloring of graphs",
+        "trigger": "Definition, alias, possible graph-class coverage"
+      },
+      {
+        "assessment": "Lower bounds and specific grids/Hamming families do not yield exact book spectrum; degree hypothesis of stronger product bound fails for b>1",
+        "evidence": [
+          "arXiv:2608.27669v1 27 August 2026, product theorems and graph-family applications"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2608.27669",
+        "material_read": "Full 21-page open-access PDF with methods, main product bounds and sections for specific product families; pages 0,3-6,17-18 inspected visually",
+        "method": "Text plus PDF page screenshots and theorem comparison",
+        "title": "Majority C-coloring in Cartesian products",
+        "trigger": "Potential dominating product theorem for edge-by-star"
+      },
+      {
+        "assessment": "Mentioned four-page book is for defensive k=2 and not a majority C / defensive k=0 enumeration",
+        "evidence": [
+          "arXiv:0901.4923v1, defensive k-alliance formulation; Section 3.1, Theorem 12 and example"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0901.4923",
+        "material_read": "15-page open-access PDF, introduction, defensive parameter definitions and Section 3.1 including example near Theorem 12 and visual page inspection",
+        "method": "Full primary PDF reading, direct inspection of relevant theorem and example",
+        "title": "Partitioning a graph into defensive k-alliances",
+        "trigger": "Historical equivalent parameter; same book family K_{1,4} Cartesian K_2"
+      },
+      {
+        "assessment": "Theorems concern Hamming/grids/cylindrical/toroidal products, not star-by-edge books",
+        "evidence": [
+          "arXiv:2609.31674 (2026), graph-family theorems"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.31674",
+        "material_read": "Full accessible arXiv article text at abstract-page endpoint, theorem statements and definitions; PDF download unavailable",
+        "method": "Read accessible primary-text content and compare graph factors/parameters",
+        "title": "Exact majority C-colourings of balanced Hamming graphs and grids",
+        "trigger": "Exact counts and Cartesian graph family potentially broader"
+      },
+      {
+        "assessment": "No exact multi-colour square-book spectrum identified; establishes context for two-class partitions",
+        "evidence": [
+          "Shafique and Dutton, On Satisfactory Partitioning of Graphs, 12-page PDF"
+        ],
+        "identifier_or_url": "https://www.cs.ucf.edu/courses/cap6411/cap5415/spring03/papers/SatisfactoryGraph.pdf",
+        "material_read": "Open-access PDF (12 pages), partition definition and graph-class results; selected page screenshot",
+        "method": "Primary PDF inspection and search for book, Cartesian and spine",
+        "title": "On Satisfactory Partitioning of Graphs",
+        "trigger": "Older equivalent two-colour framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1d77e4d-a02c-4b42-9483-60c704a7c6da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the elementary yet nontrivial natural Cartesian family K_2 Cartesian K_{1,b}, the exact spectrum P_{b,k} gives every community-partition count for all page counts and palette sizes, plus a sharp maximum, multiplicity, and two disjoint optimal structures. This addresses the recent product-colouring program with a new family-wide structural enumeration; it is not just a bounded numerical table or an instance of the prior general lower bounds.",
+    "status": "PASS"
+  }
+}

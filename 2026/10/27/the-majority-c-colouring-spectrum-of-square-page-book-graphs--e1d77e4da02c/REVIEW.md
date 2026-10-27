@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness: PASS
+The page-vertex degree is exactly two, making the page-type classification exhaustive. When the spine colours agree, exactly \(t\ge\lfloor b/2\rfloor\) entire pages must share their colour. When they differ, the four page types \((X,Y),(X,X),(Y,Y),(Z,Z)\) are exhaustive and the two inequalities \(p+x,p+y\ge\lfloor b/2\rfloor+1\) are necessary and sufficient. These cases are disjoint, and Stirling numbers count partitions of the interchangeable non-spine pages without choosing colour names. Each term is therefore necessary, sufficient, and counted once. The maximum and equality classification follow algebraically; both constructions are explicitly valid for all \(b\ge1\). Direct brute-force graph checks for all partitions through \(b=4\) and arithmetic checks through \(b=20\) corroborate the proof, but are not used to extrapolate to infinity.
+
+## Originality: PASS with residual risk
+The equivalent older vocabulary of **sum-satisfactory \(k\)-partition** and **defensive zero-alliance partition** has been accounted for, rather than treating the 2026 terminology as a new mathematical condition. The primary introductory paper [1] covers general bounds, paths, cycles and trees; the Cartesian-product paper [2] covers grids, Hamming graphs, and general product inequalities, which do not give this book-graph spectrum. The older defensive-alliance paper [3] uses \(K_{1,4}\square K_2\) for a different, defensive two-alliance bound, without the defensive zero-alliance spectrum. A related 2026 paper [4] classifies other Cartesian products. Checked indexed research records include an exact result for complete multipartite graphs and book-graph results about matching complexes and dual general position, all with different hypotheses or invariants. None of the inspected statements implies this full Stirling-number spectrum or its complete extremal classification. Older unindexed satisfactory-partition literature is the main remaining priority risk.
+
+## Mathematical value: PASS
+The graph family is a natural Cartesian product of two elementary factors and is a standard quadrilateral book. The result gives a complete, closed finite-sum enumeration of all admissible community partitions for every number of pages and every number of classes, not just a numerical maximum; it identifies exactly two competing extremal structures and their binomial multiplicities. This clarifies how a single shared edge constrains independently colourable four-cycle pages and complements the newly studied 2026 Cartesian-product question. These are nontrivial family-wide structural and enumerative data rather than a small finite-table entry.
+
+## Boundaries and closest prior results
+No claim is made for other page lengths or for a general formula for all Cartesian products. The relationship to defensive zero-alliance and sum-satisfactory partitions is explicitly acknowledged. This result does not claim independent confirmation or exhaustive priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
