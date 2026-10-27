@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The Hermite polynomial identity determines every real Hermitian kernel direction. The one-dimensional kernel has determinant \(\sqrt2\cos\delta\) and minimum absolute eigenvalue \(\sqrt2|\cos\delta|\) close to the Pauli angle. A uniform nonzero singular gap on the kernel orthogonal complement, combined with the minimum rank-two approximation distance, gives the global lower bound. The explicit phase-inequivalent unit pair provides the matching upper order. The analytic argument, not sampling, covers every sufficiently close nonresonant angle.
+
+**Originality — PASS, qualified.** Jaming 2010 Theorem 5.5 establishes qualitative uniqueness under nonresonant angles, and Remark 5.7 notes exceptional-angle ambiguities; neither gives the optimal **linear stability exponent**. Sych et al. 2012 Equation (6) establishes the generic Hermitian measurement rank, but no sharp-order phase-retrieval stability estimate for pure Hermite states near \(\pi/2\). General phase-retrieval stability literature does not supply the angle-dependent constants here. Accessible historical claims and mathematical-record searches did not identify a covering statement; independently unindexed related stability work remains a real residual risk.
+
+**Mathematical value — PASS.** The position/momentum pair is a canonical phase-retrieval obstruction, so determining the precise order of recovery instability near it has a natural mathematical and inverse-problem motivation. The sharp exponent is global over all three-mode pure states, not just local to an arbitrarily selected state, and is proved by a geometric rank-stratum separation mechanism. No optimal leading coefficient or extension to higher modes is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
