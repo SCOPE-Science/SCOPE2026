@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Complete proof from exact edgewise FEM assembly: SPD system; Stieltjes sufficient half; inverse-Stieltjes irreducibility contradiction for any missing graph edge at every h in (0,1/6); explicit two-eigenspace formula for complete graph; t=0 and boundary included. Independently reproduced 330 rational, 10945 floating and 4 symbolic checks. No finite verification is treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Huang, arXiv:1209.5657, Theorems 3.1–3.4, discrete maximum principle sufficient mesh/time-step conditions for polygonal domains.",
+        "Jin–Lazarov–Thomée–Zhou, arXiv:1510.02825, Theorems 4.1–4.3 and Section 5, lower-step failure under mesh assumptions and Stieltjes-based sufficient large-step condition."
+      ],
+      "reasoning": "Both papers study broad FE classes, but their quantified theorems give mesh assumptions, sufficient inequalities or small-time failure rather than this all-positive-t exact necessity/sufficiency with the complete-graph exception. Broader methodological generality is not a stronger implication for this metric-network classification; graph junctions and no Dirichlet boundary are materially distinct. The Stieltjes inverse-positivity lemma itself is standard.",
+      "searches": [
+        "Exact positivity criteria for a consistent-mass finite-element heat step on an arbitrary metric graph, especially triangles and cycles",
+        "On an equilateral finite metric graph with consistent finite element mass matrix M=(2D+A)/6 and Laplacian stiffness K=D-A, backward Euler diffusion step (M+tK) inverse M is entrywise positive exactly when t at least length squared over six unless graph complete",
+        "Connected simple graph complete noncomplete characterization of positivity consistent-mass finite element semigroup backwards Euler small timestep anti maximum principle",
+        "Positive semigroups FEM consistent mass metric graphs off-diagonal inverse sign irreducible Stieltjes positivity threshold h2/6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1209.5657",
+      "arxiv:1510.02825",
+      "DOI:10.1090/S0025-5718-07-02021-2 (abstract only)",
+      "published-finding corpus:2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+      "published-finding corpus:2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Direct assembly and inverse-Stieltjes proof shows strict necessity for all incomplete connected graphs and all subthreshold positive steps.",
+        "Li–Huang 2012 and Jin et al. 2015 previously justify the sufficiency mechanism but do not assert this necessity or complete-graph exceptional regime.",
+        "Previously recorded cycle, tree and bipartite results apply to proper subfamilies and are included as instances of the new theorem, not independent discoveries."
+      ],
+      "reasoning": "A prior statement limited to sufficient step bounds, small-step asymptotics or special graph families cannot imply a universal sharp converse at every intermediate step. The present theorem strictly strengthens those results via graph-topology dichotomy, while not claiming its standard matrix lemma as original.",
+      "searches": [
+        "Exact positivity criteria for a consistent-mass finite-element heat step on an arbitrary metric graph, especially triangles and cycles",
+        "On an equilateral finite metric graph with consistent finite element mass matrix M=(2D+A)/6 and Laplacian stiffness K=D-A, backward Euler diffusion step (M+tK) inverse M is entrywise positive exactly when t at least length squared over six unless graph complete"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jin et al., arXiv:1510.02825, Theorems 4.1–4.3: positive fully discrete first step as inverse of mass/stiffness combination; small-step obstruction and known sufficient Stieltjes criterion.",
+        "published-finding corpus entry 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac: filtered Crank–Nicolson on periodic lattice, a different composition."
+      ],
+      "reasoning": "Translate all claims to positivity of (M+tK)^(-1) M rather than compare titles. Prior inverse-Stieltjes sufficient conditions do not state converse for each noncomplete graph at all 0<t<ell^2/6. The filtered Crank–Nicolson composition concerns a different map.",
+      "searches": [
+        "Exact positivity criteria for a consistent-mass finite-element heat step on an arbitrary metric graph, especially triangles and cycles",
+        "On an equilateral finite metric graph with consistent finite element mass matrix M=(2D+A)/6 and Laplacian stiffness K=D-A, backward Euler diffusion step (M+tK) inverse M is entrywise positive exactly when t at least length squared over six unless graph complete",
+        "Connected simple graph complete noncomplete characterization of positivity consistent-mass finite element semigroup backwards Euler small timestep anti maximum principle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search returned the filtered-Crank–Nicolson periodic-lattice result as a closest entry rather than an exact general equilateral graph theorem.",
+        "Jin et al. 2015, numerical Table 1 and Theorem 4.3 give examples and a sufficient criterion, not a table over every finite graph."
+      ],
+      "reasoning": "No exact database or published table identified that supplies the complete finite-network iff statement. Lack of index hit is not alone a novelty proof; direct theorem-level primary-text comparison was also made.",
+      "searches": [
+        "Exact positivity criteria for a consistent-mass finite-element heat step on an arbitrary metric graph, especially triangles and cycles",
+        "On an equilateral finite metric graph with consistent finite element mass matrix M=(2D+A)/6 and Laplacian stiffness K=D-A, backward Euler diffusion step (M+tK) inverse M is entrywise positive exactly when t at least length squared over six unless graph complete"
+      ]
+    },
+    "rationale": "Primary full-text analyses Li–Huang (2012) and Jin et al. (2015) provide broad sufficient positivity bounds and small-time failures but not universal iff plus complete-graph exception; all accessible same-topic prior family formulas are strictly narrower. Standard Stieltjes matrix theorem is acknowledged; residual unindexed or abstract-only older work remains possible.",
+    "residual_risks": [
+      "Some older positive-operator finite-element papers, including Thomée–Wahlbin (2008), were not inspected beyond their abstracts.",
+      "Specialized positivity classifications not indexed by the searched terms may predate this finding.",
+      "The ordinary irreducible-Stieltjes inverse theorem is known; originality is claimed only for the application-level exact graph classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its theorems give sufficient mesh and time-step conditions; do not give an all-connected-equilateral-metric-network sharp necessity and complete-graph exceptional classification.",
+        "evidence": [
+          "arXiv:1209.5657, Theorem 3.1, sufficient lower/upper step bounds",
+          "arXiv:1209.5657, §4 discussion: its sufficient bounds may be pessimistic"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+        "material_read": "Full-text introduction and mathematical setup, Theorems 3.1–3.4 and their quantitative conditions, numerical tests and conclusion, including page-image checks of pages 1, 8 and 15.",
+        "method": "Accessible original arXiv full-text page analysis and rendered-page cross-check",
+        "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+        "trigger": "Closest early finite-element discrete maximum-principle and time-step literature"
+      },
+      {
+        "assessment": "Theorem 4.3 provides a Stieltjes-based sufficient bound but not the missing-edge necessity across every subthreshold t on arbitrary connected graph, and no unconditional complete-graph exception.",
+        "evidence": [
+          "arXiv:1510.02825, Theorems 4.1–4.3 and accompanying proof",
+          "arXiv:1510.02825, §5 positivity-threshold numerical comparisons"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.02825",
+        "material_read": "Full-text abstract and introduction, Theorems 4.1–4.4 and proofs as displayed, Section 5 examples and Appendix A context; rendered page checks of pages 1, 10 and 14.",
+        "method": "Accessible original arXiv text and rendered-page cross-check",
+        "title": "On nonnegativity preservation in finite element methods for subdiffusion equations",
+        "trigger": "Explicit positivity thresholds for fully discrete consistent-mass FEM"
+      },
+      {
+        "assessment": "Plausible earlier related theory; full-claim implication remains a residual risk, but abstract covers polygonal finite elements/semidiscrete and lumped methods rather than a graph-specific exact step classification.",
+        "evidence": [
+          "Mathematics of Computation 77 (2008), 11–19, publicly accessible abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0025-5718-07-02021-2",
+        "material_read": "Publication abstract and bibliographic data only; accessible complete text not located.",
+        "method": "Bibliographic/abstract search; no claim of full-text noncoverage",
+        "title": "On the existence of maximum principles in parabolic finite element equations",
+        "trigger": "Earlier finite-element positive semigroup framework named in inspected primary papers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb69eb6f-2873-4e28-8b43-7bf4e1eac891",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact topological if-and-only-if classification for any connected graph with equilateral metric edges supplies a sharp necessary and sufficient numerical diffusion design rule, rather than a sufficient matrix heuristic or isolated data table. Completeness is the sole graph exception, and the proof uses a meaningful inverse-positivity structural obstruction. It strictly unifies tree, cyclic and complete bipartite special families and is applicable to network diffusion with junctions.",
+    "status": "PASS"
+  }
+}
