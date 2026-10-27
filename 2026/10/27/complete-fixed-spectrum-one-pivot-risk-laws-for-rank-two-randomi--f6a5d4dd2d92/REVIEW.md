@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The Schur-complement trace after one selected row is exactly \(\lambda_2+(\lambda_1-\lambda_2)t_i\); diagonal-proportional selection fixes \(\mathbb Et_i=\lambda_2/(\lambda_1+\lambda_2)\). For any desired finite-support law with that mean, paired row vectors cancel cross terms and recover the prescribed eigenvalues and atom probabilities exactly. Convex-order, variance and sharp-tail statements then follow with explicit attaining inputs. The standalone finite verifier reconstructs 1,116 rank-two integer Gram cases and 100 paired-row examples. Its finite tests support but do not replace the proof.
+
+**Originality (PASS, subject to priority risk).** Direct comparison with Chen et al. (arXiv:2207.06503, Eq. (5.3)), Epperly (arXiv:2608.20633, Thm. 1.2 and Lemma 4.2), Divan–Gilles (arXiv:2609.06287, Thm. 3.1), and Steinerberger (arXiv:2404.11487, Secs. 1–3) distinguishes known expected-matrix or multistep estimates from the finite-law realizability converse. The familiar mean identity and endpoint Markov inequality are expressly prior or elementary ingredients, not presented as new. No retrieved result implies the exact fixed-spectrum class of attainable distributions. General frame/ensemble literature and unindexed sources may bear on historical priority.
+
+**Value (PASS).** The paper's motivation is the reliability of diagonal-weighted randomized low-rank factorization beyond expected trace bounds. At fixed eigenvalues, this natural and complete classification proves that no finer spectrum-only one-pivot confidence law is possible; it also identifies both risk extremizers and a four-row sharp intermediate-tail example. The answer is useful in interpreting how much high-probability information can be deduced from spectral decay alone. It is an exact finite-dimensional classification, not merely an isolated negative test.
+
+**Limitations and closest work.** The analysis concerns one pivot, exact arithmetic, real rank two and variable dimension. The four primary works above develop the pivot rule, expected error and general convergence but not this complete scalar-law converse. The proof does not generalize automatically to rank three or multiple steps, and complete historical priority is not independently established.
+
+Self-review: passed. Independent audit: not yet performed.
