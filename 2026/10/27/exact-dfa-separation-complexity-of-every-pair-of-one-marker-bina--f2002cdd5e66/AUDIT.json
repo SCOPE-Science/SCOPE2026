@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "Explicit total transition maps realize each of the three claimed state budgets. If a k-state DFA lies below them, all cycle lengths <=k divide marker displacement and the trailing suffix has length >=k-1. Nonmaximal zero-letter orbit transient gives the same marker input state; maximal transient forces f^(k-1) constant, so no lower-size separator exists. Includes boundary and k=1 cases. Attached checker independently corroborates 274 full-map and 9231 all-zero-map finite inputs and n up to 200 thresholds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://gwern.net/doc/cs/algorithm/1989-robson.pdf",
+        "https://arxiv.org/abs/1103.4513",
+        "https://arxiv.org/abs/2608.30928"
+      ],
+      "reasoning": "Robson provides general asymptotic separability; Demaine et al. provide general O(log n) for a single differing run and marker-padding lower examples; Nicol strengthens parameterized general upper bounds. Their statements, while broader in word class, do not determine the exact minimum for every choice of n,i,j and so do not subsume the equality.",
+      "searches": [
+        "Separating words with automata lcm two single-one strings nondivisor position gap minimal states",
+        "https://arxiv.org/abs/1103.4513",
+        "https://gwern.net/doc/cs/algorithm/1989-robson.pdf",
+        "https://arxiv.org/abs/2608.30928"
+      ]
+    },
+    "checked_sources": [
+      "https://gwern.net/doc/cs/algorithm/1989-robson.pdf",
+      "https://arxiv.org/abs/1103.4513",
+      "https://arxiv.org/abs/1605.04835",
+      "https://arxiv.org/abs/2608.30928",
+      "published mathematical research-record similarity search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/abs/1103.4513",
+        "https://arxiv.org/abs/1605.04835",
+        "https://arxiv.org/abs/2608.30928"
+      ],
+      "reasoning": "The 2011 left and right boundary constructions prove only two upper bounds, and its lcm examples establish lower bounds for selected high-padding instances. The new lower bound for all i,j requires an exhaustive orbit-transient argument, including maximal transient forcing a global sink, and therefore does not follow from the cited general asymptotic or endpoint inequalities. Nicol’s later runs-of-differences bound similarly does not give exact cases.",
+      "searches": [
+        "https://arxiv.org/abs/1103.4513",
+        "https://arxiv.org/abs/1605.04835",
+        "https://arxiv.org/abs/2608.30928",
+        "Exact minimal DFA state count to distinguish two equal-length binary strings each containing precisely one 1, at positions i and j, formula least non-divisor of j-i and boundary distances."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/abs/1103.4513",
+        "https://arxiv.org/abs/1605.04835"
+      ],
+      "reasoning": "Compared sparse-pair, unary-marked, marker shift, equal-length Hamming distance two, and DFA distinguishing-complexity formulations. In inspected primary texts, no exact joint dependence on gap least-nondivisor and both marker-to-boundary budgets occurs; earlier results establish only separate bounds or special hard instances.",
+      "searches": [
+        "Exact minimal DFA state count to distinguish two equal-length binary strings each containing precisely one 1, at positions i and j, formula least non-divisor of j-i and boundary distances.",
+        "Separating unary marked strings 0^i 1 0^r and 0^j 1 0^s with a minimum-state deterministic automaton; finite transformation monoid orbit.",
+        "\"separating words\" \"Hamming weight one\"",
+        "\"smallest DFA\" \"single 1\" \"different positions\" automata separating"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/1103.4513",
+        "https://arxiv.org/abs/2608.30928"
+      ],
+      "reasoning": "Checked published research-record similarity results and targeted mathematical literature for tables or exact one-marker separation classifications. Nearest found records involved synchronization or binary pair-multispectra, not minimum separating-DFA size. This excludes no inaccessible/unindexed tables.",
+      "searches": [
+        "One-marker binary words DFA separation boundary effects prefix suffix transient periodic cycle",
+        "\"separating words\" \"one 1\" DFA",
+        "\"separation\" \"least non-divisor\" \"prefix\" \"suffix\" deterministic automata"
+      ]
+    },
+    "rationale": "Full primary texts of Robson 1989, Demaine et al. 2011, Ebrahimnejad 2016 and Nicol 2026 inspected against the precise parametric minimum. Published results supply separate upper bounds, general asymptotics and special padded hard examples, none shown to imply all-position equality or exact lcm first-length thresholds. Relevant research-record and literal-equivalence searches found no covering statement. Priority risk from unindexed works persists.",
+    "residual_risks": [
+      "Goralčík and Koubek 1986 foundational full text not directly inspected.",
+      "Unindexed or unpublished equivalent special-case theorem may exist; absence from searches is not novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General separator bounds, no exact one-marker all-index identity",
+        "evidence": "Information Processing Letters 30 (1989) 209-214; bound O(n^(2/5)(log n)^(3/5))",
+        "identifier_or_url": "https://gwern.net/doc/cs/algorithm/1989-robson.pdf",
+        "material_read": "Full six-page scholarly PDF including abstract, general constructions and asymptotic statements; first page visually inspected",
+        "method": "Full text and PDF page image",
+        "title": "Separating Strings with Small Automata",
+        "trigger": "Foundational 1989 DFA separation upper bound"
+      },
+      {
+        "assessment": "Contains the two endpoint constructions and special logarithmic lower-bound witnesses, not the all-marker exact three-way formula",
+        "evidence": "arXiv:1103.4513v1 dated 23 Mar 2011, Propositions 4 and 5, Theorem 2 and Proposition 8",
+        "identifier_or_url": "https://arxiv.org/abs/1103.4513",
+        "material_read": "Full arXiv PDF, especially introduction, Propositions 4-5, Theorem 1-2, Proposition 8, constructions and related arguments",
+        "method": "Full PDF text and selected page screenshots",
+        "title": "Remarks on Separating Words",
+        "trigger": "Plausibly strongest coverage of one-marker examples and bounds"
+      },
+      {
+        "assessment": "Studies reversal gaps and longer examples; no exact every-pair one-marker formula",
+        "evidence": "arXiv:1605.04835, examples of separation size for zero-only strings",
+        "identifier_or_url": "https://arxiv.org/abs/1605.04835",
+        "material_read": "Full arXiv PDF sections on reversal asymmetry, tails, and lower-bound examples; PDF image examined",
+        "method": "Full paper PDF and page screenshot",
+        "title": "On the Gap Between Separating Words and Their Reversals",
+        "trigger": "Automata-tail lower bounds and unary-like words could dominate the claim"
+      },
+      {
+        "assessment": "All-word bounds and asymmetry results do not imply precise all-position one-marker minimum",
+        "evidence": "arXiv:2608.30928, Theorem 1, Theorem 2 and Sections 4-5",
+        "identifier_or_url": "https://arxiv.org/abs/2608.30928",
+        "material_read": "Complete open arXiv HTML sections 1-5 including runs-of-differences, shifts, reversals and NFA bounds",
+        "method": "Primary full HTML (not merely abstract or metadata)",
+        "title": "Further Remarks on Separating Words",
+        "trigger": "Recent broad literature that might dominate an archival theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2002cdd-5e66-4dbc-8397-d886b6b57974",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Resolves a classical finite-automaton distinguishing-size problem exactly for every pair of equal-length binary words with one marked bit, differentiating three structural regimes. Produces sharp arithmetic threshold for when k states are necessary in this class, and a mathematically motivated asymptotic sequence; not a routine finite enumeration or a bare corollary of an unrestricted bound.",
+    "status": "PASS"
+  }
+}
