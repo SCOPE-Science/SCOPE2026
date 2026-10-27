@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The collision lemma follows by direct position comparison, with both directions proved. A path-packing bound and the \(abba\)-periodic construction give the exact extremal list size. The odd-length singleton-run classification and three-free-letter block parametrization give the complete maximizing-word enumerator; separate small-length cases and the incidence identity are proved. The provided finite verifier tested 778,140 received words, including explicit distinct-parent constructions. The finite tests are not offered as the infinite proof.
+
+**Originality — PASS within inspected evidence.** Zabokritskiy (arXiv:2609.00779, 2026), Section 6, bounds one-step inverse multiplicity but does not provide the exact worst-case value or a maximizing-word census. Lenz–Wachter-Zeh–Yaakobi (arXiv:1707.00052 and 1712.09345, 2017) already establish the binary sphere-size identity and broader general-alphabet run upper bounds; their general contraction-collision criterion supplies a relevant precursor. Those earlier facts are acknowledged rather than presented as new. The all-alphabet, all-length extremizer enumeration and exact parity-dependent rigidity were not found in the closely relevant full texts or in searched research records. Because specialization of the older collision criterion is available, implicit coverage and unindexed priority remain residual risks.
+
+**Value — PASS.** Reverse-list size directly controls ambiguity and list-size estimates for the palindromic-duplication channel. The exact value improves the motivating general bound by approximately a factor of two and the enumerator identifies precisely how rare worst-case received words are; this is an exact structural characterization, not a single arbitrary finite table. It is limited to fixed block length two and exactly one duplication.
+
+Self-review: passed. Independent audit: not yet performed.
