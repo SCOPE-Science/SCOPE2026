@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "The polynomial identity R_n(u)=sum_{j=0}^n (n!/j!)u^j gives recurrence R_n=nR_(n-1)+u^n. All but the last term of R_m have factor m, hence R_(n+m)=u^m R_n mod m by induction. The lcm(m,ord_m(u)) is a period. Any period P yields P=u(1-u^P) and P(1+u)=u^2(1-u^P) modulo m from the n=1,2 recurrence comparisons, forcing 1-u^P=0 and P=0 mod m when u is a unit. These are full necessity and sufficiency. Finite abelian group exponent structure proves all divisor-order spectra. verify.py independently checked all 773 unit pairs for m=2..50 and their proper divisors, 49 complete spectra, and 56 permutation identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1009.2929v1, Corollary 3.2, concerns ordinary derangements modulo a prime and gives a congruence that supplies an upper period, not a universal unit-weight least period.",
+        "Banderier--Luca arXiv:1903.01986 concerns another second-order polynomially recursive sequence; only the abstract was checked, so no claim of full-text exclusion is made."
+      ],
+      "reasoning": "General modular polynomial-recursion literature might subsume the result. The directly inspected strongest same-object primary text addresses Bell/derangement congruences and not the exact all-modulus period spectrum; unrelated second-order recurrence results cannot be asserted to contain or refute the statement based only on their abstracts.",
+      "searches": [
+        "modular period Charlier derangement polynomials exact period any modulus unit parameter",
+        "derangement polynomials period modulo",
+        "arxiv:1903.01986 (abstract only)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1009.2929 (public 2010-09-15; complete accessible HTML)",
+      "https://oeis.org/A000166 (same-object public sequence database; comment 2017-11-21)",
+      "https://arxiv.org/abs/1903.01986 (2019 related polynomial-recurrence abstract only, not relied on for whole-document exclusion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun--Wu--Zhuang (2010), Corollary 3.2, supplies the ordinary-derangement prime-modulus shift; equation (1.4) supplies the general recurrence.",
+        "OEIS A000166 states the upper-period shift for ordinary derangements at composite moduli.",
+        "The proof herein uses an extra universal two-index necessity argument to force both m|T and ord_m(u)|T for every unit evaluation; this does not appear in either compared statement."
+      ],
+      "reasoning": "The classical subfactorial period result is a readily derivable specialization and is not separately promoted as novel. The primary contribution is the exact all-unit least-period theorem and exact per-modulus achievable period spectrum. The known statements imply some special-case upper periods, but none inspected explicitly or via a more powerful stated theorem yields the full weighted result.",
+      "searches": [
+        "https://arxiv.org/abs/1009.2929 (Corollary 3.2 read)",
+        "https://oeis.org/A000166 (periodicity comment read)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun--Wu--Zhuang arXiv:1009.2929v1 defines the same polynomial after the shift x=1+u and states recurrence (1.4); no entire-sequence least-period theorem appears in its inspected introduction, theorem, proof, or special consequences.",
+        "OEIS A000166 provides the ordinary derangement sequence and a 2017 upper-period observation, but not the unit-weight order formula."
+      ],
+      "reasoning": "The equivalent variables are rencontres polynomials, derangement polynomials, x-factorials, and weighted fixed-point permutation sums. The search compared the exact least shift across all n>=0 modulo arbitrary integers. Known recurrence and special congruences are inputs, not an implication of minimality without the separate two-index lower-bound argument.",
+      "searches": [
+        "least period derangement polynomials modulo m rencontres polynomial periodicity",
+        "rencontres polynomials minimal period modular integer",
+        "least period modulo m of rencontres derangement polynomial R_n(x) sum_{k} n!/(n-k)! x^{n-k}; lcm(m,ord_m(x))"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000166, P. Bala comment dated 2017-11-21: period divides m for even m or 2m for odd m, from D_(n+m)=(-1)^m D_n (mod m). The comment explicitly says \"dividing\" rather than \"least\".",
+        "No exact table of unit-weight polynomial least periods was found in the inspected record."
+      ],
+      "reasoning": "The OEIS upper bound does not assert minimality, and it concerns only u=-1. The new claim gives sharp least periods for all unit u, then the entire realizable spectrum as u varies, using the finite abelian unit group. Absence in OEIS is not proof of novelty.",
+      "searches": [
+        "https://oeis.org/A000166",
+        "subfactorial sequence modulo m period smallest derangement congruences"
+      ]
+    },
+    "rationale": "Inspected same-object arXiv:1009.2929v1 states the recurrence and a prime-modulus derangement congruence; OEIS A000166 records a 2017 upper-period bound for classical subfactorials. Neither inspected statement supplies the exact all-unit least period or all attainable period spectrum. Research-index and direct literature searches for rencontres / derangement / x-factorial aliases and arbitrary moduli found no dominating theorem. Straightforward derivability and possibly unlocated equivalent coverage are acknowledged risks; no independence is claimed.",
+    "residual_risks": [
+      "The all-unit sharp period statement might be folklore or appear in unlocated older arithmetic or combinatorial literature.",
+      "The elementary argument may be embedded as a consequence of a much more general theorem on factorial polynomials, even though no such applicable theorem was located.",
+      "Related 2019 second-order polynomial-recursion material was only examined at abstract level; nothing is claimed about its full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies prior recurrence, related derangement prime congruences, no stated all-unit least-period theorem or spectrum.",
+        "evidence": [
+          "equation (1.4): D_m(x)=m D_(m-1)(x)+(x-1)^m",
+          "Corollary 3.2 (3.2): D_(pn+r)=(-1)^n D_r modulo p"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1009.2929",
+        "material_read": "Full accessible arXiv HTML text, introduction and polynomial definitions, Theorem 1.2, Section 2 proofs, Corollary 3.2, Section 3 special consequences and references (153-line text).",
+        "method": "Read accessible full-text HTML, compared (1.4), (1.6)-(1.9), (3.2) against arbitrary-modulus exact periods and unit-order spectra.",
+        "title": "Congruences on the Bell polynomials and the derangement polynomials",
+        "trigger": "Same polynomial family and identical recurrence; plausible stronger modular congruence coverage."
+      },
+      {
+        "assessment": "States upper periods dividing m (m even) or 2m (m odd), not their sharpness and not weighted-unit order/spectrum.",
+        "evidence": [
+          "Peter Bala, Nov. 21, 2017: period dividing k for even k and 2k for odd k, from D_(n+k)=(-1)^k D_n mod k"
+        ],
+        "identifier_or_url": "https://oeis.org/A000166",
+        "material_read": "Definition, comments, 2017 modular-period comment, and surrounding references.",
+        "method": "Inspected sequence record text and matched the divisibility of periods to the stated exact periods.",
+        "title": "OEIS A000166, Subfactorial or rencontres numbers",
+        "trigger": "Exact same ordinary derangement specialization and listed modular periodicity."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa782bdd-1f5d-43ab-aa39-84e63a4ba0c1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is the natural rencontres fixed-point weighted permutation enumerator; modular least periods and the set of all periods obtainable by varying the weight are canonical arithmetic invariants, especially over composite moduli. The result classifies every invertible weight and arbitrary m>=2, rules out all shorter periods, identifies all realizable periods m*d via Carmichael exponent, and supplies sharp extremal periods and their count. This is a complete motivated two-parameter classification, not a preselected numerical improvement or textbook restatement of an already explicit period formula. It has a short self-contained proof and leaves nonunit weights untouched.",
+    "status": "PASS"
+  }
+}
