@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "For a height-two bipartite comparability poset, downsets and upsets each number i(G); admissible pairs with both sides nonempty are exactly bipartite-clique subset pairs, counted by i(bipartite complement)-2^a-2^b+1. This gives the stated exact formula. Isolated-side padding yields 2^(k+1)i(G)+Delta with -1<=Delta<2^k, hence floor((c+1)/2^(k+1))=i(G). Adding one disjoint edge preserves height exactly two and multiplies i(G) by 3. Ternary certificates prove membership in #P; finite direct enumeration and independent graph counts passed 682 exhaustive, 240 sample and 130 disjoint-edge checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus:2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+        "arxiv:1802.01419v1 Introduction and Sections 1, 4",
+        "arxiv:2511.14924v1 Definition 1, Proposition 1, Tables 1-2"
+      ],
+      "reasoning": "The general #P-completeness statement covers arbitrary posets and a greatest-element promise, not the restricted input class height two, and Turing completeness is not equivalent to a one-query extraction. The 2018 source counts structures with a fixed set of minima; the 2025 polynomial imposes a containment condition on the generating upset/downset, not the comparability L<U of a new point. No stronger theorem was identified from the examined material that logically yields height-two hardness.",
+      "searches": [
+        "random homogeneous universal poset number of one-types finite series-parallel poset ordinal sum parallel composition downset upset recursion",
+        "finite poset number of insertion positions one-point extensions disjoint union ordinal sum generating function",
+        "generic countable random poset one point extensions counting exact types N-free series parallel posets",
+        "height two finite posets random homogeneous poset one-point extension count bipartite complement independent sets #P complete"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1009.2892v1",
+      "doi:10.1137/S0097539797321602",
+      "published-finding corpus:2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+      "arxiv:1802.01419v1",
+      "arxiv:2511.14924v1",
+      "arxiv:1802.06312v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus:2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1: result uses P ordinal-summed with top chains C1,C2 to extract ideals",
+        "Same paper explicitly leaves bounded-height restricted class unaddressed",
+        "Vadhan DOI:10.1137/S0097539797321602 establishes exact #BIS hardness"
+      ],
+      "reasoning": "The prior identity c(P⊕C_m)=c(P)+mJ(P)+binomial(m+1,2) generates instances with increased height. It does not imply hardness already on height-two inputs. By contrast the new graph complement identity gives a single height-two oracle instance and exact integer-division recovery. The Vadhan theorem supports only the source problem hardness and cannot directly imply an equivalence to poset one-types.",
+      "searches": [
+        "generic random partial order height two parameter graphs exact type count #P-complete",
+        "random homogeneous universal poset number of one-types finite series-parallel poset ordinal sum parallel composition downset upset recursion",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1/RESULT.md",
+        "height two finite posets random homogeneous poset one-point extension count bipartite complement independent sets #P complete"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus:2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+        "arxiv:1009.2892v1 Lemma 3.3",
+        "Dittmer-Pak arxiv:1802.06312 counts linear extensions rather than types",
+        "Target identity counts two independent-set partition functions i(G) and i(bipartite complement G)"
+      ],
+      "reasoning": "One-point extensions, nonalgebraic one-types, stabilizer orbits, and insertions into a finite poset are compared as equivalent formulations. The standard L/U classification is explicitly covered; the height-two bipartite complement identity and oracle isolation are not given in the examined closest sources. A height-two linear extension is a totally ordered extension, not a one-point extension type.",
+      "searches": [
+        "counting one-types over finite height-two posets is #P-complete bipartite graph independent sets one-point extensions",
+        "generic random partial order height two parameter graphs exact type count #P-complete",
+        "number of insertion positions in height two posets count bicliques independent sets complexity",
+        "\"#P-complete\" \"one-point extensions\" \"height two\" poset counting",
+        "\"insertion\" \"bipartite\" \"poset\" one-element extensions count",
+        "nonalgebraic 1-type count height two bipartite graph comparability independent sets bicliques"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus:2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+        "arxiv:1802.01419v1 table of small-poset exponential functions concerns minima extensions, not the asserted #P-completeness"
+      ],
+      "reasoning": "No indexed statement/table of c(P_G)=2i(G)+i(complement)-2^a-2^b or the isolated-side integer-division reduction appeared. Existing short-poset tables and special complete-bipartite counts do not give the parameter-unrestricted complexity statement.",
+      "searches": [
+        "counting one-types over finite height-two posets is #P-complete bipartite graph independent sets one-point extensions",
+        "number of insertion positions in height two posets count bicliques independent sets complexity",
+        "counting number of extensions of height two posets by one element bipartite independent sets bicliques",
+        "single oracle query counting one-types universal poset two-level parameter bipartite independent set extraction"
+      ]
+    },
+    "rationale": "The independently derived identity for height-two comparability posets and one-query isolated-side extraction are not supplied by the indexed unrestricted/greatest-element type-counting theorem, which uses ordinal sums and two queries. Closely named papers on poset extensions, height-two linear extensions, and generalized intervals count different objects. Relevant partial or full texts were examined, with an explicit residual possibility of unindexed equivalent work.",
+    "residual_risks": [
+      "An unindexed earlier note might give the bipartite-complement one-point extension count or a direct height-two #P-hardness reduction.",
+      "The inspected 2018 and 2025 manuscripts were not read line-by-line; selected sections and targeted searches were used.",
+      "Exact complexity hardness is under polynomial-time Turing reductions rather than an asserted parsimonious completeness theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers one-point extension criterion and general/greatest-element #P-completeness; not height-two or one-query bipartite complement extraction",
+        "evidence": [
+          "Top-chain reduction uses P⊕C1 and P⊕C2, explicitly a two-query Turing reduction",
+          "Limitations expressly leave bounded-height posets untreated"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1/RESULT.md",
+        "material_read": "Entire RESULT.md including theorem, complete proof, limitations, references",
+        "method": "Retrieved actual publication file and compared its reduction statements and construction",
+        "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+        "trigger": "Identical random-poset object, analogous exact count and complexity theorem"
+      },
+      {
+        "assessment": "Supplies the admissible L/U representation; not a restricted counting-complexity theorem",
+        "evidence": [
+          "Lemma 3.3 defines L={p:p<x}, U={p:x<p} and ℓ<u across them; focus is endomorphism monoid universality"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1009.2892",
+        "material_read": "Sections introducing the generic poset and Section 3.1 Lemma 3.3 with surrounding pushout proof",
+        "method": "Open arXiv PDF and inspect Lemma 3.3 in extracted text and page image",
+        "title": "A universality result for endomorphism monoids of some ultrahomogeneous structures",
+        "trigger": "Earliest eligible primary account of L/U one-point extension patterns for finite posets"
+      },
+      {
+        "assessment": "Establishes classical source counting hardness, not a one-point type count statement",
+        "evidence": [
+          "Abstract explicitly states #P-completeness for counting independent sets on planar bipartite bounded-degree graphs"
+        ],
+        "identifier_or_url": "https://salil.seas.harvard.edu/sites/g/files/omnuum4266/files/salil/files/complexity_counting_sparse_regular_planar_graphs.pdf",
+        "material_read": "Author-hosted full-document first page/abstract; separately confirmed publisher abstract; detailed reductions not reconstructed",
+        "method": "Opened author PDF and inspected its title and abstract page visually, cross-checked journal page",
+        "title": "The Complexity of Counting in Sparse, Regular, and Planar Graphs",
+        "trigger": "Primary established #P-hardness of exact bipartite independent-set counting"
+      },
+      {
+        "assessment": "Counts extensions whose set of minimal elements is prescribed; no observed one-point type or height-two complexity equivalence",
+        "evidence": [
+          "Definition E(M,P) fixes the entire minimal set M; counting function e(m,P) is a different invariant"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.01419",
+        "material_read": "Full abstract, introduction, definitions, Section 4 examples, and targeted full-document text search for complexity and bipartite terms",
+        "method": "Opened full arXiv PDF and inspected page image plus selected text; not a full line-by-line read",
+        "title": "Exponential functions of finite posets and the number of extensions with a fixed set of minimal points",
+        "trigger": "Plausible older poset-extension counting source"
+      },
+      {
+        "assessment": "Its upset/downset relation U≼D is a containment/generator condition, rather than one-point comparability L<U; no displayed height-two hardness",
+        "evidence": [
+          "Definition 1 imposes A(U)⊆D and A(D)⊆U; both nonempty necessarily intersect"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2511.14924",
+        "material_read": "Abstract, Section 2 definitions and polynomial extracts, Section 2.4 composition identities",
+        "method": "Opened arXiv PDF and inspected definition page image plus extracted text",
+        "title": "The Generalized Interval Polynomial of a Poset",
+        "trigger": "Pairs of downsets/upsets may dominate or encode the one-type statistic"
+      },
+      {
+        "assessment": "Different object: permutations extending partial orders, not one-point extension types",
+        "evidence": [
+          "Its height-two theorem counts linear extensions, which are total orders on existing elements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.06312",
+        "material_read": "Full publication abstract describing the counted linear extension invariant and height-two theorem",
+        "method": "Read publisher/abstract; no full-text noncoverage assertion",
+        "title": "Counting linear extensions of restricted posets",
+        "trigger": "A superficially similar height-two #P-completeness result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4bcc55e-ff71-49cd-ad5b-38ff7431d977",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Height one admits a closed formula, while height exactly two already realizes #P-complete exact finite-parameter type counting. A single-query extraction is a concrete structural transfer rather than a renaming of the unrestricted hardness theorem, and the bipartite-complement identity links model-theoretic one-point extensions to classical combinatorial partition functions.",
+    "status": "PASS"
+  }
+}
