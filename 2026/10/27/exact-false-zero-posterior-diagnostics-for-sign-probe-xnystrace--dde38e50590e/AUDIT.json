@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The Nyström pseudoinverse is the active-span projection. Rank-one monochromatic leave-one-out sketches have exact residual \\(ab/(a+b)\\begin{pmatrix}1&-s\\\\-s&1\\end{pmatrix}\\), residual trace \\(c\\) and held-out quadratic \\(c(1-st)\\). Mixed signs span the two active coordinates and produce the exact input. Exhaustive combinatorial partition into all-equal, exactly-one-minority, and remaining signs proves the three-atom law for every \\(m\\ge3\\); \\(m=2\\) treated separately. Derived moments, \\(1/2\\) basic-estimate correlation and false-zero mass follow algebraically. The actual standalone exact-rational checker passed 4080 cases for \\(2\\le m\\le9\\) with four rational eigenvalue pairs, supporting but not replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 1 in arxiv:2301.07825 is an a priori Gaussian-probe variance bound, not a finite-sample posterior-error joint law for discrete sign probes.",
+        "Proposition 2 is a broad formal correlation identity without evaluating rho or false-zero probability for sign sketches.",
+        "The spectral-calibration record concerns bagged-posterior ellipsoids, not Nyström trace estimation."
+      ],
+      "reasoning": "The Gaussian a priori bounds do not dominate the discrete probe example, and the general identity is underdetermined without a correlation calculation. Bagged-posterior calibration concerns a different algorithm and target.",
+      "searches": [
+        "exchangeable leave one out Nyström trace estimator squared posterior error variance underestimation m+1 sample 2 rank two",
+        "XTrace a posteriori error estimate all equal leave-one-out estimators nonzero trace error",
+        "XTrace XNysTrace exchangeable trace estimator leave-one-out Rademacher posterior estimator false-zero event exact correlation 1/2",
+        "arxiv:2301.07825 Section 5.3 Theorem 1",
+        "arxiv:2301.07825 Section 5.6",
+        "spectral-calibration-frontier for bagged-martingale posterior ellipsoids"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.07825 relevant primary full-text equations and proofs",
+      "Epperly 2025 dissertation relevant Chapters 14–15",
+      "arxiv:2207.06342 abstract/context",
+      "Semantic research records queried with XNysTrace, posterior-error and rank-two Rademacher equivalences",
+      "Previously established exchangeable XDiag planar risk and Nyström preconditioning results, compared by output and mathematical implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior Proposition 2 gives E Q = ((1-rho)/(1+(m-1)rho)) E squared-error; substituting the newly proved \\(\\\\(\\rho=1/2\\)\\) yields 1/(\\(m+1\\)).",
+        "The XDiag claim gives mean squared Euclidean error of a vector-valued diagonal estimator for two-by-two SPD matrices, not the XNysTrace posterior variance estimate or joint law."
+      ],
+      "reasoning": "The factor \\(m+1\\) becomes a corollary of a previously known general identity only after new specific correlation computation. Neither the distinct XDiag risk theorem nor original XNysTrace theorem computes that correlation or the false-zero event probability.",
+      "searches": [
+        "arxiv:2301.07825 Proposition 2 ratio compared with rho=1/2 derived here",
+        "exchangeable XDiag planar risk formula",
+        "Rademacher sign probes XNysTrace correlation one half rare events error certificate falsely zero",
+        "Epperly Tropp Webber 2301.07825 error estimator failure rank deficient sketches pseudoinverse finite sample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Primary manuscript https://arxiv.org/html/2301.07825v2 defines Nyström pseudoinverse and error sample variance; its Proposition 2 gives the ratio as (1-rho)/(1+(m-1)rho), leaving rho matrix-dependent.",
+        "Epperly dissertation https://tropp.caltech.edu/dissertations/Epp25-Making-Most.pdf Chapter 15 Proposition 15.4 reproduces general identity and discusses small empirical correlations."
+      ],
+      "reasoning": "The discovered statement computes \\(\\rho=1/2\\) (\\(\\rho=1\\) at \\(m=2\\)) for the specific PSD and discrete-probe family, and gives every atom of the joint trace-error/diagnostic law, not merely a general covariance identity. No inspected source contained an equivalent sign-count formula.",
+      "searches": [
+        "XNysTrace Rademacher posterior error estimator exact rank two diagonal positive semidefinite matrix fails zero all directions same",
+        "Rademacher sign probes XNysTrace correlation one half rare events error certificate falsely zero",
+        "XNysTrace rank-2 diagonal Rademacher sign sketches exact joint law posterior error zero probability 2^(1-m) and calibration ratio m+1",
+        "arxiv:2301.07825 equations (7)–(9), Section 3.1 Proposition 2, Section 5.6",
+        "Epperly Caltech 2025 dissertation Proposition 15.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The figures give experimental errors for different large test matrices and do not tabulate the rank-two discrete-sign joint law.",
+        "Targeted research-record searches returned related but mathematically different findings."
+      ],
+      "reasoning": "No discovered table specifies the three exact atoms (-c,0),(c/m,c²/m²),(0,0) or their probabilities for all sample counts.",
+      "searches": [
+        "XNysTrace Rademacher posterior error estimator exact rank two diagonal positive semidefinite matrix fails zero all directions same",
+        "random sign Nyström leave-one-out trace error basic estimators equal rank-two diagonal sampled columns",
+        "Epperly Tropp Webber 2301.07825 error estimator failure rank deficient sketches pseudoinverse finite sample",
+        "arxiv:2301.07825 Section 4.3 and Figure 5",
+        "Epperly 2025 dissertation Chapter 15 Figure 15.2"
+      ]
+    },
+    "rationale": "Read the relevant definitions, posterior diagnostic, proof of the general correlation identity, and variance results in the 2023 primary full text, as well as the relevant chapters and proposition of a 2025 dissertation; checked semantic research-record matches and an accessible prior diagonal-sketch result. The precise rank-two sign-probe joint law, false-zero mass, and constant \\(1/2\\) correlation were not found in those sources. The generic correlation identity does not supply this special matrix/probe correlation or the joint distribution. This is a best-knowledge judgment and not a claim of global uniqueness.",
+    "residual_risks": [
+      "Equivalent calculation in unindexed literature or software notes may exist; search completeness does not prove novelty.",
+      "Some related literature was evaluated only from summaries, not by a whole-document noncoverage claim.",
+      "The mathematical pseudoinverse formulation need not equal rank-deficiency behavior of every optimized numerical implementation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the estimator and generic posterior correlation identity but does not state the exact rank-two sign-projective joint law or \\(\\\\(\\rho=1/2\\)\\).",
+        "evidence": [
+          "arxiv:2301.07825 equations (7)–(9) for estimator; Proposition 2 and Section 5.6 for general correlation identity; Section 2.2 for optimized implementation."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2301.07825v2",
+        "material_read": "Equations (7)–(9), Algorithm 3, Sections 2.2 and 3.1, Proposition 2, Theorem 1, and Section 5.6 with its proof.",
+        "method": "Read the openly available full-text HTML, searching for the Nyström approximation, posterior error formula, sign/sketch behavior, and proof of the correlation formula.",
+        "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+        "trigger": "Exact original definition and closest general posterior-error formula"
+      },
+      {
+        "assessment": "Contains the general expected posterior squared-error relation and practical examples, but no inspected exact rank-two discrete-sign law or false-zero event count.",
+        "evidence": [
+          "Chapter 15 Proposition 15.4 gives the same general correlation relation; adjacent text reports empirical correlations and error-estimate behavior."
+        ],
+        "identifier_or_url": "https://tropp.caltech.edu/dissertations/Epp25-Making-Most.pdf",
+        "material_read": "Chapters 14–15 sections on exchangeable Nyström trace estimators, Section 15 posterior error and Proposition 15.4; surrounding empirical discussion and comparison.",
+        "method": "Inspected the publisher-hosted dissertation page images and parsed full-text sections, including the page containing Proposition 15.4.",
+        "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+        "trigger": "Later thorough source by an original XNysTrace author"
+      },
+      {
+        "assessment": "A distinct general uncertainty-estimation predecessor; no whole-document negative-coverage claim made.",
+        "evidence": [
+          "arxiv:2207.06342 predates and motivates later exchangeable trace estimator."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.06342",
+        "material_read": "Abstract and bibliographic context; not treated as a whole-document exclusion.",
+        "method": "Open abstract and compare scope to the later XNysTrace construction.",
+        "title": "Efficient error and variance estimation for randomized matrix computations",
+        "trigger": "Prior leave-one-out diagnostic literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dde38e50-590e-4d5e-b819-0f93ff03a55b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural first nontrivial positive-semidefinite matrix rank and fair-sign sketch expose a material mismatch between squared posterior diagnostic and true squared trace error. At \\(m=2\\) reported error is always zero while actual error never is, and for every \\(m\\ge3\\) expectation is too small by exact factor \\(m+1\\) despite absolute MSE tending to zero. Exact false-zero probability matters for interpreting adaptive stopping diagnostics and quantifies the issue beyond a cheap zero-test.",
+    "status": "PASS"
+  }
+}
