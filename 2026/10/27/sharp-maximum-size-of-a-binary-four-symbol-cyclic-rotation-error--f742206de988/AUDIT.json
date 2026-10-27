@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Rotations preserve Hamming weight, forcing at least two changed positions. Thus nonidentity outputs from windows three or more apart cannot coincide. Every distinct outcome is counted once by its earliest window, yielding an exact six-bit local score. The 32-state max-plus recurrence maximizes over all prefixes. Exact 32-entry equality \\(v_{11}(s)=v_6(s)+11\\) implies the all-n period-five maximum via translation equivariance; base cases \\(n=4,\\ldots,10\\) are checked. The period-five 01110 witness attains the bound by local reward pattern 2,2,2,2,3. The packaged Python verifier replays the pivotal equality independently by direct enumeration of all \\(n\\le11\\) words and checks all local values and witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2610.15701v1 Section III, Theorems 2 and 3, requires \\(k\\ge9\\) for asymptotic redundancy bounds; Section IV, Theorem 4, treats redundancy and uses a general union-of-rotations upper bound.",
+        "The immediate fixed-four union bound is 1+3(n-3); the exact new result is \\(\\lfloor(11n-20)/5\\rfloor\\), strictly smaller for \\(n\\ge6\\)."
+      ],
+      "reasoning": "Asymptotic lower bounds for code redundancy neither provide nor dominate the sharp worst-case size of a single cyclic four-window ball. The source gives a general local-window enumeration upper bound but no claimed exact \\(11/5\\) slope or period-five attaining centers. Results for all permutations can upper-bound cyclic rotations but do not determine this exact number without extra equality arguments.",
+      "searches": [
+        "binary length four cyclic substring permutation error balls exact maximum cardinality floor((11n-20)/5), worst-case word, length-4 rotations",
+        "Chen Milenkovic 2610.15701 finite k 4 cyclic burst sphere cardinality maximum",
+        "\"cyclic substring permutation\" \"maximum\" \"error ball\" k=4",
+        "\"cyclic permutation\" \"radius one\" \"binary\" \"four\" ball size burst"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.15701v1",
+      "https://borowiecki.dev/abs/2610.15701",
+      "https://arxivlens.com/paperview/details/correcting-burst-errors-with-applications-to-dna-based-data-storage-8792-0596b981",
+      "2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea",
+      "2026/10/4/SCOPE-exact-variance-of-binary-radius-one-fixed-length-levenshtein-bal--b7dfe5d9ff47",
+      "2026/10/4/SCOPE-exact-inverse-ball-law-for-one-zero-deletion-and-one-adjacent-tr--53d4e9f05204",
+      "2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2610.15701v1 Sec. III Definition 3 defines the same action; Thms 2–3, Example 1 and Sec. IV Thm 4 focus on different claims, and Sec. V Remark 2 notes a four-bit complement phenomenon without evaluating the global maximum.",
+        "Closest indexed published-finding corpus 2026/10/4/SCOPE-exact-variance-of-binary-radius-one-fixed-length-levenshtein-bal--b7dfe5d9ff47 concerns radius-one fixed-length Levenshtein variance rather than cyclic four-window rotations."
+      ],
+      "reasoning": "The new statement asserts one exact integer at every n plus an explicit common attaining period-five family. General existence/decoding-redundancy bounds and local illustrative outputs do not logically imply that specific exact extremum. Although the source supplies the motivating channel, additional finite-state maximization and a recurrence translation certificate are necessary.",
+      "searches": [
+        "binary length four cyclic substring permutation error balls exact maximum cardinality floor((11n-20)/5), worst-case word, length-4 rotations",
+        "Chen Milenkovic 2610.15701 finite k 4 cyclic burst sphere cardinality maximum",
+        "\"cyclic shift error\" \"maximum ball\" binary block length four"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source https://arxiv.org/html/2610.15701v1 Definition 3 defines precisely the fixed-length cyclic substring model (Section III, lines 240-249); Example 1 illustrates output sets for \\(k=4\\) and \\(n=5\\) (Section III).",
+        "published-finding corpus 2026/10/4/SCOPE-exact-inverse-ball-law-for-one-zero-deletion-and-one-adjacent-tr--53d4e9f05204 uses deletion of a zero plus transposition, a different channel with changed word length."
+      ],
+      "reasoning": "The result is invariant under reversing the word or complementing all bits. Searches accounted for cyclic shift, block rotation, permutation burst, error sphere/ball, adjacent transposition and local-edit names. The present channel preserves word length and symbol count and rotates exactly four adjacent bits, so deletion and Levenshtein ball results do not imply the extremal formula.",
+      "searches": [
+        "cyclic permutation burst k=4 binary radius-one sphere ball exact size cyclic rotations weight-preserving 4 neighboring symbols",
+        "maximum size error sphere one cyclic rotation of four consecutive binary symbols; period five 01110",
+        "\"cyclic permutation error\" \"sphere size\" binary length 4",
+        "\"single cyclic shift\" \"error ball\" \"length four\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/html/2610.15701v1 Example 1 explicitly lists selected sets for x=10010 and \\(k=4\\), not a length-n maximum table.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-binary-3-1-burst-code-sizes-through-length-8--531630cac2ea is about binary (3,1)-burst correcting-code cardinalities through n=8, not the error-ball count of cyclic window rotations.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc is a different deletion-sphere variance."
+      ],
+      "reasoning": "The source example is a specific input, not a database of maximum ball sizes. A broad and parameter-specific indexed search found no equal all-length formula or preexisting maximizing period-five construction. Absence from search is not proof of absolute priority.",
+      "searches": [
+        "cyclic burst code length-four exact sphere volume binary maximal minimal alternating words",
+        "permutation burst error k=4 full sphere exact local pattern expected ball size",
+        "\"11n-20\" cyclic rotation",
+        "site:github.com/published-finding corpus/2026 \"cyclic permutation\" \"length four\" ball"
+      ]
+    },
+    "rationale": "No previously checked source implies the exact all-length maximum \\(\\lfloor(11n-20)/5\\rfloor\\) for a single nonwrapping length-four cyclic permutation, with the periodic witness. The full primary text gives the channel definition, asymptotic redundancy results and coarse ball bounds, but not a fixed-four exact volume extremum. The indexed closest findings concern different edit channels. Residual unindexed-work risk remains.",
+    "residual_risks": [
+      "Broad published-archive and indexed searches cannot rule out unpublished/unindexed equivalent finite-word enumerations.",
+      "Related indexed published-finding corpus items were compared using discoverable titles and summaries; no claim of having read their complete independent proofs.",
+      "No independent external audit of the new theorem has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same channel and highly relevant; provides general/asymptotic bounds and local \\(n=5\\) example, not the exact all-n maximum for fixed four-bit rotations.",
+        "evidence": [
+          "Definition 3 identifies nonwrapping exact-k rotation, lines 240-249.",
+          "Theorems 2/3 apply only for \\(k\\ge9\\), lines 260-268 and 375-391.",
+          "Example 1 \\(k=4\\) \\(n=5\\), lines 357-374.",
+          "Section IV worst-case Theta(nk^2) remark and union bound, lines 392-406.",
+          "Section V Remark 2 notes the \\(k=4\\) complement error, lines 528-537."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.15701v1",
+        "material_read": "Full-text HTML: abstract; Introduction definitions and nanopore \\(k=4\\) motivation; Section III Definition 3, Theorems 2–3, Lemma 1, Example 1; Section IV Theorem 4 and its upper-bound proof; Section V k=2,3 constructions and \\(k=4\\) Remark 2; searched whole HTML for maximum, worst-case, exact, period.",
+        "method": "Read HTML section content and whole-document searches; compared statements, parameter conditions and implications rather than title alone.",
+        "title": "Correcting Burst Errors with Applications to DNA-Based Data Storage",
+        "trigger": "Identical length-four cyclic-substring channel, novel October 2026 motivating paper; examine possible stronger or equivalent ball-volume results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f742206d-e988-4dc5-9851-96ce896def6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source identifies four-bit nanopore windows as a concrete application and treats errors within these windows as an active coding-model concern. The exact worst-case radius-one neighborhood size is a natural decoding ambiguity and finite packing input. Replacing the trivial \\(3n-8\\) upper bound by the sharp \\(\\lfloor(11n-20)/5\\rfloor\\), together with explicit period-five attainability and a rigorous 32-state certificate, is a structural, all-blocklength result rather than a random small-instance computation. A priori the exact slope and periodic witness are not implied by the source asymptotics.",
+    "status": "PASS"
+  }
+}
