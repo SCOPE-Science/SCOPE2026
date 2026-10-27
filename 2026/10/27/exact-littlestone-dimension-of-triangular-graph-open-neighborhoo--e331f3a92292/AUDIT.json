@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary n, the first positive-branch family is exactly two stars. Every query on that family either fails to split it, leaves at most four positive hypotheses, or splits it into two star-plus-one spaces; the latter have dimension at most two by exhaustive four-category query analysis. Thus the first positive branch has dimension at most three and the entire class at most four. For n=4 opposite edges define identical functions, leaving only three distinct; for n=5 and n=6 cardinalities 10 and 15 exclude depth four. An explicit depth-three n=5 tree and an n>=7 first-query construction with a K5 negative branch and two four-spoke stars in the positive branch give matching lower bounds. These deductions prove all n; exact independent incidence-matrix recursion n=2..11 and pathwise verification of full n=5,7 witness trees from actual standalone files corroborate the boundaries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ghazi--Golowich--Kumar--Manurangsi arXiv:2007.03668/PMLR 132 (2021), Proposition 3: an O(kd log k) aggregation theorem.",
+        "Malliaris--Moran arXiv:2108.05569, introduction and main results on stable/Littlestone classes, excellent sets, and majority.",
+        "Adler et al. arXiv:2007.16042, Theorem 1.1: VC dimension four over Johnson graphs and VC density two; Theorem 3.7 gives J(7,2) VC witness."
+      ],
+      "reasoning": "The exact same graph family is covered by Adler et al. for VC, which provides a lower bound, not an upper bound, for adaptive tree shattering. Boolean closure upper bounds are quantitative generalities and do not equal four or classify n=2,3,4,5,6. The stable regularity results are qualitative and give no exact rank formula.",
+      "searches": [
+        "published-finding corpus: \"VC and Littlestone dimensions of graph neighborhood systems triangular graphs Johnson J(n,2)\"",
+        "Web: \"2021 Littlestone dimension model theoretic stability Malliaris Moran arxiv pdf\"",
+        "Web: \"Near-tight Closure Bounds for the Littlestone and Threshold Dimensions arxiv first submitted date\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2007.16042",
+      "arXiv:2007.03668 / PMLR 132 ghazi21a",
+      "arXiv:2108.05569",
+      "published-finding corpus published record 2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec (summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adler et al. arXiv:2007.16042, Theorem 3.7 explicitly exhibits a four-point static VC-shattered set in J(7,2); hence prior work already supplies Ldim>=4 for n>=7.",
+        "The same authors prove VCdim<=4 for all Johnson graphs, but VCdim<=4 does not imply Ldim<=4.",
+        "The 2020 Ghazi et al. bound controls arbitrary Boolean aggregation but does not force the exact constant four here."
+      ],
+      "reasoning": "The novel portion is the all-n adaptive upper bound via the star-plus-one branch lemma, together with exact exceptional size thresholds. A published VC lower bound is fully credited and not presented as new. No stronger inspected primary result dominates the full statement.",
+      "searches": [
+        "Web: \"VC dimension of graph open neighborhoods Johnson triangular graph Kneser graph paper 2020\"",
+        "published-finding corpus: \"Littlestone dimension of open neighborhoods of line graph L(K_n) exact 4 complete graph line graph\"",
+        "Web: \"Littlestone dimension\" \"edges\" \"share\" \"vertex\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adler--Benediktsson--Macpherson arXiv:2007.16042, Definition 2.7 and §3: triangular graph T_n=L(K_n) is J(n,2), and the parameterized edge relation is exactly the open-neighborhood set system.",
+        "published-finding corpus published record 2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec has exactly the triangular-graph alias but concerns homology, not online shattering."
+      ],
+      "reasoning": "The equivalences L(K_n)=J(n,2)=triangular graph were checked at the incidence-relation level. The class is distinct from closed neighborhoods: the diagonal h_e(e) vanishes. Same graph terminology or a numeric threshold seven in a topological invariant gives no logical implication for Littlestone dimension.",
+      "searches": [
+        "published-finding corpus: \"Littlestone dimension of open neighborhoods of line graph L(K_n) exact 4 complete graph line graph\"",
+        "published-finding corpus: \"Exact Littlestone dimension four on triangular graphs J(n,2) open-neighborhood online learning shattering n=5 n=7\"",
+        "Web: \"Littlestone dimension\" \"Johnson graph\"",
+        "Web: \"Littlestone dimension\" \"line graph\" \"complete\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest record: 2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec (neighborhood-complex homology), summary only.",
+        "Adler et al. arXiv:2007.16042, §3, enumerates VC-shattering configurations, not adaptive mistake trees."
+      ],
+      "reasoning": "No queried database record or inspected exact table states this four-case Littlestone formula. Nonretrieval alone does not prove originality; the precise comparison is with an inspected same-object VC result whose invariant is strictly weaker for upper bounds, and with broader qualitative results.",
+      "searches": [
+        "published-finding corpus: \"finite Johnson J(n,2) graph adjacency Littlestone dimension VC dimension\"",
+        "published-finding corpus: \"line graph K_n open neighborhood concept class optimal mistakes Johnson graph adaptive shattering\"",
+        "Web: \"Littlestone dimension\" \"Johnson scheme\" neighborhoods"
+      ]
+    },
+    "rationale": "The full claim combines a uniform Littlestone upper bound four on the Johnson level-two adjacency system with exact exceptional finite values. Adler--Benediktsson--Macpherson (arXiv:2007.16042) treats exactly this open-neighborhood family but proves VC dimension and density results: its J(7,2) VC witness already implies the lower bound four when n>=7, but no published result inspected supplies the adaptive upper bound or full four-case formula. Ghazi et al. give general Boolean closure bounds and Malliaris--Moran study general Littlestone/stable classes; neither yields these exact ranks. published-finding corpus semantic search found papers on triangular-graph neighborhood homology, a distinct invariant. Priority uncertainty remains for unlocated exact online-learning treatments.",
+    "residual_risks": [
+      "Exact constant-size online mistake bounds might have appeared under alternative edge-learning, graph thicket-dimension or line-graph terminology outside inspected sources.",
+      "One relevant published triangular-graph topology record was readable only through title and summary, although its known invariant differs.",
+      "Publication priority and proof validity have not received independent human verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Already establishes a VC-based lower bound four at n>=7 but no Littlestone upper bound or the four-case formula.",
+        "evidence": [
+          "arXiv:2007.16042 §3, Theorems 3.6 and 3.7 (VCdim<=4 and J(7,2) VC witness).",
+          "Its abstract and Johnson section explicitly scope to VC dimension and density."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+        "material_read": "Open full arXiv PDF: abstract, introduction, definitions, Johnson §3 including the n=7 VC witness, Johnson section end, Hamming section boundary, and references; checked full document for Littlestone/online terminology.",
+        "method": "Direct PDF text inspection with visual page inspection of title and Johnson proof pages.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Exact same family J(n,2) and open-neighborhood edge relation."
+      },
+      {
+        "assessment": "General closure O(kd log k) and threshold-dimension bounds do not determine triangular-graph exact values.",
+        "evidence": [
+          "PMLR 132 (2021), §2 Proposition 3; arXiv:2007.03668 first public July 7, 2020."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "Complete open PMLR article available; inspected abstract/introduction, Definitions and §2 Proposition 3, remaining closure theorem statements and final proof sections.",
+        "method": "Direct PDF text inspection and visual inspection of early theorem pages.",
+        "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+        "trigger": "Potentially stronger general combinatorial online-learning bound for Boolean combinations."
+      },
+      {
+        "assessment": "Qualitative Littlestone and stable-graph results; no exact finite triangular-graph computation.",
+        "evidence": [
+          "arXiv:2108.05569 original posting August 12, 2021; introduction/§1.2/§6."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.05569",
+        "material_read": "Open full arXiv PDF: abstract, overview of Theorems 3.1, 5.1 and 6.11, §1.2 definition and online-learning interpretation, and §6 majority discussion; searched full document for Johnson/line graph/neighborhood terms.",
+        "method": "Direct PDF text inspection with visual inspection of title and definitional page.",
+        "title": "Agnostic Online Learning and Excellent Sets / Model Theory and Agnostic Online Learning via Excellent Sets",
+        "trigger": "Logical stability and Littlestone connection could contain an implication for graph edge relations."
+      },
+      {
+        "assessment": "The reported invariant is reduced mod-two homology of a neighborhood complex, not Littlestone dimension; summary alone does not justify whole-document novelty claims.",
+        "evidence": [
+          "Published summary gives H_3 and H_4 of neighborhood complexes, no online tree-rank statement."
+        ],
+        "identifier_or_url": "2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec",
+        "material_read": "Published published-finding corpus search-result title and abstract summary only; linked full record did not load.",
+        "method": "Semantic research-record search, summary comparison, bounded full-record access attempt.",
+        "title": "Mixed-dimensional mod-two neighborhood homology first appears at T7",
+        "trigger": "Identical graph name and n=7 transition in a published published-finding corpus result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e331f3a9-2292-4d41-9c77-f0e02a668cb5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The edge adjacency relation of triangular/Johnson graphs is a canonical natural graph set system; its VC complexity had been investigated in primary literature. An exact infinite-family adaptive classification is not a simple VC corollary. The structural star-plus-one lemma yields a uniform four-mistake bound independent of the number of hypotheses, identifies discontinuous sharp exceptional sizes n=2,3-4,5-6 and n>=7, and explains how adaptivity behaves in a highly symmetric dense graph family. The result has direct interpretation in online graph-neighborhood prediction and in finite stability ranks; it is not an arbitrary parameter slice or finite table without general proof.",
+    "status": "PASS"
+  }
+}
