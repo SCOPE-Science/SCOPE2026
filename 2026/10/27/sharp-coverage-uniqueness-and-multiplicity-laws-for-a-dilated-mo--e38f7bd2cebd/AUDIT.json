@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "All digit transitions are exhaustively derived from four possible summand-bit pairs and two possible carries. Exact subset determinization proves B_k; two finite-valued pointwise invariants prove U_k; a sorted Fibonacci inequality with constructive matching digit words proves M_k. Cases k=0,1 and leading zeros are handled. Packaged standalone verifier runs independent pair enumeration for k<=7 and digit-state checks to k<=14. Finite checks are supporting only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dekking, Theorems 1–4: method identifies A+A of substitution-fixed sets, with detailed Fibonacci/Thue–Morse/von Neumann examples. No x+3y theorem for the Moser set occurs in the inspected text.",
+        "OEIS A000695 only asserts universal and unique x+2y representations, which are lost at coefficient three."
+      ],
+      "reasoning": "General finite automata methods permit deriving a new carry automaton but are not a published theorem with output covering these three invariants. Such methods are a genuine implicit-coverage risk rather than evidence of explicit antecedent coverage.",
+      "searches": [
+        "arxiv:2105.04959, material read through full-text HTML presentation",
+        "\"Moser-de Bruijn\" \"three times\" \"sum\"",
+        "automata sumset Moser de Bruijn sequence dilation 3 growth",
+        "Exact additive bases, sumsets of automatic sequences and binary digit restrictions",
+        "Additive Cantor set with base four digits 0 and 1, three times itself, representable integer count recurrence, Hausdorff dimension"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2105.04959",
+      "OEIS:A000695",
+      "OEIS:A007052"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "OEIS A000695 gives a universal unique representation in coefficient two, not coefficient three.",
+        "OEIS A007052 supplies the bare numerical recurrence for the covered-count sequence but says nothing about representations a+3b or their maxima.",
+        "Dekking, Theorems 1–4, concern substitutions and fixed-point position sets other than the Moser base-four digit set."
+      ],
+      "reasoning": "The coefficient-two bijection and the numerical recurrence do not logically give the present coefficient-three support, uniqueness, and maximum theorem. No stronger inspected source dominates all parts; this is not a proof of global uniqueness in the literature.",
+      "searches": [
+        "OEIS A000695 classical unique x+2y representation",
+        "OEIS A007052 coverage recurrence",
+        "arxiv:2105.04959 Theorems 1–4",
+        "Moser-de Bruijn integer sequence unique representation x + 2y, replace coefficient two by three: exactly 3^k unique representations and (2+sqrt2)^k representables",
+        "Base-4 digit set A powers of four, dilated sumset A+3A finite automaton exact entropy growth Fibonacci maximum multiplicity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A000695: base-four digits {0,1}; each integer has a unique x+2y expression.",
+        "OEIS A007052: the same 1,3,10,34,116,... coefficient sequence has combinatorial interpretations and recurrence 4u(n-1)-2u(n-2), with no displayed Moser-dilation interpretation.",
+        "Dekking 2021: explicit fixed-point sumsets for Fibonacci, Thue–Morse, von Neumann word position sets, not dilation-three Moser representations."
+      ],
+      "reasoning": "Testing the precise aliases Moser–de Bruijn, base-four {0,1} digits, x+3y, M+3M, the 2+sqrt(2) rate, and the 3^k unique count gave no equivalent complete statement. Numerical sequence equality with A007052 is acknowledged, but does not itself imply the representation interpretations or the maximum law.",
+      "searches": [
+        "\"Moser de Bruijn\" \"A+3A\" sumset",
+        "\"Moser-de Bruijn\" \"a+3b\" count",
+        "\"A000695\" \"A007052\"",
+        "Moser de Bruijn sequence arithmetic set base 4 digits zero one dilated sumset A+3A exact counting growth 2+sqrt2",
+        "Additive Cantor set with base four digits 0 and 1, three times itself, representable integer count recurrence, Hausdorff dimension",
+        "Moser-de Bruijn integer sequence unique representation x + 2y, replace coefficient two by three: exactly 3^k unique representations and (2+sqrt2)^k representables",
+        "Base-4 digit set A powers of four, dilated sumset A+3A finite automaton exact entropy growth Fibonacci maximum multiplicity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A007052 precontains the numerical B_k sequence and the order-two recurrence.",
+        "OEIS A000695 precontains the base-four Moser set and the x+2y bijection.",
+        "No inspected entry identifies the count of uniquely representable x+3y values or the sharp Fibonacci multiplicity."
+      ],
+      "reasoning": "The new claim does not recertify the recurrence as a novel integer sequence; it identifies a previously unsupported arithmetic interpretation and two further exact invariants. Existing named tables do not entail these facts without the new carry-state proof.",
+      "searches": [
+        "OEIS A000695",
+        "OEIS A007052",
+        "\"1, 3, 10, 34, 116, 396\" \"Moser\"",
+        "\"A000695\" \"3*a\" sums",
+        "Moser-de Bruijn integer sequence unique representation x + 2y, replace coefficient two by three: exactly 3^k unique representations and (2+sqrt2)^k representables"
+      ]
+    },
+    "rationale": "The classical Moser–de Bruijn unique representation theorem treats the coefficient two, not three. The inspected 2021 primary sumset paper treats other substitution-defined integer sets, and no theorem implying the present three simultaneous laws was located. OEIS A007052 already records the numerical recurrence for the covered-count column, so the sequence or polynomial is not claimed as novel; the arithmetic correspondence, the exact 3^k unique count, and the Fibonacci maximal multiplicity are distinct. The available evidence supports originality subject to expressly recorded risk of unindexed or implicit coverage.",
+    "residual_risks": [
+      "An earlier unindexed or unpublished formula may give the exact arithmetic interpretation.",
+      "The already-known A007052 recurrence could have a concealed or unstated Moser-dilation interpretation; no publication-priority guarantee is made.",
+      "Broader automata or sumset results may imply the theorem by a non-obvious specialization not isolated in their main statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The methods are general enough to motivate the study but the reported theorems do not present M+3M or its three laws.",
+        "evidence": [
+          "arxiv:2105.04959 v1, submitted 2021-05-11",
+          "Theorems 1–4 and article sections 3–6 concern specified position sets other than Moser base-four digits."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.04959",
+        "material_read": "Introduction, Theorems 1–4 and relevant adjacent methods/proofs for Fibonacci, Thue–Morse and von Neumann examples, using an available full-text HTML rendering and targeted text searches.",
+        "method": "Read available author-paper text rendering and search relevant object and parameter aliases.",
+        "title": "Sumsets and fixed points of substitutions",
+        "trigger": "Motivating 2021 primary literature on explicit substitution sumsets."
+      },
+      {
+        "assessment": "Provides the classical comparison but not the claimed coefficient-three enumeration or maximal representation multiplicity.",
+        "evidence": [
+          "A000695 records sums of distinct powers of four and the unique expression x+2y."
+        ],
+        "identifier_or_url": "https://oeis.org/A000695",
+        "material_read": "Definition, comments on base-four digits, unique x+2y representation, formulas, and cross-references.",
+        "method": "Inspected sequence entry and targeted searches for 3A and A007052.",
+        "title": "Moser–de Bruijn sequence",
+        "trigger": "Exact object and known x+2y representation."
+      },
+      {
+        "assessment": "The recurrence and its numerical values are prior art, but no coefficient-three Moser-dilation interpretation or separate multiplicity laws were found.",
+        "evidence": [
+          "A007052 has initial terms 1,3,10,34,116,... and a(n)=4a(n-1)-2a(n-2)."
+        ],
+        "identifier_or_url": "https://oeis.org/A007052",
+        "material_read": "Definition, displayed terms, comments and numerous formula/recurrence interpretations and references.",
+        "method": "Read OEIS entry, including recurrence and cross-references; searched for Moser.",
+        "title": "Number of order-consecutive partitions of n",
+        "trigger": "Exact numeric sequence overlap for the covered-count data."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e38f7bd2-cebd-4ff9-ad6c-633af8061ee6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural Moser base-four set uniquely represents all integers after dilation two. Dilation three displays a precise breakdown quantified simultaneously by the support exponent log_4(2+sqrt2), the strictly smaller unique-representation exponent log_4 3, and sharp Fibonacci multiplicity maxima. This is a structural transition in a classical additive numeral system, not an isolated numerical table or a routine restatement of A007052.",
+    "status": "PASS"
+  }
+}
