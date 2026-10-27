@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For fixed orthonormal W and block-preserving Gaussian sketch, ||Q||_2=1/sigma_min(Z). Orthogonal reduction of B and C turns Z into [D 0; U G] with independent G of size ell-by-(m-r) and gaussian U. Two-sided inverse minimum-singular-value inequalities reduce moment existence exactly to that for G, including equality divergence. Gaussian QR/Bartlett diagonal chi laws give exponent ell-(m-r)+1 by necessity from final inverse diagonal and sufficiency from inverse triangular entries. Squaring transfers to Gram defect; full-rank B gives deterministic bound. Checker verify.py passed 3937 finite identities/distribution checks, not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Balabanov–Grigori arXiv:2011.05090, Sections 2–4: high probability randomized Gram–Schmidt bounds",
+        "Jang–Grigori doi:10.1002/nla.70029: Euclidean reorthogonalization controls a different final basis",
+        "Grigori–Timsit arXiv:2405.10923, Theorem 3.7 and Section 3.3: block sketch and reconstructed factors"
+      ],
+      "reasoning": "High-probability embedding, finite precision, and reorthogonalized QR results do not yield necessary-and-sufficient unconditional inverse moments in all p. A universal small-singular-value theorem might imply this rank-sensitive specialization if available; no specific such theorem was established in the checked sources. Residual risk disclosed.",
+      "searches": [
+        "partially deterministic Gaussian sketch preserved top rows QR Gram defect infinite mean finite mean rank one",
+        "Grigori Timsit randomized Householder QR recRHQR exact Gaussian moments rank retained leading block",
+        "rank of deterministic retained leading block in randomized Householder QR determines exact inverse moments of Euclidean Q Gram Gaussian sketch critical exponent",
+        "\"partially randomized\" \"smallest singular value\" deterministic rows gaussian matrix",
+        "\"Gaussian\" \"deterministic rows\" \"smallest singular value\" negative moments",
+        "\"partial\" \"regularization\" \"Wishart\" \"rank deficient\" inverse moments",
+        "\"randomized QR\" \"moment\" \"sketch\" \"rank\" deterministic block"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2405.10923",
+      "arXiv:2011.05090",
+      "doi:10.1002/nla.70029",
+      "doi:10.1137/070698932 (abstract only)",
+      "Published mathematical record searches recorded in equivalent_formulations/broader_coverage/exact_database_or_table/claim_vs_prior_implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Grigori–Timsit arXiv:2405.10923: factorization and embedding guarantee",
+        "Balabanov–Grigori arXiv:2011.05090: randomized Gram–Schmidt embedding",
+        "Anderson–Wells doi:10.1137/070698932: Gaussian condition number distribution (abstract/background only)"
+      ],
+      "reasoning": "Source factor identities reduce the new claim to a probabilistic question but do not establish its critical moment exponent or rank-nullity dependence. Standard pure Gaussian cases are subsumed by classical Gaussian random-matrix theory and NOT presented as new. The mixed deterministic/Gaussian rank frontier, plus its Gram-defect moment consequence, are the claimed addition. Anderson–Wells full text not inspected; a stronger mixed-block result there or elsewhere is a residual publication-priority risk.",
+      "searches": [
+        "Grigori Timsit randomized Householder QR recRHQR exact Gaussian moments rank retained leading block",
+        "rank of deterministic retained leading block in randomized Householder QR determines exact inverse moments of Euclidean Q Gram Gaussian sketch critical exponent",
+        "partially deterministic sketch [I, 0; 0, G] orthogonal basis infinite moment threshold nullity oversampling mixed Wishart",
+        "partially regularized Wishart D+X'X smallest singular value negative moment integrability nullity exact threshold",
+        "randomized QR preserving first rows Gaussian sketch sharp moment dependence on rank deterministic block",
+        "\"randomized Cholesky QR\" \"inverse Wishart\" \"norm\" basis",
+        "\"sketched QR\" \"column\" \"moment\" \"Bartlett\" triangular",
+        "\"Gaussian\" \"R inverse\" \"columns\" \"chi-square\" QR"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Grigori–Timsit, arXiv:2405.10923, Sections 3.1 and 3.3",
+        "Classical Bartlett/triangular Gaussian QR inverse singular-value moment law",
+        "published-finding corpus closest adaptive randomized pivoting 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee"
+      ],
+      "reasoning": "A change of basis sends the retained deterministic rows into an invertible r-block and the remaining k=m-r coordinates into an independent ell-by-k Gaussian block. Classical Gaussian QR establishes the k-block exponent but does not, by itself, state that a partial deterministic top block preserves exactly that cutoff in the reconstructed Euclidean basis. Adaptive randomized pivoting concerns different column-subset errors, not this exact sketch-factor inverse moment.",
+      "searches": [
+        "Gaussian block-preserving randomized Householder QR exact inverse moments rank of deterministic leading block critical exponent ell minus nullity plus one",
+        "partially deterministic Gaussian sketch preserved top rows QR Gram defect infinite mean finite mean rank one",
+        "Grigori Timsit randomized Householder QR recRHQR exact Gaussian moments rank retained leading block",
+        "rank of deterministic retained leading block in randomized Householder QR determines exact inverse moments of Euclidean Q Gram Gaussian sketch critical exponent",
+        "\"randomized Cholesky QR\" \"inverse Wishart\" \"norm\" basis",
+        "\"sketched QR\" \"column\" \"moment\" \"Bartlett\" triangular",
+        "\"Gaussian\" \"R inverse\" \"columns\" \"chi-square\" QR",
+        "\"partially randomized\" \"smallest singular value\" deterministic rows gaussian matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searched for Gaussian QR, partial sketch, moment threshold; closest IDs: 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee, 2026/9/17/SCOPE-critical-tolerance-fluctuations-cg-haar-power-law-spectra--ef42dbde8c03, 2026/9/20/SCOPE-additive-bidirectional-gauss-seidel-inverse--e4dd7b4e2fba"
+      ],
+      "reasoning": "Results are semantic research summaries rather than a complete database of all special functions or inverse Wishart formulae; no exact table for the partially anchored QR moment cutoff was found. Lack of a match is not proof of originality.",
+      "searches": [
+        "Gaussian block-preserving randomized Householder QR exact inverse moments rank of deterministic leading block critical exponent ell minus nullity plus one",
+        "partially deterministic Gaussian sketch preserved top rows QR Gram defect infinite mean finite mean rank one",
+        "randomized Cholesky QR Gaussian embedding exact expected norm inverse-Wishart s-p-1"
+      ]
+    },
+    "rationale": "The specific all-positive-order unconditional integrability frontier determined solely by the nullity of the retained top block in recRHQR does not appear in the inspected source sections or compared search results. The Gaussian QR/Bartlett inverse-diagonal ingredients are classical and are explicitly excluded from the novelty claim. The new scientific statement is the exact change of Euclidean basis and Gram-defect integrability at each retained-block rank, including the rank-one rescue at minimal oversampling.",
+    "residual_risks": [
+      "A general partially deterministic Gaussian least-singular-value/inverse-moment theorem might cover the rank-sensitive specialization under different terminology; specialist full-text comparison is not exhaustive.",
+      "Gaussian spectral-law source doi:10.1137/070698932 was not inspected beyond abstract; no whole-document noncoverage claimed.",
+      "The originating first-public HAL date is supported by the authors' chronology in the arXiv HTML; HAL full text could not be independently opened."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SUPPLIES_PREMISES_NOT_THE_MOMENT_FRONTIER",
+        "evidence": "Block-preserving sketch diag(I,Omega) and recRHQR=QR of sketch, with rank-full tail assumption; high-probability embedding theorems, not all-moment unconditional rank-sensitive result.",
+        "identifier_or_url": "arXiv:2405.10923",
+        "material_read": "HTML full text, inspected introduction, Section 3.1/Theorem 3.7, Section 3.3 and relevant conclusion/finite-precision discussion",
+        "method": "Accessed lawful arXiv HTML and compared theorem hypotheses and reconstructed-factor formula against candidate statement",
+        "title": "Randomized Householder QR",
+        "trigger": "Originating exact block-preserving sketch and recRHQR factor identity"
+      },
+      {
+        "assessment": "RELATED_METHOD_NO_DIRECT_COVERAGE",
+        "evidence": "Randomized Gram–Schmidt and high-probability sketch guarantees; does not identify partial-anchor rank-dependent exact p-integrability.",
+        "identifier_or_url": "arXiv:2011.05090",
+        "material_read": "HTML full text, relevant introduction and randomized Gram–Schmidt framework plus stability sections",
+        "method": "Compared stable embedding and orthogonalization conclusions with unconditional inverse-factor moments",
+        "title": "Randomized Gram–Schmidt process with application to GMRES",
+        "trigger": "Earlier embedding and sketched orthogonalization analysis"
+      },
+      {
+        "assessment": "DIFFERENT_REORTHOGONALIZED_OUTPUT",
+        "evidence": "Explicit reorthogonalization changes the output factor; no statement of exact inverse-chi rank-sensitive moment cutoff for the unreorthogonalized sketch.",
+        "identifier_or_url": "doi:10.1002/nla.70029",
+        "material_read": "Publisher HTML full text, introduction and method description",
+        "method": "Compared actual normalization and Euclidean basis construction",
+        "title": "Randomized Orthogonalization Process With Reorthogonalization",
+        "trigger": "Closely related later sketching method with Euclidean reorthogonalization"
+      },
+      {
+        "assessment": "POTENTIAL_BACKGROUND_NO_WHOLE_DOCUMENT_EXCLUSION",
+        "evidence": "Gaussian matrix condition number, not enough material to rule out mixed block implications; explicitly retained as risk.",
+        "identifier_or_url": "doi:10.1137/070698932",
+        "material_read": "Abstract only; full text not inspected",
+        "method": "Compared stated pure Gaussian condition-number topic to the mixed deterministic/Gaussian block question",
+        "title": "The Exact Distribution of the Condition Number of a Gaussian Matrix",
+        "trigger": "Potential stronger classical Gaussian singular-value formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6847495-078b-4901-9af6-51f7aa4207c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sketched QR guarantees are generally high-probability while actual reconstructed Euclidean basis diagnostics can have divergent unconditional moments even for perfectly orthonormal input. The rank-sensitive sharp cutoffs give a concrete design boundary: at minimal oversampling rank-zero retained block has infinite expected Gram defect, but rank-one anchored retention rescues finite expectation. This is a structurally motivated threshold for an established block-preserving numerical orthogonalizer, not an arbitrary parameter slice; risks include small nonzero singular values causing large finite constants and no statement on actual finite-precision error.",
+    "status": "PASS"
+  }
+}
