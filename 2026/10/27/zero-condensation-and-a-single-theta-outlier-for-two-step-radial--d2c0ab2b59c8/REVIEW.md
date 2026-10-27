@@ -1,0 +1,11 @@
+# Scientific review: two-step Bergman zero condensation
+
+**Correctness — PASS.** Direct moment integration independently fixes the full normalizations. Splitting the power series around the degree \(N\) gives a two-sided Laurent limit, with geometric majorants on both tails. Ramanujan's classical bilateral summation locates its unique simple annular zero at \(-1/\tau\). Argument-principle winding gives the exact \(N\)/\(N+1\) counts, and the different rescaling inside \(|s|<q\) excludes spurious interior zeros. The result is for fixed parameters and fixed radius; finite checks do not establish its infinite-range conclusion.
+
+**Originality — PASS, best knowledge.** Perälä's disk-weight construction shows zero-producing Bergman weights but does not, in the inspected theorem statements/proofs, provide the precise two-level family or its eventual exact per-radius counting law. Boudreaux's radial examples have different hypotheses. Ramanujan's bilateral summation is credited and supplies the core analytic identity; the Bergman zero law is a nontrivial limit-plus-winding application. A full comparison with Zeytuncu's older text was not completed, so an equivalent consequence remains a genuine residual priority risk. Relevant published-search results about power-deficit radial weights address a distinct zero-free weight, not this inner-step mass blowup. Search failure alone is not evidence of originality.
+
+**Mathematical value — PASS.** It separates two regimes of zeros for a natural explicit radial-weight discontinuity: exactly \(N\) roots accumulate at the jump radius and exactly one macroscopic outlier survives. The threshold \(1/\tau\) can be tuned while \(q\) is fixed. Unlike mere existence of Bergman kernel zeros, the result offers a sharp infinite-family zero count and a structural mechanism linking moment transitions to bilateral theta products.
+
+**Limits and risks.** No full-disk count or moving-radius uniformity is proved; no independent priority confirmation has been conducted. The possibility of a stronger older result implying the statement is not ruled out, especially from specialized radial zero literature.
+
+Self-review: passed. Independent audit: not yet performed.
