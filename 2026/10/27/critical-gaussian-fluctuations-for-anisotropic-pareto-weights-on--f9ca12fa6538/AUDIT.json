@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The unit cut has exact tail \\(x^{-2}\\). Every non-unit separator has exponent at least \\(2+\\min(\\gamma_1,\\gamma_2)\\), so the block tail is asymptotic to \\(\\mu_Px^{-2}\\). Subtracting \\(vP_i\\) preserves that tail because pivot gaps are exponentially bounded. Its truncated second moment is asymptotic to \\(2\\mu_P\\log x\\), yielding the normal-domain-of-attraction scale \\(\\sqrt{n\\log n}\\); the pivot residual is tight and negligible.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.28865v2: Gaussian passage-time CLT is stated for a common edge law with exponent above \\(2/\\ell_c\\); the stable theorem is stated below that threshold; the exact one-block tail is proved for a common tail function.",
+        "arXiv:2607.28865v2: Lemma 3.1 identifies the three-edge unit cuts in the range-two case, while Lemma 3.3 uses the common-law product tail."
+      ],
+      "reasoning": "The cited source does not cover edge laws depending on edge length. Its common-law tail formula cannot be substituted directly: the range-two cut tail here is the product x^{-gamma_1} x^{-2 gamma_2}, and the proof must exclude non-unit separators using their weighted exponents.",
+      "searches": [
+        "Pareto edge weights spread-out line first-passage percolation boundary stable Gaussian transition logarithmic normalization",
+        "length-dependent independent edge weight tails in finite-range first-passage percolation effective minimum cut tail exponent",
+        "First-Passage Percolation on Spread-out line graphs: Microscopic Regime arXiv:2607.28865"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.28865v2 — primary source, full HTML text inspected; v1 date checked for earliest public date",
+      "doi:10.1239/aap/1427814587 — primary journal article, full PDF text inspected"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.28865v2, Theorem 2.1 and Lemma 3.3",
+        "Ahlberg (2015), Theorem 1.2; the Gaussian passage-time theorem is under a finite second moment and i.i.d. edge weights"
+      ],
+      "reasoning": "Neither inspected source implies the result under the length-dependent infinite-variance laws. The current claim adds a new model class and reconstructs the one-block tail with a weighted-cut argument, then applies the normal-domain-of-attraction limit at the exact exponent balance. The known i.i.d. critical specialization is not claimed as new on its own.",
+      "searches": [
+        "First-passage percolation on spread-out line graphs: microscopic regime, exact one-block tail and critical exponent",
+        "Asymptotics of First-Passage Percolation on One-Dimensional Graphs Ahlberg 2015 central limit theorem finite second moment",
+        "first passage percolation edge weights depend on edge length one-dimensional finite range graph heavy tailed different distributions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2607.28865v2, Sections 1.1–1.3, Theorem 2.1, Proposition 2.5, Lemma 3.3",
+        "Ahlberg (2015), Theorem 1.2 and Section 2 regenerative structure"
+      ],
+      "reasoning": "The recent spread-out-line result assumes a common edge-weight distribution. The present model has different Pareto exponents for length-one and length-two edges, so it is not a reparameterization of the common-law statement. Ahlberg's periodic-graph result likewise assumes identically distributed edge weights.",
+      "searches": [
+        "First-passage percolation on spread-out line graphs: microscopic regime, exact one-block tail and critical exponent",
+        "first passage percolation edge weights depend on edge length one-dimensional finite range graph heavy tailed different distributions",
+        "anisotropic first passage percolation independent edge weight distributions by length renewal cut heavy tails"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The literature searches returned no exact finite table or database entry for the length-dependent range-two Pareto model."
+      ],
+      "reasoning": "A finite database or benchmark table is inapplicable to this asymptotic theorem. The comparison is mathematical and rests on the explicit hypotheses and cut exponents, not a table lookup.",
+      "searches": [
+        "critical infinite variance normal domain of attraction first-passage percolation renewal reward block tail x^-2 Pareto edge weights",
+        "anisotropic first passage percolation independent edge weight distributions by length renewal cut heavy tails"
+      ]
+    },
+    "rationale": "The closest recent FPP source assumes identically distributed edge weights and treats the strict subcritical and supercritical regimes. The claim proves the critical limit for a length-dependent Pareto family by a weighted-cut argument not covered by that source's hypotheses.",
+    "residual_risks": [
+      "The literature search cannot exclude an unindexed result for this exact anisotropic Pareto family.",
+      "The extension of the one-block tail estimate to length-dependent laws depends on the stated range-two separator classification; it should not be extrapolated to other graph ranges without a new weighted-cut analysis.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongly relevant but not covering the anisotropic law: its edge weights are identically distributed and its Gaussian and stable passage-time statements use strict inequalities around the critical exponent.",
+        "evidence": [
+          "arXiv:2607.28865v1, Theorem 2.1; Proposition 2.5; Lemma 3.1; Lemma 3.3"
+        ],
+        "identifier_or_url": "arXiv:2607.28865v2",
+        "material_read": "Relevant full-text sections covering the model and main theorems, pivot and block-moment arguments, endpoint residual estimates, unit-cut geometry, and the exact one-block tail lemma.",
+        "method": "Compared assumptions, edge-law homogeneity, cut geometry, block-tail formula, and stated fluctuation regimes against the proposed claim.",
+        "title": "First-Passage Percolation on Spread-out line graphs: Microscopic Regime",
+        "trigger": "Closest recent source for finite-range line FPP, pivot regeneration, block-tail exponents, and Gaussian/stable transition."
+      },
+      {
+        "assessment": "Provides related regenerative methodology but does not cover length-dependent Pareto laws or infinite-variance critical logarithmic normalization.",
+        "evidence": [
+          "Ahlberg (2015), Theorem 1.2 and Section 2"
+        ],
+        "identifier_or_url": "doi:10.1239/aap/1427814587",
+        "material_read": "Full PDF text covering the i.i.d.-edge model, Theorem 1.2, and the regenerative structure in Section 2.",
+        "method": "Checked graph class, edge-weight assumptions, moment conditions, and stated Gaussian scaling.",
+        "title": "Asymptotics of First-Passage Percolation on One-Dimensional Graphs",
+        "trigger": "Foundational regenerative FPP theorem on essentially one-dimensional periodic graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9ca12fa-6538-4c49-b88b-e8bca398d70d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The critical curve \\(\\gamma_1+2\\gamma_2=2\\) is dictated by the actual three-edge bottleneck and not an arbitrary parameter slice. The theorem identifies the missing boundary fluctuation law for a natural anisotropic transport model and gives a universal logarithmic Gaussian scale \\(\\sqrt{n\\log n}\\) and exact variance despite infinite-variance edge weights.",
+    "status": "PASS"
+  }
+}
