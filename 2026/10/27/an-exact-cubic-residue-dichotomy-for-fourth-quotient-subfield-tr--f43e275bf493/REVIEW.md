@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The claim is for all odd prime powers \(q\equiv7\pmod{12}\). Cyclicity gives a subgroup of order \(4(q-1)/3\) and cubic base-field intersection; taking a generator and its primitive order-four Frobenius ratio gives \(\operatorname{Tr}(h)^2=2\operatorname{N}(h)\). The three nontrivial quotient cosets project to \(uC,TuC,uC\), furnishing exact representation counts, cardinalities and complements. Every step is algebraic. Exact finite-field enumeration corroborates the complete distribution for seven primes; it is not the infinite proof.
+
+**Originality — PASS, with a defined risk.** The closest source, Zhou and Wu, arXiv:2610.25228v1, Section 5, provides a necessary subfield projection bound and a *different* quotient-order-three example. Neither implies the quotient-order-four distribution or its cubic-character-of-two distinction; the current result gives both exact cardinalities and representation profiles. Martin and Yip, arXiv:2403.04312, Theorems 1.2–1.3, give general error bounds for fixed shifted-subfield residue equations, not this exact growing-index evaluation. Zhou, Danchev and Wu, arXiv:2512.16942, provide broader covering obstructions, not the present equality law. Equivalence and domination searches in mathematical research records and accessible earlier claims did not reveal a matching result. An unindexed prior explicit computation remains possible; search absence alone is not novelty proof.
+
+**Value — PASS.** The projective quotient of order four is the next natural case after the motivating paper's quotient-order-three example. Its exact \(2\)-cubic-residue dichotomy and the complete multiplicity profile show a structural mechanism beyond a routine counting-bound substitution. The formula addresses the possibility of covering and determines exactly which fibers fail and how many presentations the others have, for an infinite family.
+
+**Limitations.** No classification at other indices or congruence classes is claimed. The standalone computational checks address seven prime base fields, not nonprime prime powers; those follow by the algebraic argument. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
