@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Both channels are CPTP: original Kraus completeness and nonnegative Pauli probabilities. Bloch matrices differ by b u v^T with v^T u=0 and both vectors in the lambda eigenspace of D, so M^n-D^n=n lambda^(n-1)buv^T exactly. On all (possibly entangled) inputs the difference is c_n B tensor partial-trace((A tensor I)X); trace duality bounds its diamond norm by c_n ||A||_infty ||B||_1, and the pure input in the v direction saturates. Adjacent-term ratio locates all optimal n; n(1-lambda)->s gives 2s exp(-s), with 2/e at the optimum. The standalone script has 75 exact-rational 3x3 power checks and finite-limit tests; these supplement, not replace, the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "vom Ende gives norm-dense diagonalizable quantum channels, not isospectral controlled powers.",
+        "Wong--Zeng--Li give interpolated channel EPs and tomography, not this comparison.",
+        "General diamond-norm measurement discrimination is standard: Kliesch--Roth, PRX Quantum 2, 010201."
+      ],
+      "reasoning": "Density does not imply an exact norm or spectral matching; generic diamond-norm characterization does not identify the comparator or solve its finite and scaling optimizations. No inspected stronger theorem subsumes the claimed formula.",
+      "searches": [
+        "arXiv:2403.19643v1",
+        "arXiv:2507.16049",
+        "\"exceptional point\" \"channel discrimination\" \"diamond\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13622v1 (primary, Sections II--VI)",
+      "arXiv:2507.16049 / npj Quantum Information 12, 63 (primary, Results/Methods)",
+      "arXiv:2403.19643v1 (primary, density statements and examples)",
+      "Kliesch--Roth, PRX Quantum 2, 010201 (diamond norm context)",
+      "published-finding corpus semantic records: 2026/10/11/...00a25760cd57, 2026/10/4/...ed34a124b164, 2026/10/4/...62cf6218d38f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source Eq. (31) permits calculating this family's state-measurement probabilities, and Eq. (28)--(30) supplies the raw Jordan term.",
+        "The Pauli comparator, equality of its superoperator spectrum, arbitrary ancilla upper bound, saturation and optimal repetition law require additional choices/derivations.",
+        "Nearby literature states channel diagonalizability density and EP detection, not a covering exact discrimination theorem."
+      ],
+      "reasoning": "The accepted contribution is not an assertion that the Jordan transient itself is new. It is the sharp operational two-channel discrimination theorem, with the physical spectral control and exact global n/crossover optimum. It is close enough to the motivating formula that priority outside the inspected material remains a real risk.",
+      "searches": [
+        "arXiv:2610.13622v1 Sections III--V",
+        "arXiv:2507.16049 Results",
+        "arXiv:2403.19643v1 Sections 2--5",
+        "\"isospectral\" \"quantum channels\" \"diamond norm\" distinguishability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source yields n lambda^(n-1) Jordan transient for all qubit preparations and projective measurements, not the all-ancilla diamond norm or a designated isospectral physical Pauli control.",
+        "Rank-one Pauli-transfer difference is c_n Tr(A X)B; this formulation is checked against the paper's Bloch coordinates.",
+        "published-finding corpus closest: 2026/10/11/SCOPE-the-sharp-affine-jordan-norm-pencil-and-its-scaled-q-spectral-se--00a25760cd57 (operator-norm Jordan pencil, different maps and optimization)."
+      ],
+      "reasoning": "A generic Jordan-binomial law and qubit Born-rule formula contain ingredients, but neither states the exact all-ancilla Helstrom optimum for the specified diagonalizable CPTP spectral control or its temporal optimum; equivalent exact statements were not located.",
+      "searches": [
+        "arXiv 2610.13622 Brandão exceptional quantum channel same eigenvalue Pauli reference exact diamond distance n-step isospectral",
+        "quantum exceptional point two-by-two Jordan nilpotent Bloch map Pauli comparator optimal Helstrom discrimination over repetition count",
+        "\"Jordan block\" \"quantum channel\" \"diamond norm\"",
+        "arXiv:2610.13622v1 Eqs. 18--34"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus related result 2026/10/4/SCOPE-exact-2-n-largest-output-eigenvalue-in-an-exterior-square-adjoin--ed34a124b164 concerns output spectra of representation-theoretic channels, not EP-versus-Pauli diamond distance.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-privacy-choi-concurrence-tradeoff-for-unital-qubit-channel--62cf6218d38f optimizes a privacy-entanglement curve, not channel repetition.",
+        "No exact n-step value, optimizer table or 2/e crossover was retrieved."
+      ],
+      "reasoning": "Keyword and semantic matches do not supply this pair or an exact database covering it. A negative search result alone is not a priority certificate.",
+      "searches": [
+        "arXiv 2610.13622 Brandão exceptional quantum channel same eigenvalue Pauli reference exact diamond distance n-step isospectral",
+        "quantum exceptional point two-by-two Jordan nilpotent Bloch map Pauli comparator optimal Helstrom discrimination over repetition count",
+        "rank-one difference of qubit channels diamond norm ancilla assistance two nonnormal channels same spectrum",
+        "published-finding corpus: rank-one difference of qubit channels diamond norm ancilla assistance two nonnormal channels same spectrum",
+        "\"operational signatures of exceptional quantum channels\" distance Pauli channel"
+      ]
+    },
+    "rationale": "The 2026 Brandão primary source gives the same exceptional channel and all raw Born-rule probabilities but not a matched isospectral physical diagonalizable Pauli comparator, its exact all-ancilla diamond distance, no-ancilla saturation, sharp optimal repetition count and 2/e long-time/weak-noise limit. Relevant open primary full texts and semantic research searches were compared on implication, not just keywords. Earlier Jordan expansions and diamond-norm inequalities are acknowledged prior; priority outside the inspected literature is not certified.",
+    "residual_risks": [
+      "The matched-pair optimum is a short but nontrivial consequence of Brandão's complete Bloch formulas plus a standard rank-one diamond-norm bound; an unpublished note or an unindexed general theorem may already state the same benchmark.",
+      "The chosen Pauli comparator is a spectrally natural control, but is not proven closest among all possible isospectral diagonalizable channels; the claim does not require this."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit channel and arbitrary preparation/measurement probabilities are prior. No physical isospectral Pauli comparison, all-ancilla diamond optimum, optimal repetition-count classification or weak-noise crossover is stated. The former identities make the new proof short, so novelty is strictly the matched operational optimization, not the Jordan expansion.",
+        "evidence": [
+          "arXiv:2610.13622v1, Eqs. (18)--(34), Sections III--VI"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.13622v1",
+        "material_read": "Sections II--VI including Kraus Eq. 18, Bloch Eqs. 19--31, three measurement examples and conclusions",
+        "method": "Primary full-text HTML, equations compared with the constructed isospectral Pauli comparator",
+        "title": "Operational signatures of exceptional quantum channels",
+        "trigger": "Identical exceptional channel; possible implication from complete qubit probability formula"
+      },
+      {
+        "assessment": "Constructs and detects EPs by channel interpolation and tomography; no n-step diamond norm against a diagonal Pauli channel or matched-eigenvalue optimal-time law in inspected mathematical development.",
+        "evidence": [
+          "Wong--Zeng--Li, npj Quantum Information 12, 63 (2026), Results and Methods; arXiv:2507.16049"
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41534-026-01205-2",
+        "material_read": "Introduction; Results: Bloch representation and two-channel EP interpolation, Eq. (1)--(6); experimental channel tomography and Jordan-ray observations; higher-order construction and methods",
+        "method": "Lawful open-access primary full text (same paper as arXiv:2507.16049)",
+        "title": "Non-Markovian exceptional points by interpolating quantum channels",
+        "trigger": "Earlier single-qubit exceptional-point constructions might dominate an isospectral discrimination result"
+      },
+      {
+        "assessment": "Norm density of diagonalizable channels has neither fixed-spectrum comparator constraints nor the explicit sharp power-distance, ancillary optimum or singular repetition scale.",
+        "evidence": [
+          "arXiv:2403.19643v1, Theorem 1, Corollary 1, Sections 1--5"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.19643v1",
+        "material_read": "Abstract, Sections 1--3, worked-example context and Outlook, particularly norm-dense simple-spectrum theorems",
+        "method": "Primary arXiv full-text HTML",
+        "title": "Almost All Quantum Channels Are Diagonalizable",
+        "trigger": "Could imply exact comparison with physical diagonalizable channels"
+      },
+      {
+        "assessment": "The general diamond-norm operational interpretation and semidefinite characterization are standard; the source does not supply this pair-specific matched isospectral all-n formula.",
+        "evidence": [
+          "Kliesch--Roth, PRX Quantum 2, 010201 (2021), Sec. on the diamond norm"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PRXQuantum.2.010201",
+        "material_read": "Article overview plus indexed diamond-norm/certification discussion and standard operational distance relationship",
+        "method": "Open journal article information and mathematical overview of diamond-norm certification",
+        "title": "Theory of Quantum System Certification",
+        "trigger": "Check whether a standard universal channel-discrimination formula already covers the precise instance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d659a983-fffd-4b86-8713-b2ac95199516",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two physical CPTP maps share every eigenvalue, making their exact optimal operational distinguishability a natural test of information lost by spectral description. The theorem gives a sharp ancilla-free experimental preparation/measurement, identifies every optimal step count, and shows a nonzero 2/e distinguishability despite one-step convergence to identity in the joint weak-noise/long-time limit. That persistent optimized effect, not a routine scalar computation or renaming of the source Jordan formula, motivates the fact. It does not claim adaptive multi-query superiority or higher-dimensional generality.",
+    "status": "PASS"
+  }
+}
