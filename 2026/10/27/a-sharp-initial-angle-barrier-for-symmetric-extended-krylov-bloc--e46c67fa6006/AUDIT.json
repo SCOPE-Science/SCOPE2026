@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The proof derives the projected identity and a strict Kantorovich comparison from matrix identities, proves the scalar spectral bound directly, and checks the exact three-point formula. Three-mode sharpness, nonattainment and rank classification follow analytically. The standalone symbolic and seeded numerical tests pass; finite sampling is not used as a substitute for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yan–Wu (2013) Theorems 4–5 encompass general Bauer–Hausdorff/Wielandt inequalities and imply the basic nonstrict unconstrained cosine bound.",
+        "Lund–Schweitzer (2026) Theorem 3.3 compares \\(\\rho_k\\) between algorithm variants.",
+        "Carson–Lund–Rozložník (2021) accessible abstract gives Gram–Schmidt orthogonality bounds in terms of block condition number."
+      ],
+      "reasoning": "The prior general inequalities cover a critical lemma but do not state or, without additional constrained sharpness construction, directly settle the exact first-step inverse/forward projected block frontier and its unattainment. The EKSM comparison has different measured quantities and implications.",
+      "searches": [
+        "Initial block extended Krylov A inverse b and A b orthogonal to b sharp cosine 2 sqrt kappa/(1+kappa), exact nonattainment three-point spectrum",
+        "On the stability of basis construction in extended Krylov subspace methods Lund Schweitzer 2610.21603 first split channel Gram angle spectral spread",
+        "https://doi.org/10.1155/2013/894824",
+        "https://doi.org/10.1137/21M1394424"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.21603",
+      "doi:10.1155/2013/894824",
+      "doi:10.1137/21M1394424",
+      "Imakura (2015) basis construction, abstract",
+      "Selected semantic mathematical-record query results"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Kantorovich yields \\(\\langle p,Tp\\rangle/(\\|p\\|\\|Tp\\|)\\ge2\\sqrt\\kappa/(\\kappa+1)\\).",
+        "The extra factor from projection is strict because \\(b^{\\mathsf T}Tp=1-\\mu\\nu\\ne0\\).",
+        "The three-mode exact formula forces the infimum and shows its nonattainment; a polynomial-zero argument characterizes the rank boundary.",
+        "Lund–Schweitzer give no stated sharp conditioning formula for the normalized initial block."
+      ],
+      "reasoning": "Generic prior inequality implies a weaker component of the proposition, which is attributed. Neither that component alone nor the cited EKSM theorem implies the full sharpness and two-versus-three-mode first-block classification without additional analysis.",
+      "searches": [
+        "Initial block extended Krylov A inverse b and A b orthogonal to b sharp cosine 2 sqrt kappa/(1+kappa), exact nonattainment three-point spectrum",
+        "Centered forward and inverse Krylov candidate correlation Pearson rho(A, A inverse), sharp Kantorovich lower angular bound 2 sqrt kappa over kappa plus one, split channel orthogonalization",
+        "Extended Krylov subspace method first two channels spectral angle near-collinearity project out b, condition-number bound for A b and A inverse b",
+        "arxiv:2610.21603, Algorithms 1–2, Theorems 2.1 and 3.3, Appendix A",
+        "Yan–Wu (2013) Theorem 4; historical Kantorovich inequality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The covariance form \\(\\operatorname{Corr}(\\lambda,1/\\lambda)\\) uses spectral weights \\(|b_i|^2\\).",
+        "Lund–Schweitzer Algorithm 2 first uses \\([A^{-1}b,Ab]\\), and Theorem 3.3 concerns a different loss-of-orthogonality comparison.",
+        "Yan–Wu (2013) discusses equivalent Kantorovich/Wielandt bounds, not the projected first-block sharpness and degeneracy classification."
+      ],
+      "reasoning": "The cosine bound is a strict projection-strengthened instance of Kantorovich; equivalent covariance and subspace-angle statements were specifically compared. The full claimed sharp constrained infimum, nonattainment and support-rank dichotomy were not found in inspected accessible sources.",
+      "searches": [
+        "Centered forward and inverse Krylov candidate correlation Pearson rho(A, A inverse), sharp Kantorovich lower angular bound 2 sqrt kappa over kappa plus one, split channel orthogonalization",
+        "Extended Krylov subspace method first two channels spectral angle near-collinearity project out b, condition-number bound for A b and A inverse b",
+        "optimal possible normalized correlation of centered A v and A^-1 v spectrum interval Kantorovich Wielandt sharp nonattainment",
+        "https://arxiv.org/abs/2610.21603: full-text searches for Kantorovich, angle, condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried mathematical-record hits concerned steepest descent, generic Gram conditioning, and Pearson skewness–kurtosis rather than the initial inverse/forward EKSM Gram block.",
+        "The invariant is a continuous spectral minimax, not an entry of a fixed finite database or numerical table."
+      ],
+      "reasoning": "No exact tabulated or previously recorded identical first-block spectral extremum was located; semantic database nonmatches are not interpreted as proof of uniqueness.",
+      "searches": [
+        "Initial block extended Krylov A inverse b and A b orthogonal to b sharp cosine 2 sqrt kappa/(1+kappa), exact nonattainment three-point spectrum",
+        "Pearson correlation between positive variable and its inverse, exact extremal correlation bounded support two or three spectral masses, Bauer Householder Kantorovich",
+        "sharp first-step split-channel Gram Schmidt residual bound SPD spectrum condition number epsilon 3 eigenvalues reciprocal powers",
+        "published-finding corpus nearest opaque identifiers: 31fff666d705, e0c764d6ed12, 7915401e13af"
+      ]
+    },
+    "rationale": "The prior generic Kantorovich bound is expressly excluded from the new contribution; the claim is the sharp, unattained extremum and rank boundary of the first inverse/forward extended-Krylov projected block. The accessible 2026 algorithm full text and related general inequality and block-Gram literature were compared by implication, with the documented historical residual risks.",
+    "residual_risks": [
+      "Classical Kantorovich–Wielandt and Bauer–Householder theory supplies a decisive part of the inequality, so an equivalent constrained corollary could already exist under matrix-angle or covariance terminology.",
+      "The bodies of the block Gram–Schmidt and 2015 extended-Krylov basis papers were not materially inspected; claims of their entire absence are not made.",
+      "Mathematical-record semantic search does not prove originality, and older unindexed results could imply or state the complete constrained extremal classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides first-block algorithm and split-versus-mixed comparative stability, but no identified exact normalized first-block conditioning frontier or three-mode nonattainment",
+        "evidence": [
+          "arxiv:2610.21603; Algorithm 2 lines 189–205",
+          "Theorem 3.3 lines 390–395",
+          "Appendix A proof lines 585–605"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.21603",
+        "material_read": "Full-text introduction, Sec.2 Algorithms 1 and 2 and Theorem 2.1, Sec.3 Theorem 3.3, and Appendix A proof around Theorem 3.3; full-text searches for angle, Kantorovich and condition number",
+        "method": "Read accessible arXiv full text and inspect formulas and stated implications",
+        "title": "On the stability of basis construction in extended Krylov subspace methods",
+        "trigger": "Exact same algorithm and matrix class, plausible direct coverage"
+      },
+      {
+        "assessment": "General inequality indeed supplies a nonoriginal spectral cosine ingredient. Constrained block sharpness, strictness and spectral-support boundary were not stated in the material inspected",
+        "evidence": [
+          "Yan–Wu (2013), introduction and Theorems 4–5"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/894824",
+        "material_read": "Accessible complete scientific text including Introduction, Theorems 4–5, proof and references",
+        "method": "Compared the known strengthened Cauchy–Schwarz/Wielandt/Kantorovich implications with the explicitly constrained EKSM block",
+        "title": "A Bauer–Hausdorff Matrix Inequality",
+        "trigger": "Stronger general matrix angle inequalities could dominate the proposed bound"
+      },
+      {
+        "assessment": "Accessible material treats general block Gram–Schmidt loss of orthogonality in terms of input conditioning, rather than solving this first EKSM block extremum. Full body not materially inspected",
+        "evidence": [
+          "Carson–Lund–Rozložník (2021), abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/21M1394424",
+        "material_read": "Accessible abstract, keyword and MSC overview (not full text)",
+        "method": "Compared theorem theme and quantified outcomes, no whole-paper negative coverage assertion",
+        "title": "The Stability of Block Variants of Classical Gram–Schmidt",
+        "trigger": "Related input-block conditioning and floating-point orthogonalization"
+      },
+      {
+        "assessment": "Algorithmic basis construction with runtime/accuracy comparison; cannot exclude an uninspected implicit conditioning theorem",
+        "evidence": [
+          "Imakura (2015), abstract"
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/5BC6694CFCA9B9E16FF30F37037E6018/S2079736200000742a.pdf/an_efficient_algorithm_to_construct_an_orthonormal_basis_for_the_extended_krylov_subspace.pdf",
+        "material_read": "Accessible paper abstract/metadata; full PDF not materially inspected",
+        "method": "Checked publication context and abstract only",
+        "title": "An Efficient Algorithm to Construct an Orthonormal Basis for the Extended Krylov Subspace",
+        "trigger": "Earlier basis construction algorithm, possible implementation overlap"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e46c67fa-6006-4489-93c2-a8d3c2082c68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first split-channel basis construction necessarily orthogonalizes the projected pair of inverse and forward directions. Its sharp condition-number floor, nonattainment as the start approaches an eigenvector, and exact two-versus-three-mode distinction quantify real block rank/conditioning limitations not supplied by a generic inequality without analysis.",
+    "status": "PASS"
+  }
+}
