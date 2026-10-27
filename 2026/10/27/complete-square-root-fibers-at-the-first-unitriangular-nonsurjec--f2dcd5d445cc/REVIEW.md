@@ -1,0 +1,11 @@
+# Review of complete five-by-five square-root fibers
+
+**Correctness — PASS.** The proof computes the exact six target coordinates of the square map in characteristic two, partitions every possible root according to two first-superdiagonal entries, and counts each disjoint class using either a linear-map rank or a rank-one outer-product fiber. The ten contributions sum to the exact cardinality of every individual fiber; a separate finite verification exhausts \(\mathbb F_2\) and \(\mathbb F_4\). The image polynomial follows from four mutually disjoint target classes. Nonstandard structure beyond elementary finite-field linear algebra is not assumed.
+
+**Originality — PASS, with priority uncertainty.** Bier determines the squaring verbal-width threshold, not fixed-target fiber cardinalities. Dolfi–Singh–Yadav derive proper image containment and lower estimates for general unitriangular power maps, but their full paper does not give the present five-by-five ten-stratum fixed-target formula or image polynomial. Soffer's conjugacy-class estimates do not determine power-map fibers. Search of associated aliases, power-word statements and tabulated formulas did not reveal stronger coverage. An unlocated exact low-dimensional enumeration could still exist; searches alone cannot establish global novelty.
+
+**Value — PASS.** This solves the complete pointwise counting problem at the first sharp failure of a power-word map to cover its verbal subgroup, converting a qualitative width-two boundary into a natural arithmetic image invariant and exact fibers for every extension field of characteristic two. The exceptional determinant condition gives a structural obstruction, not an arbitrary numerical cutoff. The five-by-five restriction is motivated by the proven minimal threshold rather than by convenience.
+
+**Limitations and closest sources.** The theorem is restricted to squaring in characteristic two and the first nontrivial dimension; it does not classify higher-dimensional fibers. Principal comparisons: A. Bier (2012), DOI 10.1142/S0218196712500191, Theorem 3; Dolfi–Singh–Yadav (2019), arXiv:1905.04244, Sections 1 and 3; and Soffer (2014), arXiv:1411.5389, Sections 1–3. Independent verification of historical priority and an independent mathematical audit are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
