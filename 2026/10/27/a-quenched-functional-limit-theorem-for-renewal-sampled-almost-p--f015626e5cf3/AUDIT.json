@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Conditional covariance frequencies follow from bounded martingale-difference strong laws for all fixed renewal lags and an integrable exponential collision-tail envelope. Borel–Cantelli yields eventual O(log n) conditional dependence radius. Independent b_n=n^(1/3) blocks, gap maximal-L2 o(n), Lyapunov fourth moment O(b_n log²n/n), and uniform variance profile give a quenched triangular-array FCLT; the variance is necessarily nonnegative. The public reproducible code confirms a nonstationary concrete covariance model but not the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berger–Mohamed arXiv:2208.08240 treats non-renewal sampling.",
+        "Brandes–Curato–Stelzer arXiv:2007.00574 proves mixing inheritance for stationary sampling inputs, not an a.s. quenched invariance principle for almost-periodic covariance."
+      ],
+      "reasoning": "Classical FCLTs for stationary sampled processes do not directly subsume a pathwise result with deterministic variance for nonstationary covariance-modulated inputs and arbitrary strictly positive independent renewal spacings.",
+      "searches": [
+        "Web: almost periodic stochastic process functional central limit theorem renewal sampling quenched",
+        "arXiv:2208.08240 Theorem 7.2",
+        "arXiv:2007.00574 Theorem 2.4",
+        "published-finding corpus: pathwise conditional weak invariance principle for non-stationary finite-range dependent process under renewal sampling deterministic variance formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.23669v1",
+      "arXiv:2208.08240",
+      "arXiv:1804.02254",
+      "arXiv:2007.00574",
+      "published-finding corpus semantic queries against quenched FCLT/renewal sampling/covariance almost periodicity; closest indexed results concerned renewal-age correlations and OU sampling, not functional conditioning"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The motivating article proves scalar annealed convergence; in its variance argument, conditional covariance control is not a.s. uniform functional convergence.",
+        "Brandes–Curato arXiv:1804.02254 studies sampled autocovariance for stationary Lévy moving-average kernels."
+      ],
+      "reasoning": "Neither a scalar marginal limit nor convergence of unconditional moments entails the conditioned process-level limit; the new proof establishes both almost-sure environment-wise variance convergence and conditional tightness.",
+      "searches": [
+        "arXiv:2610.23669v1 Theorem 4.5 and Lemmas 4.8–4.9",
+        "arXiv:1804.02254 sample autocovariance",
+        "published-finding corpus: quenched functional central limit theorem for almost periodic processes random renewal sampling conditional on schedule"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.23669v1 states annealed scalar convergence; its covariance lemmas give L1-type sampling averages rather than a single full-measure environment set.",
+        "published-finding corpus closest renewal-sampling records concern age/residual-time correlations, not the conditional path law."
+      ],
+      "reasoning": "An annealed scalar CLT does not imply almost-sure quenched weak convergence of paths. The present almost-sure environment-wise covariance law and logarithmic in-index dependence bound are additional statements.",
+      "searches": [
+        "published-finding corpus: almost periodic m-dependent process sampled at random renewal times: quenched almost-sure conditional functional central limit theorem Brownian motion",
+        "Web: \"quenched\" \"renewal sampled\" finite range dependence invariance principle",
+        "arXiv:2610.23669v1 Theorem 4.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/10/11/published-record-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a concerns OU correlation reversal, not an invariance principle.",
+        "No indexed exact matching theorem/table found in the actually returned published-finding corpus hit lists."
+      ],
+      "reasoning": "The result is an infinite-dimensional asymptotic theorem, not a finite exact table. Search absence is not uniqueness proof.",
+      "searches": [
+        "published-finding corpus: Brownian sign moving window process periodically modulated, Poisson observation times conditional Gaussian functional limit",
+        "published-finding corpus: sampled nonstationary finite-range dependent triangular array quenched Donsker functional Brownian limit under nonlattice renewal sampling"
+      ]
+    },
+    "rationale": "The close primary paper establishes an annealed scalar limit, whereas this result establishes almost-sure sampling-environment-conditioned functional convergence, requiring a new sample-path covariance SLLN and tightness argument. Primary full-text and actual mathematical-record searches did not identify prior statements implying the theorem; unindexed implicit derivations remain a disclosed risk.",
+    "residual_risks": [
+      "A more general pre-existing quenched triangular-array invariance principle may imply the result via a nontrivial verification of its assumptions.",
+      "Full exhaustion of older dispersed weakly-dependent/nonstationary sampling literature was not feasible; unavailable specialized older material remains an overlap risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Main source proves scalar annealed CLT, not almost-sure conditioned functional convergence; imposes L2 UI rather than uniform bound and lag continuity.",
+        "evidence": [
+          "Theorem 4.5 scalar annealed law; Lemma 4.9 L1 covariance estimate."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.23669",
+        "material_read": "Full-text PDF: introduction, Theorem 4.5, covariance Lemmas 4.8–4.9, surrounding assumptions and examples",
+        "method": "Read arXiv open-access PDF and compare theorem quantifiers and covariance mode",
+        "title": "Random Sampling of Almost Periodic Stochastic Processes",
+        "trigger": "Same objects and the motivating scalar theorem"
+      },
+      {
+        "assessment": "Continuous-time central limit theorem without the independent renewal random schedule of the present claim.",
+        "evidence": [
+          "Theorem 7.2 relates to unsampled almost-periodic processes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2208.08240",
+        "material_read": "Open-access PDF introduction and Theorem 7.2",
+        "method": "Inspect theorem scope and dependence/sampling type",
+        "title": "Almost Periodic Stationary Processes",
+        "trigger": "Almost-periodic process central limit theory"
+      },
+      {
+        "assessment": "Stationary Lévy moving-average sample autocovariance estimators, not nonstationary covariance-almost-periodic quenched FCLT.",
+        "evidence": [
+          "Study of sample autocovariance in the title and abstract, specified stationary moving-average model."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.02254",
+        "material_read": "Open-access PDF title, abstract, introduction and statements on sample autocovariance",
+        "method": "Inspect primary-paper declared results and objects",
+        "title": "On the Sample Autocovariance of a Lévy Driven Moving Average Process When Sampled at a Renewal Sequence",
+        "trigger": "Directly relevant renewal-sampled moving averages"
+      },
+      {
+        "assessment": "Preservation of mixing/weak dependence under renewal sampling of stationary inputs; no result directly covering conditional a.s. nonstationary FCLT.",
+        "evidence": [
+          "Theorem 2.4 describes inheritance of strong mixing under renewal sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.00574",
+        "material_read": "Open-access PDF introduction and Theorem 2.4",
+        "method": "Read theorem assumptions and results",
+        "title": "Inheritance of Strong Mixing and Weak Dependence under Renewal Sampling",
+        "trigger": "Possibly stronger sampling limit via mixing"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f015626e-5cf3-48eb-91ed-904617e001eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed observation schedule is known in practice; annealed scalar asymptotics can mask exceptional schedules and cannot yield simultaneous confidence bands. This theorem provides an almost-sure conditioned Brownian process law for nonstationary covariance-almost-periodic signals even when the sampled sequence need not be stationary or uniformly mixing; a periodic Brownian-sign example gives an explicit conditional variance.",
+    "status": "PASS"
+  }
+}
