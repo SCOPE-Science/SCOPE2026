@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The exact projected-resolvent definition is independently reconstructed from arxiv:1909.13059 equation (2.3). Strict min-max Ritz inclusion follows because a nonzero affine polynomial cannot vanish at two distinct spectral levels. The degree-one interpolation formula gives all coordinates, strict monotonicity and the unique first sign horizon. The limit family has exact rational moments (5/18,7/162,25/126) giving eta_±=(10±sqrt(79))/42; ordinary Lanczos Ritz asymptotics give T_poly~2 log L/L. Standard-library packaged verifier passed 65,143 checks, including direct 2x2 matrix projection, exact rational moments, deterministic stress tests and asymptotic examples. Finite tests are corroboration only; proof includes all quantifiers and boundaries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bergermann–Stoll arxiv:2303.09482v3 Sections 1, 4.1–4.3 discuss rational Krylov spaces, pole selection, convergence and a posteriori estimates.",
+        "Katrutsa–Botchev–Oseledets arxiv:1909.13059v1 Sections 1–3 analyze pole-selection criteria based on residual/error, without the stated stiff-limit sign-horizon comparison.",
+        "Qiang Ye 2013 abstract addresses norm-error bounds for Lanczos and shift-and-invert Lanczos."
+      ],
+      "reasoning": "No inspected source has a broader claim covering the sharp transformed-resolvent sign horizon and its explicit nonzero asymptotic separation. A general positivity preservation theorem would be incompatible with the proved direct negative witness, but an equivalent interpolation or pole-asymptotic result remains possible.",
+      "searches": [
+        "arxiv 1909.13059 Katrutsa Botchev Oseledets practical shift choice shift invert Krylov matrix exponential positive diagonal cone negativity sign horizon",
+        "arxiv 2303.09482 Bergermann Stoll rational Krylov exponential Runge Kutta positivity preservation Ritz shift invert",
+        "rational Krylov positivity preservation exponential shift invert"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1909.13059v1; Sections 1–3, eq. (2.3)",
+      "arxiv:2303.09482v3; Sections 1,4",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8/RESULT.md",
+      "https://uknowledge.uky.edu/math_facpub/10/ (abstract only)",
+      "Accessible own p0001_g000054 ledger: all 54 recoverable claims checked for Krylov / shift / exponential overlap",
+      "published-finding corpus semantic queries recorded in named comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Polynomial Lanczos result: exact t_poly based on direct Ritz eigenvalues of A; it does not state T_SAI for inverse-compressed B nor the 0.07967174251247... constant.",
+        "The SAI source displays the inverse-compressed-resolvent formula; direct 2x2 moments of R_L give limiting nodes (10±sqrt(79))/42, and ordinary Lanczos yields T_poly~2 log L/L."
+      ],
+      "reasoning": "The prior polynomial formula and SAI source formula together supply ingredients, but neither supplies the limit or the unbounded intermethod ratio. Those require nontrivial limiting Ritz calculations; a more general unpublished or differently named result might cover the conclusion.",
+      "searches": [
+        "arxiv 1909.13059 Katrutsa Botchev Oseledets practical shift choice shift invert Krylov matrix exponential positive diagonal cone negativity sign horizon",
+        "for 2 step SAI Krylov projection H=gamma^{-1}(V^T(I+gamma A)^{-1}V)^{-1}-gamma^{-1}I every positive shift 3 active spectral levels negative component time threshold",
+        "sharp positivity horizon in matrix exponential rational Lanczos compressed inverse resolvent Ritz shift parameter 3 spectral levels",
+        "published-finding corpus 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full published RESULT.md: ordinary two-step polynomial Lanczos has finite physical-coordinate positivity horizon defined via Ritz values of A, not the compressed shifted resolvent.",
+        "arxiv:1909.13059v1 Section 2, equation (2.3): the SAI method projects (I+gamma A)^-1 and then inverts the compressed matrix to approximate A."
+      ],
+      "reasoning": "Changing A to its resolvent in the Krylov subspace is not equivalent to exponentiating the projected A, and the nonlinear inverse of the compressed resolvent changes the stiff asymptotics. The shared degree-one interpolation lemma is acknowledged; the positive-versus-zero stiff limiting horizon requires a distinct calculation.",
+      "searches": [
+        "for 2 step SAI Krylov projection H=gamma^{-1}(V^T(I+gamma A)^{-1}V)^{-1}-gamma^{-1}I every positive shift 3 active spectral levels negative component time threshold",
+        "sharp positivity horizon in matrix exponential rational Lanczos compressed inverse resolvent Ritz shift parameter 3 spectral levels",
+        "published-finding corpus 2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published 2026 polynomial Lanczos RESULT.md was read in full and explicitly compared, including its interpolation formula and proof.",
+        "Accessible 54-item own ledger was searched by claim keywords; no prior claim about two-vector shifted-inverse exponential horizons or the displayed stiffness-scale comparison was found."
+      ],
+      "reasoning": "The general interpolation algebra resembles the published polynomial result, so originality is not claimed for that algebra. The original code and explicit asymptotic law in the different projected-resolvent method are the asserted new part. No exact database entry covering that assertion was identified; searches do not establish uniqueness.",
+      "searches": [
+        "sharp positivity horizon in matrix exponential rational Lanczos compressed inverse resolvent Ritz shift parameter 3 spectral levels",
+        "two step rational Krylov shift invert exponential positivity diagonal SPD positive initial data spectral Ritz eigenvectors negative component",
+        "published-finding corpus title: The exact positivity horizon of the two-step Lanczos exponential",
+        "Own accessible ledger claims and source_id keywords: krylov; lanczos; shift; positivity; arxiv:1909.13059; arxiv:2303.09482"
+      ]
+    },
+    "rationale": "The primary shift-and-invert method (Katrutsa–Botchev–Oseledets 2019, eq. 2.3) and the two-node interpolation identity are known. The closest complete published finding concerns ordinary polynomial Lanczos and yields a different compressed exponent. The present combined result derives the transformed-resolvent first horizon and the explicit positive stiff-limit versus vanishing polynomial-Lanczos horizon. This latter quantitative separation is not stated or implied by the earlier polynomial formula alone: its derivation uses the nonlinear inverse-resolvent Ritz transform and the limit of that transformed 2x2 compression. General matrix-function interpolation theory could potentially imply the combined result; publication priority remains uncertain.",
+    "residual_risks": [
+      "General monotone matrix-function interpolation could subsume the new combined stiff-limit law under an alias; none identified.",
+      "The published ordinary two-step Lanczos horizon is highly related and shares the interpolation mechanism; the novelty is restricted to the shifted-resolvent and unbounded stiff-horizon separation.",
+      "Qiang Ye (2013) full paper download was inaccessible; only the abstract was inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_METHOD_NOT_STIFF_SIGN_LAW",
+        "evidence": "Section 2 defines Krylov of (I+gamma A)^-1, equation (2.3) compressed inversion; Sections 1–3 optimize residual-based pole choice.",
+        "identifier_or_url": "https://arxiv.org/pdf/1909.13059",
+        "material_read": "PDF pages 1–3 and Sections 1–3 with equation (2.3), abstract and related-work discussion; checked entire searchable text for positivity terms",
+        "method": "Read accessible arXiv full-text extraction and relevant page formulas",
+        "title": "Practical shift choice in the shift-and-invert Krylov subspace evaluations of the matrix exponential",
+        "trigger": "Exact source algorithm H=gamma^{-1}(Hhat^{-1}-I), SAI shift tuning"
+      },
+      {
+        "assessment": "RELATED_RATIONAL_SPACE_NO_STIFF_POSITIVITY_CLASSIFICATION",
+        "evidence": "Primary subject 65F60; sections 4.1–4.3 focus on pole selection, rational Arnoldi approximants and a posteriori norm error.",
+        "identifier_or_url": "https://arxiv.org/pdf/2303.09482",
+        "material_read": "PDF pages 1–3, 9–12 and 15, Definitions 4.1–4.2, equations (4.1)–(4.3), pole and error-estimator discussion",
+        "method": "Read accessible arXiv original PDF text and page images",
+        "title": "Adaptive rational Krylov methods for exponential Runge–Kutta integrators",
+        "trigger": "Relevant 2023 numerical integration application and primary MSC assignment"
+      },
+      {
+        "assessment": "CLOSEST_POLYNOMIAL_ANALOG_NOT_STATED_INVERSE_RESOLVENT_STIFF_LIMIT",
+        "evidence": "It treats K_2(A,b), exponentiates V^T A V and gives the polynomial horizon; no shifted-resolvent inverse or positive stiff limiting constant.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-exact-positivity-horizon-of-the-two-step-lanczos-exponential--fb3579f163d8",
+        "material_read": "Complete public RESULT.md, including theorem, proof, comparison and limitations",
+        "method": "Read raw public RESULT.md through GitHub file connector",
+        "title": "The exact positivity horizon of the two-step Lanczos exponential",
+        "trigger": "Closest exact two-step coordinatewise positivity theorem in mathematical records"
+      },
+      {
+        "assessment": "FULL_TEXT_UNAVAILABLE_PRIORITY_RISK",
+        "evidence": "Abstract advertises convergence/norm error bounds, not physical-coordinate positivity; whole-text comparison is unverified.",
+        "identifier_or_url": "https://uknowledge.uky.edu/math_facpub/10/",
+        "material_read": "Institutional abstract and bibliographic record only; offered PDF download returned HTTP 403",
+        "method": "Inspected online record and attempted authorized open PDF",
+        "title": "Error Bounds for the Lanczos Methods for Approximating Matrix Exponentials",
+        "trigger": "Earlier shift-and-invert Lanczos analysis potentially relevant to novelty"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1e987b0-ef81-4ec1-a66d-97285b3dc7c9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For shift-and-invert approximation to positive diffusion, pole selection controls solver performance but can affect physical nonnegativity. The theorem gives the exact nonnegative time window for every shift, the dimension-minimal inevitable failure, and a nonroutine asymptotic separation: a fixed shift retains a positive horizon while ordinary polynomial Lanczos loses its horizon at order (log L)/L. This supplies meaningful qualitative and quantitative information for selecting low-budget Krylov schemes; no unsupported claim of global error improvement is made.",
+    "status": "PASS"
+  }
+}
