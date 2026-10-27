@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "SPD follows from the Schur complement b-k²/a>0. Orthogonal rotation reduces the arbitrary-dimensional star to the coupled matrix [[0,-k/a],[-kt,1-bt]] plus scalar modes. Its characteristic polynomial gives the exact spectral radius and unique minimum at t=1/b. The induced norm is strictly below one iff the explicit 2x2 Gram deficit is positive definite, equivalent to k<a and -k²/a²+2bt-[b²+k²(1-k²/a²)]t²>0; the roots yield the stated exact interval. Symmetry gives equality of worst-case residual and error gains. The explicit SPD family has square of its iteration matrix equal to I/2. Exact rational and seeded numerical checks reproduced the critical identities, but are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Record 457b47fc383f gives a sharp weighted-Jacobi damping ceiling for the standard diagonal, with a different scalar optimization problem.",
+        "Record 31fff666d705 concerns two scalar Richardson steps constrained to be nonexpansive, not block-heterogeneous one-step inverse scaling.",
+        "Southworth–Sivas–Rhebergen study 2x2 preconditioned Krylov and fixed-point convergence and Schur complement equivalences, including block-Jacobi powers; no matching precise Type-II parametrized Euclidean frontier was found in inspected text."
+      ],
+      "reasoning": "The generic spectral and induced-norm frameworks apply to any iteration and are not claimed as new. The new exact safe interval, three parameter regimes, and fixed spectral rate with arbitrarily large transient are not direct published statements in the inspected sources; other older diagonal scaling literature may cover an equivalent reduction.",
+      "searches": [
+        "published-finding corpus query: block diagonal preconditioned Richardson nonsymmetric iteration Euclidean contraction coupling optimal complementary scaling",
+        "published-finding corpus query: weighted Jacobi Euclidean damping frontier 2x2 SPD omega E lambda min A inverse D and D A inverse",
+        "Web query: coarse space correction preconditioned Richardson nonexpansive standard euclidean norm two level additive inverse",
+        "Web source: https://www.researchgate.net/publication/337158477_On_fixed-point_Krylov_and_2times_2_block_preconditioners_for_nonsymmetric_problems"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.11097v1 full PDF",
+      "arxiv:1911.02664 author-posted full text",
+      "doi:10.1002/gamm.202000015 open full HTML",
+      "Published mathematical research records: 457b47fc383f, 31fff666d705, e4dd7b4e2fba, 21774554697b (available summaries)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fan–Hu–Zhang Type II uses P(PTAP)^(-1)PT+alpha(I-PPT); Proposition 3.6 analyzes Type I iteration bounds, not Type II sharp scalar complementary tuning.",
+        "Southworth–Sivas–Rhebergen focus on convergence relation to a preconditioned Schur complement and powers of block preconditioners, not one-step Euclidean nonexpansion under a freely varied complement scalar.",
+        "Pearson surveys block diagonal preconditioning and notes relevance of relative block scaling, without this classification."
+      ],
+      "reasoning": "Neither the motivating method definition nor the cited general convergence statements imply the detailed cutoff without additional optimization of the Gram deficit and comparison to the spectral-optimal parameter. The presented result does not claim novelty of standard eigenvalue, Schur complement, or norm identities. Specialized literature outside inspected material remains a plausible residual risk.",
+      "searches": [
+        "Full primary: arXiv:2609.11097v1, pp. 5-9, Eqs. 3.3-3.9, Proposition 3.6",
+        "Full primary: arXiv:1911.02664, sections 2, 3, and block-Jacobi powers",
+        "Full overview: DOI 10.1002/gamm.202000015, block preconditioning discussion",
+        "published-finding corpus query: rank one Galerkin coarse inverse plus scalar complement preconditioner Euclidean Richardson contraction 2x2 threshold"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The candidate is equivalently a strict singular-value criterion for I-BA; the fixed weight family has an explicit 2x2 Gram deficit.",
+        "Closest related research record ID 457b47fc383f concerns weighted Jacobi with a common relaxation and the original diagonal, not one exactly inverted reduced mode with an independently adjustable complement.",
+        "The 2019 block-preconditioner full text derives block-Jacobi power relations, not the all-weight strict Euclidean interval."
+      ],
+      "reasoning": "Transpose gives the same Euclidean norm for true-residual propagation. The searches include norm/singular-value and Richardson aliases; a general contraction criterion is acknowledged, but the matched results do not state this sharp independent complementary-weight existence and classification.",
+      "searches": [
+        "published-finding corpus query: for A=[[a,c],[c,b]] SPD preconditioner inverse diag(1/a,t), Euclidean norm I - BA <1 iff |c|<a with exact interval optimal t",
+        "Web query: exact norm contraction diagonal preconditioned Richardson row scaling nonnormal 2 by 2 SPD counterexample",
+        "published-finding corpus query: rank one Galerkin coarse inverse plus scalar complement preconditioner Euclidean Richardson contraction 2x2 threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source arXiv:2609.11097v1 explicitly defines Type II in Eq. 3.5 but does not provide an exact norm-threshold table.",
+        "No matched published-finding corpus hit gives the claimed k<a necessary-and-sufficient interval or the two-dimensional parity family.",
+        "Nearest identifiers included 457b47fc383f (weighted Jacobi), e4dd7b4e2fba (bidirectional Gauss–Seidel), and 21774554697b (Gauss–Seidel ordering).",
+        "Final claim-specific published-finding corpus search returned closest record 31fff666d705 on stagewise-safe scalar Richardson, followed by 457b47fc383f on weighted Jacobi; neither summary gave the Type-II parameter frontier."
+      ],
+      "reasoning": "There is no natural pre-existing enumeration or lookup table for continuously varying a,b,k,t; the exact classification is analytical. The searches for direct formula and source-specific parameter combinations found no duplicate, which is evidence of non-overlap but not a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus query: scalar additive coarse regularization spectral optimal versus Euclidean contractive regimes b <= c < a",
+        "published-finding corpus query: rank-one coarse space isotropic complement inverse SPD matrix sharp residual and error one-step contraction criterion c < a, spectral optimal t=1/b vs Euclidean",
+        "Web query: \"additive reduced basis\" \"Euclidean norm\" convergence alpha stability",
+        "published-finding corpus final claim query: sharp three-regime Euclidean safety interval t+- for Type II additive reduced basis preconditioned Richardson on SPD star matrix [[a,cT],[c,bI]], spectral-optimal t=1/b, existence iff ||c||<a, fixed spectral radius 1/sqrt2 unbounded transient"
+      ]
+    },
+    "rationale": "The source introduces the Type-II additive reduced inverse and its nonsingularity but not the sharp scalar-complement Euclidean safety window or fixed-rate unbounded transients. Block-preconditioning literature compares Schur-complement convergence and iteration powers, while generic diagonal iteration norm criteria concern different optimization assumptions. The new contribution is a complete analytic partition of a motivated parametrized class, not the standard Gram test itself. Accessible sources and matched research records did not reveal a logically covering special statement; prior specialized coverage remains a risk.",
+    "residual_risks": [
+      "An older diagonal-scaled Richardson or two-level block-preconditioning article may state an equivalent sharp specialization; searches and full-source comparisons are not exhaustive.",
+      "The broader general induced-2-norm/positive-definite Gram test is classical; only the complete motivated scalar-complement classification is offered as original.",
+      "No claim about general anisotropic complementary SPD blocks, floating-point transients, or actual adaptive FGMRES steps."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact stated Type-II star-matrix safety frontier; gives construction, nonsingularity, and a Type-I norm estimate rather than the precise Type-II all-weight classification.",
+        "evidence": [
+          "Eq. (3.5) on PDF page 6, Theorem 3.4 on page 7, Proposition 3.6 on PDF page 9; arXiv posting 2026-09-10."
+        ],
+        "identifier_or_url": "arxiv:2609.11097v1; https://pdfs.assets.alphaxiv.org/2609.11097v1.pdf",
+        "material_read": "23-page original public preprint: title, abstract, Section 3.1 construction/eqs. 3.3–3.6, Section 3.2 nonsingularity, Sections 3.3–3.5 Richardson/FGMRES and related statements",
+        "method": "Primary PDF text and visual inspection of page 8",
+        "title": "Additive reduced basis preconditioners for large-scale parametrized PDEs",
+        "trigger": "Exact motivating Type-II inverse and Richardson algorithm"
+      },
+      {
+        "assessment": "NOT_COVERING as inspected: establishes Schur-complement comparisons and block-Jacobi power identities rather than exact Euclidean scalar complement safety intervals.",
+        "evidence": [
+          "Section 2 formulas for block diagonal powers; Remark 3.7 on general block-diagonal preconditioning; overview of fixed-point/Krylov equivalence."
+        ],
+        "identifier_or_url": "arxiv:1911.02664; https://www.researchgate.net/publication/337158477_On_fixed-point_Krylov_and_2times_2_block_preconditioners_for_nonsymmetric_problems",
+        "material_read": "Author-posted complete original text, overview of main results, block preconditioner definitions, fixed-point error/residual powers and Remark 3.7",
+        "method": "Primary full manuscript in publicly visible author-posted text",
+        "title": "On fixed-point, Krylov, and 2×2 block preconditioners for nonsymmetric problems",
+        "trigger": "Prior theory of one exactly inverted block and block Jacobi"
+      },
+      {
+        "assessment": "NOT_COVERING for the exact theorem; notes block scaling importance without the stated all-parameter contractivity result.",
+        "evidence": [
+          "Block preconditioners and remarks on physical scaling in section 3.2.2."
+        ],
+        "identifier_or_url": "doi:10.1002/gamm.202000015; https://onlinelibrary.wiley.com/doi/full/10.1002/gamm.202000015",
+        "material_read": "Open full text with focus on Section 3.2.2 and scaling discussion",
+        "method": "Open publisher HTML complete text",
+        "title": "Preconditioners for Krylov subspace methods: An overview",
+        "trigger": "Broad background on block scaling and preconditioning"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e5f74533-e192-45ad-b931-eb526e5401b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the exact complementary regularization parameter of a recent reduced-basis preconditioner, not an arbitrary family. It supplies a sharp necessary-and-sufficient Euclidean error and residual safety range, compares it with the uniquely fastest spectral parameter, and exhibits an unbounded one-step nonnormality penalty while preserving a fixed asymptotic spectral rate 1/sqrt(2). The intermediate region proves parameter retuning can cure spectral-optimal Euclidean expansion, whereas the third region proves no tuning can cure it. These are structurally informative algorithm-design boundaries; the scope is explicitly restricted to the isotropic-complement family.",
+    "status": "PASS"
+  }
+}
