@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Every forced adjacent chord is noncrossing and deletes without changing the crossing count; binomial expansion gives the polynomial identity. Exact coefficient comparison proves all mixed factorial moments. Uniform deletion of a random chord yields a crossing-monotone coupling. The crossing mean and variance are exact published identities. The factorial coefficients are bounded by 1 and tend to 1, enabling dominated convergence with the published crossing CLT to the independent Poisson–Gaussian product transform. A separate executed standard-library verifier passed 2945 exact integer/rational checks; no finite check is presented as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2307.09894v2, Sections 4.3 and 5.2: Schur positivity for fixed crossing counts.",
+        "https://arxiv.org/html/2104.01134v2: separate Poisson and Gaussian bounds with circular adjacency.",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf, Section 2: marginal crossing enumeration and CLT."
+      ],
+      "reasoning": "A fixed-crossing Schur-positive refinement can encode joint enumerative information in principle and is the strongest potential broader framework. Its stated positivity and decomposition do not by themselves imply an explicit deletion formula with the Touchard–Riordan polynomial or the independent Poisson–Gaussian limit. The latter cannot follow solely from two marginal limit theorems.",
+      "searches": [
+        "Touchard Riordan crossing polynomial refined by adjacent chords linear chord diagrams factorial mixed moments",
+        "Convergence rates of limit theorems in random chord diagrams",
+        "Schur-Positivity of Short Chords in Matchings",
+        "random chord diagram joint limit crossings short chords independent Poisson normal"
+      ]
+    },
+    "checked_sources": [
+      "Flajolet–Noy INRIA RR-3914 Section 2 full primary",
+      "Cameron–Killpatrick arXiv:1902.09021 primary",
+      "Paguyo arXiv:2104.01134v2 primary",
+      "Marmor arXiv:2307.09894v2 primary Sections 4–5",
+      "Pilaud–Rué arXiv:1307.6440v1 primary full text, introduction and Sections 2.4, 2.6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flajolet–Noy, Section 2 Theorem 3, exact crossing mean/variance and CLT.",
+        "Cameron–Killpatrick, Sections 2–3, linear short chords.",
+        "Paguyo, introduction and separate marginal theorems, including a different circular simple-chord definition.",
+        "Marmor, Sections 4.3 and 5.2, marginal Bessel identity and fixed-crossing Schur positivity.",
+        "Pilaud–Rué, introduction and Sections 2.4 and 2.6: enumerative and asymptotic results with fixed number of crossings (rather than random typical quadratic number), with no short-chord refinement."
+      ],
+      "reasoning": "The present theorem contains previously known marginal components, explicitly credited. Flajolet–Noy does not directly state the joint transform; Cameron–Killpatrick and Marmor address short-chord enumeration and symmetric-function structure; Paguyo proves separate limits only. Combining separate marginal limits is insufficient to establish independence, whereas the deletion identity supplies the missing mixed moments. Exact finite-sample covariance and arbitrary monotone-test-function inequalities are also not stated in these relevant portions. Pilaud–Rué treats fixed-k crossings, not the joint probability law at a typical order-n-squared crossing count, so its displayed results do not imply the product limit.",
+      "searches": [
+        "independent Gaussian crossing count and Poisson short chord count joint limit for random chord diagrams",
+        "random chord diagram intersection graph isolated vertices number of crossings mixed moments",
+        "Flajolet Noy Analytic Combinatorics of Chord Diagrams Theorem 3",
+        "Marmor Schur-Positivity of Short Chords in Matchings Corollary 5.11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flajolet and Noy, Theorem 3 (crossing-only Gaussian).",
+        "Paguyo, Theorems on marginal crossings and marginal simple-chord laws.",
+        "Marmor, Corollary 5.11 (fixed-intersection-graph Schur positivity)."
+      ],
+      "reasoning": "Search compared the arbitrary-test-function Palm identity, the two-variable distribution, and the independent bivariate weak limit (not merely the same terms). No inspected direct equality or equivalent proposition was located; known marginal results cannot alone force joint independence.",
+      "searches": [
+        "random chord diagram crossing count and number of simple adjacent short chords exact covariance",
+        "joint crossing-count and short adjacent chord-count generating polynomial in uniform random perfect matchings, deletion identity and asymptotic independent Poisson normal",
+        "crossings simple chords asymptotically independent chord diagrams"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Marmor, Section 4.3, cites McSorley–Feinsilver for the Bessel-polynomial marginal short-chord coefficients.",
+        "Flajolet–Noy, equation (5), gives Touchard–Riordan crossing polynomial.",
+        "No checked table directly records the mixed deletion identity or its limit law."
+      ],
+      "reasoning": "Known tables of coefficients for one statistic do not determine the joint coupling. Exhaustive counts through six chords are independently reconstructed, not put forward as unknown sequence values. No exact joint formula with this implication was located in the inspected references.",
+      "searches": [
+        "uniform random perfect matching chord diagram short chords crossings joint cumulants",
+        "crossing short chord joint distribution matchings",
+        "Statistics on Linear Chord Diagrams Bessel polynomials"
+      ]
+    },
+    "rationale": "The full sources establish the marginal Touchard–Riordan crossing polynomial and Gaussian limit, the marginal short-chord enumerator, separate short-chord/crossing marginal rates, and Schur-positive fixed-crossing families. Their inspected statements do not supply the arbitrary-test-function Palm identity, universal negative covariance, or independent product joint limit. The latter requires a mixed-factorial transform and an additional limit argument. A possible unrecorded implicit derivation is a live priority risk; this is not independent validation.",
+    "residual_risks": [
+      "Marmor fixed-crossing Schur-positive refinement could specialize to some or all finite enumerative components.",
+      "Other fixed-crossing enumerative literature outside the inspected Pilaud–Rué primary may imply a specialization.",
+      "An older unpublished or implicit joint limit theorem may exist; no independent historical-priority audit has been performed.",
+      "The original 2000 report has only month-level original publication metadata; its exact first public day is not verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "establishes classical crossing generating function, mean/variance and marginal Gaussian convergence; no joint short-chord statistic in the inspected theorem",
+        "evidence": "INRIA RR-3914 (March 2000), Section 2, Theorem 3.",
+        "identifier_or_url": "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "material_read": "original public 14-page INRIA report, particularly first page bibliographic metadata, Section 2 equations (5)–(10) and Theorem 3",
+        "method": "page text plus original PDF page-image inspection",
+        "title": "Analytic Combinatorics of Chord Diagrams",
+        "trigger": "classical crossing-polynomial and crossing central limit theorem might dominate new result"
+      },
+      {
+        "assessment": "marginal linear short-chord counts, unimodality/Bessel relations; no inspected formula mixing with crossing counts",
+        "evidence": "Cameron–Killpatrick, marginal short-chord counting results.",
+        "identifier_or_url": "https://arxiv.org/abs/1902.09021",
+        "material_read": "lawful OA article PDF, introductory definitions and short-chord enumerations and proofs",
+        "method": "original article full text with page-image and section inspection",
+        "title": "Statistics on Linear Chord Diagrams",
+        "trigger": "same linear short-chord statistic may already have mixed crossing distribution"
+      },
+      {
+        "assessment": "separate marginal convergence bounds; uses circular simple chords including wrap-around; no inspected bivariate independence theorem",
+        "evidence": "Paguyo, crossing and simple-chord theorems.",
+        "identifier_or_url": "https://arxiv.org/html/2104.01134v2",
+        "material_read": "full public HTML preprint, definitions, theorems on crossings, simple chords, and final remarks",
+        "method": "original full-text section examination and theorem comparison",
+        "title": "Convergence rates of limit theorems in random chord diagrams",
+        "trigger": "separate normal and Poisson asymptotics might include joint product convergence"
+      },
+      {
+        "assessment": "prescribed-crossing Schur positivity could encode joint enumerative information but does not state the all-test-function Palm identity or independent product limit; retains nontrivial priority risk",
+        "evidence": "Marmor, Theorem 4.11, Corollary 5.11, Section 5.2.",
+        "identifier_or_url": "https://arxiv.org/html/2307.09894v2",
+        "material_read": "full original HTML, Sections 4.3 and 5.2, especially Theorem 4.11 and Corollary 5.11",
+        "method": "full primary section inspection, explicit comparison of Schur positivity to exact bivariate factorial and asymptotic claims",
+        "title": "Schur-Positivity of Short Chords in Matchings",
+        "trigger": "same short chords refined by exact number of crossing pairs is a plausible dominating theorem"
+      },
+      {
+        "assessment": "computes generating functions for fixed k crossings via crossing-core decomposition, not a short-chord-refined generating function or the typical-crossing Gaussian joint Poisson limit; comparison focuses on difference between fixed-k regime and global-crossing regime",
+        "evidence": "Pilaud–Rué, first public arXiv v1 timestamp 2013-07-24 14:49:33 UTC.",
+        "identifier_or_url": "https://arxiv.org/abs/1307.6440",
+        "material_read": "full original arXiv HTML, introduction, Section 2.4 on perfect matchings at fixed crossing count, Section 2.6 asymptotics, and source chronology",
+        "method": "original primary HTML full-text targeted section reading and internal term search",
+        "title": "Analytic combinatorics of chord and hyperchord diagrams with k crossings",
+        "trigger": "fixed-crossing enumeration might subsume joint crossing/short-chord transform"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f748709f-3f68-484e-9d5f-4765ed58eb04",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Microscopic adjacent pairings and macroscopic crossing complexity are canonical complementary statistics of perfect matchings. The exact identity controls arbitrary mixed factorial moments, establishes a universal nonpositive dependence with any increasing crossing test, and proves independence of nontrivial jointly scaled Poisson and Gaussian limits. This resolves a motivated joint-dependence gap left by published marginal analyses and is not just a one-parameter recalculation.",
+    "status": "PASS"
+  }
+}
