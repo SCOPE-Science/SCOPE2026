@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The update diagonalizes in the orthogonal eigenspaces of Q. A uniform contraction bound proves convergence; component ratios prove selection of the lowest active eigenspace; the exact norm and gradient constants follow by taking limits in the closed-form recurrence. Repeated eigenvalues and arbitrary nonzero starts are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Doikov–Mishchenko–Nesterov, arXiv:2208.05888v1, studies an adaptive family with regularization powers in [2/3,1] and broader function classes.",
+        "Doikov–Nesterov, arXiv:2112.02952v1, allows Bregman distances and composite objectives."
+      ],
+      "reasoning": "Those works cover broader problem classes and different/adaptive variants, but breadth alone does not imply the exact law for the fixed Euclidean update. The present statement intentionally does not claim coverage of those broader settings.",
+      "searches": [
+        "Regularized Newton Method with Global O(1/k^2) Convergence local superlinear quadratic exact rate spectral direction",
+        "arXiv:2208.05888v1, Introduction and sections describing the regularization-power family and local convergence",
+        "arXiv:2112.02952v1, equations (1.2)-(1.3) and Theorem 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2112.02089v1, first public version submitted 2021-12-03; full text and local theorem inspected",
+      "arXiv:2112.02952v1; related full-text local theorem inspected",
+      "arXiv:2208.05888v1; related adaptive-method text inspected",
+      "Targeted literature/database searches for exact quadratic asymptotics, active eigenspace selection, and regularized-Newton aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper supplies an inequality with coefficient \\(2\\sqrt{H}/\\mu\\), rather than an asymptotic equality.",
+        "The Bregman paper supplies a general upper bound and the adaptive-power paper supplies broader local convergence theory; neither inspected theorem states the active-eigenspace directional limit."
+      ],
+      "reasoning": "The exact diagonal recurrence proves more than a generic 3/2 upper bound: the limit constant depends on lambda_*, the smallest eigenvalue with nonzero initial spectral projection, and the direction tends to that eigenspace projection. No inspected source implies both exact conclusions.",
+      "searches": [
+        "arXiv:2112.02089v1, Theorem 2 and Appendix A.1",
+        "arXiv:2112.02952v1, Theorem 4",
+        "arXiv:2208.05888v1, local convergence discussion",
+        "Regularized Newton Method with Global O(1/k^2) Convergence local superlinear quadratic exact rate spectral direction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mishchenko, arXiv:2112.02089v1, Theorem 2: the gradient norm is bounded above by 2 sqrt(H)/mu times the current gradient norm to power 3/2 in a local region.",
+        "Doikov–Nesterov, arXiv:2112.02952v1, Theorem 4: a related Bregman-regularized process has a local 3/2-power upper bound."
+      ],
+      "reasoning": "Both are equivalent in broad algorithmic motivation and imply a local superlinear exponent bound, but neither inspected statement yields equality with the exact leading constant sqrt(H)/lambda_* or convergence of the normalized iterate to the lowest eigenvalue represented in x_0. The present claim is a narrower exact spectral asymptotic, not a new general convergence theorem.",
+      "searches": [
+        "Regularized Newton method on positive definite quadratic exact asymptotic constant 3/2 iterate norm smallest eigenvalue eigenspace direction",
+        "gradient regularized Newton quadratic eigenvector selection asymptotic recurrence x_{k+1} norm x_k to power 3/2 sqrt H over minimum eigenvalue",
+        "arXiv:2112.02089v1, Theorem 2 and Appendix A.1; arXiv:2112.02952v1, Theorem 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest returned records concerned steepest-descent perturbation thresholds, adaptive-gradient spectral identification, and NovoGrad eigencycles; none stated this fixed regularized-Newton asymptotic law."
+      ],
+      "reasoning": "No mathematical table or exact-value database is applicable to this deterministic asymptotic recurrence. The closest returned records concern different iterations and do not cover the claim. A missing hit is not treated as proof of novelty.",
+      "searches": [
+        "Regularized Newton method on positive definite quadratic exact asymptotic constant 3/2 iterate norm smallest eigenvalue eigenspace direction",
+        "gradient regularized Newton quadratic eigenvector selection asymptotic recurrence x_{k+1} norm x_k to power 3/2 sqrt H over minimum eigenvalue"
+      ]
+    },
+    "rationale": "The closest primary papers prove general local superlinear bounds, not the exact active-eigenspace directional limit and leading constants. Targeted searches compared the claim, aliases, quadratic spectral laws, and implication-equivalent formulations. Novelty remains best-knowledge rather than exhaustive.",
+    "residual_risks": [
+      "The searches are targeted, not an exhaustive proof of priority; another paper may state the same spectral corollary.",
+      "The result is a sharp exact specialization of known local superlinear theory, so its value is the explicit active-spectrum constant and direction rather than a new general-purpose convergence guarantee.",
+      "The numerical sanity check covers one diagonal example only; the universal statement rests on the analytic spectral proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest direct source. It proves a local upper bound of order 3/2 but does not state the exact active-eigenspace direction or the exact asymptotic constants in the inspected theorem/proof.",
+        "evidence": "Theorem 2 gives an upper bound with coefficient \\(2\\sqrt{H}/\\mu\\) multiplying the current gradient norm to power \\(3/2\\), under its local assumptions.",
+        "identifier_or_url": "arXiv:2112.02089v1; DOI:10.1137/22M1488752",
+        "material_read": "Full-text portions covering the abstract, Algorithm 1, assumptions, local Theorem 2, and Appendix A.1 proof.",
+        "method": "Compared the stated update and local gradient inequality with the exact spectral recurrence derived for an SPD quadratic.",
+        "title": "Regularized Newton Method with Global O(1/k^2) Convergence",
+        "trigger": "Primary source for the fixed update under investigation."
+      },
+      {
+        "assessment": "Related but not a direct implication of the exact active-eigenspace limit; it treats a broader Bregman/composite framework and states an upper bound.",
+        "evidence": "Theorem 4 states a local 3/2-power bound for the selected subgradient norm.",
+        "identifier_or_url": "arXiv:2112.02952v1; DOI:10.1007/s10107-023-01943-7",
+        "material_read": "Full-text portions covering equations (1.2)-(1.3), the regularized step, and Theorem 4 on local convergence.",
+        "method": "Compared its local 3/2-power inequality and Bregman/composite scope against the fixed Euclidean quadratic claim.",
+        "title": "Gradient Regularization of Newton Method with Bregman Distances",
+        "trigger": "Closely related square-root-gradient regularization and local superlinear theorem."
+      },
+      {
+        "assessment": "Broader related method, but no direct statement of the fixed-update asymptotic equality or direction was identified in the inspected material.",
+        "evidence": "The paper describes adaptive regularization powers in [2/3,1] and general complexity classes rather than this exact fixed-power spectral limit.",
+        "identifier_or_url": "arXiv:2208.05888v1; DOI:10.1137/22M1519444",
+        "material_read": "Full-text portions covering the abstract, introduction, regularization-power range, and overview of the local-convergence theory; the detailed proof was not needed for the direct implication comparison.",
+        "method": "Checked whether the adaptive-power result states or implies the exact fixed-update spectral direction and constants.",
+        "title": "Super-Universal Regularized Newton Method",
+        "trigger": "Nearby adaptive regularization-power family with local superlinear results."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd747c12-fe6b-4c69-b150-3bedd3cc80b3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact active eigenvalue identifies which curvature controls the late-stage rate for a given initial vector and supplies the asymptotic constant omitted by generic upper bounds. It also shows that an absent global minimum eigenspace does not determine the observed asymptotic rate.",
+    "status": "PASS"
+  }
+}
