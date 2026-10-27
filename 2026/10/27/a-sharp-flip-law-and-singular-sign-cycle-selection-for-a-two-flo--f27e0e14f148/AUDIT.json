@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Direct composition of the two positive floors gives the exact scalar denominator; its strict monotonicity proves global convergence at and below the threshold and existence/uniqueness of the symmetric cycle. A positive polynomial identity proves the cycle multiplier is strictly below one. Critical reciprocal telescoping gives n|x_n|->delta/(2lambda); the singular floor limit and sign-map continuum follow exactly. Exact-rational algebra and seeded numerical tests supplement the analytic derivation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2605.11850v1 Appendix F.2 studies zero pre-normalization floor with decreasing-stepsize gradient bounds; Appendix F.3 uses a positive pre-normalization floor but states convergence rates with prescribed decreasing stepsizes.",
+        "https://arxiv.org/abs/2608.04607 studies generalized Newton-Schulz polynomial actual algorithms and stochastic objectives, distinct from the smooth fixed-step deterministic surrogate."
+      ],
+      "reasoning": "The primary work identifies both floors but provides neither the exact sharp constant-step flip nor the critical 1/n law nor the singular unique-cycle selection. Polynomial iterates in MUON need not equal the smooth surrogate.",
+      "searches": [
+        "2026 fixed stepsize normalized gradient softsign two cycle sign limit stability Polar Express",
+        "Polar Express Muon normalized spectral nonlinear preconditioner fixed-step scalar quadratic symmetric two cycle stabilization epsilon epsilon_0 local stability"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.11850v1",
+      "https://arxiv.org/html/2605.31371v1",
+      "https://arxiv.org/abs/2608.04607"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2605.11850v1 eq. (30) states the algorithmic map; its Section F makes descent and rate claims on different regimes.",
+        "https://arxiv.org/html/2605.31371v1 employs a tanh soft-sign and an algebraic square-root alternative; the exact κ=4 two-floor denominator here is different.",
+        "https://arxiv.org/abs/2608.04607 stochastic polynomial-algorithm nonconvergence does not entail the exact deterministic two-floor bifurcation classification."
+      ],
+      "reasoning": "The statement is not a restatement of either generalized rate estimates or the unnormalized scalar quadratic analysis: the affine normalization term lowers the local critical order and selects a unique attracting cycle from the sign limit. General optimization nonconvergence does not imply its constants or limits.",
+      "searches": [
+        "arXiv 2605.11850 equation 30 fixed constant gamma two epsilon floor local stability matching local quadratic convergence",
+        "softsign pre-normalizer optimized nonlinear gradient periodic orbits sign-map neutral cycle selected midpoint",
+        "Polar Express Muon normalized spectral nonlinear preconditioner fixed-step scalar quadratic symmetric two cycle stabilization epsilon epsilon_0 local stability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2605.11850v1 equations (30) and (F.1) yield L(r)^4=varepsilon^4(lambda*r+delta)^4+(lambda*r)^4.",
+        "The unnormalized surrogate does not contain the affine lambda*r+delta factor and has different normal-form order."
+      ],
+      "reasoning": "Composing the two nonlinear maps yields a different scalar rational-root update. Its critical n^(-1) and local quadratic properties cannot be deduced by renaming the unnormalized surrogate parameters.",
+      "searches": [
+        "pre-normalization d/(norm d+delta) Polar Express kappa 4 scalar quadratic two-cycles critical amplitude exponent rate n^-1 smooth sign continuum",
+        "arXiv 2605.11850 equation 30 fixed constant gamma two epsilon floor local stability matching local quadratic convergence",
+        "Polar Express nonlinear preconditioner gradient pre-normalization scalar quadratic two floors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record lookup found closest unnormalized fourth-power surrogate and generic sign-map neutral cycles, but no record containing the pre-normalized two-floor law."
+      ],
+      "reasoning": "This is an analytic dynamical classification, not a finite tabular invariant; the compared records did not state the two-floor counterpart. Negative retrieval alone is not uniqueness proof.",
+      "searches": [
+        "pre-normalization d/(norm d+delta) Polar Express kappa 4 scalar quadratic two-cycles critical amplitude exponent rate n^-1 smooth sign continuum",
+        "softsign pre-normalizer optimized nonlinear gradient periodic orbits sign-map neutral cycle selected midpoint"
+      ]
+    },
+    "rationale": "The published source defines the double-floor composition but does not supply this fixed-step phase classification. The closest unnormalized scalar fourth-power analysis does not cover the n^-1 critical rate, quadratic matched local order, linear cycle onset, or singular regularized selection: the extra floor changes the normal form. Published sign-map results cover a neutral continuum but not its unique attracting two-floor selection. Full general literature exhaustion is impossible; a specialized prior proof remains possible.",
+    "residual_risks": [
+      "Specialized earlier analysis of this exact scalar two-floor composition could exist under other names.",
+      "A separately published unnormalized soft-sign analysis was available as a mathematical-record description rather than inspectable complete proof; its stated map lacks pre-normalization.",
+      "This does not assert novelty of the sign-map continuum by itself or any actual polynomial optimizer claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the map and decreasing-stepsize bounds, but not the specific sharp fixed-step scalar phase law or sign-limit selection.",
+        "evidence": [
+          "arXiv:2605.11850v1, lines 961–1007",
+          "First public 2026-05-12, primary MSC 65K05"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.11850v1",
+        "material_read": "Complete accessible HTML, Section 4, Appendices B, F.1–F.3, especially equation (30), with references and subject classification.",
+        "method": "Read source HTML and independently specialized and rederived the scalar map.",
+        "title": "Constrained Stochastic Spectral Preconditioning Converges for Nonconvex Objectives",
+        "trigger": "The explicit two-floor fourth-power surrogate is the object of analysis."
+      },
+      {
+        "assessment": "No fourth-power pre-normalized two-floor map or the present exact cycle laws in examined update/analysis.",
+        "evidence": [
+          "arXiv:2605.31371v1, update equation (4), algebraic conjugates in Appendix A"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.31371v1",
+        "material_read": "Accessible complete HTML; update sections and appendix derivations of tanh and square-root algebraic relaxations.",
+        "method": "Compared the exact nonlinear maps in the stated updates and appendices.",
+        "title": "Softsign: Smooth Sign in Your Optimizer For Better Parameter Heterogeneity Handling",
+        "trigger": "Possible domination by another soft-sign and spectral smooth optimization analysis."
+      },
+      {
+        "assessment": "Its polynomial-stochastic error results do not state the exact fixed-step scalar two-floor surrogate classification in inspected material; residual risk remains.",
+        "evidence": [
+          "arXiv:2608.04607, abstract and section 1 descriptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.04607",
+        "material_read": "Accessible HTML landing full converted text and abstract/sections (not every theorem individually analyzed).",
+        "method": "Examined abstract and section descriptions, distinguished polynomial finite iterations from smooth surrogate.",
+        "title": "On MUON optimization: From non-convergence to an error analysis with Polar Express and the Newton-Schulz polynomial from implementations",
+        "trigger": "Potential coverage of deterministic cyclic behavior in actual polynomial spectral optimizers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f27e0e14-f148-4660-85ac-f64c6d4870ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Pre-normalization is a mathematically motivated implementation component explicitly included in the motivating method, not an arbitrary parameter slice. The theorem shows it changes the critical convergence exponent (relative to no pre-normalization), sharp safe fixed-step frontier, superlinear local order, cycle bifurcation exponent, and regularizes a whole neutral sign-cycle family into one locally attracting orbit. These exact limiting effects supply a deterministic benchmark for choosing and interpreting the normalization floor.",
+    "status": "PASS"
+  }
+}
