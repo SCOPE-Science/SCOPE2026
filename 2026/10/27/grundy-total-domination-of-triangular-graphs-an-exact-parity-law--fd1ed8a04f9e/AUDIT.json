@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "The uncovered edges are exactly edges among unused root vertices plus selected one-edge components. A legal root-edge addition decreases U+I by one or two. Elimination of the initial isolated root edge forces one double decrease; for even root order and no unused vertex, parity and legality of the final one-unused-endpoint addition force two. Hence length <= n-1 for odd n and <= n-2 for even n. Explicit disjoint-edge then hub-connector sequences attain both. Equation length=n-|U_final|-number_of_double_decreases proves all equality cases. The direct independent-neighborhood verifier checks n=3..8 and the critical identity over 2,131,011 subsets. No finite test substitutes for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar–Henning–Rall, arXiv:1601.07525, pp.1–3 and organizational statements: general bounds/trees/regular graphs, not this parity formula.",
+        "Brešar et al., arXiv:1712.08780, pp.1–4 and product theorems: graph products, particularly paths and cycles; no triangular graph/line-graph theorem in relevant text."
+      ],
+      "reasoning": "General bounds do not determine this exact parameter for J(n,2); the published product parameters use graphs structurally different from line graphs of complete graphs. An implication from a stronger result would invalidate priority, but none was established from inspected premises.",
+      "searches": [
+        "\"Total Dominating Sequences in Graphs\" arxiv 1601.07525",
+        "\"On Grundy total domination number in product graphs\" 1712.08780",
+        "\"Grundy total\" \"line graphs\" formula",
+        "\"minimum skew rank\" \"triangular graph\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1702.00828v1",
+      "arXiv:1712.08780v1",
+      "arXiv:1601.07525v1",
+      "DOI:10.26493/1855-3974.1881.384 bibliographic abstract",
+      "Published research record: Maximum Grundy dominating sequences of complete multipartite graphs",
+      "Published research record: Skew-zero-forcing sets of chain graphs factor by twin classes",
+      "Johnson and Hamming zero-forcing thesis introduction excerpt"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Brešar–Kos–Torres, Ars Math. Contemp. 17 (2019), bibliographic abstract: the Grundy total value for Kneser graphs KG(n,r) is binomial(2r,r) for n>=2r+1; this concerns disjointness adjacency.",
+        "For r=2 this cited Kneser result gives 6, whereas the present computation gives 4 for its complementary triangular graph T_5; graph complementation does not preserve total-neighborhood legal sequences.",
+        "The 2017 primary papers distinguish the relevant variants, and neither presents the complete all-extremal potential criterion."
+      ],
+      "reasoning": "The complement operation takes KG(n,2) to J(n,2), but sends open neighborhoods to complements of closed neighborhoods and hence does not transfer the Kneser theorem. Ordinary total-domination and standard zero-forcing results likewise do not establish either the new maximum or its equality cases.",
+      "searches": [
+        "\"Grundy domination and zero forcing in Kneser graphs\" Brešar Kos Torres",
+        "Grundy total domination in Johnson graph J(n,2) triangular graph T_n line graph of complete graph. Maximal legal open-neighborhood sequences, skew zero forcing minimum parameter, parity matching",
+        "\"Grundy total domination\" \"line graph\" Kneser Johnson"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identities T_n=J(n,2)=L(K_n) were checked against the conventional graph definitions; arXiv:1702.00828 distinguishes open-neighborhood total sequences from Z-/L-/closed variants.",
+        "No title/abstract/full-text indexed under these queried aliases supplied an exact open-neighborhood triangular-graph parity formula."
+      ],
+      "reasoning": "Alias and invariant checks use the same underlying graph and the same N(v) legality, rather than title matching. Results on ordinary/closed or Z-Grundy sequences have distinct eligibility conditions. Search absence is not proof of uniqueness.",
+      "searches": [
+        "Grundy total domination number and skew zero forcing number of triangular graphs J(n,2), line graphs of complete graphs; exact even or odd formula and longest legal open-neighborhood sequences",
+        "Triangular graph J(n,2) exact Grundy total domination 2 floor((n-1)/2), skew zero forcing binomial(n,2)-n+1 or -n+2",
+        "Grundy total domination in Johnson graph J(n,2) triangular graph T_n line graph of complete graph. Maximal legal open-neighborhood sequences, skew zero forcing minimum parameter, parity matching",
+        "\"triangular graph\" \"Grundy total domination number\"",
+        "\"line graphs of complete graphs\" \"skew zero forcing\"",
+        "\"Grundy total domination\" \"Johnson graph\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of published research records returned a study of maximum ordinary Grundy dominating sequences of complete multipartite graphs, and skew forcing of chain graphs, but not a statement computing open-neighborhood Grundy total domination on J(n,2).",
+        "Direct checks of n=3..8 give maximum lengths 2,2,4,4,6,6; these are private recomputations, not an existing published table."
+      ],
+      "reasoning": "No known exact database or published table was located for this specific graph/invariant. Different-graph or different-invariant tables are not equivalent; unindexed tables remain a residual risk.",
+      "searches": [
+        "Enumeration longest Grundy total dominating sequences of triangular graphs line graph complete graph K_n, edge-incidence forest, matching footprint",
+        "line graph complete K_n Grundy total domination, legal sequences open neighborhoods matching uncovered pair edge isolated",
+        "\"Grundy total domination\" \"triangular graphs\"",
+        "\"skew zero forcing\" \"Johnson graphs\""
+      ]
+    },
+    "rationale": "Same-invariant general literature was read and contrasted with the exact J(n,2) statement. Kneser complements, total domination, standard zero forcing and ordinary Grundy variants are not implication-equivalent. Indexed literature and published-claim alias/implication searches did not identify a covering result; unindexed or inaccessible full text remains a candid priority risk.",
+    "residual_risks": [
+      "The accessible record for the highly relevant Kneser-graph paper did not yield full text; the stated complement comparison is decisive for its cited theorem but cannot rule out an uninspected appendix.",
+      "Published or unpublished equivalent formulas indexed only under alternative terms may exist; semantic and bibliographic searches do not prove uniqueness.",
+      "An uninspected section of the Johnson-graph forcing thesis may contain adjacent material; the searched introduction discusses a different zero-forcing rule."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the parameter and other variants, but does not give the triangular-graph evaluation or equality criterion.",
+        "evidence": [
+          "arXiv:1702.00828 §1–3; no occurrences found for Johnson/triangular/line graph in text searches."
+        ],
+        "identifier_or_url": "arXiv:1702.00828v1; https://arxiv.org/pdf/1702.00828",
+        "material_read": "PDF pp.1–4, the open-neighborhood legality definition, Z-Grundy theorem and L-Grundy section excerpt; text search for Johnson, triangular and line graph.",
+        "method": "Rendered first PDF page, read indexed PDF text and theorem sections, queried full text for relevant graph aliases.",
+        "title": "Grundy dominating sequences and zero forcing sets",
+        "trigger": "Original definitions and potential stronger variant relationships"
+      },
+      {
+        "assessment": "Product results do not address L(K_n) for n>=3; no implication of the evaluated parity law.",
+        "evidence": [
+          "arXiv:1712.08780 §1, §4–5; studied products of paths and cycles."
+        ],
+        "identifier_or_url": "arXiv:1712.08780v1; https://arxiv.org/pdf/1712.08780",
+        "material_read": "PDF abstract, introductory organization and extracted strong-/Cartesian-product results; search for line graph/Kneser.",
+        "method": "Rendered first PDF page; examined indexed sections and mathematical product statements.",
+        "title": "On Grundy total domination number in product graphs",
+        "trigger": "Closest general study of this invariant for standard graph families"
+      },
+      {
+        "assessment": "Foundational bounds and classifications, but no displayed Johnson/triangular/line-complete exact parameter. Older foundational literature, not a source of the evaluated exact formula.",
+        "evidence": [
+          "arXiv:1601.07525 §1–2, introductory organization of §§4–8; absent graph aliases in available PDF text search."
+        ],
+        "identifier_or_url": "arXiv:1601.07525v1; https://arxiv.org/pdf/1601.07525",
+        "material_read": "PDF abstract, introductory definitions/outline, relevant regular-graph and extremal-class summary; full-text alias search.",
+        "method": "Rendered first PDF page and examined indexed text/sections.",
+        "title": "Total Dominating Sequences in Graphs",
+        "trigger": "Foundational general theorems that might dominate a special-case formula"
+      },
+      {
+        "assessment": "Reported exact Kneser-graph value does not imply a complement-graph value; full-text accessibility remains a priority risk.",
+        "evidence": [
+          "National-library abstract gives gamma_gr^t(KG(n,r))=binomial(2r,r) for n>=2r+1; distinct disjointness adjacency."
+        ],
+        "identifier_or_url": "DOI:10.26493/1855-3974.1881.384; https://www.dlib.si/details/URN:NBN:SI:doc-CWN748I8",
+        "material_read": "Library bibliographic abstract and reported theorem only; complete file links redirected to the landing page and did not yield the manuscript.",
+        "method": "Inspected national-library record and attempted its text/PDF links.",
+        "title": "Grundy domination and zero forcing in Kneser graphs",
+        "trigger": "Complement family on the same two-subset vertex labels and exactly the same sequence invariant"
+      },
+      {
+        "assessment": "Claims standard and total zero-forcing results, not the present open-neighborhood Grundy total parameter; residual possibility of other relevant text in the uninspected thesis.",
+        "evidence": [
+          "Thesis introduction lists Z(J(n,2)) and connected/total zero forcing; no Grundy total result in inspected excerpt."
+        ],
+        "identifier_or_url": "https://research.tue.nl/files/283043249/Reniers_N.pdf",
+        "material_read": "Indexed thesis introduction excerpt only; no full document inspection.",
+        "method": "Targeted search return with chapter overview, no assumption of whole-document coverage.",
+        "title": "Zero forcing on Johnson and Hamming graphs (thesis excerpt)",
+        "trigger": "Plausible source covering Johnson graph forcing invariants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd1ed8a0-4f9e-4eb5-8c2a-04aab34113a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact maximum open-neighborhood greedy total-domination on a canonical strongly regular infinite family, with an explicit parity-sensitive obstruction and necessary-and-sufficient structural criterion for all longest sequences. This is a natural invariant and a nonroutine infinite parameter computation; its value does not rely on a paper-sized generalization or on mere code output.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,15 @@
+# Scientific review: Grundy total domination of triangular graphs
+
+## Correctness — PASS
+For each selected edge family, the undominated line-graph vertices are exactly the edges joining two original unused vertices together with the selected edges that remain isolated in the selected incidence graph. Every legal addition decreases the potential (unused original vertices plus isolated selected edges) by one or two. At least one two-unit decrease is forced; when the original order is even and the sequence uses every original vertex, parity forces two such decreases. Explicit matching-and-connector sequences attain the resulting upper bounds for every order. The equation relating length, unused original vertices and two-unit reductions gives the claimed equality characterization. Original-neighborhood recursion independently confirms the values for orders three through eight; enumeration is not used to prove the infinite statement.
+
+## Originality — PASS (best-knowledge; residual priority risk)
+The closest full texts examined are Brešar et al., arXiv:1702.00828, introducing variants of Grundy domination; Brešar et al., arXiv:1712.08780, on products; and Brešar–Henning–Rall, arXiv:1601.07525, establishing general bounds and basic theory. Their analyzed statements concern definitions, graph products and broad graph classes, not the complete-graph line graph \(J(n,2)\) with the exact parity law and all-extremal potential criterion. The 2019 study of Kneser graphs concerns adjacency by disjointness; even though the two-subset Kneser graph is complementary to the triangular graph, open-neighborhood legality is not invariant under graph complementation. Search results on ordinary Johnson-graph total domination and on standard zero forcing concern distinct parameters. Searches of mathematical records and prior-claim indexes did not identify an implying theorem. Unindexed equivalences and inaccessible relevant full text remain priority risks, not uniqueness proof.
+
+## Mathematical value — PASS
+The triangular graphs are canonical strongly regular graphs. This result determines the length of the longest open-neighborhood greedy covering process exactly over an infinite family whose graph order is quadratic in the ground-set size. The parity drop is explained by a forced last unused-edge obstruction, and the equality criterion describes all maximum sequences by a computable structural statistic without assuming a canonical ordering. The question is a natural parameter problem, not an arbitrary finite slice or a routine restatement of the known total domination number.
+
+## Limitations
+The theorem addresses only \(J(n,2)\) for \(n\ge3\). It does not give an all-order formula for the number of maximum sequences or assert standard/positive/skew zero-forcing values. Full text of the closest Kneser-graph paper could not be recovered in this check; that is recorded as a priority uncertainty. Computation tests finite orders only. The mathematics has not been independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
