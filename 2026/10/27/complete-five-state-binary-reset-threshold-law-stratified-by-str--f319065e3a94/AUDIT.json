@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Bijection from two base-five indices to every ordered five-state binary DFA proves exhaustive domain size 3125^2. Exact bitmask subset-image recurrence and shortest-path BFS yield each reset threshold or non-synchronizability, while graph closure tests strong connectivity. Separate C++17 implementations use queue versus frontier search and forward/reverse reachability versus Floyd–Warshall; their complete joint histograms, nonsync totals and integer moments match. Counts sum to 9,765,625; all inputs, source code and outputs are embedded. The statement is entirely finite; no empirical-to-infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2016 experiments paper verifies high reset bounds and enumerates a 12-state high-tail subset, but contains no inspected five-state random joint law.",
+        "The attainable-value paper provides intervals and existence proofs without counting each fiber.",
+        "The random automata theorem is asymptotic in the number of states rather than an exact finite conditional law."
+      ],
+      "reasoning": "Known existence bounds, maximal reset lengths, and typical asymptotic behavior cannot imply integer multiplicities of all 5^10 objects at every exact threshold and connectivity state.",
+      "searches": [
+        "binary five-state 2 letter automata shortest synchronizing word length 1 to 16 frequency 31225 1603160 2887320 1748640 844320",
+        "automata reset threshold greater 10 implies strongly connected for five states, 2880 nonstrongly connected maxima",
+        "https://arxiv.org/pdf/1607.04025",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol083-mfcs2017/LIPIcs.MFCS.2017.40/LIPIcs.MFCS.2017.40.pdf",
+        "https://arxiv.org/pdf/2207.14108"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.24245 (partial open text; August 2026 motivating source)",
+      "arxiv:1609.06853 (primary full-text Section 4.4 exact partial coverage)",
+      "arxiv:1607.04025 (primary PDF experiments/summary)",
+      "doi:10.4230/LIPIcs.MFCS.2017.40 (primary full PDF introduction and contributions)",
+      "arxiv:2207.14108 (primary full PDF abstract/main theorems)",
+      "Published mathematical record: five-state binary avoiding-threshold extremizers",
+      "Published mathematical record: five-state triple-rendezvous extremizers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Five-state 2016 published high-tail marginal counts agree exactly after symmetry expansion.",
+        "Closest five-state published research records instead count avoiding thresholds or triple rendezvous, which are different automata invariants.",
+        "2026 survey accessible abstract identifies average reset threshold as a topic but makes no observed exact 5-state probability claim."
+      ],
+      "reasoning": "Published high-tail counts are implications of the present joint matrix (not conversely). The five-state strong-connectivity-conditioned full distribution and the exact means are not consequences of the located covering partial results; the accessible 2026 primary text leaves an explicit residual originality risk.",
+      "searches": [
+        "joint distribution exact shortest reset word length and strong connectivity for all 9765625 binary five-state deterministic automata, counts 30025 1200, 2880 33360, 8063385 synchronizing",
+        "reset threshold histogram 5 state two letter DFA full labeled enumeration strong connectivity and conditional mean",
+        "automata reset threshold greater 10 implies strongly connected for five states, 2880 nonstrongly connected maxima",
+        "average reset length 5 state randomly chosen synchronizing 5970397/1612677",
+        "arxiv:2608.24245",
+        "arxiv:1609.06853",
+        "arxiv:1607.04025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact joint distribution is equivalent to the finite bivariate generating polynomial counting ordered map pairs by reset length and strong connectivity.",
+        "The 2016 table counts basic high-threshold isomorphism classes only at lengths 11–16, yielding known tail marginals (46,43,23,11,4,1) after ordering lengths ascending."
+      ],
+      "reasoning": "The complete bivariate generating polynomial distinguishes connectedness and includes lengths 1–10 plus nonsynchronizing cases. It is not implied by the previously published six tail marginals, whose weighting convention is unlabeled isomorphism classes.",
+      "searches": [
+        "joint distribution exact shortest reset word length and strong connectivity for all 9765625 binary five-state deterministic automata, counts 30025 1200, 2880 33360, 8063385 synchronizing",
+        "reset threshold histogram 5 state two letter DFA full labeled enumeration strong connectivity and conditional mean",
+        "average reset length 5 state randomly chosen synchronizing 5970397/1612677",
+        "five state binary labeled automata synchronizing reset threshold distribution averages",
+        "https://arxiv.org/pdf/1609.06853#Section4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant exact prior table [2] Section 4.4 counts thresholds 11–16 among basic isomorphism classes; agreement with current aggregate tail is checked exactly.",
+        "No corresponding full labeled joint matrix or low-length table was observed among the examined published sources or retrieved research records."
+      ],
+      "reasoning": "Six matching known marginal entries are partial coverage and are expressly excluded from the novelty assertion. They do not determine 16×2 joint multiplicities, nonsync mass, or conditional expectations.",
+      "searches": [
+        "joint distribution exact shortest reset word length and strong connectivity for all 9765625 binary five-state deterministic automata, counts 30025 1200, 2880 33360, 8063385 synchronizing",
+        "binary five-state 2 letter automata shortest synchronizing word length 1 to 16 frequency 31225 1603160 2887320 1748640 844320",
+        "average reset length 5 state randomly chosen synchronizing 5970397/1612677",
+        "https://arxiv.org/pdf/1609.06853#page=16",
+        "https://arxiv.org/pdf/1607.04025#page=11"
+      ]
+    },
+    "rationale": "The closest directly matching primary full text, Don–Zantema–de Bondt Section 4.4, already gives the five-state two-letter high reset-length marginal in isomorphism counts for 11–16; these are explicitly credited. It does not yield the full 1–10 histogram, nonsync mass, two-way connectivity split, or conditional means. Other inspected primary sources give experiment ranges, attainable reset lengths or asymptotic probability bounds. Actual published research-record searches identify different invariants (avoiding threshold, triple rendezvous) but no covering bivariate finite census. Survey full text and unindexed exact data are residual priority risks.",
+    "residual_risks": [
+      "Unindexed unpublished/supplemental five-state enumeration may duplicate some or all of the joint matrix.",
+      "Complete full text of the recent 2026 survey not retrievable in available session; introductory text inspected and no whole-document noncoverage assertion is made.",
+      "Historical high-tail marginals at lengths 11–16 are already in 2016 primary literature and are not claimed independently new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the six high-tail marginal isomorphism-class values at lengths 11–16; does not tabulate labeled short-threshold or joint strongly-connected counts in the inspected full-text material. High-tail marginals explicitly credited.",
+        "evidence": [
+          "Section 4.4, five-state, two-letter row = 1,4,11,23,43,46 for thresholds 16,15,14,13,12,11.",
+          "No displayed columns for strong-connectivity or frequencies of threshold 1–10; study defines its table by basic non-isomorphic automata."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1609.06853",
+        "material_read": "Full-text PDF, Section 4.4 five/six-state table on printed page 16 (PDF page 15), its surrounding scope statements in Section 4 and discussion immediately afterward.",
+        "method": "Opened primary PDF, inspected page rendering and PDF text including lines on Sections 4.1–4.4.",
+        "title": "Slowly synchronizing automata with fixed alphabet size",
+        "trigger": "Direct five-state two-letter reset-length enumeration may cover part or all of the present table."
+      },
+      {
+        "assessment": "Documents small-state verification ranges and slow examples, not the joint five-state labeled random reset-time histogram in inspected portions.",
+        "evidence": [
+          "Summary Table 2 records maximal verified state/alphabet sizes by conjecture, not multiplicity joint counts.",
+          "The explicit enumerated table displayed concerns 12-state high-threshold strongly connected examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1607.04025",
+        "material_read": "Full-text PDF: sections describing enumeration ranges and the high-tail 12-state table, the summary table on PDF page 10, and related experimental statements.",
+        "method": "Opened original PDF; inspected text from Sections 3 and 3.1 and page rendering.",
+        "title": "Experiments with Synchronizing Automata",
+        "trigger": "Exhaustive small automata calculations may contain this distribution."
+      },
+      {
+        "assessment": "Studies existence of each attainable length and intervals for strong-connectivity subclasses, not the multiplicity or uniform probability law.",
+        "evidence": [
+          "Contributions section distinguishes strongly connected, sink-state and unrestricted constructions and focuses on attainable values rather than counts."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol083-mfcs2017/LIPIcs.MFCS.2017.40/LIPIcs.MFCS.2017.40.pdf",
+        "material_read": "Primary 14-page PDF: abstract, introduction, contribution statement and three categories of constructions on printed pages 1–3.",
+        "method": "Opened primary open-access PDF, inspected text and screenshot of printed page 3.",
+        "title": "Attainable Values of Reset Thresholds",
+        "trigger": "Same reset threshold invariant with explicit strong-connectivity distinctions."
+      },
+      {
+        "assessment": "Investigates asymptotic typical shortest reset word behavior and not a finite exact five-state joint law in the inspected theorems; no claim of whole-document exclusion based only on searches.",
+        "evidence": [
+          "Section 1 states uniform two-function sample space n^(2n), asymptotic n→∞, and Theorem 1.1 is a high-probability bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.14108",
+        "material_read": "Primary 51-page PDF: abstract, introduction, definitions, Theorems 1.1–1.2, and summary of probabilistic results in PDF pages 0–2.",
+        "method": "Opened primary PDF, inspected text and screenshot of page 1; searched exact five-state and enumeration terminology.",
+        "title": "Short Synchronizing Words for Random Automata",
+        "trigger": "Exact law under a uniform random automaton may be a finite special case of random-model work."
+      },
+      {
+        "assessment": "Motivates average reset-threshold problem and strong connectivity. No full-document negative coverage conclusion; uninspected sections remain a residual risk, but the accessible material does not establish the joint five-state result.",
+        "evidence": [
+          "Paper published first on 2026-08-25; abstract lists average reset threshold as a topic; introduction distinguishes strongly connected automata."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Initial abstract and introductory Sections 1 and 2.1–2.2 via legal extracted first-page text, not the complete paper.",
+        "method": "Web text; primary preprint and publisher full-text routes attempted but complete text could not be obtained.",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "2026 primary motivating source addresses average reset threshold; possibly overlaps an exact finite table."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f319065e-3a94-42de-97c0-7a5659be6d2b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete distribution for the canonical uniform random binary automaton model, stratified by the mathematically central strongly connected subclass, supplies an exact finite benchmark for random synchronization studies. It resolves all 17 reset-time categories, a sharp 10-versus-11 connectivity support transition, nontrivial exact conditional mean disparity (4.5313 versus 3.3436), and nonsynchronizing masses—not merely a textbook deduction of known high-tail examples. It is a natural full census with reproducible two-method proof, while no asymptotic consequence is claimed.",
+    "status": "PASS"
+  }
+}
