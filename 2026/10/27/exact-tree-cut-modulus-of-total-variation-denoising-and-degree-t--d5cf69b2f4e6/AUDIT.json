@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Complete finite-tree proof: polyhedral KKT cells have averaging derivatives and all fused forests are locally realizable; edge-cut step indicators form an isometric ℓ1 coordinate basis for tree TV, so every derivative norm is a single cut variation. The computed boundary formula is exact, not a finite-sample extrapolation. Exact-rational checker exhausts 1,441 labeled trees through 6 vertices and separately verifies concrete KKT attaining pairs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2018 graph-ROF Theorem 6 covers arbitrary finite graphs but a different invariant (single-input convex minimality).",
+        "2010 generalized-lasso Lemma 3 covers arbitrary penalty matrices but only describes Euclidean affine cells and their degrees of freedom."
+      ],
+      "reasoning": "Broader classes of graphs in these papers are not stronger on the new metric-specific sharp two-data constant. Their statements do not imply the connected-subtree edge-boundary formula or degree-three unboundedness without additional theory.",
+      "searches": [
+        "\"graph total variation denoising\" \"Lipschitz\" \"total variation\" stability data",
+        "\"graph fused lasso resolvent BV metric failure on degree-three comb trees unbounded perturbation amplification\"",
+        "arxiv:1807.10514 Theorem 6 and neighboring propositions"
+      ]
+    },
+    "checked_sources": [
+      "Tibshirani et al., 2005, doi:10.1111/j.1467-9868.2005.00490.x",
+      "Tibshirani–Taylor, 2011, arxiv:1005.1971",
+      "Kirisits–Scherzer–Setterqvist, 2019, arxiv:1807.10514"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2004 fused-lasso introduces edge-difference penalties, but no sharp two-data variation modulus.",
+        "2010 affine chart theorem supplies a component of the proof, but not the exact J_T projector norm or its extremizers.",
+        "2018 invariant-φ minimality treats a fixed-data convex order; it does not imply two-data graph variation contraction."
+      ],
+      "reasoning": "The new claim is neither a numerical substitution in nor a corollary of the inspected prior theorems. The independent cut-step basis argument, connected-subtree boundary evaluation, and realizability establish a stronger graph-TV sensitivity invariant for trees.",
+      "searches": [
+        "doi:10.1111/j.1467-9868.2005.00490.x sections 2,3,9",
+        "arxiv:1005.1971 Section 10.1 Lemma 3",
+        "arxiv:1807.10514 Theorem 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tibshirani–Taylor, arxiv:1005.1971, Section 10.1: almost-everywhere derivative as a Euclidean projection; generalized-lasso fit is Euclidean nonexpansive.",
+        "Kirisits–Scherzer–Setterqvist, arxiv:1807.10514, Theorem 6: fixed-input convex minimality."
+      ],
+      "reasoning": "Neither Euclidean contraction nor one-datum convex minimality is equivalent to the J_T(y-z) two-data Lipschitz problem. In particular the latter can exceed one on branching trees; the former remain true. No equivalent tree-cut modulus was found.",
+      "searches": [
+        "\"tree total variation denoising sharp Lipschitz constant in BV seminorm via connected fused regions edge cut A\"",
+        "\"one dimensional total variation denoising contraction BV seminorm difference two signals proximal map\"",
+        "\"fused lasso\" \"bounded variation\" \"nonexpansive\" difference"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed mathematical topics concerned convex projections in ordinary ℓ_p norms, a tree variation norm unrelated to denoising, and graph-TV minimization without this two-data constant.",
+        "No exact formula for this invariant was located in checked mathematical records or the three inspected primary texts."
+      ],
+      "reasoning": "No identified database entry or formula/table computes the graph-TV seminorm of the tree fused-lasso proximal operator. Negative retrieval is evidence of limited coverage only, not uniqueness proof.",
+      "searches": [
+        "\"tree total variation denoising sharp Lipschitz constant in BV seminorm via connected fused regions edge cut A\"",
+        "\"graph fused lasso proximal TV operator variation Lipschitz constant sharp combinatorial subtree boundary\""
+      ]
+    },
+    "rationale": "Primary full-text comparison separates known fused penalties, local Euclidean affine projections, and single-input convex minimality from the sharp two-input TV seminorm. Database searches found no dominating tree-cut modulus. Residual possibility of unindexed equivalence is acknowledged without claiming uniqueness.",
+    "residual_risks": [
+      "Unindexed classical stability results for graph fused-lasso proximal maps might encode the same tree-cut coefficient.",
+      "The online supplement proof of the 2010 local affine projection lemma was not separately examined; its main statement and closely related main-text sections were inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Develops sparse/fused estimation and applications, not the exact two-data graph-TV seminorm amplification or tree-cut extremizers.",
+        "evidence": [
+          "Sections 2–3 define fused constraints and algorithms; Section 9 extends neighbor relations; no matching two-data stability theorem located."
+        ],
+        "identifier_or_url": "doi:10.1111/j.1467-9868.2005.00490.x; https://web.stanford.edu/group/SOL/papers/fused-lasso-JRSSB.pdf",
+        "material_read": "Full author-hosted 18-page PDF available; definitions in Sections 2–3 and the graph-neighbor variant in Section 9, with searches across extracted text for Lipschitz, nonexpansive, and stability.",
+        "method": "Read primary PDF and searched mathematical statements.",
+        "title": "Sparsity and smoothness via the fused lasso",
+        "trigger": "Original fused-difference penalty and possible graph-neighbor generalization"
+      },
+      {
+        "assessment": "Establishes almost-everywhere Euclidean affine projector derivative and Euclidean nonexpansivity, but does not bound or classify that derivative in the graph-TV variation seminorm. The new tree-cut formula requires an additional independent norm computation and attainment argument.",
+        "evidence": [
+          "Section 10.1 Lemma 3 gives a locally affine projection; Euclidean nonexpansivity is stated there, not graph-TV two-input contraction."
+        ],
+        "identifier_or_url": "arxiv:1005.1971; https://arxiv.org/abs/1005.1971",
+        "material_read": "Accessible complete mathematical HTML; Section 2.1.1 graph-fused formulation and Section 10.1 local Euclidean affine projection, with document searches for total variation and Lipschitz.",
+        "method": "Read primary full-text sections containing graph model and Lemma 3, and scanned matching references and claims.",
+        "title": "The solution path of the generalized lasso",
+        "trigger": "Same graph-TV proximal estimator and local projection principle, strongest implication candidate"
+      },
+      {
+        "assessment": "Theorem 6 minimizes separable convex potentials over a translation of the dual TV ball for a fixed datum. It has no two-input TV-seminorm quotient or tree-cut formula; its one-data property is compatible with the large two-data amplification proved here.",
+        "evidence": [
+          "Theorem 6 (p. 8) concerns a fixed datum and convex function values; the stated problem asks for two arbitrary datum vectors."
+        ],
+        "identifier_or_url": "arxiv:1807.10514; https://www.gs.jku.at/pubs/NFNreport74.pdf",
+        "material_read": "Primary 24-page technical-report PDF, Introduction/Section 3/Theorem 6 and Section 3.3 inspected, plus text search for contraction, Lipschitz and two data.",
+        "method": "Read paper text and page images to compare theorem hypotheses and quantifiers.",
+        "title": "Invariant φ-minimal sets and total variation denoising on graphs",
+        "trigger": "Same graph-ROF estimator and potentially stronger universal variation minimality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5cf69b2-f4e6-4f77-8c3a-1932e2c0b526",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact invariant concerns robustness of a standard graph-TV denoiser under perturbations measured in the same edge-variation geometry used to define the penalty. The striking unbounded amplification on graphs of maximum degree 3 despite one-input variation reduction is a substantive structural boundary, not a generic projection-norm restatement; paths and stars provide sharp benchmark regimes.",
+    "status": "PASS"
+  }
+}
