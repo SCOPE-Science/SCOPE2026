@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The exact two-layer velocity-potential dispersion reduces the instability threshold to a positive scalar Stieltjes kernel. The signed derivative is controlled by a strictly increasing spectral weighted average; its endpoint values establish the full, boundary-inclusive root classification. The Taylor coefficients and weighted Cauchy–Schwarz inequality prove the nonzero square-root edge coefficient. The phase-speed comparison follows from separate small-wavenumber expansions and a checked exact algebraic identity. The standalone checker independently compares the dispersion discriminant with scalar thresholds and tests finite-depth minimizers and asymptotics. Finite tests support, but do not replace, the analytic proof.
+
+## Originality — PASS, with residual priority uncertainty
+The 2010 finite-layer treatment gives the dispersion relation and a numerical minimization recipe. Lannes and Ming's general rigid-lid formulation establishes that the all-mode stability threshold is a minimum, but Section 3.2 and Proposition 1 supply bounds rather than a global unequal-depth minimizer-count theorem or the weighted-depth transition and its critical law. Classical minimum-phase-speed theory concerns a different denominator. The equal-depth case reduces to that classical problem and is expressly excluded from the contribution. For unequal depths, the two threshold surface tensions have an exact signed difference, so equivalence cannot be inferred from matching names. Residual risk: an older specialized unequal-depth treatment might already prove the sharp classification, and a full bibliographic priority audit remains outstanding.
+
+## Mathematical value — PASS
+For unequal finite depths, the precise shear needed to excite an interfacial disturbance and the first marginal wavenumber are natural stability-design quantities. The exact three-moment criterion distinguishes a long-wave onset from an isolated finite-wavenumber onset, proves there can be no competing first-onset wavelengths, and quantifies the critical square-root scaling. The phase-speed comparison explains why the familiar zero-shear wave criterion is insufficient for selecting the Kelvin–Helmholtz onset in asymmetric layers. It applies for all positive admissible depths, densities, gravity and capillarity within the stated model, not for a tuned numerical instance.
+
+## Related literature and limitations
+Miloshevsky–Hassanein (2010), equations (1)–(4), and Lannes–Ming, Section 3.2 and Proposition 1, are the closest directly examined forward/variational sources. They already imply the basic onset-as-infimum formulation. The present work does not claim that known formulation as new. Nonlinear dynamics, viscosity, finite periodic domains and the fastest-growing wavenumber well above onset are outside scope. The remaining priority risk is a specialized prior analysis of the same unequal-depth minimization.
+
+Self-review: passed. Independent audit: not yet performed.

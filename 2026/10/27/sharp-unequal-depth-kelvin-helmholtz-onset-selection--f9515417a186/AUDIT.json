@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Exact two-layer linear dispersion reduces temporal instability to the scalar positive threshold. The Mittag–Leffler expansion gives S(z)=sum c/(z+a); B(z)=-S/S′-z is a weighted mean of a, strictly increasing because -2 Cov(a,(z+a)^-1)>0. It runs from 3M1/M3 to infinity, proving exact zero/one minimizer classification including equality. Differentiating S gives C=12M1M5/(5M3^2)-2>=2/5; analytic inversion proves the positive edge law. Exact symbolic comparison proves distinct capillarity criteria for phase-speed and shear-onset problems. Standalone checker passed randomized and high-precision consistency cases. No part of the infinite-domain proof relies on finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lannes–Ming, Section 3.2, states stability of all modes iff the squared shear is at most the minimum of an explicit positive function, and Proposition 1 derives bounds on that minimum.",
+        "That section says no simple explicit formula seems available for the general critical value, and does not establish the unequal-depth one-or-zero finite-minimizer classification or the weighted-depth critical expansion."
+      ],
+      "reasoning": "The published general variational criterion contains the minimization problem but does not by itself imply its unique optimizer, the exact three-moment phase boundary, or the positive critical coefficient. A new globally monotone Stieltjes-weighted critical function is proved here. This is a strict sharpening within the unequal-depth case, not a claim to discover the known variational formulation.",
+      "searches": [
+        "D. Lannes and M. Ming 2015 full Euler rigid lid Stab 2 Proposition 1",
+        "two layer Kelvin Helmholtz instability unique most unstable neutral wavenumber two finite depths"
+      ]
+    },
+    "checked_sources": [
+      "Miloshevsky and Hassanein (2010), DOI:10.1088/0029-5515/50/11/115005, pp. 1–3",
+      "Lannes and Ming, author-hosted primary text, Section 3.2 and Proposition 1",
+      "Classical finite-depth capillary–gravity phase-speed dispersion (related benchmark, not new)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The existing forward formula yields the same objective after straightforward algebra, so the threshold-as-an-infimum is established prior art.",
+        "The 2010 paper expressly notes numerical minimization is required in finite depth; the later general analysis gives bounds and an unclassified minimum.",
+        "The new argument represents the *sum of reciprocal-density tanh kernels* as a positive Stieltjes transform and shows its spectral-average bifurcation function strictly increasing. The classical phase-speed problem contains an inverse *sum of density-weighted coth kernels* instead."
+      ],
+      "reasoning": "The completed theorem is not merely another numerical solution, relabeling of an equal-depth Bond-number threshold, or an implication of the distinct phase-speed-minimum statement. It proves a new global zero/one critical-wave classification for all unequal-depth parameters together with a sharp critical square-root law. Remaining historical-priority risk is acknowledged.",
+      "searches": [
+        "Lannes–Ming Section 3.2 stability for all Fourier modes",
+        "Miloshevsky–Hassanein (2010) finite-layer critical wavenumber",
+        "Classical finite-depth gravity-capillary phase-speed Bond-number transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Miloshevsky–Hassanein (2010) eqs (1)-(4) give the standard finite-layer Kelvin–Helmholtz discriminant and equal-depth formula.",
+        "The shear threshold is (A/k+gamma*k)*(tanh(k*h_l)/rho_l+tanh(k*h_u)/rho_u). In contrast zero-shear gravity-capillary phase speed uses the reciprocal of rho_l*coth(k*h_l)+rho_u*coth(k*h_u).",
+        "The two critical surface tensions differ by A/3 times (h_l^2-h_u^2)*(h_l*rho_u-h_u*rho_l)/(h_l*rho_u+h_u*rho_l)."
+      ],
+      "reasoning": "The equal-depth specialization of the onset problem coincides up to a constant factor with classical gravity-capillary phase-speed minimization and is excluded from the assessed novel content. For unequal depths these are different kernels; depending on depth-density balance their critical capillarity levels differ in either direction. The forward dispersion is not presented as new.",
+      "searches": [
+        "Kelvin Helmholtz unequal depths two fluids surface tension threshold long wave finite wave critical velocity gravity dispersion",
+        "two layer Kelvin Helmholtz unequal layer depths critical Weber Bond number gravity capillary onset minimum velocity",
+        "G. V. Miloshevsky and A. Hassanein 2010 eqs (1)-(4)",
+        "D. Lannes and M. Ming Section 3.2 eqs (24)-(27)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly examined 2010 paper obtains finite-depth critical wavenumbers by numerical minimization and provides equal-depth and deep-water formulas.",
+        "The 2015 directly examined work supplies analytical bounds and stability-region figures rather than the exact unequal-depth moment threshold."
+      ],
+      "reasoning": "No exact tabulation or equation specifying the new unequal-depth boundary and scaling was found in these consulted primary sections or the targeted searches. This absence is only an evidence-limited comparison, not a proof of priority.",
+      "searches": [
+        "\"Kelvin-Helmholtz\" \"Bond number\" \"3\" finite depth",
+        "finite depth two layer Kelvin Helmholtz Bond number 3 long wave short wave surface tension threshold",
+        "Kelvin Helmholtz unequal depths two fluids surface tension threshold long wave finite wave critical velocity gravity dispersion"
+      ]
+    },
+    "rationale": "The assessed claim is the full unequal-depth root-count and weighted-Bond transition with asymptotics and exact difference from phase-speed selection, not the existing Kelvin–Helmholtz dispersion, the general variational onset formula, or the classical equal-depth result.",
+    "residual_risks": [
+      "Unconsulted older two-fluid hydrodynamic stability texts may already state the equivalent sharp unequal-depth critical criterion.",
+      "The full contents of every literature item and every appendix in the field have not been exhaustively surveyed; the directly closest papers were examined in the relevant sections.",
+      "Equal-depth and generic variational threshold statements are known and expressly not originality claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers forward equations and numerical critical-wavenumber minimization, not the complete unequal-depth bifurcation and critical law",
+        "evidence": [
+          "Nuclear Fusion 50 (2010) 115005, published 2010-09-30; equations (1)–(4) and page 3 state the finite-layer criterion and discuss numerical minimization."
+        ],
+        "identifier_or_url": "https://engineering.purdue.edu/CMUXE/GenaPDFs/NF-2010.pdf",
+        "material_read": "PDF pages 1–3, especially equations (1)–(4), discussion immediately following Eq. (4), and the source date on title page",
+        "method": "Read extracted primary PDF text and visually inspected page 3 to confirm exact finite-depth formula",
+        "title": "Modelling of Kelvin–Helmholtz instability and splashing of melt layers from plasma-facing components in tokamaks under plasma impact",
+        "trigger": "Earliest applicable finite-layer forward dispersion and critical-shear minimization"
+      },
+      {
+        "assessment": "Defines the general variational threshold and bounds. No exact unequal-depth uniqueness criterion or critical exponent formula was identified in the inspected relevant sections.",
+        "evidence": [
+          "Section 3.2 states all-mode stability iff the shear is below a min over wavenumber; at the end of p.17 it notes the lack of a simple critical-value formula and then gives bounds."
+        ],
+        "identifier_or_url": "https://david-lannes.perso.math.cnrs.fr/wp-content/uploads/2019/01/lannesming.pdf",
+        "material_read": "Section 3.2 and Proposition 1, PDF pages 13–18, including equations (24)–(27), Stab 2, and the proof of critical-shear bounds",
+        "method": "Read indexed full-text PDF excerpts of the relevant primary sections; screenshot endpoint timed out and was not counted as a successful visual inspection",
+        "title": "The Kelvin-Helmholtz Instabilities in Two-Fluids Shallow Water Models",
+        "trigger": "Direct broader all-mode stability theorem for unequal fluid depths"
+      },
+      {
+        "assessment": "Equal-depth Kelvin–Helmholtz onset is covered by the phase-speed minimization after constant rescaling, hence excluded; unequal-depth denominators and phase boundaries differ.",
+        "evidence": [
+          "The capillary–gravity phase-speed minimum is a classical observation. The displayed difference of the two critical capillarity levels gives a direct algebraic non-equivalence check for unequal depths."
+        ],
+        "identifier_or_url": "https://www.damtp.cam.ac.uk/user/sjc1/teaching/Waves/notes.pdf",
+        "material_read": "Publicly indexed section on gravity–capillary dispersion and minimum phase speed, not a full document examination",
+        "method": "Reviewed indexed excerpt and independently derived the two-layer phase-speed denominator",
+        "title": "Finite-depth gravity–capillary phase-speed formulations",
+        "trigger": "Known Bond-number phase-speed transition may subsume an equal-depth special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f9515417-a186-4702-b7d1-c3b4e0bfc12d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural physical design task is selecting the first mode destabilized as shear increases between layers of different finite depths. The exact composite moment inequality solves the global mode-selection dichotomy, rules out simultaneous competing interior minima, gives positive square-root and quadratic threshold laws and distinguishes a distinct gravity-capillary phase-speed problem. This is an all-parameter structural classification for unequal depths, not an arbitrary finite computation, tiny numerical improvement, or restatement of the basic dispersion.",
+    "status": "PASS"
+  }
+}
