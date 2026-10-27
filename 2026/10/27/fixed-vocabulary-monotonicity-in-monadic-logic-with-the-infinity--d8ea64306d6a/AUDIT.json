@@ -1,0 +1,108 @@
+{
+  "claim": "For every fixed integer \\(k\\ge 1\\), deciding whether a sentence \\(\\varphi\\) of monadic first-order logic with equality and the infinity quantifiers is monotone in a designated unary predicate \\(P\\), over possibly empty domains and with exactly \\(k\\) unary predicates in the input signature, is \\(\\mathrm{PSPACE}\\)-complete under polynomial-time many-one reductions. \\(\\mathrm{PSPACE}\\)-hardness already holds for \\(k=1\\) in the first-order sublanguage without infinity quantifiers.",
+  "correctness": {
+    "rationale": "The non-monotonicity sentence exactly encodes a same-domain inclusion and a true-to-false change. Fixed-vocabulary rank-\\(q\\) type truncation gives polynomially many classes; the symbolic evaluation procedure stores only a bounded assignment pattern and truncated type counts. The two-element QBF construction proves \\(\\mathrm{PSPACE}\\)-hardness and is polynomial in input size.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The primary paper treats arbitrary finite predicate vocabularies and gives effective normal forms for monotonicity.",
+        "Its introduction says that computational-complexity questions are not explored.",
+        "The present claim fixes the number of predicates and proves a \\(\\mathrm{PSPACE}\\) upper and lower bound."
+      ],
+      "reasoning": "The existing decidability theorem is broader in vocabulary scope but does not imply a complexity classification. Fixing vocabulary changes the size of the rank-\\(q\\) type space from an exponential-in-signature expression to a polynomial in input rank for each fixed signature.",
+      "searches": [
+        "fixed finite vocabulary ME infinity monotonicity decision complexity monadic predicate logic infinity quantifier fixed number of predicates",
+        "monadic first-order logic with infinity quantifier fixed number of unary predicates positive fragment monotonicity complexity",
+        "arXiv:1809.03262; DOI:10.1007/s00153-021-00797-0"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1809.03262",
+      "DOI:10.1007/s00153-021-00797-0",
+      "Papadimitriou, Computational Complexity (1994), Theorem 4.11"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary source proves effective normal forms and decidability but does not state a \\(\\mathrm{PSPACE}\\) bound.",
+        "The rank-\\(q\\) type equivalence yields at most \\((q+2)^{2^{k+1}}\\) type-count vectors for a signature with \\(k+1\\) predicates.",
+        "TQBF is \\(\\mathrm{PSPACE}\\)-complete; the two-element construction translates its truth into monotonicity using one predicate."
+      ],
+      "reasoning": "Decidability and an effective translation do not imply PSPACE membership. The upper bound requires the fixed-vocabulary type-count enumeration and symbolic evaluation; the lower bound requires the explicit QBF encoding. Neither conclusion follows merely from the prior decidability result.",
+      "searches": [
+        "arXiv:1809.03262, sections on rank-\\(q\\) normal forms and monotonicity",
+        "DOI:10.1007/s00153-021-00797-0, introduction and normal-form theorem",
+        "Papadimitriou 1994, Computational Complexity, Theorem 4.11"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The preprint uses FOE-infinity notation and the later paper uses ME-infinity notation for monadic first-order logic with equality and the infinity quantifier.",
+        "The source's rank-\\(q\\) equivalence separates exact counts below \\(q\\), finite counts at least \\(q\\), and infinite type cells."
+      ],
+      "reasoning": "The aliases describe the same monadic language, but the inspected source proves decidability rather than the fixed-vocabulary \\(\\mathrm{PSPACE}\\) classification. No equivalent complexity statement was found in the inspected text.",
+      "searches": [
+        "fixed finite vocabulary ME infinity monotonicity decision complexity monadic predicate logic infinity quantifier fixed number of predicates",
+        "monadic first-order logic with infinity quantifier fixed number of unary predicates positive fragment monotonicity complexity",
+        "ME infinity logic quantifier rank normal form number of unary types fixed vocabulary complexity",
+        "arXiv:1809.03262; DOI:10.1007/s00153-021-00797-0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact fixed-vocabulary monotonicity-complexity entry appeared in the targeted searches; returned nearby items concerned different questions such as finite spectra and modal zero-one laws."
+      ],
+      "reasoning": "A finite database or enumerative table is inapplicable to a decision-problem completeness theorem. The relevant comparison is the primary literature and the semantic search results; absence of a hit is not used alone as a novelty proof.",
+      "searches": [
+        "fixed finite vocabulary ME infinity monotonicity decision complexity monadic predicate logic infinity quantifier fixed number of predicates",
+        "monadic first-order logic with infinity quantifier fixed number of unary predicates positive fragment monotonicity complexity",
+        "ME infinity logic quantifier rank normal form number of unary types fixed vocabulary complexity",
+        "monadic first-order logic fixed number of unary predicates PSPACE complete satisfiability",
+        "fixed signature monadic predicate logic satisfiability complexity PSPACE"
+      ]
+    },
+    "rationale": "The inspected primary paper establishes normal forms and decidability, and explicitly states that computational-complexity questions are not explored. Targeted searches found adjacent monadic-logic results but no matching fixed-vocabulary \\(\\mathrm{PSPACE}\\) classification. The fixed-signature upper bound and the one-predicate QBF reduction are proved here. Search failure alone is not treated as proof of novelty.",
+    "residual_risks": [
+      "Targeted literature searches are not exhaustive; an unlocated fixed-signature complexity result could affect originality.",
+      "The polynomial-space evaluator is described symbolically; no implementation or independent external validation is claimed.",
+      "The complexity statement is only for fixed k and does not imply a uniform polynomial bound as k varies."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source establishes decidability and normal forms but does not contain the fixed-vocabulary \\(\\mathrm{PSPACE}\\) classification; the paper explicitly leaves complexity questions unexplored.",
+        "evidence": [
+          "arXiv:1809.03262, Sections 3 and 4",
+          "DOI:10.1007/s00153-021-00797-0, rank-\\(q\\) equivalence and monotonicity sections"
+        ],
+        "identifier_or_url": "arXiv:1809.03262; DOI:10.1007/s00153-021-00797-0",
+        "material_read": "Read the primary preprint and lawful open-access full text, including the rank-\\(q\\) type equivalence, the ME-infinity normal form, and the monotonicity section.",
+        "method": "Compared the definitions of monotonicity and the exact type-count categories with the upper-bound construction; checked the introduction's discussion of complexity scope.",
+        "title": "Model Theory of Monadic Predicate Logic with the Infinity Quantifier",
+        "trigger": "Same language and same semantic property of monotonicity; plausible primary source for equivalence and prior coverage."
+      },
+      {
+        "assessment": "Supports the source problem's complexity; it does not cover the monadic-logic claim itself.",
+        "evidence": [
+          "Papadimitriou, Computational Complexity, Theorem 4.11"
+        ],
+        "identifier_or_url": "Papadimitriou, 1994, Theorem 4.11",
+        "material_read": "Read the theorem statement and proof excerpt for TQBF \\(\\mathrm{PSPACE}\\)-completeness.",
+        "method": "Used the standard completeness theorem and supplied an explicit polynomial-size translation to a one-predicate monotonicity instance.",
+        "title": "Computational Complexity",
+        "trigger": "Standard PSPACE-hard source problem for the lower-bound reduction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8ea6430-6d6a-4da2-86d3-7fec03f2128e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a sharp complexity classification for a natural fixed-signature regime left open by the inspected normal-form paper's complexity discussion. The one-predicate hardness result shows that fixing vocabulary does not remove the essential PSPACE difficulty.",
+    "status": "PASS"
+  }
+}
