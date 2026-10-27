@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For every n>=1, exact CTMC conditional expectations give C_j=sum c_i z_i^j. The Bernoulli square identity and independence give T_j=sum c_i(1-2pi_i) z_i^(2j). Strictly positive c_i and pairwise distinct z_i make the covariance Hankel pencil identifiable and its determinant positive. The second Vandermonde inverse uniquely restores pi_i and hence both rates. The two-patch alias has identical full mean/covariance and opposite third centered lag-one moments; exact rational finite-state enumeration of examples corroborates normalization and signs. The universal theorem rests on the analytical proof, not finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fukaya and Royle (2013), full accessible introduction, process and observation model, simulation, results and discussion: transition matrices estimated from site-level state observations with explicit observation error.",
+        "Royle and Kéry (2007), accessible abstract and source metadata: dynamic occupancy state-space inference with heterogeneous sites and detection/non-detection data.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf addresses Geyer paired covariances and sign of reversible eigenvalues."
+      ],
+      "reasoning": "General hidden-state identification from richer observations would not itself establish the claimed minimal moment order or finite count-only observation design without additional argument. The examined models observe sites or different spectral summaries, so their stated results do not imply this specific aggregate-count inversion.",
+      "searches": [
+        "hidden finite mixture Markov processes spectral reconstruction power spectrum bispectrum third cumulant identifiability",
+        "identification superposition independent two-state Markov chains moments cumulants inverse problem",
+        "Markov models for community dynamics allowing for observation error Fukaya Royle 2013",
+        "A Bayesian state-space formulation of dynamic occupancy models Royle Kery 2007"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1890/06-0669.1 (abstract/bibliography)",
+      "doi:10.1890/12-1540.1 (accessible complete HTML article)",
+      "doi:10.1080/15326349108807208 (abstract)",
+      "published record 2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf (summary)",
+      "published record 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54 (summary)",
+      "accessible preceding scientific claim rows in three same-topic ledger parts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Royle and Kéry 2007, DOI 10.1890/06-0669.1, concerns patch-resolved occupancy models; no exact aggregate third-cumulant inversion in accessible abstract.",
+        "Fukaya and Royle 2013, DOI 10.1890/12-1540.1, accessible full article uses observed transitions at labeled sampling points to estimate discrete transition matrices.",
+        "O'Cinneide 1991 DOI 10.1080/15326349108807208, abstract states identification of renewal-process distributions from a fully observed event-point superposition under analyticity; this is not the present moment summary of state occupancy.",
+        "Classical Prony/Hankel inversion is a known sublemma, but does not recover sign of pi_i-1/2 from c_i alone."
+      ],
+      "reasoning": "Existing findings identify individual patch transition parameters using substantially richer site-level data or identify renewal event distributions; the present claim identifies independent colonization/extinction rates with finite aggregate count moment samples, plus a sharp second-order alias. A directly covering older telegraph-noise theorem remains possible but was not found.",
+      "searches": [
+        "stationary sum independent two-state Markov chains infer individual birth death rates from autocorrelation third cumulant",
+        "A Bayesian state-space formulation of dynamic occupancy models full text pdf open access",
+        "Identifiability in superpositions of renewal processes full text pdf O'Cinneide",
+        "site:arxiv.org A Bayesian state-space formulation of dynamic occupancy models Royle Kery",
+        "site:arxiv.org Identifiability in superpositions of renewal processes O'Cinneide"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Prony exponential-sum inversion recovers exponential poles and weights, but weights c_i=pi_i(1-pi_i) are symmetric under pi_i -> 1-pi_i.",
+        "O'Cinneide 1991 DOI 10.1080/15326349108807208 addresses superpositions of renewal event-point processes, not sums of stationary binary occupancy states.",
+        "published-finding corpus record 2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54 concerns Markov versus non-Markov two-time laws, not recovery within independent Markov patch aggregates."
+      ],
+      "reasoning": "The current observation is the aggregate occupancy level, not a superposition of transition-event timestamps or a single two-state trajectory. The third order resolves component-specific skew signs after Prony spectral separation; the cited aliases do not contain this exact implication.",
+      "searches": [
+        "two state telegraph signal superposition third order cumulant and autocovariance recover switching rates and stationary probabilities Prony",
+        "independent patch occupancy birth death Markov processes aggregate stationary occupancy count mean covariance identify colonization extinction rates up to parameter flipping",
+        "sum of two-state Markov chains identifiability",
+        "identifiability superposition independent telegraph processes mean autocovariance third order moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Reviewed accessible own ledger claim strings and item identifiers across three latest relevant parts: no aggregate continuous-time independent patch turnover third-cumulant inverse claim located.",
+        "Search hits closest by meaning were 2026/9/20/SCOPE-klausmeier-identifiability-fisher-correlation-floor--962dc48d4a2e and 2026/9/21/SCOPE-two-visit-nmixture-nonparametric-identification--1c1f6450764b; they concern different observation models."
+      ],
+      "reasoning": "The cited searches and available claim rows reveal no exact matching ledger entry. This negative search is not taken as proof of global uniqueness; comparison relies additionally on the explicit model and implication distinctions.",
+      "searches": [
+        "dynamic occupancy aggregation temporal moments exact identification colonization extinction finite autocovariance lags",
+        "dynamic occupancy aggregation temporal moments exact identification colonization extinction finite autocovariance lags",
+        "own scientific claims checked in 2026-10_week3__private research ledger__p0001_g000006.jsonl",
+        "own scientific claims checked in 2026-10_week2__private research ledger__p0001_g000029.jsonl",
+        "own scientific claims checked in 2026-10_week2__private research ledger__p0002_g000102.jsonl"
+      ]
+    },
+    "rationale": "The general Prony exponential-sum recovery of decay factors and covariance weights is known and is not claimed. The assessed mathematical contribution is the exact third-order reconstruction of direction-specific colonization/extinction rates from only aggregate count time series, the explicit finite observation design, and the sharp two-patch failure of all stationary first- and second-order data. A full accessible 2013 ecological Markov-transition paper develops site-resolved transition inference rather than this summary-data inversion. Other inspected metadata and mathematical-record statements concern different observation models. Potential equivalent results in factorial hidden Markov/telegraph-noise literature remain an acknowledged bibliographic risk.",
+    "residual_risks": [
+      "A direct earlier spectral/factorial hidden-Markov or multiple-telegraph-source identifiability theorem might specialize to the exact moment-order statement; none was located in searches.",
+      "Full text of Royle–Kéry 2007 and O'Cinneide 1991 was unavailable; only abstracts were used to assess the difference of observation models.",
+      "The moment inversion may be numerically ill-conditioned for nearly equal turnover rates; no robustness theorem is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: uses site-resolved categorical states and Bayesian estimates, not a finite covariance/third-cumulant inversion of aggregate count.",
+        "evidence": [
+          "Article sections Introduction, The Model, Simulation, Results, Discussion, DOI 10.1890/12-1540.1"
+        ],
+        "identifier_or_url": "https://esajournals.onlinelibrary.wiley.com/doi/10.1890/12-1540.1",
+        "material_read": "Accessible complete article: introduction, process/observation specifications, simulations, results and discussion, including transitions observed at fixed grid points.",
+        "method": "Read complete HTML article sections and compared observation model and stated identification aims.",
+        "title": "Markov models for community dynamics allowing for observation error",
+        "trigger": "Full directly relevant ecological transition inference"
+      },
+      {
+        "assessment": "PARTIAL: the stated model is patch-resolved and does not announce this aggregate-count finite-moment theorem, but unexamined portions leave a minor coverage risk.",
+        "evidence": [
+          "Publisher first-public date 2007-07-01; DOI 10.1890/06-0669.1; abstract discusses detection/non-detection and state-space occupancy."
+        ],
+        "identifier_or_url": "https://esajournals.onlinelibrary.wiley.com/doi/10.1890/06-0669.1",
+        "material_read": "Accessible abstract and citation bibliography only; complete publisher text unavailable.",
+        "method": "Inspected source abstract and metadata, searched for arXiv and lawful open-access copies; attempted institutional retrieval but access unavailable.",
+        "title": "A Bayesian state-space formulation of dynamic occupancy models",
+        "trigger": "Earliest verified ecological occupancy model motivating question"
+      },
+      {
+        "assessment": "PARTIAL, distinct process: it identifies independent renewal event distributions from superposed point events, not finite stationary occupancy-count moments. A broader application is unverified.",
+        "evidence": [
+          "1991 journal article, DOI 10.1080/15326349108807208; accessible abstract describes analytic renewal-process intensities and full event superposition."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/15326349108807208",
+        "material_read": "Publisher abstract and bibliographic material only; complete paper inaccessible.",
+        "method": "Searched arXiv and lawful open-access sources, then institutional retrieval; only abstract available.",
+        "title": "Identifiability in superpositions of renewal processes",
+        "trigger": "Plausible superposition identifiability under different observation variables"
+      },
+      {
+        "assessment": "DIFFERENT: paired-covariance squaring loses eigenvalue signs; does not claim species occupancy rate inversion.",
+        "evidence": [
+          "The published summary concerns reversible transition spectral sign information."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-information-loss-of-paired-autocovariances-in-reversible-c--9b73a3cd0fdf",
+        "material_read": "Indexed public title and summary only, not underlying full text.",
+        "method": "Semantic search and mathematical statement comparison on returned summary.",
+        "title": "Exact information loss of paired autocovariances in reversible chains",
+        "trigger": "Possible spectral sign alias"
+      },
+      {
+        "assessment": "DIFFERENT: compares Markov and non-Markov alternating renewal processes with identical two-time laws; not finite third-order identification of independent binary Markov components.",
+        "evidence": [
+          "Published summary explicitly concerns Markov vs non-Markov two-time law aliasing."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/21/SCOPE-stationary-alternating-renewal-markov-pair-law-aliasing--2fe27acb9c54",
+        "material_read": "Indexed public title and summary only.",
+        "method": "Semantic search and implication comparison.",
+        "title": "Markov two-time laws do not identify memorylessness in stationary alternating renewal processes",
+        "trigger": "Potential related indistinguishability at two-time order"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f12ed59f-eaea-41b0-acbd-7f87411ec235",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural ecological monitoring inverse question asks whether unlabeled aggregate patch-richness trajectories can reveal individual colonization and extinction mechanisms. The finding gives a complete all-size identifiability theorem and an explicit finite observation protocol under distinct relaxation, and sharply identifies the unavoidable second-order information loss already with two patches. It is not merely known Prony pole recovery: the latter leaves a genuine occupation-direction ambiguity that the temporal third cumulant resolves. Assumptions and lack of noisy-sample stability are explicit.",
+    "status": "PASS"
+  }
+}
