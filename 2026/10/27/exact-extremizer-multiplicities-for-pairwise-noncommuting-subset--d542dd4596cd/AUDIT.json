@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Directly computed XY-YX coordinates; proved complete d!=0 commuting-fiber partition and sizes; established symplectic reduction for d=0, nonzero (a,f); proved d=a=f=0 elements exclude enough fibers to miss the maximum; bijection of equality cases gives factorization. Exact standard-library verifier exhaustively enumerates all 40 projective points, 2880 size-seven cliques and no size-eight clique, and independently checks one size-32 noncommuting UT4(F3) witness and the integer identity. No finite experiment is used as an infinite-field proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaur-Sharma-Singh arxiv:2006.01493v1 Theorem 6.1 branching matrix",
+        "Majeed-Ramkumar arxiv:2608.09235v1 Theorems 5.6,6.4"
+      ],
+      "reasoning": "The first counts commuting conjugacy tuples, not extremal independent subsets. The second gives independence-number reduction but does not imply the multiplicity factor without equality-fiber size and exclusion lemmas; these are separately proved.",
+      "searches": [
+        "Branching rules and commuting probabilities for Triangular and Unitriangular matrices arxiv 2006.01493 Section 6",
+        "Commuting Graph of Unitriangular Group UT(4,p) arxiv 2608.09235 section 6",
+        "maximal pairwise noncommuting group subset UT4(q) partial ovoid and exact multiplicity q(q-1) lifts"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2006.01493v1",
+      "arxiv:2608.09235v1",
+      "Lansdown-DesignsInFiniteGeometry-RWTH-808714",
+      "published-research semantic searches listed under equivalent_formulations, broader_coverage, exact_database_or_table, claim_vs_prior_implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 6.4 in arxiv:2608.09235v1: alpha = p^3-p+1+alpha(L0*)",
+        "Full component analysis in RESULT.md Sections Proof steps 2–6"
+      ],
+      "reasoning": "Knowing only the optimum size or number of symplectic heptads does not determine the number of optimizing group subsets; all fiber sizes, independent lifting choices, cross-compatibility and absence of residual maximizers must be proved. These provide a genuine finer invariant.",
+      "searches": [
+        "arxiv 2608.09235 Theorem 6.4 independent number UT4",
+        "number of maximum independent sets in commuting graph of UT(4,3) 2^37 3^61"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Majeed-Ramkumar arxiv:2608.09235v1 Theorem 6.4 pp14-15",
+        "Lansdown thesis Chapter 4 Table 4.1 PDF page 63"
+      ],
+      "reasoning": "Maximum cliques of the noncommuting graph equal independent sets of the commuting graph; after projectivization the residual problem is line-avoiding partial ovoids. The known independence-number reduction and known 2880 heptads do not state or enumerate group-theoretic maximizing choices.",
+      "searches": [
+        "unitriangular 4 matrices over field F3 exact number maximum pairwise noncommuting 32 subsets 2^37 3^61 864 2880 partial ovoid",
+        "maximal pairwise noncommuting group subset UT4(q) partial ovoid and exact multiplicity q(q-1) lifts",
+        "symplectic W(3,3) 7 partial ovoid maximum independent sets UT4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Lansdown Designs in finite geometry Table 4.1 PDF page 63: 2880 depth-seven nodes, 40 projective points",
+        "New standalone exhaustive verify.py: 864 cliques avoid fixed line and 0 eight-cliques"
+      ],
+      "reasoning": "The 2880 full-geometry count is known and not claimed as new. The line-avoiding subset count and group fiber multiplicities are further derived facts. Relevant published-research search retrieved no exact table of UT4 maximum sets.",
+      "searches": [
+        "Designs in finite geometry Lansdown maximum partial ovoids W(3,3) 2880",
+        "unitriangular 4 matrices over field F3 exact number maximum pairwise noncommuting 32 subsets 2^37 3^61 864 2880 partial ovoid"
+      ]
+    },
+    "rationale": "Compares prior statement implications, not titles. Kaur-Sharma-Singh covers branch matrices and commuting tuple probabilities, not extremal noncommuting families; Majeed-Ramkumar already provides alpha reduction (explicitly prior), but not the exact count of equality cases; Lansdown counts 2880 partial ovoid heptads (explicitly prior), not the 864 line-disjoint lifts or 2^37 3^61 group extremizers. Searches found no directly dominating equality-case formula. Residual possibility of unlocated general reduction is recorded.",
+    "residual_risks": [
+      "A general unpublished or poorly indexed theorem on maximum independent sets of UT4 commuting graphs may count all equality cases under different terminology.",
+      "The all-field formula reduces the finite-geometry parameters beta_q and h_q instead of evaluating them for every q; numeric evaluation is proved only for q=3.",
+      "Earlier source describes independence-number decomposition; its existence limits the originality claim to exact extremizer multiplicities and the line-disjoint symplectic lift classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers commuting tuple branching, not enumeration of noncommuting maximum subsets",
+        "evidence": [
+          "https://arxiv.org/pdf/2006.01493",
+          "https://arxiv.org/abs/2006.01493"
+        ],
+        "identifier_or_url": "arxiv:2006.01493v1",
+        "material_read": "Full-text PDF Section 6 pp49-53, especially Theorem 6.1 branching matrix and centralizer propositions",
+        "method": "Full-text arXiv PDF line inspection and page screenshot",
+        "title": "Branching rules and commuting probabilities for Triangular and Unitriangular matrices",
+        "trigger": "Same group family and commutation enumeration"
+      },
+      {
+        "assessment": "Cardinality reduction is explicitly covered and excluded as novelty; theorem does not enumerate number of maximum noncommuting sets",
+        "evidence": [
+          "https://arxiv.org/pdf/2608.09235"
+        ],
+        "identifier_or_url": "arxiv:2608.09235v1",
+        "material_read": "Full-text PDF Sections 5–6, Theorem 6.4 pp14–15, Theorem 6.5 pp15–16",
+        "method": "Full-text arXiv PDF inspection including page screenshot and stated bounds",
+        "title": "Commuting Graph of Unitriangular Group UT(4,p)",
+        "trigger": "Exact same group and commuting graph"
+      },
+      {
+        "assessment": "Previously establishes 2880 seven-point partial ovoids and absence of larger; used as prior input, not claimed as new",
+        "evidence": [
+          "https://publications.rwth-aachen.de/record/808714/files/808714.pdf"
+        ],
+        "identifier_or_url": "https://publications.rwth-aachen.de/record/808714/files/808714.pdf",
+        "material_read": "Chapter 4 pp47–49, especially Table 4.1 on PDF page 63",
+        "method": "Full-text PDF passage and screenshot of Table 4.1",
+        "title": "Designs in finite geometry",
+        "trigger": "Symplectic W(3,3) maximum partial-ovoid census potentially dominates finite claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d542dd45-96cd-42c1-ab59-5c6d4ac1f3b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Maximum noncommuting-set multiplicity is a natural refinement of independence number and determines all extremal configurations, not a cosmetic parameter. The explicit all-prime-power lift bijection ties a nonabelian group invariant to a symplectic partial-ovoid problem; the exact q=3 evaluation yields a large sharp finite benchmark for the 729-element group.",
+    "status": "PASS"
+  }
+}
