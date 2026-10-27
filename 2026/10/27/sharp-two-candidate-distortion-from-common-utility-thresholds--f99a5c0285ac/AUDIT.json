@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Under unit-sum two-candidate utilities, the intersection of both reports partitions x into the reflected mesh. The midpoint rule achieves (1+w)/(1-w) for every n; two voters in a maximum-width cell and its reflection force the same value. At most 2t+1 cells imply w>=1/(2t+1), with equality iff all reflected cuts are uniform. All boundary conventions addressed by limits. Standalone Fraction checker passed 57,568 assertions for 639 threshold sets; infinite proof is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Latifian–Nilipour–Voudouris Theorem 3.6 gives distortion at most 2(2m)^(1/t); Corollary 4.5 gives order m^(1/t) in a different asymptotic regime, not the exact m=2 value.",
+        "Latifian–Voudouris arXiv:2401.09858 uses one-to-one assignment of distinct items, rather than choosing one collective winner.",
+        "Mandal–Procaccia–Shah–Woodruff 2019 sections 3–4 give bit-budget distortion tradeoffs and not an exact fixed-vector two-candidate mesh law."
+      ],
+      "reasoning": "Substitution m=2 in the general bounds is not equality and does not infer the asserted 1+1/t frontier; matching feasibility does not reduce to a single selected winner. Broad communication-distortion tradeoffs also do not imply an exact common-threshold minimax identity.",
+      "searches": [
+        "published-finding corpus: Latifian Nilipour Voudouris The Distortion of Threshold Approval Multiwinner Voting m=2 k=1 deterministic single winner optimal thresholds",
+        "web: unit sum two alternatives exact distortion approval thresholds equally spaced threshold voting",
+        "Source inspection: arXiv:2610.13725 Theorems 3.6, 4.3 and Corollary 4.5; arXiv:2401.09858 Sections 3-4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.13725, Sections 1-4 and result statements",
+      "arXiv:2401.09858, model, bounds and matching setting",
+      "Mandal et al. 2019, PDF introduction and communication lower-bound sections",
+      "Ebadian–Latifian–Shah, PDF abstract/model/runoff definitions",
+      "published-finding corpus exact two-candidate threshold distortion searches listed in four named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.13725 permits two candidates and one seat but states nonsharp 2(2m)^(1/t) upper bound and asymptotic theta(m^(1/t)) lower for single winners.",
+        "arXiv:2401.09858 analyzes item-to-agent matching, structurally different from a winner chosen for all agents.",
+        "Mandal et al. 2019 analyze general communication limits, not the reflection-pair threshold-design problem.",
+        "Ebadian et al. threshold-approval runoff additionally elicits second-stage pairwise preferences and so has different information and output semantics."
+      ],
+      "reasoning": "None of the inspected implications yields the exact mesh-width distortion, two-voter universal lower bound, optimized 1+1/t constant, and 2^t classification. The scalar reflection due to two-candidate unit-sum is essential. Residual priority uncertainty is disclosed.",
+      "searches": [
+        "Primary: https://arxiv.org/abs/2610.13725 (model, deterministic upper and lower bound sections)",
+        "Primary: https://arxiv.org/abs/2401.09858 (matching model and bounds)",
+        "Primary: https://www.cs.toronto.edu/~nisarg/papers/thrifty.pdf (NeurIPS 2019 introduction and Sections 3-4)",
+        "Primary: https://www.cs.toronto.edu/~nisarg/papers/distortion-approval-runoff.pdf (model and Theorems)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.13725 Section 2.1 establishes threshold information and nonnegative unit-sum utility; Theorems 3.6 and 4.3 report general candidate-dependent bounds, not a symmetric-mesh identity.",
+        "published-finding corpus record 2026/9/18/SCOPE-beta-report-grid-phase-constants--a7b833f50f30 concerns Beta testing report quantization, not welfare selection.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-minimax-relaxation-for-the-operatorname-ut-2-projection-me--0a5e4bc2be28 concerns operator iteration, not threshold voting."
+      ],
+      "reasoning": "Searches included aliases exact two-alternative distortion, utility buckets, interval quantization and the symbolic formula. No retrieved statement implies the sharp two-voter reflected-cell minimax ratio or complete threshold-set classification; similarly worded records concern different optimization objects. Negative results are treated only as bounded evidence.",
+      "searches": [
+        "published-finding corpus: Two alternatives threshold approval voting exact minimax distortion one plus reciprocal number of thresholds 1+1/t optimal equal spaced thresholds",
+        "published-finding corpus: two alternative unit-sum threshold approval welfare sharp exact minimax distortion (1+w)/(1-w), where w is largest induced utility interval, 1+1/t optimal equispaced thresholds",
+        "web: two alternatives unit sum threshold approval voting minimax distortion exact thresholds 1 + 1/t"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Returned published-finding corpus records addressed voting-power comparisons, unrelated threshold statistics and beta-report quantization. No returned record stated a two-candidate approval-threshold distortion table or the t=1, t=2 thresholds.",
+        "Direct searches for the proposed 1+1/t law yielded the 2026 threshold-multiwinner abstract and unrelated voting-distortion settings, not a matching formula."
+      ],
+      "reasoning": "The claim is a symbolic all-t formula and complete optimizer classification rather than a table lookup. Searches are bounded and cannot exclude nonindexed exact tables.",
+      "searches": [
+        "published-finding corpus: Two candidate unit sum utility threshold elicitation deterministic minimax welfare distortion quantization interval mesh symmetric",
+        "published-finding corpus: two alternatives single winner approval thresholds 1/3 exact distortion two, k threshold 1+1/k",
+        "published-finding corpus: coarse utility elicitation two candidates exact optimal deterministic welfare loss threshold cuts interval uncertainty"
+      ]
+    },
+    "rationale": "The 2026 primary paper has general threshold-multiwinner bounds rather than this exact two-candidate fixed-vector minimax equality or optimal-threshold classification. Matching and generic communication distortion studies do not imply these exact statements. published-finding corpus aliases and mathematical formula searches showed no matching record. Historical priority remains a risk, not certified.",
+    "residual_risks": [
+      "Nonindexed or differently named exact finite-threshold distortion results may exist.",
+      "No independent historical-priority investigation or independent scientific audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest same-object source; no exact two-candidate mesh theorem or optimal threshold classification among inspected statements.",
+        "evidence": [
+          "Published first 2026-10-09 UTC; Theorem 3.6 has universal 2(2m)^(1/t) guarantee; Corollary 4.5 asymptotic theta(m^(1/t))."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.13725",
+        "material_read": "Full publicly accessible HTML exposition; model Section 2.1, key results Section 1.1, deterministic bound Sections 3.1–3.2 and lower bound Sections 4.1 and corollaries, including theorem context and proofs.",
+        "method": "Inspected primary HTML sections, mathematical conditions and theorem statements rather than abstract alone.",
+        "title": "The Distortion of Threshold Approval Multiwinner Voting",
+        "trigger": "Same threshold information and single-winner subclass"
+      },
+      {
+        "assessment": "Matching constraints cannot imply the two-candidate common winner optimality formula by parameter specialization.",
+        "evidence": [
+          "Theorem scope is allocating items separately to agents, not a single common candidate."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.09858",
+        "material_read": "Public HTML introduction, model, deterministic lower-bound proof and upper-bound statements, generalized matching setting.",
+        "method": "Compared feasible output and theorem quantifiers in the primary body.",
+        "title": "The Distortion of Threshold Approval Matching",
+        "trigger": "Same shared utility thresholds and unit-sum values, different assignment output"
+      },
+      {
+        "assessment": "General bit-budget tradeoffs and nonlinear alternative elicitation; no inspected sharp two-alternative common-threshold formula.",
+        "evidence": [
+          "2019 introduction explicitly considers whether more thresholds help; Section 4 studies generic bit-budget constraints."
+        ],
+        "identifier_or_url": "https://www.cs.toronto.edu/~nisarg/papers/thrifty.pdf",
+        "material_read": "18-page primary PDF, introduction, elicitation framework, Sections 3–4 central statements and proof setup; not every supplementary detail.",
+        "method": "Read PDF text for relevant paragraphs and inspected rendered title page.",
+        "title": "Efficient and Thrifty Voting by Any Means Necessary",
+        "trigger": "General communication-distortion theorem including multiple thresholds and cardinal elicitation"
+      },
+      {
+        "assessment": "Second-stage runoff uses extra ordinal comparisons; no direct coverage of one-stage multi-threshold exact distortion.",
+        "evidence": [
+          "Section 3.2 introduces additional pairwise runoff rankings, distinguishing information structure."
+        ],
+        "identifier_or_url": "https://www.cs.toronto.edu/~nisarg/papers/distortion-approval-runoff.pdf",
+        "material_read": "21-page primary PDF, abstract, model and Section 3.1 and relevant theorem context; not all appendices.",
+        "method": "Read PDF text and inspected rendered title page.",
+        "title": "The Distortion of Approval Voting with Runoff",
+        "trigger": "Single winner unit-sum threshold approval and possibly covering case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f99a5c02-85ac-4ac6-ab28-ca0f71d95351",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the exact smallest multi-alternative utilitarian election, resolves a natural designer-controlled threshold count versus worst-case welfare frontier. Identifies the all-electorate sharp bound, a two-voter lower certificate, an optimal additive equispaced report mesh and every attaining threshold set; the 1+1/t rate is not a routine substitution in the published multiplicative bounds. The two-candidate scope and truthful report assumption are explicit.",
+    "status": "PASS"
+  }
+}
