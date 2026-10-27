@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness: PASS.** The proof reconstructs the sketched extractor from its Gram matrix and residual factorization, proves the sharp dimension-independent off-diagonal Gram-block estimate, and proves the sharp real two-by-two nonreal-eigenvalue perturbation bound. A four-dimensional positive-definite input realizes both extrema simultaneously, including the real defective boundary; exact rational identities and seeded tests are reproducible in `verify.py`. Matrix norm, gap, embedding normalization, residual rank, and all boundary quantifiers are explicit. Numerical checks are not used as infinite proofs.
+
+**Originality: PASS, with residual bibliographic risk.** Full-text inspections of the closest sketched-eigensolver sources disclose complex eigenvalues and nonsharp local perturbation reasoning, but not this exact sharp residual–gap–embedding boundary, the maximal imaginary-part envelope, or a matching positive-definite witness. The earlier symmetric eigensolver warning and the classical two-dimensional matrix perturbation mechanisms are acknowledged. Specialized older or unindexed equivalent statements remain possible; searches are not proofs of global novelty.
+
+**Mathematical value: PASS.** This is a complete sharp deterministic robustness classification in terms of natural, accessible numerical-algorithm quantities: two Ritz values' separation, the residual norm, and the squared-norm sketch distortion. It supplies an actionable safe-embedding threshold and explains exactly when real-Schur handling of a complex two-by-two block can be necessary. The four-dimensional positive-definite witness establishes that the threshold is unavoidable even for favorable symmetric input. It is not merely a generic existence counterexample or an arbitrary numerical parameter slice.
+
+**Closest literature:** Liu and Liu, arXiv:2610.22261v1 (full text, §§3 and 5); Nakatsukasa and Tropp, arXiv:2111.00113 (sketched Rayleigh–Ritz, especially symmetric case); Gubler et al., arXiv:2608.24529 (distinct Hermitian generalized extraction); classical matrix perturbation and distance-to-defectivity theory. Related previously indexed claims concerning spectral-filter residual amplification or projected-eigenpair certification are not implication-equivalent.
+
+**Limitations:** Exact arithmetic, two trial vectors, a squared-norm embedding on the entire span of trial and matrix-applied vectors. Random sketch likelihoods, larger extraction dimensions, and alternative generalized Hermitian extractions are not covered. Independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
