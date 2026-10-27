@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For distinct prime factors the cross-divisibility criterion is exact. The \(p=2\) family is accounted for separately. At every fixed odd prime, PNT in arithmetic progressions gives the coefficient \(1/[p(p-1)]\). Brun–Titchmarsh makes the normalized contribution from all primes in \((Y,x^{1/4}]\) uniformly bounded by the convergent prime-series tail, while the elementary progression count bounds the remaining moduli by \(O(x^{3/4}+\sqrt x)\). Every endpoint is covered. The package's finite checker reproduces direct gcd computations but is not used to infer the limiting theorem.
+
+**Originality — PASS, with specified access risk.** The full text of the directly neighboring published semiprime result states only \(E(x)=O(x/\log x)\), and explicitly disclaims a leading constant. Neither that statement nor Pollack's full general-integer inequalities implies the displayed limit. Zbiek's 1983 full article supplies historical structural facts and qualitative counts, not a prime-series asymptotic. Original Duffy (1979) and Luca (2007) papers remain unverified at whole-document depth; their records, along with OEIS A003624, do not decisively cover the precise statement. The new result is not claimed unique among all inaccessible works.
+
+**Mathematical value — PASS.** The exact leading coefficient measures the natural, order-\(x/\log x\) exceptional layer suppressed by the qualitative relative-density-one theorem. It separates the asymptotically dominant contribution of even semiprimes from the positive convergent contribution of every fixed odd prime and gives a natural quantitative invariant needed to distinguish competing models for the thin exceptional set. The calculation is structural and unbounded in the modulus: a finite census or the prior big-O statement alone cannot supply it.
+
+**Closest prior results and limitations.** The 1983 historical article, Pollack (2011), OEIS A003624 and the published semiprime density-one theorem were directly inspected. Full original Duffy (1979) and Luca (2007) contents could not be checked. The theorem is for squarefree semiprimes only and makes no effective-error claim.
+
+Self-review: passed. Independent audit: not yet performed.

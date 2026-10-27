@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "Cross-divisibility analysis is exhaustive for p<q. Fixed-p PNT(AP) yields exact term x/[p(p-1)log x]. Uniform BT bounds p<=x^1/4 tails by 4x/logx sum_{p>Y}1/[p(p-1)]; trivial progression bound gives O(x^3/4+sqrt x)=o(x/logx) for larger p. Letting Y grow proves the convergent constant. Finite counts and rational tail bound independently checked by verify.py.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pollack gives general-integer tail bounds for gcd(n,sigma(n)), not a fixed-prime-support exact asymptotic.",
+        "Zbiek discusses definition, factorization condition, density heuristics and infinitude, without the claimed semiprime constant."
+      ],
+      "reasoning": "Broad gcd distribution and structural Duffinian criteria do not imply a fixed-support constant by themselves; the proof uses both fixed-modulus prime distribution and a separate uniform tail.",
+      "searches": [
+        "semiprimes gcd(n sigma(n)) exceptional sum prime reciprocal constant asymptotic",
+        "Duffinian numbers Duffy 1979 Pollack Luca semiprime complement",
+        "Pollack 2011 On the greatest common divisor of a number and its sum of divisors, pp. 1-15, Theorems 1.1-1.4",
+        "Zbiek 1983 What can we say about the Duffinian numbers, pp. 99-109"
+      ]
+    },
+    "checked_sources": [
+      "published-finding corpus published squarefree-semiprime 2026/10/4 record full RESULT.md",
+      "Paul Pollack 2011 original 15pp PDF",
+      "Rose Mary Zbiek 1983 original full article",
+      "OEIS A003624 full public entry",
+      "OEIS A009194 entry",
+      "Duffy 1979 and Luca 2007 bibliographic records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest published theorem: B(x)=O(x/logx); explicit limitation: no leading constant claimed.",
+        "Current statement: lim B(x)log x/x=1/2+sum_{odd p}1/[p(p-1)] >0.77315."
+      ],
+      "reasoning": "Exact convergence to a strictly positive explicit constant is strictly stronger than a big-O bound, and is not deduced by a pointwise local criterion without nontrivial uniformity as prime modulus grows.",
+      "searches": [
+        "count asymptotic of exceptional non-Duffinian squarefree semiprimes pq with constant half plus sum prime 1/(p(p-1))",
+        "gcd(pq,(p+1)(q+1))>1 noncoprime divisor sum semiprime sharp asymptotic constant prime sum",
+        "GitHub raw full RESULT.md for published-finding corpus 2026/10/4/SCOPE-almost-all-squarefree-semiprimes-are-duffinian--15a95ebe2dc2",
+        "Pollack 2011 complete 15-page PDF"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The equivalence gcd(pq,sigma(pq))>1 iff p=2 or q=-1 mod p for p<q is already known and acknowledged.",
+        "Published RESULT.md gives exact criterion; its result stops at an O(x/log x) count."
+      ],
+      "reasoning": "The new object is exactly the complementary count among distinct-prime semiprimes; no distinction by renaming is asserted. An equivalent exact constant would require the limit, not just the criterion.",
+      "searches": [
+        "Duffinian semiprimes p q almost all squarefree semiprimes, exceptional q congruent -1 modulo p, quantitative asymptotic",
+        "Duffinian semiprime asymptotic constant gcd sigma",
+        "OEIS A003624",
+        "Pollack 2011 full text combined3.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A003624 lists example Duffinian numbers and dated provenance, not E(x)logx/x.",
+        "Closest published-finding corpus ID 2026/10/4/SCOPE-almost-all-squarefree-semiprimes-are-duffinian--15a95ebe2dc2 has no leading constant."
+      ],
+      "reasoning": "A table of individual positive integers and an order bound cannot provide the universal convergence and explicit constant asserted here.",
+      "searches": [
+        "OEIS A003624 Duffinian numbers",
+        "OEIS A009194 gcd(n,sigma(n))",
+        "published-finding corpus search: count asymptotic of exceptional non-Duffinian squarefree semiprimes pq with constant half plus sum prime 1/(p(p-1))"
+      ]
+    },
+    "rationale": "Exact prime-series leading constant is absent from the closest published squarefree-semiprime result, whose full RESULT.md explicitly asserts only O(x/log x). The stronger exact asymptotic is neither implied by that bound nor by Pollack's general-integer inequalities. The examined 1983 survey and OEIS data do not count this thin exceptional stratum asymptotically. Original 1979 Duffy and Luca 2007 whole texts remain unresolved access risks, explicitly disclosed.",
+    "residual_risks": [
+      "Equivalent exact constant in unlocated arithmetic-density literature is possible.",
+      "Duffy 1979 original article was not available for complete inspection; exact day of its publication is unknown.",
+      "Luca 2007 article was identified through open catalogues but full original text was not accessed; an institutional downloader attempt was blocked by access controls and not bypassed.",
+      "OEIS A003624 first exactly dated available record is 1994-09-19, although the 1979 article is older in year-only bibliographies."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_EXACT_CONSTANT",
+        "evidence": "Only O(x/log x) proved; limitation explicitly says no leading constant for exceptional semiprimes is claimed.",
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-almost-all-squarefree-semiprimes-are-duffinian--15a95ebe2dc2/RESULT.md",
+        "material_read": "Complete RESULT.md including assumptions, proof, relationship and limitations",
+        "method": "Direct public repository file read",
+        "title": "Almost all squarefree semiprimes are Duffinian",
+        "trigger": "Exact same objects and local criterion, plausibly dominating result"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_SEMIPRIME_CONSTANT",
+        "evidence": "Theorems 1.1-1.4 address gcd thresholds among all integers; no semiprime-specific asymptotic or constant.",
+        "identifier_or_url": "https://www.pollack-math.net/combined3.pdf",
+        "material_read": "Complete 15-page textual PDF including main theorems, section estimates and references",
+        "method": "Original legal author-hosted PDF text and page 1 screenshot, term and theorem inspection",
+        "title": "On the greatest common divisor of a number and its sum of divisors",
+        "trigger": "General distributions of gcd(n,sigma(n)) and Brun–Titchmarsh bounds"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_CONSTANT",
+        "evidence": "Qualitative and structural results, infinity theorem, and even-number obstruction, no explicit semiprime leading coefficient.",
+        "identifier_or_url": "https://www.kappamuepsilon.org/Pentagon/Vol_42_Num_2_Spring_1983.pdf",
+        "material_read": "Full article pages 99-109 (PDF pages 17-27), including divisibility criteria and counting discussion",
+        "method": "Text and selected page screenshots of freely accessible 1983 issue",
+        "title": "What Can We Say About the Duffinian Numbers?",
+        "trigger": "Historic dedicated treatment of Duffinian numbers and their density"
+      },
+      {
+        "assessment": "NOT_COVERING_EXACT_CONSTANT",
+        "evidence": "Lists Duffinian numbers and notes authorship Sep 19 1994, with older 1979 year-only citation. No exception-count asymptotic.",
+        "identifier_or_url": "https://oeis.org/A003624",
+        "material_read": "All sequence metadata, references, examples and current comments",
+        "method": "Public OEIS entry text",
+        "title": "OEIS A003624 Duffinian numbers",
+        "trigger": "Exact sequence and possible table coverage; first date source"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK",
+        "evidence": "The 1983 full article attributes the defining properties to Duffy but cannot establish that all Duffy statements are noncovering.",
+        "identifier_or_url": "L. R. Duffy, Journal of Recreational Mathematics 12 (1979), 112-115",
+        "material_read": "Bibliographic citation and theorem summaries in the Zbiek 1983 article; original 1979 article not accessed",
+        "method": "Citation-chain comparison only; not an original full-text inspection",
+        "title": "The Duffinian numbers",
+        "trigger": "Originating Duffinian paper plausibly contains original counting question"
+      },
+      {
+        "assessment": "UNRESOLVED_ACCESS_RISK",
+        "evidence": "Catalog identifies Luca 2007, pp. 167-170, with no inspected proof content; no stronger noncoverage claim made.",
+        "identifier_or_url": "DOI:10.35834/mjms/1316032973",
+        "material_read": "Bibliographic data and article metadata; full text was not accessible from discovered OA endpoint",
+        "method": "OA discovery and bibliographic inspection, without full-document coverage inference",
+        "title": "On the densities of some subsets of integers",
+        "trigger": "2007 paper linked by OEIS Duffinian entry, relevant density results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9c15c7a-ef20-4ab0-a453-78ab6d78c201",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides an exact positive first-order constant for a natural exceptional stratum of size x/log x. Previous literature had only an upper order bound and the local criterion. The constant is sensitive to every fixed odd prime and distinguishes parity contribution, enabling precise statistical predictions for non-Duffinian semiprimes. This is a motivated natural invariant, not a parameter-picked finite census.",
+    "status": "PASS"
+  }
+}
