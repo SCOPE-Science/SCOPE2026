@@ -1,0 +1,11 @@
+# Evaluation of the exact denumerant mean-square identity
+
+**Correctness — PASS.** The root-one Laurent coefficient gives the claimed polynomial part. Pairwise coprimeness makes the other cyclotomic poles simple; the three nonzero Fourier supports are disjoint over the product period. Parseval and the classical cosecant fourth-moment identity are valid for all permitted moduli, including the empty modulus-one wave. The odd-modulus mixed moment follows by an explicit identity involving \(\sec^2\). An independent exact-rational dynamic-programming checker agrees for 66 configurations. The infinite proof does not rely on those finite tests.
+
+**Originality — PASS, subject to the named residual risk.** The motivating 2026 paper supplies two quasipolynomial bounds, not this mean square. Kiran supplies the general wave decomposition but does not display this arithmetic-progression variance law in the inspected sections. Komatsu–Ying handle related Apéry/Frobenius invariants, not period-averaged squared fluctuations. Literature and research-record searches using denumerant variance, mean-square quasipolynomial error, three-term arithmetic progressions, and Fourier–Dedekind aliases did not identify an equivalent statement or a directly dominating closed form. A preexisting general formula might imply it after additional specialization; failed searches alone do not prove novelty.
+
+**Value — PASS.** The canonical polynomial-part error is a natural precision statistic for a family of restricted partitions central to recent work on exact solution counts. The theorem supplies an *exact complete-period RMS*, not an arbitrarily truncated table, and resolves the non-obvious arithmetic-progression mixed-angle contribution. It yields a quantitative scale complementary to pointwise error bounds, and its validity for every coprime step makes it a natural fixed-family invariant. Classical intermediate identities do not by themselves state the final denumerant statistic.
+
+**Scientific limits.** Odd initial terms and coprime steps only; the claim is neither a pointwise extremum nor a formula for other denomination patterns. General Fourier–Dedekind literature may contain implicit equivalent coverage. Independent verification is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "The root-one residue uniquely identifies the polynomial part. Pairwise coprime denominators give simple disjoint nontrivial poles; orthogonal Fourier supports eliminate cross terms on the full product period. Parseval reduces to pure and doubled-angle cosecant moments; the latter is evaluated exactly using csc^2(x)csc^2(2x)=(csc^4(x)+csc^2(x)+sec^2(x))/4 and multiplication identities valid at every odd modulus. The a=1 empty root sum is consistent. An independently implemented exact-rational coefficient DP confirms all 66 tested finite configurations, but the universal conclusion follows from the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://arxiv.org/html/2104.10989v3 (general Fourier wave formula; Section 7)",
+        "https://arxiv.org/html/2610.20899v2 (all pairwise-coprime triples have upper/lower bounds)",
+        "https://arxiv.org/abs/2206.13052 (triple arithmetic-progression Frobenius invariants)"
+      ],
+      "reasoning": "General Sylvester-wave formulas cover the decomposition for arbitrary denomination vectors and imply a finite trigonometric sum for the variance after an additional Parseval argument. They do not supply the closed evaluation of the doubled-angle moment or this exact RMS law; these calculations are the claimed specialization. A different general theorem not yet located could imply the same final evaluation, which is explicitly retained as a risk.",
+      "searches": [
+        "An Algebraic Approach to q-Partial Fractions and Sylvester Denumerants theorem 7.2 periodic waves",
+        "mean square periodic Sylvester denumerant restricted partition functions",
+        "Ehrhart quasipolynomial variance mean square periodic fluctuation restricted partitions three arithmetic progression"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.20899v2",
+      "https://arxiv.org/html/2104.10989v3",
+      "https://arxiv.org/abs/2206.13052",
+      "https://combinatorialpress.com/article/jcmcc/Volume%2018/vol-18-paper%2021.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://arxiv.org/html/2610.20899v2 (Theorem C: bounded gap of two approximants, not an exact RMS)",
+        "https://arxiv.org/html/2104.10989v3 (wave Fourier expressions without arithmetic-progression mixed-moment evaluation)",
+        "https://arxiv.org/abs/2206.13052 (Apéry set and p-Frobenius results)"
+      ],
+      "reasoning": "A pointwise interval between two quasipolynomials cannot determine the quadratic average exactly. A general Fourier-wave expression supplies one key reduction but leaves the nontrivial mixed trigonometric sum to evaluate. The generalized Frobenius and Sylvester sums count different sets of arguments and do not imply the variance formula. Research-record nearest IDs concern unrelated harmonic-analytic or Frobenius phenomena, not the claim. Residual possibility of an unlocated explicit formula is acknowledged.",
+      "searches": [
+        "arxiv:2610.20899 Theorem C",
+        "arxiv:2104.10989v3 Sylvester Waves 7.1 7.2",
+        "arxiv:2206.13052 arithmetic progression triple Frobenius",
+        "Sylvester denumerant variance error periodic part mean square sum roots unity pairwise coprime",
+        "Ehrhart quasipolynomial variance mean square periodic fluctuation restricted partitions three arithmetic progression"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://arxiv.org/html/2104.10989v3 (Sections 7.1–7.2: polynomial and Sylvester-wave decomposition)",
+        "https://arxiv.org/html/2610.20899v2 (Theorem C: quasipolynomial approximation bounds)",
+        "https://arxiv.org/abs/2206.13052 (Section 3: arithmetic-progression Apéry sets)"
+      ],
+      "reasoning": "Reformulated the target as the complete-period variance of the degree-zero periodic coefficient of an Ehrhart quasipolynomial, as a Parseval norm of three Sylvester waves, and as a fourth/mixed second cosecant moment. The accessible primary sources give foundational waves or other invariants, without stating the exact resulting arithmetic-progression mean square. Absence of a matching title is not used as a proof of originality.",
+      "searches": [
+        "Exact mean square variance of periodic Fourier-Dedekind correction for denumerant of three consecutive coin denominations n,n+1,n+2, pairwise coprime, Popoviciu and Ehrhart polynomial, csc² csc² trigonometric sum",
+        "Sylvester denumerant three arithmetic progression coin sizes quadratic approximation exact mean square variance period abc",
+        "Fourier Dedekind sums exact error variance 3 generator Frobenius number",
+        "restricted partition arithmetic progression exact second moment oscillatory error",
+        "three variable denumerant exact mean squared quasipolynomial oscillation for coprime arithmetic progression coin denominations a a+d a+2d",
+        "root of unity waves variance of restricted partition function three coprime periods csc4 cosecant square sums"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/2206.13052 (generalized Frobenius numerical invariants, not averaged squared denumerant errors)",
+        "https://combinatorialpress.com/article/jcmcc/Volume%2018/vol-18-paper%2021.pdf (pointwise approximation material inspected)"
+      ],
+      "reasoning": "No exact table or database entry containing this mean-square identity was found in the searched records. The earlier arithmetic-progression literature tabulates different invariants, so those values cannot substitute for the period-averaged squared error. A missing table remains possible.",
+      "searches": [
+        "denumerant three arithmetic progression mean square error periodic wave exact formula",
+        "restricted partition arithmetic progression exact second moment oscillatory error",
+        "variance of Sylvester waves denumerant exact root mean square arithmetic progression 3"
+      ]
+    },
+    "rationale": "Relevant recent and classical sources were examined for an equivalent exact period-averaged square, including the motivating denominator-count bound, Kiran’s general Sylvester-wave formula, Komatsu–Ying arithmetic-progression Apéry theory, and Lisoněk approximation material. No final-form RMS evaluation or stronger theorem implying the explicit mixed moment without additional work was located. Published research-record queries and ledger claim comparisons found no relevant exact equivalent. Older implicit derivations remain a documented risk.",
+    "residual_risks": [
+      "A classical unpublished or unindexed explicit variance identity could already exist.",
+      "General Fourier-Dedekind results might contain a specialized formula implicitly equivalent after nontrivial summation.",
+      "Only selected pages of Lisoněk were visually inspected, so no whole-document noncoverage claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "A bound on two approximants, not exact canonical-polynomial error RMS",
+        "evidence": [
+          "Theorem C gives lower and upper quasipolynomials of period abc with difference at most (a+b)/4",
+          "The paper lists explicit solution counts and older approximations, not an exact variance law"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.20899v2",
+        "material_read": "abstract, Theorem C, its hypotheses and period bound, main section on restricted partition functions and polynomial/quasipolynomial approximation",
+        "method": "accessible complete HTML primary text and targeted document searches",
+        "title": "Enumerating Integral Points on Triangles in R^3",
+        "trigger": "Recent primary number-theory source addressing the same three-variable counting function"
+      },
+      {
+        "assessment": "Contains essential generic decomposition but no located exact three-term progression mean-square evaluation",
+        "evidence": [
+          "Section 7 supplies a polynomial term plus finite periodic Sylvester waves",
+          "No corresponding special mixed fourth trigonometric moment or closed RMS appears in inspected statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.10989v3",
+        "material_read": "abstract, Theorem 1.1.1, Sections 7.1 and 7.2 (polynomial part and periodic waves), relevant equations",
+        "method": "accessible complete HTML primary text; inspect cited statements and wave formulas",
+        "title": "An Algebraic Approach to q-Partial Fractions and Sylvester Denumerants",
+        "trigger": "Potential general Fourier-Dedekind result dominating the claimed special family"
+      },
+      {
+        "assessment": "Exact p-Frobenius and related Apéry/genus/Sylvester sum values, not the averaged square of a quasipolynomial error",
+        "evidence": [
+          "The main theorem analyzes p-Apéry sets of (a,a+d,a+2d)",
+          "The weighted sums count nonrepresentables or bounded-representation targets rather than squared periodic residuals"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2206.13052",
+        "material_read": "abstract, introduction, Sections 3 and 3.1 and the arithmetic-progression main theorem",
+        "method": "accessible full HTML extracted arXiv primary text; inspect focus, formulas and searched keywords",
+        "title": "The Frobenius Number for Sequences of Arithmetic Progressions Associated with Number of Solutions",
+        "trigger": "Same progression parameters with potential direct formula or stronger classification"
+      },
+      {
+        "assessment": "Inspected material concerns pointwise approximations; full equivalence not excluded due to partial material review",
+        "evidence": [
+          "Approximation estimates and numerical methods shown on inspected pages",
+          "No exact complete-period RMS identity on the pages inspected"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%2018/vol-18-paper%2021.pdf",
+        "material_read": "accessible front page and selected interior pages showing approximation methods, bounds and computed examples",
+        "method": "visual review of available PDF page images; not a whole-document noncoverage claim",
+        "title": "Denumerants and Their Approximations",
+        "trigger": "Plausible older directly covering approximation-accuracy invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "efd9019e-7eba-470f-bc6a-3319a61e03a0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The variance is a natural complete-period accuracy invariant of the canonical quadratic denumerant approximation central to the motivating paper. The exact closed law is valid over an infinite arithmetical family and settles a mixed doubled-angle sum not explicit in the retrieved approximation bounds. It quantifies typical error scale, complementing pointwise bounds. This is an exact, motivated invariant rather than a chosen numerical cutoff or table fit.",
+    "status": "PASS"
+  }
+}
