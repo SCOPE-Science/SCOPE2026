@@ -1,0 +1,12 @@
+# Scientific assessment: finite-cycle resetting boundary
+
+## Correctness
+PASS. The model explicitly charges one time unit for a reset and takes the target-hitting time before any reset as its baseline. The discrete boundary-value recurrence gives the exact hitting-time transform; the renewal identity then yields a rational polynomial expression for the mean. The proof explicitly covers both parities, every \(m\ge3\) and \(1\le d\le\lfloor m/2\rfloor\), and both signs, including a zero derivative at the boundary. The crucial nonstandard step is an all-coefficient positivity proof: when the quadratic coefficient is nonnegative, the coefficient ratio bounds imply every subsequent coefficient is nonnegative, with a strictly positive top coefficient. Independent exact-rational Markov-equation solutions corroborate the normalization for small sizes. Finite computations are supplementary, not the unrestricted argument.
+
+## Originality
+PASS on inspected evidence, with historical-priority risk. Riascos, Boyer, Herringer and Mateos (arXiv:1910.13568, Section III and Eq. (16)) already derive the ring's reset-dependent mean hitting time in spectral form, and Riascos, Boyer and Mateos (arXiv:2110.15437, Sections 3.2 and 4.1) already give the general infinitesimal beneficial-reset test and optimize finite rings numerically. Bonomo and Pal (arXiv:2102.00895) give related confined-walk restart renewal methods. Those formulas are not claimed as new. The exact arithmetic threshold for **all** cycle sizes and target positions and the proven absence of a delayed improvement at every reset rate, including the equality boundary, were not found explicitly in the relevant inspected material. This is a nontrivial global implication not furnished by an infinitesimal sufficient condition alone. Independent priority checking remains necessary.
+
+## Value
+PASS. Optimal restart is a natural finite-network decision problem; numerical optimization can conceal whether a barely positive resetting rate is necessary, and a local derivative test ordinarily cannot exclude a later improvement. Here one explicit inequality gives a complete finite-sample phase diagram in two integer parameters and a rigorous no-benefit guarantee at every reset probability. The positivity lemma is the structural content of that guarantee. The theorem is limited to one-step resetting, uniform nearest-neighbor moves, and one target; it does not assert optimal-rate uniqueness or a broader stochastic order.
+
+Self-review: passed. Independent audit: not yet performed.
