@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The generator-multiplicity lemma distinguishes power index at least two from locally permutational elements; the cycle/path normal form then proves the exact embedded count. A cycle-length expectation bound proves the negligible totient-weighted term, and Laguerre/Bessel saddle analysis yields the precise constant. Exhaustive independent composition enumeration for sizes one through five and exact rational formula evaluation through size six both agree. The general asymptotic is proved analytically, not inferred from experiments.
+
+**Originality — PASS, with priority limitation.** Lipscomb (1986) gives cycle/path structural representations of the same symmetric inverse semigroup, and Elliott–Levine–Mitchell (2023) explicitly count abstract isomorphism types, not embedded ordinary cyclic submonoids. The related embedded full-transformation count allows arbitrary noninjective total maps and does not imply the partial-injection Laguerre-scale law or conditional Poisson defect distribution. Actual published-finding corpus semantic searches and existing accessible research claims revealed no equivalent statement. A complete inspection of Lipscomb's 1986 article was unavailable; only its abstract and metadata were examined, making priority a real residual risk. Originality here is the specific embedded enumeration *together with* its rare-event asymptotics and domain-defect law, not the cycle/path classification itself.
+
+**Value — PASS.** Cyclic submonoids and their generator redundancies are intrinsic objects in the finite symmetric inverse monoid. The theorem distinguishes labeled embedded objects from isomorphism classes, describes exactly where redundant generators occur, identifies their sharp stretched-exponential rarity under a natural uniform model, and supplies the nondegenerate Poisson support profile of exceptional elements. These are structural and asymptotic results across all finite degrees, not a tiny numerical correction.
+
+**Limitations.** Strong classical structural overlap remains, notably Lipscomb (1986); a future full-text priority comparison and independent proof check are desirable. Finite checker executions do not certify asymptotic arguments.
+
+Self-review: passed. Independent audit: not yet performed.
