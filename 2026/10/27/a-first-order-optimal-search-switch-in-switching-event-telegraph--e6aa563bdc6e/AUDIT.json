@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The exact first-passage mean follows from Poisson thinning, a bounded telegraph backward ODE solution and the full-state renewal identity. Calculus reduces every interior critical point to q=Q(b). A/B decreases by the monotone ratio of its integral kernels, D/C has exact derivative -A/C^2, and H strictly decreases from infinity to zero. This proves a unique fold and at most two stationary points. The ratio of interior and endpoint objectives is strictly decreasing along the minimizing branch, giving exactly one global crossover. The large-q limit follows directly from the lower branch b->b0. The standalone verifier checks the differential equations, derivatives, roots and representative objective comparisons (329 deterministic checks); numerical checks do not substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Evans–Majumdar (2018) treats first passage under independent Poisson resets and reset-time velocity preservation/reversal, starting from the velocity protocol described in its abstract.",
+        "Li–Wang–Xu (2026) treats two absorbing boundaries, mean transition path time, separately chosen resetting and reversal parameters, as stated in its primary abstract.",
+        "Baouche et al. (2025) treats two-dimensional active Brownian particles with orientational resetting, not a Bernoulli split of one Poisson event budget."
+      ],
+      "reasoning": "General first-renewal methods encompass the mean-time identity, which is not claimed new. The quoted prior models do not provide the simultaneous sharp fold and unique global first-order switch under r+kappa=lambda and deterministic favorable relaunch. Because the Evans accepted manuscript could not be read in full and the Li paper was accessible only by abstract, implicit derivability is a residual risk.",
+      "searches": [
+        "Evans Majumdar 2018 run tumble resetting mean first passage starting velocity positive formula",
+        "first order transition run and tumble resetting mean first passage",
+        "Optimal transition path time of run-and-tumble particles with stochastic resetting"
+      ]
+    },
+    "checked_sources": [
+      "Di Crescenzo, Iuliano and Verasani (2026), DOI 10.1007/s10955-026-03670-7, full HTML: Eq. (1), Sec. 2 event marks, Sec. 4 exponential case, Secs. 6-7 comparison and conclusions.",
+      "Evans and Majumdar (2018), DOI 10.1088/1751-8121/aae74e, abstract and Edinburgh manuscript metadata: independent resetting, orientation protocols, first passage; PDF returned HTTP 403.",
+      "Baouche et al. (2025), DOI 10.1039/D5SM00340G, open HTML Sections II, III.A-B: active Brownian search and optimal reset-rate calculations.",
+      "Li, Wang and Xu (2026), DOI 10.1103/xy11-ztd3, public primary abstract: finite-interval transition path time with separately tunable flip and resetting mechanisms."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 primary source fixes the Bernoulli resetting mechanism but gives distributions, moments and stationary results; no target-hitting optimization is stated.",
+        "Classical telegraph hitting transforms and resetting renewal formulas imply the new objective F_q(p) after rate substitution.",
+        "The sharp classification requires an additional strict-unimodality argument for Q(b), an envelope comparison to the endpoint, and a unique transition proof."
+      ],
+      "reasoning": "The exact MFPT alone is a consequence of standard machinery and is not separately claimed as original. The mathematical result assessed is the unique discontinuous *global* optimizer and metastability fold under a physically fixed event budget, which is not a quoted prior corollary without the new global comparison. An uninspected broader optimization theorem could still imply it; independent assessment remains warranted.",
+      "searches": [
+        "fixed total event rate split between tumble and resetting first passage sharp first order optimization",
+        "first order optimal resetting transition fixed switching rate active particle",
+        "optimal first-passage times active Brownian particles under stochastic resetting Baouche"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2026 Journal of Statistical Physics model marks either reset with probability p or flip with probability 1-p at each exponential decision event.",
+        "Under independent Poisson thinning the process is a fixed-direction full reset rate r=lambda p plus sign-reversal rate kappa=lambda(1-p), with r+kappa fixed."
+      ],
+      "reasoning": "The two-clock description is exactly equivalent when inter-decision times are exponential. It simplifies the first-passage transform but does not itself specify or prove the first-order optimizer jump. The present claim explicitly optimizes over the common total intensity, so related fixed-kappa optimizations cannot be substituted without reanalysis.",
+      "searches": [
+        "Bernoulli resetting at velocity switching events telegraph process first-passage mean optimum reset probability threshold discontinuous",
+        "telegraph run and tumble resetting at turning times optimum first passage fixed total rate velocity switching reset Bernoulli",
+        "telegraph particle stochastic resetting orientation initial direction first passage optimal reset probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The open-access source explicitly lists position law, moments, stationary distribution, and Kac limits as contributions; a full-text comparison finds no fixed-budget first-passage phase table.",
+        "Targeted published-record searches returned no exact matching parameter-threshold result; closest matches described distinct renewal, search, and first-passage settings."
+      ],
+      "reasoning": "No matching exact table or database record was observed. This negative search is not used as proof of originality; statement-level comparison with the specific papers remains essential.",
+      "searches": [
+        "exact first passage mean exp(q sqrt(theta(2-theta))) minus 1 divided by theta ballistic velocity reset",
+        "discontinuous run-and-tumble resetting first passage optimal",
+        "Bernoulli velocity reset first passage optimal telegraph"
+      ]
+    },
+    "rationale": "The source introduced the Bernoulli clock and solved position laws, but no fixed-total-event-budget first-passage phase classification was located. The mean identity is classical and is explicitly excluded from independent priority. The submitted finding is the sharp single discontinuous global-optimum switch, its metastability fold, and long-distance branch. Known related resetting and active-search optimizations use distinct rate constraints or velocity-relaunch protocols. A partially inaccessible older manuscript and abstract-only recent source leave a material but not decisive implicit-coverage risk.",
+    "residual_risks": [
+      "The inaccessible full 2018 Evans–Majumdar manuscript might contain a more general optimization theorem implying the fixed-sum classification.",
+      "The 2026 Li–Wang–Xu transition-path-time paper was compared only at abstract level; a different specialization of its general formulas may yield related features.",
+      "Classical first-passage renewal machinery already implies the MFPT formula; priority pertains only to the exact global phase classification.",
+      "Searches cannot prove absence of an equivalent theorem in unrelated Markov-modulated search or restart-control literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces the process and computes propagators and moments but does not state the fixed-budget optimization transition.",
+        "evidence": [
+          "Section 2 definition of resetting vs velocity reversal; Theorem 5 transient position law; Section 6 discussion contrasting Evans–Majumdar first passage."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-026-03670-7",
+        "material_read": "Accessible full-text HTML: abstract, introduction, Section 2 definition, Section 3 formulas, Section 4 Theorem 5, Section 6 comparison, Section 7 conclusions and first-passage/optimality searches.",
+        "method": "Read article HTML equations and searched text for first-passage and optimization; compared observables directly.",
+        "title": "A Generalized Telegraph Process with Resetting to the Origin Driven by Bernoulli Trials",
+        "trigger": "Exact matching Bernoulli resetting model and exponential event times"
+      },
+      {
+        "assessment": "Relevant general first-passage precedent; its reset velocity rule and objective differ on available evidence. Full text inaccessible.",
+        "evidence": [
+          "Abstract states reset-time velocity reversal with probability eta and MFPT dependence on protocol; no fixed-rate-sum phase transition in accessible material."
+        ],
+        "identifier_or_url": "https://www.research.ed.ac.uk/en/publications/run-and-tumble-particle-under-resetting-a-renewal-approach/",
+        "material_read": "University repository abstract and accepted-manuscript metadata; full accepted PDF link returned 403 and was not read.",
+        "method": "Compared the explicit abstract model/protocol and attempted repository PDF access.",
+        "title": "Run and tumble particle under resetting: a renewal approach",
+        "trigger": "Closest earlier first-passage work in a Poisson-reset run-and-tumble model"
+      },
+      {
+        "assessment": "Different two-dimensional active Brownian search model; no direct implication of the new one-dimensional constraint classification.",
+        "evidence": [
+          "Model resets position and orientation at independently specified exponential rate; optimization uses reset rate rather than fixed combined decision hazard."
+        ],
+        "identifier_or_url": "https://pubs.rsc.org/en/content/articlehtml/2025/sm/d5sm00340g",
+        "material_read": "Open HTML model and first-passage optimization results, Sections II and III.A-B.",
+        "method": "Compared orientation randomization and the separately tunable reset rate to one-dimensional Bernoulli event splitting.",
+        "title": "Optimal first-passage times of active Brownian particles under stochastic resetting",
+        "trigger": "Potential broader optimal orientation-reset active-search theorem"
+      },
+      {
+        "assessment": "Different finite-interval TPT and separately controlled resetting/tumbling parameters; implicit broader coverage not excluded.",
+        "evidence": [
+          "Published August 11, 2026; abstract reports semianalytical optimum TPT for two absorbing boundaries and reset-direction reversal probability eta."
+        ],
+        "identifier_or_url": "https://journals.aps.org/pre/abstract/10.1103/xy11-ztd3",
+        "material_read": "Primary abstract only; no full text obtained.",
+        "method": "Compared abstract model, finite-interval two-boundary setting and reset velocity protocol.",
+        "title": "Optimal transition path time of run-and-tumble particles with stochastic resetting",
+        "trigger": "Recent closely named first-passage optimization for run-and-tumble dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6aa563b-dc6e-407c-91d9-0c25b00204ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One Poisson budget must be allocated between correcting adverse headings by full reset and allowing ordinary velocity reversals. The exact threshold proves that the optimal allocation does not deform continuously with target distance but jumps from 100% reset to about 12%, despite a smooth microscopic model. The separate fold and global switch quantify metastability, and the long-target asymptotic connects to diffusion optimal restart. This is a structural optimization classification for a motivated search protocol, not a mere parameter substitution or numerical root.",
+    "status": "PASS"
+  }
+}
