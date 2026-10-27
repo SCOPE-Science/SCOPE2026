@@ -1,0 +1,15 @@
+# Review
+
+## Correctness — PASS
+The theorem quantifies over every finite dimension and every complex balanced rank-one pair at each \(1<p<2\). The two-input/two-output Gram reduction computes trace and determinant exactly, after a phase-alignment proof; the reduction loses neither extreme points nor dimensions because the real planar construction realizes every admissible aligned overlap. Strict concavity gives a unique conditional output overlap, and an ordered-weight integral ratio proves a unique remaining input-overlap optimum. The \(p\downarrow1\) quadratic coefficient and \(p\uparrow2\) Hilbert endpoint follow from uniform local expansions plus sign bracketing; the unique root cannot escape the compact bracket. Finite numerical corroboration (6,004 checks) is not used as proof. The endpoints themselves are not asserted as interior exponents.
+
+## Originality — PASS, with a publication-priority limitation
+Qiu's arXiv:2608.17565v1, Section 5, derives the two-overlap quotient and maximizes the output overlap conditional on a chosen input overlap. That is explicitly prior. The new assertion resolves the *remaining global input-overlap optimization uniquely for every low exponent*, classifies the pair of maximizing overlaps, and calculates sharp endpoint coefficients. The 2026 Zeng–Liu–Ratnavelu text proves a counterexample at one exponent and a sharp rank-one result for the opposite high-exponent range; neither covers the all-low-exponent balanced envelope. The Tang–Zhang proposal is disproved in this range. Actual published-finding corpus searches by functional, hyperbolic equation, aliases, extrema and asymptotic parameters identified only nonimplying neighbors. Pang's closely related counterexample preprint was readable only at abstract level; it may conceal a prior equivalent result, so absolute priority is not certified. These risks do not substitute for the present proof or imply an independent audit.
+
+## Mathematical value — PASS
+The sharp constant for a natural balanced two-summand rank-one problem gives an attained dimension-free quantitative lower bound for a still-open unrestricted low-exponent Schatten comparison. Knowing the exact unique extremal overlap geometry is necessary to judge the best possible *rank-one* obstruction, whereas earlier work varied one overlap and gave individual counterexamples. The quadratic \(p\downarrow1\) correction supplies nontrivial sensitivity of the trace-norm endpoint, and the \(p\uparrow2\) limit meets the known Hilbertian constant. The restricted result is not presented as an unrestricted sharp theorem, and the explicit equality geometry and asymptotic scales provide the substantive mathematical motivation.
+
+## Limitations and closest literature
+The equal-singular-value restriction is essential to the claimed class. The partial reduction by Qiu is prior; no new claim is made for the unrestricted all-dimensional optimum. The Pang abstract-only comparison is a priority risk. All scientific claims here are subject to independent inspection.
+
+Self-review: passed. Independent audit: not yet performed.
