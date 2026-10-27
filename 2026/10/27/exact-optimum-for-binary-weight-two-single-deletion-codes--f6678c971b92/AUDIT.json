@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For n>=2, every weight-two word w_{i,j} yields weight-one descendants at i and j-1, hence L+2S<=n-1 for any deletion code. Adjacent pairs starting at consecutive positions collide in a weight-two descendant, so L<=ceil((n-1)/2). It follows that |C|<=floor((3n-2)/4). The explicit even-start adjacent pair words and every gap-three pair at (4h+1,4h+4) achieve that count: weight-one outputs partition even starts and disjoint odd pairs; weight-two outputs are separated by gap or first-one location. This proves the exact all-n optimum, including n=2. Standard-library checker replays all finite boundary/collision checks to n=200 (as documented), with exact finite independent-set search n=2..8; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sloane 2002 studies the whole binary deletion graph and VT bounds; no theorem on exact induced weight-two optimum",
+        "Cullina et al. 2012 prove χ(L_{1,n,k}) = max(k,n-k)+1 and discuss why χ alone does not determine α"
+      ],
+      "reasoning": "Unrestricted bounds on alpha(L_{1,n}) are too broad to fix alpha(L_{1,n,2}); the 2012 exact χ theorem is incomparable with the sought all-length exact α. Neither stronger result subsumes the proposed formula.",
+      "searches": [
+        "arxiv:math/0207197, §§1–2, optimality and VT codes",
+        "arxiv:1211.4056, §IV-B Theorem 5 and §II-C independence-versus-coloring discussion",
+        "\"single deletion\" \"constant weight\" \"independence number\" k=2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0207197",
+      "arxiv:1211.4056",
+      "doi:10.1109/ISIT.2012.6284242",
+      "MSC2020 94B50 classification (AMS online listing)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1211.4056 states optimal coloring, not exact independence; the graph-theoretic distinction is explicit",
+        "The exact chromatic-number theorem is not a matching upper bound for the independence number, and its coloring construction does not claim extremal size within the weight-two class."
+      ],
+      "reasoning": "The 2012 coloring theorem controls the chromatic number of the deletion-confusability graph, not its independence number; an exact coloring and a code packing are logically different. The new argument independently establishes a sharp deletion-output packing bound and an attaining construction.",
+      "searches": [
+        "arxiv:1211.4056, §IV (Lemmas 8–9, Theorem 5)",
+        "arxiv:math/0207197, §2 Optimality"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1211.4056 identifies constant-weight deletion graph L_{1,n,k} and establishes its chromatic number; §II-C explicitly warns that χ-optimal coloring does not imply maximum independent set"
+      ],
+      "reasoning": "The independent-set formulation is exactly the code problem. The available closest literature addresses the graph, its colorings, or unrestricted optima, not the exact alpha(L_{1,n,2}) for all n. A semantic search is not a uniqueness proof.",
+      "searches": [
+        "Exact maximum size of single deletion correcting constant Hamming weight two binary codes; optimal independent sets from adjacent pairs and length three patterns",
+        "Exact independence number alpha(L_{1,n,2}) of the constant Hamming weight two induced single deletion-confusability graph; optimal code size floor((n-1+ceil((n-1)/2))/2) and explicit constructive packing",
+        "\"single-deletion\" \"constant weight 2\" \"exact\" optimal",
+        "arxiv:1211.4056, §§III–IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The OEIS A085680 table retrieved concerns adjacent-transposition correction, a distinct channel",
+        "The displayed Sloane 2002 tables enumerate unrestricted deletion codes and VT code sizes, not weight-two optimums"
+      ],
+      "reasoning": "No exact weight-two single-deletion optimum table was located, but the absence of search hits does not establish that the sequence was never tabulated.",
+      "searches": [
+        "\"single deletion\" \"weight 2\" \"3n\" codewords",
+        "OEIS \"binary\" \"weight 2\" \"deletion-correcting\"",
+        "\"1, 2, 3, 4, 4, 5, 6, 7, 7, 8, 9\" \"deletion\"",
+        "weight-two binary deletion correcting codes largest size ceiling three quarters blocklength"
+      ]
+    },
+    "rationale": "The claim is an exact all-length independence-number formula for the binary weight-two single-deletion graph. Direct full-text review of Sloane (2002) and Cullina–Kulkarni–Kiyavash (2012) identifies unrestricted code bounds and optimal colorings, neither stating nor implying the exact induced-subgraph maximum. Searches for constant-weight two single-deletion code maxima, equivalent independence formulations and tables did not identify an equivalent result. Historical absolute priority remains uncertain.",
+    "residual_risks": [
+      "An unindexed early publication, thesis, code table, or unpublished equivalence may already contain the weight-two exact formula.",
+      "The original 1965–1966 primary deletion-code literature was not fully re-inspected here; the two inspected historical overviews do not identify this special case.",
+      "The 2012 IEEE short article was available as indexed abstract; the related extended arXiv primary was read in full."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_STATE_EXACT_WEIGHT_TWO_OPTIMUM",
+        "evidence": "§1 defines D_1 and unrestricted graph, §2 gives VT codes and unrestricted A(n,1), no all-n weight-two optimum.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0207197",
+        "material_read": "Full accessible arXiv HTML body; §1 graph definition, §2 VT and Optimality, and related-work references",
+        "method": "Read arXiv HTML and searched weight/constant/independent terminology",
+        "title": "On Single-Deletion-Correcting Codes",
+        "trigger": "Direct foundational coding-theory and possible all-length optimum coverage"
+      },
+      {
+        "assessment": "CLOSEST_CONTEXT_ONLY_NOT_THE_EXACT_MAXIMUM_INDEPENDENT_SET",
+        "evidence": "§II-C states optimal coloring need not yield maximum independent set; §IV proves χ(L_{1,n,k}) but does not state α(L_{1,n,2}).",
+        "identifier_or_url": "https://arxiv.org/abs/1211.4056",
+        "material_read": "Full accessible arXiv HTML body; §II-C, §III, §IV-A–C, Lemmas 8–9 and Theorem 5; relevant appendix descriptions",
+        "method": "Read arXiv HTML, searched weight two/k=2, compared optimal χ with α",
+        "title": "Two Approaches to the Construction of Deletion Correcting Codes: Weight Partitioning and Optimal Colorings",
+        "trigger": "Highly plausible stronger constant-weight graph result"
+      },
+      {
+        "assessment": "ABSTRACT_INDICATES_COLORING_NOT_INDEPENDENCE_NUMBER",
+        "evidence": "Abstract explicitly claims optimal coloring of the constant-weight subgraphs, not their exact independence numbers.",
+        "identifier_or_url": "doi:10.1109/ISIT.2012.6284242",
+        "material_read": "IEEE indexed abstract/metadata; expanded lawful arXiv treatment separately fully read",
+        "method": "Inspected bibliographic abstract and compared stated contribution to the detailed extended manuscript",
+        "title": "A coloring approach to constructing deletion correcting codes from constant weight subgraphs",
+        "trigger": "Preceding short conference version of closely related work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6678c97-1b92-4d9f-9916-fc72aad11b24",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact maximum for the first nontrivial fixed Hamming weight under single deletion is an intrinsic synchronization-coding parameter. The result determines alpha(L_{1,n,2}) for all n and gives explicit optimal codebooks of size 3n/4+O(1), reducing a graph-packing problem to a sharp elementary resource bound. It is neither an arbitrary slice nor a result automatically implied by known coloring numbers.",
+    "status": "PASS"
+  }
+}
