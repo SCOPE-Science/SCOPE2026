@@ -1,0 +1,19 @@
+# Scientific review: harmonic Sobolev reproducing-kernel nodal rays
+
+## Correctness — PASS
+The claim is an exact theorem about real harmonic boundary-Fourier Hilbert spaces with coefficient weights \((n+1)^\sigma\). Direct orthogonal-basis calculation gives the kernel, including the normalization of the cosine/sine modes. For \(\sigma\ge0\) a Hausdorff-moment representation expresses it as a probability average of strictly positive Poisson kernels. For \(\sigma<0\), the standard polylogarithm singular expansion yields a uniform \(C^1\) angular limit \(\cos((1-\sigma)\theta)\), and its first correction determines the stated angular drift. All zeros in each sufficiently small admissible circle are counted by stability of simple zeros and a nonzero gap at the angular endpoints; excluded exponents correspond exactly to endpoint grazing. The attached computational checks are supportive, not exhaustive. No claim about global nodal connectivity or the exceptional local count is made.
+
+## Originality — PASS, qualified
+The kernel construction overlaps the established disk Sobolev/Steklov framework of Engliš–Lukkassen–Peetre–Persson (2004) and Auchmuty (2009), while the singular expansion is classical (Wood, 1992). The claim is limited to the combined sharp sign transition, complete local angular zero count for all nonexceptional negative exponents, and first drift, none of which was identified in the inspected relevant text or targeted research-record searches. Auchmuty's accessible author text, especially Theorem 8.2, specifies spectral kernels rather than this nodal classification. The 2004 article explicitly includes disk examples, but the full text could not be inspected despite an open-access search. Its section summary does not establish noncoverage; potential equivalent nodal results in that article or older literature remain material publication-priority risks. Likewise the classic polylog expansion alone gives ingredients, not a stated harmonic-space theorem. The result should not be presented as independently validated or as proving historical priority.
+
+## Mathematical value — PASS
+The natural boundary regularity index controls a qualitative geometric property — pointwise positivity of a harmonic RKHS kernel — at an exact sharp threshold. Below it, a complete local nodal-ray staircase quantifies how additional branches appear as regularity decreases, and the first-order angle law records their displacement beyond the leading singularity. The statement is an infinite-parameter structural classification relevant to interpreting harmonic interpolation kernels and their loss of positivity, not a renamed numerical example. The sharp sign threshold applies even at parameters excluded from the local-count formula.
+
+## Closest literature and unresolved limits
+- Engliš, Lukkassen, Peetre and Persson, *On the formula of Jacques-Louis Lions for reproducing kernels of harmonic and other functions* (2004), DOI 10.1515/crll.2004.035: verified relevant abstract and disk-section description, but full text not inspected.
+- Auchmuty, *Reproducing Kernels for Hilbert Spaces of Real Harmonic Functions* (2009), DOI 10.1137/080739628: inspected author-provided manuscript introduction and Section 8 (spectral kernels), no directly covering local zero theorem in the inspected material.
+- Wood, *The Computation of Polylogarithms* (1992), University of Kent report: inspected indexed PDF text concerning the local expansion; it supplies established special-function input rather than the harmonic nodal theorem. Page-image retrieval was unsuccessful, so source inspection is qualified.
+
+The numerical file verifies representative parameter values only, and no independent specialist review has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
