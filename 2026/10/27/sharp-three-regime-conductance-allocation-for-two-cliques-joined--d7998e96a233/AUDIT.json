@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "Explicit Laplacian representation exhausts four symmetry sectors; after orthogonal multiplicity weighting the 2x2 antisymmetric block is symmetric. Unit spectral gap is equivalent to kc>1, ka+mc>=1, and 2b(kc-1)>=(k+m)c-1. Remaining eigenblocks follow automatically; minimizing positive coefficient budget gives exactly F(t) and its strictly convex 3-regime minimizer. Concavity of lambda2 verifies global symmetry averaging, and nonnegative orbit averages establish claimed zeros for every optimizer. Numerical full-Laplacian replay on 156 integer pairs is consistent but not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al. treat discrete-time SLEM with row-stochastic constraints.",
+        "Shakeri et al. optimize interlayer rates with fixed intralayer Laplacians.",
+        "Allison-Shader abstract is about the discrete-time union of two cliques, while the present graph consists of disjoint cliques with a partial matching."
+      ],
+      "reasoning": "A stronger general optimization characterization exists but does not entail the exact evaluated formula without solving the particular family. No found stronger family theorem implies this quantitative support classification. Allison-Shader full text inaccessible, retained as risk.",
+      "searches": [
+        "Optimal spectral gap, algebraic connectivity, and rate budget on two copies of a clique connected by a matching (prism K_n square K_2); whether clique edges can be abandoned, unique optimum",
+        "fastest mixing markov process graph two cliques matching inter-clique links conductance budget algebraic connectivity",
+        "doi:10.1137/070689413",
+        "arxiv:1510.06792",
+        "doi:10.1080/03081087.2010.538690"
+      ]
+    },
+    "checked_sources": [
+      "Sun, Boyd, Xiao, Diaconis, SIAM Rev 48 (2006), DOI 10.1137/S0036144504443821, sections on primal FMMP, dual MVU, analytic families",
+      "Göring, Helmberg, Wappler (2005), full preprint PDF 29 pp, sections 1-4 on absolute algebraic connectivity and separator geometry",
+      "Boyd, Diaconis, Parrilo, Xiao (2009), DOI 10.1137/070689413, symmetry reductions for discrete-time SLEM",
+      "Shakeri et al. (2015), arXiv:1510.06792, full arXiv article on optimizing links between fixed network layers",
+      "Allison, Shader (2011), DOI 10.1080/03081087.2010.538690, abstract only; discrete-time two overlapping clique union problem",
+      "Public mathematical-literature index searched with exact graph, spectral-gap, allocation and matching-bridge variants; no directly covering explicit parameter formula was identified."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior single-bridge barbell applies to k=1 and cannot alone determine the new gateway-transversal constraint present for k>=2.",
+        "The nearest literature index bridge-barbell result computes zero-forcing polynomials, which do not determine optimal conductances.",
+        "The continuous-time baseline proves convexity but not the kink minimization / three regimes."
+      ],
+      "reasoning": "Disjoint partial-matching bridges create a k-1-dimensional gateway transverse eigenblock; that block is absent for a single bridge. The theorem is not the single-bridge solution reparameterized, nor a corollary of interlayer-only allocation results.",
+      "searches": [
+        "Continuous-time fastest mixing Markov process on two complete graphs connected by k disjoint independent gateway matching edges, total conductance budget, exact spectral gap and three regimes, internal nonport edges zero",
+        "two complete graphs K_p K_q connected by a single bridge, exact largest Laplacian spectral gap with edge conductance budget B, barbell double-broom support transition",
+        "optimal edge weights maximize algebraic connectivity two clique graph matched vertices semidefinite program",
+        "doi:10.1137/S0036144504443821"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The invariant allocation is the inverse spectral-gap budget problem and via homogeneity an absolute-algebraic-connectivity semidefinite program. The normalized cost is F(t) with a convex kink.",
+        "Sun et al. provide general SDP framework but no theorem for partial-matching clique bridges in the inspected full text."
+      ],
+      "reasoning": "Equivalent objective under scaling is recognized; this does not automatically give the explicit three regimes, rates and all-optima support, which require evaluating the family-specific spectral blocks.",
+      "searches": [
+        "Continuous-time fastest mixing Markov process on two complete graphs connected by k disjoint independent gateway matching edges, total conductance budget, exact spectral gap and three regimes, internal nonport edges zero",
+        "two cliques linked by a partial matching, maximize algebraic connectivity total edge weight, three-phase threshold k/(n-k) and gateway clique rates",
+        "optimal conductances on two equal cliques joined through several separate gateways, spectral gap lambda2, edge rate budget",
+        "arxiv:1510.06792",
+        "doi:10.1137/S0036144504443821"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact allocation table appeared in the literature index semantic searches or examined primary texts.",
+        "The closest literature index Laplacian table concerns fixed weights on a different graph, not edge-rate budgeting."
+      ],
+      "reasoning": "A fixed-graph spectral table or a general SDP recipe is not an exact k,m matching-clique budget solution; negative search results are not treated as proof of originality.",
+      "searches": [
+        "two cliques linked by a partial matching, maximize algebraic connectivity total edge weight, three-phase threshold k/(n-k) and gateway clique rates",
+        "optimal conductances on two equal cliques joined through several separate gateways, spectral gap lambda2, edge rate budget",
+        "optimal edge weights maximize algebraic connectivity two clique graph matched vertices semidefinite program"
+      ]
+    },
+    "rationale": "A full-parameter closed-form optimum and three support regimes for jointly budgeting all edges of two equal cliques joined by k >= 2 partial-matching bridges were checked against the foundational continuous-time FMMP and absolute-algebraic-connectivity texts, discrete-time symmetry and clique-union work, and connected-layer optimization with fixed intralayer rates. The closest formulations do not state or imply the specific k,m envelope and all-optima zero-conductance structure. Residual risk: specialized work not located or inaccessible.",
+    "residual_risks": [
+      "A specialized article could already solve this exact two-clique matching family without using the searched aliases.",
+      "Allison and Shader (2011) was not accessible as primary full text; its abstract indicates different discrete-time constraints but complete theorem comparison remains limited.",
+      "The certificate is self-review only; independent mathematical audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies general convex/SDP formulation but no found all-parameter two-clique partial-matching theorem",
+        "evidence": [
+          "DOI 10.1137/S0036144504443821",
+          "SIAM Review 48 (2006), 681-699"
+        ],
+        "identifier_or_url": "https://www.web.stanford.edu/~boyd/papers/fmmp.html",
+        "material_read": "Author-hosted complete 19-page paper: formulation, duality, optimality and worked examples; PDF page image inspected",
+        "method": "Read primary full text; compared graph families and exact budget/support statements",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same continuous-time objective with sum of edge rates"
+      },
+      {
+        "assessment": "General structural and SDP results; does not provide an inspected partial-matching two-clique exact allocation statement",
+        "evidence": [
+          "2005-09-02 preprint",
+          "Named full-text searches yielded no occurrence of clique, matching, or barbell"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2005/09/1202.pdf",
+        "material_read": "29-page public preprint, definitions, abstract and sections on absolute connectivity, separator geometric dual, plus searched clique/matching/barbell across full indexed text and inspected page image",
+        "method": "Full-text topic and family search with material page inspection",
+        "title": "Embedded in the Shadow of the Separator",
+        "trigger": "General absolute-algebraic-connectivity maximization with all edge weights free"
+      },
+      {
+        "assessment": "Its constraint and objective differ; general reduction does not state the present exact family classification",
+        "evidence": [
+          "DOI 10.1137/070689413"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fast_mix_symm.html",
+        "material_read": "Full author-hosted PDF including objective, symmetry-reduced SDP and solved examples; image of PDF page inspected",
+        "method": "Compared discrete-time stochastic SLEM and continuous-time budgeted spectral gap",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Symmetry/automorphism technique and potential formula subsumption"
+      },
+      {
+        "assessment": "Does not optimize both clique-internal and interlayer conductances under a common budget",
+        "evidence": [
+          "arXiv:1510.06792"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.06792",
+        "material_read": "Full arXiv public text on optimizing interlayer coupling while intralayer network Laplacians are fixed",
+        "method": "Compared variable edge classes, resource constraints and quantitative result",
+        "title": "Maximizing Algebraic Connectivity in Interconnected Networks",
+        "trigger": "Two-layer network bridge budget may cover this graph"
+      },
+      {
+        "assessment": "Unresolved full-text coverage risk; abstract does not establish a counterexample or a stronger theorem for our objective",
+        "evidence": [
+          "DOI 10.1080/03081087.2010.538690",
+          "2011 abstract describes stochastic transition probabilities, not unrestricted continuous-time sum-rate budget"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081087.2010.538690",
+        "material_read": "Publisher/ResearchGate indexing and full abstract only; original entire paper was unavailable",
+        "method": "Compared published abstract defining discrete-time stochastic objective with descriptions of overlapping clique unions",
+        "title": "Fastest mixing Markov chain problem for the union of two cliques",
+        "trigger": "Title strongly resembles clique network family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7998e96-a233-4d68-86fd-195b14b9426f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem models cost-efficient equal-sized communities with several independent gateway bridges. The result is an exact global allocation rule for all k>=2 and m>=1, including a nontrivial intermediate regime and a sharp ratio threshold where interior gateway-clique conductances become necessary. The zero-rate theorem holds for every optimum, not just a symmetric design, and exposes resource placement transitions absent from fixed-layer coupling formulations.",
+    "status": "PASS"
+  }
+}
