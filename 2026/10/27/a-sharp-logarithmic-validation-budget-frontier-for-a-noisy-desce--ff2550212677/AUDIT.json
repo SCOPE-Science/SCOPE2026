@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Independently reconstructed the update at the three reachable states. At zero, the same-validation-batch inequality is J>3B/4 and J is Bin(B,1/2); from either endpoint, a proposal can only flip to the other endpoint and its acceptance probability is one half of the strict binomial majority tail. The exact survival product and permanent half-unit loss follow. The binomial-tail geometric-ratio sandwich and uniform Stirling inequalities yield c1 B^-1/2 exp(-IB)<=p_B<=c2 B^-1/2 exp(-IB), with I=D(3/4||1/2). Integral-series tests prove both sharp batch-growth boundaries, including equality. The included independently executable exact-rational verifier exhaustively enumerated 24,564 complete sign patterns across B=1..11 and checked four variable-batch schedules. Computation supports the finite laws; it does not substitute for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mahsereci--Hennig 2015 (inspected PDF sections 2 and experiments) uses a probabilistic Gaussian-process Wolfe line search, not the independent same-batch strict comparison with a unit stochastic-gradient proposal.",
+        "Krejić--Krklec Jerinkić 2011/2013 accessible abstract describes finite-sample-average approximation and variable sample sizes, no exact KL/log-log phase diagram; full text was not available in this inspection.",
+        "Bollapragada--Byrd--Nocedal 2017 abstract describes adaptive inner-product tests and convergence, not the fixed-step objective validation transition law."
+      ],
+      "reasoning": "Broader convergence results may cover other sample-size policies but the available descriptions do not imply the candidate under the stated noninterpolating persistent gradient noise and explicit fixed-step dynamics. An inaccessible plausible source is retained as a residual risk, not declared ruled out.",
+      "searches": [
+        "\"independent minibatch validation null step policy escape optimum eventually always almost surely finite batch line search noisy objective binomial large deviations\"",
+        "\"stochastic line search finite batch false accept infinite horizon absorbing noise floor validation Gaussian objective\"",
+        "\"stochastic gradient line search noisy function evaluations increasing batch size logarithmic iterations almost surely false accepted steps\"",
+        "\"independent validation minibatch stochastic optimization convergence increasing sample sizes false positives Borel Cantelli\"",
+        "https://papers.neurips.cc/paper_files/paper/2015/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf",
+        "https://optimization-online.org/2011/07/3091/",
+        "https://arxiv.org/abs/1710.11258"
+      ]
+    },
+    "checked_sources": [
+      "https://optimization-online.org/2026/05/stochastic-gradient-methods-with-online-scaling/",
+      "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+      "https://papers.neurips.cc/paper_files/paper/2015/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf",
+      "https://optimization-online.org/2011/07/3091/",
+      "https://arxiv.org/abs/1710.11258",
+      "https://arxiv.org/abs/2609.11751"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Algorithm 2 of Zhang et al. uses an independent validation sample and an optional null step, but the exact model has nonzero component gradients at the optimum, directly violating source Assumption 3.1; relative function-value noise is nonuniform near zero but might satisfy Assumption 3.2 on this discrete trajectory.",
+        "The source theorem has high-probability finite-iteration conclusions under those assumptions; it supplies neither an infinite-horizon statement nor the present loss state space.",
+        "The inspected 2015 probabilistic line-search primary uses a Gaussian-process probabilistic sufficient-decrease/Wolfe check rather than the exact deterministic loss comparison on a fresh validation batch."
+      ],
+      "reasoning": "Distinguished the source comparison primitive from its adaptive learning dynamics, and distinguished source theorem hypotheses from the noninterpolating model. A classical large-deviation exponent alone would not resolve the critical half-log-log schedule without retaining the prefactor.",
+      "searches": [
+        "https://optimization-online.org/2026/05/stochastic-gradient-methods-with-online-scaling/",
+        "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+        "\"stochastic line search sample average acceptance optimal point false improvement increasing batch size\"",
+        "\"validation false acceptance large deviations Borel Cantelli stochastic optimization null steps minimizer\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source Algorithm 2 defines the same *comparison motif* of independent validation of current-versus-proposed objective but also updates the learned preconditioner; it contains no identified fixed-unit-step three-state escape law.",
+        "The earlier two-sample OSGM curvature record identifies optimal population feedback targets and support-stability thresholds, not false validation of a departure from the exact minimizer.",
+        "General Borel--Cantelli and sharp binomial tails supply ingredients but do not themselves state the model-specific optimization trajectory and thresholds."
+      ],
+      "reasoning": "Compared potential synonyms such as null-step, stochastic line search, noisy Armijo, independent validation, false improvement, absorption and escape. The closest source changes the objective sample, but assumes relative noise and studies adaptive feedback; the exact claim is not an immediate corollary of its hypotheses.",
+      "searches": [
+        "\"out-of-sample hypergradient stochastic gradient independent sample noise biases stepsize scalar quadratic stationary variance sharp threshold\"",
+        "\"stochastic online scaled gradient OSGM SGD independent evaluation feedback diagonal preconditioner exact optimal and anisotropic noise\"",
+        "\"independent minibatch validation null step policy escape optimum eventually always almost surely finite batch line search noisy objective binomial large deviations\"",
+        "\"stochastic line search sample average acceptance optimal point false improvement increasing batch size\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published mathematical-search results concerned scalar OSGM ratio/hypergradient feedback targets and other optimizer phase transitions; none in the inspected returned titles/summaries supplies the exact three-state binomial acceptance or batch growth boundaries.",
+        "The exact binomial failure tail is derived directly from complete sign enumeration in the proof and is independently checked by verify.py over every label vector for batches 1 through 11."
+      ],
+      "reasoning": "Checked both numerical constants and symbolic forms via the natural Bernoulli tail, KL rate, fixed-step null-step and batch-budget search aliases. No exact indexed record or established table covering this particular optimizer was identified. Index/search incompleteness remains possible.",
+      "searches": [
+        "\"sharp logarithmic validation batch threshold false improvement strongly convex quadratic stochastic line search independent evaluation binomial tail\"",
+        "\"Borel Cantelli almost sure escape optimum noisy null-step finite validation batch independent SGD two component least squares\"",
+        "\"KL divergence three quarters Bernoulli validation false ascent critical log log sample size\"",
+        "\"two-point quadratic stochastic line search independent validation batch binomial tail logarithmic batch growth critical rate exact\""
+      ]
+    },
+    "rationale": "The inspected May 2026 source defines an out-of-sample hypergradient null-step comparator, but its finite-horizon theorem assumes a relative gradient-noise hypothesis violated at the exact noninterpolating optimum. Other inspected line-search articles address GP Wolfe conditions, variable sample size, or gradient-direction tests. The present exact irreversible-escape probability, KL coefficient for all-time batch scheduling, and log-log boundary were not found in the accessible source material or searched mathematical record. This is best-knowledge originality for this narrowly defined finding, not a proof of novelty in all literature.",
+    "residual_risks": [
+      "Uninspected older stochastic line-search/acceptance literature could give equivalent model-specific batch thresholds under other terminology.",
+      "The accessible 2011 variable-sample-size article was read only at abstract level; no whole-document noncoverage claim is made.",
+      "Classical exact binomial large-deviation and infinite-product tools are prior mathematical knowledge; only their precise model-specific trajectory and two boundary classifications are asserted as a new finding.",
+      "The model isolates the fixed-step validation component of the cited optimizer, not its full learned-preconditioner recurrence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the algorithmic comparison primitive but not this exact result under violated relative-noise assumptions.",
+        "evidence": [
+          "Algorithm 2 compares current/trial objectives on independent validation samples for hypergradient feedback.",
+          "Assumption 3.1 bounds gradient noise relative to gradient norm; at the constructed optimum the gradient vanishes and component gradients do not.",
+          "Assumption 3.2 bounds function-value noise relative to the objective gap."
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2026/05/Stochastic_OSGM-4.pdf",
+        "material_read": "Primary PDF, especially Algorithm 2 page 6, Assumptions 3.1/3.2 page 7, Theorem 3.3 pages 7-8 and its proof/appendix material near pages 21 and 28-29; not claiming exhaustive sentence-by-sentence review.",
+        "method": "Read accessible PDF text, checked original page renderings, located assumptions and hypergradient null-step definition.",
+        "title": "Stochastic Gradient Methods with Online Scaling (May 2026 version)",
+        "trigger": "Direct parent for the independent out-of-sample null-step motif and stated convergence assumptions"
+      },
+      {
+        "assessment": "Different probabilistic GP-Wolfe mechanism; no identified exact strict same-minibatch two-point comparison escape law.",
+        "evidence": [
+          "Uses probabilistic Wolfe conditions and a Gaussian-process line search."
+        ],
+        "identifier_or_url": "https://papers.neurips.cc/paper_files/paper/2015/file/812b4ba287f5ee0bc9d43bbf5bbe87fb-Paper.pdf",
+        "material_read": "Primary PDF sections containing probabilistic Wolfe checking and numerical use; not exhaustive entire-document clearance.",
+        "method": "Inspected accessible full-text PDF text and displayed page images, including early method and later experiments.",
+        "title": "Probabilistic Line Searches for Stochastic Optimization",
+        "trigger": "Plausible earlier general coverage of noisy acceptance and rejection"
+      },
+      {
+        "assessment": "Abstract concerns variable sample-size line search and final SAA accuracy; whole-document claim coverage unresolved.",
+        "evidence": [
+          "Landing abstract describes adaptation of sample size using precision and decrease measures, and eventual maximal sample size."
+        ],
+        "identifier_or_url": "https://optimization-online.org/2011/07/3091/",
+        "material_read": "Accessible original posting metadata and abstract only; full primary text not inspected.",
+        "method": "Read original article landing page, checked original public date and described sample-size mechanism.",
+        "title": "Line search methods with variable sample size for unconstrained optimization",
+        "trigger": "Earlier sample-average line search with adaptive sample sizes"
+      },
+      {
+        "assessment": "Uses descent-direction inner-product test and increasing gradient sample size; a possible broader methodological antecedent but no identified precise result.",
+        "evidence": [
+          "Abstract describes inner-product tests for sample-size selection and global convergence."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1710.11258",
+        "material_read": "Accessible arXiv abstract and bibliographic metadata; full text not inspected.",
+        "method": "Read primary abstract and compared tested object/assumptions with exact conditional state law.",
+        "title": "Adaptive Sampling Strategies for Stochastic Optimization",
+        "trigger": "Existing batch-size tests potentially stronger than candidate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ff255021-2677-49ad-a84f-8bc43ecef001",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question is motivated by independent noisy validation as a purported descent safeguard. The result shows a consequential noninterpolating failure: with fixed batch it leaves an *exact* strongly convex optimum almost surely and retains a permanent objective gap, even though every accepted step appears strictly improving on fresh validation data. The exact all-time protection criterion, dimensionless KL slope 7.64455..., sharp additional half-log-log boundary, and high-confidence additive-budget construction answer a natural validation-cost design question that finite-horizon analyses cannot resolve. These are structurally related, not arbitrary isolated parameter slices.",
+    "status": "PASS"
+  }
+}
