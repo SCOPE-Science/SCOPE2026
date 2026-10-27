@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Stable two-box ODE gives unique steady harmonic response. Exact real/imaginary reciprocal transfer equations imply positive increments with b/a=τ, forcing all four physical parameters. Direct forward substitution verifies iff positivity and global uniqueness; explicit continuous one-frequency families prove sharpness, and quotient bound proves sensitivity. CAS verified difference identities, packaged verify.py passed exact witness and 12,000 randomized forward/inverse tests. Numerical checks are not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bortner and Sullivant (2021), arXiv:2107.06271, Theorem 1.1, Sections 3 and 5",
+        "Cummins et al. (2020), doi:10.5194/ascmo-6-91-2020, abstract and model discussion"
+      ],
+      "reasoning": "RC-system identifiability criteria concern recovering a complete constitutive-equation coefficient vector from input-output dynamics and often only local identifiability. They cover the abstract full-response identification theme, but do not yield the stated two specific nonzero sample sufficiency, physical-data positivity criterion, or DC-plus-one-frequency obstruction as printed. Time-series filter inversion estimates forcing from a calibrated system, rather than all four physical parameters from two complex sample values.",
+      "searches": [
+        "two reservoir RC thermal model two frequency impedance positive realization inverse identifiability",
+        "frequency response two-pool compartment model unique inverse parameters two frequencies transfer function positive"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1029/2011GL048623 (primary indexed full article)",
+      "doi:10.1175/JCLI-D-12-00195.1 (primary partial access; appendix inaccessible)",
+      "doi:10.16993/tellusa.40 (primary full HTML)",
+      "arxiv:2107.06271 (primary full HTML)",
+      "doi:10.5194/ascmo-6-91-2020 (abstract, supporting, not decisive)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Geoffroy et al. (2013), doi:10.1175/JCLI-D-12-00195.1, analytic step/ramp solutions and Table 1",
+        "Bortner and Sullivant (2021), arXiv:2107.06271, Theorem 1.1 / Corollary 5.3",
+        "MacMynowski et al. (2011), Sections 3–4"
+      ],
+      "reasoning": "The established transfer relation allows the present algebraic derivation, and full-response identifiability gives a weaker informational premise (all frequencies). Neither statement logically certifies sufficiency of exactly two arbitrary distinct complex positive-frequency samples or that the four positivity inequalities are necessary and sufficient for a physical fit. Thus the narrow claim is not simply a special numerical case of the inspected printed propositions. This is a best-knowledge statement; stronger general sampling/interpolation results may still imply it.",
+      "searches": [
+        "identifiability of two-box climate energy balance models frequency-domain parameter estimation harmonic",
+        "two-layer energy balance model frequency response two harmonic measurements exact reconstruction",
+        "\"inverse frequency response\" \"two-box\" climate reconstruction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "MacMynowski et al. (2011), doi:10.1029/2011GL048623, Sections 3–4",
+        "Soldatenko and Colman (2022), doi:10.16993/tellusa.40, Section 2.2, eq. (4)"
+      ],
+      "reasoning": "A two-box model is equivalent to a first-order positive-rational impedance with one Debye relaxation term. Existing primary full-text frequency-domain presentations identify the forward transfer and fit it over many periods; neither inspected comparison states the simultaneous inverse of two exact complex samples and the strict positive-data inequalities. Equivalence of the forward function is explicitly acknowledged as known.",
+      "searches": [
+        "two-layer climate energy balance complex harmonic transfer function two frequencies structural identifiability surface temperature forcing climate feedback heat capacity exchange",
+        "two box climate energy balance two harmonic frequencies complex transfer inverse reconstruct heat capacities radiative feedback ocean exchange unique",
+        "two reservoir RC thermal model two frequency impedance positive realization inverse identifiability",
+        "Geoffroy two-layer energy balance sinusoidal forcing inverse response two frequency uniqueness criterion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "MacMynowski et al. (2011), Section 4, numerical multi-frequency fits",
+        "Soldatenko and Colman (2022), Table 1 and spectral sensitivity figures"
+      ],
+      "reasoning": "The inspected quantitative tables list calibrated climate-model physical parameters and spectral fits; they do not constitute an exact table of two-tone inverse solutions or physical-realizability inequalities. The theorem quantifies arbitrary strict positive parameters, not a previously tabulated special tuple.",
+      "searches": [
+        "\"two frequencies\" \"two box\" climate identifiability inversion transfer",
+        "\"two frequency\" \"two layer\" energy balance \"parameters\" harmonic"
+      ]
+    },
+    "rationale": "The novelty assertion concerns exact reconstruction and strict positive realizability from precisely two complex nonzero frequency samples plus sharp one-frequency/DC insufficiency and a conditioning bound, not the known two-layer system, transfer function, or general RC full-response identifiability. Primary texts and source/claim/alias searches were compared by implication. Neither the frequency fits, step/ramp parameter calibration, PSD sensitivity, nor full-response circuit coefficient-count criterion states or directly supplies the combined finite-two-sample physical-data test. General rational interpolation remains a material priority risk.",
+    "residual_risks": [
+      "Older or more general positive-real rational interpolation / circuit impedance tomography theory may imply the minimal two-frequency and positivity condition; exact historical priority unverified.",
+      "Full original 2013 appendix and some publisher graphics could not be directly inspected.",
+      "Numerical sampling under measurement noise and model error can be highly ill-conditioned; only exact-data uniqueness is proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ALREADY_COVERS_FORWARD_TRANSFER_AND_FREQUENCY_FITTING; does not state the two-discrete-complex-sample exact inverse or positivity iff inequalities in the inspected text.",
+        "evidence": [
+          "2011 public date 2011-08-25 in publisher publication history",
+          "2011 Section 3 paragraphs [7]–[9], Section 4 paragraph [12]"
+        ],
+        "identifier_or_url": "doi:10.1029/2011GL048623",
+        "material_read": "Publisher-indexed full article text: Sections 1–5, especially numbered paragraphs [5]–[12] (sinusoidal perturbations, complex transfer, two-box model, multi-period fit) and [15]–[19] (interpretation), with some mathematical equations displayed as images.",
+        "method": "Full published HTML text in indexed web rendering; model checked independently against text-visible 2022 equations.",
+        "title": "The frequency response of temperature and precipitation in a climate model",
+        "trigger": "2011 founding forced-frequency analysis of two-box climate response"
+      },
+      {
+        "assessment": "KNOWN_STEP_AND_RAMP_CALIBRATION; no exact two-harmonic inverse observed in the accessible material; unresolved original appendix remains a priority risk.",
+        "evidence": [
+          "2013 article description explicitly calibrates by 4xCO2 step forcing",
+          "2013 publication date 2013-03-15 and description of appendix B"
+        ],
+        "identifier_or_url": "doi:10.1175/JCLI-D-12-00195.1",
+        "material_read": "Publisher-indexed abstract, introduction, sections 2–3 discussion, appendix B abstract, and Table 1 index; original publisher full HTML/PDF returned access refusal, so complete appendices not inspected. Open 2020 Shatwell conference exposition confirms exact differential equations.",
+        "method": "Public article index and secondary open-access model transcription; access limit explicitly retained.",
+        "title": "Transient Climate Response in a Two-Layer Energy-Balance Model. Part I",
+        "trigger": "Canonical explicit analytic climate model with the same four physical coefficients"
+      },
+      {
+        "assessment": "ALREADY_COVERS_TRANSFER_AND_PSD_SENSITIVITY; parameters taken as given for PSD analyses, not reconstructed from two complex phasors.",
+        "evidence": [
+          "Section 2.1 eqs. (1),(2) show two thermal boxes",
+          "Section 2.2 eq. (4) is the explicit complex transfer",
+          "Section 3 ranks spectral parameter effects"
+        ],
+        "identifier_or_url": "doi:10.16993/tellusa.40",
+        "material_read": "Entire accessible HTML (Introduction; Sections 2.1, 2.2 including eqs. (1),(2),(4),(5); Sections 3,4, tables, conclusions).",
+        "method": "Primary open-access full HTML",
+        "title": "Power Spectrum Sensitivity Analysis of the Global Mean Surface Temperature Fluctuations Simulated in a Two-Box Stochastic Energy Balance Model",
+        "trigger": "Same two-box model and complex transfer with parameter spectral sensitivity"
+      },
+      {
+        "assessment": "ALREADY_COVERS_COEFFICIENT_STRUCTURAL_IDENTIFIABILITY; does not provide two fixed harmonic data sufficiency, strict data-realization criteria, or climate inverse formulas; residual generic-rational-interpolation coverage risk.",
+        "evidence": [
+          "Theorem 1.1 is parameter-count criterion for circuit constitutive equations",
+          "Corollary 5.3 is RC local identifiability from complete coefficient data"
+        ],
+        "identifier_or_url": "arxiv:2107.06271",
+        "material_read": "Entire accessible arXiv HTML; emphasis on Theorem 1.1, Section 3 global/local definitions, Section 5 Theorem 5.1 and Corollary 5.3 and circuit duality.",
+        "method": "Primary full open arXiv HTML",
+        "title": "Structural Identifiability of Series-Parallel LCR Systems",
+        "trigger": "Dominating general RC transfer-system inverse result plausible via electrical-thermal duality"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d704e439-800e-42e0-ae3f-49799799e798",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimal two-harmonic information, a closed positivity-realization test and an explicit ill-conditioning mechanism address a motivated climate inverse problem: disentangling upper heat capacity, deep storage, coupling and radiative feedback from harmonic response. The one-frequency/zero-frequency obstruction determines a real experiment-design boundary rather than an arbitrary parameter instance. The result does not claim new forward climate physics, model fit to observations, or practical noisy-data calibration.",
+    "status": "PASS"
+  }
+}
