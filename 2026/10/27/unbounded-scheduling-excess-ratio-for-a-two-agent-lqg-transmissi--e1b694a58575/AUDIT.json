@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Directly reconstructed scalar Riccati recursion and error-reset schedule objective. Unique auction and globally optimal schedules follow from exact five-cost exhaustive domination. Valid for every real 0<eps<=1/10 by strict rational inequalities, not inferred from finite tests. Independent Fraction arithmetic checker re-evaluates actual Riccati matrices and all nine feasible schedules.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2509.10671 gives the single-agent MILP and proves MPC versus deterministic policies, without a shared-capacity auction benchmark",
+        "arXiv:2604.06060 derives exact loss-channel scheduling MILP and optimal erasure/lossless comparisons, but not the multi-agent current-score heuristic",
+        "arXiv:2609.21974 §V explicitly leaves analytical auction suboptimality guarantees for future work"
+      ],
+      "reasoning": "The prior optimal-MILP characterization allows exact schedule evaluation, but neither it nor its single-agent extensions entails the unbounded approximation ratio of the specific auction heuristic. The source's MILP objective is adopted, not claimed as new.",
+      "searches": [
+        "greedy communication slot scheduler LQG arbitrarily bad approximation ratio horizon two stable scalar plants",
+        "LQG event triggered communication greedy auction unbounded approximation factor scheduling",
+        "receding horizon shared capacity greedy LQG scheduler performance arbitrarily suboptimal",
+        "arXiv:2509.10671 A Linear Programming Framework for Optimal Event-Triggered LQG Control"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21974",
+      "arXiv:2509.10671",
+      "arXiv:2604.06060",
+      "published-finding corpus mathematical records for actual queries documented in prior_checks",
+      "Own research ledgers 2026-10_week2__private research ledger__p0001_g000130.jsonl and 2026-10_week3__private research ledger__p0001_g000019.jsonl, claim-based deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.21974 Eq. (18) formulates the exact optimization but §III-C replaces it by a surrogate score, and §V reports one finite numerical benchmark rather than worst-case bounds",
+        "Related published-finding corpus ID 2026/10/4/SCOPE-exact-first-moment-stability-frontier-for-two-client-scalar-spam--170ca03b5dee is unrelated stochastic-gradient optimization"
+      ],
+      "reasoning": "An MILP for computing the optimum of each instance does not imply that its unrelated per-step auction comparator has bounded or unbounded approximation ratio. There is no stronger prior implication found in inspected source; generic bad greedy allocations lack these exact scalar LQG Riccati constraints.",
+      "searches": [
+        "one-step auction transmission scheduling unbounded competitive ratio two agent LQG two-step covariance reset Riccati",
+        "shared-capacity error covariance scheduling greedy myopic priority counterexample regret",
+        "receding horizon shared capacity greedy LQG scheduler performance arbitrarily suboptimal",
+        "arXiv:2609.21974 §III-B MILP §III-C auction §IV experiments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.21974 §III-C, Eq. (20), selects highest positive projected reduction; no 2-step competitive-ratio theorem in inspected sections",
+        "published-finding corpus nearest retrieval 2026/10/4/SCOPE-exact-first-rank-maximality-failure-of-serial-dictatorship--a60f04d4085b concerns unrelated assignment preference rankings"
+      ],
+      "reasoning": "Alternative formulation as two-step slot allocation with expiring benefit was searched. Generic greedy scheduling failure does not imply a feasible Riccati-realizable lossless LQG witness; the present theorem supplies that feasibility and a diverging exact ratio. No covering result identified in the accessed records.",
+      "searches": [
+        "Multi-Agent Event-Triggered LQG Control under Shared Communication Constraints 2609.21974 Hashemi Maity auction scheduler performance",
+        "one-step auction transmission scheduling unbounded competitive ratio two agent LQG two-step covariance reset Riccati",
+        "arxiv 2609.21974 auction multi agent LQG approximation gap two-agent horizon-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Source Eq. (20) is a general heuristic score, not a classified sharp table of its small-size approximation ratios",
+        "Own weeks 2026-10_week2 part1 gen130 and 2026-10_week3 part1 gen19: claims searched for 'auction', 'LQG', 'communication scheduler', 'shared capacity', 'riccati', 'transmission-benefit'; one old Riccati-related claim concerns a different scalar setup"
+      ],
+      "reasoning": "No exact database or table of two-agent two-stage Riccati-realizable scheduling approximation ratios was located. Unsuccessful database queries do not establish universal novelty.",
+      "searches": [
+        "Multi-Agent Event-Triggered LQG Control under Shared Communication Constraints 2609.21974 Hashemi Maity auction scheduler performance",
+        "one-step transmission benefit score upper bound versus MILP optimum competing future packet",
+        "published-finding corpus semantic: one-step auction transmission scheduling unbounded competitive ratio two agent LQG two-step covariance reset Riccati"
+      ]
+    },
+    "rationale": "Comparison of the current-score auction from arXiv:2609.21974 with its exact lossless MILP scheduling objective; the inspected source explicitly leaves theoretical suboptimality open. Its authors' two single-agent predecessors do not define the competing multi-agent auction. Dedicated published-finding corpus searches, web searches and own ledger claim checks found no equivalent or dominating small-horizon counterexample. Remaining bibliographic risk is acknowledged.",
+    "residual_risks": [
+      "Generic greedy scheduling or multi-agent control literature not returned by available semantic search could cover the general phenomenon; no claim of global uniqueness.",
+      "The full LQG cost includes an additive constant; the divergent ratio provably concerns only the nonnegative schedule-dependent objective, which is exactly the MILP minimized in the motivating source.",
+      "The counterexample uses degenerate process-noise covariance zero, allowed by finite-moment hypotheses but outside nondegenerate Gaussian simulation regimes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the model, MILP and auction heuristic; reports finite simulation and explicitly says theoretical auction suboptimality analysis is future work. No exact 2-agent unbounded ratio theorem.",
+        "evidence": [
+          "§III-A, Eq. (10): additive schedule-independent constant; §III-C Eq. (20): per-time auction score",
+          "§V conclusion: analytical suboptimality bounds deferred"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.21974",
+        "material_read": "Complete arXiv HTML document: §I through §V, equations (4),(8)–(11),(14)–(20), Algorithm 1, simulation comparison and conclusion",
+        "method": "arXiv lawful HTML full text",
+        "title": "Multi-Agent Event-Triggered LQG Control under Shared Communication Constraints",
+        "trigger": "Defines precisely the auction heuristic and the exact multi-agent scheduling objective; novelty comparison essential"
+      },
+      {
+        "assessment": "Single-agent MILP and optimal-receding-horizon advantages, not the two-agent current-score auction approximation theorem",
+        "evidence": [
+          "arXiv:2509.10671 abstract: MILP, MPC versus deterministic scheduling",
+          "The 2026 multi-agent paper attributes single-agent MILP to this source"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.10671",
+        "material_read": "Preprint full-text transcription (ResearchGate author manuscript, introduction and scheduling formulation), plus arXiv abstract",
+        "method": "lawful full-text transcription at https://www.researchgate.net/publication/395526627_A_Linear_Programming_Framework_for_Optimal_Event-Triggered_LQG_Control and arXiv abstract",
+        "title": "A Linear Programming Framework for Optimal Event-Triggered LQG Control",
+        "trigger": "Origin of single-agent lossless MILP and relevant Riccati scheduling reduction"
+      },
+      {
+        "assessment": "Lossy single-agent scheduling and erasure/lossless comparisons, not shared network or auction-to-optimal ratio",
+        "evidence": [
+          "§IV Proposition 2: stochastic survival factors under packet loss",
+          "Intro: performance comparisons are loss-vs-lossless optimum, not two-agent auction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.06060",
+        "material_read": "arXiv HTML §§I–IV through covariance representation and ratio-bound description, including equations (5)–(15)",
+        "method": "lawful arXiv HTML full text",
+        "title": "Linear Reformulation of Event-Triggered LQG Control under Unreliable Communication",
+        "trigger": "Potentially broader exact scheduling bounds in related work of same authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1b694a5-8575-4ce1-9a8f-1c68e9f6b8fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Provides the missing negative worst-case multiplicative performance guarantee for the concrete current-benefit LQG scheduler proposed in arXiv:2609.21974. Structural reason is that an early slot can be wasted on a flexible agent while an expiring benefit is lost; stable two-agent two-stage Riccati-realizable weights make this a meaningful and small explicit boundary, not a generic invented scheduling example. Importantly only the schedule-dependent objective is compared.",
+    "status": "PASS"
+  }
+}
