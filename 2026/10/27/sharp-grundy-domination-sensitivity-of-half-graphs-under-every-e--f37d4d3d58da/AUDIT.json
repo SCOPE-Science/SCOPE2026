@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The baseline n+1 follows from chain-graph Theorem 5 and a legal (n+1)-sequence; general atomic edge theorem yields n+2 upper bound. Explicit four-case vertex sequences cover all nonpendant deletions and were reconstructed against closed-neighborhood footprints, including reflected edges and n=3 boundaries. For pendant deletion the remaining component has the exact chain-graph twin-class pattern yielding n; adding the isolate gives n+1. Exact independent bitmask DP tests all 119 individual deleted-edge cases at n=2..8 and verifies 4,900 explicit witnesses at n=3..30. Finite checks are corroboration only; the written constructions and known theorems cover every n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brešar–Pandey–Sharma: connected chain-graph algorithm and bound gamma_gr in {alpha,alpha+1}; no all-edge-deletion classification.",
+        "Brešar–Gologranc–Kos: a general one-unit upper bound, which is sharp but insufficient to decide equality for specific deleted half-graph edges."
+      ],
+      "reasoning": "Searched stronger all-chain-graph and arbitrary single-edge perturbation results. An explicit upper bound and a baseline algorithm do not imply which individual edges attain the bound; the non-chain perturbed graphs are outside the scope of the 2023 algorithm.",
+      "searches": [
+        "Computation of Grundy dominating sequences in (co-)bipartite graphs arXiv:2310.10566v1 full text",
+        "Dominating sequences under atomic changes arXiv:1603.05116v1 Theorem 2.1 full text",
+        "Grundy domination edge deletion half-graphs chain graph Ferrers triangular matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.10566v1 (2023-10-16), relevant chain-graph theorem/algorithm in full HTML",
+      "arXiv:1603.05116v1, atomic-change theorem and proof in full HTML",
+      "arXiv:2212.01335v2, Grundy-vs-independence context",
+      "published-finding corpus relevant similarity results for half graphs, general Grundy sequences and chain-graph domination; IDs and comparisons in named checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing implication: gamma_gr(H_n)=n+1 and gamma_gr(H_n-e)<=n+2. Missing implication: equality for all but the two pendant edges.",
+        "Complete multipartite result concerns longest sequences in different graph classes; domination polynomial counts ordinary dominating sets in chain graphs, not Grundy sequences under an atomic edge change."
+      ],
+      "reasoning": "The proof contributes the lower bound for every nonpendant edge and a separate exact pendant analysis, so it derives a full classification not determined by the known upper bound. Closest database hits do not subsume the quantified claim.",
+      "searches": [
+        "arXiv:2310.10566v1 chain graph exact Grundy domination algorithm",
+        "arXiv:1603.05116v1 edge removal upper bound Grundy domination",
+        "published-finding corpus 2026/10/4/SCOPE-maximum-grundy-dominating-sequences-of-complete-multipartite-gra--036eea4e58d1",
+        "published-finding corpus 2026/10/4/SCOPE-exact-domination-polynomial-of-chain-graphs--f5aba0dd8f21"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Strict half graphs are Ferrers/staircase chain graphs; edge deletion usually destroys neighborhood nesting. The 2023 chain-graph algorithm computes the original baseline but not the non-chain deletion profile.",
+        "The 2016 atomic-change theorem supplies an upper bound for arbitrary graphs without classification of equality cases."
+      ],
+      "reasoning": "Compared the actual universal quantifier over all staircase edges and two pendant exceptions with equivalent Ferrers/nested-neighborhood formulations. The deletion statement is not a restatement of the known chain-graph invariant and is not yielded by the general +1 inequality alone.",
+      "searches": [
+        "half graph edge removal Grundy domination number n+2 all nonpendant edges and stable pendant edges",
+        "Grundy domination criticality of Ferrers chain graphs under deletion of internal adjacency",
+        "arXiv:2310.10566v1 Theorem 5 Algorithm 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible published-finding corpus hit 2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2 concerns edge metric bases, not Grundy domination.",
+        "Accessible published 2023 text and 2016 atomic-change paper contain neither an edge-by-edge half-graph table nor its formula."
+      ],
+      "reasoning": "Compared the same half-graph object with distinct edge-metric invariant; no exact Grundy edge sensitivity table or sequence with the same cases was identified. A negative search is not definitive evidence of novelty.",
+      "searches": [
+        "half graph edge deletion Grundy domination exact table nonpendant pendant n",
+        "number of longest Grundy dominating sequences in half graphs Ferrers staircase chain bipartite H_n exact count enumeration",
+        "published-finding corpus 2026/10/4/SCOPE-edge-metric-bases-of-half-graphs--13a0853af1d2"
+      ]
+    },
+    "rationale": "Actual searches of published mathematical research records and primary full texts found no covering statement. The 2016 atomic-change inequality and 2023 chain-graph baseline are properly credited and do not imply which half-graph edges achieve the bound; explicit strict equality cases require the new lower-bound constructions. An unindexed equivalent remains a bibliographic risk.",
+    "residual_risks": [
+      "Semantic search and accessible primary literature cannot establish absolute uniqueness.",
+      "A specialized paper could use alternate half-graph/Ferrers terminology and state an equivalent classification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides baseline and pendant-case computation; no theorem on all individual single-edge deletions of strict half graphs.",
+        "evidence": "Its chain-graph result bounds gamma_gr between independence number and independence number plus one; nonpendant deleted graphs need not remain chain graphs.",
+        "identifier_or_url": "https://arxiv.org/html/2310.10566v1",
+        "material_read": "Definitions, chain-graph structure, Theorem 5 and Algorithm 1, including boundary candidate formulas; searched text for half-graph edge deletion.",
+        "method": "Read lawful arXiv full HTML primary text, focusing on exact hypotheses and algorithm.",
+        "title": "Computation of Grundy dominating sequences in (co-)bipartite graphs",
+        "trigger": "Direct subject and object: Grundy domination algorithms for chain graphs, including the strict half graph."
+      },
+      {
+        "assessment": "Establishes the upper bound gamma_gr(G-e)<=gamma_gr(G)+1, but does not identify exact equality edges for half graphs.",
+        "evidence": "General bound plus known baseline gives only gamma_gr(H_n-e)<=n+2, not the claimed classification.",
+        "identifier_or_url": "https://arxiv.org/html/1603.05116v1",
+        "material_read": "Theorem 2.1 and surrounding proof of edge change in Grundy domination.",
+        "method": "Read lawful arXiv full HTML primary text, compare statement and proof implications.",
+        "title": "Dominating sequences under atomic changes with applications in Sierpiński and interval graphs",
+        "trigger": "Strongest prior edge-removal bound plausibly covering the result."
+      },
+      {
+        "assessment": "No implication to the all-edge-deletion sensitivity classification.",
+        "evidence": "Studies graph classes where gamma_gr=alpha, whereas the strict half graph has gamma_gr=alpha+1.",
+        "identifier_or_url": "https://arxiv.org/html/2212.01335v2",
+        "material_read": "Abstract, main equality characterization, structural comparisons and relevant graph-family discussion.",
+        "method": "Inspected lawful arXiv full text with emphasis on claimed conditions for equality.",
+        "title": "Graphs with equal Grundy domination and independence number",
+        "trigger": "Possible dominating parameter implication gamma_gr(H_n) and chain-graph structure."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f37d4d3d-58da-4e8d-a5ef-86c2282a07a2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem completely solves a canonical infinite parameter family of exact atomic-change equality cases: every nonpendant edge realizes sharp +1 sensitivity, while precisely two pendant edges do not. It is a meaningful structural sharpness classification for an established graph invariant, requires uniform constructive sequence families and graph-specific boundary analysis, and is not an arbitrary numerical slice or a restatement of the general inequality.",
+    "status": "PASS"
+  }
+}
