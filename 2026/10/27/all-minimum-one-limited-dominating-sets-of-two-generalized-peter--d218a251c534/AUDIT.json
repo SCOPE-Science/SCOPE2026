@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For cubic graphs of order 2n, edge counting forces |D|≥n; equality holds precisely when every vertex has one neighbor across the cut. The finite-state graph on 4^(2k) vertices exhausts all local binary color patterns. The packaged exact code checks every transition and SCC: for k=1 two 1-cycles and one 4-cycle; for k=2 two 1-cycles and two 5-cycles. Closed-walk counts and the one-to-one correspondence with labelled sets prove the claimed formula for all n in each domain. Independently direct exhaustive assignment enumeration supports small n. No unproved infinite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Radić–Tepeh, arXiv:2610.01796v1, introduction and §§2–3, address complexity and Goldberg snarks; the generic n/2 lower bound is already known.",
+        "Karami, arXiv:2606.14190v1, supplies arithmetic existence criteria for all generalized Petersen skips but no exact-colouring census in the accessible description."
+      ],
+      "reasoning": "Generic lower bounds and existence constructions subsume the half-order numerical minimum; they do not imply all optimal subset counts. Perfect-colouring existence for all skips has broader domain but a weaker conclusion than exact enumeration of realizations for the two specified skips.",
+      "searches": [
+        "GP(n,1) GP(n,2) exactly 2 plus 4 if 4 divides n or 2 plus 10 if 5 divides n 1-limited dominating minimum sets",
+        "1-limited dominating sets cubic prism graph gamma=n exact enumerator cycles product",
+        "1-limited domination generalized Petersen GP(n,2) 2026 graph product minimum sets"
+      ]
+    },
+    "checked_sources": [
+      "https://borowiecki.dev/pdf/2610.01796",
+      "https://doi.org/10.1007/s12044-016-0285-4",
+      "https://arxiv.org/abs/2606.14190",
+      "https://arxiv.org/pdf/2011.03318",
+      "https://arxiv.org/pdf/2110.03978"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bouquet–Picouleau, arXiv:2011.03318, pp.1–2, explicitly distinguish a perfect matching containing a cut from a cut *equal* to a perfect matching.",
+        "Alaeiyan–Karami (2016), Theorem 3.2, only prove existence by the constant two-ring colouring.",
+        "Radić–Tepeh (2026), statement of the 1-limited invariant and the Goldberg result, not a minimizer census for the two Petersen families."
+      ],
+      "reasoning": "A1-perfect-colouring existence implies only at least two minimum vertex subsets. The claimed all-subset counts require ruling out every other cyclic labelling, which follows from the new finite transition classification. Perfect matching-cut decision complexity and forcing numbers do not give the same counts. Prior related total-domatic and neighbourhood-conflict-free enumerators have different constraints and do not imply exactly one opposite neighbour per vertex.",
+      "searches": [
+        "perfect matching separating cut prism Petersen family generalized Petersen 5-periodic solutions two loop and two period five",
+        "perfect matching cut colorings cubic prisms and Petersen graph exactly 1 or 3 and 1 or 6",
+        "1-limited (1,2) domination generalized Petersen GP(n,2) counting minimum sets cyclic 5-periodic",
+        "The complexity of the perfect matching cut problem Bouquet Picouleau 2011.03318",
+        "Alaeiyan Karami perfect 2-colorings GP(n,2) 2016"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Alaeiyan–Karami (2016), §3.1, DOI:10.1007/s12044-016-0285-4, prove existence of quotient matrix [[2,1],[1,2]] for all generalized Petersen graphs, not exact counts.",
+        "Karami, arXiv:2606.14190v1, describes all admissible quotient matrices using arithmetic existence conditions; full text not obtained."
+      ],
+      "reasoning": "The cut of a minimum one-limited set has exactly one opposite-colour edge per vertex; hence the problem is equivalent to counting the perfect two-colourings of quotient matrix [[2,1],[1,2]]. Known existence of that matrix does not determine the number 2+4[4|n] or 2+10[5|n]. The 2026 full-text access gap is an explicit priority risk.",
+      "searches": [
+        "perfect equitable two-colorings quotient matrix [[2,1],[1,2]] generalized Petersen prism n 4 divisible n 5 divisible exact number 6 and 12",
+        "perfect matching separating cut prism Petersen family generalized Petersen 5-periodic solutions two loop and two period five",
+        "perfect coloring with quotient matrix 2 1 1 2 generalized Petersen GP(n,2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhao, arXiv:2110.03978v1, §2 and tables, enumerates *all perfect matchings by forcing number* only for 5≤n≤15, not across all n and not by separating cuts.",
+        "Direct comparison of available related mathematical records yielded no matching infinite 1-limited-optimal-set table."
+      ],
+      "reasoning": "The finite matching-forcing tables cannot be used as a direct exact table of minimum one-limited sets; even knowing the total perfect matching count does not determine which matchings arise from two-class edge cuts. No all-n exact table covering the current claim was located.",
+      "searches": [
+        "GP(n,1) GP(n,2) exactly 2 plus 4 if 4 divides n or 2 plus 10 if 5 divides n 1-limited dominating minimum sets",
+        "perfect equitable two-colorings quotient matrix [[2,1],[1,2]] generalized Petersen prism n 4 divisible n 5 divisible exact number 6 and 12",
+        "perfect matching cut colorings cubic prisms and Petersen graph exactly 1 or 3 and 1 or 6",
+        "matching forcing polynomial generalized Petersen graph GP(n,2) 2021"
+      ]
+    },
+    "rationale": "Prior papers prove the invariant, the half-order bound, and existence of the associated perfect two-colouring, but the inspected full primary sources do not classify/count every optimal vertex subset for both Petersen families. Strongly related 2026 Karami paper was accessible only by abstract; its possible unpublished exact enumerations remain a non-negligible historical priority risk.",
+    "residual_risks": [
+      "Full text of arXiv:2606.14190v1 was not obtained; its authors may include exact-count arguments beyond the abstract.",
+      "Undiscovered perfect-colouring or cutting-bisection enumeration literature may subsume the named exact counts; no formal novelty guarantee.",
+      "The Petersen graph base case n=5 has six known perfect matchings, so that isolated base count alone is not novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper concerns different families and does not state a full exact minimizer census for GP(n,1) or GP(n,2).",
+        "evidence": [
+          "pp.1–2: definition and bound; §2: complexity; §3: Goldberg snark block method."
+        ],
+        "identifier_or_url": "https://borowiecki.dev/pdf/2610.01796",
+        "material_read": "PDF introduction, definitions, sections on complexity and Goldberg snarks, references and conclusions",
+        "method": "searched and read machine-extracted primary PDF pages; visually inspected an early PDF page",
+        "title": "On 1-limited and (1,2)-domination in cubic graphs",
+        "trigger": "initiating precise domination invariant, source dated 2026-10-01"
+      },
+      {
+        "assessment": "Contains the general existence result for this matrix but no exact enumeration of all its realizations.",
+        "evidence": [
+          "§3.1, Theorem 3.2: every GP(n,k) admits constant outer/inner colouring; remaining sections discuss other quotient matrices."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12044-016-0285-4",
+        "material_read": "author-posted full-text transcription, especially definitions and section 3.1, and remaining matrix-classification sections",
+        "method": "read primary author-posted text and exact Theorem 3.2",
+        "title": "Perfect 2-colorings of the generalized Petersen graph",
+        "trigger": "same quotient matrix [[2,1],[1,2]], a highly relevant equivalence"
+      },
+      {
+        "assessment": "Accessible description claims existence/arithmetic classification, not counts. Whole-document exclusion cannot be claimed; historical-priority uncertainty recorded.",
+        "evidence": [
+          "Abstract: necessary and sufficient arithmetic criteria for quotient matrices, explicit periodic existence constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.14190",
+        "material_read": "abstract and bibliographic/public description; complete primary PDF unobtainable in bounded attempts",
+        "method": "arXiv abstract, lawful public mirrors searched, arXiv PDF access attempted",
+        "title": "Intersection Arrays of Completely Regular Codes of Covering Radius One in Generalized Petersen Graphs",
+        "trigger": "2026 source covers all possible quotient matrices, including the exact equivalent of the local condition"
+      },
+      {
+        "assessment": "Studies decision complexity and explicitly distinguishes cuts contained in matchings from cuts equal to a matching. No GP(n,1)/GP(n,2) infinite count found.",
+        "evidence": [
+          "Introduction pp.1–2 distinguishes variants, no generalized Petersen/prism mention found."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2011.03318",
+        "material_read": "full PDF outline, abstract, introduction, distinction of variants, section headings and search for generalized Petersen/prism",
+        "method": "primary arXiv full text with visually inspected page, searched target family",
+        "title": "The complexity of the Perfect Matching-Cut problem",
+        "trigger": "matching-cut duality and possible stronger known theorem"
+      },
+      {
+        "assessment": "Counts perfect matchings by forcing number in finite n=5..15; not an exact all-order count of class-separating perfect-matching cuts.",
+        "evidence": [
+          "Abstract and §2 specify forcing polynomials and range n=5,..,15; no matching-cut discussion found."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2110.03978",
+        "material_read": "introduction, §2 formula and tables, searched for matching cuts",
+        "method": "primary arXiv PDF text and page image",
+        "title": "Matching forcing polynomial of generalized Petersen graph GP(n, 2)",
+        "trigger": "same infinite graph family and matching enumerations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d218a251-c534-4c3b-9ab9-d9d033b338b2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete exact minimizer census for canonical cyclic cubic families exhibits nonconstant period-four and period-five arithmetic jumps while the minimum domination size remains n. Every optimal vertex subset is classified by explicit periodic words, providing a structurally usable answer rather than merely proving existence or recomputing a generic bound.",
+    "status": "PASS"
+  }
+}
