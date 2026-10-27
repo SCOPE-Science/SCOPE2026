@@ -1,0 +1,11 @@
+# Review of a finite-cycle criterion for digit-appending walks
+
+**Correctness — PASS.** The uniform comparison of the geometric leading term with polynomial errors applies to unbounded index jumps and forces equality between jump and digit length past a fixed index. Concatenation of arbitrary-length steps traps every later correction in the closed interval \([-1,0]\); eventual polynomial growth excludes all nonconstant residue corrections. The finite-graph cycle argument proves both directions, including rational-integrality of the period jump. Seven exact-rational instance families and 385 local comparisons corroborate the algebra. Finite tests are not treated as proofs.
+
+**Originality — PASS, with residual risk.** The full 2026 paper arXiv:2610.18919v1 proves dominant-root scaling rigidity for bounded digit lengths and unrestricted existence under multiplicative independence. Neither its statements, proofs, nor its two dependent-root examples establish an if-and-only-if classification or the minimal digit ceiling for periodic-polynomial corrections. The 2025 Fibonacci/Lucas theorem and earlier whole-term concatenation theory do not imply the claimed infinite-walk cycle criterion. Semantic searches of research records using leading-root dependence, periodic correction, bounded-digit walks and graph-cycle aliases yielded no covering claim. This does not preclude implicit coverage in further literature.
+
+**Mathematical value — PASS.** The dependent-root regime is explicitly left unresolved by the general 2026 criteria and exhibits both existence and nonexistence even in simple geometric-plus-constant examples. This theorem gives a complete classification for the natural subfamily whose subordinate characteristic roots are roots of unity (including repeated roots), including an exact sharp uniform digit threshold. The period-four example has a genuine bottleneck of two digits, not merely a yes/no consequence of the older examples.
+
+**Closest literature and limitations.** arXiv:2610.18919v1 (Theorems 1.2–1.3, Examples 1.1 and 3.3), arXiv:2512.06446v1 (Theorems 3.1 and 4.2), and Banks–Luca (2005). Higher-modulus exponential corrections, arbitrary dependent root powers and finite-walk lengths are not classified; independent verification remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
