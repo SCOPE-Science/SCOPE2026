@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The complete-DFA convention and parameter ranges are explicit. The topological-order bound A_i<=B_i proves the maximum; the final-pattern loss and first-transition-deviation analysis prove the exact gap in every case. Explicit accessible, coaccessible, minimal constructions attain the maximum and second-largest sizes. The finite checker is supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 asymptotic enumeration paper addresses the number of minimal DFAs recognizing finite binary languages as a function of automaton size, not the maximum or second-largest language cardinality at fixed f.",
+        "The 2006 enumeration paper gives counts and rank-related bounds for acyclic automata, not a stronger accepted-language-size theorem in the inspected sections."
+      ],
+      "reasoning": "The broader counting results do not directly entail the exact piecewise gap formula; an additional extremal argument using the topological order and transition-loss bound is required.",
+      "searches": [
+        "maximum cardinality of finite language recognized by minimal acyclic DFA n states f accepting states exact extremal",
+        "enumeration of minimal acyclic automata by number of final states accepted words",
+        "",
+        ""
+      ]
+    },
+    "checked_sources": [
+      {
+        "first_public_date": "2014-11-18",
+        "identifier_or_url": "https://arxiv.org/abs/1411.4757",
+        "material_read": "Abstract, introduction, definitions, and enumeration setup.",
+        "title": "Enumeration of minimal acyclic automata via generalized parking functions"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2005.06.009",
+        "material_read": "Abstract and relevant rank/minimal-acceptor sections; conference precursor not inspected in full.",
+        "title": "Exact enumeration of acyclic deterministic automata"
+      },
+      {
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2020.11",
+        "material_read": "Abstract only; not relied on to assert noncoverage.",
+        "title": "Asymptotics of Minimal Deterministic Finite Automata Recognizing a Finite Binary Language"
+      },
+      {
+        "identifier_or_url": "published-finding corpus queries recorded in prior_checks.resultary_queries",
+        "material_read": "Returned closest records on synchronizing automata and rank compression; no direct cardinality-spectrum record.",
+        "title": "published-finding corpus search results"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proof derives M from the weighted sum of final-state indicators and derives Delta by separating nonmaximal final-state patterns from the first transition deviation in the maximal pattern.",
+        "The reviewed prior sources count automata or analyze their structural ranks; no reviewed theorem gives the exact second-largest language size for fixed (q,n,f)."
+      ],
+      "reasoning": "The claim is not presented as a mere corollary of an automata-counting recurrence. Its exact gap follows from a separate extremal argument, with constructions attaining every case. Residual risk remains for an older equivalent result outside the material reviewed.",
+      "searches": [
+        "maximum cardinality of finite language recognized by minimal acyclic DFA n states f accepting states exact extremal",
+        "enumeration of minimal acyclic automata by number of final states accepted words",
+        "second-largest cardinality of finite languages accepted by minimal complete acyclic DFA with fixed number of non-dead states and accepting states",
+        "",
+        "",
+        ""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The reviewed Priez source is an enumeration of minimal acyclic automata via generalized parking functions; its stated target is counting automata, not the top two accepted-language cardinalities conditional on f.",
+        "The reviewed Liskovets source enumerates acyclic deterministic automata and discusses rank structure; the inspected sections do not state this conditional size spectrum.",
+        "published-finding corpus closest records concern synchronizing automata, reset words, or rank compression rather than accepted-language cardinality."
+      ],
+      "reasoning": "No equivalent formulation was identified in the reviewed material. The state convention is explicit: n excludes the unique dead sink, and f counts accepting non-dead states.",
+      "searches": [
+        "maximum cardinality of finite language recognized by minimal acyclic DFA n states f accepting states exact extremal",
+        "enumeration of minimal acyclic automata by number of final states accepted words",
+        "second-largest cardinality of finite languages accepted by minimal complete acyclic DFA with fixed number of non-dead states and accepting states",
+        "",
+        "",
+        "",
+        "https://arxiv.org/abs/1411.4757"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct published-finding corpus record on this exact invariant was returned; the closest returned records are the four IDs listed in prior_checks.closest_results.",
+        "The own-ledger check covered the current-week latest part and four materialized prior slot parts; none of the recoverable claims inspected directly covered this automaton-cardinality invariant.",
+        "The attached finite checker confirms seven small (q,n) cases but is not used as a novelty argument."
+      ],
+      "reasoning": "No exact database or table covering the claim was found. The absence of a search hit is not treated as proof of uniqueness; the accepted claim is supported by its analytic proof and the literature comparison.",
+      "searches": [
+        "second-largest cardinality of finite languages accepted by minimal complete acyclic DFA with fixed number of non-dead states and accepting states",
+        "published-finding corpus MCP search: second-largest cardinality of finite languages accepted by minimal complete acyclic DFA with fixed number of non-dead states and accepting states",
+        "own-library semantic search for maximum/second-largest accepted-language cardinality and fixed accepting-state count"
+      ]
+    },
+    "rationale": "The reviewed sources and published-finding corpus searches did not show the exact accepted-language cardinality gap at fixed (q,n,f). The assessment is best-knowledge, with the older conference precursor and unmaterialized historical parts retained as residual risks.",
+    "residual_risks": [
+      "Search failure is not a novelty proof. An older equivalent extremal statement may exist outside the reviewed material.",
+      "The 2003 conference precursor to the acyclic-automata enumeration paper was cited in the literature but its full text was not inspected; it remains a non-decisive overlap risk.",
+      "The own-ledger overlap review was bounded to the current-week latest part, four materialized prior slot parts, and a semantic Library search; unmaterialized older parts were not exhaustively read.",
+      "The finite checker covers only q=2,n=2..5 and q=3,n=2..4; the unrestricted claim depends on the analytic proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not direct coverage in the inspected material.",
+        "evidence": [
+          "The source's stated goal is enumeration of minimal acyclic automata via generalized parking functions; the inspected sections do not state the exact second-largest accepted-language cardinality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.4757",
+        "material_read": "Abstract, introduction, definitions, and the visible enumeration setup; not a line-by-line review of every appendix.",
+        "method": "Compared the counted object and parameters against the theorem's fixed non-dead state count, accepting-state count, and accepted-language cardinality.",
+        "title": "Enumeration of minimal acyclic automata via generalized parking functions",
+        "trigger": "Primary literature for the minimal acyclic DFA model and its enumeration."
+      },
+      {
+        "assessment": "Related but not direct coverage in the inspected sections; the conference precursor remains a residual risk.",
+        "evidence": [
+          "The reviewed material states enumeration results and a rank-one-state bound, but no exact top-two cardinality spectrum conditional on the number of accepting states."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.dam.2005.06.009",
+        "material_read": "Abstract and the relevant rank/minimal-acceptor sections on rank, rank-one states, and enumeration; the earlier conference precursor was not inspected in full.",
+        "method": "Compared the rank and automata-count parameters with the accepted-language cardinality and fixed-final-state parameters in the claim.",
+        "title": "Exact enumeration of acyclic deterministic automata",
+        "trigger": "Earlier primary literature on acyclic automata and minimal acceptors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f93f7e00-5935-46cf-b8f7-27b9ab0baf22",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem gives a natural exact capacity invariant for finite-language automata and identifies the first discrete gap below the maximum under simultaneous state and accepting-state budgets. It supplies explicit extremizers and a structural stability statement, rather than only a finite table or a routine code result.",
+    "status": "PASS"
+  }
+}
