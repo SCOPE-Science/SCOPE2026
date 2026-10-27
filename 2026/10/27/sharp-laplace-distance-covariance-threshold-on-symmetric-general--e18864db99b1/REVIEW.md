@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The geometry has girth twelve and diameter six, so geodesics of length at most five are unique. This yields the intersection array \(\{q+1,q,q,q,q,q;1,1,1,1,1,q+1\}\) without assuming flag transitivity. The distance polynomials satisfy the displayed three-term recurrence and have adjacency spectrum \(\{\pm(q+1),0,\pm\sqrt q,\pm\sqrt{3q}\}\). Factoring the Laplace kernel's seven multipliers exhibits a unique sign-changing sector, associated to \(-(q+1)\), with sign equal to that of \(1-qe^{-a}\) when \(a>0\). The other six sectors are strictly positive at and above the threshold. The sign-change proof is universal in integer \(q\ge2\), and the endpoint kernel has exactly one zero eigenvalue by connectivity and bipartiteness. The included symbolic checker passed its recurrence and multiplier-identity assertions.
+
+## Originality — PASS under bounded literature comparison
+The closest explicit spectral literature is Fiol's 2013 bipartite spectral-excess treatment and van Dam–Koolen–Tanaka's 2014 distance-regular graph survey. Their inspected sections supply distance matrices and spectral polynomials but do not state this exponential-distance positivity interval or endpoint rank. Search comparisons also considered generalized polygon terminology, geometric distance-kernel terminology, and previously available results on projective-plane incidence metrics and other graph-distance kernels. Those lower-diameter metrics cannot imply the diameter-six generalized-hexagon result; the seventh spectral sector and its factorizations must be checked separately. A potentially equivalent calculation in a broader association-scheme reference or unindexed work remains a real priority risk; no assertion of global uniqueness is made.
+
+## Value — PASS
+The sharp positive-definiteness interval for a natural distance-based covariance family is an exact geometric/harmonic invariant across every equal-order finite generalized hexagon, independent of its realization, with arbitrarily large vertex sets. It changes an application-relevant covariance design question from a generally difficult semidefinite test to a single threshold comparison, identifies the unique null direction at the boundary, and shows that the unpowered graph metric fails negative type. The phenomenon is not justified merely by computational novelty: it is a complete continuous-parameter classification for a nontrivial incidence-geometry family.
+
+## Closest sources and limitations
+Fiol, arXiv:1304.4354 (2013-04-16), studies distance-biregularity and predistance polynomials, not the claimed cutoff. Van Dam, Koolen and Tanaka, arXiv:1410.6294 (2014-10-23), gives the Bose–Mesner spectral machinery; no direct Laplace-distance positivity classification appears in the examined relevant sections and text searches. The theorem does not treat unequal orders, powered metrics, or conditioning. Independent audit and broader human literature review are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
