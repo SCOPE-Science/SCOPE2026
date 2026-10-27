@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Complete strict five-alternative profiles are constructed from six explicit two-ballot gadgets and balanced extensions. Exact margins (A defeats each runner by 1; each runner arc has 4k+1 except E>B at 4k-1) follow from pairwise cancellation. For all finite k the BallotRank matrix has nonzero denominators and exactly one absorbing A column. The runner block converges to the displayed four-state column-stochastic matrix; the Neumann series justifies continuity of the resolvent for each fixed d in (0,1). Solving its four equations yields B-A=d(d+2)/(5(d^3+4d^2+4d+4))>0, implying eventual strict finite-k separation. Absorbing-state convergence proves the reversed d-to-1 limit. The packaged standard-Python checker directly reconstructs 601 ballots and proves the exact d=17/20,k=25 rational gap. Finite checks corroborate but are not the source of the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Todd and Volić arXiv:2601.14015v2, section 7 explicitly mentions fixed-damping extremal questions, but the theorem at d=1 has a different quantifier.",
+        "Bana et al. arXiv:2102.01995, Sections 3 and 4, use pairwise preference counts and complement loops rather than positive majority margins with the Todd–Volić self-loop.",
+        "Closest mathematical research record: Five-alternative Banks/minimal-covering disparity study concerns different tournament solution concepts."
+      ],
+      "reasoning": "General Markov-chain resolvent facts make the computations possible but do not, without a custom election realization and limiting recurrent class, give the specific BallotRank failure for each d. Other vote-based PageRank schemes use genuinely different matrices. No applicable stronger covering claim was identified.",
+      "searches": [
+        "BallotRank damped Condorcet winner",
+        "Todd Volic BallotRank counterexample arbitrarily many voters 5 alternatives",
+        "teleportation PageRank social welfare Condorcet consistency for all damping factors less than one",
+        "PageRank Condorcet consistency fixed damping factor counterexample voting tournament 2025",
+        "Convergence Voting: From Pairwise Comparisons to Consensus arxiv 2102.01995"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2601.14015v1/v2",
+      "arxiv:2102.01995",
+      "doi:10.2307/1907926"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "At d=1, Todd–Volić prove absorption at a Condorcet winner. The paper explicitly observes that d<1 lacks a guarantee but does not state a construction for every fixed d or its limit.",
+        "The new profiles satisfy the exact same normalized-win self-loop definition, have a strict Condorcet winner by one vote, and converge to an asymmetric four-runner Markov block with positive score gap d(d+2)/(5(d^3+4d^2+4d+4)).",
+        "Convergence voting (Bana et al.) may fail the Condorcet criterion under an alternative transition probability; this is not a same mathematical model implication."
+      ],
+      "reasoning": "The new theorem strictly strengthens a qualitative caution with exact all-d quantification and five fixed candidates. Undamped d=1 is a different boundary and in fact yields the opposite outcome for each finite electorate; the order-of-limits corollary makes this distinction essential.",
+      "searches": [
+        "arxiv:2601.14015v2 Section 2.2.4, equations (5)-(10); Section 4.1; Section 7",
+        "arxiv:2102.01995 Section 3 Definition 3.2",
+        "BallotRank Todd Volic damping parameter fixed below one Condorcet winner counterexample five candidates PageRank"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Closest mathematical research record: Five-voter Schulze/Ranked Pairs divergence study (Schulze/Ranked Pairs, not BallotRank).",
+        "Todd and Volić (2026), arXiv:2601.14015v2, equations (5)-(10), define winner-normalized self-loops and their damped stationary vector.",
+        "Public phrase searches surfaced Todd–Volić metadata and general Condorcet voting methods but no matching quantified all-damped theorem."
+      ],
+      "reasoning": "Aliases checked included damped BallotRank, PageRank on majority-margin tournaments, teleportation Condorcet counterexamples, and noncommuting stationary limits. A claim about arbitrary PageRank is not definitionally equivalent because BallotRank has self-loop weights depending on total victory margins. No equivalent quantified all-d claim was found in actual searches.",
+      "searches": [
+        "BallotRank Todd Volic damping parameter fixed below one Condorcet winner counterexample five candidates PageRank",
+        "Condorcet winner loses PageRank teleportation damped majority margin election stationary ranking arbitrarily small margins",
+        "Markov chain weighted majority tournament PageRank Condorcet failure damping noncommuting limits",
+        "\"BallotRank\" \"Condorcet\" \"counterexample\" damping 2026",
+        "\"BallotRank\" \"five candidates\" Condorcet",
+        "\"Condorcet winner\" \"PageRank\" \"teleportation\" counterexample"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Todd and Volić arXiv:2601.14015v2, Section 4 empirical datasets with d=0.5,0.85,0.999; their Table 4 concerns voting axioms, not a catalogue of the present worst-case family.",
+        "Closest mathematical research record: Five-candidate majority-tournament fiber census enumerates majority tournament fibers for three voters rather than BallotRank scores."
+      ],
+      "reasoning": "No located database of exact BallotRank winner failures or table deriving the family and rational limit. The finite k=25 instance and the formula were computed and reconstructed independently rather than copied from a table.",
+      "searches": [
+        "BallotRank Todd Volic damping parameter fixed below one Condorcet winner counterexample five candidates PageRank",
+        "Condorcet winner loses PageRank teleportation damped majority margin election stationary ranking arbitrarily small margins",
+        "\"BallotRank\" damping \"failure\" \"Condorcet\" five candidates",
+        "\"BallotRank\" \"0.85\" \"counterexample\""
+      ]
+    },
+    "rationale": "The closest original BallotRank full text defines the precise transition but supplies an undamped Condorcet theorem and empirical high-damping observations, not the present five-alternative counterexample for every fixed damping below one with an exact gap and noncommuting limits. Its warning that fixed damping is not generally guaranteed is acknowledged as known context. Different convergence-voting Markov chains, McGarvey margin gadgets and other Condorcet methods do not directly imply the new statement. Focused public-source and mathematical-record searches found no stronger implication-equivalent result; unindexed prior art remains a risk.",
+    "residual_risks": [
+      "An unindexed treatment of BallotRank or an equivalent theorem under stationary majority-graph centrality terminology could predate the present analysis.",
+      "The McGarvey 1953 original text was not inspected in full; its gadget is explicitly treated as known, not as a novelty claim.",
+      "No independent expert or third-party mathematical priority audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly defines the same object and explicitly warns of lack of fixed-damping guarantee, but no all-d five-candidate construction or limiting gap was located.",
+        "evidence": [
+          "arXiv:2601.14015v2, eqs. (5)-(10), Sections 4.1 and 7",
+          "https://arxiv.org/abs/2601.14015 first submitted 2026-01-20"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.14015v2",
+        "material_read": "Sections 2.1–2.3 including equations (5)–(10); 3 toy example; 4 real-election observations; 6 voting axiom examples; 7 conclusions and future questions.",
+        "method": "Public arXiv HTML full text; inspected actual mathematical definitions and conclusions rather than search snippets",
+        "title": "BallotRank: A Condorcet Completion Method for Graphs",
+        "trigger": "same named voting method, self-loop normalization and high-damping Condorcet claims"
+      },
+      {
+        "assessment": "Different Markov transition with all preference counts and complement loops, not the positive-margin BallotRank self-loop; its counterexamples do not imply the present theorem.",
+        "evidence": [
+          "arXiv:2102.01995, Sections 3–4, Definition 3.2",
+          "https://arxiv.org/abs/2102.01995"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.01995",
+        "material_read": "Full extracted preprint text in accessible arXiv rendering, especially Introduction and Sections 3, 4 defining complemented pairwise-preference Markov transitions.",
+        "method": "Accessible arXiv text inspected for transition matrices, assumptions and consistency",
+        "title": "Convergence Voting: From Pairwise Comparisons to Consensus",
+        "trigger": "close prior stationary-Markov voting method permitting Condorcet failure"
+      },
+      {
+        "assessment": "The gadget is established prior art; only the specific limiting BallotRank construction is claimed new.",
+        "evidence": [
+          "McGarvey, Econometrica 21 (1953), 608–610",
+          "https://www.stat.uchicago.edu/~lekheng/meetings/mathofranking/ref/saari.pdf for paired-comparison context"
+        ],
+        "identifier_or_url": "doi:10.2307/1907926",
+        "material_read": "Bibliographic entry and independent educational formulation of the two-ballot gadget; original journal full text not inspected.",
+        "method": "Bibliographic/source search and independent direct algebraic verification of all pair margins",
+        "title": "A Theorem on the Construction of Voting Paradoxes",
+        "trigger": "standard two-ballot gadget that realizes tournament arcs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e49db052-1d12-4fb7-9e4d-9d1ca4f1a679",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Todd–Volić motivate fixed-damping robustness with empirical success and explicitly suggest extremal analyses. The exact theorem resolves a natural uniform-guarantee question negatively for every d<1 while holding candidate count fixed, specifies a quantitative asymptotic winner gap, and isolates a mathematically relevant noncommuting limit. This is a substantive structural boundary for a newly proposed vote aggregation mechanism, not a small arbitrary parameter optimization.",
+    "status": "PASS"
+  }
+}
