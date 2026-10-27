@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The assembled tensor-product stiffness and positive diagonal quadrature mass reproduce the stated method. The exact parity-block inversion re-derives all 55 symmetry classes of its 625 Green entries. Exact sign-variation certificate proves each nonwitness rational function strictly positive until the root and the witness strictly negative afterward. Unique positive root follows from Descartes and rational sign bracket; exact rational negative witness at t=5 verified algebraically. No finite numerical sampling is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2310.15341, Theorem 4.1 and Remark 2 supply sufficient nonuniform-mesh grading constraints; they do not supply an if-and-only-if characterization on this 3-by-3 family.",
+        "arXiv:2010.07282, abstract/Sections 1 and 3 and related uniform-grid statements concern uniform monotonicity and the Q3 method."
+      ],
+      "reasoning": "Sufficient quasi-uniform conditions imply positivity only in a limited parameter subrange and do not give either the exact endpoint or failure beyond it. The uniform results apply to the specific parameter t=1, not the full positive parameter range.",
+      "searches": [
+        "On the monotonicity of Q2 spectral element method for Laplacian on quasi-uniform rectangular meshes Cross Zhang full text",
+        "On the monotonicity Q3 spectral element 2010.07282 quasi-uniform Q2 discussion",
+        "\"symmetric\" \"center\" \"mesh\" \"Cross\" \"Zhang\" monotonicity Gauss Lobatto"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.15341, full PDF relevant sections 2/4/5 and numerical tables/figures",
+      "arXiv:2010.07282, accessible PDF relevant Q2/Q3 sections",
+      "doi:10.25394/PGS.14529456, public thesis abstract only",
+      "DOI:10.4208/cicp.oa-2023-0206, journal bibliographic/abstract page"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2310.15341, Theorem 4.1: sufficient mesh constraints; Section 5.2: numerical failure on five-by-five elements.",
+        "arXiv:2010.07282, uniform-mesh/Q3 results.",
+        "H. Li, 2021 Purdue thesis repository abstract: Q2 and variable-coefficient monotonicity; full document was inaccessible through the available download route."
+      ],
+      "reasoning": "The assessed theorem is a necessary-and-sufficient classification for all positive symmetric grading ratios, including a sharp equality case and explicit negative inverse entry. A sufficient condition or unrelated numerical example does not imply this equivalence. The full thesis remains a priority uncertainty and has not been marked as noncovering.",
+      "searches": [
+        "\"inverse positivity\" \"three by three\" \"quadratic finite element\" mesh ratio",
+        "Cross Zhang 2023 Q2 spectral elements quasi-uniform rectangles, sharp necessary grading cutoff of inverse positivity and minimal 3x3 mesh",
+        "Q2 spectral element Laplacian 3x3 nonuniform rectangular mesh sharp inverse positivity threshold symmetric center cell ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cross and Zhang, arXiv:2310.15341, Section 2: nodal Q2 variational difference formulation and discrete maximum principle discussion; Section 5.2: nonuniform-mesh failure numerical test.",
+        "Cross and Zhang, arXiv:2010.07282, introduction and Sections 2–3: inverse positivity of Q2/Q3 spectral element matrices and tensor-product representation."
+      ],
+      "reasoning": "Equivalent formulations are entrywise positivity of the stiffness inverse, the mass-inverted discrete Green matrix, and positivity of nodal solutions for every nonnegative load. The analyzed 3-by-3 symmetric grading and its exact degree-thirteen boundary were not found in the two accessible primary sources.",
+      "searches": [
+        "Q2 spectral element three by three square mesh inverse monotonicity exact mesh ratio threshold central",
+        "\"3x3\" \"Q2\" spectral element monotonicity graded mesh inverse",
+        "Gauss Lobatto Q2 spectral element discrete Poisson Green function exact positivity for three by three nonuniform element mesh central stretched cell"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2310.15341, Section 5.2 and Figure 4 report a first detected negative entry near a ratio of 5.35 on a different five-cell-per-axis mesh; Table 1 reports convergence errors rather than the 25-by-25 inverse-sign threshold."
+      ],
+      "reasoning": "The specific degree-thirteen polynomial cutoff, its root and 25-by-25 sign classification were not present in the examined numerical table or figure. Searches returning no exact tabulation cannot by themselves establish global novelty.",
+      "searches": [
+        "\"4.1999378918\" \"spectral\" monotonicity",
+        "Cross Zhang Q2 spectral element monotonicity sharp ratio 4.2",
+        "Gauss Lobatto Q2 spectral element graded mesh inverse positive exact threshold three intervals each direction"
+      ]
+    },
+    "rationale": "The motivating 2023 work proves sufficient nonuniform-grid monotonicity conditions and numerically observes a different mesh failure; it neither states nor implies an exact if-and-only-if symmetric 3-by-3 threshold. Related 2020 work chiefly treats Q3 and uniform meshes. Targeted literature and mathematical-record searches did not reveal a covering statement. The 2021 thesis full text was not accessible; hence priority uncertainty remains.",
+    "residual_risks": [
+      "Full text of Hao Li (2021) thesis not inspected; it could contain a comparable restricted exact inverse-positivity calculation.",
+      "Unindexed work or other specialized spectral-element positivity tables could contain equivalent statements.",
+      "Only the stated one-parameter mesh family is classified; no general novelty claim for all quasi-uniform meshes."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains sufficient nonsharp mesh grading criteria and a different five-element-axis numerical loss; exact 3x3 one-parameter if-and-only-if boundary not located",
+        "evidence": [
+          "PDF p.18, Theorem 4.1/Remarks 2–3",
+          "PDF p.19, Section 5.2, positive-inverse failure near 5.35 on the five-element-axis test mesh",
+          "arXiv v1 2023-10-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.15341",
+        "material_read": "Full publicly accessible PDF, focusing on introduction, Section 2 discrete Q2 scheme, Section 4.6 Theorem 4.1, Section 5.2 mesh necessity experiment, conclusion and relevant appendices",
+        "method": "Inspected PDF text and page images, including explicit theorem and figure captions",
+        "title": "On the monotonicity of Q2 spectral element method for Laplacian on quasi-uniform rectangular meshes",
+        "trigger": "Same discretization, nonuniform meshes and inverse positivity"
+      },
+      {
+        "assessment": "Confirms tensor product and uniform-grid work, but no claimed exact symmetric 3x3 Q2 graded mesh threshold in inspected relevant sections",
+        "evidence": [
+          "PDF introduction, Q2 tensor-product formulation and literature survey",
+          "PDF Section 3.3 and uniform-mesh discussion",
+          "arXiv originally submitted 2020-10-14"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2010.07282",
+        "material_read": "Accessible PDF abstract, introduction, sections establishing tensor-product formulation and relevant Q2 discussion, summary of Q3 uniform-mesh result",
+        "method": "Examined arXiv PDF full-text sections and searched explicit phrases for quasi-uniform and nonuniform meshes",
+        "title": "Monotonicity of Q3 spectral element method for discrete Laplacian",
+        "trigger": "Related strong monotonicity and possible broader Q2 tensor-product coverage"
+      },
+      {
+        "assessment": "Unresolved full-text comparison and residual originality risk; no NOT_COVERING inference from abstract",
+        "evidence": [
+          "Purdue repository 2021-05-03 thesis abstract discusses Q2 spectral-element monotonicity",
+          "Full-text access attempt failed due inaccessible redirect"
+        ],
+        "identifier_or_url": "https://doi.org/10.25394/PGS.14529456",
+        "material_read": "Public Purdue repository title, abstract and bibliographic record only; full thesis download redirected to inaccessible signed object",
+        "method": "Inspected public repository record and attempted linked PDF retrieval",
+        "title": "Accuracy and Monotonicity of Spectral Element Method on Structured Meshes",
+        "trigger": "Potentially strong same-school antecedent addressing Q2 monotonicity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d63eff72-f25a-4f6f-a114-af894f64fcff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp cutoff answers the source literature’s explicit concern that its mesh-grading sufficiency condition may not be sharp, on the natural minimal nontrivial symmetric three-cell-per-axis square. It quantitatively identifies how much a graded Q2 grid can depart from quasi-uniformity before a nodal discrete maximum principle fails; the exact eighth-entry equality orbit gives a tight reproducibility benchmark. This is a motivated exact finite-dimensional classification rather than a routine prescribed-data computation; no wider theorem is claimed.",
+    "status": "PASS"
+  }
+}
