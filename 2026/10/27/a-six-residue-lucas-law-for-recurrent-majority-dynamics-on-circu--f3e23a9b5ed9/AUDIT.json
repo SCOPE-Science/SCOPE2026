@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Exact all-size identity P_n=tr(M^n), where M is 256-by-256 on ordered pairs of two-time 4-bit columns and local majority constraints. Its six live SCCs and each characteristic polynomial are checked by exact integer symbolic computation from a standalone program. Fixed points are classified by forced mixed columns or no-isolated-run pure columns with a four-state transfer. Direct, independently implemented full-state enumeration at n=3..10 matches every formula. Roots and six-residue traces are reconstructed from displayed factors, not inferred from finite samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles and Olivos, Discrete Mathematics 30 (1980), 187--189: general periods <=2 for symmetric threshold maps",
+        "Kaaser et al., arXiv:1508.03519v1: graph-general complexity and voting-time upper bounds; no periodic-attractor multiplicities",
+        "Nakar and Ron, arXiv:2205.08972: radius-majority ring, not the rung-coupled prism"
+      ],
+      "reasoning": "The 1980 period bound is used rather than presented as new. Existence/period restriction and convergence-time upper bounds do not determine the number of F^2 fixed configurations or its six-residue Lucas law. Single-row classification concerns a different update operator.",
+      "searches": [
+        "published-finding corpus: sharp relaxation bound majority update prism graph circular ladder odd even",
+        "web: majority dynamics ladder graph periodic orbit enumeration exact number of 2-cycles",
+        "web: synchronous majority dynamics prism graph circular ladder two cycles transient"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1508.03519v1",
+      "arxiv:2205.08972",
+      "doi:10.1016/0012-365X(80)90121-1",
+      "https://oeis.org/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General symmetric-threshold period theorem restricts attractor periods but leaves multiplicities arbitrary",
+        "Kaaser et al. 2015 Theorem 1.2 bounds voting time, whereas the present statement counts recurrent configurations; its bound does not specialize to an enumeration",
+        "Nakar--Ron 2022 works with one cyclic row and self-inclusive radius majority; prism has two rows and an inter-row rung"
+      ],
+      "reasoning": "None of these sources asserts a stronger result from which exact prism counts follow. The finite trace computation is new evidence of the claimed closed form, not a corollary of the general period restriction.",
+      "searches": [
+        "web: arxiv majority dynamics synchronous graph periodicity 2011 2012 2013 2014 threshold networks",
+        "web: \"C_n × K_2\" \"majority\" dynamics two cycle",
+        "published-finding corpus: synchronous majority dynamics circular prism graph C_n cartesian K_2 exact transient time n parity two cycles periodic states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1508.03519v1, pages 1--4 and appendix: general voting time; no prism count or spectral transfer law",
+        "arXiv:2205.08972, sections 1--3: one-dimensional self-inclusive radius-majority rule on one cyclic string, not a two-layer prism"
+      ],
+      "reasoning": "Potential aliases include prism/circular ladder/C_n square K_2, fixed F^2 states, temporal period two, and Lucas recurrence. The inspected works concern different graph dynamics or general bounds. Their statements do not imply the exact six-residue formula.",
+      "searches": [
+        "published-finding corpus: exact Lucas-number formula for period-two synchronous strict majority on circular ladder graph and primitive attractor census",
+        "published-finding corpus: majority prism graph recurrent states fixed states cycles of length two Cn product K2 Lucas numbers",
+        "web: \"prism\" \"majority dynamics\" fixed points two cycles"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct original full-state enumeration establishes values 22,64,124,484,844,2304,5782,15376 at n=3..10",
+        "No indexed source returned a matching prism-majority table or exact all-size formula; similar sequences can arise in unrelated settings"
+      ],
+      "reasoning": "Bare sequences or a Lucas-number identity would not suffice to establish this graph-specific theorem. Searched parameter-indexed tables and claim semantics; no covering table was found, but an unindexed table remains possible.",
+      "searches": [
+        "web: \"22, 64, 124, 484, 844, 2304\" majority",
+        "web: OEIS 22 64 124 484 844 2304 Lucas 2-cycle",
+        "published-finding corpus: voting majority process periodic orbit zeta function complete ladder network transfer matrix eigenvalues Fibonacci"
+      ]
+    },
+    "rationale": "Closest broad theorem Goles--Olivos proves only periods <=2; Kaaser et al. 2015 prove voting-time bounds; Nakar--Ron prove structural results on a different one-row majority automaton. No indexed published-finding corpus or web search found the all-size six-residue Lucas enumeration for two-row prisms. Coverage risk is bounded, not declared impossible.",
+    "residual_risks": [
+      "An unindexed equivalent prism-majority orbit census or differently named cylinder result may exist.",
+      "Founding 1980 generalized-threshold article was checked only via published abstract; its abstract does not disclose any prism specialization.",
+      "No independent external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No explicit circular-prism primitive-orbit census; graph-general voting-time and complexity instead",
+        "evidence": [
+          "Definition 3 sets T=min{t:F^(t+2)=F^t}, page 4",
+          "Theorem 1.2 is an upper bound on voting time, page 5",
+          "Full-PDF text search found no occurrence of prism or ladder"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+        "material_read": "28-page PDF: abstract and definitions pages 1--4, bounds/Theorem 1.2, reference context, search of whole PDF for prism/ladder, and appendices discussing voting time",
+        "method": "PDF full text and page-image inspection",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Exact old-source majority update, two-periodic limit, possible circular graph family theorem"
+      },
+      {
+        "assessment": "Addresses self-inclusive one-row cyclic majority, not the degree-three rung-interaction prism; no identified covering implication",
+        "evidence": [
+          "Definition 3 on page 4 uses centered radius-r neighborhood on a single cyclic string",
+          "Abstract and main results classify spatial structure rather than all-prism Lucas orbit counts"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+        "material_read": "31-page PDF: abstract, table of contents, introduction, definitions and main result section; checked graph and local-rule assumptions",
+        "method": "PDF full-text and first-page-image inspection",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata",
+        "trigger": "Potential stronger structural classification of all majority periodic states on cyclic geometries"
+      },
+      {
+        "assessment": "Supports general period restriction, not a claim of new proof or a full-text noncoverage conclusion",
+        "evidence": [
+          "Publication abstract explicitly states fixed or length-two cycles for symmetric threshold functions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "University publisher-indexed abstract and 1980 bibliographic record; full 1980 paper not accessible in this run",
+        "method": "Institutional publication metadata and abstract; not full text",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "The period-at-most-two antecedent needed by the proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f3e23a9b-5ed9-4688-839a-7319dd06ddcf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives a complete exact recurrent-attractor census for the natural cyclic cubic prism family for every size, not an arbitrary finite slice. The unexpectedly simple residue-six Lucas law proves exponentially different counts of fixed versus oscillating recurrent states and supports quantitative comparisons of recurrent diversity under topology. The factorization reduces a 256-state transfer to six small cyclic blocks, providing a reproducible exact structural characterization. No wider theorem is claimed.",
+    "status": "PASS"
+  }
+}
