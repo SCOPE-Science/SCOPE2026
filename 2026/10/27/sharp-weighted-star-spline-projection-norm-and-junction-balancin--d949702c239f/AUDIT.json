@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every \\(m\\ge3\\) and each positive weighted arm mass, the \\(m+1\\) nodal hats span a positive definite Gram matrix. Its exact block Schur complement is \\(M/4\\) and yields an explicitly checked inverse. The reproducing kernel at the center is \\((4-6s)/M\\), while the kernel on arm \\(j\\) at leaf \\(i\\) is \\((-2+3s)/M+\\mathbf1_{\\{j=i\\}}3s/\\mu_i\\). Exact absolute integrations give \\(5/3\\) at the center and \\(7/3-4\\mu_i/[3(M+\\mu_i)]\\) at leaf \\(i\\). Convexity along each arm reduces the operator norm to vertices; measurable kernel signs attain it. Monotonicity and \\(\\mu_*\\le M/m\\) give the unique optimal mass-balance condition and strict nonattaining upper envelope \\(7/3\\). A standalone exact rational script independently assembled, inverted and integrated 225 cases, but the universal proof is algebraic and does not depend on sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Passenbrunner--Shadrin arXiv:1308.4824, Theorems 1.1-1.2 and Sections 4–5, bound inverse Gram entries and prove almost-everywhere convergence for interval splines, not sharp star norms.",
+        "Passenbrunner arXiv:1608.06720, Theorems 1.3-1.4 and Section 3, establish almost-everywhere convergence and mesh-independent boundedness for periodic splines on a circle, not high-valence junctions.",
+        "Crouzeix--Thomée 1987 addresses finite-element projection stability with dimension- and mesh-dependent geometric assumptions; its identified abstract does not provide the exact metric-star profile."
+      ],
+      "reasoning": "General upper-boundedness on intervals or periodic cycles neither specifies the sharp value as a function of the minimum effective arm mass nor classifies its unique balancing minimizers. An arbitrary-dimensional projection argument may permit a new proof, but no inspected stronger statement subsumes this exact result.",
+      "searches": [
+        "metric graph finite element L2 projection stability continuous piecewise linear spline networks",
+        "Sharp L infinity operator norm of L2 orthogonal projection onto continuous piecewise linear splines on a metric graph star with heterogeneous edge lengths. Exact constants and maximizing mesh.",
+        "https://arxiv.org/abs/1308.4824",
+        "https://arxiv.org/abs/1608.06720"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0408418 (public full text, 2004-08-30)",
+      "arxiv:1308.4824 (public full text, 2013-08-22)",
+      "arxiv:1608.06720 (public full text, 2016-08-24)",
+      "Crouzeix--Thomée, Math. Comp. 48 (1987), 521-532 (metadata, abstract; primary full text access restricted)",
+      "Ciesielski--Kamont, Funct. Approx. Comment. Math. 25 (1997), 129-143 (bibliography and secondary discussion; original not read)",
+      "Two-cell interval projection formula (two-arm structural specialization, no higher-valence coverage)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The interval exact formula algebraically agrees with setting \\(m=2\\) in the new Schur-complement calculation. The current claim requires \\(m\\ge3\\), so it is not merely that earlier case with new wording.",
+        "Kayumov arXiv:math/0408418 Section 1.2 describes a sharp mesh-independent constant \\(3\\) for arbitrarily partitioned intervals; this weaker family bound is not the exact weighted-star formula.",
+        "Passenbrunner arXiv:1608.06720 Theorem 1.4 states boundedness for periodic spline spaces without the stated constant or star topology."
+      ],
+      "reasoning": "Neither a one-dimensional interval nor a circle possesses a degree-three junction. The new inverse Gram coupling across three or more terminal hats is a distinct computation. The earlier interval special case and general estimates therefore do not logically entail the precise high-valence norm, full range, or balancing characterization without additional mathematical work.",
+      "searches": [
+        "Orthogonal projection onto two-element interval linear splines exact maximum norm 1 + 4/[3(1+h)] knot with short subinterval.",
+        "https://arxiv.org/abs/1608.06720",
+        "https://arxiv.org/abs/math/0408418",
+        "Ciesielski Kamont Projections onto piecewise linear functions 25 1997 129 143"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kayumov arXiv:math/0408418, introduction and Section 1.2, studies function spaces on partitions of a single interval; linear-spline mesh-independent global upper constant is 3.",
+        "Passenbrunner--Shadrin arXiv:1308.4824, introduction and Theorem 1.2, concern arbitrary knots on one interval.",
+        "The two-arm interval projection has exact norm \\(1+4/[3(1+h)]\\) with normalized shorter subinterval length \\(h\\); this is the specialization at \\(m=2\\) and is excluded from the present claim."
+      ],
+      "reasoning": "The new object is a valence-at-least-three junction with an arrowhead Gram matrix of arbitrary size. There is no homeomorphic transformation of this network into a single interval preserving the space of continuous piecewise-affine functions. A two-arm identity is an important overlap but does not state or directly imply the full higher-valence exact formula and optimizing weighted-mass classification.",
+      "searches": [
+        "L2 orthogonal projection onto continuous piecewise linear functions on star-shaped metric graph with one linear element on each edge, sharp L infinity norm 7/3 arm length",
+        "Finite element L2 projection star network vertex hat basis mesh size independent L infinity bound 7/3, Lebesgue function leaf",
+        "orthogonal splines \"star graph\" projection norm Lebesgue",
+        "https://arxiv.org/abs/math/0408418"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The two-cell interval calculation has exact norm \\(1+4/[3(1+h)]\\); it is the two-arm specialization, not a high-valence theorem.",
+        "Exact low-knot path and circle projection formulas involve unbranched topology, not a star junction of valence at least three.",
+        "Search returns other star metric extension and free-space constants with different operators and data; none asserts the weighted continuous linear-spline projector law."
+      ],
+      "reasoning": "No inspected indexed result or literature table states this entire natural family. The exact two-arm value is not counted as original. Index coverage is incomplete, and a negative search is not treated as a uniqueness theorem.",
+      "searches": [
+        "Orthogonal least squares finite element projection onto continuous affine functions on metric star with m edges. Exact sharp L-infinity Lebesgue norm depends on shortest weighted edge mass, 7/3 bound.",
+        "High valence junction spline orthogonal projection L infinity norm. Balancing star edge lengths minimizes amplification and instability increases with number of leaves.",
+        "Least squares continuous piecewise linear spline projection metric tree star shaped metric graph leaf center stability operator norm"
+      ]
+    },
+    "rationale": "The exact weighted-mass star-junction law has a different domain and quantification from the closest inspected interval and periodic spline results. The two-arm interval specialization is explicitly known and excluded from the new statement. Targeted mathematical literature and indexed-result searches by operator, geometry, weight, and aliases did not identify an equal or dominating theorem for valence at least three. Full primary arXiv texts were inspected; the unavailable 1997 interval article and potentially unindexed metric-network work remain disclosed risks, not proof of uniqueness.",
+    "residual_risks": [
+      "A metric-network finite-element paper outside searched indexes could have derived the same formula.",
+      "Ciesielski--Kamont (1997) and Crouzeix--Thomée (1987) original complete texts were not obtained; their apparent one-dimensional scope is informed by citations and abstracts.",
+      "Semantic index comparisons and inspected literature establish best-knowledge noncoverage, not logically exhaustive novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING; domain is partitions of one interval; no star valence at least three",
+        "evidence": "arXiv:math/0408418, lines on Section 1.1 interval [a,b], Section 1.2 exact universal constant 3 for linear splines.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0408418",
+        "material_read": "Full-text HTML abstract, introductory formulation, history, Sections 1.1-1.3, and formulas for polynomial versus exponential L-splines",
+        "method": "Public arXiv full-text HTML reading",
+        "title": "Least-squares approximation by second-order L-splines",
+        "trigger": "Foundational exact mesh-independent spline projection bounds and operator-norm techniques"
+      },
+      {
+        "assessment": "NOT_COVERING; univariate interval theorem and bounds, not exact metric-star junction norms",
+        "evidence": "arXiv:1308.4824, Theorems 1.1, 1.2, Lemma 4.1: abstract interval and inverse Gram bounds.",
+        "identifier_or_url": "https://arxiv.org/abs/1308.4824",
+        "material_read": "Full-text HTML introduction, Theorems 1.1-1.2, kernel/inverse discussion, Section 4 Lemma 4.1 and its proof structure",
+        "method": "Public arXiv full-text HTML reading",
+        "title": "On almost everywhere convergence of orthogonal spline projections with arbitrary knots",
+        "trigger": "Covers arbitrary-knot L2 projections and inverse Gram estimates"
+      },
+      {
+        "assessment": "NOT_COVERING; periodically ordered knots have valence two, unlike a star junction",
+        "evidence": "arXiv:1608.06720, Theorems 1.3-1.4: qualitative stability on a torus; no exact weighted-star norm.",
+        "identifier_or_url": "https://arxiv.org/abs/1608.06720",
+        "material_read": "Full-text HTML Sections 1.1-1.2, Theorems 1.3-1.4, Section 3 boundedness proof and Remark 3.2",
+        "method": "Public arXiv full-text HTML reading",
+        "title": "Orthogonal projectors onto spaces of periodic splines",
+        "trigger": "Potential graph-topological analogue on a closed metric circle"
+      },
+      {
+        "assessment": "ACCESS_RISK; apparently concerns interval knots, but full original content not checked",
+        "evidence": "Passenbrunner--Shadrin arXiv:1308.4824, introduction: credits Ciesielski--Kamont with interval linear spline estimates.",
+        "identifier_or_url": "Z. Ciesielski and A. Kamont, Funct. Approx. Comment. Math. 25 (1997), 129-143",
+        "material_read": "Bibliographic citation and the detailed secondary discussion in Passenbrunner--Shadrin (2013), introduction; original paper full text unavailable",
+        "method": "Bibliographic search and cited-primary comparison; no claim of full-text inspection",
+        "title": "Projections onto piecewise linear functions",
+        "trigger": "Closest earlier primary work on exact structure of piecewise-linear orthoprojectors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d949702c-239f-4714-a0eb-3e34d9f983b0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical one-affine-element-per-arm space is the lowest-order continuous spline approximation on a star-shaped metric network. The complete classification quantifies how a high-valence junction changes worst-case least-squares amplification, with a degree-independent sharp envelope \\(7/3\\), unique optimal allocation of weighted arm mass, a valence-dependent increasing minimum, and nonattainment phenomena. This is a motivated natural whole family, not an arbitrary fixed parameter or a minor numeric improvement; the \\(m=2\\) known case is excluded.",
+    "status": "PASS"
+  }
+}
