@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "Direct derivation of the characteristic polynomial and the three Jury inequalities gives Schur stability. For nonnegative coefficients positivity is inductive; in the remaining interval the exact real-root decomposition shows negativity at one parity unless the negative-root coefficient vanishes. Exact rational Taylor intervals prove the required finite signs; convexity of exp(s) F\" gives a unique inflection of F, and its derivative signs imply exactly two simple roots. The exact first-negative index formulas prove the inverse-linear onset and logarithmic resonance delays. The included checker replays all signs and 2557 finite numerical comparisons; those computations are not substituted for the infinite proof. The theorem explicitly excludes unrounded coefficients and corrected iteration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hundsdorfer--Ruuth--Spiteri treat positivity/TVD monotonicity for general linear multistep methods and suitable starters; inspected pages 3,5,7,9."
+      ],
+      "reasoning": "General recurrence and monotonicity machinery supplies background proof ideas, not the concrete two-resonance O2CP classification. A future discovery of a general specialized theorem with an already evaluated O2CP case would overturn this originality assessment; risk retained.",
+      "searches": [
+        "Monotonicity-Preserving Linear Multistep Methods Hundsdorfer Ruuth Spiteri",
+        "two-step recurrence a(s) and b(s) oscillatory sign eventual negativity exact positive starting values first negative index square root threshold",
+        "Optimized two-step coarse propagator O2CP 2605.11979 positivity preservation negative stiff modes R1 R2 characteristic discriminant"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2605.11979 (first posted 2026-05-12; primary MSC 65M55)",
+      "https://arxiv.org/pdf/2605.11979 (v2, especially sections 3.1, 3.3, 3.5, 3.6, formula (3.20) and Proposition 6)",
+      "https://ir.cwi.nl/pub/4231/04231D.pdf (Hundsdorfer--Ruuth--Spiteri 2002 preprint, pages 3, 5, 7 and 9 inspected)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14 (public summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "O2CP paper supplies coefficients and A-stability, not a positivity theorem.",
+        "BDF2 note supplies a square-root oscillation scale; classical real-root recurrences admit inverse-linear delay but do not give this O2CP coefficient-specific phase diagram.",
+        "The two O2CP matching roots and the strict positivity iff condition require applying its coefficients, the exact starter and a distinct transcendental zero-count argument."
+      ],
+      "reasoning": "Existing general theory suggests the mechanism but the available statements do not dominate the exact source-specific resonance count. The scientific contribution is deliberately limited to this sharp new phase diagram, not a new general characteristic-root principle.",
+      "searches": [
+        "Optimized two-step coarse propagator O2CP 2605.11979 positivity preservation negative stiff modes R1 R2 characteristic discriminant",
+        "two-step recurrence a(s) and b(s) oscillatory sign eventual negativity exact positive starting values first negative index square root threshold",
+        "Li Lin Zhang Zhou 2026 optimized parareal positivity stiff eigenmode 0.56380 0.46300",
+        "\"Monotonicity-preserving linear multistep methods\" pdf Hundsdorfer Ruuth Spiteri"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "O2CP (3.20) can be rewritten as an exact scalar recurrence and the resonance condition equals its exponential-matching residual from (3.14).",
+        "Published BDF2 sign-delay note yields complex-root phase oscillations, not the present real-root crossover."
+      ],
+      "reasoning": "The matching residual is equivalent to vanishing of the negative-characteristic-mode coefficient for an exactly initialized scalar. Original Section 3 optimizes and bounds the residual but does not give the exact count of its postthreshold zeros and their all-time positivity meaning. This comparison uses implications, not just terminology.",
+      "searches": [
+        "Optimized two-step coarse propagator O2CP 2605.11979 positivity preservation negative stiff modes R1 R2 characteristic discriminant",
+        "multistep parareal A-stable O2CP negative coarse propagation positivity harmonic roots crossing critical",
+        "\"Optimized Two-Step Coarse Propagators\" positivity oscillation negativity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus searches did not return a direct exact O2CP positivity entry."
+      ],
+      "reasoning": "The numeric roots are not copied from a database/table: they are computed from the published rational functions with exact symbolic root counting. Search absence alone is not treated as proof of novelty.",
+      "searches": [
+        "Li Lin Zhang Zhou 2026 optimized parareal positivity stiff eigenmode 0.56380 0.46300",
+        "Optimized two-step coarse propagator O2CP 2605.11979 positivity preservation negative stiff modes R1 R2 characteristic discriminant",
+        "\"O2CP\" \"positive\" parareal Li Lin Zhang Zhou"
+      ]
+    },
+    "rationale": "Published source arXiv:2605.11979v2 gives the optimized rational functions and A-stability but not the new exact-starter positivity iff classification, two root count or first-negativity delay. General LMM monotonicity, previous BDF2 complex-root delays and classical real-root dominance analyses are relevant proof-method antecedents; none evaluated the two postthreshold O2CP exact-match resonances. Generic recurrence algebra means residual priority uncertainty is real.",
+    "residual_risks": [
+      "Generic two-step monotonicity literature may contain an equivalent implicit classification for any rational coefficient pair.",
+      "An earlier unpublished or inaccessible O2CP source may have counted these zeros.",
+      "Coefficients are the printed five-decimal numbers rather than the optimization authors' unrounded parameter values.",
+      "Second resonance lies about 3.26e-16 below a/b and is not robust in binary64 arithmetic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source presents stability, parareal error and coefficient optimization; inspected material does not state postthreshold positivity resonances or exact sign-delay rates. Full-page exclusion not asserted for unread pages.",
+        "evidence": [
+          "arXiv:2605.11979v2 pp.5,6,10,13--14; formulas (3.1), (3.14), (3.20), Prop.6"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.11979",
+        "material_read": "Full source overview and mathematically relevant pages 5,6,10,13,14; Algorithm 2, (3.1)--(3.3), (3.14), (3.20), Proposition 6; explicit find for positivity and negative terms",
+        "method": "Read extracted PDF text and render/inspect relevant pages",
+        "title": "Optimized Two-Step Coarse Propagators in Parareal Algorithms",
+        "trigger": "Same optimized coefficient functions R1/R2 and potential prior coverage of positivity"
+      },
+      {
+        "assessment": "General theory handles positivity/monotonicity, including starting procedures, but inspected source does not evaluate O2CP or two exact-start postthreshold resonances. Other pages not exhaustively reviewed.",
+        "evidence": [
+          "CWI MAS-R0210 (2002), pp.3,5,7,9"
+        ],
+        "identifier_or_url": "https://ir.cwi.nl/pub/4231/04231D.pdf",
+        "material_read": "Front matter plus rendered pages 3,5,7,9 including Section 3 general two-step positivity analysis and admissible starts",
+        "method": "Open OA PDF and inspect page images",
+        "title": "Monotonicity-preserving linear multistep methods",
+        "trigger": "Potential broad existing monotonicity and startup theorem covering the new special case"
+      },
+      {
+        "assessment": "Analogous two-step sign loss but for BDF2 complex-root geometry and square-root onset, not the O2CP roots. Partial material inspected; residual risk acknowledged.",
+        "evidence": [
+          "published-finding corpus search result ID 2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+        "material_read": "Public published-finding corpus search summary of mathematical claim",
+        "method": "Semantic-index comparison of formulas and implications, not full article",
+        "title": "Exact delayed sign loss just beyond BDF2 positivity boundary",
+        "trigger": "Close analogous published delayed-negativity result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d036e694-8156-4c72-ab9d-b5bd8c3c625f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Stability of a parareal coarse integrator does not imply preservation of positive scalar decays. For the optimized 2026 O2CP, the theorem supplies the sharp all-time safe spectral range, proves generic failure beyond it, identifies exactly two isolated nonrobust exceptions caused by exact fine/coarse matching, and quantifies inverse-linear and logarithmic delays hiding negative values in finite tests. This answers a natural qualitative design constraint not controlled by a small parareal error factor. It is a restricted, exact self-contained fact; no wider PDE maximum-principle or general parareal failure is claimed.",
+    "status": "PASS"
+  }
+}
