@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The claim specifies stationary initialization, all positive parameters, and work at **both** on- and off-switches. The two state-conditioned stationary quadratic-moment identities yield \(u_1=D/k\) and \(u_0=(Da/b)(1/k+2/(a+b))\). Direct substitution verifies the pointwise Poisson equation \(j+\mathcal Lg=\mu\) with \(g_0=kx^2/2+Dk/(a+b)\), \(g_1=0\). This turns the signed switching-work martingale jumps into the constants \(\pm Dk/(a+b)\). The explicit bracket evaluates to the stated \(V\). Stationary fourth moments control the boundary term; ergodicity and bounded martingale jumps yield the CLT. Exact rational algebra and independent mixed-moment ODE evolution in the packaged `verify_work.py` corroborate the formulas across four parameter sets. Neither a finite simulation nor the verification log is used as a proof of an infinite-time claim.
+
+## Originality — PASS, with risks
+The mean injected-work rate is **not new**. The complete Frydel (2024) on/off-trap exposition covers stationary distributions, moments, and mean heat/entropy production (notably Section VI, equation (48)); the full relevant Alston–Cocconi–Bertrand (2022) harmonic sections cover mean steady-state entropy production with asymmetric switching, including equation (40). Compared by assumptions and implication, these sources do not establish the evaluated signed integrated-work variance, the martingale coboundary, or the stated CLT. Results for fluctuating trap center, spatial position correlations, and generic Markov-modulated OU moments do not themselves provide these work-specific conclusions. Relevant searches of mathematical-result records and related literature found no directly equivalent evaluated statement. Residual priority risk: a broader work large-deviation formula or general Markov additive-functional result may imply the specialization without matching its title or wording; source discovery is not exhaustive.
+
+## Mathematical value — PASS
+A mean energy-dissipation rate does not determine energetic reliability. The explicit positive fluctuation coefficient makes this distinction quantitative: at fixed on/off occupancy, changing the switching clock leaves the mean power exactly unchanged while moving the asymptotic work variance through an entire strictly decreasing one-parameter family, from divergence at slow switching to a finite noise floor at fast switching. This gives a physically interpretable and testable precision relation, not merely a normalization identity or a routine restatement of existing mean results.
+
+## Scope and residual scientific limits
+All assertions require stationary one-dimensional overdamped dynamics, independent Brownian and two-state exponential switching, and strictly positive rates. Claims do not concern general two-positive-stiffness modulation, heat fluctuations, inertial dynamics, or a joint time/switching scaling limit. Independent scientific audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
