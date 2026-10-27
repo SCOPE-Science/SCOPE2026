@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The update matrices, second-moment matrix, and characteristic polynomial are explicit. The sign of \\(p(1)=\\mu(2-\\mu-q\\mu^2)\\) proves necessity, including failure at equality. For the strict region, the displayed matrix P satisfies \\(P-\\mathbb{E}[A_d^\\top P A_d]=I\\); its leading principal minor and determinant are positive, giving exponential mean-square decay. The rational verification script checks the certificate identity at exact parameter points and an exact polynomial sign witness outside the region.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected fixed-delay paper gives finite-time convergence bounds for fixed delay.",
+        "The abstract of arXiv:2308.09430v1 emphasizes generalization analysis for delayed SGD; its full text was not obtained.",
+        "Related asynchronous optimization bounds cited in the inspected fixed-delay paper address broader delay models but do not state the exact Bernoulli-mixture frontier in the inspected text."
+      ],
+      "reasoning": "No inspected source supplies a necessary-and-sufficient mean-square threshold for the same iid \\(\\{0,1\\}\\)-delay scalar recurrence. General sufficient bounds do not imply the explicit distribution-dependent boundary; the uninspected full text remains a residual risk.",
+      "searches": [
+        "random delay SGD exact mean square stability quadratic deterministic gradients",
+        "asynchronous gradient descent random delay distribution stability scalar quadratic",
+        "arXiv:2308.09430v1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1806.10188v1 — full text inspected for fixed-delay assumptions and recurrence.",
+      "arXiv:2308.09430v1 — abstract inspected only; full text unavailable in this run."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-delay endpoints yield the known ceilings \\(2\\) at \\(q=0\\) and \\(1\\) at \\(q=1\\).",
+        "For \\(0<q<1\\), the exact boundary is \\(q\\mu^2+\\mu=2\\), derived from the characteristic polynomial and certified by a positive-definite Lyapunov matrix.",
+        "The closest indexed random-delay results use different algorithms: randomized Gauss-Seidel with stale reads, or error-feedback sparsification with geometric retransmission delays."
+      ],
+      "reasoning": "The inspected fixed-delay statements do not imply the intermediate iid-mixture frontier. The different random-delay recurrences do not reduce to this scalar update under a demonstrated equivalence. No exact same-object dominating result was identified in the accessible checks; the uninspected related full text is retained as a residual risk.",
+      "searches": [
+        "arXiv:1806.10188v1",
+        "arXiv:2308.09430v1",
+        "asynchronous gradient descent random delay distribution stability scalar quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1806.10188v1 studies a fixed delay and uses the recurrence \\(x_{k+1}=x_k-\\eta A x_{k-\\tau}\\).",
+        "The present model mixes delays 0 and 1 independently at every iteration; the fixed-delay model coincides only with the endpoint cases \\(q=0\\) or \\(q=1\\)."
+      ],
+      "reasoning": "No equivalent formulation was identified in the inspected material. For \\(0<q<1\\), the second-moment evolution is a different three-dimensional covariance operator and requires its own stability analysis.",
+      "searches": [
+        "one-step Bernoulli delay gradient descent scalar quadratic stability",
+        "random-delay scalar quadratic gradient descent exact mean-square stability threshold one-step Bernoulli delay",
+        "arXiv:1806.10188v1, Sections 1–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is an analytic stability frontier rather than a finite enumerated dataset or lookup table.",
+        "The closest indexed exact-delay summaries concern randomized Gauss-Seidel and Bernoulli error-feedback sparsification, whose state recurrences differ from the present gradient-descent recurrence."
+      ],
+      "reasoning": "A fixed external table is inapplicable to this symbolic theorem. Query-based literature overlap checks were used to locate adjacent results; the universal boundary is established by the analytic proof, not by a failed search.",
+      "searches": [
+        "random-delay scalar quadratic gradient descent exact mean-square stability threshold one-step Bernoulli delay",
+        "one-step Bernoulli delay gradient descent scalar quadratic stability",
+        "random delay SGD exact mean square stability quadratic deterministic gradients"
+      ]
+    },
+    "rationale": "The contribution is the closed-form necessary-and-sufficient stability frontier for the iid Bernoulli mixture of zero and one-step gradient delays, together with an explicit Lyapunov certificate. The inspected fixed-delay analysis covers endpoint models but not the intermediate delay-probability frontier; closest indexed random-delay results use different update recurrences.",
+    "residual_risks": [
+      "The full text of arXiv:2308.09430v1 was not obtained; it could contain a special-case result not visible in the abstract.",
+      "General random-delay or Markov-jump linear-system literature may contain an equivalent specialization; absence from the inspected searches is not a proof of novelty.",
+      "The result is a sharp scalar/SPD-quadratic benchmark, not a general theorem for nonlinear or noisy asynchronous optimization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant endpoint and convergence baseline; no exact necessary-and-sufficient threshold for the iid \\(\\{0,1\\}\\)-delay mixture is stated in the inspected sections.",
+        "evidence": [
+          "arXiv:1806.10188v1, Sections 1–3."
+        ],
+        "identifier_or_url": "arXiv:1806.10188v1",
+        "material_read": "Full arXiv text: introduction, delayed-gradient recurrence, generating-function framework, and deterministic delayed-gradient section.",
+        "method": "Compared the stated fixed-delay recurrence and scope with the iid Bernoulli mixture and its mean-square covariance operator.",
+        "title": "A Tight Convergence Analysis for Stochastic Gradient Descent with Delayed Updates",
+        "trigger": "Primary fixed-delay gradient-descent comparison."
+      },
+      {
+        "assessment": "The abstract emphasizes generalization bounds rather than an exact mean-square stability frontier. Because the full text was not inspected, it remains a residual overlap risk.",
+        "evidence": [
+          "arXiv:2308.09430v1 abstract."
+        ],
+        "identifier_or_url": "arXiv:2308.09430v1",
+        "material_read": "Abstract only. The arXiv/OA retrieval attempt did not yield full text; the institutional retrieval retry also failed.",
+        "method": "Compared only the stated scope of the abstract; no claim is made about uninspected theorem details.",
+        "title": "Towards Understanding the Generalizability of Delayed Stochastic Gradient Descent",
+        "trigger": "Plausible source concerning random-delay SGD."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f82479ed-9d83-4ae5-be26-b0921d26723d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a usable exact step-size ceiling that depends on the probability of a one-step stale gradient. It interpolates from the no-delay ceiling 2 to the always-delayed ceiling 1 and is necessary as well as sufficient, making it a sharp benchmark for probabilistic asynchronous optimization rather than a conservative sufficient bound.",
+    "status": "PASS"
+  }
+}
