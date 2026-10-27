@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The main theorem is proved for every positive multipartite profile and every named palette lambda>r. A first force implies saturation of all lambda colours. Disjoint final palettes across parts imply multicoloured parts must be fully seeded; two empty monochromatic parts forbid any initial force. Conversely, represented colours outside any unseeded monochromatic part force that part, completing in at most two synchronous rounds. Counting onto colourings of each part by Stirling numbers then counts every successful restriction without collisions after subtracting the full-seeded monomial. Minimum-seed formula optimizes the capacities n_i-1 of multicoloured fully seeded parts and a single unseeded target; the palette cutoff follows from maximum neighbourhood size. Direct exact-integer exhaustive verification matches all seeded-size coefficients on 17 graph/palette cases through six vertices and structural membership on four cases; no finite check is substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Farr–Morgan 2024, section 3.5, defines forcing and its polynomial but not a complete multipartite multi-palette count.",
+        "published-finding corpus max-degree-two theorem covers three colours and cannot dominate arbitrarily high-degree multipartite graphs.",
+        "The 2026 Farr abstract gives general theory and hardness, without a stated all-palette formula; complete full text unavailable."
+      ],
+      "reasoning": "The only verified overarching statements are the definition and general computational facts, which do not yield the explicit coefficients. For palettes larger than the maximum degree plus one, trivially only full assignments work, but the proposed theorem also treats the nontrivial intermediate range. An inaccessible relevant full paper is disclosed and not called NOT_COVERING.",
+      "searches": [
+        "exact forced colouring polynomial arbitrary λ of multipartite graphs color forcing graph",
+        "forced coloring polynomial complete bipartite complete multipartite",
+        "\"forced colouring function\" \"complete bipartite\" \"Farr\"",
+        "published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+        "arxiv:2609.17108v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.17108v1 (abstract only)",
+      "arxiv:2406.15746 (relevant primary full text)",
+      "published-finding corpus:2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+      "published-finding corpus:2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+      "published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The r-colour prior formula has only one colour per part and no Stirling sum over t_i>1.",
+        "The bipartite lambda=3 prior formula allows two-coloured fully seeded one side but does not cover lambda>=4 nor general r.",
+        "Farr–Morgan gives a general exact definition but no closed formula for the requested family."
+      ],
+      "reasoning": "The new complete-multipartite lambda>r statement strictly extends known parameter slices but is not a corollary of their hypotheses. The novel implication is the all-lambda classification with the minimum-seed subset-sum term; it is explicitly tested at (r,lambda)=(3,4), outside all three closest theorem scopes.",
+      "searches": [
+        "forced colouring function complete multipartite graph lambda-colouring exact probability seeded local forcing",
+        "exact forced colouring polynomial arbitrary λ of multipartite graphs color forcing graph",
+        "published-finding corpus:2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "published-finding corpus:2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+        "published-finding corpus:2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+        "arxiv:2406.15746"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest multipartite RESULT.md proves the r=chi(G) theorem and expressly excludes additional colours.",
+        "The K_{m,n} RESULT.md fixes lambda=3 and is a single boundary instance of the proposed larger-palette family."
+      ],
+      "reasoning": "No equivalence or simple renaming transfers a chromatic-palette formula to lambda>r: completed colourings can use multiple named colours within a single part; this forces complete initial seeding of such a part. The new formula depends on all Stirling palette allocations rather than only monochromatic parts.",
+      "searches": [
+        "forced colouring function complete multipartite graph lambda-colouring exact probability seeded local forcing",
+        "Farr forced colouring function general palette number arbitrary k complete multipartite all k",
+        "FC_lambda complete multipartite arbitrary λ weighted enumeration all partial colorings",
+        "published-finding corpus:2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "published-finding corpus:2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search returns complete-multipartite r-colour formula, complete-bipartite three-colour formula and unrelated graph invariant records; no all-palette coefficient table with the K_{2,2,2},lambda=4 vector 288,432,288,96 was surfaced."
+      ],
+      "reasoning": "There is no verified exact-table or exact-database coverage of the new vector or arbitrary (n_1,...,n_r,lambda). Absence from a search is not a uniqueness or priority proof; this check records observed noncoverage only.",
+      "searches": [
+        "FC_lambda complete multipartite arbitrary λ weighted enumeration all partial colorings",
+        "\"forced colouring\" \"multipartite\" \"lambda\" Farr",
+        "\"forced-colouring\" \"complete multipartite\" 2026",
+        "\"forced colouring polynomial\" \"multipartite\" \"colours\" formula",
+        "published-finding corpus:2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655"
+      ]
+    },
+    "rationale": "The nearest exact published family result for complete multipartite graphs restricts to the chromatic palette lambda=r, at which no part may have multiple colours; the second nearest gives only r=2,lambda=3. The new assertion treats the complementary lambda>r regime with a new multicoloured-part full-seeding obstruction and a Stirling-weighted classification for all part profiles, plus exact minimum seed count. Primary 2024 full-text inspection and targeted published-finding corpus/primary searches found no statement implying the claim. The 2026 initiating preprint was only abstract-accessible; its full text is a material originality risk, not asserted to have been checked.",
+    "residual_risks": [
+      "The 29-page arXiv:2609.17108v1 full text was inaccessible; an uninspected stronger result or appendix might imply this family formula.",
+      "An unindexed parallel or older formulation may exist; search coverage does not prove priority.",
+      "This is a self-review, not independent scientific review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "UNKNOWN_FULL_TEXT; the abstract reports basic properties and general hardness, not a complete multipartite arbitrary-palette formula. This is an explicit unresolved priority risk.",
+        "evidence": [
+          "arXiv:2609.17108v1; abstract dated 2026-09-15",
+          "https://arxiv.symmetricfunctions.com/paper/2609.17108v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.17108v1",
+        "material_read": "Title, public UTC first-submission metadata dated 2026-09-15, abstract; attempts to obtain complete arXiv PDF and alternative OA full text did not succeed.",
+        "method": "ArXiv metadata/abstract, alternate public search and access attempts; not whole-document reading.",
+        "title": "The forced colouring function of a graph",
+        "trigger": "Introduces the general parameter and may contain dominating general formulas."
+      },
+      {
+        "assessment": "Defines the forcing model but does not contain the all-palette complete multipartite classification or enumerator.",
+        "evidence": [
+          "Farr–Morgan arXiv:2406.15746, section 3.5, public full text",
+          "Local rule: lambda-1 distinct neighbour colours uniquely forces an uncoloured vertex."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/381666584_Graph_polynomials_some_questions_on_the_edge",
+        "material_read": "Public full-text HTML, section 3.5 (random partial lambda assignments, local forcing rule, P/NP context, full paragraph around equations and probability); checked relevant example and later discussion.",
+        "method": "Read the relevant contiguous primary-text sections, including the definitions and the FC probability expansion.",
+        "title": "Graph polynomials: some questions on the edge",
+        "trigger": "Original local forcing definition and probability model."
+      },
+      {
+        "assessment": "COVERS lambda=r case only, explicitly excludes lambda>r. Its r-colour requirement forces every part monochromatic, so it does not imply the present multi-colour part rigidity and arbitrary larger-palette coefficient formula.",
+        "evidence": [
+          "published-finding corpus ID 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "Its assumptions and limitations explicitly restrict the palette to r=chi(G)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655/RESULT.md",
+        "material_read": "Complete published RESULT.md including theorem, proof, verification, prior work, limitations and references.",
+        "method": "Full source text via repository read.",
+        "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+        "trigger": "Same objects and graph family, smaller palette."
+      },
+      {
+        "assessment": "COVERS r=2, lambda=3. Does not cover arbitrary lambda>=4 or r>=3, and does not imply the proposed all-palette Stirling sum or seed minima.",
+        "evidence": [
+          "published-finding corpus ID 2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "Its theorem assumes exactly three colours."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+        "material_read": "Complete published RESULT.md including structural proof and formula.",
+        "method": "Full source text via repository read.",
+        "title": "Forced three-colouring polynomial of complete bipartite graphs",
+        "trigger": "Same forced-colouring parameter for two parts."
+      },
+      {
+        "assessment": "COVERS 3-colour paths/cycles and their disjoint unions; does not imply the arbitrary extra-palette multipartite theorem when degrees exceed two.",
+        "evidence": [
+          "published-finding corpus ID 2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+          "Exact statement restricted to maximum degree at most two."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd/RESULT.md",
+        "material_read": "Complete published statement, proof and comparison sections.",
+        "method": "Full source text via repository read.",
+        "title": "Exact forced 3-colouring polynomials at maximum degree two",
+        "trigger": "More general graph class at three colours, potential overlapping low-order cases."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f75d4638-e0d0-471a-a1b8-87fa6a72d11c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The initiating literature presents a new and generally difficult graph polynomial. A complete exact family formula over all multipartite profiles and all palettes beyond the chromatic number fills a natural parameter gap left expressly out of prior exact chromatic-palette work. It reveals a structural transition: multicoloured parts must be entirely precoloured, but uncoloured monochromatic parts can be resolved in at most two rounds. The full coefficient enumerator and separately exact minimal forcing-domain expression are reusable combinatorial invariants; the K_{2,2,2},lambda=4 example produces 288 genuinely partial optimum assignments, not the already-known lambda=r formula. The result is not based merely on a numerical gain or rebranding a known scalar statistic.",
+    "status": "PASS"
+  }
+}
