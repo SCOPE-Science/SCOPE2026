@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "A deterministic booster interval induces a uniform stationary vaccine-age distribution; direct integration of sigma(a)=min(a/tau,1) yields F(x)=1-x/2 for x<=1 and F(x)=1/(2x) for x>=1. For the purely cross-group contact matrix, the positive Perron root squared is F(x)F(B-x). A complete algebraic four-regime analysis shows corner-only minima for B<2, all allocations equal to 1/4 at B=2, and a unique equal split for B>2. Equality cases and boundary B=1 are checked explicitly. The accompanying stdlib Fraction program passed 121840 finite checks; the inequalities prove all real feasible allocations. Scope is disease-free rate and linear invasion, not endemic dynamics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Foutel-Rodier et al., Proposition 6: equal boosters optimal for 0<=alpha<=1, distinct from alpha=2; Sections 4.2 and 5.4 inspected.",
+        "Gavish and Katriel, arXiv:2202.03909, Section 3 and Theorem 2: SIR final attack rate with one-time leaky vaccination, as R0 varies.",
+        "Gutjahr doi:10.1111/poms.14080 uses an SIR final-size/equity objective."
+      ],
+      "reasoning": "Neither the source assortative-mixing theorem nor one-shot SIR final-size optimization logically applies to the new disassortative recurrent-dose, disease-free invasion-factor objective. Qualitative switches in other models do not supply the precise budget boundary and all-allocation equality.",
+      "searches": [
+        "Optimal booster allocation for fully disassortative symmetric two-population contact mixing, linear immune susceptibility waning, exact budget threshold where concentrating all vaccination in one group transitions to equal allocation, neutral critical budget.",
+        "Foutel-Rodier Charpentier Guerin disassortative contact vaccination allocation alpha 2 fairness counterexample complete classification when susceptibility min(age,1).",
+        "optimal vaccination allocation disassortative mixing bipartite groups preferential vaccination contact network fairness unequal threshold 2023",
+        "arXiv:2202.03909 Theorem 2 and Appendix B"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2306.13633v1 initial 2023-06-23 submission (verified date and parent model)",
+      "doi:10.1007/s00285-024-02171-z, Sections 2, 4.2, 5.3, 5.4, full publisher HTML",
+      "arXiv:2202.03909v1, PDF Sections 1-3 and Theorems 1-2, page images",
+      "doi:10.1111/poms.14080 publisher HTML abstract/approach/conclusions"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foutel-Rodier et al. Section 5.4, Proposition 6 applies only to alpha<=1; the new setting alpha=2 is outside its stated range.",
+        "Foutel-Rodier et al. Sec. 4.2 has Jensen optimality for boosters *within a single fixed-rate group*, not allocation of the rate budget across two cross-mixing groups.",
+        "Gavish--Katriel 2022 Theorem 2 optimizes final epidemic size at fixed one-shot vaccine coverage and varying R0."
+      ],
+      "reasoning": "The previously established spectral matrix and within-group booster regularity do not, on their own, optimize the new cross-group product under a shared frequency budget. The one-time final-size theorem varies a different control and has a different objective. Neither supplies the piecewise minimum and complete equality cases here.",
+      "searches": [
+        "Optimal booster allocation for fully disassortative symmetric two-population contact mixing, linear immune susceptibility waning, exact budget threshold where concentrating all vaccination in one group transitions to equal allocation, neutral critical budget.",
+        "Bipartite epidemic next generation matrix spectral radius square root of subgroup mean susceptibilities, all or equal booster allocation bang bang vaccination frequency threshold.",
+        "Foutel-Rodier Charpentier Guerin disassortative contact vaccination allocation alpha 2 fairness counterexample complete classification when susceptibility min(age,1)."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Foutel-Rodier et al., doi:10.1007/s00285-024-02171-z, Section 5.3 gives the general Perron root; for equal group shares and alpha=2 it is the geometric mean of susceptibilities.",
+        "Foutel-Rodier et al. Sec. 4.2 derives stationary susceptibility as a renewal average without evaluating this clipped-linear bipartite budget minimization."
+      ],
+      "reasoning": "The equivalent optimization is a one-variable product minimization F(x)F(B-x), with F coming from clipped-linear waning. The source matrix gives the reduction but no minimizer as a function of total booster budget; the related SAIRS global-stability statement does not imply the optimization.",
+      "searches": [
+        "Bipartite epidemic next generation matrix spectral radius square root of subgroup mean susceptibilities, all or equal booster allocation bang bang vaccination frequency threshold.",
+        "optimal immunization schedules among two disassortative groups Perron invasion spectral radius geometric mean, sharp concentration-fairness transition at vaccine supply equals waning rate",
+        "arXiv:2306.13633 Section 5.3 equation (25), Proposition 6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited preprint/journal analysis gives a general two-group spectral formula and one inequality-based fairness regime, but no exact table for the clipped-linear disassortative case.",
+        "The directly inspected Gavish--Katriel 2022 final-size theorem covers one-time leaky vaccination; no repeated-booster dose-rate optimization table is supplied."
+      ],
+      "reasoning": "Published record searches and primary-paper inspections did not reveal the same exact global allocation diagram. A failed search is not evidence of uniqueness, and an unlocated general theorem remains a priority risk.",
+      "searches": [
+        "recurrent booster allocation cross-only bipartite two-group linear waning threshold dose budget where entire allocation interval is minimizers",
+        "Exact vaccine allocation between groups complete bipartite mixing: optimal concentrated or fair at threshold vaccine budget.",
+        "linear waning susceptibility deterministic repeated vaccination cross group optimal allocation fully disassortative bipartite mixing threshold"
+      ]
+    },
+    "rationale": "In the inspected journal model, Proposition 6 proves fair vaccine allocation for contact-mixing alpha at most one and does not cover purely cross-group mixing alpha two. The general spectral matrix is prior art, but the global budget-dependent argmin trichotomy, all-split neutrality at the critical budget, and exact lower envelope for deterministic boosters under linearly waning susceptibility were not found in searched papers or published records. Prior-art priority is qualified and not a certified uniqueness assertion.",
+    "residual_risks": [
+      "An unlocated general theorem on optimal products of renewal susceptibilities could specialize to this result, even without matching terminology.",
+      "The profile is an idealized, deliberately simple clipped-linear waning curve and the mixing matrix is a bipartite endpoint; neither broad applicability nor real policy preference is claimed.",
+      "The optimality addresses linear invasion, not nonlinear long-term infection burden.",
+      "No independent scientific validation or exhaustive global literature certification has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains the known renewal mean susceptibility and contact matrix. Fairness optimality is only proved at mixing alpha<=1; no clipped-linear, alpha=2 complete budget phase diagram.",
+        "evidence": [
+          "Section 4.2 stationary mean susceptibility and Jensen optimum for fixed within-group mean intervals.",
+          "Sections 5.3-5.4 spectral factor formula, alpha mixing range, Proposition 6 alpha in [0,1]."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-024-02171-z",
+        "material_read": "Relevant HTML model Section 2 and full Section 4.2 and 5.3-5.4 formula/proposition passages, including displayed proofs of Proposition 5 and 6.",
+        "method": "Direct HTML page reading and within-page searches.",
+        "title": "Optimal vaccination policy to prevent endemicity: a stochastic model",
+        "trigger": "Exact parent recurrent vaccination model and fairness theorem; inspect for stronger coverage."
+      },
+      {
+        "assessment": "Its vaccine is single administration reducing susceptibility, and it optimizes SIR attack rate while R0 varies. This does not cover repeated booster allocation to minimize disease-free Perron growth as vaccine supply varies.",
+        "evidence": [
+          "Section 2 defines one-time leaky vaccination and attack-rate objective.",
+          "Theorem 2 gives high/low R0 allocation switch between two groups with different susceptibility."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.03909",
+        "material_read": "PDF abstract, Introduction, Sections 2-3, Theorems 1-2, selected appendix theorem statements and discussion, including rendered PDF pages 1, 3 and 6.",
+        "method": "Read full-text PDF extraction, locate theorem statements and inspect page images.",
+        "title": "Optimal vaccination at high reproductive numbers: sharp transitions and counter-intuitive allocations",
+        "trigger": "Sharp group vaccine allocation transitions might imply a stronger general rule."
+      },
+      {
+        "assessment": "Models one-time prophylactic vaccination and SIR final-size equity/efficiency, not booster-age-dependent susceptibility or the specified bipartite next-generation minimizer.",
+        "evidence": [
+          "Objective is a generalized Gini penalty plus utilitarian SIR attack-rate criterion."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1111/poms.14080",
+        "material_read": "Abstract, introduction/problem statement, objectives and accessible discussion/conclusions on the published full HTML page.",
+        "method": "Inspect publisher full HTML search results and sections.",
+        "title": "Fair and efficient vaccine allocation: A generalized Gini index approach",
+        "trigger": "General heterogeneous vaccination and allocation literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fba7f942-efb7-46a8-acfa-7b050c0dc2f4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In the precise fully disassortative regime outside the motivating assortative-fairness theorem, the exact global optimizer changes sharply from complete concentration under vaccine scarcity to fair allocation above the vaccine-waning timescale. At the threshold all allocations are genuinely equally optimal. This supplies a complete interpretable nontrivial phase diagram and a calibrated benchmark contrasting booster schedule laws; it is not merely a restatement of Jensen, a numerical example or a bare parameter substitution.",
+    "status": "PASS"
+  }
+}
