@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Acyclic oriented line of acceptable edges yields recurrence w_e=1+sum incoming w_f. Every blocking move adds an edge and deletes only incoming neighbors, strictly increasing integer sum potential. An injection of reachable selected-selected pairs to unavailable unselected-selected pairs proves Phi <= k(n-k) <= floor(n^2/4). Explicit legal right-to-left waves attain equality. The standalone checker confirms all profiles for n=2..11 and construction for n=2..80, without replacing the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fanelli–Moscardelli Theorem 4: forest-wide 1-convergence, per-agent <= n^2/4, stated total <= n^3/8; this gives only a looser global path bound.",
+        "Garg–Hu gives existence of some O(n^2) path to stability, not every improvement history."
+      ],
+      "reasoning": "A broader graph class can provide a weaker statement without covering a sharp path-specific extremal invariant. Conversely, existential sequence choice does not control adversarial sequence length.",
+      "searches": [
+        "stable roommates stable matching existence on odd cycle acceptability graph nearest neighbor strict preferences cyclic orientation mutual first choices characterization",
+        "linear path stable roommates arbitrary asynchronous blocking pair improvement dynamics quadratic tight convergence",
+        "doi:10.3233/FAIA251234 Theorem 4",
+        "arxiv:2007.07121 abstract"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3233/FAIA251234 (full HTML and Theorems 4–5)",
+      "arxiv:2007.07121 (abstract and dates)",
+      "Accessible 2026-10_week3 current ledger, claim-only deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Direct primary full-text comparison: forest convergence bound n^3/8 total, n^2/4 per agent, and branching example.",
+        "Garg–Hu claims an algorithm selecting an O(n^2)-long sequence, without an arbitrary-sequence bound."
+      ],
+      "reasoning": "Neither source proves that every possible sequence in every path instance has <= floor(n^2/4) moves, nor produces the all-left length-attaining path dynamics. The new injection-plus-potential argument proves precisely that stronger path claim.",
+      "searches": [
+        "doi:10.3233/FAIA251234 Theorems 4–5 and Section 5",
+        "arxiv:2007.07121 abstract",
+        "linear path stable roommates arbitrary asynchronous blocking pair improvement dynamics quadratic tight convergence",
+        "sharp quadratic worst case number of all blocking-pair matching improvement moves path acceptability graph strict preferences fully adversarial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 4 provides a bound on each agent’s number of moves, not an exact global length on P_n; Theorem 5 is a high-degree branching-tree example.",
+        "Auxiliary directed-edge reachability potential counts matching-state improvement distance, which is distinct from ordinary stable matching existence."
+      ],
+      "reasoning": "The claim is equivalent to a universal upper bound on the height of every directed blocking-pair state graph for each path preference instance, uniformly over start states. A static existence theorem and a per-agent move bound do not imply its exact constant or its matching lower construction.",
+      "searches": [
+        "1-blocking pair dynamics path acceptability graph exact maximum number of moves floor n squared over four stable roommates nearest neighbor",
+        "pairwise matching dynamics path preference profiles potential directed edge reachability exact quadratic move bound",
+        "sharp quadratic worst case number of all blocking-pair matching improvement moves path acceptability graph strict preferences fully adversarial",
+        "Fanelli Moscardelli, Approximately Stable Matching, Theorem 4, DOI:10.3233/FAIA251234"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public indexed published-finding corpus identifier: published finite matching comparison has static roommates profile counts.",
+        "Closest public indexed identifier: published finite matching comparison studies static stable-matching criterion conflicts."
+      ],
+      "reasoning": "No located table or record contains the universal floor(n^2/4) path convergence count. This check reduces duplication risk but does not establish global nonexistence of prior results.",
+      "searches": [
+        "1-blocking pair dynamics path acceptability graph exact maximum number of moves floor n squared over four stable roommates nearest neighbor",
+        "sharp quadratic worst case number of all blocking-pair matching improvement moves path acceptability graph strict preferences fully adversarial",
+        "Accessible same-week ledger claim search: blocking pair, roommates, matching dynamics, stable matching"
+      ]
+    },
+    "rationale": "Full-text Theorems 4–5 of Fanelli–Moscardelli prove only generic forest convergence and a cubic total bound; the n^2/4 figure there bounds participation of one agent, not total path dynamics. Garg–Hu describes existential selected improvement paths rather than arbitrary sequences. No prior matching record located establishes the sharp exact universal path length. Residual unindexed literature risk is disclosed.",
+    "residual_risks": [
+      "An unindexed path-specific matching dynamics theorem could state an equivalent exact worst-case constant.",
+      "The full text of Garg–Hu (arxiv:2007.07121) was not inspected; its abstract addresses existence of a short sequence only.",
+      "Proceedings labeled ECAI 2025 may have circulated before the publisher’s verified August 25, 2026 online date."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BUT_NOT_COVERING_SHARP_PATH_TOTAL",
+        "evidence": "Theorem 4 explicitly bounds an individual agent by n^2/4 and derives total n^3/8; Theorem 5 uses a branching tree, not a path. Section 5 highlights graph-topology dependence.",
+        "identifier_or_url": "https://journals.sagepub.com/doi/full/10.3233/FAIA251234",
+        "material_read": "Full accessible HTML, definitions and model, Theorem 4 with proof and Claims, Theorem 5 with construction, Section 5, reference list",
+        "method": "Read and compared quantifiers (per agent versus all moves), tree topology and construction graph",
+        "title": "Approximately Stable Matching",
+        "trigger": "Same notion of 1-blocking pair on an acceptability graph, forest convergence and lower bounds"
+      },
+      {
+        "assessment": "ABSTRACT_SCOPE_DIFFERENT_FULL_TEXT_UNINSPECTED",
+        "evidence": "Abstract: an algorithm achieves a sequence of length O(n^2) from an initial matching; it does not say that every blocking-pair sequence has this length.",
+        "identifier_or_url": "https://arxiv.org/abs/2007.07121",
+        "material_read": "arXiv abstract, first submission and revision history; full text was not successfully retrieved",
+        "method": "Compared existential short-sequence quantifiers explicitly stated in abstract with arbitrary-sequence claim",
+        "title": "Improved Paths to Stability for the Stable Marriage Problem",
+        "trigger": "Potential stronger O(n^2) bound for blocking-pair dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df4f6781-9961-47bb-a963-0a74d95c7ff2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A tight bound across all blocking-pair move selections is more demanding than a planner-computed sequence or an individual-participation bound. The exact quadratic total worst case for nearest-neighbor matching sharpens cubic forest estimates, quantifies worst-case renegotiations for a natural path communication network, and the directed-reachability injection explains why path topology is special.",
+    "status": "PASS"
+  }
+}
