@@ -1,0 +1,108 @@
+{
+  "claim": "For every integer \\(n>5040\\) with \\(\\omega(n)=7\\), the gap \\(\\Delta_7(n)=e^\\gamma\\sum_{j=0}^{7}(\\ln\\ln\\ln n)^j/j!-\\sigma(n)/n\\) has a unique global minimum at \\(n=367567200=2^5\\cdot3^3\\cdot5^2\\cdot7\\cdot11\\cdot13\\cdot17\\), and \\(0.1690<\\Delta_7(n)<0.1691\\) there.",
+  "correctness": {
+    "rationale": "The support-replacement argument reduces the global minimum to the first seven primes; the exact universal divisor-ratio bound and certified cutoff exclude every \\(n\\ge52{,}000{,}000{,}000\\); the included interval checker verifies every one of the 2,596 remaining exponent tuples, with the candidate gap in (0.1690,0.1691) and every other gap above 0.1691.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The paper states the unconditional result for \\(\\omega(n)\\le6\\) and gives a finite candidate check for minimal-counterexample candidates with \\(7\\le\\omega(n)\\le20\\); PDF lines 257–276 and 2644–2683.",
+        "The text says the check verifies the inequality, not the exact minimum gap over all integers with \\(\\omega(n)=7\\)."
+      ],
+      "reasoning": "Prior work covers the sign/positivity question more broadly, so the present claim is limited to a sharper quantitative invariant: the exact minimum margin and its unique attaining integer. The broader sign result alone does not imply this value or uniqueness.",
+      "searches": [
+        "arXiv:2609.26787v1, Lemma 4 and Theorem 1",
+        "arXiv:2609.26787v1, Appendix B (L.5)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.26787v1, submitted 2026-09-22; https://arxiv.org/abs/2609.26787",
+      "Danesh, A Ramanujan view of Robin’s inequality, July 2026; https://doi.org/10.33774/coe-2026-5cw2z",
+      "OEIS A004490; https://oeis.org/A004490",
+      "published-finding corpus semantic searches recorded in prior_checks.resultary_queries."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mishra–Sarkar prove positivity in a broad class and describe a candidate search; they do not state the minimum of the gap function on the omega=7 slice.",
+        "Danesh studies the standard Robin defect and reductions to colossally abundant/highest-abundant numbers, not the finite-truncation gap C_7(n)-sigma(n)/n."
+      ],
+      "reasoning": "A sign theorem cannot determine the sharp positive margin or its unique minimizer. The supplied proof independently reduces the exact minimization to 2,596 tuples and certifies a strict separation at 0.1691.",
+      "searches": [
+        "arXiv:2609.26787v1, Sections 2 and 4.2.1; Appendix B (L.5)",
+        "ResearchGate preprint DOI 10.33774/coe-2026-5cw2z, Sections 4–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus searches returned no exact match for the minimum-gap statement; the closest returned records concern unrelated exponent-seven pristine numbers and seventh/eighth totient thresholds.",
+        "The primary paper defines the truncated omega inequality and its gap in the abstract and Section 1, and proves the sign inequality for \\(\\omega(n)\\le6\\); see https://arxiv.org/abs/2609.26787."
+      ],
+      "reasoning": "The new claim is the exact global minimization of C_7(n)-sigma(n)/n over the \\(\\omega(n)=7\\) layer. It is not equivalent to the already-known statement that this gap is positive.",
+      "searches": [
+        "exact minimum of the finite-truncation Robin inequality among integers with exactly seven distinct prime factors, including exponent patterns and gap bounds",
+        "Robin inequality finite truncation e^gamma sum j=0 to omega(n) (log log log n)^j/j! boundary \\(\\omega(n)=7\\)",
+        "exact extremal value of sigma(n)/n for integers with seven distinct prime divisors and truncated Robin gap",
+        "367567200 exact minimum omega seven Robin truncated inequality gap 0.1690334982267",
+        "arXiv:2609.26787v1, Sections 1.2–2 and Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A004490 lists 367567200 among colossally abundant numbers, confirming that the integer itself is known.",
+        "The primary paper Appendix B lists Boolean finite checks for the truncated inequality and does not report a table of exact seven-prime-support gap minima."
+      ],
+      "reasoning": "No inspected database/table gives the value 0.169033498... or the unique-minimizer claim. The known status of n0 as colossally abundant is explicitly not claimed as new. The referenced notebook was not retrieved and is recorded as a residual risk.",
+      "searches": [
+        "published-finding corpus: 367567200 exact minimum omega seven Robin truncated inequality gap 0.1690334982267",
+        "OEIS A004490, https://oeis.org/A004490",
+        "arXiv:2609.26787v1, Appendix B"
+      ]
+    },
+    "rationale": "The inspected primary source establishes the truncated inequality and sign-level results, but the exact sharp gap and unique minimizer are not stated in the inspected text. Search failures are not treated as proof of novelty; residual notebook-overlap risk is retained.",
+    "residual_risks": [
+      "The primary paper references a separate Mathematica notebook for candidate checks. A bounded search did not retrieve that notebook; it may contain unreported numerical margins from which this result could be derived. The inspected paper describes its check as a Boolean inequality test, so this is a residual risk rather than evidence of direct coverage.",
+      "The candidate n0 is already a known colossally abundant number; novelty is restricted to the exact truncated-gap minimum and uniqueness statement."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant prior work. It proves sign-level results and describes a Boolean candidate check, but the inspected text does not state the exact minimum gap or unique minimizer claimed here.",
+        "evidence": "https://arxiv.org/abs/2609.26787; PDF lines 257–276 and 2644–2683.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.26787",
+        "material_read": "Primary 21-page PDF: abstract and definitions; Section 2 and Lemma 4; minimal-counterexample reduction and Section 4.2.1; Appendix B finite-check description (L.1)–(L.7).",
+        "method": "Compared the mathematical statement and parameter domain, then read the proof reductions and the appendix description of computations.",
+        "title": "A finite arithmetic form of Robin's inequality and its equivalence to the Riemann hypothesis",
+        "trigger": "Exact same truncated Robin inequality and the boundary between seven-prime-support cases and the proved omega≤6 range."
+      },
+      {
+        "assessment": "Related but not covering: it studies the standard Robin defect e^gamma*n*log(log(n))-sigma(n), not C_7(n)-sigma(n)/n or its seven-prime-support minimum.",
+        "evidence": "https://www.researchgate.net/publication/408650762_A_Ramanujan_view_of_Robin's_inequality; DOI 10.33774/coe-2026-5cw2z.",
+        "identifier_or_url": "https://doi.org/10.33774/coe-2026-5cw2z",
+        "material_read": "Public preprint abstract, definition of the standard Robin defect, and extremal reduction through Theorem 12 and Proposition 13.",
+        "method": "Compared its defect function and claimed extremal reductions with the finite-truncation gap used here.",
+        "title": "A Ramanujan view of Robin's inequality",
+        "trigger": "Recent work on Robin defects and the same colossally abundant candidate integer."
+      },
+      {
+        "assessment": "The integer itself is known; this does not cover the new gap-minimization claim.",
+        "evidence": "https://oeis.org/A004490.",
+        "identifier_or_url": "https://oeis.org/A004490",
+        "material_read": "The sequence entry listing 367567200 and its colossally abundant-number interpretation.",
+        "method": "Compared the listed integer with the candidate; no truncated-gap quantity is supplied by the entry.",
+        "title": "A004490: Colossally abundant numbers",
+        "trigger": "Check whether the candidate integer/factorization itself is already tabulated."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5344364-1165-4458-9bc5-fb297a60db25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a sharp quantitative safety margin at the first prime-support layer beyond the paper’s elementary omega≤6 bound, and identifies the unique extremizer rather than merely verifying positivity. The margin and extremizer provide a reproducible benchmark for the strength of the truncation. The result is deliberately restricted to \\(\\omega(n)=7\\).",
+    "status": "PASS"
+  }
+}
