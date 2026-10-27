@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Both first-step recurrences are derived from true conditional transition rates. Their difference has exactly the geometric ratio R and is fixed by two absorbing boundary values; finite-chain harmonic uniqueness gives the complete law. Asymptotics from geometric/Riemann sums and clique birth-death ratio are correct; 5080 full labeled state checks with exact fractions corroborate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Becchetti et al. Theorem 3 and Appendix F require a regular graph; a star with m≥2 is irregular.",
+        "Petsinis et al., AAAI 2023, Eq. (2) has fitness-normalized neighbor choice.",
+        "Durocher et al. (2022) study fitness-weighted opinion invasion.",
+        "Sood et al. (2008), Section VI Eqs. (62), (75)–(76), studies the equivalent biased voter mechanism on general heterogeneous graphs but obtains diffusion-approximation fixation laws in a weak-selection/degree-moment regime, not an exact finite star harmonic solution."
+      ],
+      "reasoning": "The known regular-graph formula does not dominate the star theorem because center and leaf degrees differ. Fitness-normalized death-birth rules and asynchronous accept/reject rules are not identical; no stronger inspected theorem subsumes the complete star fixation law. Sood et al. (2008) cover the same jump chain on arbitrary graphs at the model-definition level, but their result is approximate and does not logically entail the exact star formulas at arbitrary bias; the new contribution is the exact star solution, not the general biased process.",
+      "searches": [
+        "on star graph uniformly seeded advantageous opinion has asymptotically vanishing fixation probability 1/n whereas clique advantage fixation tends to constant; disadvantageous bias is exponentially amplified star vs clique",
+        "star graph biased voter model fixation probability evolutionary dynamics pull update exact",
+        "Maximizing the Probability of Fixation in the Positional Voter Model"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2305.07377v2",
+      "https://link.springer.com/article/10.1007/s44146-024-00125-x",
+      "https://cs.au.dk/~karras/pvoter.pdf",
+      "https://arxiv.org/abs/2201.08207",
+      "https://www.ijcai.org/proceedings/2023/5",
+      "https://arxiv.org/pdf/0712.4288"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Becchetti et al., regular-graph Theorem 3 provides the clique comparison as prior work, not the irregular-star formula.",
+        "Kátai-Urbán et al. prove expected-time asymptotics for discordant voting; these do not imply fixation probabilities under a distinct rule.",
+        "Sood et al. (2008) Eqs. (62), (75)–(76): same embedded jump chain but only mean-field weak-selection approximation; not a finite-state exact all-bias harmonic expression."
+      ],
+      "reasoning": "The claim requires the complete two-dimensional (center color, leaf count) harmonic solution plus a topology-dependent large-n contrast. Theorem 3 for regular graphs cannot imply the star result without a fresh reduction, and speed bounds do not imply fixation probabilities. The Sood process has the same fixation probabilities for the matched bias ratio, but no exact general-graph formula is supplied by its diffusion approximation; this new theorem solves one irregular family exactly.",
+      "searches": [
+        "Becchetti Bonifaci Cruciani Pasquale 2023 context dependent voter model on an undirected star hub leaves exact two opinion fixation formula q=b/a R=(1+q/m)/(1+1/(qm))",
+        "on star graph uniformly seeded advantageous opinion has asymptotically vanishing fixation probability 1/n whereas clique advantage fixation tends to constant; disadvantageous bias is exponentially amplified star vs clique",
+        "biased voter model star graph fixation probability adoption probabilities opinion dependent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Becchetti et al., arXiv:2305.07377, Section 2 gives identical binary acceptance rule, Section 4 and Appendix F treat regular graphs.",
+        "Kátai-Urbán et al., DOI:10.1007/s44146-024-00125-x, Sections 1–2 define discordant protocols.",
+        "Sood, Antal, Redner, arXiv:0712.4288, Section VI Eq. (62): biased voter receiver selection inversely proportional to type fitness; after deleting self-loops, off-diagonal transition ratios agree exactly with the proposed model with fitness r=a/b."
+      ],
+      "reasoning": "A decisive equivalence holds for the Sood et al. 2008 biased voter process: with mutant fitness r=a/b, all nontrivial transition probabilities equal ours times a common positive configuration-dependent factor. This is not claimed as a new update mechanism; its published fixation estimates use weak-selection mean-field/diffusion approximation and do not give the exact all-configuration star formula. Other fitness-weighted neighbor-choice models (Petsinis, Durocher) are different kernels.",
+      "searches": [
+        "Becchetti Bonifaci Cruciani Pasquale 2023 context dependent voter model on an undirected star hub leaves exact two opinion fixation formula q=b/a R=(1+q/m)/(1+1/(qm))",
+        "finite star asynchronous opinion dependent adoption binary biased voter exact absorption harmonic recurrence and weak selection window 1/n",
+        "context dependent opinion adoption star topology biased voter model fixation formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Scientific semantic record searches gave closer results about bounded-confidence switching rather than binary star fixation; no matching table was recovered.",
+        "The inspected published primary papers do not tabulate the context-dependent star harmonic function.",
+        "Specific older model equivalence Sood et al. (2008) recognized and checked; no exact star H(c,k) table identified therein."
+      ],
+      "reasoning": "Actual published-record and web searches did not expose an exact formula or data table matching the q,R,Z recurrence; a negative search is only best-knowledge evidence, not a proof of global absence.",
+      "searches": [
+        "Becchetti Bonifaci Cruciani Pasquale 2023 context dependent voter model on an undirected star hub leaves exact two opinion fixation formula q=b/a R=(1+q/m)/(1+1/(qm))",
+        "on star graph uniformly seeded advantageous opinion has asymptotically vanishing fixation probability 1/n whereas clique advantage fixation tends to constant; disadvantageous bias is exponentially amplified star vs clique",
+        "finite star asynchronous opinion dependent adoption binary biased voter exact absorption harmonic recurrence and weak selection window 1/n"
+      ]
+    },
+    "rationale": "The motivating publication derives regular-graph fixation and does not cover the unequal-degree star; the strongest inspected star paper treats discordant runtime, while competing biased fitness-weighted voter papers use a different transition kernel. Searches on object, aliases, parameterization, complete graph reduction, and weak-selection scaling found no directly covering statement; residual broad-literature priority risk is named. Sood, Antal, and Redner (2008) use an exactly equivalent jump chain up to state-dependent holding times, and are acknowledged as a major model-level precedent; their weak-selection diffusion approximation does not establish the complete exact star formula.",
+    "residual_risks": [
+      "Older stochastic population-genetics and weighted-voter literature may contain an equivalent star absorption formula under a different parameter name.",
+      "The topological contrast is for this precise asynchronous uniform-neighbor accept/reject mechanism, not other biased death-birth or push protocols.",
+      "Older work extending Sood et al. (2008) could potentially already solve the same exact finite-star biased fixation problem; no direct covering full theorem was recovered in the searches performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact biased formula applies to regular graphs; its constant-ratio cut argument fails on a heterogeneous star; no star result found in inspected full text.",
+        "evidence": [
+          "Model: Section 2, algorithm 1 and Eq. (2).",
+          "Theorem 3 and Appendix F: regular networks; Section 5: general topologies remain challenging."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2305.07377v2",
+        "material_read": "Introduction; Sections 2–5; biased fixation Theorem 3, Appendix F, and conclusion.",
+        "method": "Read open primary full-text HTML, including model transitions and regular-graph proof.",
+        "title": "On a Voter Model with Context-Dependent Opinion Adoption",
+        "trigger": "Identical binary opinion-dependent uniform-neighbor acceptance and asynchronous rule."
+      },
+      {
+        "assessment": "Studies discordant push/pull and expected runtimes, without state-dependent accept/reject probabilities or two-color fixation law.",
+        "evidence": [
+          "Abstract defines discordant protocols with distinct sampling.",
+          "Theorems 2.4 and 2.5 bound expected consensus times."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s44146-024-00125-x",
+        "material_read": "Abstract; Section 1 and the full text of Sections 2.1–2.3, including Theorems 2.4 and 2.5.",
+        "method": "Read open publisher full-text HTML.",
+        "title": "Voting protocols on the star graph",
+        "trigger": "Exactly the same graph family; plausible competing star analysis."
+      },
+      {
+        "assessment": "Uses fitness-weighted *choice of neighbor*, so transition probabilities on a star with a mixed neighborhood do not match uniform-neighbor sampling followed by fixed acceptance. No claimed star formula or scaling reversal in inspected material.",
+        "evidence": [
+          "Equation (2) weights sampled neighbors by normalized fitness.",
+          "Contributions enumerate optimization, randomized approximation, and small-bias computational results."
+        ],
+        "identifier_or_url": "https://cs.au.dk/~karras/pvoter.pdf",
+        "material_read": "Pages 1–4: introduction, rule (2), model (3), theorems and computing-fixation section.",
+        "method": "Inspected publisher-authored open full-text PDF text and page image for the exact update rule.",
+        "title": "Maximizing the Probability of Fixation in the Positional Voter Model",
+        "trigger": "Superficially same biased voter process, possible broader covering theorem."
+      },
+      {
+        "assessment": "Fitness-weighted copying and seed selection differ from fixed pair-acceptance dynamics. No direct implication identified.",
+        "evidence": [
+          "Abstract describes biased voter invasion and maximizing fixation over seed sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.08207",
+        "material_read": "Primary preprint abstract, introduction and model comparison describing fitness-dependent neighbor sampling.",
+        "method": "Read accessible arXiv bibliographic record and full-text model passage.",
+        "title": "Invasion Dynamics in the Biased Voter Process",
+        "trigger": "Highly related earlier biased voter process."
+      },
+      {
+        "assessment": "Same jump probabilities up to configuration-dependent scalar time change, decisive model equivalence. Its claimed heterogeneous fixation law is a weak-selection diffusion/mean-field approximation; no exact full star solution in inspected sections.",
+        "evidence": [
+          "Section VI gives update by inverse type fitness Eq. (62), coincident conditional jump chain at relative fitness a/b.",
+          "Eqs. (75)–(76) use diffusion and degree-moment approximation, in contrast to finite exact star recurrence."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0712.4288",
+        "material_read": "Full-text introduction, Section II, star discussion in Section II and Section VI (Eqs. 62–76), plus page 10 image.",
+        "method": "Read primary open arXiv PDF text and inspected page image; compared off-diagonal generators exactly.",
+        "title": "Voter Models on Heterogeneous Networks",
+        "trigger": "A highly relevant older paper reporting biased-voter fixation by vertex degree on irregular graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df5938b6-d140-4674-bc34-767bc9ac3c4f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Motivated complete irregular-network fixation classification with a non-obvious size-scale inversion of beneficial versus deleterious opinions relative to homogeneous mixing and a sharp separate weak-selection regime, at every size rather than an arbitrary small census. The model itself is not new: the central value is the exact solvability and topology-dependent full/weak bias behavior, not generality of the update mechanism.",
+    "status": "PASS"
+  }
+}
