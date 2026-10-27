@@ -1,0 +1,91 @@
+{
+  "correctness": {
+    "rationale": "The unrestricted two-seat theorem is proved by the quota-candidate insertion lemma. For odd n, one quota candidate represents more than half the electorate; for even n=2q simultaneous failure of both replacements implies a q-sized cohesive unrepresented group for the original JR pair, contradiction. Starting from any JR two-seat committee, insert a quota candidate and then use a DR reference committee to complete the second seat. Incoming candidates have exactly q supporters, hence every swap is admissible under Definition 27. The three-seat witness directly checks all possible improving swaps, and the m≤k+1 lower bound follows from one-exchange adjacency. The standalone integer verifier completed 149848 low-seat tests and all n≤4,m=4,k=3 profiles. No finite enumeration substitutes for the general argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.29332v1, Proposition 28 establishes polynomial-time convergence to some local DR outcome, but not convergence to feasible DR when k=2.",
+        "arXiv:2609.29332v1, Proposition 29 establishes failure for one k=4 instance and its Appendix E gives construction."
+      ],
+      "reasoning": "The paper’s general local-search guarantee is weaker: it says the output has no admissible improving swap, not that such a local optimum has zero quota deviation whenever a zero-deviation JR committee exists. General JR existence and separate DR feasibility/NP-hardness likewise do not entail an exchange diameter bound.",
+      "searches": [
+        "local distinctive representation LDR two seat committee local optima guarantee DR if feasible three seats counterexample",
+        "justified representation exchange property replace candidate in two-seat committee with any quota-supported candidate",
+        "local distinctive representation two seat DR feasible any local optimum exact",
+        "justified representation exchange property replace candidate in two-seat committee with any quota-supported candidate"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29332v1 (primary full text and Appendix E)",
+      "Aziz et al. (2017), Justified Representation in Approval-Based Committee Voting (established JR background as cited in primary source)",
+      "Semantic mathematical research index searches for local DR, two-seat exactness, k=3 examples, quota-supported replacement and equivalences; no relevant dominating match"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chingoma–Grossi–Lindeboom–Maly, arXiv:2609.29332v1, Section 7 and Appendix E, Proposition 29 (four seats, 24 voters, seven candidates).",
+        "arXiv:2609.29332v1, Definition 22 (DR), Definition 27 (Local DR), Proposition 29 and its full Appendix E proof."
+      ],
+      "reasoning": "Prior Proposition 29 is existential (there is a k=4 DR-feasible instance with a bad local optimum). It neither covers nor implies universal impossibility for k=2 or existence at k=3 on CI ballots. The result that DR implies local DR does not imply the reverse; the new insertion lemma supplies the missing reverse under k≤2 and feasibility. Earlier JR results only establish feasible JR committees, not this local-to-global reverse.",
+      "searches": [
+        "local distinctive representation LDR two seat committee local optima guarantee DR if feasible three seats counterexample",
+        "justified representation exchange property replace candidate in two-seat committee with any quota-supported candidate",
+        "Distinctive Representation Chingoma Grossi Lindeboom Maly 2026 proposition 29 local search smallest committee size"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Definition 27 defines precisely JR-preserving swaps strictly reducing quota-degree deviation, subject to a one-sided below-quota restriction; the new swaps always insert quota-degree candidates.",
+        "Chingoma–Grossi–Lindeboom–Maly, arXiv:2609.29332v1, Section 7 and Appendix E, Proposition 29 (four seats, 24 voters, seven candidates)."
+      ],
+      "reasoning": "The positive two-seat exchange guarantee is equivalent to absence of nonexact local traps in all DR-feasible two-seat instances, and the negative instance gives a three-seat local trap despite DR feasibility. The cited source proves only existence of a local trap for four seats and gives no universal two-seat exactness or three-seat interval witness; changing to equivalent distance or search terminology does not turn its existential result into the present sharp threshold.",
+      "searches": [
+        "Distinctive Representation DR exact optimization candidate interval preferences approval voting JR with minimum candidate support size deviation local DR Chingoma 2026",
+        "local distinctive representation LDR two seat committee local optima guarantee DR if feasible three seats counterexample",
+        "Distinctive Representation Chingoma Grossi Lindeboom Maly 2026 proposition 29 local search smallest committee size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv primary text, sections 6–7 and Appendix E, contains neither a k=2 exchange theorem nor a three-voter interval example.",
+        "Searches in the indexed mathematical results returned no exact local-DR/DR two-seat or candidate-interval entry; leading semantic neighbors concerned unrelated voting rules and power indices."
+      ],
+      "reasoning": "No known table enumerating the exact local DR trap seat threshold or its smallest three-seat candidate count was found in the checked material; the accompanying verifier independently tests the stated small profiles, but absence of database hits is not proof of absolute novelty.",
+      "searches": [
+        "Distinctive Representation DR exact optimization candidate interval preferences approval voting JR with minimum candidate support size deviation local DR Chingoma 2026",
+        "three voters five candidates approval ballots adjacent interval local distinctive representation k=3 singleton committee failure",
+        "Diverse Representation Chingoma Grossi Lindeboom Maly 2609.29332"
+      ]
+    },
+    "rationale": "Relative to the full text of arXiv:2609.29332v1, which introduced DR and local DR, this contribution proves local/global equivalence for all DR-feasible two-seat instances, with a bound of two admissible improving swaps, and sharp three-seat candidate-interval failure with five candidates. Proposition 29 instead provides a four-seat, 24-voter, seven-candidate counterexample. Indexed semantic searches and accessible prior scientific claim comparison found no equivalent or dominating result. Residual risk: differently phrased or unindexed prior work may exist.",
+    "residual_risks": [
+      "Historical priority cannot be established exhaustively: unindexed/preprint works may contain the same low-seat exchange property.",
+      "The three-seat witness minimizes candidates for fixed k=3, not claimed to minimize voters universally."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves local DR may miss feasible DR at k=4 but does not state the universal k≤2 guarantee, two-swap completion, or a k=3 candidate-interval trap; the new claim is not an implication of its Proposition 29.",
+        "evidence": [
+          "arXiv:2609.29332v1, 2026-09-24, Definition 22, Definition 27, Propositions 28–29, Appendix E."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.29332",
+        "material_read": "Introduction and contributions; definitions of JR, DR and local DR; Section 6–7; Proposition 28 and Proposition 29; full Appendix D–E proofs, particularly lines 906–922 of the accessible HTML",
+        "method": "Read the primary freely available arXiv HTML full text and compare definitions, quantifiers, and explicit counterexample support sets",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "Directly introduces and defines DR and local DR and proves the closest counterexample"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f75fc957-36f5-436e-9bc7-f29a2c8d2273",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a recently proposed polynomial-time local fairness algorithm, this establishes exactly where a feasible zero-deviation solution is necessarily recovered by every local optimum. The proof gives a constant two-swap path for arbitrary voter/candidate counts with two seats, while the minimal five-candidate interval counterexample explains why the positive phenomenon breaks with three seats. This is a structural local-to-global boundary, not a computational toy or a restatement of the source’s four-seat example.",
+    "status": "PASS"
+  }
+}
