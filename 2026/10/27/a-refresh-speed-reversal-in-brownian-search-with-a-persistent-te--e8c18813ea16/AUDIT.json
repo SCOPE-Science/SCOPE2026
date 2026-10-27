@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exact BVP and independently derived environment-preserving renewal kernel both yield H=1/2 1^T(I-E)(Q+RE)^{-1}1 with positive rates and invertible resolvent. Strict Jensen convexity establishes the slow penalty. A complete low/high eigenspace expansion gives the 1/nu coefficient with O(nu^-2) error at fixed positive parameters. The derivative has exactly one positive root, so opposite strict signs at finite slow and fast switch rates follow by continuity. The supplied program passed 176 deterministic assertions including four separately assembled spatial lattice-generator comparisons; those checks supplement rather than replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barman–Nandi–Das arXiv:2410.06933 provides a broader first-passage method for toggling *drifts* but has environment-independent reset rate in the displayed backward equations.",
+        "Classical Evans–Majumdar 2011 Poisson reset-search results give the constant-rate benchmark only.",
+        "Arutkin–Reuveni 2025 main-text §5 explicitly identifies fluctuating-rate first-passage statistics as a research extension."
+      ],
+      "reasoning": "General coupled-generator methods are established, and an unlocated general matrix-resolvent theorem could be broad enough to include the exact inverse. However the known cited analyses do not state or specialize to the strict sign reversal with slow penalty, large-refresh coefficient and nonzero arbitrary intensity contrast. The contribution is not the use of a matrix square root alone.",
+      "searches": [
+        "Markov modulated stochastic resetting Brownian first passage fluctuating reset rate telegraph noise resetting environment persists",
+        "stochastic resetting fluctuating rate environmental switching mean first passage time dichotomous telegraph",
+        "\"fluctuating resetting rate\" \"first passage\" Brownian"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2509.25365v1, first public date 2025-09-29",
+      "arxiv:2410.06933v2, first public preprint 2024-10-09",
+      "doi:10.1103/PhysRevLett.106.160601, classical constant-rate search",
+      "arxiv:2009.02739, abstract only, contextual target gating"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 source gives a Fourier stationary-displacement law (its equations (11),(23)) and lists first-passage statistics as extensions.",
+        "The 2024/2025 toggling-source backward PDEs contain one shared rate r and two drifts; in the present model drift is shared and rates are m±delta, changing the environmental transition operator.",
+        "Ordinary Brownian resetting f(r) is pre-existing and the positive classical optimal root is already known."
+      ],
+      "reasoning": "Stationary position laws alone do not imply absorption-time inequalities. The constant-r switching-drift formula does not imply the state-dependent reset-rate comparison by setting drift parameters because the reset term remains a shared scalar there. The classical optimal rate is used as a threshold, not rediscovered. The genuinely assessed assertion is a strict slow/fast sign reversal at fixed mean rate for every nonzero admissible contrast.",
+      "searches": [
+        "https://arxiv.org/abs/2509.25365",
+        "https://arxiv.org/html/2410.06933v2",
+        "\"Optimizing search processes in systems with state toggling\" resetting environment Markov paper"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arutkin–Reuveni arXiv:2509.25365 §§2–5 studies reset intensity evolving independently of position resets and stationary spatial transforms.",
+        "Barman–Nandi–Das arXiv:2410.06933 §3 and Appendix B solve alternating-drift Brownian first passage with a single constant reset intensity."
+      ],
+      "reasoning": "The present environment stays in its state at a spatial reset, so the reset transition kernel is a two-state matrix rather than an i.i.d. renewal. A telegraph-modulated drift or a stochastically gated *target* is not equivalent to modulation of the reset intensity: the killing/reset operator R acts on the environmental endpoint. No searched formulation supplied the stated strict slow/fast comparison at fixed mean rate.",
+      "searches": [
+        "\"Markov-modulated\" \"resetting\" \"first passage\" Brownian",
+        "\"stochastic resetting rate\" \"two state\" \"first passage\"",
+        "\"doubly stochastic resetting\" \"first-passage\" Markov"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source arXiv:2509.25365 provides stationarity formulas, not a first-passage switching-speed table.",
+        "The numerical benchmark \\(m=5,\\delta=2,D=a=1\\) is generated from the proof and independent lattice calculation rather than copied from a published table."
+      ],
+      "reasoning": "No applicable exact finite-state tabulation or published rate-modulation FPT table was identified in targeted searches. This is bounded negative evidence, not a mathematical proof of novelty.",
+      "searches": [
+        "\"telegraph\" \"resetting rate\" \"first passage\"",
+        "\"random rate resetting\" \"first passage\" \"switching\"",
+        "\"Markov-modulated\" \"resetting\" \"first passage\" Brownian"
+      ]
+    },
+    "rationale": "The exact first-passage switching-speed inequality and its two-state nonrenewal matrix formula are not stated in Arutkin–Reuveni (2025), whose available complete main text treats the stationary spatial density and explicitly proposes FPTs as extensions. Barman–Nandi–Das (2024/2025) analyze state-toggled drift with a uniform reset rate, not state-dependent intensities; their formulas therefore do not imply the equal-mean rate-disorder speed reversal. Stationary-tail spectral decompositions concern nonabsorbing spatial observables rather than the claimed absorption time. Searches found no implication-equivalent published theorem, but a general Markov-additive resolvent result might subsume parts; independent priority evaluation is outstanding.",
+    "residual_risks": [
+      "Potential implicit coverage by a broader Markov-modulated resetting or matrix-resolvent first-passage theorem not recovered in the bounded search.",
+      "The arXiv source and closest toggling work were inspected in accessible text form, not every possible supplementary or later independent publication.",
+      "The result has not undergone independent priority or scientific review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the present first-passage reversal in the material examined; establishes stationary law and independent rate-refresh framework.",
+        "evidence": "arXiv:2509.25365 equations (1)–(11),(23) and conclusion proposing FPT extension.",
+        "identifier_or_url": "https://arxiv.org/abs/2509.25365",
+        "material_read": "Available complete arXiv HTML main sections 1–5, including exact stationary-transform equation (23), physical discussion and §5 future FPT direction; PDF title/abstract inspected.",
+        "method": "Model-to-model comparison of reset/environment renewal rules and whether first-passage times or rate-frequency sign comparisons are derived.",
+        "title": "Diffusion with doubly stochastic resetting",
+        "trigger": "Identical environment-persists-across-position-reset mechanism; primary motivating result"
+      },
+      {
+        "assessment": "NOT_COVERING the state-dependent-reset-intensity theorem: its reset rate is constant while drift toggles; the underlying BVP technique is relevant prior art.",
+        "evidence": "arXiv:2410.06933 §§II–III equations (4),(5), and Appendix B.",
+        "identifier_or_url": "https://arxiv.org/html/2410.06933v2",
+        "material_read": "Available full arXiv HTML abstract, introduction, coupled backward equations (section III), resetting-advantage comparisons and explicit MFPT Appendix B expressions.",
+        "method": "Compare both backward generator terms, parameter coverage and the precise inequality with modulation at equal mean reset rate.",
+        "title": "Optimizing search processes in systems with state toggling: exact condition delimiting the efficacy of stochastic resetting strategy",
+        "trigger": "Closest first-passage work with a persistent two-state environment and resetting"
+      },
+      {
+        "assessment": "CONTEXT_ONLY; no whole-document noncoverage assessment is claimed.",
+        "evidence": "arXiv:2009.02739 abstract describes a target active only in one gate state under position resetting at a single rate r.",
+        "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+        "material_read": "Public abstract only; full article not materially inspected.",
+        "method": "Compare the abstract-level toggled gate with a modulation of the reset-clock intensity.",
+        "title": "Diffusive search for a stochastically-gated target with resetting",
+        "trigger": "Search alternative interpretation through target gating with a persistent Markov state"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e8c18813-ea16-4f89-a93a-593e17503116",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact influence of environmental refreshing on first passage is a motivated outstanding observable of the 2025 doubly stochastic resetting model. At fixed mean intensity and every nonzero amplitude, slow refresh always worsens search; above a natural optimal-search threshold fast refresh improves it. The sharp threshold and contrasting signs give a falsifiable control implication, not an arbitrary finite tabulation or merely the classical optimal rate.",
+    "status": "PASS"
+  }
+}
