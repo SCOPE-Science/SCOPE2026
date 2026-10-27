@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "Exact Laplace integration gives a quartic polynomial on Re z=2. Expanded positive Hurwitz minors rigorously exclude all delay-frequency zeros for 0<=d<d*, and for d=d* except the exact zero-delay pair; continuity of the maximum real part of the quartic roots proves existence above d*. The critical roots and symbolic determinant coefficients replayed from checker.py, supplemented by direct numerical quadrature. The proof covers every real delay and frequency with no finite-enumeration inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 primary paper explicitly considers single exponentials, their two-fold convolutions and the pure monomial family; its Theorem 4.2 gives no-zeros for t^n e^{-t}.",
+        "Kloos–Stöckler (2013) studies Zak transforms and frame sets of totally positive windows, rather than ambiguity zeros of a polynomially weighted pulse."
+      ],
+      "reasoning": "A pure exponential moment being zero-free neither bounds the zeros of positive sums nor determines the precise critical constant. The mixed pulse has Laplace transform ((s+1)²+2d)/(s+1)³ and, for d>0, complex numerator roots, so it does not belong to the cited Schoenberg product class of Pólya-frequency functions.",
+      "searches": [
+        "arxiv:1811.03937 sections 3–7",
+        "arxiv:1311.7359 Zak transforms Gabor frames totally positive functions",
+        "web: finite type totally positive functions ambiguity zeros convolution three exponentials zero free open problem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1311.7359",
+      "arxiv:1811.03937",
+      "doi:10.1007/s13163-019-00335-w",
+      "published-finding corpus semantic searches on exact mixed pulse, gamma mixture, polynomial-exponential ambiguity zeros"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.2 provides each endpoint window’s zero-freeness. Positive sums do not inherit zero-free ambiguity by bilinearity: cross terms are present.",
+        "Other published records located by semantic search concern discrete quadratic-exponent ambiguity, Wigner positivity, or different gamma-mixture transform problems; none directly yields this continuous-time mixed-pulse threshold."
+      ],
+      "reasoning": "The mixture result is not a corollary of zero-free endpoint results; an exact fourth-degree Hurwitz determinant and a spectral crossing argument are required. The tested continuous domain and threshold differ from the relevant previous records.",
+      "searches": [
+        "arxiv:1811.03937 Theorem 4.2 and Example 3",
+        "arxiv:1311.7359 abstract and scope",
+        "published mathematical records: Fourier ambiguity of causal polynomial-exponential pulses and gamma mixtures"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gröchenig–Jaming–Malinnikova (arXiv:1811.03937) §4 proves zero-free ambiguity for pure gamma moments; the mixed pulse corresponds to a sum of the degree-zero and degree-two moments, not a pure one.",
+        "The exact self-ambiguity formula here has numerator (1+dT²)z⁴+2dTz³+(4d+2d²T²)z²+12d²Tz+24d²; no equivalent mixed coefficient threshold appears in the inspected sections."
+      ],
+      "reasoning": "Fourier/metaplectic covariance translates ambiguity zeros but does not map a mixed quadratic polynomial pulse to a pure monomial or two-factor exponential convolution. Equality of general transform conventions does not imply a coefficient-specific threshold.",
+      "searches": [
+        "Ambiguity function or Wigner distribution zero free threshold for one sided positive polynomial exponential pulse (1+d t^2)e^{-t} supported on positive half line, exact critical coefficient 4(1+sqrt6)/5",
+        "web: \"ambiguity function\" \"quadratic\" \"one-sided exponential\" zero",
+        "arxiv:1811.03937 §§3–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus returned entry recorded the polynomial-exponential sharp threshold or the same one-parameter pulse.",
+        "Closest published-finding corpus item 2026/10/4/SCOPE-a-parity-dichotomy-for-malikiosis-s-quadratic-exponent-gabor-win--8ac7d311b287 addresses a finite cyclic quadratic-exponent window, not a causal continuous-time polynomial-exponential family."
+      ],
+      "reasoning": "No exact database/table value directly implies the continuous coefficient threshold. Absence from search results is supporting evidence only, not a completeness or novelty guarantee.",
+      "searches": [
+        "Ambiguity function or Wigner distribution zero free threshold for one sided positive polynomial exponential pulse (1+d t^2)e^{-t} supported on positive half line, exact critical coefficient 4(1+sqrt6)/5",
+        "Zero-free ambiguity function positive mixture exponential Erlang gamma shape 1 and 3; cross Wigner zeros mixing totally positive windows",
+        "Polynomial-exponential causal signals ambiguity zeros Routh Hurwitz quartic criterion, Fourier transform of squared signal with spectral phase transition",
+        "published mathematical records: semantic search for mixed pulse, gamma combination and ambiguity-zero threshold"
+      ]
+    },
+    "rationale": "Checked primary 2018/2020 full article proves zero-freeness for pure exponential moments and two-factor exponential convolutions but does not imply zero-freeness or the exact threshold for positive mixtures of pure moments; the published-record searches identified no dominating statement. Publication-priority risk from older radar-window literature remains.",
+    "residual_risks": [
+      "Earlier radar and signal-window design references are not exhaustively searchable; exact threshold publication priority remains subject to external review.",
+      "The archive-era background article was inspected at abstract/scope level, not used to assert absence from its entire full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Endpoint results covered; sharp positive two-moment mixture threshold not covered in the inspected article",
+        "evidence": [
+          "Section 3 gives zero-free ambiguity for single and two-factor exponential convolutions.",
+          "Theorem 4.2 proves zero-free ambiguity for t^n exp(-t), n integer nonnegative; does not assert closure under positive addition."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s13163-019-00335-w",
+        "material_read": "Accessible full-article HTML, specifically Sections 3–4 (Examples 2–6, Theorem 4.2), and selected later theorems in Sections 5–7",
+        "method": "Read article text and compare domains, signal classes, formulas and theorem implications",
+        "title": "Zeros of the Wigner Distribution and the Short-Time Fourier Transform",
+        "trigger": "Closest primary source: zero-free ambiguity of exponentials and pure gamma moments"
+      },
+      {
+        "assessment": "Its Zak-transform one-zero and Gabor-frame theorems are not a priori ambiguity-zero statements for the mixed pulse",
+        "evidence": [
+          "First arXiv posting is 2013-11-28.",
+          "Its stated theorems concern totally positive finite-type windows and exponential B-splines."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+        "material_read": "Verified dated arXiv abstract, listed class of windows and stated zero/frame conclusions; full text not used as evidence of exclusion",
+        "method": "Abstract and subject-level applicability comparison",
+        "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+        "trigger": "Archive-era primary context for exponential windows and total positivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d86a23cf-5ea4-444f-ac8a-665e462e09ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determines the exact global boundary between zero-free and zero-bearing self-ambiguity for a natural strictly positive causal pulse family with continuously tunable admixture of two canonical exponential moments. The sharp constant, critical zero-delay pair and forced nonzero-delay zeros quantify a bifurcation. It also supplies a structural nonclosure example: the two endpoint windows have zero-free ambiguity but some positive combinations do not. The result is not merely a numerical instance or a routine alias of existing pure-moment theorems.",
+    "status": "PASS"
+  }
+}
