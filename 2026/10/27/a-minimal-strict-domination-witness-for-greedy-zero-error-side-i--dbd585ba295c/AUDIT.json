@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For full-support \\(P_{X,Y}\\), the published single-letter formula reduces \\(R^*(g_{\\mathcal A})\\) to the conditional entropy of the output-tuple equivalence class of \\(X\\). The three non-discrete singleton columns have entropy \\(h(1/3)=\\log_2 3-2/3\\), while column \\(d\\) is discrete; any block of at least two distinct \\(Y\\)-symbols is discrete. These facts give the six exact slope expressions in RESULT.md. The unique maximum is \\(-2/3\\) at merge \\(\\{b,c\\}\\). Direct entropy expansion gives \\(H(\\mathcal P)-H(\\mathcal Q)=(5\\log_2 5-8)/15>0\\), and direct rate subtraction gives \\(R^*(g_{\\mathcal P})-R^*(g_{\\mathcal Q})=2/45>0\\). The minimality proofs for \\(|\\mathcal Y|\\le3\\) and \\(|\\mathcal X|\\le2\\) use monotonicity under coarsening and the two-source-symbol partition dichotomy.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 design paper, Section 4.2 and equations (30)-(31), defines the same slope-maximizing coarsening rule and says it returns an achievable set of points.",
+        "The paper's worked example reports a case where the greedy boundary coincides with the Pareto front; it does not assert this for every full-support function or distribution."
+      ],
+      "reasoning": "The broad rate theorem covers all full-support functions but does not imply Pareto optimality of the greedy path. The present result supplies a specific contrary instance for the stronger property that every greedy path point be undominated, without claiming the source paper asserted that property.",
+      "searches": [
+        "Charpenay Le Treust Roumy side information design greedy partition coarsening suboptimal example strict Pareto domination",
+        "greedy slope maximization partition coarsening misses Pareto optimal side information design rate entropy",
+        "Side Information Design in Zero-Error Coding for Computing Section 4.2 Algorithms 1 and 2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2211.03649v1, submitted 2022-11-07, full accessible HTML, Theorem IV.8",
+      "DOI:10.3390/e26040338, published 2024-04-16, Section 4.2 and equations (30)-(31)",
+      "published-finding corpus semantic searches listed under the four named originality checks",
+      "Accessible current-week own-ledger claim/ID searches for side-information design and greedy coarsening"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 source establishes the single-letter rate formula but does not analyze the later greedy design path.",
+        "The 2024 source defines the coarsening rule and supplies a worked instance, but no universal Pareto-front guarantee or this strict-dominance witness is stated in the inspected text.",
+        "The exact comparison is \\(H(\\mathcal P)-H(\\mathcal Q)=(5\\log_2 5-8)/15>0\\) and \\(R^*(g_{\\mathcal P})-R^*(g_{\\mathcal Q})=2/45>0\\)."
+      ],
+      "reasoning": "The source formula plus the greedy algorithm does not by itself state the new finite counterexample; the explicit function, probability masses, unique slope maximum, strict dominator, and dimension-minimality proof are the additional content. A pre-existing unindexed example remains a residual priority risk.",
+      "searches": [
+        "arXiv:2211.03649v1, full HTML, Sections IV.8 and V",
+        "DOI:10.3390/e26040338, full article, Section 4.2, Algorithms 1-2, equations (30)-(31)",
+        "published-finding corpus query: zero-error coding for computing encoder side information design Pareto front partitions function f(x,y) exact rate"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Charpenay–Le Treust–Roumy, arXiv:2211.03649v1, Theorem IV.8 defines \\(j(x,z)\\) as the vector of f(x,y) over y in the g-block and proves \\(R^*=H(j(X,g(Y))\\mid g(Y))\\).",
+        "The common-refinement formulation used here is exactly the equality relation induced by that output tuple."
+      ],
+      "reasoning": "The rate calculation uses the published formula in its stated full-support regime; the new claim is not a competing formula or a renamed version of that theorem. The theorem alone does not specify the greedy merge or the strict dominator.",
+      "searches": [
+        "zero-error coding for computing side information partition entropy rate Pareto front exact rate",
+        "zero-error computing side information partition lattice exact rate H(j(X,g(Y))|g(Y)) pairwise shared side information",
+        "arXiv:2211.03649v1 Theorem IV.8 full-support rate formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus's ranked hits for the four targeted semantic queries included unrelated Pareto-optimization, entropy, and coding findings, but no directly matching zero-error side-information coarsening counterexample.",
+        "Accessible own ledgers for the current week were searched for source/claim aliases and no overlapping side-information-design finding was found."
+      ],
+      "reasoning": "No exact database record or table was found that states this function table, probability vector, unique first merge, or strict two-coordinate dominator. The negative search result is only a coverage check and is not treated as proof of novelty.",
+      "searches": [
+        "zero-error side information design greedy coarsening algorithm counterexample dominated partition Pareto frontier",
+        "Charpenay Le Treust Roumy side information design greedy partition coarsening suboptimal example strict Pareto domination",
+        "zero-error computing side information partition lattice exact rate H(j(X,g(Y))|g(Y)) pairwise shared side information",
+        "greedy slope maximization partition coarsening misses Pareto optimal side information design rate entropy",
+        "Accessible current-week ledger claims and IDs: side information design, greedy coarsening, Pareto frontier, partition entropy, zero-error computation"
+      ]
+    },
+    "rationale": "The 2022 primary paper provides the rate formula, and the 2024 primary design paper introduces the greedy coarsening rule. Full accessible text was inspected. The design paper describes the greedy output as an achievable set and gives one example where the front is attained; it does not state a general Pareto-optimality guarantee. The exact instance here has a unique first merge, a strict dominator on both coordinates, and a proved minimal alphabet-size regime. Targeted published-finding corpus and accessible-ledger searches found no directly matching claim; non-detection is not proof of global uniqueness.",
+    "residual_risks": [
+      "An unindexed or unpublished source may contain an equivalent small counterexample.",
+      "The 2024 paper does not claim universal Pareto optimality, so the finding clarifies a limitation of the heuristic rather than refuting a theorem asserted there.",
+      "The numerical script is supplementary; the proof depends on the displayed analytic entropy identities and inequalities.",
+      "Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the single-letter rate formula used in the proof, but does not state the greedy-design counterexample or the minimality result.",
+        "evidence": "Theorem IV.8 states \\(R^*=H(j(X,g(Y))\\mid g(Y))\\) for full-support \\(P_{X,Y}\\) and defines \\(j(x,z)\\) as the tuple (f(x,y')) over y' in g^{-1}(z).",
+        "identifier_or_url": "https://arxiv.org/abs/2211.03649",
+        "material_read": "Accessible arXiv HTML, including Sections II-IV and Theorem IV.8; read the definition of j and the proof outline connecting it to conditional entropy.",
+        "method": "Read the full open-access HTML text around the model, characteristic graph, pairwise-shared condition, and full-support rate formula.",
+        "title": "Optimal Zero-Error Coding for Computing under Pairwise Shared Side Information",
+        "trigger": "Needed the full-support rate formula and exact definition of the output tuple j."
+      },
+      {
+        "assessment": "Defines the same greedy coarsening algorithm and states that it returns achievable points; it does not claim all such points are Pareto-undominated. The worked example is not the present instance.",
+        "evidence": "Section 4.2 maximizes the rate-change/entropy-change slope over one-block merges and explicitly describes the algorithm's output as an achievable set.",
+        "identifier_or_url": "https://doi.org/10.3390/e26040338",
+        "material_read": "Accessible full article text, including the partition formulation, Section 4.2, Algorithms 1-2, equations (30)-(31), and the worked example.",
+        "method": "Read the published open-access article text and compared the algorithm's stated output and worked example with the present claim.",
+        "title": "Side Information Design in Zero-Error Coding for Computing",
+        "trigger": "Primary source for the greedy coarsening algorithm being tested."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbd585ba-295c-45f3-ba75-6347ee7b3d03",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The example gives a minimal, exact witness that a polynomial greedy coarsening path can select a partition that is strictly worse in both design objectives, despite a unique first merge. This is relevant because the algorithm is a practical alternative to exponentially enumerating all partitions; the strict gaps and minimal alphabet-size boundary tell users when the path cannot be assumed to be the Pareto front. The claim is not a routine parameter increment and makes no unsupported assertion about a global approximation ratio.",
+    "status": "PASS"
+  }
+}
