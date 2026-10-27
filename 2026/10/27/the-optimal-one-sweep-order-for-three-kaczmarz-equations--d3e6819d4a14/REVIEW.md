@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The projector identity for the trace of the sweep Gram matrix and the rank-one action of the exterior square determine the two nonzero squared singular values. The larger root is strictly decreasing with the adjacent-correlation product on the feasible interval; this supplies a necessary-and-sufficient ordering criterion. The common characteristic polynomial and sharp two-leaf limiting family establish spectral order-independence and the optimal universal penalty. Separate exact-rational checks and an analytically proved limit support the result; finite checks do not prove the real-parameter theorem.
+
+**Originality — PASS, with risk.** Yu–Diakonikolas (2026) analyzes general cyclic Kaczmarz convergence and row correlations; Hansen–Hochstenbach (2026) analyzes spectral and initial dynamics. These inspected statements do not give the six-order closed singular-norm formula, correlation-product minimizer, or sharp universal penalty. Ferreira–Acebrón–Monteiro surveys row-action variants, and the indexed ordering discussion in Dax (2022) concerns empirical shuffling and near-orthogonality heuristics rather than the claimed minimax theorem. Closest mathematical records concern two-row relaxation, greedy residual selection, and inconsistent-system bias; none entails this theorem. Older specialized three-projection results remain an originality risk, and direct full publisher text for Dax (2022) was rate-limited.
+
+**Mathematical value — PASS.** This classifies all six orderings for the minimal three-equation full-rank case by a natural row-correlation invariant and resolves a concrete conflict between a local adjacency heuristic and optimal one-sweep worst-case Euclidean error. The sharp supremum and spectral/singular-value separation are meaningful beyond a single numerical example.
+
+**Scientific limitations.** Three real independent normalized rows, exact unrelaxed Kaczmarz, one complete sweep, worst-case Euclidean solution error. Not a result about arbitrary dimensions, residual norms, repeated sweeps, noise, or roundoff. No independent bibliographic or mathematical audit has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.

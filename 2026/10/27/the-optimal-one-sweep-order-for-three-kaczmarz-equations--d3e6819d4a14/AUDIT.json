@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "All three rows are linearly independent unit normals. Orthogonal-projector trace identity gives tr(M^T M)=Q+p; exterior-square Hodge identity gives the product of the nonzero squared singular values p, hence the stated radical formula. Gram positive definiteness gives 0<=Q<1 and feasibility bounds on p. The larger root has derivative (L-1)/sqrt((Q+p)^2-4p)<0 on feasible interiors, with continuous endpoint treatment. Therefore maximizing adjacent-correlation product exactly minimizes Euclidean sweep norm. The sweep trace and second elementary symmetric polynomial are order-independent, giving common eigenvalues. Uniform Q/2< L <=Q yields ratio \\(<\\sqrt2\\); a nonsingular two-leaf star realizes the supremum in the limit. Python standard-library exact rational checks confirm finite identities; the analytic proof covers all real full-rank triples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu–Diakonikolas (arXiv:2609.32034) gives tight general sweep convergence characterizations and relaxed row-correlation bounds, but the inspected statements do not identify an optimal permutation or sharp three-row ratio.",
+        "Ferreira–Acebrón–Monteiro (arXiv:2401.02842) surveys row selection and empirical order effects without this exact permutation classification."
+      ],
+      "reasoning": "General matrix-dependent bounds characterize or estimate a fixed-order sweep and do not automatically compare all six orderings or imply the sharp supremum \\(\\sqrt2\\); substituting a three-row Gram matrix still requires the new wedge-square/monotonicity argument. The general literature provides the operator framework, not the published claimed classification.",
+      "searches": [
+        "Cyclic Kaczmarz ordered row projections convergence three hyperplanes optimal row ordering spectral norm exact contraction",
+        "three dimensional Kaczmarz row ordering finite-step convergence singular values formula Gram matrix",
+        "arXiv:2609.32034 Sections 2.1–2.3",
+        "arXiv:2401.02842 Sections 3.1 and 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.32034 (full accessible sections 2–2.3)",
+      "arXiv:2601.07498 (full accessible sections 2–3.3)",
+      "arXiv:2401.02842 (full accessible sections 3,5)",
+      "Dax, AppliedMath 2022, DOI:10.3390/appliedmath2020012 (indexed Section 4 only)",
+      "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+      "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Dax (2022), indexed Section 4, describes heuristic improved orthogonality between consecutive tomography rows rather than a three-row one-sweep minimax statement; full direct page access was rate-limited.",
+        "The two-row overrelaxation result concerns finite-horizon relaxed two-row dynamics; the greedy maximal-distance frontier concerns a changing row choice and residual norm; the reverse-order block result concerns inconsistent-system underrelaxation bias. Different objectives and hypotheses prevent direct implication."
+      ],
+      "reasoning": "The reviewed algorithms have distinct order constraints, relaxation, and error metrics. A qualitative preference for near-orthogonal adjacent rows actually conflicts with the proven small three-row one-sweep worst-case optimizer, rather than implying it. A stronger, uninspected special-case projector-product theorem remains a possible novelty risk.",
+      "searches": [
+        "arXiv:2609.32034",
+        "arXiv:2601.07498",
+        "doi:10.3390/appliedmath2020012",
+        "2026/9/20/SCOPE-reverse-order-cancels-kaczmarz-underrelaxation-bias--a94e87f5f881",
+        "three orthogonal projections optimal ordering worst-case Euclidean error norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact error map is the ordered product of three orthogonal rank-two projections P_k P_j P_i. Reversal/adjoint conjugacy and spectral permutation alone do not determine its singular norm.",
+        "Hansen–Hochstenbach (arXiv:2601.07498) analyzes spectral and initial convergence; inspected treatment does not solve all six orderings by Gram-edge products."
+      ],
+      "reasoning": "Compared Kaczmarz and alternating-projection formulations and the dual Gram description. The theorem determines each singular norm and the optimizer, whereas a general spectral representation or qualitative ordering effect implies neither. Older product-of-projection identities may subsume the exact small-dimension calculation; retained as explicit residual risk.",
+      "searches": [
+        "Kaczmarz three hyperplanes optimal permutation order operator norm projection product all three exact",
+        "three projections order matters product singular values Kaczmarz sequence optimize",
+        "For three linearly independent normalized Kaczmarz rows, the best one-sweep permutation places the common endpoint of the two largest absolute correlations in the middle. All permutations have the same eigenvalues but norms can differ by a sharp factor sqrt(2).",
+        "arXiv:2601.07498 Sections 2 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published research-record closest entries are two-row Kaczmarz overrelaxation (d549f7251aa1) and greedy coherence residual-spike frontier (332a15a5d36f); neither tabulates the six one-sweep norms for three fixed independent rows.",
+        "The attached exact checker enumerates rational witnesses only for reproducibility, not as a claim of complete literature coverage."
+      ],
+      "reasoning": "Searched explicit determinant, singular-value and three-row ordering aliases and checked closest mathematical record summaries against the claim. Did not identify an exact database/table entry covering the parameterized result; negative search alone is insufficient for novelty.",
+      "searches": [
+        "For three linearly independent normalized Kaczmarz rows, the best one-sweep permutation places the common endpoint of the two largest absolute correlations in the middle. All permutations have the same eigenvalues but norms can differ by a sharp factor sqrt(2).",
+        "Sharp one cycle Euclidean Kaczmarz contraction three equations row ordering three orthogonal hyperplane projection matrix Gram determinant two largest adjacent row correlations",
+        "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f"
+      ]
+    },
+    "rationale": "Compared the precise three-row one-sweep worst-case Euclidean singular-norm characterization against the new general Kaczmarz convergence operator theory, an initial-iteration spectral analysis, a row-action survey, older heuristic ordering discussion, published mathematical research records, and accessible prior finding statements. The examined claims do not imply the full six-permutation minimax classification and sharp \\(\\sqrt2\\) separation. Residual risk from older specialized projection-product literature is documented; this is a best-knowledge self-review, not a claim of exhaustive novelty.",
+    "residual_risks": [
+      "A specialized older result on products of three orthogonal projections or three-hyperplane cyclic Kaczmarz might present an equivalent formula under different notation.",
+      "Direct full Dax 2022 page access was rate-limited; scientific assessment rests on indexed Section 4, not full-manuscript coverage.",
+      "Published research-record matches were compared through descriptions and IDs; full original documents behind some records were not accessible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports use of exact Kaczmarz projector model; no six-order three-row norm comparison or sharp sqrt(2) penalty located in inspected text",
+        "evidence": "arXiv:2609.32034, publicly first submitted 2026-09-25, Sections 2.1–2.3",
+        "identifier_or_url": "https://arxiv.org/html/2609.32034v1",
+        "material_read": "Abstract, introduction, Sections 2, 2.1, 2.2 examples and 2.3 in publicly accessible HTML",
+        "method": "Compared sweep operator, hypothesis, exact rate, row-correlation roles and claims in mathematical statements",
+        "title": "Tight Convergence Bounds for the Classical Kaczmarz Method",
+        "trigger": "Fresh public 2026 general cyclic Kaczmarz sweep analysis and exact bounds"
+      },
+      {
+        "assessment": "Discusses spectral and initial behavior but not explicit universal three-row permutation optimum",
+        "evidence": "arXiv:2601.07498, Sections 2–3",
+        "identifier_or_url": "https://arxiv.org/html/2601.07498",
+        "material_read": "Introduction and Sections 2, 3.1–3.3 of open arXiv HTML",
+        "method": "Checked differences between eigenvalue behavior and one-sweep Euclidean operator norm, plus ordering discussion",
+        "title": "On spectral properties and fast initial convergence of the Kaczmarz method",
+        "trigger": "Most relevant recent spectral/initial convergence and order-sensitive theory"
+      },
+      {
+        "assessment": "Does not state the full three-row exact Gram criterion or sharp universal penalty in read material",
+        "evidence": "arXiv:2401.02842, Sections 3 and 5",
+        "identifier_or_url": "https://arxiv.org/html/2401.02842",
+        "material_read": "Abstract, introduction, Sections 3.1 and 5 in open arXiv HTML",
+        "method": "Compared cyclic and randomized selection, ordering and metrics",
+        "title": "Survey of a Class of Iterative Row-Action Methods: The Kaczmarz Method",
+        "trigger": "Row-action selection literature and classical ordering aliases"
+      },
+      {
+        "assessment": "Section 4 discusses heuristic consecutive-row orthogonality and empirical shuffled rows, not evident exact three-normal norm theorem; residual material-access risk noted",
+        "evidence": "Dax, AppliedMath 2 (2022), pp. 196–211, Section 4; indexed excerpt",
+        "identifier_or_url": "https://doi.org/10.3390/appliedmath2020012",
+        "material_read": "Search-indexed text of Section 4 and concluding discussion; direct publisher fetch returned HTTP 429",
+        "method": "Inspected indexed scientific exposition and comparison to proposed order heuristic; did not claim complete direct full-text inspection",
+        "title": "Kaczmarz Anomaly in Tomography Problems",
+        "trigger": "Section 4 titled From Random Shuffles to Optimal Ordering suggests plausible coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d3e6819d-4a14-40b8-b616-94ee4839913e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest genuinely ordering-sensitive full-rank cyclic Kaczmarz instance admits a complete computable ordering rule. The contrast between identical eigenvalues and distinct transient singular norms is structurally informative and explains why local consecutive-row orthogonality heuristics need not optimize a first-sweep worst-case objective. The sharp universal sqrt2 penalty and rational witness quantify a nontrivial optimization gap; a larger-dimension or long-horizon theorem is not claimed.",
+    "status": "PASS"
+  }
+}
