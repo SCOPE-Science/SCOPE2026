@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "Both standalone Python algorithms exhaustively generate 6240 labeled states; one via 105 perfect-matching masks and an exact-cover recursion, the other via normalized proper edge-colorings. Both explicitly construct switches for all 28 anchor pairs, deduplicate moves, verify 66360 edges, the same degree histogram and distance vectors. A full S8 orbit census and complete BFS from six orbit representatives prove connectivity, radius 5 and diameter 6 rather than extrapolate from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.37236/3606, p.2 and §5: nodes of published switching graphs are vertex-relabeling isomorphism classes; Table 1: exactly six quotient vertices and one vertex-switch component at order eight."
+      ],
+      "reasoning": "A six-state connected quotient is a surjective graph projection from the labeled graph; it does not imply connectivity of its 6,240-point lift or its degree/eccentricity distributions. The paper does not supply a theorem that forces these finer results.",
+      "searches": [
+        "Kaski et al. (2014) PDF §§1,5–6,8; Figure 1, Table 1, Table 6",
+        "published-finding corpus: Kaski Medeiros Ostergard Wanless one-factorization K8 vertex switching graph on 6240 vertex-labeled factorizations"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.37236/3606",
+      "Electronic Journal of Combinatorics public article and original PDF (pages 1–11, 20–21 portions inspected)",
+      "published-finding corpus search three focused queries, highest nearest irrelevant record 2026/9/15/SCOPE011",
+      "Earlier mathematical factor-switch statement 9033bf29-7908-4130-994e-db3654911a8e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published quotient graph is connected but its preimage could have multiple disconnected components.",
+        "The factor-switch subgraph contains 960 isolated perfect one-factorizations, whereas all 960 have positive vertex-switch degree 14 here."
+      ],
+      "reasoning": "Neither known quotient connectivity nor a disconnected factor-switch subgraph forces the full labeled vertex-switch graph to be connected, let alone to have diameter six; thus the present claim is not a corollary of those findings.",
+      "searches": [
+        "Kaski et al. (2014) PDF §3 vertex-switch definition, §§6–8 connectivity and distances",
+        "Comparison with earlier fixed-label factor-switch classification 9033bf29-7908-4130-994e-db3654911a8e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "doi:10.37236/3606, sections 2–3: matching partitions correspond to proper edge-colorings and symmetric unipotent Latin squares; vertex-switch uses one proper bipartite component, identical to our operation."
+      ],
+      "reasoning": "Alternate terms and the Latin-square operation were compared as mathematical moves, not just as title matches; no equivalent result for all 6,240 fixed-label states was found.",
+      "searches": [
+        "published-finding corpus: vertex-switching labeled one-factorizations of K8 connected graph degree distribution diameter 6 66360 edges",
+        "Web: vertex switching graphs one factorisations K8 labelled complete graph switchings class 2014",
+        "Kaski et al. (2014) PDF §2–3, unipotent symmetric Latin-square row/column cycle formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.37236/3606, Table 1 lists 6 vertices and 6 nonloop edges in quotient vertex-switch graph, not the 6240-state 66360-edge graph.",
+        "Earlier labeled factor-switch result 9033bf29-7908-4130-994e-db3654911a8e studies 4-cycle factor exchanges and has a different graph."
+      ],
+      "reasoning": "Published quotient table and older factor-switch table have distinct state/move/parameter meanings; neither records the exact labeled vertex-switch table.",
+      "searches": [
+        "Web: K8 one-factorizations vertex switching labelled 6240 66360 graph diameter 6",
+        "Web: Switching in One-Factorisations of Complete Graphs Kaski Medeiros Ostergard Wanless vertex switching K8 labeled isomorphism classes 2014",
+        "Earlier factor-switch classification, opaque identifier 9033bf29-7908-4130-994e-db3654911a8e"
+      ]
+    },
+    "rationale": "The relevant 2014 publication computes a six-vertex isomorphism-class quotient, not the complete labeled 6240-vertex graph. The earlier accessible labeled study concerns factor switches and is mathematically insufficient to imply the present connected vertex-switch graph. Targeted mathematical-record and web searches found no dominating labeled result, subject to explicitly recorded access and indexing risks.",
+    "residual_risks": [
+      "Search incompleteness: a differently indexed labeled switching enumeration, a supplement, or an unpublished schedule-database result may coincide.",
+      "Full historical dissertation text not inspected; abstract insufficient for exclusion.",
+      "No independent external scientific validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MOVE_DIFFERENT_STATE_SPACE; class quotient results do not cover the 6240 fixed-label graph",
+        "evidence": "§1 specifically defines graph nodes as isomorphism classes; §3 gives same vertex-switch construction; Table 1 has 6 quotient states; §8 distances belong to quotient.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i2p49/pdf/",
+        "material_read": "Full first page and introduction; sections 2–3 definitions and example; sections 5–6 graph construction and Table 1; section 8 metric discussion and Table 6; PDF page images of definition and table inspected.",
+        "method": "Accessible primary open PDF, text and page-image inspection",
+        "title": "Switching in One-Factorisations of Complete Graphs",
+        "trigger": "Exact defining paper for both switch operations and apparent K8 coverage"
+      },
+      {
+        "assessment": "POTENTIAL_PRIORITY_RISK_NOT_EXCLUDED",
+        "evidence": "Historical study of complete-graph factorizations and schedule relations; insufficient material to determine whether it contains a labeled switch table.",
+        "identifier_or_url": "https://dspace.library.uvic.ca/items/97c7e4b6-8b9a-4f65-b747-fa48878b4d6f",
+        "material_read": "Public catalog metadata and abstract only; thesis PDF not read",
+        "method": "Bibliographic/abstract-level inspection only",
+        "title": "On 1-factorizations of complete graph and relation to round robin schedules",
+        "trigger": "Historical count and possible label-sensitive schedule computations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fe99f58e-c489-47d5-83fe-0af23b456ae7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The six-state isomorphism quotient leaves a meaningful reachability gap for fixed labeled round-robin schedules. The finding closes it: all 6240 schedules interconvert in at most six natural single-component vertex switches, with sharp diameter and full orbit-degree/distance stratification. It highlights the 960 configurations immobile under stricter factor switching yet admitting 14 vertex moves, a structural distinction with plausible relevance to local schedule randomization and reconfiguration.",
+    "status": "PASS"
+  }
+}
