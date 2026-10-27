@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For x>0 the killed two-state resolvent satisfies D K″+QK-rK=-rI, open Dirichlet and closed Neumann boundaries. The explicit two-mode bounded solution is K=(I-fe_open^T)P with strictly ordered 0<f0<f1<1. Its positive sub-stochastic entries yield two simple positive eigenvalues below 1. Direct matrix identities det(I-K)=(1-t)fbar and det(sI-K)=-pt(f1-f0)fbar place the stationary one-attempt survival s between these eigenvalues, making both mixture weights strictly positive. Strong Markov at resets gives the exact geometric mixture. Its strict hazard decay and variance defect follow algebraically; symbolic and independent finite-difference checks corroborate the proof, with no reliance on finite experiments for universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2020 paper resets the gate and can use scalar renewal; the 2021 paper explicitly distinguishes this from preserving the independent gate in Appendix B.",
+        "The 2023 manuscript uses finite reset budgets for an ungated absorbing boundary. Its geometric renewal law is not the strict positive two-mode law."
+      ],
+      "reasoning": "The strongest directly relevant renewal and finite-budget models change the key hypothesis, namely the gate memory between resets. Abstract phase-type and Markov-modulated stopping theory could encompass a derivation, but no identified stronger published theorem was demonstrated to give the strict all-parameter positivity for this particular half-line boundary coupling.",
+      "searches": [
+        "\"gated target\" \"geometric\" \"reset\" absorption",
+        "\"reset counts\" \"Markov modulated\" \"geometric mixture\" absorption",
+        "arxiv:2310.20502",
+        "arxiv:2009.02739"
+      ]
+    },
+    "checked_sources": [
+      "Mercado-Vásquez and Boyer, Search of stochastically gated targets with diffusive particles under resetting, arXiv:2107.02148 (2021)",
+      "Bressloff, Diffusive search for a stochastically-gated target with resetting, arXiv:2009.02739 (2020)",
+      "Bressloff, Truncated stochastically switching processes, arXiv:2310.20502 (2023)",
+      "Published research-record queries on the exact reset-count and two-geometric mixture claim"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mercado-Vásquez–Boyer analyze the very same independent-gate process and give backward PDEs for time survival, but no reset-count generating variable was found in the inspected sections and Appendix B.",
+        "The 2020 gate-reset model does not preserve target memory and therefore has a single renewal attempt parameter.",
+        "The 2023 finite budget is for an ungated absorber."
+      ],
+      "reasoning": "The physical model is inherited, not claimed new. Its previously derived time statistics alone do not state the count-marked phase-type law or force the strict weights without further calculation. The new kernel factorization and determinant inequality make the genuinely tested claim. A possible implicit equivalence within broader Markov-modulated stopping literature remains an identified scholarly risk.",
+      "searches": [
+        "arxiv:2107.02148",
+        "arxiv:2009.02739",
+        "arxiv:2310.20502",
+        "\"Search of stochastically gated targets with diffusive particles under resetting\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2021 primary work gives the nonrenewed gate master equations and time-Laplace hitting-time statistics; the reset-count variable is a distinct marked observable.",
+        "The count tail is a two-mode matrix-geometric/phase-type survival sequence; a positive mixture is stronger than a generic rational PGF."
+      ],
+      "reasoning": "Equivalent formulations searched included gated searcher and target, phase-type count, matrix-geometric stopping, and number-of-restarts-before-capture. A general two-state Markov-renewal representation implies a matrix-power tail, but does not by itself guarantee positive spectral mixture weights or the explicit strict dispersion identity for this physical boundary problem.",
+      "searches": [
+        "\"gated target\" \"number of resets\" before reaction",
+        "\"gated target\" \"geometric\" \"reset\" absorption",
+        "\"gated target\" \"number of resetting events\"",
+        "arxiv:2107.02148"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact tabulation of reset-number probabilities for the unreset gated half-line target was identified in searched sources.",
+        "The comparison works tabulate hitting-time moments or ungated reset-budget splitting probabilities, not the same count distribution."
+      ],
+      "reasoning": "This is a continuous-parameter theorem, not a finite enumerated constant or known numerical table. Published mathematical-record queries and primary-source searches did not reveal an identical formula; that search result is not treated as a proof of novelty.",
+      "searches": [
+        "\"gated target\" \"number of resets\" before reaction",
+        "\"stochastically gated\" \"number of resetting events\" absorption",
+        "\"gated target\" \"geometric\" \"reset\" absorption",
+        "\"reset counts\" \"Markov modulated\" \"geometric mixture\" absorption",
+        "\"Diffusive search for a stochastically-gated target with resetting\""
+      ]
+    },
+    "rationale": "The same physical independent-gate target is covered by the 2021 primary work, but the inspected model, FPT moment and Appendix B discussions do not state the two-geometric reset-count distribution, strictly decreasing count hazard, or closed all-parameter positive variance defect. Gate-reinitializing 2020 renewal results and the 2023 ungated finite-reset-budget results do not imply the independent-gate conditional count law without substantial new kernel and positivity analysis. Residual uncertainty remains about abstract Markov-modulated phase-type results and uninspected literature; no claim of exhaustive priority is made.",
+    "residual_risks": [
+      "A general Markov-modulated phase-type theorem may imply the distribution or its positive weights, even without matching physical nomenclature.",
+      "The 2021 paper was inspected materially but not page-for-page in full; other appendices/related literature could bear on priority.",
+      "Results concern only the equilibrium initial target distribution and strictly positive rates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and FPT solution are antecedents; inspected sections do not provide reset-count marked distribution or positive mixture theorem. Partial coverage of source is acknowledged.",
+        "evidence": [
+          "Backward equations for independent two-state gate (1)–(4); MFPT (26); fluctuation formulas (37)–(43); Appendix B distinguishes independent target from target reinitialized at reset."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2107.02148",
+        "material_read": "Abstract, introduction, model/backward equations on pages 1–4, MFPT discussion on page 6, FPT fluctuation calculations on page 10, conclusion and Appendices A–B on pages 12–14; other sections not inspected completely.",
+        "method": "Public arXiv PDF text and page-image inspection",
+        "title": "Mercado-Vásquez and Boyer, Search of stochastically gated targets with diffusive particles under resetting, arXiv:2107.02148 (2021)",
+        "trigger": "Exact same independent-gate resetting model and closest possible covering result"
+      },
+      {
+        "assessment": "Different reset protocol; the gate is reinitialized along with particle, enabling ordinary renewal. Does not establish preserved-gate two-mode count distribution.",
+        "evidence": [
+          "Section 2 last-renewal equation (2.5) and page 3 explicit discussion of conformational reset rule."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2009.02739",
+        "material_read": "Abstract, introduction and reset model/renewal setup on pages 1–5, emphasizing target-state reset rule.",
+        "method": "Public arXiv PDF text and page-image inspection",
+        "title": "Bressloff, Diffusive search for a stochastically-gated target with resetting, arXiv:2009.02739 (2020)",
+        "trigger": "Most similar paper title, gating with resetting, possible full-cover model"
+      },
+      {
+        "assessment": "Number-of-resets analysis is performed for an ungated absorbing target; the count is scalar-renewal, not a target-preserving two-state gate.",
+        "evidence": [
+          "Sect. V on half-line diffusion with absorbing condition at the origin; Eq. (5.21)–(5.36)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.20502",
+        "material_read": "Abstract, introduction, description of Sect. V, and page 9 Sect. V formulas for absorption versus reset-budget exceedance.",
+        "method": "Public arXiv PDF text and page-image inspection",
+        "title": "Bressloff, Truncated stochastically switching processes, arXiv:2310.20502 (2023)",
+        "trigger": "Most plausible prior count-of-resets/capture result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "de90e671-cb0d-4d1c-b704-9a861f9038d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A count of interventions before successful target binding measures effort and finite reset budget; the 2023 finite-budget literature makes this physically motivated rather than arbitrary. The exact two-geometric law, declining capture hazard, and universal positive variance gap quantify hidden gate persistence and demonstrate systematic underestimation by naive independent-attempt geometric models. The result holds over the full strictly positive physical parameter domain and gives explicit measurable formulas.",
+    "status": "PASS"
+  }
+}
