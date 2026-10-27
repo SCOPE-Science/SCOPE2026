@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "Conditioned on any k quota-exact elected candidate columns, at most n-q voters remain unrepresented. For an unselected independent column the unrepresented approval count is binomial with mean at most (n-q)p; its gap below q is >=n/(2k^2) eventually. Hoeffding gives exp(-n/(2k^4)); a polynomial union bound works simultaneously for all eligible committees. The independent quota-count is exactly Binomial(m,a), with sqrt(n)a tending to the stated Gaussian density. The Poisson committee-count law and expectation follow, plus Chernoff off criticality. Verification code exhaustively compares JR definitions in small cases; it is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2510.18718v1 Theorem 2.2: AJR approval-probability phase diagram for m and k fixed.",
+        "arXiv:2108.12949: JR-justifying groups, with a different fairness assertion.",
+        "arXiv:2609.29332v1 Section 8: empirical (S)SJR and Local DR analysis rather than exact DR existence probability.",
+        "arXiv:2108.12949 Theorem 3.1 and Proposition 1: for m,k fixed and p constant, all size-k committees JR with high probability; no exact-support constraint or m≈sqrt(n)."
+      ],
+      "reasoning": "AJR and (S)SJR are different requirements: their random critical thresholds do not entail selection of k candidates with support exactly ceil(n/k). Prior JR high-probability results are a supporting but weaker component, not a dominance theorem for DR committee counts. The earlier full-JR theorem is stronger for ordinary JR but its quantifiers assume m fixed, whereas the new count is about all exact-quota committees with m scaling as sqrt(n).",
+      "searches": [
+        "Chingoma Grossi Lindeboom Maly distinctive representation Erdős Rényi random instances support exactly Hare quota asymptotics",
+        "random approval election strong justified representation phase transition critical probability p=1/k binomial limiting SJR existence",
+        "2026 social choice fair division MMS allocation chores EFX exact instances"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29332v1, full primary text relevant definitions, theorems, appendix, experiments",
+      "arXiv:2510.18718v1, full primary HTML",
+      "arXiv:2108.12949, full original primary HTML including Theorem 3.1 and Proposition 1",
+      "Targeted arXiv/web title, axiom, and random-model searches",
+      "Published mathematical-result comparisons for exact quota, Bernoulli, Poisson and analogous voting rules"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2609.29332v1 Definition 22, Theorem 26, Appendix D: DR is defined and NP-hard, not probabilistically characterized.",
+        "arXiv:2510.18718v1 Sections 2–3: an AJR fixed-candidate phase transition.",
+        "arXiv:2108.12949: general JR-justifying-set probabilities.",
+        "arXiv:2108.12949 Proposition 1: all size-k committees JR w.h.p. under independent approval with m fixed, which alone does not imply random exact-quota availability at m≈sqrt(n)."
+      ],
+      "reasoning": "The exact-support requirement forces a rare local binomial probability of order n^(-1/2) at p≈1/k, generating a new m≈sqrt(n) supply threshold. Existing results about independent approvals satisfying JR or AJR do not provide this quota-supply computation plus simultaneous JR conditional on exact supporter counts and Poisson transformed count law.",
+      "searches": [
+        "Distinctive Representation exact quota support random approval election Poisson square root number candidates phase transition 2026",
+        "Chingoma Grossi Lindeboom Maly distinctive representation Erdős Rényi random instances support exactly Hare quota asymptotics",
+        "probabilistic threshold random approvals semi-strong justified representation cohesive groups SJR feasibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.29332v1 Definition 22: DR is JR plus exact support ceil(n/k).",
+        "arXiv:2609.29332v1 Section 6 and Appendix D: hardness and counterinstances, not stochastic counts."
+      ],
+      "reasoning": "Alternate formulations include quota-support candidate availability, existence of JR committees restricted to the exact-support candidate subfamily, and counting all such JR committees. Direct implication comparison with the originating definition shows a joint probabilistic assertion rather than a rephrasing of hardness or nonexistence.",
+      "searches": [
+        "Distinctive Representation exact quota support random approval election Poisson square root number candidates phase transition 2026",
+        "DR justified representation candidate supporter count ceil(n/k) poisson threshold rare eligible candidate",
+        "approval elections exactly ceil(n/k) supporter candidates DR feasibility random graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published exact-count results on approval allocation or apportionment did not match the DR committee-count variable or its asymptotic regime.",
+        "arXiv:2609.29332v1 contains numerical empirical plots, but not a table of this stochastic count law."
+      ],
+      "reasoning": "The limit is a distribution of a count under a scaling regime, not a finite database value. Related exact-count tables for other voting rules and apportionment methods have different objects, sample spaces, and predicates; their numbers cannot imply this distribution.",
+      "searches": [
+        "Bernoulli approval matrix rare exact degree committee Poisson square root m candidates justified representation threshold",
+        "Chingoma Grossi Lindeboom Maly local DR distinctive representation exact Hare quota n/k eligible candidates justified representation"
+      ]
+    },
+    "rationale": "Chingoma et al. (2026) introduced DR and its worst-case computational status, but the inspected DR section, appendix, and experiments do not give random-approval critical supply or the Poisson committee-count law. Han et al. (2025) study AJR with constant candidate supply and no exact-support constraint; Elkind et al. prove asymptotically all fixed-candidate-size committees are JR (Theorem 3.1/Proposition 1) in the independent model, but not growing-candidate exact-support DR counts. The earlier general JR results do not imply the binomial rare-support threshold or the joint limit for DR committees. A deterministic quota-support shortcut under additional structural hypotheses does not imply this random scaling, simultaneous JR event, or limit theorem.",
+    "residual_risks": [
+      "Unindexed/uninspected work might establish the same DR random Poisson limit.",
+      "A general theorem in another stochastic set-system setting might subsume this exact model without naming DR.",
+      "The fixed-m JR theorem is close in method; an unnoticed published extension allowing polynomial m and exact support may cover some or all of the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the exact random critical supply and committee-count distribution; establishes DR definition, its NP-hardness, and experiments with Local DR.",
+        "evidence": [
+          "Definition 22 is JR plus |N_c|=ceil(n/k) for every selected candidate.",
+          "Theorem 26 gives NP-hardness; Appendix D reduces Exact 3-Cover.",
+          "Section 8 tests real and resampling instances for related rules."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.29332",
+        "material_read": "Full primary arXiv text including Definitions 22/24, Sections 6–8, Appendix D and proofs of hardness.",
+        "method": "Read definitions, theorem statements and relevant proof/experiment material and checked for the same stochastic scaling and count.",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "Same exact representation axiom and candidate-support quantifier"
+      },
+      {
+        "assessment": "NOT_COVERING: AJR has no exact-support requirement and candidate count m is fixed.",
+        "evidence": [
+          "Theorem 2.2 assumes constant m,k,p and addresses existence of AJR, not DR.",
+          "Definition 2.1 imposes averaged cohesive-group utility rather than exact selected-candidate support."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.18718",
+        "material_read": "Full HTML preprint with model definition, central theorem, comparison section, and proofs roadmap.",
+        "method": "Compare definitions of AJR and DR, and m fixed against m of order sqrt(n); inspect full theorem and model.",
+        "title": "Likelihood of the Existence of Average Justified Representation",
+        "trigger": "Plausible prior random-approval phase transition with same k and p parameter"
+      },
+      {
+        "assessment": "PARTIAL_COVERAGE: establishes that all size-k committees are JR w.h.p. when m,k,p are fixed, using a Chernoff bound. Does not state/derive the exact quota-candidate availability or transformed-Poisson DR committee law for m≈sqrt(n).",
+        "evidence": [
+          "Theorem 3.1 assumes m and k fixed and bounds all candidate-set JR behavior by p(1-p)^s<1/k.",
+          "Proposition 1 explicitly states every size-k committee is JR w.h.p. for fixed m.",
+          "No exact-quota DR axiom in this 2021 work."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.12949",
+        "material_read": "Full original arXiv HTML text, including the Introduction, model definition, Theorem 3.1, its proof, and Proposition 1.",
+        "method": "Read theorem quantifiers, sampling model and polynomial-union-bound argument; compare fixed versus growing m, and JR versus DR with exact quota support.",
+        "title": "Justifying Groups in Multiwinner Approval Voting",
+        "trigger": "Published strong random JR theorem could subsume the conditional-representation step"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e23a63a0-21a5-45ed-8b4d-9f817692a802",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the first natural asymptotic feasibility question for an explicitly exact-support voting axiom: a square-root candidate-supply threshold with full critical Poisson limiting distribution, and a simultaneous high-probability structural reduction from JR plus exact support to exact support alone. It explains a gap between worst-case DR hardness/insatisfiability and large random electorates, and gives a quantitative count of available committees; not a cosmetic statistic or predetermined tiny finite slice.",
+    "status": "PASS"
+  }
+}
