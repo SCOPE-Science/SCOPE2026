@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness (PASS).** Expansion of the square has exactly one nontrivial collision of unordered edge-pair sums: its three representations are the perfect matchings of four vertices. The moment identity, two-term magnitude balancing, matching-phase alignment, and three-variable Cauchy–Schwarz yield the exact global coefficient bound and classify equality. The included integer verifier reconstructs collision multiplicities and checks the identity for 500 test coefficient arrays. Finite testing supports, rather than replaces, the complete algebraic proof.
+
+**Originality (PASS, best knowledge).** The closest mathematical-result record for one additive collision is not strong enough: that theorem assumes only one colliding pair, whereas this spectrum has three pairings of the same sum. Quadratic Walsh-chaos results use order-two signs, so their fourth moments contain additional relations absent on the complex torus. The 2017 finite-field restriction paper develops additive-energy methodology without asserting an exact six-edge complex torus norm, and the 2022 arithmetically constrained circle extension paper studies a distinct Fourier extension integral and exponent. No equivalent statement was found in the accessible exact-norm records or searched primary descriptions. Full access to every older graph-chaos source was not obtained; priority is not independently established.
+
+**Mathematical value (PASS).** This is the smallest *complete squarefree quadratic* character block in which distinct perfect matchings create a genuinely interacting Fourier additive collision: blocks on at most three vertices are pair-sum-free. The exact norm and factorized complex equality class distinguish simultaneous matching interference from the known one-collision problem and give an exact baseline for larger homogeneous quadratic Fourier chaoses. The claim is a natural complete base classification, not an arbitrary coefficient slice or a numerical optimization.
+
+**Scope and residual risk.** Complex infinite-order torus characters are essential. No general higher-dimensional extremal statement is claimed. Earlier equivalent moment inequalities may exist under symmetric matrix or multilinear-chaos terminology. Independent scientific audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
