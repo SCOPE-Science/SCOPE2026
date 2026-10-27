@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The eight-state transition matrix is derived from unimodular Stern updates. Its exact characteristic polynomial and squarefree annihilator give a simple uniform eigenvalue 2 and second spectral modulus sqrt(2); aligned-block decomposition proves the global O(sqrt(N)) estimate. Three symmetric state classes give the exact order-two level recurrence; nonzero complex eigenmodes and a dyadic endpoint difference prove positive normalized limsup. A from-scratch exact integer verifier reconstructed the matrix and checked the polynomial identities, 17 dyadic levels and 131,072 prefixes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deshouillers--Schinzel, full text pp.37-44, Theorem 2.2 proves uniform state density for finite invertible automata, without rates.",
+        "Bettin--Drappeau--Spiegelhofer, arXiv:1704.05253, studies Gaussian statistics for log s(n)."
+      ],
+      "reasoning": "The general automaton framework includes the same state space and hence is an important precursor, but Perron--Frobenius convergence alone does not yield an explicit optimal exponent or sharpness. The Gaussian log-value theorem does not imply this modular count.",
+      "searches": [
+        "Stern diatomic sequence modulo integer m uniform distribution primitive consecutive pairs (s(n), s(n+1)), Calkin-Wilf tree residues and densities",
+        "Deshouillers Schinzel 2019 modular distribution Stern sequence effective error term, optimal exponent one half, square-root fluctuations",
+        "\"Calkin-Wilf\" \"modulo\" \"equidistribution\""
+      ]
+    },
+    "checked_sources": [
+      "Deshouillers--Schinzel 2019, DOI 10.4064/bc118-3 (full paper)",
+      "Bettin--Drappeau--Spiegelhofer 2017, arxiv:1704.05253 (introductory portions)",
+      "OEIS A002487 (sequence record)",
+      "published-finding corpus semantic searches for four targeted queries; nearest examples concern unrelated binary all-one block counts and Thue–Morse valuations rather than Stern modular discrepancy"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Deshouillers--Schinzel, Corollary 1.3: density for zero mod three is 1/4.",
+        "Deshouillers--Schinzel, equations (6)-(8) furnish the two transition maps already; their Theorem 2.2 uses Perron--Frobenius to obtain qualitative density."
+      ],
+      "reasoning": "Current proof does not claim the transition maps or limiting density. It computes the exact second spectrum, symmetric-level recurrence, quantitative aligned-block bound, and nonzero normalized limsup. Those statements are not among the published source claims and are not formal consequences of a density alone, although computable using its automaton.",
+      "searches": [
+        "Deshouillers Schinzel 2019 modular distribution Stern sequence effective error term, optimal exponent one half, square-root fluctuations",
+        "Calkin Wilf breadth first rational sequence pairs equidistribution mod q SL2 random walk"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Deshouillers--Schinzel, DOI 10.4064/bc118-3, Theorem 1.1 and Corollary 1.3 are asymptotic-density statements.",
+        "The eight-state matrix gives an explicit recurrence for the dyadic deviation from 1/4."
+      ],
+      "reasoning": "Known equality of density 1/4 is strictly weaker than the recurrence and optimal square-root discrepancy, which entail both upper and nonvanishing lower estimates. No found exact alias for the latter.",
+      "searches": [
+        "Stern diatomic sequence s(n) modulo 3 sharp sqrt N discrepancy on initial prefixes; exact dyadic-level recurrence x²+x+2 for zero residue counts",
+        "\"Stern\" \"modulo\" \"uniform distribution\" \"residues\"",
+        "\"Stern\" \"x^2+x+2\" modulo 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A002487 defines Stern sequence and records sequence identities; no exact dyadic discrepancy or optimal global modular fluctuation bound was observed in examined records."
+      ],
+      "reasoning": "Finite tables cannot establish the infinite recurrence and sharp limsup. No checked database/table gives the same count law.",
+      "searches": [
+        "\"Stern sequence\" \"modulo 3\" counts",
+        "OEIS A002487 Stern diatomic residue modulo three sharp discrepancy",
+        "\"Stern diatomic\" \"discrepancy\" \"3\""
+      ]
+    },
+    "rationale": "Deshouillers--Schinzel (2019), full eight-page primary paper, already implies density 1/4; that part is explicitly not claimed new. Its general Perron--Frobenius automaton theorem is qualitative: no sharp error, explicit three-term fluctuation recurrence, or nonzero sharp limsup is stated in its theorems or proof. The 2017 logarithmic-statistics paper treats a different observable. OEIS A002487 records basic sequence values, not these analytic bounds. Searches of published mathematical records and published-finding corpus returned no equivalent same-statement result; see structured comparisons and residual risks.",
+    "residual_risks": [
+      "Unindexed older work or OEIS-linked literature may explicitly compute the same modulus-three recurrence.",
+      "Because the result follows by a small exact spectral calculation from the published automaton, another source may present the sharp bound as an unstated but readily derivable corollary.",
+      "The 2017 statistical-distribution preprint was read selectively, not exhaustively over all pages; its principal stated scope is different."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers qualitative modular density and finite-state framework; does not state an explicit sharp discrepancy or exact dyadic recurrence.",
+        "evidence": [
+          "Theorem 1.1, Corollary 1.3; page 38",
+          "Theorem 2.2 and Perron–Frobenius argument, pp.39–41",
+          "Equations (6)–(8), p.42"
+        ],
+        "identifier_or_url": "https://www.impan.pl/shop/publication/transaction/download/product/113097",
+        "material_read": "Full eight-page article, pp.37–44, including Theorems 1.1, 2.2, Corollary 1.3 and the transition-map proof",
+        "method": "Read searchable PDF text and visually inspected theorem page",
+        "title": "The modular distribution of Stern’s sequence",
+        "trigger": "Same exact Stern modular observable, potential dominating prior theorem"
+      },
+      {
+        "assessment": "Logarithmic-value Gaussian distribution is a different observable; no matching modular discrepancy found in material read. Remaining sections not exhaustively inspected.",
+        "evidence": [
+          "arXiv:1704.05253, abstract and theorem statement"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.05253",
+        "material_read": "Abstract, introductory theorem statements and introductory technical discussion in accessible preprint PDF",
+        "method": "Inspected arXiv/preprint text and page images",
+        "title": "Statistical distribution of the Stern sequence",
+        "trigger": "Stern sequence asymptotics and older shared subject"
+      },
+      {
+        "assessment": "No equal exact modular discrepancy or sharp exponent evident in checked record.",
+        "evidence": [
+          "OEIS A002487, references and sequence description"
+        ],
+        "identifier_or_url": "https://oeis.org/A002487",
+        "material_read": "Sequence definition, references and accessible notes",
+        "method": "Inspected indexed OEIS text",
+        "title": "Stern’s diatomic series",
+        "trigger": "Check possibility of a tabulated exact discrepancy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6d2a9b5-2dd8-4262-80e9-236831442367",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The previously established modular density has no quantitative convergence rate in the motivating primary paper. The first nontrivial odd modulus exhibits an exact oscillatory spectrum, and the proof determines the optimal power of N uniformly over all cutoffs, with a matching lower limsup. This is a natural quantitative strengthening of a published distribution theorem, rather than a repetition of its already-known density.",
+    "status": "PASS"
+  }
+}
