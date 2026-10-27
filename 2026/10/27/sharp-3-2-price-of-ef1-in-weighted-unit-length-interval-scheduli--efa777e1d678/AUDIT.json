@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The optimum conflict graph is a unit-interval triangle-free chordal graph without claws, hence a union of paths. Mod-three deletion loses <=1/3 weight and yields a matching. Greedy orientation of each isolated item/edge maintains a witness item at least the current total-weight imbalance and thus EF1. The published 3-job lower construction gives the matching supremum. All quantifiers and zero weights are covered analytically; 10365 finite exact-rational tests supplement rather than replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.09930 covers maximal EF1 existence under conflicts but does not bound the ratio of EF1 retained weight to unconstrained optimum."
+      ],
+      "reasoning": "General conflict-graph existence of maximal allocations and egalitarian graph-allocation bounds cannot dominate a quantitative additive EF1 max-sum ratio. The equal-length interval condition supplies the path structure used here.",
+      "searches": [
+        "EF1 allocation weighted graph vertices under matching conflicts greedy orientations drop lightest third",
+        "arXiv:2605.09930",
+        "Chiarelli et al. fair allocation conflict graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.15159",
+      "arXiv:2605.09930",
+      "Chiarelli et al., Fair Allocation of Indivisible Items with Conflict Graphs (2023)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unweighted upper bound 3/2 and weighted lower bound 3/2 in arXiv:2608.15159",
+        "Maximal EF1 allocation results in arXiv:2605.09930"
+      ],
+      "reasoning": "Neither the unweighted upper nor the weighted lower independently implies an upper guarantee for arbitrary weights. A maximal allocation may have arbitrarily low utilitarian value, so existential maximal EF1 does not imply a 2/3 welfare guarantee. The new proof constructs the missing weighted upper.",
+      "searches": [
+        "Fair division meets scheduling weighted equal length jobs two machines 3/2 approximation via path conflict graph",
+        "arXiv:2608.15159 Theorem 1 Theorem 3",
+        "arXiv:2605.09930 maximal EF1 conflict constraints"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 1 of arXiv:2608.15159 is unweighted; Theorem 3 is a weighted lower bound, not a weighted upper bound."
+      ],
+      "reasoning": "The weighted welfare guarantee could be phrased as an exact price of fairness, a fair-schedule approximation, or a 2/3 retention theorem. The direct primary source gives only one-sided assertions for weighted jobs, not the two-sided sharp classification.",
+      "searches": [
+        "Exact 3/2 price of fairness for arbitrary nonnegative weighted unit-length interval scheduling on two identical machines with EF1 envy-free up to one item, weighted interval graph path 3-color deletion matching",
+        "Fair division meets scheduling weighted equal length jobs two machines 3/2 approximation via path conflict graph",
+        "arXiv:2608.15159"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic records yielded tangential results concerning prescribed path color class sizes and stable matching, not this weighted scheduling ratio."
+      ],
+      "reasoning": "No directly matching tabulated or database exact ratio was found. Absence of a hit is weak negative evidence only; no global priority conclusion is drawn.",
+      "searches": [
+        "Exact 3/2 price of fairness for arbitrary nonnegative weighted unit-length interval scheduling on two identical machines with EF1 envy-free up to one item, weighted interval graph path 3-color deletion matching",
+        "Fair Division Meets Scheduling Borst Shahkarami Vaish 2026 two machines EF1 weighted unit length intervals price of fairness 3/2 upper"
+      ]
+    },
+    "rationale": "The directly relevant 2026 primary article proves unweighted upper and weighted lower but does not establish the weighted upper. General graph-conflict EF1 existence theorems do not imply the sharp welfare retention ratio; no equivalent result surfaced in targeted semantic queries. This remains a best-knowledge self-review with publication-priority risk.",
+    "residual_risks": [
+      "An equivalent weighted two-machine 2/3 guarantee may appear in unindexed literature or a proof not identified in inspected primary sources.",
+      "All claims of novelty are limited by searchable coverage; no independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1 covers unweighted two-machine upper, Theorem 3 supplies weighted two-machine lower. No matching arbitrary-weight upper theorem located in inspected text. Lower construction credited.",
+        "evidence": [
+          "arXiv:2608.15159, Theorems 1 and 3, weighted interval scheduling section"
+        ],
+        "identifier_or_url": "arXiv:2608.15159",
+        "material_read": "Full-text theorem statements and proofs for unweighted offline bound and weighted lower construction, model definitions and weighted discussion in PDF sections through Theorem 3",
+        "method": "Read open-access primary preprint PDF and compare hypotheses, quantifiers, and result directions",
+        "title": "Fair Division Meets Scheduling: Approximately Envy-Free Interval Scheduling",
+        "trigger": "Direct treatment of two-machine interval scheduling, weighted jobs, and EF1"
+      },
+      {
+        "assessment": "Maximal EF1 existence for conflict graphs is not a utilitarian 2/3 welfare approximation for maximum-weight schedules.",
+        "evidence": [
+          "arXiv:2605.09930, Theorems 4.1 and 4.5"
+        ],
+        "identifier_or_url": "arXiv:2605.09930",
+        "material_read": "Primary open-access PDF abstract, definitions, statement of main results and proofs in sections 2 and 4",
+        "method": "Inspect full-text definitions and main theorem scope",
+        "title": "Fair Allocation under Conflict Constraints",
+        "trigger": "Potential stronger EF1 theorem on conflict graphs"
+      },
+      {
+        "assessment": "Discusses a different egalitarian objective; no direct implication of identical-value additive EF1 max-sum 2/3 approximation was found in accessible material.",
+        "evidence": [
+          "Chiarelli et al., Fair Allocation of Indivisible Items with Conflict Graphs, 2023"
+        ],
+        "identifier_or_url": "Chiarelli et al. (2023), paper on conflict-graph allocations",
+        "material_read": "Accessible abstract and discussion of welfare/fairness definitions",
+        "method": "Compare welfare metric and allocation constraints",
+        "title": "Fair Allocation of Indivisible Items with Conflict Graphs",
+        "trigger": "Check for stronger conflict-graph welfare approximations covering weighted path components"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "efa777e1-d678-4824-bc7b-729d17ec7eb0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gives the exact sharp price of EF1 for the natural weighted two-machine equal-duration offline scheduling problem, closing the gap between a known lower bound and weaker weighted upper bounds; constructive proof yields polynomial-time algorithm and explains why weighted EF1 remains possible after bounded deletion.",
+    "status": "PASS"
+  }
+}
