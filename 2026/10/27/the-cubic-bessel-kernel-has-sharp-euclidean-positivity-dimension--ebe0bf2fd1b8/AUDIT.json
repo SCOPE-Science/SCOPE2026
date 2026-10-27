@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The 2D assertion follows from the unit-circle characteristic function and convolution. Assuming 3D positivity, the Schoenberg radial representation and analyticity of the characteristic function force all m_k=(3/2)_k A_k/k!. Their seven-by-seven Hankel matrix has exact negative determinant -59778222499952939497463042623250744763/302231454903657293676544, and an independent integer polynomial gives a negative squared integral; both recomputed in check_certificate.py. A shorter 4D determinant -27756 corroborates the conjectural-prediction contradiction. Nonpositive determinant of a necessary moment matrix excludes all finite-dimensional R3 Gram positivity, and scaling/subspace restriction give the stated quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Golinskii et al., Theorem 4.3, squares have larger positive-definiteness dimension; Remark 4.4, conjectural power formula not established for k>=3.",
+        "Direct source inspection of full §4 in arXiv text, lines corresponding to Theorems 4.1, 4.3 and Remark 4.4."
+      ],
+      "reasoning": "The inspected 2015 preprint establishes Omega_n(r)^2 in Phi_(2n-1) but no cubic theorem; its Remark 4.4 explicitly conjectures Omega_n(r)^k in Phi_(kn-k+1) for k>=3. At n=2,k=3 that would imply the opposite, membership in Phi_4. The present exact 4D and 3D obstructions are inconsistent with that conjecture, so cannot be a corollary of the stated proven theorem.",
+      "searches": [
+        "\"Omega_n^k\" \"Phi\" \"Schoenberg\" conjecture powers counterexample",
+        "\"Golinskii\" \"Malamud\" \"Oridoroga\" \"conjecture\" powers",
+        "arxiv:1502.07179v1 Theorem 4.3 Remark 4.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1502.07179v1 §§1 and 4",
+      "Borwein et al. 2011 author PDF, introduction and Proposition 1",
+      "Author bibliography https://arminstraub.com/pub/walks dated 2010-03-11"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Exact 3D Hankel determinant is negative as reconstructed and independently verified in the supplied arithmetic checker.",
+        "The cited 2015 remark predicts dimension-four inclusion at this parameter, not the proved noninclusion. No searched indexed title/abstract supplied a matching or stronger explicit statement."
+      ],
+      "reasoning": "No searched published-result record with a direct equivalent J_0-cube dimension-three statement was returned; closest indexed records concerned different Fourier/Bessel questions. Search absence is supporting evidence only, not proof of novelty. The moment formulas make the proof possible but do not by themselves logically imply the sign of the necessary high-order determinant without additional calculation.",
+      "searches": [
+        "\"J_0\" \"positive definite\" \"dimension\" \"cube\" convolution",
+        "Schoenberg radial positive definite functions Bessel J0(r)^3 (cube) not positive definite in R^3 due to negative seventh Hankel determinant, three-step random walk",
+        "\"Golinskii\" \"Malamud\" \"Oridoroga\" \"conjecture\" powers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The three-step unit-vector walk has characteristic function J_0(|x|)^3; Borwein et al., 2011 preprint, introduction and Proposition 1.",
+        "Schoenberg Omega_2=J_0; Golinskii et al. arXiv:1502.07179v1 §1 and §4."
+      ],
+      "reasoning": "The exact target is the cubic planar Schoenberg kernel: J_0(r)^3 belongs to Phi_2 but not Phi_3. A merely differently named three-step random-walk characteristic function is mathematically the same object.",
+      "searches": [
+        "\"J_0\" \"positive definite\" \"dimension\" \"cube\" convolution",
+        "\"three-step\" \"J_0\" \"positive definite\" Schoenberg dimension",
+        "three-step planar Pearson walk characteristic function radially positive definite on R3 / 3D lift",
+        "arxiv:1502.07179v1 Section 4 and Remark 4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Borwein, Nuyens, Straub, Wan, Proposition 1 and equation (12), 2011 PDF, supply A_k as squared multinomial sums and even-moment tables.",
+        "The actual new determinant is of the renormalized moment sequence m_k=(3/2)_k A_k/k!, not simply an entry or number taken from a known table."
+      ],
+      "reasoning": "Borwein et al. give the three-step moment integers A_k via multinomial sums, and even list many of these terms. Those statements do not assert whether the resulting planar characteristic function has a nonnegative radial representing measure in three dimensions. Establishing nonexistence requires transforming the moments to the hypothetical dimension-three normalization and checking Hankel positivity.",
+      "searches": [
+        "\"Some Arithmetic Properties of Short Random Walk Integrals\" Borwein Straub",
+        "\"three-step\" \"J_0\" \"positive definite\" Schoenberg dimension",
+        "Bessel J0 power 3 vs power 2 extension from R2 to R3, Franel moments Schoenberg"
+      ]
+    },
+    "rationale": "Compared implications with the full relevant 2015 paper text and 2011 planar random-walk formulas. The former conjectures rather than proves an incompatible higher-dimensional cubic inclusion; the latter contains input moments without asserting nonexistence of a three-dimensional positive representing measure. No matching statement was recovered from actual published-result and literature searches; unindexed equivalents remain possible.",
+    "residual_risks": [
+      "An unindexed earlier source may have formed the same moment obstruction from the published A_k moments.",
+      "A later version or follow-up of the 2015 conjecture might modify or acknowledge the erroneous special case; the claim is deliberately tied to v1.",
+      "The counterexample is exact, but no explicit physical-space negative Gram configuration is constructed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering; its 2015 preprint conjecture makes a prediction contradicted by the present special case, and its proved results stop at pairs and squares.",
+        "evidence": [
+          "Theorem 4.3: Omega_n^2 in Phi_(2n-1)\\Phi_(2n).",
+          "Remark 4.4: conjectures Omega_n^k in Phi_(kn-k+1)\\Phi_(kn-k+2), with no formula for k>=3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.07179 (v1 25 February 2015)",
+        "material_read": "Full-text §§1 and 4, including definition of Omega_n, Theorem 4.1 on unequal pairs, Theorem 4.3 on squares, and Remark 4.4 on higher powers; other relevant theorem statements examined.",
+        "method": "Open-access arXiv parsed full-text inspection, not abstract-only.",
+        "title": "Radial positive definite functions and Schoenberg matrices with negative eigenvalues",
+        "trigger": "Published direct motivation and apparent power-dimension conjecture for Schoenberg kernels."
+      },
+      {
+        "assessment": "Provides exact input moments and probabilistic interpretation, but not the required three-dimensional moment-positivity obstruction or a counterexample to the later conjecture.",
+        "evidence": [
+          "Proposition 1: W_n(2k) equals sum of squares of multinomial coefficients.",
+          "The paper explicitly presents the three-step planar walk as having J_0^3 characteristic function."
+        ],
+        "identifier_or_url": "https://arminstraub.com/downloads/pub/walks.pdf (author page https://arminstraub.com/pub/walks)",
+        "material_read": "PDF text introduction pp. 1–4, even-moment Proposition 1 pp. 6–7, recurrences, generating function and relevant moment tables; page-image inspection of pp. 1 and 4.",
+        "method": "Author-hosted lawful open-access full document, relevant sections parsed and two page images inspected.",
+        "title": "Some Arithmetic Properties of Short Random Walk Integrals",
+        "trigger": "The same J_0-cube object is the Fourier transform of the three-step planar random walk."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebe0bf2f-d1b8-4948-a294-4d53388582ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact sharp dimension cutoff for the canonical three-step planar random-walk characteristic function resolves the first cubic case of an explicit conjectural power-dimension rule, revealing a qualitative failure of lifting between the well-understood Bessel square and later even powers. Its negative moment certificate is a substantive motivated theorem about an infinite family of Gram matrices, rather than arbitrary finite enumeration or a table restatement.",
+    "status": "PASS"
+  }
+}
