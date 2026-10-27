@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For a fixed received word the candidate insertion descriptions split into contiguous identification intervals, so a path-component formula counts distinct parents exactly. A zero-check gap is either inactive or accepts all q inserted symbols. If any zero gap is inactive, at most q(z-1)+(n-z), strictly less than 1+(q-1)z when q>=n, parents remain. With all such gaps active, the exact list is 1+(q-1)z plus the number of adjacent nonzero coefficient pairs for which the merged-check functional does not vanish. On the orthogonal complement of the span of the zero-position punctures, forced merged-check functionals vanish identically, while at most n-1<q unforced ones are proper hyperplanes. The union bound ensures a received word avoiding all of them and proves attainment. Exact standalone enumeration checked 1,574 nonzero check vectors and 131,395 received words over prime and nonprime fields; enumeration is corroboration, not proof. The q<n boundary example was also checked.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.23270v1, Theorem 7, Corollary 8, Remark 9, and Construction 14",
+        "arXiv:1302.6562v2, Sections I-IV and Theorem 1"
+      ],
+      "reasoning": "A universal linear-code rate/list obstruction cannot give the exact attained list count for each parity-check vector. Unstructured one-deletion channel degree bounds do not condition on a linear hyperplane, while generic q-ary parent-ball counts do not encode parity coefficient-dependent rank. No inspected broader theorem implied the proposed formula.",
+      "searches": [
+        "exact worst-case one-deletion list size for q-ary single-parity-check hyperplane codes q at least n; formula 1+(q-1) times zero coefficients plus number of independent merged adjacent parity-check vectors",
+        "q-ary single parity check code one deletion received word multiplicity exact distribution coefficient dependence beyond zero locations",
+        "q-ary linear hyperplane one deletion worst-case list decoding cardinality"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.23270v1, 2026-10-16",
+      "arXiv:1302.6562v2, 2013",
+      "Public mathematical research records for deletion-list, puncturing-span, and parity-check aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.23270v1, Theorem 7, Corollary 8, Remark 9, and Construction 14",
+        "arXiv:1302.6562v2, Sections I-IV and Theorem 1",
+        "Example over the field with five elements: check vectors (0,1,1,0) and (0,1,4,0) have the same zero pattern but respective exact worst lists 10 and 9."
+      ],
+      "reasoning": "Remark 9 establishes a specially patterned binary single-check code and a list-size threshold, not the exact all-check q>=n formula. The older paper gives input channel degrees and asymptotic code-size inequalities rather than the inverse degree after restricting inputs to a codimension-one subspace. Neither implies the merged-vector span classification or the same-support quinary contrast.",
+      "searches": [
+        "A Generalized Half-Singleton Bound for List Decoding of Insertion/Deletion Errors Remark 9 single parity check",
+        "single deletion inverse list size finite field linear hyperplane nonzero parity check support adjacent gaps Gaussian elimination coefficient rank",
+        "one-deletion inverse balls intersect a q-ary linear code with one parity check, exact rank test on punctured check vectors and adjacent merged check vectors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.23270v1, Theorem 7, Corollary 8, Remark 9, and Construction 14",
+        "arXiv:1302.6562v2, Sections I-IV and Theorem 1",
+        "The binary adjacent-support-run result applies to field order two, whereas the present theorem requires all large prime-power alphabets and detects coefficient-dependent merged-check rank changes."
+      ],
+      "reasoning": "The inverse-degree of a deletion graph equals the number of distinct one-insertion parents in the code. Punctured check vectors impose zero-gap constraints; merged adjacent check vectors impose collision constraints. The inspected primary source treats arbitrary-code rate obstructions and a special binary check, not this exact general q-ary inverse-degree maximum.",
+      "searches": [
+        "single parity check q-ary linear code exact worst-case one deletion parent multiplicity zero parity check positions deletion insertion list size",
+        "single deletion inverse list size finite field linear hyperplane nonzero parity check support adjacent gaps Gaussian elimination coefficient rank",
+        "one-deletion inverse balls intersect a q-ary linear code with one parity check, exact rank test on punctured check vectors and adjacent merged check vectors",
+        "\"single parity-check\" \"insertion\" \"deletion\" \"multiplicity\" linear"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Explicit standalone calculations enumerate 1,574 nonzero check vectors and 131,395 received-word cases across selected fields and lengths; those are new verifications, not existing tabulated literature.",
+        "arXiv:1302.6562v2, Sections I-IV and Theorem 1"
+      ],
+      "reasoning": "Relevant records returned isolated code-cardinality and binary-channel extrema, not a table of all q-ary single-check hyperplanes. The theorem ranges over arbitrary prime-power fields and all admissible lengths, so no finite lookup alone could imply it without a structural reduction.",
+      "searches": [
+        "single parity check q-ary linear code exact worst-case one deletion parent multiplicity zero parity check positions deletion insertion list size",
+        "exact worst-case one-deletion list size for q-ary single-parity-check hyperplane codes q at least n; formula 1+(q-1) times zero coefficients plus number of independent merged adjacent parity-check vectors"
+      ]
+    },
+    "rationale": "Comparison was made against the closest paper on list decoding linear insertion/deletion codes and the general alphabet-deletion-degree literature, including the full scientific sections of both accessible primary texts. The source rate/list bounds and special binary parity-check example do not logically determine the exact rank-based worst-case one-deletion list size of every large-alphabet single-check hyperplane. Searches of equivalent merged-check, puncturing-span, inverse-degree and finite-field formulations and related published mathematical records did not find a dominating claim. This is best-knowledge originality, not absolute priority; older equivalent formulations remain a residual risk.",
+    "residual_risks": [
+      "An equivalent invariant might be derivable from unindexed or older insertion/deletion hyperplane literature using different terminology; a negative search is not a uniqueness certificate.",
+      "The theorem does not classify all smaller-alphabet cases, and the q>=n hypothesis is not claimed necessary."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves general rate/list limitations and constructs a sharp-rate family, but contains no exact large-alphabet single-hyperplane coefficient-sensitive worst-case deletion-list formula.",
+        "evidence": [
+          "arXiv:2610.23270v1 §§III-IV: Theorem 7, Corollary 8, Remark 9, Construction 14"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.23270v1",
+        "material_read": "Full HTML scientific sections I-V, with focus on Lemma 6, Theorem 7, Corollary 8, Remarks 9-10, Theorem 12, Construction 14, and the conclusion.",
+        "method": "Direct examination of publicly accessible primary text and comparison of exact theorem hypotheses and implications.",
+        "title": "A Generalized Half-Singleton Bound for List Decoding of Insertion/Deletion Errors",
+        "trigger": "Direct recent primary literature about fixed-list insertion/deletion codes over nonbinary fields, including a single-check example."
+      },
+      {
+        "assessment": "Counts unstructured channel edges and gives coding upper bounds; no single-parity-check field-coefficient formula or associated rank test is stated.",
+        "evidence": [
+          "arXiv:1302.6562v2 §§I-IV, Theorem 1, Lemma 9"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1302.6562v2",
+        "material_read": "HTML abstract and Sections I-II; Section III edge-count method; Section IV bounds on input degree and code size.",
+        "method": "Direct examination of public primary text, including its channel graph definitions, Theorem 1, and Lemma 9.",
+        "title": "An Improvement to Levenshtein's Upper Bound on the Cardinality of Deletion Correcting Codes",
+        "trigger": "Classical q-ary deletion-channel sphere-counting theory might dominate inverse list calculations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea95c2b7-577f-4852-9ad9-6df0ed1dcd64",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact worst-case list ambiguity is a natural decoding invariant for the fundamental high-rate single-parity-check code family. The formula is valid for every length and all prime-power alphabet sizes q>=n; it reduces potentially exponential received-word optimization to polynomial-time finite-field ranks. The distinction between same-support length-four quinary check vectors with different list sizes (10 versus 9) shows that neither standard code parameters nor zero positions determine the answer. This coefficient-sensitive structural classification is a meaningful exact answer, not a recomputation of an existing table or an arbitrary parameter slice; no improvement to global code rate or practical decoding complexity is claimed.",
+    "status": "PASS"
+  }
+}
