@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The geometric smoothness predicate is exhaustive by the finite-extension bound proved in `RESULT.md`; the resulting \(144\) masks, \(804\) pencils, and \(13\) orbit representatives are reconstructed independently rather than accepted solely from earlier records. Every singular-parameter factor is obtained from an exact lexicographic elimination ideal on four affine charts. Factorization and a separately coded iterated Sylvester-resultant route agree for all representatives, and the orbit weights sum to \(804\). No claim is made about discriminant multiplicity or Kodaira types.
+
+**Originality — PASS, with specific priority risk.** The already-known \(804\)-pencil and thirteen-orbit census is acknowledged and is not repackaged as new. Neither the inspected finite-field smooth-pencil preprint of Asgarli–Ghioca nor Hamada–Hayano's complex topological classification provides the stated arithmetic Frobenius spectra of the *singular parameter locus*. Lang's work covers characteristic-two geometric singular-fibre configurations, but not an identified equivalent enumeration over these thirteen rational ambient classes in the portions inspected. An inaccessible full characteristic-two configuration table and unindexed arithmetic lists leave a genuine residual priority risk. Database silence alone is not proof of originality.
+
+**Value — PASS.** Singular parameter values are the natural bad-reduction locus of the genus-one fibration obtained by resolving a pencil's base points. Their Frobenius degrees control the fields over which geometric fibres degenerate, separately from splitting of the fixed eight-point base scheme. The six-pattern complete classification, with sharp numbers \(3\) and \(12\) of geometric bad parameters, supplies nontrivial arithmetic degeneration data for the smallest polarized rational elliptic surface model. It is not a trivial basepoint count or a purely renamed earlier invariant.
+
+The work classifies the reduced singular-parameter support only. Independent literature-priority and scientific validation beyond the accompanying reproducible algebra have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
