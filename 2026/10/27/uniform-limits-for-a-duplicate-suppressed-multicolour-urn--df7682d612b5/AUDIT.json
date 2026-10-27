@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The exact inclusion probability for a colour is twice its current proportion minus the square of that proportion; the expected total increment is two minus the sum of squared proportions. The quotient update yields the stated drift with a uniformly bounded second-order remainder. The Lyapunov gap is nonnegative by Cauchy–Schwarz and vanishes exactly at states uniform on a nonempty subset of colours. A bounded-remainder almost-supermartingale argument gives convergence to one such state. Conditional Borel–Cantelli proves that every colour count diverges. The logarithmic-coordinate drift then excludes every proper-subset limit, using a conditional variance bound of order the reciprocal of the total count. No finite experiment is used as an infinite-time certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2018 paper states that generalizing the multicolour results to non-balanced urns is the main open question; its non-balanced theorem is for two colours.",
+        "The 2024 paper defines the relevant class with a fixed balance factor and derives an affine expectation recurrence.",
+        "The 2023 graph-interaction paper's model uses two colours at each vertex and synchronizes across a graph, rather than one d-colour urn."
+      ],
+      "reasoning": "The cited general results do not cover a variable total increment in a single urn with at least three colours and nonlinear conditional mean. General stochastic-approximation theorems supply tools but do not by themselves provide the model-specific Lyapunov gap and boundary-exclusion proof.",
+      "searches": [
+        "multi-color Pólya urn non-balanced random total replacement amount with global convergence of proportions",
+        "non-balanced multicolor multiple-drawing urn with variable total additions, convergence of normalized composition to uniform",
+        "arXiv:1611.09090",
+        "arXiv:2403.12423"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1611.09090, first public version 2016-11-28",
+      "DOI 10.1017/jpr.2018.16",
+      "arXiv:2403.12423, first public version 2024-03-19",
+      "DOI 10.1017/jpr.2024.101",
+      "arXiv:2308.12528, first public version 2023-08-24",
+      "DOI 10.1007/s10959-024-01365-x",
+      "DOI 10.1007/s10463-018-0651-3, abstract-level inspection"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2018 source's non-balanced theorem applies to two colours; the stated open question is its extension to multicolour urns.",
+        "The 2024 source requires a fixed number of balls added per step and affine conditional expectation.",
+        "The 2023 source couples two-colour urns across vertices of a graph."
+      ],
+      "reasoning": "The present claim has at least three colours, a random total increment of one or two, and a quadratic conditional mean. It is neither a two-colour specialization nor a balanced affine special case of the inspected results. The proof's conclusion also requires excluding boundary equilibria, which is not supplied by the cited balanced theorem.",
+      "searches": [
+        "arXiv:1611.09090, Sections 1.4–1.6 and 5.1–5.5",
+        "arXiv:2403.12423, Sections 2–3",
+        "arXiv:2308.12528, abstract and model description",
+        "doi:10.1017/jpr.2018.16",
+        "doi:10.1017/jpr.2024.101"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lasmar–Mailler–Selmi, arXiv:1611.09090, model definition and Theorems 1 and 3: the multicolour theorem assumes balance; the non-balanced theorem is one-dimensional.",
+        "The affine multicolour urn paper, arXiv:2403.12423, Sections 2–3: the studied class has fixed total additions and an affine conditional expectation.",
+        "Dahiya–Sahasrabudhe, arXiv:2308.12528, abstract: graph-coupled urns have two colours per vertex and a different interaction mechanism."
+      ],
+      "reasoning": "No equivalent statement for the single-urn rule with at least three colours, variable total addition, and duplicate-suppressed reinforcement was located. The sources share urn terminology and stochastic-approximation methods, but their quantified model assumptions exclude this rule.",
+      "searches": [
+        "non-balanced three-color multiple-drawing Pólya urn with replacement rule adds one ball for each distinct color in a pair; almost-sure convergence of proportions to uniform over initially present colors",
+        "urn total increment equals number of distinct colors in two iid draws; expected composition drift x_i times sum of squares minus x_i",
+        "multi-color Pólya urn non-balanced non-affine replacement with variable number of balls added per draw and global convergence",
+        "Lasmar Mailler Selmi 2018 non-balanced multi-colour urn generalization random step size vector stochastic approximation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The targeted record search returned no item matching this rule or its drift. The nearest indexed material concerned an Ehrenfest-chain representation of signSGD and occupancy under pairwise-independent allocations; neither concerns reinforcement of distinct sampled colours.",
+        "The accessible prior probability-statistics ledgers contain a standard Pólya sampling frequency-count result and a reinforced-urn completion-time comparison, but neither uses the distinct-colour update or proves this limit."
+      ],
+      "reasoning": "No matching table or exact indexed result was found. The nearest records are mathematically different; the negative search is evidence of a gap, not a proof of uniqueness.",
+      "searches": [
+        "non-balanced three-color multiple-drawing Pólya urn with replacement rule adds one ball for each distinct color in a pair; almost-sure convergence of proportions to uniform over initially present colors",
+        "urn total increment equals number of distinct colors in two iid draws; expected composition drift x_i times sum of squares minus x_i",
+        "multi-color Pólya urn non-balanced non-affine replacement with variable number of balls added per draw and global convergence",
+        "Lasmar Mailler Selmi 2018 non-balanced multi-colour urn generalization random step size vector stochastic approximation"
+      ]
+    },
+    "rationale": "The exact urn rule is non-balanced and non-affine, with at least three colours. The inspected 2018 primary paper treats balanced multicolour urns and a one-dimensional non-balanced case, explicitly identifying the non-balanced multicolour extension as an open question. The inspected 2024 multicolour theorem is restricted to a balanced affine class, and the 2023 graph-based work concerns two-colour urns coupled across graph vertices. No exact matching rule or implication was found in the targeted record and literature searches. This is a model-specific result using standard stochastic-approximation ideas; priority risk remains.",
+    "residual_risks": [
+      "The full text of the 2019 two-colour random-addition paper was not inspected; its accessible abstract is restricted to two colours.",
+      "The full text of the graph-based two-colour urn paper was not inspected; its accessible abstract describes a different state space.",
+      "An earlier or differently named paper may use the exact distinct-colour update without matching the searched terminology.",
+      "The proof establishes almost-sure convergence only, not a rate or limiting fluctuation law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant but not covering: the general multicolour theorem assumes balance; the non-balanced theorem is one-dimensional.",
+        "evidence": [
+          "Section 1.4 defines balance as a constant total number of balls added per draw.",
+          "Section 1.6 states Theorem 3 for the non-balanced two-colour case.",
+          "The introduction to Section 5 identifies generalizing to the non-balanced multicolour case as an open question and explains the one-dimensional limitation."
+        ],
+        "identifier_or_url": "arXiv:1611.09090; DOI 10.1017/jpr.2018.16",
+        "material_read": "Full author manuscript; model assumptions and main results in Sections 1.4–1.6, and non-balanced two-colour analysis and examples in Sections 5.1–5.5.",
+        "method": "Compared the exact number of colours, replacement rule, balance assumption, conditional drift, and quantified conclusion.",
+        "title": "Multiple drawing multi-colour urns by stochastic approximation",
+        "trigger": "Primary source for multiple-drawing multicolour urns and the stated non-balanced extension gap."
+      },
+      {
+        "assessment": "Not covering: its class has fixed total additions and affine conditional expectation; the current rule has total increment one or two and a quadratic conditional mean.",
+        "evidence": [
+          "Section 2 defines balanced schemes by a fixed balance factor.",
+          "Section 3 defines the affine subclass through a linear conditional expectation recurrence."
+        ],
+        "identifier_or_url": "arXiv:2403.12423; DOI 10.1017/jpr.2024.101",
+        "material_read": "Full arXiv text, including the model definition and the affine subclass definition in Sections 2–3.",
+        "method": "Compared balance, affine conditional expectation, sample mechanism, and asymptotic claim.",
+        "title": "On affine multi-color urns grown under multiple drawing",
+        "trigger": "Closest recent multicolour multiple-drawing limit theorem."
+      },
+      {
+        "assessment": "The accessible description concerns graph-coupled two-colour urns, not a single urn with at least three colours. It is not used as decisive evidence of non-coverage.",
+        "evidence": [
+          "The abstract places a two-colour urn at each graph vertex and studies synchronization across vertices."
+        ],
+        "identifier_or_url": "arXiv:2308.12528; DOI 10.1007/s10959-024-01365-x",
+        "material_read": "Abstract and model description only; full text was not inspected in this run.",
+        "method": "Compared state space and update mechanism from the accessible abstract.",
+        "title": "Urns with Multiple Drawings and Graph-Based Interaction",
+        "trigger": "Plausible nearby title on multiple drawing and convergence of proportions."
+      },
+      {
+        "assessment": "The abstract describes a white-blue urn and does not state a theorem for three or more colours. It is retained as a residual priority risk rather than treated as fully excluded.",
+        "evidence": [
+          "The accessible abstract specifies an urn containing white and blue balls and proves limit theorems for that two-colour model."
+        ],
+        "identifier_or_url": "DOI 10.1007/s10463-018-0651-3",
+        "material_read": "Abstract and bibliographic record only; full text was not inspected in this run.",
+        "method": "Compared the accessible statement of its color count and reinforcement cases.",
+        "title": "A generalized urn with multiple drawing and random addition",
+        "trigger": "Plausible nearby literature on non-balanced multiple-drawing urns."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df7682d6-12b5-4c2a-81e6-9975690ca85c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The rule is a natural duplicate-suppressed reinforcement mechanism: a repeated colour in a two-ball sample receives one addition rather than two. The theorem gives a complete almost-sure limit for every positive initial composition with at least three colours, despite nonconstant total growth and nonlinear drift. The boundary-exclusion argument is essential and not a mere local linearization; the result supplies a concrete non-balanced multicolour instance of a problem explicitly identified as open in the closest primary paper.",
+    "status": "PASS"
+  }
+}
