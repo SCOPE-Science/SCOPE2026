@@ -1,0 +1,11 @@
+# Scientific review: crown-graph induced forests
+
+**Correctness — PASS.** The induced edge count \(ab-|I\cap J|\) eliminates all large balanced selections, while the remaining small cases are classified by their number of deleted matching edges. Every maximality extension and obstruction is proved directly. Exact subset enumeration separately checks both coefficient profiles for all \(3\le n\le8\) (87,360 subsets). This finite test complements but does not replace the proof for all integers \(n\ge3\).
+
+**Originality — PASS subject to ordinary priority uncertainty.** The 2021 foundational study establishes well-\(f\)-coveredness and analyzes complete bipartite graphs without the missing matching, but its structural statements and source text do not supply the induced-forest or maximal-forest polynomial for crown graphs. The 2021 lexicographic-product study concerns another graph operation. The closest accessible indexed items concern dissociation or domination of crown graphs, rather than induced acyclicity; a prior crown-graph general-position polynomial and a prior rook-graph induced-forest result likewise have different predicate or graph domain. Search terms included induced forests, feedback vertex sets, minimal feedback vertex sets, well-\(f\)-coveredness, crown graphs, and matching-deleted bicliques. No equivalent claim was identified in these accessible comparisons, but an unindexed or inaccessible source could contain related results.
+
+**Value — PASS.** A complete exact feasible-set polynomial and exact irredundant-size polynomial refine the classical forest-number question. The dichotomy in maximal sizes gives an explicit unbounded gap between maximum and inclusion-maximal forest sizes on a connected regular bipartite family; the equivalent gap for minimal feedback vertex sets explains why greedy irredundant deletion can be substantially nonoptimal.
+
+**Source and scope limitations.** First relevant public source is arXiv:2105.14339 (29 May 2021), with primary graph-combinatorics classification. Only \(n\ge3\) full matching deletions are established. A finite verifier does not certify the infinite theorem, and literature searching cannot establish unconditional global priority.
+
+Self-review: passed. Independent audit: not yet performed.
