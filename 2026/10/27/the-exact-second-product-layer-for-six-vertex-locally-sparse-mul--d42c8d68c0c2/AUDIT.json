@@ -1,0 +1,113 @@
+{
+  "claim": "For every integer \\(a\\ge1\\), among all nonnegative-integer edge-weighted \\(K_6\\) in which every five-vertex set has total edge weight at most \\(10a+4\\), the largest product strictly below the maximum is \\(a^{10}(a+1)^4(a+2)\\); up to vertex relabeling, it is attained uniquely by one edge of weight \\(a+2\\), a disjoint \\(4\\)-cycle whose four edges have weight \\(a+1\\), and the remaining ten edges of weight \\(a\\).",
+  "correctness": {
+    "rationale": "For every admissible graph, summing the six five-set constraints gives \\(S\\le15a+6\\). If \\(S\\le15a+5\\), the product is at most \\(a^{10}(a+1)^5\\). At the maximum sum, smoothing shows the largest nonbalanced integer product is \\(a^{10}(a+1)^4(a+2)\\); the construction with one excess-two edge and a disjoint four-cycle attains it. Equality in the six constraints forces excess degree two at every vertex and hence the stated unique structure.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Day, Falgas-Ravry, and Treglown, arXiv:2011.01626, encode this constraint value as \\(q=\\Sigma_{2,2}(a,5)\\) in their conjectured maximum-product construction; they do not state the second-largest product.",
+        "Falgas-Ravry, arXiv:2101.03056, treats an asymptotic family with even \\(s=2r\\); it does not cover the finite \\(s=5,n=6\\) second-product problem.",
+        "Gu and Wang, arXiv:2301.10430, treats the same maximum-product parameter, but only states the maximum and its construction in the \\(n=6\\) subsection."
+      ],
+      "reasoning": "The cited papers include the same constraint parameter under the equivalent notation \\(q=\\Sigma_{2,2}(a,5)\\), and Gu and Wang explicitly connect it to \\(10a+4\\). Their results concern the maximum product. None states the exact second distinct product and unique weighted structure. The claim is therefore a new next-layer statement, not an evasion by renaming the parameter.",
+      "searches": [
+        "arXiv:2011.01626, Construction 3.1, Conjecture 3.2, theorem statements, and searches for 10a+4, second largest, and stability",
+        "arXiv:2101.03056, Theorem 1.6 and its parameter range",
+        "arXiv:2301.10430, abstract, definitions, Theorem 1, and Sections 3.1-3.4"
+      ]
+    },
+    "checked_sources": [
+      "Gu and Wang, arXiv:2301.10430",
+      "Day, Falgas-Ravry, and Treglown, arXiv:2011.01626",
+      "Falgas-Ravry, arXiv:2101.03056",
+      "published-finding corpus closest records assessed as non-covering: 2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f; 2026/9/14/SCOPE039; 2026/10/11/SCOPE-laplacian-factorization-and-an-eigenspace-transition-for-rank-tw--b10901525680; 2026/10/4/SCOPE-feasible-polytope-and-all-optimizers-for-fractional-edge-dimensi--7877372a9b3d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 paper proves the maximum \\(a^9(a+1)^6\\) by averaging and integer AM-GM and exhibits a six-cycle maximizer.",
+        "The 2020 and 2021 papers give general and asymptotic maximum-product constructions but not the finite next-product result."
+      ],
+      "reasoning": "The claim is not the known maximum or a relabeled maximum construction. It determines the largest product strictly below that maximum, proves the exact ratio \\(1-1/(a+1)^2\\), and classifies the unique second-layer structure. The proof uses the literature’s averaging framework but adds a second-best integer-product argument and a distinct equality classification.",
+      "searches": [
+        "arXiv:2301.10430, Theorem 1(iii) and n=6 proof",
+        "arXiv:2011.01626, Construction 3.1 and Conjecture 3.2",
+        "arXiv:2101.03056, Theorem 1.6 and parameter range"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gu and Wang, arXiv:2301.10430, Theorem 1(iii) and the \\(n=6\\) proof state \\(\\operatorname{ex}_{\\Pi}(6,5,10a+4)=a^9(a+1)^6\\) and give a six-cycle witness for the maximum; the second distinct product is not stated there.",
+        "Day, Falgas-Ravry, and Treglown, arXiv:2011.01626, use the equivalent parameter \\(q=\\Sigma_{2,2}(a,5)\\); Gu and Wang explicitly note \\(\\Sigma_{2,2}(a,5)=10a+4\\). This covers the parameter formulation of the maximum-product conjecture, not the second-product claim.",
+        "The published-finding corpus semantic searches returned no result describing the same second-product statement; the closest records were on unrelated six-vertex graph and multigraph invariants."
+      ],
+      "reasoning": "The constraint parameter itself has an equivalent prior notation, \\(q=\\Sigma_{2,2}(a,5)\\), explicitly linked to \\(10a+4\\) by Gu and Wang. The inspected sources do not give an equivalent formulation of the second-product claim. The common first-moment and integer-AM-GM setup is shared with the literature, but the next-product layer and its attaining weighted graph require the separate predecessor-product comparison and equality classification given in the proof.",
+      "searches": [
+        "published-finding corpus query: ordered graph saturation number forbidden ordered matchings linear lower bound bounded saturation",
+        "published-finding corpus query: extremal combinatorics saturation hypergraphs exact invariant structural lemma 2017 2024",
+        "published-finding corpus query: (n,s,q)-multigraph maximum product of edge multiplicities Mubayi Terry Day Falgas-Ravry Treglown 2023",
+        "published-finding corpus query: second largest edge multiplicity product ex_Pi(6,5,10a+4) stability second extremal multigraph",
+        "published-finding corpus query: For every integer a >= 3, six-vertex multigraph with every five-vertex set weight sum at most 10a+4, second-largest product of edge multiplicities",
+        "arXiv:2301.10430, definitions and six-vertex case, full primary HTML text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest published-finding corpus records concerned unrelated multigraph, graph-polytope, and hypergraph extremal problems; no matching second-product table appeared.",
+        "The inspected n=6 proof in arXiv:2301.10430 concludes with the maximum product and the six-cycle witness, without a next-product table or classification."
+      ],
+      "reasoning": "No exact database or published table for the second product was located. This is recorded as an access/search result only; the acceptance argument depends on the direct proof and primary-text comparison, not on absence from a database.",
+      "searches": [
+        "published-finding corpus query: second largest edge multiplicity product ex_Pi(6,5,10a+4) stability second extremal multigraph",
+        "published-finding corpus query: For every integer a >= 3, six-vertex multigraph with every five-vertex set weight sum at most 10a+4, second-largest product of edge multiplicities",
+        "arXiv:2301.10430, n=6 proof at end of Section 3"
+      ]
+    },
+    "rationale": "The primary paper by Gu and Wang gives the maximum product for this finite parameter but does not state the second distinct product or its unique attaining weighted graph. Related primary works concern general constructions and asymptotic maximum-product values, not this exact next layer. The novelty judgment rests on statement-level comparison of inspected texts as well as semantic searches, not on search absence alone.",
+    "residual_risks": [
+      "The exact second-product layer may appear in uncatalogued literature; semantic search absence cannot exclude this possibility.",
+      "The result is a finite stability refinement using the established averaging and integer-AM-GM framework; its broader implications for general stability remain open and are not claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the maximum product, not the second distinct product or its unique weighted structure.",
+        "evidence": "The \\(n=6\\) proof states the upper bound \\(a^9(a+1)^6\\) and attains it with six edges of weight \\(a+1\\) forming \\(C_6\\) and all other edges of weight \\(a\\).",
+        "identifier_or_url": "arXiv:2301.10430",
+        "material_read": "Abstract, definitions, Theorem 1, and the complete n=6 subsection in the primary HTML text, including the averaging bound and six-cycle construction.",
+        "method": "Compared the exact claim, parameter, proof inequalities, and equality statements against the proposed second-product claim.",
+        "title": "On extremal problems on multigraphs",
+        "trigger": "Directly studies the same \\((6,5,10a+4)\\) maximum-product parameter."
+      },
+      {
+        "assessment": "The conjectured maximum-product construction includes the equivalent parameter \\(q=\\Sigma_{2,2}(a,5)=10a+4\\), but no exact second-product statement for it was found.",
+        "evidence": "The paper’s construction and Conjecture 3.2 include the target parameter as \\(q=\\Sigma_{2,2}(a,5)\\); the statement is about the maximum product and does not give the next product.",
+        "identifier_or_url": "arXiv:2011.01626",
+        "material_read": "Abstract, definitions, Construction 3.1, Conjecture 3.2, theorem statements, and full-text searches for \\(10a+4\\), second largest, stability, and \\(n=6\\).",
+        "method": "Statement-level comparison of parameter coverage and exact versus asymptotic conclusions.",
+        "title": "Extremal problems for multigraphs",
+        "trigger": "Foundational general construction and conjecture for product-extremal multigraphs."
+      },
+      {
+        "assessment": "Does not cover the finite odd-s second-product problem; its principal theorem concerns an even-s asymptotic family.",
+        "evidence": "The main theorem uses \\(s=2r\\) with \\(r\\ge2\\) and determines an asymptotic maximum-product quantity, not the second product at \\(n=6\\).",
+        "identifier_or_url": "arXiv:2101.03056",
+        "material_read": "Abstract, definitions, main theorem and parameter range, previous-work discussion, and a search for stability.",
+        "method": "Checked the theorem’s parameter family against s=5 and the finite n=6 claim.",
+        "title": "On an extremal problem for locally sparse multigraphs",
+        "trigger": "Later primary literature on asymptotic product extremal values."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d42c8d68-c0c2-4950-97aa-326750554603",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The second distinct product is a natural exact invariant of the same extremal problem and identifies the closest nonmaximum competitor, not merely another example. Its sharp ratio \\(1-1/(a+1)^2\\) and unique weighted structure provide a finite stability datum for the six-vertex parameter where the conjectured maximum construction fails.",
+    "status": "PASS"
+  }
+}
