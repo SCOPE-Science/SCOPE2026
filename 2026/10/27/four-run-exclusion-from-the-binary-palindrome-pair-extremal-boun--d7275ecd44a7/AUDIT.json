@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "The partition of factors by 0–4 runs yields a closed formula without repeated factors. A four-run factor is a pair of palindromes exactly when its initial zero run equals the full second zero run, or its final one run equals the full preceding one run. Four parameter regions, reduced to three by complement-reversal symmetry, give algebraic strict bounds for n>=10. Exhaustive direct enumeration of all 126 four-run compositions at n=4..9 closes the finite boundary. A separate direct substring/split checker matches the formula for all 715 four-run compositions n=4..13, and checks explicit three-run witnesses. No finite experiment is asserted as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Borchert–Rampersad, arXiv:1509.05396, Section 4: proposed global bound and candidate words only; Section 6 restates the maximum-factor classification problem.",
+        "Guo–Shallit–Shur, arXiv:1503.09112, Section 3: structural properties and enumeration of words in the product-of-two-palindromes language."
+      ],
+      "reasoning": "A proven global maximum for all binary words would imply the upper inequality, but was not found in inspected primary work; the nearest source presents this as an open conjecture. Its three-run lemma establishes that candidate factors are palindrome pairs, not that exactly-four-run words are always inferior.",
+      "searches": [
+        "maximum palindrome pair factors finite binary words Borchert Rampersad bound theorem",
+        "extremal number of distinct palindrome pair factors four blocks run-length formula Borchert Rampersad conjecture",
+        "palindrome pair factor count 2015 Borchert Rampersad extremal conjecture four blocks exclude maximizers"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1509.05396 (first public 2015-09-17)",
+      "arXiv:1503.09112 (first public 2015-03-31)",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p23/pdf/",
+      "https://arxiv.org/html/1503.09112v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Borchert–Rampersad, arXiv:1509.05396, Section 4 and Lemma 13: extremal conjecture and three-run membership.",
+        "Guo–Shallit–Shur, arXiv:1503.09112, Proposition 5: single-word palindrome-pair criterion.",
+        "Explicit new count and case inequalities in RESULT.md, confirmed independently for 715 four-run words."
+      ],
+      "reasoning": "Prior statements imply that every factor of a three-run word is a palindrome pair, but do not exclude four-run words as possibly having more distinct factors. This theorem proves a strict inequality for the entire four-run class; proving the global conjecture remains beyond scope.",
+      "searches": [
+        "Borchert Rampersad 2015 Lemma 13 at most three blocks maximize palindrome pair factors",
+        "palindromic length two substring counts low run binary words upper bound by ceil((n^2+2n+3)/3)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guo–Shallit–Shur, arXiv:1503.09112, Proposition 5: a word is a palindrome pair iff it is conjugate to its reversal.",
+        "Borchert–Rampersad, arXiv:1509.05396, Lemma 13: any at-most-three-run word is a palindrome pair."
+      ],
+      "reasoning": "Reverse-conjugacy recognizes a single factor, but does not enumerate the union of all distinct factors of a fixed four-run word nor prove strict comparison against three-run witnesses. The new four-run criterion i=c or j=b and its optimization are separate consequences proved here.",
+      "searches": [
+        "palindromic pair conjugate reversal factor counts four runs",
+        "four-run word 0^a1^b0^c1^d number of distinct palindrome pair factors strict fewer than three-run extremal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Guo–Shallit–Shur, arXiv:1503.09112, Remark 1: Kemp counts all words of a given length that are products of two palindromes, a different object.",
+        "Published-record searches returned no exact four-run distinct-factor table or all-n formula among top related records."
+      ],
+      "reasoning": "A language-size table counts palindrome-pair words globally, not how many distinct palindrome-pair factors occur in one prescribed four-run word. Unindexed specialized tables remain a residual priority possibility.",
+      "searches": [
+        "four run palindrome pair factor spectrum table all n",
+        "palindrome pair factors of binary words with four runs 0^a 1^b 0^c 1^d exact enumeration maximal number",
+        "palindrome pair factor count words with at most four blocks maximal formula"
+      ]
+    },
+    "rationale": "Borchert–Rampersad 2015 (Section 4) states the global extremal value as a conjecture and provides the three-run lemma, not the exact four-run distinct-factor formula or an all-length exclusion. Guo–Shallit–Shur 2015 concerns characterization/enumeration of palindrome pairs themselves; its statements do not imply the present uniform distinct-factor bound without new counting and optimization. Focused published-record and literature searches found no directly covering result; unindexed work remains a risk.",
+    "residual_risks": [
+      "An unindexed or differently phrased later proof of this four-run exclusion may exist.",
+      "A published unrestricted extremal theorem outside the inspected corpus would dominate this restricted conclusion; no such decisive source appeared in the actual focused searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: proposes unrestricted optimum but supplies neither exact four-run distinct-factor formula nor four-run exclusion.",
+        "evidence": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i4p23/pdf/",
+          "Section 4 states the proposed value and three-run candidate words; Section 6 reiterates maximum-factor characterization as open."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1509.05396",
+        "material_read": "Journal full-text 16-page PDF: Sections 1, 4, 5, 6; specifically the extremal conjecture and candidate lists in Section 4, Lemma 13, Theorem 18, Corollary 19, and closing open problems.",
+        "method": "Read complete relevant sections in full text and examined page rendering for formulas.",
+        "title": "Words with many palindrome pair factors",
+        "trigger": "The published conjectured maximal number of distinct palindrome-pair factors and three-run examples directly motivate a four-run exclusion."
+      },
+      {
+        "assessment": "NOT_COVERING: individual palindrome-pair characterizations and language counts do not provide the four-run host-word factor formula or strict extremal exclusion.",
+        "evidence": [
+          "https://arxiv.org/html/1503.09112v1",
+          "Proposition 5: palindrome pair iff reverse-conjugate; Section 3 Theorems concern factorization and parity counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.09112",
+        "material_read": "Full text in arXiv HTML: Introduction, Section 2 definitions and Section 3 Palindromic Pairs including Propositions 4–5, Theorems 3.1–3.2.",
+        "method": "Inspected arXiv HTML primary text, with proof statements and the distinction between single-word language census and distinct factors of a host word.",
+        "title": "On the Combinatorics of Palindromes and Antipalindromes",
+        "trigger": "Pre-2016 paper whose Section 3 classifies palindrome pairs and could imply a factor enumeration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7275ecd-44a7-42b5-b66a-5076ec4793fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result excludes an entire natural infinite class—four-run words—from the proposed extremal candidates of a published unsolved palindrome-pair factor problem. The four-run class is the first beyond the obvious three-run witnesses; a new formula together with length-uniform inequalities explains exactly why it is deficient. This is a structural partial result, not an arbitrary finite case or routine restatement of the three-run lemma.",
+    "status": "PASS"
+  }
+}
