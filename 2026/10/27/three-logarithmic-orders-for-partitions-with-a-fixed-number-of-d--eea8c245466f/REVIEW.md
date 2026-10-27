@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof converts partitions to ordered divisor pairs, applies the classical Dirichlet divisor summatory estimate by one-coordinate partial summation, evaluates the relevant Dirichlet-simplex logarithmic moments, and then subtracts the leading size-collision contribution. The numerical coefficient \(\zeta(2)\) is justified by \(\sum a^{-2}\); all intersections of two or more collisions are one lower logarithmic order. The exact \(k=2\) case is treated separately, avoiding an inapplicable negative logarithmic remainder. The included `verify.py` checks the first two nontrivial finite convolution formulas through \(n=120\) and the \(k=2\) cumulative asymptotic at three cutoffs, returning `VERIFY_OK`. Risk: the analytic estimates, not the finite tests, carry the general theorem.
+
+**Originality — PASS on inspected evidence, with residual bibliographic risk.** The 2026 Agarwal–Garg paper establishes weighted partition identities and not the claimed cumulative expansion; Keith addresses modular congruences; Merca's signed odd-multiplicity statistic is different. OEIS A365676 and A002133 supply exact data and generating functions only. Kim's 2012 paper treats the same objects and derives exact convolution formulas, but its full text was not available in the present review. A general published derivation of the third coefficient, or one implicit in Kim's formulas, may exist; absence from the sources searched is not a priority proof.
+
+**Mathematical value — PASS.** The number of distinct occupied part sizes is a natural partition statistic. A two-term expansion alone cannot detect the difference between distinct sizes and symmetrized divisor tuples. The third logarithmic term is the first level where the collision structure contributes, and the theorem measures this effect exactly for *every fixed* \(k\), including a sharper full polynomial with a power-saving error for \(k=2\). This is a structural asymptotic statement rather than a minor finite-table correction.
+
+The claim is cumulative and fixed-\(k\); it gives neither pointwise estimates nor uniformity in growing \(k\). Priority is not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "Exact conversion to unordered size-multiplicity pairs; D(Y)=Y log Y+(2γ-1)Y+O(sqrt Y) permits replacement by density log y+2γ with cumulative convolution error O_k(X^(k-1/2)log^(k-1)X). Dirichlet simplex has E log u=-H_k and E log u1 log u2=H_k²+H_k^(2)-ζ(2). Two-index size equality yields ζ(2) X²/2+O(X log X) and hence ζ(2)X^k log^(k-2)X/k!. Higher collision intersections are O_k(X^k log^(k-3)X). Explicit k=2 boundary error O(X^(3/2)log X). The included independent finite verifier returns VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Keith arxiv:1502.00366 theorems give congruences for two and three sizes.",
+        "Merca 2026 DOI 10.1007/s00009-026-03168-2 studies signed odd multiplicities, with generating factor q^a/(1+q^(2a)).",
+        "Agarwal–Garg 2026 general k exact weighted partition identity (1.6), not a quantitative cumulative expansion."
+      ],
+      "reasoning": "All-k combinatorial coverage alone is not an asymptotic theorem with a third coefficient. The unrestricted k-fold divisor convolution has a distinct coefficient: the additional -binom(k,2)ζ(2) is not inherited without a separate collision analysis. The signed Merca counting problem uses other weights and is not a dominating theorem.",
+      "searches": [
+        "Summatory function of integer partitions into exactly k distinct part sizes three-term asymptotic X^k(log X)^k/(k!)^2, harmonic Euler gamma and ζ(2) collision correction",
+        "fixed k distinct part sizes asymptotic number log^k n divisor function",
+        "arxiv:1502.00366",
+        "doi:10.1007/s00009-026-03168-2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.18371, complete HTML",
+      "arxiv:1502.00366, full accessible text",
+      "doi:10.1007/s00009-026-03168-2, complete HTML",
+      "doi:10.1016/j.jnt.2012.01.003, abstract only",
+      "OEIS:A365676, exact formulas",
+      "OEIS:A002133, exact formulas",
+      "Indexed finding on corner-weighted rectangular q-binomial counts, summary only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agarwal–Garg section 2 uses finite differences to derive a weighted coefficient identity.",
+        "Kim 2012 abstract advertises convolution identities and modulo-8 arithmetic, not the required limiting expansion; full paper unavailable.",
+        "Classical Dirichlet divisor estimate is a premise explicitly used in the new proof."
+      ],
+      "reasoning": "The result is not a direct specialization of a stated larger asymptotic in the sources fully inspected. Exact series and finite recurrences can in principle be analyzed to derive it but require an independent analytic argument. Potential implicit coverage from uninspected Kim full text remains the principal unresolved priority risk.",
+      "searches": [
+        "Byungchan Kim 2012 partitions n into k different parts generating function convolution of divisor sums exact asymptotic",
+        "For each fixed k, asymptotic number p^(k)(n) of unrestricted integer partitions into exactly k distinct part sizes equals n^(k-1)(log n)^k/[k!(k-1)!], or summatory X^k(log X)^k/(k!)^2",
+        "fixed k distinct part sizes partition counts divisor-sum convolution logarithmic asymptotic coefficient",
+        "arxiv:2610.18371",
+        "doi:10.1016/j.jnt.2012.01.003",
+        "OEIS:A365676"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Agarwal–Garg arxiv:2610.18371 sections 1–3: weighted exact identity, Theorem 1.2; no cumulative coefficients.",
+        "Kim 2012 journal abstract: exact generating function and divisor-convolution identities; full paper inaccessible.",
+        "OEIS A365676: exact product generating function for the same p^(k)(n)."
+      ],
+      "reasoning": "The statistic also appears as the number of occupied part magnitudes or as an elementary-symmetric Lambert-series coefficient. Exact coefficient identities define the same objects but do not state this fixed-k three-term summatory expansion; deriving the ζ(2) collision contribution requires analytic use of the divisor estimate. Kim full-text risk retained.",
+      "searches": [
+        "Summatory function of integer partitions into exactly k distinct part sizes three-term asymptotic X^k(log X)^k/(k!)^2, harmonic Euler gamma and ζ(2) collision correction",
+        "Fixed number of different part sizes partition counting quadratic logarithmic polynomial, distinctness first appears at third coefficient ζ(2)",
+        "exactly k different part sizes vs distinct sizes; divisor-convolution identities; OEIS A365676",
+        "arxiv:2610.18371",
+        "doi:10.1016/j.jnt.2012.01.003"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A365676 supplies exact generating product and triangle values.",
+        "OEIS A002133 provides the two-size sequence and divisor-convolution references.",
+        "Published indexed record on corner-weighted rectangular partitions treats a finite Gaussian-binomial transform."
+      ],
+      "reasoning": "These tables support exact finite coefficients, but inspected entries do not contain the normalized cumulative third coefficient, ζ(2) collision subtraction, or the stated error estimates. Re-enumeration of known tables is not claimed as the new result.",
+      "searches": [
+        "OEIS A365676 partitions n exactly k distinct part sizes",
+        "OEIS A002133 number of partitions of n exactly two part sizes",
+        "Fixed number of different part sizes partition counting quadratic logarithmic polynomial, distinctness first appears at third coefficient ζ(2)"
+      ]
+    },
+    "rationale": "The inspected Agarwal–Garg theorem and Keith congruences, Merca signed-statistic paper, and OEIS formulas do not state this general third-order cumulative logarithmic polynomial or the explicit size-collision coefficient. Same-object Kim (2012) remains inaccessible in full; its abstract describes exact convolution formulas and congruences, not a dominating asymptotic theorem. Best-knowledge rather than independent priority certification.",
+    "residual_risks": [
+      "Byungchan Kim (2012) full text was not accessible in this run; a stronger unindexed or implicit asymptotic there cannot be excluded.",
+      "Known general divisor-convolution asymptotic machinery could yield an equivalent result elsewhere without title matches.",
+      "Similarity-index searches do not establish uniqueness or independent publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.2 is an exact weighted identity for each n; no cumulative logarithmic asymptotic.",
+        "evidence": [
+          "Theorem 1.2 is identity (1.6) and the concluding section treats alternative weights.",
+          "arxiv first posting 2026-10-13 and primary MSC 11P84,05A17."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.18371",
+        "material_read": "Complete accessible HTML text: introduction, Theorem 1.2, combinatorial proof, concluding remarks, references.",
+        "method": "Read full arXiv HTML available in source index and compared theorem statements, quantifiers, and implications.",
+        "title": "A Combinatorial Proof of Partition Identities for the Number of Distinct Part Sizes",
+        "trigger": "Same p^(k) objects and most recent source"
+      },
+      {
+        "assessment": "Addresses modular arithmetic for coefficients rather than fixed-k cumulative asymptotic.",
+        "evidence": [
+          "Keith Theorem 1 concerns ν2(An+B) mod 4 for four progressions.",
+          "Other theorem statements concern ν3 parity and overpartitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.00366",
+        "material_read": "Accessible full-text transcription including main theorem statements and congruence sections; source PDF page images also inspected.",
+        "method": "Searched and read theorem sections on ν2 and ν3 congruences and their generating functions.",
+        "title": "Partitions into a small number of part sizes",
+        "trigger": "Exact same part-size statistic, preceding results"
+      },
+      {
+        "assessment": "Different signed odd-multiplicity generating function; does not imply count for unrestricted multiplicities.",
+        "evidence": [
+          "Its factor q^a/(1+q^(2a)) differs from q^a/(1-q^a) in A365676.",
+          "Its theorem statements are q-series identities."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00009-026-03168-2",
+        "material_read": "Full accessible journal HTML, including definitions, Theorems 1.1–1.5, proofs and concluding discussion.",
+        "method": "Compared generating factors, signed multiplicities, theorem output types and implications.",
+        "title": "Signed Enumeration of Partitions with Exactly k Distinct Magnitudes of Odd Multiplicity",
+        "trigger": "Similar name, general k and exact product"
+      },
+      {
+        "assessment": "Explicitly unresolved full-document priority comparison; abstract describes generating functions and congruence applications, not a three-term asymptotic.",
+        "evidence": [
+          "Journal of Number Theory 132 (2012), 1306–1313.",
+          "Abstract advertises generating functions, divisor convolution identities, and modulus 8."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jnt.2012.01.003",
+        "material_read": "Author-affiliation publisher bibliographic abstract and research portal abstract only; full article was inaccessible.",
+        "method": "Searched arXiv and accessible open versions before authorized institutional retrieval; institutional request could not complete without interaction.",
+        "title": "On the number of partitions of n into k different parts",
+        "trigger": "Same objects and potential exact convolution coverage"
+      },
+      {
+        "assessment": "Same exact counts, no inspected three-term summatory expansion.",
+        "evidence": [
+          "A365676 generating product of 1+t q^a/(1-q^a).",
+          "A002133 gives two-size coefficient sequence and literature references."
+        ],
+        "identifier_or_url": "https://oeis.org/A365676 ; https://oeis.org/A002133",
+        "material_read": "Descriptions, exact generating functions, formulas, and reference listings for both sequence pages.",
+        "method": "Compared the enumerated statistic and accessible formula fields to the cumulative expansion.",
+        "title": "OEIS A365676 and A002133",
+        "trigger": "Exact table and generating-function precedents"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eea8c245-466f-4a95-bb01-cc0c20fdbb0f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The count of integer partitions with fixed number of occupied sizes is a natural partition statistic. Its first two logarithmic orders cannot distinguish a symmetrized divisor-tuple count from genuine partitions; the theorem identifies exactly where size collisions become visible and computes the ζ(2)-controlled correction for every fixed k, with a power-saving completion at k=2. This answers a motivated structural asymptotic question, not an arbitrary slice or table recomputation.",
+    "status": "PASS"
+  }
+}
