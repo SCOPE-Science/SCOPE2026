@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every active vertex has precisely two active neighbors, so nonempty support is an induced disjoint union of cycles; below 2g vertices it is a single cycle. A chord on a k-cycle creates two cycles whose lengths sum to k+2, forcing k>=2g-2; two attachments from an external vertex create two cycles with sum k+4, forcing k>=2g-4. Therefore for k<2g-4 the correspondence of equilibria and simple cycles is bijective. The theta graph with path lengths (g-2,g-2,2) realizes an excluded external two-neighbor attachment exactly at k=2g-4 and has no other cycle of that length. Standard-library exhaustive enumerations on 16 graphs verify independent finite instances, including Petersen and Heawood and five theta sharpness graphs. The finite tests do not establish the infinite theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gilboa arXiv:2301.11580, Abstract and main complexity theorems classify finite nonmonotone best-response patterns by NP-completeness.",
+        "Gilboa--Nisan arXiv:2207.04238, introduction/main theorems concern general equilibrium decision complexity, not producer-count polynomial coefficients.",
+        "Klimm--Stahlberg arXiv:2301.11849, Section 1 and Table 1 discuss pattern classes and hardness, not girth-restricted coefficient identities."
+      ],
+      "reasoning": "Complexity and existence statements neither count producer sets at each support size nor imply a sharp coefficient cutoff. Those sources supply the model/motivation but not a dominating theorem for this invariant.",
+      "searches": [
+        "non-monotone public goods Nash equilibrium girth five cycle shortest cycle induced degree two",
+        "\"public goods\" \"exactly two neighbors\" \"girth\" equilibrium",
+        "\"girth\" \"binary public goods\" \"equilibrium\" cycles"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.04238",
+      "arxiv:2301.11580",
+      "arxiv:2301.11849",
+      "Published-result entry: Exact producer-weight equilibrium polynomial for exact-two public-goods games on prism networks",
+      "Published-result entry: Boundary-twist cancellation for exact-two public-goods equilibria on Möbius ladders",
+      "Published-result entry: The sharp six-vertex obstruction census for strict zero-or-two-neighbor public-goods equilibria"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier exact-two prism and Möbius-ladder producer enumerations concern graph families of girth at most four and cannot imply arbitrary girth g>=5.",
+        "The earlier zero-or-two-neighbor obstruction census uses T(0)=T(2)=1, not the exact-two-only response.",
+        "Gilboa arXiv:2301.11580 proves hardness for finite nonmonotone patterns but not this girth-sensitive low-density classification."
+      ],
+      "reasoning": "Comparing logical implications rather than titles: no identified exact-two special-family enumeration includes all high-girth graphs, and the other model changes best responses at zero active neighbors. The quantified low-support coefficients and optimal cutoff are not entailed by the inspected previous statements.",
+      "searches": [
+        "two-neighbor public goods equilibria graph induced cycles no external vertices adjacent to exactly two",
+        "\"girth\" \"binary public goods\" \"equilibrium\" cycles",
+        "\"exact-two\" \"equilibrium\" \"shortest cycle\" graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For a producer set S, the defining fixed-point equation is precisely G[S] 2-regular and no inactive vertex has exactly two neighbors in S (direct proof).",
+        "Klimm--Stahlberg arXiv:2301.11849, Sections 1 and 1.1, mentions induced cycles as components under a DIFFERENT picky response pattern with production at 0 neighbors; no low-support girth coefficient formula found."
+      ],
+      "reasoning": "The direct induced-cycle/fixed-point equivalence was used to search synonyms. Allowing production at zero neighbors is not equivalent to exactly-two-only, and permits different inactive-vertex constraints. No inspected source supplies this exact low-support bijection and sharp cutoff.",
+      "searches": [
+        "strict binary network public goods best response produce if exactly two neighbors produce girth shortest cycles minimum equilibrium support",
+        "count of sparse equilibria exactly two producer neighbors correspondence short cycles girth at least five",
+        "two-neighbor public goods equilibria graph induced cycles no external vertices adjacent to exactly two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The arXiv model/theorem texts inspected contain no term \"girth\" in whole-document text searches; cycle references in arXiv:2301.11580 concern a different 0-or-2 response.",
+        "Searches of published mathematical-result records returned graph domination and girth/topology records rather than this equilibrium support spectrum."
+      ],
+      "reasoning": "No covering coefficient table or published-result item was located. The absence of a match cannot exclude unindexed combinatorial tables; that uncertainty is retained.",
+      "searches": [
+        "strict binary network public goods best response produce if exactly two neighbors produce girth shortest cycles minimum equilibrium support",
+        "count of sparse equilibria exactly two producer neighbors correspondence short cycles girth at least five",
+        "\"exactly two active neighbors\" \"girth\" equilibrium graph"
+      ]
+    },
+    "rationale": "Available earlier exact-two results count equilibria only on prism and Möbius ladder (girth four); a separate earlier zero-or-two-neighbor result concerns a non-equivalent pattern. The 2022-23 primary papers concern existence/complexity of best-response patterns, and the closest induced-cycle discussion allows production at zero neighbors. Searches for shortest cycles, girth, external two-attachments and polynomial coefficients disclosed no directly covering theorem; known graph-girth lemmas could underpin equivalent unindexed treatments.",
+    "residual_risks": [
+      "The short-cycle graph-girth observation may occur in graph-theoretic literature without public-goods terminology.",
+      "No search establishes uniqueness across unindexed older literature.",
+      "The claim is restricted to a low-support polynomial prefix, not the full equilibrium polynomial."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "MODEL_CONTEXT_NOT_COVERING: studies complexity and explicitly a different exactly-one-neighbor pattern, not the claimed exact-two high-girth coefficients.",
+        "evidence": [
+          "arXiv:2207.04238, pages 1-2; Section 3 (exactly one neighbor); no girth match in PDF text search"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.04238",
+        "material_read": "Abstract, definition of strict best responses on page 2, first theorem and related discussion, text search of complete PDF for girth and cycle",
+        "method": "Open-access primary arXiv PDF, extracted text and inspected page screenshot",
+        "title": "Complexity of Public Goods Games on Graphs",
+        "trigger": "Original best-response model and earliest permitted primary source"
+      },
+      {
+        "assessment": "BROADER_COMPLEXITY_NOT_COEFFICIENT_COVERAGE: general complexity results and a different 0-or-2 pattern, no high-girth exact-two coefficient theorem identified.",
+        "evidence": [
+          "arXiv:2301.11580, abstract and Section 3, Definition 8, pages 1 and 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.11580",
+        "material_read": "Abstract, model definition, main complexity result, Section 3 treatment of 0-or-2-neighbor pattern, whole-PDF text search for girth and cycle",
+        "method": "Open-access primary arXiv PDF text and inspected page 5 screenshot",
+        "title": "A Characterization of Complexity in Public Goods Games",
+        "trigger": "Potential stronger result for all nonmonotone patterns"
+      },
+      {
+        "assessment": "RELATED_NOT_COVERING: cites induced-cycle structure for a different picky response pattern with zero-neighbor production; no girth-cutoff producer-polynomial identity identified.",
+        "evidence": [
+          "arXiv:2301.11849, abstract and Section 1.1, page 2"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.11849",
+        "material_read": "Abstract, introduction, Section 1.1 and Table 1, whole-PDF text search for girth and cycle",
+        "method": "Open-access primary arXiv PDF text and inspected page 2 screenshot",
+        "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+        "trigger": "Plausible induced-cycle and best-response pattern equivalents"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "70244bf9-403d-45b2-878b-6b6e0646067a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum number of positive producers in a nontrivial equilibrium is a natural production-cost extremal invariant of the strict game. The theorem determines it and its multiplicity for every graph of girth >=5 and, more strongly, recovers an entire initial segment of the equilibrium producer-count polynomial from ordinary cycle counts. The exact coefficient boundary k=2g-4 is forced by and sharp for a concrete three-path topology, not an arbitrarily selected finite slice. This yields a structural tractable region inside a best-response setting with generally hard equilibrium questions, without asserting welfare claims.",
+    "status": "PASS"
+  }
+}
