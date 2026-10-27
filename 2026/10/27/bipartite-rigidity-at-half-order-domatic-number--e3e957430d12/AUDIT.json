@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For any \\(m\\ge3\\), a connected bipartite \\(2m\\)-vertex graph with \\(m\\) domatic classes has no universal vertex (otherwise it is a star with domatic number 2), hence each of its m classes must have size exactly two. A same-side pair would equal that entire side and strand at least four vertices of the other side, contradicting domination by remaining pairs. Every class is therefore a cross-pair, so the sides have size m. Each selected cross-pair must dominate every other vertex on both sides, forcing all off-diagonal cross-edges; missing edges form a matching. Conversely each canonical pair in \\(\\(K_{m,m}\\)-M_t\\) dominates, \\(\\gamma=2\\) and \\(d=m\\). Every deleted edge forces its two endpoints to be paired, leaving \\((m-t)!\\) bijections on unmatched vertices. If \\(t<m\\) a further diagonal deletion preserves \\(d=m\\); if \\(t=m\\) an offdiagonal deletion destroys the matching-of-missing-edges condition and forces d<m, with d>=m-1 by merging the two affected domatic classes. All quantifiers, \\(m\\ge3\\) boundary, connectedness, distinct meanings of domination and domatic criticality were rechecked. An independent standard-library verifier exhausts all 800 and 102528 bipartite-side graphs on six and eight vertices and pairing counts for \\(3\\le m\\le5\\); this is supplementary and not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Matsumoto (2020), Lemma 2.1, proves a perfect-matching criterion for complete multipartite graphs; this is not sufficient for cross-edge-deleted bipartite graphs.",
+        "Matsumoto (2020), Problem 5.2 explicitly leaves the full \\(\\gamma=2\\) domatically-perfect characterization open.",
+        "Spakowski (2026), Sections 1-3, concerns criticality recognition complexity; no crown/matching/bipartite family theorem occurs in the inspected arXiv full text."
+      ],
+      "reasoning": "None of the stronger-looking source results imposes the necessary off-diagonal completeness or gives the factorial partition count. The general criticality recognition theorem addresses complexity of testing a property, not a constructive exact subclass classification.",
+      "searches": [
+        "\"domatically perfect\" \"bipartite\" \"matching\" \"n/2\" graph",
+        "\"domatic number\" \"K_{n,n}\" \"matching\" removed",
+        "Spakowski 2607.18878 domatically critical crown graphs bipartite graph matching"
+      ]
+    },
+    "checked_sources": [
+      "Naoki Matsumoto (2020), Domatically perfect graphs, DOI 10.1016/j.akcej.2019.06.008, full article text.",
+      "Holger Spakowski (2026), The Complexity of Domatic Criticality, arXiv:2607.18878, full indexed HTML.",
+      "Mathematical-record index: IDs 23a9be9d61aa (restrained crown domination), fb55fa5d8edb (non-CIS pairing), 08304aa3dec8 (domatic game, not ordinary domatic), summary-level comparison only.",
+      "Targeted web searches for domatic domination-number-two bipartite matching-deletion characterization, criticality and counting."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Matsumoto (2020), §5, states d(\\(K_{n,n}\\))=n and d(\\(\\(K_{n,n}\\)-e\\))=n for one edge e, and gives general \\(\\gamma=2\\) characterization as an open problem.",
+        "Spakowski (2026), Theorems on DomCrit_k and unrestricted DomCrit classify complexity rather than the unique critical member among \\(d=m\\) bipartite graphs.",
+        "Older Zelinka/Rall/Zverovich results cited by the primary sources establish structural necessary conditions for critical graphs; no checked statement supplies the reverse iff and enumeration for all bipartite \\(\\gamma=2\\) graphs."
+      ],
+      "reasoning": "Known example-level coverage implies \\(t=0,1\\) sufficiency but not necessity, the \\(t\\ge2\\) cases, the factorial count or the criticality dichotomy. A general necessary star-forest condition for edge-critical graphs may imply fragments of the crown conclusion but not the entire theorem.",
+      "searches": [
+        "\"domatically perfect\" \"bipartite\" \"matching\" \"n/2\" graph",
+        "site:arxiv.org/abs/2607.18878 domatic bipartite matching critical",
+        "Naoki Matsumoto domatically perfect graphs Problem 5.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Spakowski, arXiv:2607.18878, §2.1, gives the equivalent closed-neighbourhood-coloring definition: every color meets every closed neighbourhood.",
+        "Matsumoto (2020), Definition 1.2, defines domatically perfect by \\(\\operatorname{dom}(G)=|V(G)|/\\gamma(G)\\)."
+      ],
+      "reasoning": "The target statement is equivalently that an m-coloring of a connected bipartite \\(2m\\)-vertex graph with each closed neighbourhood containing all \\(m\\) colors exists exactly when the bipartite complement contains only a matching. This equivalence is proved directly and is absent from the two inspected primary articles.",
+      "searches": [
+        "Connected bipartite graphs on 2m vertices with domatic number m exactly K_{m,m} minus a matching classification domatically perfect gamma two",
+        "Domatically perfect graph gamma=2 bipartite characterization with all edge-critical members",
+        "\"domatic number\" \"n/2\" \"bipartite\" \"matching\" characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record index closest ID public mathematical-record item 23a9be9d61aa counts *restrained* dominating sets, not domatic partitions.",
+        "Index ID public mathematical-record item fb55fa5d8edb counts disjoint clique/stable-set pairs, not domatic partitions.",
+        "Searches returned no exact partition table or all-bipartite domatic family classification."
+      ],
+      "reasoning": "The index and web results for deleted-matchings concern different invariants. Neither a matching numeric value nor a shared graph family alone implies this all-parameter domatic iff theorem. Failed search is not claimed as conclusive uniqueness.",
+      "searches": [
+        "domatic partitions of K_{m,m} missing a matching count (m-t)! and critical if perfect matching removed crown graph",
+        "crown graph K_{n,n} minus perfect matching domatic number n unique partition into dominating sets matched pairs",
+        "\"domatically critical\" \"crown\" graph"
+      ]
+    },
+    "rationale": "The proof yields a complete iff structural characterization of the bipartite, \\(\\gamma=2\\) subclass of Matsumoto's explicit Problem 5.2, plus all optimum-partition counts and the exact edge-critical member. Matsumoto explicitly treats \\(K_{n,n}\\) and a one-edge-deleted example, without deriving the stated necessary condition or enumeration; Spakowski classifies the computational difficulty of criticality, not these bipartite extremizers. Mathematical-record index results closest by graph or name concern other domination variants and do not imply the domatic theorem. Thus no equivalent or stronger covering result was found in reviewed sources, while acknowledging residual priority uncertainty.",
+    "residual_risks": [
+      "Older structural articles by Zelinka (1980), Rall (1990) and Zverovich and Zverovich (1991) were cited and compared at statement level through primary sources but not all inspected in full; they may contain special-case results.",
+      "No finite or online literature search establishes definitive historical priority; independent expert literature review remains outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The complete multipartite theorem and one-deleted-edge example do not characterize all connected bipartite domination-number-two domatically perfect graphs or count their domatic partitions.",
+        "evidence": [
+          "Section 2 Lemma 2.1 is restricted to complete multipartite graphs.",
+          "Section 5 explicitly leaves \\(\\gamma=2\\) general characterization open and mentions \\(\\(K_{n,n}\\)-e\\)."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/334075846_Domatically_perfect_graphs",
+        "material_read": "Accessible full 2019/2020 article text, including Sections 1-5, Lemma 2.1, Theorem 2.3, and Section 5 explicit single-edge example and Problem 5.2.",
+        "method": "Full-text reading, exact targeted searches for bipartite, \\(K_{n,n}\\), and Problem 5.2.",
+        "title": "Domatically perfect graphs",
+        "trigger": "Problem 5.2 could directly cover a bipartite domination-number-two classification."
+      },
+      {
+        "assessment": "No bipartite domination-number-two structural classification, matching-deletion enumeration or crown-edge-critical iff result appears. Source focuses on computational complexity of recognizing domatic-critical graphs.",
+        "evidence": [
+          "2026-07-21 arXiv v1; Section 1 describes complexity for fixed \\(k\\ge3\\) and unrestricted recognition.",
+          "No crown/bipartite/matching term appears in full indexed text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.18878",
+        "material_read": "Accessible entire indexed arXiv HTML full text (introduction, definitions, statements, proof sections, conclusion and references); searched the full text for crown, bipartite, matching.",
+        "method": "Full-HTML inspection and exact term search, with comparisons to the proposed structural iff statement.",
+        "title": "The Complexity of Domatic Criticality",
+        "trigger": "The 2026 first-public source directly concerns domatic edge-criticality and could cover the crown classification."
+      },
+      {
+        "assessment": "Different invariant, not a source of the all-bipartite domatic theorem; not treated as proof of full-text noncoverage.",
+        "evidence": [
+          "Summary concerns the bivariate profile of restrained dominating sets on crown graphs, not domatic partitions."
+        ],
+        "identifier_or_url": "public mathematical-record item 23a9be9d61aa",
+        "material_read": "Search-result title and scientific summary only (not full text).",
+        "method": "Scientific claim comparison of restrained domination against ordinary domatic partitioning.",
+        "title": "Restrained-dominating-set profile of crown graphs",
+        "trigger": "Close graph family and two-element minimum sets in a public mathematical-record search."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e3e95743-0d12-41fc-a088-8b21e937cb87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem completely solves a natural bipartite subclass of the explicit domination-number-two domatically-perfect characterization problem (Matsumoto 2020, Problem 5.2), rather than giving another isolated computed parameter. It classifies every permissible graph, counts all optimal resource-group partitions, and determines exactly which classified graph is sensitive to every edge deletion. The counting and crown criticality follow from a structural rigidity condition forced by the extremal domatic coloring; no arbitrary finite parameter slice or routine numerical bound is used. Scope is properly restricted to simple connected bipartite order 2m>=6.",
+    "status": "PASS"
+  }
+}

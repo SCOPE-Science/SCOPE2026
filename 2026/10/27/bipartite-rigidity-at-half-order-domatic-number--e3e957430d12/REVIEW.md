@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The partition-size argument rules out singletons and monochromatic-side pairs for \(m\ge3\), forcing balanced sides. Domination of every cross-pair forces all off-diagonal edges, so the nonedges form a matching. Conversely each diagonal pair dominates; the forced-pair argument counts all optimal partitions. An off-diagonal edge deletion of a crown produces nonedges sharing an endpoint, contradicting the necessary matching condition, while merging the affected classes proves a drop of exactly one. Exhaustive independently coded pair-partition checks cover all bipartite-side labelled graphs on \(6\) and \(8\) vertices, plus partition counts for \(m\le5\). This does not replace the general proof.
+
+**Originality: PASS (best-knowledge literature assessment).** The closest primary article, Matsumoto (2020), explicitly identifies characterization of domatically perfect graphs with domination number \(2\) as Problem 5.2 and provides individual balanced-bipartite examples, not a complete bipartite classification. Spakowski (2026) establishes complexity of recognizing domatic-criticality, not the family classification or count. Targeted searches of public mathematical literature and mathematical-records indexes found adjacent crown-graph domination results but no implication covering the combined exact theorem. Older criticality literature remains a priority risk; absence from searches is not proof of priority.
+
+**Value: PASS.** This is a complete natural subclass solution to an explicit domination-theory characterization problem. It provides structural rigidity, a precise optimal-partition count, and a sharp characterization of criticality within the class. The deleted-matching boundary is forced by the domatic condition rather than an arbitrary parameter slice. It does not claim to settle the unrestricted recognition or classification problem.
+
+Closest literature: N. Matsumoto, *Domatically perfect graphs* (2020), Section 5, Problem 5.2, DOI 10.1016/j.akcej.2019.06.008; H. Spakowski, *The Complexity of Domatic Criticality* (2026), arXiv:2607.18878. A general structural theorem for domatically critical graphs predating these works may cover some corollaries but was not established to imply the full classification and enumeration.
+
+Self-review: passed. Independent audit: not yet performed.
