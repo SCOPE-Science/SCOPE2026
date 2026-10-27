@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness: PASS.** Every radical element splits uniquely into arrow and length-two path parts; products of radical elements retain exactly the arrow-by-arrow length-two coefficients. The projective-line reduction, support stratification, fixed-point count for the sign involution, and positivity argument prove both sums and the equality criterion for all finite fields. The acyclic seven-arrow example has a transition graph that is exactly a seven-cycle. The independently executable script directly checks 22 finite configurations over fields of sizes two, three, four and five, without replacing the general argument by extrapolation.
+
+**Originality: PASS (best knowledge, not priority certification).** Full-text material from Xu--Han--Jiang (2005), Gawell--Richey Xantcha (2015), and Tittmann--Averbouch--Makowsky (2008) was compared at the level of actual claims. The last paper already supplies the induced-subgraph component polynomial and thus covers the combinatorial summation pattern behind the commuting count; the claim does not market that polynomial as novel. The other two papers concern Hochschild cohomology or quadratic defining ideals, not the parity-twisted counts of element pairs in \(kQ/J_Q^3\). Related previously recorded calculations for linearly oriented quivers and radical-square-zero Kronecker algebras do not establish the arbitrary-quiver anticommutator census or the sharp odd-cycle obstruction. Unindexed and unavailable earlier literature remain a real risk.
+
+**Value: PASS.** The statement answers a natural structural question about Lie and Jordan-type vanishing in finite-dimensional radical algebras for an unrestricted quiver family. The necessary-and-sufficient bipartite test has an explicit linear-equivalence mechanism, and a seven-arrow acyclic quiver demonstrates that ordinary directed acyclicity is not enough. Both the finite-field formulas and the counterexample have use independent of a larger classification program.
+
+**Scientific limits.** The statement is about radical pairs, not all algebra elements, and it counts labelled solutions, not isomorphism classes. The source survey is bounded; it is not proof of publication priority. Computational checks are finite, whereas the all-quiver formulas depend on the given proof.
+
+Self-review: passed. Independent audit: not yet performed.
