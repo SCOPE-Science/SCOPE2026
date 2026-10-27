@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem is an exact arithmetic-convolution identity followed by a sharp analytic counting result. At every prime power the coefficient sum of the explicitly defined nonnegative multiplicative kernel equals the weighted minimal-power divisor value. Its Dirichlet series separates as \(\zeta((r+1)s)^{1/2}H_r(s)\); the paired local factors of \(H_r\) have absolutely summable nonconstant coefficients on a half-plane strictly to the left of \(1/(r+1)\). Classical Selberg--Delange asymptotics therefore give \(B_r(X)\sim\kappa_r X^{1/(r+1)}/\sqrt{\log X}\). Partial summation proves the strictly positive tail, and the exact fractional-part error identity bounds the total discrepancy between the tail and the tail plus \(B_r(X)\). The proof covers every fixed integer \(r\ge2\) and all real \(X\ge1\). Exact-rational checks cover 10,000 coefficients, 32 finite summatory equalities and 100 Euler coefficients, but are not substituted for the analytic proof.
+
+## Originality — PASS (subject to priority review)
+The closest primary full text is Bouderbala (arXiv:2602.16027, February 17, 2026). Its Theorem 1.1 and Remark 3.2 provide the leading constant and logarithmic-power expansions, specializing at the half-weight to \(C_rX+O_r(X/\log X)\). They do not state the one-sided sharp remainder, its \(X^{1/(r+1)}/\sqrt{\log X}\) scale, the sparse half-zeta kernel, or the explicit normalized-error barriers. The paper's exact local Euler factor is acknowledged as a key input rather than claimed as new. The older Bouderbala paper (arXiv:2212.05549) studies a different decimal-restricted divisor-ratio sum; only its abstract and publisher overview were accessible here, so no whole-document noncoverage claim is made. Specific web and published research-record searches found no matching sharp-error statement. The prime-product transformation and Selberg--Delange technique are classical, so a previously noted corollary in unindexed literature is the principal remaining risk.
+
+## Mathematical value — PASS
+The new conclusion is a sharp-order error law, not a routine relabeling of the known main term. It improves the published fixed-weight error \(O_r(X/\log X)\) to a genuinely much smaller, unavoidable magnitude \(\Theta_r(X^{1/(r+1)}/\sqrt{\log X})\). The sign is also rigid for every \(X\), and two explicit positive envelope constants quantify this secondary scale. Its reason is a sparse multiplicative kernel with a secondary half-order singularity, a structural feature obscured by the leading Selberg--Delange analysis. This answers the natural precision question for the recently introduced arithmetic average.
+
+## Closest literature and limitations
+The principal source's Euler factor implies the convolution after algebraic simplification; novelty is asserted only for the proved signed sharp-order error and its bounds. No limit constant for the normalized discrepancy is obtained. Existing Tauberian theory is used as an input, not reproved. The results have not been independently audited, and bibliographic priority is not certified.
+
+Self-review: passed. Independent audit: not yet performed.
