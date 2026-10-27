@@ -1,0 +1,135 @@
+{
+  "claim": "Among all simple graphs on at most five vertices, the graphical Lie-algebra adjoint-rank polynomial \\(\\mathcal C_G(q,t)=\\sum_{S\\subseteq V(G)}(q-1)^{|S|}t^{|N_G[S]|-c(G[S])}\\) distinguishes graph isomorphism classes as a formal polynomial. At six vertices, its \\(156\\) graph isomorphism classes have exactly \\(149\\) different polynomials: precisely seven collision classes, each containing two nonisomorphic graphs, and no larger classes. A connected seven-edge witness pair has edge sets \\(E_A=\\{01,02,03,04,14,23,35\\}\\) and \\(E_B=\\{04,05,13,14,23,24,34\\}\\), where \\(ij\\) means the edge with endpoints \\(i,j\\). The corresponding \\(13\\)-dimensional two-step nilpotent graphical Lie algebras have identical complete adjoint-rank distributions over every finite field, but are nonisomorphic over every field of odd characteristic.",
+  "correctness": {
+    "rationale": "The support-rank identity is proved directly from edge equations for all fields. Exact finite orbit enumeration processes all 2^(n choose 2) labeled graphs for each n<=6, explicitly generating full S_n orbits, comparing integer coefficient dictionaries, and certifying 1,1,2,4,11,34,156 unlabeled class counts and the 156-to-149 seven-doubleton partition at n=6. Direct finite-field bracket ranks at q=2,3,5 agree with the exact polynomial. Distinct triangle intersections certify witness graph nonisomorphism, and published Mainkar Theorem 1.1 transfers it to Lie algebra nonisomorphism for char !=2.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rossmann arXiv:2107.05564 gives the broader formula for every graph; this completely covers the support-rank formula itself",
+        "Mainkar arXiv:1310.3414v1 gives reconstruction of graphical Lie algebra from graph but no adjoint rank injectivity criterion",
+        "Remm arXiv:1605.06583v1 studies the weaker maximum-rank breadth invariant"
+      ],
+      "reasoning": "The known formula is stronger in graph size and permits computing any individual graph polynomial, so the novel claim must not be the formula or one numerical evaluation. The exact global equivalence partition of all graph isomorphism classes at the sharp smallest failure order requires a separate complete finite classification and is not a statement established by the inspected general formula or theorem.",
+      "searches": [
+        "two-step graph Lie algebra finite fields exact adjoint rank distribution weighted graph support neighborhood induced components centralizers commutativity degree",
+        "graph-associated two-step nilpotent Lie algebra finite field complete distribution of centralizer dimensions ranks ad_x exact subset formula induced components neighborhood",
+        "number of commuting pairs elements in graph Lie algebras over finite fields explicit graph polynomial",
+        "Rossmann 2022 graph polynomial C_G(X,Y) distinct graphs same value examples"
+      ]
+    },
+    "checked_sources": [
+      "Remm arXiv:1605.06583v1, pre-2016 breadth paper and MSC classification",
+      "Mainkar arXiv:1310.3414v1, graphical Lie construction and reconstruction Theorem 1.1",
+      "Rossmann arXiv:2107.05564, Eq. (1.2), Theorem A, Lemma 3.2 and adjacency modules",
+      "Rossmann and Voll six-vertex graph ask-zeta data index and example rows"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rossmann Formula (1.2) computes C_G for any one graph, but does not assert the 156-to-149 partition or minimal failure order",
+        "Mainkar Thm 1.1 makes the graph nonisomorphism algebraically consequential, but says nothing about equality of rank spectra",
+        "Previously checked own seven-vertex example concerns an involution-restricted refinement, not the smallest order and complete six-vertex collision census"
+      ],
+      "reasoning": "Prior identities imply that, given both example graphs, their C polynomials can be evaluated, but not without extra classification do they determine the exact first injectivity failure or number and multiplicities of all collision fibers. The substantive finite completion is what is reviewed as new.",
+      "searches": [
+        "adjoint breadth polynomial of Lie algebra constructed from simple graph graph isomorphism invariants six vertices nonisomorphic same rank distribution",
+        "centralizer dimension spectrum graphical nilpotent Lie algebras minimum nonisomorphic graphs with equal polynomial",
+        "\"class-size polynomial\" \"nonisomorphic\" graphical groups",
+        "graphical group conjugacy class size spectrum nonisomorphic graphs smallest 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rossmann Eq. (1.2): C_G is exactly the vertex-support adjoint rank polynomial, not new",
+        "Rossmann Theorem A: F_G(q,Y)=q^m C_G(q,q^{-1}Y) counts graphical-group conjugacy class sizes",
+        "The seven-pair census is a statement about injectivity fibers of this prior polynomial, not its definition"
+      ],
+      "reasoning": "Aliases include graphical group class-size polynomial, breadth distribution, Lie centralizer-dimension polynomial, and adjacency-module codimension polynomial. Equality of C for same edge count implies equality of F and adjoint-rank statistics, so the census is formulated across all such equivalent descriptions. The new claim is the fiber structure of C on the graph atlas of order six, absent from the inspected prior statements.",
+      "searches": [
+        "two-step graph Lie algebra finite fields exact adjoint rank distribution weighted graph support neighborhood induced components centralizers commutativity degree",
+        "graph-associated two-step nilpotent Lie algebra finite field complete distribution of centralizer dimensions ranks ad_x exact subset formula induced components neighborhood",
+        "adjoint breadth polynomial of Lie algebra constructed from simple graph graph isomorphism invariants six vertices nonisomorphic same rank distribution",
+        "Rossmann 2022 graph polynomial C_G(X,Y) distinct graphs same value examples"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Rossmann arXiv:2107.05564 §1.2 cites class-counting data for at most five vertices",
+        "Rossmann public six-vertex ask-zeta table https://maths.nuigalway.ie/~rossmann/cico/W_6_inline.html lists individual graph W^+ and W^- rational functions",
+        "No inspected six-vertex source explicitly lists seven equality pairs for C_G or 149 formal polynomial classes"
+      ],
+      "reasoning": "The preexisting small-graph data are a material risk: their six-vertex ask-zeta functions concern a related edge-matrix kernel-generating invariant. They do not directly tabulate the full vertex-support bivariate class-size polynomial or its equivalence relation. At most, indirect transformations and additional computations might recover portions of the census, which is noted rather than dismissed.",
+      "searches": [
+        "https://maths.nuigalway.ie/~rossmann/cico/",
+        "https://maths.nuigalway.ie/~rossmann/cico/W_6_inline.html",
+        "centralizer dimension spectrum graphical nilpotent Lie algebras minimum nonisomorphic graphs with equal polynomial"
+      ]
+    },
+    "rationale": "Prior theorem Rossmann 2021 already provides the exact two-variable graph polynomial and support-rank identity, so neither is claimed original. The claimed new finite theorem is the sharp six-vertex first collision and full seven-doubleton partition of all 156 graph-isomorphism classes. None of the inspected original texts explicitly states that classification; earlier own seven-vertex examples did not determine the minimal boundary. A distinct six-vertex ask-zeta table is a stated indirect coverage risk.",
+    "residual_risks": [
+      "The published general polynomial allows derivation of the census by finite computation; an unlocated table or analysis may already have recorded all seven equalities.",
+      "The older six-vertex ask-zeta-function tables might indirectly encode parts of this classification, although they do not directly list its claimed invariant or fiber partition.",
+      "The Lie-algebra nonisomorphism implication is restricted to odd characteristic.",
+      "Independent audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Studies maximum adjoint rank, not the full all-field distribution or graph-polynomial collision boundary",
+        "evidence": [
+          "arXiv:1605.06583v1, abstract/introduction and Section 1, pp. 1-3",
+          "DOI:10.1080/00927872.2016.1233238, MSC 17B30 and 17B40"
+        ],
+        "identifier_or_url": "arXiv:1605.06583v1",
+        "material_read": "Abstract, introduction, Section 1 definition and propositions relating breadth to characteristic sequence, and published MSC/date record",
+        "method": "Inspected relevant arXiv PDF sections and source-date record",
+        "title": "Breadth and characteristic sequence of nilpotent Lie algebras",
+        "trigger": "Pre-2016 work identifying breadth as a classification invariant"
+      },
+      {
+        "assessment": "Establishes that nonisomorphic graphs have nonisomorphic graphical Lie algebras in odd characteristic, but does not study equality of rank-distribution polynomials",
+        "evidence": [
+          "arXiv:1310.3414v1, pp. 1-2, Theorem 1.1, characteristic not two"
+        ],
+        "identifier_or_url": "arXiv:1310.3414v1",
+        "material_read": "Abstract, definition of graphical Lie algebra, Theorem 1.1, field-characteristic restriction and introductory discussion",
+        "method": "Inspected arXiv PDF pages 1-3 and theorem text",
+        "title": "Graphs and two-step nilpotent Lie algebras",
+        "trigger": "Graph reconstruction needed to distinguish the two witness Lie algebras"
+      },
+      {
+        "assessment": "Its Eq. (1.2) and Lemma 3.2 subsume the general polynomial formula; not claimed new. The inspected text does not give the sharp six-vertex injectivity boundary or enumerate its seven collision pairs.",
+        "evidence": [
+          "arXiv:2107.05564, p. 3 Eq. (1.2), p. 4 Theorem A, p. 8 Proposition 2.3, p. 9 Lemma 3.2, p. 12 discussion"
+        ],
+        "identifier_or_url": "arXiv:2107.05564; DOI:10.1112/blms.12665",
+        "material_read": "Abstract; sections 1.2-1.4, 2.4, 3 (especially Lemma 3.2), and portions of sections 5-6 concerning graph operations and polynomial leading terms",
+        "method": "Read relevant arXiv primary full-text sections including rendered PDF pages; compared formulas term by term",
+        "title": "Enumerating conjugacy classes of graphical groups over finite fields",
+        "trigger": "Decisive source that already defines the exact same graph polynomial and support-rank formula"
+      },
+      {
+        "assessment": "These are edge-matrix ask-zeta rational functions, not explicitly the two-variable vertex-support graph polynomial or its seven equality classes. They may encode relevant specializations indirectly; residual priority risk retained.",
+        "evidence": [
+          "Rossmann graph data index, last modified 2021-03-19, and W_6_inline.html entries 1-23"
+        ],
+        "identifier_or_url": "https://maths.nuigalway.ie/~rossmann/cico/W_6_inline.html",
+        "material_read": "Index-page explanation and several rendered entries in the six-vertex table, including descriptions of ask[-] and ask[+] rational functions",
+        "method": "Read publicly accessible table index and representative six-vertex graph-function entries",
+        "title": "Ask zeta functions associated with small graphs",
+        "trigger": "Pre-existing complete six-vertex graph-indexed table potentially covering or implying the new finite census"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e67c4223-1141-46b9-9384-4f69a0ce0a0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp threshold is a natural completeness boundary for a nontrivial established graph polynomial with concrete Lie-algebra meaning. The complete seven-pair list at the first failure order provides structurally motivated counterexamples to reconstruction from all adjoint ranks, not just a coincidental scalar count. This exact finite classification can serve as a baseline for seeking refined invariants, and is not a one-case arithmetic specialization.",
+    "status": "PASS"
+  }
+}
