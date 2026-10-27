@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The threefold smoothness follows from five explicit gradients and a cyclic-product obstruction. For fixed points the projective eigenline equation reduces exactly to the fifth cyclotomic polynomial. For fixed lines six explicit defining equations yield the rational quadratic ideal and the special characteristic-five double point; their inclusion in the integral quadratic algebra is verified by exact symbolic reductions. Properness, finite fibers and Nakayama identify the whole integral fixed Fano scheme. Both tangent Jordan forms follow from the ambient five-cycle and the one-dimensional tangent to the fixed Fano scheme. The standalone exact script was extracted and executed, returning `VERIFY_OK`.
+
+**Originality: PASS, with residual risk.** Roulleau (arXiv:1001.4853, Section 3) already gives the cyclic automorphism and the complex Fano-surface geometry. Neither the inspected full preprint nor the targeted published and mathematical-record searches supplied the two integral scheme presentations or the characteristic-five local lengths. The prior statements about automorphisms and smooth Fano surfaces do not imply the precise scheme structures without additional computations. An equivalent calculation in finite-characteristic equivariant geometry may exist; this is an acknowledged search limitation.
+
+**Value: PASS.** This is a naturally motivated, complete scheme-theoretic description of how a distinguished cyclic symmetry specializes on both a classical cubic threefold and the parameter surface of its lines. The simultaneous length-four and length-two fixed collisions recover the cyclotomic extension and its quadratic subfield, quantifying two distinct degenerations that a reduced fixed-point count misses. The tangent Jordan blocks establish that the behavior is genuinely modular and not simply four/two distinct points relabeled.
+
+The result is limited to the specified order-five subgroup and integral Klein model. The general complex automorphism computation is not claimed as new. An independent literature and mathematical audit would be useful before publication.
+
+Self-review: passed. Independent audit: not yet performed.
