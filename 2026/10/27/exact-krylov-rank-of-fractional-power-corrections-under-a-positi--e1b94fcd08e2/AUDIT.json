@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The two fractional-power corrections each equal an integral of positive rank-one resolvent Gramians with weight t^s or t^(-s). Sherman–Morrison fixes the strictly positive denominator. A kernel vector has zero quadratic form iff its resolvent scalar is identically zero; independence of poles at distinct active eigenvalues forces orthogonality to each active spectral projection. Spectral interpolation identifies the corresponding range with the Krylov space. Exact 2x2 square-root determinant 5-18/sqrt(13)>0 provides a symbolic strictness certificate. A standalone script passed 279 deterministic checks, but universal validity rests on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beckermann–Cortinovis–Kressner–Schweitzer, arXiv:2008.11501, §1 and §4: rational-function rank upper bound and error bounds for rational Krylov, including fractional square-root examples.",
+        "Bernstein–Van Loan (2000), as described in arXiv:2201.13156 §1.1 and arXiv:2008.11501 §1, covers rational functions of bounded degree; noninteger fractional powers are not rational."
+      ],
+      "reasoning": "The established general Krylov exactness and rational-update rank upper bounds do not force exact rank equality for nonrational fractional powers. A general theorem for strictly operator-monotone functions with infinite-support Stieltjes measures, if published, could imply the result; that residual risk is disclosed rather than dismissed.",
+      "searches": [
+        "published-finding corpus: strict positive definiteness of operator monotone function rank one update on cyclic subspace resolvent Gramian",
+        "published-finding corpus: Stieltjes functions rank of perturbation full Krylov spectral support square root",
+        "web: \"strictly positive definite\" \"square roots\" \"rank-one perturbation\" matrices",
+        "arxiv:2008.11501 sections 3–4 (rational Krylov exactness and Markov-function bounds)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2201.13156",
+      "https://arxiv.org/abs/1707.03045",
+      "https://arxiv.org/abs/2008.11501",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/nla.2528",
+      "published-finding corpus mathematical research index (targeted semantic searches, no directly covering result identified)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shmueli et al. establish decay bounds for the correction singular values; these do not supply a positive lower bound for all nonzero eigenvalues or rank equality on inactive/repeated eigenspaces.",
+        "Beckermann et al. (2018, 2021) establish convergent polynomial/rational Krylov approximations and rank ceilings for rational functions; neither entails strict positivity of the full fractional correction on every active spectral mode.",
+        "The scalar/identity special case in Higham Theorem 1.35 as discussed in Shmueli §1.1 has exactly one active eigenspace and rank-one correction, which is a special case of the proposed classification."
+      ],
+      "reasoning": "The source paper’s approximate low-rank result is compatible with an algebraically full-rank update; the new result distinguishes exact rank from numerical rank. Prior scaled-identity and rational-function results cannot by themselves imply the all-fractional-exponents active-spectrum equality. Independent priority verification is still pending.",
+      "searches": [
+        "arxiv:2201.13156 exact paper sections 1,3,4,7",
+        "arxiv:1707.03045 sections 1–3,5",
+        "arxiv:2008.11501 sections 1–4",
+        "published-finding corpus: matrix square root rank-one perturbation full-rank difference and inverse square root simultaneous kernel active eigenvalues"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shmueli–Drineas–Avron, arXiv:2201.13156, Introduction, §§3–4 and discussion after its Riccati formulation: geometric decay and approximate rank, not the same-kernel active-spectral projection identity.",
+        "Beckermann–Kressner–Schweitzer, arXiv:1707.03045, §§2–3: Krylov projection and polynomial exactness."
+      ],
+      "reasoning": "The claim is equivalent to strict positivity of the Gramian restricted to the A-cyclic subspace of u. A generic statement that a square-root update tends to be full rank is weaker: it supplies neither an if-and-only-if for repeated/inactive eigenvalues nor a common kernel for every 0<s<1 and its negative-power counterpart. The full Krylov-space containment available from exact projection does not imply positive definiteness on that space.",
+      "searches": [
+        "published-finding corpus: matrix square root rank-one perturbation full-rank difference and inverse square root simultaneous kernel active eigenvalues",
+        "published-finding corpus: Exact rank of fractional power matrix function differences (A+uu^T)^s - A^s is dimension of cyclic Krylov subspace number of distinct spectral eigenvalues",
+        "web: \"rank\" \"fractional power\" \"low rank perturbation\" full"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published-finding corpus searches returned no exact active-spectrum rank table for fractional-power updates; closest mathematical-function items concerned nilpotent-resolvent singular values or unrelated rank-one perturbation invariants.",
+        "The symbolic 2-by-2 witness and rank classification are derived from spectral data, not read off an external numerical table."
+      ],
+      "reasoning": "The claim is an all-dimensional structural identity depending on active spectral projections, not a finite numerical table. No matching exact database entry was obtained, but absence from an index is not evidence of global uniqueness.",
+      "searches": [
+        "published-finding corpus: rank of matrix square root difference under rank-one positive semidefinite update, diagonal matrix distinct eigenvalues, Cauchy integrals full rank numerical low-rank update",
+        "published-finding corpus: Shmueli Drineas Avron low rank updates matrix square roots full algebraic rank exact rank",
+        "published-finding corpus: strict total positivity Loewner matrices matrix square root rank-one perturbations square root differences"
+      ]
+    },
+    "rationale": "Compared exact statement and implications with directly related published low-rank matrix-square-root and general matrix-function-update papers, their key proof/eigenvalue-decay theorems, rational Krylov coverage, indexed mathematical records, and accessible earlier research claims. The source proves geometrically fast approximate low-rank correction and mentions generic full rank; the distinct active-eigenvalue rank formula for both fractional-power signs and equality of their exact ranges is not stated in the inspected sources. Generic operator-monotone or Loewner matrix strictness remains an identified publication-priority risk.",
+    "residual_risks": [
+      "An older general operator-monotone/strict-Loewner-matrix theorem may imply this entire special case even without matching wording.",
+      "Only relevant inspected primary texts and searchable records were compared, not all mathematical literature.",
+      "No independent audit or expert publication-priority review has been completed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Decay and Riccati approximation results; notes that exact correction tends to be full rank without the exact active-spectrum dimension formula",
+        "evidence": "arXiv:2201.13156 §§1.1,3–4 and text on exact correction generally full rank in §4.",
+        "identifier_or_url": "https://arxiv.org/abs/2201.13156",
+        "material_read": "Accessible full arXiv HTML including introduction, §§3–4, method and numerical-experiment discussion; targeted text searches for exact rank/full rank",
+        "method": "Read relevant proofs, abstract and discussion; compared rank implications and assumptions",
+        "title": "Low-Rank Updates of Matrix Square Roots",
+        "trigger": "Direct source: exact-vs-approximate rank of square-root and inverse-square-root corrections"
+      },
+      {
+        "assessment": "Krylov subspace containment and approximation results, but not a strict-positive correction/rank-equality theorem for fractional powers",
+        "evidence": "arXiv:1707.03045 §§1–3,5 and explicit example with inverse square root.",
+        "identifier_or_url": "https://arxiv.org/abs/1707.03045",
+        "material_read": "Full-text HTML introduction, Hermitian rank-one update §2.1, exactness §3, integral approximation results §5",
+        "method": "Inspected definitions, polynomial approximation and Markov-function error discussion",
+        "title": "Low-rank updates of matrix functions",
+        "trigger": "Possible broader exactness theorem for polynomial Krylov projection"
+      },
+      {
+        "assessment": "Addresses rational approximation and error bounds, not exact algebraic rank of fractional root differences",
+        "evidence": "arXiv:2008.11501 §§1,3,4; SIAM DOI 10.1137/20M1362553.",
+        "identifier_or_url": "https://arxiv.org/abs/2008.11501",
+        "material_read": "Full-text HTML introduction, §§3–4, specifically rational exactness and fractional-root/Markov function convergence sections",
+        "method": "Inspected theorems and scope of rational rank upper bounds and square-root approximation",
+        "title": "Low-rank updates of matrix functions II: Rational Krylov methods",
+        "trigger": "Potential rational/Markov function theorem dominating the proposed claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1b94fcd-08e2-43bf-9542-ae0e85004efe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact, complete structural rank/range/kernel classification is a motivated missing invariant for low-rank-updated covariance and whitening matrix functions. It specifies when exact low rank is impossible despite excellent approximate low-rank performance, handles all repeated/inactive spectral configurations and all fractional exponents, and exhibits a sharp rank-one to full-rank phenomenon on a fully exact 2x2 example. The result is structural, not an unsupported accuracy or complexity improvement.",
+    "status": "PASS"
+  }
+}
