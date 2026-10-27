@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** Completeness follows from the Schur complement and the exact two-by-two Kraus Gram equations. The unique-common-ray assumption makes the complementary population contraction strict, so the auxiliary stationary density is uniquely the rank-one ray projector. The exact rate and phase invariance are algebraic identities. The recurrence classification then applies Loebens' expressly stated Theorem 3.8 for an auxiliary map with one stationary density; neither a universal first-return-probability statement nor a spatial mixing bound is asserted. Symbolic and complex-phase checks in `verify.py` passed.
+
+**Originality: PASS (best knowledge).** Loebens, arXiv:2501.01249v4, Section 6.1 Example 6.3 and ensuing open construction problem, treats one numerical stay completion and asks for explicit general conditions at fixed jump operators. The theorem here gives the full phase family for the unique-common-ray class, a phase-independent contraction invariant, and recurrence iff balanced jump magnitudes. Source statements, not just titles, were compared against the earlier generic recurrence theorem and Jacq–Lardizabal's non-lazy work. Relevant published-finding corpus claim searches and accessible prior finding claims did not expose equivalent or stronger coverage. Risk: a standard polar-completion argument might be implicit in channel-synthesis literature not retrieved.
+
+**Value: PASS.** The motivating article explicitly identifies fixed-jump tuning of the no-jump operator as an open design question and describes hand constructions as cumbersome. A uniform explicit family and a sharp, phase-independent decay invariant remove that obstacle for a structural, infinitely parametrized class, while preserving both recurrence and transient cases. This is a theorem about admissible quantum channels, not merely a one-off numerical table.
+
+**Limitations.** Only two-dimensional coins with exactly one common eigenray, positive available stay probability on that ray, and ray-preserving completions are classified. The first-return-probability notion is outside the proved claim; the imported recurrence criterion concerns expected occupation. Novelty is based on actual bounded comparisons, not certified global priority.
+
+Self-review: passed. Independent audit: not yet performed.
