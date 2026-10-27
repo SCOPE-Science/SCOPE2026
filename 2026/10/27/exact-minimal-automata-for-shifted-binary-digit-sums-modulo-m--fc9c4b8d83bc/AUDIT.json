@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "A read prefix has residual output a+s_2(v+d) modulo m. Exact transitions retain all reachable d/a pairs; equal d with different a differ on empty input, while unequal d are separated by suffix v=2^L-e, since the digit-sum difference is L-s_2(e-d-1)-1 and therefore cannot stay constant modulo m. Positive-carry states stabilize at depth ceil(log_2(c+1)); all m zero-carry residues occur. Thus the finite-set count is both attainable and a lower bound. At c=2^r each positive-carry depth has min(h+1,m) distinct residues. Independent Moore minimization, direct bit-sum outputs and finite-set enumeration passed on 1032 parameter pairs and 132096 direct inputs. No finite experiment was used as proof of the general formula.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.10017v1, Theorem 20, bounds the number of states for the binary-output Thue--Morse shift in MSD-first representation by 10c/3 and explicitly asks for the exact number.",
+        "Charlier--Cisternino--Massuir (EJC 28(3), P3.12, 2021) classify mT+r and arXiv:2512.10017v1 Remark 19 explains the transformation is distinct from automata outputting t(ni).",
+        "Moradi--Popoli--Shallit--Vukusic, arXiv:2603.18858, concern Fibonacci/Zeckendorf automata, not binary digit sums modulo arbitrary m."
+      ],
+      "reasoning": "The most relevant established results either change reading direction, output alphabet, underlying sequence, or translate a set by a different operation. Each difference prevents a direct logical implication of the full new count. In particular, binary parity data does not control states distinguished only modulo three or higher.",
+      "searches": [
+        "Moradi Rampersad Shallit 2025 shifted k automatic sequence digit sums minimum DFAO",
+        "arXiv:2512.10017v1 Theorem 20 section 4.1 and Remark 19",
+        "Charlier Cisternino Massuir 2021 multiplication translation Thue Morse set minimal automaton",
+        "State Complexity of Shifts of the Fibonacci Word 2603.18858"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.10017v1, sections 1--4 and 6, https://arxiv.org/html/2512.10017v1",
+      "Charlier et al. 2021 primary paper abstract and introduction, https://doi.org/10.37236/9068",
+      "arXiv:2603.18858 primary abstract, https://arxiv.org/abs/2603.18858",
+      "OEIS A382296 description, https://oeis.org/A382296"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 result gives a nonsharp upper bound for MSD parity shifts, while the present expression is an exact count for LSD shifted digit sums modulo m≥2.",
+        "The 2021 theorem counts languages for membership in qT+r, not the multi-output function n↦s_2(n+c) mod m."
+      ],
+      "reasoning": "The claimed formula is not a formal corollary of cited theorems. The prior parity case is a proper special case, but does not settle higher output moduli. The new distinguishability and reachable-residue arguments are given in full, rather than inferring originality from different titles.",
+      "searches": [
+        "arXiv:2512.10017v1 Theorem 20 Remark 19 Problem 1",
+        "Minimal Automaton for Multiplying and Translating Thue-Morse Set theorem",
+        "\"state complexity\" \"generalized Thue-Morse\" \"shifted\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A shifted generalized binary Thue--Morse word can be written as s_2(n+c) modulo m; the residual functions are a+s_2(v+d) modulo m. Moradi--Rampersad--Shallit, arXiv:2512.10017v1, distinguish MSD and LSD conventions in §§1--2."
+      ],
+      "reasoning": "Also compared output-word automata with language acceptors and carry-transducer presentations. The proof classifies all left residuals for LSD-first reading, so equivalent presentations reduce to the same exact state count. No covering equivalent statement appeared in examined sources.",
+      "searches": [
+        "\"digit sum\" \"s_2(n+c)\" \"automaton\" states",
+        "\"least-significant\" \"Thue-Morse\" \"shift\" \"states\" modulus",
+        "\"generalized Thue Morse\" shifted \"automaton\" \"state complexity\" LSD"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A382296 specifically tabulates minimal automata for t(i+n) with MSD-first input, not LSD-first or residues modulo m greater than two.",
+        "arXiv:2512.10017v1 §4.1 points to A382296 in its discussion of MSD shifts."
+      ],
+      "reasoning": "Known tabulations seen in source text are for MSD parity. No exact tabulation covering arbitrary modulus and every nonnegative shift was found. The finite checker results are new independent computations and cannot by themselves establish literature absence.",
+      "searches": [
+        "OEIS A382296 state complexity shifted Thue Morse msd-first",
+        "\"shifted\" \"Thue-Morse\" \"state complexity\" \"lsd-first\"",
+        "\"digit sum\" \"modulo\" \"shift\" \"state complexity\" Thue Morse"
+      ]
+    },
+    "rationale": "The closest inspected 2025 source handles shifts of the parity Thue--Morse word with most-significant-first input, yielding a linear upper bound rather than the present exact least-significant-first count for all output moduli. The 2021 Thue--Morse set theorem handles multiplication followed by translation of a set, not shifts of a multi-output digit-sum sequence; the 2026 Fibonacci work uses Zeckendorf representation and a different sequence. Known exact parity-only instances do not determine the modulus-dependent residue saturation, and the elementary carry construction is not itself a minimality theorem. Literature and equivalent-representation searches found no theorem whose hypotheses imply all the present parameters; possible unindexed coverage remains the principal residual risk.",
+    "residual_risks": [
+      "A general carry/transducer theorem in a textbook or unindexed source may imply the state formula without matching its phrasing.",
+      "The full 2021 paper was not exhaustively inspected beyond its stated object and opening text, although its declared operation and the 2025 comparison are structurally distinct.",
+      "Independent external literature-priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: paper's Thue--Morse shift statement is MSD-first binary-output; no formula for all-moduli LSD shifts",
+        "evidence": [
+          "§1 explicitly distinguishes input formats.",
+          "Theorem 20 states ≤10c/3 for MSD Thue--Morse shifts and says the bound need not be tight."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2512.10017v1",
+        "material_read": "Full accessible HTML text, especially introduction, §3 additive transducers, §4.1 Theorem 20 and Remark 19, §6 open questions",
+        "method": "Compared input orientation, output alphabet, exact versus upper-bound conclusion and transformation parameters",
+        "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+        "trigger": "Directly treats shift operations on automatic sequences and the Thue--Morse word"
+      },
+      {
+        "assessment": "DISTINCT_OBJECT: membership in mT+r, not the all-moduli shifted bit-sum output. Remaining full-document priority risk noted.",
+        "evidence": [
+          "Abstract identifies target language mT+r and base 2^p.",
+          "Remark 19 of arXiv:2512.10017v1 explicitly distinguishes these automata from t(ni)."
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v28i3p12/pdf/",
+        "material_read": "Primary PDF first page including abstract and introduction; comparison in arXiv:2512.10017v1 Remark 19",
+        "method": "Checked whether transformation and output are shift digit sum or membership in mT+r",
+        "title": "Minimal Automaton for Multiplying and Translating the Thue-Morse Set",
+        "trigger": "Plausible stronger state complexity theorem involving Thue--Morse, translation and modulus"
+      },
+      {
+        "assessment": "NOT_COVERING: Zeckendorf/Fibonacci instead of binary digit sums",
+        "evidence": [
+          "Paper studies Fibonacci word in Zeckendorf representation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.18858",
+        "material_read": "Accessible primary abstract and introduction excerpt describing Fibonacci/Zeckendorf input and the LSD case",
+        "method": "Compared underlying sequence and numeration system",
+        "title": "State Complexity of Shifts of the Fibonacci Word",
+        "trigger": "Studies exact shifted-sequence complexity with LSD-first automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fc9c4b8d-83bc-436c-a0e3-25ab7b26c5ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "All-shift exact minimal-state counts and an explicit finite invariant answer a natural automata-minimization question, not merely whether the sequence is automatic. The dyadic formula shows a sharp change of growth with the output modulus and gives a closed staircase family. The proof identifies a stable zero-carry component and separates every positive-carry residual, a useful structural reduction independent of finite computation. No downstream theorem is claimed or required.",
+    "status": "PASS"
+  }
+}
