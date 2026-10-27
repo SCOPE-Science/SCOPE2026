@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Henson universality and homogeneity identify complete finite-parameter types with admissible adjacency diagrams. The disjoint-independent-set condition for adjacent new vertices is forced precisely by excluding triangles. The five-vertex examples admit hand derivations of the one-point polynomials and three-state counts; the connected six-vertex examples have explicitly checked edges, degrees, cycles, and conditional counts. The claim of sharpness is finite and the complete labelled search through five vertices is exhaustive with all isomorphism permutations, rather than sampling. The witness computations were independently recomputed by the bundled checker.
+
+**Originality — PASS, qualified.** Henson's age theorem, standard one-type independence-polynomial identity, previously established general tuple-type counting formulas, and classic independence-equivalent graphs are prior. The asserted contribution is solely the combined minimal-separation theorem (five arbitrary, six connected, six even preserving degree multiset) in the Henson type-invariant setting. Targeted searches did not identify that complete implication comparison as previously stated. The abstract-only independence-equivalence source and potentially unindexed finite enumerations remain risks; an unsuccessful search is not proof of novelty.
+
+**Mathematical value — PASS.** The result locates exactly when passing from the entire one-point neighborhood-size spectrum to the ordered two-type profile recovers a distinction that the former loses. The additional connectedness and equal-degree constraint rules out a mere isolated-vertex artifact and gives a sharp, natural boundary for a standard model-theoretic invariant. It is a small exact classification, not a general complexity theorem or a new construction of the Henson graph.
+
+**Relationship and limits.** General counting identities and independence-equivalent graph examples are acknowledged as prior; independent verification has not been performed. The finite classification is exhaustive only through five vertices, which suffices for both minimality statements.
+
+Self-review: passed. Independent audit: not yet performed.
