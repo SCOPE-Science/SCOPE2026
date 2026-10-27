@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For all L>=2, k>=2, integer 1<=s<=floor(k/2), and 1<=j<L, exactly one active hyperedge is maintained. The two indexed front types have R_j -> R_(j+1) with probability s/k, R_j -> V_j otherwise, V_j -> V_(j-1) with probability s/k, V_j -> R_j otherwise; boundary states are absorbing. At every transient state the active group rings at rate 1. Direct substitution solves the coupled mean-time recurrences with U_j=(L-j)+((k-s)/s)j(L-j), V_j=j+((k-s)/s)j(L-j). Strictly positive absorption paths imply finite mean and uniqueness. Count of A voters is a bounded martingale, yielding fixation probability [j(k-s)+s]/[L(k-s)+s]. 336 exact labeled absorbing-chain computations independently reproduce both formulas and verify reachable states, including k=2s. The computation is finite corroboration, not the infinite-family proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chung--Tsiatas, Hypergraph Coloring Games and Voter Models (2012), https://cseweb.ucsd.edu/~atsiatas/voter.pdf , abstract, Sections 1-2, memoryless/partially memoryless interaction spectral framework",
+        "Papanikolaou et al., Consensus from group interactions, arXiv:2201.06421 full 24-page original preprint, introduction and model sections; predominantly majority influence and split/merge dynamics",
+        "Golovin--Mölter--Kuehn, Annalen der Physik 536 (2024), 2300342, open full text https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202300342 (model Sections 2.1, 2.2, Discussion); arXiv:2308.03640 originally posted 2023-08-07",
+        "Kim et al., arXiv:2407.11261: node-level group-driven voter rule and mean-field exit-time scaling; not simultaneous whole-hyperedge adoption."
+      ],
+      "reasoning": "The 2012 Markov framework covers arbitrary interaction state graphs abstractly but gives no dominating closed identity for this non-memoryless state-dependent proportional hyperpath. Earlier majority dynamics permit opinion drift and are not neutral. The 2024 source treats adaptive hypergraphs and closure; its p_adapt=0 fixed case is a possible specialization but a numerical/closure treatment does not imply this explicit exact first-passage formula without a new reduction.",
+      "searches": [
+        "Golovin Molter Kuehn polyadic opinion formation hypergraph overlap exact path consensus and 2022 Papanikolaou",
+        "proportional hyperedge consensus clock group updates cut expansion variance martingale expected consensus time bound",
+        "\"hypergraph voter\" \"group update\" \"path\" \"time to consensus\"",
+        "hypergraph voter model overlapping chain hyperedges proportional group consensus time exact formula",
+        "two adjacent overlapping hyperedges proportional voter rule absorption time birth-death"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2308.03640 (posted 2023-08-07, motivating source)",
+      "doi:10.1002/andp.202300342 full OA HTML",
+      "arxiv:2201.06421 full PDF",
+      "Chung--Tsiatas 2012 full PDF",
+      "arxiv:2407.11261 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Golovin--Mölter--Kuehn, Annalen der Physik 536 (2024), 2300342, open full text https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202300342 (model Sections 2.1, 2.2, Discussion); arXiv:2308.03640 originally posted 2023-08-07",
+        "Papanikolaou et al., Consensus from group interactions, arXiv:2201.06421 full 24-page original preprint, introduction and model sections; predominantly majority influence and split/merge dynamics",
+        "Chung--Tsiatas, Hypergraph Coloring Games and Voter Models (2012), https://cseweb.ucsd.edu/~atsiatas/voter.pdf , abstract, Sections 1-2, memoryless/partially memoryless interaction spectral framework",
+        "2013 language-contact multiple-group report encountered in published web search: qualitative quadratic group-number scaling uses token-memory dynamics, not the source proportional block-voting clock."
+      ],
+      "reasoning": "Golovin et al. supply the object/update rule and approximate metastable dynamics, not an implication proving the explicit first passage. Papanikolaou et al. use biased group influence. Chung--Tsiatas have abstract state-graph machinery but not a stronger path-specific closed hitting time. Known one-dimensional random walks provide the solution technique once the nontrivial invariant two-lane physical-state reduction is derived, and thus are acknowledged.",
+      "searches": [
+        "exact consensus fixation time chain of equal-size overlapping hyperedges hyperpath proportional whole-group voter propagation interface Markov birth death j(L-j-p)/(p(1-p))",
+        "overlapping group voter model hyperpath block updates domain wall sharp gambler ruin expected time quadratic group count",
+        "Golovin Molter Kuehn polyadic opinion formation hypergraph overlap exact path consensus and 2022 Papanikolaou",
+        "\"hypergraph\" \"voter\" \"hyperpath\" \"consensus time\" proportion",
+        "\"voter model\" \"overlapping groups\" \"consensus time\" exact",
+        "\"polyadic\" \"voter\" \"hyperpath\" \"gambler's ruin\"",
+        "\"hypergraph voter\" \"group update\" \"path\" \"time to consensus\"",
+        "hypergraph voter model overlapping chain hyperedges proportional group consensus time exact formula",
+        "two adjacent overlapping hyperedges proportional voter rule absorption time birth-death"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Golovin--Mölter--Kuehn, Annalen der Physik 536 (2024), 2300342, open full text https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202300342 (model Sections 2.1, 2.2, Discussion); arXiv:2308.03640 originally posted 2023-08-07",
+        "Papanikolaou et al., Consensus from group interactions, arXiv:2201.06421 full 24-page original preprint, introduction and model sections; predominantly majority influence and split/merge dynamics"
+      ],
+      "reasoning": "Equivalent forms would include persistent domain-wall walk, two-lane absorbing chain, unbiased block-voter update on a linear overlapping hypergraph, and a closed quadratic consensus hitting time. None appeared in the inspected model sections or retrieved exact-search results. Classic gambler ruin by itself supplies a method, not the hyperedge invariant reduction and clock-normalized parameter formula.",
+      "searches": [
+        "exact consensus fixation time chain of equal-size overlapping hyperedges hyperpath proportional whole-group voter propagation interface Markov birth death j(L-j-p)/(p(1-p))",
+        "overlapping group voter model hyperpath block updates domain wall sharp gambler ruin expected time quadratic group count",
+        "\"hypergraph\" \"voter\" \"hyperpath\" \"consensus time\" proportion",
+        "\"voter model\" \"overlapping groups\" \"consensus time\" exact",
+        "\"polyadic\" \"voter\" \"hyperpath\" \"gambler's ruin\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Golovin--Mölter--Kuehn, Annalen der Physik 536 (2024), 2300342, open full text https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202300342 (model Sections 2.1, 2.2, Discussion); arXiv:2308.03640 originally posted 2023-08-07",
+        "Chung--Tsiatas, Hypergraph Coloring Games and Voter Models (2012), https://cseweb.ucsd.edu/~atsiatas/voter.pdf , abstract, Sections 1-2, memoryless/partially memoryless interaction spectral framework"
+      ],
+      "reasoning": "No indexed exact table or known family-specific value for the L,k,s,j-dependent mean and fixation probability was found. Exact labeled checks support correctness, but are not considered a global literature database or originality proof.",
+      "searches": [
+        "hypergraph voter model clique-expansion conductance bound expected absorption consensus time",
+        "overlapping hyperedges proportional group update exact consensus time k/s overlap size",
+        "\"hypergraph\" \"voter\" \"hyperpath\" \"consensus time\" proportion",
+        "\"voter model\" \"overlapping groups\" \"consensus time\" exact"
+      ]
+    },
+    "rationale": "The inspected open-access original 2024 full text gives the proportional group-update mechanism and simulations with closure; it does not prove a single-front invariant hyperpath reduction or an exact group-count/overlap-dependent mean hitting time. The inspected 2022 full preprint uses majority-influence rules, and Chung--Tsiatas treat general hypergraph random walks, chiefly memoryless and partially memoryless spectral bounds. Exact formula searches returned no covering claim. Standard Markov-chain and martingale tools, as well as qualitative quadratic group-count scaling in related language-contact models, are prior work and not claimed as new. Scope of novelty is the specified closed-form, physically normalized hyperpath result, not absolute priority.",
+    "residual_risks": [
+      "No exhaustive historical mathematical-literature search; direct-but-unindexed or differently phrased formulas may exist.",
+      "Kim et al. 2024 preprint was checked by abstract only, though its distinct update rule reduces direct overlap likelihood.",
+      "The general Markov-chain methods of earlier work can in principle evaluate any finite instance, but no directly dominating closed L,k,s,j identity was found.",
+      "Only the polarized-front invariant class and no-rewiring clock are covered; no claim for all colorings."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proportional simultaneous whole-group propagation is explicit; adaptive/mean-field treatment does not state a hyperpath invariant-front exact time formula.",
+        "evidence": [
+          "Full text propagation section: choose entire group opinion in proportion to its prevalence.",
+          "Discussion: proportional voting can remain long-lived; moment-closure numerics."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/andp.202300342",
+        "material_read": "Open-access complete HTML: introductory model, propagation rule Section 2.1.2, mean-field derivation, simulations, Discussion.",
+        "method": "Full-text navigation and targeted searches for exact path, mean consensus time, proportional update and closure",
+        "title": "Polyadic Opinion Formation: The Adaptive Voter Model on a Hypergraph",
+        "trigger": "Same update rule and primary motivating paper"
+      },
+      {
+        "assessment": "Majority/minority influence and split/merge framework; no direct neutral proportional hyperpath mean hitting-time coverage identified.",
+        "evidence": [
+          "Abstract reports group amplification and magnetization drift.",
+          "Introduction and Section 2 prescribe majority-influence group mechanism."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2201.06421",
+        "material_read": "Accessible 24-page arXiv PDF: abstract, Introduction pp 1-4, dynamics and model assumptions, analysis scope.",
+        "method": "PDF textual examination of model, primary results and assumptions",
+        "title": "Consensus from group interactions: An adaptive voter model on hypergraphs",
+        "trigger": "Closest preceding hypergraph group consensus work"
+      },
+      {
+        "assessment": "Gives general Markov representation and mixing estimates rather than exact polarization-front fixation and hitting time for state-dependent proportional group propagation.",
+        "evidence": [
+          "General interaction state-graph definition in Section 2.",
+          "Theorems 1-2 and Section 5 focus on memoryless or partially memoryless mixing."
+        ],
+        "identifier_or_url": "https://cseweb.ucsd.edu/~atsiatas/voter.pdf",
+        "material_read": "Seventeen-page PDF: title/abstract, Sections 1-2 and statements on memoryless, partially memoryless state graph, mixing results.",
+        "method": "Full parsed page coverage with targeted study of model/result sections and opening page image inspection",
+        "title": "Hypergraph Coloring Games and Voter Models",
+        "trigger": "Potential broad random-walk coverage of arbitrary hypergraph voting"
+      },
+      {
+        "assessment": "Node selection and multiple observations within one group, not all-members-propagate update; full-text priority risk remains.",
+        "evidence": [
+          "Abstract describes group-driven node voting with group constraint."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.11261",
+        "material_read": "Public arXiv abstract and search-indexed study of model update mechanism",
+        "method": "Abstract and search snippet, not full text",
+        "title": "Competition between group interactions and nonlinearity in voter dynamics on hypergraphs",
+        "trigger": "Similar recent group-based voter consensus time"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6afd14e-3ff7-451e-9695-611177fa1591",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite-size metastability and influence of group geometry are central questions for proportional polyadic opinion spreading (Golovin--Mölter--Kuehn). On an arbitrary-length genuine overlapping group path with a polarized interface, the reduction stays finite-dimensional, and the precise waiting time has a quadratic L^2 term with sharp inverse-overlap factor (k-s)/s. This resolves a natural initial-condition/bottleneck problem at all admissible integer sizes, gives a neutral fixation benchmark, and distinguishes structural delay from mean-field estimates. A natural complete parametric first-passage classification, not arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}

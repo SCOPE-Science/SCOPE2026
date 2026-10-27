@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The physical-clock convention, connected hyperpath construction, initial labeling, and edge-update law are explicit. Direct inspection establishes an invariant single-active-edge front; a two-lane finite chain gives the displayed recurrences with absorbing endpoints. Their explicit solutions are checked by substitution, and expected absorption is finite. A bounded neutral count martingale proves the exact fixation probability. All 336 labeled exact-rational absorbing-chain comparisons pass. Finite checks supplement rather than replace the general proof.
+
+**Originality — PASS (self-review provisional).** Full open-access text of the motivating 2024 article and the 2022 group-interaction preprint were compared, as was the broad 2012 hypergraph-coloring framework. The motivating work supplies the proportional group-update definition and numerical mean-field phenomena; the other full texts give different interaction rules or general Markov frameworks. Searches for overlapping-hyperedge path, domain-wall first-passage, quadratic time, and the explicit parameters did not locate a stronger or equivalent closed first-passage theorem. This is evidence of noncoverage among checked material, not proof of absolute priority. A related 2013 language-group report and the 2024 group-driven-voter preprint are not identical dynamics; their qualitative group-size scaling is credited. Residual publication-priority uncertainty remains.
+
+**Value — PASS.** Long-lived coexistence in group voting motivates quantitative dependence on interaction geometry. The theorem shows that a polarized interface does not proliferate into a high-dimensional stochastic system on a genuine hypergraph path, and gives a complete mean/fate law with a quadratic number-of-groups term and inverse overlap fraction. This identifies the precise cost of a narrow social bridge under the source's update mechanism rather than an arbitrary enumerated number.
+
+**Limits.** No rewiring, arbitrary configurations, independent updates, majority voting, or random-network mean-field claims. Exact group clocks are essential. Neither broad publication uniqueness nor independent validation is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
