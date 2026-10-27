@@ -1,0 +1,100 @@
+{
+  "correctness": {
+    "rationale": "The fixed C-infinity coefficient construction is positive where required, compactly supported, and independent of epsilon. Two-cell exact affine moments give sampled forcing p=2+epsilon^2 and sampled drift q=1-2epsilon^2, while midpoint policy matrices are exactly 2 and 3. The nonresidual branch images reverse the switch, proving an all-start two-cycle; the residual map becomes an affine contraction after the first step with exact rate 2epsilon^2/3 and biased root. Strictly increasing consistent residual F_0(a)=2(a-1)+(a-1)_+ has unique root 1. A separate exact-rational checker reproduces eight sample cases. This finite check supports but is not substituted for the symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bokanowski–Maroso–Zidani (2009), monotonicity and exact-evaluation hypotheses in Theorem 2.5.",
+        "Hall–Smears–Süli–Wells (2026), §3, numerical behavior under default nonmatching quadrature."
+      ],
+      "reasoning": "An exact-Hamiltonian policy-evaluation theorem does not imply convergence under inconsistent policy selection/evaluation. Conversely, the earlier empirical statement that some nonmatching quadratures fail does not imply failure for every positive perturbation scale of a fixed smooth example, nor the exact global two-branch phase classification or residual-form bias and rate.",
+      "searches": [
+        "arXiv:2606.24806 The Effect of Quadrature on the Convergence of Policy Iteration for Hamilton-Jacobi-Bellman Equations Hall Smears Suli Wells",
+        "Two positive affine exact quadrature rules arbitrarily close cause periodic switching chattering for nonresidual Hamilton Jacobi Bellman Howard finite element policy iteration",
+        "\"inexact policy iteration\" \"cycling\" Hamilton Jacobi Bellman quadrature",
+        "\"policy iteration\" \"cycle\" \"approximate policy evaluation\" error tolerance"
+      ]
+    },
+    "checked_sources": [
+      "Hall, Smears, Süli, Wells, arXiv:2606.24806v1 (full HTML primary text).",
+      "Bokanowski, Maroso, Zidani, SIAM J. Numer. Anal. 47 (2009), DOI:10.1137/08073041X, author-manuscript HTML text."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.24806v1, equations (8) and (9), numerical experiment and conclusion.",
+        "Bokanowski et al. (2009), §§2–4 and exact finite-policy convergence results."
+      ],
+      "reasoning": "The motivating work supplies the algorithm definitions and qualitative existence of quadrature-caused nonconvergence/linear slowdown, not a uniform zero-tolerance theorem. The new claim additionally fixes the smooth coefficients once, uses two affine-exact positive rules approaching one another, computes all induced maps exactly, and gives all-start cycle, floor, and residual-form contraction. The 2009 convergence theorem assumes policy solves match their residuals, which is violated here.",
+      "searches": [
+        "arXiv:2606.24806 The Effect of Quadrature on the Convergence of Policy Iteration for Hamilton-Jacobi-Bellman Equations Hall Smears Suli Wells",
+        "residual form policy iteration mismatched quadrature exact contraction factor offset nonresidual two-cycle",
+        "Two positive affine exact quadrature rules arbitrarily close cause periodic switching chattering for nonresidual Hamilton Jacobi Bellman Howard finite element policy iteration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hall et al. (2026), arXiv:2606.24806v1, §§2.2–3, equations (8)–(9): nonresidual versus residual quadrature variants; examples of lost/linear convergence.",
+        "Bokanowski et al. (2009), Theorem 2.5 and Theorem 3.4: exact Howard iterations for a consistent family of Bellman residuals."
+      ],
+      "reasoning": "The new exact dynamical system is not a reparameterization of the consistent Howard iteration: its branch selection uses midpoint data but its evaluation forcing uses a distinct quadrature. The 2026 source exhibits numerical nonconvergence, but does not state or derive this fixed-smooth-data, arbitrary-small same-order quadrature family or its exact two-cycle/linear-rate formulas.",
+      "searches": [
+        "arXiv:2606.24806 The Effect of Quadrature on the Convergence of Policy Iteration for Hamilton-Jacobi-Bellman Equations Hall Smears Suli Wells",
+        "nonmatching quadrature one degree of freedom piecewise linear finite element policy iteration exactly periodic two-cycle arbitrary small symmetric perturbation",
+        "residual form policy iteration mismatched quadrature exact contraction factor offset nonresidual two-cycle"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or scientific record returned with the same HJB finite-element scalar quadrature construction. Public records nearest in general theme treat other iterative maps, including scalar two-cycles unrelated to HJB policy evaluation."
+      ],
+      "reasoning": "This is a parameterized analytical finite-element construction, not a known tabulated invariant or numerical recomputation. Results involving generic cycles for other algorithms have different update maps and do not dominate this claim. Incomplete indexing remains a residual risk.",
+      "searches": [
+        "nonmatching quadrature one degree of freedom piecewise linear finite element policy iteration exactly periodic two-cycle arbitrary small symmetric perturbation",
+        "residual form policy iteration mismatched quadrature exact contraction factor offset nonresidual two-cycle",
+        "Hall Smears Süli Wells quadrature mismatch policy iteration residual linear convergence exactly two-cycle one interior hat"
+      ]
+    },
+    "rationale": "The central pre-existing qualitative fact is quadrature-induced failure of policy iteration, from Hall et al. (2026). The distinct assessed claim is the fixed smooth one-degree-of-freedom construction with two positive symmetric degree-one-exact quadratures at arbitrarily small separation, exact global cycle and strict moment phase classification, together with an exact contrasting residual linear rate and bias. Classical exact Howard convergence theorems require consistent policy residuals and therefore do not dominate this mismatch. Some specialized unindexed or uninspected equivalence remains possible.",
+    "residual_risks": [
+      "Some additional specialized inexact-Howard/quadrature literature may contain an equivalent smooth one-node construction that was not indexed by the completed searches.",
+      "The qualitative warning about mismatched quadrature was already published in 2026 and is not part of the originality claim."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the exact two algorithmic forms used here. Reports a numerical loss of convergence and linear-rate slowdown but does not supply the fixed smooth one-node symmetric-quadrature family, exact two-moment phase boundary, or exact contraction/biased root.",
+        "evidence": [
+          "arXiv:2606.24806v1, §§2.2–3, eqs. (8)–(9), §4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.24806",
+        "material_read": "Full openly available HTML manuscript: introduction, §2 equations (1)–(9), §3 experimental setup and interpretations, §4 conclusion and references.",
+        "method": "Read primary-source manuscript text and compare update definitions, logical claims, exact parameters and examples.",
+        "title": "The Effect of Quadrature on the Convergence of Policy Iteration for Hamilton-Jacobi-Bellman Equations",
+        "trigger": "Direct motivating paper defining the two discrete variants and reporting their different convergence behavior."
+      },
+      {
+        "assessment": "Its finite termination and superlinear conclusions concern exact Howard policy updates from a common Bellman residual. The inconsistent right-hand forcing in the new nonresidual step violates that premise, so the older theorem does not cover or contradict the result.",
+        "evidence": [
+          "Bokanowski, Maroso, Zidani (2009), Theorems 2.5 and 3.4; author manuscript HAL inria-00179549."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/29647850_Some_Convergence_Results_for_Howard%27s_Algorithm",
+        "material_read": "Author-manuscript HTML text including algorithm (Ho-1), assumptions (H1)–(H3), Theorem 2.5, Theorem 3.4 and their proofs, and finite-policy discussion; original publisher PDF access not needed for those specific comparisons.",
+        "method": "Inspected mathematical policy-update and residual consistency hypotheses and compared them to the mismatched quadrature map.",
+        "title": "Some Convergence Results for Howard's Algorithm",
+        "trigger": "Classical finite-policy convergence theorem plausibly stronger than a finite two-policy toy example."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e1016f3a-81a8-4a84-bc41-83306648f1ee",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result rules out any unconditional positive quadrature-mismatch tolerance for convergence, despite smooth fixed coefficients, stable/strictly monotone consistent discrete equations and matched low-order exactness. It gives a minimal reproducible mechanism and the exact nonlinear residual bias and contraction factor, allowing direct discrimination between nonresidual chattering and residual slowdown. The policy tie at the discrete solution is an explicit essential boundary, not concealed in a broad claim.",
+    "status": "PASS"
+  }
+}
