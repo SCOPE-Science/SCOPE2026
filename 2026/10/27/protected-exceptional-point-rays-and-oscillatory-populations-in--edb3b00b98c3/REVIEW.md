@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The projected occupation generator follows by explicit evaluation of every jump matrix, including the off-diagonal quantum-coherence channels. Its characteristic polynomial has the factored discriminant and establishes the two exceptional rays. Cayley–Hamilton gives the exact propagator, including Jordan critical terms. A surjective intertwining map proves that the defective population quotient forces the full Liouvillian to be defective even with arbitrary diagonal energy shifts and pure dephasing. Independent finite matrix calculations reproduced 1,820 checks, without using enumeration as proof.
+
+**Originality — PASS, qualified best-knowledge.** The source's full qutrit sections derive the stationary state and Wigner function, not the present transient classification or protected Liouvillian defect. Earlier static Wigner-negativity classification of the same oscillator concerns disjoint invariants and does not imply this time-dependent theorem. Prior oscillator and qubit Liouvillian exceptional-point papers have different generators. The canonical three-cycle Markov generator is related and the algebraic discriminant is elementary; a general published theorem on invariant Markov quotients could subsume portions of the result. This unresolved risk is explicitly noted rather than claimed away. No independent priority validation was performed.
+
+**Value — PASS.** The theorem identifies two sharp, physically tunable boundaries between damped oscillatory photon counts and real-mode decay in a newly introduced quantum model. Its robust Jordan lift demonstrates a persistent Liouvillian exceptional point even when substantial diagonal dephasing and spectral detuning alter the quantum coherences. This provides a complete and experimentally observable population-sector phase classification, not an arbitrary parameter slice.
+
+**Closest work and limits.** Chattopadhyay–Pendse–Gupta, arXiv:2610.19904v1; Tay, arXiv:2304.05792; Larson–Qvarfort, arXiv:2306.12322. The result is limited to the qutrit truncation and diagonal perturbations, and does not classify other sectors or the full spectral gap.
+
+Self-review: passed. Independent audit: not yet performed.
