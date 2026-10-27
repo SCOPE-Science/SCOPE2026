@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The Mellin moment formula is exact for every \(s>0\) and fixes normalization. The Eulerian recurrence, simple negative roots and reciprocal structure give precisely \(m-1\) inner roots and a simple boundary root at \(s=2m\). On compact portions of the closed disk the polylogarithm is stable, and the uniform singular expansion near \(t=1\) rules out missing boundary arrivals. Implicit differentiation at \(t=-1\) gives the eta-derivative formula, reduced by the zeta functional equation to the positive odd-zeta quotient. Spot checks in the included executable file verify finite arithmetic cases, not the quantified theorem.
+
+**Originality — PASS, subject to publication-priority risk.** Miller and Yamamori provide the negative-integer polylogarithm identities and polylogarithmic Bergman precedent. Durán documents negative real Eulerian zeros. A Euclidean-distance weighted kernel classification uses different radial monomial norms and its exact zeros do not entail this Mellin-log example. Blaschke analyzes logarithmic singularities at the boundary under distinct weights. The new contribution claimed is the exact local real-order root census at every even positive parameter together with positive odd-zeta entrance speed, rather than integer identities or eta values alone. An earlier equivalent result in unindexed special-function literature is possible.
+
+**Mathematical value — PASS.** Canonical explicit radial Hilbert norms permit a natural parameter-dependent Lu Qi-Keng question. The theorem proves a nontrivial all-order phase-transition structure (one new disk zero at each \(s=2m\)), and supplies precise velocities with arithmetic constants. It is not a complete count over all real \(s>0\), and no uniform width in \(m\) is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
