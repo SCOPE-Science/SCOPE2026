@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The line-usage counting is forced because each selected vertex has exactly one selected neighbor, and all components are pairwise line-disjoint dominoes. At most one row and at most one column may be missing, and they may not both be missing. A missing row forces every domino vertical via the duplicated-singleton signature obstruction, yielding a=2b+1; symmetry gives the other exceptional case. When no line is missing, linear row/column equations give the three-divisibility condition and h,v. The converse establishes distinctness among all selected and unselected signatures, including potential swapped row-column decompositions. Labeled block matching counts exactly once and gives the EGF. Direct adjacency enumeration checks all 20 rectangles in check_output.txt, but is explicitly not the infinite proof. Boundary a=b=1 yields no code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cappelle--Coelho--Foulds--Longo (arXiv:2103.07972; public 2021-03-14), full paper: P4-tidy graphs and complementary prisms of cographs, plus hardness for planar subclasses.",
+        "Seo--Slater 2017, Theorem 3.3 characterizes codes in graphs of girth at least five; nontrivial rook graphs with both factors at least two have 4-cycles, and with any factor at least three have triangles.",
+        "Studer--Haynes--Lawson 2000, Ars Combinatoria 57, abstract and Section 2 distinguish induced-paired domination from locating identification.",
+        "Previously available full dissociation-polynomial claim on rectangular rook graphs gives all component-profile weights, but includes induced-matchings with colliding or empty open signatures; it does not assert a classification of open-independent locating codes."
+      ],
+      "reasoning": "General complexity/hardness results do not determine exact family values; the girth-at-least-five criterion is inapplicable to R_{a,b} for a,b>=2; other exact graph-family theorems do not produce these factorial coefficients. The weaker induced-paired property does not imply unique open-neighbor signatures.",
+      "searches": [
+        "web: 2022 open independent open locating dominating set rook graph triangular graph line graph complete bipartite",
+        "web: \"open-independent, open-locating-dominating sets\" \"Cartesian product\"",
+        "web: \"induced-paired domination\" \"rook graph\" \"complete bipartite\"",
+        "web: \"open-independent\" \"K_m\" \"K_n\" \"product\"",
+        "PDF full-text checks: arXiv:2103.07972v4; Seo--Slater 2017 DOI 10.5614/ejgta.2017.5.2.2"
+      ]
+    },
+    "checked_sources": [
+      "https://www.ejgta.org/index.php/ejgta/article/download/210/pdf_47",
+      "https://dmtcs.episciences.org/en/articles/8440/download",
+      "https://arxiv.org/abs/2103.07972",
+      "https://combinatorialpress.com/article/ars/Volume%20057/volume-57-paper-11.pdf",
+      "https://combinatorialpress.com/ars-articles/volume-057-ars-articles/induced-paired-domination-in-graphs/",
+      "published-finding corpus search results for five exact semantic queries above",
+      "published-finding corpus follow-up semantic queries combining rook graphs, exact dissociation profile census, and open-independent open-location"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 paper defines the exact signature condition and gives a high-girth local criterion, path and tree results, and infinite lattice densities. It does not present the full rook-graph factorial enumerator.",
+        "The 2022 paper provides structural characterizations for P4-tidy families, not a count for the two-factor complete Cartesian products in all dimensions.",
+        "Induced-paired domination demands that the selected vertices induce independent edges, but lacks uniqueness of the open-neighborhood signatures on all vertices, so any theorem for it cannot by itself imply the new exact code census.",
+        "Previously available rook-graph dissociation analysis classifies all profiles of disjoint horizontal/vertical dominoes plus singleton components, with profile multiplicities p!q!/(u!v!h!k!c!2^(h+k)). The stronger open-independent locating predicate is not among its stated conditions.",
+        "Follow-up published-finding corpus queries aimed at dissociation/open-locating implication returned generic dissociation studies on complete multipartite graphs and fan graphs, but no result stating the rook-graph open-signature filter."
+      ],
+      "reasoning": "These are related hypotheses and general methods, not statements implying the three-case existence law and complete solution counts. The proof of this claim supplies the missing open-signature collision analysis and covers all board dimensions. Potential alternative indexing of the same mathematical problem remains the chief priority risk. Crucially, the previous dissociation theorem implies the combinatorial factorial weights, not the exact new open-neighborhood injectivity/coverage filter; the latter is proved here and is the novel source of the restricted three-case result.",
+      "searches": [
+        "Full-text: Seo--Slater 2017 pp.179--193, Theorems 3.2--3.5 and Section 4",
+        "Full-text: Cappelle et al. 2022, arXiv:2103.07972v4, introduction and Sections 3--4",
+        "Scan: Studer et al. 2000 induced-paired domination pp.111--128, abstract and early results",
+        "published-finding corpus: open-independent open-locating-dominating sets line graphs of complete bipartite graphs",
+        "Own available claim comparison: rectangular rook-graph dissociation polynomial, opaque item 93cf6fba-e882-414d-9c82-acf6179fc1a7",
+        "published-finding corpus: rook graph open-independent open-locating-dominating sets compared with dissociation polynomial induced matching and nonempty pairwise distinct open signatures, sharp exceptional one-unused-row boundary",
+        "published-finding corpus: rectangular rook graph exact dissociation polynomial singleton domino component profile induced matching all graph locating dominating sets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph K_a square K_b is the line graph L(K_{a,b}); searches included both graph names and horizontal/vertical domino language.",
+        "S. J. Seo and P. J. Slater (2017), DOI 10.5614/ejgta.2017.5.2.2, Section 3 introduces exactly the OLDOIND signature requirements but treats general complexity, paths, trees and infinite grids.",
+        "published-finding corpus closest by similarity included SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f, which studies cut homology rather than detector codes."
+      ],
+      "reasoning": "An induced matching by itself is only a necessary structural condition. Exact open-neighborhood separation, the modular existence boundary, and all-set enumeration are substantially stronger. No equivalent parameter under the searched aliases was found; this does not exclude unindexed equivalences.",
+      "searches": [
+        "published-finding corpus: OLD_oind open locating dominating induced matching consisting of disjoint horizontal and vertical dominoes on rectangular rook graphs K_m square K_n",
+        "published-finding corpus: open-independent open locating dominating configurations of line graph of complete bipartite K_{m,n} enumerated by factorial a!b! divided by powers of two",
+        "web: \"open-independent\" \"rook graph\" \"locating\"",
+        "web: \"OLDoind\" \"line graph\"",
+        "web: \"open-independent locating\" \"rook graph\"",
+        "web: \"open independent\" \"locating\" \"cartesian product\" graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact open-independent locating-code rook-family table was returned by the targeted searches. published-finding corpus nearest entries included rook-graph homology results SCOPE-row-column-boundary-spheres-control-higher-neighborhood-homology--f09a20a3ee45 and SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f, which concern different invariants.",
+        "Direct finite exhaustive results, provided in check_output.txt, include C_{2,5}=30, C_{3,3}=9, C_{4,5}=180, and C_{4,4}=0."
+      ],
+      "reasoning": "The located records do not provide a stronger table from which the result follows. A failed database search is not a uniqueness certificate, and nonliterature finite checks only test correctness.",
+      "searches": [
+        "published-finding corpus: An open-independent open-locating-dominating set in the rook graph K_a cartesian K_b exists exactly if dimensions are balanced and sum divisible by three, or differ by twice plus one; complete classification and enumeration",
+        "published-finding corpus: total identifying open codes matching-induced regular graph rook graph independent open locating domination",
+        "web: \"OLD_oind\" \"cartesian\" \"complete\"",
+        "web: \"open-independent\" \"Hamming graphs\" \"locating\""
+      ]
+    },
+    "rationale": "The source-defining 2017 and 2021/2022 articles were inspected at their relevant theorems and graph-family discussions: neither establishes a full rook-graph dimension criterion, all-set domino classification, factorial census, or bivariate EGF. Studer et al. (2000) require only induced matching and ordinary domination, not pairwise distinct open signatures. Targeted synonym searches disclosed no implication covering the theorem. This is best-knowledge originality, not a proof of world-wide priority. A previously available rook-graph dissociation-polynomial formula already enumerates all line-disjoint domino components and supplies the factorial component weights. The present factorial factors can be recovered from that formula after the additional open-signature admissibility criterion is proved, and are not claimed as independent from that combinatorial census. The genuinely different assertion is the exact open-independent locating predicate on the dissociation profiles, with its sharp absent and boundary cases.",
+    "residual_risks": [
+      "Unindexed or differently phrased earlier work may already classify open-independent locating codes on K_a square K_b or L(K_{a,b}).",
+      "The 2000 induced-paired domination scan inspected the relevant abstract/early material, not every scanned page; no decisive same-parameter coverage was suggested by its stated problem or section roadmap.",
+      "No search result or database partition can establish absolute research priority.",
+      "The factorial profile weights are already available in a broader dissociation count; the novelty claim rests on the newly proved nonempty-and-distinct open-signature criterion and sharply characterized admissible profiles, not on independent discovery of these counting weights."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides definitions, NP-completeness, path/tree and infinite lattice results; no directly covering rook-graph all-set theorem found in inspected material.",
+        "evidence": [
+          "DOI:10.5614/ejgta.2017.5.2.2",
+          "Theorem 3.3 is explicitly for girth at least five",
+          "Section 4 treats infinite square/hexagonal/triangular lattice densities"
+        ],
+        "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/download/210/pdf_47",
+        "material_read": "PDF abstract, definitions, Section 3 propositions and theorems on paths/trees/high girth, and Section 4 results on infinite lattices; searches across parsed 15-page text for Cartesian, complete bipartite, and line graph.",
+        "method": "Primary open-access PDF parsed text, targeted theorem reading, and visual page screenshot.",
+        "title": "Open-independent, open-locating-dominating sets",
+        "trigger": "Foundational 2017 introduction and most plausible source of general coverage."
+      },
+      {
+        "assessment": "No direct rook-graph existence or enumerative formula in the relevant statements; graph-family focus differs.",
+        "evidence": [
+          "arXiv:2103.07972v1 date 2021-03-14",
+          "DOI:10.46298/dmtcs.8440",
+          "Primary MSC2020 05C69 shown in publisher metadata"
+        ],
+        "identifier_or_url": "https://dmtcs.episciences.org/en/articles/8440/download",
+        "material_read": "PDF introduction and definitions pp.1--3, Theorem 3.5 and Sections 3--4 about P4-tidy and complementary-prism cograph characterizations; targeted full-document text searches for line graphs and complete bipartite.",
+        "method": "Open-access journal PDF text plus screenshots of pages 1 and 3; arXiv v1 submission metadata cross-check.",
+        "title": "Open-independent, open-locating-dominating sets: structural aspects of some classes of graphs",
+        "trigger": "Literature anchor; earliest public arXiv submission on 2021-03-14, verified independently on arXiv abstract page."
+      },
+      {
+        "assessment": "Necessary induced-matching structure is related, but their problem does not require total open-location distinguishability and reported scope concerns hardness, bounds, cycles, trees.",
+        "evidence": [
+          "Studer, Haynes and Lawson, Ars Combinatoria 57 (2000), 111--128",
+          "No complete rook-graph OLDOIND factorial census identified in accessible material"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20057/volume-57-paper-11.pdf",
+        "material_read": "Scanned PDF abstract/definitions on p.1 and early Section 2 results on p.3; publisher article description and section roadmap.",
+        "method": "Publisher primary PDF visual screenshots; accessible descriptive abstract.",
+        "title": "Induced-Paired Domination in Graphs",
+        "trigger": "Induced-paired domination is the most relevant weaker synonym for the domino-decomposition part."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f15a7bc0-7e69-4440-a8f5-07a2a15eb2ce",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete natural-family classification of a location-detection invariant whose general existence problem is computationally hard. It gives a surprising dimension-modulo-three/nonmonotone existence pattern, rigid solution size, sharp one-unused-line exceptions, exact factorial counts and a bivariate exponential species enumerator. These facts are not routine relabelings or known scalar parameter substitutions and may inform other line-graph locating-code calculations. The natural rook graph/line graph of a biclique motivates every dimension and coefficient. The factorial factors themselves may be obtained from an existing rook dissociation enumeration, but that general counting result does not give the open-signature selection rule, the existence criterion, or the two exceptional ratios.",
+    "status": "PASS"
+  }
+}
