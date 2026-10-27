@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Inductively upper-bound the optimal continuation V_(k-1)(Y) by c(Y+(L-1)z), where c is the global supremum ratio, then apply E[Y]=z. Explicit derivative has the unique maximizer u*=z(M/z)^(1/k) for L>1, and the two-point law exactly attains the affine bound. The base k=1 and L=1 are treated separately. Convexity establishes monotonicity and Taylor expansion gives the sharp first-order gap. A standalone executable passed symbolic identities, rational instances and 15,375 finite inequalities; the analytic proof is the universal certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuszmaul Proposition 2.2 bounds success by (x/M)^(1/L) for arbitrary time, a strictly larger quantity than P_N for L>1 and finite N.",
+        "Yao (2007), DOI 10.1239/jap/1175267173, and Yao–Chen (2008), DOI 10.1239/jap/1214950356, optimize a fixed-odds primitive casino with stake constrained by nonnegative wealth; its Bellman alternatives do not allow a next fortune below zero."
+      ],
+      "reasoning": "An upper bound on infinite-horizon success does not imply the strict N-dependent upper bound, and fixed-odds nonnegative-stake bold-play theorems operate on a different admissible-distribution class. General martingale-control theorems may still recover this special envelope, so independent coverage remains a residual risk.",
+      "searches": [
+        "Kuszmaul With Leverage the Gambler is Not the One Who Gets Ruined number of bets horizon optimal policy",
+        "finite horizon Dubins Savage gambling equal bet proportional bankroll optimal strategy martingale",
+        "finite horizon optimal fair gambling arbitrary stakes leverage gambler's ruin equal gains sequence bound"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.19239v1 (Kuszmaul; original full HTML)",
+      "DOI:10.1239/jap/1214950356 (Yao and Chen; publisher PDF pp 403–407 inspected)",
+      "DOI:10.1239/jap/1175267173 (Yao; abstract and indexed introduction inspected; full text unavailable)",
+      "published-finding corpus record 2026/10/4/SCOPE-lattice-plateaus-in-horizon-optimal-flattened-bernoulli-e-tests--fc6451947d7b (mathematically different)",
+      "published-finding corpus record 2026/10/4/SCOPE-exact-worst-case-gap-between-sympol-and-optimized-constant-betti--6a854b688a43 (different betting test statistic)",
+      "Accessible prior local research ledgers (claim-level deduplication only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lemma 2.1 of arXiv:2610.19239v1 proves lower bound P_N via a specific fixed-multiplier strategy; Proposition 2.2 proves only upper bound R^(-1/L). For L>1, N finite and R>1, P_N<R^(-1/L), leaving a genuine nonzero gap.",
+        "Yao–Chen (2008) Theorem 1, pp 406–407, has a Bellman recurrence in a fixed-probability two-outcome casino with stake y<=f, not arbitrary mean-constrained lotteries Y>=-(L-1)f."
+      ],
+      "reasoning": "Combining the motivating lower and unbounded upper inequalities leaves (P_N,R^(-1/L)) unexcluded; the derived affine dual closes that gap exactly. Finite-horizon classical bold play neither implies this admissible-law envelope nor the specified optimizer. The sharp 1/N error is then a nontrivial quantitative consequence of the new identity.",
+      "searches": [
+        "finite-step optimal martingale betting capital floor negative leverage target before bankruptcy exact Bellman dynamic programming",
+        "Kuszmaul With Leverage the Gambler is Not the One Who Gets Ruined number of bets horizon optimal policy",
+        "Kuszmaul gambler leverage finite number rounds exact success probability",
+        "finite horizon martingale gambler ruin \"multiplicative\" \"leverage\" \"success probability\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuszmaul, arXiv:2610.19239v1 Lemma 2.1 gives P_N for its particular epsilon-doubling policy once epsilon=(M/x)^(1/N)-1, hence the expression itself is a previously known *achievable* probability.",
+        "The new Bellman result is an upper bound uniformly over arbitrary adaptive conditional fair lotteries, plus uniqueness for L>1, not implied by a policy calculation."
+      ],
+      "reasoning": "Equal growth factors or epsilon-doubling are equivalent ways to specify the successful path. The source calculates that one policy; it does not prove that all other horizon-N lotteries fail to improve it. The present claim states and proves the missing optimization and sharp gap.",
+      "searches": [
+        "Finite horizon n-step leveraged gambler fair bets ruin optimal probability L/(L+r^(1/n)-1) power n, equal multiplicative gains",
+        "finite-step optimal martingale betting capital floor negative leverage target before bankruptcy exact Bellman dynamic programming",
+        "\"finite horizon\" \"leverage\" gambler ruin optimal \"n\" bets",
+        "fair betting leverage probability success fixed number bets equal growth ratio optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Four published-finding corpus search queries returned ranked records but no exact probability frontier in their summaries. Closest superficially relevant record: 2026/10/4/SCOPE-lattice-plateaus-in-horizon-optimal-flattened-bernoulli-e-tests--fc6451947d7b; it optimizes lattice-threshold likelihood-ratio e-processes, not leveraged fair-bankroll wealth.",
+        "2026/10/4/SCOPE-exact-worst-case-gap-between-sympol-and-optimized-constant-betti--6a854b688a43 optimizes a test statistic ratio rather than multi-step bankruptcy probability."
+      ],
+      "reasoning": "Neither the accessible ledger claim comparison nor published-finding corpus mathematical record search located a database/table enumerating N-step optima for the leveraged negative-wealth fair-bet problem. Search absence is not a proof of novelty.",
+      "searches": [
+        "Finite horizon n-step leveraged gambler fair bets ruin optimal probability L/(L+r^(1/n)-1) power n, equal multiplicative gains",
+        "sharp finite horizon optimal probability leverage game martingale gambler adaptive lotteries bankruptcy negative wealth equal multiplicative up bets power L/(L+R^(1/N)-1)",
+        "\"L/(L+\" \"gambler\" \"n\" \"leverage\" probability",
+        "\"r^(1/n)\" \"gambling\" \"probability\" \"leverage\""
+      ]
+    },
+    "rationale": "The original 2026 paper explicitly supplies the equal-multiplier attainable probability but only an unbounded-time upper bound. The new finite-N universal upper bound over all history-dependent fair lotteries, strict optimal-law characterization, and sharp rate are not implied. Classical 2007–08 finite-horizon bold play fixes casino odds and disallows negative stakes/fortunes, so does not cover the present admissible controls. Four actual published-finding corpus queries and own-ledger claim checks yielded no covering item, subject to residual general-theorem and inaccessible-source risks.",
+    "residual_risks": [
+      "An unlocated general finite-horizon concave-envelope or martingale-control theorem might imply the sharp value and uniqueness.",
+      "The full Yao (2007) article could not be read; its accessible abstract identifies a substantively different fixed-odds, nonnegative-stake model.",
+      "Search coverage, including published-finding corpus and accessible historical records, cannot mathematically certify universal originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Achievability for equal multipliers and unlimited-horizon upper bound are covered; adaptive finite-N upper bound, equality law and sharp finite-N deficit are not stated or derived there.",
+        "evidence": [
+          "arXiv:2610.19239v1 §2 model: E[Y|history]=x, Y>=-(L-1)x, Y<=M",
+          "Lemma 2.1 exact epsilon-doubling probability; Proposition 2.2 arbitrary-horizon upper bound R^(-1/L)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19239v1",
+        "material_read": "Full accessible HTML including model, Lemma 2.1, Proposition 2.2, proofs and closing discussion",
+        "method": "Read arXiv HTML source sections and compare constraints, quantifiers, available time horizons, and mathematical implications",
+        "title": "With Leverage, the Gambler is Not the One Who Gets Ruined",
+        "trigger": "Identical leveraged fair-lottery model and its unbounded-horizon optimum"
+      },
+      {
+        "assessment": "Its stakes never exceed current nonnegative fortune and outcomes use fixed casino odds, whereas present model permits arbitrary conditional laws with negative outcome -(L-1)x. No implication of the leveraged finite-N formula found in inspected results.",
+        "evidence": [
+          "J. Appl. Probab. 45 (2008) pp 403–407: y<=f and transition f-y>=0, equations (2),(3), Theorem 1"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1214950356",
+        "material_read": "14-page published PDF accessible; targeted reading of abstract, pp 403–407, Bellman recurrence and Theorem 1, including page-image checks",
+        "method": "Published PDF text and screenshots of pp 403 and 405; compared admissible fortunes and theorems",
+        "title": "Strong Optimality of Bold Play for Discounted Dubins–Savage Gambling Problems with Time-Dependent Parameters",
+        "trigger": "Finite-time general optimization of gambling success probability"
+      },
+      {
+        "assessment": "Abstract states primitive fixed-odds casino with stakes limited to present fortune; not equivalent to arbitrary leveraged fair lotteries. Priority caveat remains due to inaccessible full text.",
+        "evidence": [
+          "J. Appl. Probab. 44 (2007) pp 212–225 abstract: stakes any amount in possession, fixed casino payoff odds and probabilities"
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1175267173",
+        "material_read": "Published abstract and indexed introduction; full PDF could not be retrieved in this session",
+        "method": "Publisher abstract, citation metadata and comparison with follow-up Yao–Chen (2008) paper",
+        "title": "On Optimality of Bold Play for Discounted Dubins–Savage Gambling Problems with Limited Playing Times",
+        "trigger": "Explicitly targets gambling with finitely many available plays"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e124662b-508a-446e-adea-badb4d5b0466",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite betting budget is an inherent resource of the motivating leveraged scheme, whose ideal success level uses an unbounded number of tiny gains. An exact all-policy frontier, rigid optimal strategy and leading N^-1 cost resolve a genuine optimization question with useful parameter dependence; these are not simply another feasible bet calculation.",
+    "status": "PASS"
+  }
+}
