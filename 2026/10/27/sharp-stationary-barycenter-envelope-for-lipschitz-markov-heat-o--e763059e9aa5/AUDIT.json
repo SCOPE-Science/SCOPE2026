@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For a stochastically monotone kernel, one-dimensional Wasserstein duality identifies the Lipschitz norm with the largest adjacent stationary-row-mean slope, simultaneously attained by the position potential. The fixed stationary marginal imposes an exact upper-tail rearrangement cap on each adjacent row-mean difference, and a two-block conditional expectation saturates every cut bound. The gradient generator of nearest-neighbor reversible heat is Metzler, making all its kernels stochastically monotone; positivity of all entries at positive time makes the upper-tail inequality strict. As one conductance vanishes and time diverges at the intermediate square-root scale, Duhamel comparison proves convergence to a two-block conditional expectation. No claim rests on numerical enumeration: 1,105 exact block cases, 720 independent semigroup/transport comparisons, 42 singular-limit diagnostics, and a nonmonotone boundary witness were successfully executed from the standalone code.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Veysseire arXiv:1202.0420, full-text selected discussion and Theorem 9: lower coarse-Ricci curvature bounds imply W1 contraction",
+        "Ollivier arXiv:math/0701886: definitions and curvature-controlled Markov contraction",
+        "Pflug--Schachermayer, 1992, available abstract: minimizes coefficients by varying the metric for a given stochastically monotone chain"
+      ],
+      "reasoning": "Curvature contraction estimates concern a fixed chain and/or a metric curvature parameter; the present optimum varies all positive conductances at fixed stationary mass placement and arbitrary fixed path gaps, and may grow linearly with state-space size. Metric optimization for a given chain reverses which quantities are fixed, so abstract-level similarity alone does not imply the claimed sharp formula. Inaccessible 1992 details remain unresolved.",
+      "searches": [
+        "maximal ergodicity coefficient stochastically monotone stochastic matrix prescribed invariant distribution finite path",
+        "monotone Markov kernel invariant distribution Wasserstein coefficient sharp bound conditional means upper lower stationary distribution",
+        "Sharp maximum Lipschitz operator norm Wasserstein-one ergodicity of reversible continuous-time birth-death chain on a path for fixed positive stationary distribution, optimizing positive edge conductances: conditional left and right barycenter separation"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0701886",
+      "arXiv:1202.0420",
+      "doi:10.1155/2013/939308",
+      "doi:10.2307/3214717 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known earlier three-state special case: sharp fixed-equilibrium envelope 1 + max{pi0/(pi0+pi1),pi2/(pi1+pi2)}; for n=3, x=(0,1,2), the new cut formula reduces exactly to it",
+        "Ollivier and Veysseire curvature contraction statements do not optimize over all reversible conductance profiles with a fixed invariant law",
+        "Huillet treats monotonicity and duality, not a conductance-time sharp invariant",
+        "Pflug--Schachermayer abstract concerns optimizing the metric-dependent ergodicity coefficient of a given transition matrix, not an explicit stationary-tail mass optimization"
+      ],
+      "reasoning": "The current claim strictly contains the known three-state formula, so that case is not offered as an independent discovery. The new all-length conditional-barycenter variational theorem also applies to every monotone stationary kernel (including idempotent cut kernels), which is not a corollary of previously inspected fixed-generator contraction estimates. The 1992 abstract cannot rule out a stronger theorem inside the inaccessible full text; this is the principal remaining uncertainty.",
+      "searches": [
+        "birth death chain three state stationary-mass sharp Lipschitz amplification conductances",
+        "Sharp Lipschitz amplification and Wasserstein contraction norms for birth death processes on finite paths with fixed reversible stationary distribution optimizing conductances",
+        "Coefficients of ergodicity for stochastically monotone Markov chains metric stationary law conditional barycenter"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ollivier arXiv:math/0701886, discussion of Wasserstein transport and coarse Ricci curvature",
+        "Huillet doi:10.1155/2013/939308, sections 2.1 and 4 on finite birth--death chains and monotonicity",
+        "Pflug--Schachermayer doi:10.2307/3214717, abstract on stochastic-monotone chain ergodicity coefficients"
+      ],
+      "reasoning": "The claim is equivalent to a sharp W1 row-coefficient statement for all stationary order-preserving kernels and to maximization of adjacent conditional stationary barycenter gaps. Transport duality converts those formulations but does not itself impose the fixed-equilibrium rearrangement ceiling. The related ergodicity-coefficient abstract does not exhibit the universal cut-barycenter formula; the uninspected paper is recorded as an overlap risk rather than declared non-covering.",
+      "searches": [
+        "stochastically monotone Markov chains Wasserstein contraction coefficient sharp bound stationary distribution birth death paths",
+        "optimal Lipschitz norm stochastic monotone Markov matrices fixed invariant probability diameter ergodicity",
+        "invariant distribution monotone Markov Lipschitz constant optimal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Related published research database records searched semantically for prescribed stationary distributions, W1/Lipschitz coefficients, conditional barycenters, and finite paths",
+        "No exact general-cut formula returned in the inspected short summaries; absence of a hit is not proof of novelty"
+      ],
+      "reasoning": "The previously recorded three-state theorem has only two cuts, unit metric gaps, and birth--death generators, and is implied by the current all-n arbitrary-gap stronger stationary monotone-kernel claim. A finite numerical table could verify instances but cannot prove the universal rearrangement and limiting semigroup formula. Searches are incomplete and not asserted exhaustive.",
+      "searches": [
+        "birth-death chain three state stationary-mass sharp Lipschitz amplification conductances",
+        "stationary mass one cut equilibrium conditional means monotone Markov kernels Lipschitz norm",
+        "Exact L infinity norm of orthogonal projection onto affine functions for uniform measures on spherical annuli cylinders and convex symmetric bodies"
+      ]
+    },
+    "rationale": "The new contribution is an exact stationary-barycenter envelope for all ordered finite spaces and all stationary monotone Markov kernels, and its unattained-but-sharp reversible birth--death semigroup conductance-time optimization on all finite metric paths. A previously known three-state unit-gap special case is explicitly subsumed and not counted again. Inspected primary curvature/Markov chain sources do not furnish this fixed-law optimization; the especially close 1992 ergodicity-coefficient article is an access-limited residual risk, not evidence of coverage.",
+    "residual_risks": [
+      "The complete Pflug--Schachermayer 1992 article was not accessible; its inner theorems may overlap a conditional-barycenter coefficient statement.",
+      "A parallel exact formula may exist under Dobrushin/Doeblin or one-dimensional rearrangement terminology in literature not indexed by the sources searched.",
+      "Self-review analytic review and finite tests are not independent validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background; no inspected statement determines the stationary cut-barycenter conductance envelope",
+        "evidence": [
+          "arXiv:math/0701886, first posted 2007-01-30; W1/coarse-curvature mathematical framework"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0701886",
+        "material_read": "ArXiv first-submission information and accessible HTML discussion of transport definitions and Markov curvature framework",
+        "method": "Opened primary arXiv page and text sections; compared metric, stationary condition, and quantifiers",
+        "title": "Ricci curvature of Markov chains on metric spaces",
+        "trigger": "Foundational W1 curvature and transport coefficient framework; earliest dated public source"
+      },
+      {
+        "assessment": "Known curvature-to-contraction principle for fixed process; no inspected fixed-equilibrium optimization over conductances",
+        "evidence": [
+          "arXiv:1202.0420, first posted 2012-02-02; selected Theorem 9 passage"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1202.0420",
+        "material_read": "ArXiv metadata and accessible full-text HTML theorem passages including Theorem 9",
+        "method": "Opened primary HTML full text and compared Theorem 9 contraction assumptions and conclusions",
+        "title": "Coarse Ricci curvature for continuous-time Markov processes",
+        "trigger": "Continuous-time contraction theorem could potentially subsume a heat-semigroup bound"
+      },
+      {
+        "assessment": "Stochastic monotonicity background; not the claimed sharp fixed-stationary cut optimization in material inspected",
+        "evidence": [
+          "International Scholarly Research Notices 2013, article 939308; sections 2.1 and 4"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/939308",
+        "material_read": "Accessible HTML primary sections 2.1 and 4, including chain evolution and monotonicity/Siegmund duality discussion",
+        "method": "Opened journal full text, read mathematical sections and compared prescribed invariant-law optimization statements",
+        "title": "Fluctuations Analysis of Finite Discrete Birth and Death Chains with Emphasis on Moran Models with Mutations",
+        "trigger": "Direct finite birth--death and stochastic monotonicity literature"
+      },
+      {
+        "assessment": "Abstract states coefficient optimization for a given chain via metric choice, not a verified equivalent stationary-law conductance maximum; cannot rule out hidden stronger results",
+        "evidence": [
+          "Journal of Applied Probability 29 (1992), 850-860; publisher-hosted abstract and DOI"
+        ],
+        "identifier_or_url": "https://doi.org/10.2307/3214717",
+        "material_read": "Publication abstract and bibliographic metadata only; complete article not accessible",
+        "method": "Inspected abstract and attempted lawful preprint and open-access access; full text unavailable",
+        "title": "Coefficients of ergodicity for stochastically monotone Markov chains",
+        "trigger": "Close ergodicity-coefficient and monotonicity vocabulary; plausible equivalent formula risk"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e763059e-9aa5-4f32-be61-e379df66de84",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact optimum depends only on the invariant masses and locations, completely classifying the worst Lipschitz amplification permitted by a stationary law across every reversible nearest-neighbor heat dynamics on an arbitrary finite metric path. A sharp two-block metastable extremal mechanism and strict nonattainment at positive conductances follow. The stronger stationary-monotone variational theorem isolates the structural principle behind the result, while the sharp uniform law grows as n/2, ruling out dimension-free stationary-only control. This directly informs stability and transport coefficients on ordered reversible networks rather than computing an artificial finite statistic.",
+    "status": "PASS"
+  }
+}
