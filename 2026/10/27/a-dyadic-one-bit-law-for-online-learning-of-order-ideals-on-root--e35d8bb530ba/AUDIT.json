@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Every ideal is represented as either the empty ideal or a root-containing vector of arm-prefix lengths. The proof establishes an exact Littlestone game recurrence: the root query isolates the empty ideal; an arm threshold splits into a rectangular product and a smaller augmented product. Product threshold dimensions are additive, with each coordinate contributing floor(log2 b_i). Induction shows the augmented dimension is one larger iff all b_i equal 2^(a_i+1)-1; the equality query j=2^a-1 has both children of baseline rank. This covers all nonnegative numbers of arms, all positive lengths, and boundaries including m=0. A standalone exact version-space program checked the formula and ideal counts for 183 small rooted-spider isomorphism types (sum of vertices <=13). The finite computation is not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hanneke–Moran–Waknine (2024), PMLR 247, Proposition 2, gives an additive direct-sum statement, not the augmented rooted-spider class.",
+        "Ghazi–Golowich–Kumar–Manurangsi (arXiv:2007.03668), Proposition 3, gives general aggregation bounds, not the exact Mersenne iff condition."
+      ],
+      "reasoning": "The product baseline is credited, not presented as novel. Existing additive or big-O closure laws do not determine whether adding the distinguished empty ideal raises the optimal mistake bound for a given arm vector.",
+      "searches": [
+        "\"Littlestone dimension\" \"Cartesian product\" \"sum\" classes",
+        "\"Littlestone dimension\" \"direct product\" \"additive\" disjoint domains",
+        "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions 2007.03668",
+        "Open Problem Direct Sums in Learning Theory Hanneke Moran Waknine 2024"
+      ]
+    },
+    "checked_sources": [
+      "Ghazi et al., arXiv:2007.03668 (first public 2020-07-07), general Littlestone closure bounds.",
+      "Hanneke, Moran and Waknine, PMLR 247 (2024), Section 3.2 Proposition 2, additive direct-sum dimension.",
+      "Frank a Campo, arXiv:2206.10293 (first public 2022-06-21), counting downsets.",
+      "Prior accessible exact rank recurrence for ideals of [2] x [n], a different order type."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Additivity establishes the baseline sum of floor logarithms for independent arm-prefix classes, but says nothing about the extra empty-ideal hypothesis.",
+        "Downset enumeration gives cardinalities; no result inspected bounds both children of an adaptive root query and characterizes equality.",
+        "Earlier work on the two-row componentwise product poset has hypothesis pairs (a,b) satisfying b<=a, unlike a root plus independent chains; its algorithmic recurrence does not imply the claimed iff formula."
+      ],
+      "reasoning": "The final theorem strictly concerns the one-point augmentation of a threshold-product class and its equality case. Neither prior general product additivity, prior enumeration, nor a distinct two-row-ideal recurrence gives that equality classification by implication.",
+      "searches": [
+        "Hanneke Moran Waknine Proposition 2 Littlestone dimension direct sums 2024",
+        "A Flexible Approach for the Enumeration of Down-Sets and its Application on Dedekind Numbers 2206.10293",
+        "Near-tight closure bounds for the Littlestone and threshold dimensions 2007.03668"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the rooted-spider class, every nonempty ideal is a box of arm-prefix lengths, and the empty ideal is a separate one-point augmentation; the theorem classifies exactly when it increases the rank.",
+        "Frank a Campo, arXiv:2206.10293, Section 3 concerns counting downsets, not adaptive rooted membership-query trees."
+      ],
+      "reasoning": "Searches considered the equivalent order-ideal/downset terminology, extra-bottom-box formulation, and spider/tree wording. No inspected source derives the dyadic bonus criterion. Counting ideals is not equivalent to determining Littlestone dimension.",
+      "searches": [
+        "\"Littlestone dimension\" \"order ideals\" posets",
+        "\"Littlestone dimension\" \"downsets\" \"poset\"",
+        "Littlestone dimension order ideals posets threshold ideals rooted trees exact",
+        "Littlestone dimension of downsets of posets rooted trees 2022 2023"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Frank a Campo (arXiv:2206.10293), Tables 1 and downset-enumeration algorithms address Dedekind counts, not adaptive Littlestone ranks.",
+        "No exact-data table for this infinite arm-vector rank formula was found in the inspected scholarly sources."
+      ],
+      "reasoning": "A table of ideal counts does not determine online shattering depth; even hypothesis counts do not decide the dyadic one-bit bonus. Only the 183 independent small cases were computed here.",
+      "searches": [
+        "Littlestone dimension spider order ideals",
+        "Littlestone dimension product of thresholds independent coordinates additivity",
+        "rooted tree order ideals online learning Mersenne formula"
+      ]
+    },
+    "rationale": "The closest inspected studies concern general Littlestone-dimension closure bounds, direct-product additivity, and enumeration of finite-poset ideals. These ingredients do not entail the precise iff Mersenne criterion for the change caused by one extra empty-ideal hypothesis. Prior accessible work on two-row grid-poset ideals gives a recurrence for a structurally different partial order; it does not imply the closed rooted-spider formula. Semantic searches found no exact or stronger coverage. Residual risk of unindexed prior art is explicitly retained.",
+    "residual_risks": [
+      "The searches and inspected material are not an exhaustive historical survey; unindexed or differently named prior results about one-point augmented threshold boxes may exist.",
+      "Not every page of all relevant papers was read linearly; assessments are confined to inspected propositions, theorem sections and available full-text term checks.",
+      "General broad product bounds or textbook facts might make the classification less surprising, but no located implication directly yields the exact iff bonus."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected results provide general aggregation upper bounds, not an exact one-point-augmented rooted-spider ideal formula.",
+        "evidence": [
+          "Section 2.2 Proposition 3: O(k d log k) bound for binary aggregation of k classes of dimension at most d.",
+          "No poset-ideal theorem in material read or targeted full-text term checks."
+        ],
+        "identifier_or_url": "arxiv:2007.03668; https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "material_read": "Original full-text PDF: abstract, introduction, Section 2.1 definition, Section 2.2 Proposition 3 and surrounding closure framework; full-text term checks for poset and ideal.",
+        "method": "Full-text PDF sections and page-image inspection.",
+        "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+        "trigger": "General closure laws might dominate an exact product-plus-one rank classification."
+      },
+      {
+        "assessment": "Proposition 2 is an additivity result for product classes and does not address the distinguished extra empty ideal or Mersenne equality condition.",
+        "evidence": [
+          "Proposition 2 states LS(F tensor G)=LS(F)+LS(G).",
+          "The rooted-spider class differs from the independent product by a separate hypothesis with a distinct root-membership label."
+        ],
+        "identifier_or_url": "PMLR:247:hanneke24c; https://proceedings.mlr.press/v247/hanneke24c/hanneke24c.pdf",
+        "material_read": "Five-page primary PDF: definition of direct sum on pp. 1–2 and Section 3.2, Proposition 2 on p. 4, with remaining article context.",
+        "method": "Primary full-text PDF and image of Proposition 2.",
+        "title": "Open problem: Direct Sums in Learning Theory",
+        "trigger": "Potentially dominating additivity theorem for the independent chain factors."
+      },
+      {
+        "assessment": "Inspected contributions enumerate downsets; no Littlestone calculation was found in the inspected sections or term checks. The unexamined remainder remains a limited residual priority risk.",
+        "evidence": [
+          "Section 3 Theorem 1 decomposes the number of downsets as a sum of numbers of downsets of smaller induced posets.",
+          "No occurrences of Littlestone or learning were found in searchable full text."
+        ],
+        "identifier_or_url": "arxiv:2206.10293; https://arxiv.org/pdf/2206.10293",
+        "material_read": "Twenty-four-page arXiv paper: abstract, introduction, Section 2 notation, Section 3 down-set partition and Theorem 1, targeted full-text searches for learning, Littlestone, and spider.",
+        "method": "Primary full-text PDF, relevant theorem passage and page image plus document-wide term checks.",
+        "title": "A Flexible Approach for the Enumeration of Down-Sets and its Application on Dedekind Numbers",
+        "trigger": "Same family of poset ideals could have an exact rank formula hidden in enumerative methods."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e35d8bb5-30ba-4951-b982-5384b9cea053",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The poset ideal-membership class is natural in finite order theory and online prediction. A complete closed formula holds for every arm-count and every arm length, with a sharp structural equality criterion characterizing when adding a single root-negative empty ideal increases the mistake bound. The exceptional phenomenon persists in arbitrarily large rooted spiders (for example all arms of length two), and fails in closely neighboring length vectors. This is an interpretable structural online-rank result, not a renaming, arbitrary finite slice, or a re-enumeration of already known ideal counts.",
+    "status": "PASS"
+  }
+}
