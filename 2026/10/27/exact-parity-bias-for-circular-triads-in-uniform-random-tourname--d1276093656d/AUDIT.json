@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For every labeled fair tournament, the unique-dominating-vertex score identity is exact. The root-of-unity identity holds for all d mod 4, orientations factor independently over complete-graph edges, all nonconstant vertex characters annihilate, and elementary phase arithmetic gives positive 2^{-floor((n-1)/2)}. The verifier compares independent arc pattern counts at n=3..6 and uses integer Gaussian arithmetic through n=100; finite computation is not claimed as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Andersson (1998) abstract: asymptotic distribution of fixed subgraph counts in fair random tournaments.",
+        "Chatterjee and Bhattacharya (2026) introduction and Section 2: fluctuation regimes and normal limit under uniformity, not finite parity.",
+        "Kendall and Smith (1940), as reported in Chatterjee and Bhattacharya (2026), supplied four ordinary moments; those cannot fix parity over support growing with n."
+      ],
+      "reasoning": "Neither a Gaussian limit nor finitely many ordinary moments implies the exact expectation of a parity character. The character sum is a different finite-order non-polynomial statistic.",
+      "searches": [
+        "random tournament circular triads count third central moment variance skewness exact formula",
+        "On the asymptotic distributions of subgraph counts in a random tournament Andersson 1998",
+        "Transitivity in Inhomogeneous Random Tournaments circular triads uniform tournament"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1093/biomet/31.3-4.324 (metadata; original full text inaccessible)",
+      "doi:10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V (abstract)",
+      "arXiv:1410.6828v3 (HTML)",
+      "JIS:27(2024):24.8.7 (31-page PDF, examined relevant sections)",
+      "arXiv:2606.02340v1 (HTML, selected full-text sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kendall--Smith first four moments documented in Chatterjee--Bhattacharya 2026 intro.",
+        "Komarov--Mackey arXiv:1410.6828 HTML sections 1-2 concern 5-cycles and extremal scores, not parity of 3-cycles.",
+        "Harris--McShane 2024 full paper Sections 4-5 concern fixed-d counts via atomic generator coefficients."
+      ],
+      "reasoning": "The score identity alone provides a reduction to a quadratic score functional but not its exact parity distribution. The displayed roots-of-unity cancellation supplies the key implication. No inspected primary result states the final parity census or supplies a closed form from which it follows immediately.",
+      "searches": [
+        "Kendall Babington Smith 1940 On the Method of Paired Comparisons moments circular triads",
+        "Komarov Mackey On the number of 5-cycles in a tournament arXiv 1410.6828",
+        "Counting Tournaments with a Specified Number of Circular Triads JIS 2024"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No direct signed tournament census was present in closest published-finding corpus records or located external statements.",
+        "The score identity is classical, but the complete all-order roots-of-unity evaluation was not located."
+      ],
+      "reasoning": "The claimed parity-law is equivalent to evaluation of the circular-triad probability generating polynomial at minus one, or to the signed difference in even and odd tournament counts. Search comparisons covered these aliases, not only the displayed formula.",
+      "searches": [
+        "even versus odd number directed three cycles in a uniform random tournament exact probability two to minus floor (n-1)/2",
+        "signed enumerator at minus one cyclic triangle count tournaments root of unity orientation sum",
+        "parity of the number of cyclic triangles tournament"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Harris--McShane, JIS 27 (2024), PDF pages 1-2, 10-18: all-n generating functions indexed by fixed triad count d, explicit d=0 through 14 and auxiliary atomic generators; historical finite tables through n=15.",
+        "New theorem gives signed totals for every n, summing all possible d, and is not a recomputation of the finite table."
+      ],
+      "reasoning": "The fixed-d expansions do not provide a closed alternating sum over all d when d grows with n; finite enumerations cannot establish the all-n identity.",
+      "searches": [
+        "Counting Tournaments with a Specified Number of Circular Triads Harris McShane 2024 PDF",
+        "tournaments even circular triads count parity table OEIS"
+      ]
+    },
+    "rationale": "The complete-graph character sum gives a signed, all-orders parity census; the inspected classical literature concerns ordinary moments, asymptotic normality, five-cycles, or fixed-small-count generating functions. None of the inspected exact claims implies this alternating all-count sum without substantial new summation. Priority is provisional, with the inaccessible 1940 original explicitly flagged.",
+    "residual_risks": [
+      "The foundational Kendall--Smith (1940) original full text could not be inspected under available access; it may contain a signed enumeration beyond the reported four moments.",
+      "Scattered older score-sequence enumeration literature may contain an equivalent parity identity under alternative nomenclature. Negative searches establish no uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Fixed-d enumerators and d up to 14, not all-d parity transform",
+        "evidence": "Article 24.8.7, Theorem 10 and sections 4-5 describe G_d(x) with unknown atomic coefficients A_d(x); explicit d<=14.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/McShane/mcshane1.pdf",
+        "material_read": "Abstract, introduction/history, score-sequence reduction, Sections 4-5 and appendices of explicit atomic generating functions",
+        "method": "Open-access PDF text and page rendering",
+        "title": "Counting Tournaments with a Specified Number of Circular Triads",
+        "trigger": "Closest exact enumerative study of same objects and statistic"
+      },
+      {
+        "assessment": "Uniform model CLT and general tournamenton asymptotics, no stated exact parity census",
+        "evidence": "Introduction reports first four 1940 moments; Theorem 2.6 analyzes asymptotic distributions including fair-edge Gaussian regime.",
+        "identifier_or_url": "https://arxiv.org/html/2606.02340v1",
+        "material_read": "Full accessible HTML introduction, asymptotic theorem and proof-section structure, references, searched skewness/cumulant/parity",
+        "method": "Open access HTML reading and in-text searches",
+        "title": "Transitivity in Inhomogeneous Random Tournaments",
+        "trigger": "Closest probabilistic fluctuations paper on same circular-triad statistic"
+      },
+      {
+        "assessment": "Counts 5-cycles by edge scores and extremal bounds, not signed 3-cycle enumeration",
+        "evidence": "Theorem 2.1 counts 5-cycles via edge-score data; introductory bounds on 3-cycles do not give parity.",
+        "identifier_or_url": "https://arxiv.org/html/1410.6828v3",
+        "material_read": "Full HTML abstract, introduction, definitions, theorem 2.1 and adjacent proof material",
+        "method": "Open access arXiv HTML inspection",
+        "title": "On the Number of 5-Cycles in a Tournament",
+        "trigger": "Nearby directed cycle enumeration using scores"
+      },
+      {
+        "assessment": "Describes asymptotic count distributions, no parity claim visible in abstract",
+        "evidence": "First published 7 Dec 1998; asymptotic distribution for fixed digraph subgraph counts.",
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4<249::AID-RSA4>3.0.CO;2-V",
+        "material_read": "Publisher abstract and bibliographic date",
+        "method": "Web abstract only; full text not inspected",
+        "title": "On the Asymptotic Distributions of Subgraph Counts in a Random Tournament",
+        "trigger": "Archive-era probability reference for random tournament subgraph counts"
+      },
+      {
+        "assessment": "No direct comparison with original full text possible; unresolved historical-priority risk",
+        "evidence": "Oxford records first publication 1940-03-01; Chatterjee--Bhattacharya report formulas for its first four moments.",
+        "identifier_or_url": "https://doi.org/10.1093/biomet/31.3-4.324",
+        "material_read": "Oxford publisher metadata, date and access status; secondary scientific description of first four moments in 2026 work",
+        "method": "Open-access and arXiv attempts found no full text; authorized Oxford institutional download returned VPN-disconnected; no pages were inspected",
+        "title": "On the Method of Paired Comparisons",
+        "trigger": "Foundational primary work that introduced circular-triad statistics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1276093-656d-4346-80e7-1f92a11683fb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Circular triads measure rank inconsistency. Their exact parity bias is an all-order signed enumeration invisible to a finite set of low ordinary moments or Gaussian asymptotics. The precise decay rate and equality between adjacent odd/even orders follow from a structural two-character cancellation; this gives a motivated binary benchmark rather than an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
