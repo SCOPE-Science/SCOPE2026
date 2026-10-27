@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "The exact-degree gradient and its tangent quarter-turn are orthonormal on the sphere. A latitude reflection gives the two diagonal hemisphere entries 1/2; longitude selection makes order blocks independent. Their off-diagonal integral collapses to 2πim|Y_lm(equator)|²/[l(l+1)]. The standard normalized associated-Legendre endpoint identity converts this to central-binomial factors and yields exact 2×2 eigenvalues. Ratios of adjacent positive-parity gaps are <1 as azimuthal order drops by two, and maximal gaps obey M_(l+1)/M_l=(2l+3)/(2l+4)<1, M_1=3/8. Thus all fields have 1/8≤hemisphere energy fraction≤7/8 with equality exactly in degree one and |m|=1 appropriate polarization. The checker independently recomputes associated-Legendre endpoint values and cross-integrals. The proof, not finite checks, covers all degrees.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Plattner–Simons 2014, equation (72) gives cap off-diagonal boundary factors and equation (71) diagonal integrals, covering the matrix ingredients at arbitrary cap angles.",
+        "Michel–Plattner–Seibert arXiv:2103.14650, theorem 3.5 and section 4, covers spin-weighted harmonic concentration at arbitrary caps."
+      ],
+      "reasoning": "These broader methods logically yield each fixed-degree spectral block when specialized to a hemisphere. They do not in inspected text give the sharp common spectral interval [1/8,7/8], ordering in |m| and in degree, or the degree-one-only equality result. The matrix specialization itself is excluded from claimed novelty.",
+      "searches": [
+        "vector spherical harmonics hemisphere concentration matrix coupling toroidal spheroidal m",
+        "Revisiting the concentration problem of vector fields within a spherical cap commuting differential operator solution 2014 full text",
+        "\"A Unified Approach to Scalar, Vector, and Tensor Slepian Functions\" \"hemisphere\" eigenvalues"
+      ]
+    },
+    "checked_sources": [
+      "Plattner–Simons, arxiv:1306.3201v1 (2013-06-13), full mathematical sections 3.4 and 4",
+      "Jahn–Bokor, arxiv:1302.5261v1 (2013-02-21), abstract only; full text inaccessible",
+      "Michel–Plattner–Seibert, arxiv:2103.14650 (2021-03-26), relevant HTML theorems and sections"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Plattner–Simons 2014 explicitly derives the original arbitrary-cap block matrix; section 4.2 numerically analyzes low-pass bands and does not state global monochromatic leakage bounds.",
+        "Michel–Plattner–Seibert 2021 provides general spin-weighted commuting-operator constructions; no optimized 7/8 statement was located in inspected sections.",
+        "Jahn–Bokor abstract gives general reduction; full work unavailable for implication comparison."
+      ],
+      "reasoning": "A general formula for matrix entries alone is not an explicit optimized theorem: deriving the universal best constant requires identifying each azimuthal maximizing order and rigorously proving monotonicity over all infinitely many degrees. Those added inequalities and equality conditions form the final claim. Full-text priority uncertainty for Jahn–Bokor is a residual risk.",
+      "searches": [
+        "tangential vector spherical harmonics of a single exact degree on hemisphere optimal energy concentration 7/8 leakage one eighth poloidal toroidal",
+        "tangential vector spherical harmonics hemisphere single degree concentration eigenvalues poloidal toroidal exact",
+        "\"Revisiting the concentration problem of vector fields\" \"single degree\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Plattner–Simons 2014, sections 3.4 and 4.1, equations (69)–(76): arbitrary-cap tangential Slepian matrices; our per-order block specialization agrees.",
+        "Jahn–Bokor, arXiv:1302.5261v1, abstract: reduces tangential vector cap concentration to a scalar one, but sharp all-degree constant not in inspected abstract.",
+        "Michel–Plattner–Seibert, arXiv:2103.14650, sections 3.1 and 4: spin-weighted cap concentration and vector/tensor decomposition."
+      ],
+      "reasoning": "Equivalent formulations include spin-weight +1/-1 cap concentration and poloidal-toroidal mixing. The precise global optimization over all exact degrees and all azimuthal orders is separate from the prior general kernel formulas. An implicit equivalent in an inaccessible full text remains possible.",
+      "searches": [
+        "tangential vector spherical harmonics of a single exact degree on hemisphere optimal energy concentration 7/8 leakage one eighth poloidal toroidal",
+        "\"7/8\" \"vector spherical harmonics\" hemisphere",
+        "\"single degree\" \"vector spherical\" hemisphere eigenvalues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Plattner–Simons 2014, equations (69)–(76): a general cap-matrix method; not an exact tabulation of globally sharp constants over every single harmonic degree.",
+        "Michel–Plattner–Seibert, arXiv:2103.14650, theorem 3.5 and section 4: a more general spin-weighted kernel construction; no explicit optimized one-eighth bound in inspected passages.",
+        "Published searches for the exact constant 7/8, monochromatic tangential hemisphere leakage, and azimuthal ordering found no directly matching theorem."
+      ],
+      "reasoning": "No external published exact table of the universal optimum was identified, although the general cap formula contains enough information to compute each individual block. Search failure is not a novelty proof; coverage comparisons rely on inspected source statements.",
+      "searches": [
+        "spheroidal toroidal hemisphere Slepian 2x2 blocks associated Legendre equator central binomial spectral monotonic azimuthal order",
+        "\"hemispherical\" \"tangential\" \"spherical\" concentration \"degree\"",
+        "\"7/8\" \"vector spherical harmonics\" hemisphere",
+        "sharp universal hemisphere localization bound any single eigenfrequency tangent vector field sphere λmax 7/8"
+      ]
+    },
+    "rationale": "Plattner–Simons (2014) already gives the general cap vector concentration matrix, so the individual hemisphere polarization blocks are not presented as novel; the claimed contribution is the sharp optimized bound across every single degree, strict degree decay, unique maximizing |m|=l, and complete equality classification. Its proof adds a central-binomial monotonicity argument not found in the inspected general-matrix treatments. Published literature and mathematical-record queries did not surface the same optimized claim. Historical priority risk remains because Jahn–Bokor full text was inaccessible.",
+    "residual_risks": [
+      "Jahn–Bokor full text could contain the universal sharp monochromatic vector bound or an equivalent direct corollary; source was not fully inspectable.",
+      "The broad cap matrices of Plattner–Simons already imply the fixed-degree Gram blocks, so originality is explicitly limited to optimized all-degree inequalities and equality classification.",
+      "A special-function inequality for associated Legendre endpoint magnitudes could contain the same maximizer statement under a different name."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BLOCKS_COVERED; NEW_GLOBAL_OPTIMIZATION_NOT_STATED_IN_INSPECTED_SECTIONS",
+        "evidence": "Equation (69) tangential block Q; (71) diagonal B, (72) off-diagonal D and boundary functions X_lm(Theta); (73)–(76) order decomposition. The paper treats fixed bandwidth L and cap apertures 10°,20°,30°,40° in numerical examples, not the all-degree one-shell optimum.",
+        "identifier_or_url": "arxiv:1306.3201v1; https://www.researchgate.net/publication/237197991_Spatiospectral_concentration_of_vector_fields_on_a_sphere",
+        "material_read": "Full openly readable text of sections 3.4, 4.1 and 4.2, including displayed equations (69)–(82) and surrounding derivations; paper text rather than abstract only.",
+        "method": "Web HTML full-text presentation with equations and section context.",
+        "title": "Spatiospectral concentration of vector fields on a sphere",
+        "trigger": "Strongest direct antecedent for tangential vector cap concentration, with identical classical harmonic basis."
+      },
+      {
+        "assessment": "GENERAL_SPIN_WEIGHT_COVERAGE; NO_INSPECTED_UNIFORM_MONOCHROMATIC_SHARP_BOUND",
+        "evidence": "Theorem 2.38 identifies spin-weight ±1 harmonics with tangential vectors; theorem 3.5 gives kernel elements and section 4 decouples tangential blocks. No hemisphere-specific global 7/8 bound was found.",
+        "identifier_or_url": "arxiv:2103.14650; https://arxiv.org/abs/2103.14650",
+        "material_read": "Full-text HTML introduction, spin-weight/vector equivalence theorem 2.38, theorem 3.5, section 3.4 and section 4 text on kernel blocks.",
+        "method": "arXiv HTML text with theorem/section references.",
+        "title": "A Unified Approach to Scalar, Vector, and Tensor Slepian Functions on the Sphere and Their Construction by a Commuting Operator",
+        "trigger": "Potential stronger spin-weight generalization whose single-degree special case may dominate the claim."
+      },
+      {
+        "assessment": "PLAUSIBLE_UNRESOLVED_PRIORITY_RISK; NO_CLAIM_OF_FULL_TEXT_NOT_COVERING",
+        "evidence": "Abstract promises scalar reduction and commuting differential operator, without displaying specialized optimized monochromatic constant.",
+        "identifier_or_url": "arxiv:1302.5261v1; doi:10.1007/s00041-014-9324-7",
+        "material_read": "arXiv abstract and bibliographic description; full text unavailable. arXiv PDF access unsuccessful, alternative OA search did not yield inspectable text, institutional download required disconnected VPN.",
+        "method": "Public metadata and abstract, plus bounded authorized institutional request.",
+        "title": "Revisiting the concentration problem of vector fields within a spherical cap: a commuting differential operator solution",
+        "trigger": "Original early paper reducing tangent vector cap localization to a scalar eigenproblem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e95203c2-54b9-41c5-ae67-85a23fd392f8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural localization task asks how much energy a single-frequency tangential field can place in one hemisphere. Its optimal universal bound is exactly 7/8 (leakage at least 1/8), attained only in the lowest degree and an identified two-dimensional helicity subspace. Complete fixed-degree sharp constants decrease to 1/2 at an explicit rate. This is a motivated infinite classification of the optimal concentration invariant, not a test at one arbitrary mode; it remains useful despite being narrower than general cap Slepian theory.",
+    "status": "PASS"
+  }
+}
