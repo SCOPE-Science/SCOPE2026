@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For each marked connected k-component, internal connectivity forces zero isolates inside; a specified external vertex is isolated with conditional probability (1-p)^(n-k-1). Linearity proves E[IT]=(n-k)(1-p)^(n-k-1)E[T]. Subtract the independent marginals. Sign, strict threshold ordering, and three scaling regimes follow from monotonicity and controlled log expansions. Exhaustive n<=6 exact rational checks 60/60; finite checks supplement the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pittel (1990) proves asymptotic joint Gaussian limits for fixed tree-component sizes; BJR (2005) establishes limiting component frequencies for a broader graph model.",
+        "The exact result here holds for every finite n, all 2<=k<n, and arbitrary nonnegative internal weights, and includes k of order n and n-1."
+      ],
+      "reasoning": "Earlier asymptotics can cover the fixed-k leading covariance in the p=c/n scaling; they do not alone imply a finite exact all-k monotone threshold and type invariance. Full Pittel text unavailable, so residual implication risk is explicit.",
+      "searches": [
+        "isolated vertices random graph components specified type covariance sign changes nested critical thresholds 1/n log n/n",
+        "number of isolated vertices and isolated edges random graph G(n,p) joint covariance critical c=1",
+        "Pittel 1990 tree census Gaussian covariance",
+        "Bollobás Janson Riordan Theorem 9.1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0504589 Sections 3 and 9 / Theorem 9.1",
+      "arXiv:1106.0048 Sections 1–2 / Theorem 1.1",
+      "doi:10.1002/rsa.3240010306 publisher abstract",
+      "published mathematical records on component–triangle covariance and block-count covariance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "BJR Theorem 9.1: convergence in probability of fixed-size component frequencies N_k/n.",
+        "Ghosh et al. Theorem 1.1: concentration of marginal isolate count.",
+        "Pittel abstract: asymptotic Gaussian tree-component count process with covariance function."
+      ],
+      "reasoning": "These stated results do not directly entail exact finite n sign thresholds for all k and all component shapes; Pittel full theorem may contain a stronger covariance identity and is left as a named historical-priority risk.",
+      "searches": [
+        "exact covariance between number of isolated vertices and components of size k in G(n,p): Cov = E[isolated] E[components size k] ((n-k)/(n(1-p)^k)-1), sign threshold p=1-(1-k/n)^(1/k), independent of internal topology",
+        "isolated vertices random graph components specified type covariance sign changes nested critical thresholds 1/n log n/n",
+        "size bias isolated vertices and connected components in Erdős Rényi covariance finite size exact p threshold",
+        "arXiv:math/0504589 Theorem 9.1",
+        "arXiv:1106.0048 Theorem 1.1",
+        "doi:10.1002/rsa.3240010306 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The finite identity is equivalently a statement about the conditional expected isolate count after marking a size-k component: (n-k)(1-p)^(n-k-1).",
+        "The available full texts treat component-frequency limits and isolated-vertex concentration respectively, not this conditional mixed moment."
+      ],
+      "reasoning": "Rewriting as a conditional expectation or Palm-type marking does not by itself show a preexisting theorem; no same-statement theorem was located in the inspected published material.",
+      "searches": [
+        "exact covariance between number of isolated vertices and components of size k in G(n,p): Cov = E[isolated] E[components size k] ((n-k)/(n(1-p)^k)-1), sign threshold p=1-(1-k/n)^(1/k), independent of internal topology",
+        "isolated vertices random graph components specified type covariance sign changes nested critical thresholds 1/n log n/n",
+        "arXiv:math/0504589 Section 9",
+        "arXiv:1106.0048 Sections 1-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest semantic records describe component-triangle covariances and set-partition block-size dependence, neither this two-statistic random-graph covariance.",
+        "No verified exact finite table of these all-k transitions was found."
+      ],
+      "reasoning": "A negative search is not novelty proof; comparison is based on object, quantified parameter range and implication, not titles.",
+      "searches": [
+        "exact covariance between number of isolated vertices and components of size k in G(n,p): Cov = E[isolated] E[components size k] ((n-k)/(n(1-p)^k)-1), sign threshold p=1-(1-k/n)^(1/k), independent of internal topology",
+        "size bias isolated vertices and connected components in Erdős Rényi covariance finite size exact p threshold",
+        "random graph counts components of sizes 1 and 2 covariance sign switching threshold"
+      ]
+    },
+    "rationale": "The exact finite n all-k, topology-independent sign threshold and monotone interpolation between 1/n and log(n)/n are not found in inspected component-frequency and isolate-concentration primary literature. Pittel 1990 already provides covariance asymptotics for tree components and may imply fixed-k leading behavior; full text inaccessible. Hence only provisional originality is asserted, with explicit remaining priority risks.",
+    "residual_risks": [
+      "Full Pittel (1990) article was inaccessible; an earlier general finite covariance formula may imply this exact threshold hierarchy.",
+      "Classical random-graph enumeration texts may state the same identity under another name; absence of a located result is not priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 9.1 is a fixed-k frequency limit, not the exact finite mixed-moment formula.",
+        "evidence": [
+          "Section 9, Theorem 9.1: N_k(G_n)/n converges in probability to rho_k(kappa)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0504589v3",
+        "material_read": "Abstract, model definitions, Section 9 introduction and Theorem 9.1 with adjacent explanations and proof pointers.",
+        "method": "Accessible HTML primary full text, checked relevant theorem and searched covariance and isolated-vertex mentions.",
+        "title": "The phase transition in inhomogeneous random graphs",
+        "trigger": "Classical component critical scaling and potential domination by general component-frequency results."
+      },
+      {
+        "assessment": "Treats marginal isolate count concentration; no mixed finite component-type covariance statement in inspected sections.",
+        "evidence": [
+          "Theorem 1.1 bounds moment generating function and tails of isolated-vertex count."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1106.0048v1",
+        "material_read": "Abstract, Sections 1 and 2 including Theorem 1.1, Proposition 1.1, and size-bias coupling proof.",
+        "method": "Accessible HTML primary full text; inspected theorems, proof and dependence argument.",
+        "title": "Concentration of measure for the number of isolated vertices in the Erdős-Rényi random graph by size bias couplings",
+        "trigger": "Direct marginal isolated-vertex distribution and size-bias coupling might imply the joint covariance."
+      },
+      {
+        "assessment": "The abstract describes fixed-k asymptotic covariance, without the exact finite, motif-independent theorem; full-text comparison unresolved.",
+        "evidence": [
+          "Publisher abstract identifies a joint asymptotic Gaussian tree-component count process and model-dependent covariance function."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240010306",
+        "material_read": "Publisher abstract and bibliographic metadata only; full paper not accessible.",
+        "method": "Inspected accessible publisher abstract; full text not obtained.",
+        "title": "On tree census and the giant component in sparse random graphs",
+        "trigger": "Asymptotic covariance function of tree-component counts can imply the fixed-k leading sign."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d20e19f2-e3eb-4e28-a313-bc2539a037d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The shape-independent dependence threshold is a structural invariant of the component-size decomposition, not a single motif computation. The simultaneous sharp all-k sign classification is motivated by how isolated vertices coexist with small, mesoscopic, and nearly spanning components. Its exact thresholds interpolate between the classical giant-component and connectivity probability scales; the result applies to every nonnegative internal-component observable, beyond routine marginal enumeration.",
+    "status": "PASS"
+  }
+}
