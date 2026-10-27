@@ -1,0 +1,15 @@
+# Review: Gamma-product equilibrium and the reset-site mode transition
+
+## Correctness — PASS
+The theorem uses the conservative time-changed Brownian realization rather than an unspecified singular SDE at zero. Direct differentiation of the radial generator produces the squared-Bessel generator \(y\partial_{yy}+a\partial_y\), whose entrance law has Laplace transform \((1+st)^{-a}\). Independent Poisson regeneration then yields exactly the product \(G_aG_1\) after scaling. Transforming its Bessel-product density by the spherical Jacobian proves the spatial density and the dimension-free small-ball exponent. Strict radial monotonicity and the unique supercritical mode follow from the signed logarithmic derivative and the verified Bessel-ratio Riccati identity. An independent numerical script passed 78 checks comparing moments, renewal-mixture densities, origin asymptotics and mode signs. Numerical evidence supplements, but does not replace, the analytic proof.
+
+## Originality — PASS with stated residual risk
+The closest primary sources divide the scope into different faces: arXiv:2610.21962v1 treats one dimension with variable sluggishness; arXiv:2609.24427v1 treats two dimensions at the fixed radial exponent two; arXiv:1404.4574v1 treats arbitrary dimension at constant diffusivity; and arXiv:2201.05598v1 treats a one-dimensional, distinct divergence-form operator. Their known planar, one-dimensional and constant-diffusivity laws are not claimed. Semantic mathematical-record searches did not identify the all-parameter \(d\geq3\), \(\alpha>0\) product-gamma classification with the sharp threshold \(\alpha=d-2\) and universal small-ball coefficient. This is a best-knowledge statement, not a mathematical proof of uniqueness in the literature. A previous implicit derivation by combining classical squared-Bessel transition kernels with Poisson-reset renewal formulas remains possible.
+
+## Mathematical value — PASS
+The result gives a complete, parameter-sharp description of spatial modality for a natural multidimensional heterogeneous diffusion recently studied on separate dimensional faces. It identifies a counterintuitive reset-site depletion phenomenon despite point-source reinjection, a unique ring of spatial modes beyond a critical exponent, and an exact small-ball exponent independent of ambient dimension. The gamma-product law supplies immediate exact stationary sampling and all real radial moments with their sharp existence boundary. These facts are natural invariants of the reset equilibrium, not arbitrary numerical slices.
+
+## Scope and comparison boundaries
+Only the Itô/time-changed Brownian interpretation, integer dimensions at least three, power-law isotropic diffusion and homogeneous independent Poisson resetting to zero are covered. The theorem does not treat first passage, arbitrary reset laws, other stochastic conventions or spatially heterogeneous reset intensity. The classical gamma-product integral and squared-Bessel facts are prior tools. No independent scientific assessment has been carried out.
+
+Self-review: passed. Independent audit: not yet performed.
