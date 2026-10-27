@@ -1,0 +1,122 @@
+{
+  "claim": "For rooted full binary trees with unit-length edges, the variance \\(V_T(k)\\) of rooted phylogenetic diversity under uniform \\(k\\)-leaf rarefaction is unimodal for every tree with \\(1\\le n\\le9\\) leaves, and this cutoff is sharp: the 10-leaf tree whose root children are a perfect balanced 8-leaf subtree and a 2-leaf cherry has \\(V_T(1),\\ldots,V_T(10)=(16/25,136/225,28/45,1306/2205,1916/3969,3884/11025,2/9,8/81,0,0)\\), with \\(V_T(1)>V_T(2)<V_T(3)>V_T(4)\\), so its variance curve is not unimodal.",
+  "correctness": {
+    "rationale": "The rooted-PD edge indicator representation gives the stated clade-covariance variance identity. Exact rational subset enumeration verifies the witness curve and strict inequalities; the exhaustive Catalan recursion checks every rooted plane full binary shape through nine leaves, which covers all rooted full binary shapes.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nipperess and Matsen, arXiv:1208.6552 / DOI:10.1111/2041-210X.12042, derive conditional variance formulas but do not state variance-curve unimodality.",
+        "Chao et al., DOI:10.1111/2041-210X.12247, focus on rarefaction/extrapolation and bootstrap uncertainty of estimators; this is not the fixed-tree conditional variance sequence.",
+        "A related finite rooted-PD moment-curve reconstruction result (opaque identifier 8c5fc1eb-40b1-46e9-af3b-b0ce511ec53d) identifies tree shapes from full moment curves but does not claim unimodality or entail the strict dip-and-rebound pattern."
+      ],
+      "reasoning": "The broader formulas make variance computable but do not dominate the claim logically: knowing or using a variance curve is not a theorem about its shape. Tree identifiability from a complete curve likewise does not imply any monotonicity pattern.",
+      "searches": [
+        "complete rooted phylogenetic diversity expectation and variance curves identify rooted full binary tree sample sizes",
+        "Rarefaction and extrapolation of phylogenetic diversity DOI:10.1111/2041-210X.12247",
+        "The Rarefaction of Phylogenetic Diversity: Formulation, Extension and Application DOI:10.1007/978-3-319-22461-9_10"
+      ]
+    },
+    "checked_sources": [
+      "Nipperess and Matsen, arXiv:1208.6552; DOI:10.1111/2041-210X.12042; PMC:PMC3699894",
+      "Chao et al., DOI:10.1111/2041-210X.12247",
+      "Nipperess, DOI:10.1007/978-3-319-22461-9_10",
+      "Searches for rooted-PD rarefaction variance, unimodality, sample-size shape, and related formulations; no direct equivalent was returned.",
+      "Related rooted-PD moment-curve reconstruction result, opaque identifier 8c5fc1eb-40b1-46e9-af3b-b0ce511ec53d, compared for mathematical implication.",
+      "Related unrooted-PD marginal-law reconstruction result, opaque identifier fc6e2e60-9ce0-43dc-a30c-04c0c0a1223a, compared for mathematical implication."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nipperess and Matsen, DOI:10.1111/2041-210X.12042, provide exact conditional variance formulas for rarefaction.",
+        "A related finite rooted-PD moment-curve reconstruction result (opaque identifier 8c5fc1eb-40b1-46e9-af3b-b0ce511ec53d) concerns injectivity of the pair of moment curves, not their unimodality.",
+        "The exact witness values satisfy 16/25 > 136/225 < 28/45 > 1306/2205."
+      ],
+      "reasoning": "Neither the general variance identity nor tree reconstruction entails a unimodal curve. The strict decrease-rise-decrease pattern is independently established by exact rational enumeration for the stated tree.",
+      "searches": [
+        "phylogenetic diversity variance random sampling leaves tree exact formula edge covariance finite sample size",
+        "complete rooted phylogenetic diversity expectation and variance curves identify rooted full binary tree sample sizes",
+        "single rooted full binary tree unit edges exact variance sequence non-unimodal rarefaction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nipperess and Matsen derive general exact mean and variance formulas for rooted and unrooted PD under fixed-size rarefaction; their stated result is a calculation framework, not a unimodality theorem.",
+        "The present claim is a finite structural property of the sequence k -> Var(PD_T(S_k)) for unit-edge rooted full binary trees, including a sharp first counterexample at ten leaves."
+      ],
+      "reasoning": "No searched formulation of exact PD variance, rooted/unrooted PD, or rarefaction variance is equivalent to a theorem that the variance sequence is unimodal through nine leaves and first fails at ten. The variance formula is prior work; the shape claim is distinct.",
+      "searches": [
+        "rooted phylogenetic diversity rarefaction variance non-unimodal sample size rooted binary unit-edge tree",
+        "Nipperess Matsen variance phylogenetic diversity under rarefaction tree shape variance curve peak monotonicity",
+        "phylogenetic diversity variance at fixed k sampling without replacement clade occupancy indicators variance sequence tree topology",
+        "arXiv:1208.6552; DOI:10.1111/2041-210X.12042; PMC:PMC3699894"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical records returned concerned sample-richness/Simpson covariance and occupancy-richness/frequency covariance; neither concerns rooted PD variance shape.",
+        "The inspected primary article and related rarefaction chapter give formulas and applications but no direct table or claim matching the sharp unimodality threshold."
+      ],
+      "reasoning": "No direct equivalent result appeared in the actual published-finding corpus queries or the inspected literature. This is bounded evidence only; absence from a search is not a proof of novelty.",
+      "searches": [
+        "rooted phylogenetic diversity rarefaction variance non-unimodal sample size rooted binary unit-edge tree",
+        "exact finite census rooted full binary trees sample-size variance curves unimodality rarefaction",
+        "\"The mean and variance of phylogenetic diversity under rarefaction\" arXiv 1208.6552 rooted PD variance"
+      ]
+    },
+    "rationale": "The claim is not a restatement of the known general rarefaction variance formula: it establishes a sharp finite unimodality threshold and an explicit exact counterexample. Primary full text and actual published-finding corpus queries were checked; remaining novelty risk is recorded rather than treated as eliminated.",
+    "residual_risks": [
+      "Search and ledger partitions cannot establish global uniqueness; an unindexed paper or result may contain an equivalent variance-shape counterexample.",
+      "The sharp cutoff is restricted to rooted full binary trees with unit edge lengths and uniform fixed-size sampling without replacement.",
+      "The finite census does not bound the number or location of variance peaks for trees with more than ten leaves."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant formula source, but no unimodality theorem or smallest-leaf counterexample is stated; the article does not imply the claimed sharp threshold.",
+        "evidence": [
+          "arXiv:1208.6552",
+          "DOI:10.1111/2041-210X.12042",
+          "PMC:PMC3699894"
+        ],
+        "identifier_or_url": "arXiv:1208.6552; DOI:10.1111/2041-210X.12042; PMC:PMC3699894",
+        "material_read": "Open-access full text, including rooted-PD indicator derivation, unrooted-PD variance appendix, results, discussion, and limitations.",
+        "method": "Compared the definitions of rooted PD and uniform fixed-size sampling, then compared the article’s variance formulas and stated conclusions with the finite variance-shape claim.",
+        "title": "The mean and variance of phylogenetic diversity under rarefaction",
+        "trigger": "Foundational exact formula for rooted and unrooted PD under fixed-size rarefaction."
+      },
+      {
+        "assessment": "Related but not covering: its target is rarefaction/extrapolation estimation and bootstrap uncertainty, not unimodality of the exact conditional variance curve for a fixed unit-edge tree.",
+        "evidence": [
+          "DOI:10.1111/2041-210X.12247"
+        ],
+        "identifier_or_url": "DOI:10.1111/2041-210X.12247",
+        "material_read": "Full-text PDF introduction and methods passages on the target PD, fixed sample-size rarefaction, and variance of estimators.",
+        "method": "Separated the conditional variance of PD across all k-subsets of a fixed tree from bootstrap variance of a PD estimator across empirical samples.",
+        "title": "Rarefaction and extrapolation of phylogenetic diversity",
+        "trigger": "Closely related primary literature on PD rarefaction, sampling uncertainty, and extrapolation."
+      },
+      {
+        "assessment": "The chapter treats expected-PD curves and refers the variance calculation to Nipperess and Matsen; no unimodality claim or ten-leaf counterexample is stated in the inspected sections.",
+        "evidence": [
+          "DOI:10.1007/978-3-319-22461-9_10"
+        ],
+        "identifier_or_url": "DOI:10.1007/978-3-319-22461-9_10",
+        "material_read": "Open-access chapter introduction and formulation sections on expected PD and the relationship to Nipperess–Matsen variance formulas.",
+        "method": "Checked the statistic, sampling scheme, and whether the chapter states a variance-shape or unimodality result.",
+        "title": "The Rarefaction of Phylogenetic Diversity: Formulation, Extension and Application",
+        "trigger": "Related full-text chapter on rarefaction formulas and PD accumulation curves."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e5d81385-d750-45f6-938a-00c43890562a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Variance under rarefaction is used to quantify sampling uncertainty in phylogenetic diversity. The sharp ten-leaf boundary gives a concrete warning against universal one-peak assumptions in variance-based sample-depth interpretation; the witness is small, natural, and exactly reproducible.",
+    "status": "PASS"
+  }
+}
