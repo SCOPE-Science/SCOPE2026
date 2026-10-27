@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "evidence": [
+      "verify.py run: VERIFY_OK 256 exact matrices, 19 intervals and all saved table bytes",
+      "entropy_spectrum.csv: nineteen distinct disjoint rational Perron intervals and irreducible factors",
+      "rule_catalog.csv: complete 256-rule classification with exact characteristic polynomials"
+    ],
+    "rationale": "For every one of the 256 Wolfram binary radius-one local maps, finite input-block realizability agrees exactly with paths in its labeled four-pair-state de Bruijn graph. The deterministic nonempty subset construction accepts and counts every output word exactly once. All its nonempty states are accessible and accepting, so the spatial word growth equals the nonnegative integer adjacency-matrix Perron root. The saved exact checker derives 256 characteristic polynomials, isolates their largest positive zeros into 19 pairwise-disjoint rational intervals using exact Sturm counts, verifies a common irreducible factor within each class, reproduces both tabulations byte-for-byte, and independently checks all 2304 finite output-block counts at lengths 0 through 8. The unrestricted limit follows from Perron-Frobenius theory, not bounded experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kari and Taati, Statistical Mechanics of Surjective Cellular Automata, DOI 10.1007/s10955-015-1281-2, section 3.1, Theorems 2-3: maximal entropy for pre-injective factors and strict entropy drop for proper subsystems, but no values for 226 proper elementary image shifts.",
+        "Schüle and Stoop derive the list of surjective rules, which explains the 30 full-entropy cases but not the remaining 18 logarithms of algebraic roots.",
+        "The full 256-rule calculation needs individual determinized image automata, 256 exact characteristic polynomials, and real-root comparisons; these conclusions do not follow from the general entropy inequality alone."
+      ],
+      "reasoning": "The general Garden-of-Eden and entropy-preservation results dominate only the full-shift/proper-shift dichotomy. They do not provide the evaluated spectrum, intermediate strict ordering, or sharp proper-image maximizers.",
+      "searches": [
+        "topological entropy elementary cellular automata one-step image all 256 rules exact entropy classification spectrum",
+        "elementary cellular automata exact entropy spatial image all rules Perron entropy classes de Bruijn papers",
+        "Statistical Mechanics of Surjective Cellular Automata entropy pre-injective theorem",
+        "Classify elementary cellular automata image languages using subset automaton Perron eigenvalue entropy"
+      ]
+    },
+    "checked_sources": [
+      "Li and Packard, Complex Systems 4 (1990), full https://content.wolfram.com/sites/13/2018/02/04-3-3.pdf",
+      "Schüle and Stoop, arxiv:1107.2080 and Chaos 22 (2012), DOI 10.1063/1.4771662",
+      "Kari and Taati, J. Stat. Phys. (2015), DOI 10.1007/s10955-015-1281-2",
+      "Martínez et al., Complex Systems 28 (2019), arxiv:2005.01480 (2020)",
+      "Wolfram Demonstrations, Cellular Automata Ordered by Entropy (2009), empirical Shannon-entropy methodology"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The closest prior global classification (Schüle-Stoop) certifies surjectivity and other topological properties; its result implies only membership of the maximal \\(\\log2\\) entropy class, not a ranking of proper image entropy classes.",
+        "The Rule 22 subset diagram of Martínez et al. supplies a means of computing the Rule 22 value, but does not imply it is the exact global optimum without comparisons with the other 255 rules.",
+        "Separate earlier evaluations of Rule 73 or Rule 110 are special cases of the present 256-rule statement; neither yields its complete spectrum or extremal ranking."
+      ],
+      "reasoning": "The proposed result subsumes some individual-rule evaluations; their implications run from the new classification to those cases, not conversely. Existing general techniques make each case computable but do not establish the evaluated uniform census or strict top two class ordering without the new finite certificate.",
+      "searches": [
+        "Rule 22 elementary cellular automaton one-step image spatial topological entropy Perron root 1.917168419",
+        "Rule 37 elementary cellular automaton spatial image entropy Perron root 1.915259447 second largest nonsurjective",
+        "Exactly nineteen distinct spatial entropies of elementary cellular automaton image subshifts with 30 surjective rules",
+        "\"A full computation-relevant topological dynamics classification of elementary cellular automata\" pdf Schüle Stoop entropy"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full text of Schüle and Stoop, Chaos 22 (2012), sections V-VII, DOI 10.1063/1.4771662: classification uses equicontinuity, sensitivity, expansivity, surjectivity, transitivity and chaoticity, not a spectrum of proper image-subshift entropies.",
+        "Full text of Martínez et al., On patterns and dynamics of Rule 22 cellular automaton, section 5 and Table 6 at arxiv:2005.01480: explicit Rule 22 subset diagram and Garden-of-Eden expressions, but not nineteen exact cross-rule spatial image entropies.",
+        "The present mathematical observable is topological entropy of the spatial shift on the one-step image. It is not Shannon entropy of observed trajectories nor temporal entropy of the cellular automaton."
+      ],
+      "reasoning": "Known use of the words entropy, spectral analysis, or complete classification is not statement equivalence. The closest full texts study a different invariant or furnish a single-rule graph. The exact 19-class image-entropy spectrum and four-rule sharp maximum were not located.",
+      "searches": [
+        "\"elementary cellular automata\" \"image entropy\" \"spectrum\"",
+        "\"elementary cellular automata\" \"19\" \"entropy values\"",
+        "\"rule 22\" \"topological entropy\" \"image\"",
+        "One-step image word complexity 256 elementary cellular automata, topological entropy spectral radius, maximal proper image Rule 22 Rule 104 Rule 151 Rule 233"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Li and Packard, The Structure of the Elementary Cellular Automata Rule Space (1990), full PDF https://content.wolfram.com/sites/13/2018/02/04-3-3.pdf, analyzes rule-space equivalence and mean-field clusters, not a table of nineteen one-step spatial image entropies.",
+        "Wolfram Demonstrations, Cellular Automata Ordered by Entropy (2009), defines an empirical list-based Shannon measure using patterns from random initial conditions, explicitly not the topological entropy of one-step image subshifts.",
+        "Martínez et al. show the Rule 22 subset transition table but no exact all-rule entropy table in their inspected Garden-of-Eden and de Bruijn sections."
+      ],
+      "reasoning": "A published surjectivity table or numerical pattern-entropy comparison is not an exact table for the new invariant. The 256 rows in the supplied reproducible catalog were independently derived here. Unindexed historical tables remain a residual risk, not positive evidence of coverage.",
+      "searches": [
+        "\"rule 22\" \"image\" \"entropy\" \"1.917168\"",
+        "\"elementary cellular automata\" \"entropy\" \"image\" exact surjective garden of eden",
+        "Elementary cellular automata Garden of Eden image languages de Bruijn automaton Perron root sorted 256 rules",
+        "\"The Structure of the Elementary Cellular Automata Rule Space\" pdf"
+      ]
+    },
+    "rationale": "Relevant indexed and primary literature supplies general Garden-of-Eden/entropy techniques, surjectivity classes, and single-rule subset diagrams, but the inspected full texts do not supply the evaluated exact 19-value one-step spatial-image entropy spectrum or the strict maximum among proper elementary images. Earlier individual-rule computations are strict special cases, not global dominance. Searches cannot establish exhaustive priority; residual historical-table risk remains.",
+    "residual_risks": [
+      "A historically published unindexed complete table of one-step image entropies could duplicate the result; indexed-search absence is not a uniqueness proof.",
+      "Subsets and entropy computations are standard general methods; claimed originality rests on the exact evaluated complete finite classification and sharp extremal census.",
+      "Independent historical-priority review remains unperformed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the nineteen exact one-step image entropy values; studies mean-field cluster and rule-space topology",
+        "evidence": "1990 paper pp. 281-297, mean-field and cluster analysis; no image-subshift Perron spectrum",
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/04-3-3.pdf",
+        "material_read": "Full 17-page PDF text, rule-space and mean-field classifications including conclusion and equivalence appendix; first and relevant middle pages visually inspected",
+        "method": "Public full-text PDF and page images",
+        "title": "The Structure of the Elementary Cellular Automata Rule Space",
+        "trigger": "Full 256-rule classification with possible entropy-equivalent terminology"
+      },
+      {
+        "assessment": "Classifies dynamical properties and the full-shift/surjective cases; does not list the 18 proper-image algebraic entropy roots or their maximum",
+        "evidence": "Chaos 22 (2012) 043143, sections V-VI, Table I and surjectivity propositions; arXiv first public 2011-07-11",
+        "identifier_or_url": "arxiv:1107.2080 / DOI 10.1063/1.4771662",
+        "material_read": "Full journal PDF, abstract and definitions, classification Table I, sensitivity and surjectivity parts of sections V-VI, and concluding statements",
+        "method": "Public full-text PDF and relevant page images",
+        "title": "A Full Computation-relevant Topological Dynamics Classification of Elementary Cellular Automata",
+        "trigger": "Plausible prior complete topological classification of the same 256 rules"
+      },
+      {
+        "assessment": "The general theorems classify when factor entropy is maximal but do not evaluate entropy of the proper images of all elementary rules",
+        "evidence": "Section 3.1 Theorem 2: equality iff pre-injectivity; Theorem 3: proper subsystem has strict entropy loss",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10955-015-1281-2",
+        "material_read": "Full open article HTML, section 3.1 Theorems 2 and 3 and accompanying discussion",
+        "method": "Primary article full HTML, mathematical theorem comparison",
+        "title": "Statistical Mechanics of Surjective Cellular Automata",
+        "trigger": "Potential stronger general theorem determining entropy of cellular automaton images"
+      },
+      {
+        "assessment": "Explicit antecedent subset machinery exists, but the text does not evaluate the nineteen-value entropy spectrum or prove cross-rule extremality",
+        "evidence": "Section 5, Table 6 and paragraphs explaining Garden-of-Eden configurations; the single-rule subset machine is known prior art",
+        "identifier_or_url": "arxiv:2005.01480 / DOI 10.25088/ComplexSystems.28.2.125",
+        "material_read": "Full arXiv HTML introduction, sections 4-5, Table 6, and Rule 22 Garden-of-Eden regular expressions",
+        "method": "Primary full-text arXiv HTML including exact transition table",
+        "title": "On patterns and dynamics of Rule 22 cellular automaton",
+        "trigger": "Full Rule 22 study, including the extremal rule and a subset automaton"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4f1725c-3486-4c31-94d2-105747a163a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The entire 256-rule family is a standard finite laboratory for symbolic dynamics, and one-step spatial image entropy measures precisely how many configurations remain reachable after one local update. The classification exhibits only 19 exact logarithms of algebraic roots, classifies the 30 surjective and 2 zero-entropy cases, and gives the sharp maximum for all 226 nonsurjective images with exactly four maximizers and a distinct four-rule runner-up. This is a complete natural invariant and structural extremal distinction, not an arbitrary hand-picked rule/length or numerical approximation. It does not claim a universal theorem for higher-radius cellular automata.",
+    "status": "PASS"
+  }
+}
