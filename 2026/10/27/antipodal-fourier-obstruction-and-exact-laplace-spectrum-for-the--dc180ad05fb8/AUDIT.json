@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "The argument integrates the two triangular sectors of [0,pi]^2 exactly. Twice integrating by parts gives the signed antipodal boundary contribution (-1)^n f'(pi)/(pi n^2) plus an o(n^-2) cosine transform by Riemann--Lebesgue, certifying infinitely many negative coefficients for f'(pi) nonzero. The exponential is integrated exactly for constant, axial and mixed frequencies, with strict sign checks including equality n^2=Q(a). Compact abelian Bochner gives equivalence to the finite-matrix criterion. Standalone code independently checks 24 integral comparisons (error below 1.3e-7), 1,497 axial signs, 432 mixed signs, and negative finite matrices; these numerical diagnostics are not used as the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feragen--Lauze--Hauberg, arXiv:1411.0296v1, Theorem 4: PD of all geodesic Laplace scales is equivalent to CND of the distance",
+        "Zhou, arXiv:2609.05622v1: metric is Euclidean quotient distance; not the maximum of coordinatewise circle distances.",
+        "Guella--Menegatto--Peron, arXiv:1505.01169v1, Theorem 1.1: strict PD characterization assumes positive definiteness and positive spectral supports."
+      ],
+      "reasoning": "The general all-scale negative-type criterion does not show that each fixed positive scale fails, nor the exact positive and negative frequency diagram. A Euclidean-quotient distance theorem does not directly cover the supremum-quotient distance. Neither strongly implies the all-a plus exact cutoff theorem. A separate same-space strict-PD theorem is conditional on an already-PD kernel and cannot imply the negative coefficient classification.",
+      "searches": [
+        "arxiv:1411.0296 Theorem 4 geodesic exponential kernels negative type",
+        "arxiv:2609.05622 definition of flat-torus Euclidean quotient metric and negative type",
+        "positive definite max arccos product circles geodesic supremum metric",
+        "arxiv:1505.01169 Theorem 1.1 strictly positive definite product circles"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1111.7077v1",
+      "arxiv:1411.0296v1",
+      "arxiv:1503.08174v1",
+      "arxiv:2609.05622v1",
+      "arxiv:1505.01169v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gneiting, arXiv:1111.7077v1, completely monotone profiles including Laplace kernels remain positive definite on individual spheres.",
+        "Guella et al., arXiv:1503.08174v1, product-sphere Schoenberg characterization.",
+        "Zhou, arXiv:2609.05622v1, Euclidean quotient norm and metric-energy setting.",
+        "Guella et al. arXiv:1505.01169v1 requires positive definite kernels and addresses strict positivity via support arithmetic; inapplicable to the non-PD supremum kernel."
+      ],
+      "reasoning": "One-dimensional positive definiteness cannot be composed via maximum (unlike product): this work exhibits an explicit obstruction. Guella et al. imply positivity if and only if all the coefficients are nonnegative but do not give their signs for the max profile; the new work supplies the sign calculation. Zhou uses l2 and hence does not decide the non-Riemannian l-infinity metric. The Euclidean square-norm Laplace positive definiteness is a separate comparison, not a dominant theorem.",
+      "searches": [
+        "arxiv:1111.7077 circle geodesic Laplace positive definite; two-circle maximum versus separable product",
+        "arxiv:1503.08174 product of spheres Schoenberg characterization; formula specialized to max-metric exponential",
+        "arxiv:2609.05622 Riemannian quotient Euclidean metric vs Finsler supremum-circle metric",
+        "arxiv:1505.01169 product of circle strict PD characterization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Guella--Menegatto--Peron, arXiv:1503.08174v1, Section 2: double nonnegative Gegenbauer/Fourier expansion criteria for products of spheres",
+        "The new sign formula includes a negative even-axis tail despite positive one-circle coefficients."
+      ],
+      "reasoning": "Max of the two circle arcdistances corresponds to a particular isotropic profile on S^1 times S^1; it is within the hypotheses of the older characterization, but the characterization states coefficient nonnegativity as an equivalence rather than computing the maximum-profile coefficients. No equivalent full parameter formula appears in the inspected sections and result statements. A broader uninspected identity remains possible.",
+      "searches": [
+        "\"max\" \"geodesic distance\" \"positive definite\" \"circle\" \"product\"",
+        "\"supremum metric\" torus positive definite exponential Fourier coefficients",
+        "arxiv:1503.08174 Sections 2 and 4, isotropic product-sphere Fourier coefficient characterization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant primary product-sphere paper arXiv:1503.08174v1 contains structural coefficient conditions but no explicit table of all Fourier coefficients for exp(-a max(delta_1,delta_2)).",
+        "Searches returned generalized covariance and harmonic-analysis references rather than this all-scale exact sign classification."
+      ],
+      "reasoning": "An exact table or standard theorem reproducing Q(a) would subsume the claimed spectral result, even with different words. No such table was located in the checked scope, but a negative search cannot prove nonexistence.",
+      "searches": [
+        "positive definite functions on torus with maximum geodesic distances sup norm exponential non-positive definite",
+        "flat torus l infinity periodic Chebyshev distance exponential kernel Fourier positive definite",
+        "arxiv:1503.08174 no table of exponential supremum-distance coefficients"
+      ]
+    },
+    "rationale": "A source-level implication check separates the exact new spectral sign diagram for the supremum-circle Laplace kernel from the known general characterization by nonnegative double Fourier coefficients: the latter gives a test, but none of the inspected source statements calculates these coefficients, the antipodal derivative parity obstruction, or the exact transition Q(a). The one-circle and Euclidean l-infinity Laplace cases are positive and therefore do not imply the failure on two wrapped factors. The more recent flat-torus negative-type theorem concerns a different Euclidean quotient metric. Literature and indexed-record checks are bounded; equivalence in uninspected work is a residual risk.",
+    "residual_risks": [
+      "An unindexed Finsler-flat-torus source may contain an equivalent antipodal Fourier obstruction or spectral calculation.",
+      "The older general product-sphere characterization makes the sign test conceptually accessible but does not, in the inspected content, compute the specific coefficients.",
+      "Only the cited material and bounded scholarly/index queries were checked; novelty requires independent literature confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives positive definite completely monotone geodesic profiles on spheres; no two-factor wrapped maximum spectral result in inspected material.",
+        "evidence": [
+          "arXiv:1111.7077v1, introduction and positive-definite model classes"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+        "material_read": "Abstract, introduction, positive definite families and comparison table at beginning.",
+        "method": "Read accessible primary arXiv PDF text and visual table.",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Need to check individual-circle positive definite Laplace profile and any product rule."
+      },
+      {
+        "assessment": "The metric-CND equivalence characterizes positivity at all Laplace scales, not the stronger failure for every single positive scale or explicit Fourier modes.",
+        "evidence": [
+          "arXiv:1411.0296v1, Theorem 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1411.0296",
+        "material_read": "Abstract, introduction and Theorem 4 with surrounding discussion.",
+        "method": "Read accessible primary arXiv PDF text and theorem pages.",
+        "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+        "trigger": "Possible general all-scale obstruction through conditional negative definiteness."
+      },
+      {
+        "assessment": "Supplies general coefficient nonnegativity characterization on product spheres, not the explicit max-distance exponential Fourier sign diagram or endpoint-derivative asymptotic found here.",
+        "evidence": [
+          "arXiv:1503.08174v1, Section 2, product-sphere expansion theorem and Section 4"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.08174",
+        "material_read": "Abstract, introduction, Section 2 Fourier/Gegenbauer machinery and characterization, Section 4 examples and directions.",
+        "method": "Read primary arXiv PDF text and pages with formulas.",
+        "title": "An extension of a theorem of Schoenberg to products of spheres",
+        "trigger": "Same ambient circle product with plausible dominating general result."
+      },
+      {
+        "assessment": "Studies Euclidean/Riemannian quotient distances, not the two-factor supremum-distance Finsler quotient. Does not give exact Q(a) or derivative seam statement.",
+        "evidence": [
+          "arXiv:2609.05622v1, distance definition and main negative-type results"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.05622v1",
+        "material_read": "Metric definitions, main theorem overview and flat torus Fourier discussion.",
+        "method": "Read accessible primary arXiv HTML full text sections.",
+        "title": "Distance Energies and Negative Type of Flat Tori",
+        "trigger": "Later stronger negative-type or all-scale kernel obstruction could subsume the result."
+      },
+      {
+        "assessment": "Treats strict positive definiteness conditional on positive definiteness, using arithmetic support of nonnegative coefficients. This does not compute the max-distance exponential coefficients or prove negative Fourier signs.",
+        "evidence": [
+          "arXiv:1505.01169v1, Theorem 1.1 and equation (1.1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.01169",
+        "material_read": "Abstract, introductory coefficient representation, main Theorem 1.1 and its support criterion.",
+        "method": "Inspected accessible primary arXiv PDF and theorem-page image.",
+        "title": "Strictly positive definite kernels on a product of circles",
+        "trigger": "Identical ambient two-circle product; strict-positivity classification might already imply max-profile obstruction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc180ad0-5fb8-4364-bb8e-5a2ff9274505",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The product supremum metric is natural in simultaneous phase measurements and tensor product circle geometry. The exponential profile is automatically a valid kernel on the corresponding unwrapped Euclidean l-infinity plane (factorization into one-dimensional Laplace kernels) and on each separate circle, so the loss of positivity after wrapping both factors is a nontrivial structural boundary. The all-C^2 antipodal derivative obstruction diagnoses the mechanism beyond a special example; the exact all-frequency Q(a) boundary and exponentially growing first bad frequency quantify how finite resolution can conceal invalid covariances.",
+    "status": "PASS"
+  }
+}
