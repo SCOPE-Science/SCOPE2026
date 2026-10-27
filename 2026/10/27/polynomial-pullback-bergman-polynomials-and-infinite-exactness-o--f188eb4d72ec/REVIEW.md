@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The proof converts an unrestricted planar Bergman orthogonality problem to the polynomial trace \(T_s(w)=\sum_{P(\zeta)=w}s(\zeta)/P'(\zeta)\). A Laurent coefficient at infinity bounds the trace degree uniformly, and the polynomial area substitution formula supplies the exact norm, independent of branch points and connectivity. Disk moments and the polynomial capacity formula then give the least-squares equality constant. The standalone exact symbolic checker returned `CHECK_OK` for 130 fiber-trace comparisons. Finite checks supplement a general proof rather than certify an infinite claim.
+
+**Originality — PASS with historical-priority risk.** Ransford's 2026 bound is prior, including its disk equality and asymptotic sharpness. Gustafsson–Putinar–Saff–Stylianopoulos's 2008 Proposition 7.2 is a genuinely covered special case \(P(z)=z^d-1\): it is expressly not claimed as new. Simanek's 2014 work covers general polynomial lemniscates asymptotically but does not supply the finite all-degree exact transfer identity. Targeted mathematical search results did not reveal the general arbitrary-\(P\) formula; an older representation through trace or proper-map Bergman theory may exist and remains the primary priority risk. The available evidence warrants only best-knowledge priority, not a proof of uniqueness.
+
+**Value — PASS.** The entire natural family of polynomial inverse-disk compacta, regardless of connectedness, saturates a newly motivated capacity inequality at infinitely many degrees. Explicit minimizers and a transfer identity for arbitrary target sets make this more than a one-off equality example. The result does not describe exceptional nonmultiple degrees or all equality sets.
+
+Self-review: passed. Independent audit: not yet performed.
