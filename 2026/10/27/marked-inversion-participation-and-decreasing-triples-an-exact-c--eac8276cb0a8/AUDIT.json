@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, rank-comparison probabilities yield covariance 1/12 when an inversion pair is internal to a decreasing triple, and 0,+/-1/24 for a one-index overlap. Summing the exact configurations proves Cov(D_i,T)=((n-2)(n-1)(n+1))/48-((n-3)(i-1)(n-i))/24, positivity and center-minimum. The same three-point probabilities prove Var(D_i)=[2(n-1)+(n-2i+1)^2]/12. A direct bounded projection argument yields Var(T)=(13/7200)n^5+O(n^4), a published independently known constant; combining gives the asserted central-width sqrt(n) correlation profile and off-window vanishing. The packaged standard-library verifier exhaustively checks all permutations n=3..8 and recomputes the variance coefficient using exact rational integration. These finite checks corroborate rather than replace the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1706.09510 Theorem 5.1 implies Var(T) asymptotic 13 n^5/7200; this ingredient is used and not claimed.",
+        "arxiv:1503.03582 discusses uniform permutation-graph degree-process limits and joint degree limits, not mixed local/global triangle moments.",
+        "Public incidence-precision result establishes Cov(I)= (I+B^T B)/12 for pair comparisons and its inverse, not triple-pattern cross moments."
+      ],
+      "reasoning": "Knowing variances or pairwise inversion covariance is insufficient to recover covariance with a triple-order indicator, which requires joint events on three/four indices. The stated marked mixed law and its normalized central scaling do not follow from these listed results without new overlap calculations.",
+      "searches": [
+        "published-finding corpus: random permutation graphs joint degree distribution covariances inverse permutation graph",
+        "published-finding corpus: random permutation graph vertex degree and triangle total central window nonvanishing correlation 5 sqrt(3/13)/4",
+        "Web: random permutation graph degree triangle covariance",
+        "Web: degree sequence of random permutation graphs 2017 arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1706.09510 (2017-06-28 initial public date; primary classification 60F05, theorem 5.1)",
+      "arxiv:1503.03582 (2015-03-12; degree-process results)",
+      "arxiv:1901.06678 (2019-01-20; degree and clique marginals)",
+      "Public published Incidence precision law for all inversion indicators of a random permutation (complete RESULT.md read)",
+      "Own available 2026-10_week3 private research ledger ledger p0001_g000055, recoverable claims searched for six aliases",
+      "Published published-finding corpus semantic search, multiple actual mixed-moment and alias queries, closest cited IDs in originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source arxiv:1706.09510 establishes a general variance expansion, used at pattern length three.",
+        "Source arxiv:1901.06678 gives mean/variance of a marked degree and mean/variance of clique counts separately.",
+        "Source public incidence-precision result gives all degree pairwise covariances as linear aggregates of inversion comparisons.",
+        "Existing own ledger has marked fixed-point/inversion, permutation-record and several unrelated random-graph triangle results, but no marked inversion participation/triple-pattern claim."
+      ],
+      "reasoning": "A full pairwise covariance matrix fixes second moments of linear edge-count statistics, but need not fix mixed moments with a triangle indicator. Likewise univariate variances and degree-process limits cannot determine location-dependent degree/triple covariance or the square-root n correlation window; those follow here from a distinct three/four-index overlap argument. Nothing inspected logically implies the new claim without additional calculations.",
+      "searches": [
+        "published-finding corpus: uniform random permutation graph covariance degrees degree centrality",
+        "published-finding corpus: permutation patterns first-order projection triangle count and vertex inversion degree joint covariances",
+        "Web: random permutation number increasing subsequences length 3 asymptotic variance 13/7200",
+        "Own existing ledger claims searched for triangle; inversion; clique; subsequence; permutation graph; degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A decreasing triple is a 321 pattern and a triangle in a permutation graph; marked inversion participation is graph degree.",
+        "arxiv:1901.06678 Sections 2,4 treats degree and clique-count moments separately; arxiv:1706.09510 Section 5 treats monotone-subsequence variance."
+      ],
+      "reasoning": "The exact polynomial mixed covariance and central-window normalized correlation are not identical to those marginal formulae. Searches include the 321-pattern, decreasing-subsequence and graph triangle aliases, not just one title.",
+      "searches": [
+        "published-finding corpus: fixed position inversion participation count and 321 pattern occurrence count covariance central sqrt n correlation random permutation",
+        "published-finding corpus: random permutation increasing triples inversion degree count asymptotic covariance at marked position",
+        "Web: covariance degree and number of triangles random permutation graph 3 cliques"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published-finding corpus titles concern pairwise comparison covariance, inversion-versus-cycle-count covariance, and fixed-point/descent dependence; no searched top hit listed the marked-degree versus 321-count mixed moment.",
+        "The original uniform random permutation graph study gives clique counts and degree moments as separate results."
+      ],
+      "reasoning": "No exact duplicate was found in the searched records. Absence in ranked results is only negative search evidence, not proof of priority; the main positive implication comparison is with the actual statements of the inspected closest full texts.",
+      "searches": [
+        "published-finding corpus: exact mixed moments local inversion count length-3 decreasing subsequence counts uniform permutation",
+        "published-finding corpus: random permutation graph vertex degree and triangle total central window nonvanishing correlation 5 sqrt(3/13)/4",
+        "Web: correlation degree and triangle count uniform permutation graph center n half"
+      ]
+    },
+    "rationale": "The new claim is the finite marked-position covariance between local inversion participation and global decreasing-triple counts, plus the nontrivial correlation localization of width square-root of n. Full relevant portions of the closest preprints separate degree moments from triple moments, and the full published pairwise-inversion covariance result does not determine this higher mixed moment. Targeted database and literature searches returned no equivalent; this does not establish exhaustive historical uniqueness.",
+    "residual_risks": [
+      "Historical permutation-pattern literature might encode the same local/global mixed moment or its correlation scaling under a different U-statistic or graph-theoretic formulation.",
+      "Relevant published database rankings are search evidence, not a complete or unique enumeration of all prior mathematics.",
+      "This claim has not received independent mathematical peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the known 13/7200 leading variance of T, not the mixed covariance with a marked inversion participation count or its correlation localization",
+        "evidence": [
+          "Theorem 5.1 has coefficient [binomial(4k-2,2k-1)-2 binomial(2k-1,k)^2]/[2((2k-1)!)^2] for Var(Z_n,k), giving 13/7200 at k=3."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.09510",
+        "material_read": "Full-text arXiv HTML, especially Sections 4 and 5; Theorem 5.1 and equation (8), plus surrounding proof of leading variance term",
+        "method": "Read theorem and proof text directly, evaluated its coefficient at length three",
+        "title": "Asymptotic results on weakly increasing subsequences in random words",
+        "trigger": "Closest variance asymptotics for length-three monotone subsequence counts and a middle-cohort probability source"
+      },
+      {
+        "assessment": "Provides degree-process/joint degree limits, not mixed covariance with the global 3-clique count",
+        "evidence": [
+          "Introduces d_n(i) as permutation-graph degree and studies joint limiting laws of marked degrees; no triangle-count mixed statistic in inspected results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.03582",
+        "material_read": "Full-text arXiv HTML introduction, degree-process definitions and theorem summaries, and searched article text for clique/covariance/subsequence",
+        "method": "Direct full-text inspection and targeted term search",
+        "title": "Degree Sequence of Random Permutation Graphs",
+        "trigger": "Same marked degree variable interpreted in the permutation graph and possible dominating joint-degree theorem"
+      },
+      {
+        "assessment": "Treats clique-count moments and degree moments separately; no stated marked degree/triangle covariance or central correlation window in inspected material",
+        "evidence": [
+          "Section 2 identifies m-cliques with decreasing subsequences and gives their scalar moments; Section 4 identifies a given node degree and studies its marginal moments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1901.06678",
+        "material_read": "Full-text arXiv HTML Introduction, Sections 2–4 including Theorems 2.1 and 4.1 and their arguments, and targeted searches for covariance and triangle",
+        "method": "Read theorem and proof sections directly",
+        "title": "A study on random permutation graphs",
+        "trigger": "Same graph model, same local degrees and global clique statistic in one primary source"
+      },
+      {
+        "assessment": "Gives all pair-indicator covariances and their inverse; not a third-order decreasing-pattern mixed covariance. Pairwise moments alone do not determine product moments.",
+        "evidence": [
+          "Its Eq. (1) is the covariance matrix C=(I+B^T B)/12 of pair comparisons; the theorem concerns linear partial correlations and does not discuss triple counts."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805/RESULT.md",
+        "material_read": "Complete public RESULT.md: finding, assumptions, proof, verification, relationship and limitations sections",
+        "method": "Read public published full text through repository file retrieval",
+        "title": "Incidence precision law for all inversion indicators of a random permutation",
+        "trigger": "Closest indexed published covariance theorem about all pairwise inversion comparisons"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eac8276c-b0a8-46ac-879e-8776b5d7e727",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Marked inversion participation and global monotone-triple count are natural, jointly observable random-permutation statistics. The exact finite polynomial reveals strongest raw covariance at the ends, whereas normalized correlation remains macroscopic only in the central O(sqrt(n)) window. The explicit continuous limiting profile, with peak (5/4)sqrt(3/13), pinpoints a nontrivial dependence scale not supplied by either marginal theory. This is a substantive structural fluctuation law, not a renaming of the known triple variance.",
+    "status": "PASS"
+  }
+}
