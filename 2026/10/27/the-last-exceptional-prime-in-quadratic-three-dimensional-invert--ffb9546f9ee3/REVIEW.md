@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The new case is precisely characteristic \(73\) in dimension three over \(\mathbb F_{73^2}\). Kyselov's Proposition 4.1 applies because \(4\mid72\), without requiring the nonvanishing of the second logarithmic coefficient. Exact arithmetic gives \(\lambda_1=18\), \(\lambda_3=49\), \(\lambda_4=25\), and \(\lambda_6=56\) modulo \(73\), all nonzero. The first and third traces determine the norm whenever trace is nonzero; when trace is zero, the fourth and sixth traces force a scalar ratio of \(\pm1\). This recovers Frobenius conjugacy for all nonzero parameters, and the published general theorem supplies the remaining primes. Galois stabilizers give the degree and orbit counts. The attached rational and finite-field certificates reproduced each finite step.
+
+**Originality (PASS, with literature risk).** Kyselov's Theorem 1.1 excludes the one prime dividing \(D_4=-3650\) in the permitted family: \(73\). The paper's Remark 6.2 does not remove it. Lin–Wan's earlier algebraic-degree theorem proves the prime-field statement, while Xin Lin's 2026 generalized Kloosterman theorem concerns a different phase. Targeted mathematical-record queries and inspected literature revealed no prior four-trace repair or quadratic p=73 orbit classification. Earlier unindexed equivalence remains possible; a 2023 origin paper was inspected only through its abstract.
+
+**Value (PASS).** The exceptional-prime gap is intrinsic to a recent all-dimension distinctness theorem, not an arbitrary numerical instance: the only missing d=4 characteristic is now settled, completing the natural entire prime family subject to the theorem's existing size and congruence assumptions. The proof's trace-zero branch uses extra coefficients beyond the vanished second coefficient and supplies sharp algebraic degrees and exact orbit counts. This is a motivated structural boundary resolution.
+
+The exact finite enumeration is corroboration for the p=73 arithmetic, not a replacement for the p-adic trace-recovery proposition or an independent audit. Scope is restricted to quadratic extensions, dimension three, and primes \(p>9\) congruent to \(1\) modulo \(4\).
+
+Self-review: passed. Independent audit: not yet performed.
