@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=2, a directed cycle in K_{2,n} occurs exactly when both mixed column types occur. Inclusion-exclusion yields Z=2*3^n-2^n, and explicitly marked columns give c=(3^(n-1)-2^(n-1))/(2Z), d=3^(n-2)/(2Z). The identity c+6d=1/4 yields symmetric eigenvalue 1/4+c, antisymmetric contrast eigenvalue 4d and common-mode eigenvalue 2(n+2)d, all positive. Direct inversion gives all Q entries; convexity of reciprocals proves the nontrivial negative same-column off-diagonal sign. Exact graph-acyclicity enumeration and rational verification across n=2..8 passed 90,094 assertions. Finite computation is corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Carballosa–Khera–Reyes arXiv:2303.09021, Sections 2-3, establishes encoding and enumeration for arbitrary complete multipartite graphs, a broader object class but not the multivariate statistical law.",
+        "Khera–Lundberg arXiv:2408.12716, Theorems 1.1-1.2 address longest paths for K_{n,k}, not edge covariances.",
+        "Cameron (2014), slide 63, formulates correlation questions as questions for acyclic orientations and remarks on the complete bipartite case."
+      ],
+      "reasoning": "General graph family coverage does not imply coverage of the specialized edge-indicator spectrum. No inspected source states a stronger theorem whose direct marginal or specialization entails the inverse-covariance sign law, but an unlocated stronger moment identity is possible.",
+      "searches": [
+        "published-finding corpus: uniform random acyclic orientations complete bipartite K_{2,n} edge direction covariance inverse precision correlations",
+        "published-finding corpus: acyclic orientations complete bipartite graph covariance edge indicators signed dependence",
+        "Web: complete bipartite random acyclic orientation edge edge correlations variance",
+        "published-finding corpus: random acyclic orientation bipartite K2n source sink correlations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2408.12716v1",
+      "arxiv:2303.09021",
+      "https://cameroncounts.github.io/web/talks/14/pg_eindhoven.pdf",
+      "published-finding corpus record 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805",
+      "published-finding corpus record 2026/10/4/SCOPE-occupied-box-indicators-have-a-strictly-positive-precision-matri--0606274d4166"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Khera–Lundberg (2024), main results: PGF and central limit theorem of a *longest-path* statistic.",
+        "Carballosa–Khera–Reyes (2023), encoding and enumeration: no marked two-edge moments or precision matrix in inspected results.",
+        "published-finding corpus f6af0a8c3805: disjoint inversion comparison indicators in random permutations have zero covariance; here cross-column indicators have strictly nonzero ±d_n."
+      ],
+      "reasoning": "A generating function for longest paths cannot algebraically determine the full edge-indicator joint moment matrix; a formula for the total number of acyclic orientations alone also cannot. The alternative permutation law weights orientations by their numbers of linear extensions, so even a formally similar precision decomposition does not dominate this claim. The present specific four covariance/precision entry types and their asymptotic contrast survive these comparisons.",
+      "searches": [
+        "published-finding corpus: acyclic orientations complete bipartite graph covariance edge indicators signed dependence",
+        "published-finding corpus: random lonesum 2 by n binary matrix covariance inverse covariance precision edge indicators",
+        "Web: uniform lonesum 0-1 matrices covariance correlations entries second moments random lonesum matrix",
+        "Web: complete bipartite random acyclic orientation edge edge correlations variance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cameron, Acyclic orientations, January 6 2014, PDF slides 48-56: exact correspondence between lonesum binary matrices and bipartite acyclic orientations; forbidden 2-by-2 permutation submatrices.",
+        "Khera–Lundberg arXiv:2408.12716, Sections 1 and 3: sampling uniform acyclic orientations and lonesum matrices; the main theorems instead concern the longest directed path.",
+        "published-finding corpus query closest ID 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 concerns uniform random permutations, not these uniformly sampled orientations."
+      ],
+      "reasoning": "A 2-by-n lonesum matrix is exactly the proposed probability space. The compared published sources supply the representation and orientation counts, but no exact covariance or inverse covariance formula for its entries. The ranked permutation precision theorem uses a different distribution and covariance support and cannot imply the claimed formulas.",
+      "searches": [
+        "published-finding corpus: random lonesum 2 by n binary matrix covariance inverse covariance precision edge indicators",
+        "published-finding corpus: poly-Bernoulli uniform 2 row lonesum matrix pairwise dependence full partial correlation",
+        "Web: \"lonesum matrices\" \"covariance\" entries",
+        "Web: uniform random acyclic orientations complete bipartite graph dependence edge directions covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest relevant published-finding corpus mathematical-result IDs concern uniform-permutation inversion precision f6af0a8c3805 and occupied-box indicator precision 0606274d4166, with different probability spaces.",
+        "Cameron (2014) and Carballosa–Khera–Reyes (2023) list total orientation counts, not a table of the marked two-point and inverse-covariance entries."
+      ],
+      "reasoning": "No exact covariance table, inverse-covariance matrix, or numerically covering database entry was located. Total orientation counts by themselves do not determine pairwise moments; the present proof uses marked counts and an additional nontrivial inversion. Failure to locate a table is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: random lonesum 2 by n binary matrix covariance inverse covariance precision edge indicators",
+        "published-finding corpus: complete bipartite K_{2,n} uniformly random acyclic orientation signs covariance same row opposite row",
+        "Web: \"lonesum\" \"correlation\" matrix entries random",
+        "Web: \"lonesum matrices\" \"multivariate\" weight each entry generating function"
+      ]
+    },
+    "rationale": "Public primary manuscripts on uniform bipartite acyclic orientations focus on longest path distribution and counts/encoding, not the full marked-edge covariance and precision spectrum. Earlier lonesum theory is credited. A relevant inversion-indicator precision law is for a different measure with different disjoint-pair behavior. Statement/implication comparisons leave the exact claimed result uncovered in the inspected corpus; an unlocated weighted lonesum treatment remains a risk.",
+    "residual_risks": [
+      "An unlocated earlier result may calculate marked moments of two-row lonesum matrices or derive the same precision spectrum implicitly.",
+      "A general multivariate weighted acyclic-orientation generating function might specialize to these formulas; no decisive stronger overlapping statement was found.",
+      "Originality is established only to the extent of the inspected accessible literature and mathematical-result searches, not certified historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper concerns longest-path length, its generating function, CLT, and variance, not pairwise edge-direction covariance or inverse covariance.",
+        "evidence": [
+          "arxiv:2408.12716v1, PDF pp.1-4: principal statements and model",
+          "arxiv:2408.12716v1, PDF pp.13-19: lonesum matrices and analytical proofs"
+        ],
+        "identifier_or_url": "arxiv:2408.12716v1; https://arxiv.org/pdf/2408.12716",
+        "material_read": "Full-text sections around introduction/Theorems 1.1-1.2, lonesum-matrix setup in Section 3, and analytic-combinatorial proof in Section 4; PDF title page rendered.",
+        "method": "Full PDF textual inspection at theorem, model, and proof locations, text searches for covariance and correlation, and rendered-page inspection.",
+        "title": "The distribution of the length of the longest path in random acyclic orientations of a complete bipartite graph",
+        "trigger": "Exact same uniform acyclic-orientation model and focal source dated 2024-08-22"
+      },
+      {
+        "assessment": "Provides representations and counting formulas, broader graph classes but no marked two-edge covariances or inverse statistical matrix.",
+        "evidence": [
+          "arxiv:2303.09021, PDF pp.1-3 and pp.9-14: encoding and labelled enumeration"
+        ],
+        "identifier_or_url": "arxiv:2303.09021; https://arxiv.org/pdf/2303.09021",
+        "material_read": "Full-text introduction and results overview, Section 2 encoding of complete multipartite acyclic orientations, Section 3 labelled enumeration; PDF title page rendered.",
+        "method": "Full PDF theorem/section inspection and targeted terms covariance and correlation.",
+        "title": "Encoding and Enumerating Acyclic Orientations of Graphs",
+        "trigger": "Potential dominating enumeration for arbitrary complete multipartite graphs"
+      },
+      {
+        "assessment": "Establishes counting context and frames the edge-correlation gap, but provides no quantitative covariance or precision result. Older supporting source, not the focal source date.",
+        "evidence": [
+          "Cameron, January 6 2014 slides, pp.35-56 and 63-64"
+        ],
+        "identifier_or_url": "https://cameroncounts.github.io/web/talks/14/pg_eindhoven.pdf",
+        "material_read": "Slides 34-56 covering complete-bipartite counts and lonesum matrices, and slides 62-64 posing correlation questions.",
+        "method": "Primary lecture PDF text and rendered slide inspection.",
+        "title": "Acyclic orientations (Eindhoven lecture slides)",
+        "trigger": "Found explicit historical edge-correlation research question and lonesum equivalence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea936dac-5754-46ee-81e2-138709780fc0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This solves a mathematically explicit edge-direction correlation question for an infinite family of uniform acyclic orientations, with a complete spectrum and precision entries controlling every linear score and full-order adjusted pair. Persistent cross-column marginal correlations (+/-1/9) coexist with disappearing partial correlations (signed 3/(4n)); the structure is not captured by total poly-Bernoulli counts or by an arbitrary isolated finite statistic. The exact n>=2 boundary and all sign classes are natural, not arbitrary slices.",
+    "status": "PASS"
+  }
+}
