@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every integer n>=2, the grounded graph Laplacian is I+L(Q_n). Its positive radial heat kernel yields strictly positive h_j and differences h_j-h_{j+1}, justifying every absolute current sign. Binomial moment identities S=1/3 and T=1/5 give exact cut-column norms 1+n/3 (spokes) and (6n+14)/15 (cube). Exact diagonals a_n and 2(1-a_n)/n give complementary columns. The cycle-column difference is negative at n=2,3,4 and positive at n=5; n>=6 follows from a_n>1/(n+1). Every edge belongs to one of the two orbits. The standalone Python/SymPy checker confirmed 30 finite dimensions by rational spectral identities and five grounded inverse problems (444 edges total); finite cases are corroborative, and infinite validity rests on the integrals and inequalities in RESULT.md.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schild–Rao–Srivastava give universal big-O electrical localization estimates and a transfer impedance matrix bound, not individual two-orbit exact norms.",
+        "Gurel-Gurevich–Nachmias–Sachdeva give universal 2 log(number of vertices) mean and absolute-transfer spectral upper estimates, without coned-cube exact expressions or optimizer transitions.",
+        "An exact parameter-dependent two-orbit comparison and the sign change relative to the original cube are strictly more specific than the universal bounds."
+      ],
+      "reasoning": "General upper bounds may cover inequalities but cannot imply the exact rational expressions or dimension-five switching equalities. A universal Green-function representation is an analytical starting point and does not by itself compute the absolute-column sums.",
+      "searches": [
+        "arXiv:1708.01632v1 Theorems 1.4–1.5",
+        "arXiv:2605.24130v1 Theorems 1.1–1.3",
+        "published-finding corpus: graph join K_1 with hypercube first order projection l1 induced norm",
+        "Web: cone over hypercube electrical current flow projection norm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2305.12582v1, §§1.1, 2.6–2.7, Theorem 45 (material read)",
+      "arXiv:1708.01632v1, §1, Theorems 1.4–1.5 (material read)",
+      "arXiv:2605.24130v1, §§1–2, Theorems 1.1–1.4 (material read)",
+      "published-finding corpus indexed record 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d (title/summary only, distinct operator)",
+      "published-finding corpus indexed record 2026/10/4/SCOPE-exact-optimal-apex-transfer-fidelity-for-every-laplacian-double--881da7cbcca7 (title/summary only, a different Laplacian observable)",
+      "Resistance distances and Kirchhoff indices in graph joins, DOI:10.1088/1751-8121/ae2997 (abstract/section descriptors only, full publisher article not accessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The ordinary-cube exact norm (n+1)/2 is different from the coned value (6n+14)/15; their difference changes sign between n=4 and n=5.",
+        "The coned cycle norm switches from spoke to cube-edge columns precisely at n=5, a fact requiring a comparison of the diagonal currents and total absolute current magnitudes.",
+        "The general published localization inequalities constrain growth but contain no cut-versus-cycle two-edge-orbit phase information."
+      ],
+      "reasoning": "The exact cone formula is not a renaming or direct specialization of the ordinary cube formula because the added apex changes the Laplacian and creates a second edge orbit. Nor is it implied by universal asymptotic electrical-flow bounds. The proof independently derives two resolvent moments and shows the sharp threshold.",
+      "searches": [
+        "arXiv:2305.12582v1 §§1.1, 2.6, 2.7 (cut/cycle projections and Hamming cubes)",
+        "arXiv:1708.01632v1 §1 (transfer-current bounds)",
+        "arXiv:2605.24130v1 §§1–2 (sharp general electrical localization bound)",
+        "published-finding corpus: orthogonal cycle cut projection apex joined binary hypercube dimension n norm 2n/5 edge spoke threshold at n=5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2305.12582v1 Theorem 45 proves (n+1)/2 for the ordinary Hamming cube, whose edge set lacks all apex spokes.",
+        "The present theorem distinguishes two edge orbits of the graph join and finds a cycle-column optimizer switch at n=5. The ordinary cube has only one edge orbit.",
+        "Closest indexed record with Walsh/projection vocabulary concerns Walsh spectral projections on free spaces, not the graph cut/cycle projection for K1 joined to a Hamming graph."
+      ],
+      "reasoning": "The ordinary-cube theorem neither involves the resolvent (I+L_cube) inverse created by apex grounding nor asserts any apex-current column sum. Fourier spectral projection onto Walsh levels in a free space is a different operator from the incidence-space cut projection. Searches found no equivalent formula, but a negative retrieval result is not a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: coned Hamming cube graph cone over Q_n endpoint l1 projection norms cycle cut transfer currents Walsh resolvent",
+        "published-finding corpus: cycle space orthogonal projection on join K1 Qn hypercube graph electrical transfer impedance two edge orbits cutoff at dimension five",
+        "Web: hypercube cone orthogonal projection cycle space electrical edge l1 norm",
+        "arXiv:2305.12582v1 §2.7 Theorem 45"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved table gave the two edge-orbit absolute-current sums 1+n/3 and (6n+14)/15 or the complementary optimizer switch.",
+        "The exact-rational reproductions here independently calculate the first five nondegenerate dimensions; these are verification, not evidence of bibliographic nonexistence."
+      ],
+      "reasoning": "No covering existing table was located in the indexed sources checked. Since retrieval is not exhaustive, unindexed tabulations and alternate notations remain residual originality risks.",
+      "searches": [
+        "published-finding corpus: exact edge transfer current norms for cone over hypercube 1+n/3 and (6n+14)/15",
+        "published-finding corpus: finite hypercube with universal dominating apex vertex cut projection orthogonal l1 norm",
+        "Web: cone hypercube effective resistance table",
+        "Web: join K1 Qn hypercube Hodge projection l1 exact"
+      ]
+    },
+    "rationale": "Comparison of statement implications against the inspected Hamming cube cut-projection theorem (arXiv:2305.12582v1), generic electrical localization theorems (arXiv:1708.01632v1; arXiv:2605.24130v1), and source-index searches found no covering exact cone formula. The original claim is the exact two-orbit classification, the optimizer transition and the addition-sign reversal; generic network transfer-current definitions and ordinary cube norms are not claimed new. This is a best-knowledge assessment subject to the specified residual bibliography risks.",
+    "residual_risks": [
+      "Unindexed exact electrical-current or cone-hypercube tables, including alternate names for the graph join, could predate the checked records; searches do not rule this out.",
+      "The graph-joins resistance article DOI:10.1088/1751-8121/ae2997 was not materially read in full. Its accessible description concerns effective resistances rather than total absolute transfer currents, so no affirmative noncoverage conclusion is drawn from its snippet.",
+      "Some indexed records were returned only as titles and summaries, not inspected in full; these do not establish full-document noncoverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 45 concerns the original n-dimensional cube. The examined sections provide no coned-hypercube column norms or added-apex dimension-five transition.",
+        "evidence": [
+          "arXiv:2305.12582v1, p.1 MSC2020 46B04, p.23 Theorem 45; Section 2.7, pp.23–27."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+        "material_read": "The public date and primary MSC on page 1; cycle/cut definitions on pages 2–3; Section 2.6 and the start and central proof of Section 2.7, especially Theorem 45 and the edge-orbit argument on pages 23–27.",
+        "method": "Read the arXiv full-text PDF text and page images, and searched the full text for cone and join formulations.",
+        "title": "Cycle spaces: invariant projections and applications to transportation cost",
+        "trigger": "Directly relevant original work establishing the endpoint cut projection norm of the ordinary cube."
+      },
+      {
+        "assessment": "Its results are asymptotic universal localization bounds and examples, not exact per-edge orbit formulas for this cone family.",
+        "evidence": [
+          "arXiv:1708.01632v1, pp.1–4, Theorems 1.4–1.5."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1708.01632",
+        "material_read": "Abstract, introduction, examples and Theorems 1.4–1.5 on pages 1–4.",
+        "method": "Inspected full-text PDF text and page 4 image around theorem statements.",
+        "title": "Localization of Electrical Flows",
+        "trigger": "Primary comparison for transfer impedance and absolute-current endpoint norms."
+      },
+      {
+        "assessment": "Theorems give universal mean and spectral upper bounds rather than exact coned-cube endpoint norms; they supply relevant context without implication coverage.",
+        "evidence": [
+          "arXiv:2605.24130v1, pp.1–3, Theorems 1.1–1.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2605.24130",
+        "material_read": "Abstract, introduction, Theorems 1.1–1.4 and transfer-current definitions on pages 1–3.",
+        "method": "Inspected full-text PDF and displayed page 1 image.",
+        "title": "A Tight Bound on Localization of Electrical Flows",
+        "trigger": "Potentially dominating universal logarithmic bounds for all graph transfer-current matrices."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd9253b6-e620-46c0-b79a-77a6e6ee7478",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-orbit norm classification addresses a natural infinite family created by a canonical graph operation on Hamming cubes. The precise common dimension-five boundary links a strict switch of maximizing cycle-projection edge orbit with a strict reversal in how apex insertion changes the cut-projection norm, neither of which follows from the ordinary-cube norm or a universal bound. The exact mean current length supplies a logarithmic-size growth example in electrical-flow localization, with clear motivation beyond a single incidental rational computation.",
+    "status": "PASS"
+  }
+}
