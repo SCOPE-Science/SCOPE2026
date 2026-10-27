@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Fano plane is fixed by its seven XOR-zero triples. The first checker enumerates all 2002 five-subsets and verifies the geometric criterion pointwise, and also checks every smaller subset. It constructs each optimal five-set from triangle tangents and checks exact equality with the resolving sets. Exchange edges are generated from all possible single replacements, and BFS from every one of the 168 states gives one common profile \((1,5,18,49,71,24)\). The independent second checker uses orthogonality rather than XOR-zero line triples, recomputes graph distances, scans 16384 subsets, builds adjacency via shared four-subsets, and checks symmetry transitivity. Both standalone scripts were executed from the package paths with matching recorded outputs. This is an exhaustive finite certificate, not probabilistic evidence.
+
+**Originality — PASS (best knowledge).** Héger–Takáts already give the metric dimension five and a sample optimum, together with a general resolution criterion; Bailey independently tabulates the same scalar dimension. Their inspected primary statements do not present the all-bases triangle–tangent classification or the 168-state, five-regular diameter-five exchange graph. Related reconfiguration projects study optimum landmark changes but available descriptions do not give the Heawood case. Searches also compared Heawood incidence, Fano duality, basis exchange, and the exact distance/edge parameters. Remaining risk: unindexed or unpublished classifications, including graduate work on metric-basis reconfiguration, could overlap.
+
+**Value — PASS.** For the smallest projective plane, the proof replaces an already-known optimum size with a complete geometric description of all optima and exact routes between them. The canonical 56 triangles, transitive 168-state geometry, and sharp five-replacement bound describe the cost of moving an optimal resolving sensor system without ever leaving the optimum class. Those are nontrivial exchange invariants rather than arbitrary numerical slices or a recomputation of the known metric dimension.
+
+The statements apply only to the fourteen-vertex Heawood graph. No theorem for larger orders or third-party priority certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
