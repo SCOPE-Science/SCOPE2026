@@ -1,0 +1,11 @@
+# Scientific review: annular adjacent-mode crossing theorem
+
+**Correctness — PASS.** Rotation invariance diagonalizes the compression. Normalized Gaussian polar integration supplies the adjacent-mode boundary difference. Its derivative is a cubic with exactly three positive simple zeros, as established by Rolle's theorem, sign changes and degree. The essential nonstandard global lemma compares its two positive humps by an elementary reflected-variable log ratio and a nonnegative quadratic; the remaining two indices receive separate elementary bounds. This verifies the exactly stated seven-case level-set count and transversality. The checker provides 182 supporting finite checks and does not supply the infinite proof.
+
+**Originality — PASS, best knowledge.** The earlier disk calculation supplies the same one-boundary function but not a classification of all annular equal-level sets as the inner boundary changes, nor an all-index proof that the outer hump strictly exceeds the inner hump. Maximenko–Tellería-Romero establish the general radial operator formula, and Fulsche–Hagger the broader Fock Toeplitz setting; neither inspected part contains the complete three-crossing theorem. Similar subject terms in searchable mathematical-result records did not give an equivalent implication. Exact older annulus results could exist, so this remains a literature-risk rather than proven uniqueness.
+
+**Value — PASS.** A natural change from disk to annulus produces reentrant spectral ordering absent from monotone disk concentration. The complete sharp bound of three crossings, every transition in inner squared radius, and strict crossing multiplicity have practical relevance when selecting angular orders in first-excited Gaussian phase-space localization. The hump inequality is structural and holds uniformly in the angular index, not a numerical slice or a restatement of the source's diagonalization.
+
+**Limitations and risk.** The theorem excludes the lowest angular-pair comparison, nonadjacent modes, nonradial masks and higher true-polyanalytic levels. Similar level-set calculations in unindexed older literature have not been excluded by an independent reviewer.
+
+Self-review: passed. Independent audit: not yet performed.
