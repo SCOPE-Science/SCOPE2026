@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** Fixing one maximal rank square-zero operator, the full commutant is computed as a two-by-two matrix block algebra. The square-zero and maximal-rank constraints reduce to anticommutation and invertibility of a well-defined induced map on the middle quotient. Surjectivity and exact cardinalities of the anticommutant, rank-stratified square-zero matrices, and the global maximal-square-zero conjugacy class reconstruct every factor of the probability law. The convergence estimate follows from a summable Euler-product deficit. Nine exact finite-field enumerations agree with these expressions, including the smallest boundaries; the proof, rather than these enumerations, covers all prime powers and all positive dimensions.
+
+**Originality: PASS within inspected coverage.** The closest literature includes the existence restrictions for products of commuting nilpotents in Kokol Bukovšek–Košir–Novak–Oblak, the possible Jordan structures in Bogdanić–Đurić–Koljančić–Oblak–Šivic, class commutation in Britnell–Wildon, and Huang's pair-counting/module-enumeration frameworks. None of the inspected statements was found to give the exact two-class product-rank multiplicity and its asymptotically uniform conditional law. The overlap assessment is based on implication of statements rather than titles. A potentially relevant prescribed-rank thesis was inaccessible, and an implicit specialization of a more general Hall-polynomial formula is not excluded.
+
+**Mathematical value: PASS.** Prescribing the most constrained nontrivial nilpotent conjugacy class in even dimension makes simultaneous commutativity rare and product rank a natural invariant with nontrivial exact multiplicities. Despite the severe commutation constraint, the rank becomes asymptotically uniform on an expanding integer interval, contrasting with more concentrated joint eigenspace statistics for commuting idempotents. This yields a quantitative infinite-family classification, not an isolated elementary rank bound.
+
+**Verification limits.** The direct checker examines nine small prime-field configurations, not every finite field, and cannot establish novelty or the infinite-dimensional limit. The paper comparison cannot guarantee completeness of unindexed literature.
+
+Self-review: passed. Independent audit: not yet performed.
