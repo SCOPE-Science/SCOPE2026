@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For any binary word the least alternating 01-host length is exactly 1 plus its number of adjacent pairs unequal to 01. For a concatenated q-th power this becomes 1+q*d+(q-1)*e. Tracing powers of the two-by-two weighted edge matrix counts all distinct roots once by first-appearance size and root length. The inverse matrix gives the claimed bivariate rational series; specialization and even-index Fibonacci/Lucas identities yield all q,k values, including empty-host and residue boundaries. Independent direct word enumeration (133 q,k pairs), threshold checks (2,046 binary test words), bivariate length checks and linear-recurrence checks passed; finite checks are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Inoue et al. (2018), Sections 2–4, provides an optimization algorithm for arbitrary input strings rather than exact counts for alternating hosts.",
+        "Lai et al. (2022), DOI 10.4230/LIPIcs.CPM.2022.7, studies single-letter duplication blocks.",
+        "S. Li, 2022, arXiv:2209.06891, concerns contiguous-factor powers in binary words, a different containment relation (abstract only)."
+      ],
+      "reasoning": "An arbitrary-word decision/optimization algorithm can decide existence of repeated roots, but does not imply the number of distinct roots of each length or the two-jump Fibonacci–Lucas law without new enumeration. General contiguous-factor power bounds do not apply as formulas for scattered occurrences. No located broader theorem was found to instantiate this two-variable generating function.",
+      "searches": [
+        "Combinatorics on words exact enumeration squares cubes power words that occur as scattered subsequences of periodic words",
+        "Exact Fibonacci Lucas closed count of tandem scattered subsequences repeated-power words u^q embedded in alternating (01)^k with two jump residue classes",
+        "Combinatorics on words: enumeration of subsequence powers and square subsequences in periodic binary words; number of roots whose repetitions embed"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4230/LIPIcs.CPM.2018.15 — open-access primary full text and the DOI metadata (first publicly released 2018-05-18)",
+      "doi:10.4230/LIPIcs.CPM.2022.7 — open-access primary full text and DOI metadata (published 2022-06-22)",
+      "doi:10.1007/978-3-540-30213-1_13 — publisher abstract/metadata only; full text not read",
+      "arxiv:2209.06891 — abstract for different contiguous-factor powers, not a theorem about scattered powers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Inoue et al. 2018 computes longest common square subsequences; its input and output are different from the all-roots count.",
+        "Lai et al. 2022 maximizes repeated single-letter blocks; not unrestricted repeated substrings as roots.",
+        "Kosowski 2004 has a relevant name but only abstract-level evidence was accessible."
+      ],
+      "reasoning": "Even the case q=2 is not a direct consequence of a longest-square optimization: finding one optimal square supplies no count of all shorter distinct squares or their root lengths. The weighted transfer-matrix identity is additional structure for alternating binary hosts. Full-text inaccessibility of the 2004 paper is recorded as residual risk, not falsely resolved.",
+      "searches": [
+        "Exact number of distinct powers uu, uuu, u^r as scattered subsequences of alternating binary word (01)^n; rational generating function",
+        "Exact Fibonacci Lucas closed count of tandem scattered subsequences repeated-power words u^q embedded in alternating (01)^k with two jump residue classes",
+        "Combinatorics on words exact enumeration squares cubes power words that occur as scattered subsequences of periodic words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Inoue et al. (2018), DOI 10.4230/LIPIcs.CPM.2018.15, defines square subsequences as YY and optimizes their length.",
+        "Kosowski (2004), DOI 10.1007/978-3-540-30213-1_13, describes longest tandem scattered subsequences in its abstract."
+      ],
+      "reasoning": "A distinct repeated root u corresponds injectively to u^q, so equivalent objects include distinct q-power scattered subsequences, tandem scattered subsequences for q=2, and scattered repetitions in a periodic binary word. Search results and inspected primary material describe extremal length or embedding algorithms, not an exact root-enumeration formula for all q and k.",
+      "searches": [
+        "Exact number of distinct powers uu, uuu, u^r as scattered subsequences of alternating binary word (01)^n; rational generating function",
+        "Combinatorics on words: enumeration of subsequence powers and square subsequences in periodic binary words; number of roots whose repetitions embed",
+        "Square subsequences: number of distinct square roots u for which uu occurs as subsequence of periodic 010101, enumeration 0 3 4 11 14 32"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact root counts at exponent two begin 0, 0, 3, 4, 11, 14, 32, 40, 87; such integers individually overlap classical Fibonacci/Lucas combinations.",
+        "No inspected table or database entry with the paired root-definition and all-exponent theorem was located."
+      ],
+      "reasoning": "An integer sequence matching numerical values is not in itself a covering theorem; conversely, a published table explicitly counting these distinct roots would cover finite values. Searches did not locate one. The novelty claim is the original combinatorial object, full root-length generating function, and all-q characterization, not the Fibonacci or Lucas numbers themselves.",
+      "searches": [
+        "Fibonacci subsequence power occurrence of binary alternating words (01)^k distinct square subsequences",
+        "Square subsequences: number of distinct square roots u for which uu occurs as subsequence of periodic 010101, enumeration 0 3 4 11 14 32"
+      ]
+    },
+    "rationale": "Inoue et al. (2018), the closest fully inspected source with the same square-subsequence objects, solves a longest-square optimization problem, not counting all distinct square roots in alternating hosts. Lai et al. (2022) uses letterwise duplications, not repeated arbitrary roots. The older Kosowski (2004) abstract addresses maximum length but its full text was not accessible, so hidden specialization remains a risk. Targeted semantic and literature searches across alternate names, Fibonacci/Lucas sequences, and counting powers revealed no covering count or equivalent root-length rational function. This is a best-knowledge assessment, not proof of global priority.",
+    "residual_risks": [
+      "An early or unindexed example may already compute all alternating-host square subsequences.",
+      "Kosowski (2004) is topically relevant but its full text was unavailable for a decisive whole-document comparison.",
+      "Semantic retrieval and bibliographic searches cannot establish mathematical uniqueness or priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper optimizes length of a square subsequence common to supplied words. Its theorems provide algorithms/conditional hardness rather than enumerating distinct roots by host size or root length in periodic binary hosts.",
+        "evidence": [
+          "CPM 2018, Article 15, pp. 15:1–15:13; definition on pp. 15:2–15:3, algorithms in Section 3, DOI 10.4230/LIPIcs.CPM.2018.15."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2018.15",
+        "material_read": "Open-access 13-page primary PDF, particularly definitions, related work, all algorithms, the optimization complexity statements and conclusions.",
+        "method": "Read searchable primary text and visually inspect the square-subsequence motivation and related-work page.",
+        "title": "Computing Longest Common Square Subsequences",
+        "trigger": "The square-subsequence definition agrees exactly when the exponent is two, so this is the closest direct prior problem family."
+      },
+      {
+        "assessment": "The object is a subsequence of runs of duplicated single letters and the objective is maximal length or weight; neither the set of all concatenated q-th power roots nor the alternating-host counts are calculated.",
+        "evidence": [
+          "CPM 2022, Article 7, pp. 7:2–7:3 definitions and comparison to square subsequences; DOI 10.4230/LIPIcs.CPM.2022.7."
+        ],
+        "identifier_or_url": "doi:10.4230/LIPIcs.CPM.2022.7",
+        "material_read": "Open-access 12-page primary PDF, abstract, introduction, problem formalization in Section 2, related square-subsequence comparison, results and conclusion.",
+        "method": "Read searchable primary text and visually inspect the formal distinction between power roots and letter-duplicated blocks.",
+        "title": "Beyond the Longest Letter-Duplicated Subsequence Problem",
+        "trigger": "Power and tandem-subsequence terminology overlaps with letter duplication and might disguise a broader counting theorem."
+      },
+      {
+        "assessment": "The abstract describes an algorithm for the maximum possible length of a tandem scattered subsequence, not an enumeration. Without full text an exact specialized count hidden in examples or an appendix cannot be ruled out.",
+        "evidence": [
+          "SPIRE 2004, pp. 93–100; publisher abstract, DOI 10.1007/978-3-540-30213-1_13."
+        ],
+        "identifier_or_url": "doi:10.1007/978-3-540-30213-1_13",
+        "material_read": "Springer bibliographic page and abstract only; an accessible full text was not obtained.",
+        "method": "Checked the publisher abstract and freely accessible bibliographic and full-text listings; the complete paper was unavailable for reading.",
+        "title": "An Efficient Algorithm for the Longest Tandem Scattered Subsequence Problem",
+        "trigger": "An early paper directly about tandem scattered subsequences could in principle contain an alternating-host specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec285053-121a-44c0-9c4b-0bcc2f2b93c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact enumeration fills a nontrivial gap between longest repeated-subsequence optimization and counting all admissible repetitions. The law is an infinite-family, all-exponent classification: first appearance has only two residues modulo q, with Lucas and Fibonacci jump sizes independent of q after rescaling. The complete root-length bivariate spectrum strengthens it beyond a single univariate statistic and supports length-constrained enumeration. This is a motivated counting invariant for tandem subsequences of an elementary periodic host, not arbitrary parameter slicing or a known table recomputation.",
+    "status": "PASS"
+  }
+}
