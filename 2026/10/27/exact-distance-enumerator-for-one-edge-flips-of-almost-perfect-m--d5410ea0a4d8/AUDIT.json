@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "For each alternating cycle, the first moved original edge must be replaced with a temporary edge from an exposed vertex outside the cycle; this is a non-target insertion. Adding necessary target-edge insertions gives the exact lower bound. The path-following and temporary-hole cycle algorithm meets it. The exponential labeled-block decomposition counts each state exactly once; the diameter and antipodal counts follow from maximizing the cycle count subject to each nontrivial cycle using at least two matching edges. Two dissimilar executable scripts independently reproduce all distance polynomials for 1<=m<=5, one from BFS flip edges and one from cycle decompositions plus species recurrence. These finite computations corroborate, not prove, the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet et al. (2018) study complexity of shortest matching reconfiguration in general graphs.",
+        "Aichholzer et al. (2025) bound connectedness/flip distances in general and geometric settings.",
+        "Brenner et al. (2026) prove Hamilton-connectedness on this special family."
+      ],
+      "reasoning": "General hardness, upper bounds, and Hamiltonicity do not determine the complete-graph all-pairs distances or per-shell multiplicities. A published matching geodesic theorem concerns two-edge flips on even complete graphs, which are a different graph.",
+      "searches": [
+        "Perfect matchings of complete graphs single edge token jumping reconfiguration near-perfect matchings one exposed vertex shortest distance alternating cycles",
+        "minimum edge dominating sets line graphs of complete graphs exchange reconfiguration odd n near perfect matchings diameter",
+        "arxiv:1812.05419 full preprint; arxiv:2508.18457 full preprint"
+      ]
+    },
+    "checked_sources": [
+      "Jennings (2013 preprint), arxiv:1306.3611, full primary text",
+      "arxiv:1406.6576",
+      "arxiv:1812.05419",
+      "arxiv:2006.12994",
+      "arxiv:2508.18457",
+      "arxiv:2607.04687",
+      "Cioabă, Royle and Tan, Australas. J. Combin. 81 (2021), 480–497; Jennings (2017) discussed therein"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new distance formula d(M,N)=|M\\N|+c and labeled-cycle species polynomial measure geodesics for restricted 1-flips.",
+        "Brenner et al. (2026) prove Hamilton-connectedness but not a per-distance census.",
+        "Jennings (2017) formula for different, unrestricted even perfect-matching 2-flips is reported by Cioabă–Royle–Tan (2021).",
+        "Jennings (2013 arXiv; 2017 publication), Theorem 3.4, determines distance m minus number of alternating cycle components for a different graph: unrestricted 2-edge swaps on even-order perfect matchings."
+      ],
+      "reasoning": "None of the inspected source statements entails an exact per-distance generating function for the restricted odd matching graph. Even the existence of long spanning Hamilton paths gives no shortest-path multiplicities.",
+      "searches": [
+        "Near-perfect matching flip graph distance distribution diameter floor(3m/2) alternating cycle count",
+        "matching reconfiguration complete graphs shortest path token jumping exposed vertex adjacent matching alternating cycle formula",
+        "arxiv:2607.04687, combinatorial theorem and pp. 3–7",
+        "arxiv:2006.12994, introduction and section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Brenner et al. (2026), arxiv:2607.04687, specifically defines 1-flips on almost-perfect matchings in odd complete graphs; Theorems concern Hamilton paths/cycles.",
+        "The matching model is also a token sliding in the line graph with one exposed vertex."
+      ],
+      "reasoning": "The equivalence of flip models was recognized; identical underlying graph does not imply the exact shortest distances or full enumerator. Full primary paper comparison found no distance-polynomial theorem.",
+      "searches": [
+        "Odd matching flip graph of complete graph K_(2m+1) exact distance generating polynomial exponential generating function e^(u(1-z²))(1-2uz)^(-1-z/2)",
+        "Almost-perfect matching reconfiguration complete graph shortest flip distance number of alternating cycles and mismatched matching edges",
+        "arxiv:2607.04687 full 44-page text, pp. 3–7, combinatorial 1-flip Hamiltonicity section",
+        "arxiv:1306.3611 primary full text, Theorem 3.4 and Corollary 3.5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cioabă–Royle–Tan (2021) report distance for perfect-matchings 2-flip graph and a connection to signed reversal graphs, citing Jennings (2017); that graph has degree m(m-1), not 2m.",
+        "A closed-form distance polynomial for odd complete-graph 1-flips was not stated in the inspected tables or preprints.",
+        "Jennings, arxiv:1306.3611, Section 3 and Corollary 3.5, gives distinct metric and antipodal formula for unrestricted perfect-matching flips."
+      ],
+      "reasoning": "Published exact distance data for the broader perfect matching 2-flip scheme cannot simply be transplanted because the single-exposed-vertex restriction removes most two-edge flips.",
+      "searches": [
+        "Odd matching flip graph of complete graph K_(2m+1) exact distance generating polynomial exponential generating function e^(u(1-z²))(1-2uz)^(-1-z/2)",
+        "Near-perfect matching flip graph distance distribution diameter floor(3m/2) alternating cycle count",
+        "Cioabă–Royle–Tan (2021), full text sections 1–3"
+      ]
+    },
+    "rationale": "The full labeled distance polynomial and exact antipodal counts for 1-flips of almost-perfect matchings in every odd complete graph are not supplied by the inspected results. The 2018 matching-distance paper treats general graph complexity; Jennings (2013 preprint) and Cioabă–Royle–Tan study 2-edge flips on even-order perfect matchings; Aichholzer et al. introduce/analyze almost-perfect 1-flips, and Brenner et al. prove Hamilton-connectedness of this same graph. These statements do not imply the displayed distance distribution. A close literature gap remains between a known flip model and unknown full metric census; priority risk persists for unindexed sources.",
+    "residual_risks": [
+      "Unindexed or differently named all-pairs distance enumerations may exist.",
+      "General reconfiguration methods may provide simpler alternative proofs; shared lower-bound insight in Aichholzer et al. is credited.",
+      "The 2026 primary manuscript was inspected but publication-priority search cannot establish mathematical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Perfect matchings of K_(2m) with unrestricted 2-edge alternating 4-cycle flips have distance m - number of common alternating components, different from the restricted 1-edge near-perfect flip graph on K_(2m+1). Its geodesic counts and antipodes do not imply the present formula.",
+        "evidence": "arxiv:1306.3611 first published 2013-06-15; 2017 published PDF pp. 1–5.",
+        "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/s74jenn.pdf",
+        "material_read": "Full primary 10-page open PDF accessible and examined; introduction, Theorem 3.4 and proof on pp. 3–5, Corollary 3.5, and counting-geodesics section.",
+        "method": "Direct full-text inspection and quantitative comparison of the base graph, legal swaps and distance implications.",
+        "title": "Geodesics in a Graph of Perfect Matchings",
+        "trigger": "Very close earlier complete-graph matching-geodesic theorem, with an early public arXiv preprint from 2013-06-15."
+      },
+      {
+        "assessment": "Hamilton-connectedness and structural flip properties; no statement of exact complete-graph shortest-distance enumerator, exact metric shells, or antipodal formula found.",
+        "evidence": "2026 arxiv:2607.04687v3, pp. 3–7 and combinatorial main statements.",
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2607.04687v3.pdf",
+        "material_read": "Full 44-page open-access PDF, especially pages 3–7, combinatorial 1-flip statements and proofs, plus searches across full text for distance, generating functions, and diameter.",
+        "method": "Full-text search, theorem and section comparison, visual inspection of the source page defining flips.",
+        "title": "Hamilton paths and cycles in flip graphs of (almost-)perfect matchings",
+        "trigger": "Exact same underlying 1-flip graph of almost-perfect matchings on odd complete graphs; high-priority potential covering source."
+      },
+      {
+        "assessment": "Already provides general model and lower-bound ingredients, but does not give the full odd-complete-graph per-distance enumerator and antipodal census.",
+        "evidence": "2025 arxiv:2508.18457, alternating-cycle argument and main theorems.",
+        "identifier_or_url": "https://arxiv.org/pdf/2508.18457",
+        "material_read": "Full available preprint, with emphasis on model and alternating-cycle lower bound, pp. 4–9.",
+        "method": "Read and compare proof devices, lower bounds, and theorems.",
+        "title": "Flipping odd matchings in geometric and combinatorial settings",
+        "trigger": "Introduces and analyzes the same 1-flip rule, with general bounds."
+      },
+      {
+        "assessment": "Computational complexity and classes of general graphs; no matching-specific metric sphere polynomial in odd complete graphs.",
+        "evidence": "2018 arxiv:1812.05419, main results.",
+        "identifier_or_url": "https://arxiv.org/pdf/1812.05419",
+        "material_read": "Available 31-page preprint, abstract, problem definitions, statements and main proof strategy.",
+        "method": "Full-text read and comparison of legal moves/quantifiers.",
+        "title": "Shortest Reconfiguration of Matchings",
+        "trigger": "General matching shortest reconfiguration theorem plausibly dominating special case."
+      },
+      {
+        "assessment": "Different two-edge alternating 4-cycle move on perfect matchings, not restricted exposed-vertex flip. Cites exact Jennings geodesic formula there; not a full invariant for present graph.",
+        "evidence": "Cioabă–Royle–Tan 2021, pp. 480–497, especially pp. 481–482.",
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/81/ajc_v81_p480.pdf",
+        "material_read": "Full open 18-page 2021 article; introduction pp. 1–3, graph definition, distance citation to Jennings and section 3.",
+        "method": "Full PDF and targeted reading of matching graph, graph distances and cited theorems.",
+        "title": "On the flip graphs on perfect matchings of complete graphs and signed reversal graphs",
+        "trigger": "Strong adjacent subject and previously known geodesic formula, possible equivalent via fixed-vertex extension."
+      },
+      {
+        "assessment": "Different graph class (trees) and token motion, not an odd-complete-graph matching distance enumerator.",
+        "evidence": "arxiv:1406.6576v1 submitted 2014-06-25.",
+        "identifier_or_url": "https://arxiv.org/abs/1406.6576",
+        "material_read": "Public arXiv metadata plus abstract and beginning of text identifying 2014-06-25 first public version.",
+        "method": "Read arXiv dated metadata and problem definition.",
+        "title": "Linear-Time Algorithm for Sliding Tokens on Trees",
+        "trigger": "Historical source for basic token-reconfiguration move; grounds archive interval."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5410ea0-a4d8-4c40-bf8f-d6a43ca0d1d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact all-distance spectrum of a natural vertex-transitive reconfiguration graph gives more than Hamiltonicity or a shortest-path upper bound. The species polynomial explicitly counts every geodesic shell for arbitrary odd complete graphs, determines the sharp diameter and counts all antipodes in closed form, providing nontrivial infinite-family structural enumeration. The invariant has direct meaning as the distribution of optimum numbers of local edits between feasible maximum matchings; the calculation is not an isolated arbitrary slice.",
+    "status": "PASS"
+  }
+}
