@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Equilibrium characterization from direct majority rule; run-marker bijection; exact four-state matrix and quartic; Perron–Frobenius primitive eigenvalue; implicit first/second derivatives; analytic MGF proof. Exhaustive independent checker confirms all coefficients on 3..16 vertices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Original arXiv Appendix A.6 gives a recurrence and Theta(phi^n) without color weighting.",
+        "Journal 2024 text retains the stable-coloring counting discussion; the examined relevant material does not supply the claimed explicit fluctuation coefficient."
+      ],
+      "reasoning": "A general finite-state transfer matrix implies existence of Gaussian fluctuations under standard hypotheses, but that methodology does not provide the exact enumerated color coefficients or evaluated coefficient without carrying out this specific calculation. No directly dominating result was identified.",
+      "searches": [
+        "binary majority cycle fixed-point colorings exact blue weight distribution asymptotic Gaussian fluctuation 0.2927050983 n",
+        "majority opinion diffusion: when tie-breaking rule matters 2024 exact stable color composition"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2302.06760v1",
+      "https://link.springer.com/article/10.1007/s10458-024-09651-y",
+      "https://oeis.org/A007040",
+      "Search results of public mathematical research records"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zehmakan gives the exact stability condition and growth-rate Theta(phi^n) of total stable profiles.",
+        "The 2023 paper treats distribution from random initial conditions, a different probability measure from uniform random selection of stable profiles."
+      ],
+      "reasoning": "The earlier stability condition combined with standard run-counting yields the current coefficients, but neither those coefficient evaluations nor exact limiting composition fluctuations are actually stated in the inspected source. The result is a quantitative strengthening of its counting regime, not a new definition or existence theorem.",
+      "searches": [
+        "Zehmakan random majority opinion diffusion 2023 cycle stable configurations exact blue-count polynomial local no singleton runs Gaussian central limit variance (5+3 sqrt5)/40",
+        "binary majority cycle fixed-point colorings exact blue weight distribution asymptotic Gaussian fluctuation 0.2927050983 n",
+        "arXiv:2302.06760v1 Section 2.3 and Appendix A.6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The source equates stable profiles with cyclic words with no singleton monochromatic runs; this precise encoding and its converse are acknowledged.",
+        "OEIS A007040 indexes a distinct cyclic binary run-bound condition; shared run-enumeration machinery does not identify the target variance."
+      ],
+      "reasoning": "The four-state constrained-word code is an equivalent encoding of these fixed points, so novelty is not attached to that reduction. In the inspected source, no blue-count generating polynomial or explicit Gaussian fixed-point composition law is proved; equivalent weighted cyclic-word results remain a stated risk.",
+      "searches": [
+        "Zehmakan random majority opinion diffusion 2023 cycle stable configurations exact blue-count polynomial local no singleton runs Gaussian central limit variance (5+3 sqrt5)/40",
+        "cyclic binary words no singleton colors length at least 2 weighted distribution central limit eigenvalue 1.618 and variance",
+        "arXiv:2302.06760v1 Appendix A.6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A007040 concerns no run longer than two; fixed-point majority words forbid singleton runs, not long runs.",
+        "The target weighted coefficients and Gaussian variance were independently computed from the model transition rule."
+      ],
+      "reasoning": "A related but different run-count table does not establish the present blue-weight histogram. A separate unseen table of these coefficients remains possible.",
+      "searches": [
+        "cyclic binary words no singleton colors length at least 2 weighted distribution central limit eigenvalue 1.618 and variance",
+        "OEIS A007040 cyclic binary strings no runs longer than two"
+      ]
+    },
+    "rationale": "Inspected 2023 primary manuscript states the Theta(phi^n) total but not the blue-count spectrum or evaluated Gaussian variance for uniformly sampled equilibria. Differentiates this from random-initial-configuration results, and acknowledges known cyclic-word transfer technique and residual unindexed equivalence risk.",
+    "residual_risks": [
+      "General finite-state word-enumeration literature might already imply or tabulate an equivalent weighted distribution or asymptotic variance.",
+      "Source journal full supplementary archive not fully inspected; source comparison uses relevant visible sections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior establishes forbidden singleton-run criterion and Theta(phi^n); does not explicitly give fixed-point count by number blue or Gaussian variance coefficient",
+        "evidence": [
+          "Section 2.3 Theorem 2.8: Theta(Phi^n) stable colorings",
+          "Appendix A.6: two-to-one encoding with independent-set-type sequences and recurrence",
+          "Section 4: different sampling measure, random initial coloring"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.06760v1",
+        "material_read": "Sections 1.1, 1.2, 2.3, 4 and Appendix A.6 including stability proof and asymptotic count",
+        "method": "Read arXiv HTML full source material in relevant sections",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "Same graph, updating rule and stable configurations"
+      },
+      {
+        "assessment": "Same stability criteria, no identified explicit fixed-profile Gaussian blue-composition law",
+        "evidence": [
+          "2024 journal theorem discusses fixed-point counts and no solitary nodes"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10458-024-09651-y",
+        "material_read": "Search-accessible theorem and stability definition and stable-coloring discussion",
+        "method": "Read journal HTML relevant text; did not inspect every supplement",
+        "title": "Majority opinion diffusion: when tie-breaking rule matters",
+        "trigger": "Journal publication of same line of work"
+      },
+      {
+        "assessment": "Different run restriction from no singleton runs; not a covering table for blue counts",
+        "evidence": [
+          "A007040 forbids runs longer than two, rather than forbidding singleton runs"
+        ],
+        "identifier_or_url": "https://oeis.org/A007040",
+        "material_read": "Sequence definition, initial terms and notes visible",
+        "method": "Inspected OEIS entry summary",
+        "title": "OEIS A007040: Number of marked cyclic n-bit binary strings containing no runs of length >2",
+        "trigger": "Plausible word-enumeration equivalent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fd43919b-6e53-4e7f-a1f3-7c74a64df198",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural equilibrium-color-composition census and exact asymptotic variance quantifies diversity of the stable opinion landscape, a substantively different quantity from total stable profiles and their dynamical basins; Gaussian fluctuation law supplies scalable quantitative information.",
+    "status": "PASS"
+  }
+}
