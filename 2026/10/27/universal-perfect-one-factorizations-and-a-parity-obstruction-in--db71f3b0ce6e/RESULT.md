@@ -1,0 +1,52 @@
+# Universal perfect one-factorizations and a parity obstruction in \(GP(3k,k)\)
+
+## Finding
+For each integer \(k\ge1\), let \(G_k=GP(3k,k)\) be the cubic generalized Petersen graph on \(6k\) vertices. A **one-factorization** means a partition of the edges into three perfect matchings. It is **perfect** if each union of two of those matchings is one Hamiltonian cycle. Then:
+
+1. \(G_k\) has a perfect one-factorization if and only if \(k\) is odd.
+2. For odd \(k\), **every** one-factorization is perfect, not merely a special construction. There are exactly \((2^k+1)/3\) such one-factorizations, using the previously established Jacobsthal enumeration.
+3. In every proper three-edge-colouring for odd \(k\), each two-colour subgraph is a Hamiltonian cycle. Hence a two-colour Kempe switch only exchanges the two colour names globally, and no distinct unlabelled one-factorization can be reached by a Kempe switch.
+4. For even \(k\), none of the previously enumerated \(4J(k)\) one-factorizations is perfect, where \(J(k)=(2^k-(-1)^k)/3\).
+
+The existence of one perfect one-factorization for odd \(k\) and the Jacobsthal count of all one-factorizations were previously known. The new claims are **universality** for odd \(k\), **impossibility** for even \(k\), and the resulting Kempe rigidity.
+
+## Assumptions and scope
+The vertex set of \(G_k\) is \(\{u_j,v_j:j\in\mathbb Z_{3k}\}\). Its edges are \(u_ju_{j+1}\), \(u_jv_j\), and \(v_jv_{j+k}\), with indices modulo \(3k\); the last type creates \(k\) disjoint inner triangles. The proof applies to all positive integers \(k\), including \(k=1\). An edge-colouring uses three named colours and is proper at each vertex. A Kempe switch exchanges the two chosen colours along one connected component of their bicoloured subgraph. One-factorizations forget colour names.
+
+## Proof
+**Lemma 1 (outer triples).** Fix any proper edge three-colouring. For \(i\in\mathbb Z_k\) and \(r\in\mathbb Z_3\), write \(s_i(r)\) for the colour of spoke \(u_{i+rk}v_{i+rk}\), \(x_i(r)\) for the colour of preceding outer edge \(u_{i+rk-1}u_{i+rk}\), and \(y_i(r)\) for the following outer edge \(u_{i+rk}u_{i+rk+1}\). The three values \(s_i(0),s_i(1),s_i(2)\) are pairwise different: each inner triangle uses three distinct edge colours, and its opposite spokes inherit the same three colours.
+
+The outer triple \(x_i=(x_i(0),x_i(1),x_i(2))\) cannot be monochromatic, because one spoke has that same colour. If its colours are all distinct, \(s_i\) is a fixed-point-free permutation relative to \(x_i\), hence one of two three-cycles; the third colours \(y_i(r)\), complementary to \(\{x_i(r),s_i(r)\}\), are again all distinct. If instead \(x_i\) has repeated colour \(a\), singleton \(b\), and absent colour \(c\), then the two positions of \(a\) have spoke colours \(b,c\) in some order and the singleton position has spoke colour \(a\). Consequently \(y_i\) has repeated colour \(c\), singleton \(b\), and absent colour \(a\). Thus the types 'all distinct' and 'exactly two equal' cannot change from cut to cut; in the latter type the repeated and absent colours are interchanged at each step.
+
+At ordinary successive cuts \(y_i(r)=x_{i+1}(r)\); at the wraparound the rows are cyclically shifted by one, since \(u_{(k-1)+rk+1}=u_{(r+1)k}\). A row rotation does not change the colour multiset. For odd \(k\), repeatedly interchanging the repeated and absent colours is incompatible with the wraparound. Therefore, for odd \(k\), every outer cut triple consists of the three different colours.
+
+**Lemma 2 (two-strand monodromy).** Fix an omitted colour \(c\), and retain the two other colours. At any outer cut there are exactly two retained outer edges, on two of the three rows. Give that two-element row set its **cyclic order**: among two distinct rows \(r,t\in\mathbb Z_3\), list \((r,t)\) if \(t=r+1\pmod3\), otherwise list \((t,r)\). Each inner triangle has one spoke of colour \(c\), whose outer vertex is a through-vertex with both outer edges retained. The other two triangle spokes have the retained colours and are joined, within the retained two-colour graph, by the two inner triangle edges of those colours. Each of their outer vertices has just one retained outer edge. As precisely two retained outer edges enter and two leave each triple, one of these last two vertices receives a retained edge and the other emits one. The two through-strands are thus bijectively paired through the column: one remains on its row, and one crosses between the other two rows via the inner triangle.
+
+This pairing **reverses the cyclic order** of the two active rows. To check this exhaustively, take the fixed through-row \(t=0\): if the other incoming row is \(1\), the outgoing other row is \(2\), so the ordered incoming pair \((0,1)\) maps to \((0,2)\), which is reverse-ordered as \((2,0)\). If the incoming other row is \(2\), the reversed case follows. Adding a common offset \(t\) modulo three proves it for all three through-rows. Inter-column outer edges preserve row order, and the final wraparound rotates all row indices by one, preserving cyclic order. Accordingly the overall two-strand return permutation is a transposition exactly when \(k\) is odd. For odd \(k\), the two strands belong to the same cycle rather than forming two cycles. Because the retained subgraph is a spanning two-regular graph, it is a single Hamiltonian cycle of length \(6k\). This applies to each omitted colour. It proves the universality and Kempe rigidity assertions.
+
+**Lemma 3 (even-parity obstruction).** Suppose \(k\) is even. Replace each inner triangle by one new degree-three vertex joined to its three outer vertices; call the resulting cubic graph \(H_k\). Since the outer \(3k\)-cycle has even length, and each triangle attaches to outer vertices at indices of the same parity (they differ by \(k\)), \(H_k\) is bipartite. It has \(4k\) vertices, with exactly \(2k\) vertices in each part, and \(2k\) is even.
+
+A proper three-edge-colouring of \(G_k\) gives three pairwise different spoke colours at each triangle, so it induces a proper three-edge-colouring of \(H_k\), and conversely each colouring of \(H_k\) extends uniquely through the inner triangles. For any two of the three colours, a retained path inside an inner triangle joins the two corresponding spokes; after contraction it is replaced by the path through the new central vertex. This preserves the number of components of the two-colour subgraph. Thus a perfect one-factorization of \(G_k\) would give one of \(H_k\).
+
+But no bipartite cubic graph with both parts of even size \(N\) has a perfect one-factorization. Indeed, treat the three perfect matchings as bijections \(f_0,f_1,f_2:A\to B\). If the union of matchings \(i,j\) is Hamiltonian, the permutation \(f_j^{-1}\!\circ f_i\) on \(A\) is a single \(N\)-cycle and therefore has sign \((-1)^{N-1}=-1\). The three relative permutations \(f_1^{-1}\!\circ f_0\), \(f_2^{-1}\!\circ f_1\), and \(f_0^{-1}\!\circ f_2\) compose to the identity, contradicting the product of three negative signs. Here \(N=2k\) is even, hence no perfect factorization of \(H_k\) and none of \(G_k\).
+
+Finally, the known count of all one-factorizations of \(G_k\), \(J(k)\) for odd \(k\) and \(4J(k)\) for even \(k\), is due to Bruhn, Gellert and Günther. Combining it with Lemmas 1–3 establishes the stated enumeration of perfect ones. \(\square\)
+
+## Verification
+Two standalone Python 3 programs implement independently organized finite checks; they are corroboration, not the proof of the assertion for all \(k\).
+
+* `verify_edge_search.py` constructs the cubic graph directly from the vertex–edge incidence list, exhaustively searches proper three-edge-colourings modulo colour names, and traverses each two-colour two-factor for \(1\le k\le8\).
+* `verify_outer_transfer.py` independently enumerates legal outer-colour triple transitions and the cyclic closure, reconstructs the entire edge colouring, and independently traverses all two-colour subgraphs for \(1\le k\le10\).
+
+Both programs assert the prior Jacobsthal counts and the new parity classification. Exact counts of perfect one-factorizations for \(k=1,\dots,10\) are respectively \(1,0,3,0,11,0,43,0,171,0\). Their recorded output files contain the actual terminal results, including `ALL_EDGE_SEARCH_CHECKS_PASS` and `ALL_OUTER_TRANSFER_CHECKS_PASS`. The even-part permutation-sign proof is an infinite argument, not a finite experiment.
+
+## Relationship to prior work
+Bonvicini and Mazzuoccolo (2011) establish the **existence** of a perfect one-factorization of \(GP(3k,k)\) for odd \(k\), by exhibiting a particular colouring. Their work does not assert that every one-factorization is perfect, nor does the inspected construction exclude the even family by the present contraction/parity obstruction. Bruhn, Gellert and Günther (2015 preprint) give the exact Jacobsthal enumeration of **all** one-factorizations; their results do not characterize which of those factorizations are perfect. Goedgebeur and Östergård (2021 preprint) study edge-Kempe transformations in cubic graphs, including a finite graph census and other parametric families; the odd-\(k\) complete universal Kempe-rigidity result is not stated there. The equality of two-colour component counts under inner-triangle contraction is proved here, not borrowed from any comparison.
+
+## Limitations
+This result applies only to the family \(GP(3k,k)\). The Jacobsthal count is previously published and is used here rather than independently reproved. The two finite checkers are independent computational corroborations of the infinite proof; they do not exhaust unbounded \(k\). The literature comparison cannot rule out an equivalent unindexed result, including work under different terminology for cycle-switching of one-factorizations; external independent scientific audit has not yet been performed.
+
+## References
+1. S. Bonvicini and G. Mazzuoccolo, *Perfect One-Factorizations in Generalized Petersen Graphs*, Ars Combinatoria 99 (2011), 33–43. Public publisher record: https://combinatorialpress.com/ars-articles/volume-099-ars-articles/perfect-one-factorizations-in-generalized-petersen-graphs/ (published 2011-04-30).
+2. H. Bruhn, L. Gellert and J. Günther, *Jacobsthal Numbers in Generalised Petersen Graphs*, arXiv:1503.03390v1 (2015-03-11); later Journal of Graph Theory 84 (2017), 146–157.
+3. J. Goedgebeur and P. R. J. Östergård, *Switching 3-edge-colorings of cubic graphs*, arXiv:2105.01363v1 (2021-05-04).
