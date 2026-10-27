@@ -1,0 +1,11 @@
+# Scientific review: sharp hexagonal midpoint extension
+
+**Correctness.** PASS. The arbitrary-operator lower bound follows by dihedral averaging (with no positivity assumption), three distance-function witnesses, and an exact equal-column-sum identity. The upper bound is a fully specified positive operator: all vertex-to-midpoint pairs saturate the same constant, and midpoint-to-midpoint differences are controlled by a common positive cyclic convolution of arithmetic interpolation kernels. Square-root enclosures and an enumerative checker corroborate the required inequalities and geometric distances. The asserted domain is exactly six regular-hexagon vertices and their six Euclidean edge midpoints.
+
+**Originality.** PASS under current best-knowledge comparison, with residual bibliographic uncertainty. Ambrosio–Puglisi (2016), Bruè–Di Marino–Stra (2018), and Basso (2021) provide general transport/random-projection and finite-LP machinery but do not state the exact twelve-point hexagonal norm or its specific positive equioscillating kernel in inspected relevant sections. Closest regular-polygon center extensions add a different point; simplex-edge, cross-polytope and square/cube midpoint results have different point configurations and do not imply this formula. Full-text and research-database searching found no matching sharper claim, though less-indexed equivalent work cannot be excluded.
+
+**Value.** PASS. Simultaneous **linear** interpolation on a canonical Euclidean polygonal refinement is a natural finite Lipschitz-space operator invariant, not the automatic existence of a scalar nonlinear McShane extension. The nontrivial three-orbit distance balancing produces an exact radical constant and an all-positive optimizer that strictly improves the natural two-endpoint rule while preserving nonexpansivity among added midpoint measures. This is an exact first non-square even polygonal benchmark, rather than an arbitrary parameter slice.
+
+**Closest literature and scope.** The results should be read alongside the three papers cited in RESULT.md. They neither classify all regular polygons nor assert uniqueness of the optimizer. Bibliographic completeness and the independently checked status remain open.
+
+Self-review: passed. Independent audit: not yet performed.
