@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "For any connected q-vertex marked subtree S and m=n-q outsiders, the Cayley forest-extension count gives exactly \\(q n^{m-1}\\) completions; imposing r distinct outsider-to-marked edges gives \\((q+r)n^{m-r-1}\\). The joint factorial moments are \\((m)_{\\underline r}(q+r)/(q n^r)\\), valid even at r=m, and finite polynomial expansion gives ((m+sum_i z_i)/n)^(m-1)*(sum_i z_i/q). Factorization proves independent multinomial plus one-hot uniform category. Distinct-coordinate covariance equals \\(-(m-1)/n^2-1/q^2\\). The exact endpoint marginal agrees with the published one-endpoint law. An explicit projective coupling makes both endpoint degrees simultaneously nonincreasing as distance grows; each mean decreases strictly. The checker independently reconstructs every Prüfer tree through n=8 and verifies 648 exact rational coefficient, path-count and covariance statements. Finite enumeration is a check, not the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman, Coalescent Random Forests (1996), Section 2.2 Lemma 3 gives general forest-extension counts \\(n^{c-2}\\) times product of component sizes.",
+        "Berzunza Ojeda and Janson, arXiv:2009.00572, discuss distance profiles and rooted/simply-generated trees, not the exact marked-spine outside-degree PGF."
+      ],
+      "reasoning": "Pitman covers the underlying general count from which an extra disjoint-edge factorial-moment calculation derives the proposed law. This means the technique is classical, but an implication requiring an unstated multivariate statistic and coefficient calculation is distinguished from a directly stated or merely renamed result. Classical multivariate degree enumerators could nonetheless dominate and are a nontrivial residual priority risk.",
+      "searches": [
+        "Random tree adjacency-conditioned degrees covariance tends minus one quarter, distance-conditioned bivariate degree probability generating function",
+        "Joint degrees of two marked vertices given their graph distance in uniform random spanning trees; stochastic monotonicity along distance",
+        "rooted forest attachment multinomial law conditioned fixed subtree all original marked vertex degrees",
+        "forest degree generating function Cayley rooted extensions"
+      ]
+    },
+    "checked_sources": [
+      "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+      "https://arxiv.org/abs/2009.00572",
+      "https://doi.org/10.1137/0403039"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published closest record gives only one endpoint degree conditional on a given marked distance and strict one-dimensional stochastic monotonicity.",
+        "Pitman section 2.2 gives counting of all tree extensions of a specified forest, including prescribed additional marked-neighbor edges.",
+        "The present construction sums factorial moments for several disjoint marked-neighbor sets, producing an exchangeable multinomial plus a shared uniform categorical attachment and persistent negative pairwise covariance."
+      ],
+      "reasoning": "The existing one-endpoint law is implied by the joint polynomial by setting all but one generating variable to 1; the converse fails mathematically since marginal distributions leave the copula unconstrained. The general forest-extension formula is used as a premise with a new joint weighted enumeration, and could make the result a short corollary in hindsight. No inspected prior statement explicitly gives this joint conditional law, its nonzero asymptotic covariance, or the simultaneous two-endpoint coupling.",
+      "searches": [
+        "Uniform random labelled Cayley tree conditioned on distance between two fixed vertices: joint degree distribution of endpoints, negative covariance, root forest Prüfer polynomial",
+        "conditional joint degree vector of all vertices on geodesic in a uniform Cayley tree; multinomial plus one uniformly chosen attachment; exchangeability beyond path baseline",
+        "Cayley tree conditioned on marked path random uniform spanning tree offpath degree covariance negative 1/(k+1)^2 and independent Poisson plus categorical limit",
+        "2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+        "uniform random Cayley tree endpoint degrees conditioned distance joint distribution rooted forest degrees"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A marked connected path is a marked forest component; outside-degree vector can equivalently be expressed as a marked-neighbor weighted forest-extension polynomial.",
+        "The published 2026 endpoint regression result explicitly gives the one-coordinate law \\(\\operatorname{Bin}(n-k-2,1/n)+\\operatorname{Bern}(1/(k+1))\\), see 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae"
+      ],
+      "reasoning": "The one-coordinate marginal of the new polynomial reproduces the published law when q=k+1, but identical univariate marginals do not fix a multivariate joint distribution, pairwise covariance, or simultaneous coupling. The classical forest-extension identity is a strictly stronger counting tool, but its statement is not a pre-existing assertion of this entire degree vector.",
+      "searches": [
+        "Uniform random labelled Cayley tree conditioned on distance between two fixed vertices: joint degree distribution of endpoints, negative covariance, root forest Prüfer polynomial",
+        "conditional joint degree vector of all vertices on geodesic in a uniform Cayley tree; multinomial plus one uniformly chosen attachment; exchangeability beyond path baseline",
+        "uniform random Cayley tree endpoint degrees conditioned distance joint distribution rooted forest degrees",
+        "marked path joint degree random labelled trees"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic search ranked 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae as the nearest published claim; its full RESULT.md was inspected and states the marginal but not the multi-coordinate law.",
+        "The accessible own ledger, generation p0001_g000044, was searched for titles, claim aliases and marked-path degree objects; no exact multivariate law was found."
+      ],
+      "reasoning": "There is no identified exact database or tabulation of the conditioned multi-coordinate vector. Not finding one is not proof of novelty; source statements were inspected for implication rather than matched by title alone.",
+      "searches": [
+        "conditional joint degree vector of all vertices on geodesic in a uniform Cayley tree; multinomial plus one uniformly chosen attachment; exchangeability beyond path baseline",
+        "Cayley tree conditioned on marked path random uniform spanning tree offpath degree covariance negative 1/(k+1)^2 and independent Poisson plus categorical limit",
+        "random Cayley tree degrees adjacent vertices covariance conditioned adjacency",
+        "conditional degrees distance Cayley tree covariance"
+      ]
+    },
+    "rationale": "The original item is the entire multivariate conditional distribution along a fixed subtree or path and associated pair dependence, not the classic forest-extension count or already published one-endpoint marginal. The closest full-text published source gives the marginal Bin+Bernoulli law only. The joint law is not determined by that marginal and exhibits an extra one-hot competition and persistent \\(-1/q^2\\) correlation. Older weighted Cayley/forest enumerators may implicitly give this formula, so historical priority remains provisional.",
+    "residual_risks": [
+      "General 19th/20th-century weighted Cayley-tree multivariate degree or forest-enumerator identities may immediately imply the present joint law; this historical priority has not been exhaustively excluded.",
+      "Aldous (1990) complete publisher text was not read; a stronger relevant assertion could occur outside the accessible description.",
+      "Search-based noncoverage, repository partitioning, and a finite own ledger cannot prove global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical count directly supplies premise, but inspected passage did not state the weighted conditioned degree vector. Strong tool and historical-derivability risk.",
+        "evidence": [
+          "Forest with component sizes s_1,...,s_c has \\(n^{c-2}\\) product s_i completions; marked-neighbor increments require added factorial-moment marking."
+        ],
+        "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/457.pdf",
+        "material_read": "Full accessible PDF pages containing Section 2.2 and Lemma 3, including screenshots of the source formula, plus relevant later forest-component discussion; whole document not claimed checked line by line.",
+        "method": "Read public institutional PDF and inspected mathematical forest-extension formula against stated vector law.",
+        "title": "Coalescent Random Forests",
+        "trigger": "Source of general Cayley-tree forest-extension counts and potential broader multivariate coverage."
+      },
+      {
+        "assessment": "Publishes exact one-endpoint law and negative stochastic regression. Does not assert any joint degree vector, covariance between conditioned endpoint degrees, or simultaneous bivariate coupling.",
+        "evidence": [
+          "Its equation (2) has Delta-1|D=k = \\(\\operatorname{Bin}(n-k-2,1/n)+\\operatorname{Bern}(1/(k+1))\\). The new q-variate formula yields this marginal for each endpoint but is strictly richer."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+        "material_read": "Full published RESULT.md including proof, limitations and references.",
+        "method": "Read source text and compared objects, assumptions, parameters, marginal vs joint implications.",
+        "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+        "trigger": "Highest-similarity public record with exactly the same tree model and distance conditioning."
+      },
+      {
+        "assessment": "Investigates asymptotic distance-profile questions and related tree conditioning; did not identify the claimed exact finite joint off-path degree law.",
+        "evidence": [
+          "Berzunza Ojeda and Janson, arXiv:2009.00572, journal DOI 10.1017/S0963548321000304."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.00572",
+        "material_read": "Accessible Cambridge open full-text sections describing marked edges, distance profiles and conditioning, with searched relevant headings.",
+        "method": "Compared finite marked-path conditional PGF to source limiting profiles and branch conditioning.",
+        "title": "The distance profile of rooted and unrooted simply generated trees",
+        "trigger": "Strongly relevant tree-distance conditioning, potentially dominating distributional assertions."
+      },
+      {
+        "assessment": "Provides contextual classical marginals; inaccessible full article means exact multivariate coverage cannot be definitively ruled out.",
+        "evidence": [
+          "D. J. Aldous (1990), SIAM Journal on Discrete Mathematics 3, 450-465, DOI 10.1137/0403039."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0403039",
+        "material_read": "Accessible bibliographic abstract and introductory material, not the full paper.",
+        "method": "Compared accessible description of marginal degree and tree geometry methods.",
+        "title": "The Random Walk Construction of Uniform Spanning Trees and Uniform Labelled Trees",
+        "trigger": "Foundational uniform labeled-tree degree structure and possible prior exact dependence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec36ee7a-4804-4958-94d9-d93e36566c47",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The marked-path joint degrees are a natural statistic of uniform trees conditional on two-point distance; the previously published marginal does not determine their dependence. The exact q-variate law identifies topology-invariant simultaneous competition for one compulsory outside attachment. It yields a nonzero limiting negative covariance \\(-1/q^2\\) between any two fixed marked vertices despite asymptotically independent Poisson fluctuations, and a joint two-endpoint stochastic coupling. These are structural dependence facts for all q/n regimes, not a selected numerical special case or normalization test.",
+    "status": "PASS"
+  }
+}
