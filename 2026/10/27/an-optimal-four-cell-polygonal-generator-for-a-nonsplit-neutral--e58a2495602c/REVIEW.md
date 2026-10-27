@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The ternary-digit merge recovers the expanding coordinate, the exact lifted orbit identity reduces the two-sheet ambiguity to two dense-return threshold observables, and elementary piecewise-affine algebra shows the threshold pair is injective except at a two-point fiber. Finite-to-one entropy preservation and nonergodicity exclude three-letter generators. All ranges, torus seams, quantifiers and exceptional sets are explicit. Exact rational code checks are supplementary, not proof of almost-sure equidistribution.
+
+**Originality — PASS under inspected literature.** The motivating 2026 work studies linear toral entropy, product decompositions and a contraction-side obstruction; the closest geometric result gives the minimum for diagonal products, while another treats irrational rotation products. Their statements imply neither an injective pullback across the nonsplit two-fold covering nor an optimal four-atom polygonal code for the specified skew map. The *measurable minimum* alone is not claimed as independently new: the geometric realization and decoding mechanism are the contribution. Full relevant paper text and the two closest published proof texts were inspected. Earlier generic polygonal generator theory remains a priority risk.
+
+**Value — PASS.** This matrix is the first primitive integral rank-two neutral–expanding triangular example with genuinely nontrivial eigenlattice index \(2\): the comparable multiplier-two off-diagonal-one matrix splits integrally, while multiplier three does not. Showing that a concrete four-cell line-segment partition can recover both sheets resolves a natural geometric minimization beyond entropy and directly probes how smooth finite generators survive a nontrivial toral covering. The exact unique ambiguous sheet pair makes the mechanism reproducible.
+
+**Scope and risks.** This is a Haar-a.e. ordinary one-sided generator, not a Markov partition or an everywhere-finite decoder. Geometrically analogous constructions in older specialized literature might subsume the result. The exact checks do not replace the proof or external expert validation.
+
+Self-review: passed. Independent audit: not yet performed.
