@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact change to consensus/disagreement coordinates makes the post-broadcast error the leading component of a product of explicit 2 by 2 matrices. Direct multiplication yields the 3- and 4-broadcast formulas. The first is minimized by convex balancing. For four broadcasts, strict positivity forces balanced outer gaps. On either parity of the middle gap, the derivative of its exact scalar error has the sign of a quartic with sign pattern +,+,-,-, precisely one positive root, yielding at most four integer candidates. Evaluating its left-endpoint sign yields the sufficient strict concentration inequality. Exact rational independent matrix checks cover 3,168 finite schedules and the concrete witness; they do not substitute for the analytic quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhuang et al. (2022), Section 4 Theorem 1 and Section 5, gives equal-intensity consensus-timing comparisons and simulations, and notes combinatorial timing complexity.",
+        "Shen et al. (2023), Theorem 1 and Appendix A, proves timing-independence iff equal influence magnitudes; not a sharp optimum in the unequal regime.",
+        "Weimer et al. (2019), Methods and Results, varies who updates and their ordering, rather than a fixed budget of external-leader broadcasts."
+      ],
+      "reasoning": "Uniform-exposure leader influence does not dominate the unequal-exposure optimum: its dynamics commute with ordinary averaging. Variable-agent update ordering is not the same admissible control problem, and arbitrary matrix products alone neither imply outer-gap balance nor the quartic sign criterion.",
+      "searches": [
+        "optimal timing of finite leader broadcasts under nonuniform influence and mixing, four broadcast spacing middle waiting",
+        "intermittent influence leaders scheduling broadcast times exact optimal DeGroot 2 agents heterogeneous",
+        "Agent Scheduling in Opinion Dynamics taxonomy order intervention synchronous 2019"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2205.12503v2",
+      "https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.12649",
+      "https://www.jasss.org/22/4/5.html",
+      "https://arxiv.org/abs/2205.12503",
+      "https://doi.org/10.1002/eng2.12649"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shen et al. (2023), Eq. (6), Eq. (8), Theorem 1 and Appendix A cover dynamics and commutativity when the b_i have equal magnitude.",
+        "Zhuang et al. (2022), Section 4 statement (A6) applies to uniform influence intensity and full coverage.",
+        "Present theorem assumes b1 unequal b2, where those equal-intensity commutation arguments do not apply."
+      ],
+      "reasoning": "The exact present schedules are nontrivial because unequal weights make broadcast and averaging transformations noncommute. The published conclusions about timing-independence are not stronger statements covering the present heterogeneous objective. Published general product identities can derive our formulas, but do not themselves contain the constrained quartic optimization or the concentration-vs-balancing classification.",
+      "searches": [
+        "heterogeneous intermittent broadcast leader opinion model two followers exact optimum spacing four broadcasts schedule symmetric DeGroot",
+        "optimal timing of finite leader broadcasts under nonuniform influence and mixing, four broadcast spacing middle waiting",
+        "intermittent leader follower broadcast heterogeneous weights timing optimization fixed silent steps two agents exact minimum DeGroot",
+        "opinion dynamics temporary participants consensus timing full coverage independent of timing"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shen et al. (2023), Eq. (6), models a common leader with matrix block (I-B)W and Eq. (8) describes arbitrary intermittent times.",
+        "Zhuang et al. (2022), Sections 4-5, derives selected temporary-influence timing results under uniform addressed-agent intensity."
+      ],
+      "reasoning": "The positive two-follower instance of the intermittent signed-network broadcast operator is mathematically identical to the model here. Its general time-indexed product expression is an input representation, not a solution of the constrained timing optimizer. Uniform-coverage commuting matrices are a distinct parameter subfamily explicitly excluded by unequal weights.",
+      "searches": [
+        "heterogeneous intermittent broadcast leader opinion model two followers exact optimum spacing four broadcasts schedule symmetric DeGroot",
+        "intermittent leader follower broadcast heterogeneous weights timing optimization fixed silent steps two agents exact minimum DeGroot",
+        "two-follower DeGroot impulse schedule optimal gaps fixed time budget"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact finite-budget three/four-broadcast schedules or tables were returned by the mathematical research-claim searches using these descriptions.",
+        "The inspected primary sources publish general formulas or simulation schedules, not an exhaustive exact table of the present constrained integer minimization."
+      ],
+      "reasoning": "The theorem is an all-parameter symbolic optimization over arbitrarily large integer budgets, not a claim obtained by copying a known finite lookup table. Absence from a database is supporting search evidence, not mathematical proof of novelty.",
+      "searches": [
+        "optimal discrete pulse placement in positive consensus matrices with two followers quartic minimizer",
+        "broadcast spacing opinion influence finite horizon optimal time gap leader 2023",
+        "intermittent leader finite horizon two node four pulses rational optimal integer schedule"
+      ]
+    },
+    "rationale": "The specific fixed-silence three/four-broadcast optimization, a pair of one-positive-root quartic reductions, and a strictly concentrated optimum were compared against primary full-text results and indexed research claims. General linear leader-broadcast models and equal-exposure timing-independence are acknowledged prior results. No directly implying or identical result was located, subject to nonexhaustive priority uncertainty.",
+    "residual_risks": [
+      "Indexed mathematical results and targeted literature searches are nonexhaustive; a rephrased equivalent, preprint, or inaccessible result could exist.",
+      "The present symmetric two-follower restriction is narrow, though it permits the first nontrivial heterogeneity of broadcast influence.",
+      "The concentration criterion is sufficient only for integer optimality; no universal necessity is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the four-broadcast heterogeneous-weight fixed-silence timing classification",
+        "evidence": [
+          "2022 article Section 4 assumes common intensity for addressed followers and derives a consensus-timing geometric law.",
+          "Section 5 selects consensus/start/uniform schedules and reports simulations, not exact optimization of all integer gap allocations."
+        ],
+        "identifier_or_url": "arxiv:2205.12503v2; https://arxiv.org/html/2205.12503v2",
+        "material_read": "Open-access full HTML Sections 3-5, including update Eq. (5), timing choices, Theorem 1, full-coverage discussion and simulation timing comparisons",
+        "method": "Read substantive accessible article text and compared equation hypotheses and implication domains",
+        "title": "Maximising the Influence of Temporary Participants in Opinion Formation",
+        "trigger": "Closest limited-duration external-leader DeGroot framework and timing results"
+      },
+      {
+        "assessment": "NOT_COVERING exact optimal placement for a heterogeneous two-follower, fixed silence-budget problem",
+        "evidence": [
+          "Eq. (6) broadcast block (I-B)W is the model present here.",
+          "Theorem 1 and Appendix A address timing-independence for equal influence magnitudes, not optimal noncommuting schedules."
+        ],
+        "identifier_or_url": "doi:10.1002/eng2.12649; https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.12649",
+        "material_read": "Accessible full-text HTML, especially Sections 2.4 and 3, examples, conclusions and Appendix A proof of timing-independence",
+        "method": "Read Eq. (6), Eq. (8), Theorem 1, proof of commutativity in Appendix A and stated limits",
+        "title": "Opinion dynamics with intermittent-influence leaders on the signed social network",
+        "trigger": "Same class of synchronous leader-broadcast matrices and unequal influence weights"
+      },
+      {
+        "assessment": "NOT_COVERING external stubborn-leader broadcast optimization",
+        "evidence": [
+          "The schedule manipulates asynchronous/synchronous agent update order and selection, with predominantly simulation comparisons, not the k=3/4 controlled leader-pulse gap problem."
+        ],
+        "identifier_or_url": "doi:10.18564/jasss.4065; https://www.jasss.org/22/4/5.html",
+        "material_read": "Accessible open HTML introduction, scheduling taxonomy and generalized averaging simulations, including ordered-actor influence comparisons",
+        "method": "Read method and results relevant to scheduling and compare intervention type",
+        "title": "Agent Scheduling in Opinion Dynamics: A Taxonomy and Comparison Using Generalized Models",
+        "trigger": "Alternative literature on exact schedule dependence in opinion networks"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef5d5125-0e8b-4f9c-8daf-9353fba806e9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Finite-message interventions must allocate idle discussion time; heterogeneity makes pulse and averaging steps noncommutative, so optimization is not a standard commutative timing invariance. The general optimizer reduction yields a uniform four-candidate decision rule for arbitrarily many silent steps, and the proved nonempty concentration regime shows that a fourth broadcast can reverse the three-broadcast equal-spacing recommendation. This is an interpretable structural boundary in a minimal network rather than an arbitrary isolated numerical slice.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact two-mode matrix calculation yields the three- and four-broadcast error polynomials. Convexity proves the three-broadcast balancing law; outer-gap balancing and the one-positive-root quartic establish global four-broadcast optimization; the sign condition at the feasible endpoint proves strict concentration. The rational example and 3,168 matrix-evolution cases were checked with the included standalone verifier. Nonstandard steps are proved directly in RESULT.md; no extrapolation from finite experiments is needed.
+
+**Originality — PASS, subject to publication-priority uncertainty.** The closest original models are the temporary-participant averaging framework of Zhuang et al. (2022) and the intermittent-leader broadcast formulation of Shen et al. (2023). The former examines uniform exposure and selected timing patterns; the latter establishes when timing is immaterial but gives no exact optimized heterogeneous schedule for a fixed silent-time budget. The 2019 agent-scheduling taxonomy addresses different update-order interventions. Published-claim search queries also targeted alias descriptions and two-state products; no matching stronger result was identified. Searches are not proof of global novelty, and unpublished or unindexed equivalents may exist.
+
+**Value — PASS.** The exact optimizer exposes a substantive schedule change between three and four broadcasts under the same positive averaging model, including a nonempty explicit regime in which maximum final leader influence requires a highly nonuniform timing plan. The two-follower reduction is motivated as the smallest network that permits heterogeneous exposure and disagreement recovery; exact finite-budget schedules are useful analytic benchmarks for intervention design. The four-candidate theorem is uniform in the silence budget rather than merely a one-off numerical optimum.
+
+Scientific limitations: two followers; symmetric reciprocal averaging; positive unequal influence weights; exactly three or four broadcasts; fixed intervening silence; final consensus objective. The strict concentration inequality is sufficient, not necessary. Literature checks are nonexhaustive.
+
+Self-review: passed. Independent audit: not yet performed.
