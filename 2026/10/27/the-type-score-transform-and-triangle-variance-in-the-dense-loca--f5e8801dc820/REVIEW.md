@@ -1,0 +1,11 @@
+# Scientific review — type-score transform over locally transitive tournaments
+
+**Correctness — PASS.** Each nonalgebraic type is one of the distinct gaps between parameter points and antipodes; the proof establishes the one-to-one correspondence, both gap degree formulas, the closed-path level-crossing symmetry, and the triangle variance through an exact count of transitive triples. The sharp extrema follow from degree integrality, majorization, and explicit circular witnesses. Direct finite checks are independently reproducible, but the proof, not enumeration, supplies the universal quantifier. Residual correctness risk is concentrated in applying the finite circular representation and homogeneous-extension realization exactly as stated.
+
+**Originality — PASS (qualified).** Brouwer (1980) supplies the central circular representation, and Coregliano (2015) recalls it and studies balanced/asymptotic tournament distributions. Those are not new. The exact degree-refined complete one-type polynomial and the level-crossing/triangle-variance formulation were not found in inspected statements or targeted searches. The cyclic model makes this a relatively short consequence, and an implicit published derivation remains plausible; this is a substantive residual originality risk, not evidence of uniqueness.
+
+**Value — PASS.** The result establishes an exact observable bridge between the complete finite-parameter type space of a canonical homogeneous tournament and the score distribution of its parameter tournament. It recovers the directed-triangle count from one-type outdegree variance, with attainable sharp bounds for every parameter size. These are natural invariants arising from the classification, not arbitrarily selected coefficients. The limited scope and elementary length of proof constrain significance.
+
+**Closest prior work and limitations.** A. E. Brouwer, *The enumeration of locally transitive tournaments* (1980); A. H. Lachlan, *Countable homogeneous tournaments* (1984); L. N. Coregliano, *Quasi-Carousel Tournaments* (arXiv:1503.04124, 2015). One-point only; no algebraic types; no higher tuple classification. The finite checker is not an infinite certificate. Possible implicit equivalence to Brouwer's framework and incompleteness of searchable literature remain risks.
+
+Self-review: passed. Independent audit: not yet performed.
