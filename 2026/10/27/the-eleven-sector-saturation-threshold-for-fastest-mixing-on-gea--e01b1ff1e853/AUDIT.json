@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Dihedral symmetrization is exact for SLEM because the spectral norm is convex. The stated radial/Fourier matrices are derived by an orthonormal representation, with \\(a=1/n\\), \\(b=(n-1)/(2n)\\) leaving exactly the stated self-loops. The first Fourier positive eigenvalue is a universal strict lower bound for invariant chains and is minimized at the two row constraints. The radial-versus-Fourier comparison follows from rational inequalities for \\(n=11\\) and monotone cubic for all \\(n\\ge12\\); \\(n=10\\) has the opposite strict comparison and a directional improvement in b. Exact rational certificates and direct finite dense spectra were recomputed from the files. No unrestricted uniqueness or small-size complete solution is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2004 paper gives the SDP and general optimality conditions, without a gear-graph closed-form solution.",
+        "The 2009 paper gives explicit wheels, edge-transitive/distance-transitive graphs, complete multipartite graphs, and joined cliques; the gear graph is none of these explicit solved topologies.",
+        "The 2020 paper gives specific path, palm, lollipop, semi-complete and clique-lifted ladder subgraphs; the gear wheel subdivision is cyclic, not a pendant path/clique-lifted example."
+      ],
+      "reasoning": "A generic SDP characterizes any graph implicitly but does not state the explicit value, weights or exact \\(n=11\\) saturation boundary. The more specific graph-class theorems inspected do not imply the target formula without a new optimization and eigenblock comparison.",
+      "searches": [
+        "doi:10.1137/S0036144503423264",
+        "doi:10.1137/070689413",
+        "doi:10.1109/TSIPN.2020.2964211"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1137/S0036144503423264",
+      "doi:10.1137/070689413",
+      "arxiv:0709.0955",
+      "doi:10.1109/TSIPN.2020.2964211",
+      "published gear-graph mixed-resolving construction (different objective)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The proposed gear chain has 2n+1 vertices with n degree-three and n degree-two rim states; the source wheel has only n rim vertices and scalar nonconstant modes.",
+        "The 2020 paper assumes pendant interfaces or clique lifts of specific base graphs; no displayed theorem evaluates a gear graph or its global cycle-and-hub block.",
+        "The maximum-degree baseline \\(p=q=1/n\\) differs from \\(q=(n-1)/(2n)\\) for \\(n\\ge11\\) and has a strictly smaller limiting spectral-gap coefficient."
+      ],
+      "reasoning": "Neither the scalar Fourier wheel solution nor the source-specific clique-lift formula implies the exact gear cutoff by parameter substitution; the new proof adds a two-dimensional rim-mode lower bound and checks a competing radial negative eigenvalue. A hypothetical general unpublished theorem remains a residual originality risk.",
+      "searches": [
+        "doi:10.1109/TSIPN.2020.2964211",
+        "doi:10.1137/070689413",
+        "doi:10.1137/S0036144503423264"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Boyd et al. 2009 Section 5.4.3 derives the two-parameter *unsubdivided* wheel spectrum: a radial two-by-two block and scalar rim frequencies. The gear graph has radial three-by-three and rim two-by-two blocks.",
+        "Target eigenvalue is a radical involving cos(pi/n) with hub and original-rim budgets exhausted for \\(n\\ge11\\); neither the wheel formula nor its direct substitutions yield the added subdivided layer."
+      ],
+      "reasoning": "The published wheel expression is for n+1 vertices with an unsubdivided cycle, while the target has 2n+1 vertices and a new bipartite rim layer. Fourier decompositions have different dimensions and the target 11-sector radial-versus-Fourier transition is not a restatement of the wheel result.",
+      "searches": [
+        "fastest mixing gear graph Markov chain optimal",
+        "Subdivided wheel graph fastest mixing symmetric stochastic transition matrix hub original rim inserted vertices optimal n>=11",
+        "doi:10.1137/070689413"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted searches yielded the Boyd FMMC papers and structurally different network examples; no matching gear-mixing formula or \\(n=11\\) cutoff appeared in the examined results.",
+        "An indexed gear-graph result concerns mixed resolving sets rather than transition matrix optimization."
+      ],
+      "reasoning": "No consulted mathematical table or indexed statement supplies the exact gear-graph SLEM and transition weights. Absence from bounded searches does not certify mathematical priority.",
+      "searches": [
+        "fastest mixing gear graph Markov chain optimal",
+        "fastest mixing subdivided wheel graph transition probabilities",
+        "Gear graph n spokes subdivided wheel fastest mixing Markov chain exact SLEM (1+sqrt(1+4(n-1)^2 cos^2(pi/n)))/(2n) rim hub probabilities threshold eleven",
+        "2026/10/4/SCOPE-a-two-thirds-mixed-resolving-construction-for-gear-graphs--fd8e9a51a60c"
+      ]
+    },
+    "rationale": "The closest solved primary case is the unsubdivided wheel (Boyd et al. 2009, §5.4.3) whose Fourier/radial blocks do not imply the gear graph formula. A foundational generic SDP and 2020 clique-lift/pendant formulas do not furnish the \\(n\\ge11\\) transition-budget-saturation classification. Direct record and full-text comparisons found no stronger covering claim; unindexed graph-specific work is a residual risk.",
+    "residual_risks": [
+      "Other gear-graph FMMC formulas may exist outside the bounded indexed and full-text search.",
+      "General FMMC SDP methods solve this case numerically; originality here is the explicit sharp size threshold, spectral proof and global formula, not the existence of an SDP."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convex program and heuristic baselines, not an explicit gear-graph saturation result",
+        "evidence": [
+          "SIAM Review 46 (2004), pp. 667-670, equations for symmetric stochastic matrices and SLEM; DOI 10.1137/S0036144503423264"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "material_read": "Full-text PDF: introductory formulation, spectral-norm objective, heuristic weight definitions, published-date evidence",
+        "method": "Read PDF text and examined the mathematical setup and comparisons",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational FMMC, SDP characterization, same objective and baseline"
+      },
+      {
+        "assessment": "Contains full closed-form *wheel* FMMC solution but not gear graph with subdivided rim",
+        "evidence": [
+          "DOI 10.1137/070689413, §5.4.3 pp. 813-815: wheel radial 2x2 block, scalar rim frequencies and closed-form weights"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "material_read": "Full-text PDF pages 792-795 and 812-816, in particular Section 5.4.3 wheel graph and neighboring examples",
+        "method": "Examined exact block matrices and reported optimal values, not merely a search snippet",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Wheel and Fourier diagonalization could dominate proposed gear formula"
+      },
+      {
+        "assessment": "The class assumptions require particular clique-lifted or pendant graph configurations, not the cyclic gear graph with an all-spoke hub",
+        "evidence": [
+          "IEEE Transactions on Signal and Information Processing over Networks 6 (2020), 88-104; Sections 5.1-5.6; DOI 10.1109/TSIPN.2020.2964211"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/387767555_Fastest_Mixing_Reversible_Markov_Chain_Clique_Lifted_Graphs_and_Subgraphs",
+        "material_read": "Accessible author-provided full-text sections on path/palm, semi-complete, complete-ladder and lollipop subgraphs, including conditions; introduction and abstract",
+        "method": "Read substantive full-text mathematical definitions and conditions for the displayed formulas",
+        "title": "Fastest Mixing Reversible Markov Chain: Clique Lifted Graphs and Subgraphs",
+        "trigger": "A broader class of graph topologies might imply gear FMMC as a special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e01b1ff1-e853-400e-b968-a96e2e56a051",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The gear graph models inserting relays on a wheel rim. Its three vertex orbits create a genuine competition between radial and rim Fourier spectral modes. The result identifies a sharp natural integer cutoff (11) after which hub and primary-rim holding probabilities vanish, gives exact globally optimal weights for an infinite family, and quantifies a nonvanishing asymptotic 14% spectral-gap advantage over maximum-degree weighting. This is an exact topology/weight classification, not a parameter re-labeling or an arbitrary small-table entry.",
+    "status": "PASS"
+  }
+}
