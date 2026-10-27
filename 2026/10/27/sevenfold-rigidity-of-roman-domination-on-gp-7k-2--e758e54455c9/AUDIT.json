@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For all n=7k>=7 the canonical seven-column pattern is an RDF of weight 8k. Every RDF is exactly a closed walk in the 6561-state transfer digraph, with cost 7w-8n. A full finite verification of all 48681 arcs produces an integer potential with nonnegative reduced costs and a tight-edge digraph whose only cyclic SCC is a directed seven-cycle. Equality therefore forces repetition of the seven pattern and exactly seven shifts; direct residue comparisons give pairwise Hamming distance 8k. Two separately written critical-SCC implementations and independent order-7/order-14 enumeration were replayed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang, Xu, Yang, Ji, arXiv:1103.2419v1, Lemma 2.1, Lemmas 2.2–2.11, Theorem 2.12: sharp value and construction; no exhaustive enumeration of minimizers.",
+        "Zhang, Shao, Xu, JCMCC 89 (2014) 311–320, Theorem 2, pp. 313–314: weighted closed-walk reduction including P(n,2); later Theorems 3–4 treat P(n,3) and P(n,4), not equality-case enumeration of P(7k,2)."
+      ],
+      "reasoning": "The previously known formula gamma_R(P(n,2))=ceil(8n/7) determines the optimal objective but not the number of optimizers. A displayed construction proves existence (and by shifts at least seven), not uniqueness. The later paper proves the general transfer correspondence and formulas for other inner step sizes; it does not provide the tight-cycle classification.",
+      "searches": [
+        "Roman domination number of Generalized Petersen Graphs P(n,2) Wang Xu Yang Ji 2011",
+        "On the Roman Domination Numbers of Generalized Petersen Graphs Zhang Shao Xu 2014",
+        "Number of Roman domination minimizers for Petersen-type P(n,2) with n divisible by seven; rigidity of optimum configurations"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1103.2419v1",
+      "https://combinatorialpress.com/ars-articles/volume-112-ars-articles/roman-domination-number-of-generalized-petersen-graphs-pn-2/",
+      "https://combinatorialpress.com/article/jcmcc/Volume%20089/vol-089-paper%2023.pdf",
+      "https://arxiv.org/abs/1103.2419",
+      "https://combinatorialpress.com/jcmcc-articles/volume-089/on-the-roman-domination-numbers-of-generalized-petersen-graphs/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Wang, Xu, Yang, Ji, arXiv:1103.2419v1, Lemma 2.1, Lemmas 2.2–2.11, Theorem 2.12: sharp value and construction; no exhaustive enumeration of minimizers.",
+        "Zhang, Shao, Xu, JCMCC 89 (2014) 311–320, Theorem 2, pp. 313–314: weighted closed-walk reduction including P(n,2); later Theorems 3–4 treat P(n,3) and P(n,4), not equality-case enumeration of P(7k,2).",
+        "The new 6561-state potential certificate yields exactly one tight directed seven-cycle and hence exactly seven period-seven optima."
+      ],
+      "reasoning": "The new claim implies the known value and gives the number and pairwise Hamming separation of all equality cases. Neither the prior value theorem nor an unclassified weighted closed-walk formulation logically forces the seven-minima conclusion without excluding additional critical cycles; that exclusion is the new verified lemma.",
+      "searches": [
+        "Exact count of Roman gamma_R functions on GP(7m,2) is seven and every optimum is a 7-periodic rotation of labels two on outer 0 and inner 3,4",
+        "Roman domination generalized Petersen enumeration minimum solutions cycle transfer matrices min-plus critical cycles",
+        "On the Roman Domination Numbers of Generalized Petersen Graphs Zhang Shao Xu 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wang, Xu, Yang, Ji, arXiv:1103.2419v1, Lemma 2.1, Lemmas 2.2–2.11, Theorem 2.12: sharp value and construction; no exhaustive enumeration of minimizers.",
+        "Zhang, Shao, Xu, JCMCC 89 (2014) 311–320, Theorem 2, pp. 313–314: weighted closed-walk reduction including P(n,2); later Theorems 3–4 treat P(n,3) and P(n,4), not equality-case enumeration of P(7k,2)."
+      ],
+      "reasoning": "Aliases checked: Roman gamma_R-function, optimal RDF, minimum Roman labeling, generalized Petersen P(n,2)/GP(n,2), and weighted transfer closed walks. The 2014 closed-walk model subsumes the state representation, but it does not state or compute the unique zero-excess recurrent class. No equivalent seven-minima theorem was found.",
+      "searches": [
+        "Generalized Petersen GP(n,2) minimum Roman dominating function uniqueness up to dihedral symmetry, optimal label patterns, period seven",
+        "Roman domination generalized Petersen enumeration minimum solutions cycle transfer matrices min-plus critical cycles",
+        "generalized Petersen graphs P(n,2) Roman dominating functions number minimum gamma_R-function seven periodic",
+        "Roman domination polynomial of generalized Petersen graph GP(n,2)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted mathematical-record results were dominated by Roman domination polynomials on other graph classes and strong/double Roman domination variants; no result named GP(7m,2) equality-case census. The examined 2014 published table is explicitly for P(n,4), not P(n,2)."
+      ],
+      "reasoning": "Checked exact-count aliases, seven-rotation terminology, and potential fixed-graph enumeration. No covering database/table was located. This failure is not a proof of priority; inaccessible or unindexed finite enumeration tables remain a risk.",
+      "searches": [
+        "Exact count of Roman gamma_R functions on GP(7m,2) is seven and every optimum is a 7-periodic rotation of labels two on outer 0 and inner 3,4",
+        "Number of Roman domination minimizers for Petersen-type P(n,2) with n divisible by seven; rigidity of optimum configurations",
+        "generalized Petersen graphs P(n,2) Roman dominating functions number minimum gamma_R-function seven periodic",
+        "Roman domination P(7k,2) unique optimal functions rotations 7"
+      ]
+    },
+    "rationale": "Direct full-text comparison with the two most relevant Roman-domination papers separates prior optimal-weight and transfer-graph theorems from the new equality-case rigidity. The new result relies on an independently established unique tight cycle, rather than claiming that a literature search proves priority.",
+    "residual_risks": [
+      "An unindexed enumeration of minimum Roman dominating functions for the P(n,2) family might independently state the same sevenfold rigidity.",
+      "The 2014 transfer formulation might permit a different unpublished or implicit exact tight-cycle computation; its published theorems do not state that computation.",
+      "No independent external verification of originality or the finite certificate has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers exact minimum weight and a seven-periodic construction, not the all-minimizer count or pairwise Hamming distances.",
+        "evidence": [
+          "Wang, Xu, Yang, Ji, arXiv:1103.2419v1, Lemma 2.1, Lemmas 2.2–2.11, Theorem 2.12: sharp value and construction; no exhaustive enumeration of minimizers."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1103.2419v1",
+        "material_read": "Entire substantive arXiv HTML article: introduction, construction Lemma 2.1, local Lemmas 2.2–2.11, Theorem 2.12, references.",
+        "method": "Read primary open-access HTML of version 1 and compared theorem statements and their implications for all optimizers.",
+        "title": "Roman domination number of Generalized Petersen Graphs P(n,2)",
+        "trigger": "Same object, same invariant, directly prior exact-weight theorem and candidate equality-case overlap."
+      },
+      {
+        "assessment": "Theorem 2 establishes a general equivalent closed-walk formulation, expressly credited; it does not identify the unique seven-cycle among minimum-mean walks for P(n,2). The exact tables are for P(n,4).",
+        "evidence": [
+          "Zhang, Shao, Xu, JCMCC 89 (2014) 311–320, Theorem 2, pp. 313–314: weighted closed-walk reduction including P(n,2); later Theorems 3–4 treat P(n,3) and P(n,4), not equality-case enumeration of P(7k,2)."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%20089/vol-089-paper%2023.pdf",
+        "material_read": "All 10 pages inspected including Theorem 2 and its weighted closed-walk proof, Theorems 3–4, the data table and references.",
+        "method": "Read primary lawfully accessible publisher PDF page images and compared the local transfer construction and equality claims.",
+        "title": "On the Roman Domination Numbers of Generalized Petersen Graphs",
+        "trigger": "Same generalized Petersen objects and Roman invariant; transfer approach might dominate the new claim."
+      },
+      {
+        "assessment": "Gives exact weight formula already covered by the preprint, not an additional recorded enumeration theorem.",
+        "evidence": [
+          "Ars Combinatoria 112 (2013), pp. 479–492, abstract reports only gamma_R(P(n,2))=ceil(8n/7)."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-112-ars-articles/roman-domination-number-of-generalized-petersen-graphs-pn-2/",
+        "material_read": "Publisher abstract, bibliographic details, and exact statement of the domination-number result.",
+        "method": "Read publisher record; checked full content via the matching 2011 author preprint instead of asserting publisher PDF was inspected.",
+        "title": "Roman domination number of Generalized Petersen Graphs P(n,2), Ars Combinatoria 112 (2013)",
+        "trigger": "Published venue record of the original 2011 arXiv work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e758e544-55c9-451e-a920-34f7482e55e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A classification of all optimizers in an infinite natural graph family is structurally stronger than the known optimum weight. Constant sevenfold degeneracy and linearly increasing pairwise separation demonstrate rigid periodic equality and motivate the exact critical-cycle calculation; the result is neither a textbook deduction from the value formula nor a single arbitrary small census.",
+    "status": "PASS"
+  }
+}
