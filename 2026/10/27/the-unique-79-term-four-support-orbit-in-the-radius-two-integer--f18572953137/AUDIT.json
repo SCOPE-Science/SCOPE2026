@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Rank <=2 embeds injectively into the 2D integer square with published maximum <=45. Every positive rank-three four-column circuit is uniquely its primitive signed-cofactor vector; all and only minimal sequences correspond to these vectors. Exhaustive C99 enumeration of 9,691,375 unordered supports finds 779,864 positive circuits, maximum 79, exactly 48 maximizers. Independent Python checks all 48 primitive cofactor relations and equality with the full 48-element signed-coordinate symmetry orbit, including a trivial stabilizer. Full source and run outputs are included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.16562v1 proves planar uniqueness in Theorem 1 but treats three-dimensional uniqueness as a conjecture; its experimental range only establishes length equality.",
+        "arXiv:2510.20412v1 treats planar inverse theorems and three-dimensional construction, not complete 3D m=2 four-support classification."
+      ],
+      "reasoning": "The two-dimensional inverse theorem cannot imply a rank-three classification in dimension three. The reported maximum for m=2 does not entail exactly 48 extremizers or their orbit structure. Broader unrestricted Davenport bounds concern lengths rather than extremizer classification.",
+      "searches": [
+        "arXiv:2610.16562v1 complete introduction, Section 2, and Section 4",
+        "arXiv:2510.20412v1 Sections 1, 2, 10, 11",
+        "published-finding corpus: Girard Plagne The Davenport constant of low-dimensional boxes conjectured unique maximal four-support sequence for m=2; complete inverse theorem symmetry"
+      ]
+    },
+    "checked_sources": [
+      "Girard and Plagne arXiv:2510.20412v1, inspected sections 1-2 and 10-11",
+      "Girard and Plagne arXiv:2610.16562v1, inspected introduction, Section 2, Section 4",
+      "published-finding corpus semantic-search returned analogous but mathematically distinct finite orbit and cofactor classifications",
+      "Own accessible relevant-period dedup claims: 2026-10_week2 p0001 g000108, 2026-10_week3 p0001 g000015"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 manuscript states that uniqueness is conjectured and that the lower-bound length was checked, not that the extremizers have been enumerated.",
+        "The 2025 manuscript establishes positive four-term examples and 2D bounds but no theorem restricting all maximal four-support circuits to a single signed-permutation orbit."
+      ],
+      "reasoning": "Prior existence plus matching maximum length permits arbitrarily many inequivalent extremizers and does not imply uniqueness, 48 exact realizations, or a trivial stabilizer. A finite exhaustive kernel-minor census and orbit comparison add the missing implications.",
+      "searches": [
+        "arXiv:2610.16562v1 Section 2 uniqueness conjecture and m=2..7 computational statement",
+        "published-finding corpus: 3-dimensional box minimal zero sum sequence length 79 classification symmetry orbit extremal",
+        "published-finding corpus: rank-three 3x4 matrix determinants cofactor gcd 79 Davenport constant cube"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.16562v1 Section 2 explicitly proposes essential uniqueness of constructed 3D sequences, and only reports matching lengths through m=7.",
+        "arXiv:2510.20412v1 Section 11 provides a four-vector construction but no 48-element symmetry classification."
+      ],
+      "reasoning": "The new statement is an inverse theorem for all four-support maximizers at m=2, rather than the pointwise existence of an optimal-length construction or equality of a maximum with a lower bound. Coordinate-sign and column-relabeling equivalents are handled by matching a full 48-element orbit with all 48 primitive circuits.",
+      "searches": [
+        "published-finding corpus: Davenport constant minimal zero-sum sequences in cube [-2,2]^3 with 4-point support; 79 terms; exactly 48 extremizers unique under signed permutations of coordinates",
+        "Web: Girard Plagne Davenport box [-2,2]^3 79 unique four support octahedral orbit minimal zero sum sequence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2610.16562v1 says the numerical maximum was checked for 2<=m<=7, without publishing a complete orbit table of all 79-term supports.",
+        "Exact independently regenerated 48-row `extremizers.tsv` is included in this package."
+      ],
+      "reasoning": "Known numerical maximum tables may include 79 but are insufficient for the exact count 48 and uniqueness under all signed coordinate permutations. Searches did not locate a table with equivalent complete enumeration. Absence in searched sources is not proof of global novelty.",
+      "searches": [
+        "published-finding corpus: D^{(4)}([-2,2]^3)=79 cofactor determinants primitive kernel quadruples exhaustive orbit classification",
+        "Web: \"Girard\" \"Plagne\" \"conjecture\" \"symmetry\" \"m=2\" \"79\" boxes"
+      ]
+    },
+    "rationale": "The relevant 2025/2026 Girard-Plagne primary sources supply existence, bounds and a computational length maximum but explicitly leave the inverse uniqueness principle conjectural. The exact 48-multiset one-orbit classification does not follow from known length bounds. Targeted published-finding corpus and literature comparisons found no covering inverse theorem; inaccessible or implicit results remain a risk.",
+    "residual_risks": [
+      "Earlier unpublished or unindexed enumeration may implicitly supply a symmetry orbit table for m=2.",
+      "Search indexes and accessible historical snapshots do not prove uniqueness of the result worldwide."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains an explicit conjecture of uniqueness for three-dimensional constructions; does not claim complete m=2 orbit classification.",
+        "evidence": [
+          "Section 2 lines 67-79: equality checked computationally for m=2..7; uniqueness conjectured up to symmetries and term ordering.",
+          "Section 4 supplies four-vector construction and primitive arithmetic."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.16562",
+        "material_read": "Full HTML introduction, Section 2 theorem/conjecture and computational m=2..7 discussion, Section 4 constructive argument",
+        "method": "Read arXiv full-text HTML (2026-10-12 v1) and compared quantified claim and domain",
+        "title": "The Davenport constant of low-dimensional boxes",
+        "trigger": "Direct same-object focused primary literature, possible covering uniqueness theorem"
+      },
+      {
+        "assessment": "Provides two-dimensional upper bound 45 at m=2 and the known witness family; no complete 48-element three-dimensional m=2 orbit classification stated.",
+        "evidence": [
+          "Section 1 equation (3) gives D([-m,m]^2) <= (2m+1)(4m+1).",
+          "Section 11 gives even-m four-vector construction, but not enumerative inverse classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.20412",
+        "material_read": "Full HTML Sections 1-2, 10-11, including eq. (3), general box results and explicit m-even four-vector construction",
+        "method": "Read arXiv first-version HTML (2025-10-23 v1) and compared support constraints and theorem statements",
+        "title": "The Davenport constant of balls and boxes",
+        "trigger": "Earliest preprint, containing sections later spun out, possible earlier covering statements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f1857295-3137-4988-8661-630087d1bec5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves at radius two a natural, explicitly proposed inverse problem for maximal four-support three-dimensional box sequences; it supplies exact classification of all extremal configurations under cube symmetries, not just a length already numerically reported. The primitive-circuit certificate is reusable as a base case for broader inverse classifications.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every four-support extremal candidate of length at least 79 must have rank three, because rank-at-most-two supports inject into the radius-two integer square and obey the published upper bound of 45. For rank-three supports, the primitive signed-minor kernel classifies all and only minimal positive relations, with no omitted multiplicities. The package's exhaustive two-pass C99 enumeration covers all 9,691,375 unordered supports with exact arithmetic, finding maximum length 79 and precisely 48 maximizers. Independent Python validation verifies all 48 primitive cofactors and establishes that they equal one full signed-coordinate symmetry orbit.
+
+**Originality — PASS, with stated residual risk.** Girard and Plagne's 2025 and 2026 papers construct length-79 instances and establish the length bound computationally, but treat three-dimensional essential uniqueness as conjectural. An exact 48-element orbit and trivial stabilizer are not implied by a value of the maximum. Targeted published-work and mathematical-result searches did not locate a stronger covering classification. Residual risk: an unindexed or implicit inversion of their computations might yield the same finite theorem.
+
+**Mathematical value — PASS.** The exact orbit census resolves the first natural nontrivial finite case of the authors' explicit three-dimensional inverse/uniqueness question (radius two, four-support sequences), including the classification of multiplicities and supports, not a renamed known table or an arbitrary slice. The result demonstrates uniqueness up to the whole cube symmetry group and supplies a reproducible complete proof certificate.
+
+**Closest literature.** Girard and Plagne, *The Davenport constant of balls and boxes*, arXiv:2510.20412v1 (especially 2D bound and Section 11); and *The Davenport constant of low-dimensional boxes*, arXiv:2610.16562v1 (3D conjectured uniqueness, checked length equality for radii 2–7). Neither source announces the exact 48-element orbit classification. Scope is restricted to exactly four supports and radius two; the unrestricted Davenport constant and larger radii remain outside the theorem.
+
+Self-review: passed. Independent audit: not yet performed.
