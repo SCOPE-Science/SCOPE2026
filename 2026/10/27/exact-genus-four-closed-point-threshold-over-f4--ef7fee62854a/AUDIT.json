@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "For the Artin–Schreier cover y^2+y=x^9+omega, the unique pole of odd order 9 gives genus 4. The trace criterion shows no affine points over F4 or F64, so N1=N3=1 and B3=(N3-N1)/3=0. Proposition 2.2 of Aubry–Herbaut–Monaldi gives rho(4,4)<=4 because 3<4 log_4(1+sqrt(8))<4. The explicit witness gives rho(4,4)>=4, hence equality. The included finite-field script independently checks the trace computations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Aubry–Herbaut–Monaldi, arXiv:2310.11218v1, Table 1 gives exact rho-values for genera 1–3; Proposition 2.2 gives a general upper bound applicable at genus 4.",
+        "Lario DS-curves page, overview under “Genus 4”, says that for base fields other than F2 it lists candidate Weil polynomials rather than a complete list of explicit curve models.",
+        "The closest published-finding corpus hits were unrelated algebraic-geometry computations and did not state a closed-point threshold for genus-four curves over F4."
+      ],
+      "reasoning": "The primary theorem supplies only the upper bound at (4,4); it does not give the needed lower bound. The explicit curve is the non-covered ingredient that makes the general bound sharp at this pair.",
+      "searches": [
+        "Aubry Herbaut Monaldi Closed points on curves over finite fields exact rho(q,g) values genus four q=4",
+        "Lario Curves over Finite Fields with Diophantine Stability genus 4 GF(64)/GF(4) candidate Weil polynomials",
+        "published-finding corpus query: genus four curves over F4 no closed point degree 3 Artin-Schreier y^2+y=f(x)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2310.11218v1, https://arxiv.org/pdf/2310.11218, pp. 1–5 (definition, Table 1, prime-degree identity, Proposition 2.2)",
+      "Lario DS-curves resource, https://web.mat.upc.edu/joan.carles.lario/DS.html (definition and genus-four table overview)",
+      "published-finding corpus search queries recorded above; closest hits were unrelated surface-singularity, plane-curve, and genus-two records",
+      "Accessible current-week research ledger searched for claims and IDs only",
+      "Accessible prior-week library ledger searched for the equation, rho(4,4), and equivalent DS formulations; no matching claim was returned"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.2 gives rho(4,4)<=max(2,ceil(4 log_4(1+sqrt(8))))=4.",
+        "The trace proof gives B3(C)=0, hence rho(4,4)>=4.",
+        "The primary paper’s exact-value table stops at genus 3."
+      ],
+      "reasoning": "The published bound alone does not imply equality. The lower bound is not a corollary of that estimate; it requires an explicit genus-four curve with no degree-three closed point. Combining the independent lower and upper bounds yields the single claim rho(4,4)=4.",
+      "searches": [
+        "Aubry–Herbaut–Monaldi arXiv:2310.11218v1, Proposition 2.2 and Table 1",
+        "published-finding corpus queries for rho(4,4), the exact equation, and the DS formulation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact queries returned no matching published-finding corpus claim.",
+        "Aubry–Herbaut–Monaldi, arXiv:2310.11218v1, pp. 2–5: defines closed-point counts, states B_r=(N_r-N_1)/r for prime r, and gives the general rho bound.",
+        "The explicit trace calculation in RESULT.md proves N1=N3=1 for the stated curve."
+      ],
+      "reasoning": "The DS formulation is equivalent here to the absence of degree-three closed points, because N3=N1 for the prime extension F64/F4. The general notion of DS-curves is prior art, but no retrieved statement supplied this equation or the exact threshold rho(4,4).",
+      "searches": [
+        "published-finding corpus query: rho(4,4) exact value closed point degree three genus four curves over F4",
+        "published-finding corpus query: curve y^2+y=x^9+omega over F4 has no degree-three closed points N1=N3=1 genus four Artin-Schreier",
+        "published-finding corpus query: Diophantine stable genus four curves over F4 extension F64/F4 N1=N3=1 equation x^9+omega",
+        "Library search: rho(4,4) closed point degree three genus four curve F4; genus-four Artin-Schreier curve over F4 N1=N3=1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus record returned the same equation or the exact value rho(4,4).",
+        "Lario DS-curves page describes candidate Weil polynomials for genus-four curves over base fields other than F2; the inspected overview did not identify this explicit model."
+      ],
+      "reasoning": "The searchable mathematical-record and accessible-ledger checks did not return an equivalent statement. The Lario resource remains a residual risk because a candidate polynomial could correspond to this curve or another equivalent model.",
+      "searches": [
+        "published-finding corpus query: rho(4,4) exact value closed point degree three genus four curves over F4",
+        "published-finding corpus query: y^2+y=x^9+omega over F4 no degree-three closed points",
+        "Library search: exact equation, genus four, F4, degree-three closed points, rho(4,4)"
+      ]
+    },
+    "rationale": "The inspected primary paper states exact rho-values only for genera 1, 2, and 3 and does not state rho(4,4) or this explicit F4 curve. Exact published-finding corpus queries returned no matching claim. The accessible own current-week ledger and library searches for prior-week claims/IDs did not reveal the equation or rho(4,4). The Lario DS resource is a plausible adjacent source; its overview says genus-four data over base fields other than F2 are candidate Weil polynomials rather than a complete list of explicit curve models, so it does not establish coverage in the inspected material.",
+    "residual_risks": [
+      "A more exhaustive search of all genus-four candidate Weil polynomials over F4 may reveal a prior explicit model with the same degree-three trace property.",
+      "The exact threshold depends on the published general upper bound being applied as stated; no independent audit has been performed.",
+      "No claim is made about a classification of genus-four curves or the threshold for any other q and g."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the general upper bound and establishes that the paper tabulates exact values only through genus 3; it does not state rho(4,4) or the explicit witness in the inspected sections.",
+        "evidence": "PDF lines 60–67, 116–125, and 217–223 of the arXiv text.",
+        "identifier_or_url": "https://arxiv.org/pdf/2310.11218",
+        "material_read": "Inspected the full-text PDF around the definition and exact-value table (pp. 1–2), the prime-degree identity and general bound (pp. 3–5), including Proposition 2.2 and its proof.",
+        "method": "Read the theorem statements and derivation; checked the numerical specialization q=4, g=4.",
+        "title": "Closed points on curves over finite fields",
+        "trigger": "Primary literature defining rho(q,g) and supplying the upper bound needed for the exact threshold."
+      },
+      {
+        "assessment": "Relevant adjacent source. Its overview says genus-four data for base fields other than F2 are candidate Weil polynomials rather than a complete list of explicit models; it does not establish coverage of this equation in the material inspected.",
+        "evidence": "The page defines DS-curves by equality of rational point sets over an extension and states the genus-four table limitation.",
+        "identifier_or_url": "https://web.mat.upc.edu/joan.carles.lario/DS.html",
+        "material_read": "Inspected the DS-curve definition and the overview/table headings for genus 4; did not exhaustively inspect all candidate Weil-polynomial entries.",
+        "method": "Compared the stated coverage by base field and genus with the present explicit F4 model.",
+        "title": "Curves over Finite Fields with Diophantine Stability",
+        "trigger": "Potential prior table of curves with no points over a prime-degree extension."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef7fee62-854a-4747-a4f3-5487970e1d8f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact threshold rho(q,g) is a natural invariant explicitly studied in the primary paper, whose exact table stops at genus three. The explicit genus-four curve makes the general upper bound sharp at (q,g)=(4,4), providing a reproducible new exact value rather than an arbitrary point-count census.",
+    "status": "PASS"
+  }
+}
