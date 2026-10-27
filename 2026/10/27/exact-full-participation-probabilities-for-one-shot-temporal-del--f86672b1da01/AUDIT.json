@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For each deleted edge, pathwise temporal feasibility is exactly the prescribed increasing prefix and decreasing suffix. Event counts and all nonempty intersections are computed by factorial/binomial combinations, with no fourfold intersections. The incidence identities solve exactly for all four histogram entries, and an independent direct pointer-tracing checker exhaustively verifies every timestamp order for n=3,...,8. Endpoint blocks and n=3 are explicitly included; the proof is valid for all n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2011.03738v4 §§1,4,5 proves asymptotic reachability thresholds for Erdős–Rényi random footprints and considers increasing rooted trees, but provides no enumeration on a fixed cycle.",
+        "arXiv:2312.06260 §§1–3 treats temporal connectivity-preserving spanning trees (all-pairs), bi-spanners, and complexity, not a one-root four-way count.",
+        "arXiv:2202.12055 §§1,4 studies counting temporal paths to a given destination, not simultaneous confluent spanning outcomes."
+      ],
+      "reasoning": "General algorithms may count each fixed instance but no inspected theorem supplies this all-n exact distribution. The all-pairs temporal spanning-tree property has different quantifiers and does not determine the rooted property. No claim of optimal general algorithm is made.",
+      "searches": [
+        "random temporal graph cycle spanning tree probability increasing labels",
+        "temporal graph cycle spanning tree probability increasing labels",
+        "counting temporal paths 2022 treewidth series parallel"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2307.12898 §§1–3",
+      "arXiv:2011.03738v4 §§1–2,4–5",
+      "arXiv:2312.06260 §§1–3",
+      "arXiv:2202.12055 §§1–2,4",
+      "arXiv:1310.7898v1 abstract/model/results",
+      "Archer–Lauderdale (2017) unimodal permutations abstract / bibliographic summary"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Markakis–Papasotiropoulos arXiv:2307.12898 §2 supplies the time-conscious inequality and confluent-tree definition, and §3 studies general computational hardness and relaxations.",
+        "Casteigts–Raskin–Renken–Zamaraev arXiv:2011.03738v4 §4 constructs foremost/hindmost rooted temporal trees and §5 estimates random dense-network threshold locations; no exact fixed-cycle count.",
+        "Accessible prior cycle delegation result ef0bfa6c-6a21-44f0-b19e-59aa77904cf0 counts uniform static noncycling choices with at least two direct voters, so its variables do not encode edge-time rankings."
+      ],
+      "reasoning": "The new theorem requires all-n four-category counting over permutations of edge times and yields at most three simultaneous rooted trees. The closest papers define the notions or solve different optimization/reachability questions. Generic definition of rooted temporal trees does not imply the formula without the nontrivial cut-intersection calculation.",
+      "searches": [
+        "As Time Goes By Adding a Temporal Dimension Towards Resolving Delegations in Liquid Democracy temporal cycle full participation rooted guru",
+        "Exact number of time-conscious confluent arborescences on a cycle under random distinct timestamps histogram 0 1 2 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The cut-by-edge criterion is exactly a permutation with an increasing block, one deleted position, and a decreasing block; equivalently deletion of one position leaves a unimodal word.",
+        "arXiv:2307.12898 §2 defines nonincreasing times along a delegation path with maximal retrospective trust.",
+        "Archer–Lauderdale (EJC 2017, DOI 10.37236/6954) studies unimodal permutations and almost-increasing cyclic permutations but not the stated count of deleted-position multiplicities."
+      ],
+      "reasoning": "The relevant equivalence was explicitly compared, not hidden behind terminology. The classical 2^(n-1) unimodal count alone gives only part of the triple-intersection count, not the four-class law. The search did not find a prior exact result for this one-deletion enumerator; this is not a proof of global absence.",
+      "searches": [
+        "temporal cycle monotone rooted permutation spanning tree count",
+        "permutations that become unimodal after deletion of one element count",
+        "almost unimodal permutations enumeration delete one element to unimodal formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2307.12898 and arXiv:2011.03738v4 contain neither the formula nor a four-class cycle timestamp table.",
+        "A search found the well-known count 2^(n-1) for strict unimodal permutations but did not reveal the full bivariate time-order/tree-count census.",
+        "The only accessible prior static-cycle research result is ef0bfa6c-6a21-44f0-b19e-59aa77904cf0, whose domain is multiple fixed casting voters and no temporal restrictions."
+      ],
+      "reasoning": "No exact published table or sequence source inspected dominates the four-way histogram. Equivalent permutation-statistics tables could exist in unindexed material; that residual risk remains explicit.",
+      "searches": [
+        "temporal cycle rooted edge-order arborescence probability formula",
+        "permutations count (n-2) 2^(n-1) + 2 remove one element unimodal",
+        "almost unimodal permutations one deletion count probability"
+      ]
+    },
+    "rationale": "Compared the strict-order time-conscious confluent one-guru cycle histogram against primary full-text temporal-liquid-democracy, random temporal-graph, temporal spanning-tree and path-count papers; considered the equivalent one-deletion unimodal-permutation formulation and previous static multi-guru cycle result. Neither an exact four-category law nor a dominating theorem was found. Classical unimodal enumeration supplies only a component of the proof; unindexed permutation enumerations remain a real residual risk.",
+    "residual_risks": [
+      "An uncatalogued enumeration of permutations becoming unimodal after deleting one entry may be equivalent and could subsume the formula.",
+      "The full space of generic temporal graph and social-choice literature cannot be exhaustively searched; negative search results do not certify global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines applicable model and constraints but does not classify random strict edge-time orders on one-root cycles",
+        "evidence": "2023-07-24 submission; §2 defines t_i >= t_{i+1} >= t_i - delta and exact confluent directed-tree requirement.",
+        "identifier_or_url": "https://arxiv.org/abs/2307.12898",
+        "material_read": "Rendered full-text §1 motivation, §2 temporal graph and approval definitions including trust horizons, confluence, abstainer participation, and §3 hardness/algorithm comparisons",
+        "method": "Read the accessible arXiv article text, especially lines 47–135 and 174–254; checked section-level occurrences of cycles and counting",
+        "title": "As Time Goes By: Adding a Temporal Dimension Towards Resolving Delegations in Liquid Democracy",
+        "trigger": "direct originating temporal delegation model"
+      },
+      {
+        "assessment": "Footprint is random dense Erdős–Rényi, goals are threshold and spanner existence; no fixed sparse cycle census",
+        "evidence": "§1.1 random-permutation model; §4 rooted trees; §5 n-dependent asymptotic thresholds.",
+        "identifier_or_url": "https://arxiv.org/html/2011.03738v4",
+        "material_read": "HTML full-text abstract, §§1–2 model and comparison, §4 foremost-tree definitions/algorithm, §5 sharp connectivity/spanner thresholds and references",
+        "method": "Inspected full accessible HTML sections and targeted tree/cycle occurrences",
+        "title": "Sharp Thresholds in Random Simple Temporal Graphs",
+        "trigger": "random permutation of temporal edge times and rooted trees might dominate"
+      },
+      {
+        "assessment": "Studies all-pairs temporal connectivity preservation, bi-spanners and complexity; does not give desired random-order law",
+        "evidence": "§1.1 contrasts TC spanning trees and bi-spanners; their universal ordered-pairs condition differs from one-guru confluence.",
+        "identifier_or_url": "https://arxiv.org/abs/2312.06260",
+        "material_read": "Rendered arXiv article abstract, §§1–2 problem definitions and §3 indicated results; compared all-pairs connectivity quantifier to root-reaching requirement",
+        "method": "Read accessible rendered source text with section-specific checks",
+        "title": "In Search of the Lost Tree: Hardness and Relaxation of Spanning Trees in Temporal Graphs",
+        "trigger": "plausibly stronger temporal spanning-tree results"
+      },
+      {
+        "assessment": "Counts individual source–sink paths, rather than correlated choices of one path per voter forming a temporal arborescence",
+        "evidence": "§1 defines #Temporal Path and distinguishes it from temporal betweenness; §4 algorithms.",
+        "identifier_or_url": "https://arxiv.org/abs/2202.12055",
+        "material_read": "Full-text rendered abstract and §§1–2, §4 announced algorithms including tree/series-parallel settings",
+        "method": "Read accessible article text, focus on the counted object, results and scope",
+        "title": "Counting Temporal Paths",
+        "trigger": "temporal path counting may imply exact simultaneous rooted resolution count"
+      },
+      {
+        "assessment": "Analyzes temporal stars, cliques and path distances with independent labels, not a fixed-cycle strict-order tree histogram",
+        "evidence": "Abstract lists clique path counts, star distances, clique temporal diameter and a two-vertex optimization problem.",
+        "identifier_or_url": "https://arxiv.org/html/1310.7898v1",
+        "material_read": "HTML abstract, model and result overview, queried cycle and spanning-tree mentions",
+        "method": "Read accessible rendered text and targeted full-document searches",
+        "title": "Moving in Temporal Graphs with Very Sparse Random Availability of Edges",
+        "trigger": "independent random edge times on sparse graphs could cover cycle case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f86672b1-da01-486d-9cbd-ee53601eb4ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact full-participation probability under random one-shot approval timing in a canonical minimally redundant voting network is motivated by the cited temporal delegation model and random temporal graph process. The theorem supplies a sharp universal maximum of three feasible rooted resolutions, the complete 0/1/2/3 histogram, and factorially small participation likelihood for every cycle size, rather than a routine specialization of static tree counting.",
+    "status": "PASS"
+  }
+}
