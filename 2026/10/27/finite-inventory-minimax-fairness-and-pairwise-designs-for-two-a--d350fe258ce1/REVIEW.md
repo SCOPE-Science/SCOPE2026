@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem's online/adversarial quantifiers, maximin-share normalization, zero-cost edge cases, and full-inventory reduction were reconstructed from the included proof. The fixed-support upper bound follows from pair-block positive-part subadditivity; the finite lower bound follows from minimization of an exact uniform-pair adversarial payoff, with strict monotonicity checked in both parity cases. Equality determines every optimal policy's pair inclusion probabilities. Affine-hyperplane counting and a full-rank moment matrix establish the sparse design and its support bound. `checker.py` independently checks 2,843 exact finite identities/inequalities. There is no claim of infinite certification from enumeration.
+
+**Originality — PASS, subject to priority risk.** The closest predecessor, Li–Wang–Wu (arXiv:2610.15443v1, Theorem 3.1 and Appendix B), already proves the asymptotically tight two-agent ratio \(5/4\) and the pair-block sampling bound. Its precise numerator also motivates the new finite parameter. It does not state the exact finite-inventory minimax law, the necessity-and-sufficiency classification of all optimal samplers, or the nearly support-minimal affine implementation. Li–Lin–Miao–Wu (arXiv:2609.10960v1) treat principally deterministic online results, while Zhou–Bai–Wu (arXiv:2304.13405) have item rather than agent arrivals. Search results do not prove absolute novelty; an unstated or unindexed equivalent is a live priority risk.
+
+**Value — PASS.** A fixed inventory is an operationally known natural invariant in two-volunteer chore assignment; the exact worst-case is \(7/6\) for four or five chores rather than the large-inventory \(5/4\) limit. The parity staircase and complete characterization of optimal policies identify exactly what correlation is needed; affine designs cut the number of random outcomes from \(\binom{t}{t/2}\) to \(2(t-1)\) at powers of two, with a matching linear-order support lower bound. These are structural and algorithmic facts, not merely a numerical recomputation.
+
+Publication priority beyond inspected sources remains unverified. All validity claims here concern the theorem's specified binary two-agent model and are not an independent assessment.
+
+Self-review: passed. Independent audit: not yet performed.
