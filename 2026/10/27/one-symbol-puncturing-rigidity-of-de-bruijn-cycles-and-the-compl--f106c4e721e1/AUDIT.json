@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "An all-but-one-edge cyclic trail of the full balanced de Bruijn multigraph omits a single balanced edge, necessarily a homogeneous-loop edge. Every admissible shortened cycle therefore has only a^n missing. At a^(n-1) exactly q-1 insertion sites restore that loop; distinct positions yield distinct rotation classes as near-universal cycles are aperiodic. Only symbols in the q constant n-windows can be safely deleted, giving qn indexed positions and q distinct necklace outcomes. Double counting loop-deletion pairs gives C=qD/(q-1), where the classical D=(q!)^(q^(n-1))/q^n. The n=1 empty-state graph is included. Exhaustive independent sets confirm every assertion for q,n pairs (2,1),(2,2),(2,3),(2,4),(3,1),(3,2),(4,1), but the proof is infinite.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cameron-Gundogan-Sawada (2022), abstract and §§4.2,5.2: efficient construction of some cut-down cycles for general lengths, including removing a one-symbol constant cycle.",
+        "Nellore-Ward arXiv:2108.07759: arbitrary-length analogs with controlled factor counts."
+      ],
+      "reasoning": "Construction of some arbitrary-length sequences is not a universal classification of all near-full cycles or a per-input deletion robustness law. An unexamined stronger universal-cycle classification may contain this specialization; this is retained as a risk.",
+      "searches": [
+        "cut-down de Bruijn sequences length q^n-1 count punctured modified de Bruijn qary sequences",
+        "de Bruijn cycles order n q symbols: exactly qn positions such that deleting one symbol yields a cyclic cut-down de Bruijn sequence of length q^n minus one; only symbols in constant length-n runs"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.ias.edu/~goresky/pdf/algebraic0.pdf",
+      "https://arxiv.org/html/2205.02815v2",
+      "https://arxiv.org/abs/2108.07759",
+      "https://debruijnsequence.org/db/cutdown",
+      "https://link.springer.com/article/10.1007/s10623-026-01841-x"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goresky-Klapper 2011 §8.2.4 proves deletion at a^n and permits reinsertion at q-1 constant vertices, and states D.",
+        "Cameron et al 2022 §4.2 explicitly describe cutting a length-one loop when s=1."
+      ],
+      "reasoning": "The sufficient construction plus D and its inverse yield a count for the image of homogeneous puncturing, but do not by themselves show that every near-full window-distinct cycle belongs to that image. The missing-edge balance lemma forces that surjectivity; it then yields the universal exact safe-deletion locus and full class count. Thus the new complete statement is not a reworded corollary of the located quoted statements alone.",
+      "searches": [
+        "single deletion preserving distinct n-grams de Bruijn cycles deletion robustness homopolymer runs",
+        "\"cut-down de Bruijn\" \"all but one\" missing word",
+        "\"de Bruijn\" \"missing\" \"constant\" \"length\" \"q^n-1\" cyclic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goresky-Klapper 2011 §8.2.4 defines punctured de Bruijn sequences by deleting a distinguished homogeneous symbol from a full cycle and notes inverse insertion into any constant (n-1)-block.",
+        "Cameron et al arXiv:2205.02815 §4.2 removes [0] as one known construction for surplus s=1."
+      ],
+      "reasoning": "A punctured sequence in the classical defined sense is a near-universal cycle, but the reverse containment is not asserted in these inspected sections. Equal names alone do not resolve whether all one-deficit window-distinct cycles must be punctured. The new balanced omitted-edge argument proves the reverse containment.",
+      "searches": [
+        "punctured de Bruijn sequences deleting one letter necessary condition unique missing n-word constant loop Eulerian balance",
+        "\"punctured de Bruijn\" \"number\" \"cyclic\"",
+        "\"modified de Bruijn\" \"count\" \"q-1\" sequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Goresky-Klapper 2011 §8.2.4 and debruijnsequence.org/db/cutdown give general full-cycle count/constructions but no tabulation of all length q^n-1 cycles as counted here.",
+        "Standalone program counts C(2,4)=32 and C(3,2)=36 exactly, cross-checking new formula but not establishing database priority."
+      ],
+      "reasoning": "The standard de Bruijn number D is known. The near-full number C=qD/(q-1) was not found explicitly in examined tables or inspected primary text. Finite agreement is not novelty evidence.",
+      "searches": [
+        "\"punctured de Bruijn\" \"number\" \"cyclic\"",
+        "\"de Bruijn\" \"all but one\" \"constant\" word cycle",
+        "de Bruijn cycles order n q symbols: exactly qn positions such that deleting one symbol yields a cyclic cut-down de Bruijn sequence of length q^n minus one; only symbols in constant length-n runs"
+      ]
+    },
+    "rationale": "Existing literature explicitly contains forward puncturing of a^n, reinsertion into a^(n-1), and the count D of full cycles (Goresky-Klapper 2011, §8.2.4), as well as algorithmic one-loop cuts of constructed cycles (Cameron-Gundogan-Sawada 2022, §4.2). Those are excluded from the novelty claim. The inspected texts do not assert a converse classifying every length q^n-1 window-distinct cycle, the exact iff set of deletion positions for every arbitrary full cycle, or the unrestricted q-ary rotation-class count as the coherent result. The omitted-edge balance lemma supplies the extra necessary condition. Literature risk remains for an implicit equivalence in unindexed modified/PN sequence papers.",
+    "residual_risks": [
+      "A characterization in unindexed classical pseudonoise or feedback-shift-register literature might implicitly prove all one-deficit cut-down cycles are punctured.",
+      "The image-count formula is a concise consequence of classical insertion multiplicity once the missing-edge converse is known, so priority of that converse is critical.",
+      "Published-record semantic search is not an exhaustive literature index; external scientific validation has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains forward puncture, inverse insertion and D but not the all-cutdown converse or universal deletion position theorem.",
+        "evidence": "Section 8.2.4: punctured sequence is defined via deleting from b0^n; q-1 occurrences of b0^(n-1); insertion rule; full-cycle count.",
+        "identifier_or_url": "https://www.math.ias.edu/~goresky/pdf/algebraic0.pdf",
+        "material_read": "Full section 8.2.4, printed page 176, including the punctured definition, run counts, inversion claim, and de Bruijn enumeration formula.",
+        "method": "PDF text inspected and page-image visually checked.",
+        "title": "Algebraic Shift Register Sequences",
+        "trigger": "Closest source defining punctured and modified de Bruijn sequences and inverse insertions."
+      },
+      {
+        "assessment": "Constructs selected cut-down sequences; s=1 sufficiency already recognized, with no explicit general necessity or census theorem in inspected sections.",
+        "evidence": "Section 4.2 paragraph s=1 cuts Z1=[0] reducing 0^n to 0^(n-1); Section 5.2 q-ary adaptations.",
+        "identifier_or_url": "https://arxiv.org/html/2205.02815v2",
+        "material_read": "HTML full document introduction, background, §§4.2 and 5.2 on cutting small cycles, with adjacent algorithm descriptions.",
+        "method": "Direct lawful open HTML inspection and targeted section finds.",
+        "title": "Cut-Down de Bruijn Sequences",
+        "trigger": "Primary algorithmic treatment of arbitrarily shortened cycles."
+      },
+      {
+        "assessment": "Construction and balance properties distinct from exhaustive enumeration of one-deficit cycles; relevant generalization risk remains.",
+        "evidence": "Paper studies finite-alphabet P_L^(k) sequences with arbitrary length and controlled factor counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2108.07759",
+        "material_read": "ArXiv abstract and accessible full-paper HTML introductions/construction statements describing arbitrary-length balanced analogs.",
+        "method": "Primary open-access paper and section text inspection.",
+        "title": "Arbitrary-Length Analogs to de Bruijn Sequences",
+        "trigger": "Competing general arbitrary-length window-distinct construction literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f106c4e7-21e1-4547-9a89-546347670c8d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Puncturing a universal cycle is a standard practical way to shorten an exhaustive test sequence. This theorem determines the complete codimension-one feasible class, the exact number of safe single-symbol edits independent of the cycle, and all cyclic outputs via an exact unrestricted q-ary enumeration. These are natural rigidity and robustness invariants, not a parameter-tuned finite computation; the balanced-edge obstruction explains why only homogeneous positions work.",
+    "status": "PASS"
+  }
+}
