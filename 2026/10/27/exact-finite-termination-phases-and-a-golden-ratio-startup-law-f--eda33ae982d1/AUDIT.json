@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "On f(x)=c||x||²/2, the short BB quotient is exactly 1/c on every nonterminal step. Each of the three AdaBB branches therefore reduces to a dimension-free explicit scalar update. The post-overshoot reset lemma rigorously puts the first later step strictly in (1,2), and subsequent Case II sets normalized step to one. The special initialization yields a_1=1/sqrt2 and a_2²=(1+1/(sqrt2 a_0))/2, proving the exact sharp switch at 1/(7sqrt2) and all seven disjoint startup cases. The uninformed radical factors converge geometrically to phi and have a convergent positive normalized product, proving the exact hitting-count formula and the sharp logarithmic coefficient. Independent high-precision finite simulations support but do not establish continuum claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhou–Ma–Yang Algorithm 1, equation (36), Lemma 4.1, Table 1: https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf",
+        "Huang–Dai–Liu–Zhang 2022 Theorem 1: https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf",
+        "Published mathematical research closest identifiers: 2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b, 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53, 2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2, 2026/10/4/SCOPE-exact-geometric-startup-law-for-dowg-and-its-separation-from-dog--c80c9c330353"
+      ],
+      "reasoning": "Zhou–Ma–Yang convergence/lower stepsize results have broader objective classes but do not imply any fixed finite hitting index for isotropic objectives; Huang et al. terminate a separate update sequence with a specially added spectral step. They are not stronger theorems covering this algorithm/claim.",
+      "searches": [
+        "AdaBB Algorithm 1 isotropic quadratic finite termination golden ratio alpha stepsize warmup iteration count Barzilai Borwein",
+        "Zhou Ma Yang AdaBB adaptive Barzilai Borwein scalar quadratic finite iteration exact x=0",
+        "golden ratio recovery step size square root one plus theta adaptive gradient scalar 2024",
+        "adaptive Barzilai Borwein 2024 AdaBB scalar quadratic two cycle stability",
+        "AdaBB Zhou Ma Yang exact finite termination isotropic scalar quadratic specially initialized theta0 seven iterations golden ratio logarithmic warmup",
+        "AdaBB adaptive Barzilai Borwein scaled stepsize case i case ii case iii sharp hitting time 1/(7 sqrt 2)",
+        "\"AdaBB\" \"golden ratio\" \"finite termination\" quadratic",
+        "\"Adaptive Barzilai-Borwein\" \"finite termination\" convex quadratic",
+        "\"AdaBB\" \"finite termination\" \"isotropic\" quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv first-submission history 2401.08024, 2024-01-16",
+      "Zhou–Ma–Yang source full PDF (relevant methods/theory/appendix via document term searches)",
+      "Huang–Dai–Liu–Zhang 2022 lawful author-posted PDF (Theorem 1 and method)",
+      "Mathematical research semantic records  2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b, 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53, 2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2, 2026/10/4/SCOPE-exact-geometric-startup-law-for-dowg-and-its-separation-from-dog--c80c9c330353",
+      "Previously available mathematical claims compared for direct implication coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Zhou–Ma–Yang Algorithm 1, equation (36), Lemma 4.1, Table 1: https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf",
+        "Huang–Dai–Liu–Zhang 2022 Theorem 1: https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf",
+        "Published mathematical research closest identifiers: 2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b, 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53, 2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2, 2026/10/4/SCOPE-exact-geometric-startup-law-for-dowg-and-its-separation-from-dog--c80c9c330353"
+      ],
+      "reasoning": "Source Algorithm 1 plus equation (36) supply premises but not the sharp implications: the threshold a_2>=2 iff a_0<=1/(7sqrt2), a strict reset path to a_6=1, and the complete K phase partition require the new case proof; the golden-ratio coefficient requires proving convergence of the iterated-radical product and first-crossing equivalence. The different Huang et al. two-dimensional theorem is inapplicable because its inserted step is not an AdaBB branch.",
+      "searches": [
+        "AdaBB Algorithm 1 isotropic quadratic finite termination golden ratio alpha stepsize warmup iteration count Barzilai Borwein",
+        "Zhou Ma Yang AdaBB adaptive Barzilai Borwein scalar quadratic finite iteration exact x=0",
+        "golden ratio recovery step size square root one plus theta adaptive gradient scalar 2024",
+        "adaptive Barzilai Borwein 2024 AdaBB scalar quadratic two cycle stability",
+        "AdaBB Zhou Ma Yang exact finite termination isotropic scalar quadratic specially initialized theta0 seven iterations golden ratio logarithmic warmup",
+        "AdaBB adaptive Barzilai Borwein scaled stepsize case i case ii case iii sharp hitting time 1/(7 sqrt 2)",
+        "\"AdaBB\" \"golden ratio\" \"finite termination\" quadratic",
+        "\"Adaptive Barzilai-Borwein\" \"finite termination\" convex quadratic",
+        "\"AdaBB\" \"finite termination\" \"isotropic\" quadratic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhou–Ma–Yang Algorithm 1, equation (36), Lemma 4.1, Table 1: https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf",
+        "Huang–Dai–Liu–Zhang 2022 Theorem 1: https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf",
+        "Published mathematical research closest identifiers: 2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b, 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53, 2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2, 2026/10/4/SCOPE-exact-geometric-startup-law-for-dowg-and-its-separation-from-dog--c80c9c330353"
+      ],
+      "reasoning": "Checked scalar curvature-normalized gradients, finite-step annihilation/deadbeat variants, iterated radical startup, and two-dimensional BB methods. The original AdaBB three-branch map is the exact equivalent of the new object, but its source does not state the explicit partition, and the classical one-spectrum BB method uses a different map. No identified identical theorem.",
+      "searches": [
+        "AdaBB Algorithm 1 isotropic quadratic finite termination golden ratio alpha stepsize warmup iteration count Barzilai Borwein",
+        "Zhou Ma Yang AdaBB adaptive Barzilai Borwein scalar quadratic finite iteration exact x=0",
+        "golden ratio recovery step size square root one plus theta adaptive gradient scalar 2024",
+        "adaptive Barzilai Borwein 2024 AdaBB scalar quadratic two cycle stability",
+        "AdaBB Zhou Ma Yang exact finite termination isotropic scalar quadratic specially initialized theta0 seven iterations golden ratio logarithmic warmup",
+        "AdaBB adaptive Barzilai Borwein scaled stepsize case i case ii case iii sharp hitting time 1/(7 sqrt 2)",
+        "\"AdaBB\" \"golden ratio\" \"finite termination\" quadratic",
+        "\"Adaptive Barzilai-Borwein\" \"finite termination\" convex quadratic",
+        "\"AdaBB\" \"finite termination\" \"isotropic\" quadratic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Zhou–Ma–Yang Algorithm 1, equation (36), Lemma 4.1, Table 1: https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf",
+        "Huang–Dai–Liu–Zhang 2022 Theorem 1: https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf",
+        "Published mathematical research closest identifiers: 2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b, 2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53, 2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2, 2026/10/4/SCOPE-exact-geometric-startup-law-for-dowg-and-its-separation-from-dog--c80c9c330353"
+      ],
+      "reasoning": "Queried semantically for the seven-step threshold, golden-ratio startup, case transitions, and AdaBB aliases. Closest records concern different adaptive methods and do not present the original AdaBB equation (36) hitting-time partition.",
+      "searches": [
+        "AdaBB Algorithm 1 isotropic quadratic finite termination golden ratio alpha stepsize warmup iteration count Barzilai Borwein",
+        "Zhou Ma Yang AdaBB adaptive Barzilai Borwein scalar quadratic finite iteration exact x=0",
+        "golden ratio recovery step size square root one plus theta adaptive gradient scalar 2024",
+        "adaptive Barzilai Borwein 2024 AdaBB scalar quadratic two cycle stability",
+        "AdaBB Zhou Ma Yang exact finite termination isotropic scalar quadratic specially initialized theta0 seven iterations golden ratio logarithmic warmup",
+        "AdaBB adaptive Barzilai Borwein scaled stepsize case i case ii case iii sharp hitting time 1/(7 sqrt 2)",
+        "2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b",
+        "2026/9/20/SCOPE-bb-interval-objective-monotonicity-frontier--7866f4762b53",
+        "2026/10/4/SCOPE-exact-alternating-identification-on-two-endpoint-spectra--70ce85b504e2",
+        "2026/10/4/SCOPE-exact-geometric-startup-law-for-dowg-and-its-separation-from-dog--c80c9c330353"
+      ]
+    },
+    "rationale": "Best-knowledge originality of the exact termination-index partition (including the discontinuity at a=1/(7sqrt2)) and sharp uninformed golden-ratio logarithmic coefficient for the original AdaBB Algorithm 1. The defining recurrence and the special initialization are from Zhou–Ma–Yang, not novel; their bounds and a distinct earlier 2D accelerated BB finite-termination result do not state or logically entail this complete parameter-index classification without extra proofs. Direct scholarly and mathematical-record searches found no covering statement. Equivalent unpublished/specialized recurrence analyses remain a residual priority risk.",
+    "residual_risks": [
+      "Equivalent case partition might have appeared in a specialized unpublished AdaBB follow-up or in the broader discrete-recursion literature. Search failure alone cannot establish priority.",
+      "The source Table 1 analyzes the same iterated-radical product for a different algorithm; its qualitative startup bounds make the new asymptotic constant a relatively close extension, although the source gives no sharp constant or original-AdaBB exact hitting law.",
+      "Independent mathematical priority and proof review have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Original update and initialization explicitly credited. Its step lower bounds and other-method radical index do not provide the exact K classification or sharp AdaBB startup coefficient.",
+        "evidence": [
+          "Algorithm 1: https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf#page=5",
+          "Equation (36), Lemma 4.1: https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf#page=12",
+          "Table 1: https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf#page=17"
+        ],
+        "identifier_or_url": "arXiv:2401.08024; https://optimization-online.org/wp-content/uploads/2024/01/Adaptive-Gradient-Descent-for-Larger-Stepsizes-with-Barzilai-Borwein-v1_1-1.pdf",
+        "material_read": "Original 33-page PDF: algorithm text page 5, initialization (36) and Lemma 4.1 page 12, tables and comparisons pages 15–17, related algorithm discussion and associated text; searched document for finite termination, isotropic, and golden ratio",
+        "method": "Read parsed PDF passages and rendered source page images",
+        "title": "AdaBB: Adaptive Barzilai-Borwein Method for Convex Optimization",
+        "trigger": "Identical algorithm and informed initialization, highest risk of subsumption"
+      },
+      {
+        "assessment": "Uses an inserted adaptive spectral step in a different update sequence. Does not entail the original AdaBB special-start recurrence or exact seven-step phase diagram.",
+        "evidence": [
+          "Theorem 1: https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf#page=7",
+          "Proof and comparison: https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf#page=8"
+        ],
+        "identifier_or_url": "DOI:10.1007/s10589-022-00349-z; https://www.math.lsu.edu/~hozhang/papers/AccBB.pdf",
+        "material_read": "Abstract and Theorem 1 with derivation on source PDF pages 1, 7–9; algorithm and comparison portions adjacent to theorem",
+        "method": "Read lawful author-hosted open-access full text and rendered Theorem 1 page",
+        "title": "On the acceleration of the Barzilai–Borwein method",
+        "trigger": "Earlier explicit finite termination of a BB-type method on 2D strongly convex quadratics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eda33ae9-82d1-4575-b197-c855f23c8616",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "AdaBB explicitly emphasizes lower stepsize bounds and initialization, so the number of updates lost to a tiny initial step is a natural, consequential algorithmic invariant. The complete sharp classification quantifies both an unbounded logarithmic cold-start penalty with universal golden-ratio constant and an initialization-dependent uniform seven-update budget, including a discontinuous exact phase boundary. It distinguishes finite termination from the more routine mere convergence and provides a reproducible baseline on which general conditioning effects can be separated. Narrow scope and comparison to simpler direct BB are explicitly acknowledged.",
+    "status": "PASS"
+  }
+}
