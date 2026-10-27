@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The ten nonmerged unordered pairs form an exact deterministic two-letter transition graph with a merge sink. Successive predecessor levels compute the shortest successful path, and no successful shortest path repeats a pair, giving a bound of ten. Independent forward-level and reverse-BFS C++17 programs separately enumerate all \\(5^{10}\\) ordered letter maps and agree on all ten frequencies, the nonsynchronizing total, and the extremal count. Exhaustive symmetry-orbit comparison certifies one radius-ten class. These are checked computations backed by fully replayable source, not extrapolation from samples.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2608.24245, §§2.4 and 2.6: general tight prescribed-pair bound covers only the maximum possible value, not its full distribution.",
+        "arxiv:1609.06853, §4: exhaustive global-reset-threshold tables concern a different invariant."
+      ],
+      "reasoning": "The known theorem ensures every prescribed pair merges in at most ten steps and the Černý family attains ten; it does not count how many five-state automata attain any individual radius. Reset-length and pair-radius are non-equivalent: both example automata in RESULT.md have reset threshold four but pair radii four and three.",
+      "searches": [
+        "2026 literature: Synchronizing Automata: Open Problems, arxiv:2608.24245, §§2.3–2.6",
+        "2016 primary literature: Slowly synchronizing automata with fixed alphabet size, arxiv:1609.06853, §4",
+        "pair synchronization diameter for complete deterministic binary automata Černý pair automaton length binomial n 2",
+        "five state rendezvous two states pair merging all pairs distribution"
+      ]
+    },
+    "checked_sources": [
+      "M. Szykuła, Synchronizing Automata: Open Problems, arxiv:2608.24245 (2026), §§2.3–2.7.",
+      "M. de Bondt, H. Don, H. Zantema, Slowly synchronizing automata with fixed alphabet size, arxiv:1609.06853 (2016), §§4–5."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Szykuła (2026), §2.4: tight \\(n(n-1)/2\\) upper bound and known Černý witnesses.",
+        "De Bondt–Don–Zantema (2016), §4: enumerated reset thresholds, a different function of an automaton.",
+        "Explicit different-radius same-reset-threshold witnesses in RESULT.md rule out recovering the radius from the reset threshold alone."
+      ],
+      "reasoning": "The general theorem implies the numeric maximum ten is possible but not the full histogram or uniqueness of all radius-ten automata. Reset-threshold counts are marginal counts for a different optimization problem and cannot imply the radius counts without additional joint or structural information. The claim credits these prior contributions and retains only the new finite distribution and equality-case census.",
+      "searches": [
+        "2026 literature: Synchronizing Automata: Open Problems, arxiv:2608.24245, §§2.3–2.6",
+        "2016 primary literature: Slowly synchronizing automata with fixed alphabet size, arxiv:1609.06853, §4",
+        "exact pair merging diameter spectrum 5-state binary synchronizing automata 10 240 extremal",
+        "all 9765625 binary five-state automata pair shortest merger maximal 10 one isomorphism class"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2608.24245, §2.4: prescribed-pair synchronization with sharp \\(n(n-1)/2\\) bound; §2.6: pair graph decides synchronizability.",
+        "arxiv:1609.06853, §4: pair mergeability is used as a predicate during a reset-threshold census."
+      ],
+      "reasoning": "The same invariant can be called worst prescribed-pair synchronization time, pair-merger radius, or the largest finite merge-sink distance in the pair automaton. Those formulations were explicitly compared. The inspected sources provide the general upper bound and the criterion, but not the complete five-state radius frequencies or extremal equality-class enumeration.",
+      "searches": [
+        "2026 literature: Synchronizing Automata: Open Problems, arxiv:2608.24245, §§2.3–2.6",
+        "2016 primary literature: Slowly synchronizing automata with fixed alphabet size, arxiv:1609.06853, §4",
+        "exact pair merging diameter spectrum 5-state binary synchronizing automata 10 240 extremal",
+        "exact pair merging diameter spectrum 5-state binary synchronizing automata 10 240 extremal",
+        "pair synchronization diameter for complete deterministic binary automata Černý pair automaton length binomial n 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:1609.06853, Section 4 table descriptions say they count automata by shortest full reset length, not maximum shortest merging length over all pairs.",
+        "arxiv:2608.24245, Section 2.4 gives the sharp prescribed-pair worst-case length but no five-state frequency table."
+      ],
+      "reasoning": "Searched for finite enumerations under pair-merging radius, pair synchronization diameter, pair graph distance, and five-state binary synchronization. No exact matching ten-bin frequency table or five-state equality-orbit table was identified in the inspected literature. Negative indexing results are not a proof of priority.",
+      "searches": [
+        "exact pair merging diameter spectrum 5-state binary synchronizing automata 10 240 extremal",
+        "all 9765625 binary five-state automata pair shortest merger maximal 10 one isomorphism class",
+        "pair synchronization diameter for complete deterministic binary automata Černý pair automaton length binomial n 2",
+        "five state rendezvous two states pair merging all pairs distribution",
+        "synchronizing automata pair rank 5 10 distribution merging pairs automata",
+        "pair automaton diameter enumeration five states sync",
+        "2026 literature: Synchronizing Automata: Open Problems, arxiv:2608.24245, §§2.3–2.6",
+        "2016 primary literature: Slowly synchronizing automata with fixed alphabet size, arxiv:1609.06853, §4"
+      ]
+    },
+    "rationale": "The full distribution of maximum prescribed-pair merge times across binary five-state automata and the exhaustive uniqueness of its extremal orbit are not supplied by the examined primary texts: the 2026 survey records the prescribed-pair bound and Černý tightness, while the 2016 census enumerates global reset thresholds. Two automata with reset threshold four and different prescribed-pair radii demonstrate that earlier reset-length data cannot logically determine this statistic. Actual research-record searches returned different synchronization invariants, including triple rendezvous and unconstrained merging of a fixed state. Historical priority cannot be guaranteed against inaccessible or unindexed equivalent tables.",
+    "residual_risks": [
+      "An earlier, unindexed complete table of pair-synchronization radii for binary five-state automata may exist.",
+      "The findings are not independently externally audited, and the finite computer proof depends on correctly compiling and replaying the included source code."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers definitions, the quadratic prescribed-pair sharp bound, and the role of pair compression, but does not contain the proposed five-state pair-radius histogram or orbit classification.",
+        "evidence": [
+          "Section 2.4 states that the bound for synchronizing a given pair is \\(n(n-1)/2\\) and Černý examples are tight.",
+          "Section 2.6 explains the backward pair algorithm and the equivalence of global synchronizability to pairwise compressibility."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Full HTML text around definitions and Sections 2.3–2.7, especially the prescribed-pair bound and pair-graph synchronization algorithm.",
+        "method": "Read the primary full-text HTML paragraphs and examined the sections containing pair synchronization, three-state rendezvous, and computational enumeration context.",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Recent direct study of prescribed-pair synchronization and the standard sharp pair bound."
+      },
+      {
+        "assessment": "Counts reset thresholds and critical automata up to six states, not worst shortest-prescribed-pair distances across all five-state ordered binary transition pairs.",
+        "evidence": [
+          "Section 4 specifies a census by minimal synchronization length and states that every pair must be reducible.",
+          "The distinction between pair and full reset thresholds is witnessed by explicit automata of reset length four but pair radii three and four."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1609.06853",
+        "material_read": "Full-text HTML with particular inspection of Sections 4 and 5 and the enumeration table descriptions.",
+        "method": "Read the algorithm and census definitions, including Section 4 text describing the counted quantity and use of pair reducibility.",
+        "title": "Slowly synchronizing automata with fixed alphabet size",
+        "trigger": "Published exhaustive enumeration of small-alphabet automata that might dominate a five-state result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d36ec939-d61b-4954-89b0-1b1089f83815",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Synchronizing every prescribed state pair is the exact pair-graph condition underlying deterministic-automaton synchronization algorithms. The complete distribution quantifies the hardest pair-merging task for the natural full five-state binary ensemble, supplies an exact conditional mean, and classifies every sharp case under the natural symmetry group. It is a complete and interpretable finite benchmark, not a routine restatement of the already known universal upper bound.",
+    "status": "PASS"
+  }
+}
