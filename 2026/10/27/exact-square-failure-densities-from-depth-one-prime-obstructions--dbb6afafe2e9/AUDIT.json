@@ -1,0 +1,101 @@
+{
+  "correctness": {
+    "rationale": "Homogeneous integral recurrence preserves coprimality; the exact criterion square iff gcd(h,u_n)=1 is Proposition 4.1 of the full primary paper. A projective orbit can reach zero only at its first iterate: p≡3mod4 has no zero preimage, p≡13,17mod20 has preimages ±sqrt(-1) with no predecessors because (-5/p)=-1, and p=2 has sole preimage 1 with no predecessor. Local first-step obstructions have respectively 0,2,1 x0 residue classes modulo p^(a+1). CRT and exact periodicity prove the formula for all h and x0. Actual verifier enumerates all eligible primes <=500 and every residue modulo the predicted period for representative h.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem B bounds the number of failures by omega_1(h), whereas here the maximal count is one for infinitely many h with unbounded omega_1(h).",
+        "Theorem A classifies all-square sequences, whereas the current claim permits precisely quantified one-failure sequences."
+      ],
+      "reasoning": "Neither the general existence/upper-bound results nor the prime-inertness classification gives the exact period or density on this family.",
+      "searches": [
+        "Exact proportion of initial integers x0 with square failures in recurrence x_(n+1)=h^2/(x0+...+x_n), primes p 13 or 17 mod20; t->t+1/t zero preimage and discriminant -5",
+        "Perfect squares reciprocal-sum sequences density of exceptional starting values and finite-field preimage trees",
+        "arXiv:2610.00765v1 Theorem B and Section 7 question (1)"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.00765v1 (2026-09-30), inspected specified material",
+      "Semantic bibliographic matching, three claim/alias/parameter queries listed above; closest results not implying claim",
+      "Prior scientific claims: recoverable claim statements examined for overlap",
+      "Targeted broad and exact web searches for one-level -5 obstruction and square-failure densities"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source only establishes at most one failure *per prime factor*, not at most one failure total.",
+        "Its open question explicitly requests frequencies by number of failures; the new CRT formula answers it for the stated family."
+      ],
+      "reasoning": "The square criterion is used as a credited lemma. The depth-one preimage obstruction, synchronized failure index and CRT densities constitute the additional assertion, not a logical corollary from the prior published numerical bound alone.",
+      "searches": [
+        "arXiv:2610.00765v1 Proposition 4.1, Theorem B, Remark 4.2, Section 7 question (1)",
+        "Exact proportion of initial integers x0 with square failures in recurrence x_(n+1)=h^2/(x0+...+x_n), primes p 13 or 17 mod20; t->t+1/t zero preimage and discriminant -5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The map [u:v] -> [u²+v²:uv] has only a depth-one rational preimage tree of 0 when p=2 or p≡13,17 mod20; this is mathematically equivalent to no square failures beyond index two.",
+        "The motivating paper Remark 4.2 translates failures into orbit visits to zero but gives only the inert-prime obstruction."
+      ],
+      "reasoning": "No exact equivalence or implication of the one-level condition was identified in checked sources; the preimage of ±i has discriminant -5, a different local obstruction from the prior inertness condition.",
+      "searches": [
+        "Dynamics of rational map z+1/z over F_p, zero preimages only at level one if (-5/p)=-1, residue classes 13 17 mod 20",
+        "arXiv:2610.00765v1 Remark 4.2",
+        "Bibliographic search query: Dynamics of rational map z+1/z over F_p, zero preimages only at level one if (-5/p)=-1, residue classes 13 17 mod 20"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary source reports finite tests of its own theorems and cites recurrence numerator/denominator sequences; it does not tabulate the new densities.",
+        "Semantic search returned unrelated results including a cyclotomic Hensel prime-support isometry, not a square-failure frequency table."
+      ],
+      "reasoning": "No database or table covering the complete congruence-family formula was identified.",
+      "searches": [
+        "Bibliographic search query: Perfect squares reciprocal-sum sequences density of exceptional starting values and finite-field preimage trees",
+        "arXiv:2610.00765v1 Section 7 computations",
+        "OEIS A073833 A073834 cited by arXiv:2610.00765v1"
+      ]
+    },
+    "rationale": "The motivating primary full text states a per-prime one-time failure bound (Theorem B) and explicitly asks for exact frequencies of zero, one and further failures (Section 7, question (1)). It does not give the depth-one mod-20 obstruction or resulting full periodic density for a family with arbitrarily many split prime factors. Three direct mathematical literature database queries and searches for discriminant -5, congruence classes 13/17 mod 20, and square-failure densities found no equivalent theorem. Accessible prior claims were searched for source 2610.00765, recurrence, and corresponding density without overlap. The separately referenced unpublished companion could still contain an implicit local claim; this residual risk is disclosed.",
+    "residual_risks": [
+      "Unlocated companion preprint on zeros of iterates may contain a general calculation subsuming the depth-one obstruction; accessible bibliographic description does not establish coverage.",
+      "Unindexed publications might have independently derived this elementary first-level preimage and CRT density formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_STATE_THE_CLAIM: provides the essential criterion and per-prime bound but leaves the density question open; no uniform-one mod-20 theorem located in inspected parts",
+        "evidence": [
+          "Theorem B: at most omega_1(h) failures; Proposition 4.1: square iff gcd(h,u_n)=1; Remark 4.2: preimages of zero; Section 7 question (1): exact proportions of initial values."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.00765v1",
+        "material_read": "Primary text: introduction, preliminaries, proofs for Theorems A/B, Proposition 4.1, Remark 4.2, Section 7 computations/questions and references",
+        "method": "Inspected public arXiv HTML text and compared theorem statements, hypotheses, proof mechanisms and question wording",
+        "title": "Perfect squares in reciprocal-sum sequences and primes that are inert in quadratic fields",
+        "trigger": "Same recurrence, exact square criterion, possible stronger theorem and explicit Section 7 question"
+      },
+      {
+        "assessment": "INACCESSIBLE_RELEVANT_RISK: not represented as NOT_COVERING; specific low-depth discriminant observation may appear there",
+        "evidence": [
+          "Reference [2] and related-work paragraph of arXiv:2610.00765v1 cite the companion on zeros of iterates."
+        ],
+        "identifier_or_url": "Reference [2] of arXiv:2610.00765v1 (2026 preprint; public identifier not located)",
+        "material_read": "No full text located; only the bibliographic mention and relevance description in the accessible primary source",
+        "method": "Targeted general web searches for exact title, author and zero-iterate terminology",
+        "title": "Arithmetic dynamics of z+k/z: Galois groups, prime divisors of orbits, and zeros of iterates",
+        "trigger": "Companion preprint about the same map and zeros of iterates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbb6afaf-e2e9-495f-8dba-3929ae25a084",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The primary source explicitly poses the density-of-failures question; this is a complete exact answer for an infinite family with arbitrarily many split prime factors, upgrading its unbounded omega_1(h) general estimate to a sharp single exceptional term at a fixed index and providing rational densities for each j. This structural uniformity and full multiplicity law address the motivated question, not an arbitrary small numerical slice.",
+    "status": "PASS"
+  }
+}
