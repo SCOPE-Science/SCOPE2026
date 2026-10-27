@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The completed-square identity in RESULT.md holds exactly for every real input. Compactness of strict sublevels settles the attained regime; positivity of the numerator together with an explicit diverging trial path settles nonattainment. Every ridge minimizer approaches the nonattaining branch, giving matching lower and upper bounds from inverse-square and inverse-fourth-power tails in the respective regimes. Their rescaled energies have unique global minimizers. The checker verifies exact symbolic identities and representative finite computations; the asymptotic conclusions come from the proof, not finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xia, Wang and Yang, arXiv:1810.11972, Sections 1–3: sufficient attainment condition and global solution methods under that condition.",
+        "Beck and Ben-Tal, SIAM J. Optim. (2006), abstract and statements reproduced in arXiv:1810.11972: trust-region reduction and sufficient finite-attainment condition."
+      ],
+      "reasoning": "Older generic regularized-TLS formulations and trust-region solvers apply to related objectives, but cited sufficient finite-attainment criteria do not resolve this nonattaining limit. Generic fractional/Puiseux expansions may encompass the possibility of fractional exponents, but no inspected stronger theorem supplies this sharp concrete phase boundary and constants.",
+      "searches": [
+        "doi:10.1137/S0895479897326432",
+        "doi:10.1137/050624418",
+        "quadratic fractional program plus singular Tikhonov rank-one penalty non-attainment threshold squared correlation, ridge ε minimizers escape ε^{-1/6} critical"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.22880v1",
+      "arxiv:1810.11972",
+      "doi:10.1137/050624418 (abstract and cited results)",
+      "doi:10.1137/S0895479897326432 (abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nguyen and Nguyen, arXiv:2610.22880v1, Section 3, Theorem 4, Corollary 1 and Example 1: attainment and an unperturbed nonattainment example, not a quantitative vanishing-ridge law.",
+        "Xia, Wang and Yang, arXiv:1810.11972, Sections 1–3: sufficient attainment condition and global solution methods under that condition."
+      ],
+      "reasoning": "The 2026 example has an unpenalized escape direction but does not exhibit the correlated critical cancellation or the sixth-root escape law. The 2018 sufficient attainment condition is based on nullspace compression and does not distinguish two instances lying respectively below and on this family’s exact correlation threshold. The theorem supplies a sensitivity separation not entailed by either inspected statement.",
+      "searches": [
+        "arxiv:2610.22880v1",
+        "arxiv:1810.11972",
+        "arxiv:2610.22880 Nguyen Nguyen total least squares attainment diagonalization asymptotic vanishing ridge"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nguyen and Nguyen, arXiv:2610.22880v1, Section 3, Theorem 4, Corollary 1 and Example 1: attainment and an unperturbed nonattainment example, not a quantitative vanishing-ridge law."
+      ],
+      "reasoning": "The reduced TRTLS fractional objective and the same minimizer problem with a full-rank ridge were compared. The source obtains attainment, not the two small-ridge exponents or their exact constants; changing variables to the squared norm does not supply those assertions without additional asymptotic analysis.",
+      "searches": [
+        "Singular Tikhonov regularized total least squares nonattainment adding vanishing ridge epsilon identity penalty escape rate epsilon minus one quarter minimizer",
+        "total least squares regularization vanishing isotropic ridge has sixth-root versus fourth-root divergence transition at coupling discriminant",
+        "arxiv:2610.22880v1 Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record semantic searches returned related quadratic optimization and Tikhonov topics but no exact rank-one TLS ridge asymptotics or exponent phase diagram. Negative retrieval is not an originality proof."
+      ],
+      "reasoning": "The theorem is an exact parameter-continuum characterization, not a catalogued finite numerical invariant; closest recorded findings involved unrelated objectives or convergence schemes.",
+      "searches": [
+        "Singular Tikhonov regularized total least squares nonattainment adding vanishing ridge epsilon identity penalty escape rate epsilon minus one quarter minimizer",
+        "total least squares regularization vanishing isotropic ridge has sixth-root versus fourth-root divergence transition at coupling discriminant",
+        "quadratic fractional program plus singular Tikhonov rank-one penalty non-attainment threshold squared correlation, ridge ε minimizers escape ε^{-1/6} critical",
+        "arxiv:2610.22880 Nguyen Nguyen total least squares attainment diagonalization asymptotic vanishing ridge"
+      ]
+    },
+    "rationale": "The inspected 2026 primary paper classifies attainment of singular fractional-quadratic penalties but does not calculate vanishing-ridge escape constants or distinguish fourth-root from sixth-root sensitivity. The 2018 solver paper assumes finite-attainment conditions and likewise does not imply the explicit two-regime divergence theorem. Historical uncertainty concerning the full 2006 paper and general perturbation theory is explicitly retained.",
+    "residual_risks": [
+      "The complete 2006 Beck–Ben-Tal paper was not accessible for full-text comparison; more general older perturbation theory could contain an equivalent worked specialization.",
+      "A negative mathematical-record search does not prove uniqueness, and related work after the checked public dates may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Attainment and nonattainment mechanisms partly overlap, but no vanishing-ridge phase laws were found in materially inspected sections.",
+        "evidence": "arXiv:2610.22880v1, pp. 1–3, 12–15, especially Example 1 on p. 14",
+        "identifier_or_url": "https://arxiv.org/abs/2610.22880",
+        "material_read": "arXiv v1 PDF introduction, reformulation, proof and statement of Theorem 4, Corollary 1 and Example 1, discussion of original TRTLS near conclusion",
+        "method": "Primary PDF text and visible arXiv HTML portions",
+        "title": "Solving the Tikhonov Regularization of the Total Least Squares Problem by matrix simultaneous diagonalization via congruence",
+        "trigger": "Same objective and singular penalty; most plausible covering source"
+      },
+      {
+        "assessment": "A sufficient attainment condition and solution method; it excludes the nonattained regime in which the new exponents arise.",
+        "evidence": "arXiv:1810.11972, Introduction, Theorems 1–2 and Section 3",
+        "identifier_or_url": "https://arxiv.org/abs/1810.11972",
+        "material_read": "Full arXiv text sections 1–3, including assumptions, Theorems 1 and 2, and algorithmic assumptions; searched for parametric ridge asymptotics",
+        "method": "Primary open arXiv text",
+        "title": "A fast algorithm for globally solving Tikhonov regularized total least squares problem",
+        "trigger": "Original rank-deficient Tikhonov model and its attainment assumption"
+      },
+      {
+        "assessment": "No directly covering ridge asymptotics established from accessible evidence; unresolved coverage risk retained.",
+        "evidence": "Beck and Ben-Tal (2006), SIAM J. Optim. 17:98–118; arXiv:1810.11972 Theorems 1–2",
+        "identifier_or_url": "https://doi.org/10.1137/050624418",
+        "material_read": "Publication abstract/metadata and the cited theorem statements reproduced in arXiv:1810.11972; full source unavailable",
+        "method": "Abstract and verifiable quotations of theorem statements in accessible later primary paper",
+        "title": "On the Solution of the Tikhonov Regularization of the Total Least Squares Problem",
+        "trigger": "Older potentially broader primary paper repeatedly cited for finite-attainment criterion"
+      },
+      {
+        "assessment": "Classical formulation and regularizing properties, not sufficient available evidence of the exact critical ridge exponents.",
+        "evidence": "Golub, Hansen and O Leary, SIAM J. Matrix Anal. Appl. 21 (1999), 185–194",
+        "identifier_or_url": "https://doi.org/10.1137/S0895479897326432",
+        "material_read": "Journal abstract and publication details; full source not obtained",
+        "method": "Public journal record",
+        "title": "Tikhonov Regularization and Total Least Squares",
+        "trigger": "Classical source for Tikhonov treatment of TLS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7b1beb7-5d1c-4e78-84e8-0d0b1fe32ada",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest realistic overdetermined two-variable, one-penalty rank-deficient TLS model already has a sharp correlation-induced nonattainment transition. Vanishing full-rank regularization can force parameter estimates to diverge with distinct fourth- versus sixth-root exponents; exact constants inform regularization scale selection. The threshold compares two data instances not separated by the common strict sufficient attainment test. This is a natural sensitivity classification rather than an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
