@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every N>=2 and 0<q<1, normalized Bergman kernels give G_ab=(1-q)^2/(1-q omega^(a-b))^2. Cyclic DFT isolates n congruent to j and sums (n+1)q^n, giving the exact spectrum. Consecutive ratios strictly decrease in j. T_N(e^-h) has derivative -1/(4sinh(h/2)^2)+N^2/(4sinh(Nh/2)^2)<0 since sinh(Nu)>N sinh u. Strict log concavity and f(q)=1+(N-1)q^N-Nq^(N-1)>0 certify the least mode. Uniform in 0<=j<N expansions of q_N^j and q_N^N give O_c(N^-1), then F_c has its unique maximum x_c and equal endpoint minima. The checker separately computes Gram DFTs and finite limiting profiles in 177 cases. Scientific risks: computations are samples; the proof is written for fixed c, not c depending on N.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Public finding 9aca32c3cb4f analyzes angular Hessians of boundary-pole energies, not reproducing-kernel Gram spectra at interior ring nodes.",
+        "Public finding e5356e299a36 gives sharp weighted harmonic Bergman circle-trace frequency norms, a different operator and parameter spectrum.",
+        "Previously available two-ring Bergman/Hardy theorem f29bde61-f9e4-4a65-9d39-8e95c57ba223 optimizes relative phase between two rings; the single-ring critical scaling and maximizer index change are absent from its claim."
+      ],
+      "reasoning": "The stronger-sounding comparison theorems concern different objects or optimizing variables. Their conclusions do not dominate the complete single-circle spectral limit, nor characterize where the largest Bergman Gram eigenvalue changes Fourier residue.",
+      "searches": [
+        "published-finding corpus: Unweighted Bergman Nth root orbit sharp interpolation Gram condition number in critical radial scaling r_N^2=1-c/N, spectral limit c^2 exp(-cx)(x/(1-exp(-c))+exp(-c)/(1-exp(-c))^2).",
+        "published-finding corpus: Rotationally symmetric finite kernel frames on Bergman disk, exact Fourier mode phase transitions, maximal eigenvalue staircase as radius varies."
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2202.07263 (full HTML text, kernel and interpolation sections)",
+      "arxiv:2111.05050 (abstract and subject comparison only)",
+      "published mathematical result 44f30fce73fa (full RESULT.md)",
+      "published mathematical result 9aca32c3cb4f (full RESULT.md)",
+      "published mathematical result e5356e299a36 (full RESULT.md)",
+      "previously available one-ring/two-ring own claims f29bde61-f9e4-4a65-9d39-8e95c57ba223 and e03594da-668d-442e-8e6b-109724abe5ba (dedup only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2022 Aadi et al. proves qualitative sampling/interpolation criteria for weighted Bergman spaces; neither a fixed cyclic-node exact conditioning formula nor an extremizer staircase follows from its statements.",
+        "Public finding 44f30fce73fa gives Hardy spectral monotonicity, while this Bergman claim has an interior maximum and explicit critical x_c.",
+        "Two-ring result f29bde61-f9e4-4a65-9d39-8e95c57ba223 has disjoint radii and a relative-angle optimizer, not a one-ring radius-varying mode classification."
+      ],
+      "reasoning": "Objects and implication directions have been compared: general qualitative interpolation statements do not fix sharp finite conditioning, while exact Hardy spectra use kernel exponent one instead of two. The own two-ring theorem does not assert the one-ring q-dependent maximizing index or full c-scaled asymptotics. No decisive prior implication was identified.",
+      "searches": [
+        "published-finding corpus: Sharp singular values and optimizing directions for elliptical Gaussian time-frequency localization with Hermite functions, coherent state phase space ellipse",
+        "published-finding corpus: Weighted Bergman Toeplitz operators sharp norm and mode crossings under radial annulus or sectors",
+        "published-finding corpus: Finite-dimensional spherical concentration on two antipodal disjoint latitude bands, exact eigenvalues and asymptotic stability",
+        "published-finding corpus: Discrete Fourier eigenvalues of the normalized unweighted Bergman reproducing kernel Gram matrix for equally spaced points on a circle. Formula N(1-r^2)^2 r^{2j}[(j+1)/(1-r^{2N})+N r^{2N}/(1-r^{2N})^2], exact maximizing frequency mode."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aadi et al. arXiv:2202.07263, introduction and Sections 3.1-3.3: interpolation and normalized kernel setting, no cyclic DFT spectral classification.",
+        "Public mathematical finding 44f30fce73fa: Hardy/Szego orbit seeds have geometric eigenvalues N(1-q)q^j/(1-q^N); different kernel and mode order."
+      ],
+      "reasoning": "Differentiating the Szego kernel geometric expansion gives Bergman kernel coefficients, making the basic finite eigenvalue identity unsurprising. The claimed unique minimum, exact all-radius maximum staircase, and uniform critical condition-number law require further comparisons and are not consequences stated or implied by the Hardy extremizer law alone.",
+      "searches": [
+        "published-finding corpus: Discrete Fourier eigenvalues of the normalized unweighted Bergman reproducing kernel Gram matrix for equally spaced points on a circle. Formula N(1-r^2)^2 r^{2j}[(j+1)/(1-r^{2N})+N r^{2N}/(1-r^{2N})^2], exact maximizing frequency mode.",
+        "Web: Bergman normalized kernels equispaced roots of unity critical radius 1-c/n Gram matrix eigenvalues interpolation condition number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact regular-polygon Gram-spectrum formula plus full transition/critical limiting-law record was returned by these actual searches.",
+        "The matching-result lists did identify related Hardy orbit and weighted Bergman trace results, inspected separately."
+      ],
+      "reasoning": "The negative search is evidence of noncoverage in the searched records, not proof of global novelty. An unindexed table or earlier operator-theoretic formulation could exist and is retained as a risk.",
+      "searches": [
+        "Web: Bergman Gram matrix equally spaced circle reproducing kernels sharp eigenvalues condition number n",
+        "Web: asymptotic eigenvalues Bergman kernel n points equally spaced near boundary radius 1 minus 1/n",
+        "published-finding corpus: Normalized Bergman reproducing kernels on N roots of unity at critical radius r_N^2=1-c/N, asymptotic Gram matrix eigenvalues and sharp Riesz basis condition numbers, index scaling j/N, mode transition"
+      ]
+    },
+    "rationale": "Primary 2022 Bergman sampling work provides the kernel/interpolation framework and geometric criteria, but no exact cyclic Gram eigenmode optimization or critical spectral law. A previously published normalized Szego orbit spectrum is geometric and has no interior maximizer; its differentiation can recover the elementary Bergman eigenvalue identity, but does not itself provide the strict all-N mode-transition classification and uniform c-scaled condition number. The two-ring Bergman comparison concerns rotation between two rings, not single-ring radius mode transitions. Weighted harmonic Bergman circle-trace results concern a different continuum trace functional. Relevant open full results and mathematical-record queries did not establish coverage of the combined statement. The result is best-knowledge original; unindexed equivalent classical computations remain a residual risk.",
+    "residual_risks": [
+      "Exact cyclic Bergman eigenvalues are obtainable by elementary differentiation of the Hardy kernel and may have classical unindexed formulations.",
+      "A prior unpublished, unindexed, or obscure source might include the same radius-mode staircase and critical condition-number limit.",
+      "Public finite-ring two-ring results may contain algebraic pieces of the eigenvalue formula; no claim of novelty is made for basic DFT diagonalization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant background but no full cyclic Gram spectrum or radius mode-staircase result.",
+        "evidence": [
+          "Kernel and monomial norm at arXiv text equations (1)-(2).",
+          "Interpolation definitions 1.1-1.2 and geometric Theorems 1.4-1.5.",
+          "Full-text searches found no roots-of-unity, cyclic, equispaced, or Gram discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07263",
+        "material_read": "Full accessible text: introduction, kernel normalization and interpolation definitions, Theorems 1.4 and 1.5, Section 3.1 through sampling and interpolation lemmas; keyword checks for roots of unity, cyclic/equispaced, and Gram.",
+        "method": "Read arXiv HTML text including theorem statements and key proof sections.",
+        "title": "Multiple sampling and interpolation in Bergman spaces",
+        "trigger": "Exact Bergman kernel Hilbert-space sampling framework; focal source first public 2022-02-15."
+      },
+      {
+        "assessment": "Hardy kernel and Blaschke orbit Riesz problem differ; the power-series differentiation relation overlaps a computation but not the full Bergman mode transition and critical spectral law.",
+        "evidence": [
+          "Hardy Gram eigenvalues are N(1-q)q^j/(1-q^N), strictly decreasing in j.",
+          "Published theorem establishes an orbit-frame determinant and angular stability, not the Bergman interior maximizing mode."
+        ],
+        "identifier_or_url": "44f30fce73fa",
+        "material_read": "Full public RESULT.md including assumptions, proof section 5, spectrum, exact ratio and limitations.",
+        "method": "Fetched public text from published mathematical repository and compared formulas and implication.",
+        "title": "Sharp determinant stability and conditioning of concentric Szegő orbit frames",
+        "trigger": "Contains exact cyclic normalized-kernel spectrum for Hardy rather than Bergman space."
+      },
+      {
+        "assessment": "Boundary-pole energy Hessian and its angular perturbation spectrum are not the finite normalized evaluation-kernel Gram spectrum.",
+        "evidence": [
+          "Its Hessian eigenvalues use Poisson integrals and digamma functions.",
+          "Its setup uses boundary poles at modulus one and weighted L2 pole energy, not interior evaluation kernels."
+        ],
+        "identifier_or_url": "9aca32c3cb4f",
+        "material_read": "Full public RESULT.md, including equations for Hessian Fourier levels, proof, scope and references.",
+        "method": "Fetched public full text and compared underlying operator, kernel weights and extremizing variables.",
+        "title": "Full Fourier Hessian spectrum and sharp local stability for equispaced Bergman poles",
+        "trigger": "Eigenspectrum for regular configurations in Bergman-related setting, plausible broader coverage."
+      },
+      {
+        "assessment": "Continuous circle-trace embedding of harmonic functions is not a finite Gram-frame interpolation problem.",
+        "evidence": [
+          "Its optimal degree is floor((alpha+1)r^2/(1-r^2)) for harmonic circle-trace norms, not the cyclic Bergman j/N critical profile."
+        ],
+        "identifier_or_url": "e5356e299a36",
+        "material_read": "Full public RESULT.md, including finding, exact beta-moment ratio proof and limitations.",
+        "method": "Fetched public result and compared objective function and indexing.",
+        "title": "Exact frequency staircase for weighted harmonic Bergman circle traces",
+        "trigger": "A frequency-index staircase superficially resembles the claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f1c2e60f-4806-4da3-82ff-14297573d203",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp Riesz bounds for normalized point evaluations measure the stability of finite Hilbert-space interpolation. For each finite N and every radius, the theorem determines the best/worst Fourier modes and ALL mode transition radii without enumeration; it uncovers interior norming modes absent in analogous Szego kernels. The full critical radial N-scaled spectrum, limiting mode fraction x_c and elementary explicit condition number quantify when finite regular-polygon interpolation remains stable. A complete exact parametric classification is intrinsically useful and not an arbitrary numerical invariant; no downstream major theorem is claimed.",
+    "status": "PASS"
+  }
+}
