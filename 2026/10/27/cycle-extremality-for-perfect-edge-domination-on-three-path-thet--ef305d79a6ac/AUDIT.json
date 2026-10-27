@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Every nonselected edge imposes exactly one chosen adjacent edge. At degree-two interiors this becomes a three-bit condition, and at each theta endpoint it depends only on the three first/last bits. The explicit four-state transfer matrix counts all bit sequences, with exact equality T^4=T^3+T verified by multiplication, giving F(a,b,c)=F(a-1,b,c)+F(a-3,b,c) whenever a>=6, and cyclic trace gives matching cycle recurrence. All twenty unordered triples with parameters 2..5 have nonnegative gap and exactly one zero; the standalone verifier independently exhausts original edge subsets in each case. Induction gives the nonnegative gap for all integer triples and uniqueness of equality at (2,2,2). Tests supplement, not replace, the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2607.03894v1 abstract, introduction and conclusions describe general algorithms for generalized series-parallel graphs, and explicitly label cycle extremality for all connected graphs Conjecture 5.1.",
+        "arXiv:2509.04598v1 discusses algorithmic counting on P6-free graphs, not an all-theta extremal inequality.",
+        "Lu–Ko–Tang (2002) is cited as a generalized series-parallel algorithmic source in arXiv:2607.03894v1."
+      ],
+      "reasoning": "The theta family lies inside generalized series-parallel graphs, so preexisting algorithms cover instance counting. Neither algorithmic solvability nor a generic cycle recurrence implies the claimed all-parameter theta inequality. An extant theorem proving the conjecture for all connected graphs would cover it, but the 2026 paper reports that assertion as open.",
+      "searches": [
+        "published-finding corpus: Connected unicyclic and bicyclic graphs perfect edge domination counting maximal cycle extremality, theta graphs",
+        "published-finding corpus: Grippo Lin Moyano Vera conjecture number of perfect edge dominating sets at most cycle, generalized series-parallel graphs",
+        "published-finding corpus: Perfect edge dominating sets count and cycle extremal conjecture for bicyclic series parallel theta graphs",
+        "published-finding corpus: Conjecture cycle maximizes number of perfect edge dominating sets for connected graphs: exact theta graph inequality",
+        "web: \"perfect edge dominating\" \"bicyclic\" \"three paths\"",
+        "web: \"number of perfect edge dominating sets\" \"theta\"",
+        "web: Grippo Lin Moyano Vera 2026 perfect edge dominating sets conjecture cycles arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2607.03894v1 primary HTML sections 1, 2.2 and 5; complete-page search “theta”",
+      "arXiv:2509.04598v1 abstract/metadata",
+      "Lu–Ko–Tang 2002 bibliographic discussion and citation in arXiv:2607.03894v1",
+      "published-finding corpus semantic searches (six actual queries above) and retrieved closest IDs",
+      "Targeted web searches for theta PED, line-graph perfect domination, and sequence/table aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2607.03894v1 Theorem 5.2: cycle counts obey a third-order recurrence; Conjecture 5.1: cycle should upper-bound any connected graph. Theorem 5.2 alone supplies no theta comparison.",
+        "The published generalized series-parallel counting algorithm evaluates any fixed theta graph; it does not state an infinite theorem comparing it with cycles."
+      ],
+      "reasoning": "The transfer recurrence and twenty-case positive base give an infinite inequality not entailed by the 2026 cycle recurrence alone or by generic graph-class algorithms. A bound for unicyclic lollipop graphs, whose graphs have bridges, does not subsume the bicyclic bridgeless theta case. The equality case K2,3 requires the additional theta-specific analysis.",
+      "searches": [
+        "published-finding corpus: Connected unicyclic and bicyclic graphs perfect edge domination counting maximal cycle extremality, theta graphs",
+        "published-finding corpus: Grippo Lin Moyano Vera conjecture number of perfect edge dominating sets at most cycle, generalized series-parallel graphs",
+        "published-finding corpus: Conjecture cycle maximizes number of perfect edge dominating sets for connected graphs: exact theta graph inequality",
+        "web: site:arxiv.org/abs/2607.03894 Grippo Lin Moyano Vera conjecture cycle perfect edge dominating",
+        "web: arxiv.org/html/2607.03894",
+        "web: \"perfect edge dominating sets\" \"theta\" graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A PED-set in a graph is a perfect dominating vertex set of its line graph; the statement is thus also a bound on perfect domination counts of line graphs of theta subdivisions.",
+        "published-finding corpus SCOPE-two-distance-coloring-theta-graphs--c303e1622d47 concerns theta graphs but square chromatic number.",
+        "Published 2026 source arXiv:2607.03894v1 defines PED and poses cycle extremality as Conjecture 5.1."
+      ],
+      "reasoning": "Aliases checked include theta graph, three-path theta, subdivision of K2,3, bicyclic series-parallel graph, perfect edge domination, perfect domination in the line graph. None of the retrieved matching-object results establishes an equivalent count bound. A general algorithm for the object gives finite-instance numbers, but does not automatically yield this universal inequality.",
+      "searches": [
+        "published-finding corpus: Exact number of perfect edge dominating sets of theta graphs three internally disjoint paths and comparison with equal-order cycles",
+        "published-finding corpus: Theta graph subdivision of K2,3 perfect edge dominating set transfer matrix",
+        "web: \"perfect edge dominating sets\" \"theta\" graph",
+        "web: \"perfect edge domination\" \"theta graph\"",
+        "web: \"perfect dominating sets\" \"line graph\" \"theta\"",
+        "web: \"perfect domination\" \"line graph\" \"subdivision of K2,3\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed published-finding corpus records addressed the theta graph with other invariants or graph cycle/matching counts.",
+        "The 2026 original paper tabulates cycle values and gives generalized series-parallel counting, not the twenty theta parameter bases or the inequality."
+      ],
+      "reasoning": "The numeric base (including F(2,2,2)=6 and F(3,3,3)=10) is only supporting evidence. Novelty is not claimed for any isolated table entry; searches found no exact table or recurrence implying the universal theta extremality statement.",
+      "searches": [
+        "published-finding corpus: Exact number of perfect edge dominating sets of theta graphs three internally disjoint paths and comparison with equal-order cycles",
+        "published-finding corpus: Perfect edge dominating sets count and cycle extremal conjecture for bicyclic series parallel theta graphs",
+        "published-finding corpus: Theta graph subdivision of K2,3 perfect edge dominating set transfer matrix",
+        "web: site:oeis.org \"perfect edge dominating\" theta",
+        "web: \"perfect edge dominating sets\" series parallel table theta"
+      ]
+    },
+    "rationale": "The exact theorem for the three-path theta family (not only sample counts) is distinct from the inspected 2026 original cycle conjecture and its general-purpose per-graph algorithms. Searches of published-finding corpus records, prior accessible claims, and targeted graph/line-graph/sequence literature returned no identical all-parameter inequality or theta equality classification. Historical priority is qualified because some older primary algorithmic full texts could not be inspected.",
+    "residual_risks": [
+      "Full 2002 series-parallel algorithm paper and full 2025 counting preprint not materially read; an explicit specialized theorem could be buried there.",
+      "Main 2026 full HTML section 4 algorithm details were not fully re-read; it provides instance algorithms and could contain a latent symbolic specialization.",
+      "Historical priority is not proven by bounded searches and no independent literature adjudication was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected statements do not establish a three-path theta extremal theorem. The primary source provides algorithmic instance coverage; Section 4 not fully re-read, leaving a residual implication risk.",
+        "evidence": [
+          "arXiv:2607.03894v1, Sections 1, 2.2, 5 (Conjecture 5.1, Theorem 5.2).",
+          "Full-text search for “theta” did not find a match in the HTML."
+        ],
+        "identifier_or_url": "arXiv:2607.03894v1; https://arxiv.org/html/2607.03894",
+        "material_read": "Accessible primary HTML: abstract, introduction, definitions and valid 3-coloring characterization in Section 2.2; closing Conjecture 5.1 and cycle recurrence Theorem 5.2 in Section 5; searches for theta-specific terminology. Detailed full algorithm proof in Section 4 was not independently re-read in this pass.",
+        "method": "Primary full-text HTML web reader, with content/find inspection.",
+        "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+        "trigger": "Introduces the 2026 open cycle extremality conjecture and generalized series-parallel PED counting."
+      },
+      {
+        "assessment": "The abstract states an algorithm for counting in P6-free graphs; the paper was not inspected sufficiently to exclude every possible appendix or theta-specific special result.",
+        "evidence": [
+          "arXiv:2509.04598v1 abstract and first public 2025-09-04."
+        ],
+        "identifier_or_url": "arXiv:2509.04598v1; https://arxiv.org/abs/2509.04598",
+        "material_read": "Primary arXiv abstract and publication metadata; full text not obtained.",
+        "method": "Primary arXiv abstract retrieval.",
+        "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+        "trigger": "Older graph-class counting algorithm could cover small theta instances or imply a stronger theorem."
+      },
+      {
+        "assessment": "Source offers broader algorithmic coverage; precise theta numerical theorem or sharp cycle comparison cannot be ruled out without full text.",
+        "evidence": [
+          "arXiv:2607.03894v1 reference [11] and Section 4 framing."
+        ],
+        "identifier_or_url": "Lu–Ko–Tang, Discrete Applied Mathematics 119 (2002), 227–250",
+        "material_read": "Bibliographic identification and algorithmic discussion as cited in 2026 primary source; original full text not obtained.",
+        "method": "Citation-chain review in arXiv:2607.03894v1.",
+        "title": "Perfect edge domination and efficient edge domination in graphs",
+        "trigger": "Underlying general series-parallel perfect-edge-domination algorithm predates the 2026 counting work."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef305d79-a6ac-425c-b694-6c0306b83a52",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fundamental bicyclic theta family consists of all subdivisions of K2,3. Establishing the open cycle extremal inequality for every such graph, with exact equality only at the unsubdivided K2,3, gives a meaningful infinite class beyond paths, trees and earlier unicyclic examples. The explicit four-state all-parameter count and common recurrence are reusable structural tools; no arbitrary cutoff, isolated table-only claim, or generic algorithm renaming is presented.",
+    "status": "PASS"
+  }
+}
