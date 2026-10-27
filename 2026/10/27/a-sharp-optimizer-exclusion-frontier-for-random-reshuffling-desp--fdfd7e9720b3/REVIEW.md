@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+On the specified smooth strongly convex components, the two-component RR epoch update reduces exactly to a signed affine contraction \(x\mapsto (1-\eta)^2 x\pm\eta^2\), while independent sampling gives a distinct signed affine contraction after each evaluation. The derived finite sign series and their exact second moments establish the all-epoch loss ratio. The two Hutchinson images of their invariant support convex hulls yield the sharp disconnection threshold and its complement; strong separation gives Hausdorff dimension. At the half step binary injectivity and an exact conditional sampling argument give TV distance \(1-2^{-m}\). These proofs verify all stated quantifiers and boundary cases. Exact finite arithmetic checks were replayed; they are corroborative rather than an infinite certificate.
+
+## Originality — PASS, subject to priority risk
+The inspected 2026 Liu work establishes RR averaged-iterate expected rates, while the 2018 Ying–Yuan–Vlaski–Sayed analysis establishes steady-state MSD for quadratics. Their proved statements neither force a local-support exclusion nor quantify the exact finite total-variation comparison. A prior incremental-proximal example and classical IFS theory already include the Bernoulli-convolution and Cantor-dimension mechanism, so those facts, or the mean-square improvement alone, are *not* presented as novel. The composite sharp sampling-induced optimizer exclusion contrasted with an SGD full-support interval and the all-horizon finite-TV identity was not located in the inspected literature or available records. Equivalent formulations in older stochastic approximation or IFS literature remain a genuine residual risk; independent priority audit has not occurred.
+
+## Mathematical value — PASS
+The result isolates the precise limitation of expected objective risk as a measure of local optimizer accessibility: an algorithm improves expected error at *every* matched epoch and yet cannot visit any point in a fixed optimizer neighborhood from the standard initialization. Its sharp open step interval, explicit gap, contrasting full-support invariant law, and finite-horizon TV formula identify a structural phenomenon that mean-square estimates cannot diagnose. The result is deliberately specific to this natural minimal noninterpolating finite-sum example and is not asserted as a general practical disadvantage of random reshuffling.
+
+## Closest literature and limitations
+Liu, arXiv:2606.32005v1; Ying et al., arXiv:1803.07964v2; *High Probability Guarantees for Random Reshuffling*, arXiv:2311.11841v4. Their full available HTML scientific sections were read where relevant, but coverage of all mathematical literature cannot be guaranteed. The exact IFS dimension law is classical and the prior proximal example treats a Bernoulli-convolution stationary law under a different algorithm. The theorem is restricted to epoch endpoints, equal-curvature two-sample quadratics, independent reshuffling, and fixed steps.
+
+Self-review: passed. Independent audit: not yet performed.
