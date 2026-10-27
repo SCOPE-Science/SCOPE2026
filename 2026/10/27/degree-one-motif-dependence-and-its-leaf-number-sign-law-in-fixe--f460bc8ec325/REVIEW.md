@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Conditioning on a chosen graph vertex having degree one gives an exact finite hypergeometric count, separated by whether the vertex lies outside the motif, represents a motif leaf, or represents a motif vertex of degree at least two. The algebra proves the normalized mixed-moment expression, its one-transition law, and strict dependence on the motif leaf count for all claimed integer parameters. The packaged verifier independently enumerates 72 fixed-edge graph/motif cases with exact rational arithmetic and passes 2,896 rational monotonicity-grid checks. These finite calculations corroborate, but do not replace, the complete analytic argument.
+
+**Originality — PASS (best knowledge, with priority risk).** Searches for fixed-edge degree-one/subgraph covariance and leaf-sensitive motif correlations found no exact equivalent. Janson's 2006 arXiv paper was inspected through its degree-count and fixed-edge sections and covers related asymptotic degree statistics rather than the finite all-motif identity. The earlier 1990 Janson subgraph-count paper was accessible only as an abstract; an equivalent formula there or in unindexed literature cannot be excluded. Independent historical priority checking remains desirable. Related fixed-edge isolated-vertex moments and independent-edge degree-one/motif results have different hypotheses; neither claim by itself implies the present formula.
+
+**Mathematical value — PASS.** The number of degree-one vertices is a standard local sparsity statistic, and motif counts measure different global graph patterns. The theorem determines the entire sign phase diagram on its natural finite parameter domain via a single exact formula, identifies the motif leaf number as the only topology-sensitive input after fixing order and size, and supplies an explicit path/star sign reversal within the same graph ensemble. This distinguishes graph patterns that simple edge-count arguments do not separate.
+
+**Scientific limitations.** The result is for noninduced embeddings, integer \(h\le m\le\binom{n-1}{2}\), and motifs without isolated vertices. A full-text historical comparison with the 1990 functional-limit source is incomplete; independent review has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
