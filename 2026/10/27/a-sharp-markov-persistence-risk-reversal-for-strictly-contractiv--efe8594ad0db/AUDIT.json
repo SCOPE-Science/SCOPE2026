@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For the exact stated two-component objective and stationary symmetric irreducible two-state sampler, derive both conditional moment recursions and bound their induced matrix one-norms by 1/2 and 1/4. This establishes unique attracting first and second moments for every independent square-integrable initialization. Exact rational symbolic solution gives u=(rho/3,-2rho/3), sum(v)=10/9+4(1-rho^2)/(9(6-rho)); the factored comparison with iid, derivative, root and endpoint limits are algebraic identities verified independently. Rational path enumeration provides corroboration for seven distinct sampler correlations and seven step counts, but is not used to infer infinite-domain truth. Strict witnesses and continuity imply an open perturbation family. No claim at reducible or periodic correlation endpoints.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Even, arXiv:2302.14428, sections on general mixing/hitting-time bounds for MC-SGD, not exact stationary comparisons.",
+        "Beznosikov et al., arXiv:2305.15938, complexity, batch-gradient and lower-bound constructions; differing objective of result.",
+        "Kühn--Rosenow, arXiv:2306.05300, without-replacement epoch noise, not a stationary Markov chain with nonidentical curvatures."
+      ],
+      "reasoning": "General convergence or variance upper bounds cannot imply the strict positive-versus-negative stationary risk ordering without enough constant-sharp information. In particular, Even's sufficient small-step estimates do not directly cover this example at eta=1 when the largest component curvature is 3/2. No decisive stronger theorem was found; this is not proof of novelty.",
+      "searches": [
+        "Even Markovian sampling stochastic gradient descent convergence theorems arXiv 2302.14428 section 5",
+        "Beznosikov Samsonov Sheshukova Gasnikov Naumov Moulines Markovian noise first order lower bounds two state arXiv 2305.15938",
+        "Kühn Rosenow anti-correlated noise epoch based SGD exact stationary variance arXiv 2306.05300"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2302.14428 (2023-02-28 v1)",
+      "arXiv:2305.15938 (2023-05-25 v1)",
+      "arXiv:2306.05300 (2023-06-08 v1; revised full text consulted)",
+      "Related published mathematical records on Markovian sampling, SGD stationary covariance, and reversible-chain variance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Even, arXiv:2302.14428, proves general MC-SGD convergence bounds and hitting-time dependence.",
+        "Beznosikov et al., arXiv:2305.15938, derive first-order Markov-noise complexity and use two-state examples.",
+        "Kühn--Rosenow, arXiv:2306.05300, derive covariance effects of minibatch anti-correlation in epoch training."
+      ],
+      "reasoning": "The new claim is an equality for stationary squared parameter error and an exact sign threshold when changing the sampling kernel but keeping the same objective and cost. Bounds depending on mixing time, generic Markov-chain autocorrelation effects, or additive/epoch noise covariance do not imply that exact heterogeneous-curvature statement. Potential coverage by a broader exact Markov-jump systems formula is acknowledged as residual risk.",
+      "searches": [
+        "MC-SGD last iterate stationary Markov two state quadratic exact mean squared error mixing correlation",
+        "two state Markov noise optimization nonmonotonic risk independent sampling correlation persistence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Even, arXiv:2302.14428, Section 5 MC-SGD defines the identical sample-index mechanism but develops finite-time bounds.",
+        "Kühn--Rosenow, arXiv:2306.05300, epoch noise stationary covariance concerns without-replacement anticorrelation and approximations."
+      ],
+      "reasoning": "The exact object is a last-iterate Markov-jump affine recursion with state-dependent slopes. Recasting it as a two-state switching autoregression does not change the comparison statement. Standard conditional moment linear equations supply a technique, not by themselves the sharp risk sign pattern for the concrete component curvatures. No searched equivalent phase statement was located.",
+      "searches": [
+        "two-state Markovian SGD stationary scalar quadratic mean square error exact correlation comparison",
+        "switching affine autoregression Markov-dependent input conditional covariance and stationary risk",
+        "Markovian SGD stationary variance nonlinear curvature correlation mixing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct exact-table or catalogued example with the two-curvature stationary risk 2(2rho^2+5rho-32)/(9(rho-6)) was located in the inspected scientific sources.",
+        "Published analyses cited above give general bounds and different stochastic dynamics, not matching lookup entries."
+      ],
+      "reasoning": "The analytic expression can be reconstructed from finite-state moment matrices, but neither title proximity nor missing text search proves absence from all tables. Priority risk remains, particularly specialized Markov-switching affine processes.",
+      "searches": [
+        "Markov chain sampled SGD exact two quadratic stationary covariance counterexample rho 1/6",
+        "Markov gradient sampling sharp positive correlation threshold risk reversal stationary strongly convex"
+      ]
+    },
+    "rationale": "An exact nonlinear dependence of stationary optimization error on lag-one Markov correlation is proved for a fully specified contractive SGD instance. Both correlation signs can improve on independent sampling, whereas weak positive correlation worsens it; the crossover is exact and persists qualitatively on an open neighborhood. The directly inspected Markov-SGD, first-order Markov-noise, and epoch-anticorrelation articles concern convergence complexity, different sampling models, or nonidentical error quantities. No inspected primary result covers the exact statement; potential unindexed generic Markov-switching affine recursions remain a priority risk.",
+    "residual_risks": [
+      "Classical exact stationary-moment formulae for Markov-switching affine systems may subsume the algebra; a same-parameters prior worked example remains possible.",
+      "The accessible related epoch-correlation manuscript was revised after first appearance; priority beyond the inspected version material is not certified.",
+      "Numerical design consequences do not extend without proof to other curvature pairs, multivariate systems, or averaged iterates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the applicable model but no identified exact stationary two-curvature risk/crossover result.",
+        "evidence": [
+          "Definition of MC-SGD update, Section 5",
+          "General finite-time bounds rather than exact stationary risk for this quadratic example"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.14428",
+        "material_read": "Full 2023 arXiv preprint, including core algorithm, Section 5 convergence theorems and relevant technical assumptions.",
+        "method": "Read mathematical definitions and theorem scope; compared the exact iterate indexing, stationary notion, step assumptions, and whether full results assert a constant-sharp risk phase.",
+        "title": "Stochastic Gradient Descent under Markovian Sampling Schemes",
+        "trigger": "The defining original MC-SGD mechanism and direct Markov-indexed-gradient overlap."
+      },
+      {
+        "assessment": "No identified formula or implication reproducing the example-specific constant-step stationary risk reversal.",
+        "evidence": [
+          "General complexity and mixing-time analysis",
+          "Two-state lower-bound constructions with a different target quantity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.15938",
+        "material_read": "Full arXiv manuscript, main mathematical model and complexity results, and appendices giving lower-bound constructions with two-state chains.",
+        "method": "Compared objective class, sampler, lower-bound instances, result quantifiers, and stationary squared-error target.",
+        "title": "First Order Methods with Markovian Noise: from Acceleration to Variational Inequalities",
+        "trigger": "Potential dominating two-state Markov-noise optimization theorem or lower-bound example."
+      },
+      {
+        "assessment": "Qualitatively related, but not directly covering the stated Markov-jump affine exact phase.",
+        "evidence": [
+          "Epoch-induced correlated noise model and fluctuation covariance",
+          "Different sampling and curvature dependence from the exact two-state example"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.05300",
+        "material_read": "Accessible complete revised full text, focusing on noise autocorrelation, stationary covariance, explicit assumptions, relevant formulae and appendices. The first arXiv version predates the revision.",
+        "method": "Compared mechanism (without-replacement epoch correlation vs symmetric two-state Markov sampling), component-dependent curvature, finite step, and exact optimization risk threshold.",
+        "title": "Anti-Correlated Noise in Epoch-Based Stochastic Gradient Descent: Implications for Weight Variances in Flat Directions",
+        "trigger": "Closest plausible exact covariance/negative-correlation claim in SGD."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "efe8594a-d0db-4eed-b0c7-d963f944e74a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The concrete problem is a natural minimal finite-sum, strongly convex benchmark for the actual MC-SGD sampling mechanism. It refutes the tempting inference that faster sample mixing monotonically decreases long-run optimization error: weak positive persistence worsens risk, stronger positive persistence improves it, and antipersistence also improves it, despite equal marginal sampling cost and strict contraction of each individual map. The exact phase and strict robustness are nontrivial enough to diagnose state-dependent-curvature/time-correlation interactions, even though the result makes no general sampler-optimality claim. Known generic moment recursions or numerical correctness alone are not the value argument.",
+    "status": "PASS"
+  }
+}
