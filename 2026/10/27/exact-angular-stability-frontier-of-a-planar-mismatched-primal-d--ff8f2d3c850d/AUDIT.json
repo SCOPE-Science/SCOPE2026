@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The exact 4x4 real update matches the two-variable proximal recurrence; its complex two-by-two characteristic polynomial has trace and determinant reconstructed algebraically. The Schur criterion has a first inequality strictly true for every positive step and rotation; the second has an exact factored margin. A strictly increasing rational frontier has transition factors t^2-t-1 and t^2-2t-2. At antipodal mismatch a unit eigenvalue is proved directly. Equality and strict outside cases are distinguished. The included script verifies symbolic identities and sample spectra. The proof, not the experiments, covers all positive t and real theta.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chouzenoux et al. 2022 preprint, sections I and III–V, handle broader mismatched proximal algorithms, including Condat–Vũ, Loris–Verhoeven, and Combettes–Pesquet constructions; their sufficiently stated conditions do not specialize directly to this exact necessary-and-sufficient rotational PDHG criterion.",
+        "Chouzenoux, Pesquet, and Roldán arXiv:2310.06402 describe different forward-backward-half-forward and forward-Douglas–Rachford-forward algorithms; this is an abstract-level distinction and is retained as a residual inspection risk."
+      ],
+      "reasoning": "A mathematically broader convergence theorem could subsume strict stability but would also need necessity and explicit sharp angular boundaries to cover the claim. The checked results establish sufficient convergence for different schemes or hypotheses, not these exact rotation-dependent thresholds. The later paper was inspected only at abstract level; it is not used to prove an absence of relevant results from its full text.",
+      "searches": [
+        "\"PDHG\" \"adjoint mismatch\" rotation eigenvalues stability",
+        "\"Primal-dual hybrid gradient\" \"rotation\" \"mismatched adjoint\"",
+        "\"Convergence Results for Primal-Dual Algorithms in the Presence of Adjoint Mismatch\" pdf Chouzenoux Contreras Pesquet Savanier 2022",
+        "\"Solution of Mismatched Monotone+Lipschitz Inclusion Problems\" arxiv pdf 2024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2201.04928, version 1 date 2022-01-13 and full HTML",
+      "Lorenz–Schneppe, Applied Mathematics & Optimization 87, article 22 (2023), open article text",
+      "Chouzenoux et al., optimization-online.org/wp-content/uploads/2022/04/8877.pdf",
+      "Published record: Exact fixed-product rate phase diagram for scalar PDHG, full RESULT.md",
+      "arXiv:2310.06402, abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The matched scalar PDHG result studies \\(\theta=0\\) and \\(0<\tau\\sigma<1\\); it cannot imply a continuous directional classification for \\(\theta\neq0\\) or steps above one.",
+        "Lorenz–Schneppe give sufficient mismatch-norm/strong-convexity conditions, not sharp rotational necessity.",
+        "The present exact Schur factorization exhibits stability for almost antipodal rotations at steps below the golden ratio and a later stability loss at the matched angle."
+      ],
+      "reasoning": "The present statement is neither a corollary of the matched scalar optimizer nor of norm-only sufficient conditions: it classifies every rotation and large steps, includes instability and unit-spectrum boundaries, and proves sharp distinct transitions. If a general published result contains precisely this specialization it could subsume the claim, so priority remains provisional pending independent review.",
+      "searches": [
+        "Chambolle Pock mismatch Lorenz Schneppe 2022 exact stability rotational surrogate",
+        "\"exact fixed-product rate phase diagram for scalar PDHG\"",
+        "\"primal dual\" adjoint mismatch \"golden ratio\" rotation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lorenz–Schneppe arXiv:2201.04928, algorithm (4) and quadratic update (40), is the exact operator template; the paper gives sufficient convergence criteria, not an angle-sharp characterization.",
+        "The complex Schur reduction of the present planar orthogonal mismatch is equivalent to a real four-dimensional Schur-stability test; no equivalent angle frontier was found by these searches."
+      ],
+      "reasoning": "The new claim is a necessary-and-sufficient spectral-radius classification for every positive equal step and every rotation, including the two sharp transition steps. A general norm-based sufficient theorem cannot yield failure outside its hypotheses or locate both transition thresholds. The complex-Schur formulation is explicitly searched as an alias of a real rotational stability diagram.",
+      "searches": [
+        "Chambolle Pock primal dual splitting mismatched adjoint scalar quadratic exact stability region and bias under negative adjoint mismatch",
+        "\"Chambolle Pock\" \"mismatched adjoint\" two dimensional plane rotations Schur Cohn spectral radius sharp angular stability",
+        "\"mismatched adjoint\" \"spectral radius\" strongly convex quadratics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed public result on exact scalar PDHG fixed-product tuning has one-dimensional matched coupling and assumes positive step product smaller than one, unlike the two-dimensional rotational classification.",
+        "The present criterion covers a continuous family of rotation angles and steps rather than a finite parameter table."
+      ],
+      "reasoning": "No exact indexed formula or table containing the two-angle transition was identified. The closest full mathematical record treats matched scalar step-ratio optimization, whose statements do not imply the mismatch-angle dependence. Negative lookup results are recorded as search evidence, not a uniqueness proof.",
+      "searches": [
+        "primal dual hybrid gradient rotational adjoint mismatch critical step golden ratio phi 1 plus sqrt3",
+        "Schur stability of 2x2 complex PDHG iteration with unitary phase mismatch sharp admissible cosine threshold",
+        "rotational mismatch primal dual convergence sharp t theta boundary"
+      ]
+    },
+    "rationale": "Inspected primary source defines the algorithm and proves sufficient mismatch conditions, while the verified Schur factorization gives an exact necessary-and-sufficient rotational stability region with sharp golden-ratio and 1+sqrt(3) transitions. Closest published scalar PDHG tuning treats the matched case only; broader mismatched splitting sources do not directly imply the full angular necessity. Indexed searches found no equivalent. Residual publication-priority uncertainty is acknowledged.",
+    "residual_risks": [
+      "An equivalent rotational spectral-radius specialization might appear in a nonindexed manuscript or a numerical-optimization thesis.",
+      "Only abstract-level inspection of arXiv:2310.06402; no exclusion claim from its full body.",
+      "Other variants of primal–dual hybrid gradient may contain related but not identical angular analyses."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the iteration and proves sufficient norm-based convergence; inspected claims do not state the exact angle/step Schur frontier.",
+        "evidence": [
+          "arXiv:2201.04928, equations (3)–(4); open 2023 article, sections 3 and 4.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.04928",
+        "material_read": "Initial public preprint page; full arXiv HTML and open journal HTML sections 1, 3 and 4, including algorithm (4), Theorems 1.2 and 3.1, and quadratic formulas (40)–(41).",
+        "method": "Comparison of iteration equations, hypotheses, sufficient conditions, and displayed quadratic results",
+        "title": "Chambolle–Pock’s Primal-Dual Method with Mismatched Adjoint",
+        "trigger": "Exact algorithm template and most plausible source of the same stability claim"
+      },
+      {
+        "assessment": "Analyzes mismatched modified Condat–Vũ, Loris–Verhoeven, and Combettes–Pesquet schemes; the inspected formulas do not state the new exact rotation Schur boundary.",
+        "evidence": [
+          "Open-access preprint, pp. 2–5 and 11–16; especially section III equations (III.3)–(III.7) and overview of IV–V"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2022/04/8877.pdf",
+        "material_read": "Open-access 22-page PDF: introduction, sections III–V algorithm structures and relevant convergence assumptions, and numerical examples description.",
+        "method": "Compared explicit primal–dual updates and sufficient conditions with the specific equal-step rotational update",
+        "title": "Convergence Results for Primal-Dual Algorithms in the Presence of Adjoint Mismatch",
+        "trigger": "Broad relevant mismatched proximal splitting literature potentially covering the special case"
+      },
+      {
+        "assessment": "Contains sharp matched scalar step-size tuning restricted to product below one; it does not classify rotational adjoint mismatch.",
+        "evidence": [
+          "Public record RESULT.md: unit scalar coupling, \\(\theta=0\\), \\(0<\tau\\sigma<1\\)"
+        ],
+        "identifier_or_url": "published mathematical record, RESULT.md (public result identifier ending 788191221208)",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, limitations and references.",
+        "method": "Implication comparison of scalar matched iteration and step-product restrictions against rotated vector coupling",
+        "title": "Exact fixed-product rate phase diagram for scalar PDHG",
+        "trigger": "Closest public mathematical-record search hit involving the same primal-first PDHG ordering"
+      },
+      {
+        "assessment": "The named schemes differ, but uninspected details remain a residual originality risk.",
+        "evidence": [
+          "arXiv:2310.06402, abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.06402",
+        "material_read": "ArXiv abstract and journal metadata only, not full article.",
+        "method": "Compared named algorithms and stated problem class with the present update; no whole-document exclusion claimed",
+        "title": "Solution of Mismatched Monotone+Lipschitz Inclusion Problems",
+        "trigger": "Later work on a potentially more general mismatch framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ff8f2d3c-850d-43d5-a5e3-f533476d80bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model isolates an actual stability question for adjoint mismatch: the directional defect between forward and surrogate adjoint is not adequately summarized by its norm. An exact sharp angle-step region determines both contraction and failure, exhibits tolerance to nearly antipodal surrogates up to a golden-ratio step, and identifies a second phase where even matching adjoints fail for too-large steps. This is a motivated structural benchmark for selecting safe primal–dual steps, not a merely numerical example. Restricted model limits are explicit.",
+    "status": "PASS"
+  }
+}
