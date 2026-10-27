@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For n>=4 all quantifiers, closed-neighbourhood conventions, and boundary part sizes are explicit. Any dominating set projects to a pair family hitting every 3-subset of B; one added pair per selected layer-zero triple costs no more than the selected vertex count. The complementary pair graph is triangle-free and an elementary Mantel proof gives t_n. The explicitly defined disjoint three-layer witness has t_n+n-2 vertices and covers each of the three classes by direct adjacency. Independent stdlib script verify.py checked every vertex for n=4,...,18 and exhaustive Mantel small n=2,...,6; checked check_output.json matches its replay. Squeezing gives 1/4 and no exact gamma(n) claim is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2509.16448: complete graph and star, not K_{2,n}. 2610.28936: exact k=2, bounds for k>=3, no sharp leading k=3,m=2."
+      ],
+      "reasoning": "The later paper covers the same object class but its stated inequalities are strictly weaker in this regime. Its section 5 proof, not merely abstract, was inspected.",
+      "searches": [
+        "arxiv:2509.16448 Sections 3-4",
+        "arxiv:2610.28936 Theorems 1.1-1.2 and Section 5",
+        "web: \"token\" \"complete bipartite\" \"triangle-free\" \"domination\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2509.16448",
+      "arxiv:2610.28936",
+      "arxiv:2302.07914",
+      "published-finding corpus:2026/10/4/SCOPE-exact-3-2-domination-of-complete-multipartite-graphs--d5fe6eff1a9f",
+      "published-finding corpus:2026/10/4/SCOPE-exact-3-2-clique-and-3-2-domination-numbers-of-complete-multipar--5e4b0acc88e9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 4.2 of 2509.16448 is a complete-graph three-token result with a 1/12-type coefficient, not the bipartite graph in the claim. Theorem 1.2 of 2610.28936 specializes to a quadratic lower constant 1/12 and cubic upper, while the new claim pins gamma to n^2/4+O(n). Theorem 1 of 2302.07914 identifies automorphism groups."
+      ],
+      "reasoning": "Checked corollary and special-case implications, not only titles. Neither automorphism statements nor generic k>=3 bounds logically yield the two-sided sharp leading term. The Mantel technique is credited to the 2025 source where applied to a different graph.",
+      "searches": [
+        "arxiv:2509.16448 Theorems 3.2 and 4.2",
+        "arxiv:2610.28936 Theorem 1.2",
+        "arxiv:2302.07914 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The formulation gamma(F_3(K_{2,n}))=n^2/4+O(n) is equivalent to the leading limit 1/4; the explicit t_n to t_n+n-2 window is stronger. 2610.28936 Theorem 1.2 yields only leading lower 1/12 and upper order n^3."
+      ],
+      "reasoning": "Checked both token-graph and symmetric-power aliases and asymptotic formulations. The generic theorem has no implication to the sharp coefficient; no equivalent returned theorem was observed.",
+      "searches": [
+        "Domination number of 3-token graphs of complete bipartite K_{2,n}; covering pairs of triples Mantel extremal graph; exact values and optimizers",
+        "Exact domination number gamma(F_3(K_{2,n})) three token complete bipartite, asymptotic 1/4 n squared, Turan Mantel triangle-covering pairs",
+        "web: \"F_3(K_{2,n})\" \"domination\" \"Mantel\"",
+        "arxiv:2610.28936 Section 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No direct database record or published table of the same limiting coefficient was retrieved in the searched results. Closest returned published-finding corpus entries concern 3,2-domination of the base complete multipartite graph, an unrelated invariant."
+      ],
+      "reasoning": "The statement is an infinite asymptotic limit rather than a small finite table. A failed text or database search is not taken as proof of novelty.",
+      "searches": [
+        "Domination number of 3-token graphs of complete bipartite K_{2,n}; covering pairs of triples Mantel extremal graph; exact values and optimizers",
+        "Domination polynomials and dominating-set counts in 3-token graph of K_{2,n}; Sperner pairs triple covering; connected layers",
+        "Exact domination number gamma(F_3(K_{2,n})) three token complete bipartite, asymptotic 1/4 n squared, Turan Mantel triangle-covering pairs",
+        "web: \"2,n\" \"three token\" \"domination number\" asymptotic",
+        "web: \"n^2/4\" \"3-token\" \"domination\""
+      ]
+    },
+    "rationale": "arXiv:2509.16448 studies stars and complete graphs, including a Mantel-based three-token complete-graph proof, but neither the K_{2,n} three-token graph nor this coefficient. arXiv:2610.28936 (first public 2026-10-20, later than the initiating 2025 source) treats this base family for k>=3 only through generic inequality C(n+2,3)/(2n+1)<=gamma<=C(n+2,3), whose bounds do not imply a sharp coefficient 1/4 or quadratic upper. arXiv:2302.07914 addresses automorphism groups, not domination. Search of the research database and relevant public literature found no stronger equivalent claim. Acknowledges genuine historical-priority uncertainty.",
+    "residual_risks": [
+      "Bibliographic or unpublished earlier work may contain an equivalent estimate; historical priority is not independently certified.",
+      "The exact value of gamma for arbitrary n>=4 is not established; the finite matching small cases are not claimed as a theorem.",
+      "The newer arXiv:2610.28936 source first appeared after the selected literature anchor date and is used as an overlap comparator, not the initiating source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant tool and motivation but only star and complete base graphs; the new K_{2,n} bounds are not stated or directly implied.",
+        "evidence": [
+          "arXiv v1 2025-09-19; Section 4, Theorem 4.2 uses Mantel for F_3(K_n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2509.16448",
+        "material_read": "Abstract, introduction, preliminaries, sections 3 and 4 including Theorems 3.2, 4.2 and 4.3, and references.",
+        "method": "Opened and read publicly accessible arXiv HTML full text; compared object G and theorem quantifiers.",
+        "title": "Domination number of Token Graphs",
+        "trigger": "Most directly related earlier work on three-token domination and triangle-free extremal reduction."
+      },
+      {
+        "assessment": "Full overlap risk examined: exact only for k=2; for k>=3 states generic quadratic-lower/cubic-upper interval that does not cover the sharp coefficient or explicit construction.",
+        "evidence": [
+          "arXiv v1 publicly submitted 2026-10-20; Theorem 1.2 and Lemmas 5.1--5.3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.28936v1",
+        "material_read": "Abstract, introduction Theorems 1.1--1.2, definitions and token-layer degrees in Section 2, domination arguments in Sections 3--4, full Section 5 Theorem 1.2 bounds, and Appendix overview.",
+        "method": "Opened and read publicly accessible arXiv HTML full text with direct Section 5 comparison.",
+        "title": "The domination number of the k-token graph of the complete bipartite graph K_{m,n}",
+        "trigger": "Same graph object and invariant, plausible dominating stronger theorem."
+      },
+      {
+        "assessment": "Classifies graph automorphisms; no domination estimate or implication to the asymptotic bound.",
+        "evidence": [
+          "arXiv first posted 2023-02-15; Theorem 1 and Section 3 focus on automorphism groups."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.07914",
+        "material_read": "Accessible arXiv rendered paper: introduction and Section 3 including token-layer symmetry and automorphism theorem.",
+        "method": "Read accessible full-text rendering via arXiv abstract text presentation; the separate experimental HTML path was unavailable.",
+        "title": "On the Automorphism Group of Token Graphs of Complete Bipartite Graphs and Cartesian Products of Connected Graphs",
+        "trigger": "Same complete-bipartite token graphs could imply structural reductions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f40ee8b5-3bcd-478d-97a8-45a65e6b79bf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The targeted high-token bipartite domination question has much looser literature bounds; here a simple graph-layer projection proves an unavoidable quadratic lower bound and a three-layer witness gives a quadratic upper with identical sharp coefficient 1/4. Relative to the current general bipartite k>=3 result, the upper order drops from cubic to quadratic and the quadratic lower coefficient triples. This is a motivated, infinite, asymptotically exact determination of a natural invariant, not a random finite slice or renaming.",
+    "status": "PASS"
+  }
+}
