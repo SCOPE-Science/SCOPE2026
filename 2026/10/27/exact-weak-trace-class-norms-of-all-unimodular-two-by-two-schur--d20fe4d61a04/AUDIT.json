@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every nonzero complex input X is reduced to its Frobenius square F and its determinant, and the weak target to the same F and modified determinant. The AM–GM estimate yields |alpha|+|beta|<=1. Solving a two-focus ellipse gives the exact maximal modified determinant at fixed original determinant, with radial maximum equal to u cos(theta/2)+sin(theta/2)sqrt(1-u²) for u<=cos(theta/2), and one otherwise. The resulting squared ratio is increasing before and decreasing after the switch; an explicit balanced matrix gives equality. The separate largest singular value is <=||X||_1. Endpoint theta=0 and theta=pi, phase gauge, and all quantifiers are handled. 400000 seeded complex samples across eight phases and eight analytic extremizers agreed; the proof does not rely on sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Davidson–Donsig arXiv:math/0506073 Theorems 1.1 and 4.5 characterize the operator norm of bounded-operator Schur multipliers; their symmetric examples do not compute S1→S1,∞",
+        "Olevskii–Solomyak 1994 abstract describes Schatten S(p) bounds, not the weak Lorentz endpoint"
+      ],
+      "reasoning": "A strong S1 or S∞ multiplier norm may upper bound W but cannot determine its sharp value; the new phase law is quadratic near zero whereas a rank-one witness has linear strong S1 distortion. Neither older source supplies the weak second-singular-value optimization.",
+      "searches": [
+        "Two by two Schur multiplier weak trace class norm rank two extremizers unimodular cross-ratio phase",
+        "Schur multiplier weak trace class two by two 2x2 sharp norm unimodular phase",
+        "Davidson and Donsig Norms of Schur Multipliers 2005 full text",
+        "Olevskii Solomyak An estimate for Schur multipliers in Sp-classes 1994"
+      ]
+    },
+    "checked_sources": [
+      "Tian, arXiv:2610.20339, eq. (1.3) and Theorem 1.2, full-text pp. 1–7",
+      "Davidson–Donsig, arXiv:math/0506073, §§1,4, operator-norm Schur multipliers",
+      "Banks–Harcharras, Proc. Amer. Math. Soc. 132 (2004), idempotent strong Schatten multipliers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tian proves weak boundedness criterion and rough two-sided comparison, not exact constant",
+        "Banks–Harcharras concerns idempotent symbols and S_p, 1<p<∞",
+        "A related published result on rank-one row/column Schur projector concerns Schatten quasi-norm S_p, 0<p<=1, not general unimodular masks and weak S1 target"
+      ],
+      "reasoning": "The exact sec(delta/4) equality family is a new statement not obtained as corollary by substituting parameters in these earlier results. In particular the phase symbol is nonidempotent except at trivial phase; the weak second singular value prevents inferring a sharp norm from the known full trace-norm estimates.",
+      "searches": [
+        "Sharp weak Schatten (1,1) Schur multiplier norm of a two by two unimodular phase mask [[1,1],[1,e^{i theta}]], exact sec(theta/4)",
+        "Tian weak (1,1) Shur multipliers 2026 Theorem 1.2",
+        "Banks Harcharras norm idempotent Schur Schatten class 2004"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus query exact sec(theta/4) nearest ID 2026/10/11/the-exact-sharp-gap-for-complex-schatten-four-schur-idempotents--c0af236321e7 (S4, 0–1 idempotents)",
+        "Tian, arXiv:2610.20339 (2026), Theorem 1.2 gives only W(m)/2<=D(m)<=2W(m)"
+      ],
+      "reasoning": "The exact weak endpoint norm is not determined by bounds within absolute factors. The closest found phase/Schur matches use different norms, symbols or domains; equality of titles is irrelevant and no equivalence was established.",
+      "searches": [
+        "Sharp weak Schatten (1,1) Schur multiplier norm of a two by two unimodular phase mask [[1,1],[1,e^{i theta}]], exact sec(theta/4)",
+        "Two by two Schur multiplier weak trace class norm rank two extremizers unimodular cross-ratio phase",
+        "Sharp Lorentz Schatten S1 to S1 infinity two dimensional phase Hadamard matrix multiplier sec angular quarter",
+        "2x2 weak Schatten 1 infinity Schur multiplier norm Hadamard phase matrix",
+        "arXiv:2610.20339 weak (1,1) Schur multipliers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search returned exact Schatten-four idempotent gap at 2x2 triangular mask, which concerns a 0–1 projection and different target",
+        "No located published table of W(m) for all complex unimodular 2×2 phase masks"
+      ],
+      "reasoning": "The familiar two-by-two Schur triangle is a different nonunimodular projection and its S4 norm is not a table of weak S1→S1,∞ phase constants. Nonappearance in a table is not by itself a novelty proof.",
+      "searches": [
+        "Sharp weak Schatten (1,1) Schur multiplier norm of a two by two unimodular phase mask [[1,1],[1,e^{i theta}]], exact sec(theta/4)",
+        "Sharp Lorentz Schatten S1 to S1 infinity two dimensional phase Hadamard matrix multiplier sec angular quarter",
+        "\"Schur multipliers\" \"sec\" \"theta/4\"",
+        "Exact sharp weak type (1,1) Schur multiplier constants for finite matrices and column approximation"
+      ]
+    },
+    "rationale": "The 2026 full primary paper specifies the weak target and proves a column-width comparison within factor two, not the sharp 2-by-2 phase-dependent value. Older inspected Davidson–Donsig concerns the strong bounded-operator Schur multiplier norm; Banks–Harcharras treats idempotents on S_p with p>1, neither implying the weak trace-class formula. Database searches for the cross-ratio phase, sharp secant-quarter formula, Hadamard and Lorentz aliases returned no equivalent result. A related Schatten-four idempotent exact gap has a different symbol and target. Residual risk: an older unindexed 2-by-2 weak Lorentz endpoint computation may be equivalent.",
+    "residual_risks": [
+      "Unindexed historical computations of weak trace-class two-by-two phase multipliers may have an equivalent formula.",
+      "No claim of sharp amplification or complete bounded weak norm; the ordinary finite-matrix norm may differ under amplification.",
+      "The 2004 idempotent paper could not be inspected in full, but its incompatible hypotheses preclude direct coverage of the nontrivial unimodular cross phase."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General weak-type characterization with universal comparisons; no computed phase-dependent two-dimensional endpoint constant in inspected material",
+        "evidence": [
+          "arXiv:2610.20339, pages 1–4, eqs. (1.3), (1.7), Theorem 1.2, Lemma 2.1",
+          "arXiv:2610.20339, page 20 HMS completion"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2610.20339",
+        "material_read": "Abstract; notation and Definition (1.3); Sections 1–3, Theorems 1.2 and 1.4, factorization and variational arguments, searches through full 21-page PDF for phase/unimodular/small 2x2 examples; end-of-paper HMS proof",
+        "method": "full-text PDF search and page reading",
+        "title": "Weak (1,1) Shur multipliers and the Hörmander–Mikhlin–Schur theorem",
+        "trigger": "Identical weak trace-class target, new motivating finiteness criterion"
+      },
+      {
+        "assessment": "Studies B(ell2) Schur norm and gamma2, no weak trace target; does not subsume present theorem",
+        "evidence": [
+          "Sections 1 and 4, Theorem 4.5, computed normal/commutant Schur multiplier norms"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0506073",
+        "material_read": "Accessible primary HTML article: introduction, definitions, Sections 1–2, Sections 3–4 on bounded-operator norms and symmetry, and examples preceding Section 5.",
+        "method": "primary full-text HTML reading",
+        "title": "Norms of Schur Multipliers",
+        "trigger": "Classical exact Schur norm formulas might dominate small-matrix phase family"
+      },
+      {
+        "assessment": "Different idempotent masks and strong S_p, p>1, so no identified implication; full text access limitation retained",
+        "evidence": [
+          "Proc. Amer. Math. Soc. 132(7), 2121–2125 (2004); explicit p>1, p!=2 and idempotent hypotheses"
+        ],
+        "identifier_or_url": "https://mospace.umsystem.edu/items/0a460576-727d-45f7-b245-3a5605285d51",
+        "material_read": "Accessible abstract and introduction excerpts (full institutional repository page returned access denial)",
+        "method": "published abstract and quoted introductory text",
+        "title": "On the norm of an idempotent Schur multiplier on the Schatten class",
+        "trigger": "Possible finite 2x2 Schur exact norm comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d20fe4d6-1a04-4e3b-a5ba-b06659259e9b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the complete gauge-invariant sharp weak trace endpoint norm for every complex unimodular two-by-two Schur symbol, the first nontrivial complex phase family for a recently motivated endpoint criterion. The optimal weak-norm distortion varies quadratically in phase near rank-one symbols while a strong trace-norm rank-one witness shows linear phase distortion; the analysis identifies the ellipse transition generating this difference. It is a motivated, exact complete classification of a natural finite family rather than an arbitrary numeric slice. No higher-dimensional theorem is asserted.",
+    "status": "PASS"
+  }
+}
