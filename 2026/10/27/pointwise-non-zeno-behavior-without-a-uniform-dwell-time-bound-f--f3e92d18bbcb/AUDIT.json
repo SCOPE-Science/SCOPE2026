@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The proof decomposes the state into the constant Neumann mode and the heat-evolving orthogonal complement. On a hypothetical finite-accumulation tail, intervals tend to zero and hence are shorter than one; the constant-mode amplitude is then bounded. A nonzero high-mode component remains nonzero at finite time and has bounded derivative away from t=0, giving a positive lower bound on the state norm and a linear increment bound that contradict the trigger at intervals tending to zero. The pure constant mode has a fixed positive interval, and the zero state has no events.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wakaiki–Sano Example 3.2 uses the same Neumann heat model and trigger but only exhibits arbitrarily small first events across different initial states.",
+        "Wang–Krstic use a PDE–ODE cascade, a dynamic trigger \\(d(t)^2\\ge-\\xi m(t)\\), and a maximum dwell time \\(T\\); their positive dwell-time theorem concerns a different controller and trigger."
+      ],
+      "reasoning": "The broader PDE event-trigger literature establishes stability or dwell-time properties under different trigger mechanisms. Those statements do not imply the pointwise claim for the full-state relative trigger studied here.",
+      "searches": [
+        "arXiv:1801.05521, Sections 1–3 and Example 3.2",
+        "arXiv:2110.05680, Sections II, IV-A and V, Lemma 2 and Theorem 1"
+      ]
+    },
+    "checked_sources": [
+      "M. Wakaiki and H. Sano, arXiv:1801.05521, full HTML text, Sections 1–3 and Example 3.2.",
+      "M. Wakaiki and H. Sano, SIAM Journal on Control and Optimization 58(2) (2020), 605–635, DOI 10.1137/18M1179717.",
+      "J. Wang and M. Krstic, arXiv:2110.05680, full HTML text, Sections II, IV-A and V."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source eigenmode construction proves \\(\\inf_{x^0}t_1=0\\); that fact neither implies nor rules out finite accumulation for a fixed arbitrary initial state.",
+        "The 2021 comparison paper enforces a different trigger and an explicit maximum dwell time."
+      ],
+      "reasoning": "The proof supplies a missing logical direction for the exact Example 3.2 model: every fixed initial state is pointwise non-Zeno despite the absence of a uniform first-event lower bound.",
+      "searches": [
+        "arXiv:1801.05521, Section 3, Example 3.2",
+        "DOI:10.1137/18M1179717, published article metadata and abstract",
+        "arXiv:2110.05680, trigger (44), Lemma 2 and Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wakaiki–Sano define the full-state relative trigger and give the Neumann heat example with high-mode first interval \\(\\log(1+\\varepsilon)/(n^2\\pi^2)\\).",
+        "For a fixed initial state, no finite accumulation of event times is equivalent to pointwise non-Zeno behavior; it is strictly weaker than a uniform dwell-time bound over all initial states."
+      ],
+      "reasoning": "The result is formulated as pointwise non-Zeno behavior for every fixed initial state, while explicitly retaining the already-known failure of a state-uniform first-event bound. These are logically distinct properties.",
+      "searches": [
+        "arXiv:1801.05521, Section 3, Example 3.2",
+        "arXiv:2110.05680, Sections II, IV-A and V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No finite catalogue or exact-value table is applicable to this infinite-dimensional event-trigger theorem; the inspected primary texts do not state the same pointwise no-finite-accumulation conclusion."
+      ],
+      "reasoning": "No exact database or finite catalogue applies. The inspected literature does not state the same pointwise no-finite-accumulation result; this comparison is not proof of exhaustive novelty.",
+      "searches": [
+        "arXiv:1801.05521, Section 3, Example 3.2",
+        "arXiv:2110.05680, trigger (44), Lemma 2 and Theorem 1"
+      ]
+    },
+    "rationale": "The primary source gives the zero infimum of first-event times over initial states, not the pointwise no-finite-accumulation theorem proved here for every fixed state in the same model. The available searches found no exact equivalent; residual risk from unindexed literature remains.",
+    "residual_risks": [
+      "Semantic database retrieval is not exhaustive; unindexed or inaccessible literature may contain an equivalent pointwise no-Zeno result.",
+      "The theorem is model-specific and does not generalize automatically to arbitrary analytic semigroups, feedback operators, or trigger definitions.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers the nonuniform first-event phenomenon, but the inspected Example 3.2 does not prove absence of finite accumulation for every fixed initial state. The present proof addresses that distinct claim.",
+        "evidence": [
+          "arXiv:1801.05521, Section 3, Example 3.2",
+          "doi:10.1137/18M1179717"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1801.05521",
+        "material_read": "Full HTML text: abstract/introduction and system definitions; Section 3 trigger definitions and Example 3.2, especially the Neumann heat model and high-mode event-time formula.",
+        "method": "Compared the state equations, trigger inequality, initial-state quantifier, and exact eigenmode event interval against the proposed theorem.",
+        "title": "Event-triggered Control of Infinite-dimensional Systems",
+        "trigger": "Exact plant and full-state trigger match; primary overlap risk."
+      },
+      {
+        "assessment": "The result concerns a PDE–ODE cascade with adaptive parameter estimation and a different dynamic trigger capped by a prescribed maximum dwell time. It does not cover the full-state relative trigger in the current claim.",
+        "evidence": [
+          "arXiv:2110.05680, trigger (44), Lemma 2, Theorem 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.05680",
+        "material_read": "Full HTML text: Sections II, IV-A, and V, including trigger (44), Lemma 2 and Theorem 1.",
+        "method": "Compared the plant class, trigger formula, and dwell-time proof assumptions.",
+        "title": "Event-Triggered Adaptive Control of a Parabolic PDE-ODE Cascade with Piecewise-Constant Inputs and Identification",
+        "trigger": "Plausible related source because it proves no-Zeno behavior for a parabolic PDE."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f3e92d18-bbcb-4c5c-b8e0-67224a7a2ebd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves a meaningful logical distinction in event-triggered control: infimum of first-event times over initial states equal to zero does not imply Zeno accumulation along any fixed trajectory. The theorem is exact for the source model and has a direct implementation interpretation.",
+    "status": "PASS"
+  }
+}
