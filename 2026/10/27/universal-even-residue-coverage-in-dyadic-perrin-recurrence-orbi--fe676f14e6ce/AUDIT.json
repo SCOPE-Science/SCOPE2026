@@ -1,0 +1,144 @@
+{
+  "correctness": {
+    "rationale": "Exact integer A^7 and A^14 verified. Over F2 the seven nonzero states and seven nonzero first-coordinate rows form single A-orbits; [v,Bv,Cv] is invertible for every nonzero v by its checked base determinant and commutation. The resulting unique r yields step-1 increment 2 (mod4) and 2^j-step increment 2^(j+1) (mod2^(j+2)), j>=1. Induction on binary index digits proves a full even-residue bijection at every 2^k. Scaling handles arbitrary nonzero inputs; zero state is immediate. Standalone verifier replayed all primitive states k<=4, 103 samples k=5 and ten exact lift levels. These finite tests are not substituted for infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Richard P. Brent, On the Periods of Generalized Fibonacci Recurrences (1994), accessible full text arXiv:1004.5439, §§1–3, Lemma 2 and Theorem 3.",
+        "Mark Morgan, The distribution of second order linear recurrence sequences mod 2^m, Acta Arith. 83 (1998), 181–195; publisher listing/abstract only, full-text PDF retrieval failed.",
+        "J. Klaška, Tribonacci modulo p^t, Math. Bohem. 133 (2008), abstract, MSC 11B39, 11B50, https://www.dml.cz/handle/10338.dmlcz/140617."
+      ],
+      "reasoning": "The dominant known stronger period result is Brent Theorem 3, explicitly excluded from the claimed novelty. Maximal state-period alone cannot force a given scalar projection to be a permutation of the even residues on a fixed modulo-seven subsequence. Morgan treats order two and Klaška another cubic polynomial; neither inspected abstract implies this exact Perrin theorem.",
+      "searches": [
+        "web: generalized Fibonacci periods all states modulo powers of 2 primitive vectors irreducible cubic",
+        "web: primitive trinomial modulo 2^w sequence \"all even\" \"every\"",
+        "web: GFSR generator output distribution 2-adic each residue at least once full period",
+        "three-step order three linear recurrence zero-avoidance modulo powers of two maximal-period orbit equidistribution"
+      ]
+    },
+    "checked_sources": [
+      "Richard P. Brent, On the Periods of Generalized Fibonacci Recurrences (1994), accessible full text arXiv:1004.5439, §§1–3, Lemma 2 and Theorem 3.",
+      "H. Sedaghat, Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo a Prime (2014), author full text in https://www.researchgate.net/publication/268069527_Zero-avoiding_solutions_of_the_Fibonacci_recurrence_modulo_a_prime, Introduction and final theorem/corollary.",
+      "OEIS A104217, authored March 14, 2005, period of a particular Perrin sequence modulo n, https://oeis.org/A104217.",
+      "E. Bravo and N. Irmak, The 2-adic valuation of shifted Padovan and Perrin numbers and applications (2024), author full text and Introduction/Theorem 2.2, DOI:10.55730/1300-0098.3568.",
+      "J. Klaška, Tribonacci modulo p^t, Math. Bohem. 133 (2008), abstract, MSC 11B39, 11B50, https://www.dml.cz/handle/10338.dmlcz/140617.",
+      "Mark Morgan, The distribution of second order linear recurrence sequences mod 2^m, Acta Arith. 83 (1998), 181–195; publisher listing/abstract only, full-text PDF retrieval failed."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Richard P. Brent, On the Periods of Generalized Fibonacci Recurrences (1994), accessible full text arXiv:1004.5439, §§1–3, Lemma 2 and Theorem 3.",
+        "H. Sedaghat, Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo a Prime (2014), author full text in https://www.researchgate.net/publication/268069527_Zero-avoiding_solutions_of_the_Fibonacci_recurrence_modulo_a_prime, Introduction and final theorem/corollary.",
+        "E. Bravo and N. Irmak, The 2-adic valuation of shifted Padovan and Perrin numbers and applications (2024), author full text and Introduction/Theorem 2.2, DOI:10.55730/1300-0098.3568.",
+        "OEIS A104217, authored March 14, 2005, period of a particular Perrin sequence modulo n, https://oeis.org/A104217."
+      ],
+      "reasoning": "Brent implies all primitive vectors have period 7*2^(k-1), covering the originally considered orbit census entirely. The surviving claim instead asserts a congruence-class subsequence is an exact even-residue permutation, including a unique parity-determined progression and zero coverage for scaled initial states. Brent does not assert the needed parity derivatives for the projection; the two separately verified matrices B,C and their mod-two basis give the additional implication. Earlier scalar Perrin valuations and Fibonacci zero-avoidance results do not quantify over these initial states.",
+      "searches": [
+        "Brent 1994 arxiv:1004.5439 Lemma 2 and Theorem 3 full text",
+        "Sedaghat 2014 zero avoiding prime recurrence author full text",
+        "Bravo Irmak 2024 Perrin shifted valuation theorem full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Richard P. Brent, On the Periods of Generalized Fibonacci Recurrences (1994), accessible full text arXiv:1004.5439, §§1–3, Lemma 2 and Theorem 3.",
+        "H. Sedaghat, Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo a Prime (2014), author full text in https://www.researchgate.net/publication/268069527_Zero-avoiding_solutions_of_the_Fibonacci_recurrence_modulo_a_prime, Introduction and final theorem/corollary.",
+        "E. Bravo and N. Irmak, The 2-adic valuation of shifted Padovan and Perrin numbers and applications (2024), author full text and Introduction/Theorem 2.2, DOI:10.55730/1300-0098.3568."
+      ],
+      "reasoning": "Checked value-equidistribution/zero-avoidance formulations, not just Perrin named titles. Brent proves periods for all primitive trinomials, including this one, but period equality does not specify coordinate values along a chosen residue-class index subsequence. Sedaghat analyzes a different order-two recurrence over prime fields. Bravo--Irmak evaluates two fixed scalar sequences, not every start triple. No statement-equivalent accessible coverage was identified; an unlocated generic distribution theorem remains a risk.",
+      "searches": [
+        "web: \"Perrin\" \"cycle\" \"modulo\" \"power of 2\" all triples",
+        "web: \"Padovan\" \"zero\" \"2-adic\" recurrence every sequence modulo 2",
+        "web: \"Padovan\" \"every even residue\" modulo",
+        "Perrin primitive mod 2^k recurrence subsequence index modulo seven bijection all even residues"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A104217, authored March 14, 2005, period of a particular Perrin sequence modulo n, https://oeis.org/A104217.",
+        "Semantic searches of published mathematical records returned unrelated modular dynamics and no Perrin even-residue value-permutation law."
+      ],
+      "reasoning": "OEIS A104217 tabulates the period of one distinguished Perrin sequence. A period table is not an exact output-value distribution table for every primitive initial triple. No exact equivalent database/table entry was found, which alone would not prove originality.",
+      "searches": [
+        "OEIS:A104217 period of Perrin modulo n",
+        "Perrin Padovan recurrence modulo powers of two every orbit visits zero, zero-avoiding solutions and even residue surjectivity",
+        "complete cycle decomposition of Perrin recurrence modulo 2^k, all three-coordinate states, exact count of periods 7 times powers of 2"
+      ]
+    },
+    "rationale": "Direct comparison with Brent's stronger known maximal-period theorem excludes period/cycle-count corollaries from novelty. The surviving output-residue bijection on a parity-determined modulo-seven subsequence is a strictly additional statement, not asserted in the inspected primary sources. Full-text Sedaghat and Bravo--Irmak plus OEIS period table and published mathematical-record searches did not yield same implication; related recurrence-distribution literature presents residual risk.",
+    "residual_risks": [
+      "General pseudorandom-number-generator distribution literature may contain the same output-value surjectivity under a different recurrence vocabulary; no comprehensive uniqueness theorem is asserted.",
+      "Morgan 1998 full text was not accessible, although its stated domain is second order.",
+      "Klaška 2008 full text not inspected; its stated recurrence polynomial is Tribonacci rather than Perrin.",
+      "Independent validation of the present proof remains not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers maximal-period and any immediate orbit census, which were explicitly removed; does not state a Perrin even-residue bijection in a fixed congruence-class subsequence.",
+        "evidence": "Richard P. Brent, On the Periods of Generalized Fibonacci Recurrences (1994), accessible full text arXiv:1004.5439, §§1–3, Lemma 2 and Theorem 3.",
+        "identifier_or_url": "arxiv:1004.5439; https://arxiv.org/abs/1004.5439",
+        "material_read": "Full arXiv HTML mathematical text, §§1–3, especially Lemma 2, Theorem 2, Theorem 3 and proofs",
+        "method": "Compared theorem hypotheses, quantified initial states and conclusion (period) to the proposed output-value bijection",
+        "title": "On the Periods of Generalized Fibonacci Recurrences",
+        "trigger": "Potential complete domination by generic primitive-trinomial theory"
+      },
+      {
+        "assessment": "Motivates zero-avoidance and distinguishes possible/nonpossible cases for Fibonacci prime fields; not covering Perrin arbitrary-state dyadic results.",
+        "evidence": "H. Sedaghat, Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo a Prime (2014), author full text in https://www.researchgate.net/publication/268069527_Zero-avoiding_solutions_of_the_Fibonacci_recurrence_modulo_a_prime, Introduction and final theorem/corollary.",
+        "identifier_or_url": "2014 Fibonacci Quarterly 52(1), pp.39–45; https://www.researchgate.net/publication/268069527_Zero-avoiding_solutions_of_the_Fibonacci_recurrence_modulo_a_prime",
+        "material_read": "Author-uploaded full-text presentation, opening pp. 1–2 and concluding theorem/corollary pp. 6–8",
+        "method": "Compared prime-field order-two recurrence and counts to arbitrary-state cubic recurrence modulo 2^k",
+        "title": "Zero-Avoiding Solutions of the Fibonacci Recurrence Modulo A Prime",
+        "trigger": "Closest motivation for zero-avoiding initial-condition classification"
+      },
+      {
+        "assessment": "Period data only; no even-residue distribution or arbitrary-initial-state coverage.",
+        "evidence": "OEIS A104217, authored March 14, 2005, period of a particular Perrin sequence modulo n, https://oeis.org/A104217.",
+        "identifier_or_url": "https://oeis.org/A104217",
+        "material_read": "Definition, terms, comments, programming section, author first entry date",
+        "method": "Compared scalar period table with all-initial-state output values and zero-avoidance",
+        "title": "OEIS A104217",
+        "trigger": "Perrin modular period table could subsume proposed cycle lengths"
+      },
+      {
+        "assessment": "Does not furnish a uniform permutation claim for all primitive initial triples.",
+        "evidence": "E. Bravo and N. Irmak, The 2-adic valuation of shifted Padovan and Perrin numbers and applications (2024), author full text and Introduction/Theorem 2.2, DOI:10.55730/1300-0098.3568.",
+        "identifier_or_url": "DOI:10.55730/1300-0098.3568; https://www.researchgate.net/publication/385944064_The_2-adic_valuation_of_shifted_Padovan_and_Perrin_numbers_and_applications",
+        "material_read": "Author/full publicly accessible article text, abstract, introduction and shifted-Perrin valuation results",
+        "method": "Checked hypotheses (fixed standard Perrin/Padovan starts) and conclusions (2-adic valuations) against all-initial-triple surjectivity",
+        "title": "The 2-adic valuation of shifted Padovan and Perrin numbers and applications",
+        "trigger": "Direct Padovan/Perrin 2-adic subject"
+      },
+      {
+        "assessment": "Different Tribonacci recurrence; its methods might transfer, but an abstract alone does not establish absence of a special Perrin statement.",
+        "evidence": "J. Klaška, Tribonacci modulo p^t, Math. Bohem. 133 (2008), abstract, MSC 11B39, 11B50, https://www.dml.cz/handle/10338.dmlcz/140617.",
+        "identifier_or_url": "https://www.dml.cz/handle/10338.dmlcz/140617",
+        "material_read": "Abstract, bibliographic record and references only",
+        "method": "Compared characteristic polynomial and object",
+        "title": "Tribonacci modulo p^t",
+        "trigger": "General arbitrary-initial-state cubic modular recurrence paper"
+      },
+      {
+        "assessment": "Not a direct cubic Perrin coverage claim; possible general methodological overlap remains unresolved but does not create a decisive same-object implication.",
+        "evidence": "Mark Morgan, The distribution of second order linear recurrence sequences mod 2^m, Acta Arith. 83 (1998), 181–195; publisher listing/abstract only, full-text PDF retrieval failed.",
+        "identifier_or_url": "DOI:10.4064/aa-83-2-181-195",
+        "material_read": "Publisher bibliographic metadata and abstract only; direct PDF inaccessible (403)",
+        "method": "Compared published second-order domain; recorded uninspected full text as risk",
+        "title": "The distribution of second order linear recurrence sequences mod 2^m",
+        "trigger": "A distribution theorem could be stronger than value-covering conclusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fe676f14-e6ce-4931-bd0d-f47c3dd740a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The precise natural zero-avoidance question for dyadic Perrin/Padovan recurrences is answered completely, and the proof gives a stronger all-even-residue *permutation*, for every primitive initial triple and every modulus exponent, on an index progression selected by only three parity bits. Uniform output-value coverage is mathematically stronger than a maximum state period and uses separate first-/higher-lift matrices. It contrasts the rich zero-avoidance patterns of second-order Fibonacci modular recurrences and provides a reusable 2-adic value-distribution technique. Scope is only one intrinsic cubic recurrence, no inflated general theorem.",
+    "status": "PASS"
+  }
+}
