@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "All palindromic six-factors must pass through one of four palindrome-center vertices. Two loop-center pairings are impossible, while each of the two nonconstant vertices has a binary direct-versus-crossed transition choice. The degree-two BEST theorem and directed Matrix–Tree theorem show the number of tours with zero, one, or two specified direct pairings equals root Laplacian cofactors 2048,768,768,256. Direct integer determinant computation and a logically independent exhaustive Euler tour enumerator returned exactly the same counts and 2048 complete cycles, with 92636 explored nodes. There are no unproved infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The standard de Bruijn enumeration yields 2048 cycles for order five but provides no distribution by substring symmetry.",
+        "Burris–Motta–Shipman study unoriented universal cycles, a different combinatorial class where reversal classes are represented once."
+      ],
+      "reasoning": "The classical full-cycle count is a sum over all four cells, so it cannot determine their individual populations. In contrast, the new theorem fixes two local Euler-transition choices and counts their intersection; the unoriented-sequence existence/counting problem does not imply these counts.",
+      "searches": [
+        "\"de Bruijn\" \"palindromes\" \"2048\" \"32\"",
+        "binary de Bruijn sequences palindromic factors length order plus one local transitions number distribution",
+        "arXiv:1608.08480, abstract",
+        "arXiv:1002.2723, sections 2 and 4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1002.2723 (substantive HTML full text read, sections 2 and 4)",
+      "arXiv:1608.08480 (abstract and date record only)",
+      "doi:10.1101/gr.074492.107 (abstract/bibliographic only)",
+      "de Bruijn (1946) enumerative formula through secondary literature"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The first full-text paper establishes constructions and general finite-word palindrome facts but not the order-five cycle-by-cycle distribution.",
+        "The unoriented paper treats reversal-equivalence universal cycles; the graph application paper concerns sequence assembly."
+      ],
+      "reasoning": "A construction including all palindromes somewhere, or a classical formula for the total number of universal cycles, is strictly weaker and does not imply the frequency with which each palindrome pair is realized across all ordinary binary order-five cycles. The new proof independently derives all four restricted-tour counts.",
+      "searches": [
+        "arXiv:1002.2723, section 2 (palindromes generated using de Bruijn words), section 4 (palindromic complexity and averages)",
+        "arXiv:1608.08480, publicly accessible abstract",
+        "doi:10.1101/gr.074492.107, bibliographic abstract and de Bruijn graph motivation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "All binary palindromic length-six factors in an order-five cycle correspond to direct incoming-to-outgoing pairings at two palindromic four-vertices; the result refines the usual Euler tour count into a four-cell joint distribution.",
+        "Anisiu et al. use de Bruijn words to generate all palindromes and analyze finite-word palindromic complexity, without presenting this Euler-tour joint count in inspected sections."
+      ],
+      "reasoning": "Any claim enumerating de Bruijn cycles with either fixed palindromic four-vertex direct pairing would imply the result by inclusion–exclusion; no such statement was found in inspected substantive material. Palindromic complexity of a single finite word or the existence of every palindrome in a specially constructed word is not equivalent to the distribution across all cycles.",
+      "searches": [
+        "\"de Bruijn sequence\" \"palindromic\" \"factors\" count",
+        "\"de Bruijn\" \"palindromes\" \"distribution\"",
+        "\"de Bruijn\" \"palindromes\" \"order 5\"",
+        "Anisiu et al., arXiv:1002.2723, sections 2 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The special numeric profile (768,1024,256), the two forced palindromic six-gram pairs, and the exact covariance -1/64 were compared by query against the relevant search results and inspected primary full text; no matching database or table entry was located."
+      ],
+      "reasoning": "The numbers are not drawn from a known sequence table or copied from a prior enumerated list. The complete integer-cofactor derivation and a separate tour enumeration are included; failed searches are not treated as proof of global novelty.",
+      "searches": [
+        "\"de Bruijn sequences\" \"palindromes\" \"six\"",
+        "de Bruijn cycles palindrome count length n+1 expected maximum palindromic factors",
+        "binary de Bruijn order 5 cycles count length six palindromic factors distribution zero two four 768 1024 256"
+      ]
+    },
+    "rationale": "The accepted claim is a specific all-cycles, exact joint-distribution theorem for palindromic six-grams, not the classical enumeration of de Bruijn sequences or a construction of palindromes. The inspected substantive primary paper and relevant abstracts do not state its two-center joint law. The independently verified count and negative covariance add genuinely different information from the total 2048 classical cycles, with explicit residual risks.",
+    "residual_risks": [
+      "This is a small-order exact finite classification. Specialized earlier enumerations of local Euler tour transitions may contain the profile without matching palindrome terminology.",
+      "The unoriented-sequence full text and original 1946 paper were not substantively inspected; not-covering claims are limited to materially read portions.",
+      "No independent audit or external validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the claimed exact rotation-class distribution in inspected sections.",
+        "evidence": [
+          "Section 2 constructs all palindromes from de Bruijn words; section 4 studies finite-word palindrome counts. Neither supplies joint frequencies of the two order-five nonconstant palindrome centers."
+        ],
+        "identifier_or_url": "arXiv:1002.2723",
+        "material_read": "Accessible complete HTML text, especially sections 2 and 4, relevant statements and methods.",
+        "method": "Read substantive original arguments and compare the quantified objects: palindromes constructed by cycles versus palindromes within each cycle, and average over all finite words versus distribution over de Bruijn cycles.",
+        "title": "Properties of palindromes in finite words",
+        "trigger": "Potentially direct prior result on palindromes constructed with de Bruijn sequences"
+      },
+      {
+        "assessment": "Different object; a risk remains because the full text was not examined.",
+        "evidence": [
+          "The abstract defines unoriented sequences representing reversal classes, not ordinary de Bruijn order-five cycle palindrome-profile counts."
+        ],
+        "identifier_or_url": "arXiv:1608.08480",
+        "material_read": "ArXiv summary/abstract and bibliographic entry; full text was not available for substantive inspection.",
+        "method": "Compared the defining notion of reversal-class coverage to ordinary de Bruijn cycle coverage.",
+        "title": "An Unoriented Variation on de Bruijn Sequences",
+        "trigger": "Possible symmetry-based enumeration of universal cycles"
+      },
+      {
+        "assessment": "Provides biological sequence-assembly motivation but no enumerative order-five palindrome cycle theorem.",
+        "evidence": [
+          "The source presents use of de Bruijn graphs for short-read assembly rather than census of Eulerian tours conditioned on palindromic transitions."
+        ],
+        "identifier_or_url": "doi:10.1101/gr.074492.107",
+        "material_read": "Bibliographic record and accessible abstract.",
+        "method": "Compared research aims and model objects.",
+        "title": "Velvet: Algorithms for de novo short read assembly using de Bruijn graphs",
+        "trigger": "Context and significance of local path symmetries in de Bruijn graphs"
+      },
+      {
+        "assessment": "The known count 2048 is the full sum, not a forced-transition distribution.",
+        "evidence": [
+          "For order five the established enumeration is 2^(2^(5-1)-5)=2048 cycles up to rotation."
+        ],
+        "identifier_or_url": "de Bruijn, 1946, Proc. K. Ned. Akad. Wet. 49, 758–764",
+        "material_read": "Historical enumeration theorem as reproduced in accessible secondary accounts, not full text of the 1946 paper.",
+        "method": "Compared total-cycle count with the new four-cell refinement.",
+        "title": "A combinatorial problem",
+        "trigger": "Original enumeration of binary de Bruijn cycles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0383127-9406-4c0e-8db6-7565799965fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Every order-five universal cycle shares exactly the same length-five factor multiset, yet its palindromic length-six factor count depends on pairings of adjacent five-grams. The full three-valued distribution and negative correlation between the two local palindrome-center events quantify a natural new symmetry invariant of de Bruijn cycles. It is a complete exact finite classification in a classical object, with independently reproducible methods. It is not merely recomputation of total cycle count or a claim that finite data implies infinite behavior.",
+    "status": "PASS"
+  }
+}
