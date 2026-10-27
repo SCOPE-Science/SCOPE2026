@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For the explicitly defined smooth complete fan and every integer \(d\ge2\), the eighteen wall relations yield the displayed complete list of anticanonical invariant-curve degrees, none zero. The positive affine convex combination proving obstruction at the ray \(v_7\) is an exact identity. The star fan identifies the surface as \(\operatorname{Bl}_p(\mathbb P^1\times\mathbb P^1)\), and the five toric intersection degrees determine the restricted canonical divisor. Intersection theory then gives smooth curves of canonical degree zero and genus \(d-2\). Exact rational-integer computations replay these critical identities for sample parameters; the stated symbolic formulas supply the universal argument. The completeness and smoothness of the fan, and the canonical ray criterion, are supplied by the cited primary sources.
+
+## Originality — PASS, with residual priority risk
+The originating article, arXiv:2610.22279v1, proves the general tensor-generation fan criterion and gives both a separate \(\mathbb P^1\times\mathbb P^1\) example and a general construction of surface-only toric obstructions. Those phenomena themselves are **not** new. The article's Question 6.6 expressly asks whether obstructions inside its specific four-parameter Oda–Miyake family always arise from invariant \((-1,-1)\)-curves. Its treated parameter slices do not include \((-2,2,0,d)\) with \(d\ge2\). The present computation gives an explicit contrary infinite subfamily, with all invariant-curve degrees nonzero and non-invariant canonical-trivial curves of unbounded genus. Fujino–Sato's arXiv:2412.02392 provides the same fan and projectivity criterion without the resulting canonical tensor-generation calculation. Targeted bibliographic and semantic searches did not identify a statement covering this precise subfamily. This is evidence for originality, not a guarantee of historical priority: an implicit computation in prior toric literature remains possible.
+
+## Mathematical value — PASS
+This is a concrete answer to a named open-ended geometric question in recent primary literature, not a parameter substitution in a recorded example. It separates the locus of canonical tensor-generation failure from every torus-invariant wall of a fixed standard threefold family, identifies an explicit obstructing toric surface, and constructs smooth canonical-trivial curves with unbounded genus. It demonstrates why checking only \((-1,-1)\)-curves or even all torus-invariant curves cannot classify the family's canonical tensor-generation behavior. No all-parameter classification or new general criterion is asserted.
+
+## Limits and priority context
+Only the subfamily \(d\ge2\) is settled, and the constructed curves need not be the only canonical-trivial curves. The general surface-only obstruction mechanism is already in Ito–Zeng–Zeng, Remark 7.6. The strongest remaining priority risk is an unindexed or implicit application of their ray criterion, or of earlier toric intersection calculations, to this exact family.
+
+Self-review: passed. Independent audit: not yet performed.
