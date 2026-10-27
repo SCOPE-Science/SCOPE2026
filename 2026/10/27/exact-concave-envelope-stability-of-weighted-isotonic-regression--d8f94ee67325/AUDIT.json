@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "The weighted isotonic projector has finite affine block-averaging pieces, all of which preserve constants. The weighted edge-step basis computes each piece’s exact variation norm by a single fused-block chord. The largest chord is the mass-coordinate least concave majorant. Every maximizing block is realized by strict descending-block data and a sufficiently small step perturbation; strictly increasing data realize the unit constant. The proof covers the full positive parameter domain and all input pairs, not just finite rational tests. `CHECK.py` reproduced 45,900 exhaustive block-partition norm comparisons, 17,245 two-data inequality checks, 571 attaining pairs, and 720 independent upper-hull comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yang–Barber, arXiv:1706.01852, §6: nonincreasing-under-neighbor-averaging theorem for unweighted projection.",
+        "Guyader et al., arXiv:1211.3930, §§1–2: order-cone isotone projection geometry; different quantitative objective."
+      ],
+      "reasoning": "An abstract qualitative characterization of the unit bound does not dominate a sharp formula at every positive observation-mass and variation-weight profile, especially when the optimal factor is arbitrarily larger than one. The earlier geometric result concerns order preservation, not the two-input variation operator norm.",
+      "searches": [
+        "isotonic projection weighted total variation stability under perturbation",
+        "isotonic regression projection onto monotonicity cone, contraction in total variation seminorm and weighted path norms",
+        "Monotone cone projection finite graph Lipschitz stability active blocks range variation operator norm"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1007/s10957-008-9477-0 (weighted PAV, inspected sections 1,2,4)",
+      "arXiv:1211.3930 (order-cone geometry, inspected sections 1,2)",
+      "arXiv:1706.01852 (NUNA theorem and proof, inspected sections 2,6)",
+      "Published finite-chain isotonic metric-projection stability record, title and scientific summary (coordinatewise \\(\\ell_p\\), not edge variation)",
+      "Published isotonic stability on finite partial orders, title and scientific summary (coordinatewise \\(\\ell_p\\), not edge variation)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yeganova–Wilbur (2009), eqs. (1)–(5), proves weighted averages on fused blocks but no norm amplification formula.",
+        "Yang–Barber (2017), Theorem 1, characterizes only whether the unit bound holds for the unweighted regression operator.",
+        "Guyader et al. (2012), §§1–2, establishes isotone projection properties for the Euclidean order cone."
+      ],
+      "reasoning": "The new claim’s sharp factor depends jointly on the cumulative precision masses and edge penalties. Neither source’s stated conclusion implies the exact noncontractive factor; the qualitative zero-defect case of the mass-unweighted specialization is acknowledged as covered by the later NUNA theorem.",
+      "searches": [
+        "\"isotonic regression\" \"weighted total variation\" \"concave\" stability",
+        "\"isotonic regression\" \"variation\" \"contractive\" \"weights\"",
+        "Weighted isotonic regression total variation two-input exact stability concave majorant"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yang–Barber, arXiv:1706.01852, §2 Theorem 1: neighbor-averaging equivalence for contractivity under seminorms.",
+        "Yeganova–Wilbur, doi:10.1007/s10957-008-9477-0, §2: positive-weight PAV blocks and weighted means."
+      ],
+      "reasoning": "The 2017 theorem yields a qualitative nonexpansivity test for unweighted isotonic projection, not the exact supra-unit modulus or the cumulative-mass weighted law. Weighted-average blocks provide a common object but do not state an exact variation sensitivity.",
+      "searches": [
+        "\"isotonic regression\" \"variation seminorm\" \"Lipschitz\"",
+        "\"isotonic projection\" \"total variation\" \"concave weights\"",
+        "Weighted least squares isotonic regression exact Lipschitz operator norm in edge weighted bounded variation; smallest concave majorant of edge variation weights on cumulative observation mass grid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published research-record searches returned exact finite-chain isotonic stability statements for coordinatewise \\(\\ell_p\\) distances and partial orders, rather than path-variation quotient formulas.",
+        "No matching exact mass-coordinate envelope or weighted-variation constant appeared in the inspected primary material."
+      ],
+      "reasoning": "The closest mathematical records have different input and output seminorms and therefore do not tabulate or imply this modulus. Search absence alone is not asserted as a mathematical novelty proof.",
+      "searches": [
+        "Sharp two-input Lipschitz constant of weighted isotonic projection in path total variation given by concave envelope ratios",
+        "pool adjacent violators weighted path total variation concavity amplification",
+        "\"isotonic\" \"least concave majorant\" \"operator norm\" variation"
+      ]
+    },
+    "rationale": "Exact two-input weighted-path-variation amplification, mass-coordinate concave-majorant formula, strict extremizers and linear-time computation were not identified in the materially inspected primary papers or actual research-record searches. The qualitative unweighted nonexpansivity criterion is known from the 2017 Yang–Barber theorem and is not treated as a separate novelty claim. The weighted quadratic PAV block structure itself is classical. Equivalence in less accessible historical literature remains a qualified risk.",
+    "residual_risks": [
+      "A historic or unindexed sensitivity calculation could implicitly contain the same weighted concave-hull modulus.",
+      "The unweighted qualitative nonexpansivity subcase follows from the broader 2017 neighbor-averaging theorem; it is not claimed independently original.",
+      "Two relevant published mathematics records were compared by their publicly accessible scientific summaries, not by complete article text; their stated norms differ from weighted edge variation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_BASELINE_NOT_EXACT_CLAIM",
+        "evidence": "§2 gives the weighted quadratic objective and weighted block average. §4 adds upper adjacent-slope restrictions and analyzes its algorithm, not a sharp two-input path-variation seminorm.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5815842/",
+        "material_read": "Full open HTML in sections 1, 2 and 4; equations (1)–(5) and (16)–(19), weighted block formulas, LPAV distinction",
+        "method": "Direct full-text HTML inspection",
+        "title": "Isotonic Regression under Lipschitz Constraint",
+        "trigger": "Same weighted PAV estimator and possibility that an exact perturbation modulus was already implicit"
+      },
+      {
+        "assessment": "NOT_COVERING_WEIGHTED_QUANTITATIVE_MODULUS_IN_READ_SECTIONS",
+        "evidence": "Eq. (6) states cone-isotonicity of unweighted projections, and Corollary 2 establishes isotone projection cones. Neither is a weighted path-variation norm estimate.",
+        "identifier_or_url": "https://arxiv.org/html/1211.3930v2",
+        "material_read": "Full open HTML abstract, §§1–2 and statement of order-cone projection corollary",
+        "method": "Direct arXiv full-text HTML inspection",
+        "title": "A Geometrical Approach to Iterative Isotone Regression",
+        "trigger": "Bounded variation and nearest-point projection onto the same monotone cone"
+      },
+      {
+        "assessment": "COVERS_QUALITATIVE_UNWEIGHTED_CASE_NOT_SHARP_WEIGHTED_MODULUS",
+        "evidence": "Theorem 1 says nonexpansivity of unweighted isotonic projection iff the seminorm is NUNA. It supplies no quantitative optimal supra-unit factor and no general positive quadratic observation-mass formula.",
+        "identifier_or_url": "https://arxiv.org/html/1706.01852v3",
+        "material_read": "Full open HTML §§1–2 and §6, including Definition 2, Theorem 1, and complete neighbor-averaging proof",
+        "method": "Direct arXiv full-text HTML theorem and proof inspection",
+        "title": "Contraction and uniform convergence of isotonic regression",
+        "trigger": "Decisive plausible coverage: contraction under arbitrary seminorms"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8f94ee6-7325-4621-86ff-b5a3ddb1ed6a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact, naturally defined nonlinear-projection stability invariant quantifies how heteroscedastic observation masses and spatial regularity weights interact. It gives an if-and-only-if stability design rule, actual extremizers, a linear-time computation of the worst amplification, and a sharp unbounded-instability example on only three coordinates. This supplies a meaningful complete classification beyond a routine inequality for fixed weights; it does not depend on an unsupported downstream application.",
+    "status": "PASS"
+  }
+}
