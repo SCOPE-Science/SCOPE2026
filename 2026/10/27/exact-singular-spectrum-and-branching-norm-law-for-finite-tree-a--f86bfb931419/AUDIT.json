@@ -1,0 +1,151 @@
+{
+  "claim_to_evidence": {
+    "calculations": "Run check_tree.py (NumPy/SciPy): every full B.T@B eigenvalue versus stated block multiset for b=2,3,4 and h=1..4; smallest Jacobi root scaling for h=8,12,16. All assertions passed in the current package.",
+    "critical_steps": [
+      "Inverse difference B with root evaluation and edge increments gives Q=B*B with one-unit root grounding.",
+      "Orthonormal radial and sibling-contrast invariant subspaces exhaust dimension 1+...+b^h and yield T_{b,ell} multiplicities.",
+      "Jacobi three-term recurrence gives the stated Chebyshev characteristic equation.",
+      "Strict positivity of Q inverse and Perron eigenvector places smallest eigenvalue in radial block; leaf-backward recurrence gives positivity of all input increments.",
+      "Weighted Cauchy-Schwarz resistance lower bound and matching radial trial upper bound give the explicit b-dependent asymptotic.",
+      "Path b=1 handled separately by exact tridiagonal sine spectrum."
+    ],
+    "domain": "Integers b>=2,h>=1; complete depth-h b-ary rooted tree; counting ell2 on every vertex and root-inclusive ancestor sum, real or complex scalars.",
+    "unproved_limits": "No claims for weighted vertex measures or irregular trees, no uniformity in b as h grows, and no independent literature exhaustive-coverage proof."
+  },
+  "correctness": {
+    "rationale": "Exact inverse B, positive grounded quadratic form, orthogonal radial/contrast Jacobi decomposition with dimension check, Chebyshev determinant, Perron simple radial extremizer, and matching Cauchy-Schwarz/trial-profile asymptotic. The b=1 boundary sine spectrum is separately computed. Executed numerical whole-matrix comparisons for b=2,3,4 and h=1..4 and asymptotic checks h=8,12,16. Finite computations are not treated as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rojo–Robbiano, doi:10.1016/j.laa.2006.07.011, accessible abstract: complete adjacency/ordinary weighted Laplacian spectra on level-regular rooted trees via tridiagonal matrices.",
+        "The standard graph Laplacian of a rooted b-ary tree has root diagonal b and zero eigenvalue; the studied B*B has root diagonal b+1 and is strictly positive definite.",
+        "Rojo–Soto 2005, The spectra of the adjacency matrix and Laplacian matrix for some balanced trees, abstract: tridiagonal blocks for standard adjacency and Laplacian."
+      ],
+      "reasoning": "The closest published tridiagonal theory treats tree adjacency and graph Laplacian. Direct substitution of its standard Laplacian spectrum cannot yield the present spectrum: the grounding term at the root changes the radial block, removes the null mode, and determines a nontrivial exponentially small eigenvalue. The same representation technique is related, but the accessible statements do not dominate the grounded operator claim, especially the exact norm asymptotic. The full 2007 manuscript was inaccessible, so the possibility of a more general boundary-perturbation theorem is a material documented risk.",
+      "searches": [
+        "smallest eigenvalue Dirichlet grounded Laplacian complete rooted b-ary tree branching exponential norm",
+        "spectral decomposition grounded combinatorial Laplacian b-ary tree root unit killing potential Jacobi eigen multiplicities",
+        "Rojo Robbiano On the spectra of some weighted rooted trees and applications 2007 tridiagonal Laplacian",
+        "grounded Laplacian Bethe tree spectrum"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4171/RMI/326",
+      "arxiv:math/0003215",
+      "doi:10.1016/j.laa.2006.07.011",
+      "arxiv:1811.01036",
+      "author bibliographic listings for Rojo–Soto 2005"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Arcozzi–Rochberg–Sawyer, doi:10.4171/RMI/326, Theorem 3, full accessible PDF pp. 447–448: ancestor primitive and weighted Hardy embedding, no finite spectral identity.",
+        "Rojo–Robbiano, doi:10.1016/j.laa.2006.07.011, accessible abstract: complete adjacency/ordinary weighted Laplacian spectra on level-regular rooted trees via tridiagonal matrices.",
+        "Evans–Harris–Lang, arXiv:math/0003215, abstract/early theorem statements: metric-tree Hardy approximation-number theory, not vertex-counting finite regular-tree spectrum.",
+        "Arcozzi–Mozolyako–Perfekt, arXiv:1811.01036, introduction and main results: discrete Hardy operators on poly-trees and weighted trace inequalities.",
+        "Source comparison explicitly tests the changed root boundary, the resulting finite Chebyshev equation, the full level/contrast multiplicities, and the sharp growth coefficient."
+      ],
+      "reasoning": "A general tree Hardy trace condition yields boundedness criteria but no equation for each finite singular value. Continuous-tree approximation results do not evaluate the unweighted finite vertex spectrum. Ordinary Laplacian tridiagonal results describe a different matrix and contain a zero mode absent here. While symmetry methods can be adapted, the inspected statements and abstracts do not themselves imply the claimed grounded Jacobi equation or fixed-b branching coefficient. The unresolved full text of the 2007 comparator is retained as a risk, not silently labeled NOT_COVERING.",
+      "searches": [
+        "Hardy operator on homogeneous rooted tree singular value sharp norm of path-sum discrete Hardy operator",
+        "smallest eigenvalue Dirichlet grounded Laplacian complete rooted b-ary tree branching exponential norm",
+        "spectral decomposition grounded combinatorial Laplacian b-ary tree root unit killing potential Jacobi eigen multiplicities",
+        "finite homogeneous tree Hardy operator sharp L2 norm branch asymptotic reciprocal Dirichlet eigenvalue",
+        "Carleson measures for analytic Besov spaces tree primitive Theorem 3",
+        "On the spectra of some weighted rooted trees and applications"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arcozzi–Rochberg–Sawyer, doi:10.4171/RMI/326, Theorem 3, full accessible PDF pp. 447–448: ancestor primitive and weighted Hardy embedding, no finite spectral identity.",
+        "Evans–Harris–Lang, arXiv:math/0003215, abstract/early theorem statements: metric-tree Hardy approximation-number theory, not vertex-counting finite regular-tree spectrum.",
+        "The inverse squared singular operator is the grounded difference Laplacian Q=B*B, not a generic ordinary Laplacian."
+      ],
+      "reasoning": "The natural equivalent statements are the full singular multiset of the tree-order zeta/ancestor matrix, the full spectrum of its grounded difference form, or all sharp finite-rank Hilbert approximation numbers. The inspected tree-Hardy sources identify the operator or give general inequalities and approximation-rate results but not the finite, unweighted homogeneous full multiset. No matching result was located; absence from searches is not a uniqueness proof.",
+      "searches": [
+        "exact l2 operator norm of ancestor summation matrix on complete b-ary rooted tree depth h zeta matrix",
+        "Hardy operator on homogeneous rooted tree singular value sharp norm of path-sum discrete Hardy operator",
+        "complete singular spectrum of path integration or ancestor sum matrix on regular finite rooted tree with counting measure chebyshev",
+        "tree zeta matrix largest singular value",
+        "tree Hardy operator singular values binary tree finite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Six actual semantic mathematical-literature searches returned closest matches in graph-Laplacian decompositions and other Hardy/sequence operator spectra, but no identical rooted ancestor-integral formula.",
+        "No exact indexed table of the specified spectrum, multiplicities and scaling coefficient was identified."
+      ],
+      "reasoning": "Lookups targeted exact finite spectra, Chebyshev roots, multiplicities, and b-ary depth scaling, not merely similar titles. No matching finite singular-value table was found. Search visibility is bounded and is not a proof that no table exists.",
+      "searches": [
+        "exact l2 operator norm of ancestor summation matrix on complete b-ary rooted tree depth h zeta matrix",
+        "complete singular spectrum of path integration or ancestor sum matrix on regular finite rooted tree with counting measure chebyshev",
+        "finite homogeneous tree Hardy operator sharp L2 norm branch asymptotic reciprocal Dirichlet eigenvalue",
+        "complete rooted b-ary tree ancestor matrix singular values Chebyshev eigenvalues"
+      ]
+    },
+    "rationale": "Literature and actual semantic mathematical-literature searches compared ancestor summation, full finite singular spectrum, equivalent grounded Laplacian and approximation numbers, and the root-boundary distinction. No inspected statement was found that entails the complete rooted-tree singular multiset and sharp b-dependent exponential coefficient. This is best-knowledge originality, not a claim of database completeness; a particularly close 2007 Laplacian paper was abstract-only and remains a real risk.",
+    "residual_risks": [
+      "The full text of Rojo–Robbiano (2007) was inaccessible; a general boundary-perturbation theorem inside might imply part or all of the proposed spectrum.",
+      "Search indexes may omit an equivalent result phrased as covariance spectrum, rooted Möbius inversion, or tree-order zeta-matrix decomposition."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINES_OPERATOR_AND_EMBEDDING; no evaluated finite homogeneous-tree singular multiset in examined statements or document search.",
+        "evidence": "Definition I phi(x) as ancestor sum and Theorem 3 characterizing weighted Hardy embedding; no eigenvalue occurrence found by full-PDF text search.",
+        "identifier_or_url": "https://doi.org/10.4171/RMI/326",
+        "material_read": "Full publicly accessible PDF, focusing introduction pp. 443–449, Theorem 3 and searches for finite spectral/eigenvalue terminology across the PDF.",
+        "method": "Direct PDF textual reading and visual inspection of opening theorem pages.",
+        "title": "Carleson measures for analytic Besov spaces",
+        "trigger": "Historical source explicitly defining the same discrete ancestor primitive."
+      },
+      {
+        "assessment": "Different metric-tree integral model and approximation-number estimates; not the asserted finite vertex-counting exact multiset.",
+        "evidence": "Evans–Harris–Lang, arXiv:math/0003215, abstract/early theorem statements: metric-tree Hardy approximation-number theory, not vertex-counting finite regular-tree spectrum.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0003215",
+        "material_read": "Open-access arXiv article: abstract, opening setup and approximation-number statements and relevant PDF passages.",
+        "method": "ArXiv text/PDF reading; direct comparison of operator domains and measure.",
+        "title": "The approximation numbers of Hardy-type operators on trees",
+        "trigger": "Search for stronger approximation-number theorems covering all singular values."
+      },
+      {
+        "assessment": "Weighted multi-parameter trace inequalities, not exact single finite full binary-tree singular spectrum.",
+        "evidence": "Arcozzi–Mozolyako–Perfekt, arXiv:1811.01036, introduction and main results: discrete Hardy operators on poly-trees and weighted trace inequalities.",
+        "identifier_or_url": "https://arxiv.org/abs/1811.01036",
+        "material_read": "ArXiv full-text introduction and principal trace-inequality descriptions.",
+        "method": "ArXiv HTML/PDF text and relevant-page visual inspection.",
+        "title": "Some properties related to trace inequalities for the multi-parameter Hardy operators on poly-trees",
+        "trigger": "Same discrete Hardy operator family with modern stronger trace framework."
+      },
+      {
+        "assessment": "CLOSE_UNRESOLVED_COVERAGE_RISK: abstract covers ungrounded tree Laplacian; a broader theorem inside might cover root-grounded matrices.",
+        "evidence": "Rojo–Robbiano, doi:10.1016/j.laa.2006.07.011, accessible abstract: complete adjacency/ordinary weighted Laplacian spectra on level-regular rooted trees via tridiagonal matrices.",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2006.07.011",
+        "material_read": "Bibliographic record and full abstract only. Full journal/author PDF not accessible; no assertion of full-text noncoverage.",
+        "method": "Read publisher/repository abstracts; attempted lawful open access and authorized institutional route without bypassing access controls.",
+        "title": "On the spectra of some weighted rooted trees and applications",
+        "trigger": "Very close tridiagonal decomposition for regular rooted-tree graph Laplacians."
+      },
+      {
+        "assessment": "Similar structural decomposition for ordinary adjacency and Laplacian matrices; root grounding and singular norm are absent from abstract.",
+        "evidence": "Author listing explicitly names adjacency matrix and Laplacian matrix and gives tridiagonal principal submatrices.",
+        "identifier_or_url": "https://independent.academia.edu/OscarRojo",
+        "material_read": "Author bibliographic listing and abstract only; precise DOI may need confirmation separately.",
+        "method": "Read author academic listing and abstract, not entire paper.",
+        "title": "The spectra of the adjacency matrix and Laplacian matrix for some balanced trees",
+        "trigger": "Earlier homogeneous rooted-tree tridiagonal block method."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f86bfb93-1419-4cb9-9c0c-eaac5ee2bf94",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact complete singular values of a natural tree Hardy integral simultaneously determine sharp Hilbert embedding constants and all finite-rank approximation errors. The fixed-branching exponential constant and contrasting exact path formula explain the functional-analytic effect of branching, rather than merely evaluating a small arbitrary matrix. The result is self-contained and applies to every b and depth under its declared measure.",
+    "status": "PASS"
+  }
+}
