@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "A two-agent cross-edge swap is strictly profitable in one orientation iff (k-h-1)(b-n-1)<0 and (k-h-1)(b-n+1)>0. Integrality forces b=n and k-h>1; reversing sides gives h-k>1. Every same-part swap leaves the neighbor multiset unchanged, and same-color swaps are inert. Counting the stable k yields the three exact binomial formulas; Stirling gives parity-dependent asymptotics. The stand-alone direct best-response checker exhausts all colorings on K_{n,n} for n=2..6, with both moving agents compared at their destinations; the infinite proof does not rely on finite enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1909.02421 sections 2–5 analyze monotone open-neighbor games.",
+        "arxiv:2204.12599 Model and subsequent theorems analyze single-peaked closed-neighbor games."
+      ],
+      "reasoning": "Each broader graph treatment changes the payoff or the counted neighborhood, so its universal graph conclusions do not directly yield this equilibrium-count formula.",
+      "searches": [
+        "arxiv:1909.02421",
+        "arxiv:2204.12599",
+        "Complete multipartite graphs two-color single-peaked swap Schelling game with closed neighborhoods 1/2 peak every coloring Nash stable; equilibrium count binomial and diversity inefficiency"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1909.02421 (2019-09-05), model and full accessible HTML",
+      "arxiv:2204.12599 (2022-04-26), 17-page full preprint and model/equilibrium sections",
+      "published-finding corpus: actual six topic-specific queries in O check",
+      "Previously recorded research on Schelling games on cycles and jump games (claims checked for overlap only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 general swap formula uses self-counting and includes an adjacency term; the present open-neighbor formula changes the constant shifts.",
+        "The 2019 utility increases rather than decreases above 1/2, so strategic improvements have different signs."
+      ],
+      "reasoning": "Neither identified source entails the all-colorings-stable off-balance phenomenon by a valid specialization; exact-balance stability is not merely a renamed closed-neighbor statement.",
+      "searches": [
+        "arxiv:2204.12599 equation (1) and model",
+        "arxiv:1909.02421 section 2",
+        "For symmetric single-peaked Schelling swap games using OPEN neighborhoods on complete bipartite graph K_{n,n}, with b agents of one type and 2n-b of the other: all allocations are equilibria unless b=n, where precisely balanced halves k=floor(n/2),ceil(n/2) stable. Sharp discontinuous equilibrium count binomial(n,floor(n/2)) squared."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2019 open-neighbor utility is monotone; 2022 symmetric single-peaked uses closed neighborhood.",
+        "No returned high-similarity published-finding corpus entry states this open-neighbor K_{n,n} claim."
+      ],
+      "reasoning": "The apparent identical terminology conceals different payoff normalization; a closed-neighborhood theorem does not automatically imply the same two-player utility comparisons with open neighborhoods.",
+      "searches": [
+        "Single-peaked swap Schelling games on complete bipartite graph K_{s,t} with agents counting themselves closed neighborhood symmetric peak 1/2; every placement is swap equilibrium because utility exchanges under cross-part swaps. Compare open-neighbor convention balanced populations sudden stability collapse.",
+        "For symmetric single-peaked Schelling swap games using OPEN neighborhoods on complete bipartite graph K_{n,n}, with b agents of one type and 2n-b of the other: all allocations are equilibria unless b=n, where precisely balanced halves k=floor(n/2),ceil(n/2) stable. Sharp discontinuous equilibrium count binomial(n,floor(n/2)) squared.",
+        "arxiv:2204.12599",
+        "arxiv:1909.02421"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A published result on majority C-colorings of complete multipartite graphs concerns a different constraint, not two-agent swap stability.",
+        "No matching table or database entry found during these actual queries."
+      ],
+      "reasoning": "Colorings of complete multipartite graphs under graph-coloring rules are different objects from equilibrium colorings under open-neighbor double-improvement; negative searches do not prove absolute novelty.",
+      "searches": [
+        "For symmetric single-peaked Schelling swap games using OPEN neighborhoods on complete bipartite graph K_{n,n}, with b agents of one type and 2n-b of the other: all allocations are equilibria unless b=n, where precisely balanced halves k=floor(n/2),ceil(n/2) stable. Sharp discontinuous equilibrium count binomial(n,floor(n/2)) squared.",
+        "Two-color Schelling swap equilibrium density all compositions on complete bipartite graph K_{n,n} and price of anarchy for integrated agents"
+      ]
+    },
+    "rationale": "The source-normalization distinction is substantive: the 2019 full-text open-neighbor game has monotone utility, whereas the 2022 full-text symmetric single-peaked game includes the agent herself. Neither directly implies the strict, open-neighbor, n-versus-n±1 equilibrium census; the swap inequality is independently reconstructed. Actual semantic searches of published-finding corpus returned graph-coloring/homology and unrelated bipartite optimization, not a covering open-neighborhood game. Prior accessible local claims concern cycles and jump games, not this complete-bipartite swap model. This is a best-knowledge finding; unindexed or alternative-wording coverage remains possible.",
+    "residual_risks": [
+      "An exact equivalent may appear in older or nonindexed Schelling and hedonic game literature under open-neighbor diversity preferences.",
+      "No third-party independent audit/validation performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: utility is monotone in own-neighbor fraction, not single-peaked at one half; no phase-diagram formula for the stated alternative payoff",
+        "evidence": [
+          "arxiv:1909.02421v3, section 2: open neighbors and utility equal to same-type fraction",
+          "arxiv:1909.02421v3, section 1.1: existence/complexity and welfare conclusions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1909.02421v3",
+        "material_read": "Full HTML paper model, introduction, equilibrium existence, welfare and degree-of-integration sections; inspected model equation and research contributions",
+        "method": "Read accessible HTML full text, section links and exact normalization",
+        "title": "Swap Stability in Schelling Games on Graphs",
+        "trigger": "Prior open-neighborhood swap game; possible general equilibrium implications"
+      },
+      {
+        "assessment": "NOT_COVERING: defines each neighborhood as closed N[v] and includes the resident in its own-type fraction; crucial new open-neighborhood exchange inequalities differ. No stated complete census at b=n for open-neighbor bipartite game",
+        "evidence": [
+          "arxiv:2204.12599, section Model, the definition f_i=|N[v] cap C_i|/|N[v]|",
+          "arxiv:2204.12599, swap identity for closed neighborhoods and existence/welfare results"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.12599",
+        "material_read": "Full 17-page preprint, model and swap identity with neighborhoods, equilibrium existence and social-integration claims; compared the stated hypotheses against the new model",
+        "method": "Read accessible extracted full PDF including original model equation and comparison of closed/open fractions; checked original preprint date",
+        "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+        "trigger": "Prior symmetric middle-peaked swap game; possible direct dominance via swap identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d7a7a668-e5f3-458e-9edd-b6c912a5e5ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete equilibrium classification on an infinite, natural bipartite network family for a distinct open-neighborhood preference formulation. It reveals that a one-agent population perturbation destroys an otherwise vanishing-stable-fraction equilibrium restriction: all nonbalanced compositions are universally stable while exactly balanced compositions retain only order n^(-1/2) of colorings. This explicit discontinuity is a meaningful structural boundary rather than a routine parameter example.",
+    "status": "PASS"
+  }
+}
