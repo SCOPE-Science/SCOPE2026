@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Conditioning on one fixed chord yields the exact crossing covariance for every potential edge. Matching-indicator pair probabilities give the quadratic-span covariance kernel; their cancellation proves orthogonality to every additive chord statistic. The exact variance of crossings is explicitly credited to Paguyo (2021, Lemma 2.2, reporting Flajolet–Noy); combining it with the independently derived quadratic-span variance yields the residual variance and sharp explained-variance bound. The infinite Pell classification follows by an exact Diophantine reduction. Exhaustive rational checks through seven chords passed; finite checks are not the proof.
+
+**Originality — PASS on inspected evidence, with residual risk.** Acan (2015) supplies fixed-chord length/degree relations; Paguyo (2021) supplies crossing moments and short-chord limit theory; Féray (2016) supplies a crossing CLT; Cameron–Killpatrick (2019) studies length-one counts in linear chord diagrams. In the inspected material these do not state the global optimal additive projection, its exact residual variance, sharp uniform explained fraction, or the Pell equality classification. The initial conditional covariance is readily obtainable using known ingredients, so it is not relied upon alone as the new result. The stronger combined orthogonal-decomposition theorem is the focus. General matching Hoeffding-projection literature may contain an implicit equivalent.
+
+**Value — PASS.** The number of crossings is quadratic in the matched chords, yet a single natural quadratic moment of cyclic chord length captures at least \(6/7\) of its variance (sharp), and an asymptotically complete fraction. The exact residual separates additive length effects from genuine chord-pair interactions; the Pell zeros specify which individual span counts are linearly insensitive to crossings. This is a structural and predictive finding for a standard probabilistic combinatorial model, not a bare recomputation of marginal moments.
+
+Limitations: no optimality claim outside affine statistics of chord-presence indicators, and zero covariance does not imply independence. Previous conditional mean and crossing moments are explicitly credited. No independent audit has been conducted.
+
+Self-review: passed. Independent audit: not yet performed.
