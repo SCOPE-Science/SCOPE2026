@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The SPD condition follows by Schur complement; direct matrix multiplication gives the 2x2 discriminant. The Gaussian OLS regression vector has exactly the isotropic two-dimensional Student density from the Wishart integral, normalized by explicit radial integration. Two measure-preserving changes of variables and integrable domination establish the sharp asymptotic constants for all integers \\(s\\ge2\\); polar and beta computations were cross-checked symbolically/numerically on actual packaged check.py. The cases delta=0 and positive delta are treated separately. No finite Monte Carlo run is taken as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao section 5.3 studies randomized Ritz conditioning and complex Gaussian oversampling accuracy, not real-Gaussian nonreal-pair event probabilities.",
+        "Nakatsukasa–Tropp section 6.8 provides qualitative real/complex statement and deterministic perturbation explanation."
+      ],
+      "reasoning": "A general deterministic spectral perturbation bound neither determines the exact positive probability of a nonreal pair nor its small-gap square-root coefficient. Shao uses a differently defined complex-Gaussian randomized compression, so its bounds cannot imply the stated exact real-Gaussian law. A general prior theorem about random 2x2 compressions could in principle cover this specialization but none was located.",
+      "searches": [
+        "rank one nonsymmetric perturbation real diagonal 2x2 complex conjugate eigenvalues discriminant Ritz",
+        "probability complex Ritz values Gaussian sketch subspace eigenvalues non-Hermitian",
+        "arxiv:2604.01037v3 sections 4 and 5.3",
+        "arxiv:2111.00113 section 6.8"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.22261v1, public abstract and full HTML Sections 1–7, appendix",
+      "Nakatsukasa and Tropp 2024 SIAM J Matrix Anal Appl PDF Section 6.8 page 1203 and adjacent sRR derivation",
+      "arxiv:2604.01037v3 Shao full public HTML theoretical bounds and Section 5.3",
+      "Semantic searches of published mathematical research records using the six documented scientific queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior papers observe possibility of nonreal values but do not give event distribution.",
+        "The prior deterministic three-dimensional coordinate-row example has no independent Gaussian sketch and no sketch-count parameter.",
+        "The general multivariate Student law is only one proof input."
+      ],
+      "reasoning": "The new statement implies exact \\(s\\)-dependent probabilities and both sharp limiting constants. A deterministic existence example and a perturbation bound do not imply these. The Student density plus a freshly derived discriminant criterion and two justified asymptotic integrations are needed to derive them; none of these alone contains the full claim.",
+      "searches": [
+        "sketched Rayleigh Ritz symmetric matrix nonreal eigenvalues complex pairs sketch leakage subspace coupling threshold",
+        "Gaussian sketch Rayleigh Ritz projected symmetric matrix probability complex conjugate eigenvalues bivariate Cauchy near eigenvalue collision",
+        "sketched Rayleigh Ritz 2x2 gaussian square sketch complex eigenvalue probability gap square root asymptotic",
+        "arxiv:2610.22261v1",
+        "arxiv:2111.00113"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaussian least-squares coefficients have a multivariate Student distribution (standard).",
+        "Liu–Liu section 3.1: sketched symmetric projection can be nonsymmetric with nonreal eigenpairs.",
+        "Nakatsukasa–Tropp section 6.8: same qualitative phenomenon and real-part handling."
+      ],
+      "reasoning": "Equivalent names include complex conjugate Ritz pairs, real-Schur 2x2 blocks, non-Hermitian projected eigenproblem, and Gaussian sketch regression coefficients. The known Student law supplies the distribution ingredient but not the curved discriminant-event integral or both sharp asymptotic regimes. A comparable deterministic row-selection calculation treats a different event.",
+      "searches": [
+        "sketched Rayleigh Ritz symmetric matrix nonreal eigenvalues complex pairs sketch leakage subspace coupling threshold",
+        "Gaussian sketch Rayleigh Ritz projected symmetric matrix probability complex conjugate eigenvalues bivariate Cauchy near eigenvalue collision",
+        "sketched Rayleigh Ritz 2x2 gaussian square sketch complex eigenvalue probability gap square root asymptotic",
+        "arxiv:2610.22261v1 section 3.1; arxiv:2111.00113 section 6.8"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source gives practical real-Schur algorithms and experiments, not tabulated Gaussian complex-pair probabilities.",
+        "The numerical values at three sketch sizes here follow direct integration of the proved density."
+      ],
+      "reasoning": "No matching exact table of the fixed three-dimensional SPD real-Gaussian sketched projection law or its asymptotic constants was found in the inspected sources or nearest records. This is a bounded search result, not an assertion of database-wide absence.",
+      "searches": [
+        "Gaussian sketch Rayleigh Ritz projected symmetric matrix probability complex conjugate eigenvalues bivariate Cauchy near eigenvalue collision",
+        "sketched Rayleigh Ritz 2x2 gaussian square sketch complex eigenvalue probability gap square root asymptotic",
+        "probability complex Ritz values Gaussian sketch subspace eigenvalues non-Hermitian",
+        "arxiv:2610.22261v1 full HTML numerical sections"
+      ]
+    },
+    "rationale": "The literature covers the qualitative possibility of nonreal sketched Ritz eigenvalues and the standalone multivariate Student regression law. It does not in the inspected primary source material cover the curved-discriminant Gaussian probability and paired sharp square-root versus sketch-size-dependent polynomial asymptotics. A related deterministic three-state construction treats coordinate sketches and is logically incomparable to the random Gaussian event law. Bibliographic risks remain explicitly recorded.",
+    "residual_risks": [
+      "Known Student-law formulas and literature on random two-by-two matrix discriminants might subsume the integral in a different notation; bounded searches and the primary-source inspection do not prove absolute uniqueness.",
+      "The Gaussian sketch is dense iid real Gaussian, whereas the motivating paper experiments mainly with sparse sign sketching; applicability to sparse sketches is unproved.",
+      "Finite numerical probability tests cannot certify all sketch sizes or the exact limiting constants; those follow from the analytical arguments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative nonreal phenomenon and remedy are covered; this exact Gaussian law and limiting coefficients not located",
+        "evidence": [
+          "arXiv:2610.22261v1, Section 3.1 defines real-Schur sRR and states possible nonreal eigenpairs for symmetric positive-definite matrices; Section 6 uses sparse sign sketch experiments."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.22261v1",
+        "material_read": "Full public HTML across introductions, Sections 2–6, conclusions, and appendix algorithm definitions; especially Section 3.1 and numerical Section 6",
+        "method": "Examined exact projected-matrix and real-Schur definitions; checked for explicit complex-pair probability, Gaussian regression distribution, and asymptotic sketch-row constants",
+        "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+        "trigger": "Direct primary source addressing complex Ritz outputs from positive-definite symmetric sRR"
+      },
+      {
+        "assessment": "Known qualitative observation/nearby-problem analysis, not the exact nonreal Gaussian event law",
+        "evidence": [
+          "Nakatsukasa–Tropp, SIAM J Matrix Anal Appl 45 (2024), Section 6.8 page 1203 states sRR not guaranteed to return real eigenvalues."
+        ],
+        "identifier_or_url": "https://tropp.caltech.edu/papers/NT24-Fast-Accurate-SIMAX.pdf",
+        "material_read": "Full PDF accessed; Section 6.8 text and page image read, with adjacent Sections 6.5–6.7 and 7; pagination of public PDF p.20",
+        "method": "Inspected underlying ordinary and whitened sketched-Ritz reduction equations and symmetric discussion",
+        "title": "Fast and Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Foundational explicit discussion of complex sRR Ritz values in symmetric problems"
+      },
+      {
+        "assessment": "Different complex-Gaussian Petrov-Galerkin construction studying eigenpair conditioning; no observed implication of this real 2x2 nonreal-pair probability",
+        "evidence": [
+          "Shao, Sections 4 and 5.3 study complex Gaussian eigenpair condition and oversampling accuracy, not real Gaussian 2x2 discriminant events."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.01037v3",
+        "material_read": "Public full HTML inspected across probability-bound theory, numerical case studies, and Section 5.3 on empirical probability/oversampling",
+        "method": "Compared random sketch field, exact reduction, random variable of interest, and theorems rather than shared terminology",
+        "title": "Stabilizing the Rayleigh–Ritz Procedure by Randomization",
+        "trigger": "Potential broader probabilistic randomized Ritz theorem and oversampling analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1fe505a-5d00-498d-9342-ac46a1f77bf2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-by-two real-Schur blocks signal a concrete algorithmic cost and spectral interpretation issue in symmetric eigensolvers using nonsymmetric Gaussian least-squares sketches. A sharp event law for a smallest interesting SPD coupled family gives exact base-rate rather than a possible/impossible classification. Universal sqrt-gap emergence versus s-dependent power tail precisely distinguishes what adding sketch rows can and cannot mitigate; unlike arbitrary parameters, gap and sketch rows are core numerical design variables.",
+    "status": "PASS"
+  }
+}
