@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every r,g>0, the jump-diffusion generator gives the exact coercive Lyapunov identity L(X^2+gQ^2)=-2(X-Q)^2-rX^2+4, exact three second-moment equations, and a stable 2x2 conditional-mean matrix. Its characteristic polynomial is strictly negative at the computed logarithmic slope d, proving two strictly positive exponential covariance weights. Explicit inversion proves tau=(M+gK)/(rM). Exact rate and weight asymptotics produce the two distinct time scalings and, by transforming before limiting, the fixed-frequency 4+2g/(1+g^2 nu^2) result. The checker executed 268 deterministic assertions including 125 exact rational checks. No uniformity at zero lag is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goswami arXiv:2412.19564 contains a broader linear coupled probe--bath model and probe-only renewal protocol with independent bath retention. The work explicitly concerns one-time propagators, moments, and first-passage properties in inspected text; a general linear theory could still imply the present special case.",
+        "Biswas et al. arXiv:2412.09260 give a two-time autocorrelation for viscoelastic dynamics under resetting that renews the full bath memory. The difference in reset generator is mathematically decisive: renewal of Q destroys the fixed-positive-lag contribution attributable to pre-reset bath Q.",
+        "Rose et al. Phys. Rev. E 98, 022129 (2018), DOI 10.1103/PhysRevE.98.022129, discuss reset spectral theory. Their inspected abstract does not resolve how a single coordinate is reset while a coupled hidden bath is not."
+      ],
+      "reasoning": "Prior broader models are credited. Their stated results were compared for actual implication: one-time formulas do not alone state the singular two-time limit; full-state reset changes the dynamics. The linear Markov-semigroup recipe itself is classical and not claimed, while a possible general partial-reset spectral theorem remains a residual risk.",
+      "searches": [
+        "Poisson resetting only probe while bath retains memory two time covariance high rate slow memory tail, integrated correlation",
+        "stationary covariance high reset r squared fixed lag bath persistence exponential e to minus t over gamma in coupled Brownian probe memory",
+        "Goswami stochastic resetting in a nonequilibrium environment arxiv 2412.19564 two-time correlation spectrum",
+        "Biswas Dubbeldam Sandev Pal a resetting particle embedded in a viscoelastic bath arxiv 2412.09260 autocorrelation reset memory",
+        "spectral properties simple classical quantum reset processes Rose Touchette Lesanovsky Garrahan 2018"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.17027v1",
+      "doi:10.1088/1367-2630/ae868c",
+      "arxiv:2412.19564",
+      "arxiv:2412.09260",
+      "DOI:10.1103/PhysRevE.98.022129",
+      "published-finding corpus record 2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a",
+      "published-finding corpus record 2026/10/4/SCOPE-sharp-r-1-convergence-witness-for-stochastic-phase-bath-reductio--499d564f8baa"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Santra and Das: exact probe-only bath-unreset model; known stationary variance M and one-time asymptotics. One-time variance fixes C_r(0) only, not its split mode weights or positive-lag residual without an additional two-time regression calculation.",
+        "Goswami: more general nonrenewal bath dynamics; cross-covariance and semigroup machinery can imply the result after specialization and original algebra/asymptotic extraction, but the inspected paper did not present the exact statements.",
+        "Biswas et al.: observed autocorrelation under bath-renewing resetting follows a different reset operator and has explicit renewal-related suppression. It does not imply the r^{-2} slow-mode tail in a bath that retains its state.",
+        "Existing linear-system semigroup theory implies finite-mode covariance if the generator and stationary covariance are known. The independent candidate contribution is the exact strictly-positive weights for all parameters and the explicit singular high-reset time/frequency crossover, not general semigroup theory."
+      ],
+      "reasoning": "Exact known moments, other reset protocols, and general linear regression are strongly relevant predecessors. The candidate does not repeat their stated results. The novelty is confined to the new computed asymptotic observable and its positive-mode interpretation, with potential general-theory coverage disclosed.",
+      "searches": [
+        "viscoelastic bath reset tracer only stationary two-time autocorrelation explicit positive two-exponential decomposition slow bath tail and high resetting universal amplitude 1/r^2",
+        "Santra Das 2026 resetting viscoelastic bath remembers stationary autocorrelation noise spectrum exact long-time regression two pole relaxation",
+        "Poisson resetting only probe while bath retains memory two time covariance high rate slow memory tail, integrated correlation",
+        "Santra Das resetting in a viscoelastic bath the bath remembers 2603.17027 stationary covariance time correlation",
+        "Goswami stochastic resetting in a nonequilibrium environment arxiv 2412.19564 two-time correlation spectrum",
+        "Biswas Dubbeldam Sandev Pal a resetting particle embedded in a viscoelastic bath arxiv 2412.09260 autocorrelation reset memory"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new two-time statement is equivalently a positive two-atomic relaxation-rate measure on (0,infinity), with amplitudes a_s,a_f, and equivalently the two-Lorentzian power spectrum S_r. The singular fixed-positive-lag residual e^{-t/g} and fixed-frequency 4+2g/(1+g^2 nu^2) are the exact asymptotic transform pair plus the fast contact-time boundary layer.",
+        "arXiv:2603.17027v1 and arXiv:2412.19564: inspected relevant model, transient/stationary one-time covariance and propagator calculations; neither inspected full text states the stationary two-time spectrum or singular fixed-lag memory term.",
+        "published-finding corpus: closest semantic hit 2026/10/11/SCOPE-single-reversal-sampling-boundary-and-spectral-edge-law-for-hidd--8e92b385e07a concerns an OU mode masked by nuisance mode mixture in sensing, not probe-only Poisson resetting."
+      ],
+      "reasoning": "A description in terms of covariance, a completely monotone two-mode time response, its spectral measure, or its Lorentzian transform could be equivalent without sharing a title. These same claims were checked as mathematical statements against the most relevant works. The independent two-time phenomenon is not identified in the material inspected. No stronger exclusion than the inspected material supports is asserted.",
+      "searches": [
+        "viscoelastic bath reset tracer only stationary two-time autocorrelation explicit positive two-exponential decomposition slow bath tail and high resetting universal amplitude 1/r^2",
+        "Santra Das 2026 resetting viscoelastic bath remembers stationary autocorrelation noise spectrum exact long-time regression two pole relaxation",
+        "stationary covariance high reset r squared fixed lag bath persistence exponential e to minus t over gamma in coupled Brownian probe memory",
+        "arxiv:2412.19564 Goswami resetting nonequilibrium bath stationary autocorrelation two exponentials integrated correlation",
+        "Santra Das resetting in a viscoelastic bath the bath remembers 2603.17027 stationary covariance time correlation",
+        "Goswami stochastic resetting in a nonequilibrium environment arxiv 2412.19564 two-time correlation spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus similarity search for arXiv:2603.17027 returned unrelated stochastic-bath and dynamical-systems results; nearest hit 2026/10/4/SCOPE-sharp-r-1-convergence-witness-for-stochastic-phase-bath-reductio--499d564f8baa is a quantum Holstein convergence theorem.",
+        "The exact mode weights and limiting Lorentzian are derived symbolically, not taken from a computational table. published-finding corpus records and accessible prior own claims did not reveal an exact table for this probe-only resetting case."
+      ],
+      "reasoning": "No published catalog or exact-value table containing the same two-mode parameters or high-reset power-spectrum coefficient was identified in these searches. That absence alone is not proof of novelty; relevance is judged against models and statements.",
+      "searches": [
+        "2025 2026 exact stochastic resetting harmonic Brownian active particle spectral transition exact asymptotic 82C",
+        "arxiv:2603.17027 Santra Das Resetting in a viscoelastic bath the bath remembers",
+        "arxiv:2412.19564 Goswami resetting nonequilibrium bath stationary autocorrelation two exponentials integrated correlation",
+        "Santra Das resetting in a viscoelastic bath the bath remembers 2603.17027 stationary covariance time correlation"
+      ]
+    },
+    "rationale": "Direct matching of mathematical statements against the full accessible model paper arXiv:2603.17027v1, the closely related bath-unreset framework arXiv:2412.19564 and the prior bath-renewing correlation treatment arXiv:2412.09260 found no stated stationary two-time positive-mode spectral theorem or singular fixed-positive-lag and fixed-frequency high-reset coefficients for this particular nonrenewing-bath process. All precursor models, stationary moments, linear regression methods and bath-renewing correlations are excluded from claimed novelty. Strongest unresolved risk is implicit coverage by a general partial-reset semigroup theory and straightforward derivability from published generators.",
+    "residual_risks": [
+      "Partial-reset linear-system spectral theory could contain an implicit result from which this two-mode specialization follows; a published-finding corpus search cannot exclude all formulations.",
+      "Goswami treats a broader underlying coupled process, so the asymptotic coefficient may count as a new explicit corollary rather than a genuinely independent theoretical mechanism.",
+      "Rose et al. was only accessible at abstract level in this inspection; its full text might contain broader spectral machinery.",
+      "Independent expert originality assessment has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The original model and stationary variance are covered; no matching stationary two-time relaxation-mode and fixed-frequency Lorentzian limit found in inspected text.",
+        "evidence": [
+          "arxiv:2603.17027v1",
+          "doi:10.1088/1367-2630/ae868c"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+        "material_read": "Full accessible HTML preprint including model, stationary/transient moments, discussion and appendix; available journal open text additionally cross-checked.",
+        "method": "Direct full-text reading and comparison of stationary moment, propagator and asymptotic statements against the specific two-time covariance and high-reset power spectrum.",
+        "title": "Resetting in a viscoelastic bath: the bath remembers",
+        "trigger": "Identical Brownian probe/bath model with only probe reset; potentially strongest direct overlap."
+      },
+      {
+        "assessment": "Broader model is acknowledged as prior. The inspected results do not give the candidate stationary two-time limit or fixed-frequency memory coefficient; implicit coverage remains possible.",
+        "evidence": [
+          "arxiv:2412.19564"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.19564",
+        "material_read": "Full accessible preprint, mathematical model, propagator and moment analyses, first-passage sections.",
+        "method": "Full text inspected for two-time stationarity, autocorrelation, Fourier power spectrum, high-reset asymptotics, and possible parameter-specialized implications.",
+        "title": "Stochastic resetting in a nonequilibrium environment",
+        "trigger": "Broader nonrenewed-bath harmonic coupling and resetting, could logically subsume this specialization."
+      },
+      {
+        "assessment": "The previous two-time calculation renews the bath memory at resetting, so it is not a theorem for probe-only resetting leaving the bath coordinate unchanged.",
+        "evidence": [
+          "arxiv:2412.09260"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2412.09260",
+        "material_read": "Accessible full preprint sections including correlation calculation, resetting protocol and renewal derivation.",
+        "method": "Compared the stochastic bath state/renewal hypothesis and correlation kernel to partial-reset generator of this theorem.",
+        "title": "A resetting particle embedded in a viscoelastic bath",
+        "trigger": "Previous explicit two-time autocorrelation calculation for a viscoelastic resetting process."
+      },
+      {
+        "assessment": "No direct implication verified; deeper full-text comparison is residual uncertainty.",
+        "evidence": [
+          "DOI:10.1103/PhysRevE.98.022129"
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.98.022129",
+        "material_read": "Abstract and bibliographic summary only; no full text claimed.",
+        "method": "Compared stated spectral class and complete-state resetting to current two-coordinate partial reset.",
+        "title": "Spectral properties of simple classical and quantum reset processes",
+        "trigger": "Broader spectral theory for stochastic resetting."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea9279a8-7ee0-4df2-baf5-ca08c1f13c1a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The physical motivation is a memory-bearing bath that is never reset, while the probe is increasingly often reset. Prior one-time results suggest effectively bath-independent rapid-reset probe positions, but that does not determine time correlations. The derived fixed-lag residual and fixed-frequency Lorentzian provide quantitative bath-memory observables, an exact integrated-correlation enhancement r*tau -> 1+g/2, and a measurable crossover lag log(2r)/r. This is a natural two-time diagnostic of persistent environmental memory rather than a routine renaming of the one-time variance.",
+    "status": "PASS"
+  }
+}
