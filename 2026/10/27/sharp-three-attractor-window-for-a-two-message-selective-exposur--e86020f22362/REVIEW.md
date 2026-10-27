@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** The actual message-preference rule of Wang et al., with \(\alpha=1\) and no anchoring, reduces for Bernoulli messages to an explicit scalar interval map. Log-odds comparison converts its fixed-point equation to a strictly increasing ratio with exact range \((3,\infty)\), yielding the complete phase portrait and basin directions. Exact endpoint asymptotics, derivative values, the critical cubic and the Taylor expansion establish all stability and collision statements. The hyperbolic-root argument plus uniform endpoint control supplies the unequal-probability persistence claim. The standalone checks are corroborating, not a substitute for proof.
+
+**Originality — PASS, with priority risk.** The motivating paper [1] gives the parent rule and a numerical/approximate treatment but not this exact five-point Bernoulli-message census or its \(2\) and \(5/2\) boundaries. Mao et al. [2] have a differently normalized cyber-social dynamic and a conditional contraction theorem; Xia et al. [3] analyze a different nonlinear neighbor-assimilation rule. Comparisons addressed source-normalized versus additive influence, zero-weight endpoints, and parameter implications rather than title similarity. Semantic research-record searches found no directly covering statement, but searches alone cannot prove novelty; equivalent scalar-map literature could change priority.
+
+**Value — PASS.** The result identifies a distinct, nontrivial coexistence window in which both source extremes and the unbiased midpoint are dynamically attracting, then rigorously identifies the preference threshold that destroys midpoint attraction. The two-atom distribution is a natural limiting model of opposing information sources; stability under source-frequency perturbation shows that the five-point phenomenon is not confined to exact equal frequencies. The precise separators and square-root law supply analytically usable boundaries, beyond a textbook linearization.
+
+**Closest literature and limits.** Primary sources [1]–[3] establish nonlinear opinion dynamics and confirmation bias more generally. The theorem is limited to a scalar infinite-source expectation map with a Bernoulli source law and zero intrinsic anchoring; it does not claim the same deterministic basins for finite randomly resampled messages, full leader/follower networks, or other preference exponents. The source's supplementary stability discussion was not independently rederived, and possible older reformulations of this scalar map remain a priority uncertainty.
+
+Self-review: passed. Independent audit: not yet performed.
+
+References: [1] arXiv:2309.05370v1; [2] arXiv:1803.06377v1; [3] arXiv:1912.01778v1.
