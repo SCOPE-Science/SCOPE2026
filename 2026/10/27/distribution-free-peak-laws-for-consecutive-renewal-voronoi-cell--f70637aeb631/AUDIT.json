@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All assertions reduce to two nonoverlapping strict comparisons of i.i.d. atomless gaps. The four joint probabilities are 0, 1/36, 1/12, 1/16, yielding covariance −1/16, −5/144, 1/48, 0 after subtracting 1/16. Exact finite variance follows by pair sums. Bounded 3-dependent blocking plus Lyapunov yields the CLT with strictly positive 5/144 variance. The package verifier enumerated every gap ranking for lag 1–4 and n=1–6, passing 28 exact-rational comparisons.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gabrielli–Torquato (2004), Section IV pages 11–13: exact two-cell length PDF for randomly displaced lattice points, not renewal peak events. Newman–Turcotte–Malamud (2012) abstract: peak-to-peak lengths of iid sequences and nearest-neighbor clustering, rather than peaks of overlapping two-gap averages."
+      ],
+      "reasoning": "General stationary-sequence peak theory establishes methods, but no inspected statement specifies an exact universal covariance profile for MA(1) built from arbitrary atomless iid innovations. The more general model of stationary data is not by itself an identity covering this claim.",
+      "searches": [
+        "Stationary renewal point process Voronoi cell length local extremum indicators 3-dependent exact lag covariance",
+        "One-dimensional Poisson Voronoi tessellation local maxima of successive cell lengths exact covariance nearest-neighbor maximum indicators variance central limit",
+        "arxiv:cond-mat/0405115",
+        "doi:10.1103/PhysRevE.86.026103"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/0406116",
+      "arxiv:cond-mat/0405115",
+      "doi:10.1111/j.1467-9892.1994.tb00201.x",
+      "doi:10.1111/j.1467-9892.2007.00528.x",
+      "doi:10.1103/PhysRevE.86.026103"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Voronoi marginal law yields an exponential-two-gap convolution only for Poisson; joint *length* covariance for displaced lattice points is not the covariance of peaks in an iid-gap renewal array. Gaussian MA1 formula, even if yielding 5/144 in its specialization, is restricted to Gaussian innovations in the available abstract."
+      ],
+      "reasoning": "Prior inspected scientific assertions cannot imply the universal finite-n variance and signed lag profile over arbitrary atomless gap laws without further assumptions or arguments. Some historical papers could nonetheless contain equivalent general results and were not checked in full.",
+      "searches": [
+        "sliding pair sums of iid continuous interarrival gaps peak counts distribution-free central limit 5/144",
+        "One-dimensional Poisson Voronoi tessellation local maxima of successive cell lengths exact covariance nearest-neighbor maximum indicators variance central limit",
+        "arxiv:cond-mat/0406116",
+        "arxiv:cond-mat/0405115",
+        "doi:10.1111/j.1467-9892.1994.tb00201.x"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A cell-length peak is an order pattern of the moving average of two successive i.i.d. gaps. Ku–Seneta (1994) explicitly treats Gaussian ARMA peak counts, including MA(1); Bandt–Shiha (2007) derives order-pattern laws in Gaussian/ARMA models."
+      ],
+      "reasoning": "The Gaussian MA(1) specialization may share the variance constants, but the Gaussian assumption does not imply a distribution-free formula for non-Gaussian renewal spacings. The factorization into alternating gap rankings establishes the stronger all-atomless-law quantifier directly.",
+      "searches": [
+        "sliding pair sums of iid continuous interarrival gaps peak counts distribution-free central limit 5/144",
+        "turning point count moving average order one iid length two positive exponential local maxima covariance",
+        "doi:10.1111/j.1467-9892.1994.tb00201.x",
+        "doi:10.1111/j.1467-9892.2007.00528.x"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The Járai-Szabó–Néda 2004 exact 1D gamma-formula is the marginal cell-length law; it does not provide peak-indicator joint probabilities. Semantic database results concerned Poisson Laguerre large inradii and hyperbolic cell-area variance, not renewal peak covariance."
+      ],
+      "reasoning": "A cell marginal PDF does not determine an adjacent triple-peak probability or long-run peak count variance. The available tables were not of this invariant.",
+      "searches": [
+        "local maxima one-dimensional Poisson Voronoi cell lengths peak indicator counts covariance lag 1 2 3 limit variance 5/144",
+        "renewal Voronoi cell local maxima adjacent gap length comparison peak point process",
+        "arxiv:cond-mat/0406116",
+        "One-dimensional Poisson Voronoi tessellation local maxima of successive cell lengths exact covariance nearest-neighbor maximum indicators variance central limit"
+      ]
+    },
+    "rationale": "The exact rank-comparison covariance and variance constants hold uniformly for every atomless i.i.d. positive gap law; the closest inspected geometric sources address marginal lengths or a distinct superhomogeneous model. Gaussian MA(1) stationary peak-count papers provide partial overlap but their accessible descriptions do not imply the universal distribution-free assertion. Historical priority is uncertain because the most relevant older peak-count full texts were unavailable.",
+    "residual_risks": [
+      "Full text of Ku–Seneta (1994), the closest Gaussian MA(1) peak-count study, was unavailable; it may contain a stronger all-innovation statement not reflected in the Gaussian-specific abstract.",
+      "The full Bandt–Shiha (2007) ordinal-pattern article could contain general identities covering the rank-comparison reduction.",
+      "The 2012 Newman–Turcotte–Malamud full text could not be examined; nearest-neighbor cluster descriptions are distinct in accessible statements.",
+      "The full literature on ordinal MA(1) statistics is not exhaustively indexed; search failures do not prove priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal distribution; no all-gap-law local peak count theorem",
+        "evidence": "Section 2, Eq. (7) gives a convolution for one cell and Eq. (8) gives the normalized one-cell density.",
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0406116",
+        "material_read": "full text 12-page PDF, with specific inspection of Sections 1–2 and pages 4–6 including the exact one-dimensional cell construction and marginal law",
+        "method": "public preprint full text and page screenshots",
+        "title": "On the size-distribution of Poisson Voronoi cells",
+        "trigger": "Original 1D Poisson-Voronoi cell length law"
+      },
+      {
+        "assessment": "Joint length correlations in randomly displaced lattice (non-iid renewal gaps); peak indicator theorem absent from inspected relevant sections",
+        "evidence": "Eq. (25) joint two-cell PDF and Eq. (26) length covariance for displaced lattice, not rank-peak indicators.",
+        "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0405115",
+        "material_read": "full text available; inspected introduction and original detailed joint PDF/covariance calculation, pages 11–14 (equations 24–27)",
+        "method": "public preprint full text and page screenshots",
+        "title": "Voronoi and Voids Statistics for Super-homogeneous Point Processes",
+        "trigger": "Plausible prior joint Voronoi-cell size correlation theorem"
+      },
+      {
+        "assessment": "Material priority risk: may cover exact Gaussian MA(1) specialization, but full distribution-free iid-gap formulation not evidenced",
+        "evidence": "1994 Journal of Time Series Analysis 15(4):385–403 abstract explicitly describes Gaussian ARMA peaks and exact variance.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9892.1994.tb00201.x",
+        "material_read": "publisher/bibliographic abstract describing exact variance and CLT for stationary Gaussian ARMA, with emphasis on MA(1); full paper not obtained",
+        "method": "journal abstract and bibliographic index; institutional full-text attempt unavailable",
+        "title": "The number of peaks in a stationary sample and orthant probabilities",
+        "trigger": "Direct alias under moving-average peaks, credible Gaussian specialization"
+      },
+      {
+        "assessment": "Explicit scope includes Gaussian and ARMA order-pattern probabilities; unverified full text might contain general machinery but no observed specific distribution-free covariance",
+        "evidence": "2007 abstract describes probabilities of order patterns in Gaussian and ARMA sequences.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1467-9892.2007.00528.x",
+        "material_read": "publisher abstract and reference list, not full article",
+        "method": "publisher article page; full-text redirect only to abstract",
+        "title": "Order Patterns in Time Series",
+        "trigger": "Ordinal pattern methods might dominate strict local peaks"
+      },
+      {
+        "assessment": "Peak-to-peak sequences of iid observations and gap clustering differ from peaks of adjacent moving sums; residual risk remains",
+        "evidence": "2012 abstract states universal peak-to-peak run length for iid series and Brownian examples.",
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.86.026103",
+        "material_read": "publisher abstract with model and result description, not full PDF",
+        "method": "APS abstract; lawful OA/full PDF alternatives unsuccessful",
+        "title": "Emergence of patterns in random processes",
+        "trigger": "Nearest-neighbor peak-to-peak statistic in point processes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f70637ae-b631-46bc-ad70-8b77ee83e1de",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Locally dominant Voronoi cell lengths are geometrically natural observables. The complete exact signed short-range covariance profile has a nontrivial lag-three attraction after two negative lags; the exact finite-window variance and CLT show a large, law-independent suppression of peak count noise by a factor of 5/27 compared with fictitious independent peaks. This resolves a natural local-to-global dependence statistic and is not solely a relabeling of the single-cell gamma law.",
+    "status": "PASS"
+  }
+}
