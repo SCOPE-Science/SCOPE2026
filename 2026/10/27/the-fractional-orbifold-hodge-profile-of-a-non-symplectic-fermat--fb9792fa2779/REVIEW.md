@@ -1,0 +1,11 @@
+# Scientific review of the fractional orbifold Hodge profile
+
+**Correctness — PASS.** The smooth Fermat sextic's primitive cohomology is computed with Griffiths' Jacobian ring; the determinant twist gives the nontrivial congruence condition. The exact finite recurrence determines the five relevant invariant multiplicities. The fixed loci exhaust all five nonidentity group elements. Centralizer quotients and normal eigenspaces give genus-four curves with age three-halves and nine-point sectors with age two. The polynomial also passes both independent Euler-specialization counts. `verify.py` executed and returned `VERIFY_OK`.
+
+**Originality — PASS, with risk.** Billi–Palomino–Sarti provide the new quotient object. An earlier explicit calculation of the same example already covers its singular strata, age-relevant local quotient types and numerical Euler invariants; the present claim excludes any novelty for those facts. The non-symplectic character trace and full fractional orbifold Hodge polynomial are not implied by the previously recorded Euler totals. Braun et al.'s apparent numerical match belongs to groups with determinant one, whereas this generator has determinant minus one and acts nontrivially on the canonical form. Search of indexed mathematical findings and targeted literature did not identify an equivalent polynomial. The unindexed literature remains a risk.
+
+**Mathematical value — PASS.** The full orbifold Hodge–Deligne polynomial is a natural birational/stringy invariant of a newly introduced terminal log-Enriques fourfold quotient. It separates two types of twisted sector, detects nonintegral age grading, and distinguishes Hodge information erased by the already known single Euler count. Determining the invariant Jacobian-ring character in the *non-symplectic* case is necessary; existing symplectic Hodge tables cannot be substituted. The contribution is an exact object-specific invariant, not a claimed new general theory.
+
+The claim is confined to the indicated cyclic quotient and rational orbifold Hodge groups. Cup products, integral torsion and crepant resolutions are not computed. Literature comparison is necessarily bounded by accessible primary material and search indexing.
+
+Self-review: passed. Independent audit: not yet performed.
