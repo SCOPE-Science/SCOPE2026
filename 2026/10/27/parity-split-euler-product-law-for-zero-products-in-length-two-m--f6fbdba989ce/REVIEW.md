@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Smith normal form over any finite commutative length-two chain ring reduces the exact count to a finite-field rank count and the columnwise annihilator cardinality. Substituting the Gaussian product formula yields the exact two-variable quadratic weight. Uniform domination by a convergent discrete Gaussian proves the two total-variation limits; Euler's finite-product identity and the Jacobi triple product yield the distinct constants. The packaged program directly checks small rings of both characteristics and verifies the finite coefficients. The proof, not the experiments, establishes the infinite statements.
+
+**Originality — PASS against inspected material, with residual priority uncertainty.** Dolžan establishes a general finite-ring zero-product framework, while the available description identifies exact semisimple formulas and bounds for general finite rings. Catanzaro–Zabka's chain complexes are over fields and use a different randomization; Byrne and collaborators count individual chain-ring matrix types but do not give the conditional zero-product parity law; Shumyatsky–Vannacci give structural bounds. Prior matrix-square-zero and summand-intersection results concern different conditions. The novel target is the parity-separated Euler-product-cube constant and its limiting two-parameter Smith distribution, not the basic one-matrix rank enumeration. An inaccessible but directly relevant full text and possible equivalent random-complex terminology remain named risks.
+
+**Value — PASS.** Zero-product probability is a natural invariant of finite matrix algebras and a three-term chain-complex constraint. For growing matrix size the theorem identifies the precise decay exponent, two genuinely different subsequential constants, and a persistent torsion-Smith defect; these are not numerical curiosities or a restriction to one arbitrary small matrix size. The calculation applies uniformly to both split and mixed-characteristic length-two rings.
+
+**Limitations.** Fixed residue-field order, chain length exactly two, ordered pairs uniformly sampled from the solution locus, and invariants of the first matrix only. Full exhaustive bibliographic priority and independent validation are not claimed.
+
+Self-review: passed. Independent audit: not yet performed.
