@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The explicit dual embedding bounds lambda2 <= B/D*. Its norm and edge constraints are algebraically verified, and the optimizer uses a clipped vertex-location parameter. Constructed rates have budget B, the scalar Fiedler vector and simplex contrasts at eigenvalue B/D*, and all remaining quotient/transverse eigenvalues at least B/D*. A tridiagonal irreducible M-matrix with a strictly positive eigenvector establishes quotient eigen ordering; dual complementary slackness and full simplex span force each edge conductance uniquely. The nonnegative c=max(0,(lambda-a)/r) covers all phase boundaries. A 1225-case finite eigenvalue check supports but does not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sun et al., 2006: general semidefinite framework, not a closed all-size unequal-barbell phase diagram in the inspected full text.",
+        "Song et al., 2024, DOI 10.1016/j.disc.2024.114027: accessible abstract concerns spectral structure of ordinary barbell graphs; full text not available.",
+        "Richter and Rocha, 2014: full-tree results, no extra clique edges."
+      ],
+      "reasoning": "A general optimization algorithm is not an explicit closed-form theorem for all unequal barbells. A specialized unweighted barbell spectrum does not by itself cover arbitrary nonnegative conductance allocation. The possibly relevant 2024 full text remains an identified residual risk; an accessible abstract alone cannot establish noncoverage.",
+      "searches": [
+        "asymmetric barbell graph optimal spectral gap total edge weight two cliques edge activation threshold",
+        "maximizing algebraic connectivity weighted barbell graph p(p-1) 2(2q-1)^2 optimal weight",
+        "The algebraic connectivity of barbell graphs Song Zhang Chen Gao 2024 114027"
+      ]
+    },
+    "checked_sources": [
+      "Sun–Boyd–Xiao–Diaconis 2006 general FMMP",
+      "Richter–Rocha 2014 double-broom trees",
+      "Ghosh–Boyd–Saberi 2006 effective resistance barbell",
+      "Nabli–Oyallon 2025 asynchronous optimization",
+      "Song et al. 2024 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Richter and Rocha, 2014: exact weighted double-broom optimization, which lacks left leaf-leaf constraints and left leaf-leaf conductances.",
+        "Ghosh et al., 2006, p.1194: barbell example minimizes sum of effective resistances; uses positive in-clique conductances for a different objective.",
+        "Nabli and Oyallon, 2025, accessible PDF barbell discussion: accelerated asynchronous rate, not the second Laplacian eigenvalue under a plain fixed edge-rate budget."
+      ],
+      "reasoning": "At p=9 and q=3 the tree optimum is B/17, while the present value is 12B/203 (>B/17), attained with strictly positive inner-large-clique edge rates. No theorem about the tree can imply this strict increase, and minimizing reciprocal eigenvalue sums is not equivalent to maximizing the smallest positive eigenvalue.",
+      "searches": [
+        "absolute algebraic connectivity of double brooms Richter Rocha 2014 theorem three phases",
+        "Minimizing Effective Resistance of a Graph Ghosh Boyd Saberi barbell",
+        "DADAO barbell communication graph asynchronous rate optimization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun et al., 2006, DOI 10.1137/S0036144504443821, pp.681-690: budgeted algebraic-connectivity optimization equals maximum-variance unfolding.",
+        "Richter and Rocha, 2014, sections 1-3: exact absolute algebraic connectivity and optimal embedding of double-broom trees."
+      ],
+      "reasoning": "The continuous-time fastest-mixing rate is identical to budgeted absolute algebraic connectivity after normalizing the edge-rate sum. A double broom is the spanning tree of the barbell obtained by retaining spokes and the bridge. Its theorem can imply the two zero-internal-edge regimes, but in the third regime the complete-barbell optimum has positive large-clique internal edge rates and strictly exceeds the tree optimum; this is not an equivalent tree formulation.",
+      "searches": [
+        "absolute algebraic connectivity double brooms weighted barbell simplex unfolding unequal clique clique-internal edges",
+        "continuous-time fastest consensus convergence optimal edge weights graph with pendant vertices, sparsity zero edge weights spectral gap"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A semantic scan of published mathematical result titles/summaries yielded a bridge-barbell zero-forcing polynomial and unrelated Laplacian/optimization claims, not a matching rate-allocation table.",
+        "Richter and Rocha, 2014, Theorem 1 gives a table of double-broom tree values; this is not a barbell full-edge allocation table."
+      ],
+      "reasoning": "The relevant published double-broom table concerns a strict subgraph; it gives the tree bound, whereas the complete barbell strictly improves it in the activated third regime. No exact table for the same full barbell allocation was identified in the searched accessible sources. Search absence does not itself prove originality.",
+      "searches": [
+        "barbell graph two cliques joined single bridge optimal continuous time mixing spectral gap edge weight budget all clique internal nonincident weights zero 2B/(9m-8)",
+        "graph weighted clique bridge edge extinction optimal Fiedler vector equal edge differences"
+      ]
+    },
+    "rationale": "The exact positive-weight third regime is not implied by the known double-broom tree classification; p=9,q=3 gives lambda_barbell=12B/203 > B/17=lambda_tree with positive edges absent from the tree. General fastest-mixing dual formulations and published effective-resistance/asynchronous studies do not state this allocation. The 2024 barbell paper remains an explicitly named full-text access risk; the self-review is conditional on accessible published comparisons.",
+    "residual_risks": [
+      "Full text of Song et al. (2024) remained inaccessible; specialized sections might address weighted spectral optimization despite abstract emphasis.",
+      "Search/indexing can omit specialized earlier closed-form treatments.",
+      "Originality is the activated third regime and its complete allocation; tree-only initial regimes are acknowledged as covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general framework, not this three-regime unequal-barbell formula",
+        "evidence": [
+          "SIAM Review 48 (2006), pp.681–699, DOI 10.1137/S0036144504443821",
+          "paper header confirms electronic publication 2006-11-02 and primary MSC 90C22"
+        ],
+        "identifier_or_url": "https://stanford.edu/~boyd/papers/pdf/fmmp.pdf",
+        "material_read": "Full PDF discussion of problem, dual embedding, examples, references; title/abstract/date inspected",
+        "method": "Open-access PDF text and visual page inspection",
+        "title": "The Fastest Mixing Markov Process on a Graph and a Connection to a Maximum Variance Unfolding Problem",
+        "trigger": "Same continuous-time Laplacian budget optimization and geometric dual"
+      },
+      {
+        "assessment": "Covers tree-only two-phase baseline; its result cannot imply strictly improved activated clique regime",
+        "evidence": [
+          "2014 preprint p.1–4, Theorem 1 and Proposition 9; tree definition and embedding"
+        ],
+        "identifier_or_url": "https://www.tu-chemnitz.de/mathematik/preprint/2014/PREPRINT_10.pdf",
+        "material_read": "Full primary preprint including Theorem 1, embedding classifications, proof sections and scope of underlying trees",
+        "method": "Lawful preprint PDF full-text and theorem page inspection",
+        "title": "Absolute algebraic connectivity of double brooms",
+        "trigger": "A double broom is the barbell backbone and has the same budgeted spectral objective"
+      },
+      {
+        "assessment": "Optimizes total effective resistance, not Laplacian spectral gap; does not imply present claim",
+        "evidence": [
+          "2006 barbell example (Figure 1) and analytic allocation, printed p.1194"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+        "material_read": "PDF full text including barbell diagram, objective and analytic barbell allocation on printed p.1194",
+        "method": "Lawful full text with plotted barbell page inspected visually",
+        "title": "Minimizing Effective Resistance of a Graph",
+        "trigger": "Same barbell host and edge weight budget"
+      },
+      {
+        "assessment": "Different accelerated asynchronous complexity objective; not a fixed budget Laplacian lambda2 optimum",
+        "evidence": [
+          "JMLR volume 26 (2025), barbell discussions and appendix"
+        ],
+        "identifier_or_url": "https://jmlr.org/papers/volume26/23-0748/23-0748.pdf",
+        "material_read": "Accessible full text, barbell example and appendix discussion",
+        "method": "Lawful JMLR PDF inspection",
+        "title": "DADAO: Decoupled Accelerated Decentralized Asynchronous Optimization",
+        "trigger": "Barbell communication graph and edge rate optimization"
+      },
+      {
+        "assessment": "Potential prior coverage not decisively ruled out; accessible abstract addresses ordinary barbell spectral questions",
+        "evidence": [
+          "Discrete Mathematics 2024 DOI 10.1016/j.disc.2024.114027"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.disc.2024.114027",
+        "material_read": "Title, bibliographic record and online accessible abstract only; neither public full text nor authorized institutional full text available",
+        "method": "Abstract / bibliographic assessment; no unsupported whole-document claim",
+        "title": "The algebraic connectivity of barbell graphs",
+        "trigger": "Title directly names algebraic connectivity of barbell graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ecdbeb09-88b4-4ad0-91d1-ad8cbbfe7678",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An all-integer, all-budget, unique exact optimizer and sharp threshold p(p-1)>2(2q-1)^2 answer when reinforcing intra-community links in a two-clique single-bottleneck network becomes intrinsically necessary. This is a structural transition in a natural optimization objective, not a routine tree corollary or arbitrarily sampled invariant.",
+    "status": "PASS"
+  }
+}
