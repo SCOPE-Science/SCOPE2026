@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The gcd matrix is exactly cI+b(I_p tensor J_p)+J, with c=pb. Integral difference coordinates split p(p−2) scalar factors. A unimodular simultaneous basis change conjugates the rank-one all-ones operator into a fixed 2×2 form plus zeros, reducing to p−2 copies of B_p and one K_p. The 2×2 block has determinantal divisors b, 2p²b²; pivoting 1 in K leaves b times T_p, whose gcd entries is 1, gcd 2×2 minors is p², and determinant 2p⁴(3p−2). The assembled factors divide sequentially for all primes including p=2. Exact checker replays small matrices and prime-specific blocks; universal proof is symbolic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ilmonen–Haukkanen factor-closed gcd matrix is indexed by gcd(i,j), not cyclic differences.",
+        "Companion-ring Smith form sources provide reduction techniques, but inspected propositions do not give these invariant factors as a corollary."
+      ],
+      "reasoning": "A broader theory may furnish an algorithm, but an exact formula at every prime square would still require this special integral block analysis; no inspected general theorem directly subsumes the statement.",
+      "searches": [
+        "p-adic Smith invariants for generalized Ramanujan and gcd Fourier convolution matrices prime-square circulant",
+        "Smith normal form gcd circulant matrices prime power",
+        "arXiv:1908.07331",
+        "arXiv:2408.08662",
+        "Ilmonen Haukkanen Smith meets Smith gcd matrix"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1201.3139v1",
+      "Ilmonen and Haukkanen (2011)",
+      "Telloni and Williams (2014)",
+      "arXiv:1908.07331",
+      "arXiv:2408.08662",
+      "Index and publication search for integral Smith form of gcd-difference circulants"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known DFT eigenvalues determine determinant and rational diagonalization only.",
+        "Factor-closed gcd matrices and parameter-polynomial Smith matrices have different indexing/rings."
+      ],
+      "reasoning": "None of the inspected published claims logically yields the presented six integral invariant-factor multiplicities without a new integral reduction and minor calculation.",
+      "searches": [
+        "van der Kamp Fourier transform greatest common divisor formula eigenvalues arXiv:1201.3139",
+        "Ilmonen Haukkanen Smith normal form Smith gcd matrix",
+        "Telloni Williams lambda Smith normal form matrices",
+        "Noferini Williams companion ring Smith forms"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The gcd-difference matrix is a symmetric integral cyclic convolution; its Smith form is not equivalent to the Fourier eigenvalue list without integral lattice information.",
+        "The archival Fourier-transform article computes the DFT and associated eigenvalues, not an integral Smith classification."
+      ],
+      "reasoning": "Searched aliases gcd-circulant, gcd-difference convolution, integral cokernel, Smith factors, and prime-square modulus. No same statement detected in inspected texts.",
+      "searches": [
+        "Smith normal form invariant factors of prime square gcd difference circulant matrix indexed by cyclic Z/p² entries gcd(i-j,p²)",
+        "Integral cokernel of greatest common divisor circulant matrix G_{a,b}=gcd(a-b,p^2); complete elementary divisor decomposition at square prime modulus",
+        "arXiv:1201.3139v1 (Fourier gcd transform)",
+        "Smith normal form GCD circulant matrix gcd(i-j,n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record search returned related cyclic Fourier minors and gcd scalar results, not tabulated Smith invariants for this infinite family."
+      ],
+      "reasoning": "No exact indexed table or database result was identified. A failed search alone would not prove novelty, so this check is combined with primary source inspections.",
+      "searches": [
+        "Smith normal form invariant factors of prime square gcd difference circulant matrix indexed by cyclic Z/p² entries gcd(i-j,p²)",
+        "Integral cokernel of greatest common divisor circulant matrix G_{a,b}=gcd(a-b,p^2); complete elementary divisor decomposition at square prime modulus",
+        "p-adic Smith invariants for generalized Ramanujan and gcd Fourier convolution matrices prime-square circulant",
+        "gcd circulant matrix invariant factors Smith normal form"
+      ]
+    },
+    "rationale": "The explicitly verified integral invariant factors are not implied by the known complex Fourier eigenvalues: spectral products determine the determinant but not integral elementary divisors. The compared primary gcd Smith matrices are indexed by divisibility rather than cyclic differences, while general companion-matrix methods do not state the p-squared gcd-circulant formula. Relevant indexed mathematical-record and primary-literature searches found no equivalent or dominating statement. Residual publication-priority uncertainty is acknowledged.",
+    "residual_risks": [
+      "An unindexed paper or an exact unobserved application of a general cyclic-matrix theorem may have published the same Smith form.",
+      "A general companion-ring calculation could make the derivation easier, but the specific explicit invariant-factor formula was not located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Fourier eigenvalues and determinant, not the integral Smith factors",
+        "evidence": [
+          "Formula for Fourier transform and gcd-circulant spectrum; no integral unimodular classification"
+        ],
+        "identifier_or_url": "arXiv:1201.3139v1; https://arxiv.org/abs/1201.3139",
+        "material_read": "HTML full exposition including formulas for Fourier transform and prime-power eigenvalues; checked Smith occurrence",
+        "method": "Direct text inspection of sections and spectral formulas",
+        "title": "On the Fourier transform of the greatest common divisor",
+        "trigger": "Earliest archival mathematical motivation and exact same gcd function"
+      },
+      {
+        "assessment": "Divisor-index matrix gcd(i,j), different from gcd(i-j,p²)",
+        "evidence": [
+          "Factor-closed index and divisibility matrix statements"
+        ],
+        "identifier_or_url": "Ilmonen and Haukkanen (2011)",
+        "material_read": "Abstract and accessible early sections describing factor-closed gcd-index matrices",
+        "method": "Compared matrix entries, indexing and hypothesis",
+        "title": "Smith meets Smith: Smith normal form of Smith matrix",
+        "trigger": "Closest named Smith-form theorem for gcd matrices"
+      },
+      {
+        "assessment": "Polynomial-parameter matrices with different entries and coefficient ring",
+        "evidence": [
+          "Theorems A and B are in a parameter-polynomial Smith setting"
+        ],
+        "identifier_or_url": "Telloni and Williams (2014)",
+        "material_read": "PDF abstract, introduction, theorem portions and relevant computational formulas",
+        "method": "Read pages and theorem statements for exact matrix classes",
+        "title": "Smith forms for polynomial lambda matrices",
+        "trigger": "Potential general Smith-form coverage"
+      },
+      {
+        "assessment": "General computational techniques; no prime-square gcd circulant exact formula in inspected results",
+        "evidence": [
+          "Methods for companion-ring matrices, not the specific integer gcd convolution"
+        ],
+        "identifier_or_url": "arXiv:1908.07331",
+        "material_read": "PDF introduction, abstract and pertinent theorems",
+        "method": "Compared general algorithms against specific gcd-circulant invariant factors",
+        "title": "Smith forms of matrices in a companion ring",
+        "trigger": "General cyclic/companion matrix SNF methods"
+      },
+      {
+        "assessment": "No directly stated formula for prime-square gcd-difference circulants in inspected results",
+        "evidence": [
+          "General companion/circulant techniques; no exact gcd matrix listing found"
+        ],
+        "identifier_or_url": "arXiv:2408.08662",
+        "material_read": "PDF introduction, named theorem statements and selected later sections",
+        "method": "Compared published general results and examples to the matrix at hand",
+        "title": "Smith forms of matrices related to companion rings",
+        "trigger": "More recent possible broader coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e13d5c18-e662-4d52-a1d1-fb12b816afae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The gcd-difference circulant is a canonical number-theoretic convolution; p² is the first prime-power level with two distinct nontrivial congruence classes in the kernel. Complete integral cokernel structure for an infinite family of growing matrices is not given by Fourier eigenvalues. The small-core decomposition identifies precisely which torsion factors are exceptional, enabling natural higher-prime-power investigations without claiming them.",
+    "status": "PASS"
+  }
+}
