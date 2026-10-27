@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Proof is self-contained: the exact Dirichlet–Neumann drifted resolvent solves D u″+a u′−r u=0, u(0)=1, u′(L)=0; its reflected-wall term is exponentially smaller for fixed interior x. The upper Skorokhod map is monotone when the driving input difference is nonnegative and nondecreasing; bounding the OU velocity path between its initial value ± its oscillation on [0,r^(−1/3)] sandwiches the discounted target-hitting probabilities. The truncation error e^(−r^(2/3)) is negligible relative to e^(−x sqrt(r/D)); OU path continuity and finite exponential moments enable dominated convergence. Independent full resets give the exact renewal identity (1−p)/(rp). Deterministic finite checks are reported separately, without claiming they prove the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Linn–Lawley Theorem 1 supplies large-reset completion-time distributions conditional on the successful-cycle probability; Theorem 3 computes that probability when F(t)~A t^b exp(−C/t).",
+        "Their Section 3.4 and appendix compute a run-and-tumble example, not the AOUP with positive spatial Brownian noise and Gaussian initial propulsion."
+      ],
+      "reasoning": "The general renewal theorem dominates the process-level reduction and is credited. It leaves open the specific coefficient A, which is the actual assessed theorem. No direct stronger prior coverage was identified from the inspected results, but standard heat-kernel/short-time theory is an outstanding priority risk.",
+      "searches": [
+        "First passage times under frequent stochastic resetting Samantha Linn Sean Lawley arxiv 2023 pdf",
+        "arXiv:2302.05409v1 Sections 2.1, 2.2.1, 3.4 and appendix",
+        "\"colored noise\" \"absorbing\" \"short time\" \"initial velocity\" Brownian"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.21124v1 (first public 2026-09-17)",
+      "arXiv:2302.05409v1 (Linn–Lawley, 2023)",
+      "arXiv:2509.18515v1 (Shankari–Sahoo, 2025)",
+      "arXiv:1607.06048 (Pal–Reuveni, 2016/2017)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source gives the AOUP stochastic equations, numerical fixed-velocity reset comparison and weak-activity phase diagrams, but not the displayed exponential-moment prefactor.",
+        "Linn–Lawley predict the completion-time law given the success probability; the new proof provides a rate-independent multiplicative coefficient for that success probability.",
+        "Shankari and Sahoo instead study unrestricted stationary positional spreading and the MSD."
+      ],
+      "reasoning": "The renewal part is a corollary of known theory. The distinct new implication is the exact protocol dependence of p_r at arbitrary fixed activity, uniform with respect to the reflecting wall at interior starts. Neither the stationary MSD nor qualitative finite-rate phase shifts imply this coefficient. If a sufficiently broad heat-kernel expansion is available with this coefficient, the claim might already follow and requires independent priority assessment.",
+      "searches": [
+        "arXiv:2609.21124v1 eqs. (1)–(4), Sections 3.2–3.6, 4",
+        "arXiv:2302.05409v1 Theorems 1 and 3",
+        "arXiv:2509.18515v1 Sections II–III",
+        "\"large resetting rate asymptotic first passage drift diffusion reflecting absorbing velocity drift initial distribution\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.21124 discusses the fixed-velocity protocol by simulation in Section 3.4 and identifies analytic velocity-protocol study as a direction in Section 4.",
+        "Linn and Lawley treat frequent restart through short-time first-passage asymptotics but do not specify the full OU velocity prefactor for this confined model."
+      ],
+      "reasoning": "The new statement is equivalent to an exact leading coefficient for the no-reset Laplace transform of the AOUP absorption time and hence its short-time hitting probability. Existing equivalent renewal expressions are general transformations, not computations of that coefficient. A general short-time diffusion theorem could still implicitly imply the coefficient; this is explicitly treated as a residual risk.",
+      "searches": [
+        "\"strong resetting\" \"active Ornstein\" \"first passage\" velocity",
+        "\"first passage\" \"Ornstein Uhlenbeck propulsion\" \"large resetting\" finite interval",
+        "arXiv:2609.21124v1 Sections 3.4 and 4",
+        "arXiv:2302.05409v1 Theorem 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shankari and Sahoo derive stationary MSD and propagator statistics; their Sections II–III do not present the confined absorption-time constant.",
+        "No relevant exact coefficient table or named tabulation appeared in the consulted searches."
+      ],
+      "reasoning": "The quantity is an asymptotic kinetic prefactor indexed by a velocity-redraw law, not a tabulated finite combinatorial invariant. Existing particle-resetting moment formulas do not determine it without a first-passage analysis. Absence from a search is not proof of uniqueness.",
+      "searches": [
+        "\"fast resetting\" \"random velocity\" \"first passage\" prefactor active",
+        "\"colored noise\" \"absorbing\" \"short time\" \"initial velocity\" Brownian",
+        "arXiv:2509.18515v1 stationary Ornstein–Uhlenbeck resetting"
+      ]
+    },
+    "rationale": "The primary 2026 AOUP paper derives weak-activity first-passage approximations and numerically contrasts velocity redraw protocols; its reported results do not supply the exact fixed-activity r→∞ reset-velocity Laplace-moment factor. Linn–Lawley 2023 yields universal frequent-reset limits once the small-time absorption probability is known but does not calculate the OU-propulsion and reflecting-boundary prefactor. This result isolates and proves that missing coefficient; the generic renewal identity and constant-drift Brownian formula are prior tools, not claims of originality.",
+    "residual_risks": [
+      "A general small-time diffusion heat-kernel or moving-boundary hitting theorem might imply the AOUP velocity prefactor after direct specialization; absence of direct matching searches cannot rule that out.",
+      "Published versions and all citations of the primary paper were not exhaustively independently reviewed.",
+      "The result is leading-order only; no quantified uniform error for all model parameters."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_EXPLICITLY_COVERING exact large-reset velocity Laplace-moment coefficient",
+        "evidence": "Sections 3.4 and 4 present fixed-velocity results numerically and seek analytic study; Sections 3.2–3.6 focus on weak-activity finite-reset MFPT phase diagrams.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.21124",
+        "material_read": "Equations (1)–(4), Sections 2.1–2.3, 3.1–3.6, conclusion including explicit fixed-velocity numerical discussion and future directions",
+        "method": "Full scientific text in arXiv-rendered HTML, read relevant derivations/results",
+        "title": "Persistence, resetting, and first-passage times of an active Ornstein–Uhlenbeck particle",
+        "trigger": "Same physical AOUP, absorbing/reflecting geometry, velocity-redraw protocols"
+      },
+      {
+        "assessment": "BROADER_RENEWAL_FRAMEWORK_BUT_COEFFICIENT_NOT_COMPUTED",
+        "evidence": "Theorem 3 assumes the short-time FPT coefficient; Section 3.4 considers telegraph/run-and-tumble dynamics, not confined OU propulsion.",
+        "identifier_or_url": "https://arxiv.org/abs/2302.05409",
+        "material_read": "Theorems 1–3, Sections 2.1–2.2, Sections 3.1 and 3.4, Appendix example 3.4 formulas",
+        "method": "Full scientific text in arXiv-rendered HTML, read mathematical statements and examples",
+        "title": "First-passage times under frequent stochastic resetting",
+        "trigger": "Strongest related general frequent-restart theorem"
+      },
+      {
+        "assessment": "DIFFERENT_OBSERVABLE_NOT_COVERING",
+        "evidence": "The central observables are propagators and MSD with no absorbing endpoint or first-passage prefactor.",
+        "identifier_or_url": "https://arxiv.org/html/2509.18515v1",
+        "material_read": "Sections I–III model, resetting method, OU covariance and stationary mean-square displacement results",
+        "method": "Full arXiv HTML article, inspected model and results portions",
+        "title": "Active Ornstein-Uhlenbeck particle under stochastic resetting",
+        "trigger": "Same active noise with resetting, plausible stronger moment calculations"
+      },
+      {
+        "assessment": "ESTABLISHES_GENERIC_RESTART_FRAMEWORK",
+        "evidence": "The general restart framework does not by itself fix the AOUP boundary-hitting prefactor.",
+        "identifier_or_url": "https://arxiv.org/abs/1607.06048",
+        "material_read": "Abstract and bibliographic record; exact renewal identity cross-checked against explicit formula in Linn–Lawley",
+        "method": "Article abstract plus complete independent renewal formula in another primary source",
+        "title": "First Passage Under Restart",
+        "trigger": "Original generic restart identity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8a28075-a079-4e83-8f56-ae25b2b415ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The explicit random-velocity prefactor resolves a central source-paper control choice: resampling stationary self-propulsion versus a prescribed velocity at every restart. It predicts a nontrivial, rate-independent multiplicative performance difference at strong resetting without weak-activity perturbation. The factor can be large for appreciable activity and target distance, so it is physically interpretable and experimentally testable; it is not an arbitrary arithmetic slice.",
+    "status": "PASS"
+  }
+}
