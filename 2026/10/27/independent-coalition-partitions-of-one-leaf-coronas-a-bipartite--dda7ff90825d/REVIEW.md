@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** Each private leaf forces every independent dominating set to contain exactly one vertex of its attached pair. In any coalition partition the two appearances of each attachment index produce a twice-covered support system with complementary coalitional supports. Its residual partition argument bounds the classes by four, and the induced two-by-two coalition graph has a perfect matching, forcing a complementary pair of independent dominating sets and hence bipartiteness. A base bipartition constructs an admissible four-class partition. Counting initial presentations and subtracting those with component-separated support proves the exact coefficient. The boundary case of a one-vertex base is stated separately. Standalone adjacency-level exhaustive checks for 82 labelled graphs corroborate every predicted partition size and multiplicity.
+
+## Originality
+**PASS, subject to residual literature access risk.** The 2023 independent-coalition existence paper poses the general characterization problem and its Proposition 4.8 already proves the general bipartite-necessity implication for four-class partitions in isolate-free graphs without a full vertex. That previously known implication is credited, not claimed as new; the new work proves every corona partition has four classes, sufficiency and complete enumeration. The 2026 counting manuscript covers special families including trees, which can already imply the connected-tree-base counting subcase; no novelty is claimed for that implication. The present statement concerns every finite base graph, including cyclic bipartite and nonbipartite bases, and adds the component-dependent correction for disconnected bases. Searches of relevant mathematical literature, aliases and a semantic mathematical-result database found no equivalent general corona theorem. The full PDF of a relevant 2025 article could not be inspected, so coverage risk remains.
+
+## Mathematical value
+**PASS.** The result settles independent-coalition existence on the entire one-leaf-corona construction by a sharp bipartiteness test, proves complete four-class rigidity, and counts all partitions with an explicit multiplicity correction. It covers infinitely many connected cyclic families and disconnected combinations, and reduces both existence and counting to graph order, bipartiteness, and component count. This supplies a concrete structural answer to the class-existence question rather than a routine numerical observation.
+
+## Closest literature and limitations
+The 2023 paper by Samadzadeh and Mojdeh (arXiv:2306.02079) introduces the invariant and its existence question. Alikhani et al. (DOI:10.7151/dmgt.2543) study independent coalition graphs and extremal classes; its accessible abstract was compared, but PDF inspection remained inaccessible. Asadzadeh and Alikhani's 2026 preprint studies counts and already covers a narrower tree situation. Literature indexing and inaccessible relevant full texts leave a priority risk. This is a self-review, not an independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
