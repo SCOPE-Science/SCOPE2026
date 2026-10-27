@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The spatial shift has truncated-polynomial module \(\mathbb F_p[z]/(z^{p^a})\), and the neighborhood sum acts as multiplication by \(z^{p-1}\). The residue-class decomposition yields one long Jordan chain and \(p-2\) short chains. The memory companion identity proves nilpotence on each chain, and its one-dimensional kernel forces exactly one Jordan block per chain. This proves the claimed complete finite-time rank and state-count laws. Exact-field computations verify the resulting ranks for 17 parameter triples and every relevant power. The proof, not those computations, establishes the universal claim.
+
+**Originality — PASS against inspected material, with residual historical risk.** Endo (2026), the full motivating paper, establishes extinction and an upper bound, not the exact Jordan profile, two-rate rank collapse, or complete extinction-time histogram. The one-step classical literature provides algebraic techniques but does not explicitly cover the asserted memory-layer formula in the material inspected. Guan and He (1986) discuss broad higher-order state-transition diagrams and may contain a more general result that implies this specialization; its full text was unavailable. No exact matching mathematical statement was identified in the inspected published material. This is a qualified assessment, not a proof of priority.
+
+**Value — PASS.** Extinction-time upper bounds do not determine how many states remain possible at each iteration. The exact two-stage rank profile is a structural invariant of the natural multivalued memory extension, shows that the prime-field case has a sharp universal late compression bottleneck, and determines the entire distribution of first-extinction times. The result is not an arbitrary small-parameter enumeration: it holds for every prime, every prime-power spatial size and every memory depth.
+
+**Limitations and closest literature.** Prime fields, prime-power rings, the equal-weight consecutive-neighbor rule and finite memory are essential to the proved statement. Endo (2026) is the closest same-model source. Guan–He (1986) is a significant uninspected possible broad-coverage source. Other additive-automata studies address different rules or less specific invariants.
+
+Self-review: passed. Independent audit: not yet performed.
