@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For each fixed pair of symbol counts, direct enumeration of all eight triple patterns shows they depend precisely on three integer zero-prefix moments. The length-three deck determines those moments because shorter decks can be recovered by counting extensions. Two independent linear constraints leave at most one free variable for at most three ones, and the square norm intersects the line at no more than two points. At four ones a rank-two integer family has prescribed linear moments, and algebraic norm powers have constant square norm. The root-of-unity obstruction proves distinctness for every k; strict coordinate separation and padding give the all-length logarithmic lower bound. The included checker tests 2,372 short-word moment identities, the three-one upper bound through length fourteen and concrete witnesses for k=1 through 5. Finite computations are corroboration, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rigo–Salimov 2013 Proposition 2 gives a global polynomial upper bound on the number of m-binomial classes of length n; Lemma 3 gives the exact number of binary two-binomial classes.",
+        "Lejeune–Rigo–Rosenfeld 2020 Proposition 12 bounds the total number of k-binomial classes as n grows, while its concrete class-generation algorithm concerns two-binomial equivalence."
+      ],
+      "reasoning": "A bound for the number of distinct decks says nothing decisive about the maximum inverse-image size at exactly four ones: it may coexist with bounded or arbitrarily growing fibers. The specific two-binomial classification does not imply the weight-four three-deck result. Neither stronger-looking coverage is a covering theorem.",
+      "searches": [
+        "Rigo Salimov 2013 binomial equivalence zero one finite k=3 words weight 4 reconstruction fibers unbounded",
+        "https://hdl.handle.net/2268/149313",
+        "https://arxiv.org/abs/2001.11732"
+      ]
+    },
+    "checked_sources": [
+      "Rigo–Salimov 2013: https://hdl.handle.net/2268/149313",
+      "Lejeune–Rigo–Rosenfeld 2020: https://arxiv.org/abs/2001.11732",
+      "Chrisnata–Kiah–Karingula–Vardy–Yaakobi–Yao: https://doi.org/10.3934/amc.2021032",
+      "Rigo 2020 seminar: https://hdl.handle.net/2268/249592",
+      "OEIS A258585: https://oeis.org/A258585"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chrisnata et al. Theorem 23 (attributed to Manvel et al.) proves uniqueness when weight is at most deck length minus one, and Section 5.3 studies weight three at deck length three; its definitions include zero-gap vectors and fixed-weight deck counts.",
+        "Existing records also include a bound of two preimages when binary words have exactly three ones and full length-three decks."
+      ],
+      "reasoning": "A two-preimage bound at weight three does not imply the threshold, and a zero-gap matrix parameterization at weight three or a total class count does not yield arbitrarily large fibers at weight four. The new arithmetic argument produces k+1 pairwise distinct integral solutions at identical three-deck and is independent of those prior conclusions.",
+      "searches": [
+        "https://doi.org/10.3934/amc.2021032",
+        "https://arxiv.org/html/2001.11732v1",
+        "three-deck binary four one positions sum of squares moments fiber growth"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2020 Lejeune–Rigo–Rosenfeld finite-word paper explicitly defines k-binomial equivalence (Definition 2), with Section 2 on binary two-binomial classes, Section 3 on general two-binomial classes, Section 4 on quotient-count growth, and Section 5 on non-context-freeness."
+      ],
+      "reasoning": "Under the standard alias three-binomial equivalence, the claim is about the largest cardinality of a fixed equivalence class conditioned on four occurrences of one symbol, not a language of singletons or a total number of classes. The inspected 2020 statements do not imply an explicit norm-form family of k+1 distinct words at that fixed composition.",
+      "searches": [
+        "3-binomial equivalence class binary words weight four arbitrarily large classes",
+        "scattered subword length 3 counts four ones fiber number multiplicity finite binary reconstruction",
+        "https://arxiv.org/html/2001.11732v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A258585 tabulates the *number of classes* for all binary words at each length and lists a three-one ambiguous pair at length seven.",
+        "Chrisnata et al. give a trellis enumeration of D_k(n), the number of distinct k-decks, with values through length thirty for selected k. Their Section 5.3 analyzes the weight-three class count D_{3,3}(n)."
+      ],
+      "reasoning": "An aggregate number of deck classes is not a table of fiber sizes at fixed four-one composition. The exhaustive finite tables cannot cover an infinite sequence with growing fiber cardinality. No exact weight-four inverse-fiber table was located.",
+      "searches": [
+        "https://oeis.org/A258585",
+        "\"D_{3,4}(n)\" binomial decks four ones",
+        "3-binomial deck multiplicity binary length eight class size distribution exact nontrivial classes"
+      ]
+    },
+    "rationale": "The inspected complete primary works introduce the equivalence, count total deck classes or treat fixed weight three, whereas this claim proves a sharp fixed-support transition from bounded to unbounded fiber cardinalities with an explicit norm-form construction at weight four. Stronger-looking results on global class counts do not imply or state this particular fixed-support family. Priority risk remains for unindexed equivalent statements.",
+    "residual_risks": [
+      "An unindexed older proof may contain a specialization yielding exactly the four-one unbounded-fiber theorem.",
+      "The 2019 short conference version was compared by its published objectives and the available full expanded 2021 version, not treated as a separately fully inspected six-page text.",
+      "The logarithmic lower bound is not asserted optimal; that limitation does not undermine its unboundedness conclusion."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the relation and bounds the number of classes; no fixed-weight-four three-deck fiber construction is stated in inspected material.",
+        "evidence": [
+          "Definition 1 and Proposition 1 at PDF pages 2–3; Lemma 3 and Proposition 2 at page 4; proof of Proposition 2 in appended pages 12–13."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/149313/2/binomial_final_long.pdf",
+        "material_read": "Full-text definitions, first properties, finite quotient count, Sturmian/Thue–Morse statements and relevant proof appendix including the proof of Proposition 2.",
+        "method": "Readable preprint PDF text plus visual page inspection",
+        "title": "Another Generalization of Abelian Equivalence: Binomial Complexity of Infinite Words (long version)",
+        "trigger": "Foundational dated definition and possible general upper bound"
+      },
+      {
+        "assessment": "The finite class-size discussion does not cover the present three-binomial weight-four unbounded-fiber theorem.",
+        "evidence": [
+          "Definition 2, Remark 4, Proposition 12, Theorem 17 and Section 5 in arXiv:2001.11732."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.11732",
+        "material_read": "The relevant full-text article sections, including abstract, Section 1 definitions, Section 2 exact binary two-binomial class count, Sections 3–4 group isomorphism and quotient growth, and Section 5 non-context-freeness argument.",
+        "method": "arXiv full HTML mathematical statements and PDF page inspection",
+        "title": "On the Binomial Equivalence Classes of Finite Words",
+        "trigger": "Most plausible finite-class cardinality paper"
+      },
+      {
+        "assessment": "Counts distinct observations and derives bounds at weight three; does not state a fixed-weight-four family of unbounded fibers.",
+        "evidence": [
+          "Section 2 defines D_k(n) as the number of distinct observations; Section 5.3 states D_{3,3}(n) and zero-vector results; pages 1–2 and 14–16."
+        ],
+        "identifier_or_url": "https://yaakobi.net.technion.ac.il/files/2022/08/60_k_Decks_Disc_Math21.pdf",
+        "material_read": "Definition and trellis-count objectives, the weight-dependent moment/zero-vector setup, Section 5.3 weight-three bounds and conjecture, with PDF text and relevant pages inspected.",
+        "method": "Open full-text research PDF, keyword/section searches and page inspection",
+        "title": "On the Number of Distinct k-Decks: Enumeration and Bounds",
+        "trigger": "Same deck measurement, weight-conditioned reconstruction and possible prior implication"
+      },
+      {
+        "assessment": "Discusses two-binomial class-size algorithms and general quotient counts; no four-one three-deck fiber divergence.",
+        "evidence": [
+          "The finite classes are introduced on slide 12; explicit algorithms from slide 15 onward are for two-binomial equivalence."
+        ],
+        "identifier_or_url": "https://orbi.uliege.be/bitstream/2268/249592/1/Rigo.pdf",
+        "material_read": "Equivalence-class slides 12–18, broader algebra and growth slides, and conclusions 47–53.",
+        "method": "Full seminar slides PDF text and visual inspection",
+        "title": "Binomial³: coefficients, equivalence, complexity",
+        "trigger": "Seminar surveys finite k-binomial classes and possible broader implications"
+      },
+      {
+        "assessment": "Provides total counts of equivalence classes and ambiguous length-seven pairs; no fixed-weight-four growing class-size statement.",
+        "evidence": [
+          "OEIS A258585, example of the pair 0110001 and 1000110, created November 2015."
+        ],
+        "identifier_or_url": "https://oeis.org/A258585",
+        "material_read": "Sequence definition, examples, author/date notes and bibliography.",
+        "method": "Complete entry text inspection",
+        "title": "OEIS A258585: Number of equivalence classes of 3-binomial complexity for binary words",
+        "trigger": "Exact database and a pair of three-deck-equivalent words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef95cc2f-fb13-4202-9ad5-d2b285730943",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The least number of marked symbols permitting unbounded multiplicity-sensitive three-deck reconstruction ambiguity is a natural operational threshold: at most three markers, every observation has at most two originals, while exactly four markers admits logarithmically growing ambiguity for every sufficiently large length. The explicit quadratic-form norm family provides a structural rather than ad-hoc finite mechanism. It sharpens qualitative reconstruction uncertainty in sparsely marked strings without requiring a downstream conjecture or exact global optimum.",
+    "status": "PASS"
+  }
+}
