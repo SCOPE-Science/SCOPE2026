@@ -1,0 +1,154 @@
+{
+  "checked_sources": [
+    "Gallatin, J. Math. Phys. 53 (2012), 013509, DOI 10.1063/1.3676310.",
+    "Diaz, Le, and Robins, arXiv:1602.08593v1.",
+    "Senesi and Lee, J. Appl. Cryst. 48 (2015), 565–577, DOI 10.1107/S1600576715002964 (abstract and metadata only)."
+  ],
+  "claim": "Let \\(T\\subset\\mathbb R^3\\) be a regular tetrahedron with vertices \\(v_0=0,v_1,v_2,v_3\\), edge lattice \\(L=\\sum_{j=1}^3\\mathbb Z v_j\\), and reciprocal edge lattice \\(L^*=\\{\\xi:\\langle\\xi,v_j\\rangle\\in\\mathbb Z\\text{ for }j=1,2,3\\}\\). For \\(\\xi\\in L^*\\), put \\(\\lambda_0=0\\) and \\(\\lambda_j=\\langle\\xi,v_j\\rangle\\). The Fourier transform of Euclidean surface measure on \\(\\partial T\\) vanishes exactly when the multiset \\(\\{\\lambda_0,\\lambda_1,\\lambda_2,\\lambda_3\\}\\) has multiplicity type \\(1+1+1+1\\), type \\(2+2\\), or type \\(2+1+1\\) with repeated value \\(r\\) and singleton values \\(s,t\\) satisfying \\(s+t=2r\\).",
+  "correctness": {
+    "rationale": "For integer \\(p,q\\) with \\(q\\ne0\\), direct integration gives \\(F_2(p,q)=(\\mathbf 1_{\\{p=0\\}}-\\mathbf 1_{\\{p=q\\}})/(2\\pi i q)\\); the \\(q=0\\) cases follow by symmetry and area. Thus each face integral is \\(0\\) for three distinct integer nodes, \\(1/2\\) for three equal nodes, and \\(-i/(2\\pi(s-r))\\) for a repeated pair \\(r,r\\) with singleton \\(s\\). Each facet contributes the same positive factor \\(2A_f\\) because \\(T\\) is regular. Summing the four face terms exhausts partitions \\(1+1+1+1\\), \\(2+2\\), \\(2+1+1\\), \\(3+1\\), and \\(4\\). The first two vanish; type \\(2+1+1\\) vanishes iff \\(s+t=2r\\); type \\(3+1\\) has nonzero real part \\(1/2\\) and type \\(4\\) has value \\(2\\) after removing the common factor. The rational finite checker is supplementary, not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gallatin's full text explicitly converts the Fourier transform of a shape's volume into a surface integral with a normal factor; it does not give the scalar unweighted surface transform.",
+        "Diaz–Le–Robins provide a general indicator-transform decomposition and Poisson-summation application, not the stated boundary-measure lattice-zero census.",
+        "Senesi–Lee's abstract describes polyhedral scattering functions and form factors, making it a relevant adjacent source; its full text was not inspected, so no noncoverage claim is based on it."
+      ],
+      "reasoning": "A more general formula for a volume transform or a normal-weighted boundary integral does not by itself classify zeros of the scalar surface-area transform. Equal facet areas and the exact integer-node triangular integral are both used in the present proof. No inspected stronger result was found that implies the complete multiplicity criterion.",
+      "searches": [
+        "polyhedral scattering form factor surface measure versus volume measure Fourier transform tetrahedron",
+        "arXiv:1602.08593v1 Fourier transform polytope face-poset Stokes formula",
+        "DOI 10.1063/1.3676310 Gauss law Fourier transform polyhedron boundary integral",
+        "DOI 10.1107/S1600576715002964 Scattering functions of polyhedra"
+      ]
+    },
+    "checked_sources": [
+      "Gallatin, J. Math. Phys. 53 (2012), 013509, DOI 10.1063/1.3676310; first online 2012-01-17.",
+      "Diaz, Le, and Robins, arXiv:1602.08593v1; first submitted 2016-02-27.",
+      "Senesi and Lee, J. Appl. Cryst. 48 (2015), 565–577, DOI 10.1107/S1600576715002964; first online 2015-03-31; abstract only inspected."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general polytope transform papers cited above concern the indicator \\(1_T\\,dx\\) or the normal-weighted boundary expression obtained from Gauss's law.",
+        "Earlier simplex Fourier-zero classifications concern the volume measure on the simplex, whereas this claim concerns the scalar Euclidean surface-area measure on its boundary."
+      ],
+      "reasoning": "Changing from volume measure to scalar surface-area measure changes the transform: the latter is a sum of four equal-area face integrals without normal weights. The earlier volume-transform zero sets therefore do not imply this surface-transform classification. The current claim concerns a distinct measure and a complete lattice zero criterion.",
+      "searches": [
+        "Fourier transform of tetrahedron volume measure integer reciprocal nodes local zero crossings",
+        "complete real Fourier zero locus of a planar triangle indicator reciprocal lattice",
+        "Fourier transform of regular tetrahedral shell unweighted surface measure exact integer-node zeros",
+        "Fourier transform of polyhedron indicator versus scalar boundary surface measure"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gallatin, DOI 10.1063/1.3676310, full-text sections on the Gauss-law boundary representation and three-dimensional polyhedra: the boundary integrand is weighted by the outward normal, and the purpose is to evaluate the volume transform.",
+        "Diaz–Le–Robins, arXiv:1602.08593v1, relevant full-text sections on the face-poset/Stokes representation: the focal transform is the indicator-function transform used for solid-angle sums.",
+        "Published records on finite-field simplex Fourier support and zero-free regions for bipyramid volume transforms concern different measures and invariants from the scalar surface measure here."
+      ],
+      "reasoning": "Equivalent descriptions may call the object a uniform tetrahedral shell, boundary-area measure, or scalar surface form factor. The inspected general formulas supply techniques but do not state the exact reciprocal-edge-lattice multiplicity classification. Finite-field simplex spectra and volume-transform zero-free strips are different measures and invariants, so they do not imply this statement. The nearby polyhedral-scattering article remains an unresolved priority risk.",
+      "searches": [
+        "Fourier transform of Euclidean surface measure on boundary of standard tetrahedron at integer lattice frequencies exact zero set pairwise distinct coordinates",
+        "standard tetrahedron boundary surface Fourier transform lattice zeros facet area irrational sqrt 3 coordinate plane triangular faces",
+        "Fourier transform of simplex boundary measure integer lattice zero classification tetrahedron facewise Fourier transforms",
+        "Fourier transform of polytope boundary surface measure zeros lattice points tetrahedron diffraction",
+        "Fourier transform of tetrahedron boundary surface measure reciprocal lattice zeros regular tetrahedral shell form factor"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published records found concern finite-field Fourier support of a four-point affine simplex, zero-free regions for a three-dimensional bipyramid volume transform, and a quantum-graph spectral problem on a tetrahedron.",
+        "No directly matching published statement or exact table was identified in the inspected material."
+      ],
+      "reasoning": "No canonical exact database or finite table applies naturally to this infinite analytic lattice-zero classification. Targeted published-record searches were therefore used to compare the object, measure, lattice, and multiplicity condition against nearby mathematical results. No directly matching statement was identified in the inspected material; the database and literature coverage are not exhaustive.",
+      "searches": [
+        "Fourier transform of Euclidean surface measure on boundary of standard tetrahedron at integer lattice frequencies exact zero set pairwise distinct coordinates",
+        "Fourier transform of simplex boundary measure integer lattice zero classification tetrahedron facewise Fourier transforms",
+        "Fourier transform of polytope boundary surface measure zeros lattice points tetrahedron diffraction",
+        "Published-record search for regular tetrahedral shell form factor and reciprocal-lattice extinction rules"
+      ]
+    },
+    "rationale": "Targeted literature searches addressed the unweighted surface-measure transform, reciprocal-edge-lattice zeros, polyhedral shell form factors, and facewise Fourier formulations. The closest fully inspected primary works treat volume-indicator transforms or normal-weighted boundary representations, not this scalar surface-measure zero classification. The Senesi–Lee polyhedral-scattering article is plausibly adjacent, but only its abstract and metadata were inspected; it remains a stated priority risk rather than evidence of noncoverage.",
+    "residual_risks": [
+      "An unindexed result on Fourier zeros of regular tetrahedral shells or polyhedral surface form factors may state an equivalent classification.",
+      "The full Senesi–Lee paper was not inspected, so it remains a plausible unresolved source rather than evidence of noncoverage.",
+      "The contribution is a precise three-dimensional lattice classification; no general theorem for arbitrary polyhedra or off-lattice frequencies is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant general machinery but not the same transform or a stated lattice-zero classification.",
+        "evidence": "The paper writes the volume transform as a boundary integral containing the outward normal dotted with the frequency vector; its 3D section reduces volume integrals to face and edge integrals.",
+        "identifier_or_url": "DOI:10.1063/1.3676310",
+        "material_read": "Full paper's relevant sections: introduction, Gauss-law representation of the volume transform, polygon formula, and three-dimensional polyhedron discussion.",
+        "method": "Compared the integration measure and boundary weight in the displayed formulas with the unweighted scalar surface-area measure in the claim.",
+        "title": "Fourier, Gauss, Fraunhofer, Porod and the shape from moments problem",
+        "trigger": "Primary source on Fourier transforms of polyhedral shapes and boundary formulas."
+      },
+      {
+        "assessment": "Provides general indicator-transform formulas but does not state the scalar boundary-measure zero classification.",
+        "evidence": "The paper defines the Fourier transform of the polytope indicator and uses it in Poisson summation for solid-angle sums; non-generic strata are associated with face orthogonality.",
+        "identifier_or_url": "arXiv:1602.08593v1",
+        "material_read": "Abstract, introduction, general face-poset/Stokes representation, and the sections explaining frequency strata and solid-angle sums.",
+        "method": "Compared the stated object, transform, and target invariant rather than relying on title similarity.",
+        "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+        "trigger": "Primary source on polytope Fourier formulas, face-poset decomposition, and lattice-frequency behavior."
+      },
+      {
+        "assessment": "Potentially relevant adjacent work; originality remains exposed to an equivalent result in the inaccessible full text.",
+        "evidence": "The abstract describes scattering functions and form factors of regular and semiregular polyhedra, but does not specify the scalar surface-measure transform or this lattice-zero criterion.",
+        "identifier_or_url": "DOI:10.1107/S1600576715002964",
+        "material_read": "Publisher abstract and bibliographic metadata only; the full text was not inspected.",
+        "method": "Used only to identify the scope and retain it as a priority risk; no statement-level noncoverage conclusion was drawn.",
+        "title": "Scattering functions of polyhedra",
+        "trigger": "Highly relevant polyhedral-scattering/form-factor literature."
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "An unindexed result on Fourier zeros of regular tetrahedral shells or polyhedral surface form factors may state an equivalent classification.",
+    "The full Senesi–Lee paper was not inspected, so it remains a plausible unresolved source rather than evidence of noncoverage.",
+    "The contribution is a precise three-dimensional lattice classification; no general theorem for arbitrary polyhedra or off-lattice frequencies is claimed."
+  ],
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed9900ed-231c-4254-8129-3cf39046a75b",
+  "self_review_status": "passed",
+  "source_inspections": [
+    {
+      "assessment": "Relevant general machinery but not the same transform or a stated lattice-zero classification.",
+      "evidence": "The paper writes the volume transform as a boundary integral containing the outward normal dotted with the frequency vector; its 3D section reduces volume integrals to face and edge integrals.",
+      "identifier_or_url": "DOI:10.1063/1.3676310",
+      "material_read": "Full paper's relevant sections: introduction, Gauss-law representation of the volume transform, polygon formula, and three-dimensional polyhedron discussion.",
+      "method": "Compared the integration measure and boundary weight in the displayed formulas with the unweighted scalar surface-area measure in the claim.",
+      "title": "Fourier, Gauss, Fraunhofer, Porod and the shape from moments problem",
+      "trigger": "Primary source on Fourier transforms of polyhedral shapes and boundary formulas."
+    },
+    {
+      "assessment": "Provides general indicator-transform formulas but does not state the scalar boundary-measure zero classification.",
+      "evidence": "The paper defines the Fourier transform of the polytope indicator and uses it in Poisson summation for solid-angle sums; non-generic strata are associated with face orthogonality.",
+      "identifier_or_url": "arXiv:1602.08593v1",
+      "material_read": "Abstract, introduction, general face-poset/Stokes representation, and the sections explaining frequency strata and solid-angle sums.",
+      "method": "Compared the stated object, transform, and target invariant rather than relying on title similarity.",
+      "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+      "trigger": "Primary source on polytope Fourier formulas, face-poset decomposition, and lattice-frequency behavior."
+    },
+    {
+      "assessment": "Potentially relevant adjacent work; originality remains exposed to an equivalent result in the inaccessible full text.",
+      "evidence": "The abstract describes scattering functions and form factors of regular and semiregular polyhedra, but does not specify the scalar surface-measure transform or this lattice-zero criterion.",
+      "identifier_or_url": "DOI:10.1107/S1600576715002964",
+      "material_read": "Publisher abstract and bibliographic metadata only; the full text was not inspected.",
+      "method": "Used only to identify the scope and retain it as a priority risk; no statement-level noncoverage conclusion was drawn.",
+      "title": "Scattering functions of polyhedra",
+      "trigger": "Highly relevant polyhedral-scattering/form-factor literature."
+    }
+  ],
+  "value": {
+    "rationale": "The Fourier zero set of a uniform tetrahedral shell is a natural diffraction and reciprocal-lattice sampling invariant distinct from the volume form factor. The result gives a complete exact classification over all reciprocal-edge-lattice frequencies, including the nontrivial midpoint condition for the \\(2+1+1\\) multiplicity pattern. It supplies a reproducible structural rule, not just a finite census or normalization check.",
+    "status": "PASS"
+  }
+}
