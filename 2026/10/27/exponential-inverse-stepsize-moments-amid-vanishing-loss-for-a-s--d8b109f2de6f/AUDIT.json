@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The original oracle formula, exact two maps, Jensen second-moment bound and bounded supermartingale convergence were independently reconstructed. The all-plus recurrence has a summable distance to its stable fixed point, proving a finite nonzero rescaled-gap product. A final minus observation yields 2^n x_n->D on the n-letter rare event of probability 2^-n, and hence the liminf for every p>1. Finite rational verification corroborated exact recurrence and branch calculations; limits are proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The heavy-tail source studies externally randomized Markovian learning-rate schedules and stationary SGD iterates",
+        "STORM record gives fixed-template estimator-memory covariance and noise floor"
+      ],
+      "reasoning": "Those results involve different random recursions and their target variable is iterate tail/covariance, not the inverse of the endogenous ideal signal-to-noise gain. No available stronger coverage implication was established.",
+      "searches": [
+        "arXiv:2302.05516v2 Sections 2-4 and Appendix B",
+        "adaptive step sizes for preconditioned stochastic gradient descent local variance exact dynamics quadratic",
+        "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.16956v1 (28 Nov 2023 first public source date)",
+      "arXiv:2311.16956v2 (full-text HTML, 18 Sep 2024)",
+      "arXiv:2302.05516v2 (full-text HTML, 29 Aug 2023)",
+      "2026/9/20/SCOPE-sosgm-feedback-curvature-stability--021cc30589a6",
+      "2026/10/4/SCOPE-exact-stationary-covariance-and-stability-factorization-for-cons--fd5004e04a73",
+      "2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1",
+      "2026/10/4/SCOPE-exact-spike-and-reset-law-for-nipg-on-scalar-strongly-convex-qua--4385d4d84505"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.4(i) already supplies O(1/n) mean optimization error",
+        "The rare-word event has probability 2^{-n}, but its reciprocal gain scales as 2^{pn}",
+        "Heavy-tail work assumes a distinct exogenous stepsize family"
+      ],
+      "reasoning": "The expected-loss portion is implied and credited, whereas the exponential inverse-step moment bound is neither a consequence of that upper bound nor a corollary of Markovian exogenous-learning-rate stationary-tail theory.",
+      "searches": [
+        "arXiv:2311.16956v2 equation (3.2), Theorem 3.4, Algorithm 5",
+        "arXiv:2302.05516v2 Section 2 recurrence (5)",
+        "true variance oracle stepsize squared gradient divided expected gradient norm squared quadratic two point noise reciprocal Bessel stochastic approximation limit",
+        "noninterpolating two opposite shifted quadratic stochastic SGD exact optimal step expectation inverse step 2^n logarithmic rare event"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact source oracle becomes alpha=x^2/(1+x^2) on two shifted quadratic components",
+        "Source's cited theorem treats E objective gap, not E alpha^{-p/2}",
+        "Rare-word proof gives nonstationary inverse-step moments"
+      ],
+      "reasoning": "Reciprocal gradient signal-to-noise, local gradient-energy ratio and reciprocal oracle learning rate are equivalent descriptions of the gain here. The inspected source does not analyze the inverse of its equation-(3.2) factor; the new inverse-moment result does not follow from its O(1/n) first positive moment estimate.",
+      "searches": [
+        "true variance oracle stepsize squared gradient divided expected gradient norm squared quadratic two point noise reciprocal Bessel stochastic approximation limit",
+        "gradient signal to noise ratio adaptive stepsize two quadratic clients exact contraction rare event reciprocal step exponential",
+        "signal variance ratio SGD reciprocal step size explosive inverse moments under Bernoulli additive noise",
+        "arXiv:2311.16956v2 equation (3.2) and text searches for reciprocal/inverse"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The searched claim records contained no occurrence of the listed exact alias phrases",
+        "Full-text source's examples and theorem show expected error behavior rather than a tabulated inverse-moment rate"
+      ],
+      "reasoning": "This is not a finite-table computation. No inspected publication record or accessible local claim gives this exact two-branch oracle map and the 2^{(p-1)n} inverse-moment lower bound.",
+      "searches": [
+        "Kohne Kreis Schiela Herzog 2023 oracle step alpha gradient squared over expected gradient norm squared rare sample path exponentially growing inverse learning rate two quadratic losses",
+        "noninterpolating two opposite shifted quadratic stochastic SGD exact optimal step expectation inverse step 2^n logarithmic rare event",
+        "arXiv:2311.16956v2 Appendix B",
+        "accessible local claim ledger keyword search: inverse step, reciprocal step, signal to noise, local variance, oracle step"
+      ]
+    },
+    "rationale": "The original mean-loss rate is credited. The candidate's new content is the positive inverse-gain exponential liminf for every p>1, proved on a specified nonstationary oracle trajectory. Full-text primary comparison and targeted scientific-record/accessible historical searches found no theorem implying that statement. Nonidentification is only best-knowledge, not priority certification.",
+    "residual_risks": [
+      "Equivalent theorem may exist for state-dependent step-size nonlinear Markov chains under different nomenclature.",
+      "Later publisher version of the motivating paper was not fully accessible and could contain additional results; the accessible arXiv v2 was compared.",
+      "Some published mathematical record links could not be opened as full text; their specific summaries make them less directly related, but priority remains unconfirmed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS mean-loss upper-order O(1/n), DOES NOT COVER the rare-sequence inverse-oracle-gain moment lower bound; practical Algorithm 5 is a different, estimator-based method",
+        "evidence": [
+          "Equation (3.2): alpha=||F'||^2/(L E||f'_xi||^2)",
+          "Theorem 3.4(i): O(1/k) expected loss for noninterpolation",
+          "Algorithm 5: smoothing, estimates and step rejection differ from the true-moment oracle"
+        ],
+        "identifier_or_url": "arXiv:2311.16956v2; https://arxiv.org/html/2311.16956v2",
+        "material_read": "Full-text HTML: introduction, problem setting, Section 3 and Theorem 3.4 with proof, sections on estimators and safeguards, numerical quadratic examples, Appendix B algorithm, text searches for inverse/reciprocal moments",
+        "method": "Read accessible source HTML and compare its inequalities and algorithm definitions with the new two-loss recurrence",
+        "title": "Adaptive Step Sizes for Stochastic Gradient Descent in Hilbert Spaces",
+        "trigger": "Exact equation-(3.2) oracle proposed in the primary source"
+      },
+      {
+        "assessment": "NOT COVERING: exogenous iid/cyclic/Markovian schedules and stationary iterate tail indices differ from the endogenous true-gradient-energy oracle and its finite-time inverse stepsize moments",
+        "evidence": [
+          "Section 1 specifies finite-state Markovian learning-rate schedules",
+          "SGD equation (5) analyzes random-affine iterate recursions",
+          "Results address stationary iterate tail index, rather than moments of reciprocal local oracle gain"
+        ],
+        "identifier_or_url": "arXiv:2302.05516v2; https://arxiv.org/html/2302.05516v2",
+        "material_read": "Full-text HTML: abstract, Sections 1-2 algorithm assumptions, main-result discussion, heavy-tail comparison and listed technical appendices",
+        "method": "Compared rate-generation mechanism, quantifiers and target moments",
+        "title": "Cyclic and Randomized Stepsizes Invoke Heavier Tails in SGD than Constant Stepsize",
+        "trigger": "Possible stronger tail-moment coverage in SGD with random stepsizes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8b109f2-de6f-45b6-b11a-43bee12c71f5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Inverse stepsize measures the scale/conditioning of the oracle gradient gain. Rare paths make its expected reciprocal exponentially large even as optimization error converges, a distinct and potentially important diagnostic phenomenon. The result covers every x0 in an open interval and all p>1. It is not a mere arbitrary numeric slice, a formatting check, or an unmotivated known-table value; it quantitatively separates typical objective improvement from mean inverse-gain behavior.",
+    "status": "PASS"
+  }
+}
