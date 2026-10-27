@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "For all integers m>=3,L>=2, DFT diagonalization gives T_{m,L}=L sum_t f((1-cos(2 pi t/m))/n). The continuous g(theta)=(1-cos theta)log(1-cos theta) has Fourier modes ghat_{k}=1/[|k|(|k|^2-1)] for |k|>=2; absolute convergence justifies grid aliasing, the positive exact deficit and its zeta expansion. For L=2, antipodal entries equal -Delta_m/(2m), giving independent sign products and the entire finite binomial distribution. Python 3 verifier passed 1175 finite checks; infinite proof is analytic. Exact-arithmetic and normalizations explicitly specified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2009.01589 supplies general decay-based matrix-function probing analyses.",
+        "arxiv:2212.09642 Sec.3.1 establishes a general entropy-probing bound with quadratic scale in the coloring distance for the normalized cycle family.",
+        "The proved cycle identity has a cubic leading term and an explicitly known fixed-m envelope over all multiples n=mL."
+      ],
+      "reasoning": "A broad uniform upper bound does imply nonnegativity and bounds on this family, but does not imply a sharp sign coefficient, exact fixed-size formula or full finite stochastic probability law by logical specialization alone. Exact general matrix-series facts can be combined with additional cycle-specific Fourier analysis; those generic facts are explicitly credited rather than presented as new.",
+      "searches": [
+        "arxiv:2009.01589 graph coloring probing sparse trace matrix functions exact cycle",
+        "arxiv:2212.09642 probing error Proposition 3.6 polynomial bound",
+        "stochastic Lanczos quadrature von Neumann entropy Gauss quadrature upper bounds monotone"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2212.09642v2 (HTML sections 1-3)",
+      "arxiv:2308.07722 (HTML sections 2-3)",
+      "arxiv:2009.01589 (accessible full-text probing/decay discussion)",
+      "Published mathematical-record semantic searches for cycle graph-entropy probing, exact Fourier alias, antipodal randomization and binomial laws"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General deterministic lower-bound result: S - T >= 0; our formula gives equality with an explicit positive Fourier-alias series and a strictly increasing L dependence.",
+        "General randomized unbiasedness and variance result: the antipodal specialization is an exact independent fair-sign sum with complete binomial probabilities and an entropy-specific coefficient.",
+        "The leading constant 2 zeta(3)(1-L^{-3}) is explicit and uniform over L>=2."
+      ],
+      "reasoning": "General prior theorems cover the signs and generic variance method, so those facts alone are not new; the exact spectral coefficient, sharp L envelope, and full distribution require the additional explicit Fourier computation. The new claim is neither an implication merely of a generic O(m^-2) error bound nor of generic stochastic unbiasedness. Its elementary algebraic derivability from classical Fourier tools is acknowledged.",
+      "searches": [
+        "arxiv:2212.09642 Section 3.1 probing error exact Fourier cycles",
+        "arxiv:2308.07722 sign probing variance exact graphs",
+        "graph Laplacian entropy probing estimates periodic vertex colors cycle graphs exact aliasing and sharp cubic cost law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In arxiv:2212.09642, Sec. 3.1, the sign structure of separated off-diagonal entries gives a deterministic probing lower bound; the inspected lemma also supplies an M-matrix power expansion.",
+        "In arxiv:2308.07722, Secs. 2-3, randomized sign probing and general variance expressions are given.",
+        "On cycles, Fourier diagonalization reduces the full claim to explicit trapezoid aliasing for (1-cos theta) log(1-cos theta) and an antipodal circulant entry."
+      ],
+      "reasoning": "The relevant source statements apply to the same trace estimators but do not state the exact C_{mL} entropy deficit F(m)-F(mL), cubic zeta coefficient, sharp envelope, or complete finite binomial error law. The generic Rademacher variance specializes to the binomial variance only after calculating the exact antipodal entry. Search absence does not establish global novelty; specializations from general formulas remain an explicit priority risk.",
+      "searches": [
+        "graph entropy cycle C_{2m} antipodal deterministic trace probing Rademacher stochastic exact bias zeta(3) variance",
+        "Benzi Rinelli Simunec cycle Fourier aliasing exact entropy probing error 2022",
+        "arxiv:2212.09642 Section 3.1, Lemma 3.5 and Proposition 3.6",
+        "arxiv:2308.07722 Sections 2 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant inspected papers contain graph-entropy probing algorithms, theoretical bounds, and general sign-variance identities, not a displayed exact cycle-by-period table or formula.",
+        "Finite computed values of the new identity are independently checked from cycle Fourier eigenvalues in the standalone verification script."
+      ],
+      "reasoning": "No matching exact finite-cycle trace-error table or exact stochastic distribution was located in the inspected sources or targeted mathematical searches. The identity is an infinite two-parameter statement, not a recomputation of a published numerical table. Uninspected tables elsewhere remain a residual risk.",
+      "searches": [
+        "Exact finite cycle C_n graph von Neumann entropy distance coloring probing error n=mL Fourier zeta(3) m^-3 asymptotic 2022 Benzi Rinelli Simunec",
+        "Rademacher stochastic graph-coloring probing on circulant Laplacian f(x)=-x log x finite cycle error distribution",
+        "Computation of von Neumann entropy of large matrices trace estimators and rational Krylov methods Benzi Rinelli Simunec proposition 3.6 sharp cycle exact"
+      ]
+    },
+    "rationale": "Targeted published record searches and full-text comparisons did not identify a dominating theorem giving the exact two-parameter periodic-cycle entropy error, its sharp zeta(3) coefficient and envelope, together with the exact antipodal binomial law. Generic lower bounds and stochastic variance identities are prior results and are expressly credited. Residual equivalence/publication-priority risk remains.",
+    "residual_risks": [
+      "Generic matrix-function power expansions may admit an equivalent specialized derivation elsewhere.",
+      "Published special-purpose cyclic quadrature or signal-processing work not located by searches may contain identical alias formulas.",
+      "Inspection of available sources and selected primary mathematical sections does not prove global publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains generic entropy-probing lower-bound and polynomial approximation bounds; not the displayed exact periodic-cycle Fourier error and binomial antipodal law in read material",
+        "evidence": "Graph Laplacian density operator, f(t)=-t log t, color indicators, sign of separated entries, general 3.1 probing bound.",
+        "identifier_or_url": "https://arxiv.org/html/2212.09642v2",
+        "material_read": "Abstract, Sections 1-3 including Section 3.1, Lemma 3.5 and Proposition 3.6, paper structure and discussion of probing limitations",
+        "method": "Read publicly accessible HTML exposition, equations and stated results",
+        "title": "Computation of the von Neumann entropy of large matrices via trace estimators and rational Krylov methods",
+        "trigger": "Exact source method, entropy probing sign and decay bounds potentially dominate the claim"
+      },
+      {
+        "assessment": "Provides stochastic probing variance and unbiasedness generally. Exact cycle-dependent coefficient and complete binomial law not found in inspected material",
+        "evidence": "Rademacher color probing and variance formulas; exact paired-cycle off-diagonal constant not supplied.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.07722",
+        "material_read": "Publicly accessible HTML Sections 2-3 including variance and sign discussion",
+        "method": "Read mathematical constructions, formulas and their hypotheses",
+        "title": "Analysis of stochastic probing methods for estimating the trace of functions of sparse symmetric matrices",
+        "trigger": "Generic stochastic probing could imply or subsume antipodal randomization law"
+      },
+      {
+        "assessment": "Contains broader probing framework but no direct exact unweighted cycle-entropy Fourier and randomized finite-distribution theorem in read passages",
+        "evidence": "Generic probing error via coloring and decay of matrix functions.",
+        "identifier_or_url": "https://arxiv.org/abs/2009.01589",
+        "material_read": "Accessible full-text introduction and sections on probing and decay estimates",
+        "method": "Read mathematical material on matrix-function probing and sparsity-graph distance",
+        "title": "Analysis of probing techniques for sparse approximation and trace estimation of decaying matrix functions",
+        "trigger": "Prior graph-coloring matrix-function trace approximation could cover the sharp family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f879be46-bcff-48ab-add9-f100f4afb5eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Unweighted cycles form a canonical connected regular graph-entropy benchmark for color-based trace approximation. Unlike generic O(m^-2) probing bounds, the exact entropy error decays at the sharp cubic rate with coefficient 2 zeta(3)(1-L^-3), and is maximized in a sharp limiting sense over all multiples of a coloring period. For the natural two-vertex class case, the same matrix-function evaluation budget admits an exactly quantified unbiased binomial randomization and RMSE Delta_m/sqrt(m). These provide structural benchmarks and risk calibration, not arbitrary slices or renamings.",
+    "status": "PASS"
+  }
+}
