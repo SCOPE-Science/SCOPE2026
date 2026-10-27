@@ -1,0 +1,165 @@
+{
+  "correctness": {
+    "rationale": "The row/column parity identity follows exactly from unique even-neighbor best responses. It gives a necessary-and-sufficient bijection to parity vectors; all four cases and their exact coefficient counts, sparse extremes, and expected number of producers are proved without relying on experiments. The standalone exact checker independently tests 314,512 full profiles across 19 networks and GF2 rank/nullity consistency on 81 parameter pairs. A finite checker is corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Curtis–Earl–Livingston–Shader arXiv:1802.05359, Thm. 2.1/Cor. 2.2 give general Cartesian-product nullity, not Hamming weights.",
+        "Peters–Goldwasser–Young 2017 Proposition 3.1 determines universal solvability in even-even and noninvertibility in other cases, not the distribution of solutions.",
+        "Gilboa–Nisan 2022 gives polynomial-time solvability for parity response on arbitrary graphs, which computes an equilibrium but does not determine symbolic producer-weight coefficients."
+      ],
+      "reasoning": "General linear-algebra procedures may enumerate finite instances, and for a fixed dimension pair can in principle list solutions. Neither an existence algorithm, rank formula nor invertibility criterion implies a preexisting published uniform symbolic distribution over all parameter values; the present claim is the specific closed coefficient formula and sparse-extremal counts. Stronger known coverage of even-even uniqueness is explicitly carved out.",
+      "searches": [
+        "Web: \"Lights Out! on Cartesian Products\" complete graphs proposition",
+        "arxiv:1802.05359, Section 2 nullity theorem and Section 3 conclusions",
+        "published-finding corpus: GF(2) linear fixed points rook graphs Hamming graphs row column parity election public goods",
+        "published-finding corpus: odd dominating sets rook graph K_m Cartesian K_n complete graph parity closed neighborhood weight enumerator Hamming weights"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2207.04238",
+      "doi:10.13001/1081-3810.3483",
+      "arxiv:1802.05359",
+      "arxiv:2011.10270",
+      "arxiv:2301.11849",
+      "doi:10.7151/dmgt.1137 (limited access)",
+      "MathWorld Rook Graph (ordinary domination polynomial)",
+      "published-finding corpus IDs in exact_database_or_table"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For even-even dimensions Peters–Goldwasser–Young 2017 proves invertibility and therefore unique all-on equilibrium; this portion is covered.",
+        "For mixed/odd-odd parameters general finite-field linear algebra describes the solution affine space but need not give its Hamming-weight enumerator; published inspected formulas are rank/nullity conditions.",
+        "Gilboa–Nisan 2022 studies decision complexity, and Klimm–Stahlberg 2023 studies other patterns."
+      ],
+      "reasoning": "The assertion must be compared to stronger results by implication, not shared titles. Even-even uniqueness follows from a stronger existing switching-invertibility theorem and is explicitly acknowledged rather than marketed as new. For remaining families, knowing an algorithm or dimension gives total solution number but not how many solutions have each Hamming weight; different affine subspaces can have identical dimension and different weight distributions. The explicit four-regime producer-count distribution and sharp sparsest-equilibrium multiplicities were not found in inspected sources. Risk persists for unindexed odd-domination enumerators.",
+      "searches": [
+        "Full text arxiv:2207.04238 pp. 2–3 and remainder",
+        "Full text DOI:10.13001/1081-3810.3483 pp. 1–11, specifically Proposition 3.1",
+        "Full text arxiv:1802.05359 pp. 1–6",
+        "Full text arxiv:2011.10270 pp. 1–6",
+        "Web: odd and residue domination numbers of a graph Caro Klostermeyer Goldwasser 2001"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gilboa–Nisan arXiv:2207.04238, pp. 2–3 identifies parity-alternating best responses as binary linear equations.",
+        "Batal arXiv:2011.10270, definition and parity theorem: Nx=1 over F2 is an odd-dominating-set condition.",
+        "Peters–Goldwasser–Young DOI:10.13001/1081-3810.3483, sec. 3, Proposition 3.1 studies K_m square K_n closed switching invertibility."
+      ],
+      "reasoning": "The equilibrium condition is exactly odd closed-neighborhood domination and equivalently the all-on Lights Out switching solution. Those equivalences and even-even uniqueness are not novel. Our asserted formula goes beyond feasibility/rank to coefficients by exact production weight for every rectangular rook graph. None of the inspected equivalent-formulation papers reports this polynomial.",
+      "searches": [
+        "published-finding corpus: rook graph K_m Cartesian K_n parity public goods game equilibrium counts, production distribution",
+        "published-finding corpus: binary graphical games even active neighbors exact generating polynomial line graph complete bipartite",
+        "published-finding corpus: odd dominating sets rook graph K_m Cartesian K_n complete graph parity closed neighborhood weight enumerator Hamming weights",
+        "published-finding corpus: exact equilibria even neighbor best response on rook graph complete bipartite line graph weight distribution",
+        "published-finding corpus: Lights Out closed neighborhood K_m square K_n Hamming-weight enumerator solutions rank parity classification",
+        "Web: \"rook graph\" \"odd domination\" number",
+        "Web: \"K_m\" \"K_n\" \"odd dominating\" cartesian product",
+        "Web: \"rook graph\" \"lights out\" solutions weights",
+        "Web: \"Hamming graph\" \"odd dominating\" weight enumerator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest ID 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 is parity dynamics on a different graph family.",
+        "published-finding corpus closest ID 2026/10/4/SCOPE-weight-enumerator-of-all-minus-dominating-functions-on-complete--b0d37260a765 concerns minus domination on complete multipartite graphs, not odd domination of rook graphs.",
+        "Wolfram MathWorld Rook Graph entry gives an ordinary domination polynomial, not an odd-domination weight enumerator."
+      ],
+      "reasoning": "Actual returned published-finding corpus IDs and published rook-graph ordinary domination tables do not give coefficient counts of closed-neighborhood parity solutions on K_m square K_n. Search is evidence of no identified collision, never a proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: rook graph K_m Cartesian K_n parity public goods game equilibrium counts, production distribution",
+        "published-finding corpus: odd dominating sets rook graph K_m Cartesian K_n complete graph parity closed neighborhood weight enumerator Hamming weights",
+        "Web: rook graph odd dominating sets generating polynomial",
+        "Web: rook graph ordinary domination polynomial MathWorld"
+      ]
+    },
+    "rationale": "The full symbolic producer-weight polynomial with sharp sparse-layer counts is not supplied by inspected primary game-theory, odd-domination, or Lights Out papers. The parity equation itself is known, and Peters et al. already imply the even-even singleton, both clearly acknowledged. General Sylvester/nullity formulas do not give the claimed Hamming-weight distribution. Remaining risk of an equivalent formula in unindexed graph-code literature is documented.",
+    "residual_risks": [
+      "Caro–Klostermeyer–Goldwasser (2001) complete primary full text was not retrieved; accessible excerpts did not show covering formula.",
+      "An unindexed odd-domination, Lights Out, or coding-theory weight enumerator could coincide with the formula.",
+      "General finite-field methods imply all finite instances algorithmically; a stronger general symbolic enumerator, if located, would change novelty assessment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS basic game, alternating-parity linearization and existence tractability; does not state the four-regime exact rook producer-count distribution.",
+        "evidence": [
+          "arXiv:2207.04238 v1 p.2–3 explicitly identifies alternating parity and binary linear equations; p.3 table lists pattern 1,0,1,0,... as polynomial-time."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.04238",
+        "material_read": "Entire accessible 27-page manuscript, emphasizing model and classification in the introduction and theorem table and relevant parity discussion.",
+        "method": "Opened original complete arXiv PDF and inspected parsed text and page images.",
+        "title": "Complexity of Public Goods Games on Graphs",
+        "trigger": "Same homogeneous strict binary public-goods game and parity-alternating best-response class."
+      },
+      {
+        "assessment": "COVERS even-even universal solvability (hence uniqueness) and noninvertibility in other regimes. Does not supply solution-weight enumerators for any of the odd cases.",
+        "evidence": [
+          "Peters–Goldwasser–Young (2017), Proposition 3.1, p.468; Theorem 2.5 characterizes Cartesian-product invertibility."
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1801/1801/1801",
+        "material_read": "The complete 11-page original PDF, including Proposition 3.1 and Tables 1–3.",
+        "method": "Opened journal full PDF and inspected its searchable complete text and page images, especially p.468.",
+        "title": "LIGHTS OUT! on Cartesian Products",
+        "trigger": "Rook graph is a Cartesian product of complete graphs, and its equilibrium is a closed-neighborhood linear system."
+      },
+      {
+        "assessment": "General rank/nullity and solvability methods may recover the total number of equilibria, but no explicit Hamming-weight/producer-count distribution for complete-graph Cartesian products.",
+        "evidence": [
+          "arXiv:1802.05359 Cor. 2.2 and Theorem 2.1 give dimensions; final Section 3 relates nullities to characteristic polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.05359",
+        "material_read": "All six pages, especially the full formulas of Section 2 and their applications in Section 3.",
+        "method": "Opened original arXiv PDF, read searchable text, inspected page 1 and pages 4–6 as images.",
+        "title": "Resolution of Conjectures Related to Lights Out! and Cartesian Products",
+        "trigger": "General Cartesian-product rank/nullity might dominate the claimed counting result."
+      },
+      {
+        "assessment": "COVERS general odd-domination equivalence and parity properties; does not state rook-graph producer-weight enumerator.",
+        "evidence": [
+          "Batal (2020), abstract and main theorem, describes N(G) and the parity of odd dominating sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.10270",
+        "material_read": "Accessible complete six-page paper including definitions and results for parity and joins.",
+        "method": "Inspected original full PDF text and opening page image.",
+        "title": "Parity of an odd dominating set",
+        "trigger": "Exact same GF2 closed-neighborhood equation under the known alias odd domination."
+      },
+      {
+        "assessment": "Focuses on existence/complexity of decreasing and picky patterns, not full equilibrium weight enumerators for parity response on rook graphs.",
+        "evidence": [
+          "Klimm–Stahlberg 2023, abstract and introduction, explicit response-pattern complexity classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.11849",
+        "material_read": "Entire accessible 18-page manuscript, emphasizing response classes and stated theorems.",
+        "method": "Opened full original PDF, inspected text and opening page screenshot.",
+        "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+        "trigger": "Later direct literature on the homogeneous binary response-pattern framework."
+      },
+      {
+        "assessment": "Relevant parity domination minimum problem, with grids and complements of powers of cycles among objects discussed. No direct rook enumerator identified from the accessed material; complete-paper noncoverage is NOT established.",
+        "evidence": [
+          "2001 paper abstract names grids, complements of powers of cycles, and generalized residue domination; full complete text not verified."
+        ],
+        "identifier_or_url": "https://doi.org/10.7151/dmgt.1137",
+        "material_read": "Abstract and substantial available full-text excerpts via ResearchGate; complete primary PDF retrieval failed with access error.",
+        "method": "Searched title and read accessible scholarly text excerpts and citation information, attempted archive PDF access.",
+        "title": "Odd and residue domination numbers of a graph",
+        "trigger": "Closely related odd dominating set minimum invariant; plausible buried coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef95af5c-01eb-4c5f-ab4d-04c5109dec18",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a natural infinite complete-row/column interaction family, the formula gives all production-level equilibrium multiplicities, not just feasibility or solution dimension, and exposes strong even-even versus odd-dimension parity transitions. The exact minimal producer count and its number of realizations solve a motivated equilibrium-selection/welfare statistic, while uniform equilibrium selection yields an exact expectation. This is a complete substantive classification rather than a routine parameter-specific test.",
+    "status": "PASS"
+  }
+}
