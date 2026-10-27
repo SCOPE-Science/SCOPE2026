@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The greedy-prefix DFA recognizes precisely the target subsequence ideal; each state has a distinguishing suffix. The transformation action is reconstructed from the capped counts of ones after specified zero positions. These parameters form a unique monotone signature, and a constructive alternating-run word realizes each possible signature. Stars and bars then proves the exact binomial formula. The nonempty-word semigroup is one smaller because no nonempty word acts as identity. The included finite verifier agrees with the proof on 36 pairs of parameters; see `VERIFICATION.md` for precise limits.
+
+**Originality: PASS, subject to stated residual risk.** The most relevant inspected primary source, Brzozowski–Davies–Madan (arXiv:1806.04645), proves state-complexity bounds for subsequence matching and treats single-word matching in Section 7.4; this is not a transition-monoid enumeration. Angluin–Aspnes–Eisenstat–Kontorovich (JMLR 2013) provide canonical shuffle-ideal DFAs, but not this exact two-run monoid count. Brzozowski–Ye (arXiv:1010.3263) address different worst-case syntactic complexity for broader ideal classes, and Halfon–Schnoebelen (arXiv:1810.02953) analyze closure under shuffling. Targeted literature and published-database searches did not identify an implication covering the result. An unindexed specialized semigroup result remains a real residual possibility; absence of a hit is not treated as proof of priority.
+
+**Mathematical value: PASS.** The invariant counts syntactic transformations rather than just automaton states for a canonical principal shuffle ideal, a natural elementary building block of piecewise-testable languages. The theorem gives a complete normal form, a closed exact two-parameter count, and a qualitative exponential-versus-linear complexity contrast. It is not a numerical increment or a restatement of state complexity.
+
+The result applies to binary two-run scattered-subsequence ideals with positive block lengths only; no assertion is made for general patterns. The finite verifier is not an all-length proof or an external assessment.
+
+Self-review: passed. Independent audit: not yet performed.
