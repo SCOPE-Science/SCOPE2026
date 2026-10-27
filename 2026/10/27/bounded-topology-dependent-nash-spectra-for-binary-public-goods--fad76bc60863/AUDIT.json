@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Strict local best responses are exactly parity equations. The explicit two-bit recurrence z_{i+1}=z_{i-1}+(1+u_i)(1,1) has u_{i+1}=u_{i-1} and z_{i+4}=z_i, rigorously exhausting all infinitely many rung lengths through sixteen initial pairs. Separate open, straight-periodic and swap-periodic boundary counts yield respectively 1/2/1/4, 16/2/4/2 and 4/2/8/2, including all endpoint constraints. The standalone checker independently builds and tests literal adjacency best responses through n=8 and recurrence through n=100; the infinite proof does not rely on sample bounds.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The known parity best-response decision problem is in polynomial time for arbitrary graphs.",
+        "The cited works emphasize decision complexity and do not characterize equilibrium cardinality across any of these three rung families."
+      ],
+      "reasoning": "General polynomial-time decision and linear-system reduction are broader in graph class but give no closed uniform spectra in the stated source. A general algorithm makes particular computations possible but is not an explicit result implying the periodic full classification without the present recurrence analysis.",
+      "searches": [
+        "ladder graphs pure Nash equilibria parity best response act iff even number active neighbors GF2 periodic profiles finite count",
+        "public goods even parity response on cubic graphs prism equilibria bounded independent of network length exponential anti-coordination comparison",
+        "arxiv:2207.04238, pp.2–3",
+        "arxiv:2301.11849, sec.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2101.09103",
+      "arxiv:2207.04238",
+      "arxiv:2301.11849",
+      "Published mathematical literature title/summary records from targeted semantic searches",
+      "Accessible own historical ledger claims for this slot"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 ladder enumeration optimizes the sum of additive pairwise anti-coordination payoffs and obtains exponentially many equilibria, versus parity-response static neighbor counts and uniformly bounded equilibria here.",
+        "The 2022 and 2023 public-goods works confirm mod-two tractability, but contain no root-of-unity/period-four ladder fixed-point census."
+      ],
+      "reasoning": "The game studied in the 2021 source differs at the level of vertex payoff best response: an additive pairwise payoff cannot generally enforce choosing one exactly for 0 or 2 (and not 1 or 3) active neighbors. The mod-two decision algorithm in the 2022 source does imply that each fixed instance is tractable, which is acknowledged. It does not settle the explicit all-length counting statements without a graph-specific nullspace calculation.",
+      "searches": [
+        "\"Victoria Sánchez Muñoz\" \"circular ladder\" \"Nash\" equilibrium count",
+        "\"circular ladder\" \"binary public goods\" \"Nash equilibria\"",
+        "public goods even parity response on cubic graphs prism equilibria bounded independent of network length exponential anti-coordination comparison",
+        "arxiv:2101.09103, §§1–2",
+        "arxiv:2207.04238, pp.2–3",
+        "arxiv:2301.11849, §1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gilboa--Nisan arXiv:2207.04238 pp.2–3 explicitly identifies alternating responses with GF(2) linear equations.",
+        "The new recurrence derives the exact fixed-vector counts for each rung closure, a graph-family-specific computation not explicitly provided by that general algorithm."
+      ],
+      "reasoning": "Equilibria are equivalent to solutions of (I+A)x=1, so the mod-two modeling step is previous work. However solving this family uniformly gives a stronger explicit uniform enumeration with four-periodicity and three different topology-dependent mod-four spectra; this is the restricted new claim.",
+      "searches": [
+        "binary public goods pattern 1010 alternating even neighbor response ladder graph prism circular ladder Nash equilibrium exact counts 2 4 16 periodic four",
+        "ladder graphs pure Nash equilibria parity best response act iff even number active neighbors GF2 periodic profiles finite count",
+        "\"cubic\" \"binary public goods\" \"even\" neighbor \"Nash\"",
+        "\"parity\" \"binary public goods games\" \"linear\" equilibria",
+        "arxiv:2207.04238, pp.2–3",
+        "arxiv:2301.11849, pp.1–2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sánchez Muñoz--Mc Gettrick arXiv:2101.09103 count solutions for pairwise anti-coordination and find exponential growth; this is a different utility model.",
+        "The full tables in Klimm--Stahlberg arXiv:2301.11849 concern complexity classes, not closed counts for ladder strips."
+      ],
+      "reasoning": "No inspected table contains (1,2,1,4), (16,2,4,2), and (4,2,8,2) for the parity public-goods payoff across the corresponding graph families. Absence in finite searches is not a proof of uniqueness.",
+      "searches": [
+        "binary public goods pattern 1010 alternating even neighbor response ladder graph prism circular ladder Nash equilibrium exact counts 2 4 16 periodic four",
+        "ladder graphs pure Nash equilibria parity best response act iff even number active neighbors GF2 periodic profiles finite count",
+        "public goods even parity response on cubic graphs prism equilibria bounded independent of network length exponential anti-coordination comparison",
+        "\"prism graph\" \"binary public goods\" equilibrium parity",
+        "\"prism graph\" \"pure Nash equilibria\" number public goods",
+        "\"Victoria Sánchez Muñoz\" \"circular ladder\" \"Nash\" equilibrium count",
+        "\"circular ladder\" \"binary public goods\" \"Nash equilibria\"",
+        "\"ladder graph\" \"binary networked public goods\" even parity pattern",
+        "\"ladder\" \"1010\" \"public goods\" equilibria"
+      ]
+    },
+    "rationale": "The standard parity-to-linear-equation reduction is explicitly known from Gilboa--Nisan and cited by Klimm--Stahlberg, and is not claimed as original. Original content is a closed mod-four enumeration and universal four-periodicity for open, cylindrical, and Möbius ladders. Sánchez Muñoz--Mc Gettrick count Nash profiles on ladders for a different anti-coordination game; their statements neither imply nor tabulate parity-response counts. No matching full family-level result was found in compared sources or accessible indexed findings; residual literature risk remains.",
+    "residual_risks": [
+      "The all-graph GF(2) reduction is known; some may regard the individual ladder nullity computations as an immediate but unstated corollary. The nontrivial content asserted is the explicit, uniform three-topology enumeration and its four-periodic structure.",
+      "An equivalent mod-four ladder census in unindexed combinatorics or game-theory literature cannot be excluded.",
+      "The conclusion does not generalize to degree-four vertices under the finite support response rule T(k)=1 iff k in {0,2}."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "KNOWN general parity reduction; no topology-dependent ladder count provided in inspected scope",
+        "evidence": [
+          "arXiv:2207.04238, p.3 footnote identifies alternating pattern via GF(2).",
+          "arXiv:2207.04238 pp.2–4 ask complexity of finite response pattern 1010... distinct on higher degree."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.04238",
+        "material_read": "Abstract, sections 1 and 2, complexity table and explicit footnote on parity GF(2), pp.1–5",
+        "method": "Full open-access PDF textual pages and relevant statement-level reading",
+        "title": "Complexity of Public Goods Games on Graphs",
+        "trigger": "Exact strict binary public-goods response model and known parity solvability"
+      },
+      {
+        "assessment": "Explicitly attributes polynomial-time alternating parity decision class; no exact ladder profile spectra",
+        "evidence": [
+          "arXiv:2301.11849 p.2 Table 1 and section 1.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2301.11849",
+        "material_read": "Abstract, introduction, Table 1, model and related work through p.3",
+        "method": "Open-access PDF text plus visual page inspection",
+        "title": "Complexity of Equilibria in Binary Public Goods Games on Undirected Graphs",
+        "trigger": "Closest strict public-goods graph-equilibria follow-up"
+      },
+      {
+        "assessment": "Different anti-coordination game with exponential counts; cannot imply the public-goods parity counts",
+        "evidence": [
+          "arXiv:2101.09103 pp.1–3 define additive pairwise anti-coordination utility."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2101.09103",
+        "material_read": "Abstract, introduction, underlying additive two-player payoff setup, pp.1–3, and conclusions of exponential growth",
+        "method": "Open-access PDF text plus visual inspection of game/payoff matrix",
+        "title": "Nash Equilibria in certain two-choice multi-player games played on the ladder graph",
+        "trigger": "Same open and closed ladder topology and Nash equilibrium counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fad76bc6-0863-411f-a32f-7f88fea1db9c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural complete equilibrium classification for three infinite canonical ladder topologies, with all profiles represented by universal four-periodic patterns. The uniformly bounded counts despite 2n strategic players and the topology-sensitive differences contrast sharply with exponential counts from a distinct but widely studied pairwise anti-coordination game on the same graph geometries, revealing a meaningful consequence of the public-goods response structure.",
+    "status": "PASS"
+  }
+}
