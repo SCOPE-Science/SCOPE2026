@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "Exact renewal conditioning proves Eq. (1); killed OU backward equations prove splitting and negative-side mean; the scaled negative mean has an integrable linear majorant under finite-mean search clocks. Uniform integrability of Brownian motion stopped at the finite-mean search cutoff proves A=Lq0, canceling all reset-law dependence. Positive k has finite mean and k=0 infinite mean. The accompanying independently integrated verification program passed 59 deterministic assertion groups. The theorem is an analytic result, not an inference from those tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Biswas, Kundu, Pal (2024), Physical Review E 110 L042101, general stochastic-return search scheme (bibliographic and source attribution in Dubey and Pal 2026).",
+        "Biswas, Dubey, Kundu, Pal (2025), Physical Review E 111 014142, more general drift-diffusive stochastic returns (bibliographic and citations in Dubey and Pal 2026).",
+        "Frydel (2025) provides splitting-probability and cycle formulas, not, in the examined material, the joint zero-stiffness amplitude theorem."
+      ],
+      "reasoning": "General renewal theorems could imply the limit once the weak OU negative-return asymptotic and stopped-martingale identity are supplied. Such generic ingredients are acknowledged as standard and do not alone explicitly state the model-specific universal amplitude and clock-law quantifier. Broader implicit coverage is the leading originality risk.",
+      "searches": [
+        "phase-type return Brownian absorption location stochastic return comparison instantaneous resetting",
+        "Dubey Pal 2026 first-passage processes under resetting stochastic return, Frydel 2025 search by return, small trap stiffness asymptotic MFPT",
+        "Biswas Kundu Pal 2024 search with stochastic home returns can expedite classical first passage under resetting arxiv pdf abstract",
+        "Biswas Dubey Kundu Pal 2025 drift-diffusive resetting search process with stochastic returns speedup beyond optimal instantaneous return arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.18814v1 sections II-V, source HTML",
+      "arXiv:2511.14646v1 sections II-IV, source HTML",
+      "Published scientific research-record similarity search with explicit weak-stiffness/universal-resetting queries; top results concerned other stochastic processes",
+      "https://arxiv.org/abs/2307.16294 (original 2024 precursor abstract)",
+      "https://arxiv.org/abs/2406.08975 (original 2025 precursor abstract)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For k>0 Eq. (1) of RESULT.md is within the known renewal framework and therefore not original.",
+        "At k downarrow zero, negative starting points contribute sqrt(pi/(2Dk)) times expected negative search overshoot, while the return success probability approaches the ratio of positive search overshoot to L.",
+        "Stopped Brownian martingale balance gives A=Lq0 for any iid integrable reset clock, canceling the otherwise clock-dependent factors."
+      ],
+      "reasoning": "A finite-k renewal identity implies the claimed leading law after an independent singular asymptotic analysis of OU returns and an optional-stopping cancellation. We found no explicit prior implication with both those steps and the universal all-clock conclusion. This does not establish logical independence of the result from existing general theory or priority; it establishes a motivated and precisely scoped claim with a stated residual risk.",
+      "searches": [
+        "stochastic return Ornstein Uhlenbeck switching traps target detection during return exact absorption phase probability return before reset 2026 Dubey Pal",
+        "finite-time Brownian stochastic returns OU harmonic trap vanishing stiffness, survival probability negative excursions, optional stopping martingale cancellation arbitrary renewal resetting",
+        "Dubey Pal 2026 first-passage processes under resetting stochastic return, Frydel 2025 search by return, small trap stiffness asymptotic MFPT",
+        "A free Brownian search on a half-line to a positive target with arbitrary independent renewal reset clocks and finite duration Ornstein Uhlenbeck stochastic return with target available during return has universal weak trap stiffness asymptotic sqrt(k) times mean first passage converges to L sqrt(pi/(2D)), independent of resetting law because Brownian martingale balance of negative resets and total success",
+        "https://arxiv.org/html/2610.18814v1",
+        "https://arxiv.org/html/2511.14646v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dubey and Pal, arXiv:2610.18814v1, Sec. II Eqs. (5)-(8): exact renewal mean for target-visible stochastic returns, including arbitrary search reset clock at the general level.",
+        "Frydel, arXiv:2511.14646v1, Sec. III.4 Eqs. (46)-(49): target-visible OU return protocol and exact splitting probability; its prior formulas specialize to the finite-stiffness model.",
+        "The claimed limit is a k-downarrow-zero asymptotic with a single coefficient simultaneously valid for every fixed iid integrable reset-clock law, deduced by optional-stopping balance."
+      ],
+      "reasoning": "The source models are genuinely equivalent to the exponential-clock special case, so the finite-k renewal and return formulas are fully prior. Examined accessible full-text sections do not explicitly assert the clock-independent leading divergence across all integrable clock laws. The new assertion is not simply that the mean formula exists: it is the exact cancellation of the reset-law-dependent negative-excursion expectation against success probability, and its distribution-free asymptotic.",
+      "searches": [
+        "stochastic return Ornstein Uhlenbeck switching traps target detection during return exact absorption phase probability return before reset 2026 Dubey Pal",
+        "universal weak confinement stochastic return asymptotics sqrt(k) mean first passage time equals L sqrt(pi/(2D)) independent of resetting rate and clock distribution",
+        "A free Brownian search on a half-line to a positive target with arbitrary independent renewal reset clocks and finite duration Ornstein Uhlenbeck stochastic return with target available during return has universal weak trap stiffness asymptotic sqrt(k) times mean first passage converges to L sqrt(pi/(2D)), independent of resetting law because Brownian martingale balance of negative resets and total success",
+        "https://arxiv.org/html/2610.18814v1",
+        "https://arxiv.org/html/2511.14646v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Frydel (2025), Sec. III.4 Eq. (47), a known mean expression and Fig. 5-6 plots for fixed parameter regimes, not a tabulation of the universal weak-stiffness coefficient.",
+        "Dubey and Pal (2026), Secs. II-IV, give the finite-parameter theoretical mean and comparative phase diagrams in k1,k2,r.",
+        "Direct independently integrated Poisson and deterministic reset cases give distinct finite-k means but the common scaled limit, as recorded by verify_weak_return.py."
+      ],
+      "reasoning": "No exact database or table giving the claimed all-clock asymptotic was identified in the examined sources. The existing exact integral formulas potentially permit derivation, so this is not an argument from missing matching numbers or titles; it is a comparison between the quantified structural statement and prior formulas.",
+      "searches": [
+        "Brownian stochastic resetting finite-time stochastic returns exact first passage restart phase success probability and optimal trap stiffness",
+        "universal weak confinement stochastic return asymptotics sqrt(k) mean first passage time equals L sqrt(pi/(2D)) independent of resetting rate and clock distribution",
+        "finite-time Brownian stochastic returns OU harmonic trap vanishing stiffness, survival probability negative excursions, optional stopping martingale cancellation arbitrary renewal resetting",
+        "https://arxiv.org/html/2610.18814v1",
+        "https://arxiv.org/html/2511.14646v1"
+      ]
+    },
+    "rationale": "The return renewal formula and boundary splitting are established prior art, expressly excluded. The assessed contribution is a quantified all-integrable-clock weak-harmonic-confinement amplitude, whose exact reset-law cancellation requires comparing singular OU return time against stopped Brownian search success. Full accessible primary-text comparisons and scoped scientific searches did not identify that exact theorem. Generic renewal implications and the uninspected precursor full texts remain residual priority risks, so this is a provisional self-review, not independent certification.",
+    "residual_risks": [
+      "The 2024 and 2025 Biswas et al. precursor abstracts were inspected and arXiv HTML was unavailable; their complete full texts were not independently read.",
+      "A broad renewal theorem combined with a standard OU first-passage asymptotic and martingale identity could implicitly cover the result; priority is not independently established.",
+      "Similarity search has incomplete recall, and a negative search cannot establish novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the finite-parameter renewal method; did not explicitly identify the all-clock, weak-return-stiffness leading amplitude; non-Poisson resetting listed as future research.",
+        "evidence": [
+          "Sec. II equations (5)-(8) gives general mean and Poisson specialization; Sec. V discusses non-Poisson extension and stiffness phase diagrams."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.18814v1",
+        "material_read": "Accessible HTML abstract and Introduction, substantive Sections II-IV (including the free-Brownian search subsection), Section V, and Appendix D OU return boundary-value and hitting-time equations.",
+        "method": "Read accessible full-text HTML with targeted section and equation comparisons, not just abstract or search snippets.",
+        "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+        "trigger": "Direct motivating physical model, same search and return diffusions and target-visible renewal."
+      },
+      {
+        "assessment": "COVERS finite-k SR-B mean, harmonic splitting and known return primitives; no explicit clock-universal singular amplitude in examined material.",
+        "evidence": [
+          "Sec. III.4 Eq. (47) exact renewal mean, Eq. (48) OU splitting, Figs. 5-6 finite-parameter comparisons; Conclusion discusses return-only protocol."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2511.14646v1",
+        "material_read": "Accessible HTML Section II, substantive Section III (especially SR-B Section III.4 equations (42)-(53), numerical parameter discussion), and Section IV conclusion.",
+        "method": "Examined substantive full-text HTML equations, protocol definitions, parameter plots and concluding claims.",
+        "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials",
+        "trigger": "Same target-visible stochastic return, including exactly the harmonic trap and Brownian search."
+      },
+      {
+        "assessment": "Broader-coverage risk retained; no claim of complete negative coverage due to uninspected full text.",
+        "evidence": [
+          "Full-title abstract and bibliographic comparison: 2024 develops arbitrary-reset stochastic-return renewal; 2025 analyzes a drift-diffusive search with linear absolute-value return potential, not this weak harmonic-return model."
+        ],
+        "identifier_or_url": "Physical Review E 110, L042101 (2024)",
+        "material_read": "Paper abstract (via original arXiv abstract page and publisher abstract), plus references and contextual description in Dubey and Pal (2026); complete primary text not inspected.",
+        "method": "Examined original publicly indexed arXiv/publisher abstracts and source citations; full-text arXiv HTML fetch was unavailable.",
+        "title": "Search with stochastic home returns can expedite classical first passage under resetting",
+        "trigger": "Primary precursor to stochastic-return search theory cited by the motivating paper."
+      },
+      {
+        "assessment": "Broader-coverage risk retained; no unsupported whole-document assertion.",
+        "evidence": [
+          "Full-title abstract and bibliographic comparison: 2024 develops arbitrary-reset stochastic-return renewal; 2025 analyzes a drift-diffusive search with linear absolute-value return potential, not this weak harmonic-return model."
+        ],
+        "identifier_or_url": "Physical Review E 111, 014142 (2025)",
+        "material_read": "Paper abstract (via original arXiv abstract page and publisher abstract), plus references and contextual description in Dubey and Pal (2026); complete primary text not inspected.",
+        "method": "Examined original publicly indexed arXiv/publisher abstracts and source citations; full-text arXiv HTML fetch was unavailable.",
+        "title": "Drift-diffusive resetting search process with stochastic returns: speedup beyond optimal instantaneous return",
+        "trigger": "Potential general first-passage renewal result including stochastic returns."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e2908c1a-9cd2-4ee3-b9f1-45f6661a0f91",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The vanishing-return-trap regime is physically singular and permits infinite mean without confinement. The leading divergence has a measured time-scale coefficient independent of any specific reset rate or waiting-time law, despite different finite-k behavior. This is a structural prediction about experimental protocol robustness with a nontrivial conservation mechanism, rather than simply rerunning an established finite-k formula.",
+    "status": "PASS"
+  }
+}
