@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The dyadic uniformity and exact Markov excursion reduction are proved, with an explicit first-step geometric mixture. Ballot and defect formulas handle both drift signs. Uniform Stirling/Riemann summation with parity gives each fixed-height scaling. A union bound on independent unit-height first passages and the geometric moment bound justify exchanging the horizon limit with the initial-height mixture. verify.py independently compares small-horizon exact transition counts and ballot masses, and exhibits numerical convergence; infinite assertions come from the analytic estimates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Monthus arXiv:2409.19999 Eq. (B38) gives the full fixed-parameter absorption generating function for the geometric reset-start distribution, and (B41)–(B47) state fixed-parameter asymptotics, including the critical exponent.",
+        "Monthus arXiv:2409.19999 §IV analyzes fixed p=1/2 spectral scaling of the propagator; its §V studies the number of resetting events.",
+        "Hata–Yano arXiv:2108.01332 Theorem 1.2 establishes a critical Darling–Kac law."
+      ],
+      "reasoning": "These are the strongest same mathematical model precedents. Exact generating functions contain information from which further limits can be derived, and the new analytical input here is joint large n and drifting p_n asymptotics with nonreturning mass, not a direct substitution into a stated uniform theorem. The claim excludes already known critical fixed-p estimates. A general lattice-walk diffusion theorem might subsume it, a residual risk.",
+      "searches": [
+        "Pelikan random interval map 2x mod1 with probability p, x/2 with q, exact first return to upper half (1/2,1), generating function h=(1-sqrt(1-4pqz²))/(2qz), critical window p=1/2+u/(2sqrt(n)), survival Brownian drift crossover",
+        "Cecile Monthus Pelikan random map crossover p 1/2 finite time survival erfc"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2108.01332 §5 and Theorem 1.2",
+      "arXiv:2308.09269 §II–III",
+      "arXiv:2409.19999 §§IV–V, Appendix B (B35)–(B47)",
+      "published-finding corpus published finding records via actual semantic claim and alias searches",
+      "Prior research records, claims and identifiers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hata–Yano §5 transition matrix at p=1/2, a component of the present proof.",
+        "Yan et al. arXiv:2308.09269 §II–III concerns invariant densities and correlations across the transition.",
+        "Monthus arXiv:2409.19999 Appendix B derives fixed-p absorption transforms and p-dependent tails, but does not state any p_n=1/2+u/(2sqrt(n)) survival limit.",
+        "Prior research record e08a1d9c-5dfa-4658-a892-892a1ecb67bc concerns a Ji–Ma Fibonacci map return crossover, a different dynamical system and renewal kernel."
+      ],
+      "reasoning": "The claimed new statement is a sharp two-sided finite-horizon scaling at the zero Lyapunov parameter for this specific upper-band return, including negative-bias defective probability. Prior papers supply exact fixed-bias ingredients, not a uniform triangular-array asymptotic with the formula; an equivalence via an unlocated stronger general hitting-time theorem remains the principal originality risk.",
+      "searches": [
+        "Pelikan map near-critical first return to upper half interval P(τ>n) scaling p_n=1/2+u/(2√n) Gaussian CDF survival F(u)=sqrt(2/pi)exp(-u²/2)-2u Phi(-u)",
+        "Pelikan random interval map 2x mod1 with probability p, x/2 with q, exact first return to upper half (1/2,1), generating function h=(1-sqrt(1-4pqz²))/(2qz), critical window p=1/2+u/(2sqrt(n)), survival Brownian drift crossover",
+        "\"Pelikan\" \"return time\" \"crossover\" \"erfc\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hata–Yano arXiv:2108.01332 §5 gives the exact dyadic level kernel at criticality, but no varying-parameter return profile.",
+        "Monthus arXiv:2409.19999 §§IV–V and Appendix B provide first-passage and resetting transforms for every fixed p, not a first return from level zero in a triangular parameter window.",
+        "Relevant published-finding corpus semantic results included 2026/10/11/SCOPE-exact-geometric-first-exit-law-for-the-ultradiscrete-sel-kov-map--013f8b0ac9e5 (a different deterministic model)."
+      ],
+      "reasoning": "The return-to-I event is equivalent to a random walk hitting zero from a mixture of unit and geometric initial heights after one iteration. It is neither the reset-event waiting time nor the generic critical occupation-time law. Search returned no statement identifying this explicit crossover as an established theorem; negative search alone is not evidence of novelty.",
+      "searches": [
+        "Pelikan map near-critical first return to upper half interval P(τ>n) scaling p_n=1/2+u/(2√n) Gaussian CDF survival F(u)=sqrt(2/pi)exp(-u²/2)-2u Phi(-u)",
+        "\"Pelikan\" \"near-critical\" \"first return\" Gaussian",
+        "near-critical asymmetric nearest-neighbor random walk with geometric restarting at zero, first return tail universal crossover Gaussian complementary distribution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search on exact formula and aliases returned 2026/9/19/SCOPE-critical-power-log-dyadic-phase-location-moduli--144dcf8ab051 and 2026/10/11/SCOPE-gaussian-crossover-of-random-grid-collapse-under-coprime-expandi--8b0f31630fa6 as noncovering candidates by their descriptions: unrelated dyadic quantiles and grid coalescence.",
+        "Checked own ledger finding 492a1ae9-dd56-4306-8ad8-48887fa637ee: a stationary digit autocorrelation formula for a balanced random affine family, not first returns of the Pelikan map."
+      ],
+      "reasoning": "No exact table or database entry found for the same map, upper-band event, triangular-array bias and Gaussian crossover; searches are not proofs of absence.",
+      "searches": [
+        "random piecewise linear Pelikan doubling contraction dyadic level return time critical window first passage half-normal complementary error function",
+        "Pelikan random map near critical crossover scaling finite time return survival 1/2 double scaling"
+      ]
+    },
+    "rationale": "The theorem is the explicit joint near-critical first-return scaling for the original closed Pelikan random map with initial normalized upper band, distinguished from critical occupation laws and from fixed-parameter resetting/absorbing statistics. Closest primary full texts Hata–Yano 2021, Yan et al. 2023 and Monthus 2024 were materially compared; none states the triangular-array crossover. Existing exact transforms are acknowledged rather than presented as novel. Search results did not locate equivalent coverage. Priority risk: a stronger general near-critical lattice hitting theorem may imply this model-specific statement.",
+    "residual_risks": [
+      "Classical Brownian-with-drift first-passage scaling has analogous formulas; possible unindexed all-parameter theorem subsumes the map-specific return observable.",
+      "Monthus supplies related exact transforms; a general published uniform asymptotic result not identified in the inspected full text could cover the new scaling.",
+      "Brevitt–Klages 2026 on an open Pelikan variant was available only as a title and abstract, not full text; its setting differs but historical priority remains to be assessed independently."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The critical distributional limit and dyadic chain are prior, but the finite-horizon p_n scaling profile is not a stated result.",
+        "evidence": [
+          "Theorem 1.2 establishes critical Darling–Kac occupation law; §5 gives exact critical transition kernel."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2108.01332",
+        "material_read": "Introduction, Theorem 1.2, §5 with transition kernel (5.1)–(5.2), and their critical wandering-rate argument",
+        "method": "Full-text arXiv PDF with page inspection",
+        "title": "Arcsine and Darling–Kac laws for piecewise linear random interval maps",
+        "trigger": "Same random map and critical recurrence theorem"
+      },
+      {
+        "assessment": "Quantifies invariant densities/correlations for p variation, but not this band first-return critical-window profile.",
+        "evidence": [
+          "The paper defines doubling/halving mixture and treats its transition using invariant densities and correlations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.09269",
+        "material_read": "Abstract, Introduction and §II–III mapping and correlation results",
+        "method": "Full-text arXiv PDF with page inspection",
+        "title": "Transition to anomalous dynamics in a simple random map",
+        "trigger": "Pelikan map transition and motivation of critical boundary"
+      },
+      {
+        "assessment": "Closest and strongest prior. It has explicit p-dependent hitting and reset laws for a different event and fixed-p asymptotic regimes; no stated near-critical triangular-array upper-band first-return profile. Its exact transforms are key background and imply nontrivial related calculations.",
+        "evidence": [
+          "Eq. (B38) gives an exact time-Laplace transform, (B39) survival transform, (B41) defective mass, (B42) and (B44) fixed-p exponential tail, (B45)–(B47) critical tail."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.19999",
+        "material_read": "§IV first-passage transform and fixed-parameter results, §V resetting decomposition, Appendix B pp. 38–42 especially (B35)–(B47)",
+        "method": "Full-text arXiv PDF, text and images of pages 14, 41–42",
+        "title": "Explicit dynamical properties of the Pelikan random map in the chaotic region and at the intermittent critical point towards the non-chaotic region",
+        "trigger": "Exact same mathematical model resetting and first-passage formulas potentially dominating the new result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd88c497-741b-4669-addc-0b4cd31bbcb9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first-return survival of the upper dyadic band is a natural quantitative recurrence observable at the Pelikan map transition, where zero-bias behavior changes to a nonzero permanent-escape probability. The nontrivial parameter-window profile includes negative-bias escape and the positive-bias decaying side in one exact formula, adding finite-horizon information not supplied by fixed-parameter recurrence laws. Its specificity is motivated by the original model and parameter scale, not by an arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
