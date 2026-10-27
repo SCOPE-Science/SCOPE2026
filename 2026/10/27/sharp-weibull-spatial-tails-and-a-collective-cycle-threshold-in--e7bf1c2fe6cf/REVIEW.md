@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The stationary renewal-age law and conditional Gaussian variance recurrence determine the complete domain and normalization. For Weibull shape at most one, subadditivity and exponential moments bound the geometric perpetuity, while the renewal-age tail supplies an exact logarithmic lower bound. For larger shapes, the Laplace saddle exponent and a finite-history constructive lower event give matching variational coefficients; a separately bounded Gaussian-mixture variational step produces the spatial coefficient. The independent finite checker supplies 86 passing algebraic and numerical assertions, not a substitute for the infinite proofs.
+
+**Originality — PASS, with priority limitations.** Frydel's 2026 paper gives the age-structured semi-Markov representation, Gaussian mixture, and power-law waiting-time consequences; the 2024 paper treats exponential switching. Eule–Metzger's earlier generalized resetting model assumes instantaneous return rather than a deterministic positive-duration harmonic contraction. Prior light-tailed Weibull-sum large-deviation results already provide general probabilistic ingredients and are not appropriated as new. The specific complete finite-contraction Weibull physical tail constant and phase boundary at shape one were not located in these examined sources or the queried mathematical research records. The main remaining risk is an applicable general weighted-sum or switching diffusion theorem implying the same physical result without an explicit specialization.
+
+**Value — PASS.** The renewal shape controls whether one unusually long current free run suffices or all geometric previous free runs collectively determine the remote spatial displacement. The exact tail power and parameter coefficient provide a concrete distinction invisible to the Gaussian conditional description or stationary moments, with a natural Rayleigh example that quantifies how finite harmonic recovery affects rare motion.
+
+No simultaneous vanishing-confinement, near-critical shape, noise-free, or density-prefactor claim is made. Novelty is evaluated for the complete named physical theorem, not for elementary Gaussian-mixture formulas or abstract Weibull sums.
+
+Self-review: passed. Independent audit: not yet performed.
