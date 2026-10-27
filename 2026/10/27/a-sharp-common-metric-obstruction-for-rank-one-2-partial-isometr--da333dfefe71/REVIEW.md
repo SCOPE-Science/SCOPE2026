@@ -1,0 +1,15 @@
+# Scientific review: rank-one common-metric generalized inverses
+
+## Correctness
+PASS. The defining equation reduces to \(x^2c^2=2x-1\) without omitted cases, including \(x=1/2\) and \(x=1\). Direct operator multiplication yields idempotents \(S_TT=P_v\) and \(TS_T=Q\). Both Penrose selfadjointness conditions for a common metric reduce to \(GP=P^*G\), \(GQ=Q^*G\). The off-diagonal identity \(2g=(2-x)h\) with \(g,h>0\) rules out \(x\ge2\); for \(x<2\), \(G=2I-xP_v\) works. This identity also gives the optimal condition number in the nondegenerate parameter range. The exact \(2\)-by-\(2\) witness was checked over \(\mathbb Q(\sqrt7)\). Numerical parameter checks supplement, but are not used to prove, the universal theorem.
+
+## Originality
+PASS under currently accessible evidence, with residual historical-priority risk. The directly motivating 2026 paper by Aouichaoui–Buchała–Garcia explicitly asks the common-inner-product Moore--Penrose question in Section 6 (Question 6), after deriving its reflexive inverse in Lemma 2.8. The paper does not supply the negative example or rank-one sharp threshold. The original 2010 \(m\)-partial-isometry article defines the class; accessible introductory material did not show an equivalent rank-one common-metric solution. A 2022/2023 article on \((A,m)\)-partial isometries concerns metric-dependent operator classes rather than this fixed-inverse simultaneous Penrose problem. General weighted Moore--Penrose theory allows two weights and does not directly impose equality of those weights. Mathematical-record-index searches using the exact inverse, rank-one thresholds, simultaneous symmetrization, aliases, and a concrete matrix returned no equivalent claim in the searched records. This is not a proof of worldwide novelty: older full texts and alternative formulations remain possible.
+
+## Value
+PASS. The result directly answers a published, explicitly identified open question. Rather than an isolated numerical counterexample, it classifies the entire natural rank-one \(2\)-partial-isometry class in arbitrary Hilbert dimension, identifies a sharp norm threshold, and determines an optimal conditioning constant on the positive side. The obstruction arises because one positive inner product must simultaneously make two different projections orthogonal, revealing a structural difference from freely weighted generalized inverses.
+
+## Closest sources and limitations
+Closest source: Aouichaoui–Buchała–Garcia, arXiv:2606.12865, Lemma 2.8 and Section 6, Question 6 (read in accessible full arXiv text). Foundational source: Saddi–Sid Ahmed (2010), abstract and introductory public text only; older full text may contain related considerations. Nearby source: Saddi–Mahmoudi (2022 online), public abstract only. The result does not classify higher-rank or higher-order partial isometries, and it does not concern independently chosen input/output metrics. Publication-priority verification by another researcher remains necessary.
+
+Self-review: passed. Independent audit: not yet performed.
