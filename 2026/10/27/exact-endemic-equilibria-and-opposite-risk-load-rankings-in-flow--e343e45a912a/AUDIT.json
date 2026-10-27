@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For all integers m,n>=1 and gamma,B>0, the proof first excludes nonzero boundary equilibria, then uses a symmetric edge-square identity to force beta_i=c(1-x_i). Strict monotonicity of x/(1-x)^2 forces within-part equality, after which positive odds give a unique scalar eta exactly when B>gamma(m+n)/sqrt(mn). Explicit substitution proves stationarity and mass conservation; the fixed-mass disease-free Jacobian establishes its claimed hyperbolic stability/instability away from the threshold. Independent direct vertexwise checks passed 128 exact rational supercritical, 972 floating supercritical, and 363 disease-free cases. Tests cannot replace the infinite symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Punzo 2022, conclusion, specifically reports approximate endemic expressions for general strongly connected graphs and an exact expression on balanced degree-regular graphs; section 5.3 requires regular degree.",
+        "Mei et al. 2017, PDF Section 4.2 and Theorems 4–5, has a constant scalar infection rate and no autonomous beta-load redistribution equation.",
+        "Meloni et al. 2009, PMC full Methods and model development, tracks packet routing and traffic-dependent contact events rather than receiver-health-dependent conserved beta flow."
+      ],
+      "reasoning": "Generic existence/uniqueness and threshold theorems cover qualitative behavior but not the exact irregular two-class equilibrium, the affine load law, or the quantitative cross-part rankings; the direction of the ranking alone is already implied by source Lemma 3. Equal-sized K_{m,m} is covered by the regular special case, and is stated only as a boundary consistency check.",
+      "searches": [
+        "\"flow-regulated\" SIS complete bipartite equilibrium infection rate",
+        "\"Punzo\" \"flow driven\" endemic bipartite approximation",
+        "Mei Mohagheghi Zampieri Bullo 2017 deterministic SIS network endemic equilibrium arxiv",
+        "undirected bipartite flow-driven SIS opposing infection load exact steady state"
+      ]
+    },
+    "checked_sources": [
+      "Punzo 2022 DOI 10.1016/j.automatica.2021.110107, full text",
+      "Mei et al. 2017 arXiv:1701.03137, relevant primary sections",
+      "Meloni et al. 2009 DOI 10.1073/pnas.0907121106, full PMC text",
+      "Indexed published mathematical research descriptions under complete-bipartite SIS and endogenous load aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Punzo 2022 Section 5.3 explicitly solves balanced constant-degree graphs, which includes K_{m,m}; Section 5.2 contains generally approximate formulas.",
+        "The full per-node beta stationary law and two-community positive equilibrium formulas here were independently reconstructed, including boundary and uniqueness steps.",
+        "Nearby indexed results concerned standard SIS, metapopulation spectral bounds, or dynamic contact formation, none identifying the receiver-health-driven load flow of the target ODE."
+      ],
+      "reasoning": "The closest published equations define this model and already imply the generic spectral threshold, but they do not explicitly calculate its unique irregular-biclique equilibrium. Neither generic equilibrium existence nor the equal-part regular expression implies the nonregular closed-form infection probabilities and explicit classwise beta loads (whereas anticorrelation itself is an immediate source-model consequence) without further analysis. Distinct adaptive or mobility SIS variants cannot be transferred without identifying a model equivalence; none was found.",
+      "searches": [
+        "\"Punzo\" \"flow driven\" \"2021\" preprint",
+        "\"SIS\" \"flow driven infection rates\" \"bipartite\" endemic",
+        "flow-regulated susceptible infected susceptible endogenous transmission load balanced complete bipartite explicit formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Punzo 2022 equations (3)-(6) give the coupled ODE; Lemma 3 encodes weighted-Laplacian stationarity, but sections 5.2-5.3 supply approximations or the regular case only.",
+        "Primary-source equations (3)-(6) are the exact mathematical antecedents; classwise closed-form endemic prevalence on irregular bicliques was not reported in the inspected exact regular-case treatment.",
+        "Punzo Lemma 3 gives the general stationary load as the left zero mode of the health-weighted Laplacian; in undirected networks this already entails beta_i proportional to (1-x_i), so opposite infection/load rankings are not claimed independently novel."
+      ],
+      "reasoning": "Relabeling left/right parts, using the stationary flow equations, or taking the star K_{1,n} does not turn the published regular formula into the unequal-biclique expressions. A stationary detailed-balance reduction plus strict monotonicity and conservation is needed. Exact finite-population stochastic SIS results are not equivalent to the flow-regulated deterministic ODE.",
+      "searches": [
+        "Punzo flow-driven SIS complete bipartite exact endemic equilibrium infection rate square root community sizes",
+        "flow-regulated susceptible infected susceptible endogenous transmission load balanced complete bipartite explicit formula",
+        "\"flow driven\" SIS complete bipartite exact endemic equilibrium Punzo",
+        "\"SIS\" \"flow driven infection rates\" \"bipartite\" endemic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table of classwise endemic x and beta for the target coupled ODE was found in the retrieved research records or inspected primary texts.",
+        "No exact two-class table for unequal K_{m,n} was located in indexed mathematical results compared with the primary text."
+      ],
+      "reasoning": "The absence of a database hit is limited evidence, not a uniqueness certificate. The claim is an all-parameter theorem with a proof rather than a previously indexed finite lookup.",
+      "searches": [
+        "Punzo flow-driven SIS complete bipartite exact endemic equilibrium infection rate square root community sizes",
+        "\"flow driven\" SIS complete bipartite exact endemic equilibrium Punzo"
+      ]
+    },
+    "rationale": "A lawful full primary reading of Punzo 2022 found its exact regular-graph case, general approximation, and threshold; the target unequal-biclique classwise closed form, forced symmetry were not established there; the opposite ranking follows from the source model’s known stationary proportionality and is treated only as a consequence of the new exact formula. Full relevant text of Mei et al. 2017 uses fixed beta, and Meloni et al. 2009 uses packet traffic. Targeted mathematical research-index searches found no equivalent or dominating claim. Claims already covered (threshold and m=n solution) are expressly acknowledged. Residual uncertainty about unindexed material remains.",
+    "residual_risks": [
+      "An unindexed older thesis or a later exact-algebra treatment of the same coupled model may exist.",
+      "The earlier repository deposit date is not independently proven to be a public full-text posting; the verified first online publication date used for scope is 2022-01-10.",
+      "The algebraic formula is logically derived from the published equations and is not an independent model; novelty is the explicit nonregular classification, not the model or generic threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model, total-load conservation, generic threshold, exact regular case; does not report the unequal K_{m,n} exact class formula or opposing class rankings",
+        "evidence": [
+          "Equations (3)-(6), Sections 3, 5.2, 5.3, Conclusion explicitly says exact equilibrium for balanced constant-degree and otherwise approximations",
+          "Institutional online-publication date 2022-01-10; repository deposit 2021-09-22 may reflect nonpublic archival action"
+        ],
+        "identifier_or_url": "doi:10.1016/j.automatica.2021.110107; https://eprints.whiterose.ac.uk/id/eprint/178189/13/1-s2.0-S0005109821006361-main.pdf",
+        "material_read": "Nine-page lawful full text: equations (3)–(6), Lemmas 1–3, Theorems 1–3, sections 5.2–5.3, conclusion, simulations and appendix",
+        "method": "Full PDF extracted text and visual screenshots of pages 2, 4, and 5",
+        "title": "An SIS network model with flow driven infection rates",
+        "trigger": "Exact same endogenous flow-regulated SIS equations; strongest plausible covering source"
+      },
+      {
+        "assessment": "Not covering the coupled load model: the transmission rate is a fixed scalar beta with no state-dependent flow differential equation",
+        "evidence": [
+          "Section 4.2 displays dot x_i=beta(1-x_i) sum a_ij x_j -gamma x_i for scalar fixed beta; Theorem 5 characterizes endemic state for that distinct system"
+        ],
+        "identifier_or_url": "arxiv:1701.03137; https://arxiv.org/pdf/1701.03137",
+        "material_read": "Full primary PDF relevant introduction and Section 4, equations (9)–(11), Theorems 4–5 and uniqueness proof, visual page 8",
+        "method": "arXiv open PDF text and screenshot",
+        "title": "On the Dynamics of Deterministic Epidemic Propagation over Networks",
+        "trigger": "Stronger network SIS existence, uniqueness and endemic formulas could dominate an explicit bipartite result"
+      },
+      {
+        "assessment": "Not covering receiver-health-driven conserved nodal rate redistribution: it uses interaction packets, routing and traffic on scale-free networks",
+        "evidence": [
+          "Epidemic Dynamics and Routing Dynamics methods describe infection when infected-neighbor packets arrive, with routing rates; not the target two-ODE coupled flow model"
+        ],
+        "identifier_or_url": "doi:10.1073/pnas.0907121106; https://pmc.ncbi.nlm.nih.gov/articles/PMC2761312/",
+        "material_read": "Open full article abstract, model/routing setup, methods, traffic threshold discussion, congestion effects and conclusions",
+        "method": "Lawful full-text PMC HTML reading",
+        "title": "Traffic-driven epidemic spreading in finite-size scale-free networks",
+        "trigger": "Earlier traffic-based epidemic laws might subsume flow-regulated infection and exact equilibrium rankings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e343e45a-912a-4655-9033-d10ad58e7d72",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact closed-form endemic prevalence and endogenous nodal infection-rate allocation for all unequal bicliques (including stars) fills a naturally motivated nonregular family left with only general approximations in the source. The forced symmetry and exact levels make the already structurally implied opposite rankings quantitatively explicit, with epidemiological/traffic interpretation: the side with higher endemic risk has the lower flow-driven infection load. The exact formula supplies a parameter-wide benchmark, not a single trivial substitution or finite enumeration.",
+    "status": "PASS"
+  }
+}
