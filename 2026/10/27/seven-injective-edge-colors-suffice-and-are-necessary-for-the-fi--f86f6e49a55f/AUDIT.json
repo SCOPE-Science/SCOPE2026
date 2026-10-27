@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "The eight-bit cross-adjacency predicate is directly defined on five-bit cube vertices. Greedy class coloring yields a valid clique upper bound in the finite exhaustive search. After fixing an anchor by edge transitivity, the verified search rules out 12 mutually compatible other edges in 51 candidates. The explicit 80-color vector has 7 colors, all 1120 conflicting pairs different, sizes 11x4 and 12x3. Both pure-Python and separate C++ checks passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhanupriya–Dominic–Sunitha 2023 §2.20 treats products of paths and cycles; conclusion asks about general Cartesian products",
+        "arXiv:2406.04020v2 Theorem 5.10 covers maximum packing for power-of-two cube dimensions"
+      ],
+      "reasoning": "Q5 is a fivefold K2 Cartesian product and is not among the examined path/cycle pair-product cases. Theorem 5.10 is about a distinct maximum-set invariant and dimensions 2,4,8,..., so cannot imply seven partition classes.",
+      "searches": [
+        "\"injective edge coloring\" \"Cartesian product\" hypercube",
+        "\"injective edge coloring\" \"Cartesian product\" hypercube",
+        "\"injective chromatic index\" \"hypercube\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2403.00750v1 §1 and sections outline",
+      "arXiv:2406.04020v2 §5.1 Table 1/Theorem 5.10",
+      "Filomat 37 (2023) 3963–3983 §2 and §4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2403.00750v1 §1 establishes the coloring/packing equivalence",
+        "arXiv:2406.04020v2 §5.1 supplies lower bounds and 2-packing constructions",
+        "Filomat 37 (2023) §4 concludes general Cartesian-product injective indices remain open"
+      ],
+      "reasoning": "Published packing upper/lower bounds and a maximum EOP value do not automatically construct seven pairwise disjoint color classes covering all 80 edges. The present explicit certificate and direct verification supply that missing step. No stronger inspected source dominates this exact index claim.",
+      "searches": [
+        "\"injective edge coloring\" \"hypercube\" 2024 2025",
+        "binary 5-cube Q_5 injective edge chromatic index 7 exactly, seven edge-open packing color classes of sizes 12 12 12 11 11 11 11",
+        "injective edge coloring edge open packing decomposition of Q5 by seven colors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2403.00750v1 §1: injective edge color classes are edge-open packings",
+        "arXiv:2406.04020v2 §5.1: hypercube EOP number, not a packing partition"
+      ],
+      "reasoning": "The exact alternative formulation is a seven-coloring of the graph whose vertices are cube edges and whose adjacency means the edges have a third linking edge. This does not follow merely from a twelve-edge maximum packing, which supplies only the lower bound.",
+      "searches": [
+        "\"injective edge coloring\" \"hypercube\" 2024 2025",
+        "\"injective chromatic index\" \"hypercube\"",
+        "\"Q5\" \"injective edge\" \"chromatic\"",
+        "\"injective edge chromatic\" \"Q5\" hypercube",
+        "\"edge open packing\" hypercube \"Q_5\" 12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2406.04020v2 Table 1: Q5 EOP lower bound 10, no index entry",
+        "Indexed published research records about cube edge-multiset dimension concern a different invariant, not the injective edge chromatic index"
+      ],
+      "reasoning": "Checked public tables and indexed findings for a seven-color cube certificate or chromatic index; no exact table was found. A null search result is not proof of novelty.",
+      "searches": [
+        "\"edge open packing number\" \"Q_5\"",
+        "binary 5-cube Q_5 injective edge chromatic index 7 exactly, seven edge-open packing color classes of sizes 12 12 12 11 11 11 11",
+        "hypercube Q5 injective edge coloring, Cartesian product K2 five times, interference-free edge channel allocation"
+      ]
+    },
+    "rationale": "arXiv:2403.00750v1, §1 introduces the exact EOP/color-class equivalence but addresses packing complexity; arXiv:2406.04020v2, §5.1 evaluates packing bounds, not a seven-way edge partition. Filomat 37 (2023), §2 and conclusion, treats Cartesian products of paths and cycles but not Q5. Searches for synonymous color indices, complete conflicts, and seven EOP classes yielded no stronger covering statement; this remains bibliographically provisional.",
+    "residual_risks": [
+      "Unindexed or differently named injective-coloring literature could contain an equivalent Q5 computation.",
+      "Published general Cartesian-product bound not found during this inspection might specialize to a matching seven-color formula; exact implications inspected only for listed relevant sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes equivalence and bounds, not a Q5 index",
+        "evidence": "§1 explicitly defines the chromatic index and EOP partition; abstract and section list specify complexity and extremal problems.",
+        "identifier_or_url": "https://arxiv.org/pdf/2403.00750",
+        "material_read": "Full relevant §1 and summary of §2–4, PDF pages 1–2 and indexed remaining sections",
+        "method": "Public PDF text and page visual check",
+        "title": "Edge open packing: complexity, algorithmic aspects, and bounds",
+        "trigger": "Explicit equivalence between injective edge colorings and EOP partitions"
+      },
+      {
+        "assessment": "Theorem 5.10 covers Q_n with n power of two, not Q5 index",
+        "evidence": "Table 1 gives Q5 EOP lower bound 10; Theorem 5.10 gives EOP size for n power2 only.",
+        "identifier_or_url": "https://arxiv.org/pdf/2406.04020",
+        "material_read": "Public PDF introduction and all of §5.1, including Table 1, Lemma 5.7 and Theorem 5.10",
+        "method": "Public PDF text and page visual check",
+        "title": "Induced matching vs edge open packing: trees and product graphs",
+        "trigger": "Actual hypercube theorem plausibly stronger"
+      },
+      {
+        "assessment": "Applies to path/cycle products; does not present Q5 calculation",
+        "evidence": "§2.18–2.20 gives path/cycle Cartesian products; §4 explicitly leaves general Cartesian products open.",
+        "identifier_or_url": "https://www.pmf.ni.ac.rs/filomat-content/2023/37-12/37-12-20-18771.pdf",
+        "material_read": "Public PDF abstract, sections on Cartesian products, conclusion and references",
+        "method": "Public PDF text and page visual check",
+        "title": "Injective edge coloring of product graphs and some complexity results",
+        "trigger": "Published study explicitly of injective indices of Cartesian products"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f86f6e49-a55f-4d25-b2e9-2104ad8b14e8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The injective edge index is a fundamental graph channel-assignment invariant, not a renaming of the packing number. A seven-way partition of the Q5 edge set is an exact previously unprovided finite benchmark for a canonical Cartesian graph and is near-equitable, hence a nontrivial packing-design fact rather than just an improved numerical bound.",
+    "status": "PASS"
+  }
+}
