@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "For every 2<=p<=q, the selected-edge graph in K_{p,q} has an acyclic line graph exactly when it is a linear forest. Maximality forces saturation of all p-side vertices when p<q and a spanning alternating Hamilton path when p=q; the respective uniform sizes are 2p and 2p-1. Explicit alternating-path enumeration gives the two-sort exponential formula and component-refined maximum count. Complete independent direct adjacency subset checks for ten boards including 4x4 (104290 total subsets) reproduce all coefficients and all inclusion-maximal counts; finite tests do not substitute for the infinite proof. Principal risks: graph-to-line-graph cycle argument and maximality under addition are both fully justified in the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jafarpour-Golzari 2021, Theorem 6.15 and Corollary 6.16: complete bipartite graph K_{r,s} itself is well-f-covered iff balanced or one side singleton.",
+        "Jafarpour-Golzari 2021 discusses disjoint unions/joins; no line graph or Cartesian product formulation occurs in the inspected full text.",
+        "General complexity studies of feedback vertex sets do not classify or enumerate maximal solutions of these rook graphs."
+      ],
+      "reasoning": "The complete-bipartite theorem does not transfer via the line-graph functor: the vertex sets and induced-acyclicity predicates change. Classical rook-graph well-coveredness treats edgeless induced subgraphs, not forests. No inspected stronger theorem subsumes the present statement.",
+      "searches": [
+        "well-f-covered rectangular rook graph K_p Cartesian K_q equivalent all inclusion maximal induced forests maximum size",
+        "well f covered line graph complete bipartite graph rook graph all maximal induced forests maximum cardinality",
+        "rook graph feedback vertex set maximum induced forest",
+        "line graph complete bipartite maximal induced forests"
+      ]
+    },
+    "checked_sources": [
+      "published-finding corpus query well-f-covered rectangular rook graph K_p Cartesian K_q equivalent all inclusion maximal induced forests maximum size closest 2026/10/11/SCOPE-full-rook-graph-ech-homology-character-under-coordinate-permutat--3db3b8efc98c",
+      "published-finding corpus query maximal linear forests in complete bipartite graphs all edges of small shore degree two Hamiltonian path coefficient enumeration closest 2026/9/20/SCOPE-cyclomatic-matching-induced-matching-gaps--ac8bd54efbfc",
+      "published-finding corpus query feedback vertex sets of rook graph K_m square K_n induced forest polynomial maximum sets closest 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f",
+      "published-finding corpus query well f covered line graph complete bipartite graph rook graph all maximal induced forests maximum cardinality closest 2026/10/11/SCOPE-neighborhood-complexes-of-two-row-rook-graphs-split-into-two-sph--9b16e10ce620",
+      "Jafarpour-Golzari 2021 full public manuscript https://arxiv.org/abs/2105.14339",
+      "Jafarpour-Golzari 2021 lexicographic product abstract/excerpts https://arxiv.org/abs/2108.09146",
+      "S. Mertens 2024 rook domination search extracts https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jafarpour-Golzari 2021, https://arxiv.org/abs/2105.14339, Definition 3.1 and Theorem 6.15/Corollary 6.16 (full public text).",
+        "Jafarpour-Golzari 2021, https://arxiv.org/abs/2108.09146, treats lexicographic products rather than the Cartesian product K_p square K_q (public extracted title, abstract and excerpt).",
+        "Known well-coveredness of rook graphs is equivalent to equimatchability of complete bipartite graphs: independent vertex sets in L(K_{p,q}) correspond to matchings, distinct from linear forests."
+      ],
+      "reasoning": "The previous result for K_{p,q} has different objects (vertices vs edges), and is false for unbalanced K_{p,q} while the new result holds for all unbalanced L(K_{p,q}); no logical implication or special-case coverage. The classical maximal matching statement constrains degree at most one, while maximal linear forests allow degree two. Lexicographic product results do not imply Cartesian rook-graph claims.",
+      "searches": [
+        "well-f-covered rectangular rook graph K_p Cartesian K_q equivalent all inclusion maximal induced forests maximum size",
+        "maximal linear forests in complete bipartite graphs all edges of small shore degree two Hamiltonian path coefficient enumeration",
+        "feedback vertex sets of rook graph K_m square K_n induced forest polynomial maximum sets",
+        "well-f-covered graphs line graph complete bipartite graph rook graph maximal induced forests"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "R_{p,q}=L(K_{p,q}); forest vertex sets of R_{p,q} are linear-forest edge subsets of K_{p,q}. Their complements are feedback vertex sets.",
+        "Jafarpour-Golzari 2021, Definition 3.1 (full text), describes maximal induced forests; its Corollary 6.16 concerns K_{r,s} rather than L(K_{r,s})."
+      ],
+      "reasoning": "Searching and comparing line-graph, rook-graph, and feedback-vertex formulations did not locate an equivalent complete classification. It is not inferred from lack of title match; the strongest plausible primary result is object-distinct.",
+      "searches": [
+        "well-f-covered rectangular rook graph K_p Cartesian K_q equivalent all inclusion maximal induced forests maximum size",
+        "maximal linear forests in complete bipartite graphs all edges of small shore degree two Hamiltonian path coefficient enumeration",
+        "feedback vertex sets of rook graph K_m square K_n induced forest polynomial maximum sets",
+        "well f covered line graph complete bipartite graph rook graph all maximal induced forests maximum cardinality",
+        "rook graph well-f-covered"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus close titles include 2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f (cut-complex homology, not forest-set enumeration).",
+        "Actual published-finding corpus close title 2026/10/11/SCOPE-neighborhood-complexes-of-two-row-rook-graphs-split-into-two-sph--9b16e10ce620 (neighborhood homotopy, not induced forest polynomial).",
+        "S. Mertens 2024, Domination Polynomial of the Rook Graph, studies domination and not induced forests (title/abstract and accessible excerpt)."
+      ],
+      "reasoning": "No matching exact all-cardinality induced-forest table or enumerator arose in the actual searches. A general labeled-path species formula alone would not imply the maximality assertion; unindexed formulas remain possible.",
+      "searches": [
+        "induced forest polynomial of rook graphs Cartesian products of complete graphs bipartite path forest enumerator",
+        "linear forests complete bipartite graph bivariate exponential generating function enumeration",
+        "feedback vertex sets of rook graph K_m square K_n induced forest polynomial maximum sets"
+      ]
+    },
+    "rationale": "The direct 2021 well-f-coveredness source treats K_{p,q} itself in Corollary 6.16, not L(K_{p,q}); its complete-bipartite classification does not imply the rook-graph all-maximal property. The known well-coveredness of rook graphs addresses maximal independent sets only. Actual published-finding corpus and web searches of equivalent line-graph, maximal linear forest, and feedback vertex set formulations produced no covering claim. The possible existence of an unindexed exact linear-forest enumeration is acknowledged as residual priority risk.",
+    "residual_risks": [
+      "A not-indexed or differently-termed source on maximal edge-disjoint alternating path forests in K_{p,q} might imply the all-maximal characterization.",
+      "The labeled-path exponential formula is a natural application of the classical exponential formula; originality does not extend to that general principle.",
+      "Other same-graph papers identified only by abstract or search excerpt were not declared wholly not covering."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: Complete bipartite K_{p,q}, not line graph L(K_{p,q}); no line-graph/Cartesian operation statement",
+        "evidence": [
+          "First arXiv public date 2021-05-29; primary MSC05C70 displayed in full manuscript.",
+          "Definition 3.1, Theorem 6.15 and Corollary 6.16, around displayed lines 160-194 and 999-1029, classify K_{r,s} itself as well-f-covered only for r=s or singleton."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.14339",
+        "material_read": "Full publicly displayed manuscript text: abstract, definitions in Sections 2–3, the graph operations in Sections 4–6, and Theorem 6.15/Corollary 6.16 at end",
+        "method": "arXiv dated source verified and complete text read via lawful public ResearchGate HTML rendering https://www.researchgate.net/publication/352017324_Graphs_whose_all_maximal_induced_forests_are_of_the_same_order",
+        "title": "Graphs whose all maximal induced forests are of the same order",
+        "trigger": "Introduces well-f-coveredness and proves a complete bipartite graph result, potentially implying claimed classification"
+      },
+      {
+        "assessment": "NOT_COVERING for claimed graph family: treats lexicographic products rather than Cartesian rook-graph products",
+        "evidence": [
+          "Explicitly focuses on lexicographic products; no extracted result states the rectangular rook graph property."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.09146",
+        "material_read": "Public abstract and excerpts of main results, including paper title, product scope and reference to prior paper",
+        "method": "Public arXiv entry and accessible ResearchGate extracted text https://www.researchgate.net/publication/354065832_On_well-f-coveredness_of_lexicographic_product_of_graphs",
+        "title": "On well-f-coveredness of lexicographic product of graphs",
+        "trigger": "A graph-product treatment might subsume rook-graph Cartesian products"
+      },
+      {
+        "assessment": "Different parameter, domination rather than induced-forest sets; whole-document noncoverage not asserted",
+        "evidence": [
+          "The named polynomial counts dominating vertex subsets; induced forests are not equivalent to domination."
+        ],
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL27/Mertens/mertens6.pdf",
+        "material_read": "Public result title, abstract/search extracts and sample text identifying the domination invariant",
+        "method": "Bibliographic search and displayed excerpts, not a whole-document read",
+        "title": "Domination Polynomial of the Rook Graph",
+        "trigger": "Same graph family and all-cardinality polynomial may imply a forest enumerator"
+      },
+      {
+        "assessment": "Different prescribed spanning induced-tree and parity conditions; no covering rook-graph classification evidenced; bibliographic residual risk retained",
+        "evidence": [
+          "The abstract studies i-perfect forests with even-degree restrictions, which are not arbitrary vertex-induced forests."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.00254",
+        "material_read": "Public abstract describing spanning i-perfect forests and computational complexity",
+        "method": "arXiv abstract and title, not full text",
+        "title": "Perfect Forests in Graphs and Their Extensions",
+        "trigger": "Generic induced forest literature might contain a stronger classification"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d8b8b220-d14b-4b90-925b-58fb6a429432",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Well-f-coveredness is a motivated structural question for maximal induced forests and complements to minimal feedback vertex sets; for all p,q this theorem proves the strong property that every inclusion-minimal feedback vertex set is minimum. It also provides the complete labeled size distribution and component-resolved counts, showing an exact component spectrum that varies with the aspect ratio q/p. These results are not simply the known well-coveredness of rook graphs or a minor extremal bound; they solve a coherent infinite-family classification.",
+    "status": "PASS"
+  }
+}
