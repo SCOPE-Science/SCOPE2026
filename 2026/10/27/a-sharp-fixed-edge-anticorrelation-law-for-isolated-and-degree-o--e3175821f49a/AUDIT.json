@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The three exact moments follow by choosing fixed edge sets subject to specified isolated and degree-one vertices. Conditioning on isolation gives G(n-1,m) exactly. The consecutive leaf-mean ratio is 1 at m=1 and decreases strictly through m=B+1 by the displayed positive difference, proving negative covariance on 2<=m<=A. Beyond B+1 the smaller graph has zero leaf expectation; at m=0,1 or m>A one statistic is constant. The sparse limit follows from product estimates and a uniform 1-2/n²+O(n^-3) consecutive-ratio expansion. Actual embedded Python checker passed exhaustive graphs n<=6 and exact-arithmetic tests all n<=84; finite checks are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goldstein–Rinott, https://arxiv.org/html/math/0510586v1, §4.2 specifically assumes all edges are independent with probability π.",
+        "Goldstein, https://arxiv.org/html/1005.4390v4, §§1–2 likewise takes independent Bernoulli edges and one degree class.",
+        "Bollobás, Degree sequences of random graphs (1981), publisher abstract inspected only: a plausible broad historical degree-sequence reference; full text not inspected."
+      ],
+      "reasoning": "A general full covariance formula for fixed-edge G(n,m), if located, could dominate this special pair and its sign theorem, but no inspected full text established it. The Bernoulli formulas are not interchangeable with conditioning to exactly m edges; indeed the proved signs can disagree. Risk explicitly retained.",
+      "searches": [
+        "Random graph G(n,m) covariance of number of isolated vertices and number of degree-one vertices is always strictly negative for 2<=m<=binomial(n-1,2), versus G(n,p) sign change at p=2/n",
+        "G(n,m) vertex degree class 0 degree class 1 covariance sign exact finite size fixed edges",
+        "random graph G(n,m) covariance number of isolated vertices number degree one vertices sign",
+        "https://arxiv.org/html/math/0510586v1",
+        "https://arxiv.org/html/1005.4390v4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/0510586v1",
+      "https://arxiv.org/html/1005.4390v4",
+      "Bollobás (1981) abstract only",
+      "Semantic research-record searches: Random graph G(n,m) covariance of number of isolated vertices and number of degree-one vertices is always strictly negative for 2<=m<=binomial(n-1,2), versus G(n,p) sign change at p=2/n",
+      "Semantic research-record searches: Finite random graph degree profile cross-covariance isolated versus leaves fixed-edge ensemble G(n,m), exact threshold sign comparison Erdos Renyi Bernoulli",
+      "Semantic research-record searches: G(n,m) leaves isolated vertices count negative covariance fixed number edges conditional degree zero one versus binomial random graph",
+      "Semantic research-record searches: G(n,m) vertex degree class 0 degree class 1 covariance sign exact finite size fixed edges",
+      "Semantic research-record searches: number isolated vertices versus degree-one vertices joint moments conditioned edge count fixed-edge random graph hypergeometric",
+      "Web publication searches: random graph G(n,m) covariance number of isolated vertices number degree one vertices sign",
+      "Web publication searches: \"G(n,m)\" \"isolated vertices\" \"degree one\" \"covariance\""
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Goldstein–Rinott Eq. (25), https://arxiv.org/html/math/0510586v1, implies the G(n,p) comparison exactly, and this is acknowledged as prior.",
+        "Goldstein §2, https://arxiv.org/html/1005.4390v4, treats normal approximation for a single degree class, not the two-class G(n,m) exact dependence.",
+        "At identical mean edge count m=n with n>=5, the fixed-edge sign is negative and the G(n,p) sign is positive. Thus the Bernoulli covariance sign cannot itself imply the fixed-edge sign."
+      ],
+      "reasoning": "The new implication is the all-m sharp fixed-edge sign and the deletion-based strict ratio, with sparse fixed-m covariance -c² exp(-2c). Known Bernoulli joint-covariance results cover the comparator but not this distinction. General fixed-edge degree-profile identities are residual priority risks.",
+      "searches": [
+        "https://arxiv.org/html/math/0510586v1",
+        "https://arxiv.org/html/1005.4390v4",
+        "Random graph G(n,m) covariance of number of isolated vertices and number of degree-one vertices is always strictly negative for 2<=m<=binomial(n-1,2), versus G(n,p) sign change at p=2/n",
+        "random graph G(n,m) covariance number of isolated vertices number degree one vertices sign",
+        "\"G(n,m)\" \"isolated vertices\" \"degree one\" \"covariance\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goldstein–Rinott §4.2 Eq. (25), https://arxiv.org/html/math/0510586v1, gives degree-count covariance in an independent-edge graph; conditioning an independent-edge graph on its edge count changes the law.",
+        "Closest semantic records discuss rooted tree degree/distance, fixed-composition transition counts, or two degree-one indicators, not cross-degree 0/1 covariance in uniform G(n,m)."
+      ],
+      "reasoning": "Aliases considered include degree-count covariance, leaf–isolate anticorrelation, cross-degree 0/1 count, and fixed-edge conditional random graph. The G(n,p) equation is equivalent only to the comparator, not the fixed-m theorem. The explicit conditional deletion G(n,m)|isolated vertex = G(n-1,m) is needed to prove the sign.",
+      "searches": [
+        "Random graph G(n,m) covariance of number of isolated vertices and number of degree-one vertices is always strictly negative for 2<=m<=binomial(n-1,2), versus G(n,p) sign change at p=2/n",
+        "Finite random graph degree profile cross-covariance isolated versus leaves fixed-edge ensemble G(n,m), exact threshold sign comparison Erdos Renyi Bernoulli",
+        "G(n,m) leaves isolated vertices count negative covariance fixed number edges conditional degree zero one versus binomial random graph",
+        "number isolated vertices versus degree-one vertices joint moments conditioned edge count fixed-edge random graph hypergeometric"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record Exact negative regression between endpoint degree and distance in a uniform Cayley tree (published record) treats endpoint degree and distance in a Cayley tree; distinct probability space.",
+        "Published record Three-point connectivity exactly controls component–triangle covariance (published record) treats triangle count and connected components in independent bond percolation; distinct statistics.",
+        "Published record A one-switch covariance law for occupancy richness and frequency counts (published record) treats occupancy richness against frequency counts, not graph degree classes.",
+        "Own accessible ledger compared on recoverable claims and IDs: its nearest previously stored finding treats two degree-one indicators in G(n,m), rather than counts of degree zero and one."
+      ],
+      "reasoning": "No exact published table matching the fixed-edge cross-degree covariance across n,m was recovered. Semantic search non-detection is not treated as a proof of priority. Earlier formulas in historical literature may subsume this.",
+      "searches": [
+        "Finite random graph degree profile cross-covariance isolated versus leaves fixed-edge ensemble G(n,m), exact threshold sign comparison Erdos Renyi Bernoulli",
+        "G(n,m) vertex degree class 0 degree class 1 covariance sign exact finite size fixed edges",
+        "number isolated vertices versus degree-one vertices joint moments conditioned edge count fixed-edge random graph hypergeometric",
+        "Exact negative regression between endpoint degree and distance in a uniform Cayley tree (published record)",
+        "Three-point connectivity exactly controls component–triangle covariance (published record)",
+        "A one-switch covariance law for occupancy richness and frequency counts (published record)"
+      ]
+    },
+    "rationale": "Goldstein–Rinott (1996, §4.2 Eq. 25), inspected in full relevant section, directly supplies the G(n,p) covariance comparator, so the latter is explicitly not claimed as new. Its independent-edge formula does not imply the exact all-m G(n,m) negative covariance sign, exact zero boundaries, strict conditioning-ratio mechanism, or sparse fixed-edge limit. Goldstein (2010/2013) studies a single degree class with independent edges and is likewise insufficient. Six semantic database queries and focused literature searches sought aliases and dominating degree-profile results; the nearest records concern different models or statistics. Historical novelty remains provisional because earlier fixed-edge joint degree-count formulas cannot be ruled out conclusively.",
+    "residual_risks": [
+      "Older exact joint-degree-count and asymptotic covariance work for G(n,m), possibly implicit in a general theorem, may supersede the result.",
+      "Bollobás (1981) and some older joint-degree-profile sources were not inspected in full; absence of a search hit does not establish uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The independent-edge cross-covariance is definitively covered; the new fixed-edge G(n,m) sign law is not asserted in the inspected material.",
+        "evidence": "Section 4.2 defines independent edges with probability π; Eq. (25) gives the entire independent-edge degree-count covariance matrix.",
+        "identifier_or_url": "https://arxiv.org/html/math/0510586v1",
+        "material_read": "Full HTML §4.2 lines 272–305 including Theorem 4.2, Eq. (25), model assumptions, and normal approximation discussion; abstract and introduction also inspected.",
+        "method": "Open-access complete arXiv HTML and section-specific examination",
+        "title": "Multivariate normal approximations by Stein’s method and size bias couplings",
+        "trigger": "Direct same two vertex-degree counts and covariance formula in primary literature"
+      },
+      {
+        "assessment": "Independent Bernoulli edges and a single degree-count approximation; no fixed-edge joint covariance theorem encountered in the examined material.",
+        "evidence": "Its §1 explicitly defines independent edge indicators and §2 studies degree d count, referring back to Goldstein–Rinott for the multivariate case.",
+        "identifier_or_url": "https://arxiv.org/html/1005.4390v4",
+        "material_read": "Full HTML abstract, introduction, §2 vertex-degree model and Theorem 2.1, and bibliography links to earlier joint-degree paper.",
+        "method": "Open-access arXiv HTML and line-specific section examination",
+        "title": "A Berry–Esseen bound with applications to vertex degree counts in the Erdős–Rényi random graph",
+        "trigger": "A later primary degree-count paper potentially dominating a two-class covariance statement"
+      },
+      {
+        "assessment": "Unresolved priority risk; no conclusion about whether full text covers the fixed-edge statement.",
+        "evidence": "Title and abstract place it near the degree-profile problem, but abstract is inadequate to assess all implications.",
+        "identifier_or_url": "B. Bollobás, Discrete Mathematics 33 (1981), publisher listing",
+        "material_read": "Publisher abstract only; no full text obtained or reviewed",
+        "method": "Bibliographic and abstract inspection",
+        "title": "Degree sequences of random graphs",
+        "trigger": "Plausible older comprehensive work on random graph degree profiles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e3175821-f49a-426e-a286-b1cc4cb4ac68",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Degree-count cross-covariances are natural inputs in joint approximations for random graph degree profiles. Fixed-edge conditioning, an important finite-sample model, reverses a classical Bernoulli ensemble covariance sign at precisely matched expected edge counts (m=n for every n>=5). The all-parameter strict sign boundary, conditional-deletion monotonicity mechanism, and sparse leading-order covariance explain a structural dependence phenomenon rather than an isolated routine numerical calculation.",
+    "status": "PASS"
+  }
+}
