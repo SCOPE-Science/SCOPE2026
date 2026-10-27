@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The transition matrices are row-stochastic and have rational entries in \\( [0,1] \\). For current accepting-state probability \\(p\\), the updates are \\(f_a(p)=1/2+p/6\\), \\(f_b(p)=1/2-p/2\\), and \\(f_c(p)=1-2p/3\\). Exact enumeration of all 27 length-three strings yields the unique maximum \\(47/54\\) at \\(\\mathtt{abc}\\) and maximum competing value \\(23/27\\) at \\(\\mathtt{cbc}\\), giving gap \\(1/54\\). A one-state PFA assigns equal acceptance probability to all inputs, so the minimum number of states is exactly two.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kjos-Hanssen's Theorem 1.2 gives \\(A_P(w)\\le3\\) for every nonempty word over any finite alphabet.",
+        "Remark 5.3 says that for alphabets of size at least three, a classification of words with \\(A_P=2\\) is still needed to obtain computability by this route."
+      ],
+      "reasoning": "The general upper bound leaves \\(A_P(\\mathtt{abc})\\) equal to either two or three and does not imply the exact two-state witness or the exact \\(1/54\\) gap.",
+      "searches": [
+        "B. Kjos-Hanssen, arXiv:2607.26275v1, Theorem 1.2, Corollary 5.2, Remark 5.3",
+        "Web query: \"probabilistic automatic complexity of finite strings\" \"A_P=2\" nonbinary strings"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2402.13376v4, full-text definitions, Theorem 4.1, Corollary 4.18, Section 4.4",
+      "arXiv:2607.26275v1, complete five-page PDF",
+      "Public web searches for ternary two-state PFA complexity and nonbinary A_P=2 returned the two cited primary papers but no direct matching witness."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gill supplies the binary classification and the implication for binary targets over larger alphabets, not an example using three distinct letters with \\(A_P=2\\).",
+        "Kjos-Hanssen supplies the universal three-state construction and explicitly leaves the larger-alphabet two-state classification uncompleted.",
+        "The exact 27-word table and rational matrices in this result provide the concrete two-state witness and strict gap."
+      ],
+      "reasoning": "Neither source implies the displayed exact acceptance probabilities or the conclusion \\(A_P(\\mathtt{abc},\\{a,b,c\\})=2\\). The result is limited to one minimal witness and does not settle the broader classification question.",
+      "searches": [
+        "K. Gill, arXiv:2402.13376v4, full text: definitions, Theorem 4.1, Corollary 4.18, and Section 4.4",
+        "B. Kjos-Hanssen, arXiv:2607.26275v1, full PDF: Theorem 1.2, Corollary 5.2, and Remark 5.3",
+        "Web query: \"probabilistic automatic complexity\" \"alphabet\" \"two-state\" PFA ternary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gill's Theorem 4.1 classifies strings over a two-letter alphabet; Corollary 4.18 says a string already having complexity two over a two-letter alphabet keeps complexity two when the alphabet is enlarged.",
+        "The target \\(\\mathtt{abc}\\) uses all three symbols, so it is not a binary target to which that classification directly applies."
+      ],
+      "reasoning": "Renaming preserves the number of distinct symbols, and the cited corollary requires a binary target; neither covers this word.",
+      "searches": [
+        "Web query: (\"probabilistic automatic complexity\" ternary alphabet \"A_P=2\" OR \"A_P(w)=2\")",
+        "Web query: \"probabilistic automatic complexity\" \"alphabet\" \"two-state\" PFA ternary",
+        "K. Gill, arXiv:2402.13376v4, Theorem 4.1 and Corollary 4.18"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The public web searches returned Gill's binary classification and Kjos-Hanssen's general three-state upper bound, but no directly matching claim that a three-distinct-symbol word has \\(A_P=2\\).",
+        "No exhaustive external table of two-state PFAs or their maximizing words is claimed; the result is a direct rational construction verified by enumerating all 27 inputs of the stated length."
+      ],
+      "reasoning": "No exhaustive external table is needed to verify this constructive witness. Search failure is not treated as a novelty proof.",
+      "searches": [
+        "Web query: \"probabilistic automatic complexity of finite strings\" \"A_P=2\" nonbinary strings",
+        "Web query: (\"probabilistic automatic complexity\" ternary alphabet \"A_P=2\" OR \"A_P(w)=2\")",
+        "Web query: \"probabilistic automatic complexity\" \"alphabet\" \"two-state\" PFA ternary"
+      ]
+    },
+    "rationale": "The claim is a specific three-distinct-symbol witness. Gill's classification is for binary strings; its alphabet-extension corollary preserves complexity two for an already binary target, not a word containing three distinct symbols. The comparison concerns \\(A_P=2\\). Kjos-Hanssen proves only the universal upper bound three and explicitly identifies the larger-alphabet A_P=2 classification as uncompleted. No direct match appeared in the targeted public-web searches and inspected primary texts; this is bounded novelty evidence, not a proof of absolute priority.",
+    "residual_risks": [
+      "An unindexed paper, thesis, or unpublished note may already contain an equivalent small ternary witness.",
+      "The result is a minimal counterexample, not a classification of two-state PFA maximizers for alphabets of size at least three.",
+      "Public web searches and inspected sources are not exhaustive novelty certificates."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant and closest prior result, but its classification is explicitly for two-letter targets. Corollary 4.18 extends an existing binary target's complexity-two property to a larger alphabet; it does not classify targets that use three distinct letters.",
+        "evidence": [
+          "Theorem 4.1",
+          "Corollary 4.18",
+          "Section 4.4"
+        ],
+        "identifier_or_url": "arXiv:2402.13376 (full text version 4; first public version 1 dated 2024-02-20)",
+        "material_read": "Read the full-text PDF sections containing the definition of the gap and A_P, Theorem 4.1 and its proof outline, Corollary 4.18, and Section 4.4; inspected relevant statements and the alphabet-extension hypothesis.",
+        "method": "Direct full-text PDF reading, including the theorem and corollary text rather than relying only on the abstract.",
+        "title": "Probabilistic automatic complexity of finite strings",
+        "trigger": "Foundational definition of A_P and closest binary classification for two-state PFAs."
+      },
+      {
+        "assessment": "The paper proves \\(A_P\\le3\\) universally and states that classification of \\(A_P=2\\) for alphabets of size at least three is not carried out. It does not state or imply the specific two-state witness for abc.",
+        "evidence": [
+          "Theorem 1.2",
+          "Corollary 5.2",
+          "Remark 5.3"
+        ],
+        "identifier_or_url": "arXiv:2607.26275v1",
+        "material_read": "Read the complete five-page arXiv PDF, including the three-state construction, general-alphabet section, Corollary 5.2, Remark 5.3, and verification discussion.",
+        "method": "Direct full-PDF reading.",
+        "title": "Every string has probabilistic automatic complexity at most three",
+        "trigger": "Newest direct theorem on A_P over arbitrary finite alphabets."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d59c6650-8e6c-4ddb-9043-93da5ddb5b5a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 general theorem leaves a specific classification gap for alphabets of size at least three. This witness is minimal in both length and alphabet support for a word containing three distinct symbols, and it disproves the natural support-size extrapolation that only two-symbol words can have \\(A_P=2\\). The exact rational gap \\(1/54\\) makes it a reproducible boundary case for any future classification. The result does not overclaim a general theorem or optimal gap.",
+    "status": "PASS"
+  }
+}
