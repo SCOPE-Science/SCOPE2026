@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Partition uniqueness localizes any cell outcome to a unique choice of prescribed blocks. Fix an action in that tuple: at most q^(k-1) profiles complete it within the cell, forcing \\(q^{k-1}\\ge |C|\\). The cyclic-difference map from the remaining k-1 labels is bijective on every fixed coordinate slice, and surjections onto each cell therefore attain the bound. For k=2, any fixed opponent action must reach all |B_i intersect D_j| outcomes through actions realizing the other block, forcing individual counts alpha_i>=max_j t_ij and beta_j>=max_i t_ij. Rectangular modular-addition arrays simultaneously realize all these minima. The standalone checker covered every fully intersecting partition tuple for k=2, outcome sizes up to 6; k=3, up to 5; and k=4, up to 4 (1655 valid cases). Enumeration does not prove unbounded cases; the preceding counting and slice arguments do.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Complete RESULT.md of the root-size action realization gives the uniform factor \\(\\lceil |R|^{1/(k-1)}\\rceil\\) with worst-case sharpness but explicitly does not determine per-frame minimum multiplicities.",
+        "Full RESULT.md of local-range compression bounds |Sigma_i||R| and its Limitations note that minimal individual-frame action counts are unresolved."
+      ],
+      "reasoning": "Since \\(t\\le |R|\\), a general range-based upper bound does not imply the smaller sharp factor for a given partition frame, nor exact nonuniform agent/block-specific budgets. On transverse partitions whose intersections are singletons, the new uniform optimum is one, independently of how large \\(|R|\\) becomes.",
+      "searches": [
+        "For k independent partitions of a finite outcome range all common refinement cells nonempty, sharp minimum uniform copies of each block action ceil(max common-cell size to power 1/(k-1)), including cellwise multidimensional Latin hypercube.",
+        "minimal action realizations effectivity functions two agents finite outcome neighborhoods matching problem",
+        "minimal action realizations effectivity functions two agents finite outcome neighborhoods matching problem"
+      ]
+    },
+    "checked_sources": [
+      "Ciardelli, Inquisitive Action Logic, arXiv:2606.31866, Theorem 2.2.",
+      "Chen, Ju and Ågotnes, Representation theorems for actual and alpha powers over two-agent general concurrent game frames, arXiv:2603.04160v2, §4.4.",
+      "Sharp local-range compression for actual-effectivity representations, published 2026-10-04.",
+      "Sharp root-size action realization for finite actual-effectivity frames, published 2026-10-04."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ciardelli, arxiv:2606.31866, Theorem 2.2, characterizes representable families by nonemptiness, common range, and independent intersections; it constructs games but does not optimize copies of an individual neighborhood.",
+        "Chen, Ju, Ågotnes, arxiv:2603.04160, §4.4, constructs two-agent actual-power realizations without an exact coordinatewise action-minimality theorem.",
+        "Root-size published result proves a general bound using difference arrays and a one-block worst-case lower bound; its special case with a single common block is subsumed, but it does not imply the refined full partition theorem."
+      ],
+      "reasoning": "The qualitative representation conditions guarantee existence, not the minimum counts. The existing upper bound and its worst-case sharpness are consistent with smaller minima for specific partition frames; the current cell count gives a new lower bound matched by construction. Stronger uninspected game-form coverage remains a priority risk.",
+      "searches": [
+        "Inquisitive Action Logic representation theorem actual effectivity neighborhoods actions construction 2026",
+        "representation theorems for actual and alpha powers over two-agent general concurrent game frames 2026",
+        "For k independent partitions of a finite outcome range all common refinement cells nonempty, sharp minimum uniform copies of each block action ceil(max common-cell size to power 1/(k-1)), including cellwise multidimensional Latin hypercube."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus semantic results were led by the local-range and root-size action-compression records; neither full RESULT.md states the exact partition-cell criterion.",
+        "In the two-agent case the precise same claim is equivalent to a rectangular matrix with prescribed row/column outcome ranges and minimal repeated block strategies; Chen, Ju, and Ågotnes give qualitative representation, not this multiplicity vector."
+      ],
+      "reasoning": "Recasting every partition block as an action-range label produces simultaneous prescribed row/column range matrices. The explicit alpha/beta vector is a per-instance optimum, not a restatement of a worst-case factor. No covering equivalent was identified, but absence of a search hit is not a proof of novelty.",
+      "searches": [
+        "In deterministic concurrent game representations of partition-valued individual actual-effectivity neighborhoods, minimum actions for each partition block equal maximum size of its intersections with opponent blocks; profile matrices filled by cyclic Latin rectangles.",
+        "actual effectivity functions concurrent games no repeated neighborhood actions one action each binary outcomes combinatorial necessary sufficient surjective coloring rows columns",
+        "finite game forms outcome partitions minimal duplicate strategies row column surjective matrix"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest mathematical research records give formulas using the entire local range size \\(|R|\\), not the maximum joint-intersection size \\(t\\), nor a coordinatewise optimal action vector.",
+        "Own accessible current-week research ledgers were searched by claim, title, and thematic aliases for action copies, actual effectivity, local partitions and row/column matrices; no matching statement was recovered."
+      ],
+      "reasoning": "No inspected result database or published table contained the exact optimization formula. The computational checker is freshly generated and does not promote a finite table to a theorem.",
+      "searches": [
+        "Exact optimal per-neighborhood action multiplicities in two-agent concurrent game effectivity partition frames optimal total action counts",
+        "partition effectivity minimum actions uniform cell sizes Latin arrays",
+        "finite action range partitions exact minimum labeled strategies"
+      ]
+    },
+    "rationale": "The motivating 2026 actual-effectivity representation theorem proves qualitative representability. Closest published action-compression results give universal range-based upper factors with worst-case optimality; the root-size result explicitly does not determine per-frame minimum actions. Here the optimum depends on maximal common-refinement cell size and is necessary and sufficient on every independent partition frame; the two-agent statement additionally gives simultaneous coordinatewise-minimal action counts. The known modular-array device itself is not claimed as new. A residual risk remains from differently formulated classical game-form realization results.",
+    "residual_risks": [
+      "Older finite game-form, prescribed row/column symbol sets or Latin-rectangle representation theorems might imply the two-agent coordinatewise optimization under different terminology.",
+      "The general uniform max-cell formula may follow by a natural localization of the published global difference-array construction, although the per-frame necessity and two-agent componentwise formula were not stated in the inspected source.",
+      "Independent external mathematical novelty review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative exact-power representation only; partition-case minimum action counts absent from the inspected theorem.",
+        "evidence": "Nonempty individual neighborhood families, uniform local range, and independence suffice for game representation; no action-count minimization is included in Theorem 2.2.",
+        "identifier_or_url": "arXiv:2606.31866",
+        "material_read": "Theorem 2.2 representation assumptions, its constructive proof and stated scope.",
+        "method": "Public arXiv searchable full text and citation verification.",
+        "title": "Inquisitive Action Logic",
+        "trigger": "Source defines individual-agent actual effectivity and a representation theorem."
+      },
+      {
+        "assessment": "Broader qualitative representation for general game frames but no same coordinatewise minimal strategy counts for partitions.",
+        "evidence": "§4.4 introduces names for individual powers and pairs their names to construct a local game, without deriving maxima of block-intersection sizes.",
+        "identifier_or_url": "arXiv:2603.04160v2",
+        "material_read": "Full HTML contents, abstract and §4.4 construction of local games, including action naming and pairing.",
+        "method": "Primary open-access HTML text.",
+        "title": "Representation theorems for actual and alpha powers over two-agent general concurrent game frames",
+        "trigger": "Possibly broader two-agent actual-power representation theorem."
+      },
+      {
+        "assessment": "Uses |R| copies per block, lower bound worst-case for one common block, expressly does not minimize every particular frame.",
+        "evidence": "The Result claims |Sigma_a(w)||O(w)| actions and states no minimum-action theorem for general frames.",
+        "identifier_or_url": "Published published-finding corpus record, 2026-10-04, Sharp local-range compression for actual-effectivity representations",
+        "material_read": "Complete published RESULT.md, including assumptions, proof, limitations and references.",
+        "method": "Public repository primary result text.",
+        "title": "Sharp local-range compression for actual-effectivity representations",
+        "trigger": "Direct competitor: quantitative actual-effectivity representation bound."
+      },
+      {
+        "assessment": "Proves q=ceil(r^(1/(k-1))) upper bound and one-block worst-case, not exact instance-level partition-cell budget or per-block vector.",
+        "evidence": "Assumptions and scope expressly say construction is not proved optimal for every particular frame; generic local reachable outcome count is r=|R|.",
+        "identifier_or_url": "Published published-finding corpus record, 2026-10-04, Sharp root-size action realization for finite actual-effectivity frames",
+        "material_read": "Complete published RESULT.md, including difference-map proof and limitations.",
+        "method": "Public repository primary result text.",
+        "title": "Sharp root-size action realization for finite actual-effectivity frames",
+        "trigger": "Closest existing sharp root-size action-count construction."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb27bd69-f0f2-4779-9f73-70bf8c47f96b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Action multiplicity is the implementation cost of prescribed individual actual powers. Independent partition-valued families are a natural class with mutually exclusive coarse outcome types, admitting a complete finite optimization theorem. The cell-sensitive bound can be arbitrarily smaller than earlier range-based bounds: transverse partitions of an \\(n\\)-by-\\(n\\) product have \\(t=1\\) and \\(|R|=n^2\\). The two-agent formula simultaneously determines every individual neighborhood action minimum and both total resource counts; this is structural content rather than a finite tally.",
+    "status": "PASS"
+  }
+}
