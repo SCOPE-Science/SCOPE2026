@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The proof derives the exact equivalence between torus fixed points and constrained vectors in the discrete-Dirichlet inverse lattice \(K_N^{-1}\mathbb Z^N\). The congruence recursion \(u_i\equiv ik/m\pmod1\) is valid in both directions, because the endpoint values are fixed at zero. It accounts for the integral-residue class separately; this prevents missing an earlier lift. Minimizing absolute residues yields the exact first norm, and the counts explicitly account for half-integer tie choices and for saturated sine inverses at onset. Discreteness proves a genuine right-hand parameter interval with the stated count. This analytic proof applies for every integer \(m\ge2\). Independent exact-rational finite checks cover \(m=2,\ldots,16\); they corroborate but do not replace the proof. Risk: none identified within the stated unit-weight model; hyperbolicity is not asserted.
+
+## Originality — PASS under examined evidence
+The motivating paper's Sections 3–5 prove existence and dynamics only in the small-step gradient regime, and give the path matrix explicitly. The new theorem locates the first **non-potential modulo-lift fixed point** in the large-step regime and enumerates the exact discontinuous multiplicities. Searches for winding, wrapping, lattice lift, alias equilibrium, and path sine-coupled phase maps in the mathematical-record database did not identify an equivalent or stronger result. Closest historical findings for this path family concern a corank-one singularity and a supercritical temporal two-cycle; neither implies the arithmetic threshold or count. A prior general treatment of Euler map alias fixed points under different terms remains a possible bibliographic risk; database silence is not proof of novelty.
+
+## Value — PASS
+For a natural and already analyzed dynamical family, this determines the sharp parameter at which its known list of fixed points ceases to be exhaustive. The threshold has nontrivial arithmetic dependence on the **least odd prime factor** of the number of oscillators, and the exact onset counts exhibit a real combinatorial transition between odd-factor and pure-power-of-two networks. This is neither a routine restatement of the small-step theorem nor a single isolated numerical example. It informs the global fixed-point structure after invertibility and Lyapunov descent have ceased. It does not classify stability or larger-step dynamics.
+
+Self-review: passed. Independent audit: not yet performed.
