@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "All n >= 2 for grid heights 2 and 3: the local domination/minimality condition is equivalent to a five-consecutive-column predicate, and the max-plus state recurrence is exact. The executable certificate verifies the period-four score-translation and zero second-difference identities on all 123 (height 2) or 1285 (height 3) reachable states; linearity then proves the infinite count and maximum-weight formulas. Direct independent brute enumeration tests the full vertex condition through eight columns.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sahbi arXiv:2610.03785 Theorem 3.1 covers the size for every height but no exact counts or structure.",
+        "Unique Independence, Upper Domination and Upper Irredundance in Graphs (2003) abstract proves uniqueness equivalence for bipartite graphs; no nonunique full count is stated in inspected material."
+      ],
+      "reasoning": "Size-only coverage by the broader rectangular-grid theorem does not imply degeneracy/count or rigidity. The general bipartite uniqueness theorem implies only the unique odd-area branch when maximum independence is unique, and is acknowledged as prior coverage of that part; the nonunique cases are not supplied.",
+      "searches": [
+        "all maximum minimal dominating sets rectangular grids checkerboard and bands",
+        "upper domination rectangular grid count maximum minimal dominating sets",
+        "\"upper domination\" \"rectangular grid\" \"all\" \"sets\"",
+        "\"maximum minimal dominating sets\" \"bipartite\" characterization equality perfect matching"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.03785, full HTML",
+      "Burdett-Haythorpe-Newcombe 2023, open article HTML",
+      "OEIS A286847 full record",
+      "OEIS A290379 full record",
+      "2003 uniqueness paper abstract",
+      "Published mathematical-record comparisons using the search strings listed above",
+      "Previously published cyclic-prism theorem compared at statement level"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.03785 provides Gamma(P_h square P_n)=ceil(hn/2), which fixes degree not coefficient of the extremal generating term.",
+        "The relevant previous claim on C_n square K_2 gives a cyclic-prism multiplicity 2+2*[2|n]+4*[4|n], while the open ladder has 4 or 6 and the 3-row grid has 1 or 4; the cyclic seam invalidates specialization.",
+        "Burdett et al. (2023) §2 gives exact algorithmic formulations but no symbolic two-height classification."
+      ],
+      "reasoning": "Neither the 2026 grid size theorem, 2017 total-minimal-set recurrence, the cyclic-prism classification, nor general uniqueness results imply the full new statement. The odd-by-odd uniqueness component is partially covered and is not presented alone as new.",
+      "searches": [
+        "The ladder graph P_2 Cartesian P_n has exactly four largest minimal dominating sets when n odd and six when n even",
+        "upper domination number and exact maximum minimal dominating sets of circular ladders simple prisms C_n Cartesian K_2",
+        "site:arxiv.org/abs/2610. \"upper domination\" grids 2026",
+        "\"ladder graph\" \"upper domination\" \"maximal\" \"dominating sets\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A290379 (full page, formula and definitions); OEIS A286847 (full-page 2D table): total numbers of minimal dominating sets, not refined by chosen cardinality.",
+        "arXiv:2610.03785 §§2-3 defines Gamma as the largest cardinality of an inclusion-minimal dominating set, with no enumeration."
+      ],
+      "reasoning": "The exact equivalent formulation is the leading-degree coefficient of the minimal-dominating-set cardinality polynomial of P_h square P_n. No inspected source lists that coefficient for h=2,3 or classifies its sets. A total-count sequence does not imply its leading coefficient.",
+      "searches": [
+        "maximum-cardinality inclusion-minimal dominating sets in 2 by n and 3 by n grids exact count checkerboard stripes",
+        "upper domination grids narrow strips uniqueness and multiplicity",
+        "\"ladder graph\" \"minimal dominating sets\" \"generating function\"",
+        "\"ladder graph\" \"number of minimal dominating sets\" \"recurrence\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A286847 explicitly totals all inclusion-minimal dominating sets for each rectangular grid; A290379 is its height-two row and displays a recurrence for totals.",
+        "The selected-size top coefficient is absent from both inspected tables; they have no multiplicity-by-cardinality dimension."
+      ],
+      "reasoning": "The published tables give a coarser statistic and cannot independently infer how many sets attain Gamma. This is not a recomputation of their numbers.",
+      "searches": [
+        "total numbers minimal dominating sets n ladder A290379 refined by cardinality",
+        "OEIS A286847 minimal dominating grid table",
+        "OEIS A290379 ladder total minimal domination enumeration"
+      ]
+    },
+    "rationale": "The distinct new component is exhaustive enumeration and classification of maximum-cardinality minimal dominating sets in both height-2 and height-3 open grids. The 2026 grid theorem gives their maximal size only; old enumerations count all cardinalities, and general uniqueness theory already covers the odd-area uniqueness implication but not the two-height nonunique count/classification. A previous result on cyclic prisms concerns a different graph and cannot be directly specialized. Historical priority is not independently certified.",
+    "residual_risks": [
+      "Independent historical priority not certified; older full-text uniqueness article not read beyond abstract, so no whole-document absence is claimed.",
+      "No theorem for other grid heights; full rectangular-grid classification remains unproved.",
+      "Finite-state proof is reproducible but not independently proof-checked by another reviewer."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Gamma but no extremizer multiplicity or structural census; does not cover the new count claim",
+        "evidence": [
+          "Theorem 3.1 gives Gamma=ceil(mn/2); §3 arguments construct checkerboard witnesses but do not classify all maximizing minimal dominating sets."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03785",
+        "material_read": "Full accessible HTML text: introduction, definitions, proofs of Theorem 3.1, remarks, subsequent comparisons and references",
+        "method": "Read complete open HTML rendition, compared theorem statements and graph domains",
+        "title": "Upper Domination in Rectangular Grid Graphs and Its Relation to Sub-Quorum Colorings",
+        "trigger": "Same parameter and same rectangular-grid family; plausible complete coverage"
+      },
+      {
+        "assessment": "Gives mixed-integer formulations and a generalized Petersen upper value, not a two- or three-row grid maximizer enumeration",
+        "evidence": [
+          "Article abstract and §§1-2 focus on binary programming formulation, not exact all-order top-coefficient classification."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00186-023-00831-2",
+        "material_read": "Accessible open journal HTML: abstract, introduction, formulations, stated prism result; relevant sections",
+        "method": "Direct open-access full article HTML, comparisons of optimization versus counting",
+        "title": "Binary programming formulations for the upper domination problem",
+        "trigger": "Computational antecedent cited by the initiating paper, studied same optimization"
+      },
+      {
+        "assessment": "Tabulates sum across all cardinalities, not upper-domination extremal-set counts",
+        "evidence": [
+          "OEIS A286847 defines T(m,n) as number of ALL minimal dominating sets in P_m square P_n."
+        ],
+        "identifier_or_url": "https://oeis.org/A286847",
+        "material_read": "Entire webpage including definition, table, cross references, authorship and dates",
+        "method": "Read whole published sequence record and inspect table definition",
+        "title": "OEIS A286847: Number of minimal dominating sets in grid graph",
+        "trigger": "Plausible exact table of same graph family"
+      },
+      {
+        "assessment": "Total count only, cannot imply the separate max-cardinality coefficient",
+        "evidence": [
+          "The posted sequence starts 2,6,7,18,39 and contains an univariate ladder-size generating function for all minimal dominating sets."
+        ],
+        "identifier_or_url": "https://oeis.org/A290379",
+        "material_read": "Entire webpage including recurrence, generating function, comments and cross-references",
+        "method": "Read complete sequence record, checked quantity actually enumerated",
+        "title": "OEIS A290379: Number of minimal dominating sets in n-ladder",
+        "trigger": "Potential exact published recurrence for the height-two family"
+      },
+      {
+        "assessment": "Explicitly covers equivalence of uniqueness of maximum independence and upper domination in bipartite graphs; may subsume odd-area uniqueness, but does not establish the full enumerations in material read",
+        "evidence": [
+          "Abstract states a bipartite graph has a unique alpha-set iff unique Gamma-set; complete paper remains residual risk."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-047/unique-independence-upper-domination-and-upper-irredundance-in-graphs/",
+        "material_read": "Publisher abstract and bibliographic details; full PDF not inspected",
+        "method": "Compared the abstract theorem to the unique and nonunique subclaims; withheld whole-document no-coverage conclusion",
+        "title": "Unique Independence, Upper Domination and Upper Irredundance in Graphs",
+        "trigger": "Classical theorem may dominate uniqueness part"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc9191c8-8d0f-4cf9-9871-5ee4656ccfde",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact natural optimizer census for the first two nontrivial widths of the rectangular-grid family, motivated by the 2026 determination of Gamma, supplies complete optimizer structure instead of a cardinality upper bound. It distinguishes unique and parity-dependent 4/6-fold degeneracy and gives an exact all-order proof. The relevant 2017 tables count all minimal sets but leave this finer structural quantity unanswered. This is not merely a worked finite example.",
+    "status": "PASS"
+  }
+}
