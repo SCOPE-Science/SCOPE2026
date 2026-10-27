@@ -1,0 +1,50 @@
+# Parity-complete semantics for variable-free loop-intersection dynamic logic on bipartite graphs
+
+## Finding
+
+In the variable-free, single-action language of propositional dynamic logic with converse, regular programs, arbitrary nested formula tests, program intersection and the loop modality, **there are exactly four pointwise semantic equivalence classes of formulas** over symmetric irreflexive bipartite frames. They are represented by \(\bot\), \(\top\), \(\langle a\rangle\top\), and \(\neg\langle a\rangle\top\). In particular, all nonisolated points have the same complete theory, and all isolated points have the same complete theory, independently of graph size, connectedness and finiteness. Validity, satisfiability, pointwise equivalence and entailment over this frame class are decidable by an exact linear-time two-point semantic evaluation. A four-state parity calculus for program expressions, including intersection and nested tests, proves this collapse.
+
+## Assumptions and scope
+
+Frames have a nonempty set \(W\) and one binary relation \(R\subseteq W^2\). The relation is symmetric, irreflexive and bipartite: every connected component admits a vertex colouring \(c:W\to\{0,1\}\) under which each edge switches colour. Connectedness and finiteness are not assumed. An isolated point has no \(R\)-neighbour.
+
+Formulas are built from \(\top,\bot\) by Boolean negation and conjunction, modalities \(\langle\pi\rangle\varphi\), and \(\operatorname{loop}(\pi)\). Programs are built from the atomic action \(a\), tests \(\varphi?\), union \(\cup\), relational intersection \(\cap\), composition \(\circ\), converse \(\smile\), and reflexive transitive closure \((\cdot)^*\). Their semantics are standard: tests are identities at worlds satisfying the tested formula, and a loop holds at \(u\) precisely when \((u,u)\) belongs to the program relation. Parenthesized derived Boolean and box operators are allowed. There are no propositional letters, no additional atomic actions, no program complement, and no universal atomic program. Formula size is its usual syntax-tree length.
+
+For a nonisolated point define a program's parity support \(S_\pi\subseteq\{0,1\}\) and formula's Boolean value \(t_\varphi\) recursively. Set \(S_a=\{1\}\), \(S_{\varphi?}=\{0\}\) when \(t_\varphi=1\) and empty otherwise, take ordinary union and intersection for program union and intersection, and define \(S_{\pi\circ\rho}=\{(e+f)\bmod 2:e\in S_\pi, f\in S_\rho\}\), \(S_{\pi^\smile}=S_\pi\), and \(S_{\pi^*}=\{0,1\}\) if \(1\in S_\pi\), else \(\{0\}\). Define \(t_\top=1\), \(t_\bot=0\), Boolean connectives in the usual way, \(t_{\langle\pi\rangle\varphi}=1\) exactly when \(S_\pi\ne\varnothing\) and \(t_\varphi=1\), and \(t_{\operatorname{loop}(\pi)}=1\) exactly when \(0\in S_\pi\). This mutually recursive definition is well-founded on expressions.
+
+At isolated points use an analogous one-world Boolean evaluation: \(b_a=0\), \(b_{\varphi?}=i_\varphi\), union is Boolean disjunction, both intersection and composition are conjunction, converse preserves the bit, and star yields bit \(1\); formula modalities and loops evaluate as Boolean conjunction and identity, respectively. Write \(i_\varphi\) for the resulting isolated-point truth bit.
+
+## Proof
+
+**Parity sandwich lemma.** In any bipartite frame and for any program \(\pi\), its relation satisfies three assertions within the nonisolated part of every component:
+
+1. If \((u,v)\) belongs to \(\llbracket\pi\rrbracket\), then \(c(u)\oplus c(v)\in S_\pi\).
+2. If \(0\in S_\pi\), every nonisolated vertex \(u\) has \((u,u)\in\llbracket\pi\rrbracket\).
+3. If \(1\in S_\pi\), every atomic edge \((u,v)\in R\) has \((u,v)\in\llbracket\pi\rrbracket\).
+
+Prove the three assertions together with the formula-uniformity statement by simultaneous structural induction. At \(a\), bipartiteness and the definition of an edge give the claims. For tests, formula uniformity makes each test either the complete identity or the empty relation on nonisolated vertices, establishing the support rules. Union follows directly. At intersection, the upper parity constraint intersects, and the *same canonical diagonal or edge witnesses* occur in both operands whenever their parity occurs in both supports; thus exact intersection, rather than merely regular-language semantics, is handled. Converse preserves parity and canonical witnesses because the base relation is symmetric. For composition, upper supports add modulo two. To witness even-plus-even use \((u,u,u)\); for odd-plus-odd use \((u,v,u)\) for any neighbour \(v\); for odd-plus-even use \((u,v,v)\); for even-plus-odd use \((u,u,v)\). Each of these witnesses is available at every nonisolated vertex, and every edge is available when the resulting parity is odd. For star, the zero-length path gives the diagonal. If odd parity is present in the operand, the operand contains every edge and thus star contains every edge and gives both parities; otherwise all finite composed paths have even parity. Hence the displayed star support is exact in the sandwich sense. This completes the program induction.
+
+For formulas, negation and conjunction preserve uniformity. A diamond formula with uniformly true target holds at every nonisolated world precisely when its program support is nonempty, by the canonical diagonal/edge witnesses; if target is uniformly false it holds nowhere. A loop holds precisely when parity zero belongs to its support, by the parity constraint and mandatory diagonal. Thus every formula has truth value \(t_\varphi\) at all nonisolated vertices. A separate simultaneous induction over programs and formulas at isolated vertices reduces all program relations to either the empty relation or the singleton identity and yields truth value \(i_\varphi\).
+
+Every formula is therefore classified by the pair \((i_\varphi,t_\varphi)\in\{0,1\}^2\). All four Boolean pairs occur: \(\bot\) has \((0,0)\), \(\top\) has \((1,1)\), \(\langle a\rangle\top\) has \((0,1)\), and its negation has \((1,0)\). A singleton vertex and one endpoint of a two-vertex edge jointly witness the distinction. Exactly four semantic equivalence classes result. One traversal of the syntax tree computes the Boolean and four-state program supports, requiring linear time and constant auxiliary information per node.
+
+The bipartiteness restriction is essential to this argument: a triangle is a symmetric irreflexive frame whose vertices satisfy \(\operatorname{loop}(a\circ a\circ a)\), while no vertex of any bipartite symmetric irreflexive frame does. Thus arbitrary symmetric frames cannot obey the displayed parity support semantics.
+
+## Verification
+
+The standard-library verifier `check_parity_logic.py` enumerates all labelled simple bipartite graphs with one through five vertices, including disconnected examples and isolates, and tests 400 deterministic generated formulas and 400 generated programs with nested tests, converse, intersection, composition, loop and star. It compares every vertex truth value to the two-type abstract semantics and every program relation to its parity bound and canonical diagonal/edge witnesses. Its recorded output is `PARITY_LOOP_INTERSECTION_OK {1: 1, 2: 2, 3: 7, 4: 41, 5: 376} 400 400`. These are finite diagnostics, **not** a proof for unbounded formulas or infinite frames; the induction above provides that proof. Run with `python3 check_parity_logic.py`.
+
+## Relationship to prior work
+
+The work of Bednarczyk and Swoboda (2026), *Towards Finite Satisfiability of PDL with Loops*, develops finite satisfiability for a fragment of loop-PDL with converse on arbitrary relational frames. Its main result and relevant semantics do not imply the present fragment-specific four-class theorem over bipartite undirected frames; its introduction also surveys program intersection. The 2025 work of D. Figueira and S. Figueira studies much more expressive PDL extensions with intersection/converse but does not state this symmetric-bipartite variable-free reduction in its accessible abstract. A published result titled *Four semantic classes in the variable-free fragment of KB* already establishes the same count of formula equivalence classes for **ordinary variable-free modal logic** on symmetric frames. That is acknowledged as a closely related predecessor; the additional relational program operations, notably **intersection plus loop and nested tests**, require the separate parity-sandwich argument and are not provided by a classification restricted to ordinary modal formulas. A separate earlier result characterizes variable-free loop-PDL spectra on **directed cycles**, where arithmetic length sensitivity remains; the current undirected bipartite frame class exhibits a different collapse.
+
+## Limitations
+
+The claim does not concern arbitrary directed relations, nonbipartite undirected graphs, multiple independent action relations, propositional variables, relational complement or a universal atomic program. The parity abstraction characterizes diagonal and atomic-edge witnesses plus necessary pair parity, **not** every pair in the program relation on an arbitrary bipartite graph. Historical priority beyond the inspected literature remains unconfirmed, and independent validation has not been performed.
+
+## References
+
+1. B. J. Bednarczyk and M. Swoboda, *Towards Finite Satisfiability of PDL with Loops* (2026), arXiv:2610.15632v1, https://arxiv.org/html/2610.15632v1.
+2. D. Figueira and S. Figueira, *A Common Ancestor of PDL, Conjunctive Queries, and Unary Negation First-order* (2025), arXiv:2501.11641, https://arxiv.org/abs/2501.11641.
+3. *Four semantic classes in the variable-free fragment of KB*, published record, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-semantic-classes-in-the-variable-free-fragment-of-kb--af4e687aa942 (title and abstract consulted; full text not inspected).
+4. M. J. Fischer and R. E. Ladner, *Propositional Dynamic Logic of Regular Programs*, Journal of Computer and System Sciences 18 (1979), 194–211.
