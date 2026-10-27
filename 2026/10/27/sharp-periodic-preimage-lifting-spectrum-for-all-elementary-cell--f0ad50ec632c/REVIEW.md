@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The domain is the bilateral binary full shift, the image is one-step, and periodicity is spatial with periods permitted to divide the declared period. The path-relation lemma is proved both ways in `RESULT.md`. Every possible relation word belongs to the finite closure of two four-state Boolean matrices, so classifying all reached relation girths proves the infinite-word assertion. Two independent exact representations recover identical monoids for all 256 rules; every reached relation's shortest cycle is crosschecked by a separate simple-cycle traversal. The complete 256-row table, orbit decomposition, shortest witnesses, and bounded cyclic-ring comparisons have been replayed with `verify.py`. No probabilistic sampling or computational timeout is used in the decisive argument.
+
+## Originality — PASS under inspected evidence
+Primary comparisons were statement-based. Salo–Törmä (arXiv:1309.2456) gives periodic-point conditions for block-map sections, not the index spectrum. Castillo-Ramírez–Gadouleau (arXiv:1701.02692) addresses regularity and specific constant-output obstructions, while Salo (arXiv:2209.13373, §6.1 and Proposition 19) addresses regularity and whether same-period preimages always exist; Salo specifically already supplies the Rule 41 period-three obstruction. The present global claim is not that example, but the exact four-way census over 256 rules, its fourfold extremizers, and the sharp universal witness cutoff. Meunier (arXiv:1406.5306) classifies elementary rules via communication complexity, not this periodic lifting invariant. Published research-record searches for period lifting, periodic image antecedents, and the exact numerical spectrum returned no logically covering claim; such searches cannot establish uniqueness. Historical implicit computations and priority remain residual risks.
+
+## Mathematical value — PASS
+For non-surjective dynamical maps, the arithmetic cost of lifting a periodic output to a periodic antecedent is a natural obstruction used when studying sections and regularity. Rather than a single arbitrary rule or one witness, the theorem evaluates that invariant on the entire canonical family of elementary cellular automata, identifies the two maximizers, and proves a uniform sharp finite witness cutoff independent of output period. The distinction among equal-period, double, triple, and quadruple lifts supplies an exact structural classification that prior binary same-period tests alone do not supply.
+
+## Limits and literature
+The proof relies on exhaustiveness of a finite monoid computed for the fixed 256 elementary rules; the included algorithm and 256-row table are sufficient to reproduce the certificate. Larger radii and alphabets are not classified. Full historical priority, including unindexed catalogues, remains open. Relevant inspected works are Salo and Törmä (2013), Meunier (2014), Castillo-Ramírez and Gadouleau (2017 preprint), and Salo (2022 preprint / 2023 publication). A separate independent scientific audit has not yet occurred.
+
+Self-review: passed. Independent audit: not yet performed.
