@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The construction fixes every shuffle index and operator-product convention, proves the exact binary identities and logarithmic permutation count, and tracks the leading local commutator through a stable telescoping expansion with Abel summation. For the explicit three-by-three matrix witness the product identity is exact at every finite step count, and the leading \(Te^T/6\) constant follows without extrapolating numerical experiments. The standalone exact-arithmetic checker was executed against its packaged form.
+
+**Originality — PASS, with stated bibliographic risk.** The 2026 motivating manuscript (Sections 2–4, 5.2.2 and 6) explicitly proves its logarithmically enhanced second-order theorem for two flows, not this three-flow digit-aliasing law. Earlier product-formula work establishes that opposite orders can cancel a commutator, but does not thereby imply the precise consecutive binary radix digit correlation, the exact two-permutation support, the unequal frequencies, or the sharp example. Searches for aliases including quasi-Monte Carlo permutation correlations, Fisher–Yates and van der Corput aliasing, and commutator cancellation returned no directly covering record. An uninspected implementation or specialized discrepancy study might nonetheless contain an equivalent special case.
+
+**Value — PASS.** Multi-flow extension is an explicit theoretical gap in the motivating work. The result gives a constructive obstruction to inferring high-order splitting accuracy from one-dimensional input discrepancy, and pinpoints a practical design constraint: control the induced **joint permutation distribution**, not just individual input points. It is a structural counterexample for fixed finite-dimensional dynamics, not a weak numerical observation.
+
+**Closest literature and limits.** Li–Liu–Wan (arXiv:2603.27654v1) uses the serial Fisher–Yates framework and proves the two-flow result; standard randomized product formulas and Strang splitting use different, balanced or symmetric ordering mechanisms. The mathematical theorem fixes one standard descending convention. It neither identifies the authors' experimental implementation nor rules out other multi-flow shuffles.
+
+Self-review: passed. Independent audit: not yet performed.

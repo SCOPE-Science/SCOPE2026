@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "Exact binary-digit identities show one of the two Fisher–Yates swaps is frozen and the other produces two reverse orders. The dyadic expansion of 1/3 yields uniform logarithmic count error. Taylor series give ±K/2 local error; telescoping, stability, and Abel summation give the stated full norm expansion. Explicit nilpotent 3x3 matrices yield an exact finite-N error e^T h²(c_N−N/2)E13 and strictly positive limit Te^T/6; extracted checker reproduces finite identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.27654v1 Section 6 calls rigorous p-flow extension future work; Section 4.2 theorem handles exactly two flows.",
+        "McLachlan–Quispel 2002 and Cho–Berry–Hsieh 2024 discuss splitting or randomized ordering, rather than this single deterministic binary driver."
+      ],
+      "reasoning": "General splitting BCH theory predicts commutator bias once the permutation frequencies are known, but does not itself determine the unexpected two-support and unequal 1/3:2/3 frequencies imposed by consecutive binary digits. Uniformly randomized orders have balanced reversal probabilities.",
+      "searches": [
+        "Quasi-random splitting method for accurate and efficient multiphysics simulation Lei Li Yunxiao Liu Chenchen Wan 2026",
+        "Quasi-random splitting method for accurate and efficient multiphysics simulation Li Liu Wan 2603.27654",
+        "operator splitting 3 subflows van der Corput error first order deterministic Fisher Yates"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2603.27654v1 (full sections above)",
+      "https://arxiv.org/abs/2603.27654 (first submission date 2026-03-29)",
+      "published-finding corpus semantic searches (actual strings in named O checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li–Liu–Wan 2026 explicitly states its current theory is restricted to p=2 and includes only empirical p=3 tests.",
+        "2026/9/20/SCOPE-three-score-ordering-polytope-pairwise-independence--4209dad13b91 discusses probability laws of three observations, not radix digit-induced operator permutations."
+      ],
+      "reasoning": "The closest source introduces a broad framework with an abstract shuffle Ψ; a proof about p=2 independent sign balances cannot imply this p=3 failure. Conversely the present theorem does not contradict the stated p=2 result and does not assert the source experiment uses the descending implementation.",
+      "searches": [
+        "arxiv:2603.27654v1 full HTML sections 2 through 6",
+        "van der Corput base 2 Fisher Yates shuffle three operator splitting two permutations one third two thirds first order convergence",
+        "Quasi-random splitting method for accurate and efficient multiphysics simulation Li Liu Wan 2603.27654",
+        "published-finding corpus query: p=3 quasi random splitting van der Corput convergence first order"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li–Liu–Wan arXiv:2603.27654v1, Sections 2.1,3.1,3.2,4.2,5.2.2,6, inspected in full HTML.",
+        "No returned published-finding corpus result states the two-permutation support or 1/6 leading commutator in this construction."
+      ],
+      "reasoning": "Equivalent formulations include three-flow composition order, Fisher–Yates rank digit correlation, serial digit aliasing, and unbalanced commutator averages. The two-flow theorem exploits signs ± with mean zero and does not imply a three-flow 1/3:2/3 bias.",
+      "searches": [
+        "van der Corput base 2 Fisher Yates shuffle three operator splitting two permutations one third two thirds first order convergence",
+        "quasi random operator splitting three operators radical inverse Fisher Yates pair parity bias commutator order one",
+        "deterministic Lie splitting quasi-random ordering insufficient commutator cancellation three subflows",
+        "published-finding corpus query: deterministic Lie splitting quasi-random ordering insufficient commutator cancellation three subflows"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned no exact entry for binary radix Fisher–Yates three-flow permutations. Closest tangential result 2026/10/4/SCOPE-incidence-precision-law-for-all-inversion-indicators-of-a-random--f6af0a8c3805 concerns uniformly random permutations, not this deterministic law."
+      ],
+      "reasoning": "No tabulated classification or fixed matrix invariant was used; the permutation support, count and error coefficient are derived algebraically.",
+      "searches": [
+        "quasi Monte Carlo low discrepancy one dimensional blocks Fisher Yates nonuniform permutation distribution three matrices",
+        "radical inverse Fisher Yates serial block stride 2 first digit constraint permutations",
+        "published-finding corpus query: quasi random operator splitting three operators radical inverse Fisher Yates pair parity bias commutator order one"
+      ]
+    },
+    "rationale": "The relevant 2026 source defines serial Fisher–Yates quasi-random splitting and proves second-order-with-log for two operators; Sections 5.2.2 and 6 leave the three-operator analysis open. A direct comparison distinguishes old general commutator expansions and truly randomized products from the new exact digit-support/frequency obstruction for a fixed 3-flow implementation. published-finding corpus and web aliases were actually searched; no covering item was identified, though equivalent specialized results remain a risk.",
+    "residual_risks": [
+      "Other implementations of Fisher–Yates (including ascending or reindexed variants) may be used by the motivating experimental code; not identified as equivalent.",
+      "Specialized unpublished quasi-Monte Carlo permutation-distribution results could contain the same deterministic binary aliasing phenomenon; no direct match found.",
+      "The exact content of Cho–Berry–Hsieh 2024 was not fully inspected; it studies random rather than deterministic orders."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the stated digit-aliasing theorem: source explicitly limits proof to p=2; p=3 tests empirical; shuffle map remains abstract. Source introduces motivating algorithmic framework.",
+        "evidence": "Equations (2.3),(2.5),(2.6),(3.2),(3.4); Theorem 4.2; Section 5.2.2 and Section 6.",
+        "identifier_or_url": "https://arxiv.org/html/2603.27654v1",
+        "material_read": "Sections 1–4, 5.2.2 and 6, including algorithm 1, the two-flow theorem and three-flow experiments",
+        "method": "Lawful full HTML read, mathematical implication comparison",
+        "title": "Quasi-random splitting method for accurate and efficient multiphysics simulation",
+        "trigger": "Exact recent source introducing serial radical-inverse Fisher–Yates splitting"
+      },
+      {
+        "assessment": "Randomized balanced product formulas are a different mechanism; residual risk remains from inaccessible full details.",
+        "evidence": "Cho, Berry and Hsieh (2024), as cited in the Li–Liu–Wan reference list.",
+        "identifier_or_url": "Physical Review A 109, 062431 (2024)",
+        "material_read": "Bibliographic information and abstract-level description, not complete primary article",
+        "method": "Bibliographic comparison, not full-source exclusion",
+        "title": "Doubling the Order of Approximation via the Randomized Product Formula",
+        "trigger": "Randomized permutation order comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f61de32b-97f4-4075-9a80-6f4474c387e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural mathematical gap is identified by the motivating paper itself: p≥3 quasi-random splitting theory. The finding isolates an exact failure of input one-dimensional low discrepancy to ensure balanced multi-flow order; derives the sharp first-order error rather than only sampling an example; it motivates multidimensional/shifted shuffle design or a joint permutation balance check.",
+    "status": "PASS"
+  }
+}
