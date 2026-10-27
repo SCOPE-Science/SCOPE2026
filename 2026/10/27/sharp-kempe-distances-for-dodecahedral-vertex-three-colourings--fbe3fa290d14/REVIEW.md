@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The claim is a fixed finite combinatorial fact. The supplied standard-library-only C++17 verifier generates all canonical proper colourings of the explicitly defined graph; first-use canonicalization gives exactly one representative per palette orbit, and six colour permutations recover all labelled assignments. Three colour pairs and their complete induced connected components give all legal Kempe changes; neighbour symmetry is verified. An all-source BFS in **both** finite state graphs establishes the exact eccentricity distributions, connectivity, radii and diameters. An independent Python graph construction and adjacency enumeration agreed. These are exhaustive finite proofs, not sampling or an extrapolated pattern. The C++ source was compiled and replayed from its actual included source directory, yielding `VERIFY_OK`.
+
+## Originality — PASS with residual risk
+The nearest dated primary work, Feghali–Johnson–Paulusma (2015, arXiv:1503.03430, full text inspected), establishes one Kempe-equivalence class for cubic graphs but does not give the dodecahedral metric or its palette quotient. Bonamy et al. (STACS 2020, full text inspected in relevant sections) addresses shortest Kempe reconfiguration algorithms and hardness for paths and stars; these results do not determine the enumerated graph-specific profiles. Actual semantic searches of scientific records and title/full-text literature searches, including alternate descriptions \(GP(10,2)\), vertex colouring and global palette quotient, found no exact prior census. A closest scientific record on recolouring the Heawood graph uses a different graph, target and move geometry. Negative search evidence cannot exclude unindexed or unpublished earlier computations.
+
+## Value — PASS
+Kempe connectivity is qualitative; graph-specific sharp shortest-sequence geometry is a distinct well-motivated invariant in reconfiguration research. The dodecahedron is a canonical cubic planar graph and the exact label/quotient contrast (diameters \(8\) versus \(7\), differing complete eccentricity profiles) exhibits meaningful palette symmetry effects. This provides a complete benchmark for Kempe-switch shortest-path research, rather than an arbitrary narrow slice or a small incremental bound. No unsupported general consequence is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
