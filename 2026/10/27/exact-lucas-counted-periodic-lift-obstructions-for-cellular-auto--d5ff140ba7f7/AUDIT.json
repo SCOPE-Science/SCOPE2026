@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Exact mod-two cyclic cancellation proves output parity. Unique 1001 antecedent for adjacent output ones gives seam-preserving period-n splicing. Binary XOR phase gives period-n or 2n antecedents for all cyclically isolated ones. These cases exhaust the image; weighted two-state transfer matrix proves the exact Lucas-minus-period-six-character count and rational generating function. Standalone exact checker validates n=1..12, 8190 words and 32760 assertions, without replacing the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sabrié and Törmä, Limit dynamics of elementary cellular automaton 18 (arXiv:2308.12744), section on two-kink words proves a parity obstruction between repeated 11 markers for one-step preimages.",
+        "Salo (2022) proves decidability of the weak periodic point condition for cellular automata and analyzes selected rules.",
+        "Jiang and Xie (2002) investigate rule-18 evolution complexity and defects."
+      ],
+      "reasoning": "Sabrié–Törmä overlaps with the local marker and parity mechanism, and Salo supplies the general dynamical framing; neither source in inspected sections supplies a formula for counts over every n or the constructive universal two-fold periodic lift, nor is the result obtained there as a stated special case. Prior finite-state image presentations are broader descriptive tools, but a universal expression of the exceptional periodic subset is not an immediate statement of the presentation.",
+      "searches": [
+        "elementary cellular automata rule 18 weak periodic point condition periodic lift obstruction density golden mean Lucas",
+        "rule 18 cellular automaton preimage odd number of 1s periodic boundary conditions",
+        "arXiv:2308.12744 full text: rule18 kink odd number ones 11 v 11",
+        "Wolfram 1984 rule 18 image finite automaton"
+      ]
+    },
+    "checked_sources": [
+      "Wolfram 1984 DOI 10.1007/BF01217347",
+      "Jiang-Xie Complex Systems 13 (2002)",
+      "Shreim et al. arXiv:cond-mat/0610447v1",
+      "Salo arXiv:2209.13373v1",
+      "Sabrié–Törmä arXiv:2308.12744v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier image-shift automata in Wolfram (1984) are sufficient *in principle* to algorithmically decide image membership and periodic lifting; this is admitted as underlying machinery.",
+        "Salo (2022) §6 proves that the general periodic image language and same-period preimage language are regular and comparable, without an explicit ECA18 Lucas-count theorem.",
+        "Direct elementary parity and marker constructions evaluate the full exceptional set and its count in the new proof."
+      ],
+      "reasoning": "Distinguish an implication through nontrivial specialization/computation from a covered explicit theorem. The pure fact that rule 18 violates weak periodic lifting and the transfer-matrix counting method are not novel. The all-n closed form, sharp phase-doubling classification, and count-growth statement are the narrowly asserted evaluated advance. An uninspected stronger printed specialization would defeat originality; this remains a priority uncertainty.",
+      "searches": [
+        "Elementary cellular automaton 18 periodic output points with no same spatial period preimage: exactly odd-weight cyclic golden mean words, count (Lucas_n -2cos(pi*n/3))/2",
+        "rule 18 cellular automaton weak periodic point property fails odd weight no adjacent 11; doubled period lift n to 2n Lucas generating function",
+        "all-period exceptional periodic preimage obstruction ECA 18 ring length n odd independent sets Lucas numbers",
+        "Salo 2022 same-period periodic-point lifting rule18",
+        "Wolfram 1984 de Bruijn image presentations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Salo, On von Neumann regularity of cellular automata (arXiv:2209.13373), section 6 defines and decides same-period preimage lifting in general; explicit ECA cases treated there center on rules 9,27,28,41,58, not this complete ECA18 census.",
+        "Wolfram, Computation Theory of Cellular Automata (1984), figures 2.5 and 4.3, contains earlier finite-state image descriptions for rule 18."
+      ],
+      "reasoning": "The lack of same-period preimage for any periodic point is the previously defined weak-periodic-point failure, so this abstract property is covered prior art. The present precise equivalence with odd-weight cyclic golden-mean words, formula for all n, and exact factor-two lifting for every exceptional word were not identified as evaluated statements in the inspected material. General algorithms can imply calculability but do not state the closed expression.",
+      "searches": [
+        "Elementary cellular automaton 18 periodic output points with no same spatial period preimage: exactly odd-weight cyclic golden mean words, count (Lucas_n -2cos(pi*n/3))/2",
+        "rule 18 cellular automaton weak periodic point property fails odd weight no adjacent 11; doubled period lift n to 2n Lucas generating function",
+        "rule 18 periodic points output with no same period preimage odd number of ones Fibonacci Lucas",
+        "arXiv:2209.13373, Sect. 6: weak periodic point condition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Shreim et al. (arXiv:cond-mat/0610447) count finite-state space in-degrees and discuss finite-ring transfer matrices; those statistics count preimages of specified states, not labeled output periodic points lacking same-period antecedents.",
+        "Published mathematical-research index searches returned records about rule 18 in another hybrid system, rules 115 and 128, quadratic five-neighbor bijectivity, and unrelated Lucas arithmetic."
+      ],
+      "reasoning": "No checked source gave an exact table indexed by all n for this exceptional image set, nor a database matching its stated all-period cardinalities. Search omission is not a uniqueness proof. Finite algorithms and OEIS-style sequences can encode the same formula, so hidden tabulation remains a residual risk.",
+      "searches": [
+        "all-period exceptional periodic preimage obstruction ECA 18 ring length n odd independent sets Lucas numbers",
+        "rule 18 image shift seven state automaton entropy cubic minimal forbidden words",
+        "periodic lift Lucas odd cycle rule 18 exact table"
+      ]
+    },
+    "rationale": "Examined direct ECA rule18 image, evolution, periodic ring, weak-periodic-point and limit-set literature. Existing machinery and marker parity are acknowledged; none of the materially compared sources identified the combined explicit all-period exceptional-language characterization, Lucas/period-six count or sharp twofold lifting law. Actual semantic-index searches also found no enclosing same-claim record. Substantive historical-priority risk persists because earlier automata could contain an implicit tabulation; this is not independent certification.",
+    "residual_risks": [
+      "Earlier general ECA18 image automata mechanically imply a decider for the same-language intersection; an uninspected historical specialization may have already evaluated its all-n count.",
+      "Salo and earlier studies establish the basic weak-periodic-point obstruction as a general concept; simple failure alone is not novel.",
+      "The 2023 Sabrié–Törmä marker parity argument can supply some of the local proof as prior art.",
+      "Complete scans of older finite-ring tables and early ECA formal-language theses were not possible; no independent priority assessment is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides finite-state image presentation and entropy context; no evaluated cyclic odd-weight Lucas census found in inspected portions.",
+        "evidence": "Wolfram (1984), sections II–IV and image-language diagrams.",
+        "identifier_or_url": "https://doi.org/10.1007/BF01217347",
+        "material_read": "Image-language and finite-state sections and figures 2.5, 4.3 showing rule-18 image constraints.",
+        "method": "Accessible scholarly PDF, selected text/figures inspected; not a complete entire-document negative comparison.",
+        "title": "Computation Theory of Cellular Automata",
+        "trigger": "Oldest directly relevant rule-18 image automaton"
+      },
+      {
+        "assessment": "Develops evolution complexity rather than complete all-n periodic lift exception counts.",
+        "evidence": "Jiang and Xie (2002), pp. 271-295.",
+        "identifier_or_url": "Complex Systems 13 (2002), 271-295",
+        "material_read": "Introduction and early sections on symbolic evolution, preimage complexity and defect structure.",
+        "method": "Open-access article PDF, relevant sections inspected.",
+        "title": "Evolution Complexity of the Elementary Cellular Automaton Rule 18",
+        "trigger": "Direct rule18 prior analysis"
+      },
+      {
+        "assessment": "State-space in-degree questions overlap the method but not the stated all-period exceptional image formula.",
+        "evidence": "Shreim et al., arXiv:cond-mat/0610447 (first posted 2006-10-16).",
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/0610447",
+        "material_read": "Abstract and finite-ring preimage/transfer-matrix results of the open paper.",
+        "method": "arXiv abstract and lawful paper sections compared to periodic lifting statement.",
+        "title": "Network Analysis of the State Space of Discrete Dynamical Systems",
+        "trigger": "Finite cyclic preimage-count and state-space prior research"
+      },
+      {
+        "assessment": "General same-period obstruction and algorithmic framework pre-exist, but no evaluated rule18 all-n census identified.",
+        "evidence": "Salo (2022), section 6.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.13373",
+        "material_read": "Introduction, same-period definition, sections 5-6, propositions 19–23 on weak periodic lifting and full-image automata.",
+        "method": "Open access full text with section-level comparison.",
+        "title": "On von Neumann regularity of cellular automata",
+        "trigger": "Direct conceptual equivalent: weak periodic point condition"
+      },
+      {
+        "assessment": "Explains related marker parity and limit dynamics; no complete finite spatial-period exception count identified.",
+        "evidence": "Sabrié and Törmä, arXiv:2308.12744, subsections on two-kink words.",
+        "identifier_or_url": "https://arxiv.org/abs/2308.12744",
+        "material_read": "Public full-text article sections on stable words and two-kink words, including necessity of even ones in 11v11.",
+        "method": "Publisher open article full text and arXiv title/preprint date; evaluated implication of local marker constraints.",
+        "title": "Limit dynamics of elementary cellular automaton 18",
+        "trigger": "Same local rule, 11 marker parity, possible dominating lemma"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5ff140b-a7f7-400d-adaa-65476042ed55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Periodic liftability is a natural symbolic-dynamical invariant used in cellular-automaton section/splitting problems. The all-period exact exceptional output language, its exponential Lucas census with a discrete period-six fluctuation, and sharp period-two lift for primitive outputs quantify a systematic finite-to-infinite discrepancy. The result is not a routine recalculation of an arbitrary sample: it completely classifies a canonical CA phenomenon, although the weak-periodic-point framework and underlying transfer method are established.",
+    "status": "PASS"
+  }
+}
