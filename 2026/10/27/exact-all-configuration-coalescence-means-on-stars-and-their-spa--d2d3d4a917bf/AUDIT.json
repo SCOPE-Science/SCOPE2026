@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The first-step equations for A_k and B_k account for all rates exactly, including the k=1,m=1 boundaries; their elimination gives a verified summable first-difference identity for all m. The complete graph is evaluated via coalescence rate j(j-1)/m under identical clocks. A separate all-configuration occupied-subset generator produced 219 exact rational matches on m=1..6, corroborating but not replacing the recurrence proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Oliveira proves C <= K T_hit for arbitrary finite reversible chains and initial conditions.",
+        "Cooper et al. prove graph-wide Big-O coalescence bounds and mention the star correct growth order Theta(log n).",
+        "published-finding corpus published spider coupling 2026/9/7/SCOPE002 bounds lazy walk mixing, not coalescing walker counts."
+      ],
+      "reasoning": "A general upper bound or asymptotic order does not give the evaluated harmonic expectation, all-configuration equality, or a sparse-versus-complete strict inequality at fixed n. No stronger exact arbitrary-graph result subsuming these formulas was found among inspected sources; a general exact resolvent representation may mechanically encode them without itself evaluating the star specialization.",
+      "searches": [
+        "coalescing rate-one random walkers star graph exact expected absorption time (m H_m+m-1)/(m+1) arbitrary occupied subsets",
+        "coalescence full occupancy star versus complete graph rate-one per particle logarithmic harmonic meeting time all initial subsets",
+        "arxiv:1009.0664 Theorems 1.1 and 1.2",
+        "arxiv:1204.4106 Theorem 1 Section 5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1009.0664 (HTML relevant primary sections)",
+      "arxiv:1204.4106 (HTML introduction, Theorem 1, Section 5)",
+      "arxiv:1203.6477 (abstract and classification only)",
+      "published research record 2026/9/7/SCOPE002 (title and summary, not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General hitting-time bound permits many finite-star constants; it does not fix one.",
+        "Known logarithmic star coalescence order does not force the coefficient 1 or the correction gamma+1.",
+        "The all-state equality a_m=b_m and strict center effect for k<m involve separate initial conditions not covered in those prior statements."
+      ],
+      "reasoning": "The exact expressions imply the earlier Theta(log m) scale, not conversely. The comparison with K_{m+1} requires identical per-walker clock normalization and the star exact constant; neither follows from a generic worst-case mixing upper bound. Checked sources do not imply the final stronger claim.",
+      "searches": [
+        "arxiv:1009.0664 Theorems 1.1 1.2",
+        "arxiv:1204.4106 Introduction Theorem 1 Section 5",
+        "coalescing rate-one random walkers star graph exact expected absorption time (m H_m+m-1)/(m+1) arbitrary occupied subsets"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published record 2026/9/7/SCOPE002 studies coupling/mixing of a lazy random walk on balanced spiders, not the full multiparticle coalescence stopping time.",
+        "Oliveira 2010 allows arbitrary initial conditions but provides bounds rather than these formulas.",
+        "Cooper et al. 2012 identifies the logarithmic star coalescence order for a different update convention."
+      ],
+      "reasoning": "Coalescent-voter duality and star/spider terminology are natural aliases. Their strongest inspected statements do not imply the exact center-occupation identities at each particle count or the finite-size constant under total jump rate one. This absence in targeted checks is evidence with residual, not proof of unique priority.",
+      "searches": [
+        "exact expected coalescence time on star graph continuous-time coalescing random walks all vertices occupied harmonic number",
+        "voter model star graph all distinct colors continuous-time consensus mean exact H_n logarithm",
+        "full occupancy coalescing random walks hub leaf star mean time m harmonic m formula",
+        "web: \"voter model\" \"star graph\" \"consensus time\" \"harmonic\"",
+        "web: \"coalescing random walks\" \"star graph\" \"exact\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest ranked published record 2026/9/7/SCOPE002 discusses a different coupling quantity.",
+        "None of inspected Oliveira or Cooper material supplies an exact table at each m and initial leaf occupancy."
+      ],
+      "reasoning": "No matching published finite star table or harmonic formula was identified. Enumeration in verify.py is a new consistency check, not evidence of novelty and not asserted as a proof that no other table exists.",
+      "searches": [
+        "exact expected coalescence time on star graph continuous-time coalescing random walks all vertices occupied harmonic number",
+        "full occupancy coalescing random walks hub leaf star mean time m harmonic m formula",
+        "coalescing rate-one random walkers star graph exact expected absorption time (m H_m+m-1)/(m+1) arbitrary occupied subsets",
+        "web: \"star\" \"coalescing random walks\" \"exact time\" mean"
+      ]
+    },
+    "rationale": "Inspected Oliveira 2010 and Cooper et al. 2012 contain the general stochastic framework, hitting-time bounds and, for the star, the logarithmic order, but not the evaluated continuous-time all-initial-condition harmonic formulas or their fixed-rate sparse-versus-clique comparison. Actual semantic published-finding corpus queries for these precise claims found no equivalent or dominating published record; the closest spider coupling entry concerns single-walker mixing. Priority remains qualified by stated residual risks.",
+    "residual_risks": [
+      "A specialized star-voter/coalescence paper or older monograph could contain the evaluated constant or the exact all-start formulas under the same per-particle normalization.",
+      "The related Athreya-Swart full text was not inspected; abstract alone cannot establish noncoverage.",
+      "The nearest published spider coupling record was inspected at the title-and-summary level only; its disclosed subject differs, but deeper unpublished/unindexed variants might exist.",
+      "Results from disconnected or nonindexed literature are not exhaustively ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published theorems assert a universal hitting-time upper bound and an upper bound for partial coalescence, not an evaluated star-specific all-initial-state mean.",
+        "evidence": [
+          "Theorem 1.1: E[C] <= K T_hit, with arbitrary initial configurations; Theorem 1.2: E[C_k] <= K_1(T_hit/k+T_mix).",
+          "arxiv:1009.0664 submitted 2010-09-03."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1009.0664v3",
+        "material_read": "HTML Introduction, Theorems 1.1 and 1.2, discussion of arbitrary initial configurations and coalescence/voter duality.",
+        "method": "Read text and compare claimed quantifiers and conclusions with exact two-class star expectation and normalization.",
+        "title": "On the coalescence time of reversible random walks",
+        "trigger": "General arbitrary-initial-state continuous-time coalescence theorem plausibly subsuming a star specialization."
+      },
+      {
+        "assessment": "Recognizes C(n)=Theta(log n) for lazy discrete-time stars and supplies universal bounds, but does not evaluate the current continuous-time all-state formulas and constant. Prior logarithmic growth-order result is credited.",
+        "evidence": [
+          "Introduction states star logarithmic coalescence order with lazy-walk qualification.",
+          "Theorem 1 and Section 5 give Big-O coalescence bounds, not these exact expectations.",
+          "arxiv:1204.4106 first submitted 2012-04-17."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1204.4106v3",
+        "material_read": "HTML Abstract, Introduction including previous work/star paragraph, Theorem 1, and Section 5 on coalescence-time estimates.",
+        "method": "Compare exact stochastic model (synchronous lazy versus asynchronous independent exponential clocks), statement strength, finite-size values, and all-start-state quantifiers.",
+        "title": "Coalescing random walks and voting on connected graphs",
+        "trigger": "Explicit claim that star coalescence time is logarithmic; most directly plausible existing coverage."
+      },
+      {
+        "assessment": "Relevant broader theory but no decisive claim-versus-paper comparison from abstract alone. Retained as residual bibliographic risk.",
+        "evidence": [
+          "Abstract discusses processes with binary branching, coalescence, annihilation, deaths, and thinning results.",
+          "Primary MSC 82C22, first publicly submitted 2012-03-29."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1203.6477",
+        "material_read": "Original arXiv abstract, submission history, and primary MSC 82C22 metadata only; full text was not read.",
+        "method": "Compare abstract-level model and scope only; no whole-paper noncoverage inference.",
+        "title": "Systems of branching, annihilating, and coalescing particles",
+        "trigger": "Established interacting-particle theory, verified primary MSC ownership, possible broader theory."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2d3d4a9-17bf-467a-a545-a321c1b2fe78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete all-occupancy mean first-coalescence classification for a canonical hub network is a natural interacting-particle observable; the exact leading constant sharpens a known logarithmic-order statement, the full-leaf hub-redundancy identity exhibits a structural equality boundary, and the exact sparsity-versus-clique comparison isolates a surprising graph-topology effect under controlled rates.",
+    "status": "PASS"
+  }
+}
