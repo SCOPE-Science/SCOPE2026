@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "Exact 2x2 period transfer gives real characteristic polynomial with determinant a^(2m); all m<=4 cases have negative p_m(1) for every a>0. For fixed m>=5, simple-root perturbation yields dominant eigenvalue 1+(4-m)a^2+O_m(a^4), while second is O(a^(2m)). Special m4 quartic positivity proves threshold minimal. A newly bundled checker independently reproduces characteristic identities and sample spectra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nguyen–Trinh–Vuong impose one fixed monotone operator and prove the sharp fixed-system stepsize ceiling; their hypothesis does not quantify products over switched operators.",
+        "The recorded rate-optimal and reflection-tuning results concern fixed linear splits or strongly monotone static operators, not periodically changing signs."
+      ],
+      "reasoning": "No identified more-general covered statement applies to the mixed-period products. The source fixed-operator result would predict both orientations separately converge for small steps, and therefore cannot imply the observed switch instability.",
+      "searches": [
+        "periodically alternating skew symmetric monotone operators forward reflected backward Popov optimistic gradient unstable all step sizes",
+        "alternating opposite rotations time varying monotone variational inequality method divergence",
+        "switching extragradient optimistic gradient time varying bilinear games two cycle exact Floquet",
+        "arXiv:2603.06442v2 equation (7) and theorem 2.6",
+        "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+        "2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f",
+        "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.06442v2",
+      "arXiv:2310.02604",
+      "OpenReview:AxhWmQBRRg (abstract only)",
+      "2026/9/19/SCOPE-rate-optimal-frb-skew-rotations--689d5e743c56",
+      "2026/9/20/SCOPE-optimal-reflection-tuning-split-skew-frb--47dbba32618f",
+      "2026/9/18/SCOPE-strongly-monotone-prg-sharp-threshold--63a985cd76f4",
+      "2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete source Popov theorem covers static F and yields no conclusion for a changing F_k.",
+        "Feng et al. construct a divergent period-two previous-operator optimistic method, whereas the present theorem concerns reflected-point current-operator updates for every m.",
+        "Chen–Yu assert RG divergent examples but an existence counterexample does not entail the exact m>=5 convergence recovery or the globally unstable m=1..4 family."
+      ],
+      "reasoning": "The new statement is neither a corollary of the cited fixed-operator convergence theorem nor implied by generic existence of a switched divergence example. A decisive full comparison to all parts of the Chen–Yu article remains impossible until its complete text can be inspected; this specific uncertainty is retained below.",
+      "searches": [
+        "arXiv:2603.06442v2 equation (7), Section 2.1",
+        "arXiv:2310.02604 main theorem 3.2 and algorithm definition",
+        "OpenReview:AxhWmQBRRg available abstract",
+        "reflected gradient time-varying periodic skew operator two blocks of m repeated rotations dwell five minimal stable small step Floquet",
+        "projected reflected gradient alternating opposite matrices repeated blocks period 2m stabilization threshold m=5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complex two-state reflected-point transfer has current-operator matrix entries (1-2isa, isa), whereas time-varying OGDA uses a prior-time operator in the past-gradient term.",
+        "2023 paper treats period-two OGDA divergence but not the current-operator all-integer dwell threshold.",
+        "2026 Chen–Yu abstract asserts existence of periodic RG divergence without the quantitative dwell-five regime."
+      ],
+      "reasoning": "The two dynamic recurrences coincide with fixed operators but differ as soon as the sign changes; thus the earlier period-two OGDA counterexample is not the same statement. The current periodic RG divergence precedent is acknowledged, while the exact recovery of stability at dwell five is not stated in the accessible abstract.",
+      "searches": [
+        "reflected gradient time-varying periodic skew operator two blocks of m repeated rotations dwell five minimal stable small step Floquet",
+        "projected reflected gradient alternating opposite matrices repeated blocks period 2m stabilization threshold m=5",
+        "optimistic gradient descent ascent same matrix repeated m consecutive steps time varying periodic convergence switched payoff",
+        "Feng et al., arXiv:2310.02604, theorem 3.2 and time-varying update",
+        "Chen and Yu, OpenReview:AxhWmQBRRg abstract"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The research index returns fixed-skew optimal steps, static PRG stability, and other Floquet examples; none of the inspected hit summaries gives the polynomial p_m(1) for dwell one through four or the sign change at dwell five.",
+        "Targeted open-web phrase queries did not surface an exact switched-dwell table."
+      ],
+      "reasoning": "The theorem is an infinite parameter and integer-threshold result rather than a lookup value. The nonappearance of a table alone does not establish originality; it supplements the direct implication checks.",
+      "searches": [
+        "reflected gradient time-varying periodic skew operator two blocks of m repeated rotations dwell five minimal stable small step Floquet",
+        "projected reflected gradient alternating opposite matrices repeated blocks period 2m stabilization threshold m=5",
+        "\"reflected gradient\" \"dwell\" \"switching\" bilinear games",
+        "\"reflected gradient\" \"periodic\" \"five\" \"steps\" convergence",
+        "\"Popov\" \"switched\" \"skew\" \"periodic\" gradient"
+      ]
+    },
+    "rationale": "Against the checked fixed-operator Popov theorem, a NeurIPS 2023 time-varying-OGDA divergence paper, the 2026 periodic-RG abstract, and the directly searched research records, the exact four-dwell impossibility plus all-dwells-from-five small-step stability is not a corollary of the recorded claims. The 2026 RG full manuscript remained inaccessible and is a genuine overlap risk rather than an asserted negative inspection.",
+    "residual_risks": [
+      "The complete 2026 Chen–Yu reflected-gradient manuscript was unavailable; it could contain a construction that dominates some or all of this exact switching classification.",
+      "Equivalent results in older periodic linear-recurrence or switched-system literature are possible even if not described with reflected-gradient terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The time-independent fixed-operator setting does not cover signed switching periods.",
+        "evidence": [
+          "Equation (7): reflected-point recurrence with a single F; abstract: optimal static stepsize 1/(sqrt(3)L)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.06442v2",
+        "material_read": "Complete HTML sections introducing and proving the fixed-operator algorithm, especially equations (5)-(9), theorem discussion and fixed-operator Lyapunov argument.",
+        "method": "Open full open-access arXiv HTML; directly compare operator-time indexing and quantifiers.",
+        "title": "The Popov’s Algorithm with Optimal Bounded Stepsize for Variational Inequalities",
+        "trigger": "Defines the precise reflected-point update and sharp static stepsize threshold."
+      },
+      {
+        "assessment": "Provides a precedent for periodic first-order method failures but neither the same update nor five-step sharp dwell classification.",
+        "evidence": [
+          "Feng et al. period-two OGDA divergence theorem; past-gradient term uses previous game matrix."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.02604",
+        "material_read": "Open-access full text through arXiv HTML including algorithm updates and period-two divergence argument.",
+        "method": "Compare time-varying optimistic-gradient previous-operator term to current-operator reflection, and compare period quantifiers.",
+        "title": "On the Last-iterate Convergence in Time-varying Zero-sum Games: Extra Gradient Succeeds where Optimism Fails",
+        "trigger": "Nearby periodic game divergence theorem and two-step Floquet analysis."
+      },
+      {
+        "assessment": "Qualitative periodic RG divergence is established; no accessible exact dwell threshold. Possible unlocated stronger content is a meaningful bibliographic risk.",
+        "evidence": [
+          "Abstract: RG and ARG diverge exponentially in some periodic games; no accessible all-m dwell classification."
+        ],
+        "identifier_or_url": "https://openreview.net/forum?id=AxhWmQBRRg",
+        "material_read": "Abstract from indexed public OpenReview record and independent abstract listing only; complete PDF inaccessible due browser verification gate.",
+        "method": "Read indexed abstract and attempt full PDF, identify coverage limit explicitly.",
+        "title": "Similarity and Separation of Last-Iterate Convergence between Optimism and Reflected Algorithms in Time-Varying Games",
+        "trigger": "Most relevant potential covering work, on divergence of reflected gradient in periodic monotone games."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4b56ca5-5b59-494b-8446-ba8294d6d731",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A structural, infinite-parameter switching threshold: two monotone Lipschitz opposite rotations that are individually small-step stable produce unconditional instability for all one-to-four dwell lengths, while each fixed dwell length from five upward restores exponential contraction. This directly informs the design of periodic-update frequencies and separates frozen stability from switched stability.",
+    "status": "PASS"
+  }
+}
