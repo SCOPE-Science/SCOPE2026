@@ -1,0 +1,13 @@
+# Scientific review
+
+**Correctness — PASS.** A feasible cycle orientation decomposes into independent monotone left/right runs between consecutive fixed direct voters: any nontrivial directed cycle would otherwise be an adjacent 2-cycle or the full cycle, and the full circuit is blocked by the gurus. This bijection proves the product law, full joint polynomial, uniform-cuts covariance and coefficient tally formula. A direct counting argument proves the two-guru tie bound. The standalone verifier exhaustively compared independently enumerated full delegation functions with the factorized predictions for 1418 configurations, all using exact integers/rationals. The universal conclusion is analytic; finite testing is only supporting evidence.
+
+**Originality — PASS, bounded by inspected sources.** The primary 2022 winner-determination paper explicitly proposes delegation-counting variants as an open direction. The strongest related 2023 branching work counts single source-to-sink connections in a random branching and computes fractional weights but does not give the joint winner-tally distribution or sharp two-opposed-guru tie-location law. Other inspected works address a priori power indices or competence-dependent random networks. Semantic research-record searches and accessible historical claim titles found no covering statement or equivalent formula. Generic rooted-forest identities may imply parts of the counting method; the specific full distribution and extremal application are the contribution. Some unindexed or uninspected specialized literature may overlap.
+
+**Mathematical value — PASS.** Counting the delegations making a candidate a winner is explicitly motivated as an important problem in the foundational paper. The complete coefficient formula resolves it for an infinite canonical family, the covariance Laplacian identifies a structural measure of election uncertainty, and the antipodal-versus-adjacent guru theorem proves a sharp and nontrivial placement effect, not a prescribed numerical slice. The result does not assert a general arbitrary-network counting algorithm.
+
+**Limitations.** Fixed gurus, a simple undirected cycle, unit votes, uniform valid orientations; not endogenous guruship, correlated or nonuniform delegations, or global random network models. Source coverage cannot prove absolute novelty. Independent validation was not carried out.
+
+**Closest sources.** Bentert et al. (arXiv:2205.05482), Utke and Schmidt-Kraepelin (arXiv:2307.01174), Colley et al. (arXiv:2301.02462), and Berinsky et al. (arXiv:2107.11868).
+
+Self-review: passed. Independent audit: not yet performed.
