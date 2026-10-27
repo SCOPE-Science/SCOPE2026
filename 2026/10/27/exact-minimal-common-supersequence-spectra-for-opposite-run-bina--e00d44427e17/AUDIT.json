@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs embedding count bounds, rules out both-symbol saturation by explicitly overlapping valid embeddings, obtains necessary and sufficient \\(x=z=j\\) equalities, and counts disjoint constructive families. The ratio bound plus Stirling gives the asymptotic. Independent deletion-by-deletion exhaustive checking for \\(m\\le5\\) agrees but is not treated as proof of infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.22591v1, Section 5 path correspondence and output-delay enumeration algorithm, plus introductory general results.",
+        "Irving–Fraser (1994), historical algorithms for maximal common subsequences and minimal common supersequences; Fraser (1995) related thesis treatment."
+      ],
+      "reasoning": "A broader algorithm enumerates MCSs but the reported results do not explicitly imply the refined closed-form classification without additional structural analysis. Neither generic enumeration complexity nor maximum-length algorithms imply the exact per-length multiplicities by statement alone. Earliest related full articles were not fully read, leaving a residual risk rather than a false assertion of comprehensive exclusion.",
+      "searches": [
+        "Computing and Enumerating Minimal Common Supersequences Between Two Strings by Sopp Liyanage Gong Zhu March 2026; exact formulas for minimum-length or inclusion-minimal binary supersequences",
+        "subsequence minimal common supersequence exact count opposite block words two runs enumeration closed form"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.22591v1 (full-text substantial sections)",
+      "OEIS A112029 (arithmetic overlap acknowledged)",
+      "Fraser 1995 thesis (relevant sections)",
+      "Irving–Fraser CPM 1994 (bibliographic only)",
+      "Published mathematical research summaries: subsequence-universality and adjacent-pair multispectra (mathematically noncovering)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sopp et al., arXiv:2603.22591v1, Theorems 5.3–5.4 provide general enumeration methods.",
+        "Other closest examined research summaries concern subsequence-universal word counts and adjacent-pair multiset reconstruction, neither of which entails an MCS word classification.",
+        "OEIS A112029 implies only the identity for unrefined totals, not the refined length distribution or complete language description."
+      ],
+      "reasoning": "The complete claimed theorem has an iff factorization, all possible lengths, and length-specific counts. Existing general algorithms are computationally broad but do not subsume the asserted *explicit mathematical formula* in their statements; prior table coverage does subsume the numerical sum and is disclosed. Priority would fail if an unexamined prior paper had established the explicit two-run structural theorem; no such evidence appeared in searches.",
+      "searches": [
+        "minimal supersequence 0^m1^m and 1^m0^m exact number all lengths",
+        "shortest and minimal common supersequences two opposite runs 0011 1100 enumeration generating function"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sopp et al., arXiv:2603.22591v1, definitions and algorithmic enumeration via directed graph paths; no displayed two-run factorization in examined material.",
+        "Fraser, 1995 thesis, chapter on minimal common supersequences; no matching closed-form family classification identified in the chapter sections examined."
+      ],
+      "reasoning": "MCS is deletion-minimal, not necessarily shortest; reverse order and bit complement do not change the same two-run pair. Searched these aliases and compared their mathematical assertions. A generic enumeration procedure could generate the set, but does not state or establish the particular all-length product formula or structural iff as an extracted theorem.",
+      "searches": [
+        "minimal common supersequence minimal by deletion, not shortest, words 0^m1^m and 1^m0^m, count exact binomial squared formula and length distribution",
+        "minimal common supersequences reverse binary two-block words 0^a 1^b 1^a 0^b exact counting enumeration number"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A112029, established since 2005, gives a(n)=sum_{k=0}^n binomial(n+k,k)^2 and a previously recorded asymptotic.",
+        "Here \\(N_m=2a(m-1)\\) exactly, so the unrefined total values 2,10,92,1034,... are already represented arithmetically."
+      ],
+      "reasoning": "The bare total-number sequence and its leading asymptotics are covered and are not originality claims. OEIS A112029 does not assert that those integers count MCSs of opposing binary blocks or classify the strings by length; the structurally refined \\(N_{m,j}\\) statement is the proposed new result.",
+      "searches": [
+        "OEIS A112029 sum_{k=0}^n binomial(n+k,k)^2",
+        "For two strings 0^m 1^m and 1^m 0^m, minimal (not shortest) common supersequences: all lengths 3m..4m-1, counts 2 binomial(m+j-1,j)^2, asymptotic 16^m/(6 pi m)"
+      ]
+    },
+    "rationale": "The complete word factorization, attainable-length interval, and per-length binomial-square MCS counts for the opposing two-run family were not covered by the inspected general MCS algorithms, historical thesis chapter, or relevant published research-record summaries. The scaled total sequence is already OEIS A112029 and is excluded from the novelty claim. An older inaccessible full-text source remains a documented priority risk.",
+    "residual_risks": [
+      "Full primary text of the 1994/1996 older articles was not inspected; an equivalent special-case theorem may be present.",
+      "The numerical total sequence, including its asymptotics, predates this classification in OEIS A112029; treating the total alone as original would be incorrect.",
+      "Semantic search cannot exclude an unindexed or differently phrased special-case result.",
+      "No independent external scientific review has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General MCS algorithms and path correspondence, no explicitly found equal-two-run closed-form factorization or length spectrum",
+        "evidence": [
+          "arxiv:2603.22591v1, submitted 2026-03-23"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2603.22591",
+        "material_read": "Primary 2026 full-text portions: abstract, introduction, definitions, graph/path enumeration in Sections 3–5 including Theorems 5.3–5.4, later sections and references",
+        "method": "Open-access arXiv full-text inspection and theorem-level comparison",
+        "title": "Computing and Enumerating Minimal Common Supersequences Between Two Strings",
+        "trigger": "2026 primary paper defines general minimal-common-supersequence enumeration"
+      },
+      {
+        "assessment": "Algorithms, but no explicit full length-by-length spectrum for the opposing block pair found",
+        "evidence": [
+          "Fraser thesis, chapter 6, particularly subsection 6.3"
+        ],
+        "identifier_or_url": "C. B. Fraser, PhD thesis, 1995 (public university-hosted text)",
+        "material_read": "Chapter treating minimal common supersequences and longest minimal common supersequences, especially the dynamic-programming discussion",
+        "method": "Open-access thesis chapter sections examined",
+        "title": "Subsequences and Supersequences of Strings",
+        "trigger": "Historical full-text proxy for early minimal-common-supersequence work"
+      },
+      {
+        "assessment": "Exact shifted-and-doubled total sequence already known. Excluded novelty of total/arithmetic asymptotic. No MCS factorization or length-by-length interpretation listed.",
+        "evidence": [
+          "OEIS A112029, first recorded 2005"
+        ],
+        "identifier_or_url": "https://oeis.org/A112029",
+        "material_read": "Sequence definition, values, references, known asymptotic and formula entries",
+        "method": "Direct database entry inspection",
+        "title": "A112029",
+        "trigger": "The derived total counts matched an indexed binomial sum"
+      },
+      {
+        "assessment": "Historical priority risk explicitly retained; whole-document noncoverage is NOT asserted",
+        "evidence": [
+          "CPM 1994 bibliographic reference"
+        ],
+        "identifier_or_url": "R. W. Irving and C. B. Fraser, CPM 1994",
+        "material_read": "Bibliographic information and available indexed descriptions; complete primary paper unavailable",
+        "method": "Bibliographic inspection; relevant related thesis chapter used as accessible full-text alternative",
+        "title": "Maximal Common Subsequences and Minimal Common Supersequences",
+        "trigger": "Early foundational paper about same object"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e00d4442-7e17-404b-97af-d3aacca5bfff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent general algorithmic question of enumerating inclusion-minimal common supersequences motivates explicit structural subfamilies. This theorem characterizes every witness for the natural opposing two-run pair, every achievable length, exact multiplicities and longest-solution concentration. The refined classification is mathematically useful as a benchmark beyond a previously known unrefined binomial-sum sequence; it is not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
