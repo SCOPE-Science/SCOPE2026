@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The state-dependent mixed likelihood follows exactly from transition density p dy on a strict decrease and mass 1-px on a stay. An iid uniform minimum coupling proves record-count growth and square summability; the score is a bounded-increment martingale with predictable variance asymptotic to log n/p². Uniform local observed curvature yields LAN and the unique interior MLE with Gaussian efficiency. Terminal information follows from the known atom-plus-density formula via dominated convergence. 111 exact rational program checks passed, serving as finite diagnostics only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 1999 model observes continuous-time exponential holding periods and has a different stochastic experiment.",
+        "Generic martingale likelihood LAN results require a diverging predictable bracket; the rate of divergence here is established from the exact minimum-record coupling rather than supplied by those general results."
+      ],
+      "reasoning": "Continuous-time staircase and stationary Markov inference are not claim-level subsumers of the discrete-time nonstationary full-path experiment. General record-model inference might subsume part of the claim, but no directly covering theorem was located.",
+      "searches": [
+        "Markov decreasing uniform jumps probability proportional to state asymptotically efficient estimator logarithmic Fisher information",
+        "observable full path record process local asymptotic normality log n information staircase",
+        "Levikson–Rolski–Weiss (1999) On a Poisson Hyperbolic Staircase, DOI:10.1017/S0269964899131024"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2604.22637v1 full text",
+      "10.1017/S0269964899131024 abstract",
+      "Arnold–Balakrishnan–Nagaraja, Records (1998), classical independent ranks, cited as established background",
+      "Gaver (1976), Random record models, abstract",
+      "Relevant published work on finite-prefix independence of heterogeneous exponential records (a different independence classification, not a parameter-inference theorem)",
+      "AMS MSC2020 62F12, asymptotic properties of parametric estimators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source Theorem 1 gives the marginal law from which the endpoint-information term follows by differentiation; this is expressly not claimed standalone.",
+        "The source Theorem 3 concerns generating functions of N_n, while the candidate uses all observed holding heights and jump values.",
+        "The source Theorem 5 supplies state-function martingales but not the likelihood-score martingale or its \\(\\sqrt{\\log n}\\) normal limit."
+      ],
+      "reasoning": "The four-part inference claim requires independent new steps: identify the mixed transition likelihood; show cumulative exposure grows like log n; calculate and compare two Fisher informations; prove the likelihood experiment LAN and the efficient MLE. The source kernel is an input rather than a theorem already implying all conclusions without the new argument.",
+      "searches": [
+        "Poisson Hyperbolic Staircase in Discrete Time Yoshida 2026 estimation p likelihood Fisher information logarithmic rate",
+        "record minimum Markov chain probability p times current state statistical inference full path maximum likelihood asymptotic normality",
+        "observable full path record process local asymptotic normality log n information staircase",
+        "Yoshida arXiv:2604.22637v1 Theorem 1, Theorem 3, Theorem 5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2604.22637v1 equations (1)–(4) define transition and marginal, Theorem 3 treats the count generating function; Theorem 5 treats martingales of state functions. No likelihood score, estimator or LAN is stated.",
+        "The fixed-parameter record coupling is not an inference equivalence: a known minimum law does not alone give the full-path Fisher information."
+      ],
+      "reasoning": "A search was made for the same parameter likelihood under terms record-minimum chain, discrete hyperbolic staircase and pathwise inference. Source treatment of marginal laws and count PGFs neither identifies the observed information nor proves the asymptotic estimator distribution.",
+      "searches": [
+        "Poisson Hyperbolic Staircase in Discrete Time Yoshida 2026 estimation p likelihood Fisher information logarithmic rate",
+        "record minimum Markov chain probability p times current state statistical inference full path maximum likelihood asymptotic normality",
+        "arXiv:2604.22637v1 Sections 2–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating paper tabulates/derives jump PGFs and state marginals, but not information functions or a local asymptotic statistical experiment.",
+        "Relevant mathematical-record hits concerned generic record independence or unrelated statistical likelihoods, not the staircase model with the stated rate."
+      ],
+      "reasoning": "The exact terminal density is previously known and credited, but neither the logarithmic path Fisher coefficient nor the endpoint-versus-path information theorem was an already computed entry identified in these checks.",
+      "searches": [
+        "Poisson Hyperbolic Staircase in Discrete Time Yoshida 2026 estimation p likelihood Fisher information logarithmic rate",
+        "discrete time hyperbolic staircase parameter estimation fisher information n log n",
+        "arXiv:2604.22637v1 equations (2)–(3) and Theorems 1–5"
+      ]
+    },
+    "rationale": "The motivating full text gives the stochastic kernel, marginal height law, generating functions for jump counts and state-function martingales, but no inference for its parameter. The new claim combines an exact parameter likelihood with logarithmic path information, constant endpoint information, a nonstationary martingale LAN limit and an efficient maximum-likelihood estimator. A full statement-level comparison was made; general record-inference subsumption remains possible and is recorded as risk.",
+    "residual_risks": [
+      "General statistical inference of nonstationary record-minimum paths could contain an equivalent LAN theorem under alternate notation.",
+      "The 1999 continuous-time paper and Gaver (1976) were not inspected in full; their accessible descriptions concern different observation laws, but implicit connections are possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the transition kernel and endpoint density; no result for parametric likelihood, Fisher information, LAN, maximum-likelihood efficiency or the logarithmic path/endpoint ratio.",
+        "evidence": [
+          "arXiv:2604.22637v1 eqs. (1)–(4), (21)–(22), (42), (59); primary MSC2020 60J05, secondary 60E10."
+        ],
+        "identifier_or_url": "arXiv:2604.22637v1; https://arxiv.org/abs/2604.22637",
+        "material_read": "Full available arXiv text: introduction, Section 2 Theorems 1–2 (one-point and joint laws), Section 3 Theorems 3–4 (jump count and occupation sum), Section 4 Theorem 5 (state-function martingales), and references.",
+        "method": "Read full HTML/text and compared model, observed quantities, hypotheses, and theorem conclusions.",
+        "title": "Poisson Hyperbolic Staircase in Discrete Time",
+        "trigger": "Same stochastic model and exact parameter p; primary motivating source."
+      },
+      {
+        "assessment": "Continuous-time Poisson-plane process, not the identical discrete-time observation experiment. Full article was not used for a claim of noncoverage.",
+        "evidence": [
+          "Levikson, Rolski, Weiss (1999) abstract: exponential holding time at height y, then uniform descent."
+        ],
+        "identifier_or_url": "DOI:10.1017/S0269964899131024; Cambridge Core abstract",
+        "material_read": "Abstract, bibliographic information, and model description; not the full article.",
+        "method": "Reviewed accessible publisher abstract and compared continuous-time exponential clocks with discrete Bernoulli jump trials.",
+        "title": "On a Poisson Hyperbolic Staircase",
+        "trigger": "Historical model named by the motivating work, possible stronger coverage."
+      },
+      {
+        "assessment": "Relevant background but no directly matching parameter-inference theorem in the accessible material.",
+        "evidence": [
+          "Publisher abstract: record times and sizes in Poisson, negative-binomial and renewal pacing processes."
+        ],
+        "identifier_or_url": "Gaver, Journal of Applied Probability (1976), publisher abstract",
+        "material_read": "Publisher abstract and listed topics.",
+        "method": "Compared record times and lognormality with a statistical likelihood for the discrete staircase.",
+        "title": "Random record models",
+        "trigger": "Potential broader record-process calculation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea229723-1291-4122-997f-4bd9b1ba5682",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An unaddressed, naturally motivated statistical inference problem for the new state-dependent stochastic model has only logarithmic cumulative information although n time points are observed. The sharp path-versus-endpoint separation and efficient estimator identify the effective information horizon and inform experimental observation design. This is a genuine nonstationary parametric limit theorem, not simply a transformation of a published marginal law.",
+    "status": "PASS"
+  }
+}
