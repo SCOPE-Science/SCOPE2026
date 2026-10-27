@@ -1,0 +1,178 @@
+{
+  "checked_sources": [
+    "arXiv:2104.03692 (first public 2021-04-08)",
+    "doi:10.1609/aaai.v35i6.16729 (first public 2021-05-18)",
+    "arXiv:2107.11868 (first public 2021-07-25)",
+    "arXiv:2301.02462 (first public 2023-01-06); IJCAI open-access PDF, DOI 10.24963/ijcai.2023/290",
+    "Searches for one-edge delegation power, edge-addition effects, and exact quota formulas",
+    "Related prior findings on random delegation representation and expert-delegation accuracy, consulted for overlap only"
+  ],
+  "claim": "For an odd electorate of size \\(n=2m+1\\), with a quota requiring at least \\(r=m+1+s\\) affirmative final votes, \\(0\\le s\\le m\\), suppose every voter independently chooses uniformly among voting yes, voting no, and delegating to each available out-neighbor. Starting from no delegation edges, add the single edge \\(a\\to b\\). Let \\(M_i\\) be the unnormalized probability that forcing voter \\(i\\)'s direct vote from no to yes changes the quota outcome, with all other actions drawn from this model, and set \\(B_{n,r}=\\binom{n-1}{r-1}/2^{n-1}\\). Then \\(M_a=B_{n,r}\\), \\(M_b=4B_{n,r}/3\\), and for every \\(c\\notin\\{a,b\\}\\), \\(M_c=B_{n,r}(2/3+R_{n,r}/3)\\), where \\(R_{n,r}=2[\\binom{n-3}{r-1}+\\binom{n-3}{r-3}]/\\binom{n-1}{r-1}=(n-3)/(n-2)+2s^2/[m(n-2)]\\), with out-of-range binomial coefficients interpreted as zero. Consequently, \\(\\sum_i M_i=nB_{n,r}+2s^2B_{n,r}/(3m)\\): aggregate unnormalized criticality is conserved exactly at simple majority and strictly increases for every stricter supermajority quota.",
+  "correctness": {
+    "rationale": "The no-edge pivotal event is counted by a binomial coefficient. Conditional on the delegator voting directly, the baseline event remains; conditional on delegation to the recipient, the recipient flips a two-vote bloc, while an outsider sees a correlated two-vote bloc. Pascal's identity gives the recipient formula; the two binomial events give the outsider formula. Simplifying the binomial ratios yields the quota-dependent aggregate law. Exact enumeration of all 20 tested cases agrees with the formulas.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Colley et al. establish a general index and #P-hardness for arbitrary digraphs; their special tractable formulas assume complete bipartite or complete delegation graphs.",
+        "D'Angelo et al. study Banzhaf and Shapley–Shubik values of delegative simple games with a fixed transitive-support structure and graph-change bribery.",
+        "Berinsky et al. analyze concentration of delegated votes and probability of correct decisions, not the a-priori quota-pivotality measure."
+      ],
+      "reasoning": "The general index framework encompasses the one-edge graph but does not explicitly give this role-by-role closed form or the conservation criterion. The two delegation-power alternatives use different underlying random variables or power definitions; truth-tracking results do not imply a criticality formula. The claim is not generalized beyond the precise sparse graph and quota family.",
+      "searches": [
+        "arXiv:2301.02462, Sections 3–5, arbitrary digraph hardness and explicit complete-bipartite/complete-digraph cases",
+        "arXiv:2104.03692, Sections 1–3, delegative simple games and graph-change bribery",
+        "arXiv:2107.11868, Sections 1–2, random delegation and truth-tracking accuracy",
+        "edge addition monotonicity delegation network voting power third-party voter power decreases exact formula"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2104.03692 (first public 2021-04-08)",
+      "doi:10.1609/aaai.v35i6.16729 (first public 2021-05-18)",
+      "arXiv:2107.11868 (first public 2021-07-25)",
+      "arXiv:2301.02462 (first public 2023-01-06); IJCAI open-access PDF, DOI 10.24963/ijcai.2023/290",
+      "Searches for one-edge delegation power, edge-addition effects, and exact quota formulas",
+      "Related prior findings on random delegation representation and expert-delegation accuracy, consulted for overlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Colley et al. show that delegation options can alter criticality and give formulas for complete graph classes; their complete-bipartite proxy model lets each delegator choose among all proxies, unlike the one-edge graph here.",
+        "Zhang and Grossi's index counts swings in a fixed delegation-induced simple game and depends on the structure of supports; D'Angelo et al. study this family and graph changes. Neither defines the same independent action-profile distribution.",
+        "Berinsky et al. study correctness and component-size concentration under stochastic delegation, not the probability that a forced direct vote changes a quota outcome."
+      ],
+      "reasoning": "None of the inspected explicit theorems states the exact role-wise formulas or the quota-dependent total-criticality identity. Colley et al.'s general definition makes the one-edge case computable and so is a substantive prior-art risk, but their stated special-case formulas and numerical examples do not supply this closed-form structural law.",
+      "searches": [
+        "arXiv:2301.02462, Definition 4 and Theorem 1; Proposition 2; Proposition 3 and Table 2",
+        "doi:10.1609/aaai.v35i6.16729, definition of the delegative Banzhaf index and Examples 1–2",
+        "arXiv:2104.03692, model of liquid democracy and delegative simple games",
+        "arXiv:2107.11868, model and delegation mechanisms"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Colley–Delemazure–Gilbert define the a-priori LD Penrose–Banzhaf measure by averaging criticality over delegation partitions with individual uniformity; their tractable explicit graph cases are complete bipartite and complete digraphs.",
+        "Zhang–Grossi define a delegative Banzhaf index for a fixed delegation profile and a coalition-based game; this differs from the random-action a-priori measure used here.",
+        "The nearest retrieved records concerned ordinary voting-power index comparisons, which use different indices and do not model the one-edge delegation-choice distribution."
+      ],
+      "reasoning": "The closed form is not merely a relabeling of a voting-power index: it evaluates the same established measure on a sparse one-edge family, identifies each role's exact criticality, and derives a quota-dependent aggregate conservation law. The general measure definition is prior art and is expressly acknowledged.",
+      "searches": [
+        "In liquid democracy a single directed delegation edge changes a priori Penrose Banzhaf power under uniform delegation choices; exact outsider power decrease for odd unweighted majority",
+        "one-edge delegation graph majority voting central binomial power redistribution exact closed form",
+        "arXiv:2301.02462, Sections 2–5, Definition 4, Theorem 1, Propositions 2–3",
+        "doi:10.1609/aaai.v35i6.16729, Sections 2–3 and Examples 1–2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest retrieved records concerned Banzhaf–Shapley–Shubik ordinal divergence and Deegan–Packel local monotonicity; these are different power-index questions and none states the one-edge delegation formula.",
+        "Accessible prior findings checked for overlap included distinct results on random-delegation representation and expert-delegation accuracy, not this power measure."
+      ],
+      "reasoning": "No exact matching record appeared among the returned nearest results or in the recoverable claims of the accessible current-week parts and the directly relevant prior-week part. Search absence is not treated as proof of novelty; the primary-literature comparisons and residual risk remain explicit.",
+      "searches": [
+        "liquid democracy delegation network Penrose Banzhaf voting power exact formulas bipartite complete graph weighted voting games",
+        "In liquid democracy a single directed delegation edge changes a priori Penrose Banzhaf power under uniform delegation choices; exact outsider power decrease for odd unweighted majority",
+        "edge addition monotonicity delegation network voting power third-party voter power decreases exact formula",
+        "one-edge delegation graph majority voting central binomial power redistribution exact closed form"
+      ]
+    },
+    "rationale": "The general a-priori index is established prior art and is not claimed as new. The inspected primary paper provides formulas for complete bipartite proxy-voting graphs and complete digraphs and numerical demonstrations, but not the exact single-edge sparse-graph formula or the closed aggregate law across all odd electorate sizes and quota thresholds. The closest alternative delegation-power papers use different indices and graph semantics. This is a narrowly scoped exact structural evaluation; a general index definition determines the model but is not itself the stated closed-form law.",
+    "residual_risks": [
+      "The general definition of the Colley–Delemazure–Gilbert measure determines the one-edge case; an unlocated derivation or appendix may state the same closed form.",
+      "Nearest-neighbor search results and accessible prior claims cannot establish global uniqueness.",
+      "The exact result is limited to odd electorates, unit weights, a single acyclic edge, independent uniform actions, and a deterministic integer quota."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same measure and core model are prior art. The paper's stated tractable formulas concern complete bipartite proxy voting and complete digraphs; it does not state the one-edge sparse-graph closed form or quota-dependent total-criticality identity.",
+        "evidence": "IJCAI 2023, pp. 2607–2615; DOI 10.24963/ijcai.2023/290; arXiv first posted 2023-01-06.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.02462; https://www.ijcai.org/proceedings/2023/0290.pdf",
+        "material_read": "Full accessible 9-page IJCAI paper: model and criticality definitions, Theorem 1, proxy-voting formulas and table, complete-digraph recursive formula and table; arXiv record and first-public date.",
+        "method": "Full-text inspection of the model, explicit formula sections, and numerical examples.",
+        "title": "Measuring a Priori Voting Power in Liquid Democracy",
+        "trigger": "Closest primary source defining the same a-priori voting-power measure."
+      },
+      {
+        "assessment": "Uses a fixed delegation profile and a coalition-based delegative Banzhaf index; this is not the same a-priori random-action measure. No equivalent formula for the stated one-edge quota family appears in the inspected text.",
+        "evidence": "Zhang and Grossi, AAAI 2021, pp. 5822–5830; DOI 10.1609/aaai.v35i6.16729; first public 2021-05-18.",
+        "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16729/16536",
+        "material_read": "Full accessible 9-page AAAI paper: liquid-democracy model, delegative Banzhaf definition, examples, and power-seeking equilibrium setup.",
+        "method": "Full-text inspection of model and index definitions and examples.",
+        "title": "Power in Liquid Democracy",
+        "trigger": "Closest earlier formal work on power in delegation networks."
+      },
+      {
+        "assessment": "Studies graph changes in a fixed transitive-support model and coalition-based indices. It does not use the independent random-action distribution defining the present criticality probability.",
+        "evidence": "D'Angelo, Delfaraz, and Gilbert, arXiv:2104.03692, first posted 2021-04-08.",
+        "identifier_or_url": "https://arxiv.org/pdf/2104.03692",
+        "material_read": "Accessible full-text sections covering the model, weighted voting games, delegation graphs, delegative simple games, and the definitions of the Banzhaf and Shapley–Shubik measures.",
+        "method": "Full-text inspection of the model and power-index definitions.",
+        "title": "Computation and Bribery of Voting Power in Delegative Simple Games",
+        "trigger": "Related work on power changes under delegation-graph edits."
+      },
+      {
+        "assessment": "Studies accuracy and component-size concentration under random delegations, not quota-pivotality power. It is relevant context but does not imply the present formulas.",
+        "evidence": "Berinsky et al., arXiv:2107.11868, first posted 2021-07-25.",
+        "identifier_or_url": "https://arxiv.org/pdf/2107.11868",
+        "material_read": "Accessible full-text abstract and sections on the stochastic delegation model, delegation probabilities, cycles, and truth-tracking objective.",
+        "method": "Full-text inspection of the model and stated contributions.",
+        "title": "Tracking Truth with Liquid Democracy",
+        "trigger": "Adjacent prior work on stochastic delegation graphs and power concentration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "residual_risks": [
+    "The general definition of the Colley–Delemazure–Gilbert measure determines the one-edge case; an unlocated derivation or appendix may state the same closed form.",
+    "Nearest-neighbor search results and accessible prior claims cannot establish global uniqueness.",
+    "The exact result is limited to odd electorates, unit weights, a single acyclic edge, independent uniform actions, and a deterministic integer quota."
+  ],
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f25e8198-5324-4363-ac52-11d4bb688c34",
+  "self_review_status": "passed",
+  "source_inspections": [
+    {
+      "assessment": "Same measure and core model are prior art. The paper's stated tractable formulas concern complete bipartite proxy voting and complete digraphs; it does not state the one-edge sparse-graph closed form or quota-dependent total-criticality identity.",
+      "evidence": "IJCAI 2023, pp. 2607–2615; DOI 10.24963/ijcai.2023/290; arXiv first posted 2023-01-06.",
+      "identifier_or_url": "https://arxiv.org/abs/2301.02462; https://www.ijcai.org/proceedings/2023/0290.pdf",
+      "material_read": "Full accessible 9-page IJCAI paper: model and criticality definitions, Theorem 1, proxy-voting formulas and table, complete-digraph recursive formula and table; arXiv record and first-public date.",
+      "method": "Full-text inspection of the model, explicit formula sections, and numerical examples.",
+      "title": "Measuring a Priori Voting Power in Liquid Democracy",
+      "trigger": "Closest primary source defining the same a-priori voting-power measure."
+    },
+    {
+      "assessment": "Uses a fixed delegation profile and a coalition-based delegative Banzhaf index; this is not the same a-priori random-action measure. No equivalent formula for the stated one-edge quota family appears in the inspected text.",
+      "evidence": "Zhang and Grossi, AAAI 2021, pp. 5822–5830; DOI 10.1609/aaai.v35i6.16729; first public 2021-05-18.",
+      "identifier_or_url": "https://ojs.aaai.org/index.php/AAAI/article/view/16729/16536",
+      "material_read": "Full accessible 9-page AAAI paper: liquid-democracy model, delegative Banzhaf definition, examples, and power-seeking equilibrium setup.",
+      "method": "Full-text inspection of model and index definitions and examples.",
+      "title": "Power in Liquid Democracy",
+      "trigger": "Closest earlier formal work on power in delegation networks."
+    },
+    {
+      "assessment": "Studies graph changes in a fixed transitive-support model and coalition-based indices. It does not use the independent random-action distribution defining the present criticality probability.",
+      "evidence": "D'Angelo, Delfaraz, and Gilbert, arXiv:2104.03692, first posted 2021-04-08.",
+      "identifier_or_url": "https://arxiv.org/pdf/2104.03692",
+      "material_read": "Accessible full-text sections covering the model, weighted voting games, delegation graphs, delegative simple games, and the definitions of the Banzhaf and Shapley–Shubik measures.",
+      "method": "Full-text inspection of the model and power-index definitions.",
+      "title": "Computation and Bribery of Voting Power in Delegative Simple Games",
+      "trigger": "Related work on power changes under delegation-graph edits."
+    },
+    {
+      "assessment": "Studies accuracy and component-size concentration under random delegations, not quota-pivotality power. It is relevant context but does not imply the present formulas.",
+      "evidence": "Berinsky et al., arXiv:2107.11868, first posted 2021-07-25.",
+      "identifier_or_url": "https://arxiv.org/pdf/2107.11868",
+      "material_read": "Accessible full-text abstract and sections on the stochastic delegation model, delegation probabilities, cycles, and truth-tracking objective.",
+      "method": "Full-text inspection of the model and stated contributions.",
+      "title": "Tracking Truth with Liquid Democracy",
+      "trigger": "Adjacent prior work on stochastic delegation graphs and power concentration."
+    }
+  ],
+  "value": {
+    "rationale": "A-priori voting power is used to assess concentration and democratic design. This theorem provides a reusable exact benchmark for the smallest nontrivial delegation-network edit, distinguishes simple majority from stricter quotas, and quantifies aggregate criticality growth as a quadratic function of the quota's distance from majority. It is not just a numerical instance and does not overclaim welfare, fairness, or accuracy.",
+    "status": "PASS"
+  }
+}
