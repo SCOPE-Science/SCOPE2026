@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "All 2^16 BWT block orientations are covered by the explicit LF inverse permutation; the single-32-cycle criterion is necessary and sufficient for binary order-five de Bruijn words. A separate rooted Euler-edge enumeration returns exactly the same 2048 canonical words with identical run counts, after independent BWT sorting. Formula r=17+count_equal_adjacencies and smaller-order bound tests are proved and checked. The standalone verify.py reproduces all counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fici and Gabory, arXiv:2502.12844, §1 and correspondence theorem: broad BWT structural characterization without order-five run coefficient table",
+        "Higgins 2012 slides, theorem on inverse transformations of pairs and de Bruijn words"
+      ],
+      "reasoning": "A general structure theorem may make the finite statistic computable but does not by itself assert its distinct run-frequency polynomial. The claimed first-failure observation is an extremal refinement not directly stated in these materials.",
+      "searches": [
+        "runs Burrows Wheeler transformed de Bruijn cyclic sequences compression enumeration",
+        "minimum number of Burrows Wheeler runs de Bruijn cycle order five 20 versus lower bound 18",
+        "de Bruijn Burrows Wheeler transform number of runs exact binary cycles spectrum"
+      ]
+    },
+    "checked_sources": [
+      "Higgins (2012) TCS 457, 128–136, doi:10.1016/j.tcs.2012.07.019 and author presentation",
+      "Kucherov, Tóthmérész, Vialette (2012), arXiv:1206.3877v1",
+      "Fici and Gabory (2025), arXiv:2502.12844; MFCS 2025 article 48"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Higgins 2012 provides orientation block encoding and inverse-cycle principle",
+        "Fici–Gabory 2025 provides a broader graph-theoretic bijection for generalized de Bruijn words",
+        "Kucherov–Tóthmérész–Vialette, arXiv:1206.3877v1, studies general BWT permutations and suffix arrays rather than cyclic order-five run enumerations"
+      ],
+      "reasoning": "The known structural correspondences imply a finite algorithm to compute the six coefficients but do not logically fix their values without the nontrivial exact cycle census. The all-order trivial lower bound is derived here independently; the strict order-five gap and counts depend on the exhaustive census, not on a cited already-stronger numerical theorem.",
+      "searches": [
+        "first order de Bruijn cycle BWT run minimum 20 versus block bound 18",
+        "minimum number of Burrows Wheeler runs de Bruijn cycle order five 20 versus lower bound 18"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Higgins 2012, author presentation, pp.28–35: BWT block permutations and inversion by cycles",
+        "Fici–Gabory 2025, MFCS paper §1 and BWT characterization: equivalent structure and generalization"
+      ],
+      "reasoning": "Alternating 01/10 blocks, inverse BWT cycle tests, cyclic rotations, and run-length encoding are equivalent descriptions of the domain and statistic. Published characterization is a reusable lemma; neither inspected work gives the frequency coefficients. These lemma overlaps do not alone imply the enumerated distribution without doing the finite orientation classification.",
+      "searches": [
+        "BWT run distribution all 2048 order 5 de Bruijn",
+        "de Bruijn word BWT single cycle permutation epsilon pair 01 10 16 block run count 20 22 24 26 28 30"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2012 Higgins article abstract and 56-page author presentation were checked for run-count tables",
+        "2025 Fici–Gabory MFCS primary text was inspected for de Bruijn BWT classification and runs"
+      ],
+      "reasoning": "No exact six-column frequency table or explicit polynomial was found in the inspected sources or the targeted database searches. Absence of a hit is only limited evidence; a concealed or unindexed table is a residual priority risk.",
+      "searches": [
+        "Exact Burrows Wheeler run spectrum binary de Bruijn order five 38 426 840 608 130 6",
+        "de Bruijn order five BWT six run counts 20 22 24 26 28 30",
+        "exact histogram BWT run count for all 2048 binary order five de Bruijn sequences and comparison with Higgins 2012",
+        "binary de Bruijn cycles order five Burrows Wheeler BWT run count exact distribution 20 22 24 26 28 30"
+      ]
+    },
+    "rationale": "The pair-block and inverse-cycle structural lemmas are known from Higgins (2012) and later generalization (Fici and Gabory, 2025); only the derived exact 2048-cycle run spectrum and the first strict gap at order five are claimed here. The inspected relevant primary materials concern structure and enumeration, not these exact run frequencies. No covering record was encountered under the specific finite-profile queries, but database nonmatches are not novelty proofs.",
+    "residual_risks": [
+      "Unindexed or obscure preexisting run-frequency tables may list this particular finite histogram.",
+      "The original Higgins journal article full text was not independently available; the author presentation was inspected in detail but need not contain every result in the article.",
+      "Broader correspondence theorems make the enumeration algorithmically accessible and may lower the perceived incremental priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the standard block characterization; no run-spectrum polynomial or first-gap theorem identified in the inspected material.",
+        "evidence": [
+          "slides 28 and 33 state de Bruijn BWT pair-block property and inverse-cycle theorem",
+          "publication DOI 10.1016/j.tcs.2012.07.019"
+        ],
+        "identifier_or_url": "doi:10.1016/j.tcs.2012.07.019; https://www.macs.hw.ac.uk/~markl/Higgins.pdf",
+        "material_read": "Author presentation, pages 1–46 with focus on 27–35, and article bibliographic abstract.",
+        "method": "Viewed source and rendered relevant theorem slides; compared block structure, inverse-cycle condition and numerical run-count claims.",
+        "title": "Burrows–Wheeler transformations and de Bruijn words",
+        "trigger": "Same BWT and de Bruijn objects; direct predecessor of the finite orientation argument."
+      },
+      {
+        "assessment": "General sorting/permutation structure; no special order-five de Bruijn run spectrum.",
+        "evidence": [
+          "public v1 dated 2012-06-18, UTC",
+          "abstract describes suffix arrays and BWT permutations"
+        ],
+        "identifier_or_url": "arXiv:1206.3877v1; https://arxiv.org/abs/1206.3877",
+        "material_read": "Preprint abstract and section on BWT permutations and suffix arrays.",
+        "method": "Read arXiv record including v1 date and available mathematical discussion of suffix array permutations.",
+        "title": "On the combinatorics of suffix arrays",
+        "trigger": "Earliest verified dated relevant archived source on BWT permutation combinatorics."
+      },
+      {
+        "assessment": "BWT permutation and generalized de Bruijn correspondences; no displayed order-five run histogram.",
+        "evidence": [
+          "MFCS2025 pp.48:1–48:18, §1 defines generalized de Bruijn BWT structure",
+          "arXiv v1 dated 2025-02-18"
+        ],
+        "identifier_or_url": "arXiv:2502.12844; doi:10.4230/LIPIcs.MFCS.2025.48",
+        "material_read": "18-page MFCS 2025 primary text, especially abstract, introduction and BWT-related results.",
+        "method": "Read primary full-text sections and rendered first page; searched relevant theorem/results for BWT run enumeration.",
+        "title": "Generalized De Bruijn Words, Invertible Necklaces, and the Burrows–Wheeler Transform",
+        "trigger": "Later strong potential broad generalization that could subsume the stated result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f574e542-8148-452d-8501-69d6854dd978",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "BWT run count is the natural run-length compression statistic. The first order where the universal binary de Bruijn lower bound m+2 is not attained marks a concrete structural boundary. A complete 2048-cycle six-point frequency distribution and exact number of min-run extremizers form a motivated, finite, complete classification; not a random slice of an unmotivated invariant.",
+    "status": "PASS"
+  }
+}
