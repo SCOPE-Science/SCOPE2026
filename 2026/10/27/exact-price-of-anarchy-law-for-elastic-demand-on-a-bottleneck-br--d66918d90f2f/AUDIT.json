@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For fixed u=x+y and v=x+z, the combined objective is affine in x, so only x=0 and x=min(u,v) need be checked. The x=0 branch has unique minimum 2(1-B) at u=v=1. The other endpoint is bounded below by -B^2/4 or 1-B, both strictly above 2(1-B) when 4-2*sqrt(2)<B<2. At the all-shortcut flow, every path costs B, and the combined equilibrium cost is 3B. Therefore the unique optimum costs B+2 and the exact ratio is 3B/(B+2).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chau and Sim describe bounds for elastic demand under symmetric cost maps; the accessible abstract does not state a max-aggregated path-cost theorem.",
+        "Cole et al. state their nonlinear-norm comparison only under the condition that Nash flow sends at least as much traffic as an optimum; their Section 5 explicitly identifies the other case as unanalyzed."
+      ],
+      "reasoning": "The new statement is confined to a five-edge Braess graph and an open interval of constant benefits. It is not a general extension of elastic-demand price-of-anarchy bounds.",
+      "searches": [
+        "Chau and Sim (2003), DOI:10.1016/S0167-6377(03)00030-0, abstract and bibliographic record",
+        "Cole et al. (2006), Section 5 and Proposition 5.2"
+      ]
+    },
+    "checked_sources": [
+      "Cole, Dodis, and Roughgarden, SODA 2006, DOI:10.1145/1109557.1109630, author-hosted full PDF",
+      "Cole, Dodis, and Roughgarden, Networks 60(3), 194–203 (2012), DOI:10.1002/net.21458",
+      "Chau and Sim, Operations Research Letters 31(5), 327–334 (2003), DOI:10.1016/S0167-6377(03)00030-0, abstract/metadata only",
+      "Gabriel and Bernstein, Transportation Science 31(4), 337–348 (1997), DOI:10.1287/trsc.31.4.337, abstract/metadata only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cole et al. explicitly leave open the nonlinear-path-norm case when equilibrium flow is below optimal flow; their Proposition 5.2 assumes the opposite flow ordering and finite p.",
+        "For the stated benchmark, the equilibrium has flow \\(B\\), while the unique optimum has flow \\(2\\), and the exact combined costs are \\(3B\\) and \\(B+2\\)."
+      ],
+      "reasoning": "The source establishes the model and identifies the unresolved regime but does not state the exact interval, unique optimizer, or ratio derived here. The result is a single benchmark, not a claim that the general open problem is solved.",
+      "searches": [
+        "Cole et al. (2006), full author-hosted PDF, model/objective definitions and Section 5",
+        "Cole et al. (2012), DOI:10.1002/net.21458",
+        "Gabriel and Bernstein (1997), DOI:10.1287/trsc.31.4.337",
+        "Chau and Sim (2003), DOI:10.1016/S0167-6377(03)00030-0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cole et al. define path cost by an ell-p norm of edge latencies and define the prize-collecting combined-cost objective; Section 5 explicitly says the lower-equilibrium-flow case for nonlinear path norms is not analyzed.",
+        "Gabriel and Bernstein describe nonadditive path costs for equilibrium existence, uniqueness, and algorithmic convergence; the accessible abstract does not state this elastic-demand welfare ratio."
+      ],
+      "reasoning": "The claim is an exact parameterized instance for the maximum-edge path norm and constant benefits. General equilibrium existence or uniqueness for nonadditive path costs does not entail its exact combined-cost optimum or price-of-anarchy formula.",
+      "searches": [
+        "Cole, Dodis, Roughgarden (2006), Sections 2 and 5, DOI:10.1145/1109557.1109630",
+        "Gabriel and Bernstein (1997), publisher abstract, DOI:10.1287/trsc.31.4.337"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or matching formula for the interval \\(4-2\\sqrt2<B<2\\) and ratio \\(3B/(B+2)\\) was identified in the inspected public sources.",
+        "A semantically close Braess result concerned oscillator phase locking, not traffic routing; a separate mixed-autonomy routing result uses fixed unit demand and a different cost objective."
+      ],
+      "reasoning": "No equivalent exact benchmark was located in the available search results. Search absence is not proof of novelty; the primary source and residual risks govern the assessment.",
+      "searches": [
+        "Public search: \"Braess paradox elastic demand nonlinear path cost infinity norm traffic equilibrium prior literature\"",
+        "Public search: \"Bottleneck links, variable demand, and the tragedy of the commons\"",
+        "Public search: \"Chau Sim 2003 The price of anarchy for non-atomic congestion games with symmetric cost maps and elastic demands full text\""
+      ]
+    },
+    "rationale": "The exact benchmark addresses a specific regime the primary full text explicitly leaves unanalyzed. Related sources address either the same broad model without this exact welfare formula or different path-cost formulations; residual older-literature risk is retained.",
+    "residual_risks": [
+      "The full texts of Gabriel–Bernstein and Chau–Sim were not inspected; a less-indexed prior example could subsume the exact benchmark.",
+      "The theorem gives one exact topology and benefit interval, not a general worst-case bound for nonlinear path norms.",
+      "No independent audit or external validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Identifies the unresolved case of elastic traffic with nonlinear path norms when Nash flow is less than optimal flow; does not state the exact parameterized benchmark.",
+        "evidence": "Section 5 states that the authors do not know how to analyze nonlinear-path-norm elastic-demand instances when the traffic-order condition fails; Proposition 5.2 assumes Nash flow at least as large as optimal flow.",
+        "identifier_or_url": "https://cs.nyu.edu/~dodis/ps/bottleneck.pdf; DOI:10.1145/1109557.1109630; DOI:10.1002/net.21458",
+        "material_read": "Full author-hosted PDF: abstract and introduction, model and equilibrium definitions, combined-cost objective, Sections 4–5, and relevant appendices.",
+        "method": "Direct full-text reading of the author-hosted PDF, including Section 5 and the proof appendix.",
+        "title": "Bottleneck Links, Variable Demand, and the Tragedy of the Commons",
+        "trigger": "Primary source for the path-norm model, combined-cost objective, and open comparison regime."
+      },
+      {
+        "assessment": "The abstract discusses symmetric cost maps and elastic demand, but does not establish coverage of the maximum-edge path norm or the displayed exact ratio; full-text priority remains a risk.",
+        "evidence": "The accessible abstract describes bounds for symmetric cost maps and a weaker bound with elastic demands.",
+        "identifier_or_url": "DOI:10.1016/S0167-6377(03)00030-0",
+        "material_read": "Publisher and institutional-repository abstract and bibliographic metadata; full-text access attempt returned HTTP 403.",
+        "method": "Read the public abstract and metadata; attempted the accessible PDF route once.",
+        "title": "The price of anarchy for non-atomic congestion games with symmetric cost maps and elastic demands",
+        "trigger": "Nearby literature on elastic-demand price-of-anarchy bounds."
+      },
+      {
+        "assessment": "The accessible material concerns equilibrium existence, uniqueness, and convergence, not this elastic-demand welfare ratio; full-text priority is not excluded.",
+        "evidence": "The abstract describes a static traffic-equilibrium formulation with nonadditive path costs and convergence theory for a generic algorithm.",
+        "identifier_or_url": "DOI:10.1287/trsc.31.4.337",
+        "material_read": "Publisher abstract and bibliographic metadata only; full text not inspected.",
+        "method": "Read the public publisher abstract and publication metadata.",
+        "title": "The Traffic Equilibrium Problem with Nonadditive Path Costs",
+        "trigger": "Closest identified work on nonadditive path costs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d66918d9-0f2f-4d78-815c-1e97fe122546",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact flow reversal and price-of-anarchy law provide a parameterized benchmark for the lower-equilibrium-flow case explicitly left unanalyzed in the primary source. The theorem is narrowly scoped and does not overclaim a general bound.",
+    "status": "PASS"
+  }
+}
