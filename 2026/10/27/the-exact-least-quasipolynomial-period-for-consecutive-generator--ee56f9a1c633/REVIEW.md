@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The complete proof of the **single claim** that the least quasipolynomial period of \(G_p\) is exactly \(p\) for every fixed integer \(p\ge2\) has five independent checkable steps: exact semigroup gap parametrization; reduction of the minimization to \(0\le i\le p-1\); identification of the residue-zero polynomial; an admissible positive separating witness for each proper divisor; and a generalized Chinese remainder plus polynomial-identity argument excluding nondivisor periods. In the witness, \(p-1-i=(d-1)(p/d-1)\ge0\), and the separation correction has strictly positive numerator because \(p-d>0\). No prime assumption is used. The integer-only verifier checked 3,234 full small cases and each finite witness family within its declared range. Those computations do not substitute for the uniform proof. No independent audit has been performed.
+
+## Originality — PASS (with residual risk)
+The originating paper [1, Theorem 1.4; Corollary 5.5] supplies the exact residue polynomial formula and a period dividing \(p\). It notes that a displayed period need not be minimal [1, Definition 5.4]. The source's prime-parameter branch lower bound [1, Proposition 5.9] already implies least period \(p\) for prime \(p\); that part is **not independently novel**. The new claim is universal sharpness, in particular for every composite \(p\), using a gap separating residue zero from any proper divisor class. The other closest inspected primary articles [2–5] discuss low-modulus formulas, general quotient computations, or eventual quasipolynomial behavior, not this exact least-period statement. An undiscovered equivalent implication in wider literature is still possible; searches are not proof of global novelty.
+
+## Mathematical value — PASS
+The least quasipolynomial period is a natural measure of how much the exact fixed-parameter Frobenius formula can be compressed across residue classes. Composite moduli are the genuinely new and nontrivial range: different residue classes can share polynomials, yet **no proper divisor period can encode them all**. The explicit witness uniformly distinguishes every attempted collapse. This is an exact structural sharpness theorem motivated directly by the source's period caveat, without claiming a new pointwise formula or generalization beyond consecutive generators.
+
+## Closest literature and limitations
+[1] Feihu Liu, arXiv:2607.23076, Sections 2 and 5: same object, published bound and exact branch formulas, prime-case implicit. [2] F. Strazzanti, arXiv:1512.00638, Section 4: earlier special modulus formulas. [3] E. Cabanillas, arXiv:1904.08240, Sections 5.3–5.4: general quotient algorithms. [4] Feihu Liu, arXiv:2604.26415: other restricted quotient families. [5] Bogart–Goodrick–Woods, arXiv:1911.09136: general eventual quasipolynomial invariants. This result concerns fixed \(p\ge2\), unrestricted integer \(a>p\), and generators \(a,a+1\), but not other generator pairs or the exact number of distinct branches. Search coverage and literature priority are not independently certified.
+
+Self-review: passed. Independent audit: not yet performed.
