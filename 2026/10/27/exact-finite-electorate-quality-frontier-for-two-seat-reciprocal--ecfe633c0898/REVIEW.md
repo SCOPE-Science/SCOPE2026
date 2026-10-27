@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof explicitly reduces a reciprocal-JR violation to a qualifying unrepresented majority group. Selecting one common approved candidate protects that majority while preserving the globally highest-quality candidate. A second unrepresented majority is impossible, including the equality case because every candidate is supported. This yields the exact ratio by a nonnegative algebraic identity. For two seats the only possible two-candidate EJR entitlement is unanimous support for two quality-one candidates; otherwise EJR and JR coincide. An explicit three-candidate profile attains equality for each electorate size. The separate exact-rational checker passed 24,407 instance and witness checks, providing finite corroboration rather than the universal proof.
+
+**Originality — PASS, with residual publication-priority risk.** The closest primary source is Boehmer, Dong, Kreisel, and Utke (2026), arXiv:2609.08830, Sections 5 and Appendix G. It proves the unrestricted sharp three-quarters approximation and exhibits a limiting witness; it does not assert the exact fixed-voter two-seat rate or the structural one-replacement argument. A separate minimum-quality-floor formulation, optimized over arbitrary electorate and committee sizes, does not itself entail this finite-electorate bound without a floor assumption. The dated source, direct primary content, semantic database searches, and recoverable claim-history comparisons yielded no covering claim, but indexing incompleteness remains possible.
+
+**Value — PASS.** An exact natural finite-electorate frontier quantifies the practical gap between the limiting quality price and small elections: the guaranteed fraction is one for two voters, seven-eighths for three, five-sixths for four, and decreases sharply to three-quarters. The proof also gives a constructive, single-substitution theorem and an exact equivalence of best attainable JR/EJR quality at two seats. These are structural rather than an arbitrary finite parameter slice.
+
+The result is specific to two seats and supported candidates; larger committees and stronger quality-sensitive variants are not classified. Independent validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
