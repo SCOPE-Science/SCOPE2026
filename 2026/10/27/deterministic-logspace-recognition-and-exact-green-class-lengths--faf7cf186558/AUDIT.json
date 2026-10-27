@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Every word traces a finite connected subtree of the free-group Cayley graph. The tree-covering walk length is exactly twice the edge count minus endpoint distance; varying endpoints according to Green H/R/L/D gives the four formulas. Distinct-prefix counting and all pairwise distances use only logspace free-group equality and reduced-subword lengths (fixed graph-group normal-form theorem). Nested scans retain only logarithmic-size counters; all minima and decisions are in deterministic logspace. The provided checker compares independently enumerated minimal representatives over all length<=6 words in rank two.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Diekert–Kausch–Lohrey 2012 Theorem 5.1 computes fixed-graph-group shortlex forms in logspace.",
+        "Bodart–Carvalho–Monteiro 2026 Section 4 gives exact extremal Munn-tree criteria."
+      ],
+      "reasoning": "The general logspace free-inverse-monoid word problem decides equivalence, but does not automatically compute the minimum over all words in a Green class in logspace. Applying the prior group subroutine to all input prefix pairs, without materializing the Munn tree, supplies the missing bounded-space optimization.",
+      "searches": [
+        "published-finding corpus: Finite inverse semigroup idempotent conjugacy geodesic normal forms growth of free inverse monoid",
+        "web: free inverse monoid geodesic language deterministic space complexity",
+        "web: \"geodesic\" \"inverse monoid\" logspace Green relations"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.35251v2 §§2-7,11",
+      "arXiv:1201.3174v1 introduction, Theorem 5.1",
+      "arXiv:2608.10379v1 introduction and main-result summary",
+      "published-finding corpus semantic searches with the six literal queries in the private prior-check record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The source §4 does provide the geometric maximization criterion; §§1 and 11 do not assert logspace.",
+        "The 2012 theorem provides a reduction-length subroutine for fixed free groups, not a per-Green-class minimum."
+      ],
+      "reasoning": "Known geometry alone gives a polynomial-size set of candidate vertices, but no low-space evaluation theorem; known logspace group reduction alone does not handle optimization over Green-equivalent Munn trees. The new explicit serial prefix-pair maximization closes that implication gap. The close derivability from these two antecedents is disclosed as a remaining originality risk.",
+      "searches": [
+        "published-finding corpus: free inverse monoid Green D R L H geodesic minimal length diameter eccentricity logspace language",
+        "web: Munn tree diameter eccentricity geodesic word free inverse monoid class Green minimum",
+        "arXiv:2609.35251v2 §4,§11",
+        "arXiv:1201.3174v1 Theorem 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.35251v2 §4 includes rooted eccentricity and diameter criteria; §11 calls context-sensitivity unresolved.",
+        "No directly equivalent logspace class-minimum theorem was identified in the searched records; similarity matches concerned unrelated tree metric questions."
+      ],
+      "reasoning": "Potential equivalents include logspace class-minimum lengths, shortest Green-class representatives, logspace Munn-tree diameter/eccentricity, or deterministic-space recognition. The inspected 2026 work covers the tree geometry but not logspace evaluation; the 2012 logspace algorithm covers free-group reduction but not Green-class extremal optimization.",
+      "searches": [
+        "published-finding corpus: Green-geodesic languages free inverse monoids are deterministic logspace by Munn tree perimeter and diameter formula 2 edges minus eccentricity",
+        "published-finding corpus: free inverse monoid Green D R L H geodesic minimal length diameter eccentricity logspace language",
+        "web: \"Green languages\" \"context-sensitive\" \"free inverse monoids\"",
+        "web: \"Green\" \"geodesic\" \"logspace\" inverse monoid"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest relevant literature table in arXiv:2609.35251v2 summarizes regular/context-free/co-context-free status, not deterministic-logspace upper bounds.",
+        "published-finding corpus returned no matching finite database or exact classification table of logspace Green geodesics."
+      ],
+      "reasoning": "This is a language-complexity theorem for all fixed ranks, not a finite numerical datum or a special parameter value susceptible to tabular subsumption.",
+      "searches": [
+        "published-finding corpus: Green languages of free inverse monoids regular context free monogenic case exact geodesic enumeration generating series",
+        "published-finding corpus: Bodart Carvalho Monteiro Green languages context-sensitive or logspace membership diameter rooted Munn tree",
+        "web: Bodart Carvalho Monteiro Green languages context sensitive answer 2026"
+      ]
+    },
+    "rationale": "The 2026 primary source explicitly leaves the context-sensitive status of R/L/D Green geodesics open. Its Munn-tree path-maximization criteria and the 2012 logspace free-group normalization are credited; neither inspected source states or implements deterministic-logspace recognition of all four Green-class minima. The present prefix-orbit counting and extremal-distance algorithm gives a stronger direct answer, with the risk that the synthesis is implicit elsewhere.",
+    "residual_risks": [
+      "The combination of the 2026 Munn-tree criteria and the 2012 free-group normal-form bound is succinct; the logspace conclusion might be considered an unstated but immediate corollary, and unindexed earlier treatments might have observed it.",
+      "Searches of published-finding corpus and online literature cannot prove nonexistence of equivalents.",
+      "Only the standard symmetric generators of a fixed-rank free inverse monoid are covered."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents the class-geometric conditions and establishes non-context-freeness; does not state a deterministic-logspace bound or an implementation for the four class minima.",
+        "evidence": [
+          "§4 R4, L4, D4 fix extremal path conditions",
+          "§11 item 1 expressly asks whether the three languages are context-sensitive",
+          "§7 non-context-free statements and §1 summary"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.35251v2",
+        "material_read": "Introduction, Munn trees and Green relation characterization, Sections 4-5, Sections 6-7, Section 11 Future work, including the text of the open problem.",
+        "method": "Read accessible arXiv full-text HTML at the relevant sections and compare mathematical statements and logical implications.",
+        "title": "Green languages and growth of free inverse monoids",
+        "trigger": "Exact same Green-geodesic languages and explicit complexity open question"
+      },
+      {
+        "assessment": "Provides deterministic logspace normal forms for fixed graph groups and hence substrings in free groups; not a Green-geodesic or extremal Munn-tree algorithm.",
+        "evidence": [
+          "Theorem 5.1 for fixed graph groups",
+          "Introduction identifies free groups as graph groups and explains composition of logspace transducers"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1201.3174v1",
+        "material_read": "Introduction and Theorem 5.1 with proof in Section 5, including discussion of free groups and logspace transducers.",
+        "method": "Read arXiv full-text HTML, checking the exact fixed-group qualification.",
+        "title": "Logspace computations in Coxeter groups and graph groups",
+        "trigger": "Potential stronger algorithm subsuming logspace computation of free-group prefix metrics"
+      },
+      {
+        "assessment": "Concerns i-conjugacy rather than Green classes; no deterministic-logspace bounds for the four Green languages found in inspected sections.",
+        "evidence": [
+          "Abstract and introduction describe conjugacy geodesics and non-context-freeness, not the Green-class minima"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.10379",
+        "material_read": "Accessible abstract, introduction and main-results overview on the arXiv reader.",
+        "method": "Read exposed full-text/abstract presentation and compare its conjugacy condition with Green-class constraints.",
+        "title": "Conjugacy languages in free inverse monoids",
+        "trigger": "Closest same-author study of minimum representatives under another equivalence relation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "faf7cf18-6558-4eb0-86d5-baf33d05152e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The main 2026 paper explicitly asks whether the non-context-free/non-co-context-free D/R/L Green languages can be context-sensitive. Showing they are in deterministic logspace gives a substantially stronger constructive answer for every fixed rank, computes actual minimum lengths as usable invariants, and connects structural Munn-tree geometry to a sharp practical small-space recognition algorithm. The contribution is a synthesis of earlier theorems, not a new free-group normalization theorem.",
+    "status": "PASS"
+  }
+}
