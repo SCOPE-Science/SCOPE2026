@@ -1,0 +1,9 @@
+# Review of exact maximum–Gini dependence for uniform spacings
+
+**Correctness — PASS.** With \(A=TM\) and \(B=TG\), independent exponential order gaps give \(A=\sum E_r/r\) and \(B=\sum_{r<m}(1-r/m)E_r\). Their mixed second moment, together with \(\mathbb ET^2=m(m+1)\) and independence of normalized spacings and the gamma total, yields the exact covariance. The explicit second-moment calculation yields the correlation; harmonic-number bounds yield strict positivity and its decay. Exact rational tests for \(m=2,\ldots,500\) and seeded simulations reproduce the formulas. The proof, rather than finite checks, covers all \(m\).
+
+**Originality — PASS, subject to historical priority uncertainty.** The complete 2004 Gini-spacings article (Sections 2, 3, and 6) establishes marginal Gini distributions, not the joint maximum–Gini covariance. Rao–Sobel (1980), Section 3, provides joint densities for ordered spacings, which determine this expectation in principle but do not explicitly evaluate this particular joint moment or positivity/correlation rate. A prior maximum–quadratic-concentration calculation concerns a distinct functional and does not alone imply the Gini calculation. Searches for aliases and implication-level coverage located no direct published evaluation. Older moment-table identities or unsurveyed books remain plausible risks.
+
+**Mathematical value — PASS.** Maximum-spacing tests detect exceptional empty intervals, while Gini-spacing tests quantify overall inequality. An exact positive-dependence law with asymptotically vanishing correlation clarifies their relationship under a shared classical null law, and distinguishes finite-size association from the large-sample decorrelation. This is an exact, naturally motivated joint invariant, rather than an arbitrary parameter slice.
+
+Self-review: passed. Independent audit: not yet performed.
