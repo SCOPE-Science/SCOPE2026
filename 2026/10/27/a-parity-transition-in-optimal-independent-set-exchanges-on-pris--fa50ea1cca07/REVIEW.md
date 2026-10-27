@@ -1,0 +1,11 @@
+# Review of the prism independent-set reconfiguration theorem
+
+**Correctness (C): PASS.** Column words prove all cardinality bounds and exact counts; the odd optimum exchange relation is characterized by movement of its sole vacancy; the even one-defect level consists of two disjoint checkerboard deletion cliques. For the two-vacancy level, each independent configuration can move its vacancies together. Its adjacent-vacancy states are connected through the odd maximum cycle or through checkerboard deletion graphs plus an explicit block-shift path in even length. The proof treats \(n=3\) and \(n=4\), with no unproved infinite extrapolation. Two independent complete finite enumerators corroborate \(3\leq n\leq10\).
+
+**Originality (O): PASS subject to published-literature risk.** The most relevant inspected primary texts are Ito et al. (2008, 2011) on the general reconfiguration problem and Avis–Hoang (2023) on token sliding and realizability. These do not give the specific token-jumping exchange graph for maximum and near-maximum stable sets of \(C_n\square K_2\). Targeted searches for prism, circular-ladder, stable-set and token-jumping aliases identified no equivalent or stronger covering claim. Closest mathematical database records involve crown graphs, prism topology or general stable-set methods, not the exact exchange graph. A priori an unindexed prism-specific treatment remains possible; no publication priority is certified.
+
+**Value (V): PASS.** The exact top-three-level theorem isolates a sharp parity obstruction in a standard planar cubic family. Even prism configurations remain divided into two cliques after one token is freed, yet the next level is always connected; odd prisms are already exchange-connected at the optimum and have a precise cyclic configuration space. This supplies a constructive, infinite-family boundary example in optimal and near-optimal reconfiguration, beyond the known independence-number parity formula.
+
+**Limits:** No claims about lower cardinality levels, general token sliding, or exact two-vacancy diameters. Neither the code nor the review constitutes independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
