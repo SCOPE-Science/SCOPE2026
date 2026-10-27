@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Exact Euler-trail equivalence, balanced flow inequalities with connected-support lemma, loop exclusion/inclusion, and explicit 13-pattern rational sums prove every coefficient and leading term. Independent flow and word enumeration agree to 30 and 17 windows/word lengths respectively; no infinite inference rests on finite runs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "En Gad studies hashing substring vectors for deletion codes and broad asymptotics, not an exact all-length count of 3-gram multiplicity vectors.",
+        "Bernardini et al. observe the set of distinct length-k substrings, ignoring multiplicity."
+      ],
+      "reasoning": "A full multiset of reads differs from a set, from edit balls, and from a vector of factors of all shorter lengths. No inspected stronger theorem implies the coefficients here.",
+      "searches": [
+        "substring spectrum size binary words length 3 enumeration Eulerian trails 2026",
+        "arXiv:2609.19493 full HTML sections 1,2,5,7",
+        "DOI:10.4230/LIPIcs.CPM.2022.16"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.19493v2 (full HTML material)",
+      "DOI:10.3233/FI-2017-1553 (publisher abstract only)",
+      "DOI:10.4230/LIPIcs.CPM.2022.16 (publisher HTML definition and results)",
+      "OEIS A289657 (distinct finer equivalence sequence)",
+      "Published result \"Exact binary two-multispectrum code size and singleton classification\" (length-two counts only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "En Gad 2026 proves error-code rate bounds using large substring spectra, not fixed 3-gram spectrum count formulas.",
+        "Bernardini et al. 2022 optimize shortest strings with a given set of substrings, a different observation.",
+        "Cassaigne et al. 2017 abstract establishes generic rationality and polynomial asymptotics of k-abelian classes, but not this coarser channel rational function."
+      ],
+      "reasoning": "The current coefficient sequence and degree-four leading constant do not follow by direct specialization of these accessible statements. Full 2017 text inaccessible; this comparison remains qualified.",
+      "searches": [
+        "https://arxiv.org/html/2609.19493v2",
+        "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2022.16",
+        "https://doi.org/10.3233/FI-2017-1553"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2017 k-abelian relation equates counts of all factors up to length k; it refines the length-three-only spectrum.",
+        "0101 and 1010 share length-three multispectra but have different length-two counts."
+      ],
+      "reasoning": "A coarse trigram-only equivalence has different classes from 3-abelian equivalence; an abstract rationality statement does not yield the explicit rational expression.",
+      "searches": [
+        "number of binary k-mer multispectra for k=3; exact count distinct trigram count vectors of length n words; Eulerian de Bruijn multigraph reconstruction code",
+        "binary trigram spectrum 8 15 28 52 92",
+        "DOI:10.3233/FI-2017-1553"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A289657 is a 3-abelian equivalence sequence; its length-four count differs (16 versus the present 15).",
+        "No identical specific trigram-count table was located in checked public searches."
+      ],
+      "reasoning": "Numerically different finer equivalence tables and length-two spectrum tables do not reproduce this exact trigram-only enumeration. Failure to locate a table is not proof of uniqueness.",
+      "searches": [
+        "8 15 28 52 92 151 binary 3-gram spectrum",
+        "oeis A289657 3-abelian",
+        "three-gram spectrum 3-spectrum exact enumeration binary strings factor multiset profiles"
+      ]
+    },
+    "rationale": "Primary 2026 substring-count hashing paper does not state exact k=3 spectrum counts; closest 2017 k-abelian theorem treats finer equivalence, and 2022 k-substring paper treats sets. Public comparison is substantive and qualified by incomplete 2017 full-text access.",
+    "residual_risks": [
+      "Full text of the 2017 rationality article was not obtained, so an unobserved explicit k=3-only instance cannot be excluded.",
+      "Unindexed exact enumerations or later independent versions may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: coding redundancy via hashed multi-window spectrum, no exact binary trigram spectrum generating function",
+        "evidence": [
+          "arXiv:2609.19493v1 dated 2026-09-16; full HTML v2 dated 2026-10-18",
+          "Theorem 1.1 concerns redundancy for multiple deletion corrections"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.19493v2",
+        "material_read": "Complete HTML table of contents; abstract, introductory theorems and Sections 2.1 and related spectrum discussions",
+        "method": "Read directly in lawful arXiv HTML; compared precise observations and claimed conclusions",
+        "title": "Polynomially larger deletion codes by linear hashing of substring counts",
+        "trigger": "Recent public work using spectra of contiguous substring counts"
+      },
+      {
+        "assessment": "Observes distinct substring SET rather than multiplicity-count vector; no statement identified providing target cardinality",
+        "evidence": [
+          "CPM 2022 DOI 10.4230/LIPIcs.CPM.2022.16 abstract defines Substr_k as a set"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2022.16",
+        "material_read": "Publisher landing page full abstract, theorem contributions, definitions and bibliographic details",
+        "method": "Inspected lawful publisher HTML; statement-level distinction",
+        "title": "On Strings Having the Same Length-k Substrings",
+        "trigger": "Similar title involving length-k substring observations"
+      },
+      {
+        "assessment": "Generic rationality result for finer k-abelian equivalence, not shown to cover target; unresolved full-text priority possibility",
+        "evidence": [
+          "Publisher abstract states all factors of length at most k and proves generic N-rationality",
+          "Full text not obtained; no statement that manuscript lacks target as a special calculation"
+        ],
+        "identifier_or_url": "https://doi.org/10.3233/FI-2017-1553",
+        "material_read": "Public abstract and bibliographic information only; full text inaccessible",
+        "method": "Compared formal equivalence definition and stated scope; no whole-document negative conclusion",
+        "title": "k-Abelian Equivalence and Rationality",
+        "trigger": "Closest potentially dominating count of equivalence classes defined by short-factor counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e18da856-9bf9-404a-ada7-a4a25a9d69f6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural exact noiseless read reconstruction invariant with an all-blocklength formula and sharp degree-four growth, bridging k-mer multiset observations and Euler-trail combinatorics. Not merely a numerical short census, nor an edit-correction claim.",
+    "status": "PASS"
+  }
+}
