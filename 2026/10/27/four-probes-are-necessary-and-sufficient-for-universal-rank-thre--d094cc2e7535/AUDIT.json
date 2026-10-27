@@ -1,0 +1,112 @@
+{
+  "claim": "For complex square quantum channels on \\(M_d(\\mathbb C)\\) of exact Choi/Kraus rank \\(r\\), any fixed probe set that identifies every rank-\\(r\\) channel among all CPTP channels must contain at least \\[\\left\\lceil\\frac{2d^2r-d^2-r^2}{d^2-1}\\right\\rceil\\] input states. In particular, the universal minimum for exact rank-three qubit channels is four: every fixed triple fails for at least one rank-three channel, while four linearly independent qubit density matrices identify every qubit channel. For any fixed triple, the rank-three qubit channels with locally at least two-dimensional same-output fibers form an open dense subset of each connected component of the exact-rank-three channel manifold.",
+  "correctness": {
+    "rationale": "The fixed-rank CPTP manifold has real dimension \\(2d^2r-d^2-r^2\\). A k-probe output tuple lies in an affine space of dimension at most k(d^2-1). Invariance of domain rules out universal injectivity when the former exceeds the latter. For \\(d=2,r=3\\) this is \\(11>9\\); four linearly independent qubit states span Hermitian \\(M_2\\), proving sufficiency. The analytic maximal-rank locus and constant-rank theorem yield generic fiber dimension at least \\(11-9=2\\) for any fixed triple.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2609.14707v1 proves a full-Choi-rank lower bound and a three-state sufficiency theorem for rank-two qubit channels; its conclusion identifies extension beyond rank two as future work.",
+        "arXiv:1610.02513v2 gives the fixed-rank channel-manifold dimension but applies it to circuit-parameter lower bounds for extreme channels."
+      ],
+      "reasoning": "The rank-three qubit class is intermediate between the rank-two and full-rank cases. The cited results supply premises and neighboring cases but do not imply the exact rank-three universal minimum.",
+      "searches": [
+        "minimal number of input density matrices to uniquely determine Kraus rank r quantum channel",
+        "rank two qubit channel three density matrices quantum channel Kraus",
+        "arXiv:2609.14707v1 Conclusions and Discussion"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.14707v1, Sections 1–3 and conclusion, first public date 2026-09-13",
+      "arXiv:1610.02513v2, Sections III.2–III.3, fixed-rank channel manifold",
+      "arXiv:1305.3222, unitary channel characterization and average-fidelity framework",
+      "published-finding corpus searches for fixed Choi/Kraus rank, probe-state uniqueness, rank-three qubit channel identification; top-100 results recorded in prior_checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For \\(d=2,r=3\\) the fixed-rank manifold dimension is \\(11\\), while three output qubit states carry at most \\(9\\) real affine coordinates.",
+        "Four linearly independent qubit density matrices span Hermitian \\(M_2\\) and therefore determine every linear channel map.",
+        "The 2026 source covers rank 2 and full rank, but not exact rank 3."
+      ],
+      "reasoning": "The dimension obstruction proves no fixed triple is injective on the rank-three stratum; four basis states provide a matching universal upper bound. The conclusion is stronger than merely applying the full-rank theorem because rank-three Choi matrices are singular and outside its hypothesis.",
+      "searches": [
+        "arXiv:2609.14707v1 Theorem 1 and Theorem 2",
+        "arXiv:1610.02513v2 fixed-rank manifold dimension",
+        "arXiv:1305.3222 unitary identification framework",
+        "parameter dimension rank-r completely positive trace-preserving maps Choi matrix stratum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The fixed-rank channel manifold is parametrized by minimal Kraus isometries modulo U(r); Choi rank equals minimal Kraus rank (arXiv:1610.02513v2).",
+        "The 2026 channel-identification paper formulates uniqueness through equality of outputs on a fixed set of density matrices (arXiv:2609.14707v1)."
+      ],
+      "reasoning": "The result uses the standard equivalent Choi-rank/Kraus-rank description, then studies the output-evaluation map on the exact-rank manifold. The claim is about one fixed probe set identifying every member of that stratum, including against unrestricted CPTP competitors.",
+      "searches": [
+        "dimension of manifold of quantum channels with fixed Choi rank r and trace preservation number of probe input states universal channel identification",
+        "minimal number of input density matrices to uniquely determine Kraus rank r quantum channel",
+        "arXiv:1610.02513v2 Sections III.2–III.3",
+        "arXiv:2609.14707v1 Sections 2–3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic searches (limits 50 and 100) returned adjacent but non-covering results including 2026/10/4/SCOPE-three-hermitian-measurements-in-mathbb-c-2-an-exact-lorentz-cone--f3a2ed8e410c, 2026/10/4/SCOPE-rank-one-tcp-cores-detect-toroidal-correlations-exactly--2a493af0e07d, and 2026/10/11/SCOPE-exact-rank-discriminant-for-one-coordinate-cyclic-gabor-measurem--4ad1eba7465a; no exact rank-three channel probe-count result appeared in the returned results."
+      ],
+      "reasoning": "No exact database or tabulation of universal probe counts by Choi rank was found in the searched published-finding corpus results. The semantic index is not exhaustive, so absence is supporting search evidence, not a proof of novelty.",
+      "searches": [
+        "dimension of manifold of quantum channels with fixed Choi rank r and trace preservation number of probe input states universal channel identification",
+        "minimal number of input density matrices to uniquely determine Kraus rank r quantum channel",
+        "rank two qubit channel three density matrices quantum channel Kraus",
+        "parameter dimension rank-r completely positive trace-preserving maps Choi matrix stratum",
+        "rank-three qubit quantum channel three probe states fixed Kraus rank manifold dimension 11 universal identification lower bound"
+      ]
+    },
+    "rationale": "The searched primary literature establishes the fixed-rank manifold dimension and separately gives rank-two/full-rank probe results, but the inspected sources do not state the exact rank-three qubit universal minimum or the general probe-output dimension obstruction. published-finding corpus searches returned adjacent, not equivalent, claims. The result is a modest but precise extension, with residual literature risk disclosed.",
+    "residual_risks": [
+      "published-finding corpus is a semantic search index, not an exhaustive literature database; an unindexed fixed-rank probe-identification result may exist.",
+      "The general lower bound is necessary but is not claimed sharp for all dimensions and ranks."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers full-Choi-rank lower bound and exact rank-two qubit upper result; does not cover exact rank-three qubit channels. The conclusion names extension beyond rank two as future work.",
+        "evidence": "Theorem 1 assumes Choi rank nm; Theorem 2 treats rank-two qubit channels; conclusion says extending beyond rank two is future work.",
+        "identifier_or_url": "arXiv:2609.14707v1; DOI 10.1088/1751-8121/ae9b4f",
+        "material_read": "Full accessible arXiv HTML: Introduction, Section 2, Section 3 including Theorems 1 and 2, and Conclusions and Discussion.",
+        "method": "Compared hypotheses and exact quantifiers of the full-rank lower bound and rank-two sufficiency theorem with the rank-three claim.",
+        "title": "Unique determination and generation of rank two single-qubit quantum channels",
+        "trigger": "Recent primary work asks for minimal probe counts for nonunitary channels and explicitly states that extension beyond rank two remains open."
+      },
+      {
+        "assessment": "Establishes the dimension premise but does not derive a probe-state evaluation-map lower bound or the rank-three qubit minimum.",
+        "evidence": "The fixed-rank channel set is identified with the quotient V_{d,rd,r}/U(r), of real dimension \\(2rd^2-d^2-r^2\\).",
+        "identifier_or_url": "arXiv:1610.02513v2; DOI 10.1063/1.5019837",
+        "material_read": "Accessible arXiv HTML, Sections III.2–III.3, including the Stiefel quotient construction and fixed-rank dimension statement.",
+        "method": "Checked the Stiefel dimension, free U(r) action, and quotient dimension formula for all fixed-rank channels.",
+        "title": "Smooth Manifold Structure for Extreme Channels",
+        "trigger": "Needed premise: smooth manifold and dimension of channels with fixed Kraus rank."
+      },
+      {
+        "assessment": "Concerned with unitary distinguishability and fidelity estimation; it does not imply a rank-three nonunitary channel probe count.",
+        "evidence": "The paper assumes coherent evolution by an unknown unitary in its identification framework and focuses on average gate fidelity.",
+        "identifier_or_url": "arXiv:1305.3222; Phys. Rev. A 88, 042309",
+        "material_read": "Accessible full arXiv text, Introduction and algebraic framework sections on unitary identification and average gate fidelity.",
+        "method": "Compared the channel class, target property and quantifiers to the present exact-rank nonunitary claim.",
+        "title": "Minimum number of input states required for quantum gate characterization",
+        "trigger": "Closely related minimal input-state literature for unitary operations."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d094cc2e-7535-4fd8-9b34-b5a1991dcb37",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimal probe design is a direct operational question in quantum channel identification and control. The rank-three qubit stratum is the next nontrivial case beyond the recent rank-two result; the theorem gives an exact universal count and quantifies generic three-probe ambiguity as at least two continuous dimensions, which prevents under-designing a fixed-state identification protocol.",
+    "status": "PASS"
+  }
+}
