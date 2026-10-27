@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "Schur complement 1-2 epsilon squared proves SPD, infinity-norm bound yields eigenvalues in (0,2) and Type-II contraction. Two exact unit-vector inequalities exclude every Type-III scalar for delta<=epsilon^6/4. A bounded near-minimizer must have alpha=O(sqrt delta), forcing the lower limiting norm sqrt(1+epsilon^2); alpha=delta attains its limit. SPD similarity and row-sum bound prove spectral convergence at alpha=delta. Rank-one complement makes the two types identical in dimension two. Independent exact rational witness and finite checker agree, but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nabben–Vuik (2008) treats additive correction/deflation with condition and eigenvalue comparisons.",
+        "Tang et al. (2009) studies two-level projection methods; its accessible abstract does not establish this uniform norm obstruction."
+      ],
+      "reasoning": "General two-level spectral theory does not imply a norm estimate for this fixed three-mode, anisotropic exact-complement Type-III family. No inspected stronger Euclidean induced-norm theorem yielded the asymptotic value. Full comparison of every historical preconditioner variant remains a risk.",
+      "searches": [
+        "two level coarse fine preconditioner exact fine solve can increase Euclidean error norm compared identity Richardson in three dimension",
+        "additive reduced basis preconditioners singular reduced-order inverse projected correction nonsingular FGMRES spectral exact rank-one"
+      ]
+    },
+    "checked_sources": [
+      "Fan, Hu and Zhang (2026), arxiv:2609.11097v1, source text §§3.1–3.5",
+      "Nabben and Vuik (2008), doi:10.1002/nla.571, accessible full report",
+      "Tang et al. (2009), doi:10.1007/s10915-009-9272-6, online abstract/reference",
+      "Published mathematical research records: stagewise-safe Richardson, weighted Jacobi Euclidean frontier, two-coordinate Gauss–Seidel norm, additive bidirectional Gauss–Seidel inverse, and distinct Type-II rank-one complementary safety"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fan–Hu–Zhang establishes Type-III construction/nonsingularity; their Proposition 7 analyzes Type I.",
+        "An existing isotropic-complement Type-II statement permits a scalar identity correction with a rank-one coarse block; it does not involve the anisotropic exact inverse of the omitted block.",
+        "Nabben–Vuik compares coarse-grid correction spectra for conjugate gradients, not this matrix-family minimax."
+      ],
+      "reasoning": "Neither source nonsingularity nor the existing isotropic Type-II one-step norm criterion implies that every Type-III scaling fails while Type II works, or the positive sharp infimum gap in dimension three. The two-dimensional equivalence is proved in the new theorem and blocks a smaller witness.",
+      "searches": [
+        "arxiv:2609.11097v1 Eq. (7)-(8) §§3.1-3.4",
+        "doi:10.1002/nla.571 full report §§2-4",
+        "Type II additive reduced basis sharp Euclidean safety isotropic complement",
+        "Type III additive reduced basis exact complementary inverse"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fan–Hu–Zhang Eq. (8) defines the correct projected basic preconditioner and §3.4 only derives Type-I bounds.",
+        "Nabben–Vuik (2008) discusses additive coarse-grid correction and its conjugate-gradient spectral properties, not the displayed Euclidean finite-step supremum."
+      ],
+      "reasoning": "Two-norm nonexpansion of a nonsymmetric preconditioned Richardson error matrix is not equivalent to spectral-radius contraction. The exact test-vector obstruction and asymptotic infimum cannot be obtained by replacing the norm with the spectral radius.",
+      "searches": [
+        "Type III additive reduced basis preconditioner exact complementary inverse nonnormal Euclidean transient expansion no scalar damping three-dimensional example",
+        "Richardson diagonal preconditioning SPD spectral convergence but Euclidean transient growth arbitrarily small coupling anisotropic block"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The source Type-III formulas do not contain an exact three-mode best-scaling table.",
+        "Available related mathematical records classify distinct Type-II scalar-complement or general Jacobi cases, not exact-complement Type-III scaling in three modes."
+      ],
+      "reasoning": "The rational example and sharp limiting value were directly derived and checked; no source/table found with either precise value or an implication covering it. Negative search is not proof of uniqueness.",
+      "searches": [
+        "optimal scalar fine preconditioning anisotropic reduced basis exact Schur inverse Euclidean contraction failure asymptotic sqrt 1+epsilon squared",
+        "projected complement preconditioner P(P^T A P)^-1 P^T + alpha(I-PP^T) 2 by 2 SPD sharp Euclidean norm min over alpha"
+      ]
+    },
+    "rationale": "Source full-text §3.1 defines Type III and §3.4 analyzes Richardson only for Type I; no prior inspected work provides the exact anisotropic three-mode all-alpha norm obstruction, sharp asymptotic infimum, and minimal-dimension Type-II comparison. Broader diagonal-preconditioning theory remains a documented bibliography risk; the related isotropic Type-II result is neither identical nor dominating.",
+    "residual_risks": [
+      "Complete full text of Tang et al. 2009 not inspected; an unrecognized general nonnormal transient-gain theorem may imply a related statement.",
+      "The numerical construction is particular to one coarse direction, exact complementary-block inversion, and fixed Richardson; no novelty asserted for generic spectral versus norm divergence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Source constructs Type III and proves nonsingularity, without the three-mode Euclidean all-parameter failure or asymptotic minimax",
+        "evidence": "Type III Eq. (8) uses a projected T inverse; Richardson analysis explicitly chooses Type I in §3.4.",
+        "identifier_or_url": "arxiv:2609.11097v1; https://arxiv.org/html/2609.11097v1",
+        "material_read": "Full accessible HTML: construction §§3.1–3.2, Richardson proof §3.4, FGMRES §3.5, results and references",
+        "method": "Read source equations (6)-(9), Proposition 7, conclusions; compared hypotheses and target norms",
+        "title": "Additive Reduced Basis Preconditioners for Large-Scale Parametrized PDEs",
+        "trigger": "Defines the exact Type-II/III methods being compared"
+      },
+      {
+        "assessment": "Published spectral/condition-number comparisons do not state this anisotropic Type-III fixed-step minimax",
+        "evidence": "Focuses on deflation, balancing and additive coarse-grid CG spectral effects.",
+        "identifier_or_url": "doi:10.1002/nla.571; https://repository.tudelft.nl/file/File_59067865-1fe0-4940-bce7-6e01f2e59503",
+        "material_read": "Open full 2007 Delft report corresponding to 2008 paper, notably definitions, algebraic comparisons and concluding comparisons",
+        "method": "Read PDF text and representative page image, searched for Richardson and compared operator families/norms",
+        "title": "A comparison of abstract versions of deflation, balancing and additive coarse grid correction preconditioners",
+        "trigger": "Earlier broad additive coarse-grid preconditioner comparison"
+      },
+      {
+        "assessment": "Not enough full-text access to exclude all general implications; explicitly retained as residual bibliography risk",
+        "evidence": "Studies deflation/domain decomposition/multigrid two-level comparisons, not an exposed norm identity.",
+        "identifier_or_url": "doi:10.1007/s10915-009-9272-6; https://link.springer.com/article/10.1007/s10915-009-9272-6",
+        "material_read": "Accessible article landing page, abstract and reference sections; full PDF not inspected",
+        "method": "Read online article summary and bibliography",
+        "title": "Comparison of Two-Level Preconditioners Derived from Deflation, Domain Decomposition and Multigrid Methods",
+        "trigger": "Plausible stronger general spectral comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db85175f-ef15-46d6-9154-f6c4482735f2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The smallest possible coarse/fine splitting gives a structurally motivated failure of the intuition that an exact fine-block inverse is at least as one-step safe as an identity correction. The sharp positive best-scaling asymptotic identifies a non-removable transient amplification despite spectral convergence, and the dimensional minimality and continuous two-parameter family make it a transferable adversarial test of reduced-basis preconditioner selection. This is not merely a check that preconditioners are invertible.",
+    "status": "PASS"
+  }
+}
