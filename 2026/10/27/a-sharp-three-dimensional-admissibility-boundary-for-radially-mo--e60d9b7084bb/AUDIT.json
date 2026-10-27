@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The explicitly normalized R³ radial Fourier integral reduces to a sum of two shifted cubic-denominator terms. An exact integer-polynomial identity gives the rational density with a cubic P(s²). Its coefficient signs prove nonnegativity iff a²>=5ω²; if the constant term is negative, Descartes plus P(ω²)=a⁶ gives the unique simple positive sign-change root. Integrability justifies Fourier inversion and Bochner, and a.e.-positive density proves strictness. The full one-dimensional shifted Matérn spectrum is positive for every a>0, ω>=0. The actual standalone checker passed exact symbolic algebra and four independent radial quadrature comparisons. No finite tests are used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hristopulos (2014) builds Spartan covariance from a reciprocal quartic spectrum and Bessel-Lommel kernels via finite spectral cutoff.",
+        "Gneiting (2011) gives a general characterization and radial positive-definite function theory rather than the exact cosine-modulated Matérn 3/2 Fourier sign polynomial.",
+        "Rasmussen and Williams (2006) formula (4.17) gives the unmodulated Matérn 3/2 profile."
+      ],
+      "reasoning": "General Bochner/Schoenberg criteria permit testing a kernel but do not supply the claimed sharp parameter cutoff or negative-frequency band. The compared classes have different Fourier support or rational structure; no examined stronger theorem directly includes the exact current family and threshold.",
+      "searches": [
+        "three dimensional isotropic hole-effect kernel Matérn times cosine exact spectral threshold",
+        "hole effect covariance function oscillatory Matérn spatial dimension three",
+        "arxiv:1401.2823v1, sections III-V",
+        "arxiv:1111.7077v1, section 2"
+      ]
+    },
+    "checked_sources": [
+      "Rasmussen–Williams (2006), GPML Ch.4, equations (4.14)–(4.17)",
+      "Gneiting, arXiv:1111.7077v1, Euclidean radial positive-definite classes",
+      "Wilson–Adams, arXiv:1302.4245v1, equations (11)–(12)",
+      "Hu–Lindgren–Simpson–Rue, arXiv:1307.1384v1, equation (19)",
+      "Hristopulos, arXiv:1401.2823v1, equations (4),(5),(14)",
+      "Published mathematical records searched using the specified Matérn-cosine, hole-effect and Fourier-sign queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The standard Matérn transform is positive with ω=0 but multiplication by cos(ωr) is not a positivity-preserving operation in R³.",
+        "Wilson–Adams spectral mixtures are obtained from Gaussian spectral densities; Hu–Lindgren–Simpson–Rue use a nonnegative quartic reciprocal.",
+        "The Matérn 3/2 cosine product has low-frequency density proportional to (a²+ω²)²(a²−5ω²), which can be negative."
+      ],
+      "reasoning": "Previously studied modulated exponentials, coordinatewise spectral mixtures and oscillatory SPDE kernels neither have the same radial Matérn factor nor force the factor-five cutoff. A derivative with respect to damping can create the factor (1+ar), but differentiating a positive spectrum need not preserve positivity; a new sign classification is required.",
+      "searches": [
+        "Matérn ν=3/2 radial covariance (1+a r) exp(-a r) cos(b r) in three dimensions sharp Fourier positivity a squared at least five b squared and single low-frequency negative band",
+        "three dimensional isotropic hole-effect kernel Matérn times cosine exact spectral threshold",
+        "arxiv:1302.4245v1, §3",
+        "arxiv:1307.1384v1, §3.1",
+        "arxiv:1401.2823v1, §§III-V"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wilson and Adams (2013), §3, equations (11)-(12): stationary oscillation via cosines of linear differences and Gaussian spectral mixtures.",
+        "Hu et al. (2013), §3.1, equation (19): an oscillating SPDE field with nonnegative reciprocal-quartic spectrum.",
+        "The new radial spectrum equals 32πa³P(s²)/(D_+(s)³D_-(s)³), with a sign-changing cubic P."
+      ],
+      "reasoning": "The spectral-mixture formula is anisotropic or coordinatewise, not an exact isotropic cosine of Euclidean distance multiplied by the Matérn smoothness-3/2 profile. The SPDE field has a distinct denominator and automatically nonnegative spectrum. Neither yields this threshold under an equivalent reparameterization.",
+      "searches": [
+        "Matérn ν=3/2 radial covariance (1+a r) exp(-a r) cos(b r) in three dimensions sharp Fourier positivity a squared at least five b squared and single low-frequency negative band",
+        "complex Matérn covariance modulated radial cosine factor exact threshold R3 Fourier transform",
+        "oscillatory Matern covariance damped cosine Matérn ν 3/2 product positive definiteness",
+        "arxiv:1307.1384v1, equation (19)",
+        "arxiv:1302.4245v1, equations (11)-(12)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published records included a mathematically distinct Fourier-bipyramid zero-free-strip result and other Fourier positivity results, none of which states or implies the present Matérn-cosine sign classification.",
+        "Search results for the published covariance families included Hu et al. (2013) and Hristopulos (2014), both inspected for the relevant formulas."
+      ],
+      "reasoning": "An actual topical database and literature search did not reveal this exact parameter table. This is bounded negative evidence, never treated as proof of uniqueness or a substitute for the statement-by-statement primary-source comparisons.",
+      "searches": [
+        "Matérn ν=3/2 radial covariance (1+a r) exp(-a r) cos(b r) in three dimensions sharp Fourier positivity a squared at least five b squared and single low-frequency negative band",
+        "radial stationary Matérn cosine modulation Bochner sign cubic spectral polynomial",
+        "Matérn cos frequency radial distance oscillatory covariance",
+        "Published mathematical record search: Matérn ν=3/2 radial covariance ... in three dimensions ... spectral nonnegativity",
+        "Published mathematical record search: radial stationary Matérn cosine modulation Bochner sign cubic spectral polynomial"
+      ]
+    },
+    "rationale": "Statement-level comparison to five material-inspected references and searched published mathematical records found general radial kernel criteria, unmodulated Matérn, nonradial spectral mixtures, distinct oscillatory-SPDE models, and Bessel–Lommel families, but no theorem giving the three-dimensional radially modulated Matérn smoothness-3/2 cutoff or unique negative spectral band. The conclusion is bounded, not a uniqueness certificate.",
+    "residual_risks": [
+      "A directly equivalent formula may exist in unindexed spatial-statistics literature or a differently named covariance family.",
+      "General spectral-mixture approximation is broad but has not been exhaustively compared to all exact closed-form subcases.",
+      "The examined mathematical and archival sources do not constitute an exhaustive literature census."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers unmodulated Matérn smoothness-3/2, not cosine modulation or R³ sign threshold",
+        "evidence": "Equation (4.17) identifies (1+ar)e^{-ar} after rescaling.",
+        "identifier_or_url": "https://gaussianprocess.org/gpml/chapters/RW4.pdf",
+        "material_read": "Chapter 4 §4.2, pages 84–86, especially equations (4.14)–(4.17), including visual inspection of page 85",
+        "method": "Opened publicly available chapter PDF, read formula and accompanying discussion",
+        "title": "Gaussian Processes for Machine Learning, Chapter 4",
+        "trigger": "Standard Matérn 3/2 envelope and potential direct product coverage"
+      },
+      {
+        "assessment": "Background radial positive definiteness, no explicit R³ modulated Matérn threshold",
+        "evidence": "Section 2 defines Φ_d and integral characterization; discussion distinguishes Euclidean and spherical distance.",
+        "identifier_or_url": "arxiv:1111.7077v1; https://arxiv.org/abs/1111.7077",
+        "material_read": "Introduction, Section 2 on Euclidean radial classes, and comparison table of covariance families",
+        "method": "Read full-text mathematical text supplied by the arXiv record",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Potentially stronger Schoenberg characterization"
+      },
+      {
+        "assessment": "Oscillatory kernels use linear lag cosine and Gaussian-mixture spectral shifts; the radial norm cosine with Matern envelope and factor-five cutoff is not derived",
+        "evidence": "Equations (11) and (12) express cosines of τ·μ or products of coordinatewise cosines, not cos(ω||τ||) times Matérn 3/2.",
+        "identifier_or_url": "arxiv:1302.4245v1; https://proceedings.mlr.press/v28/wilson13.pdf",
+        "material_read": "Main construction §3, equations (6)–(12), nearby discussion, and §4 comparison with Matérn; page 3 of the publicly available PDF visually inspected",
+        "method": "Opened publicly available complete nine-page PDF and read the relevant derivation and comparisons",
+        "title": "Gaussian Process Kernels for Pattern Discovery and Extrapolation",
+        "trigger": "Most plausible cosine-modulated kernel construction"
+      },
+      {
+        "assessment": "Distinct SPDE oscillation model with nonnegative reciprocal-quartic spectrum, no current product-family classification",
+        "evidence": "Equation (19) has spectrum proportional to (κ⁴+2cos(πω)κ²s²+s⁴)^{-1}.",
+        "identifier_or_url": "arxiv:1307.1384v1; https://arxiv.org/html/1307.1384v1",
+        "material_read": "Introduction and §3.1, notably equations (18)–(22), with discussion of the spectrum and model",
+        "method": "Read accessible full-text arXiv HTML sections",
+        "title": "Multivariate Gaussian Random Fields with Oscillating Covariance Functions using Systems of Stochastic Partial Differential Equations",
+        "trigger": "An explicit oscillatory isotropic spatial covariance close to the proposed family"
+      },
+      {
+        "assessment": "Different spectral families, including cutoff Bessel–Lommel and Spartan quartic reciprocal; no exact Matérn-cosine sign threshold",
+        "evidence": "Equations (4), (5a,b) and (14) specify distinct spectral constructions.",
+        "identifier_or_url": "arxiv:1401.2823v1; https://arxiv.org/html/1401.2823v2",
+        "material_read": "Introduction, §§II–III radial Fourier representation and spectral form, §V Proposition 2, and §VIII conclusions",
+        "method": "Read accessible full-text arXiv HTML including primary formulas and conclusions; identified v1 first-public date separately",
+        "title": "Radial Covariance Functions Motivated by Spatial Random Field Models with Local Interactions",
+        "trigger": "Rational radial oscillating covariance classes might dominate current family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e60d9b70-84bb-4240-bcc0-d7facb424686",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical Matérn 3/2 correlation models differentiable spatial fields, while radial oscillation is a natural hole-effect modeling mechanism. Exact covariance admissibility is essential for legitimate Gram matrices. The theorem supplies a sharp, all-parameter three-dimensional damping/frequency threshold, strictness at equality, and the entire single low-frequency negative band when invalid; it also exposes a dimension-one versus dimension-three difference. These are natural structural facts, not an arbitrary finite computation or a generic Bochner restatement.",
+    "status": "PASS"
+  }
+}
