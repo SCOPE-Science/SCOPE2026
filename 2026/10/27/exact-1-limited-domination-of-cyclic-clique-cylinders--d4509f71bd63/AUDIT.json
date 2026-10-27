@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Every selected clique fiber must have m-1 or m vertices. For mixed empty and partial fibers, zero-run length<=2, separating runs have >=2 full fibers and any run containing a partial fiber has >=4; therefore f>=z+2. Coupled with the exact counting identity and gamma_t(C_n)<=n/2+1 this gives the lower bound. The zero-free and partial-free cases complete the proof. Published cycle total-domination formula and explicit cyclic constructions prove the upper bound. Three independent finite verification modes run and pass (8 labelled full-subset, 240 exact transfer and 4424 explicit instances). Finite data corroborates rather than replaces infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 7, arXiv:2606.22428v2: mn/2 <= gamma_1(C_n square K_m) <= m gamma_1(C_n), not equality for n not divisible by 4.",
+        "Theorem 10 therein computes path-by-path grids P_a square P_b, not C_n square K_m.",
+        "arXiv:2610.01796v1 deals with cubic graphs, while C_n square K_m has degree m+1>=4."
+      ],
+      "reasoning": "The existing general upper bound yields the proposed construction but no matching stronger lower bound for n mod4=1,2,3. Basic n divisible4 subcase and n=m=3 are already implied; they are not separately counted as contributions.",
+      "searches": [
+        "1-limited domination of Cartesian product of a cycle C_n and complete graph K_m, m>=3: exact equals m times total domination gamma_t(C_n), floor(n/2)+indicator(4 not divide n)",
+        "\"1-limited domination\" \"K_m\" \"C_n\" formula",
+        "arXiv:2606.22428v2 Theorem 7 Section 4",
+        "arXiv:2610.01796v1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2606.22428v2",
+      "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+      "https://arxiv.org/html/2610.01796v1",
+      "Exact k-limited domination of complete multipartite graphs (public mathematical-record title)",
+      "Scale-two Rips collapses of unbounded-width cyclic clique cylinders (public mathematical-record title)",
+      "Locating-total domination of rooted products with 1 mod 4 cycles (public mathematical-record title)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Foundational Corollary 8 gives gamma_1(C_n)=floor(n/2)+1_{4 not div n}: https://link.springer.com/article/10.1007/s40314-026-03902-2.",
+        "Tepeh Theorem 7 gives lower nm/2 and upper m gamma_1(C_n), and Proposition 6 already covers K3 square K3: https://arxiv.org/html/2606.22428v2."
+      ],
+      "reasoning": "For 4 | n, known lower nm/2 and upper m gamma_1(C_n)=mn/2 coincide, so this part is prior coverage. For n mod4 in {1,2,3}, the upper and lower are separated by m/2 or m, and the new zero/partial/full-fiber argument supplies the missing lower bound. The m=3,n=3 case overlaps Proposition 6; the infinite remaining domain is not an implication of the inspected earlier statements.",
+      "searches": [
+        "1-limited domination of Cartesian product of a cycle C_n and complete graph K_m, m>=3: exact equals m times total domination gamma_t(C_n), floor(n/2)+indicator(4 not divide n)",
+        "Exact gamma^L_1 on clique cylinders and cyclic cliques C_n square K_m, full/empty fiber optimum, size m gamma_t(C_n), multiplicativity",
+        "arXiv:2606.22428v2 Theorem 7",
+        "Springer Corollary 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Springer foundational full text identifies 1-limited as (0,1)-pitchfork domination and, for regular graphs, as (1,d-1)-domination: https://link.springer.com/article/10.1007/s40314-026-03902-2.",
+        "Tepeh definition and bound https://arxiv.org/html/2606.22428v2."
+      ],
+      "reasoning": "The product graph has regular degree m+1 and hence the same invariant can be described as (1,m)-domination; target comparison accounts for this alternate phrasing. Search did not expose an equivalent prior formula. A failed search is not novelty proof.",
+      "searches": [
+        "pitchfork domination (0,1), selected vertices at most one unselected neighbor, cycle of complete graphs C_n cartesian K_m, four-periodic optimum",
+        "1-limited domination of Cartesian product of a cycle C_n and complete graph K_m, m>=3: exact equals m times total domination gamma_t(C_n), floor(n/2)+indicator(4 not divide n)",
+        "\"1-limited domination\" \"C_n\" \"K_m\" cartesian",
+        "\"1-limited domination\" \"C_n \\square K_m\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public mathematical-record entry Exact k-limited domination of complete multipartite graphs: different graph family.",
+        "Public mathematical-record entry Scale-two Rips collapses of unbounded-width cyclic clique cylinders: same graph family, different topological invariant.",
+        "Tepeh Proposition 6 (https://arxiv.org/html/2606.22428v2) gives the special rook graph K3 square K3, not a full cycle-product table."
+      ],
+      "reasoning": "Targeted equation, graph-family, and table searches found no covering exact-value table. This is limited bibliographic evidence and does not imply global absence.",
+      "searches": [
+        "Exact gamma^L_1 on clique cylinders and cyclic cliques C_n square K_m, full/empty fiber optimum, size m gamma_t(C_n), multiplicativity",
+        "1-limited domination of Cartesian product of a cycle C_n and complete graph K_m, m>=3: exact equals m times total domination gamma_t(C_n), floor(n/2)+indicator(4 not divide n)",
+        "\"1-limited domination\" \"prism\" \"cycle\" graph",
+        "(1,m)-domination number of cycle clique Cartesian graph, minimum internally dense dominating sets, circular rook graph"
+      ]
+    },
+    "rationale": "Checked the primary source introducing Cartesian-product bounds and the foundational parameter article, including specific product theorem families; no statement derives the n modulo four classes 1,2,3 for C_n square K_m with m>=3. Broader lower bound mn/2 only closes 4|n, explicitly acknowledged as covered. Semantic mathematical-record and web searches with alternate pitchfork and (1,m)-domination formulations return no stronger coverage. Bibliographic unindexed-terminology risk persists.",
+    "residual_risks": [
+      "Unindexed (0,1)-pitchfork / (1,m)-domination literature might contain the same exact formula; targeted accessible sources do not resolve absolute publication priority.",
+      "Semantic mathematical record search is incomplete and nonexhaustive.",
+      "Self-review is not an independent peer audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the newly claimed lower bound for n mod 4=1,2,3 and all m>=3. Theorem 7 provides its upper bound, general lower mn/2 only; m=3,n=3 special rook and n divisible4 already follow from known bounds.",
+        "evidence": [
+          "https://arxiv.org/html/2606.22428v2#S4",
+          "https://arxiv.org/abs/2606.22428",
+          "https://arxiv.org/html/2606.22428v2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2606.22428v2",
+        "material_read": "Full available HTML text, especially Sections 2 and 4, Theorem 7, Proposition 6 and Theorem 10; arXiv v1 timestamp on abs page.",
+        "method": "Read full-text HTML statements, proofs, family definitions and product bounds.",
+        "title": "On k-limited domination: complexity and Cartesian products",
+        "trigger": "Same definition and Cartesian product with complete graph factor."
+      },
+      {
+        "assessment": "Covers gamma_1(C_n)=gamma_t(C_n) exactly and generic lower bounds; does not treat arbitrary cyclic clique Cartesian products.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s40314-026-03902-2"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-026-03902-2",
+        "material_read": "Full accessible publisher HTML, including definitions, Proposition 1, Corollaries 7–9 and discussion of pitchfork-domination.",
+        "method": "Read publisher open article sections relating to cycles and special graph classes.",
+        "title": "On k-limited domination in graphs",
+        "trigger": "Foundation and direct cycle formula; alternate (0,k)-pitchfork terminology."
+      },
+      {
+        "assessment": "NOT_COVERING clique width m>=3: cubic graph constructions and Goldberg snarks are different, and n>=3,m>=3 product degree m+1>=4.",
+        "evidence": [
+          "https://arxiv.org/html/2610.01796v1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.01796v1",
+        "material_read": "Full accessible arXiv HTML (introduction, statement list, complexity and Goldberg-snark sections, conclusion).",
+        "method": "Read the paper section headings, theorem statements, intended graph classes, and context.",
+        "title": "On 1-limited and (1,2)-domination in cubic graphs",
+        "trigger": "Same parameter, recent competing research, special clique width two prism relation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4509f71-bd63-4bd0-88ba-d0df56d26322",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A recent 2026 program explicitly studies restricted domination in Cartesian products. The theorem closes the generally nontrivial gap between nm/2 and m gamma_1(C_n) for three distinct cycle residue classes, for every clique size m>=3, and shows a sharp width-2 exception. Its structural rigidity argument for mixed empty, partial and full clique fibers reveals why the general upper bound is exact and produces a four-periodic law on a natural two-parameter graph family. It is not a single small increment or a parameter substitution.",
+    "status": "PASS"
+  }
+}
