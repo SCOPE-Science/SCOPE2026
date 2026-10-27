@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact normalized monomial formula produces a finite-band operator with power-law coefficients; this gives the unbounded and compact regimes. At criticality the matrix differs compactly from a finite polyphase Hardy multiplier. The adjoint product is a compact perturbation of the positive Toeplitz operator with the squared polyphase modulus as symbol. Boundary-kernel Weyl sequences, Calkin spectral invariance, and a finite kernel prove the exact positive essential spectrum, essential norm, and closed-range criterion. Separated-input columns supply the matching compact-region singular-value lower bound, including the Schatten quasi-range.
+
+**Originality — PASS, with residual historical-priority risk.** Sun–Liu's Theorem 9.2 gives exact weighted-Dirichlet formulas for monomial multipliers under linear symbols and their broader paper contains abstract Schatten criteria. Pau–Pérez establishes qualitative closed-range criteria for unweighted composition, and Barik–Sen–Paul supplies general quantitative estimates rather than the current explicit nonlinear-polyphase essential spectrum. This result is not proposed as a discovery of the basic exponent threshold in isolation. Direct comparison identified no implication-equivalent complete critical-spectrum classification, but an equivalent classical block-Toeplitz reformulation remains possible.
+
+**Mathematical value — PASS.** The spectral band and common-circle-zero condition distinguish polynomial multipliers having identical coefficient moduli but different exponent residues. This answers a natural sharp boundary question that boundedness and compactness criteria cannot settle. The complete nonlinear-symbol phase trichotomy and quasi-Schatten rate accompany this structural invariant, rather than being presented as separately incremental results.
+
+**Closest literature and limitations.** Sun–Liu (2026), Barik–Sen–Paul (2026), Pau–Pérez (2013), and Stević–Jiang (2026) were compared at theorem/assumption level. Standard Toeplitz machinery is used, not newly claimed. The assertions concern only polynomial multipliers and integer powers, and the compact singular-value result gives comparison rather than a limit constant. Priority is not externally certified.
+
+Self-review: passed. Independent audit: not yet performed.
