@@ -1,0 +1,169 @@
+{
+  "correctness": {
+    "rationale": "Necessity: two initially uncoloured peripherals of one petal block each other forever; with an uncoloured hub no peripheral can force first, and hub forces precisely when all m-1 peripheral colours are present. Sufficiency: after the hub is initially coloured or forced, every single peripheral blank sees m-1 distinct colours and forces. Each successful restriction uniquely identifies a proper total m-colouring, so no double counting. Subtract exactly m-1 monochromatic omitted-colour patterns to obtain B and the weighted probability formula. The top t coefficient is strictly positive for k>=2,m>=3. Direct exhaustive checks corroborate but are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The complete text of the maximum-degree-two theorem covers paths/cycles only.",
+        "The complete-multipartite RESULT.md assumes complete multipartite graphs; the present graphs are not of that type for k>=2,m>=3.",
+        "The complete-bipartite RESULT.md assumes bipartite graphs; bouquets have triangles."
+      ],
+      "reasoning": "Class inclusion and implication were tested rather than just titles. Degree, induced nonadjacency and triangles preclude applying these seemingly broader theorems; their formulas cannot imply the windmill case. The k=1 complete graph was excluded as already known. Generic evaluation hardness is not a value formula for this tractable subfamily.",
+      "searches": [
+        "shared-vertex clique sums forced-colouring function articulation-point gluing theorem structural counts",
+        "forced m-colouring graph bouquet of K_m cliques at common vertex count all successful partial assignments chromatic forcing",
+        "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+        "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+        "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69"
+      ]
+    },
+    "checked_sources": [
+      "The forced colouring function of a graph: https://arxiv.org/abs/2609.17108v1",
+      "Graph polynomials: some questions on the edge: https://arxiv.org/abs/2406.15746v1",
+      "Maximum-degree-two three-colour formula: https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd/RESULT.md",
+      "Chromatic-palette complete-multipartite formula: https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655/RESULT.md",
+      "Complete-bipartite three-colour formula: https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+      "Friendship zero-forcing polynomial: https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2024 general recurrence partitions random partial assignments by labelled states; it is true for all graphs but has no closed-form evaluation.",
+        "The zero-forcing friendship polynomial concerns a process without named proper colours, so its coefficient weighting and success predicate differ.",
+        "The three explicit previous FC formula families have hypotheses that fail on the present nontrivial bouquets."
+      ],
+      "reasoning": "No inspected prior claim, including its corollaries, establishes the specific product-minus-global-collision formula, full coefficient counts or the optimal seeded assignment multiplicity. That is a best-knowledge comparison, not a priority certificate.",
+      "searches": [
+        "for graph clique bouquet windmill friendship all locally forced partial proper chromatic colourings enumeration; k petals of K_m one common vertex",
+        "shared-vertex clique sums forced-colouring function articulation-point gluing theorem structural counts",
+        "full RESULT.md: friendship zero forcing",
+        "full RESULT.md: complete multipartite forced colourings",
+        "full RESULT.md: complete bipartite forced colourings",
+        "arxiv:2406.15746v1 Theorem 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 paper defines the same local process and gives complete-graph and small graph examples, but no full two-parameter clique-bouquet count in examined statements.",
+        "The 2024 paper introduces the function and a labelled-graph recurrence (Theorem 6), but no windmill specialization in the inspected relevant sections."
+      ],
+      "reasoning": "The formula is checked also as a generating polynomial for successful restrictions by uncoloured vertices and as the weighted forced-colouring probability. A generic all-subsets recurrence defines FC for every graph but does not supply the closed windmill evaluation, the missing-colour obstruction, or its sharp minimum-seed multiplicity. No equivalent specific formula was located under windmill, friendship, clique-bouquet or shared-hub formulations.",
+      "searches": [
+        "Exact forced m-colouring probability polynomial FC_m friendship windmill W_{k,m} cliques sharing single hub formula m((m-1)!)^k p^{k(m-2)} [(p+r)(p+(m-1)r)^k -(m-1)r^{k+1}]",
+        "for graph clique bouquet windmill friendship all locally forced partial proper chromatic colourings enumeration; k petals of K_m one common vertex",
+        "forcing chromatic polynomial generalized windmill graph K1 join k K_(m-1)",
+        "\"forced colouring function\" \"windmill\" graph",
+        "\"forced coloring function\" \"friendship graph\" probability",
+        "arxiv:2609.17108v1, Sections 2-4, 6",
+        "arxiv:2406.15746v1, Sections 3.5 and 5.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Farr computes several individual small graph values and K_m, not a k-by-m all-coefficient bouquet table.",
+        "Closest public database formula for friendship graphs is the *zero forcing* set polynomial, with a different rule and coefficients.",
+        "No exact FCol windmill formula was returned in targeted semantic or literal searches."
+      ],
+      "reasoning": "A list of small cases or a differently defined zero-forcing table cannot determine this all-parameter forced proper-colouring polynomial. Lack of a retrieved table is not itself proof of novelty.",
+      "searches": [
+        "Exact forced m-colouring probability polynomial FC_m friendship windmill W_{k,m} cliques sharing single hub formula m((m-1)!)^k p^{k(m-2)} [(p+r)(p+(m-1)r)^k -(m-1)r^{k+1}]",
+        "forced coloring polynomial friendship graph windmill graph k triangles sharing vertex lambda=3 number of partially colored vertices forcing colorings",
+        "forced colouring function block graph windmill friendship graph exact polynomial",
+        "\"chromatic forcing\" friendship graph forcing polynomial",
+        "arxiv:2609.17108v1, small-graph examples and Proposition 6",
+        "public records: maximum degree two / multipartite / complete bipartite / friendship zero forcing"
+      ]
+    },
+    "rationale": "Inspected Farr 2026 (defining theorem and examples), Farr/Morgan 2024 (general labelled-state recurrence), and full published mathematical statements of four closest formula claims. None has a hypothesis or conclusion mathematically covering the two-parameter clique-bouquet result for k>=2,m>=3; the prior friendship polynomial uses standard zero forcing, not local proper-colour forcing. Residual alternate-terminology risk remains.",
+    "residual_risks": [
+      "A differently named or unindexed local colour-forcing theorem on cut-vertex clique sums could imply the formula.",
+      "Only the indicated relevant arXiv primary sections and four closest public result files were compared; an exhaustive bibliography is not established.",
+      "The proof is self-review, without external independent mathematical validation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The graph invariant and known complete-graph boundary are credited; no all-k clique-bouquet polynomial was found in the inspected substantive statements.",
+        "evidence": [
+          "arxiv:2609.17108v1, 15 September 2026",
+          "Definition of immediately forced: precisely m-1 distinct colours in coloured neighbourhood"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.17108v1",
+        "material_read": "Definitions of partial proper assignments, immediate forcing and successful completion; fundamental counting representation; complete/small graph examples, stated results and future directions",
+        "method": "Open-access arXiv HTML full text inspected",
+        "title": "The forced colouring function of a graph",
+        "trigger": "Defines the precise probability and iterative forcing rule and provides the recent source date"
+      },
+      {
+        "assessment": "A generic label-state partition identity; no solved clique-bouquet enumeration or sharp seed count.",
+        "evidence": [
+          "arxiv:2406.15746v1, lines 217-241, 442-506 in open HTML edition"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2406.15746v1",
+        "material_read": "Sections 3.5 and 5.4, including full definition and Theorem 6 for chromatically labelled graph reduction",
+        "method": "Open-access arXiv HTML full text materially inspected",
+        "title": "Graph polynomials: some questions on the edge",
+        "trigger": "Original introduction and general potential dominating recurrence"
+      },
+      {
+        "assessment": "Inspected complete RESULT.md. The theorem is for paths, cycles and disjoint unions, Δ≤2; every nontrivial bouquet here has hub degree ≥4.",
+        "evidence": [
+          "2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+          "Full statement and structural hypotheses compared with current k>=2,m>=3 claim"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, prior work, limitations and references",
+        "method": "Read published repository result through authorized public repository file access",
+        "title": "Maximum-degree-two three-colour formula",
+        "trigger": "Closest retrieved theorem: matching parameter, graph family, or forcing terminology"
+      },
+      {
+        "assessment": "Inspected complete RESULT.md. Its full hypothesis is complete multipartite; the clique bouquet with at least two petals and petal order at least three is not complete multipartite.",
+        "evidence": [
+          "2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "Full statement and structural hypotheses compared with current k>=2,m>=3 claim"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, prior work, limitations and references",
+        "method": "Read published repository result through authorized public repository file access",
+        "title": "Chromatic-palette complete-multipartite formula",
+        "trigger": "Closest retrieved theorem: matching parameter, graph family, or forcing terminology"
+      },
+      {
+        "assessment": "Inspected complete RESULT.md. Bipartite graphs contain no triangles, whereas every bouquet here contains at least two triangles.",
+        "evidence": [
+          "2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "Full statement and structural hypotheses compared with current k>=2,m>=3 claim"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, prior work, limitations and references",
+        "method": "Read published repository result through authorized public repository file access",
+        "title": "Complete-bipartite three-colour formula",
+        "trigger": "Closest retrieved theorem: matching parameter, graph family, or forcing terminology"
+      },
+      {
+        "assessment": "Inspected complete RESULT.md. It treats the blue/white exactly-one-white-neighbour rule; the local proper-colouring rule needs m-1 distinct coloured-neighbour colours and counts named assignments.",
+        "evidence": [
+          "2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b",
+          "Full statement and structural hypotheses compared with current k>=2,m>=3 claim"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-friendship-graphs--b77605779c1b/RESULT.md",
+        "material_read": "Complete RESULT.md including finding, assumptions, proof, prior work, limitations and references",
+        "method": "Read published repository result through authorized public repository file access",
+        "title": "Friendship zero-forcing polynomial",
+        "trigger": "Closest retrieved theorem: matching parameter, graph family, or forcing terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f8ab8436-3522-4e0b-8c15-08ac685f11ab",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Entire coefficient and probability polynomials are determined for all nontrivial clique bouquets in a new, generally hard-to-evaluate chromatic forcing model. The proof isolates the coupling through one shared hub: independent local omission decisions fail exactly on m-1 global constant-colour patterns. It also supplies a sharp minimum seed size k(m-2) and precise number of optimal labelled seeds; this is a natural structural exact-enumeration problem, not a one-off computation.",
+    "status": "PASS"
+  }
+}

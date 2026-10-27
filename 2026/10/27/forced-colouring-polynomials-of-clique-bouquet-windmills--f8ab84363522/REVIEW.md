@@ -1,0 +1,11 @@
+# Scientific assessment: clique-bouquet forced-colouring polynomial
+
+**Correctness — PASS.** A success restriction has a uniquely determined total proper \(m\)-colouring, one initially blank peripheral vertex at most per clique, and, when the hub is blank, a seed of each peripheral colour somewhere. Each condition is proved necessary and sufficient by checking the first possible forcing step; the count is a product with exactly \(m-1\) global bad patterns removed. Both generating polynomials and the minimum-seed consequence follow algebraically. The attached iterative finite verifier checks the criterion on seven small parameter pairs and enumerates all named partial assignments for five pairs. Finite evidence is corroborative, not the proof.
+
+**Originality — PASS, with residual bibliographic risk.** Farr's 2026 founding paper and Farr–Morgan's 2024 article were inspected in the sections defining the invariant and its general recurrence; neither covers the clique-bouquet closed form. Four nearest publicly retrievable research results were compared in full: the maximum-degree-two case, the complete-multipartite chromatic-palette case, the complete-bipartite three-colour case, and the friendship-graph *zero forcing* polynomial. The graph classes or local process differ, and none mathematically implies the stated clique-bouquet formula. All single-clique cases are known and excluded from the claimed novel domain. The possibility of an equivalent unindexed formula remains.
+
+**Mathematical value — PASS.** A recently introduced counting invariant is #P-hard to evaluate on arbitrary inputs; an exact two-parameter formula for the natural clique-bouquet family gives every coefficient, a sharp seed threshold and its multiplicity. The hub creates a nonlocal interaction: otherwise independent per-petal omission patterns are globally invalid only when all missing colours coincide. This is a structural obstruction, not a parameter substitution or textbook identity.
+
+**Limits.** Equality of petal sizes and use of the chromatic palette are essential to the stated scope. No general chordal-graph result or excess-palette formula is asserted. A broader equivalent result in literature not located by the targeted searches cannot be ruled out. Independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
