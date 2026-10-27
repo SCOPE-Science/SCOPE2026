@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact four-eigenspace decomposition gives every transition-entry formula. The across-petal kernel has a globally positive quadratic factor; scalar RK4 values are strictly positive by a sum-of-squares identity; the rho-reflection identity and unimodality bound all within-petal differences. Hub-leaf transitions are (1-r(nh))/n and reverse sign exactly once at rho/n; the largest eigenvalue is n. The verified symbolic program checks the critical identities and 691 exact matrix polynomial entries across 15 graphs, but finite tests are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gottlieb, Shu and Tadmor (2001), Secs. 2-3, give the linear fourth-order SSP convex decomposition, including the CFL coefficient one relative to forward Euler; no theorem specifying sharp rho/n for all unequal clique bouquets was seen.",
+        "Gottlieb and Gottlieb (2003), Sec. 2 and conclusions, analyze general linear SSP Runge-Kutta coefficient bounds, not sharp graph-class-specific completed-step entry signs.",
+        "Horváth (2005), abstract only, studies general positivity step-size thresholds and invariant sets; material reviewed is insufficient for a full-text exclusion of all specialized examples."
+      ],
+      "reasoning": "The generic SSP guarantee h<=1/(n-1) on these hub networks is strictly weaker than rho/n, since rho(n-1)>n for n>=3. Full scalar spectral stability alone normally cannot imply nonnegative entries; this graph-dependent equivalence does not follow from generic SSP. The unavailable full text leaves a residual possibility of stronger coverage.",
+      "searches": [
+        "Runge Kutta positivity preservation graph Laplacian diffusion fourth order polynomial entrywise nonnegative",
+        "Strong Stability-Preserving High-Order Time Discretization Methods Gottlieb Shu Tadmor 2001",
+        "Strong Stability Preserving Properties of Runge-Kutta Time Discretization Methods for Linear Constant Coefficient Operators",
+        "On the positivity step size threshold of Runge-Kutta methods Horváth 2005"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb--Shu--Tadmor (2001), DOI 10.1137/S003614450036757X, focused public PDF text and figure",
+      "Gottlieb--Gottlieb (2003), DOI 10.1023/A:1020338228736, full-text sections relevant to SSP on linear operators",
+      "Horváth (1998), DOI 10.1016/S0168-9274(98)00050-6, abstract only",
+      "Horváth (2005), DOI 10.1016/j.apnum.2004.08.026, abstract only",
+      "Wen et al. (2015), DOI 10.1007/s13226-015-0141-8, graph-spectrum abstract",
+      "Public mathematical-record search: generalized windmill general-position-polynomial and symmetric-edge-polytope results (not RK4)",
+      "Accessible earlier all-tree, complete-multipartite, strongly-regular and biregular-bipartite RK4 claim summaries for implication comparison"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An earlier result covers complete multipartite graphs, which excludes a clique bouquet having at least two petals and at least one petal of size >=2.",
+        "The all-tree sharp theorem covers the special star case (all petals singleton), but not a clique bouquet containing a triangle.",
+        "The strongly regular and biregular-bipartite families do not cover irregular, nonbipartite clique bouquets."
+      ],
+      "reasoning": "Previously covered subclasses are explicitly subsumed and not counted as novelty. The present infinite family includes cyclic, irregular, non-complete-multipartite examples (already two triangles sharing a vertex), where none of the listed earlier results implies the sharp universal rho/n positivity criterion. A hypothetical more general graph-cone theorem would cover the claim; none was found, so that remains a residual risk.",
+      "searches": [
+        "Sharp RK4 positivity on complete multipartite diffusion networks",
+        "Exact local RK4 positivity horizons on every finite tree",
+        "Only complete biregular bicliques attain RK4 positivity up to spectral stability",
+        "Classical Runge Kutta fourth order stability polynomial spectral positivity agreement on graph Laplacian with universal dominating vertex joined disjoint clique blocks"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No returned mathematical finding asserts completed RK4 nonnegativity on all unequal clique bouquets. Nearby public mathematical records about generalized windmill graphs address unimodality of general-position polynomials (September 2026) and symmetric-edge-polytope inballs (October 2026), not Runge--Kutta positivity.",
+        "The available graph literature concerns Laplacian spectral determination and clique-bouquet invariants, whereas the claimed equivalence concerns the sign of every RK4 transition entry."
+      ],
+      "reasoning": "Aliases include friendship graphs, windmills, clique bouquets, clique 1-sums, graph cones, linear diffusion and entrywise positivity. The closest numerical entries involve other RK methods or other graph classes. An identical statement, or equivalent spectral-projector formulation, was not encountered.",
+      "searches": [
+        "Classical RK4 graph Laplacian diffusion windmill graphs generalized windmills clique bouquets friendship graph complete blocks common hub exact positivity horizon rho/number of vertices, spectral stability equality",
+        "RK4 graph Laplacian positivity windmill friendship graph clique bouquet star of cliques fourth order Runge Kutta exact timestep",
+        "classical fourth order Runge Kutta positivity windmill graph friendship graph diffusion Laplacian timestep",
+        "positivity preserving Runge Kutta graph Laplacian cone graphs complete friendship graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The queried mathematical record set returned clique-bouquet dissociation/general-position polynomial or symmetric-edge-polytope inradius results; none supplied a fourth-order diffusion positivity table.",
+        "Windmill-spectrum and friendship-spectrum papers give graph eigenvalues/recognition, but eigenvalues alone are insufficient to compute off-diagonal positivity on general graphs."
+      ],
+      "reasoning": "A matching graph name, spectral list or parameter table is not a table of sharp RK4 end-step positivity thresholds. No exact table for arbitrary heterogeneous petal sizes was observed.",
+      "searches": [
+        "RK4 graph Laplacian positivity windmill friendship graph clique bouquet star of cliques fourth order Runge Kutta exact timestep",
+        "Sharp entrywise nonnegative RK4 diffusion propagator friendship windmill graph all clique petal sizes, rho over n vertices",
+        "friendship windmill graph Laplacian spectrum positivity Runge Kutta timestep exact table",
+        "windmill friendship graphs Laplacian spectrum universal vertex clique sum blocks"
+      ]
+    },
+    "rationale": "General linear SSP literature proves bounds based on Euler conditions, not equality of RK4 entrywise positivity and spectral stability on all heterogeneous clique bouquets. The new cyclic, nonmultipartite members are not covered by earlier tree, complete-multipartite, strongly regular or biregular-bipartite classifications. No exact wider or equivalent statement was located; full-text and indexing limitations are disclosed.",
+    "residual_risks": [
+      "The complete texts of Horváth (1998, 2005) and some specialist positivity literature were not inspected; graph-specific examples or an unseen general theorem could cover this statement.",
+      "The searches cannot establish universal novelty; a result under an alternate graph-cone/Markov kernel name could have been missed.",
+      "published-finding corpus semantic search is not exhaustive; most similar indexed windmill results concern different invariants."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected relevant material; no clique-bouquet transition classification",
+        "evidence": "Equation (3.5) gives a fourth-order linear SSP convex decomposition at Euler CFL coefficient one, weaker than the claimed sharp graph-specific factor.",
+        "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+        "material_read": "Introduction, Sections 2-3 including equation (3.5), and scope/conclusion references; available PDF text and page image",
+        "method": "Full publicly accessible PDF; focused reading of relevant sections and page image, paper-wide heading scope inspection",
+        "title": "Strong stability-preserving high-order time discretization methods",
+        "trigger": "Foundational primary source with exact fourth-order linear stability polynomial and SSP bounds"
+      },
+      {
+        "assessment": "NOT_COVERING in relevant inspected material; method-wide SSP coefficients, no heterogeneous clique-bouquet sharp entrywise theorem",
+        "evidence": "Section 2 describes optimal linear SSP coefficient c=1 for m-stage mth-order, and Section 5 discusses general SSP classes.",
+        "identifier_or_url": "https://www.researchgate.net/publication/220395769_Strong_Stability_Preserving_Properties_of_Runge-Kutta_Time_Discretization_Methods_for_Linear_Constant_Coefficient_Operators",
+        "material_read": "Full-text article available as text including introduction, Section 2 and conclusions",
+        "method": "Focused full-text inspection for linear SSP/CFL results and graph-specific thresholds",
+        "title": "Strong stability preserving properties of Runge--Kutta time discretization methods for linear constant coefficient operators",
+        "trigger": "Highly relevant 2003 follow-up on linear RK positivity/SSP"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT; abstract concerns general positivity-radius methods and no identified clique-bouquet computation",
+        "evidence": "Abstract explicitly studies positivity radius and thresholds for classes of ODEs; no windmill-specific result mentioned. This is not a full-text exclusion.",
+        "identifier_or_url": "https://papers.sze.hu/research-portal/publications/10.1016/S0168-9274%2898%2900050-6",
+        "material_read": "Bibliographic abstract only",
+        "method": "Read accessible publication abstract; full paper not accessible in consulted source",
+        "title": "Positivity of Runge--Kutta and diagonally split Runge--Kutta methods",
+        "trigger": "Generic positivity theorem and sharp step-size threshold could dominate specialized claim"
+      },
+      {
+        "assessment": "NOT_COVERING indicated by distinct graph spectral recognition statement; no numerical integrator investigated in inspected content",
+        "evidence": "The paper asserts determination of friendship and wind-wheel graphs by Laplacian/signless spectra, not RK4 positivity.",
+        "identifier_or_url": "https://ideas.repec.org/a/spr/indpam/v46y2015i5d10.1007_s13226-015-0141-8.html",
+        "material_read": "Abstract and publication details",
+        "method": "Read bibliographic abstract; mathematical topic clearly graph spectral determination",
+        "title": "The spectral characterization of wind-wheel graphs",
+        "trigger": "Graph structural literature that could supply the eigenspaces used in the proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fdde1049-f90b-4604-945c-db34367423c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact sharp n-only positive step replaces a matrix nonnegativity check for arbitrary numbers and sizes of clique petals in a natural hub-community diffusion family. It establishes positivity=spectral stability on irregular triangular networks not covered by prior exact classes, identifies all sharp failures at hub-leaf entries, and gives a strict forward-Euler step improvement approaching the stability radius factor rho; this is not a parameter relabeling.",
+    "status": "PASS"
+  }
+}
