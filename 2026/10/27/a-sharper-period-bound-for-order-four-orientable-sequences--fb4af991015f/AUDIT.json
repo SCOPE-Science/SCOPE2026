@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the de Bruijn graph model, counts \\((k^4-k^2)/2\\) reversal-pairs, computes the divergence on \\(P=\\{aab:a\\ne b\\}\\), and proves \\(r\\ge\\binom{k}{2}+2k\\) from the contribution bound. The resulting inequality is exactly \\(m\\le(k^4-2k^2-3k)/2\\). No experiment is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2024 paper gives an earlier general-alphabet construction and upper bound.",
+        "The 2026 construction paper reports updated construction lengths, including period 88 for \\(k=4\\) at order four.",
+        "The negative-orientable paper uses the condition \\(u\\ne -v^R\\), rather than \\(u\\ne v^R\\)."
+      ],
+      "reasoning": "The inspected sources do not provide a broader theorem that implies the present ordinary-orientability bound. The construction paper is relevant to value and does not strengthen the upper bound; the negative-orientability condition is different.",
+      "searches": [
+        "Orientable sequences over non-binary alphabets, arXiv:2407.14866",
+        "Constructing orientable and negative orientable sequences with asymptotically optimal period, arXiv:2603.18646",
+        "New upper bounds for the period of a negative orientable sequence, arXiv:2602.04433"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2507.02526 (full text, theorem and proof inspected)",
+      "arXiv:2407.14866 (definitions and general bound inspected)",
+      "arXiv:2603.18646 (current construction table inspected)",
+      "arXiv:2602.04433 (definition-level comparison; different condition)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior bound allows \\((k^4-2k^2)/2\\); the new proof establishes \\((k^4-2k^2-3k)/2\\).",
+        "At \\(k=4\\) this is 106 instead of 112, while the latest listed construction has period 88."
+      ],
+      "reasoning": "The new conclusion is strictly stronger and is not implied by the cited upper bound. The proof\\'s additional inequality comes from summing omitted-edge divergence over all left-semi-symmetric triple vertices and distinguishing the unique pair type with contribution 2.",
+      "searches": [
+        "arXiv:2507.02526, Theorem 2.22 proof, pages 12-14",
+        "arXiv:2603.18646, Table 4 and concluding discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2.22 states \\(m\\le(k^4-2k^2)/2\\) for even \\(k\\) at order four.",
+        "The new expression differs by the strictly positive term \\(3k/2\\) for every even \\(k\\ge4\\)."
+      ],
+      "reasoning": "The claim is about ordinary orientability (a tuple versus its reversal), not negative orientability (a tuple versus the negative of its reversal). No equivalent formulation yielding the stronger expression was identified in the inspected sources.",
+      "searches": [
+        "orientable sequence order four alphabet size four maximum period OS_4(4) 88 112 de Bruijn graph",
+        "arXiv:2507.02526, Theorem 2.22"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published even-\\(k\\) order-four bound is \\((k^4-2k^2)/2\\).",
+        "The latest inspected construction table lists period 88 for \\(k=4\\) and upper bound 112."
+      ],
+      "reasoning": "The searched indexed records did not return a matching orientable-sequence result. The primary literature tables confirm the baseline and current construction record; neither contains the new \\(-3k\\) term.",
+      "searches": [
+        "orientable sequences k-ary n-window sequence n=4 even k upper bound period",
+        "arXiv:2507.02526, Table 1 and Theorem 2.22",
+        "arXiv:2603.18646, Table 4"
+      ]
+    },
+    "rationale": "The checked primary upper bound is \\((k^4-2k^2)/2\\) for even \\(k\\) and order four. The new omitted-pair divergence count gives a strictly stronger bound by \\(3k/2\\). The relevant recent construction paper updates lower bounds but does not state this upper bound.",
+    "residual_risks": [
+      "The literature search is not exhaustive of non-indexed or inaccessible sources.",
+      "The upper bound is not claimed optimal; at \\(k=4\\) a gap of 18 remains above the known construction period 88.",
+      "No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The paper proves the weaker bound \\((k^4-2k^2)/2\\); the additional omitted-pair inequality is not stated there.",
+        "evidence": [
+          "Theorem 2.22; Table 1; construction table in the arXiv full text."
+        ],
+        "identifier_or_url": "arXiv:2507.02526",
+        "material_read": "Definitions, graph lemmas, Theorem 2.22 and its proof, and small-parameter construction tables",
+        "method": "Compared the theorem statement and degree-counting proof with the new divergence-sum argument",
+        "title": "New orientable sequences",
+        "trigger": "Exact same object and order-four even-alphabet upper bound"
+      },
+      {
+        "assessment": "Earlier background; it does not imply the stronger order-four even-k bound.",
+        "evidence": [
+          "arXiv:2407.14866, Sections 2-4."
+        ],
+        "identifier_or_url": "arXiv:2407.14866",
+        "material_read": "Definitions of orientable sequences, de Bruijn digraph, and the general upper-bound discussion",
+        "method": "Compared the ordinary reversal condition and stated bound",
+        "title": "Orientable sequences over non-binary alphabets",
+        "trigger": "Earlier general-alphabet construction and period bound"
+      },
+      {
+        "assessment": "The paper improves constructions, not the relevant upper bound; for \\(k=4\\) it still lists period 88 and bound 112.",
+        "evidence": [
+          "arXiv:2603.18646, Table 4 and concluding discussion."
+        ],
+        "identifier_or_url": "arXiv:2603.18646",
+        "material_read": "Introduction, definitions, Example 2.7, Table 4, and concluding discussion",
+        "method": "Checked the current construction values and upper-bound column",
+        "title": "Constructing orientable and negative orientable sequences with asymptotically optimal period",
+        "trigger": "Most recent inspected construction records for order four"
+      },
+      {
+        "assessment": "Not a dominating result: it forbids a tuple and the negative of a reversed tuple, a different condition.",
+        "evidence": [
+          "arXiv:2602.04433, Definitions 2.1-2.2 and introduction."
+        ],
+        "identifier_or_url": "arXiv:2602.04433",
+        "material_read": "Abstract, introduction, and definitions distinguishing negative orientability",
+        "method": "Checked whether the defining relation matches ordinary orientability",
+        "title": "New upper bounds for the period of a negative orientable sequence",
+        "trigger": "Potentially related reversal-based period bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb4af991-015f-4482-b176-5cc106510885",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a uniform sharper upper bound for every even alphabet size \\(k\\ge4\\) in the unresolved order-four family. It improves the published bound by \\(3k/2\\); for \\(k=4\\) it narrows the known construction-to-bound gap from 24 to 18. The gain follows from a structural divergence count, not a numerical search or parameter renaming.",
+    "status": "PASS"
+  }
+}
