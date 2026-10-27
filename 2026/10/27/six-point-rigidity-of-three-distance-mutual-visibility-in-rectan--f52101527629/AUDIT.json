@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "For each selected row or column, three collinear selected vertices are impossible by their unique geodesic. Selected pairwise L1 diameter is at most three. The occupied-row-span dichotomy bounds the size by six. Equality in row span three uniquely forces the 4-by-3 transposed template. Equality in row span two, after excluding a full six-of-nine 3-by-3 square using opposite corner pairs and a three-omission permutation, forces the 3-by-4 template. Six symmetry classes of pairs have explicit free shortest paths. For 3-by-3 grids six is impossible; five is exhibited and a corner/midpoint case analysis shows precisely four maxima. The independent checker lists all 20,675 distance-three cliques on thirteen grids, rechecks original path visibility and complete optimizer sets; its output is included. This finite test supports, not substitutes for, the infinite elementary proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cera et al, DOI 10.1007/s40840-024-01811-3, §2 Theorem 2.1 is a lower bound via isometric diameter-k subgraphs, not an optimizer theorem; §4 covers paths, cycles, strong products and trees, while §6 poses grids as a research problem.",
+        "Korže–Vesel, DOI 10.1007/s00025-024-02139-x, address unrestricted visibility in path-cycle and cycle-cycle products.",
+        "An accessible research record titled \"Exact low-distance mutual visibility in hypercubes\" concerns a different graph family (hypercubes rather than rectangular path products)."
+      ],
+      "reasoning": "Theorem 2.1 in the foundational work gives a lower bound but neither the six-point upper bound nor the two oriented optimizer templates and exact counts. Unrestricted mutual visibility can grow with grid dimensions, hence the unrestricted graph-family theorems do not imply a constant capped parameter. Hypercubes and connected mutual-visibility use distinct graph classes/quantifiers.",
+      "searches": [
+        "k-distance mutual visibility Cartesian grid P_m box P_n mu_3 exactly six and optimizer shape 3 by 4",
+        "three distance mutual visibility rectangular grid exact numbers and maximizers 3×4 six",
+        "shortest path visibility grids radius three maximum six rectangle pattern",
+        "\"k-distance mutual visibility\" \"grids\" \"3\" 6 max"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2408.03976",
+      "doi:10.1007/s40840-024-01811-3",
+      "doi:10.1007/s00025-024-02139-x",
+      "doi:10.1016/j.amc.2022.127619 (indirect original-text access)",
+      "doi:10.1007/s00025-025-02450-1",
+      "doi:10.1002/net.70074",
+      "Published research: Exact low-distance mutual visibility in hypercubes",
+      "Published research: Connected mutual visibility in Cartesian products of high-girth graphs",
+      "Published research: Three-point multiset bases for cylindrical grids"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cera et al, DOI 10.1007/s40840-024-01811-3, Theorem 2.1 and Section 6.",
+        "Cicerone–Di Stefano–Klavžar, DOI 10.1016/j.amc.2022.127619: prior ordinary (unbounded-distance) visibility for Cartesian products.",
+        "A published result on connected mutual-visibility in Cartesian products of high-girth factors concerns a distinct visibility condition and graph class."
+      ],
+      "reasoning": "The earlier general lower bound cannot imply an upper bound or optimizer rigidity; unrestricted grid visibility does not cap at six and has no selected-pair distance restriction. Results requiring connected selected sets likewise impose an independent property. Our theorem is a new exact restricted-distance classification, not an algebraic substitution into an earlier general formula.",
+      "searches": [
+        "k-distance mutual visibility Cartesian grid P_m box P_n mu_3 exactly six and optimizer shape 3 by 4",
+        "three distance mutual visibility rectangular grid exact numbers and maximizers 3×4 six",
+        "shortest path visibility grids radius three maximum six rectangle pattern",
+        "\"mu_3\" \"P_m\" \"P_n\" visibility"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cera et al, arXiv:2408.03976, §1, define shortest-path cutoff \\(k\\) and §6 explicitly asks for \\(\\mu_k(P_r\\square P_t)\\).",
+        "Kuziak et al, DOI 10.1007/s00025-025-02450-1, use mutual \\(d\\)-visibility with a different treatment of pairs farther than \\(d\\)."
+      ],
+      "reasoning": "The asserted diameter-three constraint applies to every pair of selected vertices. The alternative mutual d-visibility parameter instead exempts remote pairs, so its solutions are not equivalent. Shortest paths here are existential and internal disjointness from the selected set is required.",
+      "searches": [
+        "k-distance mutual visibility Cartesian grid P_m box P_n mu_3 exactly six and optimizer shape 3 by 4",
+        "three distance mutual visibility rectangular grid exact numbers and maximizers 3×4 six",
+        "shortest path visibility grids radius three maximum six rectangle pattern",
+        "\"3-distance mutual-visibility\" grids 2025 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic searches of published mathematical records returned \"Exact low-distance mutual visibility in hypercubes\", \"Connected mutual-visibility in Cartesian products of high-girth graphs\", and \"Three-point multiset bases for cylindrical grids\"; none stated the two-dimensional radius-three rectangular path-grid theorem.",
+        "Primary open-problem statement in the 2024 preprint / 2025 journal version singles out Cartesian products of paths."
+      ],
+      "reasoning": "No searched mathematical record or accessible primary grid table stated the all-sizes six-point bound, four small exceptions, or exact maximizer placement count. Search absence is only supplementary evidence, not by itself priority proof.",
+      "searches": [
+        "k-distance mutual visibility Cartesian grid P_m box P_n mu_3 exactly six and optimizer shape 3 by 4",
+        "three distance mutual visibility rectangular grid exact numbers and maximizers 3×4 six",
+        "shortest path visibility grids radius three maximum six rectangle pattern",
+        "\"3-distance mutual visibility\" \"grid\" \"6\"",
+        "\"mu_3\" \"P_m\" \"P_n\" \"mutual\" visibility",
+        "\"k distance mutual visibility rectangular grid k 3 exact value\"",
+        "\"three-distance mutual-visibility\" \"Cartesian products of paths\" \"six\"",
+        "\"k-distance mutual visibility\" \"grids\" \"3\" 6 max",
+        "\"3-distance mutual-visibility\" grids 2025 2026",
+        "\"mu_3\" \"P_m\" \"P_n\" visibility"
+      ]
+    },
+    "rationale": "The original 2024-08-07 preprint introducing this invariant explicitly raises exact k-distance mutual visibility of Cartesian path grids as an open research problem. The closest primary results solve other graph families or ordinary unlimited-distance visibility, and none of the inspected stronger/equivalent-formulation results implies the new sharp six-point upper bound or all-optimizer placement counts. Targeted semantic research-record, web, and own-ledger overlap checks found no equivalence; unindexed priority remains possible.",
+    "residual_risks": [
+      "The original 2023 unrestricted Cartesian-product paper was not accessible in complete full text; comparisons use descriptions in accessible later primary articles.",
+      "A later or unindexed exact radius-three grid result or equivalent optimization enumeration might exist. The review establishes best-knowledge originality, not bibliographic uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the parameter and explicitly poses rectangular Cartesian grids as an open direction; no matching radius-three grid classification in inspected article.",
+        "evidence": [
+          "DOI 10.1007/s40840-024-01811-3 §1, §2 Theorem 2.1, §4, §6",
+          "arXiv:2408.03976 v1 Wed 7 Aug 2024 11:27:38 UTC",
+          "MSC 05C12 / 05C76"
+        ],
+        "identifier_or_url": "arxiv:2408.03976 and https://link.springer.com/article/10.1007/s40840-024-01811-3",
+        "material_read": "Full accessible publisher HTML: abstract, formal definition in §1, §2 bound, exact graph-family results in §4, bounds in §5, grid problem in §6, references and MSC; arXiv metadata with exact UTC v1 date.",
+        "method": "Read full publisher article HTML and arXiv abstract/metadata; compared precise quantifiers and implications",
+        "title": "The k-Distance Mutual-Visibility Problem in Graphs",
+        "trigger": "Original definition, relevant bounds, possible exact grid formula"
+      },
+      {
+        "assessment": "No covering radius-three rectangular-grid theorem; its unrestricted Cartesian results cannot impose the new constant-sized upper bound.",
+        "evidence": [
+          "DOI 10.1007/s00025-024-02139-x",
+          "Unrestricted \\(\\mu\\), different graph-product families"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-024-02139-x",
+        "material_read": "Accessible open HTML treatment and statement of path-cycle/cycle-cycle ordinary mutual visibility; compared stated invariant and studied product factors.",
+        "method": "Read publisher article HTML; compared no-distance-cap hypothesis and path-cycle factors with the present rectangular path-path distance-three condition",
+        "title": "Mutual-Visibility Sets in Cartesian Products of Paths and Cycles",
+        "trigger": "Potential stronger Cartesian grid family coverage"
+      },
+      {
+        "assessment": "Does not impose the same selected-set diameter cutoff; the two parameters are not equivalent.",
+        "evidence": [
+          "DOI 10.1007/s00025-025-02450-1",
+          "Long-distance pairs are exempt rather than forbidden"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-025-02450-1",
+        "material_read": "Accessible full publisher HTML formal definition and main results of the mutual d-visibility variant.",
+        "method": "Read publisher HTML and compare the treatment of selected pairs at graph distance greater than d",
+        "title": "Mutual d-visibility in Graphs",
+        "trigger": "Possible terminological equivalent of k-distance mutual visibility"
+      },
+      {
+        "assessment": "A distinct fault-tolerant invariant; its results do not determine our optimization problem.",
+        "evidence": [
+          "DOI 10.1002/net.70074"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/net.70074",
+        "material_read": "Accessible publisher HTML abstract, definitions and studied grid-like network classes.",
+        "method": "Read publisher HTML and compare multiple-shortest-path robustness rule to radius-three existential path definition",
+        "title": "Fault-Tolerant Mutual-Visibility: Complexity and Solutions for Grid-Like Networks",
+        "trigger": "Later grid-related shortest-path visibility results"
+      },
+      {
+        "assessment": "Reported ordinary \\(\\mu\\) values are non-covering because the selected-pair path length is unbounded; original inaccessible article creates residual risk.",
+        "evidence": [
+          "DOI 10.1016/j.amc.2022.127619",
+          "Cera et al references §6 grid as open for the k-distance variant"
+        ],
+        "identifier_or_url": "doi:10.1016/j.amc.2022.127619",
+        "material_read": "Bibliographic description and its unrestricted-grid results as explicitly cited and contextualized by accessible Cera et al and Korže–Vesel primary full-text articles; original full paper not independently accessible.",
+        "method": "Compared reported results through later primary articles, not an independent full-paper inspection",
+        "title": "On the mutual visibility in Cartesian products and triangle-free graphs",
+        "trigger": "Prior unrestricted rectangular grid visibility values"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5210152-7629-4ed9-9dc1-4425cb3c81b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This settles a concrete k=3 case of an explicitly posed graph-family open direction, proving an exact constant optimum for arbitrarily large two-dimensional grids, a unique pair of symmetry-related six-point templates, a polynomial exact number of maximal-size selected configurations, and four exceptional 3-by-3 optimizers. The classification of all extremizers is a structural strengthening not supplied by generic lower bounds, not an arbitrary isolated numerical instance.",
+    "status": "PASS"
+  }
+}
