@@ -1,0 +1,15 @@
+# Scientific review: cold two-stream temporal peak
+
+## Correctness — PASS
+For all \(a,b,V>0\), the quartic's real-root count gives one smooth unstable conjugate pair exactly for \(0<kV<(a^{1/3}+b^{1/3})^{3/2}\). The implicit derivative is computed exactly; the only potential stationary points occur on two cubic-phase rays, one physically inadmissible because its implied \(K^2\) is negative. The other ray gives a strictly increasing density-ratio parametrization, proving the unique global maximum, not merely an extremum. A separate exact positive factorization proves the sharp fixed-total-density bound. The supplied checker reproduces six symbolic identities and 7,254 seeded numerical assertions; finite tests do not prove infinite parameter coverage, which follows analytically.
+
+## Originality — PASS within inspected sources, with explicit priority risk
+The baseline cold dispersion relation and special equal/dilute density growth rates were known. Full-text material inspected: Lapuerta–Ahedo (2002), equations (14)–(16) and discussion of cold-beam types; Bret–Gremillet–Dieckmann (2010), Table I and Section II B; Rightley–Uzdensky (2018), PDF pages 19–20. Their available displayed results contain the forward quartic or restricted-density regimes, not the arbitrary-positive-ratio global extremal classification plus sharp fixed-total bound. Bret–Firpo–Deutsch (2004) studies a physically broader electromagnetic model; its full article could not be read after source-access attempts, so priority uncertainty remains. A broad electromagnetic model may algebraically imply the restricted longitudinal equation, but coverage of the *specific maximization theorem* was not established by accessible material. Database keyword/synonym searches returned no directly equivalent statement; this alone is not a novelty proof. Any undiscovered textbook treatment of the all-ratio extremum remains a meaningful risk.
+
+## Mathematical value — PASS
+The theorem answers a natural quantitative design question in classical beam-plasma growth that is not settled by its equal- and dilute-density limits: it finds the one fastest wavelength at every positive imbalance and proves an exact global strength bound under fixed total plasma-frequency weight. The uniqueness and inadmissible-ray exclusion are genuine structural steps; the balance inequality gives a sharp, physical optimum rather than a parameter-specific decimal. The result is limited to one-dimensional, cold, collisionless, longitudinal temporal growth and does not optimize general multidimensional kinetic instabilities.
+
+## Most relevant literature and limitations
+Lapuerta and Ahedo, *Physics of Plasmas* 9 (2002), DOI `10.1063/1.1464893`; Bret, Firpo and Deutsch, *Phys. Rev. E* 70 (2004), DOI `10.1103/PhysRevE.70.046401`; Bret, Gremillet and Dieckmann, *Physics of Plasmas* 17 (2010), DOI `10.1063/1.3514586`; Rightley and Uzdensky, arXiv:`1807.01458` (2018). Historical priority and applicability outside the stated model are not independently established.
+
+Self-review: passed. Independent audit: not yet performed.
