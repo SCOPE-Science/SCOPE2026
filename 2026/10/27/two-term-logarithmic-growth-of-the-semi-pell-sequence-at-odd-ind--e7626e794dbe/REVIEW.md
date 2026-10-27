@@ -1,0 +1,11 @@
+# Scientific review: two-term semi-Pell odd-index growth
+
+**Correctness: PASS.** The recurrence and the odd-multiplicity marked binary-overpartition model agree by a direct parity split. The positive-term generating function for unrestricted binary partitions supplies a uniform upper bound with the precise \(-k\log_2 k\) correction. A separately constructed injective family at \(2^k-1\) has logarithmic cardinality at least \(k^2/2-k\log_2 k-O(k)\), while odd-index monotonicity transfers the two-sided estimate to all odd \(n\). Boundary cases \(k\ge8\), marking conventions, and remainder positivity are explicit. The standalone standard-library checker independently compares the recurrence and partition model for every index through 512 and tests the construction at dyadic exponents 8–19. Computations are checks, not asymptotic proof.
+
+**Originality: PASS within inspected evidence.** Keith–Munagi (2019) establish the recurrence and composition model, Ballantine–Beck (2023) discuss the same marked overpartitions and explicitly motivate growth comparisons, and Keith–Munagi (2023) give congruences and generating functions. No inspected result determines the displayed second-order term for the odd semi-Pell subsequence. Classical Mahler–de Bruijn results dominate only the unrestricted binary-partition upper comparison without an additional restriction-sensitive lower-bound argument. The closest available mathematical-record matches concern different types of binary partitions or unrelated partition asymptotics. The priority risk of a more general asymptotic transfer theorem is retained.
+
+**Mathematical value: PASS.** The theorem supplies the first two orders, with absolute \(O(\log n)\) remainder, for a natural self-similar recurrence singled out in a published growth-comparison question. The coefficient of the \(\log n\log\log n\) term cannot be recovered from the previously available first-order bound with error of that size. It characterizes intermediate subexponential growth of all odd semi-Pell terms, not an isolated finite slice.
+
+Limitations: the linear-logarithmic coefficient, periodic fluctuations, full relative growth comparisons, and even indices are outside the claim. Priority is conditional on the inspected sources, not proof of absolute uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.

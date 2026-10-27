@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "The marked odd-multiplicity binary-overpartition count satisfies exactly the semi-Pell recurrence by the two disjoint odd-unit cases and even scaling, including base values. Positive-coefficient extraction at u=k/2^k bounds unrestricted binary partitions by the k-dependent product, whose tail is uniformly convergent; the first k-ceil(log2 k) factors give the sharp upper second-order term. For each k>=8, an independent injection of products of integer ranges into overpartitions of 2^k-1 gives the matching lower term, with the leftover unit count provably positive and odd. Strict increase along odd indices transfers the endpoint result uniformly. The Python standard-library verifier compared all coefficients 0..512 by two structurally distinct enumerations and checked dyadic endpoint bounds for k=8..19. The finite checks are not the proof of the asymptotic, which is the symbolic counting argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "OEIS A000123 records Mahler--de Bruijn asymptotics for unrestricted power-of-two partitions; this is a superset of the present marked odd-multiplicity objects after marks are forgotten.",
+        "2019 and 2023 Keith--Munagi describe m-ary composition models, but the inspected results compute generating functions and congruences, not the two-term asymptotic.",
+        "A previously accessible first-order claim gives log2 semi-Pell = k^2/2+O(k log k), too coarse to determine -k log2 k."
+      ],
+      "reasoning": "The unrestricted partition estimate bounds semi-Pell above after at most 2^k marking choices; it is not a lower bound for the restricted subclass. The submitted construction proves a lower bound with the exact matching second-order coefficient. Generic restricted-partition asymptotic theorems were not exhaustively ruled out and are recorded as residual risk.",
+      "searches": [
+        "binary partitions de Bruijn logarithmic asymptotic log p2(n) log log n",
+        "A000123 binary partition de Bruijn asymptotic",
+        "arXiv:1912.11148v1 weakly unimodal power-of-two compositions",
+        "odd binary partitions powers of two each present part size odd multiplicity semi-Pell 2^{(log n)^2/(2 log 2)} growth log n log log n",
+        "weakly unimodal binary compositions odd multiplicity each power of two growth asymptotic leading logarithm"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1912.11148v1 (2019-12-23); full-text openly available via author-posted ResearchGate text: https://www.researchgate.net/publication/338158239_Binary_compositions_and_semi-Pell_compositions",
+      "arXiv:2303.11493v1 (2023-03-20); complete HTML https://arxiv.org/html/2303.11493",
+      "Keith--Munagi, Power Compositions and Semi-Pell Compositions; https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+      "OEIS A129096 https://oeis.org/A129096 and A000123 https://oeis.org/A000123 (database context)",
+      "Published-record query: semi-Pell sequence self similar odd indices asymptotic growth dyadic averages sum of terms binary overpartitions Ballantine Beck",
+      "Published-record query: self-similar sequences semi-Tribonacci semi-Pell semi-Fibonacci comparison growth rate dyadic block asymptotics",
+      "Published-record query: partition enumerated by self similar semi-Pell dyadic block sums spectral radius transfer matrix",
+      "Published-record query: odd binary partitions powers of two each present part size odd multiplicity semi-Pell 2^{(log n)^2/(2 log 2)} growth log n log log n",
+      "Published-record query: weakly unimodal binary compositions odd multiplicity each power of two growth asymptotic leading logarithm",
+      "Published-record query: A129095 A129096 semi Pell sequence asymptotic logarithm coefficient one half"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 Ballantine--Beck concluding discussion explicitly raises comparison of odd-index self-similar growth, with no asserted two-term semi-Pell expansion.",
+        "An earlier first-order estimate provides leading k^2/2 with O(k log k) error and ratio information, neither of which alone yields the coefficient on k log k.",
+        "The displayed lower bound follows from independent odd-multiplicity choices and not from an unrestricted-count upper bound."
+      ],
+      "reasoning": "The precise new implication is a sharp -k log2 k correction with remainder O(k), a full order beyond the previously available k^2/2+O(k log k) bound. No inspected exact theorem on the same count determines this coefficient, though general transfer theorems could.",
+      "searches": [
+        "odd binary partitions powers of two each present part size odd multiplicity semi-Pell 2^{(log n)^2/(2 log 2)} growth log n log log n",
+        "weakly unimodal binary compositions odd multiplicity each power of two growth asymptotic leading logarithm",
+        "A129095 A129096 semi Pell sequence asymptotic logarithm coefficient one half",
+        "semi-Pell asymptotic growth log squared n",
+        "semi-Pell growth rate asymptotic",
+        "semi-Pell 2^k growth",
+        "semi-Pell partition log asymptotic",
+        "semi Pell partitions asymptotics lognormal q series",
+        "A129095 asymptotic growth",
+        "semi Pell odd binary overpartitions asymptotic coefficient log n squared",
+        "binary partitions de Bruijn logarithmic asymptotic log p2(n) log log n",
+        "arXiv:2303.11493v1 Section 12 asymptotic growth remark"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1912.11148v1 gives the semi-Pell recurrence and equivalence to weakly unimodal binary compositions with odd multiplicities.",
+        "arXiv:2303.11493v1 Section 6 gives odd binary overpartitions with largest part marked; the coefficient sequence is the same.",
+        "OEIS A129096 is the odd-index bisection of A129095 and identifies the known monotonicity."
+      ],
+      "reasoning": "Equivalent objects and aliases were compared at the level of the odd-index count, not only by title. The known recurrences and combinatorial interpretations identify the object but do not state its two-term asymptotic or sharp restriction-sensitive lower bound.",
+      "searches": [
+        "semi-Pell sequence self similar odd indices asymptotic growth dyadic averages sum of terms binary overpartitions Ballantine Beck",
+        "self-similar sequences semi-Tribonacci semi-Pell semi-Fibonacci comparison growth rate dyadic block asymptotics",
+        "partition enumerated by self similar semi-Pell dyadic block sums spectral radius transfer matrix",
+        "arXiv:1912.11148v1",
+        "arXiv:2303.11493v1",
+        "OEIS:A129095",
+        "OEIS:A129096"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A129096 https://oeis.org/A129096 lists the odd-index semi-Pell bisection and its recurrence, not a two-term logarithmic asymptotic.",
+        "OEIS A000123 https://oeis.org/A000123 lists de Bruijn asymptotics for the unrestricted binary partition count, which is a different counting function."
+      ],
+      "reasoning": "The exact sequence aliases and strongest nearby binary-partition database entry were checked. Neither supplied a table or formula identifying the -1 second-order coefficient for the stated restricted odd-index sequence.",
+      "searches": [
+        "OEIS A129095 A129096 semi Pell recurrence",
+        "OEIS A000123 binary partitions asymptotic",
+        "semi Pell odd binary overpartitions asymptotic coefficient log n squared"
+      ]
+    },
+    "rationale": "The same sequence is known, and binary partition asymptotics are classical, but the inspected semi-Pell papers provide recurrences, partition interpretations, congruences and an open growth-comparison motivation without the displayed exact coefficient -1 on the log n log log n term. Unrestricted binary partition asymptotics provide an upper envelope, not the necessary restriction-sensitive lower envelope; the explicit multi-parameter injection supplies it. A previously accessible related odd-partition claim only controls the first term with O(k log k) error, which cannot determine this new second-order coefficient or O(k) remainder. Targeted published-record searches and primary literature and database comparisons yielded no equivalent or dominating published claim. Prior priority and more general asymptotic transfer remain risks, rather than proven absence.",
+    "residual_risks": [
+      "A general theorem for lacunary restricted weighted partitions could imply the result without specifically naming semi-Pell.",
+      "The classical Mahler--de Bruijn 1948 original article was not inspected in full; the known unrestricted asymptotic was checked via OEIS and used only as contextual comparison.",
+      "Published-record semantic retrieval is not a comprehensive proof of publication priority; no independent expert audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes object and generating functions; does not present the two-term logarithmic odd-index asymptotic.",
+        "evidence": [
+          "2019-12-23 arXiv v1 date",
+          "p.2 text recurrence and odd-index monotonicity",
+          "Theorem 1 composition count",
+          "Theorem 3 m-ary generalization"
+        ],
+        "identifier_or_url": "arXiv:1912.11148v1; https://www.researchgate.net/publication/338158239_Binary_compositions_and_semi-Pell_compositions",
+        "material_read": "Author-posted textual full text: abstract, initial recurrence and composition theorem, m-ary theorem/generating-function sections; whole-text search for growth and asymptotic discussion.",
+        "method": "Public author-posted text; compared statements and searched the complete accessible text.",
+        "title": "Binary Compositions and Semi-Pell Compositions",
+        "trigger": "same recurrence, odd-index monotonicity, weakly unimodal power-of-two composition models"
+      },
+      {
+        "assessment": "Proves the combinatorial equivalence and parity congruences, asks for growth comparisons but does not give the two-term semi-Pell estimate.",
+        "evidence": [
+          "Section 6 semi-Pell recurrence and overpartition bijection",
+          "Section 12 remarks on asymptotic growth of odd-index self-similar sequences"
+        ],
+        "identifier_or_url": "arXiv:2303.11493v1; https://arxiv.org/html/2303.11493",
+        "material_read": "Complete accessible HTML; Introduction, Section 6 Definitions 8-9, Theorems 6.1-6.3 and proofs, Section 12 concluding questions.",
+        "method": "Inspected full HTML and searched for asymptotics and growth.",
+        "title": "Partitions Enumerated by Self-Similar Sequences",
+        "trigger": "same marked odd-binary-overpartition model and explicit motivation for comparing odd-index growth"
+      },
+      {
+        "assessment": "Gives m-ary compositions, generating functions, modular congruences and same recurrence; no claimed second-order growth asymptotic.",
+        "evidence": [
+          "page 2 recurrence (1.2)",
+          "page 11 Theorem 6 mod-four classification",
+          "full-document asymptotic occurrence belongs to references"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/ojac/vol18/276.pdf",
+        "material_read": "PDF pages 1-3 and 11 (visual and extracted text) plus full-document targeted search for asymptotic and recurrence keywords.",
+        "method": "Viewed PDF screenshots and checked searchable PDF text.",
+        "title": "Power Compositions and Semi-Pell Compositions",
+        "trigger": "updated same object and potential stronger generalization"
+      },
+      {
+        "assessment": "Shows known superfamily asymptotic upper comparison; the restricted odd-multiplicity lower bound is not implied by that statement alone.",
+        "evidence": [
+          "OEIS A000123 de Bruijn asymptotic formula for unrestricted binary partitions"
+        ],
+        "identifier_or_url": "https://oeis.org/A000123",
+        "material_read": "The formula comment citing Mahler and de Bruijn and surrounding sequence definition.",
+        "method": "Database entry review, not purported to substitute for full original 1948 article.",
+        "title": "OEIS A000123 binary partition asymptotics",
+        "trigger": "potentially dominating older unrestricted binary partition asymptotic"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e7626e79-4dbe-4155-910f-3b2404b9cd00",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A 2023 study explicitly proposes comparing odd-index growth of several self-similar sequences. The new result gives a precise two-term logarithmic asymptotic with O(log n) error for the semi-Pell family and separates the dominant quadratic-logarithmic term from a non-negligible logarithm-times-log-log correction. That correction has the same order as the uncertainty left in the earlier coarse bound and requires a restriction-sensitive injection. The result covers all odd indices rather than a chosen finite range. It does not purport to settle full relative-growth comparisons or lower-order oscillation.",
+    "status": "PASS"
+  }
+}
