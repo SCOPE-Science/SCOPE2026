@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the normal-equation saddle sign, Type-II block product and commuting Fourier projection. Symbolic two-by-two per-frequency multiplication verifies B=[[I,0],[A(I-Pi),Pi]]; Pi projection gives B²=B. From Bc=q and Bq=q, all Krylov images are one-dimensional; t and exact residual are the unique Euclidean projection. Reconstructed x_G and Pythagorean error and independently projected omitted-mode (bhat,0) to span(1,a_j). Exact-rational 2-mode witness verifies sharp strict gap 4/3>4/5 and solution error 61/225. The standalone packaged code passes symbolic, exact rational and 480 seeded Fourier checks; finite trials support but do not establish the universal algebra.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brown–Walker proves range-symmetric equivalence for all right-hand sides; it predicts possibility of failure but not the particular pupil family or sharp E,R formula.",
+        "Sugihara–Hayami use right-preconditioner C A^T preserving the original range, while the hard-aperture Type-II inverse annihilates Fourier modes and changes the attainable range."
+      ],
+      "reasoning": "General singular-GMRES theory dominates the generic breakdown statement but not the sharp specific Tikhonov optical numerical and reconstruction identities. The present value is not the generic fact that singular preconditioners can fail.",
+      "searches": [
+        "\"GMRES singular right preconditioner inconsistent right preconditioned system residual floor rank deficient preconditioning\"",
+        "arxiv:2310.16442 full sections 1–4",
+        "Brown–Walker 1997 Theorem 2.4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.17275v1, primary 2026 HTML §§1–6",
+      "doi:10.1137/S0895479894262339, Brown–Walker 1997 original author-hosted PDF, key theory",
+      "arxiv:2310.16442, Sugihara–Hayami 2023 original full HTML §§1–4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 preconditioner algebra together with a hard binary aperture suggests the setup; its empirical discussion does not assert an exact one-step GMRES floor or retained-frequency amplitude factor.",
+        "1997 and 2023 singular GMRES results identify abstract breakdown regimes, but do not specify the block matrix B or these frequency-dependent reconstruction errors."
+      ],
+      "reasoning": "The source setup plus existing general theory motivates but does not explicitly supply the claimed sharp classification as a statement. The new derivation evaluates the precise Schur-pupil product, proving α-independence, all-data one-step stagnation, and a strict beyond-range-minimum gap.",
+      "searches": [
+        "arxiv:2610.17275v1 equations (10), (11), (15), (27)",
+        "\"GMRES singular right preconditioner inconsistent right preconditioned system residual floor rank deficient preconditioning\"",
+        "\"GMRES idempotent matrix nonorthogonal projector inconsistent right hand side residual one iteration\"",
+        "Brown–Walker DOI:10.1137/S0895479894262339"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "General range-symmetry theorem applies to arbitrary singular matrices but has no given Fourier-pupil-to-idempotent mapping or reconstruction-bias coefficient.",
+        "In this problem the idempotence itself reduces the Krylov image to a line; direct calculation, not name matching, yields the all-data residual."
+      ],
+      "reasoning": "An abstract oblique projector stagnation implication is a known special case of Krylov theory. The retained-mode bias and sharp optical coefficient follow only after identifying how the Type-II Tikhonov inverse and binary Fourier truncation combine; none of the inspected broad singular GMRES sources states that optical specialization.",
+      "searches": [
+        "\"GMRES idempotent matrix nonorthogonal projector inconsistent right hand side residual one iteration\"",
+        "Brown–Walker 1997 Theorem 2.4 DOI:10.1137/S0895479894262339",
+        "Sugihara–Hayami arxiv:2310.16442 §§3–4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The motivating source reports simulated numerical settings, binary pupil physics and a Type-II factorization, not a table of exact residual/bias constants for the condition-two witness.",
+        "No matching exact parameter table was identified among located source or bibliographic search results."
+      ],
+      "reasoning": "The formulas apply to every n, arbitrary admissible binary mask and right-hand data, so they do not reduce to reproducing a particular published finite table.",
+      "searches": [
+        "\"Fourier preconditioner aperture truncated frequencies Tikhonov preconditioning rank deficiency GMRES\"",
+        "\"GMRES singular preconditioner Fourier spectral truncation preconditioned system projector stagnation\"",
+        "Optical Fourier Transform-Based Preconditioning for Large-Scale Inverse Problems arxiv:2610.17275v1 §§2.2,3.1.1,4.2,5"
+      ]
+    },
+    "rationale": "The 2026 source supplies the physically motivated binary aperture and Type-II block inverse but, on direct reading of Sections 2–5, not the exact projected saddle matrix, alpha-independent idempotence classification, one-step all-data residual formula, transmitted-mode attenuation, or the strict range-versus-Krylov residual witness. The general singular-GMRES breakdown and range-symmetry principles are known from Brown–Walker (1997) and Sugihara–Hayami (2023) and are not claimed independently. The specific full classification with optical pupil and sharp reconstruction consequence was not implied by a directly found statement; residual possibility of a prior specialized derivation is recorded.",
+    "residual_risks": [
+      "Older specialized literature may derive an algebraically equivalent optical hard-aperture result without identical terminology.",
+      "The general abstract projector-stagnation principle is elementary and known; novelty is restricted to the sharp binary-pupil Tikhonov classification and reconstruction bias, not projector algebra in isolation.",
+      "Only the ideal fixed noiseless binary-pupil setting is claimed; practical optical implementations violate those exact hypotheses."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies device/model/preconditioner, but not the sharp projector/GMRES/bias classification for the specific idealized hard aperture",
+        "evidence": "§2.2 equation (11) block LDL inverse; §3.1.1 equation (15) binary pupil; §4.2 equation (27) Type-II 4f filter; §5 experimental optical-error studies.",
+        "identifier_or_url": "https://arxiv.org/html/2610.17275v1",
+        "material_read": "Full HTML scientific sections 1–6, with focused equations (3)–(11), (14)–(16), (26)–(27), experiments and conclusions",
+        "method": "Lawful primary preprint HTML; inspection of stated mathematical equations and numerical results",
+        "title": "Optical Fourier Transform-Based Preconditioning for Large-Scale Inverse Problems",
+        "trigger": "Same Type-II optical inverse and binary finite pupil, potential direct coverage"
+      },
+      {
+        "assessment": "Generic range-symmetric necessity/sufficiency and Krylov breakdown already known; no Fourier optical pupil or Tikhonov error formula established in inspected material",
+        "evidence": "Theorem 2.4 establishes full-range-symmetry characterization; our B is typically an oblique rank-deficient projector.",
+        "identifier_or_url": "https://users.wpi.edu/~walker/Papers/gmres-singular,SIMAX_18,1997,37-51.pdf",
+        "material_read": "Original 15-page author-hosted PDF, abstract/introduction and Theorem 2.4 with proof on PDF page 5; further theorem claims cross-checked with 2023 survey",
+        "method": "Lawful author-hosted PDF, visual inspection of pages 1 and 5 and extracted relevant theory",
+        "title": "GMRES on (Nearly) Singular Systems",
+        "trigger": "General singular GMRES breakdown and least-squares coverage"
+      },
+      {
+        "assessment": "Improves generic arbitrary singular least-squares solves by range-preserving preconditioning; does not investigate rank-destroying binary aperture and exact reconstruction bias",
+        "evidence": "§3 explains range-symmetric theorem; §4 requires R(AB)=R(A), unlike the truncated Schur preconditioner here.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.16442",
+        "material_read": "Full accessible HTML sections 1–4 and statement of Sections 5–9; focused theory of range-preserving right preconditioner",
+        "method": "Primary arXiv full text",
+        "title": "Right preconditioned GMRES for arbitrary singular systems",
+        "trigger": "Possible dominating singular right-preconditioning result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e85adb02-b4e6-4dcf-b206-eed5e1bc40cd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Binary finite-aperture truncation is an explicit physical constraint in a recent optical preconditioner, and Type-II Schur inversion is a specified algorithm, so the object is not arbitrarily contrived. The exact theorem shows a phase change from an invertible regularized saddle solve to singular preconditioned one-step stagnation; quantifies loss in the physical data norm and a stronger global attenuation of retained signal than simple omitted-frequency bias. The well-conditioned SPD witness establishes an error mechanism not explainable as numerical ill-conditioning alone. The exact range-versus-Krylov gap is actionable for deciding whether to keep low-amplitude transmission, augment the subspace, or change preconditioning; no universal noisy-hardware conclusion is claimed.",
+    "status": "PASS"
+  }
+}
