@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For nonnegative data, exact star-ball averages yield F_i(g)=max(g_i,g_i/2,μ)-max(0,μ), μ=Σ g_j/(m+1), with any gradient g realized by positive baseline. Across all piecewise-affine cells, each weighted ℓ1 column sum is bounded by w_j+(W-w_j)/(m+1). Explicit positive inputs with μ<0, one high leaf and all others at g_i=-1 attain equality. The two-vertex case is F_1(g)=g/2. A constant signed shift gives zero input variation but nonzero output-difference variation. Exact checker passed 127926 formal selector columns, 20 attaining pairs, 5000 random rational secants and seven signed counterexample instances; finite tests support but do not replace the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1410.6204v1 develops graph-ball centered maximal operators and one-input ℓ^p estimates including stars.",
+        "arXiv:2011.02630v1 Section 4 studies star-graph maximal p-variation inequalities (one input)."
+      ],
+      "reasoning": "A general graph ℓ^p bound is not a weighted-edge two-input variation seminorm inequality. Section 4 uses different input/output denominator and p=2 or one-input tests; no stronger general result inspected that implies the exact two-data expression.",
+      "searches": [
+        "Sharp weighted variation perturbation stability of graph maximal averages, star graph counting measure, edge gradients",
+        "finite graph centered maximal operator two-data bounded variation Lipschitz seminorm star",
+        "Sharp two-data Lipschitz stability of Euclidean projection onto l1 norm ball in graph total variation norm, cyclic coordinates, signed active sets"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1410.6204v1 (full accessible mathematical text; 2014-10-22)",
+      "arXiv:2005.03146v1 (full accessible mathematical text, star Theorem 2; 2020-05-06)",
+      "arXiv:2011.02630v1 (full accessible PDF, Section 4; 2020-11-05)",
+      "Accessible mathematical records on finite path maximal variation: 2026/10/4/SCOPE-monotone-data-attain-the-conjectured-path-graph-variational-cons--2ae83e2401fb",
+      "Accessible mathematical record on finite graph numerical indices (different invariant): 2026/10/11/SCOPE-a-sharp-universal-half-bound-for-numerical-indices-of-finite-gra--166e28e756ad"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2005.03146v1 Thm.2 one-input factor m/(m+1); new equal-weight two-input factor 2m/(m+1), with a concrete positive signal-pair construction.",
+        "arXiv:1410.6204v1 gives graph maximal-operator definitions and ℓ^p norms, not the weighted edge variation of differences.",
+        "arXiv:2011.02630v1 Section4 concerns one-input 2-variation and maximal ℓ^p norms."
+      ],
+      "reasoning": "The earlier bounds concern Var(Mf)/Var(f) for a single f. Sublinearity gives |Mf-Mh|<=M|f-h| pointwise but does not control adjacent differences of those outputs. None of the inspected mathematical statements has antecedents and conclusions implying the new exact weighted Lipschitz seminorm, including its attainment/weight rigidity.",
+      "searches": [
+        "variation seminorm of M_G f minus M_G g versus variation of f-g star graph two input stability",
+        "Centered Hardy-Littlewood maximal operator on a finite unweighted star graph: sharp TWO-DATA Lipschitz constant in weighted graph-edge total variation, 1+(sum weights minus minimum)/((leaves+1) minimum)",
+        "Finite star graph maximal function difference bound Var(Mf-Mg) versus Var(f-g), precise factor 2m/(m+1), nonnegative signals"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2005.03146v1 Theorem 2: one-input Var_1(Mf) versus Var_1(f) on stars, constant m/(m+1).",
+        "Closest accessible record 2026/10/4/SCOPE-monotone-data-attain-the-conjectured-path-graph-variational-cons--2ae83e2401fb addresses one-input monotone data on path graphs, not star two-data weighted differences."
+      ],
+      "reasoning": "The candidate is a Lipschitz norm of the nonlinear map on the quotient by constants, not an operator norm from one input to its output. A bound on Var(Mf) or on M|f-h| does not imply a bound for Var(Mf-Mh); hence no equivalence follows from published one-input statements.",
+      "searches": [
+        "Finite star graph maximal function difference bound Var(Mf-Mg) versus Var(f-g), precise factor 2m/(m+1), nonnegative signals",
+        "Centered Hardy-Littlewood maximal operator on a finite unweighted star graph: sharp TWO-DATA Lipschitz constant in weighted graph-edge total variation, 1+(sum weights minus minimum)/((leaves+1) minimum)",
+        "variation seminorm of M_G f minus M_G g versus variation of f-g star graph two input stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible mathematical result 2026/10/4/SCOPE-monotone-data-attain-the-conjectured-path-graph-variational-cons--2ae83e2401fb quotes the one-input path graph variation factor 1-1/n.",
+        "Searches including the exact equal-weight parameter 2m/(m+1) and weighted formula returned no equivalent mathematical record among the inspected highest ranked hits."
+      ],
+      "reasoning": "The numerical coincidence with twice a one-input star constant is not an exact two-input table entry. No inspected database or table contains the formula as the same quantity. Search absence is not evidence of global uniqueness.",
+      "searches": [
+        "centered Hardy Littlewood maximal operator finite star graph exact Lipschitz constant in total variation for the difference of two nonnegative functions: 2(n-1)/n",
+        "Finite star graph maximal function difference bound Var(Mf-Mg) versus Var(f-g), precise factor 2m/(m+1), nonnegative signals",
+        "Sharp weighted variation perturbation stability of graph maximal averages, star graph counting measure, edge gradients"
+      ]
+    },
+    "rationale": "The closest inspected star-graph maximal operator results concern one-input weighted or unweighted mapping inequalities. In particular, the published one-input sharp variation ratio m/(m+1) for m leaves is not a two-input Lipschitz inequality for the nonlinear difference Mf-Mh. The new exact independent-weight two-input ratio 1+(W-wmin)/((m+1)wmin), equal-weight twofold separation, strictly positive attaining pairs, and unique optimal weighting are not implied by the inspected results or closest accessible mathematical records. Residual risk of an implicit prior formulation is acknowledged.",
+    "residual_risks": [
+      "An implicit equivalent two-input inequality may exist in earlier unindexed finite-star or nonlinear stack-filter literature.",
+      "The 2022 directed variation follow-up was accessible only in abstract form; no full-text noncoverage is asserted.",
+      "The mathematical originality assessment is self-review only, not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Framework source; not the two-input weighted edge-variation quotient.",
+        "evidence": [
+          "Graph-distance centered averages over balls are the operator definition.",
+          "Published estimates are one-input ℓ^p mapping inequalities, not variation of the difference of two outputs."
+        ],
+        "identifier_or_url": "arXiv:1410.6204v1 / https://arxiv.org/abs/1410.6204",
+        "material_read": "Full accessible arXiv mathematical text, graph-ball formulas and star-related mapping estimates",
+        "method": "Read mathematical statements and star-specific argument; checked quantity on left and right of published inequalities",
+        "title": "Best constants for the Hardy–Littlewood maximal operator on finite graphs",
+        "trigger": "Original centered graph maximal operator definitions, finite-star geometry, and broad mapping-norm coverage"
+      },
+      {
+        "assessment": "Closest source, but its one-input sharp m/(m+1) does not imply the two-input sharp 2m/(m+1), nor arbitrary independent edge-variation weighting.",
+        "evidence": [
+          "Theorem 2 sharp one-input star factor m/(m+1).",
+          "The present two-input equality is tested on a pair of positive functions; it cannot be reduced to substituting a single difference into nonlinear M."
+        ],
+        "identifier_or_url": "arXiv:2005.03146v1 / https://arxiv.org/abs/2005.03146",
+        "material_read": "Full accessible arXiv text; abstract, star Theorem 2 and proof of one-input 1-variation constant",
+        "method": "Compared theorem quantifiers/denominators and sharp constants with two-data seminorm theorem",
+        "title": "Sharp Inequalities for maximal operators on finite graphs",
+        "trigger": "Potentially decisive same star and total-variation invariant"
+      },
+      {
+        "assessment": "Studies one-input 2-variation and ℓ^p norms, not two-input weighted 1-variation modulus.",
+        "evidence": [
+          "Theorem 14 and Section 4 concern a single star signal.",
+          "No inspected statement bounds variation of Mf-Mh by variation of f-h with free edge weights."
+        ],
+        "identifier_or_url": "arXiv:2011.02630v1 / https://arxiv.org/abs/2011.02630",
+        "material_read": "Accessible full PDF; Section 4 on stars and its principal 2-variation statements, plus introductory definitions",
+        "method": "Read PDF material and compared input/output functional, p exponent, and number of signals",
+        "title": "Sharp inequalities for maximal operators on finite graphs, II",
+        "trigger": "Successor treating finite-star variation and possible broader domination"
+      },
+      {
+        "assessment": "Possible residual originality risk; not treated as fully inspected.",
+        "evidence": [
+          "Only the abstract-level description was available; no exact two-data theorem could be verified."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/10/6/950",
+        "material_read": "Abstract only; full mathematical body was not accessible in this pass",
+        "method": "Compared abstract’s stated domain and inequalities, without asserting full-text noncoverage",
+        "title": "Directed graph variation follow-up in Mathematics 2022",
+        "trigger": "Possible graph variation generalization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ecffe603-f5e1-419f-a139-076a04955cbf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The star and centered maximal graph averaging are canonical. The exact sharp two-data variation modulus addresses perturbation stability, rather than the known single-signal regularity bound. It shows every genuine star is expansive, uniform edge weights uniquely minimize amplification, sensitivity diverges under vanishing weight, and the cone restriction is mathematically necessary. The doubled uniform-weight factor is an interpretable and motivated invariant, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
