@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The full proof partitions every factor by one, two, three, or four maximal runs. Closed one-run words are powers, two-run words lack nonempty borders, the only closed three-run words have equal outer run lengths, and a four-run factor is closed iff its initial-zero and final-one lengths fit both repeated 01 transitions. Disjoint family counting yields n+1+min(a,c)min(b,d). Every positive product pq with 2(p+q)≤n is realized by an explicit four-part composition, and balancing p+q maximizes pq. Independent direct-border exhaustive enumeration verified actual factor sets for all 1296 parameter quadruples with a,b,c,d≤6 and complete spectra at n=4..18; finite checking is not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Parshina–Puzynina, arXiv:2111.00863: unrestricted maximum is asymptotic to n²/6 and a global upper estimate holds; these bounds are not equalities for four-run words.",
+        "Badkobeh–Fici–Lipták, arXiv:1305.6395, Theorem 25: a particular four-run construction proves merely a quadratic lower bound, not exact classification.",
+        "Mieno–Takahashi–Seto–Horiyama, arXiv:2409.19576: linear-time algorithm evaluates a supplied string, without a symbolic four-run spectrum theorem."
+      ],
+      "reasoning": "A universal upper bound or algorithm for individual inputs does not imply the claimed exact all-parameter formula. Existing four-block existence construction proves substantially less than the complete set and product spectrum.",
+      "searches": [
+        "closed-rich binary factor count bitonic four-run exact formula threshold quadratic growth",
+        "distinct closed factors four-block binary words exact spectrum product of overlapping run lengths",
+        "\"closed factors\" \"four blocks\" formula binary runs",
+        "Finite and infinite closed-rich words arXiv:2111.00863 Section 4 full text",
+        "On the Number of Closed Factors in a Word arXiv:1305.6395 Theorem 25 full text"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1305.6395, complete HTML text",
+      "arXiv:2111.00863v3, full HTML text",
+      "arXiv:2409.19576, HTML introduction and algorithms",
+      "Published research record Exact binary closed-rich maxima at lengths 25–27, full RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 23 of arXiv:1305.6395 shows four-run words are not CR-poor, yielding only an excess of at least 1; it cannot determine the product pq.",
+        "Theorem 25 of arXiv:1305.6395 constructs four-run words with a positive quadratic lower bound, but does not prove the exact set of all closed factors or sharp four-run optimum.",
+        "arXiv:2111.00863 provides an unrestricted asymptotic maximum n²/6, whereas the exact optimum within the four-run class has leading coefficient 1/16."
+      ],
+      "reasoning": "Neither zero-defect classification, weaker lower bounds, nor global upper or exact maxima logically imply the precise formula n+1+min(a,c)min(b,d), the four disjoint families, and the complete set {pq:2(p+q)≤n}. The present proof directly classifies factors using their runs and transition border occurrences.",
+      "searches": [
+        "Badkobeh Fici Lipták 2013 Theorem 23 Theorem 25 closed factors bitonic",
+        "Parshina Puzynina finite and infinite closed-rich words 2024 asymptotic maximum",
+        "Published record: Exact binary closed-rich maxima at lengths 25–27"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Badkobeh–Fici–Lipták, arXiv:1305.6395, Theorem 23 and Proposition 24: CR-poor binary words are precisely bitonic; no all-positive four-run closed-factor formula in the inspected full text.",
+        "Direct mathematical check: a four-run factor starts and ends in different symbols but can be a complete first return to a two-symbol border, hence the claimed object is not just a renaming of the bitonic characterization."
+      ],
+      "reasoning": "The target is the number and explicit family of closed factors of every 0^a1^b0^c1^d for positive a,b,c,d and the spectrum at each length. Synonyms complete first returns, periodic-like factors, CR-poor defect, and three symbol changes were searched. The closest theorem characterizes zero defect, while the new claim determines each positive defect and the exact factor set.",
+      "searches": [
+        "closed factors of binary four-run words 0^a1^b0^c1^d exact enumeration CR-poor",
+        "closed factor surplus above n+1 for binary nonbitonic words with three letter transitions complete return spectrum",
+        "\"closed factors\" \"min(a,c)\" \"min(b,d)\"",
+        "\"closed factors\" \"a^i b^j a^k b^l\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1305.6395 Table 1 lists unrestricted binary maxima through length 20, not counts restricted to four runs.",
+        "Published record Exact binary closed-rich maxima at lengths 25–27 tabulates unrestricted maxima 109,117,126; not a four-run all-length product spectrum.",
+        "At length 12 the claimed four-run excess excludes 7, a spectrum-level statement not captured by an unrestricted maximum table."
+      ],
+      "reasoning": "Tables of the global maximum of the same count cannot determine the values, witness factors, or attainable spectrum on the four-run subfamily. No exact covering four-run table was located in material inspected.",
+      "searches": [
+        "\"number of closed factors\" \"a^i b^j a^k b^l\"",
+        "\"closed\" \"0^a1^b0^c1^d\" factors word",
+        "Published record: Exact binary closed-rich maxima at lengths 25–27 (2026, full RESULT.md)"
+      ]
+    },
+    "rationale": "Compared the complete parameterized four-run factor-set classification and excess product spectrum against the original minimum-class characterization, later unrestricted extremal bounds, generic string-counting algorithms, and a full published exact-extremum report. None inspected states the factor-set classification, derives its four-run count uniformly, or entails its attainable product spectrum. Searches are evidence of due diligence, not proofs of priority; residual risk remains.",
+    "residual_risks": [
+      "An unindexed thesis, specialized enumeration, or non-English work may already contain an equivalent four-run formula. Search failure does not certify first discovery.",
+      "The full details of the generic 2024 counting-algorithm paper were not read beyond the inspected statement-bearing sections; no symbolic four-run classification was identified there."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_NOT_COVERING",
+        "evidence": "Theorem 23 determines zero excess iff bitonic; Theorem 25 gives a lower bound via four blocks; no uniform exact four-run factor-set/product-spectrum theorem appears.",
+        "identifier_or_url": "https://arxiv.org/abs/1305.6395",
+        "material_read": "Complete HTML transcription of arXiv:1305.6395v3, including definitions, Theorems 17, 23, 25, Table 1, conclusion and references (full available document).",
+        "method": "Read and compared theorem statements and the precise four-run construction against the full parameterized claim.",
+        "title": "On the Number of Closed Factors in a Word",
+        "trigger": "Exact foundational objects, minimum closed-factor characterization, four-run quadratic construction"
+      },
+      {
+        "assessment": "GLOBAL_BOUNDS_NOT_COVERING",
+        "evidence": "Asymptotic global maximum n²/6 and bound on long closed factors; no closed-factor family or exact spectrum for 0^a1^b0^c1^d.",
+        "identifier_or_url": "https://arxiv.org/html/2111.00863v3",
+        "material_read": "Full-text arXiv HTML, Introduction, Preliminaries, Sections 3–5, particularly Example 2 and Section 4 Theorem 3 and extremal construction.",
+        "method": "Checked explicit claims and general upper bounds for coverage by specialization.",
+        "title": "Finite and infinite closed-rich words",
+        "trigger": "Later major result on maximum possible closed-factor counts; overlapping four-run examples"
+      },
+      {
+        "assessment": "ALGORITHMICALLY_APPLICABLE_BUT_NOT_SYMBOLICALLY_COVERING",
+        "evidence": "Online and offline generic counting algorithms have O(n log sigma) and O(n) complexity, with no stated special four-run parameter formula or attainable product spectrum.",
+        "identifier_or_url": "https://arxiv.org/abs/2409.19576",
+        "material_read": "Public full-text HTML abstract, Introduction, Related work, Preliminaries and counting problem specification.",
+        "method": "Compared algorithmic input/output theorem with symbolic all-run-length formula.",
+        "title": "Online and Offline Algorithms for Counting Distinct Closed Factors via Sliding Suffix Trees",
+        "trigger": "Potential stronger computational counting theorem for same invariant"
+      },
+      {
+        "assessment": "DIFFERENT_EXTREMAL_DOMAIN_NOT_COVERING",
+        "evidence": "Its values are unrestricted C_2(25)=109, C_2(26)=117, C_2(27)=126; it contains no closed-factor family for four-run words.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6",
+        "material_read": "Complete RESULT.md, including theorem, recurrence proof, verification, prior-work comparison, limitations, references.",
+        "method": "Compared exact domain and direction of implication; unrestricted fixed-length global maxima versus complete four-run parameter family.",
+        "title": "Exact binary closed-rich maxima at lengths 25–27",
+        "trigger": "Closest published record measuring same invariant on binary words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "daf2c009-676a-4766-92f9-9aa780387282",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Binary CR-poor/bitonic words are exactly the minimum closed-factor class. Four nonempty runs (three changes) are the first genuinely non-bitonic class, making their exact defect the natural first sharp boundary question. The result classifies every closed factor, yields an all-parameter multiplicative defect, and determines the complete non-interval fixed-length spectrum and sharp constrained quadratic optimum, rather than an arbitrary numerical slice. It refines a previously used four-block quadratic-existence construction by determining all its factors and best possible behavior.",
+    "status": "PASS"
+  }
+}
