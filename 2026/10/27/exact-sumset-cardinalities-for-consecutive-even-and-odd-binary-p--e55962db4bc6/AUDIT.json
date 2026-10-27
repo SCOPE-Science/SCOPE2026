@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The digit-paired carry NFA exactly represents sums, determinization counts output integers once, the 37-state exhaustive reachability certificate gives A_m=vM^(m-1)w, and 37 exact tests vM^kQ(M)w=0 imply every further test by Cayley-Hamilton. First 8 values independently checked by direct enumeration. Boundary m=1 and overflow bit both verified.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2017 Theorems 1 and 9 address up-to-four palindrome representation and an equal-length generalized count, respectively.",
+        "2024 Theorem 1 controls the total density of two-palindrome sums and inequalities for P_n+P_{n-d}; it does not determine the exact P_{2m}+P_{2m+1} size."
+      ],
+      "reasoning": "Neither a global bound on sumset sizes nor an existence theorem implies an exact infinite sequence of cardinalities. Examined strong neighboring theorems were compared by implication rather than title alone.",
+      "searches": [
+        "https://arxiv.org/abs/1706.10206",
+        "https://arxiv.org/abs/2402.10808",
+        "palindrome additive combinatorics restricted length palindromes sums distinct values 2017 2024"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A264964",
+      "https://arxiv.org/abs/1706.10206",
+      "https://arxiv.org/abs/2402.10808"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rajasekaran–Shallit–Smith Section 7 Theorem 9 counts pairs of generalized equal-length binary palindromes; adjacent lengths are not included.",
+        "Zakharov Section 2 bounds |P_n+P_{n-d}| using representation multiplicity; the exact restricted sumset formula is not stated.",
+        "Closest published research record from the semantic search concerned palindromic duplications in error-correcting codes, not addition of palindromic integers."
+      ],
+      "reasoning": "The present cardinality is a special case of the *object family* considered in the 2024 paper but not a corollary of its quantitative bounds. No located result gives a dominating exact formula or an equivalent recurrence.",
+      "searches": [
+        "https://arxiv.org/abs/1706.10206",
+        "https://arxiv.org/abs/2402.10808",
+        "binary palindrome sumset P_{2m}+P_{2m+1} adjacent lengths 2 7 27 95 345 exact generating function rational recurrence"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A264964 gives 3^floor((r-1)/2) for P_r+P_r, not P_{2m}+P_{2m+1}.",
+        "2024 Zakharov's P_n+P_{n-d} notation covers d=1 as a set but only bounds cardinalities."
+      ],
+      "reasoning": "A formula for same-length sums cannot directly determine adjacent lengths because the palindrome digit equalities and high-side carry alignment differ. The paper treating arbitrary length differences does not provide the precise proposed recurrence or generating function; absence of matches is not an absolute novelty proof.",
+      "searches": [
+        "sum of two binary palindromes adjacent consecutive lengths 2m 2m+1 distinct sums cardinality generating function",
+        "number of sums of a 2m-digit binary palindrome and (2m+1)-digit binary palindrome count",
+        "\"2, 7, 27, 95, 345, 1259\" palindromes",
+        "https://oeis.org/A264964"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A264964 explicitly lists equal-length sums and the power-of-three theorem; not a table of these length-dependent distinct sumset sizes.",
+        "The adjacent-length cardinality sequence begins 2,7,27,95,345,1259, differing from the equal-length power-of-three law."
+      ],
+      "reasoning": "The checked database entry does not tabulate the proposed invariant; sequence/web matching did not locate an exact prior table. Unindexed tables remain possible.",
+      "searches": [
+        "https://oeis.org/A264964",
+        "\"2, 7, 27, 95, 345, 1259\" palindromes",
+        "\"7,27,95,345,1259\" \"palindromes\""
+      ]
+    },
+    "rationale": "Comparisons with the 2015 equal-length exact formula, 2017 automata results and the full 2024 arbitrary-length-difference sumset bound find no covering exact adjacent even/odd cardinality law. Published-record searches and available prior claim texts did not locate the same invariant. Unindexed equivalence is a genuine residual risk.",
+    "residual_risks": [
+      "Search is not exhaustive across all unpublished or unindexed additive-palindrome calculations.",
+      "An equivalent transfer matrix or integer sequence may be presented under alternative terminology in literature not located."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not supply the adjacent even/odd count",
+        "evidence": "Its exact theorem fixes both summand lengths equal; the current claim uses two different lengths.",
+        "identifier_or_url": "https://oeis.org/A264964",
+        "material_read": "The sequence definition, power-of-three theorem, examples, crossreferences and dated author record",
+        "method": "Read the OEIS entry",
+        "title": "Numbers that are the sum of two binary palindromes of the same (binary) length",
+        "trigger": "Exact nearby equal-length enumeration"
+      },
+      {
+        "assessment": "Equal-length generalized sumset count and global additive-basis theorems; neither implies the exact adjacent-length count",
+        "evidence": "Theorem 9 gives 3^ceil(n/2) for generalized equal-length inputs; main Theorem 1 uses up to three unequal-length summands for existence.",
+        "identifier_or_url": "arxiv:1706.10206",
+        "material_read": "Full accessible arXiv HTML, especially Sections 1–2, 5–7 and Theorem 9",
+        "method": "Read primary full text and checked theorem scopes",
+        "title": "Sums of Palindromes: an Approach via Automata",
+        "trigger": "Closest published automata method for binary-palindrome sums"
+      },
+      {
+        "assessment": "General density upper bound and collision mechanism, not the stated exact generating function",
+        "evidence": "Section 2 inequality (2) sums |P_n+P_m|, then uses a multiplicity lower bound to bound each sumset; no exact d=1 count.",
+        "identifier_or_url": "arxiv:2402.10808",
+        "material_read": "Full accessible arXiv HTML, Sections 1–2 including the sumset inequalities, local digit substitutions and Theorem 1",
+        "method": "Read and compare the full argument and inequalities",
+        "title": "Most integers are not a sum of two palindromes",
+        "trigger": "Directly handles P_n+P_{n-d} with arbitrary d, including d=1"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e55962db-4bc6-4daa-93a5-5063783d9768",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural precise additive invariant adjacent to the known equal-length count: adjacent lengths produce nontrivial carry-induced collisions and an exact order-eight recurrence valid for all lengths, not entailed by earlier representability or asymptotic estimates. Fixed-state exact calculation answers the infinite family without enumerating pairs.",
+    "status": "PASS"
+  }
+}
