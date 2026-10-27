@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "Each coupon arrival stream is an independent rate-one Poisson process. Given the maximum first-arrival time t and the last type, the remaining singleton indicators are independent Bernoulli with exact probability t/(exp(t)-1). The centered conditional characteristic function has a uniform compact Gumbel-offset Gaussian limit at variance exp(-g), establishing a joint mixed-normal limit. Independent Exp(n) interarrival times yield E(W_n-T_n/n)^2=H_n/n; multiplying the error by log n still tends to zero in L2, so the observable random center is legitimate. The Gaussian pivot follows by continuous mapping, with exp(-G)>0. Exact finite-state rational verification for sizes 2 through 14 checks the supporting moment calculations but is not offered as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ilienko (2020, later 2026 journal) states an infinite-dimensional first-order exponential limit for brotherhood vacancies at completion.",
+        "Mahmoud--Smythe (2012) explicitly exclude the superlinear coupon collection phase from the joint Gaussian phase theorems in their section 5.",
+        "Betken--Thäle (2022/2023) treat counts of missing coupon types at deterministic times."
+      ],
+      "reasoning": "The broader point-process law covers first-order fluctuations and the exact finite PMF covers all finite joint probabilities, but neither is a stated second-order asymptotic normal law under random stopping-time centering. Fixed-time occupancy fluctuation results apply to different time indexing; their hypotheses and limit statistics do not directly yield the conditional mixed normal theorem.",
+      "searches": [
+        "arxiv:2002.00650 complete main results and proof",
+        "doi:10.1239/aap/1339878719 superlinear phase and moment recurrences",
+        "arxiv:2202.07485 main theorem and normal/Poisson fixed-time regimes",
+        "coupon collector brothers empty spots second-order Gaussian random centering exponential Gumbel completion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0304229",
+      "arxiv:2002.00650",
+      "doi:10.15559/26-VMSTA306",
+      "doi:10.1239/aap/1339878719",
+      "arxiv:2202.07485",
+      "doi:10.1017/jpr.2023.6"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ilienko Theorem 1 states normalized vacancy counts converge to one exponential random variable, without a sqrt(log n) residual or an independent Gaussian pivot.",
+        "Myers--Wilf formula (44) permits deriving finer asymptotics but contains no such conditional CLT statement in its terminal singleton section.",
+        "Mahmoud--Smythe limit theorems concern deterministic coupon counts and explicitly omit the relevant superlinear phase."
+      ],
+      "reasoning": "The proposed observable pivot uses the random extreme itself to strip away the leading exponential uncertainty, leaving a distinct second-order statistic. Prior finite-time formula determines its finite law in principle, so there is a genuine priority caveat, but published statements inspected do not yield this limiting Gaussian implication without new analysis. A previous theorem at the same second-order scale would decisively subsume this claim; none was located.",
+      "searches": [
+        "second-order Gaussian fluctuations singleton count at coupon collection completion centered by Gumbel cover time, mixed normal e^{-G}",
+        "joint stable central limit theorem number of coupons appearing exactly once at last coupon collection time, normalized by random cover time",
+        "coupon collector brothers empty spots second-order Gaussian random centering exponential Gumbel completion",
+        "doi:10.15559/26-VMSTA306 Theorems 1--6 and section 5",
+        "arxiv:2202.07485 sections 1--5",
+        "doi:10.1239/aap/1339878719 sections 2--6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:math/0304229 section 4 formula (44) gives exact joint PMF, equivalent to any finite joint count formulation.",
+        "arxiv:2002.00650 Theorem 2.1 gives first-order exponential limiting law and its point-process proof, not a second-order Gaussian remainder."
+      ],
+      "reasoning": "The new centered-and-scaled variable is a nonlinear function of the two variables covered by Myers--Wilf, so the finite joint distribution determines it abstractly. However, convergence at sqrt(log n) after subtracting log n exp(-T_n/n+log n) does not follow from the previously stated first-order weak limit: that scale vanishes under the earlier normalization. A fresh conditional characteristic-function asymptotic yields the residual Gaussian limit and its independence.",
+      "searches": [
+        "second-order Gaussian fluctuations singleton count at coupon collection completion centered by Gumbel cover time, mixed normal e^{-G}",
+        "joint stable central limit theorem number of coupons appearing exactly once at last coupon collection time, normalized by random cover time",
+        "\"coupon collector\" \"singleton\" \"central limit theorem\" completion",
+        "arxiv:2002.00650 Theorem 2.1 and section 5",
+        "arxiv:math/0304229 formula (44)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Myers--Wilf formula (44) is an exact finite joint-probability database in symbolic Stirling-number form and dominates every finite count table.",
+        "Exact finite-size moments from the present calculation match rational finite-state computations for 2 through 14 coupon types."
+      ],
+      "reasoning": "An exact table or symbolic formula for the finite joint law exists and is credited; no finite probability or covariance is classified as novel. The current asymptotic conditional Gaussian residual and observable pivot are not themselves exact database entries. A preexisting asymptotic specialization could still be overlooked.",
+      "searches": [
+        "joint stable central limit theorem number of coupons appearing exactly once at last coupon collection time, normalized by random cover time",
+        "terminal singleton count fluctuation conditional coverage time binomial time-changed Poisson",
+        "coupon collector coupon singles distribution at completion joint time number one occurrence",
+        "arxiv:math/0304229 section 4 formula (44)"
+      ]
+    },
+    "rationale": "The full discrete joint distribution of T_n and S_n is ALREADY published by Myers--Wilf (2003), and the first-order exponential limit of S_n/log n is ALREADY published in Ilienko (2020 preprint). These are not claimed. The current claim isolates residual sqrt(log n)-scale Gaussian fluctuations after subtracting the actual observed Gumbel-time-dependent center, and establishes the asymptotic independence of the resulting observable Gaussian pivot and the Gumbel time. The inspected stronger finite joint PMF, first-order point-process theorem, and deterministic-time multivariate CLTs do not state or immediately supply that random-centered second-order CLT; it requires a separate conditional-binomial expansion and fine depoissonization. The exact finite covariance is treated only as context. Historical priority remains an explicit risk.",
+    "residual_risks": [
+      "The fully explicit Myers--Wilf finite joint PMF can potentially yield an already-known conditional second-order theorem under another formulation.",
+      "A general occupancy conditional CLT or a supplement to an early coupon-brotherhood study not located could imply this precise statement.",
+      "No quantitative convergence rate or external independent mathematical review is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS finite joint law and all countable finite probabilities; does not assert the second-order random-centered mixed-normal limit. Explicitly credited rather than dismissed.",
+        "evidence": [
+          "Section 4, formula (44), joint f(n,j) for completion draw index and j singletons."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0304229",
+        "material_read": "Full source, particularly section 4 and final formula (44) for the joint finite distribution, plus conclusion",
+        "method": "Open-access PDF text and final-page inspection",
+        "title": "Some new aspects of the coupon-collector's problem",
+        "trigger": "Direct exact distribution of terminal singleton counts, plausible dominating source"
+      },
+      {
+        "assessment": "COVERS leading exponential singleton scale and its link with Gumbel completion; no centered square-root-log Gaussian residual in the inspected main results or proof.",
+        "evidence": [
+          "Theorem 2.1 states r! U_r/log^r n -> same Exp(1) variable; section 5 derives it from point processes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2002.00650",
+        "material_read": "Main results, Theorem 2.1, poissonization and coupling definitions, section 5 proof; later full-text journal version 2026 compared",
+        "method": "Open-access arXiv full HTML and journal full HTML",
+        "title": "Limit theorems in the extended coupon collector's problem",
+        "trigger": "Direct first-order sibling vacancy limit at exact cover time and point-process construction"
+      },
+      {
+        "assessment": "The Gaussian theorems are for deterministic draws in sublinear/linear phases; authors explicitly exclude the superlinear phase, so no direct stopped mixed-normal coverage.",
+        "evidence": [
+          "PDF p. 434, transition to section 6: superlinear regime not considered in joint Gaussian work."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1339878719",
+        "material_read": "Primary PDF, introduction, phase definitions, main theorems, superlinear exclusion paragraph and moment recurrence",
+        "method": "Lawful publisher PDF text",
+        "title": "On the joint behavior of types of coupons in generalized coupon collection",
+        "trigger": "General coupon frequency-count multivariate Gaussian theorem could dominate special case"
+      },
+      {
+        "assessment": "Rates for counts of uncollected coupons at fixed drawing indices, no random stop or terminal singleton second-order Gaussian.",
+        "evidence": [
+          "Theorem 1 assumes deterministic k_n=(n/s)(alpha log n+x), alpha<1; boundary Poisson uncollected count at alpha=1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07485",
+        "material_read": "Journal full PDF abstract, introduction, results and setup, including classifications and fixed-time conditions",
+        "method": "Lawful publisher PDF and arXiv page",
+        "title": "Approaching the coupon collector's problem with group drawings via Stein's method",
+        "trigger": "Recent, same primary MSC2020 work on occupancy Gaussian/Poisson transition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4b70053-ebd3-4615-a8c3-c795b08379cb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first-order exponential singleton fluctuation at coupon collection is known; a random-centered square-root-log Gaussian residual is a natural, unreported second-order invariant of the same stopping experiment. Its conditional variance depends nontrivially on the observed Gumbel completion offset. The resulting entirely observable pivot is asymptotically independent of the completion extreme, a substantive refinement for occupancy model diagnostics, not merely a finite table or parameter substitution.",
+    "status": "PASS"
+  }
+}
