@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+Under inviscid finite-depth, massless-sheet linear dynamics, the factorization of the phase-speed derivative follows from the stated dispersion law. The strict decrease of \(A\) is established by an entire positive-coefficient series with explicit coefficients, while \(G\) increases strictly. Therefore the stationary point is unique and global, not just locally optimal. The two linear stationarity/measurement constraints have nonzero determinant; positive tension and bending correspond exactly to the sharp open data interval. The converse, excluded boundaries, and near-critical asymptotics were checked symbolically and numerically. The executable checker supports the exact arguments, without claiming finite tests prove global statements.
+
+## Originality — PASS with priority risk
+The 2013 Deike–Bacri–Falcon primary text was examined at the governing linear sheet model and subsequent experimental dispersion analysis; it gives a forward relation, not a joint exact inverse feasible region for positive tension and flexural rigidity from one minimum. Near-minimum nonlinear waves in 2011 and finite-depth pure-flexural waves in 2014 provide related but different forward regimes. A 2021 ice-wave application measures critical speeds and contrasts dispersion curves, not the two-unknown sharp inverse mapping in the consulted material. Prior inverse problems using the entire dispersion curve or independent measurements need not be equivalent to recovery from only the minimum's location and speed. Searches found no decisive implication covering the exact strict interval. Material not read completely and possible implicit older results remain genuine residual risks; the search is not a proof of world-wide priority.
+
+## Mathematical value — PASS
+The observed minimum is a physically meaningful forcing/resonance threshold. Simultaneously recovering tension and bending from two scalar measurements, with exact incompatibility bounds, is a natural inverse design question for a thin elastic cover. The global one-minimum theorem guarantees identifiability without assuming local convexity, and the sharp threshold distinguishes physically possible observations from incompatible data. The proof supplies a critical scaling law describing when the minimum ceases to be observable at positive wavenumber. It does not claim value from merely rediscovering the known dispersion relation or the pure-capillary threshold.
+
+## Closest coverage and limitations
+Deike et al. (2013) is the closest forward combined-tension/bending paper; Guyenne and Părău (2014) is relevant for finite depth but has no positive-tension inverse theorem in accessible excerpts; Milewski et al. (2011) treats nonlinear deep-water minimum-speed waves. The strictly linear zero-inertia assumptions and inaccessible relevant full text limit physical scope and strength of priority certification. Error amplification near critical and vanishing-parameter boundaries was not quantified.
+
+Self-review: passed. Independent audit: not yet performed.
