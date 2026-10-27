@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Theorem 1 and Proposition 7 of [1] yield a strict repelling multiplier in the complete parameter domain. Uniform Lyapunov expansion supplies existence near zero; the explicit periodic variational solution is negative. The quantitative inequality x'<=x/8+delta*x^3, the middle-interval reset x(3pi/4)<=4, and inverse-square comparison imply a universal initial-value cutoff near -1; continuity excludes cycles there. Hyperbolicity rules out interior branch termination; positive cubic comparison bounds terminal initial values and finite-time continuation gives blow-up. A nonexhaustive SciPy checker independently tests representative signs and multipliers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2302.13642, stability analysis for singular limit cycles of Abel equations",
+        "arXiv:2610.19340v1, Theorem 1 and Proposition 7, give at most one unstable positive cycle, without an all-parameter existence statement."
+      ],
+      "reasoning": "General one-parameter Abel stability theory may furnish abstract branches, but without the bespoke no-cycle boundary comparison it does not state the special parameter interval or the finite-time endpoint from bounded initial data. Stronger general results remain a residual priority risk.",
+      "searches": [
+        "\"Abel equation\" \"parameter threshold\" \"positive limit cycle\" trig alpha",
+        "Global branch of repelling positive Abel periodic solutions as coefficient a varies, existence interval and explosion at finite endpoint, cubic rigid system sin t and a+cos 2t",
+        "arxiv:2302.13642 singular Abel periodic solutions stability one parameter"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.19340v1",
+      "https://arxiv.org/abs/2610.19340",
+      "https://arxiv.org/abs/2302.13642",
+      "https://arxiv.org/abs/2506.14091",
+      "published-finding corpus result a8e5df04a444",
+      "published-finding corpus result 96ab94d1610d"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source [1] explicitly gives at most one positive hyperbolic repeller when alpha<0,beta>−alpha and notes sharpness from a small-amplitude birth; it states no global parameter threshold.",
+        "Source [2] addresses singular limit-cycle stability; [3] at most-two upper bounds."
+      ],
+      "reasoning": "The NEW implication is: E=(a_*,0), with a_*>−1, finite positive limiting initial datum, blow-up before T and strict pointwise branch monotonicity. The source upper bound plus local existence alone allows hypothetical gaps or nonexistence beyond a local neighborhood, so it does not logically imply the new interval-and-escape theorem. The proof supplies distinct global comparison and continuation arguments.",
+      "searches": [
+        "arxiv:2610.19340v1 Theorem 1 Proposition 7 Lemma 2 parameter region alpha beta gamma",
+        "arxiv:2302.13642 Stability of singular limit cycles for Abel equations revisited",
+        "published-finding corpus: Abel ODE trigonometric A=a+cos 2t B=sin t, disappearance by finite time blowup parameter continuation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bravo Trinidad–Tian–Zhao, arXiv:2610.19340v1, Proposition 5, equation (18) identifies the rigid-system Abel normal form with beta=1,gamma=0.",
+        "published-finding corpus closest: 2026/10/11/SCOPE-exact-periodic-solution-exhaustion-in-a-harmonic-two-rational-cy--a8e5df04a444."
+      ],
+      "reasoning": "The source radial normal form is exactly the same family on the alpha line, so the paper is the principal overlap risk. Its upper bound and local existence do not imply that the entire intermediate parameter region is one interval with a terminal blow-up. The other named Abel family possesses two rational cycles and does not imply the one-cycle global threshold.",
+      "searches": [
+        "\"Abel equation\" \"parameter threshold\" \"positive limit cycle\" trig alpha",
+        "\"Abel ODE\" \"trigonometric polynomial\" global existence branch",
+        "published-finding corpus: Positive periodic solutions of Abel equation x'=sin(t) x^2 + (alpha+cos(2t)) x^3; exact global existence bifurcation threshold parameter alpha negative between -1 and 0; period-two half-cycle convexity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest IDs a8e5df04a444 and 96ab94d1610d address different families and bifurcations.",
+        "arXiv:2506.14091, at-most-two Chebyshev criteria, not an exact threshold table for this family."
+      ],
+      "reasoning": "No exact threshold table or result covering this special global diagram appeared in the actual semantic and textual searches. This negative search result is not a proof of novelty.",
+      "searches": [
+        "Abel equation A(t)=alpha+beta cos 2t B(t)=sin t positive limit cycle existence region sharp parameter threshold, bifurcation for alpha negative",
+        "Abel ODE trigonometric A=a+cos 2t B=sin t, disappearance by finite time blowup parameter continuation",
+        "arxiv:2506.14091 Chebyshev Abel limit cycles"
+      ]
+    },
+    "rationale": "Direct primary full-text inspection shows source [1] provides upper bounds and local existence, not the one-threshold global existence and finite-time terminal blow-up. The reviewed Abel stability and Chebyshev papers do not imply this special exact interval. Semantic searches returned nearby differently parametrized Abel findings, not a dominating implication. The residual risk of an unnoticed general continuation theorem is explicit.",
+    "residual_risks": [
+      "A general monotone-parameter Abel branch theorem may partially overlap the continuation component.",
+      "The older general Abel stability paper was not independently exhaustively checked theorem by theorem.",
+      "Finite search, including a semantic record index, cannot prove world-wide originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives key uniqueness and hyperbolicity premise, exact return coefficients, and at least near-zero existence; does not specify threshold a_* or finite-time lower endpoint",
+        "evidence": "Theorem 1 lines 61-92; Section 3 lines 481-540 and 563-620; arXiv v1 2026-10-14.",
+        "identifier_or_url": "https://arxiv.org/html/2610.19340v1",
+        "material_read": "Full HTML: introduction and Theorem 1; Section 2 proof up to Theorem 1; Section 3 normal form, Lemma 2 return expansion, Proposition 6 exclusion regions, Proposition 7 convexity and stability; conclusion",
+        "method": "Read accessible original arXiv HTML and compare claimed existence parameter ranges and implications",
+        "title": "Uniqueness of Limit Cycles for Abel Equations and Planar Systems",
+        "trigger": "Exact same trigonometric Abel normal form, positive periodic cycles"
+      },
+      {
+        "assessment": "No decisive directly covering special global threshold identified from material reviewed; residual risk if broader lemmas subsume continuation",
+        "evidence": "arXiv:2302.13642, abstract and visible introduction.",
+        "identifier_or_url": "https://arxiv.org/abs/2302.13642",
+        "material_read": "Public arXiv abstract and introductory statements; full-length implications not exhaustively compared",
+        "method": "Inspect lawful arXiv abstract and available context",
+        "title": "Stability of singular limit cycles for Abel equations revisited",
+        "trigger": "Potential general parameter continuation and stability framework for Abel equations"
+      },
+      {
+        "assessment": "Upper-bound method does not alone entail existence region, monotonicity or blow-up",
+        "evidence": "arXiv:2506.14091, public abstract.",
+        "identifier_or_url": "https://arxiv.org/abs/2506.14091",
+        "material_read": "Public abstract and statement-level scope",
+        "method": "Inspect accessible abstract and compare at-most-two conclusion to exact existence parameter classification",
+        "title": "A Chebyshev criterion for at most two non-zero limit cycles in Abel equations",
+        "trigger": "Competing broader counting theorem for Abel equations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e77ad1f6-191f-4d16-a0fe-2d445b3ba4ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 paper motivates the unresolved transition from an at-most-one, near-zero branch to a global parameter diagram in its simplest beta=1,gamma=0 subclass. A unique full parameter existence interval and a singular terminal mechanism answer a natural global dynamical question. The proof provides pointwise profile ordering and a nonexistence boundary, not just a textbook upper-bound corollary.",
+    "status": "PASS"
+  }
+}
