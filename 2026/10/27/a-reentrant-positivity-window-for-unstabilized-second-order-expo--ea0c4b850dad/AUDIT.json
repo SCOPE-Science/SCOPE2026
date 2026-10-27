@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Direct substitution of the two stages gives the exact multiplier. For 0<rho<=1/4, 1-R=(1+rho)(1-q)(1-rho J)>0 and R>-rho(1+rho)>-1, so all-step energy contraction holds. The derivative divided by q has a strictly increasing bracket, negative at zero and tending positive infinity, so one global minimum and, upon R(2log(1/rho))<0 for rho<=1/100, exactly two simple zeros. The root equations and derivative equation analytically give x_-=L+log L+o(1), x_m=L+2log L+o(1), x_+=1/rho+1+o(1), and min R=-rho/L(1+o(1)). The independent stage-based numerical checker returned PASS 261; it is supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 analysis handles the full stability range rho<=1, broader than this finding's rho<=1/4 energy observation.",
+        "The 2026 energy theorem concerns general semilinear gradient flows, but only monotonic energy, not sign preservation."
+      ],
+      "reasoning": "A stronger linear stability theorem covers the energy part of the result, but does not cover the independent reentrant positivity-window conclusion. The new mathematical claim is the window geometry and three sharp singular scales.",
+      "searches": [
+        "Hochbruck Ostermann two-stage ETDRK2 scalar quadratic split sharp unconditional energy dissipation iff residual to stiff ratio less than internal stage c2",
+        "arxiv:2303.15861 Section 2, Theorem 2.4",
+        "arxiv:2610.11532v1 Section 4.1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11532v1 Sections 2 and 4 (full HTML)",
+      "arxiv:2303.15861 Section 2 and Theorem 2.4 (PDF)",
+      "arxiv:1807.03728 abstract",
+      "Published semantic database searches on exact reentrant ETDRK2 positivity and related scalar sign-loss methods",
+      "All accessible own weekly ledgers 2026-10_week1/week2/week3 (claims only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stability is an absolute-value inequality |R|<=1 and permits strictly negative R.",
+        "Energy dissipation is monotonicity of a quadratic energy, not preservation of a positive cone.",
+        "The explicit source tableau, coupled to the scalar split, yields R=q+rho²(1-q)-rho(1+rho)(1-q)²/x."
+      ],
+      "reasoning": "The source method and known stability formula make the multiplier derivable, but the existence of a *bounded* negative interval, exact two simple crossings, x_-~L+log L, x_m~L+2log L, x_+~1/rho+1, and minimum ~-rho/L require separate sign, monotonicity, and singular-balance arguments; they are not claimed in the compared source results.",
+      "searches": [
+        "Hochbruck Ostermann ETDRK2 positive decaying scalar split negative intermediate output despite unconditional stable stiff large step interval log",
+        "ETD second order scalar negative stability function between positive small and large timesteps log ratio",
+        "arxiv:2303.15861 Theorem 2.4",
+        "arxiv:2610.11532v1 Eq. (41)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2023 Theorem 2.4 states unconditional scalar linear stability for exponential RK2 when lambda>=1/2; lambda=1/(1+rho).",
+        "2026 Section 4.1 formula (41) states c2=1 ETDRK2, with general dissipation sufficient restrictions."
+      ],
+      "reasoning": "The scalar Fourier-mode heat-equation test in the 2023 source is equivalent to the scalar linear split after x=ah and rho=b/a. Its stability envelope is a prior implication and excluded; it neither states nor implies a negative sign with two zero crossings or the asymptotic scales.",
+      "searches": [
+        "Hochbruck Ostermann ETDRK2 positive decaying scalar split negative intermediate output despite unconditional stable stiff large step interval log",
+        "exponential integrator ETD2 loss of positivity initial positive decay split linear coefficients reentrant positivity window",
+        "arxiv:2303.15861 Theorem 2.4",
+        "arxiv:2610.11532v1 Equation (41)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Caliari et al. Table 1 and Theorem 2.4 classify unconditional stability cutoffs, not zeros of its scalar multiplier.",
+        "Quan et al. Table 1 lists sufficient energy-dissipation thresholds for ETDRK families, not positivity windows."
+      ],
+      "reasoning": "No located exact table of reentrant positivity-zero endpoints or their asymptotic widths/depths; the only nearby exact tables address a different property. Absence from a search is not a guarantee of global originality.",
+      "searches": [
+        "Hochbruck Ostermann ETDRK2 positive decaying scalar split negative intermediate output despite unconditional stable stiff large step interval log",
+        "exponential integrator ETD2 loss of positivity initial positive decay split linear coefficients reentrant positivity window",
+        "ETD second order scalar negative stability function between positive small and large timesteps log ratio",
+        "arxiv:2303.15861 Table 1",
+        "arxiv:2610.11532v1 Table 1"
+      ]
+    },
+    "rationale": "The 2026 full source defines the exact c2=1 ETDRK2 tableau and gives sufficient general energy-dissipation restrictions but does not present the intermediate-step scalar sign-loss interval or the logarithmic and reciprocal singular scales. The 2023 source Section 2/Theorem 2.4 already establishes the all-step linear stability region (here rho<=1) and is therefore explicitly credited, not represented as novel; unconditional stability does not imply positivity. Related positivity-preserving exponential methods use different schemes. Semantic searches of existing published findings and all accessible own ledger claims found no equivalent/sign-window implication; historical priority remains provisional.",
+    "residual_risks": [
+      "An older specialized sign-preservation analysis of the identical scalar c2=1 exponential RK2 method may exist outside inspected records.",
+      "The full 2018 different-method article was not inspected; claims based solely on its abstract are limited.",
+      "No independent historical-priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides exact method and general energy sufficient bound; not a scalar reentrant positivity-window result",
+        "evidence": [
+          "arXiv:2610.11532v1 posted 2026-10-08; Section 4.1 (41) c2-family; formula (42) sufficient-step criterion; section 5 discusses sharpness gaps."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11532v1",
+        "material_read": "Full accessible HTML, particularly introduction, equations (6)-(13), Section 4.1 equations (41)-(42), and experimental comparison section",
+        "method": "Read full HTML structure and technical paragraphs and compared assumptions/tableau and energy-dissipation statements",
+        "title": "A unified framework for original energy dissipation of equilibrium-preserving exponential Runge–Kutta methods for L2 gradient flows",
+        "trigger": "Same precise order-two exponential RK tableau and energy claim"
+      },
+      {
+        "assessment": "Already covers unconditional linear stability, deliberately excluded from novelty. Does not formulate or analyze the reentrant positivity window.",
+        "evidence": [
+          "Theorem 2.4 lambda>=1/(1+c2); c2=1 gives lambda>=1/2; Section 2 treats |Phi|<=1 and does not impose Phi>=0."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2303.15861",
+        "material_read": "Introduction, linear stability analysis pages 4-7, particularly equation (5) and Theorem 2.4 on page 6",
+        "method": "Inspected PDF page images and mathematical text, compared scalar Fourier multiplier and parameter map",
+        "title": "Accelerating exponential integrators to efficiently solve semilinear advection-diffusion-reaction equations",
+        "trigger": "Potentially dominating unconditional scalar split stability result"
+      },
+      {
+        "assessment": "Different positivity-designed scheme; abstract alone cannot exclude historical overlap in details",
+        "evidence": [
+          "arXiv:1807.03728 describes a new positivity-preserving exponential RK method for kinetic equations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1807.03728",
+        "material_read": "ArXiv abstract and description of special positivity-preserving construction",
+        "method": "Compared stated algorithm class and targeted positivity guarantee at the abstract level; full text not read",
+        "title": "A second-order asymptotic-preserving and positivity-preserving exponential Runge–Kutta method for a class of stiff kinetic equations",
+        "trigger": "Possible positive-method comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ea0c4b85-0dad-41a4-b7a6-4a4dbc12442d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Positivity and all-step energy dissipation are distinct safeguards for positive semigroup time integration. An exact bounded intermediate-step sign-failure window for a well-known second-order ETDRK method, with logarithmic onset, reciprocal closing step, and quantified minimum depth, gives practically relevant split-dependent positivity diagnostics and a structural boundary not supplied by published stability theorems; it is not a renaming or mere known stability-region computation.",
+    "status": "PASS"
+  }
+}
