@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The componentwise memory identities force equal gradient magnitudes at the two points when the second-moment decay lies strictly between zero and one; the position increments then force antipodality. The resulting self-consistency equation is exhaustively solved by sign case, including the discriminant-zero merger, with no extrapolation from finite tests. The stand-alone checker independently substitutes sample solutions into both full updates, including memory. The proof does not claim stability of the additional cycles.
+
+**Originality — PASS under accessible evidence.** The May 2026 per-coordinate RMSProp study uses rod-flow reduction and analyzes a scalar quadratic, not the coupled discrete two-cycle census. The October 2026 general quadratic study establishes existence, antipodality and local branches near corners, but its relevant theorems do not enumerate all two-dimensional symmetric-Hessian orbits; the additional noncorner branches at large learning rate require a genuinely different discriminant analysis. Scholarly searches for coupled RMSProp two-cycles, four branches and off-corner accumulation found no prior explicit classification. Adjacent adaptive-optimizer findings concern distinct update maps and do not imply the result. Residual priority risk remains for uncatalogued exact-algebra classifications.
+
+**Mathematical value — PASS.** The question is a natural complete-classification problem for an established family: whether the corner existence picture exhausts two-cycle geometry. The answer is quantitatively unexpected because four cycles survive when exactly two corner branches are guaranteed, and the extra cycles converge to boundary-edge rather than corner points. The threshold also identifies the exact algebraic mechanism for their merger, without suggesting unproven dynamical stability changes.
+
+**Limitations and priority risk.** The class requires positive off-diagonal coupling and reflection symmetry; the finding gives neither all-dimensional enumeration nor Floquet stability. The 2024 scalar RMSProp dissertation was not read exhaustively; broad exact-periodic-orbit literature may use equivalent formulations. Further independent mathematical and priority review is appropriate.
+
+Self-review: passed. Independent audit: not yet performed.
