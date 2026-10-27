@@ -1,0 +1,11 @@
+# Mathematical assessment
+
+**Correctness — PASS.** The reproducing-kernel identity gives the exact reciprocal-circle family. The strict inequality \(R'^2+RR''<1\) follows from the positive tail of a generalized binomial series; it implies strict monotonicity of the contact locus. The signs of the derivatives of the left intersection coordinates produce the precise closed or open horizontal slices. Independent asymptotic expansions give the cusp coefficient, envelope slope and two missing boundary rays. The proof treats \(0<|a|<1\) and \(|a|=1\) separately, including the tangency threshold. Finite numerical tests support the algebra but cannot replace these universal arguments.
+
+**Originality — PASS, subject to historical-priority risk.** The closest primary source is Bourdon–Le–Thompson, arXiv:2610.17634v1, whose Proposition 3.7 handles a general circle-filling mechanism for *nonconstant* linear-fractional factors and whose Section 3 gives boundary details for a rational symbol. Its Section 4 deals with affine symbols. The exact inverse-horn envelope for nonlinear monomials, the sharp coefficient and exponent, and especially the unit-modulus omitted-ray threshold are not asserted there. Cowen–Felder (arXiv:2109.12095) and Augustine–Garayev–Shankar (arXiv:2302.12547) focus on other operator/symbol families. Targeted mathematical-record and literature searches found no stronger covering claim. An older equivalent geometric calculation may exist; this risk is not eliminated by search failure.
+
+**Mathematical value — PASS.** The result completely describes a canonical infinite family not covered by the explicit range classifications in the recent motivating paper. It distinguishes pointwise boundary attainment from mere closure, exhibits an exact sharp transition at unit symbol modulus, and quantifies the otherwise qualitative corner at the norm-attaining point by an arbitrary-degree cusp exponent and coefficient. These are intrinsic operator-range invariants, not an arbitrary numerical slice.
+
+A finite numerical checker was run from the package, with 10,358 assertions passed; its scope is explicitly diagnostic. The independent publication-priority and proof audits remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
