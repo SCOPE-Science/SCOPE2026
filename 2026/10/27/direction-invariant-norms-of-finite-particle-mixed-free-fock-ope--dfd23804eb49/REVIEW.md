@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The grade-wise triangle bound gives the universal upper estimate. The proof then constructs two parity-sensitive alternating pure-tensor chains, one for each possible norming parity. On each corresponding input parity the mixed creation/annihilation operator acts exactly as the nonnegative scalar path matrix. This proves equality for all particle cutoffs, dimensions, relative directions and phases. The zero-vector endpoint and the balanced sine-spectrum specialization are explicitly treated. The standalone program verifies many finite instances, including the proposed norming vectors, but these tests are not infinite-dimensional proofs.
+
+**Originality — PASS, subject to priority risk.** Bandeira et al., arXiv:2610.01982v1, Sections 3.1 and 4, uses finite-particle Fock compressions to obtain norm bounds for selfadjoint operator pencils, not the exact two-direction norm of a possibly nonselfadjoint compressed operator. Kargin's arXiv:1305.2611 provides standard full Fock and one-direction semicircular background. Comparisons with indexed published findings on binomial weighted symmetric-Fock lattice shifts, nilpotent resolvent rearrangements and Gaussian Fock Toeplitz operators did not yield an implication-equivalent theorem. This comparison was by mathematical statement and scope, not title alone. Older unindexed equivalent calculations remain a real risk; no independent priority certification is asserted.
+
+**Mathematical value — PASS.** The invariant is a natural finite-cutoff operator norm, relevant because contemporary norm bounds explicitly operate on low-order Fock spaces. The proof reduces an exponentially growing matrix to a linear-size nonsymmetric path matrix; the exact invariance under arbitrary creator-annihilator alignment and the sharp quadratic cutoff deficit in the balanced case are substantive structural information. This is not a claimed general result for bosonic Fock spaces or multiple terms.
+
+**Limitations.** Exact largest singular value only, not full singular spectra; complete tensor Fock norm; arbitrary nonnegative lengths but unequal-length answers use finite Jacobi matrices; no independent scientific validation.
+
+Self-review: passed. Independent audit: not yet performed.
