@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "Proof reconstructed for every labeled simple cycle n>=5. Under the graph definitions, D domination iff no cyclic 111, L domination iff no cyclic 000. For n>=5 distinct zero vertices can share a nonempty L-neighborhood iff they are distance two, have one shared L neighbor and their two other neighbors both belong to D, i.e. a cyclic 00100; the special n=4 obstruction is excluded. Alternating runs have lengths 1 or 2; forbidding transition (a,b,a_next)=(2,1,2) yields the stated exact two-state transfer. Cyclic marking gives n/k even for nonprimitive periodic words. det(I-T)=1-u z²-u²(z³+z⁴+z⁵)-u³z⁶, giving exact rational derivative; subtract formal small n=2,3,4 terms. Coefficient recurrence holds n>=11 after boundary correction. Independent direct graph brute versus pattern checker and algebraic polynomial engine agree for every 5<=n<=17; all computations reproducible. Finite checks alone do not prove the unrestricted result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/ Theorem 6 proves existence for every isolate-free graph, strictly broader graph class but weaker conclusion; the construction is not a census.",
+        "https://arxiv.org/abs/2506.12933 Sections 2-4 establish classes admitting two LD sets; no all-partition weight counts.",
+        "https://arxiv.org/html/2602.18760v2 Section 3 determines maximum number of coalition blocks, not typed two-block counts."
+      ],
+      "reasoning": "Existence for all isolate-free graphs is not stronger coverage of a count of every typed partition on cycles. Two-LD-set existence restricts the admissible family and does not enumerate D/LD partitions. Coalition maxima concern a disjoint predicate. A broad arbitrary-graph transfer technique could compute similar counts if specialized, but no published version directly providing this distribution was identified.",
+      "searches": [
+        "locating domination partition cycles number ways to split vertices into dominating and locating dominating classes transfer matrix",
+        "\"dominating locating dominating\" \"cycle\" \"generating function\" partition",
+        "\"DLDS-partition\" \"cycle\" \"count\"",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/",
+        "https://arxiv.org/abs/2506.12933",
+        "https://arxiv.org/html/2602.18760v2"
+      ]
+    },
+    "checked_sources": [
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/",
+      "https://arxiv.org/abs/2506.12933",
+      "https://arxiv.org/html/2602.18760v2",
+      "https://oeis.org/A001636",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v33i1p51",
+      "https://arxiv.org/abs/2610.03131"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/ provides existence and construction but no cardinality enumerator.",
+        "https://arxiv.org/abs/2506.12933 counts neither these objects nor their cardinality spectrum.",
+        "https://arxiv.org/html/2602.18760v2 predicates exclude any LD block in a coalition partition, whereas the present objects require one.",
+        "https://oeis.org/A001636 gives the exact *univariate* numerical specialization but not its graph interpretation or bivariate coefficients."
+      ],
+      "reasoning": "The claim implies existence and the old univariate sequence after specializing u=1. The previous existence theorem and generic numerical sequence do not imply the new full cardinality spectrum. The stronger two-LD question and coalition partition numbers do not dominate the claim because their admissibility predicates differ. The assessed innovation is explicitly restricted to the new graph/word equivalence and bivariate refinement, not the transfer-matrix technique or OEIS recurrence. The familiar LD gap restriction noted in the coalition paper is also prior, but imposing the second domination class and deriving the complete size distribution still requires a new combined count.",
+      "searches": [
+        "exact count of partitions of cycles into dominating set and locating-dominating set, n-cycle C_n, binary words avoiding 000 111 00100, rational generating function denominator 1-z^2-z^3-z^4-z^5-z^6",
+        "bivariate cardinality generating polynomial count of disjoint dominating and locating-dominating partitions of cycle graphs C_n by size of locating class, cyclic binary avoid 000 111 00100",
+        "\"locating dominating partition\" \"polynomial\" cycles",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/",
+        "https://arxiv.org/abs/2506.12933",
+        "https://arxiv.org/html/2602.18760v2",
+        "https://oeis.org/A001636"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/ Theorem 6 and Section 3: existential, constructive arbitrary-graph DLDS result.",
+        "https://arxiv.org/abs/2506.12933 gives LD/LD vertex partitions, not typed DLDS all-count.",
+        "https://arxiv.org/html/2602.18760v2 Definition 1.2: all coalition blocks must be non-LD."
+      ],
+      "reasoning": "Checked aliases DLDS, D/LD partitions, locating-domatic (both classes LD), locating coalition partition and cyclic word avoidance. The two named other partition problems have different quantifiers on the classes; no equivalence to the present bivariate all-count is implied. The forbidden-factor characterization itself establishes an explicit new equivalence.",
+      "searches": [
+        "exact count of partitions of cycles into dominating set and locating-dominating set, n-cycle C_n, binary words avoiding 000 111 00100, rational generating function denominator 1-z^2-z^3-z^4-z^5-z^6",
+        "bivariate cardinality generating polynomial count of disjoint dominating and locating-dominating partitions of cycle graphs C_n by size of locating class, cyclic binary avoid 000 111 00100",
+        "Fielder sequence A001636 is domination locating cycle partition count, refined bivariate generating function 1-u z^2-u^2(z^3+z^4+z^5)-u^3 z^6",
+        "https://arxiv.org/abs/2506.12933",
+        "https://arxiv.org/html/2602.18760v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://oeis.org/A001636 records the numbers 0,2,3,6,10,17,21,38,57,92,... as the Fielder sequence A001636; provides rational generating function and order-six recurrence, sourced to older works (1973 and 1992).",
+        "Direct finite calculation gives for n=5,6,7,8,9,10 typed cycle counts 10,17,21,38,57,92.",
+        "The bivariate coefficient distributions are P_5(u)=5u^2+5u^3 and P_6(u)=14u^3+3u^4, information not present in the cited generic sequence entry."
+      ],
+      "reasoning": "A direct exact match to OEIS A001636 was found and explicitly credited. Thus neither the numeric sequence nor its univariate recurrence is claimed as new. The claimed graph-theoretic characterization and cardinality-refined two-variable polynomial are not logically covered by a one-variable abstract integer sequence, which cannot recover the per-size coefficients.",
+      "searches": [
+        "dominating locating dominating partitions C_n 10 17 21 38 57 92",
+        "Fielder sequence A001636 is domination locating cycle partition count, refined bivariate generating function 1-u z^2-u^2(z^3+z^4+z^5)-u^3 z^6",
+        "https://oeis.org/A001636",
+        "\"10, 17, 21, 38, 57, 92\"",
+        "\"2, 3, 6, 10, 17, 21, 38, 57, 92\""
+      ]
+    },
+    "rationale": "The novel assessed object is the full vertex-cardinality-refined polynomial for typed domination/locating-domination cycle partitions and its exact binary-word classification. Chakraborty et al. (2026) prove existence and a polynomial algorithm for arbitrary isolate-free graphs (Theorem 6, Section 3) but do not enumerate all partitions or refine by |L|. Foucaud et al. treat two locating-dominating classes, not the typed D/L statistic. Chellali et al. treat coalition partitions in which *no* block is locating-dominating, the logical opposite of the requirement on L here. OEIS A001636 contains the univariate total sequence and an already-published rational generating function; this portion is explicitly conceded as previously known and is not the asserted novel contribution. Neither that generic integer sequence nor its recurrence records the graph interpretation or distribution of |L|. No equivalent bivariate graph-class result was encountered in the inspected primary texts or semantic searches; unindexed broader combinatorial transfer results remain a genuine risk. The coalition paper already uses classical no-consecutive-two-gaps constraints for LD sets of cycles; no novelty is claimed for that local fact alone.",
+    "residual_risks": [
+      "Full earlier graph enumeration of these same typed partitions may exist under unsearched terminology or in inaccessible/unindexed literature.",
+      "The univariate sequence, denominator and conventional transfer-matrix method are known; originality is limited to the cycle DLDS interpretation and new bivariate refinement.",
+      "The 2025 two-LD-set article was reviewed in HTML rather than an independently typeset PDF; an overlooked appendix or later revision cannot be ruled out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes existence and algorithm but not exact enumerator or cyclic forbidden-factor classification.",
+        "evidence": [
+          "Theorem 6 and Corollary 7 on pages 4-5",
+          "Claims 8-12 and algorithm on pages 6-9",
+          "Page 1 publication line 2026-03-13"
+        ],
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v33i1p51/pdf/",
+        "material_read": "Entire 12-page author journal PDF searched for cycles and enumeration; read Introduction, Main Results Theorem 6, constructive Section 3 including Claims 8-12, algorithm and conclusions; dated first journal publication 2026-03-13 on article page.",
+        "method": "Publisher-author open PDF full-text, checked rendered first page and relevant complete sections.",
+        "title": "A Note on Partitioning the Vertex Set of a Graph into a Dominating Set and a Locating Dominating Set",
+        "trigger": "Exact DLDS property and general theorem could imply the cycle case."
+      },
+      {
+        "assessment": "Its classes are partitions into two locating-dominating sets, not a complete cycle census of one dominating and one LD class.",
+        "evidence": [
+          "Abstract and introduction Questions 1, Theorem 2.1",
+          "Section 3 Theorem 3.1",
+          "First arXiv posting 2025-06-15"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2506.12933",
+        "material_read": "Accessible full arXiv HTML introduction, definitions, Theorem 2.1 and Section 3 constructions for maximal outerplanar graphs; scan remaining sections and exact enumeration terminology.",
+        "method": "Open preprint full-text HTML.",
+        "title": "Locating-dominating partitions for some classes of graphs",
+        "trigger": "An apparently stronger partition theory might imply the typed D/L cycle count."
+      },
+      {
+        "assessment": "An LDC coalition partition requires every part to be non-LD, whereas a DLDS partition requires L to be LD; the counted families cannot coincide.",
+        "evidence": [
+          "Definition 1.2 and Theorem 3 cycle discussion",
+          "Section 3 equation defining coalition partition maximum",
+          "First posting 2026-02-21"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2602.18760v2",
+        "material_read": "Read definitions 1.1-1.2, full Section 3 cycle coalition results, abstract and Section 2, and inspected proof statements to compare predicates.",
+        "method": "Full primary arXiv HTML 2602.18760v2.",
+        "title": "Locating-dominating coalitions in graphs",
+        "trigger": "Section 3 explicitly treats cycles and a figure mentions all partitions of cycles."
+      },
+      {
+        "assessment": "Univariate numerical sequence covered; bivariate vertex-cardinality spectrum and typed graph interpretation not provided.",
+        "evidence": [
+          "OEIS A001636 initial terms and formal recurrence",
+          "Fielder 1968 and Sloane 1973 references",
+          "Univariate generating function entry"
+        ],
+        "identifier_or_url": "https://oeis.org/A001636",
+        "material_read": "Read whole OEIS entry including full displayed terms, references, recurrence and generating functions.",
+        "method": "OEIS sequence page, including exact table and formula lines.",
+        "title": "OEIS A001636: A Fielder sequence",
+        "trigger": "Exact first ten total coefficients matched a known older integer sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5288977-75cb-4bdc-ae08-4a8631b8e8d0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "New 2026 general theorem assures a typed D/LD partition exists for every isolate-free graph but does not quantify possible choices. The cycle size distribution is a complete natural infinite-family classification, tracking the locating-set cardinality central to the definition. The three exact forbidden local obstructions give a structural code for every valid partition; the bivariate rational expression gives each coefficient for arbitrary n and a size-recursive enumerator. The 1973 Fielder univariate sequence happens to coincide, but its coefficients cannot recover the graph interpretation or cardinality-refined distribution. The bounded extra variable is motivated by the graph invariant rather than an arbitrary slice.",
+    "status": "PASS"
+  }
+}

@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The graph-theoretic characterization establishes equivalence of the two domination conditions with cyclic avoidance of `000` and `111`, and of the locating condition with avoidance of `00100` for cycles with at least five vertices. The two-run transfer tracks all legal binary words and exactly records locating-set cardinality. The logarithmic determinant identity accounts for labeled cyclic words with possible periodicity. Expanding the determinant proves the displayed rational generating function for all lengths, with explicit removal of shorter-word terms. Independent exhaustive simulation through length seventeen and a separate integer-polynomial recurrence check agree.
+
+**Originality — PASS, with literature risk.** The motivating journal's Theorem 6 and Section 3 give existence and an algorithm for a valid partition, not the complete cardinality-refined count on cycles. The inspected two-locating-class paper gives structural existence results, not this typed census. The inspected coalition-partition paper explicitly forbids any block to be locating-dominating and is therefore about a different object, despite its cycle results. Earlier OEIS A001636 gives the same total coefficient sequence and its rational function; this preexisting *univariate* sequence and recurrence are expressly credited. The combined D/LD word characterization and its bivariate size refinement were not found in the checked sources. Broader, unindexed enumeration results remain a genuine risk.
+
+**Value — PASS.** Complete structural and cardinality-refined enumeration for a natural infinite graph family is a meaningful quantitative strengthening of the newly studied existence question: it distinguishes how many valid partitions use each locating-set size and gives a fixed-order recurrence and exact finite-state model. The extra variable is not an arbitrary specialization; the cardinality of a locating-dominating set is the central parameter of this literature. A coincident older integer sequence does not determine that refinement or its graph interpretation.
+
+Independent verification has not been performed. The mathematical proof, not the finite tests alone, supports unrestricted validity.
+
+Self-review: passed. Independent audit: not yet performed.
