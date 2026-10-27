@@ -1,0 +1,113 @@
+{
+  "claim": "For every integer \\(T\\ge2\\), let \\(N(T)\\) count distinct nondegenerate Lucas sequences \\(U_0=0,\\ U_1=1,\\ U_{n+2}=AU_{n+1}-BU_n\\), with \\(A,B\\in\\mathbb Z\\) and both roots of \\(x^2-Ax+B\\) in \\(|z|\\le T\\). Then \\(N(T)=4T^3-2T^2-2T-2\\lfloor T/\\sqrt2\\rfloor-2\\lfloor T/\\sqrt3\\rfloor\\).",
+  "correctness": {
+    "rationale": "The root-bound criterion is proved in both directions. The integer-point count is exact, the \\(AB=0\\) union is counted once at the intersection, and all possible root-of-unity orders in a quadratic field are classified. The repeated-root family is included separately. The resulting subtraction gives the stated formula for every integer \\(T\\ge2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hajdu–Tijdeman Theorem 2.2 gives upper and lower polynomial bounds; Remark 2 improves the integer-radius lower bound to \\(4T^3-9T^2\\) but does not give the exact count.",
+        "Akiyama–Pethő study the distribution/volume of real-coefficient polynomials with bounded roots; the accessible abstract does not present the integer Lucas-parameter count."
+      ],
+      "reasoning": "The exact formula is narrower in its radius parameter (integer \\(T\\ge2\\)) but stronger numerically than the prior bounds on that same object. The real-coefficient volume results do not directly cover the discrete Lucas-sequence count. Full text for the latter related paper was not accessible, so it remains a limited residual risk rather than evidence of coverage.",
+      "searches": [
+        "https://arxiv.org/abs/2408.04982",
+        "https://doi.org/10.2969/jmsj/06630927",
+        "\"number of Lucas sequences\" \"bounded roots\" Hajdu Tijdeman exact formula"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2408.04982",
+      "https://arxiv.org/pdf/2408.04982",
+      "https://link.springer.com/article/10.1007/s11139-025-01041-6",
+      "https://doi.org/10.2969/jmsj/06630927",
+      "https://arxiv.org/abs/2408.04982",
+      "https://link.springer.com/article/10.1007/s11139-025-01041-6",
+      "https://doi.org/10.2969/jmsj/06630927"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The arXiv and published versions give bounds in Theorem 2.2; the published Remark 2 improves the integer-radius lower bound to \\(4T^3-9T^2\\). Neither states the closed formula for integer \\(T\\).",
+        "The proof here counts the exact region \\(|B|\\le T^2\\) and \\(|A|T\\le T^2+B\\), then subtracts \\(AB=0\\) and all root-of-unity cases, including repeated roots."
+      ],
+      "reasoning": "The prior inequalities do not entail the exact floor expression. The expression follows from a direct integer-point sum and a complete degree-at-most-two root-of-unity classification. Because the derivation is elementary, unindexed prior derivations remain possible; no decisive same-claim coverage was found.",
+      "searches": [
+        "https://arxiv.org/abs/2408.04982",
+        "https://link.springer.com/article/10.1007/s11139-025-01041-6",
+        "\"4t^3\" \"Lucas sequences\" bounded roots exact count",
+        "\"number of Lucas sequences\" \"bounded roots\" Hajdu Tijdeman exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hajdu–Tijdeman, Theorem 2.2, studies the same bounded-root parameter count but states two-sided bounds rather than the exact integer-radius formula.",
+        "The published version improves its lower bound for integer radii in Remark 2, but still does not state an exact count.",
+        "The closest indexed records concern entry-point bias, period equality, and other recurrence invariants, not this parameter count."
+      ],
+      "reasoning": "The claim is an exact count of parameter pairs/sequences under a root-modulus cutoff. No equivalent exact floor formula was returned by the semantic searches. The closest primary source treats the same object, so it is the controlling comparison; the inspected theorem does not state or imply the exact count from its inequalities alone.",
+      "searches": [
+        "\"4t^3\" \"Lucas sequences\" bounded roots exact count",
+        "\"non-degenerate Lucas sequences\" \"4t^3\" count",
+        "\"number of Lucas sequences\" \"bounded roots\" Hajdu Tijdeman exact formula",
+        "https://arxiv.org/abs/2408.04982"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact count table or database entry was identified in the literature sources inspected; the closest related papers address different Lucas-sequence invariants."
+      ],
+      "reasoning": "A canonical table is not the appropriate evidence type for this infinite parameter-counting function. The claim is established by a closed formula and proof, not by a lookup table; this check is therefore inapplicable beyond the recorded semantic searches.",
+      "searches": [
+        "\"4t^3\" \"Lucas sequences\" bounded roots exact count",
+        "\"non-degenerate Lucas sequences\" \"4t^3\" count",
+        "\"number of Lucas sequences\" \"bounded roots\" Hajdu Tijdeman exact formula"
+      ]
+    },
+    "rationale": "The closest primary paper treats the same counting problem but provides bounds, including a stronger integer-radius lower bound \\(4T^3-9T^2\\) in its published version, not this exact formula. Literature searches returned related Lucas-sequence results but no matching exact parameter-count formula. This is a self-review originality assessment, not an exhaustive novelty guarantee.",
+    "residual_risks": [
+      "No exhaustive search of all historical literature was possible; an unindexed derivation of the elementary exact count may exist.",
+      "The related bounded-root polynomial-distribution paper was only inspected at abstract level; no claim is made that its full text was excluded as covering the result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest prior source. The arXiv version gives upper/lower bounds; the published version improves the integer-radius lower bound to \\(4T^3-9T^2\\) in Remark 2. Neither inspected version states the exact formula. Lemma 4.1 handles nonzero-discriminant root-of-unity cases; the repeated-root family must also be removed.",
+        "evidence": "Theorem 2.2 and Section 4; first public submission date 2024-08-09.",
+        "identifier_or_url": "https://arxiv.org/abs/2408.04982",
+        "material_read": "Full accessible arXiv PDF/text, including the definition of nondegeneracy, Theorem 2.2, Lemma 4.1, and Section 4 proof of the root-bounded count; the published HTML version was also inspected.",
+        "method": "Compared the exact parameter domain, root-modulus cutoff, nondegeneracy convention, and stated conclusion with the proposed formula.",
+        "title": "Integers represented by Lucas sequences",
+        "trigger": "Theorem 2.2 counts nondegenerate Lucas sequences with bounded characteristic roots, the same underlying object."
+      },
+      {
+        "assessment": "The published version still states upper/lower bounds and improves the integer-radius lower bound to \\(4T^3-9T^2\\); it does not state the exact count.",
+        "evidence": "Theorem 2.2, Remark 2, and Section 4.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11139-025-01041-6",
+        "material_read": "Full accessible HTML text through Section 4, including Theorem 2.2, Remark 2, and the proof of the bounded-root count.",
+        "method": "Checked the published statement and its integer-radius remark against the proposed exact formula.",
+        "title": "Integers represented by Lucas sequences (published version)",
+        "trigger": "The journal version may contain changes beyond the arXiv preprint and explicitly discusses integer radii."
+      },
+      {
+        "assessment": "Related geometric context about real-coefficient polynomial root regions, but the available material does not establish coverage of the discrete nondegenerate Lucas-parameter count. It cannot be used to rule out an unobserved connection.",
+        "evidence": "The available abstract describes volumes/distributions of contractive real-coefficient polynomials.",
+        "identifier_or_url": "https://doi.org/10.2969/jmsj/06630927",
+        "material_read": "Title and abstract only; full text was not accessible in this session.",
+        "method": "Compared the stated subject and mathematical object from the available bibliographic record.",
+        "title": "On the distribution of polynomials with bounded roots, I. Polynomials with real coefficients",
+        "trigger": "Related literature on coefficient spaces with a bounded-root condition."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dc778b1c-2925-4b5b-87c3-5d7bf36148aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of integer Lucas recurrences under a root-modulus bound is a natural parameter-counting invariant. The exact formula resolves the count at every integer radius, improving the previously published two-sided bounds for this same object and making the contribution of the repeated-root and cyclotomic degeneracies explicit.",
+    "status": "PASS"
+  }
+}
