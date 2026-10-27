@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The cap multipliers follow by normalized Funk--Hecke integration and an explicit Gegenbauer identity; the quadratic spectral expression follows by composition. The Darboux asymptotic and Weyl equidistribution show a positive limiting density of negative modes for every indefinite mixing matrix at rationally independent radii. Antipodal complementarity gives an exact even/odd reduction, making the three cone inequalities necessary and sufficient. The strict-definiteness statements follow from positive degree sets in both parities and the standard spherical criterion. The standalone finite checks corroborate the identities but do not replace these arguments.
+
+**Originality — PASS, within bounded comparison.** Ziegel's cap self-convolution, Beatson--zu Castell's exact single-cap multipliers and strict-positivity arguments, and Gribov--Krivoruchko's cross-cap covariance formula were inspected. The last work restricts to feature-weight products, which give positive-semidefinite mixing matrices, so its conclusion does not imply the signed complementary-cone classification. The generic necessity theorem and its two-parity negative spectral-density formula were not identified in the inspected primary sources or targeted database searches. Equivalent unpublished or differently named derivations remain a residual risk.
+
+**Mathematical value — PASS.** The natural two-scale cap-covariance construction has a sharp structural distinction: generic aperture pairs require a positive-semidefinite coefficient matrix, whereas complementary pairs admit a provably larger cone with negative individual weights. The result gives exact admissibility, strict admissibility, a concrete covariance example, and a density diagnostic for invalid kernels, all of direct use when combining spherical support filters.
+
+**Limits and closest literature.** The proof does not cover the full family of arithmetically dependent noncomplementary angles or the circle. The finite checker neither certifies the asymptotic nor establishes novelty. Closest relevant sources are arXiv:1201.5833, arXiv:1510.08658, arXiv:1111.7077, and arXiv:1701.03405; the final source shares the same geometric building blocks but only a narrower coefficient class.
+
+Self-review: passed. Independent audit: not yet performed.
