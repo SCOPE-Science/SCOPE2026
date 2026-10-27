@@ -1,0 +1,23 @@
+# Self-review
+
+## Correctness — PASS
+
+For the positive diffusivity \(d_b(u)=1+b u(2-u)\) and the cubic strong-Allee source, the chosen decreasing front has a unique speed for each admissible parameter. Drábek and Zahradníková's full-text Theorem 4.12 and Remark 4.13 support the nonzero-speed existence and uniqueness statements; at the Maxwell equality a direct decreasing quadrature covers the stationary front. Multiplying the wave equation by \(d_b(U)U'\) gives the exact weighted-area identity, with numerator \([5+4b-(10+7b)a]/60\). The phase-fixed front branch is smooth in small \(b\) by hyperbolic-manifold intersection and an adjoint nondegeneracy integral. Differentiating the wave equation yields a solvability integral; the explicit unperturbed profile converts that integral to three moments of \(\operatorname{Beta}(1+2a,3-2a)\). They reduce to \(\sqrt{2}(1+2a)(4a^2-17a+9)/60\) in normalized units. The resulting unique in-range sign reversal is \(a_*=(17-\sqrt{145})/8\). No finite computation is used in lieu of the global analytic proof.
+
+The attached verification program was run from its actual included source file. It checks the exact polynomial identity with rational coefficients, three symmetric boundary-value sensitivity computations, two nonzero-crowding exact stationary cases and the threshold location. Finite precision, two-sided tail truncation and the restrictions of a local sensitivity result are explicitly disclosed.
+
+## Originality — PASS, subject to documented primary-access risk
+
+The full text of Li, Buenzli and Simpson (first public preprint 2021-12-21, arXiv:2112.10989) gives precisely the crowding-derived diffusivity and numerical extinction/survival comparisons, but not an evaluated front-speed derivative. The full text of Drábek and Zahradníková (EJDE 2021/76) proves a *general* traveling-wave uniqueness theorem and weighted integral speed-sign law. Those results cover existence and the generic direction identity, which are used rather than claimed new; their statements do not evaluate the derivative for this individual-level crowding law or the sharp Allee-value reversal. The full Petrovskii--Li (2003) author-deposited text instead treats a constant diffusion coefficient coupled to density-dependent *advection*, a different operator, and its exact fronts do not imply the claimed flux-diffusion coefficient. Li and colleagues' 2020 negative-diffusion front study treats logistic growth with sign-changing diffusivity and does not establish this uniformly positive-diffusion strong-Allee sensitivity.
+
+The relevant indexed research records and accessible historical claims were searched for the precise diffusivity, its equivalent crowding law, the speed derivative, matching critical algebraic root, and broader formulas. The 1996 Strier--Zanette--Wio article is relevant to bistable fronts with density-dependent diffusivity but uses abruptly changing diffusion and piecewise-linear kinetics according to accessible materials; its complete text could not be obtained. The 2023 Tsai paper's accessible abstract/figures concern minimal-speed determinacy of migration/advection population fronts, rather than the unique-speed bistable flux model; its complete primary text could not be read. Equivalence hidden in those articles or elsewhere cannot be ruled out categorically and is a documented residual risk, rather than a novelty proof from unsuccessful searches.
+
+## Mathematical value — PASS
+
+The precise sensitivity sign is a motivated population-front question not answered by knowing whether a wave exists or which direction it propagates. The threshold \(a_*\approx0.6198\) differs from the ordinary advance/retreat boundary \(a=1/2\), revealing an interval \(1/2<a<a_*\) where increased individual-level crowding-driven motility actually slows population retreat, followed by a strong-Allee interval where it accelerates retreat. This sign reversal is a structural, parameter-sharp distinction for a natural model derived from a microscopic motility law, and the exact expression is required to identify it. The weighted-area threshold is included for biological interpretation, but not presented as a generally new method.
+
+## Limits of the claim and comparison
+
+The coefficient is only the first derivative at zero crowding parameter with fixed \(a\). The vanishing first derivative at \(a=a_*\) does not determine second-order behavior. The assertion concerns a continuum PDE, not stochastic persistence or finite-strip inocula. The two incompletely accessible plausible papers and any unindexed equivalent perturbation calculation remain originality risks; no independent audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
