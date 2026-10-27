@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For four distinct real reports, enumerate all six weighted pair costs to obtain N/Z and prove OPT=min(a+b,a+c,b+c) by contiguous median clustering. A reflection reduction and five explicit algebraic positive expressions certify 2 OPT Z-N>0 for all positive gaps. The profile (a,b,c)=(1,1,L) produces ratio (12L+13)/(6L+14) increasing toward 2, proving sharpness and nonattainment. A standard-library rational-arithmetic program passed 32015 supplementary assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma and Peng, arXiv:2608.09061, approximation analysis: Global Pair has a sharp factor 4 over all population sizes.",
+        "Chan et al., arXiv:2608.22484, Theorem 2 and Section 3.2: broad four-factor component bound and improved fixed mixtures.",
+        "Jia, arXiv:2608.19633, abstract: general factor 2k for Product-Gap, specializing to 4 for two facilities."
+      ],
+      "reasoning": "The broad inequality E[C]/OPT<=4 does not imply the stronger fixed-size bound <=2; tightness of 4 involves different, growing-size profiles. The fixed four-agent bound is proved directly for the same rule. Any unpublished stronger n-dependent bound remains a genuine risk.",
+      "searches": [
+        "\"four\" \"pairwise distance\" \"two facilities\" \"approximation ratio\"",
+        "\"Global Pair\" \"n=4\" 2026 \"two-facility\"",
+        "site:arxiv.org/abs/2609 \"facility location\" strategyproof mechanism"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.09061",
+      "arxiv:2608.19633",
+      "arxiv:2608.22484",
+      "https://arxiv.org/html/2608.22484",
+      "https://arxiv.org/abs/2608.09061",
+      "https://arxiv.org/abs/2608.19633"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A deterministic Two-Extremes mechanism for four agents has approximation factor 2 (referenced in Ma and Peng, arXiv:2608.09061, Introduction), but it opens endpoints rather than a distance-weighted random pair.",
+        "Ma and Peng and Chan et al. supply general mechanism properties but no implication forcing an exact factor 2 at four agents in the inspected sections."
+      ],
+      "reasoning": "The exact factor 2 for another deterministic mechanism does not imply it for random pair selection: the latter sometimes samples interior pairs and incurs much greater cost on a single outcome. The derived six-pair expectation and strict polynomial certificate establish a different guarantee. Prior three-agent and k+1 Product-Gap results cannot be substituted because of different population/facility parameters.",
+      "searches": [
+        "\"Global Pair\" \"four agents\" \"approximation\" \"2\"",
+        "\"four agents\" \"Product-Gap\" \"approximation\"",
+        "two-facility random distance proportional pairs finite population 4 minimum social cost"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ma and Peng, arXiv:2608.09061, Section 3.1 defines Global Pair by distance-proportional unordered-pair selection.",
+        "Chan et al., arXiv:2608.22484, Sections 2–3 introduce Pairwise-Distance with that same probability rule.",
+        "Jia, arXiv:2608.19633, abstract describes Product-Gap; its two-facility specialization weights a pair by the single interpoint gap."
+      ],
+      "reasoning": "The three differently named rules have identical sampling probabilities on the real line for two facilities. The new claim concerns their exact four-distinct-agent welfare ratio; alias searches found no equivalent four-agent theorem in the available result summaries. Identifying the same rule is not itself proof of novelty.",
+      "searches": [
+        "Global Pair proportional sampling unordered facility pairs n=4 four distinct agents on line exact worst-case 2 approximation upper bound",
+        "pairwise distance mechanism 4 agents two facilities exact approximation ratio 2",
+        "\"four agents\" \"Global Pair\" \"approximation\" \"2\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-results searches (150 hits for each of several exact and alias queries) primarily returned unrelated four-agent assignment, voting and metric results; none stated a four-agent pairwise-facility-cost bound.",
+        "Compared three-agent inverse-power omission results and k+1-agent Product-Gap results concern different parameter regimes and do not state this four-agent two-facility result."
+      ],
+      "reasoning": "No exact table or catalogued result with the same four-agent model, probability weights and ratio was identified. Index coverage and search ranking are incomplete; absence of a hit is not a uniqueness certificate.",
+      "searches": [
+        "Pairwise-Distance mechanism four agents two facilities expected social cost minimum gap sharp finite n",
+        "two-facility four-voter metric pairwise-distance sampling welfare four agent exact upper bound",
+        "Product Gap pairwise distance two centers four agents line price of anarchy bounded by 2"
+      ]
+    },
+    "rationale": "The materially inspected primary results establish the pairwise-distance mechanism and its global factor 4, not the claimed fixed-four-agent factor 2; a deterministic endpoint mechanism has an unrelated factor 2. Direct comparison of probability law, quantitative bound and parameter scope gives no implication. A high-relevance third preprint remains incompletely inspected, recorded as a priority risk rather than misclassified as not covering.",
+    "residual_risks": [
+      "The full manuscript of Jia (arXiv:2608.19633) was not accessible; its abstract is not enough to exclude a hidden four-agent remark or appendix theorem.",
+      "Unindexed, differently named or non-English finite-population analyses might already imply or state the result.",
+      "Semantic result searches do not establish publication priority or uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the same mechanism; provides broad factor 4 and mixture claims, not the fixed-four-agent factor 2 in inspected material.",
+        "evidence": [
+          "Global Pair samples unordered pairs with probability proportional to distance; Section 3.2 bounds its social cost by dispersion and establishes broad ratio 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.09061",
+        "material_read": "Available full-text rendering: Introduction, Definition 3.1, Section 3.2 approximation and surrounding discussion of population-independent factor 4 and mixture.",
+        "method": "Primary arXiv full-text HTML rendering.",
+        "title": "Breaking the 4-Approximation Barrier in Strategyproof Two-Facility Location",
+        "trigger": "Introduces Global Pair with exactly the sampled pair distribution of the claim."
+      },
+      {
+        "assessment": "Global 4-factor bound and asymptotic tightness do not imply or state the four-agent exact 2-factor frontier.",
+        "evidence": [
+          "Theorem 2 and Section 3.2 analyze population-independent approximation; Section 3.3 constructs growing-population tightness families."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.22484",
+        "material_read": "Introduction, definitions, Section 3.2 cost analysis, 3.3 tightness, conclusion; specific passages around full-population factor 4 and sample normalization.",
+        "method": "Primary arXiv HTML full text.",
+        "title": "Randomized Strategyproof Facility Location: Two Facilities and Beyond",
+        "trigger": "Independently studies the identical pairwise-distance rule and global tightness."
+      },
+      {
+        "assessment": "Abstract establishes factor 4 over arbitrary population sizes. No whole-document negative coverage conclusion is drawn; specific possible fixed-size overlap remains a risk.",
+        "evidence": [
+          "Abstract: Product-Gap selects k reported locations weighted by products of consecutive gaps and has tight global factor 2k."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.19633",
+        "material_read": "Primary abstract and lawful third-party summary; full manuscript not retrieved.",
+        "method": "Read available abstract and open-access summary; attempts to retrieve the full manuscript by arXiv and lawful access routes were unsuccessful.",
+        "title": "Product Gap Mechanisms for Multi-Facility Location",
+        "trigger": "Two-facility Product-Gap is the identical rule and may contain finite-population material."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f145a35e-9875-4560-84b9-1ad24772739a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For two facilities, four agents are the first size with two unselected agents in each sampled outcome; quantifying the associated sharp welfare loss is a natural smallest genuinely multi-unserved benchmark. The exact 2 versus global 4 bound, strict nonattainment and outlier construction show how the probability-cost tradeoff behaves and can support later n-dependent analyses. The result is not based solely on numerical correctness or novelty, and does not claim incentives beyond existing literature.",
+    "status": "PASS"
+  }
+}
