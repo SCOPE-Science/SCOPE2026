@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Gaussian Laguerre expansion gives an exact covariance (including the diagonal), and Parseval isolates a rigorously quantified first-chaos term. Abel/summation-by-parts Fourier bounds and weighted Riemann sums prove the alpha<1/2 constant, fixed-parameter first-chaos dominance through alpha=1, positive limiting variance for alpha>1, and both compact-uniform 1/log n critical windows. The proof establishes all quantifiers, endpoints and integral convergence. FFT/Parseval and independent root-based Monte Carlo checks corroborate but are not used in place of analytic estimates.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kiro–Nishry, arXiv:1911.13051, Theorem 1.4 concerns zero counts of Gaussian entire series under admissibility, not boundary log means of truncated power-weighted polynomials.",
+        "Kabluchko–Khoruzhenko–Marynych, arXiv:2511.12302, main results concern zero distributions for regularly varying coefficients."
+      ],
+      "reasoning": "Those theorems do not assert or quantitatively imply the five exact leading variance constants and the two normalized lambda-window functions. A general covariance identity supplies a method but not the asymptotic consequences; the nonuniform first-chaos/higher-chaos transition requires additional estimates.",
+      "searches": [
+        "Gaussian analytic function logarithm circle average 1/f noise variance critical exponent",
+        "random polynomial Gaussian logarithmic Mahler measure weighted coefficients variance asymptotics",
+        "\"logarithmic Mahler\" \"weighted Kac\" fluctuations"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1911.13051",
+      "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12457",
+      "https://arxiv.org/html/2511.12302",
+      "https://arxiv.org/abs/2610.11324",
+      "Exact prior unweighted Jensen/Mahler mean claim, scope alpha = 0 only (private source comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kiro–Nishry §3.1 formulas (3.1)–(3.2) evaluate variance of zero number using differentiated Gaussian covariance; their Appendix gives underlying dilogarithm.",
+        "Kabluchko et al. Section 4.4 evaluates expected on-circle roots in the self-inversive model, not the same random variable.",
+        "The 2026 indexed radial-zero work discusses concentration of Jensen averages for unweighted Kac polynomials; its full text could not be inspected here."
+      ],
+      "reasoning": "The current claim is about the variance of the Jensen mean of a finite power-weighted Gaussian polynomial as degree grows. The cited zero-count theorems concern radial derivatives or zero point processes and do not imply its precise variance. Unweighted mean concentration is not equivalent to the positive-exponent variance law. The inaccessible 2026 source remains a named risk; no negative whole-document conclusion is drawn from its abstract.",
+      "searches": [
+        "\"Fluctuations for zeros of Gaussian Taylor series\" variance logarithm",
+        "\"On the distribution patterns of zeros for random polynomials with regularly varying coefficients\" variance",
+        "\"Universal Radial Laws for Random Polynomials\" Jensen logarithmic concentration"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kiro–Nishry, arXiv:1911.13051, §3.1 and Appendix derive the logarithmic covariance and zero-count variance machinery.",
+        "The earlier unweighted Gaussian-polynomial logarithmic Mahler case gives a fixed exponent-zero benchmark, not positive weight-exponent regime changes."
+      ],
+      "reasoning": "A Jensen circular logarithmic mean is equivalent to the logarithmic Mahler measure of the same polynomial. The fixed exponent-zero benchmark is covered and explicitly excluded from claims of novelty; it does not imply the alpha-dependent five regimes or either moving-exponent crossover. Kiro–Nishry study the derived zero count, not the truncation-index variance law for this Jensen mean.",
+      "searches": [
+        "\"variance\" \"Mahler measure\" \"Gaussian\" \"weighted\" \"polynomial\"",
+        "\"Jensen average\" \"Gaussian\" \"random polynomial\" \"variance\" weights",
+        "Jensen mean of weighted Gaussian random analytic polynomials with power-law coefficient variances, dilogarithm covariance, log Mahler variance transition at alpha one half"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible search records include results on unrelated Gaussian phase transitions and random unimodular fourth-moment variances but no exact table of the weighted Gaussian log-Mahler variance phases.",
+        "The exact unweighted parameter-zero formula has a different scope and is not rediscovered here."
+      ],
+      "reasoning": "A negative database search is not a novelty proof. The closest exact datum is the alpha-zero specialization; it does not determine the strict positive-alpha thresholds or double-scaling windows. No matching exact table of the full parameterized result was located.",
+      "searches": [
+        "Power-law coefficient Gaussian random polynomial logarithmic Mahler measure variance phase transition at exponent one half",
+        "Circular logarithmic mean of Gaussian Taylor polynomial with j^{-alpha} covariance phase diagram of variance and critical windows",
+        "\"Mahler measure\" \"Gaussian\" \"power law\" coefficients polynomial variance"
+      ]
+    },
+    "rationale": "The relevant inspected zero-count and regularly-varying-zero-process theories do not state or imply the power-weighted Gaussian Jensen-variance phase diagram and both explicit crossover functions. The alpha=0 specialization is excluded from novelty claims; its stronger known expansion is consistent with, but does not dominate, the parameter-dependent regimes. The remaining possible historical-priority uncertainty is documented, especially an inaccessible 2026 Jensen-based paper.",
+    "residual_risks": [
+      "Potential earlier Jensen-functional statements under terminology not indexed as Mahler measure.",
+      "The complete text of arXiv:2610.11324 was unavailable in this session, so its full coverage of Jensen-average fluctuations was not established; accessible material treats unweighted polynomial concentration.",
+      "A general Gaussian covariance formula is shared with prior literature, so novelty rests on the derived sharp profile and two critical windows, not on the covariance identity alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the weighted Jensen-mean phase diagram; supplies common covariance technology.",
+        "evidence": "Theorem 1.4 is formulated for variance of zero count as radius changes in analytic series; §3.1 differentiation yields zero-count variance, while the present claim is an undifferentiated angular-logarithm variance with polynomial degree going to infinity.",
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/jlms.12457",
+        "material_read": "Open-access full-text HTML: abstract and introduction, Theorems 1.1–1.4, §3.1 variance formulas (3.1)–(3.2), and Appendix A logarithmic covariance.",
+        "method": "Read relevant full-text sections and compare random variables, parameters and quantifiers.",
+        "title": "Fluctuations for Zeros of Gaussian Taylor Series",
+        "trigger": "Gaussian analytic zero fluctuations and dilogarithm covariance appear very close to the new Jensen mean."
+      },
+      {
+        "assessment": "NOT_COVERING on inspected relevant main statements; paper addresses distributions of zeros and on-circle proportions.",
+        "evidence": "Section 4.4 Theorem 4.4 gives expected proportions of self-inversive zeros on the unit circle, not the two critical variance-window functions here.",
+        "identifier_or_url": "https://arxiv.org/html/2511.12302",
+        "material_read": "Full-text HTML introduction and main-results overview plus §4.4 isotropic Gaussian self-inversive expected-root formulas; searched for Mahler and variance.",
+        "method": "Compared zero-process observables with exact angular-logarithm variance and two logarithmic exponent windows.",
+        "title": "On the Distribution Patterns of Zeros for Random Polynomials with Regularly Varying Coefficients",
+        "trigger": "Same variance-profile family, possible asymptotic domination."
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON with low-to-moderate relevance: known model is unweighted and identified result is concentration, not the parameter-dependent exact variance.",
+        "evidence": "Accessible excerpt identifies high-probability Jensen angular-logarithm concentration in unweighted random Kac polynomials, and the abstract focuses on radial zero laws.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.11324",
+        "material_read": "Indexed abstract and displayed excerpt on Jensen concentration; attempts to open the full HTML and indexed alternate full text failed.",
+        "method": "Limited abstract-and-excerpt comparison; did not infer whole-document absence.",
+        "title": "Universal Radial Laws for Random Polynomials: Erdős Problem #522 and Non-Universal Fluctuations",
+        "trigger": "Recent paper uses Jensen angular logarithmic means in random polynomial radial-count concentration."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ef32ce25-041f-4c48-9495-2bb9ecbf8cb8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The variance exhibits two distinct critical exponents: alpha=1/2 separates a regime where all logarithmic Gaussian chaoses contribute at leading order from first-chaos dominance; alpha=1 separates vanishing variance from a positive limiting variance. Two explicit compact-uniform logarithmic crossover functions quantify those changes. This is a natural spectral/moment invariant of Gaussian Taylor truncations and supplies substantive structural information not reducible to the unweighted alpha=0 constant.",
+    "status": "PASS"
+  }
+}
