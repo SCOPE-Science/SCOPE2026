@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The exact source update simplifies to a continuous two-branch affine map on [0,1]. Its slopes are 1/2 and (1-alpha)/(1+alpha lambda); their modulus gives a strict contraction iff alpha<2/(1-lambda). At equality the capped branch is a reflection of a fully invariant nonzero interval. Above threshold explicit branch-switch inequalities certify F(x_-)=x_+, F(x_+)=x_- and multiplier q/2. Exact-fraction script verifies independent sample substitutions; finite samples are not used to prove the quantified statement. At |q/2|=1 only neutral linear stability is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1810.05633 analyzes stochastic model-based proximal algorithms under general stability/stepsize conditions",
+        "arXiv:2602.09842 studies SPS, SPP, NGN, and SGD stability, not this regularized ProxSPS map"
+      ],
+      "reasoning": "General convergence statements under small or diminishing steps do not imply a large-cap sharp boundary, a continuum of critical cycles or the nonoptimal attracting explicit orbit.",
+      "searches": [
+        "Web: stochastic proximal Polyak nonconvergence constant stepsize regularization limit cycles",
+        "Web: ProxSPS 2023 quadratic 2-cycle limit cycle constant step size instability",
+        "published-finding corpus: truncated linear model proximal Polyak step period two dynamical stability quadratic"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2301.04935",
+      "arXiv:1810.05633",
+      "arXiv:2602.09842",
+      "published-finding corpus 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2",
+      "published-finding corpus 2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b",
+      "published-finding corpus 2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "ProxSPS source sufficient convergence condition requires a restricted cap relative to smoothness and regularization; alpha above the new threshold lies outside those hypotheses.",
+        "published-finding corpus 2026/10/4/SCOPE-sharp-fixed-radius-phase-transition-for-composite-trust-region-g--18ebe14ebda2 is a fixed-radius trust-region update with a different piecewise law.",
+        "published-finding corpus 2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b concerns variable stepsize oscillation in B-adaPG, not nonconvergent ProxSPS points."
+      ],
+      "reasoning": "Neither the source theorem nor these independent method-specific cycles entails the stated ProxSPS necessary-and-sufficient global convergence threshold and exact postcritical orbit. The new counterexamples do not contradict the restricted source theorem.",
+      "searches": [
+        "arXiv:2301.04935 Algorithm 3 Equation (12) Equation (14) Theorem 7",
+        "arXiv:1810.05633 stochastic approximate proximal point model convergence",
+        "published-finding corpus: ProxSPS deterministic convex quadratic constant step size stable two cycle period two regularized Polyak"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2301.04935: capped ProxSPS step and proximal regularizer formula; no explicit scalar flip classification identified in examined algorithm and convergence sections",
+        "published-finding corpus closest plastic-constant B-adaPG stepsize cycles occur under a different adaptive rule with convergent iterates"
+      ],
+      "reasoning": "A reparametrization of the new two-affine-branch map must retain the ProxSPS nonlinear cap decision; generic Polyak and adaptive stepsize cycles do not establish its sharp threshold or interval reflection.",
+      "searches": [
+        "published-finding corpus: ProxSPS deterministic convex quadratic constant step size stable two cycle period two regularized Polyak",
+        "published-finding corpus: ProxSPS Schaipp Gower Ulbrich 2301.04935 constant stepsize scalar ridge quadratic truncated proximal Polyak exact nonoptimal period 2 attractor flip threshold",
+        "Web: \"ProxSPS\" \"two-cycle\"",
+        "Web: \"ProxSPS\" \"bifurcation\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed records cover polar-express surrogate, composite trust-region descent, Lion, and Bregman adaptive proximal-gradient maps, not the specified ProxSPS step."
+      ],
+      "reasoning": "The new closed-form scalar branch transition is not a numerical invariant or standard benchmark table entry; absence of an indexed match alone is not proof of uniqueness.",
+      "searches": [
+        "published-finding corpus: A Stochastic Proximal Polyak Step Size Schaipp Gower Ulbrich 2301.04935 quadratic cycling beyond stable step",
+        "Web: \"ProxSPS\" \"period-two\"",
+        "Web: \"truncated linear\" \"Polyak\" \"cycle\" proximal"
+      ]
+    },
+    "rationale": "Primary 2023 ProxSPS paper provides generic sufficient cap conditions and defines the precise rule, without deriving the sharp interval-wide scalar frontier or critical continuum and postcritical cycle. The aProx predecessor and later stability perspective use different scopes; the closest indexed period-two examples concern distinct algorithms. Extensive related queries found no implication-equivalent statement, though coverage is not exhaustive.",
+    "residual_risks": [
+      "Unknown unindexed prior results may prove an equivalent piecewise-affine stability classification, possibly in numerical dynamical-systems literature.",
+      "Only targeted sections of plausible full texts were inspected; other appendices or later errata could contain stronger statements.",
+      "No claim of dynamics of every large-step orbit or nonlinear stability at the neutral two-cycle multiplier."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines the map; inspected passages do not give its exact fixed-cap scalar bifurcation",
+        "evidence": [
+          "Update cap includes both loss lower bound and regularizer correction",
+          "Theorem 7 asserts convergence under a restricted cap, not arbitrarily large fixed steps."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.04935",
+        "material_read": "Algorithm 3, equations (12) and (14), sections 3, 4, 4.1, 4.3 and theorem on stepsize conditions",
+        "method": "Full-text arXiv HTML sections examined and source algebra reconstructed",
+        "title": "A Stochastic Proximal Polyak Step Size",
+        "trigger": "Defines identical target algorithm and poses relevant sufficient convergence bounds"
+      },
+      {
+        "assessment": "Generic convergence hypotheses do not imply the current map-specific sharp large-cap transition",
+        "evidence": [
+          "Analyzes generic stochastic prox-model updates, not the explicit ProxSPS cap correction and two affine branches."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.05633",
+        "material_read": "Relevant parsed full-text model, model lower bounds and convergence conditions",
+        "method": "Full-text arXiv PDF parsed text read",
+        "title": "Stochastic (Approximate) Proximal Point Methods",
+        "trigger": "Potential broader predecessor in proximal model-based methods"
+      },
+      {
+        "assessment": "No direct treatment of deterministic capped composite ProxSPS interval cycles identified",
+        "evidence": [
+          "Methods discussed include SPS, stochastic proximal point and NGN; exact special ProxSPS scalar rule not found in examined material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2602.09842",
+        "material_read": "HTML method overview, stability comparisons and selected sections on SPS, SPP and NGN",
+        "method": "Full-text arXiv HTML sections and targeted terms",
+        "title": "Step-Size Stability in Stochastic Optimization: A Theoretical Perspective",
+        "trigger": "Recent possibly stronger coverage of SPS/proximal stability"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eb8a6476-1b00-49ea-9a6a-7f5c085f6be7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The method has a motivated composite-optimization safeguard; the exact threshold determines when a constant cap guarantees convergence even in its simplest strongly convex regularized instance, while critical continuum and a finite-size, locally attracting nonoptimal orbit show a qualitative failure mechanism. This is nontrivial structure absent for the same unregularized quadratic and supplies a precise caution for parameter selection, not a routine isolated example.",
+    "status": "PASS"
+  }
+}
