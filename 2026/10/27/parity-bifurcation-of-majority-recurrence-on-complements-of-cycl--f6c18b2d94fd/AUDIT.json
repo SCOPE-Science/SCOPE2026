@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "Exact neighbour-sum identity uses degree n-3; odd case counts n independent-set states in each central layer and absorbs others within two updates. Even flanking layers are classified by triple-run maxima; the balanced layer is complement cyclic majority. Frozen adjacent pairs in cyclic majority exclude any recurrent points other than no-singletons or checkerboards, and the cyclic composition count gives H_m. Independent exhaustive graph-neighbour enumerations for n=5..18 checked every predicted F²-fixed state and fixed count; finite computation supports but is not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaaser et al arxiv:1508.03519v1 Thm 1.2 provides general voting-time bounds using graph families but no exact complement-cycle recurrent census",
+        "Benjamini et al arxiv:1405.2486v1 Thm 1.1 covers eventual period 2 but not the identities for Q_n and P_n",
+        "Earlier crown-graph majority classification (record e46cbd31-3c95-45da-a8b4-e0e0f1485ee7) studies a different graph family."
+      ],
+      "reasoning": "The general convergence theorem covers maximum period, not exact identities; deleted-matching crown/other graph operators have different neighbourhood sums, while generic bounds cannot determine the parity-specific configurations.",
+      "searches": [
+        "Majority dynamics on complement of even cycle graphs exact periodic configurations with balanced half ones, and transient time cutoff",
+        "Synchronous binary majority update on graph K_n minus cycle C_n complement cycle: exact fixed points 2-cycles parity n even odd, balanced circular binary strings without zigzags and minority contiguous orbit states",
+        "arxiv:1508.03519v1",
+        "arxiv:1405.2486v1"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.2486v1",
+      "arxiv:1508.03519v1",
+      "integers:2003:A19",
+      "OEIS:A263656",
+      "doi:10.1016/0012-365X(80)90121-1 (abstract only)",
+      "Earlier scientific-record IDs: 387c46a6-1238-4c47-88d4-ce17700f7953; 131a7770-6642-4b93-ba33-0bd3772ada93; e46cbd31-3c95-45da-a8b4-e0e0f1485ee7; 9c29df10-b6bd-4ee4-85a3-0a4d3f14cd8e"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier result 387c46a6-1238-4c47-88d4-ce17700f7953 classifies Rule232 on C_n, which is only a middle-layer step in complement C_n",
+        "Earlier result 131a7770-6642-4b93-ba33-0bd3772ada93 classifies complete tripartite majority, not dense cycle complements",
+        "Earlier result 9c29df10-b6bd-4ee4-85a3-0a4d3f14cd8e classifies Möbius ladders, another graph",
+        "Munarini-Zagaglia Salvi 2003 counts no-zigzag words already"
+      ],
+      "reasoning": "The current graph is not isomorphic to the cited families for unbounded n; its update depends on global Hamming weight minus a cyclic triple and hence requires new odd/even stratification. The combinatorial subcount is covered and attributed. Neither general threshold periodicity nor cyclic local majority implies the off-middle or odd-size census without this argument.",
+      "searches": [
+        "Synchronous binary majority update on graph K_n minus cycle C_n complement cycle: exact fixed points 2-cycles parity n even odd, balanced circular binary strings without zigzags and minority contiguous orbit states",
+        "Recurrent states and two-cycles of threshold majority cellular automata on complete multipartite graphs",
+        "387c46a6-1238-4c47-88d4-ce17700f7953",
+        "131a7770-6642-4b93-ba33-0bd3772ada93",
+        "9c29df10-b6bd-4ee4-85a3-0a4d3f14cd8e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "On balanced even states, this rule is complement of local cyclic majority; the local majority recurrence itself is covered in the prior cyclic-majority ledger item 387c46a6-1238-4c47-88d4-ce17700f7953",
+        "The 2003 no-zigzag paper covers balanced fixed words, not global Hamming layers and odd-size ties",
+        "A published complete-multipartite parity-automaton record concerns XOR rather than threshold majority and does not cover the present operator."
+      ],
+      "reasoning": "Complementing local majority on a weight slice is an exact reduction, but it alone does not imply recurrent states of the global graph map: the off-balance flanking layers support further 2-cycles and odd graph sizes are governed by ties. We do not claim discovery of the no-singleton enumeration.",
+      "searches": [
+        "Majority dynamics on complement of even cycle graphs exact periodic configurations with balanced half ones, and transient time cutoff",
+        "Number of balanced cyclic binary strings without singleton runs plus alternating words recurrent majority on complement cycles",
+        "Fixed and two cycle states of anti-majority elementary rule 23 on even cycles with half density",
+        "Synchronous binary majority update on graph K_n minus cycle C_n complement cycle: exact fixed points 2-cycles parity n even odd, balanced circular binary strings without zigzags and minority contiguous orbit states",
+        "\"majority dynamics\" \"complement\" \"cycle\" recurrent states",
+        "\"majority\" \"complement of a cycle\" \"period\" opinion graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A263656 exactly lists H_m (m=3,4,5,6 gives 6,12,30,70)",
+        "Munarini & Zagaglia Salvi 2003 Section 3 explicitly defines and enumerates same central words"
+      ],
+      "reasoning": "Exact integer-sequence overlap was found and removed from the originality claim. The new claimed P_n adds graph-specific 2n+4 states for even sizes, has Q_n=4 even and P_n=Q_n=2n+2 odd, and explains the weight-regime mechanisms, none of which follow as a statement about the sequence alone.",
+      "searches": [
+        "Number of balanced cyclic binary strings without singleton runs plus alternating words recurrent majority on complement cycles",
+        "site:oeis.org \"6, 12, 30, 70\" balanced circular binary strings no singleton runs",
+        "OEIS:A263656",
+        "integers:2003:A19"
+      ]
+    },
+    "rationale": "Only the complement-cycle majority dynamical classification and odd/even state-count contrast are claimed. The H_m central no-zigzag count and its asymptotic are explicitly attributed to Munarini-Zagaglia Salvi 2003/OEIS A263656; generic eventual period two is Goles-Olivos 1980. Verified direct primary comparisons and live record queries showed no result implying this exact graph parity census, subject to unindexed prior risk.",
+    "residual_risks": [
+      "A previously unindexed exact majority census on complements of cycles could already exist.",
+      "The 1980 original Goles-Olivos article was not read in full; its accessible abstract supports only generic eventual period bounds.",
+      "OEIS A263656 and Munarini-Zagaglia Salvi 2003 already cover H_m exactly; no novelty is asserted for that component."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS THE H_m INTEGER SEQUENCE AND ASYMPTOTICS, NOT THE GRAPH-DYNAMICAL CLASSIFICATION; those enumerative components are explicitly excluded from novelty",
+        "evidence": [
+          "Section 3, central strings z_m equal to circular balanced words avoiding 010 and 101; page 6 values z_3=6,z_4=12,z_5=30,z_6=70",
+          "Published 2003-12-11 in source itself; no majority voting or complement-cycle dynamics identified in the article"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/228396896_Circular_binary_strings_without_zigzags",
+        "material_read": "Author-provided full article text, especially introduction, Section 3 Central strings, explicit formulas and asymptotic analysis",
+        "method": "Read full publicly presented author-uploaded text and compared z_m with H_m",
+        "title": "Circular binary strings without zigzags",
+        "trigger": "Direct match of the balanced no-singleton enumeration used for even-size periodic states"
+      },
+      {
+        "assessment": "General at-most-two theorem and probabilistic high-degree graph results; neither exact complement-cycle periodic classification nor this parity census is provided",
+        "evidence": [
+          "Preprint arXiv:1405.2486v1 dated 2014-05-11",
+          "Introduction Theorem 1.1 cites the finite-graph eventual-period-two principle; Theorems 2 and 3 concern random graph unanimity/disagreement"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+        "material_read": "Title/abstract, introduction and theorem statements, randomized graph sections, references; inspected original PDF including page rendering",
+        "method": "Inspected full text sections through searchable PDF and page image",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Prior general finite period-two principle and possible dense-graph implications"
+      },
+      {
+        "assessment": "Addresses computational complexity and upper bounds for voting time; no exact recurrent-configuration count for complements of cycles",
+        "evidence": [
+          "arXiv:1508.03519v1 dated 2015-08-14",
+          "Theorem 1.2 bounds voting time by an asymmetric graph; it does not enumerate recurrent configurations"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+        "material_read": "Abstract, introduction, Theorems 1.1/1.2 and Theorem 3.1, section on graph families, examined PDF page image and article text",
+        "method": "Inspected relevant primary full-text theorem sections via source PDF",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Potential covering voting-time theorem for dense graph families"
+      },
+      {
+        "assessment": "General eventual fixed/two periodicity covered; exact graph-specific census not established from available abstract. No whole-text noncoverage claim.",
+        "evidence": [
+          "Goles and Olivos 1980, Discrete Mathematics 30(2):187-189, general eventual period at most two"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Official indexed abstract and bibliographic record, not verified full article",
+        "method": "Read institutional abstract metadata; searched for lawful OA full text while comparing applicability",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Foundational general period-two coverage"
+      },
+      {
+        "assessment": "EXACTLY MATCHES H_m, so H_m and its existing formulas are not novel; graph recurrence identification and parity complement-cycle counting not supplied",
+        "evidence": [
+          "A263656 counts length-2m balanced circular binary words without 010/101; starts 0,0,4,6,12,30,70"
+        ],
+        "identifier_or_url": "https://oeis.org/A263656",
+        "material_read": "Full OEIS entry including definition, first values, paper reference and formula",
+        "method": "Compared H_m numerical sequence with displayed a(m)",
+        "title": "OEIS A263656",
+        "trigger": "Exact table/equivalence search for the balanced-word count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f6c18b2d-94fd-4930-9530-ac7da84f0684",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural dense graph family has a structurally sharp parity contrast: odd complements admit only 2n+2 fixed attractor states and all initial states settle in at most two updates, while even complements admit exponentially many recurrent states and exact traveling half-turn two-cycles. The exact orbit census is not a pure renamed finite table: it derives odd-size tie physics, flanking density waves, and a balance-layer duality; the prior sequence is treated as a known ingredient. This is a complete recurrent-state classification for every n>=5, though not a basin census.",
+    "status": "PASS"
+  }
+}
