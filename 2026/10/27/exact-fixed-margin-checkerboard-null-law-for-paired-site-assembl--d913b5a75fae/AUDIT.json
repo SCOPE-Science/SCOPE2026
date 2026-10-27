@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every positive even n, each 2-species site is exactly an unordered pair edge, with pair multiplicities s_ij and fixed cubic species degrees. The identity sum s_ij=m and s^2=s+2 choose(s,2) proves the affine C-score formula. Coefficient expansion enumerates all degree-three loopless multigraph pair multiplicities with weight 1/product(s_ij!), and multiplying by m! restores labeled sites; hence the all-n null generating law is exact. At n=4, opposite edges have equal multiplicities a,b,c with sum 3, giving the exhaustive types (1,1,1),(2,1,0),(3,0,0), and counts 720,1080,60. A separate ordered-column brute force enumerates all 6^6=46656 possible assignments and reproduces the constrained table. At n=2 only one matrix exists. So strict upper-tail significance at 0.05 first occurs at n=4 with probability 1/31. No finite computation is substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tishby et al. (2023), arXiv:2301.03686, Sections II–III derive joint cycle counts in 2-regular directed and undirected graphs.",
+        "Artzy-Randrup–Stone (2005), pp. 2–6, establishes Monte Carlo bias under fixed margins and uniform sampling schemes, not closed fixed-margin score distributions for every even n."
+      ],
+      "reasoning": "The Tishby 2-regular cycle-count classification has degree two and no cubic-vertex pair-multiplicity law. Generic graph enumeration techniques are relevant but the inspected results did not imply the exact C-score null distribution for each even n with these fixed margins.",
+      "searches": [
+        "maximum number of 4 cycles bipartite cubic regular graph n modulo 3",
+        "regular bipartite graph C-score 4 cycle count",
+        "random regular bipartite graph edge multiplicities exact distribution"
+      ]
+    },
+    "checked_sources": [
+      "Stone and Roberts 1990 original Oecologia full text, doi:10.1007/BF00317345",
+      "Gotelli 2000 Ecology publisher abstract/metadata, doi:10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2",
+      "Artzy-Randrup and Stone 2005 Physical Review E full accessible text, doi:10.1103/PhysRevE.72.056708",
+      "Tishby et al 2023 full arXiv:2301.03686",
+      "Published published-finding corpus semantic research search for C-score, exact fixed-margin, 3-by-2 regular incidence, and cycle/graph aliases",
+      "Accessible same-collection prior ecological and combinatorial claim titles for deduplication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stone–Roberts (1990), full text pp. 2–3, proves the original C-score formula and enumerates the degree-two 4x4 case.",
+        "Artzy-Randrup and Stone (2005), full accessible text, studies distributions via Monte Carlo matrices and sampling corrections.",
+        "Tishby et al. (2023), full accessible arXiv text Sections II–III, gives a joint degree-two cycle law, which is not the same as degree-three pair multigraph enumeration."
+      ],
+      "reasoning": "The statement under assessment is not that C-score, fixed margin null tests, or coefficient extraction are new. It combines a precise cubic-degree pair representation, all-size labeled weighted coefficient formula, and a sharp feasible 5%-tail detection threshold. It does not follow from the particular published degree-two calculations. General enumeration techniques might subsume it, retained as residual originality risk.",
+      "searches": [
+        "Stone Roberts 1990 checkerboard score 4x4 all degrees two",
+        "2005 uniform fixed margin checkerboard matrix exact enumeration",
+        "Tishby 2023 undirected 2 regular cycle length distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stone–Roberts (1990), Oecologia 85:74-79, p. 2 gives Cij=(ri-sij)(rj-sij); p. 3 counts 4x4 all-2 margins, unlike 4x6 (3,2) margins.",
+        "Artzy-Randrup–Stone (2005), Phys. Rev. E 72:056708, discusses fixed-margin matrix ensembles and C-score-related checkerboard counts."
+      ],
+      "reasoning": "The exact coefficient law is equivalent to weighted enumeration of loopless 3-regular species multigraphs with labeled edges and double-edge statistic. The original C-score formula and two-regular incidence tables do not themselves state this triple-degree fixed-margin law. The original 1990 paper was inspected through authorized complete text.",
+      "searches": [
+        "Stone Roberts checkerboard C-score fixed fixed exact null law uniform species incidence matrix row degree three column degree two",
+        "co-occurrence C-score cycle counts regular bipartite 3 2 degree columns two",
+        "site-by-species presence absence fixed margins exact polynomial null distribution checkerboard 4 cycles",
+        "C-score exact fixed cooccurrence null distribution regular matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Stone–Roberts (1990) directly states 90 admissible 4x4 (2,2)-regular matrices and gives two score classes; they are not the current 4x6 (3,2)-regular matrices.",
+        "Direct exhaustive four-species enumeration: exactly 1860 labeled 4x6 matrices split by B=0,2,6 as 720,1080,60."
+      ],
+      "reasoning": "The inspected reported finite table uses a distinct margin signature and cardinality. No relevant published table reproducing the 1860 matrix 4x6 null law was found in the actual queried sources. Lack of a hit is not proof that no such table exists.",
+      "searches": [
+        "Stone Roberts checkerboard C-score fixed fixed exact null law uniform species incidence matrix row degree three column degree two",
+        "site-by-species presence absence fixed margins exact polynomial null distribution checkerboard 4 cycles",
+        "4 species 6 sites C-score incidence matrix 3 row 2 column exact enumeration",
+        "4x6 fixed margins 3 2 checkerboard distribution"
+      ]
+    },
+    "rationale": "The consulted original ecological papers establish the C-score, alternative degree-two tiny enumerations, simulation-based fixed-margin comparisons, and the importance of uniform matrix sampling; none gives the stated 3-by-2 all-size exact finite null law or the sharp four-species p-value. A mathematically relevant result on degree-two regular cycle statistics concerns a different graph degree and does not directly cover these cubic multigraph coefficients. Multiple exact-title, definition, and reduction searches of published research records returned no matching claim. Residual risk: some general multigraph-coefficient enumeration may imply this law after a nontrivial translation, and some ecological text remains inaccessible. This self-review is not independent confirmation.",
+    "residual_risks": [
+      "An equivalent 3-regular loopless multigraph enumerator may already appear in uninspected graph-enumeration literature, perhaps reducing mathematical originality despite ecological use.",
+      "The 2000 Gotelli source was available as an abstract and metadata, not material full text; complete text was not accessible in the examined sources.",
+      "The earliest 1990 foundational C-score source has public month but not verified publication day; 2000-09-01 is the earliest explicitly day-dated motivating source used for the archive-scope date field.",
+      "No independent audit or empirical conservation interpretation has been established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state the cubic-species 4x6 margin law or full even-n formula; confirms original statistic and contrasting n=4 degree-two census.",
+        "evidence": [
+          "p. 2: Cij=(ri-Sij)(rj-Sij), C mean over species pairs",
+          "p. 3: 90 all-2-margins 4x4 matrices, partitioned into two relabel equivalence classes (18 and 72)."
+        ],
+        "identifier_or_url": "doi:10.1007/BF00317345",
+        "material_read": "Full six-page original paper; especially pp. 1–4, definition p. 2 and the exact degree-two 4x4 enumeration on p. 3.",
+        "method": "Direct reading of the original full text and mathematical comparison",
+        "title": "The checkerboard score and species distributions",
+        "trigger": "Original C-score and potentially identical small fixed-margin count"
+      },
+      {
+        "assessment": "Analyzes bias of uniform matrix sampling procedures, not an all-size coefficient law for (3,2) row/column margins.",
+        "evidence": [
+          "Shows degree-preserving switch probabilities proportional to checkerboard unit counts and a sample null histogram for different margins."
+        ],
+        "identifier_or_url": "doi:10.1103/PhysRevE.72.056708",
+        "material_read": "Accessible full-text HTML text pp. 1–6, including switching methods, uniform sampling and checkerboard histogram example.",
+        "method": "Full-text parsed HTML reading and targeted examination of sampling and score distributions",
+        "title": "Generating uniformly distributed random networks",
+        "trigger": "Uniform fixed-margin null and potentially already enumerated C-score distributions"
+      },
+      {
+        "assessment": "Joint length counts for degree-two graphs are not the cubic species multigraph pair-multiplicity score law.",
+        "evidence": [
+          "Section III gives degree-two cycle length multiplicities, not cubic multi-edge degree distributions."
+        ],
+        "identifier_or_url": "arxiv:2301.03686",
+        "material_read": "Full arXiv HTML text, Sections I–III and joint cycle length distributions (equations 8–14).",
+        "method": "Mathematical comparison of graph-degree assumptions and cycle variables",
+        "title": "The distribution of the number of cycles in directed and undirected random regular graphs of degree 2",
+        "trigger": "Potential stronger graph cycle-count coverage"
+      },
+      {
+        "assessment": "Relevant context but abstract cannot establish whole-document noncoverage.",
+        "evidence": [
+          "2000-09-01 first-public date explicitly recorded by publisher.",
+          "Publisher abstract discusses several co-occurrence statistics, null algorithms, and C-score power, not a named (3,2)-regular exact table."
+        ],
+        "identifier_or_url": "doi:10.1890/0012-9658(2000)081[2606:NMAOSC]2.0.CO;2",
+        "material_read": "Publisher metadata, abstract, references, and publication-history page; complete original text not accessible.",
+        "method": "Publisher metadata and abstract examination",
+        "title": "Null model analysis of species co-occurrence patterns",
+        "trigger": "Motivating established ecological fixed-margin co-occurrence tests"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d913b5a7-5fae-4b6c-8b03-a06df7ece839",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact distribution is a natural statistical calibration for species co-occurrence null tests. It explicitly distinguishes uniform labeled matrices from nonuniform sampled classes, computes tail probabilities without Monte Carlo error for every even n within a common sparse margin family, and resolves the first possible strict 5% significant design as four species and six sites with exact 1/31 null probability. This is a motivated exact null law and sharp minimal sampling configuration rather than a random slice of a graph census. The work does not infer biological competition, and general computation remains exponential.",
+    "status": "PASS"
+  }
+}

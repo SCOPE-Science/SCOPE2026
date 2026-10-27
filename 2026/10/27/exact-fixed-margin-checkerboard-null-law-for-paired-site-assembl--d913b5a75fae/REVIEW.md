@@ -1,0 +1,11 @@
+# Scientific evaluation
+
+**Correctness — PASS.** The degree identities prove the affine checkerboard-to-pair-multiplicity formula. The labeled-site counting factor \(m!\) proves the coefficient law without invoking a configuration-model approximation. The four-species degree equations reduce to the three multiplicity types, with exact integer class sizes \(720,1080,60\); the independent brute-force check reproduces them. The strict \(5\%\) boundary follows from \(1/31<1/20\) and the degenerate two-species case. The general statement is exact for every positive even \(n\), and the finite verifier is not substituted for its proof.
+
+**Originality — PASS within inspected literature; residual risk remains.** Stone and Roberts established the C-score and the different four-by-four, degree-two finite census. Gotelli compared co-occurrence nulls; Artzy-Randrup and Stone addressed uniform sampling and simulation biases rather than this all-size coefficient law. Tishby and colleagues studied degree-two cycle statistics, not the cubic species-pair model. Searches of available mathematical research records did not identify the stated full \(3\)-by-\(2\) fixed-margin null law or four-species exact tail. A prior general multigraph enumerator could be specialized to derive this result, and inaccessible ecological materials remain a bibliographic risk; no independence claim is made.
+
+**Value — PASS.** Fixed-margin checkerboard tests are an established ecological task, for which small samples and simulation calibration are methodologically important. This result supplies a reproducible exact finite null distribution in a simple, nonempty sparse family, makes labeling conventions explicit, and identifies a sharp possible-rejection threshold at an ordinary significance level. The exact tail \(1/31\) illustrates a nontrivial small-design significance boundary; this is not a mere variation in numerical precision. The limits on causal ecological interpretation and computational scaling are explicit.
+
+Closest literature: Stone and Roberts (1990), Gotelli (2000), Artzy-Randrup and Stone (2005), and Tishby et al. (2023). The scientific inference is restricted to the stated uniform fixed-margin null and does not extrapolate from its smallest instance.
+
+Self-review: passed. Independent audit: not yet performed.
