@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The long-legged hypothesis ensures every same-arm pair at distance at most k occurs together in a moving window, giving exact nonzero support of the constructed real symmetric matrix. Distinct arm lengths retain a common first-k-coordinate kernel via their respective window recurrences. Summing arm-difference coefficients to zero annihilates all cross-arm and central equations, producing (m-1)k independent null vectors. A chronological endpoint-to-center and center-to-last-arm forcing sequence colors the graph using exactly (m-1)k initial black vertices. The established M<=Z inequality forces equality and the stated minimum rank. The executable reconstructs graph distances and tests actual integer witnesses and every forcing rule.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chang and Lin, Minimum Rank of Powers of Cycles and Trees (2013), Theorem 4.1, p. 3",
+        "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp. 151–163, §§3–4",
+        "Abiad et al., The Zero Forcing Number of Graph Powers, arXiv:2610.03892, §3, Proposition 9 and Conjecture 10 (first posted 2026-10-02)"
+      ],
+      "reasoning": "The strong general-tree theorem by Chang–Lin is for k=2 only, which is excluded. DeAlba et al. determine ordinary powers for paths and strict powers for trees. Uniform-spider equality gives no immediate implication for graphs with independent arm lengths, where adding a vertex can change graph power adjacencies and M, Z are not generally preserved under such operations.",
+      "searches": [
+        "For every nonuniform spider tree with m arms of arbitrary lengths ell_i >= k+1, the ordinary k-th power has zero forcing number and maximum real symmetric nullity (m-1)k, exact minimum rank 1+sum ell_i -(m-1)k, via rank-deficient moving-window matrices and synchronised branch-difference kernel",
+        "Minimum real symmetric rank of kth power of spider tree with variable branch lengths",
+        "\"spider\" \"maximum nullity\" \"graph powers\" unequal"
+      ]
+    },
+    "checked_sources": [
+      "Abiad et al., The Zero Forcing Number of Graph Powers, arXiv:2610.03892, §3, Proposition 9 and Conjecture 10 (first posted 2026-10-02)",
+      "Chang and Lin, Minimum Rank of Powers of Cycles and Trees (2013), Theorem 4.1, p. 3",
+      "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp. 151–163, §§3–4",
+      "Accessible previous exact equal-leg spider cube and higher-power claims (for scientific overlap exclusion only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Abiad et al., The Zero Forcing Number of Graph Powers, arXiv:2610.03892, §3, Proposition 9 and Conjecture 10 (first posted 2026-10-02)",
+        "Chang and Lin, Minimum Rank of Powers of Cycles and Trees (2013), Theorem 4.1, p. 3",
+        "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp. 151–163, §§3–4"
+      ],
+      "reasoning": "Known paths (m=2), tree squares (k=2), uniform spiders (all ell_i equal), and general spider upper bounds are excluded or insufficient. The new statement concerns exactly the complementary nonuniform m>=3, k>=3, each ell_i>=k+1 domain; proving equality requires its independent synchronized-arm lower bound.",
+      "searches": [
+        "For every nonuniform spider tree with m arms of arbitrary lengths ell_i >= k+1, the ordinary k-th power has zero forcing number and maximum real symmetric nullity (m-1)k, exact minimum rank 1+sum ell_i -(m-1)k, via rank-deficient moving-window matrices and synchronised branch-difference kernel",
+        "Exact solution Conjecture 10 zero forcing powers of spiders Abiad Flagg Nezhad Zeijlemaker 2026",
+        "Minimum real symmetric rank of kth power of spider tree with variable branch lengths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Abiad et al., The Zero Forcing Number of Graph Powers, arXiv:2610.03892, §3, Proposition 9 and Conjecture 10 (first posted 2026-10-02)",
+        "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp. 151–163, §§3–4"
+      ],
+      "reasoning": "A spider is a subdivided star/legged tree; equivalently the question asks real-symmetric minimum rank of a distance-at-most-k graph. The ordinary graph power is not the strict power in DeAlba et al.; the long-legged nonuniform theorem does not follow by changing terminology.",
+      "searches": [
+        "Nonuniform spiders unequal leg length arbitrary arms zero forcing powers graph power exact m-1 times k",
+        "Minimum real symmetric rank of kth power of spider tree with variable branch lengths",
+        "\"spider\" \"arbitrary arm lengths\" \"zero forcing\" \"power\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Abiad et al., The Zero Forcing Number of Graph Powers, arXiv:2610.03892, §3, Proposition 9 and Conjecture 10 (first posted 2026-10-02) reports computation only for equal-leg spiders m<=5, ell in {4,5}, k<=3"
+      ],
+      "reasoning": "Finite computed uniform cases neither contain arbitrarily large nonuniform tuples nor certify a common exact formula. Search hits about base-tree spider power domination and zero forcing are different invariants/graphs; no exact matching table was identified.",
+      "searches": [
+        "Nonuniform spiders unequal leg length arbitrary arms zero forcing powers graph power exact m-1 times k",
+        "For every nonuniform spider tree with m arms of arbitrary lengths ell_i >= k+1, the ordinary k-th power has zero forcing number and maximum real symmetric nullity (m-1)k, exact minimum rank 1+sum ell_i -(m-1)k, via rank-deficient moving-window matrices and synchronised branch-difference kernel",
+        "Exact solution Conjecture 10 zero forcing powers of spiders Abiad Flagg Nezhad Zeijlemaker 2026"
+      ]
+    },
+    "rationale": "The first-public 2026-10-02 graph-powers source, Proposition 9 and Conjecture 10, treats equal-leg spiders and only establishes their upper bound. Already available exact classifications for equal-length spiders and the tree-square theorem were recognized as covering those subclasses, and the new claim excludes equal lengths and k<=2. Variable independent arm lengths alter the graph and are not implied by a uniform-family theorem. The synchronized-window construction supplies a proof over every genuinely unbalanced long-legged tuple. Exact ordinary kth-power results for nonuniform long-legged spiders were not found in the inspected source full texts or targeted searches. This is a best-knowledge originality judgment, not a priority guarantee.",
+    "residual_risks": [
+      "Unlocated prior theorem under other terms such as distance powers of subdivided stars or all-tree minimum-rank specializations may dominate this result.",
+      "Uniform-spider proofs might already yield the variable-length case as an unstated corollary; source and historical priorities need independent verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its spiders are S_m(ell) with all arms equal; Proposition 9 proves only upper bound and Conjecture 10 requests equality; does not settle the new nonuniform domain.",
+        "evidence": [
+          "Abiad et al., The Zero Forcing Number of Graph Powers, arXiv:2610.03892, §3, Proposition 9 and Conjecture 10 (first posted 2026-10-02)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.03892",
+        "material_read": "Full accessible HTML, especially introduction, definitions and exact-value section §§2–3, Proposition 9 and its full forcing proof, and Conjecture 10",
+        "method": "Read complete relevant statements and proofs and compare whether arms may have independent lengths",
+        "title": "The Zero Forcing Number of Graph Powers",
+        "trigger": "Direct initiating paper discussing spiders and upper bound"
+      },
+      {
+        "assessment": "Theorem 4.1 handles graph squares of all trees, hence the excluded exponent k=2, but does not prove the new ordinary graph-power result for all k>=3.",
+        "evidence": [
+          "Chang and Lin, Minimum Rank of Powers of Cycles and Trees (2013), Theorem 4.1, p. 3"
+        ],
+        "identifier_or_url": "https://www-math.nsysu.edu.tw/~chlin/Publications/Articles/GJpower.pdf",
+        "material_read": "Paper opening and Section 4 / Theorem 4.1, p. 3, including scanned PDF page",
+        "method": "Read theorem and proof objective and compare ordinary graph-square exponent with arbitrary k",
+        "title": "Minimum Rank of Powers of Cycles and Trees",
+        "trigger": "Plausible stronger theorem for powers of all trees"
+      },
+      {
+        "assessment": "Ordinary powers determined for paths, a two-arm subclass; tree-wide work concerns strict graph powers, distinct adjacency definition. Not a theorem for ordinary nonuniform k>=3 spider powers.",
+        "evidence": [
+          "DeAlba et al., Minimum Rank of Powers of Trees, Electronic Journal of Linear Algebra 23 (2012), pp. 151–163, §§3–4"
+        ],
+        "identifier_or_url": "https://journals.uwyo.edu/index.php/ela/article/download/1023/1023/1023",
+        "material_read": "Full PDF text, sections 3.1, 3.2 and 4 and theorem list, comparing ordinary and strict powers",
+        "method": "Checked normal power definition, Theorem 3.2 on paths, and Section 4 focus on strict powers of trees",
+        "title": "Minimum Rank of Powers of Trees",
+        "trigger": "Title suggests potentially general ordinary graph power minimum rank for all trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "da58d43c-1dbb-425f-96b5-9f0b42f72045",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 initiation identifies graph-power zero forcing for spiders as an open exact-value problem; independently variable arm lengths are a canonical, highly nontrivial extension from symmetric spiders. The result determines both zero forcing and the minimum real-symmetric rank on the entire nonuniform long-legged domain at all k>=3, and the shared-prefix kernel supplies a structural explanation for complete arm-length invariance. The long-leg threshold is geometrically meaningful for the moving-window rank bound. This is substantially more than numerical tabulation or a tiny additive improvement.",
+    "status": "PASS"
+  }
+}
