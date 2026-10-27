@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Exact SPD Gram matrix A=(1+n gamma)I-gamma 11^T; partition into sign orthants gives global Lipschitz norm equal to maximum diagonal-mask induced norms; solve inactive coordinate minimization, diagonalize active constant and zero-sum subspaces to obtain 1+gamma^2 k(n-k)/(1+n gamma). Balanced integer product maximizes, explicit same-orthant finite pair realizes the bound. Scalar ReLU one-point edgewise contraction and the two asymptotic regimes follow exactly. Code independently checks 2,552 mask eigenvalues, norming directions and rational identities; numerical tests do not prove infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Musina--Nazarov, DOI 10.1007/s13373-017-0107-8, addresses H^s continuum truncation continuity and identities, not graph norm constants.",
+        "van Gennip et al., arXiv:1307.0045, studies graph threshold dynamics and graph curvature, not this two-point map modulus.",
+        "2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+        "2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038"
+      ],
+      "reasoning": "General truncation regularity, matrix projection norms, and graph energy evolution statements were checked for stronger all-graph theorems implying the formula. The inspected statements give neither the exact k(n-k) dependence nor an implication by specialization.",
+      "searches": [
+        "absolute value Nemytskii mapping graph Sobolev norm global Lipschitz constant finite",
+        "orthant coordinate projections in graph Dirichlet Hilbert space complete graph mask norm balanced cut",
+        "nonlinear graph signal ReLU graph Sobolev norm sharp stability",
+        "Sobolev graph truncation superposition operator sharp global Lipschitz bound versus one point energy contraction"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1307.0045",
+      "doi:10.1007/s00032-014-0216-8",
+      "doi:10.1007/s13373-017-0107-8",
+      "arxiv:2006.13318",
+      "2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+      "2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd",
+      "2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038",
+      "2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab",
+      "2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai--Wang, arXiv:2006.13318, Lemma 3.3 proves E(ReLU(f)) <= E(f), with proof read in full-text material lines 666-735.",
+        "Musina--Nazarov describes continuum Sobolev truncation maps and continuity, not a Lipschitz modulus.",
+        "2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41",
+        "2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd"
+      ],
+      "reasoning": "One-point contraction is weaker and does not imply perturbation contraction: the constructed same-orthant pair has ratio strictly above one. Existing cross-polytope nearest-point and Lipschitz-free coordinate projection theorems act on different spaces; neither covers this exact operator.",
+      "searches": [
+        "sharp Lipschitz modulus coordinatewise positive part truncation map on discrete graph Sobolev energy norm complete graph",
+        "coordinate positive-part ReLU map has sharp Lipschitz norm in a graph Dirichlet energy plus L2 norm, complete graph, balanced active mask",
+        "Sobolev graph truncation superposition operator sharp global Lipschitz bound versus one point energy contraction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full Cai--Wang Lemma 3.3: one-point graph Dirichlet energy decreases under ReLU, not two-point perturbation stability.",
+        "published-finding corpus near neighbor cross-polytope nearest-point stability: a different soft threshold and an lp norm.",
+        "2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41"
+      ],
+      "reasoning": "Reformulated the claim as maximal generalized Rayleigh quotient of coordinate masks for positive-definite I+gamma L(K_n), then searched ReLU, positive part, orthant masks, and graph Sobolev terminology. No equivalent statement located; distinct individual-energy contraction is insufficient for two-point norm.",
+      "searches": [
+        "sharp Lipschitz modulus coordinatewise positive part truncation map on discrete graph Sobolev energy norm complete graph",
+        "ReLU coordinatewise positive part operator norm on Hilbert norm I plus complete graph Laplacian balanced active set",
+        "positive-part Nemytskii Lipschitz operator in nonstandard Euclidean Hilbert norms matrix I plus Laplacian",
+        "orthant coordinate mask projection norms matrix positive definite complete graph Laplacian"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus closest IDs: 2026/10/11/SCOPE-exponent-invariant-cross-polytope-projection-and-its-sharp-lipsc--5177ec842d41, 2026/10/11/SCOPE-sharp-coordinate-projection-norms-for-edge-bases-of-cactus-trans--b98930fbc1cd, 2026/9/20/SCOPE-block-diagonal-graph-projection-threshold--25f28a17b038, 2026/10/11/SCOPE-euclidean-inradius-of-weighted-graphical-zonotopes-is-a-cut-expa--cb1eceb082ab, 2026/10/11/SCOPE-largest-part-versus-balanced-cut-the-exact-inradius-phase-diagra--fee756ec3437",
+        "Accessible historical claim summaries were searched for positive-part truncation, graph energy masks and equivalent parameter laws; no matching claim identified."
+      ],
+      "reasoning": "No found exact coefficient table or database includes the claimed all-n all-gamma constant. A search partition is not uniqueness proof; this is evidence only of no discovered entry.",
+      "searches": [
+        "ReLU coordinatewise positive part operator norm on Hilbert norm I plus complete graph Laplacian balanced active set",
+        "coordinate positive-part ReLU map has sharp Lipschitz norm in a graph Dirichlet energy plus L2 norm, complete graph, balanced active mask",
+        "orthant coordinate mask projection norms matrix positive definite complete graph Laplacian"
+      ]
+    },
+    "rationale": "Nine actual semantic published-record searches and recoverable historical claims were compared at the level of mathematical implication. Closest entries concern either different norms (Lipschitz-free spaces, standard lp geometry, graph total variation) or a different operation. Full primary-text comparison of Cai--Wang's one-point Dirichlet-energy contraction (Lemma 3.3) reveals no sharp two-point Lipschitz modulus; finite graph threshold dynamics and continuum truncation sources likewise do not establish the complete-graph mask formula. The combination of all-coupling exact norm and balanced-orthant attainment was not covered by the inspected sources; unindexed earlier finite-matrix computations remain a risk.",
+    "residual_risks": [
+      "An equivalent result may be buried in classical finite-dimensional Nemytskii operator or quadratic norm/coordinate-mask literature not indexed by the examined searches.",
+      "Search records provide ranked summaries rather than full published packages; closest comparisons were also cross-checked with accessible prior claim material.",
+      "The theorem is about a symmetric complete graph; no broader graph claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact graph-Sobolev ReLU perturbation modulus; concerns graph flow, curvature and graph threshold schemes.",
+        "evidence": [
+          "First submitted on 2013-06-28 UTC; arXiv:1307.0045",
+          "https://arxiv.org/abs/1307.0045"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.0045 ; https://link.springer.com/content/pdf/10.1007/s00032-014-0216-8.pdf",
+        "material_read": "Original arXiv HTML text with indexed sections on setup, graph Laplacian, MBO threshold dynamics, and discussion; open-access publisher PDF sections/contents and graphical page inspection.",
+        "method": "Read source text/sections and inspect PDF rendering; compared operators and estimates.",
+        "title": "Mean curvature, threshold dynamics, and phase field theory on finite graphs",
+        "trigger": "Original archived finite-graph energy and threshold dynamics source"
+      },
+      {
+        "assessment": "Not covering discrete complete-graph sharp finite global Lipschitz modulus; continuum fractional-truncation regularity.",
+        "evidence": [
+          "DOI:10.1007/s13373-017-0107-8",
+          "https://link.springer.com/article/10.1007/s13373-017-0107-8"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s13373-017-0107-8",
+        "material_read": "Full open-access HTML abstract, introduction, Theorems 1/2 and proof portions including truncation continuity and fractional pairing.",
+        "method": "Read HTML sections and statements; compare domain, norm and quantifiers.",
+        "title": "A note on truncations in fractional Sobolev spaces",
+        "trigger": "Closest continuum Sobolev truncation treatment"
+      },
+      {
+        "assessment": "Proves scalar coordinate graph Dirichlet one-point energy decrease; does not derive two-point global Lipschitz factor or balanced-mask extremizers.",
+        "evidence": [
+          "Lemma 3.3, especially proof with edgewise scalar contraction",
+          "arxiv:2006.13318"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/342436142_A_Note_on_Over-Smoothing_for_Graph_Neural_Networks ; arxiv:2006.13318",
+        "material_read": "Full publicly displayed CC BY preprint text, especially Lemma 3.3 and proof, text lines 666-735, and the main theorem and remarks through line 961.",
+        "method": "Read public full-text rendering (arXiv PDF endpoint unavailable), compare one-input contraction E(sigma(f))<=E(f) against two-input Lipschitz claim.",
+        "title": "A Note on Over-Smoothing for Graph Neural Networks",
+        "trigger": "Directly analogous ReLU contraction in graph Dirichlet energy"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "efc3d421-e5c0-437a-b4bb-86b05572588b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Graph-energy truncation is standard in threshold dynamics and ReLU processing, where one-point Dirichlet-energy decrease can misleadingly suggest perturbation nonexpansion. This theorem gives the exact sharp global two-point stability constant for every graph size and coupling, identifies all locally norming sign-mask proportions, and separates bounded coupling-per-vertex regimes from order-sqrt(n) instability at fixed edge coupling. This natural complete-graph benchmark quantifies conditioning not supplied by the graph-energy contraction lemma; its precise all-parameter constant is the meaningful invariant, not an arbitrary small-dimensional computation.",
+    "status": "PASS"
+  }
+}
