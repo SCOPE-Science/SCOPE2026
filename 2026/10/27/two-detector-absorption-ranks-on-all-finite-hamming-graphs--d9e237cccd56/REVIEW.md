@@ -1,0 +1,13 @@
+# Self-review
+
+**Correctness — PASS.** The finite-dimensional dissipation argument identifies the exact absorption subspace with a sum of eigenspace projections of the monitored vertices. The Hamming Fourier projector and its generalized-Krawtchouk two-column Gram matrix give an exact rank calculation for all integer alphabets and dimensions. Nonbinary strictness follows by changing a nontrivial character frequency; binary strictness follows by exchanging a differing and a matching coordinate, with extreme levels handled separately. The initial-vertex formulas follow from exact Gram inversion. The standalone numerical verification covers 23 detector-pair types and 394 initial-site projections, plus direct loss evolution; the analytical proof supports the unbounded size claim.
+
+**Originality — PASS subject to stated search limits.** The single-trap Krylov-space formula and binary hypercube result are explicitly present in Novo et al. (arXiv:1412.7209, single-trap hypercube section). Razzoli et al. (arXiv:2011.13794, introduction/conclusion) likewise treat one trap and explicitly point to multiple traps as future study. None of the inspected sections and targeted comparable records states the binary antipodal redundancy together with the full nonbinary two-detector rank and the arbitrary-initial-vertex Gram formula. Searches alone do not prove absolute novelty; a more general observability statement may subsume this specialization and remains a residual risk.
+
+**Mathematical value — PASS.** Detector count and placement determine dark-state obstructions in ideal coherent transport. This result exactly solves the complete two-detector placement question on a natural infinite family of transport networks, exposes a sharp binary-versus-nonbinary rank distinction, gives individual-state efficiencies, and shows the robustness of averaged efficiency to monitor strength and separation. The result is a structural classification, not a numerical table or parameter renaming.
+
+Closest established work: Novo et al. give the single-trap hypercube benchmark; Razzoli et al. give a general single-trap method and flag multiple-trap location effects as unfinished. The present exact two-site classification is not a claim of novelty for the general spectral projection method.
+
+Limitations: homogeneous one-excitation Hamiltonian, exactly two positive loss sites, infinite-time efficiencies. Undocumented stronger observability or association-scheme literature remains possible; neither a universal priority claim nor independent validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
