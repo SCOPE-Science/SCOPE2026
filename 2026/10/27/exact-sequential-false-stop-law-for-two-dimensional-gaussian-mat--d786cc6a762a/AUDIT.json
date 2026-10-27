@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "For every real invertible 2-by-2 A with singular values a>=b>0 and 0<tau<b, SVD invariance and Gaussian polar independence yield T~chi-square(2), U~Beta(1/2,1/2), and ||Ag1||^2=T d(U). A perpendicular row calculation gives exact rank-one Frobenius residual squared a^2 b^2/d(U). Conditional on g1, the next Gaussian test norm is R|Z|, so multiplying its erf probability by the conditional first-gate pass factor and integrating over U proves p0 and p1 without falsely assuming independent gates. Change of variable gives the CDF/density including the a=b case; dominated convergence gives the positive high-condition-number limit. Eckart-Young enforces error>=b for rank <=1. Explicit verifier independently tested 400000 direct sequential Gaussian cases, 100000 residual-law samples, elementary endpoint identities and asymptotic quadrature consistency. Numerical tests supplement the exact proof; no unproved infinite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2607.06758v1, Sections 2.3, 3.1, 3.2 and Remark 7",
+        "arxiv:1810.04125v2, Theorem 2, Appendix A",
+        "arxiv:2605.19096 accessible abstract",
+        "published-finding corpus hit 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (adaptive randomized pivoting expectation; different process)"
+      ],
+      "reasoning": "Bounds for general fixed residual Gaussian probes do not specify the joint first-gate/rank-one-residual dependence. General sketch minimax approximation errors and multistage pivot expected errors concern different random mechanisms; no evidenced theorem entails the exact two-probe rank probabilities. Existing concentration can bound particular error events but is not the stated exact classification.",
+      "searches": [
+        "Adaptive matrix-free low rank randomized QB rank two Gaussian sketch one column exact distribution residual norm premature stopping Hutchinson indicator false acceptance probability",
+        "arxiv 2607.06758 Smith Do Chen Adaptive Matrix-Free Low-Rank Approximation randomized QB Gaussian Frobenius stopping probability",
+        "Gaussian randomized QB probabilistic stopping 2x2 singular value Frobenius residual exact distribution sequential false positive tolerance",
+        "\"randomized QB\" \"false stopping\" \"Frobenius\" Gaussian estimator",
+        "\"one probe\" randomized range finder termination rank 1 Gaussian failure probability"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2607.06758v1",
+      "https://arxiv.org/html/1810.04125v2",
+      "https://arxiv.org/abs/2310.09417",
+      "https://arxiv.org/abs/2605.19096",
+      "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee (search result summary, not full text)",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae (search result summary, not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2607.06758v1, Eq. (3) Gaussian estimator, Algorithm 2 sequential rule",
+        "arxiv:1810.04125v2, fixed matrix Gaussian generalized chi-square equation (22), Theorem 2",
+        "arxiv:2310.09417, randomized LUPP interpolative decomposition description",
+        "published-finding corpus hit 2026/10/4/SCOPE-exact-random-residual-floor-for-a-single-infinite-sarah-inner-lo--3a03442a77b1 (optimization recursion, not matrix factorization)"
+      ],
+      "reasoning": "A single fixed quadratic-form distribution from the prior sources establishes conditional probe law, but p1 also depends on the first probe surviving and selecting q, so it must be integrated with a shared Beta angular variable. The resulting high-κ strictly positive error floor, quantified to approximately 0.247126 at half the smallest singular value, is not implied by the inspected bounds as an exact quantitative statement.",
+      "searches": [
+        "Adaptive matrix-free low rank randomized QB rank two Gaussian sketch one column exact distribution residual norm premature stopping Hutchinson indicator false acceptance probability",
+        "Matrix-free randomized QB error indicator false stopping rank-one Gaussian sample underestimation exact distribution",
+        "arxiv 2607.06758 Smith Do Chen Adaptive Matrix-Free Low-Rank Approximation randomized QB Gaussian Frobenius stopping probability",
+        "Gaussian randomized QB probabilistic stopping 2x2 singular value Frobenius residual exact distribution sequential false positive tolerance",
+        "\"Gaussian QB\" \"exact\" \"early stopping\" random projection Frobenius",
+        "\"one probe\" randomized range finder termination rank 1 Gaussian failure probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2607.06758v1, Algorithm 2 and Section 3.1",
+        "arxiv:1810.04125v2, Appendix A, generalized chi-square probe model",
+        "published-finding corpus nearest hit 2026/10/11/SCOPE-exact-random-radius-law-for-one-spike-ellipsoids-in-every-codime--e99f37d3b7ae (Haar ellipsoid section rather than two adaptive QB gates)"
+      ],
+      "reasoning": "The arcsine law for the rank-one residual is an equivalent transformed-Beta representation, but that distribution alone is not the coupled law because the first gate depends on the same angular coordinate. Generic Gaussian quadratic-form tail representations are not mathematically equivalent to the conditional sequential rank distribution as statements.",
+      "searches": [
+        "Adaptive matrix-free low rank randomized QB rank two Gaussian sketch one column exact distribution residual norm premature stopping Hutchinson indicator false acceptance probability",
+        "Gaussian randomized rank one range finder singular values exact residual Frobenius distribution 2x2 arcsine generalized Rayleigh quotient",
+        "Matrix-free randomized QB error indicator false stopping rank-one Gaussian sample underestimation exact distribution",
+        "randomized low rank Gaussian range finder residual singular value distribution weighted beta arcsine",
+        "\"randomized range finder\" \"2x2\" \"Frobenius\" \"distribution\" Gaussian",
+        "\"Gaussian sketch\" \"rank-one\" \"residual\" \"arcsine\" low rank"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search ranked hit 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80 (ACA pivots, different method)",
+        "Previously recorded public research claims were compared by statement, source, and alias; no equivalent two-probe Gaussian QB stopping law was found",
+        "arxiv:2607.06758v1, no exact stopping-rank table in Section 3.1"
+      ],
+      "reasoning": "No searched record provided an exact table of rank-zero/rank-one/rank-two decision probabilities under a strict below-best-rank-one tolerance. Negative search results do not establish global uniqueness; claims are judged by inspected implications and limitations.",
+      "searches": [
+        "Gaussian randomized rank one range finder singular values exact residual Frobenius distribution 2x2 arcsine generalized Rayleigh quotient",
+        "randomized low rank Gaussian range finder residual singular value distribution weighted beta arcsine",
+        "\"randomized QB\" \"false stopping\" \"Frobenius\" Gaussian estimator",
+        "\"two by two\" \"Gaussian\" \"randomized range finder\" \"error distribution\"",
+        "\"rank one\" \"randomized SVD\" \"exact distribution\" residual",
+        "\"Gaussian\" \"rank one approximation\" \"arcsine\" \"residual\""
+      ]
+    },
+    "rationale": "The new conclusion is the joint stopping-rank probability distribution in an actual adaptive two-look-ahead orthonormal QB decision: the first Gaussian probe both determines whether iteration continues and determines the random rank-one residual tested by an independent second Gaussian probe. A fixed-residual generalized chi-square or the source unbiasedness statement alone does not yield the weighted conditional p1 integral or its nonzero high-condition-number failure floor. Relevant full-text mathematical sections of the primary motivating study and Gorman et al. were inspected, plus accessible records for other close sources. Targeted mathematical-record and own-claim searches found no equivalent implication. Historical priority is best-knowledge, with explicitly recorded unresolved older-literature risk.",
+    "residual_risks": [
+      "Older random-range-finder, random quadratic-form, or sequential Gaussian stopping literature may contain an equivalent formulation not indexed in the searched records.",
+      "The Epperly-Webber full text and Pearce-et-al. appendices were not exhaustively read, so the abstract-based noncoverage assessment is tentative; there was no decisive matching theorem in the accessed material.",
+      "The source algorithm leaves first-gate empty-block pruning unelaborated; the theorem classifies a clearly defined decision process and explicitly excludes assumptions about a particular implementation of rank-zero output."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm 2 specifies both look-ahead Gaussian sampling and basis update; Section 3 establishes unbiased squared-norm estimate and Algorithm 3 specifies pruning, but the inspected derivations do not state the coupled two-probe rank distribution or nonvanishing anisotropic false-stop limit.",
+        "evidence": [
+          "arxiv:2607.06758v1, Section 3.1, Algorithm 2, Gaussian block normalization N(0,1/b), lines 227-276",
+          "arxiv:2607.06758v1, Section 3.2, Algorithm 3 and Theorem 8, lines 325-366",
+          "arxiv:2607.06758v1, Remark 7, lines 297-299"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.06758v1",
+        "material_read": "Original arXiv v1 HTML; opening primary MSC, Section 2 Gaussian norm estimation, Section 3.1 including all of Algorithm 2, Section 3.2 rank pruning including Algorithm 3, contribution comparison in Remark 7.",
+        "method": "Direct inspection of readable primary full-text sections and algorithm lines.",
+        "title": "Adaptive, Matrix-Free Low-Rank Approximation",
+        "trigger": "Identical Frobenius Gaussian residual indicator, simultaneous basis growth and stopping, and block-one case of Algorithm 2."
+      },
+      {
+        "assessment": "Derives fixed-residual Gaussian norm distribution and Chernoff tails, but does not supply the conditional angular/radial dependence induced by updating a rank-one QB basis with the same first probe, nor its joint two-look-ahead rank law.",
+        "evidence": [
+          "arxiv:1810.04125v2, Section 2.5, equations (21)-(25), lines 411-434",
+          "arxiv:1810.04125v2, Appendix A, equations (31)-(40), lines 617-664"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1810.04125v2",
+        "material_read": "Original open arXiv HTML Sections 2.4-2.5, mathematical theory equations (21)-(25), Theorem 2, and Appendix A equations (31)-(40).",
+        "method": "Direct primary full-text inspection of relevant probability and stopping sections.",
+        "title": "Matrix-free construction of HSS representation using adaptive randomized sampling",
+        "trigger": "Prior Gaussian residual norm estimators and conditional generalized-chi-square tails may subsume the first probe."
+      },
+      {
+        "assessment": "LU-based interpolative skeleton and error estimator concern distinct updates; no equivalent coupled orthonormal QB two-look-ahead law identified in material read.",
+        "evidence": [
+          "arxiv:2310.09417 abstract and introductory method description",
+          "arxiv:2607.06758v1, Remark 7, source attribution to Pearce et al."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.09417",
+        "material_read": "Available arXiv source abstract and method description of randomized sketch, LUPP skeleton selection, adaptive residual estimation.",
+        "method": "Inspected accessible primary record and method overview, without exhaustive appendix review.",
+        "title": "Adaptive Parallelizable Algorithms for Interpolative Decompositions via Partially Pivoted LU",
+        "trigger": "Motivating paper acknowledges Gaussian error-probe estimate borrowed from adaptive interpolative decomposition."
+      },
+      {
+        "assessment": "The described one-shot minimax loss bounds do not visibly imply the coupled two-stage Gaussian absolute-tolerance stopping rank distribution. Residual risk remains because full text was not inspected.",
+        "evidence": [
+          "arxiv:2605.19096 abstract, dated May 18, 2026"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.19096",
+        "material_read": "Accessible arXiv abstract specifying minimax expected sketch-and-solve and randomized SVD guarantees; no claim of detailed full-text exclusion.",
+        "method": "Primary open abstract/metadata inspection; complete paper not read.",
+        "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+        "trigger": "Sharp minimax results for randomized SVD may dominate the risk statement."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d786cc6a-762a-49f5-b49f-979c8b8778e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Adaptive fixed-tolerance low-rank approximation is designed to meet a target error while estimating rank from cheap residual probes. The complete achievable rank-decision law for the smallest nontrivial full-rank model gives the actual failure rate across arbitrary spectral ratios, not just mean unbiasedness or an isolated negative instance. The strict below-best-rank-one regime exposes a quantitative 24.7% asymptotic false-stop floor for half-minimum-singular-value tolerance; the first-gate/rank-update coupling makes this a meaningful design-risk calculation for single-probe stopping. It motivates calibrated or repeated validation even for very anisotropic matrices. Scope remains intentionally limited to the rigorously analyzed small-dimensional stochastic mechanism.",
+    "status": "PASS"
+  }
+}
