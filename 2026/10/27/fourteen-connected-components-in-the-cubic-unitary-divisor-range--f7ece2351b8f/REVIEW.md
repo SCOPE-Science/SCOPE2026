@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The theorem decomposes the unitary-divisor closure into an interval tail supported on primes at least \(11\), then finitely many head factors. Tail connectedness follows from the published uniform prime-ratio lemma, a failure-propagation argument and the prime number theorem, with five exceptional inequalities verified exactly. The exponent-reduction lemma is valid under the exact inequalities \(1+p^{-3A_p}\le T\). The finite checker establishes the same fourteen interval clusters for rigorous rational lower and upper bounds on \(T\). All thirteen gaps follow from the matching partitions. The computations do not replace the infinite analytic steps.
+
+**Originality (PASS under identified evidence).** Defant's published work determines the connectedness threshold and poses component-count questions, not the full \(t=-3\) range. The published exact \(t=-2\) decomposition has only two components and no general theorem implying fourteen at \(-3\). Zubrilina and Achenjang–Berger concern ordinary, not unitary, divisor Euler factors. Targeted record and literature queries disclosed no equivalent fourteen-component classification. Risk remains from unindexed literature, including more general algorithms not mentioning \(-3\).
+
+**Value (PASS).** The exact cubic unitary-divisor range supplies a nontrivial new parameter of a specifically published component-count problem. The jump from two components at \(-2\) to fourteen at \(-3\), and the complete list of thirteen genuine gaps, gives a structurally informative natural invariant. The result is not a bounded search or a reparameterization of ordinary divisor ranges; the exact reduction and interval certificate control the full infinite set.
+
+**Closest sources and limits.** C. Defant, arXiv:1507.02654 (2015); exact \(t=-2\) result (2026-10-04); N. Zubrilina, arXiv:1711.02871; N. Achenjang and A. Berger, arXiv:1808.07550. The result treats only \(t=-3\); it does not establish neighborhood stability or a general component-count formula. The cited prime-ratio lemma and prime number theorem are indispensable infinite inputs. Publication priority remains subject to additional literature review.
+
+Self-review: passed. Independent audit: not yet performed.
