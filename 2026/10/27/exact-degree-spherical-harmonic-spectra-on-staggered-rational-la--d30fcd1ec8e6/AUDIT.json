@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The normalized evaluation columns have two ring components differing by q_m=(-1)^(l+m) exp(i*pi*m/N). DFT residue blocks have eigenvalues 2N times positive alias sums, with q_(m+N)/q_m=(-1)^(N+1). The Gegenbauer coefficient ratio has odd denominator, and the leading term at reduced even-denominator c uniquely minimizes the two-adic valuation for every derivative of P_l; all amplitudes are positive. Residue counts give the asserted sharp ranks. Independent symbolic rational and numerical Gram checks cover 130 cases and 2520 amplitude instances, supplementing rather than replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1403.4661 computes full bandlimited spherical harmonic transforms with L latitude rings having 2k+1 samples on ring k, distinct from the present two equal-N rings and exact-degree l.",
+        "arXiv:1110.6298 addresses O(L^2) grid points for low-pass recovery and does not give the 2N-by-2N Gram spectrum here."
+      ],
+      "reasoning": "Neither full bandlimited theorem implies a rank formula for sampling an isolated degree on just two fixed rings, because uniqueness for a larger sample geometry and larger source space cannot imply uniqueness for this different restriction. General separation-of-variables machinery is compatible with the proof but is not a covering spectral statement.",
+      "searches": [
+        "spherical harmonic evaluation ranks and singular values sampling on cyclic antiprisms two latitude rings sphere associated Legendre",
+        "two iso-latitude circles half-step shifted spherical harmonics unisolvence exact spectrum singular values",
+        "arxiv:1403.4661, Sections III and IV"
+      ]
+    },
+    "checked_sources": [
+      "zu Castell, Lain Fernández, Xu (2004), arXiv:math/0407448, full text",
+      "McEwen and Wiaux (2011), arXiv:1110.6298, full text",
+      "Khalid, Kennedy, McEwen (2014), arXiv:1403.4661, full text",
+      "Published mathematical-record search: two-level Slepian spectrum for point stars in finite Grassmann schemes (2026-10-11)",
+      "Published mathematical-record search: all-degree Fourier sampling law on q-ary Hamming spheres (2026-10-11)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published multi-ring total-degree interpolation result of zu Castell–Lain Fernández–Xu requires numbers of latitudes growing with degree; it does not specialize to exactly two rings for every degree.",
+        "The 2011 and 2014 spherical transform papers use many latitude rings for bandlimited function reconstruction, not fixed two-ring exact-degree Gram operator."
+      ],
+      "reasoning": "The new claim specifies one degree, any integer ring order, an arithmetic dense height class, all 2N Gram eigenvalues, and parity-sharp saturation degrees. The compared general results supply standard harmonic separation and Fourier transforms but no stronger theorem that dominates these quantifiers. This is not a claim that the underlying aliasing lemma or Gegenbauer arithmetic nonvanishing method was previously unknown.",
+      "searches": [
+        "two staggered latitude rings n-gon antiprism spherical harmonics exactly degree l sampling Gram eigenvalues associated Legendre ranks",
+        "two iso-latitude circles half-step shifted spherical harmonics unisolvence exact spectrum singular values",
+        "arxiv:math/0407448 Theorem 3.1",
+        "arxiv:1110.6298 Sections III-IV",
+        "arxiv:1403.4661 Section III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 3.1 of arXiv:math/0407448 solves Π_n total-degree interpolation using many latitude rings and factorization, whereas the present operator uses exactly two rings and one harmonic degree.",
+        "arXiv:1110.6298 Section IV uses periodic torus extension for whole-bandlimited spherical transforms, not the exact-degree Gram spectrum of a fixed antiprism."
+      ],
+      "reasoning": "Equivalent formulations would express the double-ring evaluation via cyclic Fourier alias blocks and associated-Legendre amplitudes. The relevant full texts develop interpolation and Fourier factorization but do not identify the two parity-dependent all-degree spectral formulas and exact sharp rank thresholds for fixed two-ring data. Reuse of classical Fourier steps is distinguished from explicit complete classification.",
+      "searches": [
+        "two staggered latitude rings n-gon antiprism spherical harmonics exactly degree l sampling Gram eigenvalues associated Legendre ranks",
+        "two iso-latitude circles half-step shifted spherical harmonics unisolvence exact spectrum singular values",
+        "arxiv:math/0407448, Section 3; arxiv:1110.6298, Section IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted public mathematical-record searches returned related harmonic/Slepian and Hamming-sphere Fourier spectral results, with no table for the same two symmetric half-step-staggered latitude rings.",
+        "The known type-A5, type-D, icosahedral, 24-cell and 600-cell harmonic sampling configurations have different sample geometries; their numerical rank tables do not imply these ring formulas."
+      ],
+      "reasoning": "No directly matching exact-degree antiprism spectrum or all-N latitude height table was identified in the searched records. This negative search is limited evidence, not proof of novelty; a classical spherical sampling table may be indexed under different terms.",
+      "searches": [
+        "two staggered latitude rings n-gon antiprism spherical harmonics exactly degree l sampling Gram eigenvalues associated Legendre ranks",
+        "cyclic antiprism point set harmonic evaluation surjectivity 2N vertices odd even N latitude rational",
+        "associated Legendre rational nonzeros even denominator spherical harmonic interpolation ranks Fourier modes"
+      ]
+    },
+    "rationale": "Targeted public research-record searches and material inspection of three relevant primary open-access texts found no identical all-N, all-degree exact two-ring Gram spectrum or parity-sharp full-rank threshold. The closest earlier results are full-bandlimit or multi-ring polynomial interpolation, not the same fixed two-ring exact-degree evaluation. Residual historical equivalence risk remains; standard DFT, addition theorem and arithmetic nonvanishing technique are not claimed as new.",
+    "residual_risks": [
+      "An older harmonic interpolation table, dihedral representation result or textbook Fourier aliasing theorem may contain an equivalent block-spectrum classification under another formulation.",
+      "The result is a closed exact classification on a natural configuration, not a claim of a fundamentally new Fourier principle; its novelty is the full quantified spectral/rank synthesis.",
+      "Uniform stability or extension to odd reduced denominators was not established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact-degree two-ring complete spectra; covers total-degree polynomial interpolation using multiple latitudes, with clearly related Fourier reduction",
+        "evidence": [
+          "Theorem 3.1 gives total-degree interpolation on n+1 or groups of several symmetric latitudes, not two fixed rings across all l.",
+          "Introduction explicitly invokes trigonometric interpolation and rotated equidistant rings."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0407448",
+        "material_read": "Full open-access text, especially Introduction (lines 18–38), factorization setup (40–99), and Theorem 3.1 and examples (240–338)",
+        "method": "Direct inspection of article text, theorem hypotheses, sampling node configurations, and mathematical implications",
+        "title": "Polynomial Interpolation on the Unit Sphere II",
+        "trigger": "Same latitude circles and half-step shifts"
+      },
+      {
+        "assessment": "NOT_COVERING; exact bandlimited full-grid transform rather than exact-degree evaluation on two rings",
+        "evidence": [
+          "Section IV uses periodic extension and many azimuthal/colatitudinal nodes scaling quadratically with bandlimit."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1110.6298",
+        "material_read": "Open-access article introduction, review Sections II–III, transform construction Section IV and numerical sampling discussion",
+        "method": "Direct reading of full-text sections defining the pixelization and Fourier transform",
+        "title": "A novel sampling theorem on the sphere",
+        "trigger": "Whole-bandlimit spherical harmonic sampling and longitudinal Fourier aliasing"
+      },
+      {
+        "assessment": "NOT_COVERING; distinct L-ring low-pass transform with variable ring sizes",
+        "evidence": [
+          "Each ring has 2k+1 longitudinal samples for k from 0 to L-1; not two N-point rings and no all-degree Gram eigenvalue list."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4661",
+        "material_read": "Open-access Section III ring construction and Section IV analysis, including per-ring azimuthal counts and the associated Legendre matrices",
+        "method": "Direct inspection of algorithm, node arrangement, and claimed exactness/conditioning results",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "Possible general domination by arbitrary latitude spectral frame formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d30fcd1e-c8e6-4f7f-986d-674856e86c13",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete all-degree, all-order classification of the singular-value spectrum for a natural and practically relevant paired-latitude sampling geometry, across a dense family of eligible heights. It determines the exact attainable data dimension and sharp interpolation threshold and identifies a parity switch between an antipodal rank ceiling and unrestricted full rank. This answers intrinsic exact-degree spectral interpolation questions beyond a finite table; no downstream global theorem is asserted. In contrast to generic-point arguments at a fixed degree, one explicit arithmetic height condition works simultaneously for every degree, yielding a dense deterministic family of maximally unisolvent fixed geometries.",
+    "status": "PASS"
+  }
+}
