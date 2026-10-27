@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The all-pairs condition is equivalent to local distance-two midpoint escape by a shortest-path rerouting argument. In Fibonacci cubes, singleton exclusion is precisely simultaneous flippability of adjacent zeros; this yields the exact run restrictions. Pairs of feasible vertices are forbidden precisely when they are opposite corners of a four-cycle. Counting the allowed words by end/interior gap lengths gives the rational generating series; the conflict graph has degree <= binom(n,2), so greedy independence proves the quadratic-factor sandwich. The unique dominant positive pole gives the Narayana-cows exponential root. Direct geodesic enumeration for dimensions 2..6 and component polynomial calculations through 14 agree.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2308.14443v1 covers hypercubes, cube-connected cycles and butterflies, not the Fibonacci-cube asymptotic rate.",
+        "Journal DOI:10.1016/j.amc.2024.129216 describes ordinary mutual visibility for Fibonacci cubes and leaves total mutual visibility open.",
+        "KolKom 2026, Podrug et al. abstract promises new upper/lower bounds; no complete statement or proof is publicly readable at that source."
+      ],
+      "reasoning": "A bound with matching exponential base would subsume the new rate, whether or not it used the same forbidden-run language. Neither the accessible earlier theorem statements nor the abstract displays such coverage. The 2026 abstract creates the largest unresolved priority risk; without the results themselves, absence of coverage is not certified.",
+      "searches": [
+        "\"total mutual visibility\" \"daisy cube\" Fibonacci forbidden strings",
+        "\"Fibonacci cubes\" \"total mutual-visibility\" \"bounds\" 2026",
+        "\"Fibonacci cube\" \"total mutual visibility\" \"maximal fibonacci strings\" paper",
+        "arxiv:2308.14443 first posted 2023-08-28",
+        "10.1016/j.amc.2024.129216 Fibonacci conclusion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2307.05168",
+      "arxiv:2308.14443v1",
+      "DOI:10.1016/j.amc.2024.129216",
+      "KolKom 2026 public abstract https://kolkom26.zib.de/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2307.05168, Theorem 6: full Hamming graph total-visibility characterized by pairwise distance other than two.",
+        "Applied Mathematics and Computation 491 (2025), §7: total Fibonacci-cube case left open.",
+        "KolKom 2026 abstract: unspecified bounds and finite examples for this same graph family."
+      ],
+      "reasoning": "The global claim follows only after new singleton obstruction and run enumeration, which are not consequences of the Hamming theorem. The 2025 paper does not contain the new rate in the accessible sections. The 2026 announcement could have stronger results, but its abstract is not sufficiently specific to establish that implication; this risk is named rather than denied.",
+      "searches": [
+        "\"total mutual visibility\" \"Fibonacci cubes\" exponential growth lambda",
+        "\"Fibonacci cube\" \"total mutual visibility\" \"growth\"",
+        "arxiv:2307.05168 Theorem 6",
+        "KolKom 2026 total mutual visibility Fibonacci cubes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bujtás, Klavžar, Tian, arXiv:2307.05168, pp.4–5, Hamming total-visible iff no distance-two selected pair.",
+        "Cicerone et al., Applied Mathematics and Computation 491 (2025), §7 concludes Fibonacci-cube total visibility remains open.",
+        "KolKom 2026 abstract lists unspecified bounds and several exact small dimensions, with no numerical exponential rate."
+      ],
+      "reasoning": "The manuscript claim is equivalently a complete eligible-vertex support description, a square-diagonal conflict-graph identity, and the exact exponential rate. Hamming graphs have all four-cycles present; the Fibonacci subgraph does not, so a Hamming equivalence is not an equivalence here. The announced 2026 bounds might imply the rate, and this unresolved possibility is expressly retained as a priority risk.",
+      "searches": [
+        "\"total mutual visibility\" \"Fibonacci cubes\" exponential growth lambda",
+        "\"Fibonacci cube\" \"total mutual visibility\" \"growth\"",
+        "arxiv:2307.05168 Theorem 6",
+        "\"maximal Fibonacci strings\" \"total mutual visibility\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The explicitly accessible KolKom abstract mentions numerical values for some small dimensions without listing them.",
+        "No examined theorem/table supplies the ordinary generating function z(1+z+z^2)^2/(1-z^2-z^3-z^4)-z or the rate 1.465571231876768."
+      ],
+      "reasoning": "The finding is an all-dimension asymptotic rate, not a small-case table. Overlap could occur if unseen bounds from the announced work imply the same rate; no numerical novelty is claimed for the verifier table.",
+      "searches": [
+        "\"Fibonacci cube\" \"total mutual visibility\" \"1.46557123\"",
+        "\"Fibonacci cube\" \"total mutual visibility\" \"growth\"",
+        "\"Fibonacci cube\" \"total mutual visibility\" \"maximal fibonacci strings\"",
+        "arxiv:2307.05168 Fibonacci"
+      ]
+    },
+    "rationale": "Theorem 6 of arXiv:2307.05168 rules out distance-two pairs only in full Hamming graphs. Deleted hypercube vertices in Fibonacci cubes create unique distance-two intermediates, so that theorem neither implies the forbidden-zero-run support count nor the exponential rate. The 2025 Fibonacci-cube study explicitly leaves total visibility open. A 2026 conference abstract mentions unspecified upper/lower bounds for the same object; their mathematical statements are unavailable and could subsume the exponential rate. No accessible source supplied the lambda^3-lambda^2-1 rate.",
+    "residual_risks": [
+      "The Podrug–Bujtás–Klavžar–Tan bounds announced for November 2026 could already imply or match the exponential rate; their mathematical statements were not accessible.",
+      "The 2025 article linked PDF returned 403; only accessible article sections and conclusions were compared.",
+      "Unindexed work in visibility of daisy cubes or Fibonacci networks could subsume the theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES ambient-Hamming characterization, NOT the Fibonacci-cube eligible-run count or its exponential growth",
+        "evidence": [
+          "Theorem 6: total visible iff no selected vertices at distance two in Hamming graphs",
+          "Proposition 5: every Hamming interval is a cube"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2307.05168",
+        "material_read": "Full introductory statement and section 2 including Lemma 4, Proposition 5 and Theorem 6, PDF pages 3–5; relevant proof and conclusions viewed",
+        "method": "Open PDF text and inspected screenshots of pages 4 and 5",
+        "title": "Total mutual-visibility in Hamming graphs",
+        "trigger": "Exact prior characterization in the ambient cube"
+      },
+      {
+        "assessment": "v1 concerns ordinary visibility in hypercubes and total visibility for other networks, not the Fibonacci rate",
+        "evidence": [
+          "v1 abstract names hypercubes, cube-connected cycles and butterflies"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2308.14443",
+        "material_read": "Title, abstract, introduction and results overview of v1, pages 1–2",
+        "method": "PDF text and screenshot of first page",
+        "title": "Mutual visibility in hypercube-like graphs",
+        "trigger": "Earliest middle-cohort related hypercube-like problem"
+      },
+      {
+        "assessment": "The accessible conclusion explicitly leaves total mutual visibility in Fibonacci cubes open; full-document exclusion not claimed",
+        "evidence": [
+          "Section 7 says Fibonacci total mutual visibility is left open",
+          "Section 4 treats ordinary mutual visibility in Fibonacci cubes"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2024.129216",
+        "material_read": "Accessible article indexed sections 1.1, 4 and 7 and scholarly repository abstract; linked open-access PDF returned 403 and was not read",
+        "method": "Search-indexed HTML article excerpts, repository abstract and attempted publisher PDF link",
+        "title": "Mutual and total mutual visibility in hypercube-like graphs",
+        "trigger": "Highly relevant 2025 extension including Fibonacci cubes"
+      },
+      {
+        "assessment": "Material unresolved priority risk: unspecified bounds might imply same exponential rate",
+        "evidence": [
+          "Abstract promises new lower and upper bounds using maximal Fibonacci strings",
+          "Abstract announces several small exact dimensions, not the specific rate"
+        ],
+        "identifier_or_url": "https://kolkom26.zib.de/",
+        "material_read": "Publicly posted contributed-talk abstract and references only; no underlying proof or bound formulas",
+        "method": "Official conference webpage text",
+        "title": "Total mutual visibility in Fibonacci cubes",
+        "trigger": "Most direct potential overlap/priority threat"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e38c1eec-9953-4528-bcb1-18af334b9413",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact exponential growth rate is a natural all-dimensional invariant of Fibonacci-cube visibility, improving qualitatively on the ambient Fibonacci growth scale. It is motivated by a previously open total-visibility problem and uses a full eligible-vertex structural classification, rather than an arbitrary small-case computation. The polynomial-factor bound can guide asymptotics and algorithms even without exact finite maxima.",
+    "status": "PASS"
+  }
+}
