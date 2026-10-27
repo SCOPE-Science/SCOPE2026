@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The piecewise overlap polynomial gives the exact distributional-second-derivative identity, with verified coefficients from the two knot jumps and two support edges. At the balanced delay, elementary identities yield a product of a squared sine factor and \(Q(x)=1+2\cos x+2\sin x/x\). Endpoint signs together with strict signs of \(Q'\) at all its roots prove one and only one simple root per half-period. The squared sine factor gives exactly second-order zeros at each positive Doppler multiple of three. Direct differentiation yields a nondegenerate indefinite two-variable Hessian, establishing real analytic nodal crossings with slopes zero and \(9n\). Root counting and displacement estimates follow analytically. Exact symbolic checks and separate high-precision integral evaluations reproduce the main identities. Finite root checks are not used to prove exhaustive counting.
+
+## Originality — PASS, qualified
+Jaming (2006, arXiv:math/0606397, sections 2–3) proves general zero-free neighborhoods in terms of moments, not a complete high-frequency census for this spline. Kloos–Stöckler (2013, arXiv:1311.7359, Theorem 3.2 and the frame-bound sections) treats Zak-transform zero rigidity and Gabor frames, not the fixed-delay self-ambiguity zeros. Searches of the published mathematical record for the resonant factorization, integer double-zero lattice, and nodal crossings returned no mathematical implication covering the present statement. One related mathematical claim concerns the distinct signed Haar pulse at the same lag: its triple and simple roots do not imply the hat-spline double crossings. Primary source statements and distinctions are recorded in AUDIT.json. Search non-detection does not certify priority; an earlier equivalent radar/spline calculation remains a residual risk.
+
+## Mathematical value — PASS
+The triangular window is the first continuous, compactly supported cardinal B-spline, and its Doppler ambiguity zeros govern exact time-frequency orthogonality. The special lag is not an arbitrary slice: inner knots and outer edges have commensurate 1:2 distances and exactly balanced jump amplitudes, producing a new factorization. The theorem completely classifies all positive zeros and multiplicities, gives the asymptotic zero lattice with density, and shows that each enhanced-multiplicity zero is a genuine transverse bifurcation of two real nodal curves rather than a tangency. This is structural information beyond routine Fourier-transform calculation or a finite numerical example.
+
+## Closest literature and limitations
+The hat transform, spline differentiation, and general ambiguity formalism are classical. No claim is made for all delays or all B-spline orders. Full-text comparisons were limited to the specific relevant sections and searched terminology; older radar and spline literature may contain an equivalent formula. Numerical checks are supplementary and do not certify global novelty.
+
+Self-review: passed. Independent audit: not yet performed.
