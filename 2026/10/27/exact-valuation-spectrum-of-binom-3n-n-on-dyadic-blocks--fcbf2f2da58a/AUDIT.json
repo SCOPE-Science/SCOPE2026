@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Legendre yields exactly 2s_2(n)-s_2(3n). The carry state c=0,1,2 with terminal digit correction gives the exact Laurent transfer identity. Symbolic inversion yields the claimed rational GF; derivatives give exact moments, independently checked at 16 depths; M(1) primitive with eigenvalues 2,1,-1, and lambda'(1)=1 and lambda''(1)=4/3 yield asymptotic variance 11/12>0 and Gaussian limit. Boundaries L=0,1 included. Finite tests support but do not establish all-L proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barat–Grabner 2001 accessible abstract says general asymptotic distributions of binomial valuations; full article inaccessible",
+        "Heuberger–Kropf–Wagner 2014 full HTML introduction and results classify variance and CLT for transducers",
+        "Heuberger–Kropf–Prodinger 2015 PDF pages 1–4 and article-wide search: general expectation/variance/CLT, not an explicit binomial(3n,n) example"
+      ],
+      "reasoning": "The broad finite-transducer central-limit principle strongly covers the CLT's general mechanism, so existence of normality alone is not claimed original. The exact family-specific rational generating function and all-finite-depth mean and variance are stronger explicit identities and not stated by the inspected general results. Inaccessible Barat–Grabner full text is an unresolved priority risk, not evidence of the specific identity.",
+      "searches": [
+        "Barat Grabner Distribution of Binomial Coefficients and Digital Functions 2001",
+        "Heuberger Kropf Wagner Variances and Covariances transducer 1404.3680",
+        "Heuberger Kropf Prodinger Output Sum of Transducers arXiv 1502.01412"
+      ]
+    },
+    "checked_sources": [
+      "https://oeis.org/A077459",
+      "https://oeis.org/A036556",
+      "https://arxiv.org/abs/1404.3680",
+      "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p19/pdf/",
+      "https://doi.org/10.1112/S0024610701002630",
+      "Targeted mathematical research-record searches on valuation distribution, 3n binomial, and Kummer carry transducers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical Kummer/Legendre identity directly implies the digit-sum representation but not the evaluated dyadic enumerator without additional state computation",
+        "2015 general transducer theorems guarantee broad asymptotic shapes, with constants to be separately computed",
+        "OEIS explicit comparison is a level-set, not a polynomial-valued series"
+      ],
+      "reasoning": "The novel mathematical content is the specific 3-state exact transfer evaluation, recurrence and exact moments; the normal limit is a further explicit specialization. General mechanisms do not logically state the closed family-specific constants. No inspected primary result implies all those exact identities as a recorded specialization.",
+      "searches": [
+        "mathematical research-record query Kummer carry process doubling n adding shifted n trivariate moment valuation binomial 3n n",
+        "full text Heuberger Kropf Prodinger 2015 find 3n",
+        "OEIS A077459 comments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A077459 Dec 2002 source compares s_2(n) and s_2(3n)",
+        "OEIS A036556 June 2004 comment equates valuation parity to digit-sum parity"
+      ],
+      "reasoning": "The identity 2s_2(n)-s_2(3n) converts the target exactly to a digital-difference distribution. OEIS equality and parity sequences do not determine all valuation coefficients or the exact moments; individual counts cannot reconstruct the bivariate generating function.",
+      "searches": [
+        "mathematical research-record search: valuation binomial(3n,n) binary digit-sum distribution exact generating function n less 2^m",
+        "OEIS A077459 binary digit sum of n and 3n",
+        "OEIS A036556 binomial 3n n parity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A077459 tabulates indices at a digit-sum equality level",
+        "OEIS A036556 tabulates indices at an odd-valuation level",
+        "Targeted ranked mathematical research-record searches returned only thematically related binomial and digital entries"
+      ],
+      "reasoning": "A table of indices satisfying a single equality or parity condition does not give the full valuation distribution, nor does a finite table imply the rational function for all L. No exact-database record matching the finite-block distribution was found in the performed searches.",
+      "searches": [
+        "OEIS A077459",
+        "OEIS A036556",
+        "mathematical research-record query exact 2-adic binomial(3n,n) dyadic block valuation spectrum 11/12"
+      ]
+    },
+    "rationale": "Explicit dyadic valuation distribution and exact finite-depth moments are not supplied by the inspected OEIS equality/parity records or the general transducer sources. The 2015 transducer CLT strongly covers the abstract Gaussian principle, which is not separately claimed original. Barat–Grabner 2001 is the principal uninspected potentially stronger source; novelty is provisional under available evidence.",
+    "residual_risks": [
+      "Barat–Grabner (2001) article's full text remains unavailable; it is highly relevant and might contain family-specific stronger coverage.",
+      "General transducer methods make the existence of a CLT a corollary of established theory; explicit evaluated finite-block identities are the intended distinctive content.",
+      "A non-indexed or differently worded previous exact enumeration may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the whole valuation polynomial distribution",
+        "evidence": "Comments concern equality of s_2(n) and s_2(3n) or two binomial valuations; entry date 2002-12-01.",
+        "identifier_or_url": "https://oeis.org/A077459",
+        "material_read": "entry, comments, authorship/source date, example, formulas",
+        "method": "full HTML entry",
+        "title": "OEIS A077459: equal binary digit sums of n and 3n",
+        "trigger": "exact digit-difference alias"
+      },
+      {
+        "assessment": "NOT_COVERING the full valuation distribution",
+        "evidence": "June 2004 comment equates odd 2-adic valuation to digit parity.",
+        "identifier_or_url": "https://oeis.org/A036556",
+        "material_read": "entry, comments, examples, date, crossreferences",
+        "method": "full HTML entry",
+        "title": "OEIS A036556: odd digit sum of 3n",
+        "trigger": "valuation parity alias"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK for Gaussian asymptotics, not a printed specific binomial valuation distribution",
+        "evidence": "Theorem sections establish general transducer variance behavior and CLT; examples focus on digital representations.",
+        "identifier_or_url": "https://arxiv.org/abs/1404.3680",
+        "material_read": "introduction, finite-state assumptions, selected theorem statements and discussed examples",
+        "method": "selected portions of accessible HTML full text",
+        "title": "Variances and Covariances in the Central Limit Theorem for the Output of a Transducer",
+        "trigger": "general transducer CLT could dominate claimed asymptotics"
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK; paper's stated examples do not contain the specific exact block generating function",
+        "evidence": "Article 2015 pages 1–4 give general expectation, variance and CLT and a paperfolding example, with no 3n match.",
+        "identifier_or_url": "https://doi.org/10.37236/5026",
+        "material_read": "PDF pages 1–4, general theorem discussion, document search for 3n and binomial",
+        "method": "original journal PDF reading and targeted document searches",
+        "title": "Output Sum of Transducers: Limiting Distribution and Periodic Fluctuation",
+        "trigger": "broader asymptotic distribution results"
+      },
+      {
+        "assessment": "UNCERTAIN; cannot classify its full results as NOT_COVERING",
+        "evidence": "2001 abstract announces general binomial valuation distribution and digital functions, without a displayed 3n family or exact distribution formula.",
+        "identifier_or_url": "https://doi.org/10.1112/S0024610701002630",
+        "material_read": "publisher abstract and bibliographic metadata only; PDF not accessed; publisher full text not available in accessible sources",
+        "method": "OA/arXiv search then authorized download attempt",
+        "title": "Distribution of Binomial Coefficients and Digital Functions",
+        "trigger": "same mathematical topic and potentially stronger early coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fcbf2f2d-a58a-445c-bdfc-d292a1f70896",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The binomial family occurs in early digit-valuation sequence problems and is a natural Kummer carry process. The exact rational block enumerator determines every valuation frequency simultaneously and, unusually, yields finite-depth mean/variance with parity-dependent boundary corrections plus an evaluated variance slope. This is a complete arithmetic distribution and not a mere parity or zero-class deduction. Subsequent work can use exact dyadic thresholds and error moments.",
+    "status": "PASS"
+  }
+}
