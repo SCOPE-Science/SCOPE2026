@@ -1,0 +1,106 @@
+{
+  "correctness": {
+    "rationale": "The supercritical column-stochastic two-type mean matrix has a positive Perron vector, yielding the unique positive Poisson survival fixed point by strict subhomogeneity. The identity lambda D M q= -(1-q)log(1-q)<q bounds the Jacobian spectral radius below one, legitimizing implicit differentiation and det A>0. The sensitivity matrix identity gives strict negative averaged derivative when d>0; type ordering follows by symmetry and continuation without crossing. In the s=1 rank-one family q2 strictly decreases across the threshold 1-1/lambda, yielding the unique q1 maximum. The scalar root equation is strictly monotone on x>log(lambda). The quadratic coefficient follows from the exact derivative. Standalone code verified 148 tests; finite tests are corroboration, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abbara--Bitbol 2023 main Results and Supplement sections 3.4-3.5 prove circulation invariance and weak-selection suppression, not a fixed-total global monotonicity in arbitrary lambda.",
+        "Czuppon et al. 2021 study two habitat types with habitat-specific mutant fitness and varied emigration, with numerically implicit establishment probabilities (their Eqs. 7-9 and Fig. 2)."
+      ],
+      "reasoning": "Neither a general noncirculation strict inequality relative to the balanced baseline nor a first-order star formula orders two distinct nonzero asymmetries at a fixed total migration. A heterogeneous-fitness multitype model lacks the common-lambda and column-stochastic structure needed for the present derivative cancellation.",
+      "searches": [
+        "two deme Poisson branching process fixation probability migration asymmetry derivative monotonic sum migration 2023",
+        "\"Abbara\" \"Bitbol\" \"two demes\" survival probability exact",
+        "DOI:10.1086/714034 establishment-probability and emigration sections"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.10879",
+      "https://www.journals.uchicago.edu/doi/full/10.1086/714034",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=92D15"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source S60-S61 gives a coefficient asymptotic to 2st times s^2/(s^2+d^2) for D=2, hence only near-neutral strict suppression.",
+        "The new exact sensitivity has sign controlled by q2-q1 and det(I-lambda D M)>0 for every lambda>1.",
+        "Under s=1 the sign of the initial-type-1 sensitivity is controlled by q2-(1-1/lambda), forcing one interior optimum for all lambda>1."
+      ],
+      "reasoning": "The source statement that increased imbalance suppresses selection is supported there by simulations and first-order results, not the exact derivative for all supercritical offspring means. The preferred-origin maximum is compatible with source remarks that particular demes can outperform well-mixed origins, but it is a stronger exact optimization and is not supplied by them. A generic qualitative prediction is not treated as proving these exact statements.",
+      "searches": [
+        "\"migration\" \"branching\" \"strictly decreasing\" asymmetry extinction",
+        "\"two-type\" \"Poisson\" \"branching\" \"asymmetric migration\" survival rate",
+        "arXiv:2306.10879 Supplement 3.3.2 and 3.5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2306.10879 uses extinction probabilities p_i satisfying p_i=exp[lambda sum_j m_ij(p_j-1)] (S25), equivalent via q_i=1-p_i to the fixed point under study.",
+        "For D=2 the source weak-selection averaged star factor reduces to s^2/(s^2+d^2), agreeing with the local weak-selection limit but not identifying the arbitrary-lambda derivative."
+      ],
+      "reasoning": "Recasting the source equations in survival variables and using a=(s-d)/2 and b=(s+d)/2 produces the exact same two-type generating function. The assessed theorem concerns a strict global ordering at fixed a+b over all lambda>1 and a separate type-specific optimum, neither obtained by swapping names or the source first-order expansion.",
+      "searches": [
+        "\"migration asymmetry\" \"survival probability\" \"two\" \"branching\" monotonic",
+        "\"Abbara\" \"Bitbol\" \"monotonicity\" survival",
+        "arXiv:2306.10879 Supplement Eqs. S25, S59-S61"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The mathematically relevant quantitative published record is the analytic source Eq. S61, a first-order weak-selection expression for a star, not a table of exact arbitrary-lambda survival values.",
+        "The theorem has continuously variable lambda, s and d; no finite database or discrete census would determine its global inequalities."
+      ],
+      "reasoning": "No applicable exact numeric table was found; novelty is not inferred from missing entries. The known formula was substituted and compared analytically with the claimed stronger quantifiers.",
+      "searches": [
+        "\"two demes\" \"asymmetric\" \"survival probability\" branching process",
+        "spatially structured populations extinction fixation probability advantageous mutation migration asymmetry demes branching process evolutionary biology",
+        "arXiv:2306.10879 Eq. S61"
+      ]
+    },
+    "rationale": "The motivating 2023 Poisson-branching work proves a circulation/noncirculation suppression dichotomy and derives first-order weak-selection star coefficients; it does not imply exact strict monotonicity at fixed exchange for arbitrary lambda>1 or the unique full-redistribution favored-origin optimum. The 2021 habitat-choice study treats environmental fitness heterogeneity and different migration variation. Targeted primary full-text sections and source searches did not identify direct coverage; nonexhaustive priority remains a risk.",
+    "residual_risks": [
+      "A more general classical multitype branching monotonicity theorem could subsume the exact two-type comparison despite not being located in targeted searches.",
+      "Source uses fixation language for a branching approximation; publication should preserve the distinction between exact branching survival and finite-deme fixation.",
+      "Only two demes and the rank-one favored-source optimization have been proved; no extension to general graphs is certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS generating function and leading-order suppression, DOES NOT ESTABLISH exact all-lambda fixed-total ordering or rank-one favored-source peak",
+        "evidence": [
+          "Eq. S25: Poisson multitype generating function.",
+          "Eq. S61: leading weak-selection averaged star fixation formula.",
+          "Section 3.5 explicitly focuses on first order in st; discussion cites simulations for increasing imbalance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.10879",
+        "material_read": "Introduction and Results; generating function and survival in Supplement sections 3.1.1-3.1.3; star coefficients S52-S61; circulation theorem section 3.4; first-order noncirculation section 3.5; discussion of asymmetry",
+        "method": "Full accessible HTML reading and equation-level implication comparison",
+        "title": "Frequent asymmetric migrations suppress natural selection in spatially structured populations",
+        "trigger": "Direct motivating source; identical multitype Poisson branching generating function and reported asymmetry effect"
+      },
+      {
+        "assessment": "RELATED mechanism, but different mutant fecundities by habitat and different control parameter; neither implication nor an exact counterpart of the claimed theorem",
+        "evidence": [
+          "The established nonmonotonic responses vary emigration and include habitat-dependent selective advantage and competitive release.",
+          "It derives implicit numerical establishment formulas and small-migration approximations, not the symmetric-lambda rank-one optimum."
+        ],
+        "identifier_or_url": "https://www.journals.uchicago.edu/doi/full/10.1086/714034",
+        "material_read": "Model definitions and the Establishment Probability in a Heterogeneous Environment, including Eqs. 7-10, Fig. 2 discussion, regions i-iii and the associated comparison to simulations",
+        "method": "Open-access journal full HTML reading, comparing fitness assumptions, variable parameter and optimization objective",
+        "title": "The Effect of Habitat Choice on Evolutionary Rescue in Subdivided Populations",
+        "trigger": "Plausible broader two-habitat branching establishment and nonmonotone dispersal precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e85cc317-d09f-486c-b961-0b879f31f36d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Fixed total migration is a natural controlled quantity in structured mutant establishment; an all-supercritical theorem determines its precise directional bias effect rather than reusing the weak-selection source expansion. The rank-one family represents complete redistribution of offspring independently of parental deme; the unique interior favored-origin optimum exposes an actionable conflict between optimization for a targeted introduction and average establishment. The exact quadratic curvature gives the sensitivity near balanced exchange. The result is structural, motivated and nonimplied by the inspected published leading-order formula.",
+    "status": "PASS"
+  }
+}
