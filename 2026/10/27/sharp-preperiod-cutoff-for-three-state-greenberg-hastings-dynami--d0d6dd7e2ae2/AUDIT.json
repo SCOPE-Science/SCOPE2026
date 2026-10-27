@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3, each excited cell at t>=1 has adjacent refractory predecessor; R/L 21/12 fronts have unique same-direction ancestors and only move at unit speed; opposing ancestral fronts on a cycle have forward distance d<=n-2 and cannot co-survive past floor(d/2) rounds; by time floor(n/2)+1 at most one orientation persists; one more step produces a rotating pure wave or zero. Single initial excited cell gives matching all-zero first hitting time floor(n/2)+2. Verified against entire 3^n state graphs n=3..11 and local front constraints n=3..8, 2000 additional random configurations.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2018 Theorem 3(i): conservative initial coloring synchronizes by graph diameter; part (ii): nonconservative case has exact asymptotic activity, but does not state preperiod cutoff.",
+        "Kesseböhmer–Rademacher–Ulbrich 2020 describes the infinite-system nonwandering set and wave trains."
+      ],
+      "reasoning": "The finite-graph diameter theorem strongly covers the synchronizing subset, but an upper bound on asymptotic activity in nonconservative trajectories is not an upper bound on time to reach a periodic wave train. Infinite-system nonwandering structure does not alone quantify a worst-case finite-ring entrance time. These are close prior techniques and imply substantial qualitative aspects, not the full quantified sharp formula as inspected.",
+      "searches": [
+        "Gravner Lyu Sivakoff 2018 Greenberg Hastings theorem 3 diameter finite graph",
+        "Dynamics and Topological Entropy of 1D Greenberg Hastings cellular automata nonwandering set"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:patt-sol/9303002 (metadata and abstract)",
+      "Fisch–Gravner 1995 PDF relevant sections",
+      "Gravner–Lyu–Sivakoff 2018 PDF Theorem 3 and proof",
+      "Kesseböhmer–Rademacher–Ulbrich 2020 OA PDF introductory and theorem context",
+      "published-finding corpus semantic searches for Greenberg–Hastings cyclic sharp transient and aliases",
+      "Accessible own ledger claim IDs/titles for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fisch–Gravner (1995), Lemma 5.1, gives annihilation pairing on the infinite line, not a global cyclic preperiod theorem.",
+        "Gravner–Lyu–Sivakoff (2018), Theorem 3, gives diameter cutoff for the conservative class only and asymptotic oscillation rate for nonconservative colorings."
+      ],
+      "reasoning": "Conservative-case bound plus a final refractory update covers one branch. The nonconservative branch requires a separate finite-cycle collision argument excluding persistent mixed-direction fronts past a sharp time. The claim quantifies a global state-space maximum and its attainment not stated by these inspected theorems; independent historical review remains necessary.",
+      "searches": [
+        "Greenberg Hastings 3-state cyclic all configurations sharp upper time nonconservative wave train",
+        "one-dimensional deterministic Greenberg Hastings models wave edge lemma 5.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fisch–Gravner (1995), Sections 1 and 5, concerns unbounded one-dimensional arrays, wave extinction and annihilation, not the stated all-start finite ring cutoff.",
+        "Gravner–Lyu–Sivakoff (2018), Theorem 3, distinguishes conservative synchronization and nonconservative oscillation."
+      ],
+      "reasoning": "Searched aliases GHM/excitable medium/wavefront, and formulated the target as maximal transient, uniform entrance time, and annihilation diameter. Known annihilating-front structure is used, not claimed as novelty; the global sharp preperiod across both classes is the evaluated statement.",
+      "searches": [
+        "Greenberg Hastings 3-color model nearest-neighbor cycle ring exact maximum transient preperiod floor(n/2)+2 full eventual attractor finite time",
+        "3-state excitable automaton one-dimensional cyclic ring transient cutoff pulse annihilation stabilization time sharp",
+        "GHM front annihilation cyclic lattice bounded transient extinction"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus searches returned no exact same model or preperiod result among examined high-ranked records; closest examples treat other periodic excitable or nonlinear lattice dynamics.",
+        "Full finite-ring state graphs were computed afresh for sizes 3 through 11; no existing table was adopted."
+      ],
+      "reasoning": "No matching exact finite preperiod table found in inspected sources or ranked records; a failed search is not proof of unique priority.",
+      "searches": [
+        "Greenberg Hastings 3-color model nearest-neighbor cycle ring exact maximum transient preperiod floor(n/2)+2 full eventual attractor finite time",
+        "3-state excitable automaton one-dimensional cyclic ring transient cutoff pulse annihilation stabilization time sharp",
+        "Greenberg-Hastings cellular automata finite torus cycle wave front maximum relaxation time nonwandering time",
+        "Greenberg Hastings finite ring transient table exact extinction time"
+      ]
+    },
+    "rationale": "Compared the sharp all-state finite cyclic preperiod formula to published qualitative one-dimensional wave-annihilation work, general conservative/nonconservative finite-graph dynamics, infinite-system nonwandering classifications, ranked published-finding corpus records, and accessible own claim titles. Exact quantified cutoff including nonconservative cases and matching single-excitation lower bound was not identified; the general diameter theorem already covers the conservative subcase. Priority cannot be certified independently.",
+    "residual_risks": [
+      "Historical priority remains uncertain, especially specialized finite-cycle or preperiod papers not located by search.",
+      "The 2018 theorem covers the entire conservative branch; the novel-content assessment rests on including nonconservative cases and the global sharp bound.",
+      "Not all prior-paper appendices and works citing the source were exhaustively inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Overlaps wave collision methods and qualitative stabilization, no all-size finite-cycle sharp preperiod statement located in inspected material",
+        "evidence": "Fisch and Gravner, Complex Systems 9 (1995), pp. 329–348, Sec. 5 Lemma 5.1",
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+        "material_read": "20-page OA PDF: abstract, definitions, survival conditions, section 5 edge-annihilation statements and Lemma 5.1 and proof passages",
+        "method": "Read searchable PDF passages and examined claims against finite-ring all-start sharp entrance-time statement",
+        "title": "One-dimensional Deterministic Greenberg-Hastings Models",
+        "trigger": "Exact model and collision-front mechanism"
+      },
+      {
+        "assessment": "Important partial coverage: synchronization by diameter for conservative coloring, asymptotic activity for nonconservative; no explicit sharp finite ring preperiod statement in inspected core theorems",
+        "evidence": "Gravner–Lyu–Sivakoff, Ann. Appl. Probab. 28 (2018), Theorem 3, pp. 3328–3329 and proof pp. 3341–3342",
+        "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "material_read": "34-page OA PDF, title/abstract, model definitions, full Theorem 3/Corollary 4 and Theorem 3 proof, finite graph section",
+        "method": "Opened PDF, inspected page image and text, checked quantified conservative and nonconservative conclusions",
+        "title": "Limiting Behavior of 3-Color Excitable Media on Arbitrary Graphs",
+        "trigger": "Potential stronger general finite-graph theorem"
+      },
+      {
+        "assessment": "Studies infinite 1D system and nonwandering orbits; no uniform finite ring maximal transient formula among inspected results",
+        "evidence": "Kesseböhmer–Rademacher–Ulbrich, 2020, arXiv:1903.02459 and journal OA PDF",
+        "identifier_or_url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/1DBE1EC4EC7BE9F216E9E35C214F2F3C/S0143385720000188a.pdf/dynamics-and-topological-entropy-of-1d-greenberg-hastings-cellular-automata.pdf",
+        "material_read": "Open PDF introduction, model definitions, highlighted nonwandering/entropy results and initial theorem context",
+        "method": "Read OA PDF content directly and compared topological nonwandering claims against quantitative finite preperiod",
+        "title": "Dynamics and Topological Entropy of 1D Greenberg–Hastings Cellular Automata",
+        "trigger": "Complete symbolic nonwandering classification may dominate finite-ring statement"
+      },
+      {
+        "assessment": "Motivating historical model paper, not used to assert full-document absence of the target",
+        "evidence": "Durrett–Griffeath, arxiv:patt-sol/9303002, submitted 1993-03-22",
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9303002",
+        "material_read": "Arxiv dated title/abstract and submission history; not complete full text",
+        "method": "Inspected arXiv public metadata 1993-03-22 and abstract; used for date and motivation only",
+        "title": "Asymptotic Behavior of Excitable Cellular Automata",
+        "trigger": "Verified earliest public source and motivating model"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d0d6dd7e-2ae2-4ea9-80c1-c3993cbed82b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp uniform finite-time entrance bound for every initial state of a standard excitable automaton quantifies worst-case relaxation and makes finite state-space certification possible without enumerating 3^n configurations. It closes the nonconservative winding case not supplied by the cited diameter synchronization theorem; both a sharp exponent and an explicit extremizer matter for the naturally defined system.",
+    "status": "PASS"
+  }
+}
