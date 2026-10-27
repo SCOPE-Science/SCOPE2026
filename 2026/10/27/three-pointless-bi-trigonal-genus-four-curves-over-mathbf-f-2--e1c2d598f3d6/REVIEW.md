@@ -1,0 +1,9 @@
+# Review of the point-free genus-four classification
+
+**Correctness — PASS.** The evaluation map has provable rank nine, giving exactly 128 candidate forms. The four-chart Jacobian ideal criterion is necessary and sufficient over an algebraic closure, and exact Gröbner calculations classify all 128 masks: 84 smooth. The second finite-field implementation recovers the same mask list by locating a finite-degree singular point for each of 44 excluded forms. The complete 72-element ambient automorphism action partitions all smooth forms into orbits 24, 24, 36. The unique canonical quadric proves these are genuine abstract isomorphism classes, not only embedded equivalence types. The arithmetic point counts independently separate them.
+
+**Originality — PASS, qualified.** Faber–Grantham establish the geometric bidegree-\((3,3)\) framework and extremal rational-point results, which do not entail the 84 point-free models or the three-class enumeration. Howe–Lauter–Top establish existence of pointless genus-four curves but not the complete smooth split-quadric classification. Faber–Grantham–Howe address maximal gonality, not all point-free bi-trigonal genus-four curves. Semantic searches against published research records found no stronger implication or equivalent census. Risk: supplementary finite-field equation databases or unindexed computations may already encode these specific models; full worldwide priority cannot be certified by search.
+
+**Value — PASS.** Every geometrically smooth \((3,3)\) divisor has two canonical trigonal maps, so the split canonical-quadric sublocus is intrinsic in the moduli of genus-four curves. Classifying its point-free curves over the smallest field is a natural complete arithmetic classification. Three pairwise nonisomorphic models, different extension-field counts and automorphism orders distinguish more than the existence of a point-free example.
+
+Self-review: passed. Independent audit: not yet performed.
