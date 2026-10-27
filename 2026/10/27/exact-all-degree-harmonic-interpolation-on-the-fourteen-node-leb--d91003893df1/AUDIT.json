@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "Addition theorem gives an exact seven-by-seven Gram for antipodal representatives; odd/even symmetries yield explicit 2-by-2 blocks. Exact fraction recurrence and an independently assembled rational Gram elimination verify all degrees 0..28, including the 14th-degree orbit functional. Classical Bernstein–Legendre inequality proves row-wise strict diagonal dominance for every degree >=29, so the claimed all-degree statement has a rigorous analytic tail. Checker and output are embedded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rogers, arXiv:1411.0011, full HTML introduction, quadrature analysis and appendix methods",
+        "Beentjes, Quadrature on a spherical surface (2015), full report sections on Lebedev rules",
+        "GNU Scientific Library Lebedev table, rule n=14 exact degree 5, https://www.gnu.org/software/gsl/doc/html/integration.html"
+      ],
+      "reasoning": "Exact polynomial integration through degree five, even with symmetry reductions, does not imply full exact-degree interpolation for arbitrary high degrees, nor an isolated degree-fourteen rank-six phenomenon. Generic sampling bounds are insufficient to determine these exceptional ranks. Similar spectra for disjoint spherical polyhedra involve different inner products and do not entail this result.",
+      "searches": [
+        "arxiv 1411.0011 Rogers Real-space quadrature submitted 31 Oct 2014",
+        "Lebedev spherical quadrature 14 nodes order 5 point weights spherical 6 axis 8 cube",
+        "Lebedev quadrature 14 nodes spherical harmonics aliasing matrix degree rank"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1411.0011",
+      "https://cbeentjes.github.io/files/Ramblings/QuadratureSphere.pdf",
+      "https://www.gnu.org/software/gsl/doc/html/integration.html",
+      "https://doi.org/10.1016/0041-5553(76)90100-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rogers (2014), finite-exactness formulae in real-space quadrature",
+        "Beentjes (2015), integration rules, not all-degree interpolation",
+        "Indexed historical sampling claims for other polyhedral node sets, compared by exact node geometry"
+      ],
+      "reasoning": "The fixed fourteen-point set is the union of six axis points and eight cube vertices. Other sampled polyhedra, including cuboctahedral, dodecahedral, icosidodecahedral and truncated-octahedral configurations, have different pairwise angles. Their Gram characteristic blocks cannot imply this exact table without a new reduction, which is not present. The shared appearance of degree fourteen in a different point configuration is not equivalent coverage.",
+      "searches": [
+        "Fourier sampling of spherical harmonics on the 14-node fifth-order Lebedev cubature grid, 6 coordinate axes and 8 cube corners; exact ranks degree 0 to infinity, gap at harmonic degree 14, persistence 15",
+        "Rhombic dodecahedron projected vertices spherical harmonics evaluation rank, octahedral 14 point nodes reentrant interpolation defect",
+        "Lebedev 14 node point spherical quadrature rank of exact degree spherical harmonics, spherical design interpolation",
+        "Lebedev 14 point quadrature spherical harmonic exact degree sampling rank",
+        "Lebedev 14 spherical harmonic null space"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rogers, arXiv:1411.0011, quadrature and harmonic-basis representation, especially finite exactness assumptions",
+        "Beentjes (2015), sections on Lebedev quadrature and symmetry, https://cbeentjes.github.io/files/Ramblings/QuadratureSphere.pdf"
+      ],
+      "reasoning": "Equivalent terminology includes rank of a discrete spherical-harmonic analysis operator, spherical sampling matrix, and Legendre reproducing-kernel Gram. Examined sources discuss cubature and finite-band reconstruction rather than the complete single-degree rank sequence on this fixed grid. The methods are relevant, but no inspected theorem gives or dominates the full claim.",
+      "searches": [
+        "Fourier sampling of spherical harmonics on the 14-node fifth-order Lebedev cubature grid, 6 coordinate axes and 8 cube corners; exact ranks degree 0 to infinity, gap at harmonic degree 14, persistence 15",
+        "Rhombic dodecahedron projected vertices spherical harmonics evaluation rank, octahedral 14 point nodes reentrant interpolation defect",
+        "Lebedev 14 node point spherical quadrature rank of exact degree spherical harmonics, spherical design interpolation",
+        "Lebedev 14 point quadrature spherical harmonic exact degree sampling rank",
+        "Lebedev quadrature 14 nodes spherical harmonics aliasing matrix degree rank",
+        "14-point Legendre Gram spherical harmonic",
+        "Lebedev 14 spherical harmonic null space"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "GNU Scientific Library documented table of the fourteen-node degree-five quadrature rule",
+        "John Burkardt Lebedev grid dataset documenting fourteen points and fifth-order integration"
+      ],
+      "reasoning": "The available tabulations list nodes, cubature weights and polynomial integration precision. These are not an exact all-degree harmonic evaluation-rank table. No exact-degree rank table for this configuration was found in the inspected sources; absence from search is not proof of novelty.",
+      "searches": [
+        "Lebedev quadrature 14 nodes spherical harmonics aliasing matrix degree rank",
+        "Lebedev 14 spherical harmonic null space",
+        "Lebedev 14 node point spherical quadrature rank of exact degree spherical harmonics, spherical design interpolation"
+      ]
+    },
+    "rationale": "Novelty is bounded to the complete fixed fourteen-node exact-degree rank classification and the exceptional degree-fourteen null functional, not the existing fifth-order cubature. Inspected broad quadrature sources concern integration and finite-degree reconstruction and do not logically imply the claimed table; analogous sampling records for other node sets do not dominate. Full historical primary access and unindexed equivalents remain explicit risks.",
+    "residual_risks": [
+      "Equivalent exact-degree fourteen-node rank tables might appear in unindexed numerical harmonic-transform or spherical sampling literature.",
+      "The 1976 original Lebedev quadrature paper was only bibliographically accessible, not inspected as complete primary text; no absence-of-coverage assertion is made for its uninspected portions.",
+      "Classical Legendre–Bernstein bound is invoked from standard references rather than independently reproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the full fixed-fourteen-node all-degree rank sequence",
+        "evidence": [
+          "2014-10-31 preprint; finite-band/quadrature hypotheses do not imply exact-degree ranks beyond the quadrature order"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1411.0011",
+        "material_read": "Available full arXiv HTML, introduction, spherical-quadrature construction and appendix identities",
+        "method": "Read relevant sections and compare dependence on quadrature exactness with unbounded pure-degree evaluation ranks",
+        "title": "Real-space quadrature: a convenient, efficient representation for multipole expansions",
+        "trigger": "Potentially dominating spherical harmonic sampling representation"
+      },
+      {
+        "assessment": "NOT_COVERING exact-degree interpolation ranks at arbitrarily large orders",
+        "evidence": [
+          "2015 report focuses on integration accuracy and node configurations"
+        ],
+        "identifier_or_url": "https://cbeentjes.github.io/files/Ramblings/QuadratureSphere.pdf",
+        "material_read": "Full accessible report and sections on Lebedev-type spherical sampling, its formulation and exactness",
+        "method": "Read extracted text and inspect report page images for grid and method context",
+        "title": "Quadrature on a spherical surface",
+        "trigger": "Most directly relevant complete introductory source on Lebedev grids"
+      },
+      {
+        "assessment": "CONFIRMS grid size/integration degree; DOES_NOT_IMPLY claimed interpolation ranks",
+        "evidence": [
+          "GSL tabulates degree 5 -> 14 nodes"
+        ],
+        "identifier_or_url": "https://www.gnu.org/software/gsl/doc/html/integration.html",
+        "material_read": "Rule parameter table showing polynomial degree 5 and 14 points",
+        "method": "Inspect authoritative technical documentation",
+        "title": "Numerical Integration: Lebedev quadrature",
+        "trigger": "Verify natural fourteen-node fifth-degree source object"
+      },
+      {
+        "assessment": "INACCESSIBLE full text; unresolved residual risk, no affirmative overlap established",
+        "evidence": [
+          "1976 original concerns spherical quadrature rules; no full-text NOT_COVERING assessment is claimed"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0041-5553(76)90100-2",
+        "material_read": "Bibliographic abstract only; primary full text unavailable after OA and institutional-access attempts",
+        "method": "Checked lawful open-access possibilities and original abstract; did not infer absence from unread article",
+        "title": "Quadratures on a sphere",
+        "trigger": "Historically foundational original work requiring an overlap-risk check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9100389-3df1-41b6-bab6-c035a7d139da",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The fourteen-point Lebedev cubature is a canonical minimally complex two-orbit spherical sampling grid. Its exact-degree harmonic interpolation determines spectral aliasing beyond standard degree-five quadrature precision. The nonmonotone reappearance of a missing direction at degree fourteen and the sharp persistent degree-fifteen threshold are structural results with a directly usable explicit linear constraint, not routine restatements of integration exactness.",
+    "status": "PASS"
+  }
+}
