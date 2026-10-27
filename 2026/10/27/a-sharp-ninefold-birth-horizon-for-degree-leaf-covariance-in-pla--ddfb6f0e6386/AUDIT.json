@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A complete conditional-expectation calculation yields the mixed-moment recurrence with the marked leaf indicator. Telescoping gives the exact covariance, and the finite difference controls its shape. Two fully expanded positive-coefficient rational-polynomial certificates prove the strict signs at both adjacent transition positions for all birth labels using Wallis asymptotics. Independent symbolic/rational checking reproduced all identities and 512 exact dynamic-programming assertions; no finite test is used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2021 paper addresses leaf-rank probabilities for uniformly sampled vertices and finite-sample rank independence in the large-tree limit; its results do not track birth labels.",
+        "The 1993 paper proves an asymptotic joint law for counts of degrees 0,1,2, not a mixed law of a fixed labeled vertex with all leaves."
+      ],
+      "reasoning": "Neither a marginal rank limit for randomly sampled labels nor an aggregate-degree-count CLT gives a finite-n fixed-birth mixed covariance or a sharp sign boundary. No inspected stronger theorem was found to dominate this finite-size claim.",
+      "searches": [
+        "preferential attachment increasing planar tree tagged vertex offspring leaf count joint moment covariance exact",
+        "preferential attachment tree covariance degree of vertex born at j total number leaves",
+        "https://arxiv.org/abs/2108.04989"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1002/rsa.3240040204",
+      "https://arxiv.org/abs/1706.02441",
+      "https://arxiv.org/abs/2108.04989",
+      "https://arxiv.org/abs/1610.04675"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mahmoud et al. Theorem 1: root marginal outdegree mean; Theorem 2: global leaf expectation and variance; Sections 4–7: leaf counts in branches.",
+        "Zhang Proposition 1: nonroot fixed-label degree mass function; subsequent marginal means and variance.",
+        "Bóna–Pittel: random vertex rank distribution and asymptotic independence among randomly sampled vertex ranks."
+      ],
+      "reasoning": "Knowing E(D), Var(D), E(L), and Var(L) does not fix E(DL). Branch leaves and randomly sampled vertex leaf events do not equal the marked-birth covariance. No cited theorem asserts the finite correlation sign reversal or forces the product moment algebraically.",
+      "searches": [
+        "https://doi.org/10.1002/rsa.3240040204",
+        "https://arxiv.org/abs/1706.02441",
+        "https://arxiv.org/abs/2108.04989",
+        "\"plane-oriented recursive\" \"covariance\" \"leaves\" \"degree\" labelled"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 1993 article sections 2–8 distinguish whole-tree leaves, branch leaves, root outdegree, and outdegree-class counts.",
+        "The 2017 preprint Section 3 gives a fixed-label outdegree marginal and moments, not a joint leaf-count law."
+      ],
+      "reasoning": "The target pairs fixed-birth outdegree with the total leaf count; a distribution of either marginal alone, a branch-leaf distribution, or global degree-class count is not an equivalent covariance statement. The exact \\(9j-3\\) sign boundary is not stated in the inspected treatments.",
+      "searches": [
+        "plane-oriented recursive trees PORT fixed labeled node outdegree versus total number of leaves covariance correlation sign n 9j-3",
+        "\"plane oriented recursive\" \"covariance\" \"outdegree\" \"leaves\"",
+        "https://doi.org/10.1002/rsa.3240040204",
+        "https://arxiv.org/abs/1706.02441"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed result \"Equal-share covariance of root degree and leaves in a random recursive tree\" concerns the **unordered uniform recursive** attachment kernel, not the plane increasing tree kernel.",
+        "Fixed-birth outdegree versus whole-tree leaves in PORTs was absent among the examined high-scoring result summaries."
+      ],
+      "reasoning": "The competing result uses uniform-parent attachment, with no planar child ordering, and involves a root rather than a nonroot label. Its formula and sign cannot imply the present parameter-dependent PORT threshold; absence from search is not proof of novelty.",
+      "searches": [
+        "plane-oriented recursive trees PORT fixed labeled node outdegree versus total number of leaves covariance correlation sign n 9j-3",
+        "plane oriented recursive trees PORT root degree and total leaf count exact covariance Wallis sqrt pi n"
+      ]
+    },
+    "rationale": "Full primary inspection of the 1993 plane-oriented recursive-tree article, the 2017 fixed-label degree article and the 2021 plane increasing leaf-rank article found marginal, branch, and random-rank laws, but not the claimed fixed nonroot birth-label versus global leaf covariance or sharp \\(9j-3\\) threshold. Comparison of statements rules out their direct implication. Search absence is not a guarantee of historical novelty; unknown alternate formulations remain a priority risk.",
+    "residual_risks": [
+      "A less obvious older mixed-moment identity could implicitly yield the same result; literature search and inspected full texts cannot certify exhaustive historic priority.",
+      "The 1993 work extensively covers branch leaves; while its stated results do not yield the new mixed moment, an alternative reformulation in later literature remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the precise marked-outdegree/global-leaf mixed covariance; covers marginal root degree, global leaf count, branch leaf counts and global outdegree-class profiles.",
+        "evidence": [
+          "Section 2 Theorems 1–2 report E[root outdegree] and E/Var[global leaves].",
+          "Sections 4–7 analyze sizes and leaves of branches; Section 8 covers global counts of outdegrees 0,1,2."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/rsa.3240040204",
+        "material_read": "Complete 26-page primary paper (particularly Sections 2, 4–8 and Theorems 1–7).",
+        "method": "Lawful institutional full-text retrieval followed by section-by-section inspection.",
+        "title": "On the Structure of Random Plane-Oriented Recursive Trees and Their Branches",
+        "trigger": "Same tree model and potentially dominating joint laws of leaves and degrees"
+      },
+      {
+        "assessment": "NOT_COVERING the new covariance or transition; the existing fixed-label degree law supplies only a marginal.",
+        "evidence": [
+          "Proposition 1 gives a probability mass function for degree of nonroot label j.",
+          "Section 3.2 concerns moments of that same marginal; other sections concern Zagreb index and Poissonized degrees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.02441",
+        "material_read": "Full arXiv HTML; Introduction, Section 3 degree distribution/moments and other section objectives.",
+        "method": "Primary-text reading of statements and proofs/section scope.",
+        "title": "On several properties of plane-oriented recursive trees",
+        "trigger": "Exact fixed-birth-label degree distribution could subsume the target"
+      },
+      {
+        "assessment": "NOT_COVERING the tagged birth-label mixed moment or finite-n sign threshold.",
+        "evidence": [
+          "Ranks of finitely many uniformly sampled vertices are asymptotically independent.",
+          "The results concern rank-0 leaves and rank profiles, without conditioning on a fixed birth label."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.04989",
+        "material_read": "Full arXiv HTML including Introduction, rank enumerators, Section 3 limit/rank independence and main statements.",
+        "method": "Primary-text examination of objects, quantifiers and stated asymptotics.",
+        "title": "Random increasing plane trees: asymptotic enumeration of vertices by distance from leaves",
+        "trigger": "Leaf-rank independence might imply the marked-degree/global-leaf covariance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ddfb6f0e-6386-4831-87b1-beadf718b963",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural, global-versus-local dependence in a canonical uniform plane increasing tree changes sign for every marked nonroot label at exactly \\(n=9j-3\\). The label-dependent sharp integer threshold and scaling function (critical ratio 9) expose a structural phenomenon unavailable from the separate known degree and leaf marginal laws; this is a complete natural classification with a nontrivial rational certificate.",
+    "status": "PASS"
+  }
+}
