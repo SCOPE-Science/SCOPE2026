@@ -1,0 +1,134 @@
+{
+  "claim": "Consider a fully mixed population of \\(N\\) agents with \\(s\\) fixed initial seeds and independent thresholds uniform on \\(\\{1,\\ldots,N\\}\\) for all other agents, each activating permanently when the active count reaches its threshold. For every pair of integers \\(1\\le s\\le k\\le N\\), the final active count \\(K_{N,s}\\) satisfies\n\\[\n\\Pr(K_{N,s}=k)=\\binom{N-s}{k-s}\\frac{s\\,k^{k-s-1}}{N^{k-s}}\\left(1-\\frac{k}{N}\\right)^{N-k},\n\\]\nwith \\(0^0=1\\); in particular, \\(\\Pr(K_{N,s}=N)=s/N\\). Moreover, for fixed \\(s\\) and \\(\\epsilon\\in(0,1)\\),\n\\[\n\\sqrt N\\,\\Pr(K_{N,s}\\ge\\lceil\\epsilon N\\rceil)\\longrightarrow s\\sqrt{\\frac{2}{\\pi}}\\sqrt{\\frac{1-\\epsilon}{\\epsilon}},\n\\]\nand, conditional on that event, \\(K_{N,s}/N\\) converges in distribution to the density \\(\\frac{\\sqrt{\\epsilon}}{2\\sqrt{1-\\epsilon}}x^{-3/2}(1-x)^{-1/2}\\) on \\((\\epsilon,1)\\).",
+  "correctness": {
+    "rationale": "The exact mass follows from the generalized parking-function count and independence of the unselected thresholds. The fixed-s tail law follows from an exact mass ratio to the one-seed case, uniform Stirling asymptotics away from the endpoints, an integrable endpoint bound, and the explicitly evaluated integral. The verifier confirms exact normalization and small-population enumeration; these finite checks are corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fontanari's general finite-population recurrence permits arbitrary continuous threshold CDFs but explicitly starts with one instigator.",
+        "Ishikawa and Fontanari (2026) consider multiple competing groups and a different aggregation process, with the largest-group fraction as an order parameter."
+      ],
+      "reasoning": "The prior exact paper is broader in threshold distributions but narrower in seed count; the present result is narrower in threshold distribution but extends to all fixed seed counts. Neither result contains the other. The competing-group paper changes the state space and transition mechanism, so its asymptotics do not dominate the present claim.",
+      "searches": [
+        "Web: arXiv:2606.25921v1, Eq. (4) for general threshold CDF and the single-instigator premise in Section 3",
+        "Web: arXiv:2601.18682v1, Sections 1–4 on competing groups and quenched/annealed thresholds",
+        "uniform random threshold complete graph Granovetter multiple initial seeds exact finite population final cascade distribution rooted forest Cayley"
+      ]
+    },
+    "checked_sources": [
+      {
+        "checked": "Relevant full-text sections and Appendix B; primary exact one-seed baseline.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.25921",
+        "title": "Exact Solution of Granovetter's Threshold Model for a Finite Population"
+      },
+      {
+        "checked": "Abstract and accessible summary on networked multiple initiators and average cascade size; full-text theorem-level comparison incomplete.",
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4646465/",
+        "title": "The Impact of Heterogeneous Thresholds on Social Contagion with Multiple Initiators"
+      },
+      {
+        "checked": "Full text sections defining the different multi-group dynamics and its asymptotic observables.",
+        "identifier_or_url": "https://arxiv.org/html/2601.18682v1",
+        "title": "Competitive Social Mobilization in Threshold Models of Collective Action"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary exact-solution paper states a single initial instigator and derives its one-seed mass and mean asymptotic; it does not state the all-s formula or the conditional macroscopic-size density in the inspected full text.",
+        "The 2015 multiple-initiator study uses graph networks, heterogeneous thresholds, and averaged cascade size; it does not give this fully mixed discrete-uniform exact finite-population distribution.",
+        "The 2026 competitive-mobilization paper studies multiple rival groups rather than a single active movement with fixed seed count."
+      ],
+      "reasoning": "The exact one-seed law does not imply the multi-seed mass without a new combinatorial count. The exact ratio to the one-seed law and the macroscopic tail limit are derived here for fixed s. The standard generalized parking-function count is acknowledged as prior mathematics; no novelty is claimed for it. The remaining priority risk is unindexed literature on the same multi-seed complete-graph model.",
+      "searches": [
+        "Web: arXiv:2606.25921v1, exact single-instigator distribution Eq. (13), identity Eq. (14), mean scaling Eq. (16), Appendix B",
+        "Web: arXiv:1506.00986v1 / DOI 10.1371/journal.pone.0143020, multiple-initiator threshold contagion",
+        "Web: arXiv:2601.18682v1, competing social mobilization",
+        "multiple instigators Granovetter threshold model exact cascade size distribution finite population",
+        "Borel-Tanner finite population threshold cascade multiple seeds macroscopic outbreak probability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fontanari (2026), arXiv:2606.25921v1, Eq. (13) and Appendix B: exact mass formula is for one initial instigator; Eq. (16) concerns the expected active fraction.",
+        "Karampourniotis et al. (2015), DOI 10.1371/journal.pone.0143020: the accessible abstract/summary describes multiple initiators in networked threshold contagion with heterogeneous thresholds and average cascade-size outputs; the full text was not read line-by-line.",
+        "The generalized parking-function count gives \\(s k^{k-s-1}\\) admissible threshold vectors for \\(k-s\\) recruits and \\(s\\) seeds, but the count alone does not include the finite-population choice and stopping-barrier factors."
+      ],
+      "reasoning": "The single-seed exact distribution is the s=1 case, not a statement for arbitrary s. The multi-seed law changes the initial condition and requires a distinct count of valid recruitment threshold vectors. The multiple-initiator network model is not equivalent to the fully mixed, single-movement model or its exact finite-N probability law.",
+      "searches": [
+        "uniform random threshold complete graph Granovetter multiple initial seeds exact finite population final cascade distribution rooted forest Cayley",
+        "multiple instigators Granovetter threshold model exact cascade size distribution finite population",
+        "Borel-Tanner finite population threshold cascade multiple seeds macroscopic outbreak probability",
+        "Web: arXiv:2606.25921v1, Sections 3–4.2 and Appendix B",
+        "Web: arXiv:1506.00986v1 / DOI 10.1371/journal.pone.0143020, full-text results on multiple initiators"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A closest indexed result concerns deterministic k-threshold conversion sets on complete multipartite graphs, not random thresholds or final-size probabilities.",
+        "Another close probability result concerns mixing in a multi-season epidemic chain, not this threshold cascade.",
+        "No searched index result reported the exact mass formula for s initial seeds or the fixed-s macroscopic-tail density."
+      ],
+      "reasoning": "The result is an analytic distributional theorem, not a recomputation of a known table. Search failure is not used as proof of novelty; the claim-to-prior comparison rests on the different initial condition and the inspected primary statements.",
+      "searches": [
+        "uniform random threshold complete graph Granovetter multiple initial seeds exact finite population final cascade distribution rooted forest Cayley",
+        "multiple instigators Granovetter threshold model exact cascade size distribution finite population",
+        "Borel-Tanner finite population threshold cascade multiple seeds macroscopic outbreak probability"
+      ]
+    },
+    "rationale": "The inspected exact source treats one initial instigator, while this theorem treats every seed count and derives a fixed-seed macroscopic-tail law. The known generalized parking-function count is a tool, not the novelty claim. Relevant multiple-initiator literature inspected uses networked contagion or competing groups and does not imply the displayed exact fully mixed finite-N law. A residual risk from unindexed prior work is retained.",
+    "residual_risks": [
+      "Unindexed literature may contain the same exact multi-seed fully mixed threshold law; targeted index and primary-literature searches did not locate one.",
+      "The generalized parking-function count is classical; the claim does not treat that combinatorial identity as new.",
+      "The full text of the 2015 multiple-initiator article was not inspected line-by-line; its accessible abstract/summary does not settle whether it contains an equivalent complete-graph special case.",
+      "The fixed-s macroscopic-tail limit is a derived consequence of the exact multi-seed law. No independent audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant but restricted to one initial instigator. It supplies the base case and critical mean, not the all-seed exact law or conditional macroscopic-tail density.",
+        "evidence": [
+          "arXiv:2606.25921v1, lines 54–73 and 128–141; Appendix B, lines 273–297"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.25921",
+        "material_read": "ArXiv HTML: introduction, model definition, exact finite-population formulation, uniform-threshold section and mean asymptotic; inspected Appendix B's one-seed propagator proof and relevant conclusion/appendix headings. Appendices A, C, and D were not read line-by-line",
+        "method": "Full-text statement and proof comparison; independent derivation of the multi-seed count and tail asymptotic",
+        "title": "Exact Solution of Granovetter's Threshold Model for a Finite Population",
+        "trigger": "Exact self-review finite-population distribution and possible implication of the multi-seed claim"
+      },
+      {
+        "assessment": "The accessible summary describes networked contagion and average cascade-size analyses. Because the full text was not inspected line-by-line, a theorem-level comparison remains a residual risk; no inspected statement gives the exact complete-mixing finite-population PMF for fixed s or its macroscopic-tail profile.",
+        "evidence": [
+          "DOI 10.1371/journal.pone.0143020; full-text Results and Discussion"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4646465/",
+        "material_read": "Abstract and accessible summary of the networked multiple-initiator model and its aggregate cascade-size conclusions; the full primary text was not inspected line-by-line",
+        "method": "Model, state-space, and output-statistic comparison",
+        "title": "The Impact of Heterogeneous Thresholds on Social Contagion with Multiple Initiators",
+        "trigger": "Closest established multiple-initiator threshold-cascade literature"
+      },
+      {
+        "assessment": "Models competitive aggregation into multiple groups, not a single irreversible binary cascade with a fixed set of initial seeds; its largest-group scaling does not imply the exact mass formula here.",
+        "evidence": [
+          "arXiv:2601.18682v1, Sections 2–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.18682v1",
+        "material_read": "Full arXiv HTML Sections 1–4 and appendices, including model definition, threshold law, quenched/annealed scenarios, and reported critical scaling",
+        "method": "Dynamics and observable comparison",
+        "title": "Competitive Social Mobilization in Threshold Models of Collective Action",
+        "trigger": "Recent threshold-model extension involving multiple active groups"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d510a0ba-63ac-4f07-9131-0d94bc6d96e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The formula gives the full finite-population distribution for a natural multi-seed intervention, the exact probability \\(s/N\\) of full mobilization, and the \\(N^{-1/2}\\) probability and conditional size profile of macroscopic cascades. These risk quantities are not supplied by a mean-size asymptotic and are useful for understanding how seed count changes rare large outcomes.",
+    "status": "PASS"
+  }
+}
