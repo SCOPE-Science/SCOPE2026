@@ -1,0 +1,19 @@
+# Scientific review: ternary four-list multiset-deletion capacity
+
+## Correctness — PASS
+The stated maximum is \(6\) at source length \(2\), \(10\) at length \(3\), and \(11\) at every length at least \(4\). The channel uses **unordered** multiset subtraces, rather than ordered subsequences. The symbolic incidence proof double-counts at most six received outputs with four source parents each; it proves the only nine source vectors of output degrees one or two are the three pure and six nearly pure words. A hypothetical twelve-word code must include all nine and three degree-three words. Their six required monochromatic incidences exceed the three remaining monochromatic slots. The explicit eleven-vector construction attains the resulting upper bound for every length at least four.
+
+All hypotheses, boundary cases, and distinctness requirements were reconstructed. The standalone standard-library checker passed for every construction from length \(4\) through \(128\), checked output-degree classification to length \(32\), and exhausted all \(455\) and \(293930\) twelve-element candidates at lengths \(4\) and \(5\). Independent integer-programming formulations gave optimum \(11\) at lengths \(4,5,6,8,12\). The proof, rather than these finite tests, carries the general quantifier.
+
+## Originality — PASS within examined evidence
+The closest research is [1], [2], and [3] in `RESULT.md`, concerning unique correction of unordered multiset deletions and their geometry. Their inspected assertions do not cover four-list decoding with two surviving ternary symbols. Related four-list and constant-list work on **ordered** insertion-deletion codes [4] does not imply the unordered finite capacity law. The available previously recorded high-deletion list result concerns list sizes no larger than the number of survivors; here four list entries are allowed after only two survivors. Research-record searches for equivalent simplex-incidence and multiset-deletion formulations did not identify the theorem. Similar integer outputs in ordered ternary deletion-code studies arise for different channels and have no implication relationship.
+
+Absence from searches does not establish universal novelty. An unindexed, inaccessible, or unpublished equivalent computation is a residual historical-priority risk. The primary full-text readings and the search comparisons support best-knowledge originality in the precise restricted domain, without claiming exhaustive coverage of all literature.
+
+## Mathematical value — PASS
+The result answers a natural exact capacity question for a fixed alphabet, fixed observed multiset size, and bounded list decoding, across **all source lengths**, including the complete small-length transition. It is not an arbitrary single-blocklength census. In this regime, list size three can use nine pure and nearly pure words without violating a list-three constraint, while list size four first exposes a sharp obstruction to the saturated monochromatic upper bound twelve. The degree-four all-support words provide the eleven-word extremal construction. The result identifies precisely where naive capacity saturation fails, gives a mechanism for the one-word gap, and provides an explicit code family. No wider asymptotic or algebraic claim is asserted.
+
+## Closest sources and limitations
+Primary comparison sources: arXiv:2601.05636, arXiv:2603.18322, arXiv:1612.08837, and arXiv:2609.21395. All were examined for their relevant definitions and results, as specified in `AUDIT.json`. The theorem does not classify every optimum, handle other survivor sizes or alphabets, or establish independent priority or certification. The scientific risk is possible unindexed equivalent work, not a gap in the displayed infinite proof.
+
+Self-review: passed. Independent audit: not yet performed.

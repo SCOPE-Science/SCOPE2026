@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "For n>=4 there are exactly three degree-one pure and six degree-two nearly pure length-n multiplicity vectors, with every other vector of output degree at least three. Twelve codewords would force total incidence 24 exactly and hence all nine low-degree vectors plus three degree-three vectors; the nine saturate three of four parents at every monochromatic two-symbol observation, while each new degree-three vector contributes two such observations, an impossible six incidences in three remaining slots. Thus at most eleven. Three pure, six nearly pure, and the two distinct all-support vectors (n-2,1,1) and (1,n-2,1) have received-parent occupancies (4,4,3,4,4,4) in the declared order and attain eleven for all n>=4. At n=2, all six source multisets are admissible; at n=3, all ten are admissible because every received pair has precisely three parents. The actual reproducibility checker passed for n=4..128 and exhaustive size-twelve subset searches at n=4,5; independent integer optimizers verified selected further lengths. The symbolic all-length proof is independently sufficient and covers boundaries.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2601.05636: unique-reconstruction bounds and constructions on unordered multiset deletions.",
+        "arXiv:2603.18322: polynomial constructions and deletion-ball geometry in the unordered channel.",
+        "arXiv:2609.21395: constant-list insertion/deletion codes for ordered strings, asymptotic and structurally different.",
+        "An accessible general high-deletion list-capacity statement is limited to allowances not exceeding the number of survivors, whereas the current case has allowance four and two survivors."
+      ],
+      "reasoning": "A uniqueness theorem may be applied as a lower-bound construction inside a list code, but cannot provide an upper bound or exact capacity for four-list decoding. The restricted-list hypothesis is false for allowance four with two survivors. The ordered-subsequence channel has different compatible-parent sets and cannot simply be reduced to the unordered multiset channel with the same exact optimum.",
+      "searches": [
+        "2026 coding theory deletion channel list decoding multiset channel finite exact bounds",
+        "multiset 4-list decodable deletion-correcting codes ternary 2 survivors exact capacity monochromatic bound",
+        "multiset deletion list decoding ternary list four 2 deletions 11 codewords"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.05636 (primary high-deletion multiset-coding source; relevant full-text statements inspected)",
+      "arXiv:2603.18322 (multiset deletion-ball geometry; relevant full-text statements inspected)",
+      "arXiv:1612.08837 (foundational multiset channel; introduction/definitions inspected)",
+      "arXiv:2609.21395 (ordered constant-list deletion; relevant full-text sections inspected)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505 (summary and implication comparison)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-ternary-length-four-single-deletion-code-size--6adacbb5cb97 (summary and model comparison)",
+      "published-finding corpus 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814 (summary and model comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary arXiv:2601.05636 treats deletion-correcting codes with no two selected words sharing a received multiset; allowing four compatible parents is strictly weaker.",
+        "The previous all-length capacity statement with the condition that list allowance does not exceed the number of surviving symbols has no implication for four versus two.",
+        "arXiv:2609.21395 concerns ordered insertion/deletion strings, not the six unordered pairs; its list-size results do not imply the six-incidence extremal calculation."
+      ],
+      "reasoning": "Proof assumptions fail under attempted reductions: pairwise disjointness is not equivalent to four-list occupancy, the known capacity range excludes this list value, and ordered observations retain symbol order. None implies either the eleven-word construction or the obstruction ruling out twelve. The claim is nevertheless subject to a residual unindexed-priority risk.",
+      "searches": [
+        "2026 coding theory deletion channel list decoding multiset channel finite exact bounds",
+        "list decoding ternary multiset deletion composition channel two surviving symbols list four exactly eleven codewords for all source length four or greater",
+        "multiset 4-list decodable deletion-correcting codes ternary 2 survivors exact capacity monochromatic bound"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proposed code is equivalently a selection of lattice points in the ternary composition simplex with maximum source incidence four at each of the six two-composition lower ideals.",
+        "arXiv:2601.05636 defines the same unordered deletion channel but studies single-valued correction, not this exact fixed-list incidence bound.",
+        "Matching word lengths and the number eleven in ordered ternary deletion-code records do not imply a statement about unordered composition channels."
+      ],
+      "reasoning": "The searches explicitly included the simplex/composition interpretation, monochromatic/mixed received pairs, and four-list formulation. Retrieved published records did not assert an equivalent maximum of eleven for the six-output incidence hypergraph. The implication comparison rests on channel and list-parameter definitions rather than title similarities.",
+      "searches": [
+        "ternary unordered multiset two-symbol-survivor deletion codes list size four exact 11 length n five q=3 k=2 L=4",
+        "monochromatic mixed received multiset length two list decoding list four ternary source size 11",
+        "maximum four list ternary unordered multiset two symbols survive n≥4 eleven q=3",
+        "list decoding ternary multiset deletion composition channel two surviving symbols list four exactly eleven codewords for all source length four or greater",
+        "six two-symbol observations ternary 4-packing 11 incidence hypergraph two-survivor composition channel",
+        "four-list decoding unordered ternary two-element traces n length eleven sharp 12 infeasible bound"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus record 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505 computes a unique-decoding capacity with three survivors; it does not tabulate four-list two-survivor capacity.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-ternary-length-four-single-deletion-code-size--6adacbb5cb97 computes eleven for an ordered-word single-deletion code, not for the present multiset channel.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814 studies binary ordered words with list allowance two."
+      ],
+      "reasoning": "The superficially matching numerical value eleven belongs to a different model and cannot cover this theorem. No searched tabulation or result contained the precise ternary unordered, two-survivor, list-four domain. Unindexed numerical tables remain possible.",
+      "searches": [
+        "ternary unordered multiset two-symbol-survivor deletion codes list size four exact 11 length n five q=3 k=2 L=4",
+        "multiset deletion list decoding ternary list four 2 deletions 11 codewords",
+        "monochromatic mixed received multiset length two list decoding list four ternary source size 11",
+        "four-list decoding unordered ternary two-element traces n length eleven sharp 12 infeasible bound"
+      ]
+    },
+    "rationale": "The available primary studies of unordered multiset deletion, including arXiv:2601.05636 and arXiv:2603.18322, address unique correction and different ball geometry; they do not establish the exact four-list capacity with two survivors. Explicitly compared ordered insertion/deletion list coding and accessible restricted-list results have inequivalent observation relations or hypotheses excluding list four with two survivors. Semantic searches of the research-record index using exact parameters, aliases and possible broader implications yielded no covering statement. This establishes best-knowledge originality within the examined evidence, not proof of global priority.",
+    "residual_risks": [
+      "An unindexed or unpublished four-list two-survivor multiset computation could establish the same capacity.",
+      "Not all journal and conference proceedings have been individually inspected. No universal priority certificate is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Unique-decodable recovery, not a four-list ternary two-survivor exact capacity theorem.",
+        "evidence": [
+          "The code-family and received-multiset model agree; each pairwise separation requirement differs from a four-parent limit.",
+          "First public preprint posting 2026-01-09; primary MSC 94B25."
+        ],
+        "identifier_or_url": "arXiv:2601.05636 | https://arxiv.org/html/2601.05636",
+        "material_read": "Full-text HTML discussion of source and received composition definitions, introductory claims, high-deletion bounds and constructions, and relevant sections on multiset deletion correction.",
+        "method": "Primary accessible full-text HTML, inspected actual statements and their channel hypotheses.",
+        "title": "Multiset Deletion-Correcting Codes: Bounds and Constructions",
+        "trigger": "Exact same unordered multiset deletion model and 2026 motivating source"
+      },
+      {
+        "assessment": "No inspected theorem on list-four exact capacity of ternary two-survivor source multisets.",
+        "evidence": [
+          "The geometric ball and polynomial study concerns distinct coding guarantees, not this bounded receive-degree extremal question."
+        ],
+        "identifier_or_url": "arXiv:2603.18322 | https://arxiv.org/html/2603.18322",
+        "material_read": "Full-text HTML introduction, definition of multiset deletion balls, structural constructions, and relevant theoretical statements.",
+        "method": "Primary accessible full-text HTML with comparison of the defined code constraint.",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "Plausible stronger multiset ball and capacity literature"
+      },
+      {
+        "assessment": "The studied permutation-channel correction model does not supply the fixed four-list, two-survivor exact ternary formula.",
+        "evidence": [
+          "Older foundational model is related but does not imply the new incidence obstruction."
+        ],
+        "identifier_or_url": "arXiv:1612.08837 | https://arxiv.org/html/1612.08837",
+        "material_read": "Full-text HTML introductory model, definitions, and error-correction framework.",
+        "method": "Primary accessible full-text HTML, inspected scientific definitions and principal applicability.",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels With Impairments",
+        "trigger": "Foundational unordered-multiset coding and potential broader coverage"
+      },
+      {
+        "assessment": "Ordered word channels and asymptotic redundancy bounds; the exact six-output incidence problem is not a corollary.",
+        "evidence": [
+          "Deletion subsequences are ordered; unordered two-composition outputs are not these subsequences."
+        ],
+        "identifier_or_url": "arXiv:2609.21395 | https://arxiv.org/html/2609.21395",
+        "material_read": "Full-text HTML abstract, introductory framework, and sections discussing constant-list insertion/deletion codes.",
+        "method": "Primary accessible full-text HTML; compared ordered-string output relations to unordered two-element multiset outputs.",
+        "title": "Constant-List Insertion–Deletion Codes: New Bounds and an Improvement of Levenshtein's Lower Bound",
+        "trigger": "Explicit recent list-decoding results might dominate special fixed-size problem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ee477e8d-50b6-4362-a516-dde2e730f741",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This exact, natural four-list deletion capacity is determined for every ternary source length n>=2, not a cherry-picked finite table or a routine restatement of the established unique-decodable bounds. It identifies the first sharp failure, when list size is raised from three to four, of the monochromatic-output upper bound for the two-survivor ternary simplex. The obstruction is a structural incidence lemma and the matching construction is explicit and uniform. This provides a useful and motivated exact benchmark for high-deletion list decoding; it does not claim a general theorem across arbitrary alphabet/list parameters.",
+    "status": "PASS"
+  }
+}
