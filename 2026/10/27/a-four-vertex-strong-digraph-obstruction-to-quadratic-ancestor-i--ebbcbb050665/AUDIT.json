@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "On four vertices all eight parent choices are classified; three cyclic assignments excluded and five listed, with product weights 1,z,z^2,z^2,z^3. This yields Hx=z^2(z+2)/Z, Hy=z^2(z+1)/Z, A=z^3/Z, Z=1+z+2z^2+z^3 exactly. The stated iid law balances Hx and Hy, giving quotient Z/[2z(z+1)(z+2)]. Elementary limit and monotone cubic prove unboundedness and the unique failure interval; exact rational check at z=1/8 returns 593/306. verify.py enumerates without any external dependencies and its actual execution succeeded.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai (2026), Theorem 1.1 and Section 2, uses graphic-matroid spanning-tree polynomial for an undirected graph.",
+        "Grimmett (2004), publisher abstract, concerns uniform forests/spanning trees/connected subgraphs of an undirected graph."
+      ],
+      "reasoning": "These positive-correlation/negative-dependence methods do not establish a positive directed bound; an undirected guarantee cannot dominate this directed counterexample. The original directed arborescence law is not a restriction of the undirected law with the same arc weights. More general directed-theory priority remains possible and is disclosed.",
+      "searches": [
+        "Directed weighted spanning arborescences counterexample quadratic ancestor inequality uniformly bounded LCA path hit probabilities",
+        "Directed analog of UST quadratic ancestor inequality Gefei Cai arXiv 2610.22180 failure",
+        "Spanning arborescence directed matroid complete log-concavity ancestor inequality invalid",
+        "\"spanning arborescences\" \"negative association\""
+      ]
+    },
+    "checked_sources": [
+      "Gefei Cai, arXiv:2610.22180v1 (open primary full text)",
+      "G. R. Grimmett, doi:10.1002/rsa.20012 (publisher abstract only)",
+      "Madeleine Leander and Svante Linusson, doi:10.7146/math.scand.a-21163 (publisher abstract only)",
+      "Published finding on endpoint degree/distance regression for uniform Cayley trees (summary)",
+      "Published finding on random recursive tree root attachment/path length (summary)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai, arXiv:2610.22180v1, lines of Theorem 1.1 and the graphic-matroid proof, asserts only undirected weighted spanning-tree inequalities.",
+        "This exact directed family yields quotient tending to infinity with fixed graph size."
+      ],
+      "reasoning": "Neither Cai’s undirected theorem nor abstract-level prior claims about undirected forests imply the directed obstruction. The counterexample does not imply the undirected theorem. The core gap is the transition to general positive directed arc weights, where the original theorem’s graph class does not apply.",
+      "searches": [
+        "Gefei Cai \"quadratic ancestor inequality\" directed",
+        "\"ancestor inequality\" \"directed spanning trees\" negative dependence",
+        "\"directed spanning tree\" \"negative correlation\" counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai arXiv:2610.22180v1, Theorem 1.1, equations (1.3) and (1.4), identifies LCA and root-path formulations for undirected spanning trees.",
+        "The current 4-vertex family computes the very same ancestor/root-path probability quotient on in-arborescences."
+      ],
+      "reasoning": "The natural equivalent formulations are the bilinear weighted LCA inequality, iid-sampling form, and pointwise pair inequality. All are violated in the directed family; Cai proves them for undirected graphs, which are different measures.",
+      "searches": [
+        "Quadratic ancestor inequality for spanning trees directed arborescence counterexample ancestor negative dependence",
+        "Rooted directed spanning arborescence common ancestor distribution positive correlation Markov forest path",
+        "Uniform spanning arborescence LCA probability directed graph inequality",
+        "\"quadratic ancestor inequality\" \"directed\" spanning trees arborescences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published summaries on root attachment in random recursive trees and path-degree regression in Cayley trees address different observables, not a directed LCA inequality.",
+        "The exact five-tree table and polynomial parameter quotient are derived by complete enumeration and reproduced in verify.py."
+      ],
+      "reasoning": "No located exact table or published record contained the same four-vertex in-arborescence weights and ancestor quotient. Search-result summaries do not establish full-document exclusion; priority risk is retained.",
+      "searches": [
+        "Random directed spanning tree rooted arborescence lowest common ancestor positive dependence unbounded ratio four vertices",
+        "Counterexample to negative correlation in directed random spanning arborescences parent edge weights",
+        "\"directed spanning tree\" \"negative association\" arborescence",
+        "\"random arborescence\" \"Rayleigh\" matroid"
+      ]
+    },
+    "rationale": "The primary 2026 theorem is solely for undirected weighted trees, unlike the directed strong-graph in-arborescence family here. Targeted searches and source comparisons found no statement implying its unbounded 4-vertex ancestor quotient; absence from searches is not proof of absolute priority, and directed-branching precedence is a residual risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible directed spanning-arborescence negative-dependence results may predate this note.",
+      "Abstract- and summary-only comparisons cannot justify whole-document noncoverage.",
+      "The obstruction does not address subclasses arising from symmetric/reversible conductances."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem is explicitly limited to finite connected undirected weighted graphs and is based on graphic matroids; no directed in-arborescence analogue or such counterexample stated in inspected material.",
+        "evidence": "Definition (1.2), Theorem 1.1 equations (1.3)/(1.4); Theorem 2.1, Proposition 2.2, and Section 2 derivation.",
+        "identifier_or_url": "https://arxiv.org/html/2610.22180v1",
+        "material_read": "Full-text HTML: abstract, introduction, Theorem 1.1, Section 2 proof, and later applications/remarks",
+        "method": "Read open arXiv HTML sections and compare hypotheses, events, and proof dependencies",
+        "title": "A Quadratic Ancestor Inequality for Spanning Trees",
+        "trigger": "Direct motivating theorem with identical ancestor and path events"
+      },
+      {
+        "assessment": "The abstract concerns undirected uniform forests, spanning trees and connected subgraphs; it does not assert the directed LCA inequality. Whole-paper exclusion is not claimed.",
+        "evidence": "2004 article abstract specifies three measures on subsets of edges of a finite graph.",
+        "identifier_or_url": "https://doi.org/10.1002/rsa.20012",
+        "material_read": "Publisher abstract, not full paper",
+        "method": "Read publisher abstract and compare graph class and statistics",
+        "title": "Negative association in uniform forests and connected graphs",
+        "trigger": "Broader negative dependence of spanning structures"
+      },
+      {
+        "assessment": "Randomly oriented graph reachability is not a weighted random rooted in-arborescence distribution; no ancestor quotient appears in the accessible abstract.",
+        "evidence": "2015 journal abstract considers paths in random tournaments and random orientations of G(n,p).",
+        "identifier_or_url": "https://doi.org/10.7146/math.scand.a-21163",
+        "material_read": "Publisher abstract, not full paper",
+        "method": "Read journal abstract and compare probability measures",
+        "title": "Correlation of Paths Between Distinct Vertices in a Randomly Oriented Graph",
+        "trigger": "Possible directed path-event correlation precedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebbcbb05-0665-4863-8ca8-83fa3e301702",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural structural extension of the 2026 quadratic ancestor bound is decisively impossible in general directed networks. The unbounded failure at fixed four-vertex size and strong connectivity excludes every finite universal replacement constant, with a computable exact parameter phase boundary; the result identifies why undirected symmetry is substantive rather than merely convenient.",
+    "status": "PASS"
+  }
+}
