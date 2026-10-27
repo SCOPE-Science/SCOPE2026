@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Two distinct exhaustive C++17 algorithms, one forward on images and one backward on preimages, each enumerate all 9,765,625 ordered transition pairs and independently reconstruct precisely identical 16 reset-length triples and all 14 multiplicity frequencies. The bitmask recurrence has a direct path-to-word bijection, and the complete finite domain is exhausted. Independent brute force through length 13 identifies all 64 shortest reset words of the example, while all 240 distinct conjugate/swap automata belong to the extremal class; 240 is also the global exhaustive maximum-frequency count. Finite enumeration proves only the stated finite universe.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. Szykuła arXiv:2608.24245 discusses global reset thresholds, average thresholds, subset synchronization and complexity, not this counting law.",
+        "Kisielewicz–Kowalski–Szykuła arXiv:1607.04025 verifies Černý-length bounds for broader sizes but does not enumerate the number of optimal reset words per 5-state binary automaton."
+      ],
+      "reasoning": "Verification of a length bound for automata with up to 12 states, or even exact marginal reset-length counts, does not imply the optimal-word multiplicities. No examined stronger theorem recovers the distribution or 64-word extremal orbit.",
+      "searches": [
+        "Binary 5-state synchronizing automata exact shortest reset word counts by reset threshold and strong connectivity",
+        "arXiv:2608.24245",
+        "arXiv:1607.04025",
+        "arXiv:1301.2092"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.24245",
+      "doi:10.1007/s10878-013-9682-0",
+      "arXiv:1607.04025",
+      "arXiv:1301.2092 (limited text)",
+      "Published mathematical records: five-state triple rendezvous extremal; five-state avoiding-threshold extremals; seven-state Wielandt shortest-reset multiplicity; nine-state D-family shortest-reset enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A related five-state census gives reset lengths and strong-connectivity classes; those marginals cannot determine counts of shortest words for a specified automaton.",
+        "The mathematical result titled The five-state binary triple-rendezvous extremal is unique concerns shortest triple-merging time, not the count of shortest full reset words.",
+        "The mathematical result titled Shortest-reset multiplicity of the seven-state Wielandt automaton concerns one specified seven-state automaton, not all five-state binary transition pairs."
+      ],
+      "reasoning": "The existence and length of a minimum reset word do not determine the count of minimum reset words. Literature on a seven-state model does not cover five-state all-automaton extrema; literature on triple rendezvous considers a different starting subset and target condition.",
+      "searches": [
+        "Distribution of the number of shortest reset words in five-state binary synchronizing automata; unique shortest reset word; exact maximal multiplicity; 4,5-state automata census",
+        "Binary automata on five labeled states have maximum of 64 distinct shortest synchronizing/reset words, achieved by exactly 240 automata in one relabeling and letter-swap orbit",
+        "Distribution of the number of shortest reset words in five-state binary synchronizing automata; unique shortest reset word; exact maximal multiplicity; 4,5-state automata census",
+        "Binary 5-state synchronizing automata exact shortest reset word counts by reset threshold and strong connectivity"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kowalski and Szykuła arXiv:1301.2092 studies reset-length distributions and slow automata, not the degeneracy of minimum-length reset words.",
+        "Springer doi:10.1007/s10878-013-9682-0 studies computation of a shortest word and average length; no full five-state multiplicity table in its accessible sections."
+      ],
+      "reasoning": "Optimal reset-word count is not interchangeable with reset length, number of shortest-path subset vertices, number of strongly connected automata, or number of optimal target states. The counted invariant is the number of alphabet strings achieving the shortest full-set synchronization length.",
+      "searches": [
+        "Distribution of the number of shortest reset words in five-state binary synchronizing automata; unique shortest reset word; exact maximal multiplicity; 4,5-state automata census",
+        "number shortest synchronizing words 5-state binary automata 64",
+        "5-state automata number of shortest reset words 64",
+        "arXiv:1301.2092"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible older small-automata tabulations report numbers by shortest reset length and isomorphism, whereas the new table distinguishes 14 numbers of shortest reset words.",
+        "No indexed matching 14-cell table, count of 5,071,440 unique minimizers or 64-word extremal was located in the examined literature or mathematical record search results."
+      ],
+      "reasoning": "Search failure is not proof of novelty. The primary tables examined concern the distribution of minimal *length*, not distributions of the number of shortest words conditioned on automata.",
+      "searches": [
+        "Binary automata on five labeled states have maximum of 64 distinct shortest synchronizing/reset words, achieved by exactly 240 automata in one relabeling and letter-swap orbit",
+        "Five-state synchronizing deterministic automata shortest reset word multiplicity histogram exactly 5,071,440 unique reset words 64 extremal",
+        "5071440 reset automata shortest word unique",
+        "64 shortest reset words five states 240",
+        "doi:10.1007/s10878-013-9682-0"
+      ]
+    },
+    "rationale": "Published literature that was inspected determines reset length or minimum word witnesses, not number of distinct shortest reset strings over the complete five-state binary transition universe. The closest prior five-state numerical research likewise gives length marginals, not multiplicity marginals; existing general shortest-word algorithms do not imply a nontrivial 14-cell exact histogram or uniqueness of the 64-word extremal orbit. Actual textual and semantic searches found no covering indexed result, while noting the incomplete full-text scope of arXiv:1301.2092 and unindexed work.",
+    "residual_risks": [
+      "The full text of the 2013 small-automata report was not completely inspected; an unreported multiplicity appendix remains a possible but unsupported coverage risk.",
+      "Unindexed computational tables or unpublished enumerations could contain an equivalent result; indexed-search absence is not proof of uniqueness of discovery."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: discusses reset lengths and subset synchronization; no exhaustive five-state minimizer-count spectrum",
+        "evidence": [
+          "arXiv:2608.24245, introduction and sections 2.1–2.7; primary states synchronizing and reset-length definitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Full open HTML, introduction, preliminaries, sections on reset thresholds, synchronizability and average length",
+        "method": "Read primary arXiv HTML and compared definitions and theorem implications",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Recent broad survey of reset words and probabilistic automata, from 25 August 2026"
+      },
+      {
+        "assessment": "NOT_COVERING: its algorithms find shortest reset words and numerical estimates treat expected minimum length rather than number of shortest minimizers",
+        "evidence": [
+          "DOI:10.1007/s10878-013-9682-0, abstract, introduction, algorithms and experiment sections."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10878-013-9682-0",
+        "material_read": "Full openly accessible publisher HTML including introduction, algorithm and random automata experiments",
+        "method": "Read article HTML and compared whether the reported quantity is a word multiplicity histogram or shortest reset length",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Plausible exact algorithm and numeric experiments on shortest reset words"
+      },
+      {
+        "assessment": "NOT_COVERING: length bounds and slow automata, not the per-automaton count of all minimal reset words",
+        "evidence": [
+          "arXiv:1607.04025v1, abstract, numerical results and conclusion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1607.04025v1",
+        "material_read": "Open HTML primary text on length upper bounds and small-automata computations",
+        "method": "Read arXiv HTML, inspect main results and experimental tables",
+        "title": "Experiments with Synchronizing Automata",
+        "trigger": "Exhaustive binary small-state synchronizing automata studies"
+      },
+      {
+        "assessment": "FULL_TEXT_UNAVAILABLE: closest title; accessible excerpts describe shortest reset-length distribution, but full original study not verified to exclude other multiplicity tables",
+        "evidence": [
+          "arXiv:1301.2092 abstract; report described number of nonisomorphic automata for each reset length."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.2092",
+        "material_read": "Abstract and accessible experimental report excerpts; full primary text not inspected",
+        "method": "Read metadata and visible tabulation descriptions, compared title and reported axes",
+        "title": "The Černý conjecture for small automata: experimental report",
+        "trigger": "Earlier extensive tabulation of binary small automata"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e92db3ce-b706-42dd-a995-c81cb67a004b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of distinct optimal reset controls is a natural invariant of synchronizing automata, not determined by the extensively studied shortest reset length. Complete distribution and uniquely classified extremal orbit over the first modest but nontrivial exhaustive five-state binary universe establish exact degeneracy probabilities (5,071,440 uniquely optimal versus 2,991,945 multiply optimal), show the maximum multiplicity of 64 at threshold 13 rather than at maximum threshold 16, and provide a reproducible benchmark for random automata and shortest-word enumeration algorithms. This is a motivated finite classification, not a routine extension of a previous table.",
+    "status": "PASS"
+  }
+}
