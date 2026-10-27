@@ -1,0 +1,107 @@
+{
+  "claim": "For the two-player binary extraction game with payoff \\(u_i(h_i,h_j)=b h_i-L\\Pr(\\Theta_t\\le h_i+h_j)\\), \\(L>0\\), \\(b/L=19/50\\), and threshold law \\((\\Pr(\\Theta_t=1),\\Pr(\\Theta_t=2),\\Pr(\\Theta_t=3),\\Pr(\\Theta_t=4))=(2/5-t,1/10+3t,3/10-3t,1/5+t)\\) for \\(0\\le t\\le1/10\\), every law has mean \\(23/10\\) and variance \\(141/100\\), yet the game is coordination for \\(0\\le t<1/50\\), a strict Prisoner’s Dilemma for \\(1/50<t<7/75\\), and anti-coordination for \\(7/75<t\\le1/10\\), with best-response ties at the two boundary values.",
+  "correctness": {
+    "rationale": "The law is a probability distribution on the full stated interval. Exact algebra gives constant mean 23/10, second moment 67/10, and variance 141/100. Best-response differences are \\(L(r-p_1)\\) and \\(L(r-p_2)\\); their signs yield coordination, strict Prisoner’s Dilemma, and anti-coordination on the stated intervals, with ties exactly at \\(1/50\\) and \\(7/75\\). A rational-arithmetic script checks the identities at boundary and interior points; the symbolic inequalities, not the tests, prove the full intervals.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Maas et al. (2017), Games and Economic Behavior 104, 760–774, DOI 10.1016/j.geb.2017.06.009, treats uncertain resource tipping points and reports both game structures in its abstract.",
+        "Dannenberg et al. (2015), Environmental and Resource Economics 61, 365–383, DOI 10.1007/s10640-014-9796-6, uses a uniform threshold distribution in a repeated public-goods experiment and compares known-distribution risk with ambiguity. The inspected sections do not present a family with identical first two moments and a strategic phase transition."
+      ],
+      "reasoning": "The prior sources establish that threshold uncertainty and coordination incentives are well-studied. They do not, in the material inspected, imply the exact one-parameter probability law or the cutoffs derived here. The result is not a claim that threshold uncertainty or the two game types are new.",
+      "searches": [
+        "common pool resource tipping point uncertainty mean variance distribution shape equilibrium game",
+        "threshold uncertainty common pool resource payoff distribution mean variance coordination game",
+        "environmental economics uncertainty distribution shape same mean variance Nash equilibrium resource extraction",
+        "https://www.lse.ac.uk/granthaminstitute/wp-content/uploads/2014/05/ambiguity-ERE.pdf"
+      ]
+    },
+    "checked_sources": [
+      "Maas et al. (2017), DOI 10.1016/j.geb.2017.06.009; official USDA publication record and abstract read; full text unavailable.",
+      "Dannenberg et al. (2015), DOI 10.1007/s10640-014-9796-6; open full-text PDF pages 0–7 read for model and equilibrium comparison.",
+      "published-finding corpus published-finding index searches for threshold uncertainty, common-pool resource games, moment-matched distributions, and equilibrium-class changes; no exact match surfaced."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017 abstract describes uncertainty-induced coordination and Prisoner’s Dilemma incentives; the 2015 full text analyzes threshold uncertainty experimentally and gives expected-payoff and equilibrium discussion for its own repeated public-goods setup.",
+        "For the present game, exact payoff differences are \\(L(19/50-(2/5-t))\\) and \\(L(19/50-(1/10+3t))\\); their signs change at \\(t=1/50\\) and \\(t=7/75\\) while the mean and variance remain fixed."
+      ],
+      "reasoning": "Prior work covers the broad phenomenon but the accessible evidence does not imply the moment-preserving path or its three-regime phase diagram. The 2017 full text is a plausible unresolved comparison; it is explicitly retained as a residual risk rather than treated as checked.",
+      "searches": [
+        "threshold uncertainty common pool resource payoff distribution mean variance coordination game",
+        "environmental economics uncertainty distribution shape same mean variance Nash equilibrium resource extraction",
+        "https://doi.org/10.1016/j.geb.2017.06.009",
+        "https://doi.org/10.1007/s10640-014-9796-6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The model is a symmetric 2-by-2 game. Its two best-response differences depend on the threshold mass at 1 and at 2, whereas the first two moments are held fixed by the perturbation vector \\((-1,3,-3,1)\\).",
+        "The 2017 source abstract states that uncertain tipping points can generate both coordination and Prisoner’s Dilemma incentives, but does not state the moment-preserving construction or its exact parameter boundaries."
+      ],
+      "reasoning": "Rewriting the claim as signs of the two payoff differences is equivalent to the standard 2-by-2 best-response classification. That equivalence explains the regime labels but does not by itself imply that the same mean and variance can be preserved while crossing the two boundaries. The full 2017 text was not available, so this comparison retains an explicit risk.",
+      "searches": [
+        "published-finding corpus published-finding index; query: two-player binary extraction game random tipping threshold distribution CDF values F(1) F(2) coordination prisoner's dilemma",
+        "published-finding corpus published-finding index; query: moment-matched probability distributions same mean variance different Nash equilibrium threshold game",
+        "common-pool resource threshold uncertainty distribution shape higher moments equilibrium class",
+        "https://doi.org/10.1016/j.geb.2017.06.009"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus published-finding index was queried with the exact strings above and returned no exact title or claim match. The closest surfaced records included an evolutionary assortativity game and a stochastic pollution-control game, whose state variables and claims differ from this threshold-distribution construction."
+      ],
+      "reasoning": "The published-finding corpus search is a deduplication check, not an exhaustive mathematical census. The returned near matches do not imply the claim, and the absence of an exact match is not proof of novelty.",
+      "searches": [
+        "published-finding corpus published-finding index; query: two-player binary extraction game random tipping threshold distribution CDF values F(1) F(2) coordination prisoner's dilemma",
+        "published-finding corpus published-finding index; query: moment-matched probability distributions same mean variance different Nash equilibrium threshold game",
+        "common-pool resource threshold uncertainty distribution shape higher moments equilibrium class"
+      ]
+    },
+    "rationale": "The general observation that threshold uncertainty affects incentives is prior work. The reviewed claim is narrower and exact: a single one-parameter family preserves both first two moments while crossing three strategic regimes at exact cutoffs. Searches did not surface the same family or implication. This is a bounded novelty assessment, not proof that no related construction exists.",
+    "residual_risks": [
+      "The full text of Maas et al. (2017) was not obtained; it is the closest plausible source and may contain further model details not visible in the abstract.",
+      "The published-finding search is semantic and non-exhaustive; an unqueried paper could contain an equivalent construction.",
+      "The result is a compact exact counterexample/phase diagram in a stylized model; its policy relevance depends on whether the model approximates the application at hand."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not demonstrated to cover the moment-preserving family. The inaccessible full text remains a material originality risk.",
+        "evidence": [
+          "Official record: https://research.fs.usda.gov/treesearch/55296",
+          "Abstract states that uncertain tipping points can create both coordination and Prisoner’s Dilemma incentives; it does not give the present probability family or the cutoffs \\(1/50\\) and \\(7/75\\)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.geb.2017.06.009",
+        "material_read": "Official publication record and abstract only; a public full-text link was found but the PDF could not be retrieved, and institutional full-text access was unavailable.",
+        "method": "Compared the accessible statement of scope with the precise claim, focusing on the threshold law, moment constraints, payoff differences, and exact transition parameters.",
+        "title": "Dilemmas, coordination and defection: How uncertain tipping points induce common pool resource destruction",
+        "trigger": "Closest conceptual source because it studies common-pool resource extraction with uncertain tipping points and discusses coordination and Prisoner’s Dilemma incentives."
+      },
+      {
+        "assessment": "The inspected sections concern a repeated six-player public-goods experiment with a uniform threshold-risk treatment and an ambiguity treatment; they do not establish the present moment-preserving phase transition. No claim is made about unread pages beyond this scope comparison.",
+        "evidence": [
+          "Open full text: https://www.lse.ac.uk/granthaminstitute/wp-content/uploads/2014/05/ambiguity-ERE.pdf",
+          "PDF pages 3–6 describe the 13-threshold experimental distribution, expected payoff function, and equilibrium analysis."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s10640-014-9796-6",
+        "material_read": "Open 19-page PDF, pages 0–7, including introduction, experimental design, expected-payoff specification, and equilibrium discussion; pages 8–18 were not read.",
+        "method": "Compared the inspected model and equilibrium setup with the present static two-player extraction model and its exact moment-preserving family.",
+        "title": "On the Provision of Public Goods with Probabilistic and Ambiguous Thresholds",
+        "trigger": "Primary full-text source on probabilistic threshold uncertainty and strategic response to uncertain thresholds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4abe5eb-921a-4705-b4f7-3d111d2cca63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The equilibrium regime changes the interpretation of conservation incentives: coordination, dominant extraction, and anti-coordination require different policy responses. The exact family shows that even exact knowledge of the threshold mean and variance does not identify the regime, so distributional information at action-relevant cutoffs can matter. This is a motivated structural counterexample, not a claim of empirical prediction or a routine numerical recomputation.",
+    "status": "PASS"
+  }
+}
