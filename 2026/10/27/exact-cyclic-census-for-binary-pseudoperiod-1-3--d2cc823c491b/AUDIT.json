@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For cyclic binary words, d_i=w_i XOR w_{i+1} has even parity. The (1,3) condition is equivalent to excluding transition triples 100 and 111, which forces nonzero d to decompose uniquely into cyclic runs 10 and 110. Marked-zero counting proves exact coefficients for all n and t, including small wrap-around n. The four-state weighted transfer determinant gives the bivariate rational series and zeta; Möbius inversion gives primitive classes and eigenvalue bounds yield growth. Replayed standalone brute counts 524286 binary words through n=18; independently checked difference constraints through n=14, matrix traces through n=70, and Newton sums through n=180. Finite tests corroborate an algebraic proof rather than serving as an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyle and Schmieding, arXiv:1503.02050, p. 2, state the general matrix determinant description of periodic data for finite group extensions of shifts of finite type.",
+        "Meleshko et al., arXiv:2207.10171, Proposition 4 treats (1,2) and Sec. 5 analyzes repetition thresholds, including (1,3) in Table 1."
+      ],
+      "reasoning": "The general finite-state determinant identity covers *computability* of periodic-point numbers and anticipates their rationality. It supplies no specified binary pseudoperiod (1,3) transition/refinement matrix, the exact binomial law, or primitive count. The base pseudoperiod paper does not give those statements, and its (1,2) result is not a broader enumeration. Standard matrix methods are credited rather than claimed novel.",
+      "searches": [
+        "published-finding corpus: two-sided (1,3) pseudoperiodic binary shifts entropy zeta function periodic words",
+        "published-finding corpus: binary cyclic transition codes run lengths 10 and 110 even ones exact necklace enumeration plastic constant",
+        "arXiv:1503.02050, Boyle-Schmieding Secs. 1-2 and determinant periodic-data framework",
+        "arXiv:2207.10171, Meleshko et al. Proposition 4 and Sec. 5"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2207.10171 (public July 20 2022; relevant full-text sections and table)",
+      "arXiv:1503.02050 (general group SFT periodic data; relevant sections)",
+      "DMTCS article 9919 classification and date metadata",
+      "published-finding corpus semantic searches for (1,3) cyclic pseudoperiod, binary difference forbidden triples, plastic-constant entropy, and periodic zeta",
+      "Accessible own research ledger, latest generation 42, screened titles and claims for cyclic transition profiles and pseudoperiod overlap",
+      "Search-engine queries for exact output sequence, OEIS, cyclic 100/111 avoidance, and pseudoperiod zeta"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For (1,3), Meleshko et al. Table 1 gives a critical-exponent bound, not a count of periodic binary words at each circumference or transition number.",
+        "Boyle-Schmieding supply a general formula for periodic data of group shifts, rather than this concrete pseudoperiodic language.",
+        "Earlier indexed binary antisquare-avoidance and three-gram-profile titles in the accessible research ledger concern different constraints and therefore do not imply the present formula."
+      ],
+      "reasoning": "Neither the critical-exponent results nor the general zeta/determinant theory states the claimed exact coefficient 2n/(n-t) times a binomial with the even-parity admissibility region. Their generic applicability does not remove the need for the instance-specific forbidden-triple and cyclic marked-zero classification; no checked source states a stronger covering formula.",
+      "searches": [
+        "Meleshko et al. arXiv:2207.10171 Definition 1, Proposition 4, Table 1, Sections 5-6",
+        "Boyle-Schmieding arXiv:1503.02050 introduction and finite-group extensions description",
+        "published-finding corpus: periodic pseudoperiod (1,3) all indexed circular binary words trace spectral formula and transition refinement",
+        "published-finding corpus: circular words pseudoperiod (1,3) forbids 100 and 111 transition encoding renewal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meleshko et al., arXiv:2207.10171, Definition 1 and Sec. 5, defines pseudoperiod and analyzes critical exponents but gives no transition-count spectrum.",
+        "The nearest ranked published-finding corpus hits concerned binary cyclic pair multispectra or zeta functions of different dynamical systems, not the same equality-or-shift constraint."
+      ],
+      "reasoning": "The present cyclic condition is equivalent under binary XOR differences to avoiding cyclic 100 and 111 with even transition parity, or to a parity-restricted necklace of 10/110 blocks. These alias forms were searched. The published comparison establishes pseudoperiod terminology, not this enumerative assertion; no equivalent source was identified.",
+      "searches": [
+        "published-finding corpus: binary pseudoperiodic words (1,3) periodic orbit count cyclic shift generating zeta plastic constant",
+        "published-finding corpus: pseudoperiodic words cyclic enumeration (1,3) forbidden transition patterns 100 111",
+        "Web: \"pseudoperiod\" \"(1,3)\" \"number\" words",
+        "Web: \"cyclic\" \"pseudoperiodic\" \"1,3\" binary enumeration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Web queries with the first ten coefficients 2,2,8,6,2,8,16,6,8,32 did not produce a matching indexed-periodic-word record; an attempted direct OEIS query URL was inaccessible.",
+        "The explicit bivariate coefficients were computed independently by cyclic block enumeration and matrix trace through tested finite lengths."
+      ],
+      "reasoning": "An exact matching database sequence or table was not located. Search-engine misses, especially with a failed direct database endpoint, cannot exclude a preexisting table, so that remains a residual risk; no database uniqueness is asserted.",
+      "searches": [
+        "Web: site:oeis.org \"2, 2, 8, 6, 2, 8, 16\"",
+        "Web: site:oeis.org \"2,2,8,6,2,8,16,6\"",
+        "Web: \"2,2,8,6,2,8,16,6,8,32\" OEIS",
+        "Web: \"100\" \"111\" \"plastic constant\" subshift"
+      ]
+    },
+    "rationale": "The original 2022 study defines binary pseudoperiodicity and studies (1,2) and critical exponents including (1,3), without stating the cyclic binomial transition law or primitive periodic orbit spectrum. A general SFT determinant theorem establishes availability of a transfer framework but not the specific instance result. Targeted published-finding corpus, literature, and sequence-table queries produced no direct covering statement; the absence of a located equivalent is not treated as a uniqueness proof.",
+    "residual_risks": [
+      "Possible unlocated equivalent periodic-orbit or necklace enumeration under the forbidden-triple or renewal-system vocabulary.",
+      "Direct OEIS search endpoint inaccessible; web indexed-sequence checks were not an exhaustive database audit.",
+      "General shift-of-finite-type tools provide the overall determinant method and reduce methodological novelty; originality rests on the instance-specific parity/run classification and exact coefficient law.",
+      "Independent mathematical and bibliographic verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly relevant but not covering: it treats existence and avoidance/critical exponent, not the claimed complete periodic-point/transition distribution.",
+        "evidence": [
+          "Definition 1 gives the comparison w_i in {w_{i+p1},w_{i+p2}}.",
+          "Proposition 4 classifies (1,2); Table 1 discusses (1,3) in critical-exponent terms."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2207.10171",
+        "material_read": "The original definition; Section 2 (Propositions 3 and 4); Section 5 around its critical-exponent theorems and Table 1, including (1,3); section on larger alphabets; publication metadata.",
+        "method": "Accessible arXiv full text with page-image checks of the defining first page and the critical-exponent table.",
+        "title": "Pseudoperiodic Words and a Question of Shevelev",
+        "trigger": "Original paper introducing the exact pseudoperiod concept and explicitly treating (1,3)."
+      },
+      {
+        "assessment": "Provides general determinant periodic-data machinery and does not enumerate circular binary (1,3)-pseudoperiodic words or their transition-refined counts.",
+        "evidence": [
+          "Introductory presentation of group extensions and zeta as det(I-zA)^{-1}.",
+          "The results concern K-theory and nonconjugate group extensions sharing periodic data."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1503.02050",
+        "material_read": "Abstract, introduction, initial group-extension definition and the displayed determinant formula, plus section structure.",
+        "method": "Accessible arXiv full text read in the relevant sections.",
+        "title": "Finite Group Extensions of Shifts of Finite Type: K-theory, Parry and Livsic",
+        "trigger": "Potential domination by a general group-extension / periodic-point zeta theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d2cc823c-491b-434b-8cb2-09582d21db17",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The (1,3) class is the first nonrigid binary two-shift pseudoperiod with initial offset 1 following the rigid (1,2) case. The theorem classifies the entire natural periodic-point family by transition number and supplies all primitive rotation counts and the exact entropy. The cyclic even-parity renewal decomposition gives a structural explanation of the plastic-constant growth, not just a finite table or arbitrary numerical parameter. Scope is naturally complete for this fixed first positive-entropy case.",
+    "status": "PASS"
+  }
+}
