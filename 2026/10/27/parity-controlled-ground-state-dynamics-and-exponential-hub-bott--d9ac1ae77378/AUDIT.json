@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For an updated vertex with degree d and u equal-spin neighbors, the minority flip criterion is u>=ceil(d/2) and the change in monochromatic-edge energy is d-2u<=0. With k_j peripheral spins opposite to the hub, equal-spin counts are s-k_j and k_j-1. These give the exact odd/even closed classes; for even s local subset-inclusion graphs connect each hub sector and an all-balanced hub flip connects the sectors. Every outside configuration has a strictly energy-decreasing peripheral update, yielding the explicit stopped drift bound. Uniform measure on the even-s recurrent set follows from exactly symmetric reversible flips, and counting all-balanced states gives hub-colour conductance q^r/N and the mixing lower bound. A packaged checker exhaustively enumerates all terminal components for 21 (s,r) pairs through eleven vertices, independently verifying the formulas, exact ground-state energy and expected edge-flip energy changes; infinite correctness rests on the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Accessible full text arXiv:1011.5119, introduction and sections 3–4: general energy/corollary and an algorithm for possible limit-set membership, explicit theorems for cliques, cycles, paths and trees.",
+        "Ding–Peres (2011), doi:10.1214/10-AIHP402, treats positive-temperature/ferromagnetic Glauber lower bounds rather than this antiferromagnetic, zero-temperature closed-neighborhood rule."
+      ],
+      "reasoning": "An algorithm applicable to arbitrary finite graphs in the source is not a closed-form family-wide classification, and its energy statement does not imply a sharp count of irreducible classes or hub conductance. Ferromagnetic Ising mixing bounds involve a different spin interaction and do not dominate the claimed transition law.",
+      "searches": [
+        "Stochastic minority dynamics on graphs exact absorbing configurations and hitting time",
+        "\"block graphs\" \"zero temperature\" \"minority dynamics\" recurrent",
+        "zero temperature antiferromagnetic Ising model clique star windmill graph mixing time"
+      ]
+    },
+    "checked_sources": [
+      "HAL:hal-00272271 — 15 Apr 2008 preprint, metadata only",
+      "arXiv:1011.5119 — full readable HTML, Definitions 2–6, Lemma 1, Theorem 4.1, sections 3–4",
+      "doi:10.1214/10-AIHP402 — ferromagnetic mixing, scope comparison",
+      "Published paper “Dissociation polynomial and all maximal dissociation sets of generalized windmills” (2026-10-04): different graph invariant",
+      "Published paper “Sharp period-four census for complete multipartite parity automata” (2026-10-11): distinct synchronous parity automaton"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Regnault–Rouquier–Thierry theorem 4.1 yields the r=1 clique limit set and transition graph, and its Lemma 1 yields energy nonincrease for every graph; r>=2 hub toggles depend on all simultaneous clique balancing.",
+        "Relevant previous research on asynchronous minority for wheels, balanced tripartite graphs and circular prisms uses different graph families; a windmill majority-network result uses synchronous majority, not asynchronous minority."
+      ],
+      "reasoning": "Neither the single-clique result nor the generic energy lemma implies that all ground states of the gluing family communicate for even s, separate into singletons for odd s, or have the explicit exponential bottleneck; all three require the new coupled hub transition and product inclusion-graph analysis. Prior isolated graph families do not cover arbitrary s,r>=2.",
+      "searches": [
+        "asynchronous closed neighborhood minority spin flip on graph glued cliques ground state set stationary mixing bottleneck",
+        "friendship graph asynchronous majority minority update limit set one recurrent class uniform stationary",
+        "\"Stochastic Minority on Graphs\" \"2008\" \"Apr\" HAL"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Regnault–Rouquier–Thierry, Stochastic Minority on Graphs, arXiv:1011.5119, sections 2 and 3.1: closed-neighborhood minority is an antiferromagnetic zero-temperature single-site spin flip with nonincreasing monochromatic-edge energy.",
+        "Theorem 4.1 of that work provides the full r=1 clique census, not the r>=2 shared-hub communication graph.",
+        "An indexed 2026 paper on dissociation polynomials of generalized windmills studies graph vertex-set invariants, not spin dynamics."
+      ],
+      "reasoning": "Equivalent physical phrasing (zero-temperature antiferromagnetic Ising, maximum-cut spin dynamics) changes neither the tie rule nor the sharing of one hub. The clique theorem recovers r=1 but has no joint all-block balance event or exponential hub cut for r>=2; the indexed generalized-windmill invariant is not a dynamical implication.",
+      "searches": [
+        "asynchronous stochastic minority dynamics friendship graph windmill graph shared triangles exact recurrent communicating classes absorbing configurations",
+        "zero-temperature antiferromagnetic Glauber finite graph clique bouquet exponentially slow hub flip",
+        "stochastic minority windmill graph friendship graph asynchronous minority dynamics graph clique gluing"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed research returned generalized-windmill dissociation, clique-spin-network and nonmatching parity-automaton records but no exact recurrent-count or hub-flux table for stochastic minority on K1 joined to r cliques.",
+        "The original paper gives the clique r=1 binomial rows; checker reproduces that boundary but the all-r polynomial and mixing claim is not table lookup."
+      ],
+      "reasoning": "No indexed enumeration covering this family and transition convention was identified. Finite small-instance checks were generated from a new transition enumeration, not transcribed as known table values; absence of an indexed table alone is not proof of novelty.",
+      "searches": [
+        "minority cellular automata windmill graph attractive states Markov chain mixing",
+        "\"minority\" \"friendship graphs\" dynamics",
+        "\"windmill\" \"Glauber\" \"mixing time\" antiferromagnetic",
+        "parity dichotomy clique windmill shared hub stochastic minority attractors; polynomial absorption and exponential mixing"
+      ]
+    },
+    "rationale": "The original Stochastic Minority on Graphs text explicitly classifies a single complete graph (r=1) and supplies general energy descent, but does not state the recurrent census or bottleneck for gluing r>=2 complete graphs at one hub. The later accessible full text and section-level theorems were inspected. Further targeted searches of spin/minority literature and indexed mathematical records under windmill/friendship/block-graph/Ising formulations did not identify a stronger equivalent. Graph-invariant results on generalized windmills and previous classifications on wheels or tripartite graphs have different objects or update rules. Novelty remains bounded due to possible unindexed equivalences and unreadable older preprint body.",
+    "residual_risks": [
+      "An inaccessible 2008 preprint body may contain a broader argument absent from the accessible 2010 rendering, although no such claim was found in its available metadata.",
+      "Unindexed spin-system literature could describe this clique-sum zero-temperature antiferromagnetic chain under other vocabulary; index absence is not proof of novelty.",
+      "No independent human or external mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 4.1 settles only a single complete graph; generic energy and limit-set claims are antecedents but do not state the claimed all-r class/mixing formulas.",
+        "evidence": [
+          "Sections 2–3, Definition 2, Lemma 1, Corollary 1, Theorem 4.1 (lines 67–125 and 248–266 in the available HTML)."
+        ],
+        "identifier_or_url": "arXiv:1011.5119; https://ar5iv.labs.arxiv.org/html/1011.5119",
+        "material_read": "Accessible complete rendered article: introduction, model section 2, energy/attractor material section 3.1, clique and cycle theorem section 4.1, later graph-class results and appendices/index.",
+        "method": "Full-text HTML reading and text searches for windmill, friendship, clique-sum, clique and limit set.",
+        "title": "Stochastic Minority on Graphs",
+        "trigger": "Foundational exact update convention, general energy lemma, and plausible stronger graph-class theorem."
+      },
+      {
+        "assessment": "Public 15 April 2008 date verified; overlapping content beyond the later readable version could not be inspected.",
+        "evidence": [
+          "HAL indexed snippet: “Preprint submitted on 15 Apr 2008”; author bibliography records April 2008 technical report."
+        ],
+        "identifier_or_url": "HAL:hal-00272271; https://hal.science/hal-00272271/document",
+        "material_read": "Indexed bibliographic metadata and landing-page description; not full text.",
+        "method": "Indexed source lookup; direct document access returned a publisher-site access restriction.",
+        "title": "Stochastic Minority on Graphs (earlier preprint)",
+        "trigger": "Earliest public preprint date and possible earlier full claim."
+      },
+      {
+        "assessment": "Ferromagnetic Ising Glauber dynamics is a different chain, so it does not imply the exact antiferromagnetic windmill lower bound.",
+        "evidence": [
+          "Ding–Peres, Ann. IHP 47 (2011), abstract explicitly identifies ferromagnetic Ising mixing lower bound."
+        ],
+        "identifier_or_url": "doi:10.1214/10-AIHP402; https://www.numdam.org/articles/10.1214/10-AIHP402/",
+        "material_read": "Article abstract, model description and mathematical classification; full paper not necessary for model mismatch.",
+        "method": "Publisher/open abstract inspection and scope comparison.",
+        "title": "Mixing time for the Ising model: a uniform lower bound for all graphs",
+        "trigger": "Possible general mixing-time dominance under Glauber terminology."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d9ac1ae7-7378-4527-a1ba-1c13c40e5ca4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An unbounded natural two-parameter graph family of cliques with one shared hub tests whether zero-temperature local energy descent reaches global maximum cuts and how communication across a cut vertex depends on local parity. The result gives a full closed communicating-class census for every parameter, an exact irreversible/reversible parity switch, a uniform polynomial entrance bound, and an explicit exponential mixing obstruction despite unique recurrence. This is not a trivial restatement of the known single-clique case: the exponential boundary event requires all r blocks to balance simultaneously. It is mathematically meaningful even without a matching mixing upper bound.",
+    "status": "PASS"
+  }
+}
