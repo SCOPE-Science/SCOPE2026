@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** Quadratic expansion gives an exact error representation; Cauchy--Schwarz and Frobenius invariance supply lower and upper extrema, whose attainability follows from real orthogonal equal-diagonal construction and the spectral theorem. Spherical fourth moments give Haar expected risk. Averaging adversarial orientations proves the minimax lower bound for every fixed frame distribution, and Haar frames attain it. Signed-frame cancellation and third-order Taylor remainders establish the stated expected-bias extension. The standalone checker independently reproduced exact examples and finite numerical tests; it is not used as an infinite proof.
+
+**Originality: PASS under examined literature, with residual priority risk.** The directly motivating 2026 paper supplies the one-sided finite-difference projected-gradient estimator and a smoothness upper bound, but not the exact quadratic optimal-frame, Haar-risk and adversarial-orientation minimax classification. A 2021 basis-rotation paper uses central differences and hence a distinct truncation-error mechanism. The balanced-diagonal existence theorem and spherical moments are expressly acknowledged as classical mathematical ingredients. Searches for the full theorem, aliases and stronger error coverage identified no equivalent complete numerical-differentiation claim; this is best-knowledge priority, not certification.
+
+**Value: PASS.** A fixed, natural \(k+1\)-evaluation projected-gradient primitive is basis-dependent even when its span is unchanged. The exact formula quantifies up to a \(k\)-fold removable squared error for rank-one positive curvature, identifies exact cancellation under traceless indefinite restricted curvature, and provides a sharp minimax design when the curvature eigendirections are unavailable. This is a concrete sampling-design guarantee, not a generic optimizer-rate claim. The scalar quadratic and oracle-orientation game restrictions remain important.
+
+Closest literature: arXiv:2609.08277v1 (Algorithm 2/Lemma 4.1); arXiv:2106.07313v1 (central-difference basis rotation); the classical Schur--Horn diagonal theorem. Residual risks include uncatalogued specialized randomized-frame numerical-differentiation results and different practical noise models.
+
+Self-review: passed. Independent audit: not yet performed.

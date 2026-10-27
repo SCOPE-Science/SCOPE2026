@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact quadratic finite-difference expansion yields error h/2 times the frame Rayleigh diagonal. Its squared norm gives the loss exactly. Cauchy--Schwarz and orthogonal Frobenius invariance yield sharp min/max; the recursive mean-Rayleigh construction proves attainment without assuming positive curvature. Sphere fourth moments prove the Haar risk and the uniform sign symmetry proves unbiasedness. For any randomized frame distribution, Haar averaging over an adversarial curvature orientation yields a universal minimax lower bound, attained by Haar frames. Symmetric signed probes prove the stated C^3 bias bound. Exact rational and symbolic cases, 900 numerical identities/inequalities and 54,000 Haar-frame moment samples were independently replayed from the delivered verify.py; they are corroboration, not proofs of infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Classical Schur--Horn theory, e.g. Devadas--Haine--Stubis (2015), does cover existence of constant-diagonal orthogonal conjugates; this component is acknowledged prior.",
+        "Classical rotational averaging covers spherical fourth moments and uniformizing invariant games in general; neither by itself identifies the exact numerical-differentiation loss and its query-budget consequences.",
+        "Relevant previous record on Haar sparse stochastic subspace descent concerns projectors and stochastic optimization stability, not the one-sided finite-difference Hessian-diagonal truncation error."
+      ],
+      "reasoning": "The diagonal-balancing lemma is a consequence of earlier matrix theory and is not represented as separately original. The final composite theorem adds exact applicability to the particular k+1-evaluation estimator, worst-case over Hessian orientations, optimal sampling law and its achieved numerical risk. Published basis-rotation and abstract matrix majorization results do not themselves state the same minimax risk for this one-sided scheme; a broader direct numerical-differentiation theorem would supersede this claim if found.",
+      "searches": [
+        "orthogonal random directions finite difference gradient estimation Hessian variance Frobenius trace mean squared error",
+        "\"Smart Gradient\" \"Esmail Abdulfattah\" paper \"Foundations of Data Science\" pdf",
+        "\"Smart Gradient\" \"rotated\" \"basis\" finite differences Hessian bias optimal 2024 2025"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.08277v1 Section 4.1, Appendix D.1",
+      "arXiv:2106.07313v1 Sections 2-3, Appendix A",
+      "Devadas--Haine--Stubis (2015), The Schur--Horn Theorem",
+      "MSC2020 65D25 Numerical differentiation (classification source checked)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem source arXiv:2609.08277v1 Lemma 4.1: deterministic general smoothness error bound k h^2 L^2/4, not equality or orientation minimax risk.",
+        "arXiv:2106.07313v1 derives rotated central-difference gradient estimation, so for quadratics its truncation term is identically zero but it requires double-sided probes.",
+        "Schur--Horn diagonal realizability implies only the deterministic best-frame subproblem after deriving the objective-specific loss; sphere fourth moments and symmetrization are additionally needed for minimax stochastic orientation."
+      ],
+      "reasoning": "The current statement is not a numerical special case of the prior general smoothness upper bound. The classical matrix theorem controls possible frame diagonal entries and therefore one component of the proof, but does not give the sharp minimax expected estimation error by itself. The new claim is deliberately restricted to exact quadratics and precommitment frame selection; no unproved general optimizer consequence is claimed.",
+      "searches": [
+        "forward difference orthonormal basis diagonal Hessian Schur Horn accuracy trace subspace",
+        "\"Schur-Horn\" \"finite-difference\" \"gradient\" basis optimization",
+        "arXiv:2609.08277v1 Section 4.1 Algorithm 2 Lemma 4.1",
+        "arXiv:2106.07313v1 Sections 2-3 Appendix A",
+        "Devadas Haine Stubis Schur-Horn theorem 2015"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2609.08277v1, Section 4.1 Algorithm 2 and Lemma 4.1 give the same one-sided subspace estimator and an upper bound but no spectral exact frame-risk formula.",
+        "arXiv:2106.07313v1, Sections 2-3 and Appendix A use adaptive orthonormal directions with central differences instead of the one-sided budget.",
+        "The own accessible numerical-differentiation and zeroth-order-descent historical claims examined concern other sampling/covariance settings, not this fixed-spectrum frame minimax law."
+      ],
+      "reasoning": "A same-estimator source is distinguished by its lack of an exact Hessian-eigenbasis and adversarial frame-design risk analysis. Its Lemma 4.1 does not imply minimax equality without the new quadratic reduction and sphere integration. The older rotated-gradient approach computes symmetric central differences and therefore has zero quadratic truncation error independently of rotation at a different evaluation cost. Record searches did not exhibit a statement-equivalent one-sided minimax theorem; absence is not an absolute priority certificate.",
+      "searches": [
+        "CV-ZOD Algorithm 2 projected gradient forward differences orthonormal basis curvature bias optimal rotation equal diagonal Hessian Haar frame",
+        "basis dependence forward finite differences orthonormal directions Schur Horn equal diagonal Hessian trace randomized rotation squared bias",
+        "\"finite difference\" \"orthonormal basis\" \"Hessian\" rotation bias trace randomized zeroth order",
+        "\"gradient\" \"forward differences\" \"orthogonal\" \"Schur-Horn\" bias"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical research-record search: closest top hit \"Exact Haar moments remove sampling-dimension restrictions in sparse stochastic subspace descent\" (2026-09-18), a different Haar-projector update rather than one-sided forward numerical differentiation.",
+        "No exact numerical-differentiation table or benchmark with the combined trace/Frobenius minimax law was found in the inspected sources."
+      ],
+      "reasoning": "The exact small cases, the k-dependent minimax value and curvature-zero iff trace-zero classification are algebraic identities in continuous families, not a recomputed finite database. Record similarity does not prove noncoverage; topic/objects and implications were compared.",
+      "searches": [
+        "minimax Haar orthogonal basis random one-sided finite difference gradient estimator fixed Hessian spectrum unknown eigenvector orientation sharp mean squared truncation error trace Frobenius",
+        "\"Haar\" \"finite differences\" \"Hessian\" \"basis\" gradient",
+        "\"random orthogonal directions\" \"forward difference\" \"bias\" \"Hessian\""
+      ]
+    },
+    "rationale": "Best-knowledge no exact numerical differentiation frame-risk minimax statement found after inspecting the matching 2026 primary source and relevant older basis-rotation paper. Classical Schur--Horn equal-diagonal realizability, spherical moments and group symmetry are expressly acknowledged as known ingredients; no novelty is claimed for these general facts in isolation. The distinct new assertion is their sharp combined numerical-differentiation law with exact unknown-orientation minimax value and query-budget meaning. Specialized earlier work remains a priority risk.",
+    "residual_risks": [
+      "Classical orthogonal-group minimax symmetrization and Schur--Horn theory make individual proof components standard; undiscovered direct numerical-differentiation presentations are possible.",
+      "Not every older rotated finite-difference algorithm or textbook has been exhaustively examined.",
+      "The result is exact for quadratics; applications to noisy function values and adaptive acquisition of curvature information require distinct analysis."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No exact quadratic basis-optimal or adversarial-orientation risk law in inspected relevant material. Lemma 4.1 gives only k-dependent smoothness upper bound.",
+        "evidence": [
+          "Algorithm 2 and Lemma 4.1, Section 4.1; Appendix D.1 proof",
+          "The source states basis B orthonormal but leaves its choice unconstrained."
+        ],
+        "identifier_or_url": "arXiv:2609.08277v1; https://arxiv.org/pdf/2609.08277",
+        "material_read": "Full PDF was opened; Sections 2, 3.1, 3.3, 4.1 (Algorithm 2/Lemma 4.1), Appendix D.1 and references were checked against the proposed loss and frame choices.",
+        "method": "Searchable PDF text and page-image inspection, specifically pages 4, 5 and Appendix D.1.",
+        "title": "Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+        "trigger": "Introduces the identical one-sided projected-gradient estimator"
+      },
+      {
+        "assessment": "Uses central differences in the numerical experiments and examples and motivates adaptive bases via descent history, not the one-sided estimator or fixed-spectrum minimax risk.",
+        "evidence": [
+          "Pages 2-4 show rotated basis; page 2 describes central differences; Appendix A contains explicit symmetric differencing."
+        ],
+        "identifier_or_url": "arXiv:2106.07313v1; https://arxiv.org/pdf/2106.07313",
+        "material_read": "Sections 1-3, gradient rotation formula, experimental methods and Appendix A were inspected from full PDF, with relevant PDF page screenshot.",
+        "method": "Searchable PDF and page image of rotated-gradient formula, plus exact search for forward, central, Hessian.",
+        "title": "Smart Gradient -- An Adaptive Technique for Improving Gradient Estimation",
+        "trigger": "Earlier rotated orthonormal gradient-differencing design potentially dominating frame accuracy"
+      },
+      {
+        "assessment": "The real constant-diagonal claim is known and disclosed; it is used as a classical ingredient, not sold as a standalone new result. The source contains no numerical differentiation or unknown-orientation risk game.",
+        "evidence": [
+          "Schur--Horn theorem statement on PDF page 2 and corresponding discussion."
+        ],
+        "identifier_or_url": "Devadas--Haine--Stubis (2015); https://math.berkeley.edu/~phaine/files/Schur-Horn.pdf",
+        "material_read": "The statement, early examples, majorization description and real-matrix interpretation in the opening sections were inspected in a full 13-page PDF.",
+        "method": "PDF text and page-image inspection for Schur--Horn statement.",
+        "title": "The Schur--Horn Theorem",
+        "trigger": "Exact constant-diagonal orthogonal-frame existence may be covered by classical matrix theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d644efd2-a48e-4379-8065-5ed62c865163",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 k+1-evaluation one-sided projected-gradient estimator has a basis-selection ambiguity with a sharp quantitative effect: a rank-one PSD Hessian incurs k times as much squared error in an eigenframe as in a balanced frame, while trace-zero indefinite compressed curvature admits exact finite-step differentiation. When eigendirections are unknown, Haar sampling is provably minimax with an explicit curvature-spectrum risk, rather than merely an arbitrary random basis. This is a natural and actionable design fact for a concrete numerical differentiation primitive and remains meaningful without an end-to-end optimizer theorem. Unlike a textbook diagonalization identity alone, it resolves the sampling-design decision under an explicit information constraint.",
+    "status": "PASS"
+  }
+}
