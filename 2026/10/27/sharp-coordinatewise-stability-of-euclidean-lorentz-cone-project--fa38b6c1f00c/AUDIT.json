@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The exact Euclidean Lorentz-cone projection formula is differentiated on its three open regions. The intermediate Jacobian J=1/2 [[1,u^T],[u,(1+t)I-tuu^T]] has a scalar row of norm at most (1+sqrt d)/2 and spatial rows bounded sharply by 1+max g_d(a)/2. Strict negativity of g_d second derivative gives a unique maximizer; direct test proves spatial dominance for d=2..4, and the exact bound g_5(a)<sqrt5-1 combined with monotonicity in d proves scalar dominance for all d>=5. A segmentwise integration argument provides the global Lipschitz upper bound and local derivatives, including t tending to one, prove sharpness. The self-contained checker passed 5,461 finite assertions; those finite checks corroborate the analytical proof but are not themselves universal certificates. All formulas specify real d>=1, standard cone aperture and an Euclidean minimizer measured in ell_infinity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kong et al. characterize derivatives over all symmetric cones, not induced non-Hilbert operator norms; see sections 2.3, 3: https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+        "Németh–Zhang theorem concerns order isotonicity of projections onto product sets under an extended-Lorentz partial order, not sharp ell_infinity Lipschitz constants: https://arxiv.org/html/1405.7835v2",
+        "Published planar ell_p cone result is a rank-one selection theorem for ambient dimension two and 1<p<infinity, not unweighted Lorentz cones in dimensions three or higher: https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d/RESULT.md"
+      ],
+      "reasoning": "Breadth of a derivative formula or a Hilbert nonexpansivity theorem is not itself a determination of the induced ell_infinity norm of the Lorentz projector. The planar studies have different ambient norm and dimension and do not cover the d=2,3,4 spatial rows or dimension-five switch.",
+      "searches": [
+        "orthogonal metric projection onto second order cone sup norm sharp phase transition dimension five",
+        "Euclidean nearest point projection Lorentz cone ell infinity sensitivity coordinatewise Lipschitz",
+        "2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d",
+        "Clarke generalized Jacobian of the Projection onto Symmetric Cones",
+        "Extended Lorentz cones and mixed complementarity problems"
+      ]
+    },
+    "checked_sources": [
+      "https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+      "https://arxiv.org/html/1405.7835v2",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c/RESULT.md",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3/RESULT.md",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General Jacobian of symmetric-cone projection in Kong–Tunçel–Xiu is a necessary starting calculation but contains no induced maximum-coordinate row-sum comparison: https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+        "The cone-geometry record studies ell_p nearest-point maps, so its p=2 theorem bounds ell_2 differences, but ell_2 nonexpansivity gives only crude ell_infinity upper bound sqrt(d+1): https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c/RESULT.md",
+        "The ball clipping record bounds Euclidean-ball projection, not Lorentz projection. The sharp constants coincide at high dimensions, but the operators differ and the exceptions below dimension five are specific to the cone: https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3/RESULT.md"
+      ],
+      "reasoning": "None of the inspected theorems logically implies the unique stationary point a_d, its being the spatial-row extremizer for d=2,3,4, the strict dominance of the scalar row for every d>=5, or the complete exact modulus without additional analysis. Potential undiscovered equivalent work remains a stated bibliographic risk.",
+      "searches": [
+        "Euclidean projection onto Lorentz cone sharp global Lipschitz constant in infinity coordinate norm, Jacobian row sums dimension threshold",
+        "second order cone projector Lipschitz constant infinity norm Euclidean projection Lorentz cone",
+        "Clarke generalized Jacobian projection symmetric cones Kong Tuncel Xiu",
+        "2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+        "2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3",
+        "2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kong–Tunçel–Xiu (2009), sections 2.3 and 3, gives generalized Jacobians of projections onto symmetric cones including second-order cones: https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+        "The published result 2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c uses an ell_p ambient *minimization* metric and ell_p sensitivity, not Euclidean minimization with coordinatewise sensitivity.",
+        "The published ball clipping result 2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3 has the same numerical (1+sqrt d)/2 formula for the unweighted ball but a different nonlinear map and no low-dimensional Lorentz phase."
+      ],
+      "reasoning": "Euclidean Lorentz projection, Euclidean-ball clipping, and ambient-ell_p Lorentz projection have different piecewise formulas/Jacobians. In the first cone result p=2 yields nonexpansivity in ell_2, but cannot identify ell_infinity amplification >1. Generalized Jacobian identities reduce the new theorem to nontrivial absolute row-sum optimization; the strict dimension-five winner switch and roots a_d are not stated or established by these inputs.",
+      "searches": [
+        "Lorentz cone Euclidean projector infinity Lipschitz (1+sqrt d)/2 for d>=5 and exceptional dimensions 2 3 4",
+        "Jacobian of Lorentz cone projection sharp maximum absolute row sum dimension threshold",
+        "Lorentz cone projector local Lipschitz infinity norm sensitivity extremizers",
+        "2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c",
+        "2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual semantic mathematical-record searches returned closest records 2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c, 2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3, 2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d but no located table of Lorentz Euclidean projection ell_infinity moduli.",
+        "External bibliography search for exact coordinatewise projection Lipschitz constants located generalized-Jacobian and ordinary Euclidean nonexpansivity sources, not the claimed dimension table."
+      ],
+      "reasoning": "No located indexed table gives the exceptional 1.361178997925, 1.463035638121, 1.541623172494 constants, or the dimension-five threshold. This is evidence of an unresolved priority question, not proof that no table exists.",
+      "searches": [
+        "Lorentz cone Euclidean projector infinity Lipschitz (1+sqrt d)/2 for d>=5 and exceptional dimensions 2 3 4",
+        "orthogonal metric projection onto second order cone sup norm sharp phase transition dimension five",
+        "Jacobian of Lorentz cone projection sharp maximum absolute row sum dimension threshold",
+        "Euclidean nearest point projection Lorentz cone ell infinity sensitivity coordinatewise Lipschitz",
+        "Lorentz cone projector local Lipschitz infinity norm sensitivity extremizers"
+      ]
+    },
+    "rationale": "The inspected primary and mathematical-record sources establish Euclidean generalized Jacobians, order isotonicity, planar ell_p metric-projection stability, or Euclidean-ball clipping. None states or logically yields the exact Euclidean Lorentz-cone projection Lipschitz constants measured in ell_infinity without the new explicit absolute row-sum optimization and strict dimension-five branch comparison. Direct mathematical-record queries with equivalent statements, parameters, alternative operator formulations and related exact tables did not locate a covering result. Historical priority is provisional and wider independent bibliographic review is still needed.",
+    "residual_risks": [
+      "An unindexed or differently named preexisting calculation of the ell_infinity norm of the Lorentz projector could exist.",
+      "Generalized-Jacobian papers may contain a specialized consequence in a supplement or secondary literature not encountered in targeted full-text inspection.",
+      "No independent priority review has been carried out."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp induced infinity-norm constant. Supplies derivative machinery, not global cross-norm row-sum optimization.",
+        "evidence": [
+          "Explicit Jacobian representation and B-subdifferential in section 2.3 and Theorem 3.1; no claimed sharp coordinatewise norm or dimension-five transition in inspected relevant sections."
+        ],
+        "identifier_or_url": "https://www.math.uwaterloo.ca/~ltuncel/publications/CGJ-SVVA2.pdf",
+        "material_read": "Accessible 16-page manuscript: abstract and introduction, Jacobian formula (2.11)–(2.12), Theorem 3.1 and discussion of second-order cones (pages 1, 7 and 9); key formula lines in full-text version.",
+        "method": "Read accessible publisher-author manuscript with relevant rendered pages and parsed text.",
+        "title": "Clarke Generalized Jacobian of the Projection onto Symmetric Cones",
+        "trigger": "Directly applicable Jacobian theory for Euclidean projection onto Lorentz cones."
+      },
+      {
+        "assessment": "NOT_COVERING: theorems concern order isotonicity for projections with respect to cone order and fixed-point iterations.",
+        "evidence": [
+          "Section 2 equation (4) is ordinary Euclidean nonexpansivity; section 3 defines extended Lorentz order and characterizes order-isotone projections rather than cross-norm constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1405.7835v2",
+        "material_read": "Complete accessible HTML structure and abstract; introduction, preliminary projection nonexpansivity statement, extended-cone definition and isotone-projection theorem description.",
+        "method": "Read lawful arXiv HTML primary source and first-version history at https://arxiv.org/abs/1405.7835 .",
+        "title": "Extended Lorentz cones and mixed complementarity problems",
+        "trigger": "First publicly dated archive-era literature on Lorentz cone projections and isotonicity."
+      },
+      {
+        "assessment": "NOT_COVERING: ambient ell_p metric projection and ell_p sensitivity; no sharp ell_infinity modulus for Euclidean projection.",
+        "evidence": [
+          "Theorem only gives exact planar ell_p constant and qualitative higher-dimensional p!=2 expansion; expressly no higher-dimensional sharp constants."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-planar-stability-and-nonexpansivity-rigidity-for-ell-p-pro--fbfc40872e9c/RESULT.md",
+        "material_read": "Complete publicly accessible RESULT.md: theorem, proof of planar rank-one formula, higher-dimensional obstruction, assumptions and limitations.",
+        "method": "Read published record full scientific text.",
+        "title": "Exact planar stability and nonexpansivity rigidity for ell_p projections onto scaled Lorentz cones",
+        "trigger": "Same target class and Lipschitz modulus terminology."
+      },
+      {
+        "assessment": "NOT_COVERING: exact modulus of Euclidean-ball radial clipping, not Lorentz cone; no exceptional spatial-row phase.",
+        "evidence": [
+          "Derivative is (I-uu^T)/r outside a ball; Lorentz intermediate-region Jacobian has a distinguished scalar row and a t-dependent spatial block."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-sharp-weighted-coordinate-sensitivity-of-euclidean-ball-clipping--78696bf157c3/RESULT.md",
+        "material_read": "Complete publicly accessible RESULT.md including sharp norm, row-sum proof, extremizer classification and limits.",
+        "method": "Read published record full scientific text and compare Jacobians and target sets.",
+        "title": "Sharp weighted coordinate sensitivity of Euclidean-ball clipping",
+        "trigger": "Exactly matching high-dimensional numeric constant in a different Euclidean projection problem."
+      },
+      {
+        "assessment": "NOT_COVERING: planar ell_p norm and metric, and p restricted to (1,infinity); our ell_infinity error with Euclidean metric is mixed-norm and spatial dimensions d>=2 give ambient dimension >=3.",
+        "evidence": [
+          "Full theorem for dimension two only; its proof uses planar rank-one linearity and is not a sharp cross-norm theorem in ambient dimension >=3."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-sharp-lipschitz-constants-and-nonexpansivity-for-every-planar-el--8dad3ac9984d/RESULT.md",
+        "material_read": "Complete publicly accessible RESULT.md including theorem, line-projection argument, sharpness, and limitations.",
+        "method": "Read published record full scientific text.",
+        "title": "Sharp Lipschitz constants and nonexpansivity for every planar ell_p cone",
+        "trigger": "Potentially more general theorem for planar cone projector."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fa38b6c1-f00c-48d7-9851-9c3ff4a94235",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Euclidean cone projection is standard in conic optimization, but coordinatewise error propagation is not governed by Hilbert nonexpansivity. The exact all-dimensional condition number and strict dimension-five transition identify a natural stability boundary: spatial output coordinates control worst-case amplification at d=2,3,4, while the scalar output controls it for every d>=5. The low-dimensional extremizing direction is unique up to symmetries and sharp constants are provided via uniquely defined algebraic root equations. This is a complete, motivated classification rather than a numerical fit or arbitrary finite slice; limitations are the unweighted standard cone and the specified error metric.",
+    "status": "PASS"
+  }
+}
