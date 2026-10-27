@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For the proposed numerator, p_lambda(z)=z^n-sigma(1-2 lambda/(L+mu)), so every root has modulus at most ((L-mu)/(L+mu))^(1/n), with equality at both spectral endpoints. For every numerator of degree less than n, the monic characteristic polynomials satisfy L p_mu(0)-mu p_L(0)=-sigma(L-mu); the product-of-roots bound therefore forces the same lower bound. The recurrence proof independently gives the same rate in the time domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The polynomial-variation paper uses a different signal model and reports a rate based on (sqrt(kappa)-1)/(sqrt(kappa)+1) for its higher-order class.",
+        "The internal-model papers give necessary/sufficient tracking conditions and design procedures, but the inspected statements do not characterize this minimax root factor for z^n-sigma."
+      ],
+      "reasoning": "These works are related background but do not dominate the present claim: the temporal model and/or admissible controller class differ, and neither inspected result states the exact endpoint-constant-term lower bound together with this attaining filter for all n>=4.",
+      "searches": [
+        "arXiv:2508.21335v2, abstract, model definition, Theorems 1-2",
+        "arXiv:2407.08037v3, abstract, introduction, Theorem 1",
+        "2025 CDC paper GB-BVS-25-cdc.pdf, abstract, introduction, model setup and conclusions"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2510.12512v1",
+      "arXiv:2508.21335v2",
+      "arXiv:2407.08037v3",
+      "GB-BVS-25-cdc.pdf",
+      "published-finding corpus findings index searches for periodic time-varying optimization, regular-polygon poles, internal-model tracking and stride-n gradient updates"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The direct source's lower bound is matching context, while its explicit designs stop at degree three in Section V.",
+        "For the present family, p_lambda(z)=z^n-sigma(1-2 lambda/(L+mu)) has root modulus exactly |1-2 lambda/(L+mu)|^(1/n); the endpoint constant-term identity proves no admissible numerator can improve the worst-case factor."
+      ],
+      "reasoning": "The result is a constructive all-n>=4 attainment theorem for the regular-polygon periodic/antiperiodic models, not a claim that the lower bound is attained for arbitrary unit-circle pole configurations.",
+      "searches": [
+        "arXiv:2510.12512v1, Theorem 1 proof and Section V controller designs",
+        "arXiv:2508.21335v2, Theorems 1-2 and polynomial-variation assumptions",
+        "2025 CDC paper GB-BVS-25-cdc.pdf, abstract and conclusions on the internal-model principle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.12512v1 states the lower bound ((L-mu)/(L+mu))^(1/n) for a general unit-circle model and presents explicit constructions for n=1,2,3; the full seven-page paper was read.",
+        "arXiv:2508.21335v2 treats polynomial variation with model (z-1)^n and a different higher-order recurrence class; Theorems 1-2 were read.",
+        "arXiv:2407.08037v3 and the 2025 CDC paper formulate exact-tracking/internal-model conditions, not the same scalar minimax root-rate theorem in the inspected sections."
+      ],
+      "reasoning": "The model z^n-sigma has n equally spaced unit-circle roots and is not the repeated-root polynomial model (z-1)^n. The explicit constant-numerator construction for n>=4 is not stated in the inspected direct source; the source's lower bound alone does not provide an attaining controller.",
+      "searches": [
+        "published-finding corpus query: exact minimax convergence rate for gradient-based optimization with periodic time-varying minimizer period n",
+        "published-finding corpus query: regular polygon unit-circle poles z^n-1 controller convergence rate time-varying optimization",
+        "Web query: time-varying optimization periodic optimizer exact tracking convergence rate discrete-time internal model principle periodic forcing controller",
+        "arXiv:2510.12512v1, Theorem 1 and Section V"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed record: 2026/10/4/SCOPE-parity-stability-without-minimax-acceleration-in-lookahead-sgd-q--35cbb349a324, about synchronization periods for static quadratics rather than a periodic optimizer model.",
+        "Closest indexed record: 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0, about degree-two minimax on normal monotone systems.",
+        "Closest indexed record: 2026/10/4/SCOPE-exact-finite-grid-phase-minimum-for-the-consecutive-unimodular-t--49933ee8abec, about a finite-grid polynomial phase minimum rather than a tracking controller.",
+        "Closest indexed record: 2026/10/11/SCOPE-equality-rigidity-and-a-quantitative-defect-for-baernstein-monot--c1e50d25ac23, about polynomial zero geometry, not optimization tracking."
+      ],
+      "reasoning": "The semantic index returned nearby optimization and unit-circle-polynomial records, but none states the same objects, assumptions, controller class, and exact rate. The index is not exhaustive, so the result is treated as a bounded overlap check rather than a proof of novelty.",
+      "searches": [
+        "published-finding corpus query: exact minimax convergence rate for gradient-based optimization with periodic time-varying minimizer period n",
+        "published-finding corpus query: regular polygon unit-circle poles z^n-1 controller convergence rate time-varying optimization",
+        "published-finding corpus query: internal model periodic reference signal gradient optimization rate optimal controller",
+        "published-finding corpus query: periodic optimizer gradient descent delayed update x_{k+n} = x_k - alpha gradient rate"
+      ]
+    },
+    "rationale": "The closest recent primary source proves a lower bound for arbitrary unit-circle forcing models but constructs attaining filters only for n=1,2,3. This claim supplies a closed-form attainment proof for the natural exact-order models z^n-1 and z^n+1 for every n>=4, without asserting general attainment for arbitrary pole sets. The searches did not surface an equivalent indexed claim; this is not a proof of global uniqueness.",
+    "residual_risks": [
+      "Classical repetitive-control literature may contain an equivalent stride-n interpretation; the bounded searches did not establish such coverage.",
+      "The result is deliberately restricted to scalar LTI filters and the two regular-polygon models z^n-sigma; no conclusion is made for arbitrary unit-circle pole configurations.",
+      "The findings index is semantic and not exhaustive; originality is best-knowledge rather than a proof of global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Closest direct source: the lower bound is prior work; the explicit n>=4 construction for z^n-sigma is not stated in the inspected paper, which focuses on n=1,2,3 constructions.",
+        "evidence": "arXiv:2510.12512v1, Theorem 1 and Sections IV-V.",
+        "identifier_or_url": "arXiv:2510.12512v1",
+        "material_read": "Full seven-page PDF, including model assumptions, Theorem 1 and proof, Section V controller constructions, conclusion and references.",
+        "method": "Compared model denominator, minimax definition, lower-bound proof and the degrees for which explicit controllers are constructed.",
+        "title": "Temporal Variabilities Limit Convergence Rates in Gradient-Based Online Optimization",
+        "trigger": "Direct primary source for the unit-circle forcing model and general lower bound."
+      },
+      {
+        "assessment": "Related but not equivalent: the source treats polynomially varying optimizers with model (z-1)^n and a higher-order recurrence class.",
+        "evidence": "arXiv:2508.21335v2, abstract and Theorems 1-2.",
+        "identifier_or_url": "arXiv:2508.21335v2",
+        "material_read": "Abstract, model definition, Theorems 1-2 and relevant proof pages of the 13-page PDF.",
+        "method": "Compared temporal model and admissible algorithm class with the claimed periodic/antiperiodic scalar LTI class.",
+        "title": "A Fundamental Convergence Rate Bound for Gradient Based Online Optimization Algorithms with Exact Tracking",
+        "trigger": "Plausible prior work on exact tracking and convergence-rate optimality."
+      },
+      {
+        "assessment": "Provides internal-model/exact-tracking conditions, not the claimed minimax root-rate characterization.",
+        "evidence": "arXiv:2407.08037v3, abstract and Theorem 1.",
+        "identifier_or_url": "arXiv:2407.08037v3",
+        "material_read": "Abstract, introduction, Theorem 1 and the nearby discussion of tracking conditions.",
+        "method": "Checked whether the result gives an exact discrete-time minimax rate for the stated scalar filter class.",
+        "title": "The Internal Model Principle of Time-Varying Optimization",
+        "trigger": "Foundational source on exact tracking for time-varying optimization."
+      },
+      {
+        "assessment": "Related but not equivalent: it gives tracking conditions and a design procedure, not this closed-form minimax rate for z^n-sigma.",
+        "evidence": "GB-BVS-25-cdc.pdf, abstract, Sections I-II and conclusion.",
+        "identifier_or_url": "GB-BVS-25-cdc.pdf",
+        "material_read": "Abstract, introduction, model setup and conclusion of the eight-page author-hosted PDF.",
+        "method": "Compared its tracking/design objective with the present exact minimax root-rate claim.",
+        "title": "The Discrete-time Internal Model Principle of Time-varying Optimization: Limitations and Algorithm Design",
+        "trigger": "Directly related discrete-time internal-model design paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e4145ade-7e5b-4255-8538-0d0f470fce37",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result provides an exact constructive benchmark for an infinite natural family of periodic and antiperiodic quadratic tracking problems at every degree n>=4. It closes the gap between a general lower bound and explicit attainment for this structured family, and yields a simple implementable recurrence. The claim is not an arbitrary numerical slice and does not overgeneralize to all unit-circle models.",
+    "status": "PASS"
+  }
+}
