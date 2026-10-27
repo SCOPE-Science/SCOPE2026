@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness: PASS.** In the one-state merge cycle, the trajectories starting from distinct states must encounter different counts of effective merge actions modulo the coprime cycle. At least one encounters at least \(n-1\) merges, and between successive merges there is a positive-cost walk from state \(k\) to state \(0\). Each such walk costs at least the minimum of the clockwise and anticlockwise directed arc costs. Explicit words attain the resulting bound; equality forces the described arc choices. For noncoprime displacement, residue classes obstruct synchronization. The separate subset shortest-path verifier checks 162 weighted configurations through nine states and exponential tie enumeration.
+
+**Originality: PASS with risk.** The classical one-way cyclic merge theorem (item 3664293d-1f20-4950-a12f-75788f24e740) already gives its exact reset threshold and is only background, not a newly claimed result. The distinct new statement is the reversible, independently weighted three-letter phase transition and number of optimal words. Don and Zantema's 2018 switch-count framework (arXiv:1812.04050v1), the 2021 Černý-family manuscript (arXiv:2108.13927v1) and the 2022 general reset-word algorithm (arXiv:2207.05495v1) do not state this classification in the inspected material. An unindexed equivalent specialization remains possible.
+
+**Value: PASS.** Allowing both rotation directions, with arbitrary positive unequal costs, is a natural control variation that changes optimal reset policies. The exact price boundary and \(2^{n-2}\)-fold cooptimality form an infinite classification not merely a finite example. The result is limited to the stated cyclic one-merge family and makes no independent-certification claim.
+
+Self-review: passed. Independent audit: not yet performed.
