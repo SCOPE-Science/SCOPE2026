@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For every positive diagonal P in the nondominant regime, the polygonal Gram certificate H with Hu=0 establishes lambda_max >= S(1+S)/W and lambda_min <= S/W for the same W, giving kappa >= 1+S, attained by P=I. In the dominant regime, restriction to the coordinate j and residual vector yields a 2x2 correlation rho whose optimal diagonally scaled condition number is (1+rho)/(1-rho). The exhibited one-entry scaling attains it because the other full-space eigenvalues equal 1 and lie between the two planar extremes exactly when M>R. R=0 and S=0 are explicit. The exact symbolic and numerical tests from verify.py were replayed from the same package; they complement rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Qu et al. (2022) provide algorithms and general SDP formulations, encompassing numerical computation but not an explicit rank-one optimum in the material inspected.",
+        "Kolotilina (2002) and Shapiro (1985) describe structurally more general optimal-scaling characterizations; only abstracts were accessible for these plausible sources."
+      ],
+      "reasoning": "General necessary/sufficient conditions or SDP solvers can include this family as a special case without explicitly implying the asserted polygonal threshold and globally optimal one-coordinate formula as a stated result. Because the strongest older sources were not fully accessible, previously published implications cannot be completely ruled out.",
+      "searches": [
+        "\"polygon inequality optimal diagonal matrix scaling spectral condition\"",
+        "arxiv:2209.00809 \"rank one\"",
+        "doi:10.1016/S0024-3795(01)00412-8",
+        "\"Optimal Block Diagonal l2-Scaling of Matrices\" Shapiro"
+      ]
+    },
+    "checked_sources": [
+      "Braatz–Morari 1994 complete primary PDF",
+      "Takapoui–Javadi 2016 complete arXiv HTML",
+      "Qu et al. 2022 accessible primary HTML",
+      "Kolotilina 2002 abstract",
+      "Shapiro 1985 abstract",
+      "Public scientific title/text searches of rank-one diagonal condition-number scaling",
+      "Accessible prior-claim semantic searches with source/equivalence aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Braatz–Morari supply a general scaling framework; the present proof makes explicit additional rank-one geometry via closed-polygon Gram duality and a dominant two-dimensional restriction.",
+        "The two-by-two balancing inequality is standard; here it is used as a global lower bound against all remaining-coordinate asymmetries, and its candidate attains equality in the full matrix.",
+        "Takapoui–Javadi and Qu et al. develop general heuristics/algorithms, not the present closed-form threshold in the inspected materials."
+      ],
+      "reasoning": "A general claim of algorithmic optimizability does not logically imply the explicit formula as a previously stated theorem; conversely, if an inaccessible matrix-scaling characterization includes precisely this rank-one implication, originality may be reduced. The residual uncertainty is disclosed, not treated as proof of novelty.",
+      "searches": [
+        "doi:10.1137/S0363012992238680",
+        "arxiv:1610.03871v1",
+        "arxiv:2209.00809",
+        "\"optimal diagonal preconditioning spectral condition number rank-one updated identity with one exceptional coordinate two identical groups phase transition\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Braatz–Morari (1994) minimizes condition numbers through general convex formulations, which defines the same optimization problem but does not state this explicit rank-one optimum.",
+        "Takapoui–Javadi (2016) studies equilibration and explains that heuristic diagonal normalization may worsen conditioning; the theorem specializes this warning to an exact rank-one classification."
+      ],
+      "reasoning": "Equilibration, Jacobi normalization, optimal diagonal congruence scaling, rank-one/spiked covariance conditioning and generalized eigenvalue optimization are equivalent ways to pose the present minimax problem. The explicit piecewise solution is not reproduced by the inspected broad formulations; a general algorithm alone does not establish an explicit structural theorem.",
+      "searches": [
+        "\"rank one perturbation of identity optimal diagonal scaling condition number largest coordinate squared half total\"",
+        "\"diagonal scaling rank-one equicorrelation covariance condition number optimal\"",
+        "arxiv:1610.03871v1",
+        "doi:10.1137/S0363012992238680"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches of the accessible mathematical record and claim-index descriptions found related condition-number and two-by-two preconditioning results, but no exact all-n rank-one optimum with the stated transition.",
+        "No relevant finite table can exhaust the continuously parameterized vector family or the continuous set of positive scalings."
+      ],
+      "reasoning": "This is an analytic classification over all dimensions and real vectors rather than a discrete table lookup. Neither indexed results nor inspected primary publications show an identical enumerated exact statement.",
+      "searches": [
+        "\"rank one perturbation of identity optimal diagonal scaling condition number largest coordinate squared half total\"",
+        "\"optimal diagonal preconditioner of rank-one updated identity; one dominant coordinate rescaled; polygon inequality dual certificate\"",
+        "\"Jacobi scaling of arrowhead matrix symmetric positive definite diagonal rank-one perturbation optimal condition number\""
+      ]
+    },
+    "rationale": "Full-text inspections of broad diagonal-scaling and optimization papers reveal general SDP/convex frameworks but no explicit all-vector formula for \\(I+uu^{\\mathsf T}\\), polygon-majority threshold, or one-coordinate optimality theorem. Restricted two-dimensional balancing is classical and explicitly attributed. Public indexed searches and recoverable database records gave no equivalent or stronger coverage, but full text for some plausible older matrix-scaling work remains inaccessible.",
+    "residual_risks": [
+      "Complete text of Kolotilina (2002) could not be examined; earlier optimal-block-characterization results may entail a comparable specialization.",
+      "Only abstract material was available for Shapiro (1985); specialized implications remain unresolved.",
+      "Absence of an exact title or indexed hit does not exclude a statement in unpublished, older or otherwise inaccessible literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General equilibration theory; does not state all-vector optimal diagonal rank-one classification",
+        "evidence": [
+          "arXiv:1610.03871v1, original submission 2016-10-12; exposition explicitly notes scaling may worsen condition number."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1610.03871v1",
+        "material_read": "Entire accessible HTML article, sections on equilibration, condition number and illustrative algorithms",
+        "method": "Read rendered primary arXiv article and checked its statements against the piecewise rank-one theorem",
+        "title": "Preconditioning via Diagonal Scaling",
+        "trigger": "Earliest focal literature for diagonal preconditioning and warning about heuristic normalization"
+      },
+      {
+        "assessment": "General convex/optimization framework, not an explicit all-vector rank-one formula",
+        "evidence": [
+          "Braatz and Morari, SIAM J. Control Optim. 32 (1994), 1763–1768."
+        ],
+        "identifier_or_url": "https://web.mit.edu/braatzgroup/Minimizing_the_Euclidean_condition_number.pdf",
+        "material_read": "All six pages of the accessible primary PDF, including central mathematical statements and examples",
+        "method": "Read PDF text with page-image spot checks of opening and theorem pages",
+        "title": "Minimizing the Euclidean Condition Number",
+        "trigger": "Seminal general optimization of diagonal/structured Euclidean spectral conditioning"
+      },
+      {
+        "assessment": "Algorithmic generality covers the objective but explicit rank-one threshold not supplied in inspected text",
+        "evidence": [
+          "Qu and coauthors, arXiv:2209.00809, 2022."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+        "material_read": "Accessible full arXiv article sections describing general SDP/algorithmic optimal preconditioning",
+        "method": "Read full HTML text and searched for rank-one specialization and explicit closed forms",
+        "title": "Optimal Diagonal Preconditioning",
+        "trigger": "Potential stronger general optimal-scaling framework subsuming the explicit family"
+      },
+      {
+        "assessment": "Decisive implication comparison remains unresolved due to full-text access limit",
+        "evidence": [
+          "Kolotilina, Linear Algebra Appl. 340 (2002), 55–67."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "material_read": "Publisher/indexed abstract only; full text could not be obtained from accessible open or authorized sources",
+        "method": "Read abstract and evaluated its stated scope against specialized theorem; full-paper comparison unavailable",
+        "title": "Optimally Conditioned Block Matrices",
+        "trigger": "Earlier structural characterization potentially implying the rank-one specialization"
+      },
+      {
+        "assessment": "Does not directly verify or exclude a prior special case",
+        "evidence": [
+          "Shapiro, SIAM J. Numer. Anal. 22 (1985), 81–94."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0722005",
+        "material_read": "Accessible bibliographic abstract, not the full article",
+        "method": "Read abstract/metadata and considered broader-coverage risk",
+        "title": "Optimal Block Diagonal l2-Scaling of Matrices",
+        "trigger": "Early general matrix-scaling characterization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d736719c-6553-42f3-8853-1dcc4717b7c0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result solves a natural high-dimensional diagonal SPD spectral-conditioning problem in an exact closed form, identifies the precise no-scaling-versus-one-coordinate transition for spiked matrices, and provides a structural dual certificate for global optimality against all asymmetries. It also gives an exact explicit case in which Jacobi diagonal normalization worsens the condition number; it is a meaningful theoretical test family for diagonal preconditioning, without claiming convergence gains beyond spectral conditioning.",
+    "status": "PASS"
+  }
+}
