@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The fixed-point equation is inverted through the odd increasing H(m)=m+sqrt(epsilon)m/sqrt(phi^2-m^2), whose positive half has positive second derivative. Its strictly concave inverse h gives a unique zero of 2h(x+a)+h(x-2a) in (-a,0). The memory-sum identity yields the unique monotone scalar root p and exact reconstructed x. Three separate singular expansions produce, respectively, persistent shift with universal sqrt(epsilon/3) correction, the critical cube-root coefficient (phi/36)^(1/3), and the supercritical sqrt(epsilon) coefficient. The Jacobian eigenvalue argument gives local attraction under the stated sufficient beta and eta bounds. The embedded checker numerically tests 1011 finite identities but does not prove the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khirirat et al. use hard clipping, with memory update v_new=v_old+clip_tau(grad-v_old), not beta*v_old+(1-beta)*Psi(grad-v_old). Koloskova et al. study direct clipped gradient descent without the same local feedback memory."
+      ],
+      "reasoning": "Hard-clipping additive feedback has stationarity v_i=grad_i when the clipped residual is zero; the present fixed smooth operator instead requires v_i=Psi(grad_i-v_i) and can give a biased joint equilibrium. The cited analyses of other update maps are not stronger assertions covering this exact parameter transition.",
+      "searches": [
+        "smoothed clipping error feedback fixed points bias heterogeneity gradients curvature mini batch",
+        "nonlinear gradient clipping error feedback finite fixed clipping threshold biased fixed points Hessian equal three workers",
+        "arxiv:2305.18929 (full text, Algorithm 2 and Section 5)",
+        "arxiv:2305.01588 (full text, Sections 1-2)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2310.16920v1 (public abstract/date)",
+      "arxiv:2310.16920v3 (full relevant sections)",
+      "arxiv:2305.18929 (author-hosted full relevant sections)",
+      "arxiv:2305.01588 (full relevant sections)",
+      "published mathematical record: Exact curvature-clipping phase diagram for capped SPS on scalar quadratics (search summary only)",
+      "published mathematical record: Sharp two-cycle bifurcation for gradient-clipped heavy-ball on a scalar quadratic (search summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu et al. introduce SClip-EF and prove convergence for decaying time schedules, not fixed constant parameters. Khirirat et al. establish convergence for a hard-clipped additive-memory method. Generic clipping bias is already known and explicitly credited."
+      ],
+      "reasoning": "Our result is a new classification under fixed positive phi,epsilon,beta,eta on a specified three-client quadratic family, together with the minimal equal-curvature client count and a conditional local-stability result. Neither the algorithm definition alone nor prior convergence theorems imply the sharp critical cube-root coefficient.",
+      "searches": [
+        "SClip-EF fixed constant smoothed clipping phi epsilon beta deterministic 3 scalar quadratic clients biased equilibrium cube root transition",
+        "nonlinear gradient clipping error feedback finite fixed clipping threshold biased fixed points Hessian equal three workers",
+        "arxiv:2310.16920v1 (2023 public record)",
+        "arxiv:2305.18929 (Algorithm 2, Section 5)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yu et al. define Psi_t(y)=phi_t*y/sqrt(y^2+epsilon_t), the memory update and the server averaging step (2024 version, equations 5-7). Their Theorem 1 requires time-varying phi_t,epsilon_t,beta_t,eta_t; no inspected fixed-parameter equilibrium law is stated."
+      ],
+      "reasoning": "The nonlinear fixed point can equivalently be written as a zero of sum H^{-1}(x-c_i); that observation by itself is standard, but the sharp three-regime singular asymptotic and stable biased state are additional quantitative claims. The variable-parameter convergence result has different hypotheses and cannot imply a fixed-parameter limit.",
+      "searches": [
+        "SClip-EF fixed constant smoothed clipping phi epsilon beta deterministic 3 scalar quadratic clients biased equilibrium cube root transition",
+        "SClip error feedback nonlinear fixed point saturating m = phi(g-m)/sqrt((g-m)^2+epsilon) bias server clients",
+        "arxiv:2310.16920 (full text, Sections 3-4)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results included Exact curvature-clipping phase diagram for capped SPS on scalar quadratics and Sharp two-cycle bifurcation for gradient-clipped heavy-ball on a scalar quadratic. Their public record summaries concern different algorithms. The cited primary papers contain no identified table of the present three-regime SClip-EF equilibrium coefficients."
+      ],
+      "reasoning": "No identified exact table or record gives the simultaneous formulas. Database nonretrieval is weak evidence; summary-only comparisons are not represented as whole-document exclusions.",
+      "searches": [
+        "fixed parameter SClip-EF decentralized smooth gradient clipping error feedback converges biased equilibrium heterogeneous three agents exact fixed point",
+        "2023 smoothed clipping error feedback algorithm constant parameters three quadratic agents bias stationary mean even symmetric zero noise",
+        "SClip-EF fixed constant smoothed clipping phi epsilon beta deterministic 3 scalar quadratic clients biased equilibrium cube root transition"
+      ]
+    },
+    "rationale": "No identified primary source or searched mathematical finding implies the full joint fixed-point classification plus sharp three-regime singular limit and conditional local attraction for fixed parameters of the Yu-Jakovetic-Kar smooth residual-feedback algorithm. General bias claims, hard-clipping additive error feedback, and variable-parameter convergence guarantees differ in their update maps or hypotheses; this is best-knowledge originality, not an independently established priority claim.",
+    "residual_risks": [
+      "An equivalent nonlinear robust location-estimator or fixed-point result may predate the cited literature under different terminology.",
+      "The first 2023 arXiv version was verified through its public abstract/history but its archived full PDF could not be accessed; the exact update equations were inspected in the 2024 public revision.",
+      "Search index summaries are not full-document originality exclusions; an undetected stronger paper may cover the singular asymptotic."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithm itself is prior, but inspected convergence theorem has different, time-varying parameter assumptions and no corresponding full fixed-parameter equilibrium phase law.",
+        "evidence": [
+          "arXiv 2310.16920v3, Section 3 equations (5)-(7); Section 4 Theorem 1 and Corollary 1; arXiv 2310.16920v1 public record dated 2023-10-25."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2310.16920",
+        "material_read": "The abstract, Introduction, Section 3 equations (5)-(7) and both Algorithms, Section 4 Theorem 1 and Corollary 1; PDF page 6 inspected visually; source version v3 is a 2024 revision of the 2023 public submission.",
+        "method": "Read publicly available HTML/full-text PDF sections and independently identify fixed-memory equation and variable time schedule.",
+        "title": "Smoothed Gradient Clipping and Error Feedback for Decentralized Optimization under Symmetric Heavy-Tailed Noise",
+        "trigger": "Exact same smooth feedback update, parameters and solver objective"
+      },
+      {
+        "assessment": "The hard-clipped additive-memory map is mathematically distinct from the smoothed relaxed-memory update here; its stationary memory and bias properties cannot imply the new formulas.",
+        "evidence": [
+          "Khirirat et al., 2023, Algorithm 2 (update using v_new=v_old+clip_tau(grad-v_old)), Section 5."
+        ],
+        "identifier_or_url": "https://rustem-islamov.github.io/files/publications/Clip21/clip21.pdf",
+        "material_read": "Introduction and related work, Sections 4-5; Algorithm 1, Algorithm 2 and convergence statements; full PDF page 5 was visually inspected.",
+        "method": "Read lawful public author-hosted full-text PDF, equations and algorithms.",
+        "title": "Clip21: Error Feedback for Gradient Clipping",
+        "trigger": "Closest hard-clipping gradient-tracking error feedback comparator"
+      },
+      {
+        "assessment": "Applies direct clipping without local-memory residual feedback; it supplies acknowledged prior bias context but not the precise smooth SClip-EF stationary regime.",
+        "evidence": [
+          "Koloskova, Hendrikx, Stich, arXiv:2305.01588, Section 1, clipped gradient descent equation (2)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2305.01588",
+        "material_read": "Abstract, Introduction and main theorem scope; full PDF first page was visually inspected; primary update and assumptions checked.",
+        "method": "Read lawful open full-text PDF sections and compare exact update equations.",
+        "title": "Revisiting Gradient Clipping: Stochastic bias and tight convergence guarantees",
+        "trigger": "Possible older general clipping-bias theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "deb7f2ad-9154-410b-b141-daee30823b0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result isolates a natural implementation tradeoff in error-feedback robust optimization: even strictly convex equal-curvature noise-free objectives can have a locally attracting biased fixed point when clipping parameters do not decay. It identifies the exact clipping threshold 2a and the nonuniform limiting rates including a critical epsilon^(1/3) boundary layer, rather than a mere one-parameter counterexample. It proves that two clients cannot exhibit this mechanism within the specified natural equal-curvature class and supplies exact algebraic parameters for reproducible stress tests. It neither overclaims broader convergence nor requires downstream theorems to make this structural classification useful.",
+    "status": "PASS"
+  }
+}
