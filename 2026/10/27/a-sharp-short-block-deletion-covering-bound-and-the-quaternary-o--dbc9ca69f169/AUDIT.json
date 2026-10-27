@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every \\(q\\ge2\\), every four-coordinate word has one of exactly 15 restricted-growth equality patterns. Direct rational summation of the distinct one-deletion target weights never exceeds 1 (all 15 are displayed, tested by stdlib checker). A symbolic count of the q, \\(2q(q-1)\\), q(q-1), \\(q(q-1)(q-2)\\) distinct target-type multiplicities gives weight \\(q(2q^2+q+1)/8\\), a valid fractional packing dual. At q=4 the total is \\(37/2\\); the 19 explicitly listed quaternary words have distinct deletion descendants covering all 64 targets. Coverage check gives multiplicities {1:60,2:4}. Thus 19<=\\(D\\le19\\); no heuristic or incomplete enumeration is used as proof. Boundaries q=2 and q=3 work, and all q use symbolic equality-pattern reduction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Sun–Ge provide \\(D(q,n,R)\\ge q^{n-R}/\\binom nR\\), giving 16 when \\(q=4,n=4,R=1\\), and an asymptotic \\(q\\to\\infty\\) upper bound, not the exact value 19.",
+        "Lenz–Rashtchian–Siegel–Yaakobi Theorem 3 gives a distinct general weighted lower bound; at \\(q=4,n=4,R=1\\) the explicit theorem sum is 4(1/3+6/4+9/5)=218/15≈14.53, below the present \\(37/2\\) certificate."
+      ],
+      "reasoning": "Neither general published bound entails a 19-word minimum. The asymptotic statement allows subleading finite-alphabet effects and cannot imply the exact finite value. The present packing has total weight \\(37/2\\) and the explicit code proves attainability.",
+      "searches": [
+        "arXiv:2606.15379, sections I and V",
+        "arXiv:1911.09944, Table I and Theorem 3",
+        "published-finding corpus: q-ary deletion covering codes \\(D(q,4,1)\\) universal lower bound q(2q^2+q+1)/8"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379 primary full HTML",
+      "arXiv:1911.09944 primary PDF, Table I and relevant theorems",
+      "Public RESULT.md for ternary length-five deletion covering",
+      "Public RESULT.md for odd-q length-three deletion covering",
+      "Published published-finding corpus search results for exact q4 n4, universal weights, aliases, correcting vs covering",
+      "Web search for \\(D(4,4,1)\\), deletion covering q4 n4 and small-alphabet table"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier 2020 Theorem 3 uses weights based on maximal local deletion-ball sizes, with a smaller numerical \\(q=4,n=4\\) specialization.",
+        "The 2026 theorem is an asymptotic existence estimate as \\(q\\to\\infty\\), not a finite equality.",
+        "Public exact research records at parameters (3,5,1) and odd-q (q,3,1) were read in full and state no transfer formula for \\(D(4,4,1)\\)."
+      ],
+      "reasoning": "The exact integer theorem follows from a new equality-pattern-specific rational certificate plus explicit 19-word witness; neither component is derived from the cited general bounds or different-parameter exact results. The standard generic fractional-weighting principle is acknowledged rather than claimed as novel.",
+      "searches": [
+        "arXiv:1911.09944, Theorem 3 (complete proof weights) and Theorem 5",
+        "arXiv:2606.15379, Theorem V.1 and section V",
+        "published-finding corpus: exact four-symbol block length four one-deletion covering \\(D(4,4,1)\\) 19 words fractional weighted three-letter words"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new claim concerns the minimum number of length-four codewords whose one-deletion shadows cover all 64 length-three quaternary words.",
+        "The 2026 arXiv paper defines D(q,n,R) by exactly the same one-deletion subsequence-covering operation; no exact \\(q=4,n=4\\) evaluation appears in its examined introduction, Section V, or conclusions.",
+        "No searched alternative notation revealed an exact 19-word optimum at these parameters."
+      ],
+      "reasoning": "The subsequence/deletion-shadow formulation, single-insertion hypergraph dual formulation, and q-ary deletion-covering notation were compared on quantifiers and direction: the asserted \\(q=4,n=4\\) size and the universal fixed-length-four lower bound were not found in the inspected records. Distinguish a covering minimum from maximal correcting-code cardinality and from equal-length edit/Hamming covering.",
+      "searches": [
+        "published-finding corpus: exact four-symbol block length four one-deletion covering \\(D(4,4,1)\\) 19 words fractional weighted three-letter words",
+        "Web: \"\\(D(4,4,1)\\)\" deletion",
+        "Web: single deletion covering codes exact small alphabets 4 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The full published RESULT.md at 2026/10/4/SCOPE-exact-ternary-length-five-single-deletion-covering-number--fc12c4f98e83 states only \\(D(3,5,1)=21\\).",
+        "The full published RESULT.md at 2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed states only \\(D(q,3,1)\\)=ceil(q²/3) for odd q.",
+        "The quinary length-four result 2026/9/21/SCOPE-exact-quinary-length-four-single-deletion-code--77daafd66a03 is about a single-deletion CORRECTING code of size 42, not a covering minimum."
+      ],
+      "reasoning": "Parameter and operation differences exclude direct implication: ternary length-five cannot specialize to quaternary length-four; odd-q length-three cannot specialize to length-four; and packing disjoint deletion balls is not equivalent to minimizing covering balls. No exact \\(q=4,n=4\\) deletion covering table was located in actual queries.",
+      "searches": [
+        "published-finding corpus: single-deletion covering length 4 over alphabet 4 shadows weights AAA AAB ABA ABB ABC",
+        "published-finding corpus: quaternary length four single deletion covering minimum 19 codewords",
+        "Web: minimum single deletion covering code q=4 n=4 19 quaternary"
+      ]
+    },
+    "rationale": "The inspected 2026 primary paper states general elementary and large-alphabet asymptotic results but not a \\(q=4,n=4\\) exact result, while the 2020 weighted bound is weaker here. Closest two published-finding corpus records were read in full and concern different lengths/alphabet values, and a correcting-code result has a different optimization direction. Search results for aliases, exact parameter and universal dual formula did not reveal covering work. Unindexed earlier computations remain a genuine historical-priority risk.",
+    "residual_risks": [
+      "An equivalent 19-word code or same lower-bound inequality could exist in unindexed literature or unpublished computations.",
+      "General weighted-duality techniques are established; novelty rests on the particular universal weights and tight quaternary instance, not the general linear programming principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in inspected material: asymptotic theorem and general counting bound have no exact 19-word four-symbol instance or specialized inequality.",
+        "evidence": [
+          "arXiv:2606.15379, Introduction (definition and counting bound), Section V Theorem V.1, conclusions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+        "material_read": "Full open HTML sections I, V (theorem and hypergraph proof), conclusions, definitions and references; searched for exact \\(D(4,4,1)\\).",
+        "method": "Read primary arXiv text and compare stated lower bounds/large-alphabet limit to exact integer claim.",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Direct source introducing the natural deletion-covering problem, first public 2026-06-13."
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem 3 numerical bound at \\(q=4,n=4,R=1\\) is below 19 and the construction is not an exact four-symbol optimum.",
+        "evidence": [
+          "arXiv:1911.09944, Table I and Theorem 3 (page 5)."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1911.09944",
+        "material_read": "PDF page 2 Table I, page 5 Theorem 3 and proof, page 6 Theorem 5 statement and definition; inspected rendered page.",
+        "method": "Compared Theorem 3 specialized arithmetic and mathematical implications, not just title.",
+        "title": "Covering Codes using Insertions or Deletions",
+        "trigger": "Foundational full text with weighted lower bound and nonbinary constructions."
+      },
+      {
+        "assessment": "NOT_COVERING: exact ternary length-five parameter only; no four-symbol length-four implication.",
+        "evidence": [
+          "Public complete RESULT.md, theorem \\(D(3,5,1)=21\\) and explicit limited scope."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-exact-ternary-length-five-single-deletion-covering-number--fc12c4f98e83/RESULT.md",
+        "material_read": "Entire RESULT.md, all headings, theorem, construction, weighted lower certificate, limitations and references.",
+        "method": "Compared object \\(q=3,n=5\\) versus \\(q=4,n=4\\) and inspected for any generalized inequality.",
+        "title": "Exact ternary length-five single-deletion covering number",
+        "trigger": "Nearest published exact deletion-covering case."
+      },
+      {
+        "assessment": "NOT_COVERING: length-three odd-q result has no claimed length-four consequence.",
+        "evidence": [
+          "Public complete RESULT.md, theorem \\(D(q,3,1)\\)=ceil(q²/3) for odd q."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-exact-length-three-single-deletion-covering-number-for-odd-alpha--9607d49b27ed/RESULT.md",
+        "material_read": "Entire RESULT.md, all proof cases and stated limitations.",
+        "method": "Compared odd q length-three theorem to even q length-four claim and checked for transfer.",
+        "title": "Exact length-three single-deletion covering number for odd alphabets",
+        "trigger": "Nearest published parameter-uniform exact deletion-covering result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dbc9ca69-f169-49f6-a2ce-522e9686405e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Minimum deletion-covering cardinality for short nonbinary blocks is a natural exact invariant motivated by the 2026 covering-code paper. The elementary counting lower bound is 16 at \\(q=4,n=4\\), but the universal pattern-sensitive fractional packing raises this to 19 and an explicit 19-word code reaches it. This is an exact solved finite q-ary instance plus a valid nontrivial lower bound for every alphabet, not an arbitrary slice or a claimed infinitely general exact formula. Detailed construction can seed improved finite covering bounds.",
+    "status": "PASS"
+  }
+}
