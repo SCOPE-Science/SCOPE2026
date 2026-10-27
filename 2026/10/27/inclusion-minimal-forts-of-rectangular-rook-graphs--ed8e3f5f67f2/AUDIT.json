@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "A nonmember cell has precisely r_i+c_j neighbors in the fort; the absence of exactly-one pairs reduces to two quantified isolation/degree conditions. An exhaustive case split of row/column coverage forces four disjoint minimal incidence patterns; labeled-component EGFs, forests, and cycles give the exact polynomial. Universal proof steps and all edge cases were checked against the actual verifier, not inferred from finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Becker et al. establish minimal-fort counts for other graph families and operations.",
+        "Brimkov et al. construct product forts in some settings, with no all-types rook enumeration."
+      ],
+      "reasoning": "The Cartesian-product literature gives constructions and bounds not a theorem covering the complete incidence-graph classification or every coefficient.",
+      "searches": [
+        "Inclusion-minimal forts of rook graphs K_m Cartesian K_n equivalent line graphs of complete bipartite graphs: spanning star forests, row-pair acyclic forests, bipartite cycles, enumerator",
+        "arxiv:2404.05963 §§4-5",
+        "arxiv:2507.10826 §5"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2404.05963v1 full text",
+      "arxiv:2310.17904v1 full text",
+      "arxiv:2202.04997v1 full text",
+      "arxiv:2507.10826 full text",
+      "Fetchie, Jacob, Saavedra, The failed zero forcing number of a graph (2015), as cited in arxiv:2202.04997, Theorem 3.7",
+      "Published-record searches for rook graph, line graph of K_{p,q}, and minimal-fort hypergraph"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "F(K_n □ K_m)=nm−4 is explicitly stated at arxiv:2202.04997 Theorem 3.7 for n>=4,m>=2.",
+        "Novel classification includes minimal forts of sizes greater than 4, distinguishes forest vs cycle forms, and gives coefficients, none determined by F alone."
+      ],
+      "reasoning": "The minimum-fort corollary is covered, so it is excluded from assessed originality; none of the checked more general theorems implies the full new polynomial or four-way equivalence.",
+      "searches": [
+        "arxiv:2202.04997 Theorem 3.7",
+        "Fetchie Jacob Saavedra 2015 Theorem 4.3",
+        "arxiv:2404.05963",
+        "arxiv:2310.17904",
+        "minimal forts of the Cartesian product of complete graphs, rook graph, line graph of a complete bipartite graph; full classification all sizes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graphs are line graphs of complete bipartite graphs; minimal forts correspond to complements of inclusion-maximal failed zero-forcing sets (not necessarily maximum sets).",
+        "Abara–Pelayo theorem determines maximum failed-set SIZE, equivalent only to minimum fort size."
+      ],
+      "reasoning": "The graph-isomorphism and failed-set/fort duality are used explicitly; largest cardinality of a failed set cannot distinguish all inclusion-maximal failed sets or all nonminimum forts.",
+      "searches": [
+        "minimal forts of the Cartesian product of complete graphs, rook graph, line graph of a complete bipartite graph; full classification all sizes",
+        "minimal forts rook graph K_p square K_q row-column 0-or-two neighborhood condition",
+        "arxiv:2202.04997 Theorem 3.7",
+        "arxiv:2310.17904 §3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-record searches surfaced minimal-fort hypergraph results for complete multipartite graphs (not rook graphs) and rook-graph neighborhood-complex results (different invariants).",
+        "Prior 2022 theorem gives an exact scalar, not a polynomial/table of all rook minimal forts."
+      ],
+      "reasoning": "No exact all-cardinality rook fort table was identified. Absence from indexed search is not a proof of global novelty; possible unindexed coverage remains a risk.",
+      "searches": [
+        "Complete classification of all inclusion-minimal forts of L(K_{p,q}) or K_p Cartesian K_q, with cycles of the incidence graph, spanning star forests, 2-edge row-subdivision forests and size generating polynomial",
+        "Fort hypergraph of rook graph H(2,q) K_q square K_q, size enumerator and maximum minimal fort cardinality"
+      ]
+    },
+    "rationale": "The 2015 maximal failed-zero-forcing result, restated in arXiv:2202.04997 Theorem 3.7, already implies minimum rook fort size four for factors of order at least four; this is prior-covered and not offered as a novelty claim. The assessed claim is the exhaustive four-class description and exact all-cardinality minimal-fort polynomial, neither entailed by the scalar extremal theorem nor by inspected Cartesian-product fort constructions and other graph-family counts.",
+    "residual_risks": [
+      "Possible equivalent unindexed literature or an uncited exact enumeration of inclusion-maximal failed zero-forcing sets of rook graphs.",
+      "Fetchie et al. (2015) original full paper theorem text was available here through its verbatim restatement in Abara and Pelayo (2022); the original full text was not independently inspected.",
+      "No independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No full rook-graph classification or generating polynomial; general fort context matches",
+        "evidence": [
+          "arxiv:2404.05963v1",
+          "sections 4-5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2404.05963",
+        "material_read": "21-page manuscript; definitions, graph-family constructions and operations in sections 4 and 5",
+        "method": "Full open PDF text and page inspection",
+        "title": "On the number of minimal forts of a graph",
+        "trigger": "Closest primary work on inclusion-minimal fort counting"
+      },
+      {
+        "assessment": "Cartesian-product bounds and general links, not the exhaustive rook minimal-fort incidence types",
+        "evidence": [
+          "arxiv:2310.17904v1",
+          "Cartesian-product sections"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.17904",
+        "material_read": "Full open manuscript text, Cartesian-product results and hypergraph material",
+        "method": "Full accessible arXiv HTML manuscript",
+        "title": "Forts, (fractional) zero forcing, and Cartesian products of graphs",
+        "trigger": "Product-graph fort literature may dominate all rook cases"
+      },
+      {
+        "assessment": "Prior size bound F(K_n □ K_m)=nm−4 when n>=4,m>=2, credited to Fetchie et al. 2015; not an enumeration of all maximal failed sets",
+        "evidence": [
+          "arxiv:2202.04997v1",
+          "Theorem 3.7, page 8; reference [2]"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2202.04997",
+        "material_read": "17-page manuscript; Theorem 3.7 and Cartesian-products §3.1; references on page 17",
+        "method": "Full public arXiv PDF text with original theorem page visibly inspected",
+        "title": "Maximal failed zero forcing sets for products of two graphs",
+        "trigger": "Failed-zero-forcing duality to minimal forts on complete graph products"
+      },
+      {
+        "assessment": "Provides some minimal fort constructions; no all-cardinality rook classification",
+        "evidence": [
+          "arxiv:2507.10826",
+          "section 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2507.10826",
+        "material_read": "Full paper, especially product-fort construction §5",
+        "method": "Public arXiv PDF text",
+        "title": "On the forts and related parameters of the hypercube graph",
+        "trigger": "Minimal forts in Cartesian products of graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed8e3f5f-67f2-4a05-ade4-5fec0fddd52d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete minimal-fort hypergraph is the natural obstruction family to standard zero forcing, materially finer than a previously known minimum fort size. The novel four-case structural decomposition and finite coefficient formula count all inclusion-minimal obstructions, distinguish cycles from star covers and acyclic subdivisions, and have a plausible direct use in forcing transversal investigations.",
+    "status": "PASS"
+  }
+}
