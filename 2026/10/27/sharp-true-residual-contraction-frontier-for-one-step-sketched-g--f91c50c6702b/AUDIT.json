@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "All hypotheses and quantifiers stated. Algebra gives exact true residual ratio from the sketched normal equation. The Gram compression bound and its explicit eigenvalue-extremizing witness prove the sharp distortion coefficient. SPD polynomial bound proves the sharp angle factor; a two-eigenvalue example attains both simultaneously. At the critical threshold the sketched normal-equation numerator vanishes. A standalone exact-rational checker independently verifies Gram eigen conditions, the sharp residual witness and 2,500+ representative bounds; finite tests not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nakatsukasa–Tropp section 3.2 (25) gives generic quasi-optimality in any Krylov dimension.",
+        "Accessible historical oblique tangent-projector claim af380f19-cb8b-4b72-aac8-bd1dc25b8465 gives a related projector leakage constant, not an SPD sGMRES residual contraction criterion."
+      ],
+      "reasoning": "The general sGMRES quasi-optimality bound supplies a nonsharp upper estimate after combining an SPD residual-angle bound, but it does not state a matching extremizer, exact residual ratio, or necessity. A general oblique-projection norm is relevant but does not directly specify the SPD Krylov geometry and restarted-stagnation converse.",
+      "searches": [
+        "minimum residual sketched 1D least squares strict convergence sharp antieigenvalue sketch distortion",
+        "subspace embedding oblique projector sharp norm sec arcsin epsilon minimum residual",
+        "arxiv:2111.00113v2 section 3.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.10354v1",
+      "arxiv:2111.00113v2",
+      "arxiv:2311.14206v2",
+      "published-finding corpus 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc",
+      "published-finding corpus 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f",
+      "accessible earlier spectral Ritz sign claim 9e4ed034-3e0b-4479-9661-c1cf8e776253",
+      "accessible earlier oblique tangent-projector claim af380f19-cb8b-4b72-aac8-bd1dc25b8465"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier own spectral claim establishes the same numeric distortion threshold for real parts of sketched Rayleigh–Ritz eigenvalues, not the exact true GMRES residual contraction factor.",
+        "The earlier generic sGMRES a priori estimate is not an equality and does not give the iff stopping/stagnation construction.",
+        "Burke et al. Lemma 3 bounds sketched angles but not the optimized true residual for SPD single-vector restarts."
+      ],
+      "reasoning": "The shared threshold is a nonnovel ingredient; acceptance rests on the additional tight true-residual amplification and complete one-step restarted norm guarantee, including an explicit sharp witness. These are not simple restatements of prior spectral location alone.",
+      "searches": [
+        "exact worst-case true residual amplification sketched one-step GMRES SPD epsilon embedding condition number (kappa-1)/((kappa+1)sqrt(1-epsilon^2))",
+        "weighted GMRES(1) positive-definite SPD restarted residual sharp embedding epsilon zero update critical",
+        "arxiv:2111.00113v2 eq. (25)",
+        "arxiv:2311.14206v2 Lemma 3",
+        "accessible historical claim 9e4ed034-3e0b-4479-9661-c1cf8e776253"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Burke–Güttel–Soodhalter section 4 gives projector and angle identities; no claim of this same exact SPD distortion product or all-restarts residual frontier was found in the inspected sections.",
+        "published-finding corpus 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc concerns solution-error norm rather than true-residual sketch distortion."
+      ],
+      "reasoning": "Projection-angle reformulation examined; different norm and different hypotheses are not synonymous. The assessed result optimizes the true residual jointly over A,r and sketch.",
+      "searches": [
+        "exact worst-case true residual amplification sketched one-step GMRES SPD epsilon embedding condition number (kappa-1)/((kappa+1)sqrt(1-epsilon^2))",
+        "sketch and restart harmonic Arnoldi one-step residual contraction sharp kappa epsilon threshold stagnation",
+        "arxiv:2311.14206v2 sections 3-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus 2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc: exact *solution*-error bound in standard (unsketched) GMRES(1).",
+        "published-finding corpus 2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f: maximal-distance Kaczmarz, a different update."
+      ],
+      "reasoning": "No numerical table or indexed formula covering the joint SPD sketch distortion / true residual ratio was identified. Failed search by itself does not establish novelty.",
+      "searches": [
+        "exact worst-case true residual amplification sketched one-step GMRES SPD epsilon embedding condition number (kappa-1)/((kappa+1)sqrt(1-epsilon^2))",
+        "sketched GMRES(1) exact worst-case Euclidean residual amplification 1/sqrt(1-epsilon^2) SPD condition number",
+        "published-finding corpus numerical linear algebra nearest matches"
+      ]
+    },
+    "rationale": "In the accessible full primary texts, generic sGMRES quasi-optimal residual ratios and sketched-angle comparisons are established, but not the exact SPD one-step true-residual amplification with an attained constant and its if-and-only-if fixed-sketch stagnation boundary. A previous spectral Ritz sign statement determines a related critical embedding threshold but does not imply the Euclidean residual factor. published-finding corpus and accessible historical claims were compared by mathematical implication; earlier specialized coverage remains possible.",
+    "residual_risks": [
+      "General oblique-projection geometry and classical Kantorovich bounds make much of the derivation elementary; an earlier article may have explicitly recorded their sharp one-vector sketched-GMRES combination.",
+      "The exact critical sketch threshold also occurs in a different earlier spectral-sign result; the distinct sharp Euclidean residual law is the claimed additional content.",
+      "Bibliographic comparisons are bounded; no exhaustive uniqueness guarantee or independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Develops the new harmonic matrix-function framework, not the assessed sharp Euclidean GMRES(1) residual factor",
+        "evidence": "arXiv:2607.10354 first posted 2026-07-11; section 5 gives a sufficient positive-real harmonic Ritz condition.",
+        "identifier_or_url": "arxiv:2607.10354v1",
+        "material_read": "The accessible full arXiv HTML, especially the sketched harmonic Arnoldi construction and positive-real convergence arguments in section 5",
+        "method": "Read relevant defining formulas and stability hypotheses and compared their mathematical scope with one-step sketched minimum residual",
+        "title": "Sketch-and-Restart: Randomized Sketching in Quadrature-Based Restarting for Matrix Functions",
+        "trigger": "Recent sketching/restarting method motivating exact SPD one-step benchmarks"
+      },
+      {
+        "assessment": "Gives generic quasioptimality, but not the sharp condition-number-dependent true residual factor",
+        "evidence": "https://arxiv.org/html/2111.00113v2 section 3.2, eq. (25).",
+        "identifier_or_url": "arxiv:2111.00113v2",
+        "material_read": "Full HTML sections 1–3 and relevant sGMRES projected least-squares bound (25), section 3.2",
+        "method": "Inspected equations (24)-(26) and convergence/restarting discussion",
+        "title": "Fast & Accurate Randomized Algorithms for Linear Systems and Eigenvalue Problems",
+        "trigger": "Primary origin of sketched GMRES least squares and residual distortion"
+      },
+      {
+        "assessment": "General sketched-projector and angle analysis; no matching exact SPD all-sketch one-vector contraction theorem identified in inspected primary sections",
+        "evidence": "https://arxiv.org/html/2311.14206v2 sections 4.2–4.4.",
+        "identifier_or_url": "arxiv:2311.14206v2",
+        "material_read": "Full HTML sections 3–4, specifically sections 4.2-4.4 and Lemmas 1–3",
+        "method": "Compared the projector characterization and sketch-angle inequalities against attained true-residual factor and critical fixed-sketch obstruction",
+        "title": "GMRES with randomized sketching and deflated restarting",
+        "trigger": "Closest theory of sketched residual projectors and angles"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f91c50c6-702b-4326-9871-9ee9fb5e3b11",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A necessary-and-sufficient sketch-distortion safety frontier for true Euclidean residual decrease under one-vector restarting is a practical structural stability benchmark; generic quasi-optimality bounds do not certify the exact admissible range or reveal a perpetually stalled adversarial sketch at the boundary. The result is an exact all-condition-number classification on a natural algorithm, not a one-off arbitrary parameter computation, while extending no claims to longer restarts or random failure rates.",
+    "status": "PASS"
+  }
+}
