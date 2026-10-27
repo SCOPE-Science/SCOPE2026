@@ -1,0 +1,9 @@
+# Scientific review
+
+**Correctness — PASS.** The conditional local triangle probabilities are \(1/4\) with zero or one fixed arc, \(1/2\) with two prescribed arcs forming a directed path, and \(1\) for an entire prescribed directed triangle. A simple directed cycle has exactly \(k\) two-arc triple overlaps for \(k\ge4\), with a separate exact boundary calculation at \(k=3\). Counting rotation classes of candidate cycles proves the mixed moment. The variance bound follows from the exact triangle variance and Cauchy–Schwarz. The 37 exact finite checks independently confirm these identities in the stated tested ranges; they are not used as an infinite proof.
+
+**Originality — PASS, provisional.** Full accessible primary HTML treatments of tournament three-/four-cycle extremal relations (Linial–Morgenstern 2014; Chan et al. 2019) and arbitrary-length cycle expectation/extrema (Grzesik et al. 2020) were compared by implication. None of the inspected statements gives \(\operatorname{Cov}(C_3,C_k)\) for all finite \((n,k)\); deterministic four-vertex relations and one-variable cycle expectations do not independently determine this joint moment. Searches for random-tournament mixed cycle moments did not uncover a dominating published identity. Janson's 1995 Hamiltonian random-tournament full text was inaccessible; it may contain an \(k=n\) specialization. Residual historical priority uncertainty remains.
+
+**Mathematical value — PASS.** The all-length response is independent of the number of extra vertices and includes the boundary \(k=3\) without altering the coefficient. It supplies a single exact mixed-moment identity across two basic random-tournament motif statistics, and yields a uniform finite-sample lower bound on relative cycle-count fluctuations (of order \(1/n\) for Hamilton cycles), not obtainable from marginal means alone. The theorem does not assert broader stochastic ordering.
+
+Self-review: passed. Independent audit: not yet performed.
