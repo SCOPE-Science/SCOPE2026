@@ -1,0 +1,160 @@
+{
+  "correctness": {
+    "rationale": "The rational map has poles only at 2±i√2, outside Markov spectra, and preserves rows because r(0)=1. Its first five Taylor coefficients a0..a4 are positive while a5=−1/108. All distinct-state transitions for arbitrary generators on ≤5 states have shortest paths of length ≤4, with first surviving coefficient a_d(Q^d)ij positive; inaccessible pairs remain zero, diagonals start at 1. A directed six-cycle gives a negative h5/108 leading entry. Exact circulant inversion supplies common positive D6 and N5=h5 p(h); all other entries have certified positive polynomial forms, including exact Bernstein coefficients and shifted polynomial for the diagonal. p increases strictly on h≥0, with one positive root. Fourier modes imply eventual positivity for every directed cycle n≥6. The delivered SymPy script reconstructed these equalities and verified the exact rational witness at h=1/10. The infinite-generator statement is proved analytically, not by enumeration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "General SSP/absolute monotonicity concerns all admissible monotonicity systems, not a universal local bound at finite state dimension nor a specific cycle phase interval.",
+        "The prior mathematical statement graph-distance-five result is for symmetric weighted Laplacians and gives a different six-vertex *path* polynomial, not the directed six-cycle polynomial."
+      ],
+      "reasoning": "Even if general monotonicity theory predicts method-wide zero SSP radius, it does not identify the sharp conservative irreducible state number or exact return set. The previous undirected path proof shares the local sign mechanism but has a distinct graph class and different exact threshold.",
+      "searches": [
+        "doi:10.1137/S003614450036757X",
+        "doi:10.1112/S1461157013000326",
+        "Radau IIA small step positive for every generator 5 states nonnegative six states negative fifth Taylor coefficient",
+        "prior mathematical statement claim 79ccecc6-7e03-4030-87be-c97c936f5301"
+      ]
+    },
+    "checked_sources": [
+      "Gottlieb, Shu, Tadmor (2001), DOI 10.1137/S003614450036757X",
+      "Zappavigna, Colaneri, Kirkland, Shorten (2012), DOI 10.1016/j.laa.2011.12.021",
+      "Lóczi, Ketcheson (2014), DOI 10.1112/S1461157013000326",
+      "Blanes, Iserles, Macnamara (2022), https://personales.upv.es/serblaza/2022_M2AN.pdf",
+      "Ketcheson Numipedia RadauIIA2",
+      "published-finding corpus published 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "Available earlier mathematical comparison claims ad5c9c6d-0065-4d13-a871-8539c8d92edb, 79ccecc6-7e03-4030-87be-c97c936f5301, bc717cab-35cb-4a0c-b3f5-efe9e67ff662"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier undirected cycle threshold starts at length ten and uses graph Laplacian P+P^T−2I, whereas this six-state generator is nonreversible P−I.",
+        "The earlier weighted undirected path P6 has a different sign polynomial, and the reversible return-envelope theorem only bounds diagonal entries.",
+        "The published-finding corpus published eight-state minimal dimension theorem is for the different Gauss [2/2] method."
+      ],
+      "reasoning": "No cited prior implies the exact new universal directed-CTMC n≤5 local guarantee plus the nonreversible six-cycle n=6 full interval. Analogous shortest-path arguments are acknowledged explicitly as prior methodological precedent. Claims are separated by generator symmetry, scalar stability function and exact transition polynomial, not mere names.",
+      "searches": [
+        "prior mathematical statement item ad5c9c6d-0065-4d13-a871-8539c8d92edb",
+        "prior mathematical statement item 79ccecc6-7e03-4030-87be-c97c936f5301",
+        "prior mathematical statement item bc717cab-35cb-4a0c-b3f5-efe9e67ff662",
+        "published-finding corpus 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The Radau function is the [1/2] Padé R(z)=(6+2z)/(6−4z+z²), first negative Maclaurin coefficient a5=−1/108; previous published Gauss [2/2] has first negative a7=−1/1728.",
+        "No actual retrieved published-finding corpus result asserted the six-cycle first positive step at the quintic root."
+      ],
+      "reasoning": "Searching by both two-stage Radau IIA and [1/2] Padé, CTMC, directed cyclic shift, short-step positivity and threshold expressions did not find the same claim; absence of a match is not proof of novelty. The two named rational stability functions are not equivalent via timestep rescaling because their orders and fifth coefficients differ.",
+      "searches": [
+        "Radau IIA Runge Kutta positivity cyclic Markov chain directed cycle entrywise nonnegative strong stability preservation",
+        "two-stage third order Radau IIA directed unidirectional cyclic shift Markov positivity six states small timestep zero absolute monotonicity",
+        "Radau IIA unidirectional directed six-cycle positivity quintic h5+15h4+60h3+90h2+36h-12 threshold 0.2086088597",
+        "published-finding corpus published 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "https://ketch.github.io/numipedia/methods/RadauIIA2.html"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Numipedia records scalar stability function, not 6×6 cyclic matrix coefficients or its quintic root.",
+        "Search records with nearest titles concern other methods and general Padé positivity barriers; no retrieved table contains this six-cycle positivity set."
+      ],
+      "reasoning": "A scalar method coefficient list alone does not tabulate signs of the completed Markov transition matrix. The quartic/quintic inequalities are explicitly derived from matrix inversion and polynomial positivity certificates; unindexed tabulations remain an originality risk.",
+      "searches": [
+        "Radau IIA 3rd order first nonpositive fifth Taylor coefficient pure birth Markov six-state cycle",
+        "Radau IIA unidirectional directed six-cycle positivity quintic h5+15h4+60h3+90h2+36h-12 threshold 0.2086088597",
+        "Padé [1/2] Markov chain sharp six state positivity barrier cycle",
+        "Numipedia Radau IIA two-stage stability function"
+      ]
+    },
+    "rationale": "Directly compared the claim and implications against the accessible own undirected Radau path/cycle claims and diagonal reversible bound; published published-finding corpus [2/2] Markov barrier; general SSP/absolute-monotonicity papers; positive-system Padé counterexamples; and method-specific stability-function database. The local path-length mechanism is acknowledged as related but the universal directed CTMC dimension and exact irreducible six-cycle quintic positivity return are not implied by those sources. Specialized or inaccessible unindexed literature might still contain an equivalent theorem; no search is treated as proof of uniqueness.",
+    "residual_risks": [
+      "Search retrieval is not an exhaustive index of historical mathematical publications; a specialized cyclic-Markov result may be unindexed or inaccessible.",
+      "The broad functional-calculus/absolute-monotonicity literature may contain sharper implication results beyond the relevant inspected sections, though none presently establishes the exact six-cycle return equation.",
+      "Scientific originality assessment is internal and not independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the six-state Markov minimality and exact six-cycle interval; establishes broad theory, not these entries.",
+        "evidence": [
+          "2001-02-02 on author-hosted SIAM Review first page; sections 1 and 6 address SSP restrictions for high-order implicit discretizations, not a directed six-cycle threshold.",
+          "https://www.math.umd.edu/~tadmor/pub/linear-stability/Gottlieb-Shu-Tadmor.SIREV-01.pdf"
+        ],
+        "identifier_or_url": "doi:10.1137/S003614450036757X",
+        "material_read": "Full open-access PDF title, abstract, introduction, statements of general implicit method limitations including section 6, page 1 electronically published date.",
+        "method": "Read text and page image and checked distinctions between method-wide SSP statements and a fixed conservative directed generator.",
+        "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+        "trigger": "Foundational implicit high-order SSP constraints and earliest archive source"
+      },
+      {
+        "assessment": "NOT_COVERING: the main example is the different diagonal [2/2] Padé rational function with first negative coefficient of order seven; not a six-state Radau [1/2] conservative result.",
+        "evidence": [
+          "Their formula C2(z)=(1+z/2+z²/12)/(1-z/2+z²/12) and nilpotent eight-state example, original paper Section 4.",
+          "https://www.hamilton.ie/skirkland/pade_paper_final_end.pdf"
+        ],
+        "identifier_or_url": "doi:10.1016/j.laa.2011.12.021",
+        "material_read": "Open-access original PDF, positivity section and full example involving the eight-by-eight nilpotent shift (pp. 13–15), and scope of Metzler/Hurwitz construction; targeted full-document text search for Radau.",
+        "method": "Compared exact stability function and matrix class, and checked whether the example obeyed conservative Markov row sums.",
+        "title": "Essentially negative news about positive systems",
+        "trigger": "Historical Padé positivity counterexample; potentially stronger result"
+      },
+      {
+        "assessment": "NOT_COVERING by the inspected materials: method-wide radius and rational family optimization do not supply a six-state conservative directed-cycle return interval.",
+        "evidence": [
+          "The paper defines R(psi) via all derivatives on [-r,0] and studies optimal radii for rational approximants, not a named cycle classification.",
+          "https://doi.org/10.1112/S1461157013000326"
+        ],
+        "identifier_or_url": "doi:10.1112/S1461157013000326",
+        "material_read": "Open-access full original PDF, abstract, definition of radius, introduction and rational-function class discussion pp. 159–162; searched the entire parsed full text for Radau.",
+        "method": "Compared absolute-monotonicity quantifiers (all scalar derivatives; method-wide steps) with a Markov-generator-specific shortest-path/minimal-dimension claim and an exact cyclic rational matrix.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Possible method-wide positivity theorem implying all finite-state barriers"
+      },
+      {
+        "assessment": "NOT_COVERING in the inspected material: focuses on methods designed to preserve positivity, not the six-cycle threshold for Radau IIA.",
+        "evidence": [
+          "A. Blanes, A. Iserles, S. Macnamara, ESAIM M2AN (2022); no Radau occurrence in full PDF text search.",
+          "https://personales.upv.es/serblaza/2022_M2AN.pdf"
+        ],
+        "identifier_or_url": "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+        "material_read": "Open-access original full PDF introduction and positive systems/graph Laplacian discussion; whole-document parsed-text search for Radau.",
+        "method": "Compared scope of integrator construction with the third-order Radau rational function and its six-cycle exact sign equation.",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Likely more recent coverage of Markov and graph-Laplacian positivity issues"
+      },
+      {
+        "assessment": "NOT_COVERING: first negative coefficient is order seven for Gauss [2/2], not order five for Radau [1/2]; no six-state Radau threshold.",
+        "evidence": [
+          "Published published-finding corpus item 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab; explicitly Gauss [2/2] r(z)=(12+6z+z²)/(12−6z+z²)."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+        "material_read": "Full RESULT.md primary result, proofs of 7-state lower bound and 8-state pure-birth example, exact step interval, references and limitations.",
+        "method": "Retrieved published result from repository and compared scalar series first negative indices, generator classes and quantifiers.",
+        "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+        "trigger": "Closest published minimal Markov dimension theorem for a different implicit integrator"
+      },
+      {
+        "assessment": "SUPPORTS method identification; does not present the six-state classification.",
+        "evidence": [
+          "Entry stability function (1+z/3)/(1−2z/3+z²/6)."
+        ],
+        "identifier_or_url": "https://ketch.github.io/numipedia/methods/RadauIIA2.html",
+        "material_read": "Methods database entry containing the two-stage third-order Radau IIA stability function.",
+        "method": "Compared normalized function with (6+2z)/(6−4z+z²).",
+        "title": "Radau IIA two-stage method stability function",
+        "trigger": "Independent normalization cross-check of the rational method"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d6e23c14-4dbb-4c87-be1a-356f3045956a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a motivated structural minimal-state question for preservation of Markov probabilities under a standard third-order A-stable integrator. The smallest conservative nonreversible obstruction is an irreducible homogeneous six-cycle, and its complete positive-step set is a nontrivial disconnected interval rather than an isolated negative example. The sharp algebraic cutoff permits a natural reproducible six-state benchmark and contrasts substantively with the earlier six-vertex undirected path and eight-state fourth-order Padé cases. No inflated downstream performance or certification claim is made.",
+    "status": "PASS"
+  }
+}
