@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Theorem 4.13 yields formula (1) for all r>=2,n>=0. Ordered-composition EGFs yield equation (2); differentiation yields recurrence (4). Monicity, constant term and the sign match at the interlacing roots are checked algebraically. The sign of the extra term r(r-2)n is nonnegative for precisely the claimed domain; the argument produces n+1 distinct negative roots and strict interlacing. Standard Newton inequalities yield strict normalized log-concavity. The exact-integer checker confirms two independent formulas versus recurrence for 54 small instances.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2208.05463v3, lines 813-832: r=2 type-B Eulerian result cited; all-r conjecture remains separate.",
+        "General Eulerian polynomial literature: Xiong (2013), DOI 10.1155/2013/629132; generalized T-polynomial generating functions are related but have different exponential prefactors.",
+        "Athanasiadis (2025), DOI 10.1112/jlms.70083, concerns Eulerian transformations and has no verified explicit identification with these cyclic-moduli Betti polynomials."
+      ],
+      "reasoning": "The type-B result covers only r=2, not r>=3. Broader real-rootedness transformations might possibly imply a transformed formula, but the checked texts and abstracts did not supply a precise hypothesis-to-object reduction; the current proof is direct rather than deduced from such a theorem. This is acknowledged as residual risk.",
+      "searches": [
+        "published-finding index: strong log concavity real negative roots Betti polynomials cyclic-action Losev-Manin r-permutohedral complex",
+        "published-finding index: wonderful compactification product hyperplane arrangement Betti Poincare polynomial strict interlacing negative roots all n r",
+        "Web: \"r-Eulerian\" \"real-rooted\" \"Shiyue\"",
+        "Web: \"general Eulerian polynomial\" \"real-rooted\" \"arithmetic progression\" T_n"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2208.05463v3 Sections 3 and 4 (material inspected)",
+      "arXiv:2104.06526v1 Sections 5--7 (material inspected)",
+      "arXiv:2311.09314 abstract only",
+      "published-finding index 6 recorded query families (no matching claim)",
+      "DOI:10.1155/2013/629132 published webpage summary",
+      "DOI:10.1112/jlms.70083 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2208.05463v3, Theorem 4.13 -> additive formula; Conjecture 4.15 -> target inequality.",
+        "arXiv:2104.06526v1, Props. 5.4--5.5 -> boundary poset and strata products but no root distribution.",
+        "arXiv:2311.09314, abstract -> multimatroids, nef divisors, volume polynomials, not the full family root theorem."
+      ],
+      "reasoning": "Theorem 4.13 contains enough information to derive a generating function, but the mere availability of the coefficient formula does not establish negative roots. The new sign argument proves a genuinely stronger new property. The earlier boundary combinatorics and later nef-volume conclusions do not state or logically entail interlacing from their inspected statements.",
+      "searches": [
+        "published-finding index: three term differential recurrence r(r-2)n t P_{n-1} for rational curves with cyclic action",
+        "published-finding index: generalized Eulerian T_n(t,a,d) exponent e^(1-(r-1)t) cyclic moduli",
+        "Web: \"r-Eulerian\" \"Betti\" \"log-concave\" \"conjecture\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Clader--Damiolini--Li--Ramadas arXiv:2208.05463v3, Sec. 4.4 Conjecture 4.15, states log-concavity as conjectural; Theorem 4.13 computes additive Chow ranks.",
+        "arXiv:2208.05463v3 Example 4.14 lists low-degree type-B and general-r polynomial coefficients; no statement of all-n root simplicity or interlacing."
+      ],
+      "reasoning": "A result proving the conjectured inequality for all r,n is an equivalent/weaker formulation of part of the new result. It is not present in the specifically inspected original source, including corrected v3. Searches for the conjecture and r-Eulerian root-location terminology found no exact external theorem.",
+      "searches": [
+        "published-finding index: real-rooted Betti Poincare polynomials log-concavity Conjecture 4.15 Clader Damiolini Li Ramadas cyclic order r moduli curves",
+        "published-finding index: r-Eulerian Betti numbers Conjecture 4.15 real rooted Poincare Clader Damiolini Li Ramadas",
+        "Web: \"Conjecture 4.15\" \"Clader\" log-concave Betti numbers 2024 2025",
+        "Web: \"wonderful compactifications and rational curves with cyclic action\" \"real-rooted\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2208.05463v3 Example 4.14 and linked r-Eulerian.sage generate rows including (r,n)=(2,3),(3,4),(4,5).",
+        "The closest published-finding index hit 2026/10/4/SCOPE-exact-real-rootedness-through-n-50-for-the-even-poincar-polynomi--e31fa330a930 concerns genus-one stable-curve moduli, not these cyclic-action spaces."
+      ],
+      "reasoning": "Finite Betti tables list coefficients of small cases, not the uniform all-r/all-n root and interlacing theorem. A polynomial real-rootedness statement about genus-one curves cannot imply this without an unprovided identification.",
+      "searches": [
+        "Web: \"r-Eulerian.sage\" \"real rooted\"",
+        "Web: \"Betti\" \"r-Eulerian\" \"real roots\"",
+        "published-finding index: r-Eulerian Betti numbers Conjecture 4.15 real rooted Poincare Clader Damiolini Li Ramadas"
+      ]
+    },
+    "rationale": "The closely matching primary work explicitly calls global log-concavity a conjecture and states only additive Chow ranks; the universal recurrence and strict negative interlacing are not contained in its displayed theorem or table. Further semantic and literature searches did not identify an equivalent conclusion. Residual implicit/general Eulerian and later-publication overlap risks remain.",
+    "residual_risks": [
+      "An unindexed or later paper may have settled Conjecture 4.15 without terminology matching the searches.",
+      "General real-rootedness transfer/Eulerian transformation results might imply the sequence after a nontrivial specialization not verified from available texts.",
+      "Full text of the 2024 multimatroid paper and generalized Eulerian papers was not exhaustively inspected."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same objects and exact additive ranks; log-concavity expressly conjectural, no all-parameter real-root theorem in checked results",
+        "evidence": [
+          "Theorem 4.13 uses ordered jumps j_a>=2 and r^s n!/((n-s)! product j_a!), with shift 1<=mu_a<j_a",
+          "Conjecture 4.15 asks for log-concavity for all r and n",
+          "Example 4.14 identifies r=2 with type-B Eulerian numbers"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2208.05463v3",
+        "material_read": "Sections 1, 3.1, 3.3 and 4.4, specifically Theorems 3.4 and 4.13, Example 4.14, Conjecture 4.15 and the accompanying corrected multiplicity note",
+        "method": "Full-text accessible arXiv HTML, targeted material inspection",
+        "title": "Wonderful compactifications and rational curves with cyclic action",
+        "trigger": "Direct formulation of the cyclic moduli Betti-number conjecture and all-dimensional additive Chow formula"
+      },
+      {
+        "assessment": "Geometric foundation but no stated all-r Betti polynomial root or interlacing result",
+        "evidence": [
+          "Boundary chains parameterize strata (Proposition 5.4)",
+          "Boundary strata admit product descriptions (Proposition 5.5)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2104.06526v1",
+        "material_read": "Moduli construction and Sections 5--7, especially the indexed boundary-chain correspondence and product decomposition",
+        "method": "Full-text arXiv HTML relevant sections",
+        "title": "Permutohedral Complexes and Rational Curves with Cyclic Action",
+        "trigger": "Earlier paper constructs identical moduli spaces and parametrizes chains/strata"
+      },
+      {
+        "assessment": "Abstract centers on multimatroid intersection/volume geometry, not Betti root location; insufficient to exclude overlap from full text",
+        "evidence": [
+          "Abstract mentions nef divisors, independence polytopal complexes and Lorentzian volume polynomials"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.09314",
+        "material_read": "Abstract, not full paper; overlap uncertain for uninspected interior results",
+        "method": "Accessible abstract and metadata",
+        "title": "Multimatroids and rational curves with cyclic action",
+        "trigger": "Later title concerns exactly the same moduli spaces"
+      },
+      {
+        "assessment": "Related generalized Eulerian functions, but no verified direct dominating implication; broader-coverage residual risk",
+        "evidence": [
+          "Family T_n(t,a,d) with exponential prefactor a(t-1) differs from the target F_r as a sequence"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2013/629132",
+        "material_read": "Open web summary of defining generating function; full text not inspected",
+        "method": "Accessible published webpage summary",
+        "title": "General Eulerian Numbers and Eulerian Polynomials",
+        "trigger": "Possibly broader all-parameter exponential polynomial identities"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f049850c-a81d-4c9b-9be5-ff5ef549e4af",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A published specific, all-parameter conjecture on Betti numbers is settled uniformly and strengthened from log-concavity to simple negative roots plus consecutive strict interlacing. The root-sign induction is a structural explanation independent of any finite census, with immediate Newton ultra-log-concavity implications.",
+    "status": "PASS"
+  }
+}
