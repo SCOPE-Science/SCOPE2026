@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Equation (1) is an exact concatenation partition; complete residual analysis and explicit separating suffixes yield every equivalence class and the closed-form count for all k>=1. Direct independent minimization of capped counters for k=1..40 agrees; direct concatenation experiments span 1,559,052 prefix/suffix tests. Boundaries k=1 and empty word are covered.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The first paper constructs generic automata for bounded occurrences of arbitrary patterns and provides finite equivalence testing, without the exact minimized quotient and count for this fixed threshold.",
+        "The generalized matrices paper studies count transforms and identities."
+      ],
+      "reasoning": "Generic computability and regularity cover recognition, not the optimized automaton state complexity with a closed formula. A possibly implicit general automata computation is acknowledged.",
+      "searches": [
+        "scattered subsequence 01 threshold at least k exact minimal deterministic automaton floor(k^2/4)+3 states Myhill Nerode",
+        "arXiv:1905.05646 Lemma 2.1 Definition 2.2",
+        "arXiv:2407.04462 Sections 1 and 7"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1808.04102 first posted 2018-08-13",
+      "arXiv:1905.05646 first posted 2019-05-14",
+      "arXiv:2407.04462 first posted 2024-07-05",
+      "Related published automata/subsequence research search results assessed by statement and parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The generic equivalence gives finite recognition automata for bounded counts but retains additional count data; minimization is essential and nontrivial.",
+        "The matrix publications identify subsequence-count information, not minimal DFAs for inequality thresholds."
+      ],
+      "reasoning": "Known facts imply that the proposed languages are regular, and an algorithm could derive the state count at each fixed k. They do not directly imply the stated uniform quadratic expression, pairwise separation witnesses, or complete class partition without further reasoning.",
+      "searches": [
+        "arXiv:1905.05646 Sections 2.1–2.3",
+        "arXiv:1808.04102 introduction",
+        "arXiv:2407.04462 abstract and closing discussion"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mansour et al. Eq. (4) defines equivalence preserving each bounded occurrence count; the present criterion only records whether the count reaches the threshold.",
+        "Parikh matrix entry for scattered 01 occurs in arXiv:1808.04102."
+      ],
+      "reasoning": "Checked both equivalent views: a scattered ascending-pair threshold and a Parikh-matrix entry inequality. Their right congruence is strictly coarser than the fine bounded-count right congruence used in the general paper. No equal formula was identified.",
+      "searches": [
+        "minimal deterministic finite automaton for binary words containing at least k scattered subsequences 01; exact floor(k^2/4)+3 state complexity and Myhill Nerode quotient",
+        "threshold languages for Parikh matrix 01 entry greater than k, minimal automata number of states",
+        "scattered 01 occurrences threshold k Myhill Nerode equivalence of zero count and inversion count",
+        "arXiv:1905.05646 Section 2.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact state-count table/formula was returned from the inspected published-record searches at these aliases.",
+        "The primary papers concern enumeration, matrices, and broad pattern counts rather than threshold-state tables."
+      ],
+      "reasoning": "No located published database/table has matching inputs k and exact minimal state counts; absence from returned hits is merely limited evidence, not a uniqueness proof.",
+      "searches": [
+        "minimal deterministic finite automaton for binary words containing at least k scattered subsequences 01; exact floor(k^2/4)+3 state complexity and Myhill Nerode quotient",
+        "scattered subsequence 01 threshold at least k exact minimal deterministic automaton floor(k^2/4)+3 states Myhill Nerode",
+        "state complexity \"scattered\" \"01\" \"at least k\" regular language minimal deterministic automaton",
+        "Parikh matrix entry greater than k minimal deterministic finite automaton state count"
+      ]
+    },
+    "rationale": "The closest original general automaton construction distinguishes every bounded occurrence count; the new exact expression and complete residual classification describe the coarser threshold language. Primary full texts and related published-record searches revealed no dominating exact statement. Generality itself does not prevent an implicit specialization; this is the documented remaining originality risk.",
+    "residual_risks": [
+      "A general minimization theorem may imply the same quadratic formula without naming this special case.",
+      "Search indexing or unavailable literature may contain an equivalent result; no originality claim is independent certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BOUNDED_OCCURRENCE_AUTOMATA_NOT_EXPLICIT_THRESHOLD_MINIMAL_COUNT",
+        "evidence": "Equivalence matches bounded counts m<=r for every continuation; this is finer than a binary yes/no >=k predicate. Primary result emphasizes general regularity, enumeration and asymptotic growth; no formula floor(k^2/4)+3 identified.",
+        "identifier_or_url": "https://arxiv.org/pdf/1905.05646",
+        "material_read": "Introduction, Section 2.1 pattern occurrence definitions, Section 2.2 equivalence relation (4), Lemma 2.1, Definition 2.2 and adjacent automaton argument",
+        "method": "Read original arXiv PDF text and page images; compared right-congruence quantifiers and goals",
+        "title": "Finite automata, probabilistic method, and occurrence enumeration of a pattern in words and permutations",
+        "trigger": "Closest full-text result combining subsequence-pattern counts and automata"
+      },
+      {
+        "assessment": "SAME_COUNT_BUT_DIFFERENT_QUESTION",
+        "evidence": "Parikh matrix for a word and powers of words, normal forms, and M-equivalence; not minimal DFA of a threshold inequality.",
+        "identifier_or_url": "https://arxiv.org/pdf/1808.04102",
+        "material_read": "Introduction and primary matrix definitions and study objective",
+        "method": "Read primary arXiv manuscript; compared object and invariant",
+        "title": "Parikh Matrices for Powers of Words",
+        "trigger": "Parikh matrix encodes the same binary scattered pair count"
+      },
+      {
+        "assessment": "COUNT_TRANSFORM_NOT_THRESHOLD_DFA",
+        "evidence": "Defines generalized count-tracking matrices and subword histories; does not present the Myhill-Nerode threshold quotient or the quadratic formula.",
+        "identifier_or_url": "https://arxiv.org/pdf/2407.04462",
+        "material_read": "Abstract, introduction, definitions and closing discussion of generalized matrices",
+        "method": "Read primary arXiv manuscript; compared its generalized matrix identities with threshold automaton classes",
+        "title": "Generalized Parikh Matrices For Tracking Subsequence Occurrences",
+        "trigger": "Alternative matrix/linear-history treatment of subsequence counts"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eaa79e52-1a74-4a3e-96f4-6515eb639dd2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact state complexity of a natural Parikh-matrix entry threshold quantifies a genuine quadratic recognition resource, with a complete quotient and explicit distinguishability witnesses rather than an ad hoc finite census. It gives a sharp all-threshold formula and identifies a diagonal saturation phenomenon useful when designing/counting pattern automata.",
+    "status": "PASS"
+  }
+}
