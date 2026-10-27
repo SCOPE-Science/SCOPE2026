@@ -1,0 +1,9 @@
+# Scientific review: quadratic harmonic-Bergman spectral islands
+
+**Correctness: PASS.** The general harmonic-Bergman Fredholm/block facts are taken with attribution from Huang–Wang–Zhao. The new quantitative calculations are reconstructed explicitly: the quadratic projection polynomial, the one-interior-root condition, the no-other-roots cases including the double root, the simultaneous boundary minimization, the exact norm power series, and both sharp endpoint expansions. The exact rational verifier tests the proposed Fourier eigenvector, but the analytic proof supplies the exhaustive infinite-dimensional classification. Algebraic multiplicity is not asserted.
+
+**Originality: PASS for the quantitative claim, subject to documented priority risk.** The 2026 paper's general eigenvalue determinant condition *covers the qualitative quadratic case*, and the older Wang–Zhao work already gives a disconnected quadratic example. Neither inspected source material states the sharp \(1/48\) isolation bound, the canonical squared eigenfunction norm, or the logarithmic-versus-quadratic boundary asymmetry. These are the quantified results assessed here, not the degree-two substitution itself. The 2021 full text could not be read; publication priority is not independently established.
+
+**Mathematical value: PASS.** Spectral isolation sets the geometric radius of a contour separating the isolated point from the essential curve, while the intrinsic origin-evaluation ratio measures eigenmode concentration as this separation disappears; these are not, by themselves, resolvent or perturbation bounds. The exact sharp bound and two different blowup laws for a natural minimal-degree spectral-island family are structural quantitative invariants rather than arbitrary coefficients or a bare special-case deduction. The result makes no claim about higher-degree symbols or spectral projections.
+
+Self-review: passed. Independent audit: not yet performed.
