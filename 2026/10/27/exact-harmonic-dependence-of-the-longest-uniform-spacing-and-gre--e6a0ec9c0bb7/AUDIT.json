@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "The exact all-m identity follows from a Dirichlet shifted-simplex conditional moment and inclusion-exclusion for the union of exceedance events; beta integrals yield the mixed moment, and two binomial-harmonic sums simplify it. The exact Dirichlet fourth moments and longest-spacing second moment give both variances. Positivity follows from a strict incremental harmonic-number identity, and the Pearson decay follows from harmonic asymptotics. An independent Fraction checker evaluates the unsimplified beta-sum and all moments exactly for 2<=m<=160; the proof has no finite-exhaustion dependency.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Royen 2010 theorem concerns marginal square-sum distribution for general Dirichlet parameters",
+        "Darling 1953 abstract describes characteristic functions of sums of one-coordinate spacing functions",
+        "Pyke 1965 survey abstract/indexed sections mention extrema and sum-spacings, without a readable joint assertion"
+      ],
+      "reasoning": "The distribution of Q alone cannot determine its covariance with M. An arbitrary-function marginal transform for sums of spacings does not supply the joint law with their maximum without further analysis. A stronger unknown classical joint transform is a residual risk, not claimed ruled out.",
+      "searches": [
+        "uniform Dirichlet spacings largest component Greenwood statistic covariance maximum squared spacing",
+        "maximum spacing quadratic spacings Greenwood statistic joint moments Dirichlet",
+        "Under uniform order statistics the largest gap and Greenwood sum of squared spacings have exact covariance harmonic numbers and correlation decaying logarithm squared over square root sample size"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1008.4059",
+      "doi:10.1111/j.2517-6161.1965.tb00602.x (partial)",
+      "doi:10.1214/aoms/1177729030 (abstract)",
+      "published-finding corpus public record 90264ed7a2e8",
+      "published-finding corpus public record 0ee24a72cd31 (summary)",
+      "published-finding corpus public record e84114bd4ba0 (summary)",
+      "Related claims on Shannon--Simpson dependence, minimum-conditioned majorization, and exceedance-count/concentration covariance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "published-finding corpus published-finding corpus:2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8 full RESULT.md inspected: Cov(range, unbiased sample variance) for iid Exp and asymptotic correlation order squared-logarithm over square-root sample-size order",
+        "Related mathematical results on Shannon--Simpson covariance, minimum-conditioned majorization, and fixed-threshold exceedance-count/concentration covariance",
+        "arxiv:1008.4059 full content: univariate Greenwood distribution"
+      ],
+      "reasoning": "Published exponential range is T(M-min X) under gamma/Dirichlet factorization and published sample variance is T^2(Q-1/m)/(m-1). The published covariance combines a different minimum correction and powers of T; its displayed statement alone does not give Cov(M,Q) by substitution or as an immediate special case. Count K_t=sum_i 1{X_i>t} integrates to the deterministic sum_i X_i=1, whereas M integrates the UNION event 1{K_t>0}; previous count covariance is therefore not the present formula. Entropy and minimum-conditioning results also neither identify nor imply this mixed maximum-square-sum moment.",
+      "searches": [
+        "Under uniform order statistics the largest gap and Greenwood sum of squared spacings have exact covariance harmonic numbers and correlation decaying logarithm squared over square root sample size",
+        "Dirichlet(1) maximum component and quadratic Simpson concentration mixed moments strongest largest coordinate covariance",
+        "distribution-free spacing goodness-of-fit test maximum gap and Greenwood statistic joint correlation independence",
+        "sample extrema max and quadratic function of uniform simplex normalized iid exponentials",
+        "published-finding corpus:2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8",
+        "published-finding corpus:2026/10/4/SCOPE-rigorous-decorrelation-of-part-count-and-maximum-in-uniform-comp--0ee24a72cd31",
+        "published-finding corpus:2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1008.4059 (full arXiv source, its introduction, main theorems and conclusions inspected)",
+        "published-finding corpus published-finding corpus:2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8",
+        "doi:10.1111/j.2517-6161.1965.tb00602.x (only abstract/indexed excerpts)"
+      ],
+      "reasoning": "Normalized iid exponentials, uniform spacings, a Dirichlet(1) largest coordinate, longest empty arc, and Greenwood/Simpson square sum are equivalent formulations. Royen studies only the second functional marginally; the comparable exponential result uses unnormalized range and unbiased variance, so its displayed theorem is not a statement about their scale-free joint moment.",
+      "searches": [
+        "uniform Dirichlet spacings largest component Greenwood statistic covariance maximum squared spacing",
+        "maximum spacing quadratic spacings Greenwood statistic joint moments Dirichlet",
+        "normalized exponential random vector largest coordinate sum squares covariance",
+        "Dirichlet(1) maximum component and quadratic Simpson concentration mixed moments strongest largest coordinate covariance"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Royen 2010 quantile tables for Greenwood Q, m=10,...,100",
+        "No returned directly matching published-finding corpus record among four 60-result targeted searches",
+        "Cross Validated 2021 thread asks qualitatively about high Dirichlet maximum/square-sum correlation without giving exact formula"
+      ],
+      "reasoning": "Quantiles of Q or its marginal variance are not tables of Cov(M,Q) or Corr(M,Q). Exact arithmetic here independently derives the harmonic expression and does not recompute an identified exact published table.",
+      "searches": [
+        "uniform Dirichlet spacings largest component Greenwood statistic covariance maximum squared spacing",
+        "maximum spacing quadratic spacings Greenwood statistic joint moments Dirichlet",
+        "normalized exponential random vector largest coordinate sum squares covariance"
+      ]
+    },
+    "rationale": "The claimed object is Cov(max_i X_i,sum_i X_i^2) on a continuous uniform simplex, including its explicit harmonic correlation and slow decay. The full text of Royen (2010) develops the marginal Greenwood distribution, not a maximum/Greenwood mixed moment. A published exponential range/sample-variance calculation has unnormalized parent variables and does not state this normalized Dirichlet joint statistic. Fixed-threshold count/Greenwood covariance cannot simply be integrated to give the maximum, which involves a union rather than a sum of exceedance indicators. Targeted web and published-finding corpus queries did not identify direct or dominating coverage. Pyke (1965) remains a material uninspected priority risk.",
+    "residual_risks": [
+      "Pyke (1965) entire survey not readable; an equivalent older identity might occur there.",
+      "Darling (1953) full text inaccessible; general multivariate consequence not exhaustively ruled out.",
+      "Equivalent results may exist under Greenwood–Moran, longest gap, or Simpson concentration terminology.",
+      "Published raw-exponential range/variance identity shares the same correlation decay exponent but does not directly subsume the normalized mixed moment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Marginal quadratic concentration distribution, moments and quantiles; no formula for mixed largest-component/Greenwood covariance found",
+        "evidence": "2010-08-24 arXiv posting; sections 1,4,5,6; Lemma 1 treats largest component only to bound tails of Q.",
+        "identifier_or_url": "https://arxiv.org/abs/1008.4059",
+        "material_read": "Full web-extracted preprint, sections 1 through 6, including Lemma 1 and Theorems; explicit finds for maximum, joint and covariance",
+        "method": "Open preprint full text in indexed arXiv rendering; examine introduction, theorem statements and the lone maximum appearance in a tail-bound proof",
+        "title": "The distribution of the square sum of Dirichlet random variables and a table with quantiles of Greenwood’s statistic",
+        "trigger": "Exact marginal Greenwood distribution and plausible joint treatment"
+      },
+      {
+        "assessment": "Undetermined whether a joint covariance identity is in the inaccessible full paper",
+        "evidence": "Journal of the Royal Statistical Society Series B 27 (1965), 395-436; indexed snippets discuss both classes of spacing statistics.",
+        "identifier_or_url": "https://doi.org/10.1111/j.2517-6161.1965.tb00602.x",
+        "material_read": "Abstract and indexed excerpts only; publisher full PDF not readable",
+        "method": "OA and preprint searches followed by publisher full-text attempt; complete manuscript unavailable",
+        "title": "Spacings",
+        "trigger": "Major survey of maximum spacings and Greenwood/sum-function statistics"
+      },
+      {
+        "assessment": "An integral/characteristic-function framework for sum-functions; no directly established joint maximum/Greenwood covariance in accessible material",
+        "evidence": "Annals of Mathematical Statistics 24 (1953), 239-253 abstract describing W_n=sum h_j(Y_j).",
+        "identifier_or_url": "https://doi.org/10.1214/aoms/1177729030",
+        "material_read": "Abstract only; complete hosted text not accessible",
+        "method": "Read abstract; attempted Project Euclid OA full text and PDF",
+        "title": "On a Class of Problems Related to the Random Division of an Interval",
+        "trigger": "Classical transform theory for functions of random spacings"
+      },
+      {
+        "assessment": "Explicit covariance for raw iid exponential range and unbiased sample variance, distinct from normalized uniform-simplex largest spacing and quadratic concentration; no displayed implication establishing the present formula",
+        "evidence": "Raw-exponential covariance (H_(n-1)^2+H_(n-1)^(2))/((n-1)lambda^3); raw-range variance and sample-variance formulas, not the normalized covariance.",
+        "identifier_or_url": "published-finding corpus:2026/10/4/SCOPE-exact-harmonic-covariance-of-range-and-sample-variance-in-expone--90264ed7a2e8",
+        "material_read": "Full publicly published RESULT.md including theorem, proof and relationship section",
+        "method": "GitHub public read-only fetch of complete RESULT.md",
+        "title": "Exact harmonic covariance of range and sample variance in exponential sampling",
+        "trigger": "Closest published published-finding corpus record with exact harmonic covariance and same asymptotic power"
+      },
+      {
+        "assessment": "Empirical high correlation noted, no exact formula or asymptotic rate",
+        "evidence": "Question posted 2021-10-20; discussion includes simulation m=10 correlation about 0.93.",
+        "identifier_or_url": "https://stats.stackexchange.com/questions/548966/sum-of-squares-for-a-dirichlet-distribution",
+        "material_read": "Question and both displayed responses",
+        "method": "Web reading",
+        "title": "Qualitative question on sum of squares for a Dirichlet distribution",
+        "trigger": "Explicit motivation for joint maximum/square-sum dependence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e6a0ec9c-0bb7-4713-9972-78aaecec899a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The longest gap and Greenwood square-sum are two independently used exact spacings-based uniformity diagnostics. Their finite-sample dependence is a natural quantity for joint calibration and redundancy assessment, not an arbitrary parameter slice. The exact nonzero covariance, closed correlation, and sharp logarithm-squared over square-root vanishing show why strong finite-sample correlation can coexist with asymptotic Pearson decorrelation (e.g., rho_10=0.93413 and rho_100=0.78896). This previously unextracted joint invariant goes beyond a marginal Greenwood moment or simple normalization check. No novel combined-test optimality is claimed.",
+    "status": "PASS"
+  }
+}
