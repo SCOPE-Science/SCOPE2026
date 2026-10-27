@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Exact contact interpolation over the 52 rational flags is exhaustive; all 9,997 candidates with at least five qualifying flags are singular at a rational point, verified both through vectorized Jacobian evaluation and separately through a standard-library checker. The remaining 52,884 rationally nonsingular four-flag candidates are partitioned into 18 projective orbits. Three and only three representatives are geometrically smooth by exact Gröbner bases on all affine charts, independently supported by direct derivative arguments. Their four distinct contact points are explicitly listed in the accompanying certificate. The conclusion concerns rational rather than all geometric hyperflexes.
+
+**Originality — PASS, qualified.** The searched prior records did not state the exact rational-hyperflex maximum together with the complete ternary projective classification. Oyono–Ritzenthaler's characteristic-three hyperflex discussion is about geometric contact and does not classify the three arithmetic projective orbits. Bergvall's rational marked-bitangent statistics do not separate ordinary bitangents from rational hyperflexes. Dolgachev–Martin's characteristic-three automorphism classification includes Fermat exceptions but not this arithmetic contact census. The principal unresolved risk is unindexed computational classifications, or an equivalent fact implicit in finer bitangent tables; publication priority is not certified.
+
+**Value — PASS.** The number of rational hyperflexes is a natural arithmetic contact invariant of the genus-three canonical embedding. The theorem gives its sharp value in the smallest odd characteristic, together with all equality classes. The different point counts and collinearity patterns of extremizers distinguish geometrically meaningful realizations of the same contact maximum; this is not merely relabeling a known count of rational bitangents.
+
+**Limitations.** Only \(\mathbf F_3\) and degree-four smooth plane curves are classified at equality, and no generalization to larger fields is asserted. Computation is exhaustive within the defined finite parameter space but independent audit is still required for external validation.
+
+Self-review: passed. Independent audit: not yet performed.
