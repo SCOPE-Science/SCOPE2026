@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "All unordered leader pairs fall into seven orbit classes for every integer q>=3. Exact orthogonal decomposition of each positive-definite grounded Laplacian gives the stated rational cost table, verified symbolically. Five explicit positive differences exclude competitors, and the sole remaining difference has exactly one positive zero t=(q+2)/(q-2). The supplementary checker agrees with direct exact inverses in 224 instances and symbolic comparisons across the full domain. The variance scaling factor 1/2 is specified and does not affect minimizers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fitch–Leonard introduce general joint centrality and solve paths/cycles.",
+        "Patterson–Yi–Zhang provide resistance expressions for general leader sets and prove specialized results on cycles, paths, rooted trees.",
+        "Lin–Fardad–Jovanović provide convex relaxation, greedy and swap methods, not a direct homogeneous weighted clique-barbell minimum classification."
+      ],
+      "reasoning": "General optimization formulations have broader graph applicability, but their theorem conclusions inspected do not contain or trivially dominate the exact threshold and tie multiplicities for this one-bridge weighted barbell. The parameter case is not an immediate corollary of a proved special-family classification because cliques with a bridge are neither paths/cycles nor trees for q>=3.",
+      "searches": [
+        "clique bridge consensus stochastic optimal sensor nodes one clique of size two and one of size q, gateway leader switch when bridge weight crosses threshold",
+        "leader selection noisy consensus graph two leaders barbell graph K_m connected by bridge inverse grounded Laplacian exact optimal arrangement",
+        "arxiv:1407.1569, Sections IV–V",
+        "arxiv:1708.06873, Section IV"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1302.0450",
+      "arxiv:1407.1569",
+      "arxiv:1412.6595",
+      "arxiv:1708.06873",
+      "published-finding corpus semantic records queried for bridge barbell and grounded inverse trace"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general prior inverse-variance formula evaluates any chosen leader set; it does not identify all minimizers for the specified weighted graph.",
+        "Known path/ring/tree-specific theorems do not apply to a two-clique bridge with internal cycles.",
+        "Seven explicit orbit values and strictly positive differences yield a unique switch at (q+2)/(q-2)."
+      ],
+      "reasoning": "Prior generic theory is an input rather than a stronger conclusion that implies the new exact phase diagram without additional nontrivial case analysis. Specific graph cases in the inspected manuscripts differ structurally. Novelty risk remains for any undiscovered specialized clique-bridge leader result.",
+      "searches": [
+        "\"optimal leader\" \"barbell graph\" \"variance\" consensus",
+        "\"leader selection\" \"bridge\" \"cliques\" \"noise-free\" grounded Laplacian",
+        "arxiv:1302.0450",
+        "arxiv:1407.1569",
+        "arxiv:1412.6595",
+        "arxiv:1708.06873"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lin–Fardad–Jovanović formulate minimization of tr(L_ff^-1) for noise-free leaders.",
+        "Patterson–Yi–Zhang relate half this trace to resistance-to-leader-set sums for any connected network.",
+        "No barbell bridge conductance threshold appears in their inspected special-case sections."
+      ],
+      "reasoning": "The exact same objective is named grounded-Laplacian inverse-trace, total H2 variance, coherence, and total resistance to the contracted leader set. These are equivalent objective descriptions, not automatically an explicit minimizer theorem. The new result compares all seven leader-pair orbits analytically, including ties.",
+      "searches": [
+        "two optimal noise-free leaders barbell graph two cliques joined by one weighted bridge; inverse grounded Laplacian trace exact threshold coupling q+2 over q-2",
+        "barbell dumbbell block graph leader-follower noisy consensus resistance distance trace grounded Laplacian minimization",
+        "arxiv:1302.0450, Section 2.1",
+        "arxiv:1708.06873, Sections II–IV"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest bridge-barbell database record computes a zero-forcing polynomial and minimum zero-forcing sets, not a grounded inverse trace or optimal leader selection.",
+        "Other returned network-optimization and gain-tuning records do not evaluate this two-leader barbell threshold."
+      ],
+      "reasoning": "Matching graph-family terminology is insufficient for coverage: zero forcing and the stochastic coherence objective are different invariants. No exact table or database result covering these cost comparisons was retrieved; absence of a hit is not a uniqueness proof.",
+      "searches": [
+        "two optimal noise-free leaders barbell graph two cliques joined by one weighted bridge; inverse grounded Laplacian trace exact threshold coupling q+2 over q-2",
+        "clique bridge consensus stochastic optimal sensor nodes one clique of size two and one of size q, gateway leader switch when bridge weight crosses threshold",
+        "barbell dumbbell block graph leader-follower noisy consensus resistance distance trace grounded Laplacian minimization",
+        "published-finding corpus: 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2"
+      ]
+    },
+    "rationale": "Compared precise objective and graph family with four accessible primary articles and actual semantic database queries. General inverse-grounded-Laplacian and joint-centrality theories supply ways to evaluate candidates but inspected statements do not imply a specified identity of optimal leaders or the threshold without new orbit reductions and strict comparisons. The closest published-finding corpus hit concerns zero forcing of a different barbell statistic, not leader variance. Historical completeness is not certified.",
+    "residual_risks": [
+      "No exhaustive historical index or human novelty determination; possible equivalent specialized barbell leader-selection work outside inspected sources.",
+      "General published formulas can calculate these costs after case-specific work; distinctness here is the complete sharp all-parameter classification, not solvability in principle."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes and motivates exact objective, not this graph-family optimizer or weighted phase boundary",
+        "evidence": [
+          "Noise-free leader optimization via grounded Laplacian, Section 2.1; SDP/greedy approach, Section 4."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+        "material_read": "Full accessible HTML abstract, Sections 1, 2.1 and 4 on grounded inverse trace and convex relaxation, including examples and theorem discussion",
+        "method": "Read scientific text and compared exact objective and claimed graph families",
+        "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+        "trigger": "Earliest archival objective formulation and potentially dominating general optimality method"
+      },
+      {
+        "assessment": "General centrality works for all graphs, but exact optimal leader placements demonstrated for path/cycle, not this bridge barbell",
+        "evidence": [
+          "Section V-D explicit path theorem; Section VII describes path and cycle special cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.1569",
+        "material_read": "Full accessible HTML introduction, Sections II and V on objective and cycle/path placement, concluding statement, and Appendix special cases",
+        "method": "Read definitions and compare named optimality corollaries",
+        "title": "Joint Centrality Distinguishes Optimal Leaders in Noisy Networks",
+        "trigger": "General exact joint centrality may mathematically dominate graph-specific threshold"
+      },
+      {
+        "assessment": "Path and ring graph methods do not apply directly to two cliques with an interclique bridge",
+        "evidence": [
+          "Algorithm 1 is specifically for weighted paths; abstract gives path and ring complexity."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.6595",
+        "material_read": "Accessible HTML abstract and path/ring algorithm sections",
+        "method": "Read objective and applicability scope",
+        "title": "Efficient, Optimal k-Leader Selection for Coherent, One-Dimensional Formations",
+        "trigger": "Optimal graph-family results on weighted one-dimensional networks"
+      },
+      {
+        "assessment": "General formula available but inspected special results do not supply bridge-barbell weighted switching threshold",
+        "evidence": [
+          "Section II-A exact covariance normalization; Section IV-C theorem scope restricted to rooted trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.06873",
+        "material_read": "Full accessible HTML Introduction, Sections II–IV including named leader-placement theorems on paths, cycles and trees, and their proof scopes",
+        "method": "Compared general resistance identities and all announced special-case graph families",
+        "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+        "trigger": "Most relevant broader closed-form resistance approach; might include barbell as a special graph family"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dcc157d0-7923-4685-9841-f5d782c4f821",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete parametric optimal-design classification for a natural two-community network joined by one adjustable bridge, including all leader-pair ties, bridge-weight threshold and the fixed-weight large-community transition. It distinguishes community gateway from peripheral placement and gives an exact benchmark for general leader selection schemes. This is more than a relabeling or fixed finite experiment; it resolves all q>=3 and real t>0.",
+    "status": "PASS"
+  }
+}
