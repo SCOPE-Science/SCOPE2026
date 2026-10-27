@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The Gaussian null line gives a quadratic exactly equivalent to RRR eigenvectors, and the smaller root modulus gives exact best sine angle. The small-root formula and root-product bound provide rigorous good/bad event estimates. Complex Gaussian squared moduli are unit-exponential: inverse-radius integrals yield the exact Pareto-2 limit, uniform p<2 moments, and E1(t) = -gamma-log t+O(t) at p=2. Gaussian logarithmic moments and fourth-moment bound control the remainder, proving the coefficient 1. The packaged checker confirms residual and angle algebra on actual sampled inputs; finite simulations are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shao Theorem 2 bounds error as O(epsilon/sqrt(delta)) at prescribed success probability but does not give a sharp expectation; the confidence prefactor is too coarse to identify critical log leading coefficient.",
+        "Deterministic sketching for Krylov subspaces concerns nonrandom row selection rather than two Gaussian RRR generalized eigenvectors.",
+        "Published CG-Haar and eigenpair-certification results concern unrelated stopping/certification problems."
+      ],
+      "reasoning": "Neither a general confidence bound nor generic Gaussian inverse-matrix tail estimates logically imply the exact 3D two-root oracle statistic or its epsilon-regularized log coefficient. Classical Cauchy tail is acknowledged but finite-epsilon coupling must be proved.",
+      "searches": [
+        "randomized Rayleigh Ritz Gaussian test space nonuniform integrability mean square eigenvector angle logarithmic risk Cauchy tails",
+        "complex Gaussian Petrov Galerkin eigenvector Cauchy ratio limiting distribution infinite variance",
+        "arxiv:2604.01037v1 Theorem 2 Lemma 2 and Lemma 3",
+        "arxiv:2604.07158 deterministic sketching Krylov"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.01037v1 full HTML",
+      "arxiv:2604.01037 abstract and version history",
+      "arxiv:2604.07158 limited accessible description",
+      "arxiv:2608.24529 abstract",
+      "Published finding abstracts matched against the four comparison queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Shao deterministic Example 1 states nonconvergence of standard Rayleigh-Ritz eigenvectors; replacing standard compression by a random Petrov-Galerkin compression is a different problem.",
+        "Theorem 2 assures at least one accurate RRR eigenvector with probability at least 1-4delta but does not bound a second moment uniformly at fixed epsilon.",
+        "Spectral-filter Rayleigh residual distortion bounds filter dynamic range, not Gaussian generalized Ritz eigenvector moments."
+      ],
+      "reasoning": "A high-probability upper bound with delta^-1/2 does not determine whether the mean square scales as epsilon², epsilon² log(1/epsilon), or worse; the sharp lower and upper asymptotic with coefficient one needs the exact quadratic and Gaussian integration. Deterministic Ritz failure also does not imply the RRR risk result.",
+      "searches": [
+        "arxiv:2604.01037v1 Sections 2,4.2,4.3,5.3",
+        "randomized Rayleigh Ritz Gaussian Petrov Galerkin three by three interior eigenvector best-of-two mean square logarithmic epsilon squared log",
+        "Shao randomized Rayleigh Ritz interior Hermitian target eigenvector mean square 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shao v1 Example 1 uses exactly the same A and W_epsilon for deterministic standard Ritz nonconvergence; Theorem 2 concerns high-probability RRR eigenvector error, not expected oracle-best squared error.",
+        "Actual published mathematical finding searches returned spectral-filter residual distortion and projected eigenpair certification, neither of which defines the Gaussian 2-by-2 pencil root statistic."
+      ],
+      "reasoning": "Rephrased as a Pareto-2 limit for normalized oracle-best Ritz angle or as E[sin²(angle)] ~ epsilon² log(1/epsilon), the assertion remains a distribution and critical-moment statement; source high-probability error and its existing example do not assert those equivalents.",
+      "searches": [
+        "randomized Rayleigh Ritz Gaussian Petrov Galerkin three by three interior eigenvector best-of-two mean square logarithmic epsilon squared log",
+        "Rayleigh Ritz moment spectrum Cauchy best random Ritz vector 2/(2-p) 2026 Shao",
+        "Shao randomized Rayleigh Ritz interior Hermitian target eigenvector mean square 2026",
+        "arxiv:2604.01037v1 Section 2 Example 1 and Section 4.3 Theorem 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical finding abstracts were compared for equivalent Gaussian RRR moments; no such statement was recovered.",
+        "Actual published mathematical finding searches returned no tabulated 3D two-root oracle mean-square error or precise 2/(2-p) moment statement."
+      ],
+      "reasoning": "This is a continuum in epsilon and moment exponent p, not a finite-invariant database lookup. Absence from searches is only limited best-knowledge evidence, not mathematical proof of priority.",
+      "searches": [
+        "randomized Rayleigh Ritz Gaussian Petrov Galerkin three by three interior eigenvector best-of-two mean square logarithmic epsilon squared log",
+        "Rayleigh Ritz moment spectrum Cauchy best random Ritz vector 2/(2-p) 2026 Shao",
+        "complex Gaussian Rayleigh Ritz expected sin squared angle epsilon squared log inverse singular value"
+      ]
+    },
+    "rationale": "Full-text comparison with Shao (2026), including its existing deterministic Example 1 and RRR Theorem 2, isolates a new assertion: exact best-of-two Gaussian RRR sine-error Pareto moment spectrum and leading logarithmic L2 coefficient. Prior high-probability bounds with delta-dependent constants neither compute an expectation nor identify the finite-epsilon truncated denominator. Other retrieved results concern different eigenvector/sketch residual settings and do not imply this result. A complex Cauchy limiting ratio is classical and is not itself claimed novel; risk remains from specialized random-polynomial literature.",
+    "residual_risks": [
+      "Specialized complex random-polynomial root and historical stochastic Petrov–Galerkin distribution literature were not comprehensively checked; independent priority check remains necessary.",
+      "Deterministic Krylov and Davidson related papers were not exhaustively read; no blanket claim about their complete contents."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact best-of-two error moment spectrum or logarithmic leading coefficient; DOES COVER deterministic matrix/subspace and baseline high-probability convergence",
+        "evidence": "Example 1 displays A=diag(-1,0,1), W_epsilon with sqrt(1-epsilon²), epsilon/sqrt2; Theorem 2 uses a C_vec depending on delta^-1/2 and success >=1-4delta.",
+        "identifier_or_url": "https://arxiv.org/html/2604.01037v1",
+        "material_read": "Full HTML sections 1–6 including Example 1, randomized Petrov-Galerkin algorithm, Lemmas 2–3, Theorem 2, probability experiment and bibliography",
+        "method": "Read accessible full HTML and compared formulas, hypotheses, probability statements and the actual 3D example",
+        "title": "Stabilizing the Rayleigh–Ritz procedure by randomization",
+        "trigger": "Same method, same Hermitian example and plausible main theorem"
+      },
+      {
+        "assessment": "Related but different deterministic sketching setup; not claimed to exclude any result in inaccessible full text",
+        "evidence": "Work analyzes deterministic sketch selection in Krylov methods rather than the sampled Gaussian 3x2 Petrov-Galerkin pencil.",
+        "identifier_or_url": "https://arxiv.org/abs/2604.07158",
+        "material_read": "Title, abstract/intro-level material previously accessible; attempt to reopen full HTML returned access failure",
+        "method": "Topical and implications comparison using accessible description only",
+        "title": "Deterministic sketching for Krylov subspace methods",
+        "trigger": "Recent related numerical eigenspace sketching"
+      },
+      {
+        "assessment": "Distinct randomized Davidson/orthogonalization method; residual priority risk retained for unpublished detailed variants",
+        "evidence": "Described as block Davidson eigensolver with randomized acceleration, not the exact target RRR two-root compressed pencil.",
+        "identifier_or_url": "arxiv:2608.24529",
+        "material_read": "Abstract-level description only",
+        "method": "Scope comparison; full paper not used to claim noncoverage",
+        "title": "Randomized Block Davidson Eigensolvers for Plane-Wave Density-Functional Theory",
+        "trigger": "Randomized eigenvalue algorithms with a Ritz extraction component"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ebeeb303-10f0-46dc-9d78-22f4f732ab0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Expected squared sine-angle is a natural robustness criterion for randomized eigenvector extraction. The sharp oracle lower-bound risk epsilon² log(1/epsilon), compared to optimal subspace risk epsilon², quantifies an algorithmically meaningful loss invisible to fixed-confidence convergence statements. The full subcritical moment spectrum separates the convergent moment classes. It is not a mere restatement of the classical Gaussian-ratio law because the finite-epsilon quadratic two-root cutoff and constant are derived.",
+    "status": "PASS"
+  }
+}
