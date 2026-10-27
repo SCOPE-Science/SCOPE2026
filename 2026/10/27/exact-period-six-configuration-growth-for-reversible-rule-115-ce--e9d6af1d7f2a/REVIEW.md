@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (C): PASS.** The rule-115 Boolean formula gives an exact spatial boundary shield. Every finite-support return in three or six updates corresponds bijectively to one constrained temporal-column walk. Complete integer enumeration yields three and twenty-seven relevant states; verifying recurrence differences through the matrix dimension, then applying Cayley–Hamilton, proves the generating functions for every window length. An independently implemented direct evolution checks all four-state initial words of length at most seven. The conclusions do not confuse finite verification with a universal proof.
+
+**Originality (O): PASS under examined evidence.** Formenti and Kamilya (2026) prove finite-configuration periodicity and display several period sequences, but do not count every period-six configuration by support-window length. A separately published mathematical result excludes primitive periods nine and eighteen and is not stronger than the present six-period counting statement. Targeted published-finding corpus searches and web queries for aliases, recurrence, sequence, and exact transfer data revealed no covering result. The 2024 precursor's full text and the complete separately published record were unavailable, so historic priority remains a stated risk, not a claim of globally certified novelty.
+
+**Mathematical value (V): PASS.** Exact all-length counts for the first genuine non-background period, Fibonacci comparison, and sharp spatial growth exponent answer a natural prevalence question left unresolved by the main source's examples. The value is the structural enumeration and spectral growth, not mere ability to run a graph search.
+
+**Closest literature and limits.** Formenti–Kamilya, *The Curious Case of Reversible Elementary Second Order Cellular Automaton 115* (2026); Formenti–Kamilya, *On Elementary Second Order Cellular Automata* (2024, abstract only); published result on the absence of finite-support temporal periods 9 and 18 (indexed mathematical statement). The theorem concerns periods 3 and 6 on the bi-infinite line with initially finite support inside a fixed window; it does not classify other periods, ring dynamics, or spatial translation orbits. Historical priority awaits further bibliography checks.
+
+Self-review: passed. Independent audit: not yet performed.
