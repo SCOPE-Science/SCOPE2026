@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For each complete mapping, the row maps p_i and output-column maps q_j are independent permutations, giving a bijection to S_b^a times S_a^b. The fixed-set probability is exactly a product of inverse falling factorials; expanding t^F gives the exact distribution for all a,b>=1. Three distinct ordered-pair classes give variance 1+1/(ab) for a,b>=2, with separately verified one-side-size-one boundaries. For each fixed k, uniform falling-factorial expansion gives factorial moment tending to 1 as min(a,b)->infinity, proving Poisson(1) convergence by moment determinacy. The standalone checker independently tests the actual semigroup multiplication and full fixed-point histograms on four small grids; the 3x3 formula is checked separately.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 5.1 classifies *existence* on Rees matrix semigroups; no probability measure or fixed-point law follows.",
+        "Proposition 6.5 counts combinatorial Brandt monoid mappings by Latin squares; the Brandt zero-product support is not the all-one Rees sandwich matrix."
+      ],
+      "reasoning": "A theorem implying existence does not determine the count or distribution. The Brandt class cannot specialize to the rectangular-band law by changing a size parameter because its sandwich zero pattern is structurally different.",
+      "searches": [
+        "arXiv:2608.25092v1 Theorem 5.1 and Proposition 6.5",
+        "Rees matrix semigroup trivial group complete mapping transversal count (a!)^b (b!)^a, Poisson fixed points"
+      ]
+    },
+    "checked_sources": [
+      "Araújo et al., arXiv:2608.25092v1, Sections 6.1, 12 and Problem 15.6",
+      "Peter Cameron, Research trips in February, March 13, 2020",
+      "Relevant published mathematical-record searches using seven exact query/alias strings"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Problem 15.6 specifically asks for possible cycle structures of complete mappings and orthomorphisms.",
+        "Proposition 12.2 gives existence for bands, and Proposition 12.3 gives the all-permutations boundary for one-sided rectangular bands.",
+        "The earlier Rees-matrix discussion poses existence criteria, not a fixed-point statistic."
+      ],
+      "reasoning": "The present law resolves the length-one cycle statistic and its Poisson asymptotics for two-sided rectangular bands. Existence, all-permutations rigidity, and unrelated enumerations do not supply its finite-grid covariance correction or full probability generating polynomial.",
+      "searches": [
+        "arXiv:2608.25092v1 Problem 15.6",
+        "arXiv:2608.25092v1 Propositions 12.2 and 12.3",
+        "P. Cameron 2020 semigroup complete mappings discussion",
+        "complete mapping rectangular band random bijection fixed points distribution Poisson asymptotic factorial moment"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rectangular bands are zero-free Rees matrix semigroups over the trivial group with all-one sandwich matrix.",
+        "Section 12 Proposition 12.3 treats when every permutation is complete, not the fixed-point distribution of the constrained set."
+      ],
+      "reasoning": "The bijection to independent row and column permutation families implies a full fixed-point distribution, not merely transversal existence. Aliases checked include rectangular band, all-one Rees matrix, complete mappings, multiplication-table transversals and fixed points.",
+      "searches": [
+        "exact number complete mappings finite rectangular band semigroup I times Lambda count factorial powers",
+        "transversal enumeration of multiplication table rectangular band complete mappings (b!)^a (a!)^b",
+        "complete mappings of semigroups rectangular band enumerate bijections 2026",
+        "Latin transversal rectangular band semigroup fixed points random complete mapping",
+        "arXiv:2608.25092v1 Section 12"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected exact table is for combinatorial Brandt semigroups: L(2)=2, L(3)=12 and L(4)=576 complete maps, not rectangular bands.",
+        "Direct exhaustive rectangular-band checks have counts 16 for 2x2 and 288 for 2x3, with histograms in VERIFICATION.md and check.py."
+      ],
+      "reasoning": "An exact data table for an altogether different semigroup does not imply the distributional claim. Targeted database queries did not locate the specific full fixed-point law, but this absence is not presented as proof of uniqueness.",
+      "searches": [
+        "complete mappings of semigroups rectangular band enumerate bijections 2026",
+        "complete mapping rectangular band random bijection fixed points distribution Poisson asymptotic factorial moment",
+        "complete mappings of rectangular band semigroups exact enumerations fixed point count variance",
+        "arXiv:2608.25092v1 Section 6.1 exact enumeration"
+      ]
+    },
+    "rationale": "The source paper arXiv:2608.25092v1 establishes existence classifications for Rees matrix semigroups, enumerates complete mappings of combinatorial Brandt semigroups using Latin squares in Section 6.1, and establishes bands rigidity results in Section 12, but explicitly poses cycle-structure determination in Problem 15.6. Its fixed-point-free involutions are in different constructions. The present claim gives the exact fixed-point law of alpha, a strict finite-size variance excess for rectangular bands with both dimensions >1, and its joint two-side-length Poisson limit. Searches by exact object, transversals, enumeration, and Poisson fixed-point aliases did not identify a dominating result. An unindexed equivalent combinatorial law is a residual risk.",
+    "residual_risks": [
+      "An unindexed complete-mapping or random-grid-permutation study could state an equivalent distribution under different terminology.",
+      "The asymptotic is proved only as min(a,b) grows, not uniformly down to fixed side length."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Relevant but no theorem identified implying the full rectangular-band fixed-point law; Section 12 supplies the existence boundary and Section 15.6 explicitly motivates cycle statistics.",
+        "evidence": [
+          "arXiv:2608.25092v1 Sections 6.1, 12, 15.6; the original paper gives a count for Brandt semigroups but not this full fixed-point distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.25092",
+        "material_read": "Primary full-text HTML introduction, Section 5 theorem, Section 6.1 including Proposition 6.5, Section 12 including Proposition 12.3, and Section 15 Problems 15.6 and 15.8.",
+        "method": "Read accessible full-text HTML, examining statements and proofs, and searched within its 1795-line HTML for rectangular band, fixed point, and enumeration.",
+        "title": "Complete Mappings of Semigroups",
+        "trigger": "This is the motivating primary paper and its Problem 15.6 asks for cycle structure; its Rees and bands results might cover the claim."
+      },
+      {
+        "assessment": "Discusses existence obstructions for Rees semigroups, not enumeration or fixed-point distributions.",
+        "evidence": [
+          "March 13, 2020 discussion of normalized Rees sandwich matrices and group criteria."
+        ],
+        "identifier_or_url": "https://cameroncounts.wordpress.com/2020/03/13/research-trips-in-february/",
+        "material_read": "Entire relevant March 13, 2020 discussion beginning at the complete-mappings paragraph through the Rees matrix conjecture and its stated conditions.",
+        "method": "Read the accessible full blog exposition, not an abstract snippet.",
+        "title": "Research trips in February",
+        "trigger": "Earlier primary-author account of the Rees matrix complete-mapping program."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2eb19e4-14ec-46b1-8ee7-6bdc5a8cae38",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Problem 15.6 of the 2026 foundational paper asks for cycle structure; the exact probability generating polynomial resolves the full length-one cycle law in a natural all-one Rees matrix family. The positive 1/(ab) variance correction reveals nontrivial finite-grid correlations and the Poisson(1) limit quantifies disappearance of this dependence as both dimensions grow. It is not a textbook existence criterion or merely a small finite census.",
+    "status": "PASS"
+  }
+}
