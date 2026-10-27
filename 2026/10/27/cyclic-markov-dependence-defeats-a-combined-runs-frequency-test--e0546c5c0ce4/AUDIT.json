@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For modulo-three walk increments iid, B_t=1{Y_t neq 0} are iid Bernoulli(2/3) under both iid-null and cyclic alternative. The observed-count plug-in runs center deviates from 2n/3 by O_P(1) and variance is 2n/9+o_P(n). Nontrivial Markov eigenvalues are +/-i sqrt(3) delta, giving the positive covariance factor (1-3delta^2)/(1+3delta^2). Standard finite-chain additive CLT gives scaled chi-square_2, and exact chi-square_2 tail with union bound yields limsup power below alpha. The direction score has nonzero LLN mean. A standalone exact-rational checker passed 68 assertions on n=2,...,8; finite work is corroboration rather than proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The accessible abstract of Whittle [2] reports exact Markov transition-count distributions and asymptotic transition-total covariance, not this test-power result.",
+        "The accessible text of [3] analyzes a family of run-length-process tests, rather than the scalar count used in [1].",
+        "[1] explicitly gives the Bonferroni scalar runs/Pearson combination."
+      ],
+      "reasoning": "General transition counts can supply statistical raw materials but do not explicitly determine power of this conditional-count standardized scalar-runs plus frequency procedure; richer full run-length-process tests are not the procedure under study. Full Whittle text was inaccessible, so implicit implications remain a priority risk.",
+      "searches": [
+        "\"Generalized Runs Tests for the IID Assumption\"",
+        "\"Some Distribution and Moment Formulae for the Markov Chain\" Whittle 1955",
+        "\"nonparametric strategy test\" \"Markov\" \"runs\" power cyclic opponent"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.10695 (2023 first public, inspected v5 PDF pp.1-4)",
+      "DOI:10.32473/flairs.38.1.138635 (later proceedings metadata)",
+      "Whittle, JRSS B 17 (1955), DOI:10.1111/j.2517-6161.1955.tb00197.x, abstract only",
+      "Generalized Runs Tests for the IID Assumption, public manuscript excerpt only",
+      "published-finding corpus semantic searches on cyclic three-state run-count aliasing, Pearson variance deflation and conservative combined test power"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] describes the null-calibrated Algorithm 2 runs statistic, Algorithm 3 Pearson and Algorithm 4 union, but not an alternative under which both are asymptotically conservative.",
+        "[3] has a stronger class of run-length statistics for other sampling assumptions, not the scalar [1] procedure."
+      ],
+      "reasoning": "Known statements about testing under an IID null do not establish power under a specific dependent alternative. The new counterexample requires the increment bijection, Fourier Markov CLT and union-bound computation; no inspected source gave this implication.",
+      "searches": [
+        "Cyclic three-state Markov chain with uniform stationary distribution, iid equal-versus-change run indicators, and conservative chi-square goodness-of-fit; asymptotic power failure of Bonferroni generalized runs plus Pearson test for mixed strategy independence",
+        "\"Nonparametric Strategy Test\" Ganzfried full text",
+        "\"Generalized Runs Tests for the IID Assumption\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Source [1], Algorithms 2-4 use a single scalar run count and Pearson marginal statistic.",
+        "published-finding corpus closest ID 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d concerns binary fixed-content local indicator covariances."
+      ],
+      "reasoning": "Alias searches for a rotational Markov chain with null-identical change indicators or conservative frequency chi-square did not locate a matching result. Binary fixed-composition run-transition covariance does not imply the power bound for three-state stationary cyclic chains.",
+      "searches": [
+        "Cyclic three-state Markov chain with uniform stationary distribution, iid equal-versus-change run indicators, and conservative chi-square goodness-of-fit; asymptotic power failure of Bonferroni generalized runs plus Pearson test for mixed strategy independence",
+        "Random rock paper scissors circular Markov directional drift with run count Binomial identical to iid uniform, frequency chi square distribution scaled smaller than null, complete blindness of combined tests",
+        "\"Wald Wolfowitz\" \"Markov\" \"powerless\" \"alternatives\" three states"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The primary inspected arXiv PDF is dated original first posting 2023-12-17; revision v5 2024-10-07.",
+        "The published-finding corpus search for this exact power failure returned no matching exact finite/asymptotic table."
+      ],
+      "reasoning": "The claim is a parametric infinite-family theorem and asymptotic decision-probability bound, not a finite tabulated invariant. No exact database entry for this counterexample was identified.",
+      "searches": [
+        "runs tests for independence and chi-square marginal frequency test inconsistent against cyclic Markov alternatives, exact power bound",
+        "\"nonparametric strategy test\" \"Markov\" \"runs\" power cyclic",
+        "site:arxiv.org/abs/2312.10695"
+      ]
+    },
+    "rationale": "The motivating 2023 primary paper develops the exact runs-plus-frequency two-part decision procedure; its inspected formulas and algorithms do not state the cyclic Markov dependence counterexample, full finite runs-law aliasing or the strict quantitative asymptotic conservative-power bound. Closest published-finding corpus findings concern binary fixed-composition transition covariance or unrelated permutation tests, not this claim. General Markov count laws and richer run-length-process IID tests have different conclusions. Residual historical priority risk is explicitly retained.",
+    "residual_risks": [
+      "Whittle 1955 full text was not available; broad prior Markov transition-law methods might have unrecognized statistical implications.",
+      "The public excerpt of the generalized runs-testing manuscript is not a complete primary full-text comparison.",
+      "Independent historical-priority evaluation and external scientific replication are not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_NOT_COVERING_THE_CLAIM_IN_INSPECTED_MATERIAL",
+        "evidence": "Algorithms 2-4 specify the scalar run count, a Pearson frequency test and their union; their sections do not state the directional three-state Markov counterexample or its power ceiling.",
+        "identifier_or_url": "https://arxiv.org/pdf/2312.10695",
+        "material_read": "arXiv PDF first four pages: introduction and pp.2-4 Algorithms 2-4, formulas for q, c, mu, sigma, Pearson and Bonferroni; PDF page 3 visually inspected",
+        "method": "full-text web PDF lines plus PDF screenshot of page 3",
+        "title": "Nonparametric Strategy Test",
+        "trigger": "Directly defines the combined test being analyzed and applies it to rock-paper-scissors"
+      },
+      {
+        "assessment": "ACCESS_LIMIT_WITH_RESIDUAL_RISK",
+        "evidence": "Abstract explicitly reports exact transition-total distribution and asymptotic covariance (1955); it does not describe the Bonferroni scalar-run/Pearson procedure.",
+        "identifier_or_url": "https://academic.oup.com/jrsssb/article/17/2/235/7026736",
+        "material_read": "Journal landing-page abstract and bibliographic summary only; full PDF inaccessible",
+        "method": "journal abstract inspection and open-access search, institutional fallback returned an internal error",
+        "title": "Some Distribution and Moment Formulae for the Markov Chain",
+        "trigger": "Potentially broad precursor on the joint distribution and moments of transition totals"
+      },
+      {
+        "assessment": "DIFFERENT_TEST_FAMILY",
+        "evidence": "The manuscript considers a collection of run-length statistics with an IID characterization; it is not the total-runs scalar plus Pearson frequency combination.",
+        "identifier_or_url": "https://paperzz.com/doc/7095382/generalized-runs-tests-for-the-iid-assumption",
+        "material_read": "Accessible searchable manuscript text: abstract/introduction and passages describing geometric run-length process",
+        "method": "web text search and content comparison",
+        "title": "Generalized Runs Tests for the IID Assumption",
+        "trigger": "Potential stronger known IID tests based on runs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e0546c5c-0ce4-467e-a01d-288f7f1f5eb2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result identifies a precise and surprising statistical blind spot: a plausible published independence assessment has an asymptotic rejection bound strictly below nominal size on a nontrivially dependent, uniform-marginal process, even though a one-dimensional directional transition contrast is consistent. It gives a complete analytic parameter family and an explicit decision-theoretic boundary, not a routine single numerical example.",
+    "status": "PASS"
+  }
+}
