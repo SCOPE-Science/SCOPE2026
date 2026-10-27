@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "For a simple connected graph, individual weights inject into the grounded Laplacian, making logdet strictly concave and the maximizing allocation unique. The exact two-terminal spanning-tree polynomial is invariant under independent within-path edge permutations, forcing the pathwise equalization at the global optimum. For normalized path budgets, the objective is sum_i(ell_i-1)log x_i+log(x_0+sum_i x_i/ell_i²). Its homogeneous KKT multiplier is rho. The direct-edge stationarity yields a*=B(1-S)/rho for S<=1; the boundary equations have a unique strictly decreasing scalar root xi, with boundary complementarity exactly xi>=1 iff S>=1. All path allocations are positive and correctly sum to B. Exact rational determinants and full unsymmetrized numerical maximizations verify representative cases; infinite validity is analytic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd, Convex Optimization of Graph Laplacian Eigenvalues (ICM 2006), full nine-page paper: graph automorphisms and convex Laplacian spectra; does not supply the continuous logdet solution for these paths.",
+        "Khosoussi et al., arXiv:1604.01116: near-t-optimal graph edge selection and convex tree-connectivity relaxations, not the direct-edge budget support condition."
+      ],
+      "reasoning": "Strict concavity and MAXDET permit numerical optimization but do not directly identify which graph edges get zero conductance; the reciprocal-length threshold and exact allocation require the spanning-tree polynomial plus graph-specific KKT reductions. Nothing inspected gave a strictly stronger theorem that implies the claim.",
+      "searches": [
+        "optimize edge weights maximize weighted number spanning trees fixed sum graph log determinant optimal theta graph parallel paths 2014",
+        "conductance maximizing spanning tree polynomial budget parallel paths delete edge",
+        "parallel internally disjoint terminal paths edge conductance budget weighted spanning tree enumerator logdet optimal equal within path all edge weights deletion shortcut threshold sum reciprocal length plus one"
+      ]
+    },
+    "checked_sources": [
+      "Khosoussi et al. arXiv:1604.01116, original full HTML manuscript, sections 1–5 and appendices.",
+      "Cheng 1981 JCTB 31:240–248, original full article.",
+      "Boyd 2006 ICM proceedings paper, original nine-page PDF and selected rendered pages.",
+      "Focused scholarly searches for D-optimal theta networks, parallel path conductance-budget design, and weighted spanning-tree maximization."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cheng 1981 varies discrete graph topology under fixed counts; it does not give a per-edge budget optimizer.",
+        "Boyd 2006 establishes optimization templates for Laplacian spectral functionals and their symmetry reductions.",
+        "Khosoussi et al. 2016 addresses selection of graph edges with given weights and relaxations; no continuously reallocated individual long-path budget or zero-shortcut law appears in the read sections."
+      ],
+      "reasoning": "A general maximization formulation is not a result specifying the optimizer. The new claim is a graph-family closed-form classification that requires the non-obvious intra-path weight permutation invariance and exact stationarity. Closely related prior work is therefore not logically sufficient to imply the asserted edge weights or the iff boundary, on the portions read.",
+      "searches": [
+        "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs Khosoussi Sukhatme Huang Dissanayake",
+        "Maximizing the Total Number of Spanning Trees in a Graph Cheng D-optimal design 1981",
+        "Convex Optimization of Graph Laplacian Eigenvalues Boyd 2006"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Khosoussi et al., arXiv:1604.01116, original manuscript, Sections I–V and appendices: spanning-tree determinant objective and MAXDET relaxations in edge selection.",
+        "Cheng, J. Combin. Theory B 31 (1981), original article Sections 1–4: spanning-tree count as D-optimal design and discrete graph-edge-number extrema."
+      ],
+      "reasoning": "The quantity is a reduced Laplacian determinant and can be viewed as D-optimal design of incidence-row information. The fixed graph, unrestricted nonnegative individual conductances, and precise zero-support test are not provided by these searched formulations. General D-optimality is an algorithmic umbrella, not an explicit analytic optimizer for this topology.",
+      "searches": [
+        "D-optimal design optimal edge weights parallel paths generalized theta graph spanning tree maximization",
+        "optimal allocation weights edges maximizing tree number series parallel network",
+        "\"D-optimal\" \"theta graph\" edge weights"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected original Cheng, Boyd and Khosoussi works contain no table or formula tabulating this specific continuous-weight optimizer.",
+        "The directly related fixed-weight theta/multipartite graph spectrum and tree-count references do not vary all individual edge weights under a linear budget."
+      ],
+      "reasoning": "The theorem concerns the optimum of a weighted polynomial rather than a fixed integer spanning-tree count; the searches uncovered no exact table for the zero-shortcut threshold or its root-defined post-threshold optimizer. Unindexed tables are a residual risk, not ruled out by unsuccessful search.",
+      "searches": [
+        "\"sum\" \"1/(l_i+1)\" \"spanning\" \"theta\" optimal",
+        "\"spanning-tree\" \"parallel paths\" \"optimization\" \"weights\"",
+        "\"weighted number of spanning trees\" \"parallel paths\" optimization"
+      ]
+    },
+    "rationale": "The searched primary literature establishes general spanning-tree determinant criteria, graph-topology extremal problems, and convex edge-selection relaxations, but its materially inspected results do not imply an exact unique continuous-budget maximizer for individual edges in every two-terminal parallel-path graph, or the sharp shortcut-omission threshold given by the reciprocal of each path length plus one. The result is distinct from published evaluations of tree numbers on fixed-weight graphs. The novelty conclusion remains subject to undetected specialized equivalences.",
+    "residual_risks": [
+      "A specialized older paper in electrical-network design, reliability, or optimum design may state an equivalent series-parallel conductance allocation under different notation.",
+      "Some publications available only by index snippet or behind access controls were not represented as fully inspected.",
+      "No claim of independent verification or exhaustive literature uniqueness is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related determinant and optimization framework; lacks the explicit parallel-path unique optimizer and shortcut-deletion threshold.",
+        "evidence": [
+          "arXiv:1604.01116, first submission 2016-04-05, sections on weighted tree-connectivity and edge-selection relaxations."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+        "material_read": "Original open full-text sections 1–5 and appendices, including objective, tree-connectivity, and MAXDET formulations.",
+        "method": "Read the lawfully accessible original manuscript, comparing the objective variables and feasibility constraints with the budget-constrained continuous edge-weight problem.",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Same weighted spanning-tree determinant optimization objective."
+      },
+      {
+        "assessment": "Discrete extremal topology, not per-edge continuous budget or the root-defined path allocation.",
+        "evidence": [
+          "Cheng (1981), sections 1–4: optimizing graph structure and D-optimality relation."
+        ],
+        "identifier_or_url": "Cheng, Journal of Combinatorial Theory Series B 31 (1981), 240–248",
+        "material_read": "The original full-text four-section article.",
+        "method": "Compared quantified hypotheses on numbers of vertices/edges and allowed topological modifications against a fixed-edge-support conductance simplex.",
+        "title": "Maximizing the Total Number of Spanning Trees in a Graph: Two Related Problems in Graph Theory and Optimum Design Theory",
+        "trigger": "Historical graph spanning-tree maximization and D-optimal statistical design connection."
+      },
+      {
+        "assessment": "Broad methods and symmetry context, not an explicit D-optimal conductance allocation on arbitrary path-length two-terminal networks.",
+        "evidence": [
+          "Boyd, ICM 2006 Vol. III, pp. 1311–1319: graph-Laplacian spectral optimization and symmetry."
+        ],
+        "identifier_or_url": "https://www-leland.stanford.edu/~boyd/papers/pdf/cvx_opt_graph_lapl_eigs.pdf",
+        "material_read": "All nine pages; original PDF pages 1, 2, and 6 also visually inspected.",
+        "method": "Read the full mathematical discussion and checked formulas for spectral objectives, edge weights, and automorphism symmetry.",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "General Laplacian convex spectral optimization with weighted edge variables."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e151ecf3-b731-4e52-a4c9-67598656da55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed per-edge conductance budget raises a natural network-design decision: fund or omit an already available direct terminal link, despite the objective strictly increasing in its weight when every other edge is held fixed. The sharp criterion sum_i 1/(ell_i+1)>=1, the unique optimum for arbitrarily many heterogeneous paths, and the root-defined post-threshold allocation expose a genuine support phase boundary and offer an exact reusable design rule. It is neither merely a numeric example nor a routine restatement of general logdet concavity.",
+    "status": "PASS"
+  }
+}
