@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs the exact one-deletion shadow bijection, collapses all character-coordinate factors by character order, derives the negative-binomial coefficient formula, and evaluates the order-character sum by Mobius inversion on the dual annihilator subgroup. It proves both directions of the spectrum-balance iff criterion using label translations and the support-one obstruction. The transfer graph statement follows from injective unit transfers and the exact shadow tiling. The standalone verifier independently compares all integer coefficients in 100 group-length instances and validates 15 cross-syndrome edge-count examples. These finite tests do not replace the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kovacevic--Tan Theorem 17 is an upper bound for all codes using support strata.",
+        "arXiv:2603.18322v1 Section 4 enumerates fixed-radius same-length metric balls and pair distances, without additive-syndrome conditioning."
+      ],
+      "reasoning": "The earlier bounds and global enumerators concern different quantifiers and statistics; they neither explicitly state the all-abelian conditional support profile nor fix its integer character-order coefficients. The theorem is restricted to all-group bijective syndrome labels rather than arbitrary polynomial-syndrome maps.",
+      "searches": [
+        "arXiv:1612.08837 Lemma 3/Theorem 17 multiset bounds",
+        "arXiv:2603.18322v1 Section 4 generating functions",
+        "root-of-unity filter multiset stars bars number positive coordinates fixed modular sum character order Ramanujan"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2601.05636v2 (same construction, unweighted syndrome sizes and support bounds)",
+      "arXiv:2603.18322v1 (polynomial syndrome schemes and full-simplex metric-ball enumeration)",
+      "arXiv:1612.08837 (general multiset code bounds)",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71",
+      "published-finding corpus: 2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91",
+      "Accessible historical own claim f8be6859-24cd-4c93-b64c-ce2a78adf130 (unconditioned radius-r metric-ball statistics)",
+      "Accessible historical own claim 18af41f3-31e1-442b-9071-5982b9b2a00f (q=n=5 maximum-code classification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The January 2026 Proposition 14 is recovered by evaluating the new polynomial at u=1, but this evaluation loses the individual support coefficients.",
+        "The January 2026 Proposition 16 uses A_r for all multisets, without specifying c_{r,a} in a chosen checksum class.",
+        "published-finding corpus 737fed325e91 is the edge count in a two-read ordered-string deletion reconstruction graph, not the multiset unit-transfer graph."
+      ],
+      "reasoning": "Prior cardinality is a strict projection of the claimed polynomial. The prior support-size marginal A_r is the sum over all syndromes, not a class profile. Both marginals together do not mathematically determine the conditional table. The later whole-space ball distribution likewise omits the syndrome condition. No accessible identified source implies the complete conditional classification.",
+      "searches": [
+        "arXiv:2601.05636v2 Proposition 14, Proposition 16, Appendices B/C",
+        "arXiv:2603.18322v1 abstract Section 4",
+        "published-finding corpus closest IDs d3a62a71c505, 737fed325e91, 13779c08da71"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2601.05636v2 gives class cardinalities without a support variable; Appendix C states only unrestricted support counts.",
+        "arXiv:2603.18322v1 studies whole-space distance balls and average counts, not per-syndrome one-sided deletion shadow enumerators."
+      ],
+      "reasoning": "An identity for the total class size, the unrestricted support distribution, and a whole-space ball-volume enumerator do not imply the conditional coefficients without another computation. The new statement identifies every coefficient and a sharp balance criterion. Standard character orthogonality itself is not claimed original.",
+      "searches": [
+        "for finite abelian-group additive-syndrome multiset deletion code exact support size distribution shadow enumerator partial one deletion",
+        "cyclic multiset code residue class support composition spectrum weight enumerator conditional positive components",
+        "finite abelian group simplex syndrome lattice code support-weight enumerator deletion shadow profile",
+        "arXiv:2601.05636v2 Section 5.1 Appendix B",
+        "arXiv:2603.18322v1 Sections 3-4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus multiset finding concerns three surviving multiset elements, a high-deletion regime.",
+        "Closest published-finding corpus two-multispectrum finding concerns adjacent-pair read spectra for ordered strings.",
+        "Accessible historical item 18af41f3-31e1-442b-9071-5982b9b2a00f classifies maximum codes at only q=n=5; it does not claim this all-parameter shadow profile."
+      ],
+      "reasoning": "Small concrete instances in earlier code enumerations do not supply the general coefficientwise formula or the noncyclic comparison. No identified database or table directly lists the full claim. Absence in search results is not proof of priority.",
+      "searches": [
+        "multiset single-deletion code equal support distribution n coprime alphabet size",
+        "multiset single-symbol deletion code cross-syndrome transfer graph regular edge-count equitable",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505",
+        "published-finding corpus: 2026/10/4/SCOPE-exact-binary-two-multispectrum-code-size-and-singleton-classific--13779c08da71"
+      ]
+    },
+    "rationale": "The motivating 2026 literature states only unweighted class cardinalities and ambient support counts, and the March companion studies same-length metric balls rather than conditioned one-sided shadows. The proposed full class-by-class polynomial, all-group character-order structure, and iff coefficientwise balance are not supplied by those statements and were not identified in relevant published-finding corpus or accessible own-history searches. General character orthogonality is acknowledged as standard; a residual implicit coverage risk remains.",
+    "residual_risks": [
+      "A general character-weighted stars-and-bars identity could implicitly contain this as a specialization in older algebraic enumerative literature; independently exhaustive novelty certification has not occurred.",
+      "The polynomial-syndrome construction of arXiv:2603.18322v1 may include bijective example instances of the same additive group setup, but only isolated enumerations were identified, not an all-groups theorem.",
+      "No claim of decoding-rate improvement or optimality among arbitrary deletion codes; the theorem is an exact internal code-family invariant."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the class-conditional shadow polynomial. Unweighted cardinality and whole-simplex support counts are already known.",
+        "evidence": [
+          "Proposition 14 gives N_a(n) only.",
+          "Appendix B derives its roots-of-unity filter without support weight.",
+          "Proposition 16 and Appendix C count support sizes A_r in ambient simplex, not within C_a(n)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2601.05636v2",
+        "material_read": "Section 5.1 including Proposition 14/16 and surrounding examples; Appendices B/C (class cardinality and support-shadow proof); introduction and references",
+        "method": "read accessible arXiv HTML full-text sections",
+        "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+        "trigger": "same additive single-deletion syndrome construction and support-shadow optimization"
+      },
+      {
+        "assessment": "Not covering the additive-syndrome-conditioned distribution: polynomial constructions and same-length distance balls are different objects.",
+        "evidence": [
+          "Section 3 uses polynomial syndromes in groups larger than alphabet in general.",
+          "Lemma 4 counts same-length radius-r distance balls, not one-sided deletion shadows.",
+          "Theorem 9 concerns whole-simplex ordered pairs/averages without syndrome conditioning."
+        ],
+        "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2603.18322v1.pdf",
+        "material_read": "Full accessible article abstract and introduction, Sections 2-3 and Section 4 key generating-function/ball-statistic statements, Section 5 scope overview; page-image check on page 2",
+        "method": "read textual open-access PDF extraction with page screenshot",
+        "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+        "trigger": "same authors, recent geometric generating functions for multiset deletion codes"
+      },
+      {
+        "assessment": "Not covering the present syndrome-conditioned enumerator; it supplies geometric/support counting bounds used for comparison.",
+        "evidence": [
+          "Lemma 3 counts deletion/insertion possibilities from i occupied coordinates.",
+          "Theorem 17 combines unrestricted counts binom(q,i)binom(n-1,i-1) into general upper bounds, with no character-order class profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1612.08837",
+        "material_read": "Section II deletion metric/correctability; Lemma 3, Theorem 17 and proof; nearby asymptotic discussion",
+        "method": "read lawful open-access arXiv full HTML conversion",
+        "title": "Codes in the Space of Multisets—Coding for Permutation Channels with Impairments",
+        "trigger": "foundational multiset deletion codes, lattice constructions and stratified support bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f75c443c-f960-420d-a9f1-35a53110db35",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating paper uses deletion-shadow size to derive sharp finite-block coding bounds, so the exact per-syndrome shadow-size distribution is a natural uncomputed invariant. The theorem gives all coefficients for every finite abelian full-label group, exact balance/nonbalance criterion, prime-alphabet two-profile law, and a group-structure-sensitive example. It determines exact decoder branching and transfer degrees rather than arbitrarily sliced computations. No downstream rate theorem is required or claimed.",
+    "status": "PASS"
+  }
+}
