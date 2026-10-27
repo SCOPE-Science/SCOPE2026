@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The degree-one marginals and joint event count are obtained by two exhaustive cases for the edge between the specified vertices. The adjacent quotient simplifies to two strictly decreasing positive factors. Exact algebra at the two central edge counts settles the peak location for all \(n\ge6\); the signs of four displayed polynomials follow from positive coefficient expansions at the lowest valid integer parameter. An independent standalone exact checker corroborates 13,618 assertions. It does not supply the infinite proof.
+
+**Originality: PASS, with residual priority risk.** Published degree-sequence work studies fixed-edge numerical-degree variance, independent-edge degree-count CLTs, and independent-edge degree constraints. The searched and materially inspected statements do not provide the exact strict log-concavity and unique peak for the fixed-budget coincidence ratio. The underlying hypergeometric counting is standard, and a stronger theorem in uninspected random-graph monographs might imply the shape classification. Search failure is not treated as definitive novelty evidence.
+
+**Mathematical value: PASS.** A two-vertex degree-one indicator is a primitive component of the leaf-count variance in the canonical random graph process. The result locates the single strongest pairwise coincidence amplification exactly at the mean-degree-one edge budget and prohibits disconnected positive-covariance windows. The eight-vertex example demonstrates a genuine positive-covariance island under globally fixed edge count, between two negative cases. This is a structural all-order statement, not a numerical tabulation or a claim of a new moment formula.
+
+**Limitations.** The graph model is uniform simple \(G(n,m)\); the theorem does not classify positivity at the maximum for arbitrary \(n\), and historical priority remains provisional. The two closest relevant public primary sources are Grimmett–Janson arXiv:0712.0270 and Goldstein arXiv:1005.4390; the earlier fixed-edge variance paper of Gutman–Paule (2002) concerns degree variance rather than this two-event coincidence ratio.
+
+Self-review: passed. Independent audit: not yet performed.
