@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "For each vertex the source and sink probabilities are both 2^{-degree}; the only nonzero off-diagonal source–sink covariance terms occur on adjacent pairs and equal q_u q_v. Summation yields the identity. Star minimum follows from degree/leaf inequalities and two guaranteed leaf edges. A terminal branch-vertex pendant-path transplant strictly increases covariance by at least 5/64 (or 13/64 if leaf-neighbor), reduces integer branching excess, and terminates at the path. The n=2,3 exceptions and all bounds are handled exactly. Exact orientation enumeration through n=9 and exhaustive tree extremal checks through n=12 agree; these computations are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1711.08815v2, Theorem 2.2: positive association of a family of common-source directed reachability events; it can coexist with opposite signs of count covariance.",
+        "doi:10.1002/rsa.20928, Section 5: conditional sampling of sink-free orientations and algorithmic bounds, excludes the unconditional tree covariance theorem.",
+        "doi:10.4230/LIPIcs.AofA.2022.17, Section 1 and Theorems 1–2: randomly generated DAGs, not a fixed tree with edge directions randomized."
+      ],
+      "reasoning": "The closest general theorems either involve a different random object (random DAG) or different variables (common-source connectivity or all-sink avoidance). No inspected result dominates the all-tree strict shape-extremal claim via a stated specialization or direct corollary.",
+      "searches": [
+        "published-finding corpus: Sharp upper and lower bounds over trees for Covariance(#vertices indegree zero, #vertices outdegree zero) after independent fair orientations; path maximizes and star minimizes.",
+        "published-finding corpus: random orientation tree sources sinks mixed covariance formula 2 sum degree exponential edge weights minus sum square degrees; pendant path relocation extremal",
+        "Web: \"trees\" \"number of sources and sinks\" \"orientations\" extremal",
+        "Web: \"orientations of trees\" \"sources and sinks\" \"generating function\" 2018"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1711.08815v1 and v2, earliest arXiv source 2017-11-23, primary MSC 60C05",
+      "doi:10.1002/rsa.20928, Guo–He (2020)",
+      "doi:10.4230/LIPIcs.AofA.2022.17, Ralaivaosaona (2022)",
+      "doi:10.61091/um124-01, Kozerenko–Dekhtiar (2025)",
+      "published-finding corpus semantic searches on fixed-tree source–sink mixed covariance and extremizers",
+      "Published mathematical-record index results screened for tree orientation source–sink covariance and extremal trees"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bienvenu Theorem 2.2 yields positive association for fixed-source reachability; the new invariant takes either sign and cannot be a corollary of that positivity.",
+        "Guo–He Sections 1 and 5 analyze a product measure conditioned on having no sinks (where sink count is identically zero), not the mixed unconditional covariance.",
+        "Ralaivaosaona Section 2 studies generating functions of random DAGs across different undirected supports; the theorem does not optimize over a fixed tree shape.",
+        "Kozerenko–Dekhtiar Proposition 3.19 and Corollary 3.20 identify first moments of another random variable, with no published implication to covariance extrema."
+      ],
+      "reasoning": "The elementary per-vertex indicator formula can be derived independently from fair orientations, but a first-moment identity, positive association of different events, or sink-avoiding conditioning cannot imply which host tree uniquely maximizes/minimizes the mixed second moment. The separate pendant-path argument is a substantive additional statement.",
+      "searches": [
+        "Primary full text: arXiv:1711.08815v2, Sections 1–2",
+        "Primary full text: doi:10.1002/rsa.20928, Sections 1 and 5",
+        "Primary full text: doi:10.4230/LIPIcs.AofA.2022.17, Sections 1–5",
+        "Primary full text: doi:10.61091/um124-01, Sections 3.2–3.3",
+        "published-finding corpus: random orientation tree sources sinks mixed covariance formula 2 sum degree exponential edge weights minus sum square degrees; pendant path relocation extremal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1711.08815v2, Definition 1.1 and Theorem 2.2: association refers to indicators of directed reachability from a fixed source set, not zero indegree/outdegree vertex indicators.",
+        "doi:10.61091/um124-01, Proposition 3.19 and Corollary 3.20: sums of sources and sinks weighted by degrees describe weak-component means, not their joint covariance."
+      ],
+      "reasoning": "Renaming sources as zero-indegree vertices and sinks as zero-outdegree vertices leaves the same exact claim. Source/sink reversal exchanges counts and preserves covariance. Neither the reachability events nor the mean count of source-or-sink vertices controls a mixed second moment; different fixed trees have opposite covariance signs.",
+      "searches": [
+        "published-finding corpus: Random independent edge orientations of a fixed tree: exact covariance between numbers of sources and sinks, extremal path and star and correlation sign transitions.",
+        "published-finding corpus: Randomly oriented graph counts of sources and sinks: joint distribution covariance, extremal trees, degree-dependent formula.",
+        "Web: \"randomly oriented tree\" \"sources\" \"sinks\" \"covariance\"",
+        "Web: \"source\" \"sink\" \"correlation\" \"orientation\" \"tree\" probability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The four direct published-finding corpus searches returned related tree degree, tree zonotope, oriented-tree poset and random orientation reachability results but no identical source–sink count covariance entry; closest IDs recorded in the documented comparison notes.",
+        "The inspected 2025 oriented-tree line-digraph paper tabulates conditional/average line-digraph features but no mixed second-moment covariance or path–star bounds."
+      ],
+      "reasoning": "No inspected published table/database supplies the claimed pair of sharp bounds. This is a finite retrieval observation, not a proof that no older table exists.",
+      "searches": [
+        "published-finding corpus: Random independent edge orientations of a fixed tree: exact covariance between numbers of sources and sinks, extremal path and star and correlation sign transitions.",
+        "published-finding corpus: Sharp upper and lower bounds over trees for Covariance(#vertices indegree zero, #vertices outdegree zero) after independent fair orientations; path maximizes and star minimizes.",
+        "Web: \"number of sources\" \"number of sinks\" \"randomly oriented\" tree covariance"
+      ]
+    },
+    "rationale": "The inspected closest results concern fixed-source reachability positive association, sink-free orientation sampling, source asymptotics in random acyclic digraphs, or mean properties of line digraphs of polytrees. They neither prove the mixed source–sink count covariance tree extrema nor logically imply the strict pendant-path transformation. The local moment identity itself follows elementary indicator calculus and is not asserted as the standalone innovation. Finite search is not a proof of unique priority.",
+    "residual_risks": [
+      "Earlier orientation polynomials, tree-extremal results, or exact source–sink generating functions not retrieved may indirectly subsume this second-moment theorem.",
+      "Semantic published-finding corpus retrieval is ranked, not exhaustive; four targeted queries and accessible ledgers do not prove uniqueness.",
+      "Previous weeks of own ledgers were unavailable locally; only accessible current-week history was compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different observables: common-source reachability, not zero-in/outdegree counts or tree-shape comparisons",
+        "evidence": [
+          "Theorem 2.2 establishes positive association of indicators of S-to-i reachability; Corollary 2.6 treats Poisson approximation to cluster size."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1711.08815v2",
+        "material_read": "Full HTML Introduction, Definitions 1.1, Theorem 2.2 with proof, Corollaries 2.3–2.6, references",
+        "method": "Read arXiv HTML primary full text",
+        "title": "Positive association of the oriented percolation cluster in randomly oriented graphs",
+        "trigger": "Same fixed-graph independent orientation model and primary MSC 60C05"
+      },
+      {
+        "assessment": "Resampling/sampling bounds for sink-free orientations; no unconditional source–sink mixed covariance",
+        "evidence": [
+          "Section 5 identifies individual bad sink events and conditions on avoiding sinks; its main results are exact-sampler performance bounds."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.20928",
+        "material_read": "Full-text HTML Introduction and relevant Section 5 sink-popping exposition, theorem context, conclusions, and keyword checks",
+        "method": "Read accessible publisher full text",
+        "title": "Tight bounds for popping algorithms",
+        "trigger": "Same edge-orientation model, explicit sink events on vertices"
+      },
+      {
+        "assessment": "The random directed-edge set is sampled before acyclicity conditioning; no fixed host tree or shape extrema",
+        "evidence": [
+          "Page 1 fixes binomial random digraph conditioned on acyclicity; page 2 explicitly distinguishes random-orientation G(n,2p) model."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol225-aofa2022/LIPIcs.AofA.2022.17/LIPIcs.AofA.2022.17.pdf",
+        "material_read": "14-page PDF abstract, Introduction, Theorems 1–2, generating-function setting, and text-wide searches for tree/fixed graph/covariance",
+        "method": "Read primary PDF extracted text and visually inspected first two pages",
+        "title": "The Number of Sources and Isolated Vertices in Random Directed Acyclic Graphs",
+        "trigger": "Directly names source and sink statistics in random DAGs"
+      },
+      {
+        "assessment": "Degree-based mean size and weak-component formulas; does not give mixed source–sink covariance or optimize that covariance",
+        "evidence": [
+          "Proposition 3.19 is a linear weighted count of sources and sinks; Corollary 3.20 averages it, with no cross moment."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/um-articles/vol-124/line-digraphs-of-polytrees/",
+        "material_read": "Full accessible HTML article and relevant Propositions 3.17, 3.19, Corollary 3.20, statements on extrema",
+        "method": "Read journal HTML primary text",
+        "title": "Line digraphs of polytrees",
+        "trigger": "Counts sources and sinks over all orientations of a fixed tree"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "db5fdb9d-6d6f-48a9-a9f2-9f42f4b72d4c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural dependence statistic on uniformly oriented fixed trees can be negative, zero, or positive depending on graph shape. The theorem gives sharp all-order extremizers and a five-vertex onset with an explicit shape-changing mechanism. It goes beyond routine indicator covariance calculation, which alone cannot compare graphs, and the structural strict-transplant lemma has mathematical content and plausible relevance to source–sink dependence and oriented-tree statistics.",
+    "status": "PASS"
+  }
+}
