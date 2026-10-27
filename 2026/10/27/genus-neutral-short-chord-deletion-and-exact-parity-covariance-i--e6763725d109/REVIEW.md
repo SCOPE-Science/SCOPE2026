@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Adjacent matched sides give a fixed-point face and can be removed without changing orientable genus. Counting ordered disjoint cycle-edges proves the exact factorial size-bias identity, including both extreme cases. The Harer--Zagier genus-generating formula yields exact harmonic first moments and the two parity-dependent covariance rational functions. Combined with the established genus local limit theorem, the uniformly bounded mixed factorial moments establish the independent Poisson--Gaussian joint limit. Exhaustive enumeration of every matching with two through seven chords passed 125 independent exact checks; this finite verification is not used as an infinite proof.
+
+**Originality — PASS, with priority risk.** The relevant original sources were inspected for implication-level coverage: Paguyo gives marginal Poisson simple-chord estimates and crossing normality, Chmutov--Pittel prove univariate genus normality and supply the Harer--Zagier face-count GF, and Young's univariate short-chord formulas concern linear rather than genus-weighted circular matchings. No inspected result supplies the full genus/monogon joint deletion identity, parity covariance, or the joint independence claim. A general face-degree-refined map enumeration may already encode it; a global literature-priority guarantee is not possible. Originality here means an unlocated mixed structural statement, not novelty of the Harer--Zagier identity or the known marginals.
+
+**Value — PASS.** The exact joint finite-sample law and special one-sided-face information address a natural question about the individual face sizes of random orientable polygon gluings. The negative covariance converges to a nonzero constant despite an asymptotically independent Poisson/Gaussian pair; exact parity controls the finite correction. These are meaningful structural consequences that are not inferable from separate marginal distributions.
+
+**Scientific limits.** Only cyclic uniform orientable matchings are treated; higher face lengths and nonuniform weights are not. The Gaussian genus limit is cited rather than reproved. Historical-priority uncertainty remains, and no independent scientific validation has been undertaken.
+
+Self-review: passed. Independent audit: not yet performed.
