@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "For every omitted cell (i,j), the original graph definition is equivalent to ((row degree is 1 and an empty column exists) or (column degree is 1 and an empty row exists)). This forces star components in the bipartite incidence graph. Distinguishing nontrivial row and column stars bounds omitted size by max(q,p+q-4); equality gives precisely missing-row column transversals, missing-column row transversals, and crossed two-star configurations with one empty row and column. Surjection exclusion and four independent choices count these types, without overlaps. Direct graph-definition exhaustive subset tests total 1,810,648 and agree with all stated formulas; infinite correctness rests on the proof, not testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Klein, Rodriguez-Velazquez and Yi, arxiv:1705.00928, Theorem 30, prove the cardinality gamma_sp(K_p square K_q)=pq-p-q+4 for p,q>=4 and 2q for K_3 square K_q.",
+        "Ghanbari, Jager and Lehtila, arxiv:2209.01795, Section 6, enumerate minimum super dominating sets for complete graphs, bicliques, stars, friendship graphs, paths and cycles."
+      ],
+      "reasoning": "The earlier cardinality theorem is broad enough to settle the numerical optimum and this is expressly excluded from novelty. An extremal value alone does not imply the count or complete equality families. The later enumerative paper does not treat the rook-graph Cartesian product.",
+      "searches": [
+        "\"On the super domination number of graphs\" \"K_m\" \"K_n\" Cartesian",
+        "\"minimum super dominating sets\" \"Cartesian product\" complete",
+        "arxiv:1705.00928 Theorem 30",
+        "arxiv:2209.01795 Section 6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1705.00928 (full relevant proof and surrounding section)",
+      "arxiv:2209.01795 (full counting section and conclusion)",
+      "Relevant published mathematical record searches on optimizer enumeration, line-graph aliases and complete multipartite special cases",
+      "Targeted public literature searches for exact minimum-super-domination-set counts in rook graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 30 yields h=max(q,p+q-4) for p<=q, but its proof only establishes a bound and constructive attainment; it does not enumerate every equality configuration.",
+        "Section 6 of arxiv:2209.01795 defines and studies N_sp, but its theorem statements cover different graph families."
+      ],
+      "reasoning": "The new proposition is the iff private-neighbor incidence criterion, complete classification of all maximum omitted-cell families, their disjoint enumeration, and the exponential-to-quadratic phase transition. The known minimum-size formula is prior-implied and excluded as novelty. The new count cannot be inferred from the prior extremal number alone, and the inspected proofs do not state the needed equality-case enumeration.",
+      "searches": [
+        "arxiv:1705.00928 Theorem 30 proof incidence",
+        "arxiv:2209.01795 Section 6 minimum size super dominating sets",
+        "\"super domination\" \"Cartesian product of complete graphs\" \"number of minimum\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rook graph R_{p,q}=K_p square K_q is exactly the line graph L(K_{p,q}); arxiv:1705.00928 Theorem 30 concerns K_p square K_q.",
+        "A published count for all super dominating subsets of complete multipartite graphs applies to the special square C_4=K_{2,2} but not to general R_{p,q} with p,q>=2."
+      ],
+      "reasoning": "Line-graph terminology was searched to catch an equivalent theorem. The count of minimizers for line graphs of bicliques was not found in inspected primary literature; the complete-multipartite special case subsumes only the 2-by-2 boundary, not the infinite structural classification.",
+      "searches": [
+        "super domination of rectangular rook graphs line graph of complete bipartite graph",
+        "Complete incidence-star-forest characterization of all super dominating sets of line graph of K_m,n",
+        "\"super domination\" \"line graph\" complete bipartite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published mathematical record concerns all super dominating sets of complete multipartite graphs, and a separate record concerns minimum sets of one-leaf coronas; neither is the rook-graph classification.",
+        "Targeted public searches identified the cardinality paper arxiv:1705.00928 and the enumerative paper arxiv:2209.01795, but no complete rook-graph optimizer table or claimed count."
+      ],
+      "reasoning": "Database and literature searches did not locate a count matching the seven regimes or the crossed-star equality classification. Failure to find a record is not itself a proof of novelty, so this is only supportive evidence and priority remains qualified.",
+      "searches": [
+        "Number of minimum super dominating sets in the rook graph K_p square K_q, with row-column star forests and phase transition at p=4",
+        "Enumerating optimal super domination subsets on Cartesian product of complete graphs; polynomial or count of minimum sets",
+        "\"number of minimum super dominating sets\" \"line graph\" bipartite",
+        "\"super dominating sets\" rook 4x4 608"
+      ]
+    },
+    "rationale": "An explicit 2017 theorem already determines the minimum super domination number of K_p square K_q, and its numerical consequence is not asserted new. The inspected primary theorem proves a bound but gives no complete equality-case classification or count. The 2022 enumerative primary article defines minimum-set counting but does not enumerate rook graphs. Targeted synonym, dominance and published mathematical record comparisons found no stronger covering enumeration; unindexed or inaccessible equivalences remain possible.",
+    "residual_risks": [
+      "The 2017 bound and proof facilitate a short further equality-case analysis; although it does not state the counts, priority could be affected by another equivalent enumeration.",
+      "Indexing and access do not guarantee exhaustive coverage of theses, unpublished manuscripts or other names for the biclique line graph.",
+      "The special 2-by-2 case is a known complete multipartite graph and is not separately claimed novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS known minimum cardinality; does not state the full optimizer count or equality classification",
+        "evidence": [
+          "Theorem 30 states gamma_sp(K_p square K_q)=pq-p-q+4 for p,q>=4 and gamma_sp(K_q square K_3)=2q, and its proof derives a max omitted-cell bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1705.00928",
+        "material_read": "Introduction, definitions, Cartesian product section, Theorem 30 and proof on pages 13–14",
+        "method": "Read arXiv open-access complete primary PDF text with direct page inspection",
+        "title": "On the super domination number of graphs",
+        "trigger": "Exact same graph family and invariant; possible dominating prior theorem"
+      },
+      {
+        "assessment": "Defines and counts minimum sets in other graph classes; does not cover rectangular rook graphs",
+        "evidence": [
+          "Theorems 6.1–6.5 count other families and do not list K_p square K_q or its biclique line graph."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2209.01795",
+        "material_read": "Introduction and Section 6, pages 16–24, including complete graph, complete bipartite graph, star, friendship graph, path and cycle cases",
+        "method": "Read open-access complete primary PDF text and inspected the relevant pages",
+        "title": "Super Domination: Graph Classes, Products and Enumeration",
+        "trigger": "Named minimum-set counting invariant may give a stronger general optimizer count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f2f15efa-0c1e-4992-99e8-7ae4156465e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Ghanbari et al. motivate counting all minimum super dominating sets as a distinct graph invariant. On the rook graph the known cardinality is insufficient to determine these counts; a universal incidence-star-forest characterization yields a complete and nontrivial phase diagram, with exponentially many minimizers for fixed widths 3 and 4 but only quadratically many for every fixed width at least 5. This gives exact structural optimizer information for an unrestricted natural infinite family rather than a cherry-picked finite slice.",
+    "status": "PASS"
+  }
+}
