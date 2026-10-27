@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Fix the exact path; deletion of its edges bijects trees containing it with uniformly sampled rooted forests. The matrix-tree minor nI-J proves F(n,r)=r n^(n-r-1), including r=n by direct convention. Deleting an off-path leaf counts (n-1)F(n-1,r); isolating a marked endpoint counts F(n-1,r-1); internal path vertices cannot be leaves. Dividing by F(n,r), summing and averaging over paths proves the exact mean with all quantifiers. Algebraic subtraction gives the sign factor 2(n-1)-r^2(r-1); strict monotonicity of this cubic on integer r≥2 proves unimodality, one/two modes, tied-integer characterization, and cube-root asymptotics. Independently enumerating all n^ (n-2) Prüfer trees through n=8 and exact increments through n=350 passed 60,859 rational assertions. Finite tests do not establish the infinite claim; the proof does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pitman rooted forest formula (6), https://www.stat.berkeley.edu/~pitman/457.pdf",
+        "Full 2020 distance-profile main theorems, https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+        "Marginal leaf CLT, https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451"
+      ],
+      "reasoning": "Pitman enumerates forests of prescribed roots generally; this enables but does not state the leaf-distance conditional regression. Asymptotic profile theorems do not determine the exact short-distance mode; a marginal leaf CLT does not determine distance-conditioned mean. No inspected stronger theorem directly subsumes the new claim.",
+      "searches": [
+        "distance profile and leaf count covariance of uniform random labeled tree, n^{1/3} peak",
+        "joint law of number of degree-one vertices and pairwise distance in uniformly random labeled trees, rare short geodesic path",
+        "\"uniform random labeled tree\" \"distance\" \"number of leaves\" covariance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2009.00572",
+      "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+      "https://www.stat.berkeley.edu/~pitman/457.pdf",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae/RESULT.md",
+      "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+      "https://statistics.berkeley.edu/tech-reports/457"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing endpoint law: https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae/RESULT.md",
+        "Pitman rooted forests: https://www.stat.berkeley.edu/~pitman/457.pdf",
+        "Distance-profile paper https://arxiv.org/abs/2009.00572"
+      ],
+      "reasoning": "Our marked endpoint leaf probability is covered by the known endpoint degree law and is not claimed separately as novel. The addition of n-r off-path leaf indicators gives the exact global conditional mean, whose successive differences have cubic sign. This does not follow directly from the endpoint regression or scaling results. The forest-extension formula is a general combinatorial tool, requiring a new decomposition to obtain the present conclusion.",
+      "searches": [
+        "For a uniform random labeled Cayley tree, conditioned on the graph distance k between two marked vertices, the expected total number of leaves is (n-k-1+2k/(k+1))*((n-1)/n)^(n-k-2); it has a unique or tied maximum when k(k+1)^2 crosses 2(n-1), asymptotically k~(2n)^(1/3)",
+        "number of leaves in random Cayley trees conditioned on fixed spine path length decreasing after cube root",
+        "\"number of leaves\" \"distance between\" \"uniform random tree\" covariances"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published nearest endpoint-degree law at https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae/RESULT.md",
+        "Full 2020 distance-profile paper https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3"
+      ],
+      "reasoning": "The full conditional mean is equivalent to a leaf-distance mixed first moment, and its derivative sign to a cubic turning criterion. The endpoint-degree law yields only two endpoint contributions; the off-path contribution is absent, so the full statement is not equivalent.",
+      "searches": [
+        "For a uniform random labeled Cayley tree, conditioned on the graph distance k between two marked vertices, the expected total number of leaves is (n-k-1+2k/(k+1))*((n-1)/n)^(n-k-2); it has a unique or tied maximum when k(k+1)^2 crosses 2(n-1), asymptotically k~(2n)^(1/3)",
+        "uniform Cayley tree total number of leaves conditioned on the distance between two marked vertices exact expectation unimodal cube root",
+        "conditional number of leaves given path length between two vertices in random labeled Cayley tree r rooted forest",
+        "\"conditional\" \"leaves\" \"distance\" \"Cayley\" tree"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Highest-ranked scientific database result: 2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae",
+        "Direct web searches returned no matching conditional leaf-distance table."
+      ],
+      "reasoning": "The closest indexed record has an explicit endpoint-degree law but no joint global leaf-distance count. Neither an exact matching table nor a stronger universal table was identified; failed search is not positive proof of absence.",
+      "searches": [
+        "conditional expected leaf count in Cayley trees given the graph distance between two specified labels, turning point cube root 2n",
+        "random spanning tree on complete graph n, leaf statistic versus distance two vertices exact finite n",
+        "For a uniform random labeled Cayley tree, conditioned on the graph distance k between two marked vertices, the expected total number of leaves is (n-k-1+2k/(k+1))*((n-1)/n)^(n-k-2); it has a unique or tied maximum when k(k+1)^2 crosses 2(n-1), asymptotically k~(2n)^(1/3)"
+      ]
+    },
+    "rationale": "Comparison of the complete new statement against the nearest full published endpoint-degree conditional law, the primary 2020 distance-profile paper, the primary leaf-CLT paper and the classical forest counts reveals no direct theorem covering the global leaf-count regression and its cube-root mode. The known endpoint law contributes one term only. The classic counting identity is credited as a proof ingredient rather than a new discovery. Multiple topic, synonym, formula, and exact-result searches found no stronger result. Historical priority remains uncertain.",
+    "residual_risks": [
+      "An older joint leaf-distance generating function or obscure finite-tree statistic could implicitly yield the entire expression and cubic threshold; no claim of exhaustive historical uniqueness.",
+      "Part of the proof is an elementary application of classic Cayley–Rényi rooted-forest enumeration; the claimed contribution is the global conditional regression and sharp cubic-root sign/mode classification, not the forest count or endpoint conditional law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses asymptotic distance-profile processes and leaf-bias coupling; the inspected statements do not give the joint finite-size regression of global leaf count on fixed marked distance or its mode.",
+        "evidence": [
+          "arxiv:2009.00572 first posted 2020-09-01; journal full-text https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distance-profile-of-rooted-and-unrooted-simply-generated-trees/B32482FCA00F9FCF73A32330A3396DF3",
+          "Section 8 gives asymptotic leaf-size bias rather than formula (1)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2009.00572",
+        "material_read": "Complete open HTML accessible; inspected abstract, introduction, definitions, Sections 7 and 8 (marking an edge/leaf), distance-profile statements and references.",
+        "method": "Full-text webpage inspection and searches for leaf and covariance.",
+        "title": "The distance profile of rooted and unrooted simply generated trees",
+        "trigger": "Date-qualified 2020 primary combinatorial probability paper; close topic of random-tree distances and markings."
+      },
+      {
+        "assessment": "Explicitly provides general rooted-forest count, an essential known tool. It is not itself a marked-distance leaf-regression theorem; deriving the new profile requires counting endpoint and off-path leaves and analyzing cubic sign.",
+        "evidence": [
+          "Formula (6): the number of forests with k prescribed roots is k n^(n-k-1).",
+          "Lemma 3 enumerates tree extensions of prescribed forests."
+        ],
+        "identifier_or_url": "https://www.stat.berkeley.edu/~pitman/457.pdf",
+        "material_read": "Published PDF pp.165–168, especially §2.1 and formula (6) and §2.2, Lemma 3; PDF page image inspected.",
+        "method": "Full primary PDF opening and page 168 image inspection.",
+        "title": "Coalescent Random Forests",
+        "trigger": "Classical fixed-root forest count and extension identities directly needed in the proof."
+      },
+      {
+        "assessment": "Its marked-endpoint conditional degree law implies our endpoint-leaf factor (7), but contains no law for leaves among the n-r vertices outside the marked path; it does not imply the global regression formula or cubic mode without an additional forest deletion computation.",
+        "evidence": [
+          "Its (2) gives a Binomial-plus-Bernoulli endpoint degree conditional on distance.",
+          "Its (5) proves endpoint degree decreases stochastically with distance; our global leaf count first increases."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-negative-regression-between-endpoint-degree-and-distance-i--d9ddfb06a9ae/RESULT.md",
+        "material_read": "Full scientific RESULT.md, including statement (1)–(11), proof and prior-work comparison.",
+        "method": "Read public published full-text research file.",
+        "title": "Exact negative regression between endpoint degree and distance in a uniform Cayley tree",
+        "trigger": "Highest-ranked closely related published mathematical result: exact conditional law of one endpoint degree."
+      },
+      {
+        "assessment": "Its corollary establishes asymptotic normality of the marginal global leaf count and convergence rates, not the exact finite conditional leaf expectation given marked-vertex distance.",
+        "evidence": [
+          "Corollary 1.2: number of leaves asymptotically normal with error bounds."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/distribution-of-tree-parameters-by-martingale-approach/32DFE2BAD7DFC3309F3FAD131FEFC451",
+        "material_read": "Full open HTML; inspected abstract, introductory Corollary 1.2 and leaf-count CLT proof, distance-related definitions.",
+        "method": "Primary open-full-text sections and on-page searches.",
+        "title": "Distribution of tree parameters by martingale approach",
+        "trigger": "Research on total leaf count in the same uniformly random labeled-tree model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eca03438-bd1e-456a-a524-64cc21796717",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The number of leaves is a canonical tree-sparsity statistic and marked-pair separation is a canonical distance observable. Earlier endpoint-degree regression is monotone, but the global leaf count has a counterintuitive nonmonotone conditional profile, already increasing from distance one to two for every n≥4. An exact complete classification of its regression turning point, ties, and (2n)^(1/3) maximizer provides a natural finite-size dependence boundary in an atypically short-distance regime, not an arbitrary slice of parameters. This profile is not supplied by marginal leaf CLTs or distance-profile limits; it clarifies the contrast between local endpoint and global structure.",
+    "status": "PASS"
+  }
+}
