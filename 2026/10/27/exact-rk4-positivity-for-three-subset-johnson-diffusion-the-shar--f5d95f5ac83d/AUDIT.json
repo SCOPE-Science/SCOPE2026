@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The symmetry reduction to four distance classes is exact and the full recurrence was rebuilt. For every integer n>=6, scalar RK4 positivity makes diagonal entries positive; the distance-two quadratic has strictly negative discriminant; and 3AC-B² has an all-positive shifted polynomial certificate, making the distance-one cubic strictly decreasing with one positive zero. Distance-three entries have the linear sign threshold 2/(3n-4). An exact Bernstein negative certificate through n=33 and an all-positive shifted expansion from n=34 prove which coefficient fails first. Complete matrices for n=6 through 12 were independently reconstructed using integer adjacency, agreeing at 2100 exactly rational transition entries. Boundaries and irreversibility of sign loss follow from the global signs; finite checks are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2102.08242v2 §§1 and 3 concerns positivity-preserving schemes and unconditional barriers; see its Example 3 for graph Laplacians.",
+        "arxiv:1307.8058v2 §§2-5 optimizes multistep SSP coefficients, not graph-specific completed classical RK4 positivity.",
+        "Earlier available rank-two/strongly regular RK4 claim cddf6b0c-1602-4c95-b2b6-880a1870e9b9 assumes diameter two, whereas J(n,3), n>=6, has diameter three."
+      ],
+      "reasoning": "The universal restrictions studied in the primary numerical analysis texts are about other schemes or unconditional/stagewise positivity, not precise endpoint sign of R4(-hL) on Johnson graphs. Strongly regular and complete multipartite results cannot include diameter-three J(n,3); Hamming graph Cartesian products are not Johnson subset-exchange graphs.",
+      "searches": [
+        "Optimal numerical positivity thresholds for classical fourth-order Runge Kutta on graph Laplacians beyond Hamming complete multipartite and strongly regular",
+        "graph Laplacian Runge Kutta fourth-order positivity distance regular Johnson scheme exchange random walk sharp stability h n",
+        "Runge Kutta graph heat equation distance regular positivity preservation"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.4036/iis.2004.1",
+      "arxiv:1307.8058",
+      "arxiv:2102.08242",
+      "published-finding corpus:2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+      "published-finding corpus:2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+      "published-finding corpus:2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1",
+      "record:c8b1d719-0d7d-4baa-9c8b-b83473293543",
+      "record:cddf6b0c-1602-4c95-b2b6-880a1870e9b9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Hora 2004 Theorems 1–4 determine limiting spectral distributions/moments in a growing Johnson family rather than exact finite-n entrywise RK4 signs.",
+        "Bresten et al. 2013 Theorems and Tables optimize general multistep SSP coefficients rather than the single-step classical fourth-order matrix.",
+        "Blanes et al. 2021 analyze exponential, Magnus and Patankar integrators, and universal unconditional positivity barriers, not this conditional linear graph family.",
+        "Available record c8b1d719-0d7d-4baa-9c8b-b83473293543 treats Hamming products K_q^d with an alphabet crossover, not Johnson J(n,3), which has vertices indexed by three-subsets."
+      ],
+      "reasoning": "None of the examined primary mathematical statements implies the claim under substitution or restriction: the graph families, numerical stability functions, objective guarantees, or quantifiers differ. A general spectral decomposition does permit rederiving the problem-specific coefficients, but does not already contain the n=34 comparison. Residual literature coverage risk remains.",
+      "searches": [
+        "Exact positivity timestep classical fourth-order Runge Kutta RK4 heat diffusion on Johnson graphs J(n,k) distance-regular graphs and association schemes",
+        "Optimal numerical positivity thresholds for classical fourth-order Runge Kutta on graph Laplacians beyond Hamming complete multipartite and strongly regular",
+        "Johnson graph J(n,3) Bernoulli Laplace diffusion classical RK4 completed one-step matrix exact timestep positivity edge versus graph-distance-three transition n=34"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Johnson-graph distance equals 3 minus subset intersection (Hora 2004, pp.1-2); equivalent variable is a Bernoulli-Laplace three-particle exchange process with endpoint T(h)=R4(-hL).",
+        "published-finding corpus best semantic hit: 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: endpoint positivity for a different [2/2] Padé map on a pure-birth chain."
+      ],
+      "reasoning": "Queried Johnson/Bernoulli–Laplace, RK4 and graph-distance aliases. The closest operator-positivity result concerns an implicit rational approximant, not the explicit degree-four polynomial or this graph family; the searched equivalences do not supply the claimed distance-1 versus distance-3 threshold.",
+      "searches": [
+        "Johnson graph Runge Kutta positivity heat diffusion",
+        "Bernoulli Laplace diffusion classical RK4 nonnegative matrix polynomial Johnson 3 subsets",
+        "Exact positivity timestep classical fourth-order Runge Kutta RK4 heat diffusion on Johnson graphs J(n,k) distance-regular graphs and association schemes",
+        "Johnson graph J(n,3) Bernoulli Laplace diffusion classical RK4 completed one-step matrix exact timestep positivity edge versus graph-distance-three transition n=34"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact Johnson J(n,3), n=34, RK4 positivity table surfaced in the inspected web/results; arxiv:1307.8058 has Tables 1-7 for optimized SSP methods, not graph-specific Johnson transitions.",
+        "published-finding corpus Johnson-related 2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1 is a spectral compression result, not a numerical one-step positivity table."
+      ],
+      "reasoning": "Searched graph name, exchange-walk interpretation, integer cutoff and cubic endpoint aliases. Located tables are for different quantities; absence of search hits is only limited negative evidence, not uniqueness proof.",
+      "searches": [
+        "Johnson graph J(n,3) Bernoulli Laplace diffusion classical RK4 completed one-step matrix exact timestep positivity edge versus graph-distance-three transition n=34",
+        "RK4 positivity Johnson J(n,3) 3-subsets exact cubic rank three association scheme threshold",
+        "Johnson graph J(n,3) numerical RK4 positivity threshold 34"
+      ]
+    },
+    "rationale": "Direct comparison of the full graph and numerical-method source arguments plus exact and alias searches found no statement establishing an if-and-only-if positivity horizon and the n=34 active-distance crossover for classical RK4 on unweighted J(n,3). Relevant general SSP theory and Johnson spectral theory do not imply the exact cubic. Previously available Hamming, strongly regular and multipartite cases do not include Johnson rank three. Residual risk is nonindexed or specialized literature, not evidence of uniqueness.",
+    "residual_risks": [
+      "A specialized paper or table outside the inspected indexed sources may already provide the explicit Johnson rank-three RK4 cubic and n=34 threshold.",
+      "Search and self-review inspection do not establish independent novelty; all-parameter Johnson J(n,k) results were not exhaustively surveyed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: asymptotic spectral distributions and Johnson intersection algebra; no completed RK4 positivity theorem.",
+        "evidence": [
+          "Theorem 4 is an exact limiting spectral measure; §1 equation (3) gives the distance-matrix algebra; §2 proves moment/Laplace transform identities."
+        ],
+        "identifier_or_url": "https://doi.org/10.4036/iis.2004.1",
+        "material_read": "Official full-text PDF, title/abstract, introduction and distance-algebra equations on pp.1–2, main theorems on pp.3–4, proof sections on pp.5–9, references on p.10; also inspected page images.",
+        "method": "Read official publisher full-text PDF; compared definitions, all principal theorem statements, asymptotic limits and proof objectives.",
+        "title": "Asymptotic Spectral Analysis on the Johnson Graphs in Infinite Degree and Zero Temperature Limit",
+        "trigger": "Same Johnson graphs and Bernoulli–Laplace diffusion interpretation."
+      },
+      {
+        "assessment": "Not covering: focuses on optimized multistep multistage methods and general coefficients, not classical RK4 endpoint on a Johnson graph.",
+        "evidence": [
+          "§4.2.3 Table 3 lists optimized SSP coefficients by steps and stages, while §5 tests advection and Buckley–Leverett examples."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.8058",
+        "material_read": "Author-hosted arXiv HTML introduction, method/SSP definitions, §4.2 fourth-order results/Table 3, and §5 numerical tests.",
+        "method": "Read lawful open-access HTML of the preprint and compare method class and objective.",
+        "title": "Explicit Strong Stability Preserving Multistep Runge–Kutta Methods",
+        "trigger": "High-order SSP and positivity restrictions on Runge–Kutta schemes."
+      },
+      {
+        "assessment": "Not covering: the paper develops alternative methods and unconditional/structural positivity, with no Johnson J(n,3) exact cutoff.",
+        "evidence": [
+          "§1 discusses unconditional positivity order barriers; §2 Example 3 treats linear graph-Laplacian dynamics; §3 gives Magnus/exponential/Patankar constructions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2102.08242",
+        "material_read": "Lawful arXiv HTML abstract, §1 and §1.1, §2 Example 3, §3 higher-order integrator discussion, §6 conclusions.",
+        "method": "Read author preprint HTML; distinguished unconditional positivity barriers and new exponential schemes from graph-specific conditional RK4 completed endpoint.",
+        "title": "Positivity-preserving methods for ordinary differential equations",
+        "trigger": "Same graph-Laplacian ODE positivity theme and higher-order integrator barriers."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f5d95f5a-c83d-4f5e-9a48-0c262366341b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the first natural diameter-three Johnson/Bernoulli–Laplace exchange family, beyond the strongly regular rank-two case. For every n>=6 the theorem computes the exact completed fourth-order diffusion positivity horizon, which is mathematically motivated by preserving nonnegative population/probability vectors and exceeds Euler. The sharp n=34 switch between graph-distance-three and adjacent failure supplies new structural information and a reproducible benchmark, not an arbitrary numerical slice or restatement of general SSP theory.",
+    "status": "PASS"
+  }
+}

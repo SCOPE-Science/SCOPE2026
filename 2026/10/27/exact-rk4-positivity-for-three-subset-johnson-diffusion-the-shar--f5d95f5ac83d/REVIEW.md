@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The distance-regular intersection numbers for \(J(n,3)\) generate exact transition coefficients for each of the four distance classes. The diagonal has a positive scalar RK4 spectral representation; distance two is controlled by a negative discriminant; distance one by a globally decreasing cubic; and distance three by a linear bracket. The explicit Bernstein and shifted-coefficient certificates prove the sharp integer crossover at \(n=34\), all ties, and no reentry. The extracted standalone verifier independently reconstructs finite Laplacian matrices and tests the algebra with exact rational arithmetic. Its finite tests are corroboration, not proof for all \(n\).
+
+**Originality (PASS, qualified).** Hora's full Johnson spectral-limit work provides distance algebra but no classical RK4 nonnegativity horizon. Bresten et al. address optimized multistep SSP methods, and Blanes et al. address graph-Laplacian positive integrators and unconditional barriers, not exact endpoint positivity on the fixed family \(J(n,3)\). No equivalent or dominating Johnson threshold was identified in multiple exact and equivalent-formulation searches of mathematical literature and published research records. Closest accessible prior endpoint-RK4 results address Hamming, strongly regular, star or complete multipartite graphs; those are not this diameter-three subset-exchange network. Residual risk: specialized unindexed results may contain an equivalent exact cubic threshold, so originality is not independently established.
+
+**Value (PASS).** Johnson diffusion is the Bernoulli–Laplace subset-exchange model. The three-subset family is its smallest genuinely diameter-three regime, beyond the strongly regular case. The result gives the complete one-step positivity safety interval for an infinite sequence of natural state spaces and identifies the **exact** network-size crossover between long-distance and local loss of nonnegativity. It is a checkable benchmark for numerical diffusion, not an arbitrary fixed-size computation.
+
+**Limitations.** Only completed RK4 endpoints on unweighted \(J(n,3)\), \(n\ge6\), are covered. No unconditional positivity, RK stage positivity, extension to general Johnson rank, or independent proof review is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
