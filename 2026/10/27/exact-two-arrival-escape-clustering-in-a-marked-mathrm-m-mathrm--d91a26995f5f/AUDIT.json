@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For stationary Poisson/exponential FCFS arrivals with two consecutive tags conditioned originally susceptible, PASTA gives geometric Q and Q1. The first marginal is obtained by integrating out the next exponential arrival and future marked Poisson thinning; the second marginal uses the first known-susceptible predecessor. For the joint law, the no-intervening-arrivals property reduces escape to E[(1-p)^Q a^(Q1+1)]. The geometric potential-service-event kernel Q1=(Q+1-G)_+ yields an absolutely convergent double series and the exact rational expression; direct algebra gives the positive covariance and simple Pearson correlation. All denominators positive for 0<p,ρ<1, all event conditioning explicit. An independent exact-rational grid with bounded finite-tail tests and forward path simulations corroborates, not substitutes for, the complete proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boxma–Pender (2026), Theorem 4 and §6, derives a transform for infectious overlap durations before/after one tagged customer.",
+        "Kang–Doroudi–Delasay–Wickeham, arXiv:2103.13441, Proposition 2 and §6.2 in the open 47-page PDF, gives reproduction metrics and discusses a simultaneous-infectors extension but no successive-two-tag infection correlation."
+      ],
+      "reasoning": "Theorem 4 of Boxma–Pender is joint only across two portions of one customer’s exposure history; it is not a joint law for two tagged arrivals. The older general infection-risk framework is not a dominating statement that fixes the pair law. A generic Markov-kernel method could compute it but no searched explicit result or implication was identified.",
+      "searches": [
+        "Boxma Pender The overlapping time distribution in the M/M/1 queue Theorem 4 joint transform Za Zd for one tagged customer versus two adjacent tagged customer infection events",
+        "M/M/1 Poisson marked customers adjacent infection indicators safe events joint covariance temporal clustering Newman Pender Palomo 2026",
+        "DOI:10.1017/jpr.2026.10107",
+        "arXiv:2103.13441"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.09019v1 (full HTML relevant sections)",
+      "DOI:10.1017/jpr.2026.10107 (PDF §§5–6; relevant screenshots)",
+      "arXiv:2311.04387 (arXiv text all sections)",
+      "arXiv:2103.13441 (primary PDF §§1, 4.1, 6.2 and rendered screenshots)",
+      "Search results for exact correlation, adjacent marked infection statuses and simultaneous two-tag transmission outcomes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Newman–Pender §3 gives the tagged infection marginal; §4 studies infections caused by one originally infectious person rather than dependence between two distinct tagged susceptibilities.",
+        "Palomo–Pender 2023 Theorem 4.2 controls mutual overlap time of adjacent customers, not infection from other marked customers.",
+        "Boxma–Pender 2026 Theorem 4 calculates the joint Laplace transform of past/future total infectious overlap *for one tagged customer*."
+      ],
+      "reasoning": "None of these prior statements determines the number of originally infectious customers simultaneously exposing both members of the conditioned successive pair. In particular two-tag conditioning removes an infectious mark among the neighbouring customers, which changes each marginal, and the joint probability additionally depends on Q0,Q1 through E[u^Q0 a^(Q1+1)]. The transition calculation and rational evaluation are additional. Prior shared-model definitions, PASTA, and M/M/1 primitives are acknowledged, not claimed as new.",
+      "searches": [
+        "Newman Pender When Lines Become Contagious 2610.09019 single tagged susceptible, pair of consecutive susceptible customers both avoid transmission bivariate joint law under zero overlap threshold",
+        "Boxma Pender The overlapping time distribution in the M/M/1 queue Theorem 4 joint transform Za Zd for one tagged customer versus two adjacent tagged customer infection events",
+        "arXiv:2311.04387v1",
+        "DOI:10.1017/jpr.2026.10107"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Newman–Pender, arXiv:2610.09019v1, Introduction §1.1 and §3, calculates the individual tagged susceptible infection chance and number of infectious exposures.",
+        "The pair under two originally susceptible tags differs even at the marginal level: its escape probability has factor (1+2pρ)/(1+pρ) relative to the standard single-tag formula."
+      ],
+      "reasoning": "A one-tag infection probability is a one-dimensional marginal; infinitely many adjacent indicator couplings share it but have different covariance. The present law requires the two-arrival transition and the common incoming-mark environment, not a reparameterization of the one-tag result.",
+      "searches": [
+        "stationary M/M/1 consecutive arrival infection escape indicators condition both originally susceptible joint Bernoulli labels, exact correlation 2 rho/(1+rho+2p rho), positive clustering",
+        "Newman Pender When Lines Become Contagious 2610.09019 single tagged susceptible, pair of consecutive susceptible customers both avoid transmission bivariate joint law under zero overlap threshold",
+        "simultaneously two tagged customers infection joint distribution M/M/1 marked overlap",
+        "arXiv:2610.09019v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted external and mathematical research-record queries returned contextual infection models, not an entry tabulating the adjacent conditional pair probabilities or correlation.",
+        "Palomo–Pender, arXiv:2311.04387v1, §4, tabulates adjacent-customer overlap-duration statistics, with no independently marked exposure status of both tagged arrivals."
+      ],
+      "reasoning": "No checked table or exact database entry corresponds to the fully marked two-arrival Bernoulli distribution, for all 0<p,ρ<1. Absence of a located entry does not certify uniqueness; relevance of the nearby overlap-duration result is assessed by its weaker/different probabilistic object.",
+      "searches": [
+        "stationary M/M/1 consecutive arrival infection escape indicators condition both originally susceptible joint Bernoulli labels, exact correlation 2 rho/(1+rho+2p rho), positive clustering",
+        "M/M/1 queue consecutive customers two adjacent infection Bernoulli marks overlap covariance",
+        "arXiv:2311.04387v1"
+      ]
+    },
+    "rationale": "Inspected primary results identify one-tag infection risk, one-tag infectious overlap transforms, and two-tag overlap *between the tags*; none states, implies without additional two-time queue calculation, or dominates the exact conditional joint escape distribution for two successive noninfectious marked arrivals. The new formula expresses the bivariate law, exact positive correlation and heavy-traffic clustering, and is not reconstructible from the published one-tag marginal alone. Targeted external and mathematical-record searches identified no equivalent priority claim, subject to residual historical risks. Full-text inspection of Kang et al. §§4.1 and 6.2 further excludes the most plausible generalized transmission-result coverage.",
+    "residual_risks": [
+      "General historical results for marked queue Palm two-point transforms or unpublished contact-network occupancy formulas may contain an equivalent specialization, although none was identified.",
+      "Independent literature priority determination has not been performed.",
+      "The published general transmission models use additional transmission-threshold conventions, and a broader historical two-point queue reward formula not located in the checked sources might yield this specialization."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies model and one-tag infection probabilities, not two successive conditioned originally susceptible tags or their joint status law.",
+        "evidence": [
+          "arXiv v1 metadata primary MSC 60K25, posted 2026-10-06.",
+          "Introduction lists single-tag probability, number of people infecting one customer and transmissions from one infectious customer, not pairwise status dependence."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.09019v1",
+        "material_read": "Full available HTML abstract, Introduction §§1.1–1.2, queue definition §2, §3 single-tag infection derivations, §4 infectious-customer transmission statistics, and Conclusions.",
+        "method": "Read primary full-text HTML headings, equations and relevant arguments; compared exact statements and conditioning.",
+        "title": "When Lines Become Contagious: Analyzing the Spread of Infection in the M/M/1 Queue",
+        "trigger": "Exact same infection queue; primary dated 2026-10-06 and primary MSC 60K25."
+      },
+      {
+        "assessment": "Two random overlap components for *one* tagged customer, not joint infection indicators for two successive tagged customers.",
+        "evidence": [
+          "Theorem 3 analyzes joint overlap count and total duration of one tagged customer.",
+          "Theorem 4 analyzes the Laplace transform of infectious overlap time before and after one tagged customer."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/jpr.2026.10107",
+        "material_read": "Full publisher PDF indexed text for §§5–6, Theorems 3–4 and their derivations, and full rendered PDF pages 16–17 (zero-index pages 15–16).",
+        "method": "Opened 26-page authorized publicly reachable PDF; read theorem and proof text and inspected page screenshots.",
+        "title": "The Overlapping Time Distribution in the M/M/1 Queue",
+        "trigger": "Potentially stronger joint infectious-overlap transform from same queue, most plausible subsuming source."
+      },
+      {
+        "assessment": "Adjacent mutual overlap duration is not joint exposure to other originally infectious members; its distribution does not imply the marked pair probability.",
+        "evidence": [
+          "Theorem 4.2 concerns the minimum adjacent overlap time, while the current event depends on third-party infectious marks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.04387",
+        "material_read": "Accessible arXiv HTML/text introduction and all sections, including Theorems 3.3–3.5 and 4.2–4.4 and adjacent overlap recursions.",
+        "method": "Read arXiv primary text and compared random observables.",
+        "title": "The Maximum Overlap Time in the M/M/1 Queue",
+        "trigger": "Adjacent-customer overlap may be an equivalent two-customer law."
+      },
+      {
+        "assessment": "M/M/1 sojourn-overlap reproduction metric and a proposed cumulative-exposure extension, not the conditional joint escape law of two successive originally susceptible arrivals; §6.2 calls analysis with multiple simultaneous infectors technically complicated.",
+        "evidence": [
+          "Proposition 2 provides the exact R_sys reproduction metric in M/M/1 with exponentially distributed pairwise transmission threshold.",
+          "Section 6.2 discusses simultaneous infectors and cumulative exposure for one susceptible, without the two-successive-customer Bernoulli coupling or pair correlation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2103.13441",
+        "material_read": "Open-access original 47-page arXiv PDF: introduction and contribution summary, §4.1 Proposition 2 and derivation of the M/M/1 system reproduction metric, §6.2 discussion of multiple simultaneous infectors; screenshot inspection of PDF pages 16, 29 and 30.",
+        "method": "Read actual primary-PDF text and verified visual pages for Proposition 2 and §6.2, explicitly comparing their random observables and hypotheses.",
+        "title": "A Queueing-Theoretic Framework for Evaluating Transmission Risks in Service Facilities During a Pandemic",
+        "trigger": "Earlier broader infection framework potentially subsumes pair claim."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d91a2699-5f5f-408f-8c04-d0fce05c1c42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The zero-duration-contact boundary is a canonical limiting observable of the new contagious-queue model. Tracking two *successive* susceptible customers tests a qualitatively new question: dependence of actual infection outcomes, not the chance for one tagged customer. The rational correlation reveals provable positive clustering for all admissible parameters and nonzero heavy-traffic correlation despite vanishing escape probability; the exact pair infection-count variance inflation factor quantifies why an independence assumption miscalibrates uncertainty. It is an intrinsically motivated complete bivariate law, not an arbitrary fixed-size enumeration or renamed single-customer formula. Positive exposure thresholds and broader service laws remain outside the result.",
+    "status": "PASS"
+  }
+}
