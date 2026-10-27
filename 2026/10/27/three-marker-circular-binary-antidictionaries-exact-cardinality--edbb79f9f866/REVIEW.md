@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The proof counts minimal absent words through a fully derived binary periodic-factor complexity identity, then classifies bispecial factors according to the three cyclic zero-gap lengths. It handles empty gaps, repeated gaps, nonprimitive cycles, the all-ones boundary, the exact number of marker-containing factors, and the fixed-length extrema. The independent finite-factor-set program confirms the complete claimed bispecial sets and absent-word counts on all 1000 ordered zero-gap triples with components up to nine; this finite check supplements rather than proves the infinite theorem.
+
+**Originality: PASS (best-knowledge, residual risk).** The 2015 full arXiv article establishes the relevant periodic circular definition and algorithms, but does not state the fixed-weight-three count. The 2017/2018 full arXiv article provides a general circular upper bound and a circular Fibonacci classification, neither of which determines this gap-multiplicity formula or the explicit three-marker bispecial list. Direct searches on circular antidictionaries, sparse binary necklaces, and bispecial factors did not reveal equivalent coverage; published mathematical records returned unrelated subsequence and closed-factor invariants. Later reconstruction literature has distinct objectives, but its full PDF could not be inspected. These searches do not establish absolute priority.
+
+**Value: PASS.** Three markers are the first cyclic sparse-word class with three potentially different inter-marker gaps. The theorem classifies a complete nontrivial infinite family, reveals that the exact antidictionary count ignores the shorter gap magnitudes except their equality pattern, and identifies all extrema for each length; it does not merely recompute isolated cases. The bispecial classification is an independently useful structural intermediary for circular string processing. It concerns the standard invariant used in alignment-free circular sequence comparison.
+
+**Limitations.** The theorem does not treat four or more one-markers, nonbinary alphabets, truncated circular factor semantics, or weighted absent factors. Priority remains best-knowledge, not externally certified; no independent scientific validation was performed.
+
+Self-review: passed. Independent audit: not yet performed.
