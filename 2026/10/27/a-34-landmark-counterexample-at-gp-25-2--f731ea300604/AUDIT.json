@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "A complete shortest-distance MMD characterization gives H with outer cyclic edge distances {5,7,9,11,12}, inner {9,11} and no mixed edges. A five-clique partition of the 14 allowed outer indices proves alpha_outer <=6, attained explicitly. Five disjoint inner five-cycles prove alpha_inner <=10, attained by two residue classes modulo 5. Thus every strong resolving set contains >=50-16=34 vertices. The explicit complementary 34-set strongly resolves all 1225 pairs, checked directly by independent BFS and Floyd-Warshall distance routines. The finite graph is fully covered; no infinite-family statement is inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kratica et al. (2017), Corollary 1 proves only sdim(GP(4k+1,2)) <= 5k+5 and leaves equality conjectural; Table 4 reports only n <= 19.",
+        "Oellermann–Peters-Fransen (2007) establishes a general reduction to vertex cover without a GP(25,2) enumeration.",
+        "Raza and Ji (2020), DOI:10.3389/fphy.2020.00211, define and calculate mixed metric dimension rather than strong metric dimension."
+      ],
+      "reasoning": "The 2007 universal reduction does not determine the independent set size of this graph-specific MMD graph. The 2017 paper explicitly conjectures the opposite value 35. Later results inspected for GP(n,2) concern mixed metric dimension or other distance invariants, so they do not imply this exact strong metric dimension.",
+      "searches": [
+        "\"strong metric dimension\" \"generalized Petersen\" 2020 2025 exact n 4k 1",
+        "\"strong metric dimension\" \"GP(n,2)\" \"4k+1\" exact",
+        "\"strong metric dimension\" \"GP(4k+1,2)\" 2022 2024 theorem"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1507.00881, first posted 2015-07-03",
+      "doi:10.2298/AADM161110032K, full OA published PDF",
+      "doi:10.3389/fphy.2020.00211, full HTML",
+      "doi:10.1016/j.dam.2006.06.009, abstract/theorem descriptions only",
+      "Published research-record search for exact numerical/equivalent/theorem parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kratica et al. (2017), page 8 Conclusion: proposed equality sdim(GP(4k+1,2))=5k+5 for k >= 5; substituting k=6 gives 35.",
+        "The present explicit construction resolves all vertex pairs with 34 landmarks and an independent-set bound proves no set of size 33 can work.",
+        "The published paper does not prove the conjectural equality for k=6."
+      ],
+      "reasoning": "A theorem yielding 34 is logically incompatible with the earlier conjectured value 35. It is not covered by the earlier bound <=35, which permits 34 but does not establish optimality or exhibit the smaller configuration. The prior theoretical framework is used, not presented as new.",
+      "searches": [
+        "sdim GP(25,2) 34 versus 35 counterexample Kratica Kovačević-Vujčić Čangalović strong metric dimension conjecture",
+        "strong metric dimension GP(4k+1,2) k=6 exception n25",
+        "\"GP(25,2)\" \"strong resolving\" 34"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kratica et al., arXiv:1507.00881 and DOI:10.2298/AADM161110032K, define strong resolution via shortest paths and use mutually maximally distant pairs; pages 3 and 8 give the same invariant.",
+        "Published research-record semantic searches returned results on other resolving invariants and graph families, not an exact value for GP(25,2)."
+      ],
+      "reasoning": "The same claim can be expressed as the minimum vertex-cover size 34, or independence number 16, of the strong-resolving graph of GP(25,2). It also says that 34 landmarks are necessary and sufficient. The exact-parameter, vertex-cover and mutual-maximal-distance searches disclosed no equivalent published statement.",
+      "searches": [
+        "sdim GP(25,2) 34 versus 35 counterexample Kratica Kovačević-Vujčić Čangalović strong metric dimension conjecture",
+        "Generalized Petersen 25 2 strong resolving set 34 vertices independent set mutually maximally distant",
+        "strong metric dimension GP(4k+1,2) k=6 exception n25",
+        "Strong metric dimension generalized Petersen graphs GP(n,2) odd cases n=4k+1 strong resolving graph exact formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact-value Table 4 of Kratica et al. (2017) stops at n <= 19 (page 9).",
+        "Targeted public article and published research-record searches returned no exact n=25 entry with value 34."
+      ],
+      "reasoning": "This claim supplies a value not present in the directly relevant published table; no retrieved exact database row or later table dominated the numerical claim. Negative search results are not evidence that an unindexed table cannot exist.",
+      "searches": [
+        "exact strong resolving graph GP(25,2) independent set independence number 16",
+        "\"GP(25,2)\" \"strong metric dimension\" 34",
+        "\"GP(25,2)\" \"sdim\" \"34\"",
+        "\"25,2\" \"strong metric dimension\" generalized petersen"
+      ]
+    },
+    "rationale": "The primary 2017 paper publicly proposes 35 at k=6 rather than asserting 34; its exact table ends at n=19. The full primary PDF and the 2020 mixed-metric article were inspected at their relevant passages. Published-record and web searches covering equivalent wording, stronger results and exact tables located no earlier statement implying sdim(GP(25,2))=34. An unindexed earlier computation remains possible.",
+    "residual_risks": [
+      "Unindexed computations or inaccessible later text may contain the same GP(25,2) value.",
+      "The general 2007 source was not inspected in full; the direct check removes dependence on its converse for the explicit upper-bound witness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not contain the n=25 exact value; its concluded conjecture predicts 35, contradicted by the new proof",
+        "evidence": "Page 8 conclusion says sdim(GP(4k+1,2))=5k+5 for k>=5 as hypothesis; page 9 exact table only n<=19.",
+        "identifier_or_url": "arxiv:1507.00881; https://doiserbia.nb.rs/img/doi/1452-8630/2017/1452-86301600032K.pdf",
+        "material_read": "Open-access full text: definitions and MMD properties on pages 1–3, Lemma 5 and Corollary 1 on pages 7–8, conjecture on page 8 and Table 4 on page 9",
+        "method": "Read text extracted from the complete ten-page PDF and inspected page 9 image",
+        "title": "The strong metric dimension of some generalized Petersen graphs",
+        "trigger": "Same graph family, exactly the conjectured invariant and parameter range"
+      },
+      {
+        "assessment": "Addresses a different invariant, not a covering theorem for the strong metric dimension",
+        "evidence": "The article defines mixed metric dimension by distinguishing vertices and edges and gives values 4 or 5; these are not strong-resolving landmark requirements.",
+        "identifier_or_url": "doi:10.3389/fphy.2020.00211; https://www.frontiersin.org/journals/physics/articles/10.3389/fphy.2020.00211/full",
+        "material_read": "Full HTML article; abstract, definitions and results identifying the mixed vertex–edge metric invariant, plus references",
+        "method": "Read primary HTML and compared invariant definitions",
+        "title": "Computing the Mixed Metric Dimension of a Generalized Petersen Graph P(n, 2)",
+        "trigger": "Same graph family and a metric-dimension variant potentially confused with strong resolution"
+      },
+      {
+        "assessment": "General method is prior, but it supplies no exact GP(25,2) computation",
+        "evidence": "The 2017 primary article cites the MMD necessary condition. Direct certificate independently checks all strong-resolution pairs.",
+        "identifier_or_url": "doi:10.1016/j.dam.2006.06.009",
+        "material_read": "Abstract and theorem descriptions accessible in secondary/full-text bibliographic extracts; full original text not independently inspected",
+        "method": "Compared the cited reduction against the quoted established property in the primary GP(n,2) paper; additionally verified the explicit resolving set without invoking the reduction",
+        "title": "The strong metric dimension of graphs and digraphs",
+        "trigger": "General result equating strong resolving sets with vertex covers of the MMD graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f731ea30-0604-4141-8f14-8015e502f426",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact, rigorously established counterexample to an explicit conjectured infinite-family equality is mathematically substantive. The parameter n=25 arises as k=6, inside the published conjecture range; the difference 34 rather than 35 invalidates the general statement. Five outer clique groups and five inner pentagons explain the extremum rather than reporting only a solver number. The finite nature and absence of a repaired all-parameter classification are expressly disclosed.",
+    "status": "PASS"
+  }
+}
