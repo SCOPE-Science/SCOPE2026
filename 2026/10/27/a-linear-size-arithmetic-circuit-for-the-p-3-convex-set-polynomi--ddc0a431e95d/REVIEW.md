@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Every block–vertex incidence component is a tree; the stated states partition admissible subtree configurations. The block-local trichotomy when the parent is omitted or selected is exhaustive: an omitted parent has zero or one selected child, while a selected parent forces all child vertices to agree. The vertex-local recurrence sums independent child-block contributions with total omitted-neighbor count at most one. The leaf base cases, root expression, disconnected product, and bouquet specialization follow directly. Standard-library brute force matched the complete coefficient lists for 937 generated clique-attachment block graphs and 8,367 labelled block graphs through six vertices. The proof is infinite and does not depend on finite testing.
+
+**Originality — PASS, subject to residual bibliographic risk.** Dourado–Grippo–Lin–Protti (arXiv:2603.04706v1) develop tree and threshold-graph counting and generic exponential algorithms; their available full PDF has no block-graph theorem or size-distribution recurrence. The 2012 Carathéodory-number paper and 2020 digital-convexity thesis concern different enumerands or predicates. Searches for counting \(P_3\)-convex sets in block graphs and equivalent two-neighbor closure terminology identified no dominating published formula. A proof-equivalent recurrence in unindexed work remains possible; these comparisons do not establish global uniqueness.
+
+**Mathematical value — PASS.** Exact \(P_3\)-convex-set counting is \(\#\mathrm P\)-complete on split graphs according to the 2026 source, so a genuinely tractable class with unbounded clique size and unbounded treewidth is meaningful. The result returns all cardinalities, not only a scalar, and the bouquet specialization demonstrates nontrivial sparse spectra. The constant-state, divide-free arithmetic circuit extends beyond both the original tree treatment and threshold graphs. Expanded-polynomial bit complexity is not claimed linear.
+
+Closest literature: Dourado et al. 2026 (full manuscript), Barbosa et al. 2012 (publisher abstract), Carr 2020 (repository abstract). These comparisons assess implication, not merely titles; exact publication priority remains subject to deeper independent checking.
+
+Self-review: passed. Independent audit: not yet performed.
