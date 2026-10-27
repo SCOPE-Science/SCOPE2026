@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "All lengths n>=6 factor into a length-three prefix, n-6 unrestricted middle symbols, and length-three suffix. Each forbidden overlap depends solely on the boundary triple pair. The resulting exact maximum equals 3^(n-6)*max_P |P|*(27-|union B(p)|). A recursion and a separately implemented Gray-code exhaustive pass each cover all 134217728 prefix subsets and agree on maximum 72, all 42 equality masks, profile distribution and four group orbits. Direct 72-word pair testing checks construction validity. Every equality case forces a full Cartesian product, yielding 42 distinct codes for every n>=6, not just numerical extrapolation. Exhaustiveness follows from the bit-mask-to-subset bijection and unpruned loops; the self-contained attached C++17 checker was executed successfully.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn et al., arXiv:2211.10309, Sec. II–VI: binary extremal search, general prefix/suffix graph reduction; no ternary k=3 exact maxima or complete optimizer census.",
+        "Stanovnik, arXiv:2411.02899 / DOI:10.1007/s12190-025-02441-z: accessible full relevant sections on construction, expandability, and general bounds; no equality classification in the ternary (1,3) problem.",
+        "Yang–Ding, DOI:10.1587/transfun.2025EAL2050: Secs. 2–5 and Appendix B accessible HTML. Cor. 4.1 and Appendix B give exact sizes of their parametrized construction, including ternary size 72 at n=6; they do not give unrestricted sharpness or 42-extremizer classification.",
+        "Cai–Wang–Feng, DOI:10.1109/TIT.2023.3319010: article abstract and Yang–Ding citation (Construction 2.4) describe ternary/q-ary constructions and k=2 exact optima; full text unavailable after OA/arXiv attempts and institutional-access VPN disconnection."
+      ],
+      "reasoning": "General constructions supply lower bounds and general bounds give weaker upper bounds; their implications do not yield global exactness and do not classify every ternary k=3 optimizer. The potential broadest q-ary paper is incompletely inspected, but its available abstract emphasizes exact solutions at k=2, so absent inaccessible coverage is recorded as a residual risk, not fabricated as a full-text negative check.",
+      "searches": [
+        "arxiv:2211.10309 theorem constructions bounds prefix suffix overlap code q-ary",
+        "arxiv:2411.02899 full article all (1,k) overlap-free bounds and constructions",
+        "doi:10.1587/transfun.2025EAL2050 general constructions 2026 theorem 5",
+        "doi:10.1109/TIT.2023.3319010 q-ary constructions bounds (1,k)"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2211.10309v4 (complete relevant scholarly HTML sections; initial version 2022-11-18)",
+      "doi:10.1109/TIT.2023.3319010 (abstract/secondary construction only; full text NOT read)",
+      "arxiv:2411.02899 and Springer DOI:10.1007/s12190-025-02441-z (relevant full HTML sections)",
+      "doi:10.1587/transfun.2025EAL2050 (relevant full HTML sections and Appendix B description)",
+      "Published mathematical findings titled Exact size and enumeration of maximum length-five non-overlapping codes; Exact length-six non-overlapping codes at alphabet sizes seven through nine; Exact ternary length-three strongly two-separable code size."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Blackburn et al., arXiv:2211.10309, Sec. II–VI: binary extremal search, general prefix/suffix graph reduction; no ternary k=3 exact maxima or complete optimizer census.",
+        "Yang–Ding, DOI:10.1587/transfun.2025EAL2050: Secs. 2–5 and Appendix B accessible HTML. Cor. 4.1 and Appendix B give exact sizes of their parametrized construction, including ternary size 72 at n=6; they do not give unrestricted sharpness or 42-extremizer classification.",
+        "Stanovnik, arXiv:2411.02899 / DOI:10.1007/s12190-025-02441-z: accessible full relevant sections on construction, expandability, and general bounds; no equality classification in the ternary (1,3) problem.",
+        "Cai–Wang–Feng, DOI:10.1109/TIT.2023.3319010: article abstract and Yang–Ding citation (Construction 2.4) describe ternary/q-ary constructions and k=2 exact optima; full text unavailable after OA/arXiv attempts and institutional-access VPN disconnection.",
+        "Our exhaustive 27-three-gram compatibility search returns the global upper bound 72 and all 42 equality sets, whereas the known I/J construction merely attains 72."
+      ],
+      "reasoning": "The general prefix/suffix reduction is not new. For q=3, k=3, n=6, Yang–Ding I/J construction with |I|=2, |J|=1 and prefix length three attains 72; a construction cannot imply that no larger code exists or that there are exactly 42 maxima. The new exhaustive certificate independently supplies the upper bound and the full equality classification; the factorization transfers both to all lengths >=6.",
+      "searches": [
+        "Blackburn Section II/III/V prefix suffix P S reduction",
+        "Yang and Ding Corollary 4.1 exact size of S_I,J^(k,1,t)(n)",
+        "Stanovnik general bound q-ary k n",
+        "Cai Wang Feng (1,k) q-ary article abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blackburn et al., arXiv:2211.10309, Sec. II–VI: binary extremal search, general prefix/suffix graph reduction; no ternary k=3 exact maxima or complete optimizer census.",
+        "Yang–Ding, DOI:10.1587/transfun.2025EAL2050: Secs. 2–5 and Appendix B accessible HTML. Cor. 4.1 and Appendix B give exact sizes of their parametrized construction, including ternary size 72 at n=6; they do not give unrestricted sharpness or 42-extremizer classification.",
+        "Cross-bifix-free/non-overlapping codes forbid all proper overlaps, unlike exactly lengths 1–3; descriptions of non-expandable constructions concern inclusion-maximal, not cardinality-maximizing, families."
+      ],
+      "reasoning": "Restricted-overlap/mutually uncorrelated/bifix-free aliases were considered. Full non-overlap constraints are stronger at n>4 and a code size or classification for those objects does not imply this all-length restricted-overlap optimum. Our exact pairwise maximum and optimizer census were not found under these aliases.",
+      "searches": [
+        "\"ternary (1,3)-overlap-free\" 72 42 exact optimum",
+        "\"q=3\" \"(1,3)\" \"overlap-free\" maximum",
+        "ternary (1,3)-overlap-free code length six exact maximum 72 all n at least 6 classification 42 maximum codes four symmetry orbits",
+        "maximum 3-ary restricted overlap free (1,3) code 72 times 3^{n-6} globally optimal and 42 codebooks",
+        "q=3 t=3 length=6 72 overlap free prefix suffix independent maximum exact",
+        "\"cross-bifix-free\" restricted overlaps ternary three lengths optimum",
+        "arxiv:2211.10309 full text Section II prefix suffix graph"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Yang–Ding, DOI:10.1587/transfun.2025EAL2050: Secs. 2–5 and Appendix B accessible HTML. Cor. 4.1 and Appendix B give exact sizes of their parametrized construction, including ternary size 72 at n=6; they do not give unrestricted sharpness or 42-extremizer classification.",
+        "Indexed nearby published results concern length-five unrestricted non-overlapping codes, length-six unrestricted non-overlapping codes over larger alphabets, and ternary strongly separable codes; none treats the present (1,3) restriction."
+      ],
+      "reasoning": "Appendix B numbers are for a named constrained construction, not the universal maximum, and contain no 42-code classification. Nearby indexed findings are about full non-overlap, other alphabet sizes, or strongly separable codes, not a table dominating the present exact restricted-overlap objective.",
+      "searches": [
+        "ternary (1,3)-overlap-free code length six exact maximum 72 all n at least 6 classification 42 maximum codes four symmetry orbits",
+        "maximum 3-ary restricted overlap free (1,3) code 72 times 3^{n-6} globally optimal and 42 codebooks",
+        "q=3 t=3 length=6 72 overlap free prefix suffix independent maximum exact",
+        "Yang and Ding Appendix B Table A.1 exact size of constructed families"
+      ]
+    },
+    "rationale": "The assessed claim is the global unrestricted optimum 72*3^(n-6) for ternary (1,3) restricted-overlap codes, including exactly 42 optimizers and four alphabet/reversal symmetry orbits, not the known existence of a size-72 construction. Relevant full source material does not state a global proof or the optimizer census, and actual semantic searches gave only constructions or mathematically different code families. Cai–Wang–Feng full text could not be read; it remains an explicit unresolved coverage risk. Failed searches are not treated as proof of absolute novelty.",
+    "residual_risks": [
+      "Complete Cai–Wang–Feng DOI:10.1109/TIT.2023.3319010 full text could not be lawfully accessed in this execution; the abstract and a later quotation of its construction were inspected, so possible unobserved ternary k=3 coverage remains.",
+      "The nearby Yang–Ding 2026 construction is an exact-size 72 lower-bound witness; novelty is global upper bound and exhaustive maximizers, not the number 72 as a construction size.",
+      "Unindexed equivalent finite-optimum computation or a stronger unpublished theorem remains possible; no search provides a mathematical uniqueness guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers general reduction and binary cases; not the global ternary length-three restricted-overlap census.",
+        "evidence": "Blackburn et al., arXiv:2211.10309, Sec. II–VI: binary extremal search, general prefix/suffix graph reduction; no ternary k=3 exact maxima or complete optimizer census.",
+        "identifier_or_url": "https://arxiv.org/html/2211.10309v4",
+        "material_read": "Abstract, theorem and prefix/suffix encoding in Sections I–II; binary constructions Sections III–V; final discussion Section VII",
+        "method": "Full-text accessible scholarly HTML with targeted section/theorem searches",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "Source paper specifying exact primary 94A45 cohort; closest general structural formulation"
+      },
+      {
+        "assessment": "Material accessible does not show global ternary k=3 classification. Inaccessible full text is a substantial residual novelty risk.",
+        "evidence": "Cai–Wang–Feng, DOI:10.1109/TIT.2023.3319010: article abstract and Yang–Ding citation (Construction 2.4) describe ternary/q-ary constructions and k=2 exact optima; full text unavailable after OA/arXiv attempts and institutional-access VPN disconnection.",
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3319010",
+        "material_read": "Abstract and bibliographic description, plus its Construction 2.4 as recounted in Yang–Ding Section 2. Full article text was NOT accessed.",
+        "method": "Searched arXiv and open access alternatives; authorized institutional document access failed because VPN was disconnected.",
+        "title": "Constructions and Bounds for q-Ary (1,k)-Overlap-Free Codes",
+        "trigger": "Same q-ary restricted overlap code family; plausible broader covering claim"
+      },
+      {
+        "assessment": "Supplies context/general upper bounds and construction theory, no ternary k=3 exact total/classification.",
+        "evidence": "Stanovnik, arXiv:2411.02899 / DOI:10.1007/s12190-025-02441-z: accessible full relevant sections on construction, expandability, and general bounds; no equality classification in the ternary (1,3) problem.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s12190-025-02441-z",
+        "material_read": "Abstract, definitions, construction and bounds, discussion and conclusions in the accessible full article",
+        "method": "Open-access full HTML inspection and targeted section matching",
+        "title": "Codes with restricted overlaps: expandability, constructions, and bounds",
+        "trigger": "Direct follow-up to general restricted-overlap optimum problem"
+      },
+      {
+        "assessment": "Already constructs a 72*3^(n-6)-word family. The tables concern constructions, not a global optimum/all equality cases. Credit lower bound, retain upper bound and classification.",
+        "evidence": "Yang–Ding, DOI:10.1587/transfun.2025EAL2050: Secs. 2–5 and Appendix B accessible HTML. Cor. 4.1 and Appendix B give exact sizes of their parametrized construction, including ternary size 72 at n=6; they do not give unrestricted sharpness or 42-extremizer classification.",
+        "identifier_or_url": "https://globals.ieice.org/en_transactions/fundamentals/10.1587/transfun.2025EAL2050/_f",
+        "material_read": "Full available HTML: abstract, Sections 1–5, Corollary 4.1, Theorem 4.2/5.2, Appendix B table descriptions",
+        "method": "Source HTML inspected with opening and finding relevant sections",
+        "title": "Q-Ary (t1, t2)-Overlap-Free Codes",
+        "trigger": "Direct q-ary extension with ternary t=3 table that could cover size 72"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "dd4cbc94-bc5d-4743-9a71-600c20d2bef1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Restricted short overlaps model frame synchronization without imposing arbitrary longer-overlap bans. The three-letter alphabet and forbidden overlap lengths 1..3 are the first small q-ary extension beyond published general exact k=2 cases. Known q-ary constructions include 72*3^(n-6), but only an unrestricted sharpness proof and complete 42-optimizer/orbit classification say whether the scheme is optimal and enumerate every equally efficient design. The exact upper bound and equality structure, rather than just reproducibility of a small table, motivate the contribution.",
+    "status": "PASS"
+  }
+}
