@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For a nondegenerate positive rate mixing law with finite third moment, A,B,C,E and their derivatives are defined. Strict Cauchy–Schwarz gives B²<AC and C²<BE, hence Q=A-B²/C is positive and strictly decreasing. The exact derivative hU′=C(A(U)-Q)/(A-A(U))² proves the iff cutoff and exactly one interior minimum; equality at the left boundary is handled. Implicit differentiation verifies increasing trough location and the linear critical onset. For finite rate mixtures the two-smallest-rate expansion of Q gives the stated large-U law. A standalone standard-library program verified 3,000 random rate mixtures on both cutoff sides, 6,000 finite differences, the two-rate exact threshold and finite-support asymptotics. These finite computations are supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Navarro, Guillamón and Ruiz (2009), DOI 10.1002/asmb.750, accessible abstract: generalized mixture of an increasing-hazard model and exponential model.",
+        "Block, Li, Savits and Wang (2008), DOI 10.1239/jap/1208358966, accessible abstract: continuous mixtures with bathtub-shaped failure rates."
+      ],
+      "reasoning": "General bathtub-shape mixture theorems might yield a related conclusion, but the available explicit descriptions concern mixing components of different hazard shapes, not right truncation of a purely decreasing-hazard exponential mixture. No concrete implication was found. Unavailable complete text is listed as a priority risk rather than declared noncovering.",
+      "searches": [
+        "hyperexponential distribution right truncation hazard rate bathtub unique minimum analytical phase transition",
+        "\"Continuous mixtures with bathtub-shaped failure rates\" Block Li Savits Wang 2008 PDF",
+        "\"Generalized mixtures in reliability modelling\" Navarro Guillamón Ruiz pdf filetype:pdf",
+        "general theorem truncated mixture of exponentials hazard shape rate distribution critical cutoff coefficient of variation"
+      ]
+    },
+    "checked_sources": [
+      "Godano, Lippiello, de Arcangelis (2014), DOI 10.1093/gji/ggu359, full author-posted text as legible.",
+      "Navarro, Guillamón, Ruiz (2009), DOI 10.1002/asmb.750, abstract and reference list.",
+      "Block, Li, Savits, Wang (2008), DOI 10.1239/jap/1208358966, abstract and reference list.",
+      "Published mathematical-result semantic searches for hazard truncation, mixed Gutenberg–Richter slopes, rate moments and two-slowest-rate asymptotics."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Godano et al. (2014), section 3.2 and eq. (6), give a *decreasing* effective slope for an untruncated two-rate mixture.",
+        "Godano et al. (2014), p. 1770, report that larger imposed upper magnitude cutoffs move the observed minimum and weaken the final increase in numerical simulations.",
+        "The new claim uses the different exact conditioned survival A(x)-A(U), proves an iff threshold A(Uc)=Var(rate)/E(rate²), and locates the large-U trough via the two smallest rates."
+      ],
+      "reasoning": "The known untruncated monotonicity and simulation upturn do not by themselves imply a universal, sharp cutoff criterion or the two-slowest-rate large-cutoff expansion. They motivate the question and cover the qualitative possibility of a trough, which is not claimed anew. The original source also studies a fitted b-value that differs from the exact differential hazard here.",
+      "searches": [
+        "Gutenberg Richter two b-value exponential mixture upper magnitude truncation effective local slope first decreases then increases critical cutoff point",
+        "\"Godano\" \"Lippiello\" \"cut-off\" \"b_eff\" \"two\" \"minimum\" 2014",
+        "\"Variability of the b value in the Gutenberg–Richter distribution\" pdf Godano Lippiello de Arcangelis 2014 open access",
+        "\"Generalized mixtures in reliability modelling\" Navarro Guillamón Ruiz pdf filetype:pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Godano et al. (2014), eq. (2): untruncated exponential rate-mixture mean; no finite conditioning denominator.",
+        "The base-ten effective slope is the hard-truncation hazard divided by log(10); no matching differential-cutoff classification found in accessible searchable material."
+      ],
+      "reasoning": "The alternative name is the hazard of a right-truncated hyperexponential (or completely monotone survival) law. This is an exact equivalence of objects, not a novelty claim. Searches for that equivalent formulation did not identify the joint sharp moment threshold, universal one-minimum classification and two-rate endpoint law. Non-discovery is not proof of uniqueness.",
+      "searches": [
+        "two exponentials mixture conditional truncated at upper endpoint hazard rate log derivative one interior minimum sharp support cutoff threshold",
+        "Bathtub-shaped hazard from right truncated completely monotone survival exponential rate mixture",
+        "\"right truncated\" \"mixture of exponentials\" \"hazard\" bathtub",
+        "\"conditional hazard\" \"right truncated\" \"mixture of exponential\" nonmonotonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "An indexed 2026 mathematical result on first two unlabeled exponential failure marginals addresses heterogeneous proportional-hazard identification, rather than the hazard shape after hard upper conditioning.",
+        "The inspected original magnitude-mixture source presents illustrative finite-cutoff simulations, not a complete parameter table of sharp cutoff thresholds."
+      ],
+      "reasoning": "There is no known exact database of finite cutoff hazard-minimum thresholds for arbitrary positive rate mixing distributions. No matching numerical table or existing finite parameter row was identified; the new criterion applies to all such measures and is not a recomputation of a table entry.",
+      "searches": [
+        "Godano Lippiello de Arcangelis 2014 Variability of the b value in the Gutenberg Richter distribution finite maximum cutoff exact phase threshold",
+        "right truncated hyperexponential distribution hazard at most one minimum first two rate moments cutoff criterion",
+        "\"truncated hyperexponential\" \"hazard rate\" minimum",
+        "\"upper truncated\" \"exponential mixtures\" hazard \"bathtub\""
+      ]
+    },
+    "rationale": "The motivating 2014 seismology paper explicitly gives untruncated rate-mixture slopes and simulates magnitude-cutoff upturns, so these are excluded from the claimed contribution. Its accessible author-uploaded article text, including formulas (1),(2),(6), cutoff simulations (Fig. 2) and conclusions, does not give the iff normalized-rate-variance cutoff, a strict all-mixing-law single-trough theorem, or the finite-mixture two-slowest-rate asymptotic. Broader hazard-mixture papers located describe mixing increasing-hazard components, not specifically right-conditioning an arbitrary exponential-rate mixture. Statement-based comparisons with indexed published mathematical results did not identify an implication equivalent to the combined claim. Full-text limitations and the possibility of unstated general truncation theorems are explicit residual risks.",
+    "residual_risks": [
+      "General reliability-theory work may contain an implicit version of the sharp cutoff criterion; a complete bibliographic survey was not possible.",
+      "Full text of Navarro et al. (2009) and Block et al. (2008) was not inspected, so an unexpectedly broad general theorem cannot be excluded.",
+      "The 2014 source’s finite-cutoff simulation behavior is prior art; only the stated exact universal classification and two-slowest asymptotic are claimed.",
+      "Finite-sample b-value estimation and catalog truncation are distinct from the differential slope and conditioning considered here."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical untruncated mixture slope and qualitative cutoff upturn covered. General iff variance criterion, exact all-mixture trough bound and two-slowest finite mixture asymptotic not stated in inspected material.",
+        "evidence": [
+          "2014 Geophysical Journal International 199:1765–1771, eqs. 1,2,6, section 3.2, pp. 1769–1770; author-uploaded article text at https://www.researchgate.net/publication/267284756_Geophysical_Journal_International_Variability_of_the_b_value_in_the_Gutenberg-Richter_distribution"
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/gji/ggu359",
+        "material_read": "Author-uploaded textual rendition of journal pp. 1765–1771, sections 1–4 including formulas (1),(2),(6), Figs. 2–4 captions, simulations in section 3.2 and conclusions; text extraction has some mathematical glyph loss.",
+        "method": "Compared original algebraic formulas and finite-cutoff simulation narrative to the complete new theorem, without assuming that matched keywords imply the same statement.",
+        "title": "Variability of the b value in the Gutenberg–Richter distribution",
+        "trigger": "Direct seismological precursor involving mixtures of Gutenberg–Richter exponents and an upper magnitude cutoff."
+      },
+      {
+        "assessment": "No direct coverage established from accessible abstract; unresolved broader-coverage risk remains.",
+        "evidence": [
+          "Applied Stochastic Models in Business and Industry 25 (2009) 323–337, abstract at publisher DOI."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/asmb.750",
+        "material_read": "Publisher abstract, bibliographic record and references; full article not accessible in this check.",
+        "method": "Compared explicit model class from publisher abstract (increasing-hazard plus exponential generalized mixture) with right truncation of an exponential rate mixture.",
+        "title": "Generalized mixtures in reliability modelling: Applications to the construction of bathtub shaped hazard models and the study of systems",
+        "trigger": "Plausible general hazard-mixture theory could dominate a specialized single-turning-point claim."
+      },
+      {
+        "assessment": "Abstract does not establish this conditioning-based sharp rate-moment criterion; full-text uncertainty recorded.",
+        "evidence": [
+          "Journal of Applied Probability 45 (2008), 260–270; Cambridge Core abstract and reference list."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1208358966",
+        "material_read": "Publisher abstract and bibliography; full paper not read.",
+        "method": "Compared described families of mixed failure distributions to the conditioned fixed-endpoint exponential mixtures in the claim.",
+        "title": "Continuous mixtures with bathtub-shaped failure rates",
+        "trigger": "Potential stronger theorem about bathtub hazards in mixture distributions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f3d0fe36-d81c-4db1-b30b-4ac9992850c7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2014 seismology literature motivates an actual ambiguity between heterogeneous magnitudes and finite upper cutoffs, but lacks a universal criterion for when a local logarithmic-slope trough can exist. This finding gives a necessary-and-sufficient rate-heterogeneity threshold for every positive mixing law with finite third moment, proves the full turning-point topology, and identifies a two-slowest-rate control of the trough’s large-cutoff position. These have clear mathematical roles in magnitude-distribution interpretation and are not simply a chosen numeric example, code check or a renamed known untruncated mixture property. Applicability to finite fitted catalogs is expressly limited.",
+    "status": "PASS"
+  }
+}
