@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "Exhaustive explicit enumeration at \\(k=2,3,4\\) yields 911, 16391, 272861 total faces; every one of 3700, 89089, 1913226 Hasse incidences is checked, and all directed Hasse graphs are acyclic. Signed gradient-path matrices have exact integer Smith diagonals of units, with chain-square-zero identities. Standard cellular cancellations then prove \\(S^2\\vee S^2\\vee S^3\\), \\(S^3\\), and \\(S^3\\). The supplied script reexecutes all checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2512.09674 Theorem 4.8 treats \\(\\mathcal N(H_k(W_{3k+1}))\\) and gives a circle; it does not quantify over 3k+2.",
+        "arXiv:2510.22574 Theorem 1.6 establishes the total-cut type \\(S^5\\) for \\(W_{3k+2}\\), a complex on \\(n\\) original graph vertices.",
+        "A published calculation on the ordinary neighborhood complex of \\(C_n^3\\) concerns \\(\\mathcal N(C_n^3)\\), not \\(\\mathcal N(H_k(C_n^2))\\)."
+      ],
+      "reasoning": "There is no implication from the adjacent residue and different graph constructions to these cases. The total-cut nerve is specifically not generally a good cover according to Proposition 4.10 of arXiv:2512.09674.",
+      "searches": [
+        "arxiv \"Homotopy Type of Total Cut Complexes of Squared Cycle Graphs\" \"3k+2\" original 2025",
+        "\"squared cycle\" \"neighborhood complex\" k-stable Kneser 3k+2",
+        "third-power-cycle neighborhood complexes collapse to parity-twisted sphere bundles",
+        "\"neighborhood complex\" \"W_11\" \"k-independent\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2512.09674 (full-text relevant statements inspected)",
+      "arXiv:2510.22574 (full-text relevant statements inspected)",
+      "Published records: third-power cycle ordinary neighborhood-complex sphere-bundle computation, inapplicable since its graph is C_n^3",
+      "Published records: borderline squared-cycle ordinary cut-complex f-vector computation, inapplicable since it is not an open-neighborhood complex"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2512.09674 Proposition 4.10 explicitly says its nerve cover may not be good.",
+        "arXiv:2510.22574 Theorem 1.6: \\(\\Delta_k^t(W_{3k+2})\\simeq S^5\\) for \\(k\\ge3\\).",
+        "New exact \\(\\mathcal N(H_3(W_{11}))\\) and \\(\\mathcal N(H_4(W_{14}))\\) types are \\(S^3\\), therefore they cannot follow from a good-cover equivalence to the corresponding \\(S^5\\) nerves."
+      ],
+      "reasoning": "The exact statements are not corollaries of either primary theorem: one has different parameter residue; the other has a different underlying simplicial complex. The new homotopy discrepancy additionally refutes good-cover applicability for these three concrete instances.",
+      "searches": [
+        "total cut W_(3k+2) S^5 versus neighborhood complex induced k independent graph",
+        "\"induced k-independent\" \"3k+2\" squared cycle neighborhood",
+        "neighborhood complexes distance at least three separated sets of cycle n=3k+2 Kneser disjointness"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2512.09674: H_k(G) is the disjointness graph on independent k-sets of G (Definition in Section 4).",
+        "The constructed \\(H_k(W_{3k+2})\\) is equivalently the disjointness graph on maximum three-separated cyclic packings; it is not the ordinary stable Kneser graph of the unsquared cycle."
+      ],
+      "reasoning": "The listed equivalent forms were searched. Their vertex counts are 12,22,35 and their faces are common-neighbor families; no identified source computes the asserted homotopy types.",
+      "searches": [
+        "disjointness graph on cyclic stable k-sets with separation three, Lovasz neighborhood complex square of cycle W_n",
+        "\"maximum independent sets\" \"disjointness graph\" \"cycle square\" topology",
+        "2026 Shen Song Yu Zhou Zhuang squared-cycle graphs W_3k+2 neighborhood complex",
+        "2025 2026 homotopy type neighborhood complexes of induced k-independent graphs total cut complexes stable Kneser"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2510.22574 Section 5 tables concern total-cut complexes of cycle powers, not neighborhood complexes of induced k-independent-set graphs.",
+        "An indexed calculation of face vectors of ordinary squared-cycle cut complexes on \\(n=k+5\\) also concerns a different face condition and distinct parameter locus."
+      ],
+      "reasoning": "No exact database entry or table matching the three requested open-neighborhood integral homotopy types was found. Negative retrieval is not a uniqueness certificate.",
+      "searches": [
+        "N(H_2(W_8)) S^2 wedge S^3; N(H_3(W_11)) S^3; N(H_4(W_14)) S^3",
+        "face vector and Euler characteristic of the borderline squared-cycle cut complexes",
+        "2026 Shen Song Yu Zhou Zhuang squared-cycle graphs W_3k+2 neighborhood complex",
+        "site:arxiv.org \"3k+2\" \"Neighborhood Complexes\" squared cycle"
+      ]
+    },
+    "rationale": "The 2025 induced-k-independent-graph paper computes the \\(n=3k+1\\) neighborhood case and provides a nerve cover, but not these \\(n=3k+2\\) cases; the related squared-cycle paper computes total-cut complexes, not the induced-set graph neighborhood complexes. Accessible primary-source and indexed comparisons found no implication that determines the three new integral homotopy types. Remaining risk of unindexed equivalence is recorded.",
+    "residual_risks": [
+      "An equivalent unindexed or unpublished computation may exist.",
+      "The finite classifications do not determine behavior for \\(k\\ge5\\).",
+      "No independent audit of the finite checker or cancellation argument has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: computes squared-cycle 3k+1 neighborhood case and states general cover relation; not the 3k+2 neighborhood types.",
+        "evidence": [
+          "Theorem 4.8 concludes \\(\\mathcal N(H_k(W_{3k+1}))\\simeq S^1\\).",
+          "Proposition 4.10 explicitly says the cover may not be good."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2512.09674",
+        "material_read": "Accessible full-text HTML, especially Definitions 2.4/2.5, Sections 3/4, Theorem 4.8, Example 4.9 and Proposition 4.10.",
+        "method": "Examined actual definitions, theorem hypotheses, parameter ranges and the limitation stated after Proposition 4.10.",
+        "title": "Neighborhood Complexes of induced k-independent graphs",
+        "trigger": "Exact construction and nearest parameter family"
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem 1.6 is for the total-cut nerve on n cyclic vertices, not the neighborhood complex of the disjointness graph.",
+        "evidence": [
+          "Theorem 1.6 gives \\(\\Delta_k^t(W_{3k+2})\\simeq S^5\\) for \\(k\\ge3\\).",
+          "Section 5 explicitly discusses total-cut-complex homology tables, not the present neighborhood complexes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2510.22574",
+        "material_read": "Accessible full-text HTML: introduction and Theorem 1.6, definitions of total-cut complexes, last steps of the \\(n=3k+2\\) proof, Section 5 conclusions and tables.",
+        "method": "Compared exact underlying vertex sets and face conditions with the new neighborhood complex.",
+        "title": "Homotopy Type of Total Cut Complexes of Squared Cycle Graphs",
+        "trigger": "Potential stronger \\(n=3k+2\\) theorem and source chronology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8f7c657-e0c8-42c8-8990-575a3891844a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The three consecutive nontrivial \\(3k+2\\) maximum packing cases fill the adjacent parameter residue omitted from a recent neighborhood-complex theorem. The \\(k=2\\) mixed-dimensional result and \\(k=3,4\\) three-spheres show a meaningful transition; their disagreement with the independently published total-cut sphere types proves the canonical nerve covers are not good. This is a complete finite natural classification, not arbitrary recomputation of a known table.",
+    "status": "PASS"
+  }
+}
