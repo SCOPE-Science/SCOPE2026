@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:54:23Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read assigned RESULT.md, VERIFY.py and VERIFICATION.md with exact Git blob hashes; reconstructed seven-file assigned Git tree independently.",
+        "Independently generated 120,000 deterministic equal-area spherical points and computed tetrahedral dot-product membership directly: at seven radii 0.4..2.7 maximum absolute differences <0.00024 from the exact five-state law.",
+        "Independently evaluated p2(r0+eps)/eps^(3/2) and p0(b0-eps)/eps^2, p3(b0+eps)/eps^2 at eps=0.01,0.003,0.001; values converge to the claimed analytic coefficients. The geometric spherical sector and tangent-plane arguments provide the all-radius proof."
+      ],
+      "rationale": "For unit sphere S^2 and four fixed regular-tetrahedral centers with pair dot product -1/3, radius r in [0,pi], the cap area a=(1-cos r)/2 and spherical isosceles lens b(r) give the p0...p4 distribution by first and second binomial moments. For r<arccos(1/3) no positive-area triple overlap; for r>=that covering radius p0=0; below pi/2 no fourfold overlap. Antipodal complement p_k(r)=p_{4-k}(pi-r) supplies upper hemisphere. Local pair tangency has 3/2 onset and isolated triple/coverage contact has exponent 2 and matching coefficients.",
+      "risks": [
+        "The sphere dimension is 2, and all four centers are fixed regular-tetrahedral positions; random-center claims are inapplicable.",
+        "Finite quasi-Monte Carlo/spherical quadrature does not establish exact all-radius formulas or contact exponents."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary simplex multiple-overlap theorem assumes sphere dimension >=3 / at least five simplex vertices, excluding fixed tetrahedron S²; two-cap area is a known ingredient."
+        ],
+        "reasoning": "General lens formulas plus inclusion-exclusion do not by themselves specify which triple/zero/fourfold multiplicities vanish in each regime or both contact exponents; simplex high-d theorem is out-of-domain.",
+        "searches": [
+          "Resultary record 2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7",
+          "Tarnai Fowler Kabai 2003 full accessible text",
+          "SIGGRAPH 2006 course spherical cap lens"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1098/rspa.2003.1160",
+        "arXiv:1502.06931",
+        "Resultary simplex spherical caps 2026-10-04",
+        "arXiv:1205.1396 spherical cap solid angles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The closest packing paper studies nonoverlapping regular-tetrahedral quartets (N=1..8); Finch studies randomized 4 cap centers and full coverage probability; broader simplex cap integral excludes S²."
+        ],
+        "reasoning": "The new area distribution is neither the pack radius nor random-center coverage probability and is not a same-parameter corollary of the dimensional result.",
+        "searches": [
+          "Tarnai Fowler Kabai DOI:10.1098/rspa.2003.1160",
+          "Finch arXiv:1502.06931",
+          "Resultary simplex caps 2026-10-04"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed tetrahedron cap centers form an S4-symmetric spherical arrangement. The closest fixed-center paper optimizes nonoverlapping circle packs, whereas Finch randomizes centers."
+        ],
+        "reasoning": "Both object aliases checked: four cap-overlay coverage counts and regular tetrahedral circle packing. The variable is uniform test point, not random centers.",
+        "searches": [
+          "Resultary: regular tetrahedron four equal spherical caps multiplicity coverage area distribution contact asymptotics",
+          "Tarnai Fowler Kabai 2003 tetrahedral quartets circles",
+          "web: tetrahedron spherical cap probability covered exactly twice area",
+          "arXiv:1502.06931"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Tarnai et al. discuss radius/packing and cover-type objectives, not an identified full five-state distribution for a uniform test point; Mazonka is general intersection solid-angle geometry."
+        ],
+        "reasoning": "This is a continuous radial spectrum rather than a discrete known integer table. General cap-intersection algorithms might in principle reproduce particular radii, but a documented exact full tetrahedral profile was not located.",
+        "searches": [
+          "spherical cap tetrahedron K(x)=0,1,2,3,4 probability table",
+          "Mazonka 2012 Intersecting Spherical Caps arXiv:1205.1396",
+          "Tarnai Fowler Kabai 2003 tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is the entire five-state multiplicity law including antipodal duality and distinct sharp contact exponents, not the classical two-cap lens or known packing/covering thresholds.",
+      "residual_risks": [
+        "An older spherical tessellation/solid angle overlay formula may specialize exactly to five-state law.",
+        "Only selected sections, not all appendices, of the most directly relevant 2003 tetrahedral-packing paper were inspected.",
+        "General spherical-cap computer formulas could give same distribution after specialization; search failure is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Addresses maximizing disjoint cap radius with tetrahedral quartet constraint; no complete five-state stochastic coverage law in inspected sections; residual risk unexamined tables/appendix.",
+          "evidence": "DOI:10.1098/rspa.2003.1160; mathematical problem centers on nonoverlapping equal circles.",
+          "identifier_or_url": "https://www.researchgate.net/publication/239037482_Packing_of_regular_tetrahedral_quartets_of_circles_on_a_sphere",
+          "material_read": "Accessible reproduced primary text: abstract, problem formulation, solutions N=1..8, packing-contact description and figures.",
+          "method": "Published Royal Society A text reproduced online.",
+          "title": "Packing of regular tetrahedral quartets of circles on a sphere",
+          "trigger": "Identical tetrahedral centers and caps."
+        },
+        {
+          "assessment": "Not a covering theorem for four deterministic tetrahedral centers.",
+          "evidence": "Random cap-center probability does not determine K_r(X) conditional on fixed tetrahedron.",
+          "identifier_or_url": "https://arxiv.org/abs/1502.06931",
+          "material_read": "Accessible abstract and mathematical model distinguishing randomized centers from fixed regular tetrahedron.",
+          "method": "arXiv public abstract and model comparison.",
+          "title": "Covering a Sphere with Four Random Circular Caps",
+          "trigger": "Same number of caps, potentially misidentified coverage theorem."
+        },
+        {
+          "assessment": "Its explicitly described assumptions exclude S² tetrahedral four-cap instance; no whole-document noncoverage asserted from snippet.",
+          "evidence": "Result says n>=5, sphere dimension>=3, while this claim is four tetra centers on S².",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-third-order-union-formula-at-the-first-multiple-overlap-th--e4ea7f0caeb7",
+          "material_read": "Resultary published title and mathematical summary, source degree range n>=5; not full primary text.",
+          "method": "Resultary semantic record lookup.",
+          "title": "Exact third-order union formula at first multiple-overlap threshold for simplex-centred spherical caps",
+          "trigger": "Similar published same cap geometry with stronger possible statement."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Five-state law gives all intersection-count probabilities for every r, not just mean coverage.",
+        "Analytic 3/2 and quadratic onset constants describe distinct local singularities in an exact sphere arrangement."
+      ],
+      "rationale": "Determines a complete and natural five-multiplicity coverage probability for a canonical four-point spherical code, including exact switch of uncovered and threefold-covered areas and two different contact exponents. This is substantially beyond known pairwise lens geometry or a single packing threshold.",
+      "risks": [
+        "No variable-center optimization and no more-general spherical code extension established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

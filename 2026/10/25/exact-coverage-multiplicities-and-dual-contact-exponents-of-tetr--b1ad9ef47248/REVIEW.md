@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The spherical two-cap lens is derived by sector-minus-kite area, not assumed from a numerical fit. The support-plane proof supplies the exact tetrahedral covering radius and the unique four gap sites, the zero-sum identity rules out fourfold overlap on the lower hemisphere of radii, and the binomial-moment inversion fixes all five probabilities. Antipodal complementarity covers larger radii. Rescaled normal-coordinate triangles and the tangent-circle parabolas establish the two sharp endpoint powers and constants. `VERIFY.py` provides finite corroboration but is not the proof.
+## correctness
 
-**Originality — PASS at best-knowledge coverage, with residual risk.** The 2003 tetrahedral quartet paper treats packing and the intermediate uncovered-area optimization, not the exact five-state covering law. Finch's 2015 four-cap result makes centers random; its target distribution does not imply the fixed tetrahedral answer. The published simplex-cap triple integral assumes \(n\ge4\) on \(S^{n-1}\) and has neither the \(n=3\) multiplicity inversion nor its paired critical coefficients. Existing general two-cap formulas are recognized as ingredients, not misrepresented as original. Specific indexed and ledger comparisons found no dominating exact table; unindexed equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** The regular tetrahedron is the canonical four-site spherical packing/covering configuration. Exact single-, double-, triple- and eventual fourfold-coverage fractions across *all* cap radii form a reproducible benchmark for the intermediate spherical covering problem; the \(3/2\)-to-\(2\) change of singularity and equal gap-closure/triple-onset coefficient describe a genuine geometry-dependent transition not present in merely quoting a two-cap area formula. It is a finite-dimensional exact invariant, with no assertion about general optimal arrangements.
+For unit sphere S^2 and four fixed regular-tetrahedral centers with pair dot product -1/3, radius r in [0,pi], the cap area a=(1-cos r)/2 and spherical isosceles lens b(r) give the p0...p4 distribution by first and second binomial moments. For r<arccos(1/3) no positive-area triple overlap; for r>=that covering radius p0=0; below pi/2 no fourfold overlap. Antipodal complement p_k(r)=p_{4-k}(pi-r) supplies upper hemisphere. Local pair tangency has 3/2 onset and isolated triple/coverage contact has exponent 2 and matching coefficients.
 
-**Limitations.** The novelty assessment is not exhaustive. The result does not settle random-cap coverage or general spherical simplex overlap distributions. Numerical sampling is supplementary and independent audit is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is the entire five-state multiplicity law including antipodal duality and distinct sharp contact exponents, not the classical two-cap lens or known packing/covering thresholds.
+
+## value
+
+PASS
+
+Determines a complete and natural five-multiplicity coverage probability for a canonical four-point spherical code, including exact switch of uncovered and threefold-covered areas and two different contact exponents. This is substantially beyond known pairwise lens geometry or a single packing threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
