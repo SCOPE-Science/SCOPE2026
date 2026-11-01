@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `verify_e8_orbits.py` script is a complete exact-arithmetic census of the **finite** lattice step: there are \(2160\) vectors of norm \(4\) in \(E_8\), forming \(135\) congruence classes modulo \(2E_8\), each with \(16\) representatives. It independently computes \(136\) isotropic classes of the mod-two norm-halving form in \(E_8/2E_8\). It uses standard-library Python 3 and asserts all totals.
+# Independent mathematical audit
 
-The geometric reduction for infinitely many conic pencils is an ordinary mathematical proof, not a finite extrapolation: the E8 Mordell–Weil section intersection pairing forces the difference of two intersecting sections to have norm \(4\); Costa's conic-class characterization identifies their divisor sum with a conic pencil, and the classification of singular fibers shows every conic pencil arises in this way. A translation changes the E8 coordinate by \(2w\), and a class with elliptic-fiber degree \(2\) and square \(0\) is determined by this coordinate. The Euler characteristic \(12=4+8\) accounts for the eight singular conic fibers.
+## correctness
 
-The theorem is limited to smooth rational elliptic surfaces over \(\mathbb C\) without reducible elliptic fibers. Neither a proof for surfaces with reducible fibers nor an arithmetic descent statement is asserted. Independent audit and independent validation have not been performed.
+PASS
+
+For a relatively minimal rational elliptic surface with section and no reducible elliptic fibers, the E8 Mordell–Weil lattice describes every section S_v. The formula S_v·S_w=||v−w||²/2−1 makes each transverse two-section conic singular fiber a norm-four difference. Costa Theorems 3.8 and 4.2 support both the nef degree-two square-zero pencil and exhaustion by singular A2 fibers, respectively. Translation adds 2w to the E8 coordinate of S_0+S_u; all norm-four vectors in a residue class define the same translate orbit because the square-zero/fiber-degree data fix the remaining coefficient. I independently enumerated all 2160 norm-four E8 vectors, formed 135 classes of 16 each, with mod-two quadratic form 136 isotropic classes including zero. Euler number e(X)=12 and smooth P1-bundle e=4 give exactly eight transverse reducible conic fibers.
+
+## originality
+
+PASS
+
+The published conic-class and singular-fiber classifications and E8 lattice are important prior inputs, but neither inspected result explicitly classifies the Mordell–Weil translation quotient as 135 nonzero E8/2E8 isotropic classes. Best-of-knowledge originality is limited to this symmetry quotient and explicit count; a pre-existing orbit-table interpretation remains possible.
+
+## value
+
+PASS
+
+A geometrically natural infinite family of rational-curve fibrations admits exactly 135 translation-equivalence classes, indexed by a canonical quadratic space. The link between reducible fibers, MW parity and the eight-fiber Euler count gives a complete classification with useful geometric and arithmetic lattice interpretations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

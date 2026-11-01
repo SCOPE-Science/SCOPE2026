@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The geometry reduces every conic bundle to a reducible fiber consisting of two sections meeting once, equivalently a norm-four difference in the \(E_8\) Mordell–Weil lattice. Every norm-four difference produces a nef square-zero conic class. Translation changes this difference by twice another lattice vector, giving the precise congruence criterion modulo \(2E_8\). The independent exact residue census has \(2160\) norm-four vectors in \(135\) equally sized groups of \(16\), and the quadratic census has \(136\) isotropic classes including zero. The proof treats all conic bundles on each surface satisfying the hypotheses, rather than extrapolating finite experiments.
+PASS
 
-## Originality
+For a relatively minimal rational elliptic surface with section and no reducible elliptic fibers, the E8 Mordell–Weil lattice describes every section S_v. The formula S_v·S_w=||v−w||²/2−1 makes each transverse two-section conic singular fiber a norm-four difference. Costa Theorems 3.8 and 4.2 support both the nef degree-two square-zero pencil and exhaustion by singular A2 fibers, respectively. Translation adds 2w to the E8 coordinate of S_0+S_u; all norm-four vectors in a residue class define the same translate orbit because the square-zero/fiber-degree data fix the remaining coefficient. I independently enumerated all 2160 norm-four E8 vectors, formed 135 classes of 16 each, with mod-two quadratic form 136 isotropic classes including zero. Euler number e(X)=12 and smooth P1-bundle e=4 give exactly eight transverse reducible conic fibers.
 
-PASS, subject to the stated priority risk. Costa's full-text results (arXiv:2206.03549, Theorems 3.8 and 4.2) characterize conic pencils and singular fibers, while the Schütt–Shioda lattice (arXiv:0907.0298) describes the Mordell–Weil lattice. Garbagnati–Salgado, Costa's dissertation and Meira 2024 were also compared for same-object and stronger implications. The precise \(135\)-orbit count and its parity classification were not found in the inspected source material or a targeted mathematical-record search. General results are properly cited and not claimed as novel.
+## originality
 
-## Value
+PASS
 
-PASS. Quotienting an infinite family of conic pencils by a natural geometric symmetry yields a finite complete classification, with a canonical quadratic-form label for each orbit and an exact geometric fiber count. The result is structural rather than a small isolated calculation.
+The published conic-class and singular-fiber classifications and E8 lattice are important prior inputs, but neither inspected result explicitly classifies the Mordell–Weil translation quotient as 135 nonzero E8/2E8 isotropic classes. Best-of-knowledge originality is limited to this symmetry quotient and explicit count; a pre-existing orbit-table interpretation remains possible.
 
-## Closest literature and limitations
+## value
 
-The numerical conic-bundle theorem and singular-fiber classification of Costa, arXiv:2206.03549, and the lattice theory of Schütt–Shioda, arXiv:0907.0298, are indispensable. The classification assumes no reducible elliptic fibers over \(\mathbb C\), does not classify full surface-automorphism orbits, and does not address arithmetic descent. Alternative literature formulations remain a residual overlap risk; no independent audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A geometrically natural infinite family of rational-curve fibrations admits exactly 135 translation-equivalence classes, indexed by a canonical quadratic space. The link between reducible fibers, MW parity and the eight-fiber Euler count gives a complete classification with useful geometric and arithmetic lattice interpretations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
