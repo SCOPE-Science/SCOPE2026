@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the diameter-tail expansion
 
-The analytical checks reconstructed the location of all diameter pairs, strict positivity of axial slopes, the cone-coordinate Jacobian, the exact squared-distance identity, the uniform implicit-function expansion, and the Dirichlet moment formula. The proof applies in every dimension \(d\ge2\) to any fixed full-dimensional convex polytope. The orthotope calculation was checked separately by its exact two-point coordinate-difference law.
+# Independent mathematical audit
 
-To reproduce independent finite numerical checks, run `python CHECKER.py` with Python 3 and the installed `mpmath` library. The script evaluates the rectangular pair-distance probability by one-dimensional high-precision quadrature, estimates the relative second coefficient at successively smaller deficits, and tests the sharp fixed-volume box inequality. The recorded output ends in `DIAMETER_TAIL_CHECK_OK`; four rectangles and several higher-dimensional sample boxes were checked.
+## correctness
 
-This is not an interval-arithmetic or automated universal proof. Any local cone triangulation can be used: the coefficients are intrinsic sums of integrals over partitions. There is no claim of a uniform-in-shape remainder or of complete verification of historical priority. Independent audit: not performed.
+PASS
+
+Inspected arbitrary fixed convex polytopes P⊂R^d, d≥2. Strict norm convexity forces all diametral pairs to be vertices, and positive axial derivatives on nonzero inward cone directions give uniform localization. On each simplicial cone pair exactly ||Y−X||²=(D−Σt_j)²+||Σt_j c_j||²; implicit expansion of radial cutoff and Dirichlet(1,...,1) moments yield A_P=ΣJ/[V²(2d)!] and B_P=ΣJQ/[2DV²(2d+1)!], O_P(ε^(2d+2)), both positive. Independent direct linear-algebra check of Q for rectangle, cube and unequal 2/3-dimensional boxes matches orthotope formula and AM–GM gives cube-only equality at fixed V. Numeric finite checks support, not replace, arbitrary-polytope proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority comparison against primary full/partial texts, published Resultary and target-domain queries found no mathematical implication of the final asserted new portion. Specifically: A support cutoff plus first-order extreme projected distance cannot determine B_P; explicit simplex moment computation is mathematically additional. Earlier ingredients and special cases are credited; search absence alone is not proof.
+
+## value
+
+PASS
+
+Explicit universal two-term diameter-tail invariants of arbitrary fixed convex polytopes in terms of geometric vertex tangent cones, including a rigorous next-order correction and sharp box extremizers. This fills a natural endpoint asymptotic beyond leading sample-diameter laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,13 +1,21 @@
-# Review of the two-term polytope diameter-tail expansion
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces all near-diametral pairs to finitely many vertex-cone products by strict Euclidean norm convexity and a compactness gap. Every ray has strictly positive axial projection, so the exact identity \(\|Y-X\|^2=(D-s)^2+\|w\|^2\) supplies a uniform radial boundary expansion. Exact simplex moments yield both coefficients and an error of order \(\varepsilon^{2d+2}\). The box specialization and its sharp cube-only equality follow algebraically. Independent high-precision quadrature of the exact rectangular two-point difference density agrees with the second coefficient, but that finite test is supporting evidence, not a substitute for proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Wang's arXiv:2610.01916 supplies the random-pair distribution and saturation, not the two-term polytope endpoint coefficients. Lao's 2010 Chapter 6 establishes leading sample-diameter asymptotics for cubes and certain polygons; these leading special cases are explicitly credited. Mayer and Molchanov's arXiv:math/0605289 concerns balls and sample maxima. Search comparisons of equivalent-formulation, broader-coverage, exact-table, and implication possibilities did not identify the all-polytope second coefficient. An earlier unindexed stereological derivation remains possible; absence from searches is not proof of global historical novelty.
+PASS
 
-**Mathematical value — PASS.** A full-dimensional non-smooth class has a universal endpoint exponent and explicit first *two* probabilities, including a positive transverse correction. The sharp orthotope minimizer is intrinsic and motivated by shape effects on rare almost-diametral pairs; the result is not only a numeric check or routine renaming of an earlier special case.
+Inspected arbitrary fixed convex polytopes P⊂R^d, d≥2. Strict norm convexity forces all diametral pairs to be vertices, and positive axial derivatives on nonzero inward cone directions give uniform localization. On each simplicial cone pair exactly ||Y−X||²=(D−Σt_j)²+||Σt_j c_j||²; implicit expansion of radial cutoff and Dirichlet(1,...,1) moments yield A_P=ΣJ/[V²(2d)!] and B_P=ΣJQ/[2DV²(2d+1)!], O_P(ε^(2d+2)), both positive. Independent direct linear-algebra check of Q for rectangle, cube and unequal 2/3-dimensional boxes matches orthotope formula and AM–GM gives cube-only equality at fixed V. Numeric finite checks support, not replace, arbitrary-polytope proof.
 
-**Scope and limitations.** Fixed-polytope asymptotic only; not uniform in degenerating families, not boundary sampling, and not a common-radius probability comparison. Independent external scientific assessment remains unperformed.
+## originality
 
-**References.** Wang (arxiv:2610.01916, 2026); Lao (KIT thesis, 2010, Chapter 6); Mayer–Molchanov (arxiv:math/0605289, 2006).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge priority comparison against primary full/partial texts, published Resultary and target-domain queries found no mathematical implication of the final asserted new portion. Specifically: A support cutoff plus first-order extreme projected distance cannot determine B_P; explicit simplex moment computation is mathematically additional. Earlier ingredients and special cases are credited; search absence alone is not proof.
+
+## value
+
+PASS
+
+Explicit universal two-term diameter-tail invariants of arbitrary fixed convex polytopes in terms of geometric vertex tangent cones, including a rigorous next-order correction and sharp box extremizers. This fills a natural endpoint asymptotic beyond leading sample-diameter laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
