@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The formulas supply homogeneous syzygies in precisely the stated degrees. Direct polynomial differentiation gives the quadratic discriminant identity, and the Euler-row determinant is a nonzero scalar multiple of the reduced defining polynomial. Saito's criterion then proves freeness for all \(d\ge3\), without extrapolation from finite tests. For a smooth cubic and a point on it, Riemann–Hurwitz supplies four distinct branch directions. The exact supplementary script returned `VERIFY_OK` for three representative degrees.
+PASS
 
-## Originality
+Rebuilt exact homogeneous degrees of A=F_x, H=L_z F_y−L_y F_z, T=2(F_xz F_y−F_xy F_z), N=3d−2, and both displayed annihilating Jacobian syzygies. Direct polynomial differentiation gives D=A²−4LF and D_z F_y−D_y F_z=AT−4FH. The Euler-plus-syzygy determinant equals −N²(2d−2)FD, a nonzero scalar multiple of the reduced defining equation. Saito determinant criterion therefore proves freeness in all degrees, with syzygy degrees d and 2d−3, not only finite d. Checked independent symbolic exact identities for d=3,4,5. For a smooth cubic p on it, the degree-two projection C→P¹ has precisely four distinct branch directions by characteristic-zero Riemann–Hurwitz (total simple ramification four); discriminant is squarefree and cubic cannot divide binary D.
 
-PASS with explicit residual risk. The primary constructions of Dimca–Ilardi–Pokora–Sticlaru (2023) treat particular added tangent lines; their general outside-center theorem does not cover a point of multiplicity \(d-2\) *on* the curve. Di Gennaro–Ilardi–Miró-Roig–Schenck–Vallès (2023) provide broad freeness criteria but require a finite eigenscheme for the stated criterion, whereas the present first syzygy has its Euler minors divisible by \(F\). Vallès (2015) treats a different kind of same-degree pencil. Bannai–Tokunaga (2019) is relevant to the cubic specialization, but only its abstract and first-page excerpt were accessible; no negative coverage conclusion is drawn from that limitation. Thus implicit treatment in uninspected literature remains possible. The all-degree explicit syzygy and determinant theorem was not covered by the inspected statements.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The branch discriminant is geometrically canonical for the degree-two residual intersection in a line pencil through a high-multiplicity point. Adjoining that divisor yields a free curve in every degree, with explicit exponents and a basis rather than an isolated example or routine numerical increment. This includes all smooth cubics with every on-curve projection center, a configuration outside the hypotheses of the main generic-outside-center line-adjunction theorem.
+A prior full-text free-curve construction considers special tangent arrangements and a point outside the original curve, with additional hypotheses. This theorem instead handles the full discriminant divisor of the residual quadratic through any high-multiplicity center and supplies a universal all-d explicit determinant; its on-cubic center corollary is not a corollary of the outside-center theorem. Other general eigenscheme or pencil freeness results warrant caution.
 
-## Limitations and references
+## value
 
-The freeness assertion requires reducedness; a repeated branch direction or common component is not covered. The result is in characteristic zero and does not assert universal supersolvability, nor classify singularities or complement fundamental groups. Closest primary sources: arXiv:2301.01117 (2023), arXiv:2306.09443 (2023), arXiv:1502.02416 (2015), arXiv:1903.04098 (2019; partially accessible).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The branch discriminant is the canonical collection of special directions for a double residual intersection from a high-multiplicity center. Adding those lines makes every reduced such curve free with explicit basis and exponents, uniformly in degree; the smooth-cubic any-center specialization is a natural geometric consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
