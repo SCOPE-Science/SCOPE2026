@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The selected-cell incidence graph is a forest for every legal open-neighborhood prefix: the exact uncovered-cell formula and the impossibility of closing a cycle prove this without any computational assumption. A spanning-tree-length sequence can exist only when the two sides have consecutive sizes, by counting remaining vertices, isolated matching components, and legal steps after one side first becomes exhausted. The two constructive sequences are legal throughout and meet the respective upper bounds. The skew-zero-forcing consequence is derived from the established general duality. Exhaustive computation supports, but is not used as proof of, the universal claims.
+PASS
 
-## Originality — PASS (bibliographic uncertainty retained)
+Represent each rook cell as an edge of K_{p,q}. The exact uncovered-cell set after a chosen edge prefix is unused-row×unused-column cells plus chosen incidence edges that remain isolated K2 components. A legal newly chosen edge with both endpoints used must touch an isolated previous component, hence joins different forest components; if an endpoint is unused, it cannot form a cycle. Thus EVERY legal prefix is a forest and length<=p+q−1. If a spanning tree is attained, at first exhaustion of one side, with b opposite unused vertices, c existing edge components, and s isolated edge components, the remaining construction needs b+c−1 moves but at most s<=c can be legal, forcing b=1 and s=c, and hence q=p+1. Explicit diagonal-first and star-then-merging legal sequences attain p+q−2 for all 2<=p<=q and p+q−1 exactly when q=p+1. Known duality with skew zero forcing gives Z_-=pq−p−q+2−1_{q=p+1}. Independent exhaustive direct rook-neighborhood DP reproduced formula on 8 small rectangular boards, not as infinite proof.
 
-The nearest primary graph-product paper supplies the parameter, the known skew-forcing duality, and bounds for Cartesian products of paths and cycles, rather than an exact formula for rook graphs. The square-rook result of Abiad and collaborators concerns the non-equivalent positive-semidefinite forcing rule. Searches of the equivalent line-graph description, the skew-forcing formulation, published-finding corpus research records, and products of complete graphs did not uncover a covering statement. The 2019 dissertation was available only by its abstract, so possible prior coverage there is a concrete remaining risk; an unindexed equivalent theorem cannot be ruled out.
+## originality
 
-## Value — PASS
+PASS
 
-Determining extremal total dominating sequence length in Cartesian products is a natural, studied problem. The proof yields an incidence-forest invariant for *every legal sequence*, not only an extremal count. The exact one-column exception reflects a forced matching pattern at the first exhaustion of a bipartition side; it also determines the skew zero-forcing number for all rectangular rook graphs.
+General Grundy total domination and skew zero-forcing duality are prior. Brešar et al. primary full paper treats Cartesian products of paths and cycles, not the exact complete-factor Kp□Kq rook family. Prior positive-semidefinite forcing result on square rook graphs has a distinct forcing convention and does not imply the claimed skew formula in rectangles. A specialized line-graph theorem or dissertation could contain an equivalent count, so priority remains qualified.
 
-## Scope and limits
+## value
 
-The proved range is \(2\le p\le q\); the one-row case is excluded. Counts of maximizing sequences, higher Hamming products and arbitrary line graphs are not derived. Program output addresses finitely many board sizes only, and priority and independent mathematical validation remain subject to further review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exactly classifies Grundy total domination for a canonical two-parameter Cartesian graph family, including a genuine one-column exception. The incidence-forest invariant for every legal sequence explains the global obstruction and yields an independently useful skew-forcing number; this is not a mere renaming of general domination duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

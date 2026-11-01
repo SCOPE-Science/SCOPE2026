@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T18:56:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Proof 1–5",
+        "verify.py direct rook adjacency, forest/coverage routines",
+        "Independent DP over direct open-neighborhood coverage masks on eight small boards"
+      ],
+      "rationale": "Represent each rook cell as an edge of K_{p,q}. The exact uncovered-cell set after a chosen edge prefix is unused-row×unused-column cells plus chosen incidence edges that remain isolated K2 components. A legal newly chosen edge with both endpoints used must touch an isolated previous component, hence joins different forest components; if an endpoint is unused, it cannot form a cycle. Thus EVERY legal prefix is a forest and length<=p+q−1. If a spanning tree is attained, at first exhaustion of one side, with b opposite unused vertices, c existing edge components, and s isolated edge components, the remaining construction needs b+c−1 moves but at most s<=c can be legal, forcing b=1 and s=c, and hence q=p+1. Explicit diagonal-first and star-then-merging legal sequences attain p+q−2 for all 2<=p<=q and p+q−1 exactly when q=p+1. Known duality with skew zero forcing gives Z_-=pq−p−q+2−1_{q=p+1}. Independent exhaustive direct rook-neighborhood DP reproduced formula on 8 small rectangular boards, not as infinite proof.",
+      "residual_risks": [
+        "The forest argument applies to legal open-neighborhood sequences, not closed domination, and p=1 is excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brešar et al. Section 5 gives Cartesian bounds for paths/cycles; PSD forcing on square rook graph uses different forcing rule"
+        ],
+        "reasoning": "The general skew duality is prior and is applied as a corollary. Neither the path/cycle product bounds nor PSD forcing theorem implies the full rectangular rook formula under the skew rule.",
+        "searches": [
+          "arXiv:1712.08780",
+          "Abiad et al. 2022 PSD zero forcing"
+        ]
+      },
+      "checked_sources": [
+        "Brešar et al. arXiv:1712.08780 full PDF and §5",
+        "Abiad et al. 2022 PSD rook graph summary/section reference",
+        "Resultary query Grundy total domination number rook graph K_p Cartesian K_q skew zero forcing incident forest formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known duality γ_gr^t(G)=|V(G)|−Z_-(G), and separate PSD rook results"
+        ],
+        "reasoning": "Once the exact incidence-forest length formula is proved, the skew corollary is automatic and not an independent novelty claim; prior product theorems do not furnish that forest upper bound or the exceptional side difference one.",
+        "searches": [
+          "arXiv:1712.08780",
+          "Abiad et al., Electronic J Linear Algebra 38 (2022) §3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kp□Kq is line graph of complete bipartite Kp,q; open-neighborhood Grundy sequences correspond to incidence edge sequences"
+        ],
+        "reasoning": "This is the natural equivalent line-graph formulation; no directly covering result found in inspected results. Forest condition yields a new structural explanation.",
+        "searches": [
+          "Grundy total domination number rook graph K_p Cartesian K_q skew zero forcing incident forest formula",
+          "arXiv:1712.08780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved published rook three-cut homology and other domination invariants, not Grundy total domination rook board formulas"
+        ],
+        "reasoning": "No exactly tabulated rook Grundy-total or skew forcing result identified in inspected records. Independent finite direct calculations are tests, not known tables.",
+        "searches": [
+          "Grundy total domination number rook graph K_p Cartesian K_q skew zero forcing incident forest formula",
+          "Resultary mathematical records"
+        ]
+      },
+      "rationale": "General Grundy total domination and skew zero-forcing duality are prior. Brešar et al. primary full paper treats Cartesian products of paths and cycles, not the exact complete-factor Kp□Kq rook family. Prior positive-semidefinite forcing result on square rook graphs has a distinct forcing convention and does not imply the claimed skew formula in rectangles. A specialized line-graph theorem or dissertation could contain an equivalent count, so priority remains qualified.",
+      "residual_risks": [
+        "An unindexed line-graph theorem, 2019 dissertation or subsequent rook-graph study might imply the same formula.",
+        "Do not confuse different total/closed/positive-semidefinite forcing conventions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides framework and duality but no inspected exact Kp□Kq formula",
+          "evidence": "Product analysis §5 addresses paths/cycles, not complete graph factors.",
+          "identifier_or_url": "https://arxiv.org/abs/1712.08780",
+          "material_read": "Full accessible 20-page primary PDF; definitions, forcing duality and Cartesian product section covering path and cycle factors",
+          "method": "Primary full text reading (open-access PDF or rendered article)",
+          "title": "On Grundy total domination number in product graphs",
+          "trigger": "Same invariant on Cartesian products"
+        },
+        {
+          "assessment": "Positive-semidefinite forcing is not skew forcing; numerical coincidence on p=q does not imply rectangular statement",
+          "evidence": "Section 3.2 square rook PSD invariant quoted in audited package.",
+          "identifier_or_url": "https://pure.tue.nl/ws/portalfiles/portal/206533710/vol38_pp280_294.pdf",
+          "material_read": "Original source bibliographic section 3.2 and descriptions; full primary manuscript not independently reread this run",
+          "method": "Identified related primary literature and section reference, no whole-text noncoverage assertion",
+          "title": "Constructions of cospectral graphs with different zero forcing numbers",
+          "trigger": "Potential rook graph forcing value"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Canonical rook graph R_{p,q} and researched graph-product Grundy total domination",
+        "Structural forest lemma for every legal prefix",
+        "Consecutive-side exceptional maximal sequences"
+      ],
+      "rationale": "This exactly classifies Grundy total domination for a canonical two-parameter Cartesian graph family, including a genuine one-column exception. The incidence-forest invariant for every legal sequence explains the global obstruction and yields an independently useful skew-forcing number; this is not a mere renaming of general domination duality.",
+      "residual_risks": [
+        "Does not enumerate all optimal sequences; higher-dimensional Hamming or arbitrary line graphs not covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Integer 2<=p<=q, simple rook graph, open neighborhoods and standard skew forcing with white/blue forcing allowed.",
+    "The forest argument applies to legal open-neighborhood sequences, not closed domination, and p=1 is excluded.",
+    "An unindexed line-graph theorem, 2019 dissertation or subsequent rook-graph study might imply the same formula.",
+    "Do not confuse different total/closed/positive-semidefinite forcing conventions."
+  ],
+  "schema_version": 1
+}
