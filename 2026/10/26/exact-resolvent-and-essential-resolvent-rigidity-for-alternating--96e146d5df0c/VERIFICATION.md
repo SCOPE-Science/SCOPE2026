@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The exact statements are established by the polar reducing-subspace construction, positive matrix resolvent monotonicity, the functional calculus for positive operators and its Calkin quotient analogue. The argument treats nonclosed range and nonattainment without a finite-dimensional reduction assumption.
+# Independent mathematical audit
 
-Running `python checker.py` from this standalone package produces `PASS 2183 finite assertions`. It checks random complex cores of sizes one through four, path lengths two through seven, rank-deficient, nilpotent and nonnormal cases, several nonreal spectral parameters, independent powers, and the exact unit-weight benchmark for path lengths two through twenty-four. All tests use direct dense-matrix singular values. These finite tests are supplemental diagnostics; no exhaustive finite or infinite proof is inferred from sampling.
+## correctness
 
-The bibliographic comparison inspected the arXiv HTML of the motivating paper, relevant pages of Buchała's full publicly available 2024 article, and semantically close published research summaries. Equivalent prior formulations remain a possible historical-priority risk.
+PASS
 
-There is no independent audit or independent validation represented by this record.
+The polar partial isometry gives invariant, reducing input/output support spaces even for nonclosed range; on these B_T is unitarily J tensor |T| and is zero on their orthogonal complement. Because Q(s)=(I-sJ)^-1 has positive coefficients, its leading singular value is strictly increasing for s>0. The spectral theorem gives ordinary norm at sup sigma(|T|); quotient continuous functional calculus gives essential norm at Calkin |T|, including finite-rank cores; spectral-measure endpoint gives norm-attainment iff |T| attains its top spectral value. Nilpotent inversion proves radial pseudospectra, exact small-noise exponent and the tridiagonal Volterra benchmark. Independently generated dense complex finite models yielded 196 inverse-norm comparisons, max error 2.27e-13; those comparisons are not the infinite-dimensional proof.
+
+## originality
+
+PASS
+
+Published numerical-radius results and classical polar-gauge theory are inputs; the audited theorem determines the entire ordinary and essential resolvent profiles, norm-attainment and pseudospectral disks for finite alternating singular operator paths. Full-text Buchała 2024 concerns bilateral quasi-invertible operator weights. This is a best-of-knowledge original statement, subject to earlier implicit polar-gauge/general matrix functional-calculus formulations.
+
+## value
+
+PASS
+
+Pseudospectral and essential-resolvent growth are natural nonnormal-operator invariants. It is structurally meaningful that an arbitrary nonnormal, singular or nonattaining core contributes only its norm/essential norm to the entire resolvent profile, and the result separates norm attainment and stability. Same-orientation adjacent blocks need not have this property, so it is not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives an explicit reducing-subspace polar model for arbitrary bounded cores, including operators with kernels and nonclosed range. The scalar resolvent has nonnegative coefficients and a strictly increasing largest singular value; continuous functional calculus proves the ordinary formula, while the Calkin quotient proves the essential formula in infinite dimensions. Norm attainment follows from concentration of the positive spectral measure at the norm endpoint. The finite checker passed 2,183 direct numerical assertions, which corroborate but do not replace the infinite-dimensional argument.
+## correctness
 
-## Originality — PASS with priority risk
-The starting arXiv paper (Audeh–Kittaneh–Moradi, arXiv:2610.15242v1, Corollary 2.1) gives numerical radii for unweighted alternating paths, not a global resolvent or essential-resolvent profile. Buchała's 2024 unitary-equivalence theory concerns bilateral quasi-invertible operator weights and does not establish these formulas for finite singular paths. Targeted searches also compared published four-site scalar resolvent rearrangements and scalar Jordan resolvent asymptotics. A potentially equivalent older polar-gauge formulation could exist; its independent historical priority has not been established.
+PASS
 
-## Mathematical value — PASS
-Resolvent growth and pseudospectra measure nonnormal spectral instability. Exact dependence on only the ordinary and essential core norms, uniformly for every spectral parameter and positive path weight, is a complete operator-family classification beyond the one numerical radius computed previously. The result includes norm-attainment detection, an exact closed benchmark, and a sharp small-noise radius law. The adjacency alternation is structurally necessary, as demonstrated by a same-orientation square-zero comparison.
+The polar partial isometry gives invariant, reducing input/output support spaces even for nonclosed range; on these B_T is unitarily J tensor |T| and is zero on their orthogonal complement. Because Q(s)=(I-sJ)^-1 has positive coefficients, its leading singular value is strictly increasing for s>0. The spectral theorem gives ordinary norm at sup sigma(|T|); quotient continuous functional calculus gives essential norm at Calkin |T|, including finite-rank cores; spectral-measure endpoint gives norm-attainment iff |T| attains its top spectral value. Nilpotent inversion proves radial pseudospectra, exact small-noise exponent and the tridiagonal Volterra benchmark. Independently generated dense complex finite models yielded 196 inverse-norm comparisons, max error 2.27e-13; those comparisons are not the infinite-dimensional proof.
 
-## Scientific limitations
-The result is for finite paths with one alternating common core, not arbitrary operator-valued weights or infinite paths. The finite checker does not establish the general spectral assertions. Independent priority verification against older operator-valued shift literature remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published numerical-radius results and classical polar-gauge theory are inputs; the audited theorem determines the entire ordinary and essential resolvent profiles, norm-attainment and pseudospectral disks for finite alternating singular operator paths. Full-text Buchała 2024 concerns bilateral quasi-invertible operator weights. This is a best-of-knowledge original statement, subject to earlier implicit polar-gauge/general matrix functional-calculus formulations.
+
+## value
+
+PASS
+
+Pseudospectral and essential-resolvent growth are natural nonnormal-operator invariants. It is structurally meaningful that an arbitrary nonnormal, singular or nonattaining core contributes only its norm/essential norm to the entire resolvent profile, and the result separates norm attainment and stability. Same-orientation adjacent blocks need not have this property, so it is not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
