@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Hoeffding-orthogonality decomposition gives an exact nonnegative sum-of-squares formula for every scalar contrast's long-run variance. It vanishes precisely for adjacent-pair coboundaries. Explicit three-symbol equations classify the pattern-constant coboundaries; two symbols supply one extra null direction. Exact rational covariance matrices independently confirm the ranks for nine different positive-mass laws. The analytical argument covers every fixed finite support size and every strictly positive mass vector.
+## correctness
 
-**Originality — PASS on inspected evidence, subject to the stated access risk.** The closest statistical paper, Weiß--Schnurr, supplies the generalized pattern framework, iid null probabilities, covariance formulas and bootstrap tests, including its printed two-point-pattern covariance proposition. Schnurr--Fischer gives the general weak-order theory and limit theorems. Bandt gives covariance rank four for six *strict* patterns of continuous white noise. None of the inspected primary material asserts the complete tie-aware thirteen-coordinate nullspace or its jump between two and three categories. Search records and their mathematical implications are detailed in AUDIT.json; unsuccessful searches are not a uniqueness proof. The full publisher text of Weiß--Schnurr was not separately downloaded, leaving historical-priority risk.
+PASS
 
-**Value — PASS.** The thirteen nominal categories do not constitute thirteen independent Gaussian fluctuation directions. The theorem determines the exact effective dimension and every redundant linear contrast independently of nuisance symbol masses, which is essential for correctly formulating singular-covariance Wald or quadratic calibrations in tie-aware ordinal time-series testing. The binary case has an additional telescoping constraint invisible from normalization alone; the transition to three symbols removes it. This classification is more informative than a covariance table or an isolated small-alphabet computation.
+For full-support iid alphabet, the Hoeffding decomposition gives exactly four nonnegative long-run variance terms: squared L2 norms of f1+f2+f3, f12+f23, f13, and f123, with edge corrections bounded in L2. Vanishing is equivalent pointwise to f=mu+h(a,b)-h(b,c), h=f1(a)-f3(b)+f12(a,b); the converse telescopes. For three ordered symbols the aab and abb equations give constant H_a−H_b over all a<b, and applying a<b<c forces it zero; bba then determines descending pair potentials. Hence precisely constants, ascent-difference U and descent-difference D in the thirteen supported coordinates for q≥3. On two symbols four independent edge-constant-coboundary scores survive among seven possible weak patterns, including W, and six forbidden coordinates give ten full nullities; q=1 is deterministic. Bounded stationary two-dependence gives the multivariate CLT and known-null pseudoinverse chi-square degrees 3/10. Separately implemented exact de Bruijn linear algebra checked q=1..5 and exact rational covariance matrices checked q=1..4; these are corroborative finite checks, not a proof of all q or probabilities.
 
-The result assumes iid finite-alphabet data with fixed positive masses and specified null probabilities for the stated chi-square interpretation. Equivalence to an unindexed earlier result cannot be excluded without independent historical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS is for the exact probability-independent kernel and rank classification of all thirteen length-three weak-order sliding frequencies on every positive finite iid ordered alphabet. Existing primary papers cover ordinal weak-pattern definitions, dependence tests, finite-dependence limits, and the continuous tie-free eigenproblem; those general ingredients do not alone yield the complete 0/3/10 support-size classification and binary-only extra coboundary. Three direct comparative published results concern distinct observables/models. Full text of especially relevant Weiß–Schnurr 2023 unavailable through public lawful routes and an authorized institutional request was safety-blocked; do not infer whole-document noncoverage, retain high priority risk.
+
+## value
+
+PASS
+
+Generalized weak-order pattern counts with ties are established nonparametric serial-dependence observables. Their full long-run covariance is systematically singular, and the exact effective degrees of freedom for a specified finite-alphabet iid null are needed to construct valid singular-covariance quadratic tests. The probability-independent 0/3/10 dimension jump and explicit additional binary telescoping contrast are a natural complete classification, not an arbitrary parameter slice or recomputation of a covariance table. The theorem does not claim nuisance-estimation-adjusted tests, dependent observations or variable/infinite alphabets; the calibration applies only to a specified null law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

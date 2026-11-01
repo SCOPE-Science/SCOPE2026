@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Run `python verify.py` with a standard Python 3 interpreter. There are no dependencies beyond the standard library.
+## correctness
 
-The checker enumerates every possible word of lengths three, four and five over alphabets of sizes one through four. It accumulates exact rational probabilities for all ordered pairs of three-point weak-order pattern indicators at lags zero, one and two. It forms the exact symmetric thirteen-by-thirteen asymptotic covariance, computes rational Gaussian-elimination rank, and checks all claimed kernel vectors.
+PASS
 
-The nine positive-mass test cases include three binary, three ternary and two quaternary mass vectors, as well as the deterministic singleton alphabet. All passed: ranks \(0,3,10\) in the respective regimes, and every specified null direction multiplied to exactly zero.
+For full-support iid alphabet, the Hoeffding decomposition gives exactly four nonnegative long-run variance terms: squared L2 norms of f1+f2+f3, f12+f23, f13, and f123, with edge corrections bounded in L2. Vanishing is equivalent pointwise to f=mu+h(a,b)-h(b,c), h=f1(a)-f3(b)+f12(a,b); the converse telescopes. For three ordered symbols the aab and abb equations give constant H_a−H_b over all a<b, and applying a<b<c forces it zero; bba then determines descending pair potentials. Hence precisely constants, ascent-difference U and descent-difference D in the thirteen supported coordinates for q≥3. On two symbols four independent edge-constant-coboundary scores survive among seven possible weak patterns, including W, and six forbidden coordinates give ten full nullities; q=1 is deterministic. Bounded stationary two-dependence gives the multivariate CLT and known-null pseudoinverse chi-square degrees 3/10. Separately implemented exact de Bruijn linear algebra checked q=1..5 and exact rational covariance matrices checked q=1..4; these are corroborative finite checks, not a proof of all q or probabilities.
 
-The mathematical proof is independent of enumeration: the decisive infinite-family argument is the Hoeffding sum-of-squares coboundary characterization, followed by the three-symbol algebraic rigidity argument. The checks do not establish a result for dependent observations, infinitely supported laws or parameter-estimation-adjusted chi-square tests.
+## originality
+
+PASS
+
+Best-of-knowledge PASS is for the exact probability-independent kernel and rank classification of all thirteen length-three weak-order sliding frequencies on every positive finite iid ordered alphabet. Existing primary papers cover ordinal weak-pattern definitions, dependence tests, finite-dependence limits, and the continuous tie-free eigenproblem; those general ingredients do not alone yield the complete 0/3/10 support-size classification and binary-only extra coboundary. Three direct comparative published results concern distinct observables/models. Full text of especially relevant Weiß–Schnurr 2023 unavailable through public lawful routes and an authorized institutional request was safety-blocked; do not infer whole-document noncoverage, retain high priority risk.
+
+## value
+
+PASS
+
+Generalized weak-order pattern counts with ties are established nonparametric serial-dependence observables. Their full long-run covariance is systematically singular, and the exact effective degrees of freedom for a specified finite-alphabet iid null are needed to construct valid singular-covariance quadratic tests. The probability-independent 0/3/10 dimension jump and explicit additional binary telescoping contrast are a natural complete classification, not an arbitrary parameter slice or recomputation of a covariance table. The theorem does not claim nuisance-estimation-adjusted tests, dependent observations or variable/infinite alphabets; the calibration applies only to a specified null law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
