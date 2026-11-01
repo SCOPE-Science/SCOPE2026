@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Directly derive normalized kernel from commuting coordinate conditional expectations and L2 orthogonality; exact maximum absolute kernel-row integral and row-sign attainment; reverse convex order of Bernoulli inverse-probability weights localizes to minimum-probability atoms; binomial expansion gives the sharp upper norm M_{d,k}; matching rare-event rows attain the limit. Boundary cases k=0,d and full-support hypotheses checked. 990 direct matrix checks and further exact identities corroborate without serving as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kuo, Sloan, Wasilkowski, Woźniakowski explicitly compress finite-order coefficients, but do not optimize operator endpoint norms; PDF page 4 Theorem 2.1 and page 14 Section 5.",
+        "Existing degree-at-most-one Bernoulli result ed491e36-1f13-48b1-83e0-f73a1b77a132 gives k=1 special case, not k>=2.",
+        "Existing Hamming projection 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2 covers a homogeneous degree-two Fourier block, not sum of degrees 0 through k, and assumes equal alphabet measures."
+      ],
+      "reasoning": "Neither the general decomposition formula nor a homogeneous degree-two norm determines an absolute row sum of arbitrary sums of degree components. The prior degree-one theorem is a true special case and is not claimed original. For all k and arbitrary marginal alphabets and masses the new result identifies all maximizing rows and sharp probability-uniform extremal constants.",
+      "searches": [
+        "published-finding corpus: sharp endpoint norms of truncated Hoeffding ANOVA projections order k arbitrary finite product probability distributions and rare atoms",
+        "published-finding corpus: endpoint amplification of low order Efron-Stein conditional expectation decompositions finite categorical factors rare atom convex order",
+        "Kuo DOI 10.1090/S0025-5718-09-02319-9 Sections 2 and 5 full text"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "Covers the decomposition and alternating coefficients; no sharp norm under arbitrary product marginal changes or rare-atom minimax proof.",
+        "source": "https://web.maths.unsw.edu.au/~fkuo/pubs/preprint/ksww09-decomp.pdf"
+      },
+      {
+        "comparison": "Studies RKHS projections, anchored algorithms, integration error and norm estimates; does not supply the endpoint finite discrete projector formula or minimax envelope.",
+        "source": "https://arxiv.org/abs/1306.2821"
+      },
+      {
+        "comparison": "Computes exact norm for homogeneous order-two Hamming idempotent and Poisson/Gaussian crossover, not the general biased cumulative low-order projector and all-order distribution envelope.",
+        "source": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kuo coefficient c_t=(-1)^(k-t) binom(d-t-1,k-t) is available from prior formulas, hence is NOT novel.",
+        "Earlier Bernoulli k=1 statement fixes only first-order target, so proves M_{d,1}=2d-1 but not M_{d,k} for k>=2.",
+        "Published homogeneous Hamming degree-two endpoint formula gives ‖P_{=2}‖, not ‖P_{<=2}‖, since the max norm is nonlinear under addition and the present measure family includes unequal atom masses."
+      ],
+      "reasoning": "The new joint result is an exact norm for arbitrary strictly positive finite product marginals for every cutoff k, a rare-atom localization and uniform-marginal minimum, and all-order sharp worst-case envelopes M_{d,k}. Prior Kuo coefficients imply a direct triangle upper bound M but not its sharpness, the endpoint exact expectation, or the minimax distribution theorem without the new extremizer and convex-order arguments. Known first-order special case is identified and excluded from novelty.",
+      "searches": [
+        "published-finding corpus: sharp sup over product measures of L infinity norm of truncated ANOVA Hoeffding projection degree up to k equals alternating binomial sum sum (-1)^(k-j) 2^j binom(d,j)",
+        "Full Kuo preprint Theorem 2.1 Example 2.2 Section 5",
+        "Full published Hamming Fourier degree-two RESULT.md 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuo et al., Theorem 2.1, Example 2.2 and Section 5, fully inspected public 21-page preprint https://web.maths.unsw.edu.au/~fkuo/pubs/preprint/ksww09-decomp.pdf",
+        "Dick–Gnewuch (2013), Sections 2.1 and 2.5, arXiv full HTML https://arxiv.org/abs/1306.2821"
+      ],
+      "reasoning": "The projection may be described as cumulative Hoeffding, ANOVA superposition-dimension truncation, low-pass Efron–Stein, or biased Boolean Fourier truncation. Kuo et al. provide the decomposition and its binomial coefficient expansion but not the sharp endpoint row-norm evaluation, the reverse-convex-order minimizer, or the all-order sharp global envelope. The Dick–Gnewuch norms are on weighted reproducing-kernel Hilbert spaces for randomized integration, not the finite product L-infinity endpoint norm.",
+      "searches": [
+        "published-finding corpus: sharp sup over product measures of L infinity norm of truncated ANOVA Hoeffding projection degree up to k equals alternating binomial sum sum (-1)^(k-j) 2^j binom(d,j)",
+        "published-finding corpus: Lebesgue constants projections onto superposition dimension truncations Boolean cube biased weights",
+        "Literature web: sharp L infinity norm truncated ANOVA projection arbitrary finite product measures Hoeffding decomposition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic results returned no matching all-orders biased categorical endpoint table; nearest IDs 2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2 and a published Boolean second-chaos norm record.",
+        "Kuo et al. (2009) give algorithmic coefficient numbers, not a table of sharp worst-case norms over all positive product laws."
+      ],
+      "reasoning": "A searchable table or exact parameter database for the asserted all-order sharp constants was not identified. This absence is only limited negative search evidence, not a mathematical proof of novelty; prior formulas were examined for implication and input-coefficient coverage.",
+      "searches": [
+        "published-finding corpus: Lebesgue constant order k Efron Stein projection product categorical functions minimum atom probabilities",
+        "published-finding corpus: rare event asymptotic 1-2 z + 4 z squared binomial alternating sum Hoeffding projection",
+        "published-finding corpus: exact endpoint Lebesgue constant main effects orthogonal projection product measure multinomial"
+      ]
+    },
+    "rationale": "Whole-paper comparisons with the closest 2009 ANOVA source and 2013 integration/RKHS source, published Hamming degree-two full claim, accessible 43 historical assertions and actual published-finding corpus searches do not establish the combined all-order finite-marginal exact endpoint norm, monotonicity/uniform minimization, and simultaneous sharp envelope. Existing coefficient expansions and first-order cases are acknowledged as known. Residual equivalent-literature priority risk remains; no claim that search alone proves novelty.",
+    "residual_risks": [
+      "Historical ANOVA/Boolean Fourier operator-norm work may contain an equivalent norm formula under a different term and was not exhaustively accessible.",
+      "The sharp universal bound follows from classical coefficient formulas by a norm triangle bound; mathematical novelty is in exact arbitrary-marginal norm, sharpness, and rare-atom convex-order minimax characterization.",
+      "No independent expert or external validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the decomposition and alternating coefficients; no sharp norm under arbitrary product marginal changes or rare-atom minimax proof.",
+        "evidence": "Theorem 2.1 and Example 2.2 give product projection formulas; Section 5 gives the alternating coefficient array for order truncation, with no L∞ norm maximization.",
+        "identifier_or_url": "https://web.maths.unsw.edu.au/~fkuo/pubs/preprint/ksww09-decomp.pdf",
+        "material_read": "Full preprint sections 1-2, especially Theorem 2.1 and Example 2.2, and Section 5 coefficient construction; Sections 3-4/6 examined by page/topic. PDF 21 pages.",
+        "method": "Opened and text-searched entire web PDF; viewed actual page image for PDF page 4 using screenshot; compared decomposition coefficients and displayed claims.",
+        "title": "On decompositions of multivariate functions",
+        "trigger": "General commuting-projector ANOVA decomposition and finite-order truncation coefficient formulas might dominate the proposed theorem."
+      },
+      {
+        "assessment": "Studies RKHS projections, anchored algorithms, integration error and norm estimates; does not supply the endpoint finite discrete projector formula or minimax envelope.",
+        "evidence": "Section 2.5, Lemma 2.7 bounds RKHS norm of anchored projection components, which is a different Banach norm and different operator.",
+        "identifier_or_url": "https://arxiv.org/abs/1306.2821",
+        "material_read": "Full arXiv HTML including introduction, Sections 2.1 and 2.5 projections, and outline/estimates of Section 4.",
+        "method": "Read arXiv full HTML and inspected equations and Lemmas 2.5-2.9.",
+        "title": "Optimal randomized changing dimension algorithms for infinite-dimensional integration on function spaces with ANOVA-type decomposition",
+        "trigger": "Studies projections in ANOVA decomposition and norm estimates that might be stronger."
+      },
+      {
+        "assessment": "Computes exact norm for homogeneous order-two Hamming idempotent and Poisson/Gaussian crossover, not the general biased cumulative low-order projector and all-order distribution envelope.",
+        "evidence": "Published statement has range P_2, n-fold uniform q-ary Hamming and norm from quadratic Krawtchouk; new statement has range sum over |S|≤k, arbitrary strictly positive marginals and all integer k.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-degree-two-hamming-projection-norms-and-the-gaussian-poiss--cd09d9ad5ea2",
+        "material_read": "Complete publicly available RESULT.md including theorem, assumptions, proof, relationship to prior work, and limitations.",
+        "method": "Fetched GitHub public repository file contents, inspected entire mathematical claim and proof.",
+        "title": "Exact degree-two Hamming projection norms and the Gaussian–Poisson crossover",
+        "trigger": "Closest published exact endpoint Fourier/Hamming projection norm."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d236bb9-efd6-4df3-b422-fb24a4c39330",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Interaction truncation is a natural operation in ANOVA and approximation of multivariate functions. The result determines worst-case maximum-norm stability for every full-support finite product law and every cutoff, gives extremizing sign inputs, identifies uniform marginals as universal minimizers, and computes an all-order sharp stability envelope with order-of-growth and a nonmonotonic nested-range example. These structural results go beyond low-degree examples or routine relabeling, although no general correlated-measure claim is made.",
+    "status": "PASS"
+  }
+}
