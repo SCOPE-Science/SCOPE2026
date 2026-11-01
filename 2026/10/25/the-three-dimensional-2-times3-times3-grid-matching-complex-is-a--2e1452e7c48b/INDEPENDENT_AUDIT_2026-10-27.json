@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:03:07.464348Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob ec903e0fff9cf82f7f552012bf48416d929e0825",
+        "Immutable verify_2x3x3.py blob f1d7611f2ed22a71854c4b1cae766ca38c4c05c5",
+        "/mnt/data/grid_1643.py independent exhaustive matching, acyclicity and exact minor determinant"
+      ],
+      "rationale": "The graph P2 square P3 square P3 is Cartesian, 18 vertices and 33 edges. The independent fresh enumerator built every matching by endpoint-disjoint recursive edge selection and verified exactly 90,039 nonempty simplices with complete cardinality vector 33,436,2984,11434,24766,29180,16984,3993,229; reduced Euler characteristic -48. Using the specified edge-toggle order, a separate Python reconstruction found 44,960 matched Hasse pairs and critical cells exactly one 0-cell, 83 5-cells and 35 6-cells. A complete Kahn topological sort eliminated all 90,039 faces across exactly 507,363 signed-free Hasse incidences, confirming acyclicity. Independent signed gradient-path integer recursion, under increasing-edge vertex orientation, rebuilt the 83-by-35 Morse boundary; it had 360 nonzeros with entries absolute value <=2. SymPy exact integer determinant of the specified 35-row square submatrix is -1. Hence the boundary is a primitive full-rank inclusion over Z; GL(Z) basis changes reduce 35 six-cell attaching classes in pi5(wedge^83 S5)=Z^83 to coordinate degree-one maps by Hurewicz, cancelling them and leaving wedge^48 S5. This establishes integral homotopy rather than mod2 rank or Euler alone; the chosen finite certificate was independently reproduced, not inferred from its VERIFY_OK log.",
+      "residual_risks": [
+        "This is one box, not a recursion/classification for arbitrary 3D grids.",
+        "The Morse matching is not claimed equivariant, and no representation of the box symmetry group follows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matsushita original PDF Theorem 1.2 is for its explicitly defined ladder generalized line graph Delta_n^m and two-row path rectangles.",
+          "Chauhan et al. original HTML limits to 2D P3□Pn and provides connectivity/homology, not 3D whole homotopy."
+        ],
+        "reasoning": "Neither broader planar class result has a graph-family hypothesis including the 3-dimensional 2×3×3 box.",
+        "searches": [
+          "Matsushita 2019 Theorem 1.2 generalized Delta_n^m",
+          "Chauhan Sharma Shukla 2026 main P3□Pn theorems",
+          "Bayer Jelic Milutinovic Vega outerplanar matching complexes"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i3p1/pdf/",
+        "https://arxiv.org/html/2609.27366v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-matching-complex-of-the-4-times4-cartesian-square-grid-is-a--f1b5ea641880",
+        "Resultary semantic query: matching complex three-dimensional Cartesian grid P2 P3 P3 48 spheres wedge homotopy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 3D graph is neither a member of the ladder line-graph family nor of planar P3□Pn.",
+          "Individual related graph homotopy types do not imply matching-complex homotopy of the graph with additional Cartesian dimension."
+        ],
+        "reasoning": "The primitive 35-by-35 integer attaching matrix computation resolves a new finite graph complex rather than a corollary of the inspected antecedents.",
+        "searches": [
+          "Matsushita 2019 2D ladder wedge recursion",
+          "2026 P3□Pn connectivity result",
+          "Resultary 4×4 planar grid integral homotopy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "M(G) equals Ind(L(G)) exactly, but the target has 33 graph-edge vertices, unlike planar P3□Pn examples.",
+          "The matching condition uses pairwise vertex-disjoint edges (not cubical faces or dimer coverings only)."
+        ],
+        "reasoning": "Matching/line-graph and 3D box aliases were searched. None of the located equivalent formulations supplied this exact invariant.",
+        "searches": [
+          "P2 square P3 square P3 matching complex",
+          "independence complex line graph 2 by 3 by 3 cubic lattice",
+          "dimer complex rectangular cubical 18-vertex graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Resultary 4x4 grid exact homotopy is wedge^6 S4∨wedge^2 S5 of a different graph.",
+          "2026 planar 3×n article includes matching-complex invariants of G3xn only."
+        ],
+        "reasoning": "No exact table of the 18-vertex 33-edge box matching complex was found, although unindexed computation remains a priority risk.",
+        "searches": [
+          "Resultary: 2x3x3 cubic matching 48 S5",
+          "Resultary: 4x4 Cartesian square grid wedge",
+          "2026 3xn planar grid table"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS for the full *integral homotopy type* of the ordinary matching complex of the three-factor Cartesian 2×3×3 box. Matsushita 2019 original 8-page paper, including Theorem 1.2 and graph definition, was read in full; its generalized ladder line graph Delta_n^m is not the line graph of this three-dimensional three-factor Cartesian product. Chauhan-Sharma-Shukla September 2026 full text, Theorems 1.2 and 1.3 and definitions, was read; its P3 square Pn is strictly planar two-factor and states homological/connectivity restrictions rather than 3D integral homotopy. Earlier Resultary 4×4 Cartesian grid exact wedge computation is on a 16-vertex two-factor graph and cannot transfer homotopy to this box. A hidden 3D matching-complex table remains possible, but no covering primary theorem identified.",
+      "residual_risks": [
+        "A thesis or unindexed table for 3-dimensional rectangular lattice matching complexes could already contain the same 48-sphere homotopy invariant.",
+        "The earlier planar-grid paper contains computational tables, but graph shape differs; no combinatorial embedding implies an equality of matching-complex homotopy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: domain is generalized line graphs of n×2 ladders",
+          "evidence": [
+            "Theorem 1.2 and Section 1 definitions establish two-dimensional ladder-derived family, not 3 Cartesian factors."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i3p1/pdf/",
+          "material_read": "Full 8-page original primary PDF, including definition of Delta_n^m, Theorem 1.2 and introduction; pages 1 and 3 visually rendered",
+          "method": "web PDF full text and mandated screenshots",
+          "title": "Matching complexes of small grids",
+          "trigger": "Closest published complete wedge theorem for small grid families"
+        },
+        {
+          "assessment": "NOT_COVERING: two-dimensional P3 square Pn only and not full integral homotopy",
+          "evidence": [
+            "Introduction defines G3xn=P3□Pn, main theorem connectivity n−2 and vanishing bounds."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2609.27366v1",
+          "material_read": "Complete public 1061-line HTML including abstract, Theorems 1.2-1.3, sections and tables; 2D factor explicitly verified",
+          "method": "Full primary arXiv HTML reading and theorem-scope check",
+          "title": "Homology of matching complexes of 3×n grid graphs",
+          "trigger": "Closest 2026 width-three grid matching paper with tables and topology"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: P4□P4 has 16 vertices/24 edges, not P2□P3□P3 18/33",
+          "evidence": [
+            "Prior 2D wedge is 6 S4 and 2 S5; target 3D has 48 S5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-matching-complex-of-the-4-times4-cartesian-square-grid-is-a--f1b5ea641880/RESULT.md",
+          "material_read": "Complete prior RESULT.md via immutable Git blob 39e9df64f741bfd8b5a356ed51a65c9245c742a5",
+          "method": "Compared actual graph vertices, edges, face predicate and sphere degrees",
+          "title": "The matching complex of the 4×4 Cartesian square grid is a mixed-dimensional sphere wedge",
+          "trigger": "Closest exact independent finite-grid homotopy result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full 90,039-face exact certificate and Hurewicz cancellation",
+        "Matsushita 2019 and Chauhan et al. 2026 neighboring graph classes"
+      ],
+      "rationale": "The 2×3×3 grid is a natural first two-layer three-dimensional thickening of the classical planar 3×n grid topology, not an arbitrary graph slice. Its exact 48-sphere integral homotopy classification supplies a reproducible benchmark for three-dimensional matching complexes. Crucially the unimodular attaching-degree certificate upgrades a mere Betti table and controls torsion and homotopy; the result need not form a general-paper-sized family to be mathematically valuable.",
+      "residual_risks": [
+        "One finite three-dimensional box only; no family recursion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
