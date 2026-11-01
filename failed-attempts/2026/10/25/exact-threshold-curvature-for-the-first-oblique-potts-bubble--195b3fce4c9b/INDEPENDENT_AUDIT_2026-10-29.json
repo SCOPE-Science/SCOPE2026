@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md and threshold_curvature.py",
+        "primary Potts Jost relations",
+        "independent_scope05_checks.py"
+      ],
+      "rationale": "For first oblique two-kink threshold of leading extreme-ferromagnetic Potts approximation, α=4/(3v), F(p,v)=e^{ip}J_{1−α cos p}(α)+4J_{−α cos p}(α), G(α)=F(0,v). At the first root α*, F_p(0,a1)=iJ_{1−α*}(α*) and F_v(0,a1)=−(3α*²/4)G’(α*). J denominator cannot vanish there: then adjacent-order Bessel recurrence would give a solution and derivative both zero, contradicting Bessel ODE uniqueness. IFT gives p1(v)=i c1(v−a1)+O((v−a1)²), c1=−(3α*²/4)G’/J; cosine expansion of E=2−(4g/3)cos p gives E_min−E1=(2/3)c1²g(v−a1)²+O(g|v−a1|³). Independent high-precision mpmath evaluation reproduced α*=0.906338059174892129878, c1≈8.696131059428713262743 and K≈50.41513026850716994685, but decimals are not rigorously interval enclosed. No nonperturbative full-chain assertion.",
+      "residual_risks": [
+        "Local analytic result relies on a simple first root and the leading two-kink model, not arbitrary full Hamiltonian or field."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krasznai–Rutkevich–Takács 2025 secular Jost function and first oblique threshold energy expansion"
+        ],
+        "reasoning": "The original equation for arbitrary p,v and quadratic threshold law contain this coefficient as a direct Taylor coefficient. The new formula has no added domain or additional root classification.",
+        "searches": [
+          "first oblique two kink bubble threshold Potts Jost c1 derivative energy curvature"
+        ]
+      },
+      "checked_sources": [
+        "Krasznai et al arXiv:2508.20821",
+        "Resultary Q4",
+        "assigned RESULT.md and threshold_curvature.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F(p,v)=exp(ip)J_{1−αcos p}(α)+4J_{−αcos p}(α), α=4/(3v), already source-defined",
+          "F_p(0,a_1)=iJ_{1−α_*}(α_*), F_v(0,a_1)=−3α_*²G’(α_*)/4"
+        ],
+        "reasoning": "Applying the standard implicit-function theorem and cosine Taylor series instantly gives c1 and K. The numerical K is obtained by plugging the preexisting unique threshold into this existing formula, so prior mathematical content already implies all substantive conclusions.",
+        "searches": [
+          "first oblique two kink bubble threshold Potts Jost c1 derivative energy curvature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Krasznai–Rutkevich–Takács arXiv:2508.20821v1 equations (3.6),(3.11)–(3.13)",
+          "F(p_1(v),v)=0 and p_1(v)=ic_1(v−a_1)+O((v−a_1)²)"
+        ],
+        "reasoning": "The asserted exact c1 is −F_v/F_p at the paper’s simple Jost root, then K=2c1²/3 follows from its cosine dispersion; this is implicit differentiation of stated equations, not an independent phenomenon.",
+        "searches": [
+          "first oblique two kink bubble threshold Potts Jost c1 derivative energy curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Q4",
+          "primary secular equation and threshold expansion",
+          "source mpmath script 50-digit evaluation"
+        ],
+        "reasoning": "A numerical value at one root is not a separate natural exact table/classification; absence of the decimal in indexed sources cannot make a one-step derivative a distinct original theorem.",
+        "searches": [
+          "first oblique two kink bubble threshold Potts Jost c1 derivative energy curvature"
+        ]
+      },
+      "rationale": "The pre-existing 2025 Potts source gives the full oblique Jost secular function and the same simple-root/first-bubble expansion. The exact derivative expression is −F_v/F_p with F_p at p=0, and K is the standard quadratic cosine coefficient; no new lemma, boundary, classification or nontrivial reduction is required. A previously implicit coefficient is not necessarily a novel contribution merely because the source did not print its decimal.",
+      "residual_risks": [
+        "Full 2025 primary PDF inaccessible; derivation based on source-defined Jost formulas and primary bibliographic abstract, not invented unseen theorem text.",
+        "Reported decimals lack rigorous interval bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_IMPLICATION_IN_STATED_EQUATIONS",
+          "evidence": "F(p,v) and its threshold root already determine derivative coefficient and energy gap via elementary differentiation.",
+          "identifier_or_url": "https://arxiv.org/abs/2508.20821",
+          "material_read": "Accessible primary abstract and the paper equations (3.6),(3.11)–(3.13) reproduced verbatim in assigned package. Direct arXiv PDF retrieval was inaccessible in this execution; whole-paper NOT_COVERING not claimed.",
+          "method": "primary abstract and source-reproduced equations with independent symbolic derivation",
+          "title": "Confinement in the three-state Potts quantum spin chain in extreme ferromagnetic limit",
+          "trigger": "Identical exact Jost and threshold quantities"
+        },
+        {
+          "assessment": "BACKGROUND_UNDECISIVE",
+          "evidence": "Not used as proof of novelty or refutation; central 2025 source already supplies implicit formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.03382",
+          "material_read": "Accessible abstract only, no full-paper noncoverage inference.",
+          "method": "abstract only",
+          "title": "Confinement and false vacuum decay on the Potts quantum spin chain",
+          "trigger": "Nearby parameter/model literature"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Krasznai et al arXiv:2508.20821",
+        "assigned derivative proof"
+      ],
+      "rationale": "The coefficient is physically interpretable, but its entire derivation is a routine one-line implicit derivative of an already stated Jost secular equation followed by the textbook Taylor expansion cos p=1−p²/2+…. The submitted result adds a single non-certified decimal to a known quadratic law, with no rigorous error estimate, new structural phenomenon, phase boundary or independent finite classification. Under the common bar, this tiny unmotivated analytical specialization is not an independently valuable new mathematical claim.",
+      "residual_risks": [
+        "A separate quantitative physical model validation or certified numerical bounds could be useful, but no such new contribution is supplied and cannot retroactively validate this unchanged claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Leading two-kink effective model only; 50-digit mpmath not interval certified",
+    "Full 2025 Potts PDF unavailable; original formulas explicitly reproduced in package and verified symbolically"
+  ],
+  "schema_version": 1
+}
