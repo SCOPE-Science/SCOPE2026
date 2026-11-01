@@ -1,110 +1,108 @@
 {
   "correctness": {
-    "rationale": "The Fu–Li unit-sphere formula is reduced exactly to a range quotient on the quotient of \\(\\mathbb R^3\\) by constants. Exchange symmetry restricts the scale to \\(0<q\\le1\\); the six relative permutations reduce to four exhaustive cases. Identity and reversal give at most \\(1\\); transposition and cycle give at most \\(\\sqrt q(2-q)\\), whose squared deficit from \\(32/27\\) factors as \\((8-3q)(3q-2)^2/27\\). The explicit pair \\(u=(0,1)\\), \\(v=(1,2/3)\\), \\(a=\\sqrt{2/3}\\) attains the bound. The standalone checker verifies the finite bookkeeping and exact arithmetic; the global inequalities are proved analytically.",
+    "rationale": "For the stated real hexagonal norm, the source reduces Fu–Li’s unit-sphere quotient to an exact range optimization. Simultaneous coordinate permutations and q↦1/q exhaust all pairs. For the identity case |r−s|≤rng(0,qr−s,q−1); reversal gives 2√q/(1+q)≤√q(2−q). For either transposition the maximum of (x+y)/(qx+max(1−q,y)) is 2−q; for either cycle the maximum of (1+m)/max(q+m,1+qx) at fixed m reduces to the two boundary choices and is ≤2−q. Hence R≤√q(2−q), squared deficit (8−3q)(3q−2)^2/27≥0. Explicit u=(0,1), v=(1,2/3), a=√(2/3) attains 32/27 squared. Direct six-case numerical optimization and exact rational identity checks corroborate, not replace, the analytic proof.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "The 2024 defining paper proves general inequalities and endpoint examples but no exact formula covering all polygonal norms.",
-        "The later Maligranda–Rooin paper broadens the family of constants but its inspected exact example is for \\(\\ell_1\\) rather than the affine-regular hexagon."
+        "Fu–Li Theorem 2.4 is DR(X)≤DW(X)/2 but does not establish equality on this norm or determine DW there.",
+        "Wang et al. generalize the invariant in a free p-parameter and their Example 3.1 treats ℓ1."
       ],
-      "reasoning": "General bounds and family embeddings do not determine the exact supremum on this norm, so the proposed value is not a corollary of broader coverage found in the inspected literature.",
+      "reasoning": "General inequalities and a parameter embedding do not imply equality at √(32/27) without evaluating a separate supremum or supplying a matching sharp lower bound. No inspected stronger coverage does so.",
       "searches": [
-        "Dehghan Rooin constant l_infinity-l_1 hexagonal plane exact",
-        "angular skew angular distance hexagonal norm constant",
-        "arXiv:2504.01267"
+        "Fu–Li 2024 full 23-page text Theorem 2.4 Proposition 5.4",
+        "Wang et al. arXiv:2504.01267 full 13-page text sections 3–4",
+        "Dunkl Williams constant regular hexagon hexagonal norm value",
+        "Dehghan Rooin constant Radon plane regular hexagon geometric formula exact"
       ]
     },
     "checked_sources": [
-      "doi:10.1007/s43034-024-00341-0",
-      "arXiv:2504.01267",
-      "arXiv:2609.27754"
+      "Fu and Li, Annals of Functional Analysis 15 (2024) 39, doi:10.1007/s43034-024-00341-0, full 23 pp.",
+      "Wang–Liu–Xia–Sarfraz arXiv:2504.01267, full 13 pp.",
+      "arXiv:2609.27754, abstract only",
+      "Published exact hexagonal P-angle, skew Schäffer and modulus findings (different invariant)"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Fu–Li give \\(\\operatorname{DR}(X)\\le \\operatorname{DW}(X)/2\\) and geometric consequences, but no matching lower bound for this hexagon.",
-        "The later Birkhoff-restricted Dehghan–Rooin variant imposes an orthogonality restriction and is a different optimization problem."
+        "Fu–Li 2024 establishes the quotient and general comparisons but not the four-case range maximization.",
+        "Wang et al. exact worked example is ℓ1, while the Birkhoff-restricted variant optimizes over a strict subset of pairs."
       ],
-      "reasoning": "Neither the universal comparison inequalities nor results for restricted variants force equality at \\(4\\sqrt6/9\\). The new argument requires a full hexagonal range optimization and an explicit extremizer.",
+      "reasoning": "None of the accessible prior statements logically establishes both the universal hexagonal upper bound and the matching equality witness. A stronger but currently uninspected statement could change this best-of-knowledge conclusion.",
       "searches": [
-        "doi:10.1007/s43034-024-00341-0",
-        "arXiv:2504.01267",
-        "arXiv:2609.27754"
+        "doi:10.1007/s43034-024-00341-0 pp.3–8 20–22",
+        "arXiv:2504.01267 Definition 3.1 Example 3.1",
+        "arXiv:2609.27754 Birkhoff orthogonal Dehghan Rooin constant"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Fu–Li Proposition 5.4 identifies \\(\\operatorname{DR}(X)\\) with the unit-sphere quotient \\(\\lVert x-y\\rVert/\\lVert a x-a^{-1}y\\rVert\\).",
-        "Wang–Liu–Xia–Sarfraz identify the parameter-zero Maligranda–Rooin member with the Dehghan–Rooin constant."
+        "Fu–Li Proposition 5.4 (2024), p.20, is exactly the unit-sphere ratio used in the claim.",
+        "Wang et al. arXiv:2504.01267 Definition 3.1 specializes at p=0 to the same angular-versus-skew quotient."
       ],
-      "reasoning": "The exact claim was checked not only under the name Dehghan–Rooin constant but also through its angular/skew-angular description and its later parameterized-family formulation. No inspected source states the affine-regular hexagonal value.",
+      "reasoning": "Searching the ordinary DR name, its angular/skew distance definition, its unit-sphere reduction and the p=0 Maligranda–Rooin alias exposes the correct equivalence class. Neither inspected primary result supplies the stated hexagonal value.",
       "searches": [
-        "Dehghan Rooin constant l_infinity-l_1 hexagonal plane exact",
-        "Dehghan-Rooin Day-James hexagon exact constant",
-        "angular skew angular distance hexagonal norm constant",
-        "DR(X) regular hexagonal plane 4 sqrt 6 over 9",
-        "doi:10.1007/s43034-024-00341-0, Proposition 5.4",
-        "arXiv:2504.01267"
+        "Dehghan Rooin constant affine regular hexagonal Banach plane 4 sqrt 6 9",
+        "Dehghan Rooin geometric constant Day James hexagonal plane angular skew angular distance",
+        "Fu Li 2024 DOI 10.1007/s43034-024-00341-0 Proposition 5.4",
+        "arXiv:2504.01267 MR_p parameter zero"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The closest retrieved hexagonal records concerned isosceles von Neumann–Jordan, Ptolemy, Banach–Mazur, and other geometric constants, not \\(\\operatorname{DR}\\).",
-        "No retrieved exact-value table or database entry matched \\(\\operatorname{DR}\\) for \\(N(s,t)=\\max\\{|s|,|t|,|s-t|\\}\\)."
+        "A public finding with the same title and value is the audited target itself and was not counted as independent prior art.",
+        "Nearby exact entries about the same hexagonal norm involve P-angle, skew Schäffer, von Neumann–Jordan or other non-equivalent objectives."
       ],
-      "reasoning": "The closest database results share the same classical hexagonal object but optimize inequivalent functionals; none yields the angular/skew-angular quotient by implication.",
+      "reasoning": "The exact target entry cannot validate its own originality. The nearby tables concern different quotient functionals and no inspected reduction identifies them with DR.",
       "searches": [
-        "Dehghan Rooin constant l_infinity-l_1 hexagonal plane exact",
-        "Dehghan-Rooin Day-James hexagon exact constant",
-        "angular skew angular distance hexagonal norm constant",
-        "DR(X) regular hexagonal plane 4 sqrt 6 over 9"
+        "Dehghan Rooin constant affine regular hexagonal plane exact",
+        "Dehghan Rooin constant hexagonal plane Day James Radon norm",
+        "published hexagonal geometric constants P-angle skew Schäffer von Neumann Jordan"
       ]
     },
-    "rationale": "The defining source and the direct later generalization were inspected, and targeted searches using invariant names, aliases, the classical hexagonal model, and the proposed exact value did not locate a statement covering the claim. Retrieved neighboring hexagonal results concern different constants and do not imply the angular/skew-angular ratio.",
+    "rationale": "Best of knowledge: the complete Fu–Li 2024 primary article provides the definition, Proposition 5.4 and broad bounds but no hexagonal evaluation. The complete Wang–Liu–Xia–Sarfraz 2025 preprint gives parameter-family and ℓ1 example but no hexagonal value. Neighboring published hexagonal findings optimize other constants. The exact result is not a mechanical consequence of these inspected statements. Residual risk of unindexed equivalent work and uninspected full text for a Birkhoff-restricted follow-up.",
     "residual_risks": [
-      "An equivalent computation may exist in non-indexed literature under alternative terminology for angular and skew-angular distance.",
-      "Search failure is not a proof of bibliographic uniqueness; the originality conclusion is limited to the inspected primary sources and retrieved comparisons."
+      "Unindexed historical DR calculation for this norm may exist under Radon/Day–James/hexagonal or Maligranda–Rooin terminology.",
+      "Birkhoff-restricted 2026 preprint full text was inaccessible, so its polyhedral computations were not exhaustively screened.",
+      "The target published record itself is not independent prior coverage and cannot establish novelty."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING the exact affine-regular hexagonal value.",
-        "evidence": "The paper defines \\(\\operatorname{DR}\\), computes endpoint examples including \\(\\ell_1^2\\) and \\(\\ell_\\infty^2\\), and proves general bounds; no inspected section evaluates \\(N(s,t)=\\max\\{|s|,|t|,|s-t|\\}\\).",
+        "assessment": "NOT_COVERING the hexagonal exact value: the proof here requires a new piecewise range optimization",
+        "evidence": "Proposition 5.4 identifies the same sphere quotient; Theorem 2.4 gives DR≤DW/2, while examples calculate ℓ1² and ℓ∞². No exact hexagon computation occurs in the complete paper.",
         "identifier_or_url": "doi:10.1007/s43034-024-00341-0",
-        "material_read": "Definition of DR, Proposition 5.4 equivalent unit-sphere formula, model examples, comparison inequalities, and conclusions.",
-        "method": "Full article text.",
+        "material_read": "All 23 pages, especially pp.3–4 definitions and endpoint examples, pp.7–8 Dunkl–Williams comparison, p.20 Proposition 5.4, pp.21–22 consequences, and references.",
+        "method": "Complete published article text, all 23 pages",
         "title": "Geometric constant for quantifying the difference between angular and skew angular distances in Banach spaces",
-        "trigger": "Defining paper for the exact invariant and the closest source by statement."
+        "trigger": "Defining primary result and exact quotient formula used by the audited theorem"
       },
       {
-        "assessment": "NOT_COVERING the hexagonal claim.",
-        "evidence": "The inspected worked example treats \\(\\ell_1\\); no hexagonal model or value \\(4\\sqrt6/9\\) appears.",
+        "assessment": "NOT_COVERING the exact hexagonal value",
+        "evidence": "Definition 3.1 introduces MR_p; Example 3.1 on p.7 determines the ℓ1-model endpoint MR_p=2; remaining results are general structural bounds.",
         "identifier_or_url": "arXiv:2504.01267",
-        "material_read": "Definition and specialization of the family, introduction, and exact-example section.",
-        "method": "Full open-access preprint.",
-        "title": "Maligranda–Rooin constant in Banach spaces",
-        "trigger": "Direct later generalization whose parameter-zero member is DR."
+        "material_read": "13-page OA full-text PDF including Definition 3.1, general inequalities, the equivalent formula, Example 3.1 and the final conclusions and references.",
+        "method": "Open-access arXiv PDF text and page screenshots",
+        "title": "A new geometric constant to compare p-angular and skew p-angular distances",
+        "trigger": "Most direct family generalization whose p=0 specialization is DR"
       },
       {
-        "assessment": "INAPPLICABLE as stronger coverage because it optimizes over a Birkhoff-orthogonality restriction rather than all nonzero pairs.",
-        "evidence": "The restriction changes the domain of optimization, so its statements do not imply the unrestricted DR value proved here.",
+        "assessment": "NOT RESOLVED IN FULL; restricted-domain formula alone cannot logically determine unrestricted DR without matching extremizers",
+        "evidence": "Abstract defines DR_B(X) with x Birkhoff-orthogonal to y, a stricter domain than all nonzero pairs; some polyhedral cases are reported but not inspected.",
         "identifier_or_url": "arXiv:2609.27754",
-        "material_read": "Abstract and stated definition/scope.",
-        "method": "Open-access preprint metadata and abstract.",
-        "title": "A Birkhoff-orthogonality-restricted Dehghan–Rooin constant",
-        "trigger": "Name-level near match found while checking stronger or variant coverage."
+        "material_read": "Public abstract and accessible bibliographic metadata; full PDF fetch failed.",
+        "method": "Public abstract and failed attempted PDF access; no full-text claim",
+        "title": "A Birkhoff-Orthogonal Dehghan–Rooin Type Constant in Banach Spaces",
+        "trigger": "Name-near primary publication with polyhedral model computations, possible implicit coverage"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "36b99a31-f49b-46a0-973f-f7b27e5bbfc3",
   "value": {
-    "rationale": "The affine-regular hexagonal plane is a canonical low-dimensional non-Hilbert model, and \\(\\operatorname{DR}\\) is a recently introduced quantitative Hilbert-deviation invariant. An exact attained value strictly between \\(1\\) and \\(2\\) provides a meaningful benchmark beyond the endpoint square/diamond examples. The proof also gives a compact reusable reduction to four permutation geometries, so the result is structural rather than an arbitrary parameter slice.",
+    "rationale": "The affine-regular hexagonal plane is a canonical natural polygonal Banach model; DR is a motivated angular-versus-skew angular distortion invariant. The attained exact value √(32/27) gives a nontrivial benchmark strictly between Hilbert 1 and square/diamond 2, rather than an arbitrary slice of a known table. The symmetry-reduced finite-case analytic optimization is reusable for other polygonal norms, although no such generalization is claimed.",
     "status": "PASS"
   }
 }

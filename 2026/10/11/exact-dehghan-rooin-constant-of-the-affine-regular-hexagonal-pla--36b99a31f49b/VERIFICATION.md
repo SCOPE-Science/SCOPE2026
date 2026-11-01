@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof was checked from the exact unit-sphere formulation of the Dehghan–Rooin constant. The norm identity \(N(s,t)=\operatorname{rng}(0,s,t)\) turns unit vectors into range-one triples modulo common-coordinate shifts. Simultaneous coordinate permutations give the full dihedral symmetry needed to normalize one triple, and exchange of the two vectors replaces \(q\) by \(q^{-1}\), so \(0<q\le1\) is sufficient.
+# Independent mathematical audit
 
-The six relative permutations were checked against the four proof cases: identity, reversal, a paired transposition type, and a paired cycle type. The transposition and cycle bounds both reduce to \(\sqrt q(2-q)\); the identity and reversal cases are at most \(1\). The exact polynomial certificate
-\[
-\frac{32}{27}-q(2-q)^2=\frac{(8-3q)(3q-2)^2}{27}\ge0
-\]
-holds for \(0<q\le1\), with equality only at \(q=2/3\).
+## correctness
 
-For the displayed vectors \(u=(0,1)\), \(v=(1,2/3)\), and \(a=\sqrt{2/3}\), direct exact evaluation gives
-\[
-N(u-v)=4/3,\qquad N(a u-a^{-1}v)=\sqrt{3/2},
-\]
-so the squared quotient is exactly \(32/27\).
+PASS
 
-The companion `verify_exact.py` replays these finite exact checks with rational arithmetic. It does not certify the infinite optimization by enumeration; that step is supplied by the monotonicity and case analysis in the proof. No claim is made about all maximizers or other polygonal norms.
+For the stated real hexagonal norm, the source reduces Fu–Li’s unit-sphere quotient to an exact range optimization. Simultaneous coordinate permutations and q↦1/q exhaust all pairs. For the identity case |r−s|≤rng(0,qr−s,q−1); reversal gives 2√q/(1+q)≤√q(2−q). For either transposition the maximum of (x+y)/(qx+max(1−q,y)) is 2−q; for either cycle the maximum of (1+m)/max(q+m,1+qx) at fixed m reduces to the two boundary choices and is ≤2−q. Hence R≤√q(2−q), squared deficit (8−3q)(3q−2)^2/27≥0. Explicit u=(0,1), v=(1,2/3), a=√(2/3) attains 32/27 squared. Direct six-case numerical optimization and exact rational identity checks corroborate, not replace, the analytic proof.
+
+## originality
+
+PASS
+
+Best of knowledge: the complete Fu–Li 2024 primary article provides the definition, Proposition 5.4 and broad bounds but no hexagonal evaluation. The complete Wang–Liu–Xia–Sarfraz 2025 preprint gives parameter-family and ℓ1 example but no hexagonal value. Neighboring published hexagonal findings optimize other constants. The exact result is not a mechanical consequence of these inspected statements. Residual risk of unindexed equivalent work and uninspected full text for a Birkhoff-restricted follow-up.
+
+## value
+
+PASS
+
+The affine-regular hexagonal plane is a canonical natural polygonal Banach model; DR is a motivated angular-versus-skew angular distortion invariant. The attained exact value √(32/27) gives a nontrivial benchmark strictly between Hilbert 1 and square/diamond 2, rather than an arbitrary slice of a known table. The symmetry-reduced finite-case analytic optimization is reusable for other polygonal norms, although no such generalization is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
