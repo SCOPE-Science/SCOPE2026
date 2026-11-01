@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The first-column ratio is standard Cauchy; pivot selection folds it into a truncated Cauchy with a factor of two in its density. Conditional Gaussianity of the independent second column gives all moments by one elementary integral. The unpivoted second moment diverges by its reciprocal-square denominator. A standalone checker confirms exact low-order moment coefficients and numerical sample behavior, without treating finite tests as proof.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-Related 2026 work of Spielman and Yu treats high-dimensional GEPP growth, while Gunawan, Peca-Medlin and Zhong study permutation laws. Published similarity searches returned no identical exact last-pivot moment sequence. An older 1990 article of Trefethen and Schreiber and a 2026 note of Trefethen are material priority risks because full-text comparison was unavailable; the present assessment does not certify independence or exhaustive priority.
+PASS
 
-## Mathematical value — PASS
-The two-dimensional final pivot is a natural benchmark for random elimination. The exact formula for every even moment reveals a concrete regularizing effect: partial pivoting changes an infinite-variance variable to a bounded-variance Gaussian scale mixture with standardized kurtosis exactly \(\pi\). This is a finite-dimensional structural distribution result, not an asymptotic stability theorem.
+The Gaussian first-column ratio T=c/a is standard Cauchy. Partial row pivoting maps it to R=T if |T|≤1, otherwise 1/T, giving density 2/(π(1+r²)) on (-1,1). The independent second-column Gaussians produce Z|R=r~N(0,1+r²); direct integration yields CF, all integer moments, variance and fourth moment; a Cauchy-square ratio makes unpivoted variance infinite. Numerical independent check sampled 200,000 matrices and separately computed exact second/fourth normalizers, agreeing within Monte Carlo variation.
 
-## Limitations
-The result requires iid real Gaussian entries, exact arithmetic, and a two-by-two matrix. The characteristic function and moments do not determine numerical floating-point error or high-dimensional GEPP growth.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Trefethen–Schreiber (1990) is the strongest historical comparison: its author-hosted complete primary PDF was read in the sections on pivot magnitudes, multiplier distribution and growth, and gives approximations for general n but does not establish the exact random last-pivot distribution or all even moments at n=2. Spielman–Yu (2026) and Gunawan–Peca-Medlin–Zhong (2026) address different random GEPP observables. The exact formula follows from standard Cauchy and Gaussian conditioning, which are prior tools, not novel. Possible earlier elementary n=2 distribution is residual risk.
+
+## value
+
+PASS
+
+Finite-dimensional GEPP has a canonical final-pivot observable. Its complete exact moment sequence and the sharp finite-versus-infinite variance comparison quantify what row pivoting actually regularizes, a motivated benchmark not merely a renaming of standard normal/Cauchy facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

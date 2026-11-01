@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:54:51.812483Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned RESULT.md 9071939aec3b012917d51bdde88d1312ca330b17",
+        "Independent Monte Carlo variance1.276101 vs exact1.2732395 and fourth5.090976 vs exact5.092958",
+        "Seven-entry source tree reconstructed b80e0a39178dcbda2ce4df5d30a3045b465df7a8"
+      ],
+      "rationale": "The Gaussian first-column ratio T=c/a is standard Cauchy. Partial row pivoting maps it to R=T if |T|≤1, otherwise 1/T, giving density 2/(π(1+r²)) on (-1,1). The independent second-column Gaussians produce Z|R=r~N(0,1+r²); direct integration yields CF, all integer moments, variance and fourth moment; a Cauchy-square ratio makes unpivoted variance infinite. Numerical independent check sampled 200,000 matrices and separately computed exact second/fourth normalizers, agreeing within Monte Carlo variation.",
+      "risks": [
+        "Continuous Gaussian assumption and exact arithmetic; no claims about floating point error or high-dimensional GEPP.",
+        "Monte Carlo is corroboration, not proof of distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "1990 paper approximates pivot distributions via extreme-value modeling; 2026 work focuses large-growth events."
+        ],
+        "reasoning": "No inspected stronger theorem yields exact unconditional two-dimensional all-moment mixture and variance contrast; residual older educational derivation possible.",
+        "searches": [
+          "2x2 Gaussian elimination partial pivoting last pivot distribution moments kurtosis Cauchy ratio",
+          "https://arxiv.org/abs/2610.08701",
+          "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf",
+        "https://arxiv.org/abs/2610.08701",
+        "https://arxiv.org/abs/2610.10481",
+        "Resultary semantic query: 2x2 Gaussian elimination partial pivoting last pivot distribution moments kurtosis Cauchy ratio"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 1990 multiplier-density formula (4.1) is an approximation, not exact for n2; 2026 growth statements do not assert this distribution."
+        ],
+        "reasoning": "Exact all-order moments require separate conditional Gaussian calculation and integration; prior central-limit/large-growth assertions do not imply it.",
+        "searches": [
+          "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf",
+          "https://arxiv.org/abs/2610.08701"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cauchy ratio of first-column iid Gaussians folded by reciprocal to (-1,1); conditional normal Schur-complement mixture."
+        ],
+        "reasoning": "Tested the equivalent random-multiplier and Schur complement formulations, not just title matching.",
+        "searches": [
+          "2x2 Gaussian elimination partial pivoting last pivot distribution moments kurtosis Cauchy ratio",
+          "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "1990 primary tables include average growth factors at n2, a different statistic, not a full last-pivot moment table."
+        ],
+        "reasoning": "A table for growth factor cannot determine moments of final pivot; no exact n2 moment table found in material inspected.",
+        "searches": [
+          "2x2 Gaussian elimination partial pivoting last pivot distribution moments kurtosis Cauchy ratio",
+          "Resultary semantic query: 2x2 Gaussian elimination partial pivoting last pivot distribution moments kurtosis Cauchy ratio",
+          "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf"
+        ]
+      },
+      "rationale": "Trefethen–Schreiber (1990) is the strongest historical comparison: its author-hosted complete primary PDF was read in the sections on pivot magnitudes, multiplier distribution and growth, and gives approximations for general n but does not establish the exact random last-pivot distribution or all even moments at n=2. Spielman–Yu (2026) and Gunawan–Peca-Medlin–Zhong (2026) address different random GEPP observables. The exact formula follows from standard Cauchy and Gaussian conditioning, which are prior tools, not novel. Possible earlier elementary n=2 distribution is residual risk.",
+      "residual_risks": [
+        "An earlier textbook calculation for 2×2 Gaussian partial pivoting could contain the exact truncated-Cauchy/normal mixture, particularly in random-matrix numerical-analysis lecture notes.",
+        "The 2026 Gaussian GEPP papers were not exhaustively inspected end-to-end, so no global NOT_COVERING claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "§§3–4 replace random pivots by modal ±σW(m) and give approximate multiplier density; §9 says general observations approximate, no exact n2 Student/Cauchy mixture moment sequence",
+          "evidence": "eqs (3.4), (4.1) marked ≈; §9 lines715–723; 1990 SIAM J Matrix Anal Appl 11(3).",
+          "identifier_or_url": "https://people.maths.ox.ac.uk/~trefethen/publication/PDF/1990_44.pdf",
+          "material_read": "Complete lawful author-hosted 26-page primary PDF accessible, abstract/introduction, §§3–4 pivots/multipliers, §6 pivots and §9 conclusions examined with screenshot",
+          "method": "Primary full-text PDF, inspection of exact/approximation qualifiers, mathematical formulas and data",
+          "title": "Average-Case Stability of Gaussian Elimination",
+          "trigger": "Old foundational Gaussian GEPP statistical analysis, possible exact n2 law"
+        },
+        {
+          "assessment": "Published subject is large growth/tail behavior for large matrices, not explicit distribution of last pivot in n2; abstract alone cannot rule out an auxiliary n2 formula",
+          "evidence": "Initial arXiv posting Oct6 2026; inspect further for comprehensive priority if needed.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08701",
+          "material_read": "Accessible arXiv abstract and high-level scope; complete paper not inspected",
+          "method": "Abstract/summary comparison of objects and dimensions",
+          "title": "Large Growth Happens: Gaussian Elimination with Partial Pivoting on Random Matrices",
+          "trigger": "2026 same GEPP with Gaussian input"
+        },
+        {
+          "assessment": "Pivot permutation law differs from final Schur-complement pivot distribution; entire paper not excluded solely from abstract",
+          "evidence": "Preprint first posted October7 2026.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.10481",
+          "material_read": "Abstract and bibliographic material read, not a complete paper reading",
+          "method": "Comparative observable analysis",
+          "title": "Random permutations using GEPP",
+          "trigger": "2026 random Gaussian pivot work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact characteristic function and all moments for actual algorithm, not conditional multiplier alone",
+        "Unpivoted variance diverges while pivoted all finite moments follow"
+      ],
+      "rationale": "Finite-dimensional GEPP has a canonical final-pivot observable. Its complete exact moment sequence and the sharp finite-versus-infinite variance comparison quantify what row pivoting actually regularizes, a motivated benchmark not merely a renaming of standard normal/Cauchy facts.",
+      "risks": [
+        "Narrow 2×2 special case; no downstream large-n theorem claimed.",
+        "Because the proof uses elementary probability, earlier independent discovery remains plausible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For iid N(0,1) real 2×2 matrices, GEPP final Schur pivot Z has truncated-Cauchy-normal mixture law, even moments 4(2m−1)!!/π ∑_{j=0}^{m−1} C(m−1,j)/(2j+1), variance4/π, standardized kurtosisπ; unpivoted final pivot has infinite variance.",
+  "limitations": [
+    "Only n=2, Gaussian real entries, exact arithmetic, and the last scalar pivot; no statements about upper-triangular entry growth in n>2."
+  ],
+  "schema_version": 1
+}
