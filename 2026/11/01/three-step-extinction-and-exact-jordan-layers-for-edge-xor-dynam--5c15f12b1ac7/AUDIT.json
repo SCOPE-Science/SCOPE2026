@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The exact incidence factorization, image/ker identities for the augmentation ideal under a linear coordinate change in a truncated polynomial algebra, and the all-ones preimage jointly prove ranks N-2, N/2-2, and 0 for powers one, two, and three. These ranks uniquely give the stated Jordan multiplicities. Dimension d=2 is explicitly checked and has T²=0; d>=3 has nonzero T², so the sharp index is three. Kernel differences give finite-field layer counts. A standalone checker recomputed ranks through d=7 and fully enumerated configurations in d=2,3; the infinite statement uses proof, not sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gadouleau–Richard 2015, https://www.i3s.unice.fr/~richard/PUBLICATIONS/JOURNALS/2015_Simple.pdf, Theorem 5: existence of some class-three Boolean map on connected graphs; not fixed parity rule.",
+        "Buchanan et al. 2023, https://doi.org/10.1002/jgt.22970, treats 2-rank and odd biclique covers; not second iterate/Jordan form."
+      ],
+      "reasoning": "An existential class-three construction does not imply that the canonical adjacency-XOR map is nilpotent or its exact Jordan type. Generic incidence identities may imply the first-rank step here but do not supply the group-algebra second-rank calculation or all transient counts.",
+      "searches": [
+        "\"Simple dynamics on graphs\" Gadouleau Richard 2015 full text",
+        "\"Odd covers of graphs\" Theorem 4.4 adjacency rank",
+        "\"line graph\" \"characteristic two\" \"nilpotent\" adjacency"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/cond-mat/9305012",
+      "https://www.i3s.unice.fr/~richard/PUBLICATIONS/JOURNALS/2015_Simple.pdf",
+      "https://onlinelibrary.wiley.com/doi/10.1002/jgt.22970",
+      "https://www.tandfonline.com/doi/full/10.1016/j.akcej.2018.02.003",
+      "https://mathworld.wolfram.com/LineGraph.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tadaki 1993 §III computes relaxation for 1D transfer matrices.",
+        "Gadouleau–Richard 2015 §§4.2 and Proposition 8 construct unspecified choices of nonlinear Boolean maps, one part with a separate square-zero condition.",
+        "Buchanan et al. 2023 §4 studies binary rank for odd cover bounds."
+      ],
+      "reasoning": "The union of known linear-CA methods, existence of a nilpotent function on any connected graph, and an adjacency rank computation does not state or immediately imply the exact rank of the square for the edge graph of every cube. The new group-algebra argument supplies the missing square-rank, leading to two fixed 2-blocks and a dimension-dependent collection of 3-blocks.",
+      "searches": [
+        "arxiv:cond-mat/9305012 \"rule-90\" \"linear cellular automata\"",
+        "arxiv:1503.04688 \"nilpotent\" \"graph\"",
+        "\"odd covers of graphs\" \"2-rank\" line graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Line-graph incidence factorization is standard: https://mathworld.wolfram.com/LineGraph.html",
+        "Theorem here requires both ranks of powers, not only a characteristic polynomial."
+      ],
+      "reasoning": "The rule is equivalent to multiplying edge-state vectors by the binary adjacency matrix of the cube line graph, or to C^T C for its vertex-edge incidence. Searches under both descriptions found no published full Jordan-block theorem. Real line-graph spectral formulas yield a characteristic polynomial but do not determine its modular Jordan partition.",
+      "searches": [
+        "\"line graph\" \"hypercube\" \"GF(2)\" \"rank\" adjacency",
+        "\"line graph of hypercube\" \"Jordan\" nilpotent",
+        "\"edge parity\" hypercube \"line graph\" dynamics"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Tadaki 1993, https://arxiv.org/abs/cond-mat/9305012, Tables I–III concern one-dimensional rule-90/150 sizes, not the cube-line-graph family.",
+        "published-finding corpus semantic matches were on distance-two cube automata and unrelated cube-line-graph topology, not this Jordan partition."
+      ],
+      "reasoning": "Neither inspected tables nor the queried public searches gave an exact sequence/table for the prescribed edge rule. The absence of a match is not treated as proof of uniqueness.",
+      "searches": [
+        "\"line graph\" \"hypercube\" \"minimal polynomial\" characteristic two",
+        "site:oeis.org \"line graph of the hypercube\" rank GF2",
+        "\"line graph\" \"hypercube\" XOR nilpotent three steps"
+      ]
+    },
+    "rationale": "Comparison targets the full second-rank/Jordan/relaxation formula for a prescribed edge-XOR cube rule, not the known incidence identity or a general existence-of-nilpotent-map result. Original full texts and named equivalent, broader and database comparisons did not locate a covering theorem. Unindexed finite-field spectral literature remains a real residual risk.",
+    "residual_risks": [
+      "Published but poorly indexed modular line-graph/Jordan computations could cover the claim despite the negative targeted searches.",
+      "The familiar incidence factorization supplies part of the calculation; originality rests on the full cube-specific second-rank computation and its dynamical consequences."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The rules act on paths with Dirichlet conditions, and their nilpotency results do not involve the hypercube line graph or its edge-incidence Jordan form.",
+        "evidence": [
+          "Tadaki 1993, Eq. (2) path Rule 90; Eq. (8) path nilpotence; Section III discusses transfer polynomials."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9305012",
+        "material_read": "Full accessible arXiv article text, introduction and §§II–IV, characteristic polynomial analysis and tables.",
+        "method": "Read HTML-rendered full article including mathematical statements, not abstract alone.",
+        "title": "Orbits in one-dimensional finite linear cellular automata",
+        "trigger": "Archived work on finite linear cellular automata, relaxation and transfer matrices."
+      },
+      {
+        "assessment": "Theorem 5 proves existence of some 3-step nilpotent Boolean map for connected undirected graphs, not adjacency-XOR or all-dimensional Jordan/census. Proposition 8 supplies a sufficient square-zero adjacency condition on other graph families, not this cubic-nilpotence theorem.",
+        "evidence": [
+          "Gadouleau & Richard 2015, Theorem 5 p. 15 and Proposition 8 p. 16–17."
+        ],
+        "identifier_or_url": "https://www.i3s.unice.fr/~richard/PUBLICATIONS/JOURNALS/2015_Simple.pdf",
+        "material_read": "Original 18-page primary PDF; abstract, introductory definitions, §§4.1–4.2, Theorems 3–6, Proposition 8 and references; PDF pages 1, 2, 17 inspected visually.",
+        "method": "Read indexed PDF text and inspect representative page images for the existence-versus-prescribed-rule distinction.",
+        "title": "Simple dynamics on graphs",
+        "trigger": "Plausible dominating graph-uniform class-three Boolean nilpotence theorem."
+      },
+      {
+        "assessment": "The paper studies odd biclique covers and graph 2-rank; it does not assert rank of the squared line-graph adjacency nor its dynamical Jordan partition. Generic binary-rank techniques are treated as prior.",
+        "evidence": [
+          "Buchanan et al. 2023, Sections 3–4, Theorem 4.4; examples for paths and even cycles."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1002/jgt.22970",
+        "material_read": "Open full-text HTML, introduction and Sections 2–4, including Theorem 4.4 and graph-rank discussion.",
+        "method": "Read full publication text on publisher site.",
+        "title": "Odd covers of graphs",
+        "trigger": "Potential more general binary adjacency-rank theorem applicable to line graphs."
+      },
+      {
+        "assessment": "Computes a line-completion number for super line graphs, an unrelated adjacency condition; does not study finite-field dynamics or Jordan blocks.",
+        "evidence": [
+          "Tapadia & Waphare, line-completion theorem and its induced-subgraph argument."
+        ],
+        "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1016/j.akcej.2018.02.003",
+        "material_read": "Accessible full HTML article, introduction, definition of super line graph and Sections 2–3 overview.",
+        "method": "Read HTML full article and theorem focus.",
+        "title": "The line completion number of hypercubes",
+        "trigger": "Specific hypercube-line-graph paper with potentially overlapping invariant."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5c15f12b-1ac7-45d5-a0a4-6e6ef1df96ac",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A line-graph transformation turns reversible vertex-neighbor XOR (all odd cube dimensions) into uniformly three-step nilpotent edge-neighbor XOR (all dimensions >=3). The dimension-uniform Jordan decomposition and exact distribution of relaxation times settle a motivated infinite-family dynamical classification, with a nontrivial second-power rank that is not a mere table lookup.",
+    "status": "PASS"
+  }
+}
