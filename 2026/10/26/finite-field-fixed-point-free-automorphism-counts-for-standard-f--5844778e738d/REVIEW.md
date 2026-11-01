@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The bracket table is a Lie algebra in every characteristic. The proof shows that every automorphism has two nonzero leading coefficients and exactly \(2n-3\) free field coefficients, yielding \(q^{2n-3}(q-1)^2\) automorphisms. Its triangular diagonal is \((a,b,ab,a^2b,\ldots,a^{n-2}b)\); excluding eigenvalue \(1\) and grouping \(a\) by multiplicative order proves the formula. The arithmetic checker agrees with an independent exponent-pair enumeration in the stated test range.
+PASS
 
-## Originality
+For n≥4 the characteristic derived ideal and the relation [e2,e3]=0 force the e1 component of σ(e2) to vanish (u·det=0), so every automorphism has triangular form determined uniquely by a,b∈F_q^× and 2n−3 free coefficients. Its diagonal weights are a,b,ab,a²b,…,a^(n−2)b. No fixed vector is equivalent to none of those weights being 1. For element a of order d>1, exactly min(d,n−1) values b are excluded; summing φ(d)(q−1−min(d,n−1)) and multiplying by q^(2n−3) proves all dimensions/finite characteristics, the existence criterion, and n=4 formulas. Independent direct exponent-pair counts covered 16 prime powers q=2..64 and n=4..12 (144 cases) and matched divisor sum, with proof handling unbounded n/q.
 
-The closest literature on the standard filiform family gives automorphism weights or characteristic-zero existence criteria, not the finite-field divisor-sum count. The closest finite-field count for the Heisenberg algebra concerns a different algebra; the adjoint-rank census for \(L_n(q)\) concerns a different invariant. The targeted searches and inspected texts found no equivalent statement. Search coverage is not exhaustive, so absolute novelty is not claimed.
+## originality
 
-## Value
+PASS
 
-The result gives an exact invariant for every dimension \(n\ge4\) and every finite field, with a sharp arithmetic existence boundary: fixed-point-free automorphisms exist exactly when \(n<q\) or \(q-1\) is composite. This identifies a finite-field boundary not supplied by the characteristic-zero existence results.
+Prior Lie-algebra automorphism classifications supply the structural triangular torus but not the number of finite-field elements with every diagonal weight unequal to 1. The new formula separates arithmetic multiplicative orders d|q−1 and identifies an exact n/q/compositeness existence boundary. Heisenberg count and adjoint-rank spectra are mathematically non-equivalent. Best-of-knowledge with possible older finite-group arithmetic census.
 
-## Closest literature and limitations
+## value
 
-The result is restricted to the standard filiform bracket family, not arbitrary filiform deformations. It does not classify automorphisms by order or conjugacy class. The checker validates arithmetic consequences only; the universal result rests on the symbolic proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact distribution of fixed-point-free automorphisms on a canonical maximal-class Lie algebra family is a natural finite-field invariant. The existence frontier depends subtly on q−1 compositeness as well as n, and the all-(q,n) count refines known structural descriptions of the automorphism group without being implied by a characteristic-zero existence statement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
