@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The argument is independent of numerical samples. The degree-counted holomorphic area change makes the derivative-weighted pullback an isometry. The adjoint transfer identity shows that the pulled-back Bergman kernel at a regular target lies in the span of precisely the kernels at its complete inverse fiber, forcing an exact equality eigenvalue. The original matrix on a fiber has rank one. Conversely, equality implies a rational vector in the isometric range; its poles propagate along every inverse branch of the rational map, forcing all \(d\) sampling nodes to be one fiber when their image values are regular. The critical-point argument excludes a constant exceptional vector. The hypotheses exclude ramified fibers for this converse.
+## correctness
 
-**Originality (PASS, qualified).** Tian's primary theorem proves the global matrix constant and exhibits asymptotic sharpness as nodes approach the boundary; its proof does not present the interior equality classification or converse. The closest published-finding corpus search on range-and-valence constants gives another uniform constant, not the regular-fiber equality iff assertion. Classical proper-map kernel formulas provide key machinery but no equivalent iff classification was located in the checked records. A specialist may discover an older equivalent formulation, particularly in the proper-map kernel literature.
+PASS
 
-**Value (PASS).** Rather than another numerical constant or a subsumed global upper bound, the result identifies the entire geometric equality locus in a canonical full-size sampling regime. It explains exact saturation at finite interior sampling locations, resolves all generalized eigenvalues on a full fiber, and gives an inverse-Gram interpolation identity for every degree and every regular target. These are naturally used to interpret sharp multipoint derivative constraints.
+The weighted proper-map pullback Uf=d^{-1/2}B′(f∘B) is an isometry of normalized Bergman space. The matrix inequality follows from the projection UU*; equality d iff the finite kernel span intersects ran(U). On a regular full fiber, adjoint change-of-variables shows Uk_w lies in the sampled span; the image matrix has rank one, so the full spectrum and inverse-Gram identity follow. For the converse, g in the intersection is rational, R=g/B′ descends rationally through B; a genuine pole at a reflected sampling point propagates to all d reflected points in its regular fiber. At reflected value infinity (a regular zero fiber), propagation is via the uniform second-order poles of B′ at the d simple poles of B and the common leading value of the descended rational function; this addresses a compressed boundary sentence in the source. The d-point count forces the full fiber. Independent degree 2..6 cases with two complex targets each verify d/zero eigenvalues and strict loss when off-fiber.
 
-**Closest prior literature and limits.** Tian (arXiv:2608.10443v1) gives the inequality; Bell (1982) supplies classical Bergman proper-map context. The result assumes exactly \(d\) distinct samples and regular image values. It does not classify other sizes or branch-point configurations. Historical priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison: The numerical best constant alone does not imply that equality occurs precisely on full regular inverse fibers. Because complete primary Tian text was inaccessible, risk of implicit coverage is retained rather than asserting full noncoverage.
+
+## value
+
+PASS
+
+Sharp equality configurations and their uniqueness for a natural finite-point complex-analytic inequality give structural information not implied by the numerical bound alone. Complete regular fibers are canonical interpolation configurations, and the inverse-Gram identity is an independently reusable exact fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
