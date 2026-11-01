@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "Exact exhaustive enumeration for n=1..6 and binary Gaussian elimination yields f(n=6)=(720,6840,15360,12060,4320,720) and boundary ranks (719,6121,8370,3600,720). Hence third reduced F2 Betti 12060-8370-3600=90 and second 15360-6121-8370=869. At n=5 H3 dimension 690-570-120=0, and n<5 likewise zero. Two independent standard-library implementations respectively use graph-square maximal cliques and mod-two column rank versus Kendall inversion distance, direct clique enumeration and mod-two row rank; both were executed successfully. The infinite claim follows because deleting labels is 1-Lipschitz; each six-letter insertion is an isometry; off-diagonal deletion after insertion factors through K_|T∩U| with H3 zero. Their induced compositions are the Kronecker delta, giving a split injection of one 90-dimensional H3 copy for every six-subset for all n≥6. No integral or other-scale extension is claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Graph-power high-girth criterion, Proposition 2.2, requires girth at least 7 for square graphs, whereas permutation graphs have commuting-swap 4-cycles: https://arxiv.org/abs/1104.0433",
+        "Hypercube homology-propagation results concern Hamming-cube graphs, not permutohedral Cayley graphs: https://arxiv.org/abs/2309.06222"
+      ],
+      "reasoning": "The relevant general graph-power theory furnishes definitions and sufficient collapse criteria but not a homology formula for these four-cycle-rich Cayley graphs. Adams--Virk prove a related projection/concentration strategy in a different family (binary hypercubes); their theorem does not yield the six-letter rank or the permutation-specific split injection. The present direct factorization is independently proved for label subsets.",
+      "searches": [
+        "adjacent transpositions permutahedron symmetric group S6 Kendall tau Vietoris-Rips scale two third homology 90",
+        "permutation Cayley graph adjacent swaps distance two Vietoris Rips cohomology 3 S6 and all n",
+        "Adamaszek clique complex graph powers theorem general graphs girth 4 permutohedron",
+        "Adams Virk 2023 homology propagation hypercube graphs"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1104.0433",
+      "https://arxiv.org/abs/2309.06222",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-mod-two-rips-persistence-of-the-four-letter-permutahedr--5b20bd61b710",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-vietoris-rips-homotopy-of-the-full-transposition-graph--eabeb40a2e42"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-transposition (six-generator) S4 graph is distinct from three-generator adjacent-swap S4 graph: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-vietoris-rips-homotopy-of-the-full-transposition-graph--eabeb40a2e42",
+        "Original n=4 adjacent-swap result has at most 24 vertices and no higher n statement: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-mod-two-rips-persistence-of-the-four-letter-permutahedr--5b20bd61b710",
+        "Hypercube projection proof applies to binary-coordinate Hamming graphs: https://arxiv.org/abs/2309.06222"
+      ],
+      "reasoning": "A result for all-transposition S4 is not a theorem for adjacent-position swaps. A four-letter Rips barcode does not imply a six-letter third-homology rank. The Adams--Virk hypercube lower-bound theorem has a different metric family, and its homology propagation does not automatically assert the n=6 permutohedral base case or the identified independent summands. The direct proof uses zero H3 for all smaller permutation spaces and off-diagonal deletion maps.",
+      "searches": [
+        "Rips complex of permutohedron graph S4 S5 graph distance two homotopy group",
+        "scale two Vietoris Rips homology adjacent-transposition Cayley graph symmetric group S_n sharp first H3 S6 binomial lower bound 90 times choose(n,6)",
+        "all transposition graph S4 metric compared with adjacent transposition Rips"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Adamaszek 2011 defines Cl(G^r) as graph-metric Rips at r: https://arxiv.org/abs/1104.0433",
+        "Four-letter permutohedral n=4 full RESULT.md: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-mod-two-rips-persistence-of-the-four-letter-permutahedr--5b20bd61b710",
+        "Truncated-octahedral shortest-path metric full RESULT.md: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8"
+      ],
+      "reasoning": "The graph-square flag complex, Kendall adjacent-swap Rips complex and Cayley graph generated by adjacent-position transpositions are the same object; the truncated-octahedral graph is only the four-letter member. Its degree-two homology rank nine does not imply either third homology at six labels or split binomial growth. No reviewed statement asserts the n=6 rank 90 or the splitting.",
+      "searches": [
+        "Vietoris–Rips complexes of permutohedron graphs Cayley graphs symmetric groups adjacent transpositions Kendall tau metric scale two homotopy type",
+        "Rips complex of permutohedron graph S4 S5 graph distance two homotopy group",
+        "clique complex square of adjacent-transposition Cayley graph of S6",
+        "Vietoris-Rips complex Kendall tau distance permutation S6 degree three homology"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest exact table covers n=4 rather than n=6: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-mod-two-rips-persistence-of-the-four-letter-permutahedr--5b20bd61b710",
+        "The same underlying four-label truncated-octahedral graph has radius-two homotopy wedge of nine two-spheres, only: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8"
+      ],
+      "reasoning": "No indexed table was found for the degree-three rank at six labels, or for all larger n. The present matrix ranks are newly recomputed from 40,020 nonempty faces. A negative database search alone is not conclusive evidence of originality.",
+      "searches": [
+        "scale two Vietoris Rips homology adjacent-transposition Cayley graph symmetric group S_n sharp first H3 S6 binomial lower bound 90 times choose(n,6)",
+        "published-finding corpus S6 Kendall tau Rips homology 90 869",
+        "permutohedron symmetric group S6 scale-two Rips Betti table"
+      ]
+    },
+    "rationale": "Actual published-finding corpus and literature searches, accessible earlier ledger claims and full-text primary comparisons locate four-letter permutohedral computations and general graph-power/hypercube theory, but not the precise six-letter F2 third homology or subset-indexed split injection in the symmetric-group adjacent-swap family. Similar full-transposition papers concern a different graph metric. A poorly indexed equivalent or wider general theorem remains a residual priority risk.",
+    "residual_risks": [
+      "Relevant unindexed or independently computed n=6 Betti tables may exist.",
+      "A general result for arbitrary contraction systems might imply the abstract splitting; the concrete n=6 rank and permutation-family lower bound are not found in inspected sources.",
+      "Prior public file history outside accessible records may contain overlap, though accessible own current-week claims and indexed results were compared."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The graph-square equivalence is definitional, and the girth-at-least-7 collapse condition fails for permutation graphs with 4-cycles.",
+          "Paper treats cycle powers rather than n=6 symmetric-group adjacent-swap Cayley graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1104.0433",
+        "material_read": "Primary full-text HTML: introduction, graph-power/Rips equivalence, Proposition 2.2 with girth bound and graph-square discussion, cycle classification descriptions.",
+        "method": "Read public arXiv text and compared theorem hypotheses with commuting-adjacent-swap four-cycles.",
+        "title": "Clique complexes and graph powers",
+        "trigger": "Underlying graph-square formulation and possible general covering collapse theorems"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "For n=4 and r=2, reports 24 vertices, second Betti nine and no third homology; explicitly does not claim larger symmetric groups."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-mod-two-rips-persistence-of-the-four-letter-permutahedr--5b20bd61b710",
+        "material_read": "Complete public RESULT.md including finite face/rank table and scope and limitations.",
+        "method": "Read primary public full result via repository file and compared graph size, r and claimed homology.",
+        "title": "Complete mod-two Rips persistence of the four-letter permutahedron",
+        "trigger": "Same adjacent-swap metric and inclusive graph-metric Rips construction"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Gives r=2 as wedge of nine two-spheres on 24 vertices, not degree-three rank for 720-vertex n=6 or all-n split."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-graph-metric-vietoris-rips-filtration-of-the-truncated--3b8391bcadb8",
+        "material_read": "Complete public RESULT.md: graph definition, radius-two collapse, radius-four Morse reduction and limitations.",
+        "method": "Read primary public full result and identified exact four-label graph equivalence.",
+        "title": "Complete graph-metric Vietoris--Rips filtration of the truncated octahedral graph",
+        "trigger": "The four-label permutohedron is the same 24-vertex truncated-octahedral graph"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "All-transposition graph has six neighbors per vertex and 72 edges on S4, while adjacent-swap S4 has three neighbors and 36 edges."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-vietoris-rips-homotopy-of-the-full-transposition-graph--eabeb40a2e42",
+        "material_read": "Complete public RESULT.md including explicit six-generator Cayley metric and sphere-wedge theorem.",
+        "method": "Read full primary result and compared generating sets, graph degree and graph-metric distances.",
+        "title": "Complete Vietoris–Rips homotopy of the full transposition graph on 24 permutations",
+        "trigger": "Similar Cayley/Rips title on permutation group and potential metric confusion"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The propagation theorem refers to Q_n, the binary Hamming cube, and varying coordinate embeddings. The current rank concerns adjacent-swap symmetric-group Cayley graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.06222",
+        "material_read": "Primary full-text arXiv HTML: abstract, introduction, Section 2.4 embeddings and projections, Section 3 contraction overview.",
+        "method": "Read public primary text and compared metric family/hypotheses with permutation deletion/insertion.",
+        "title": "Lower bounds on the homology of Vietoris--Rips complexes of hypercube graphs",
+        "trigger": "Possible broader homology-propagation result via metric retractions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cce9aa9f-fe81-477e-a9dc-7e484adc28b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This gives a sharp threshold for new third mod-two homology in a standard, natural graph-metric family, with 90 independent classes appearing for the first time at six labels, and proves a nontrivial growing topological lower bound 90*binomial(n,6) simultaneously for all n≥6. The vector-space split by deletion/insertion is structural, and yields high-dimensional information far beyond isolated four-letter persistence tables. This is meaningful even without a complete integral homotopy classification.",
+    "status": "PASS"
+  }
+}
