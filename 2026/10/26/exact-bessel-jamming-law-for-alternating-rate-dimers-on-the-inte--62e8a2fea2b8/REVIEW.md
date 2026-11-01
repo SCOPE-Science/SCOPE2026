@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Conditioning on independent edge-first-arrival times produces the coupled cavity differential equations. An explicit Bessel IVP solution and positive-order origin limits give the claimed infinite-chain jamming law. The hypergeometric expansion yields the exact weak-minority coefficients. Independent exhaustive finite-path order weights, a separate path recursion, and numerical ODE integrations support these proofs. Infinite correctness comes from the derivation, not finite testing.
+## correctness
 
-**Originality — PASS with residual uncertainty.** The classical equal-rate \(1-e^{-2}\) benchmark, exponential priorities and one-dimensional solvability are not new. The closest inspected materials concern horizontal/vertical anisotropy on a two-dimensional square lattice (de Oliveira–Tomé–Dickman, 1992), binary-alloy forbidden bonds and fluctuation exponents (Loscar–Borzi–Albano, 2003), and geometrically imprecise one-dimensional landing sites at uniform rates (Privman–Yan, 2016). None of those inspected results supplies the evaluated strictly positive alternating-bond rate law or the two-term small-rate expansion. An inaccessible broad 1993 survey and unindexed special cases leave a documented priority risk; no independent audit is claimed.
+PASS
 
-**Mathematical value — PASS.** The exact entire-rate crossover is a natural nonequilibrium packing statistic on a substrate with two-site periodic reactivity. The formula includes the familiar uniform benchmark while demonstrating a sharp defect fraction \(\varepsilon/2-5\varepsilon^2/6+O(\varepsilon^3)\) when one matching sublattice is much faster. It is an infinite-volume structural identity rather than a finite numerical table or a mere substitution into the homogeneous solution.
+Conditioning on exponential first arrivals in the two independent residual half-chains gives A’=-alpha e^{-alpha t} B, B’=-beta e^{-beta t} A, A(0)=B(0)=1. The vertex vacancy law satisfies p(t)=A(t)B(t), not an uncontrolled mean-field factorization. Eliminating B yields A”+alpha A’-alpha beta e^{-(alpha+beta)t} A=0; the change z=2 sqrt(h) e^{-(alpha+beta)t/2} reduces it to modified Bessel order nu. Correct Bessel Wronskian initialization and limiting K_nu/I_nu series yield p(infinity)=[h/(2+h)] 0F1(;2+nu;h)0F1(;2+mu;h). At equal rates A=B=exp(e^{-alpha t}-1), so p∞=e^-2. Expanding the analytic hypergeometric factors gives epsilon/2-5epsilon²/6+O(epsilon³), independent of overall rate scale. Independently integrated cavity ODE and hypergeometric values matched in five regimes at error <1.1e-11; the infinite-chain proof is analytic.
 
-**Scope and limitations.** Independent Poisson arrivals, irreversible nearest-neighbor dimers, and exactly period-two edge-rate modulation on an infinite chain. No variance, general rate disorder, higher-mer, finite-size exact equality, or global monotonicity is claimed. References and scientific comparisons are detailed in RESULT.md and AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for all-positive alternating two-bond-rate infinite-chain Bessel expression and sharp weak-minority asymptotic. Classical homogeneous dimer jamming e^-2 is known, as are nonuniform square-lattice orientation-rate models, imperfect sites, and bond-disorder studies. None of the compared published models is an explicit all-positive deterministic period-two bond clock law. A general inhomogeneous random-greedy matching formula could subsume the expression; no completeness claim is made.
+
+## value
+
+PASS
+
+Alternating deposition clocks form a simple, physically motivated patterned one-dimensional substrate. The exact jamming law quantifies packing defects under arbitrary rate contrast and its first two small minority-rate coefficients; these are natural nontrivial observables beyond the homogeneous benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

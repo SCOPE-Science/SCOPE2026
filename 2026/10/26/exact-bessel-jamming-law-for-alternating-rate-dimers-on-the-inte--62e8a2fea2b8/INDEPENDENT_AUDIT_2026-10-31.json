@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:12:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at frozen commit 7114b2e91c83d844d5a46a85c8a46887759567e5 (GitHub fetched blob d9126d5a3385ad0d6178fafb795b31bc50552b72)",
+        "Fresh independent_checks.py numerical diagnostics and results",
+        "Mathematical proof and parameter boundary analysis"
+      ],
+      "rationale": "Conditioning on exponential first arrivals in the two independent residual half-chains gives A’=-alpha e^{-alpha t} B, B’=-beta e^{-beta t} A, A(0)=B(0)=1. The vertex vacancy law satisfies p(t)=A(t)B(t), not an uncontrolled mean-field factorization. Eliminating B yields A”+alpha A’-alpha beta e^{-(alpha+beta)t} A=0; the change z=2 sqrt(h) e^{-(alpha+beta)t/2} reduces it to modified Bessel order nu. Correct Bessel Wronskian initialization and limiting K_nu/I_nu series yield p(infinity)=[h/(2+h)] 0F1(;2+nu;h)0F1(;2+mu;h). At equal rates A=B=exp(e^{-alpha t}-1), so p∞=e^-2. Expanding the analytic hypergeometric factors gives epsilon/2-5epsilon²/6+O(epsilon³), independent of overall rate scale. Independently integrated cavity ODE and hypergeometric values matched in five regimes at error <1.1e-11; the infinite-chain proof is analytic.",
+      "residual_risks": [
+        "Assumes independent time-homogeneous Poisson arrivals on every edge, no longer dimers, no random disorder."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans (1993) surveys solvable 1D adsorption; de Oliveira et al (1992) study unequal orientation rates on a square lattice with homogeneous-chain appendix."
+        ],
+        "reasoning": "A fully general exact finite-edge-rate recursion would imply first-step equations, but the retrieved literature does not give the evaluated period-two infinite-volume Bessel product. Coverage from specialized inhomogeneous rates remains a risk.",
+        "searches": [
+          "Evans 1993 Random and cooperative sequential adsorption Reviews of Modern Physics",
+          "de Oliveira Tome Dickman 1992 anisotropic dimer square lattice",
+          "One-dimensional random sequential adsorption dimers periodic alternating two bond rates exact jamming coverage Bessel"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md at immutable commit 7114b2e91c83d844d5a46a85c8a46887759567e5",
+        "Resultary semantic search: One-dimensional random sequential adsorption dimers periodic alternating two bond rates exact jamming coverage Bessel",
+        "Anisotropic random sequential adsorption of dimers on a square lattice, https://doi.org/10.1103/PhysRevA.46.6294",
+        "Fluctuations of jamming coverage upon random sequential adsorption on homogeneous and heterogeneous media, https://arxiv.org/abs/cond-mat/0312171",
+        "Random Sequential Adsorption on Imprecise Lattice, https://arxiv.org/abs/1606.01823"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Homogeneous benchmark p∞=e^-2 occurs as alpha=beta and is prior knowledge; square-lattice anisotropic orientation clocks are not the same deterministic one-dimensional alternating bond rates."
+        ],
+        "reasoning": "Neither the homogeneous law nor a substrate with forbidden or geometrically imprecise bonds directly entails the analytic all-positive rate product or its epsilon² coefficient. A general formula for arbitrary bond rates might, and this is identified as a priority risk.",
+        "searches": [
+          "de Oliveira Tomé Dickman Physical Review A 46 (1992) 6294",
+          "arxiv:1606.01823 Privman Yan imprecise lattice",
+          "One-dimensional random sequential adsorption dimers periodic alternating two bond rates exact jamming coverage Bessel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Poisson first proposals are equivalent to assigning independent exponential edge arrival priorities and retaining non-overlapping accepted dimers; cavity equations and greedy matching describe the same process."
+        ],
+        "reasoning": "Compared adsorption, random-greedy matching, first-arrival priorities, and 2-period heterogeneous rates. The result measures vacancy fraction, not deposition-time distribution or fluctuation variance.",
+        "searches": [
+          "One-dimensional random sequential adsorption dimers periodic alternating two bond rates exact jamming coverage Bessel",
+          "periodic inhomogeneous random sequential adsorption dimers chain greedy random matching alternating edge priority"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby adsorption papers treat random or forbidden-bond substrates, not a positive period-two rate formula; bounded Resultary retrieval gave unrelated adsorption/chain records."
+        ],
+        "reasoning": "No identical numerical or analytic table located in compared material, but bounded results cannot establish novelty or absence from specialist literature.",
+        "searches": [
+          "One-dimensional random sequential adsorption dimers periodic alternating two bond rates exact jamming coverage Bessel",
+          "Resultary periodic random sequential dimer jamming rates Bessel",
+          "arxiv:cond-mat/0312171 heterogeneous adsorption"
+        ]
+      },
+      "rationale": "Qualified PASS for all-positive alternating two-bond-rate infinite-chain Bessel expression and sharp weak-minority asymptotic. Classical homogeneous dimer jamming e^-2 is known, as are nonuniform square-lattice orientation-rate models, imperfect sites, and bond-disorder studies. None of the compared published models is an explicit all-positive deterministic period-two bond clock law. A general inhomogeneous random-greedy matching formula could subsume the expression; no completeness claim is made.",
+      "residual_risks": [
+        "An earlier exact inhomogeneous RSA or random-greedy matching treatment may already solve positive alternating bond rates, even without the same Bessel notation.",
+        "The classical homogeneous limit is expressly not novel.",
+        "Bounded semantic retrieval and inaccessible/unindexed literature cannot establish absolute historical priority; a stronger equivalent theorem might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": [
+            "Unequal orientation rates in two dimensions are not the claimed alternating neighboring bond rates on Z."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevA.46.6294",
+          "material_read": "Publisher summary/model description and identified homogeneous one-dimensional appendix; no full-article exclusion.",
+          "method": "Compared square-lattice orientation-rate model with period-two 1D bond-rate model.",
+          "title": "Anisotropic random sequential adsorption of dimers on a square lattice",
+          "trigger": "Similar unequal rates with dimension-dependent deposition geometry."
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_IMPLICATING",
+          "evidence": [
+            "Some substrates forbid bonds or randomize geometry; exact positive-two-rate Bessel law not verified in inspected materials."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0312171",
+          "material_read": "Abstract and described random/binary alloy substrate model; full mathematical text not read completely.",
+          "method": "Compared allowed edge rates and observable (variance versus mean coverage).",
+          "title": "Fluctuations of jamming coverage upon random sequential adsorption on homogeneous and heterogeneous media",
+          "trigger": "Heterogeneous medium could give a general periodic-jamming formula."
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": [
+            "Landing-site imprecision is not fixed alternating Poisson bond clocks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1606.01823",
+          "material_read": "Accessible abstract and model setup for imprecise landing positions.",
+          "method": "Compared deposition geometry/rates to independent periodic edge clocks.",
+          "title": "Random Sequential Adsorption on Imprecise Lattice",
+          "trigger": "One-dimensional site-patterned deposition with benchmark vacancy."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact mathematical invariant and its natural motivating primary literature",
+        "Correctness proof reconstructed from actual RESULT.md"
+      ],
+      "rationale": "Alternating deposition clocks form a simple, physically motivated patterned one-dimensional substrate. The exact jamming law quantifies packing defects under arbitrary rate contrast and its first two small minority-rate coefficients; these are natural nontrivial observables beyond the homogeneous benchmark.",
+      "residual_risks": [
+        "No fluctuation, covariance, monotonicity or random-substrate theorem is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes independent time-homogeneous Poisson arrivals on every edge, no longer dimers, no random disorder.",
+    "An earlier exact inhomogeneous RSA or random-greedy matching treatment may already solve positive alternating bond rates, even without the same Bessel notation.",
+    "The classical homogeneous limit is expressly not novel.",
+    "Bounded semantic retrieval and inaccessible/unindexed literature cannot establish absolute historical priority; a stronger equivalent theorem might exist.",
+    "No fluctuation, covariance, monotonicity or random-substrate theorem is established.",
+    "Oxford institutional full-text access remained disconnected; no authentication bypass; no external formal or expert certification implied."
+  ],
+  "schema_version": 1
+}

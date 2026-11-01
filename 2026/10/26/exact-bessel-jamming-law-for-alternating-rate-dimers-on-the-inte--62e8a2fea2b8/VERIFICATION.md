@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and proof checks
 
-The mathematical proof is in RESULT.md, with domain, normalization, closed-form cavity solutions, Bessel limiting identities, and an explicit hypergeometric expansion. Run `python verify.py` with the versions described in `requirements.txt`.
+# Independent mathematical audit
 
-The script independently enumerates the first-attempt order of every bond in short finite paths, using exact rational Plackett–Luce order weights, and matches the corresponding first-success recursion. It also compares independent numerical integrations of the cavity IVP with the closed Bessel solution at positive finite times, and extrapolates finite-path expected coverages using a recurrence distinct from the infinite-chain differential-equation derivation. Finally it tests the homogeneous \(e^{-2}\) value and the two-term strongly staggered expansion.
+## correctness
 
-Observed execution: 18 exact-rational arrival-order comparisons, 24 cavity/Bessel comparisons, 15 finite-path thermodynamic comparisons, and four benchmark/asymptotic checks passed. These computational tests are finite and do not certify the infinite-chain identity or historical novelty; the written analytical proof supplies the infinite-parameter argument. No independent audit was performed.
+PASS
+
+Conditioning on exponential first arrivals in the two independent residual half-chains gives A’=-alpha e^{-alpha t} B, B’=-beta e^{-beta t} A, A(0)=B(0)=1. The vertex vacancy law satisfies p(t)=A(t)B(t), not an uncontrolled mean-field factorization. Eliminating B yields A”+alpha A’-alpha beta e^{-(alpha+beta)t} A=0; the change z=2 sqrt(h) e^{-(alpha+beta)t/2} reduces it to modified Bessel order nu. Correct Bessel Wronskian initialization and limiting K_nu/I_nu series yield p(infinity)=[h/(2+h)] 0F1(;2+nu;h)0F1(;2+mu;h). At equal rates A=B=exp(e^{-alpha t}-1), so p∞=e^-2. Expanding the analytic hypergeometric factors gives epsilon/2-5epsilon²/6+O(epsilon³), independent of overall rate scale. Independently integrated cavity ODE and hypergeometric values matched in five regimes at error <1.1e-11; the infinite-chain proof is analytic.
+
+## originality
+
+PASS
+
+Qualified PASS for all-positive alternating two-bond-rate infinite-chain Bessel expression and sharp weak-minority asymptotic. Classical homogeneous dimer jamming e^-2 is known, as are nonuniform square-lattice orientation-rate models, imperfect sites, and bond-disorder studies. None of the compared published models is an explicit all-positive deterministic period-two bond clock law. A general inhomogeneous random-greedy matching formula could subsume the expression; no completeness claim is made.
+
+## value
+
+PASS
+
+Alternating deposition clocks form a simple, physically motivated patterned one-dimensional substrate. The exact jamming law quantifies packing defects under arbitrary rate contrast and its first two small minority-rate coefficients; these are natural nontrivial observables beyond the homogeneous benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
