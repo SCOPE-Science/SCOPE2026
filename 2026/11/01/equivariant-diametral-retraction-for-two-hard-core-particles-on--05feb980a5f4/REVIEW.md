@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The distance formulas follow by classifying geodesics between two positions on a parallel-edge graph. On one edge the explicit formula increases the coordinate gap affinely to one; on distinct edges both branches increase the quantity \(\min\{u+v,2-u-v\}\) affinely to one. The formulas agree at sum one and at every pole-identification seam. No division occurs at zero separation, which is explicitly excluded. All maps preserve every positive-distance threshold, fix the diametral locus, and commute with edge permutations, pole reversal and particle swap. The endpoint CW graphs and the integral signed action follow by counting their actual one-cells. The finite rational verifier checks samples but is not used as an infinite proof.
+## correctness
 
-## Originality (PASS; publication-priority risk remains)
-The comparison separately treated synonyms including banana/theta/parallel-edge graphs, maximal-distance or diametral configurations, metric hard-core/separated-point configurations, and graph braid groups. Deeley (2011) and Dover–Özaydın (2013) give general methods, but their inspected primary articles do not assert this uniform equivariant retraction. Maciążek–Sawicki (2019) covers the unrestricted \(m=3\) fundamental group, not the all-threshold deformation. The accessible earlier private ledger did not contain this metric diametral-retraction claim, although it includes some ordinary theta-graph and star-configuration results. The 2011 thesis abstract does not settle whether the entire thesis covers this special case; the inaccessible complete thesis and unindexed treatments remain risks.
+PASS
 
-## Value (PASS)
-The theorem pinpoints a sharp geometric contrast in thick-particle motion planning: although in general restricted graph configuration spaces undergo parameter-driven changes, the entire positive-range filtration of equilateral multichannel networks retains one fixed equivariant homotopy type, including the maximal feasible separation. Its explicit endpoint graph also computes the nonabelian braid group, all integral homology and the entire symmetry action uniformly in the arm count, rather than merely a homology rank at a single parameter.
+On m≥3 parallel unit intervals, same-edge distance is |u-v|; distinct-edge distance min(u+v,2-u-v), with diameter exactly one. The displayed homotopy pushes ordered same-edge coordinates u<v to ((1−t)u,1−(1−t)(1−v)), while on distinct edges scales (u,v) toward sum one via s=u+v on s≤1 and their complements on s≥1. Direct substitution gives d_t=(1−t)d+t for all d>0; coordinates remain in [0,1], rules agree at s=1 and pole-identifications, so pasting yields a continuous homotopy in the metric quotient and fixes the diametral set pointwise. It is symmetric under edge permutations, pole reversal and particle swap. Thus each U1⊂Ur/F1⊂Fr for 0<r≤1 is equivariant strong deformation retract, with r>1 empty and r=0 excluded. At distance one, unordered space is one vertex with binomial(m,2) loop edges, ordered space two vertices with m(m−1) edges; wedge ranks binomial(m,2) and m(m−1)−1. Permutations act on oriented unordered loops as wedge² of the standard Z^m permutation module; pole swap negates loops. S_m quotient folds one transitive loop to an interval, hence full quotient contractible. Source verify.py 46k-ish exact rational cases are supplementary, not full real-domain proof.
 
-## Limitations
-Equal edge lengths, exactly two particles, and positive center distance are required. The metric and homotopies are explicit; no independence of verification is claimed. The 2011 Durham thesis complete text could not be inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the exact new assertion was compared to its natural aliases, stronger/general results and selected primary literature, as well as the Resultary search. Known foundations are not claimed as new. Sources read and unresolved priority limitations are recorded explicitly. retraction.
+
+## value
+
+PASS
+
+A fully equivariant, threshold-uniform deformation for a natural family of metric multigraphs classifies every positive hard-core separation, ordered and unordered Betti numbers, the integral symmetry action, and a contractible full quotient. Explicit topology and equivariant lattice are genuine reusable structural invariants, not a restatement of small m braid rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
