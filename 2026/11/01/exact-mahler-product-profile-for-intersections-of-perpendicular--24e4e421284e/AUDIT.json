@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Exact radial integration, polar convex-hull arc/segment Green integration, and a strictly positive factorization of the derivative establish the full real-parameter theorem including endpoints. A standalone symbolic plus independent primal/polar quadrature check passed 649 checks; finite tests are supplemental.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Meyer–Reisner arXiv:math/0606305 Theorem 1 concerns convexity of reciprocal polar volume for shadow systems.",
+        "Böröczky et al. arXiv:1507.01481 Theorem 3 and Corollary 4 give lower inequalities and equality cases, not intermediate family comparisons."
+      ],
+      "reasoning": "Global Mahler/Santaló bounds only place each member between 8 and π²; they do not rank different finite parameters or determine sharp rates. The shadow-system theorem does not establish the required hypothesis for the nonlinear ellipse intersections and does not by itself order their area products.",
+      "searches": [
+        "volume product intersection ellipsoids polar convex hull",
+        "Meyer Reisner shadow systems volume product convexity along intersections ellipses",
+        "arxiv:math/0606305",
+        "arxiv:1507.01481"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0606305 (submitted 2006-06-13)",
+      "arxiv:1106.3787 (submitted 2011-06-19)",
+      "arxiv:1507.01481 (submitted 2015-07-06)",
+      "doi:10.1112/S0025579300000061",
+      "doi:10.1556/SScMath.50.2013.2.1235"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1507.01481 Theorem 3 supplies an extremal lower bound without monotonicity between points on this curve.",
+        "arXiv:math/0606305 Theorem 1 asserts reciprocal-polar convexity under a shadow-system hypothesis, not the exact product in an intersected-ellipse family.",
+        "arXiv:1106.3787 Section 3.2 classifies overlap geometry and integrates overlapping regions, but does not involve polar bodies."
+      ],
+      "reasoning": "Neither a generic inequality, a shadow-system reciprocal-volume convexity statement, nor an overlap-area formula alone entails the displayed polar-area identity plus strict parameterwise ordering. The argument here requires additional explicit polar hull geometry and a derivative-sign calculation.",
+      "searches": [
+        "On the volume product of planar polar convex bodies Lower estimates with stability arxiv",
+        "Shadow systems and volumes of polar convex bodies Meyer Reisner full text",
+        "Calculating ellipse overlap areas Hughes Chraibi arxiv full text"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Hughes–Chraibi arXiv:1106.3787, Sections 2–3, evaluates ellipse segment and overlap areas but not polars.",
+        "Targeted searches of polar-hull and perpendicular-ellipse terminology did not identify the stated reciprocal-arctangent formula."
+      ],
+      "reasoning": "Equivalent descriptions include a fourfold ellipse intersection, a convex hull of two perpendicular polar ellipses, and the norm-ball interpolation from disk to square. The inspected overlap algorithm lacks the polar area and parameterwise product comparison. No found equivalent under these aliases.",
+      "searches": [
+        "Mahler volume product of the intersection of two equal-area perpendicular rotated ellipses; exact formula and strict monotonicity with eccentricity, square limiting shape",
+        "Mahler product intersection of orthogonal ellipses polar hull volume arctan",
+        "intersection of ellipses right angle Mahler product 16 arctan squared plus 8(t-1/t) arctan reciprocal"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published mathematical findings concern cube–cross-polytope intersections, polar-volume stability, and distinct ellipse invariants; no retrieved record states the perpendicular ellipse product.",
+        "Hughes–Chraibi gives an ellipse overlap-area algorithm but no Mahler product table."
+      ],
+      "reasoning": "Direct searches for the exact functional form and for the geometric aliases did not return a matching database/table entry. This is bounded-search evidence, not exhaustive worldwide absence.",
+      "searches": [
+        "K_t={(x,y): x²/t²+y²≤1 and x²+y²/t²≤1}, t≥1. Exact planar Mahler product 16 arctan(1/t)^2+8(t-1/t) arctan(1/t) decreasing from π² to 8; orthogonal ellipse intersection",
+        "intersection of two ellipses Mahler volume product orthogonal",
+        "volume product orthogonal ellipses monotonic"
+      ]
+    },
+    "rationale": "Three highly relevant lawful primary full texts and targeted exact/alias searches were materially compared. No equivalent exact Mahler product and strict monotonicity for perpendicular ellipse intersections was located; existing general lower bounds and shadow-system convexity do not imply it as stated. Historical priority remains an explicit nonzero risk.",
+    "residual_risks": [
+      "Unindexed or inaccessible earlier special-case derivations of the perpendicular-ellipse product may exist.",
+      "The 2006 shadow-system theorem is broader in object class but does not supply the specific strict monotonicity claim without an additional implication not established by that source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING stated exact family identity; conditional abstract theorem on shadow-system reciprocal polar volumes.",
+        "evidence": [
+          "Theorem 1: reciprocal polar volume is convex under a shadow-system hypothesis.",
+          "Paper treats general polar-volume convexity and reverse Santaló inequalities, not an explicit orthogonal-ellipse intersection profile."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0606305",
+        "material_read": "Complete HTML full-text introduction and Theorem 1, PDF pp. 1–3 including definition, hypotheses, and applications.",
+        "method": "Full-text HTML and PDF page inspection",
+        "title": "Shadow systems and volumes of polar convex bodies",
+        "trigger": "Possible general theorem dominating monotonicity of Mahler products"
+      },
+      {
+        "assessment": "PARTIAL_COMPONENT_ONLY: general overlap-area calculation, not polar or Mahler product.",
+        "evidence": [
+          "Equation (4): ellipse sector area from Gauss–Green.",
+          "Section 3.2: overlap-area algorithm via ellipse segments and polygons, no polar-area computation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1106.3787",
+        "material_read": "PDF first page, Section 2 ellipse-sector formulas, Section 3.2 ellipse-ellipse overlap, including four-point overlap case and integration strategy.",
+        "method": "Full-text PDF text and page screenshot",
+        "title": "Calculating ellipse overlap areas",
+        "trigger": "Same geometric object class; possible exact area formula for ellipse intersections"
+      },
+      {
+        "assessment": "NOT_COVERING the parameterwise ellipse-intersection ordering: only global lower/stability results.",
+        "evidence": [
+          "Theorem 3: regular-polygon sandwich lower bound.",
+          "Corollary 4: n-fold rotational lower bound, equality regular polygons.",
+          "No ellipse intersection formula stated in inspected relevant material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.01481",
+        "material_read": "PDF abstract, definitions, Theorem 3, Corollary 4, Theorem 5, and relevant theorem contexts; checked for ellipse-specific theorem.",
+        "method": "Full-text PDF text, relevant page screenshot, theorem and term search",
+        "title": "On the volume product of planar polar convex bodies — lower estimates with stability",
+        "trigger": "Closest planar Mahler inequality and stability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "24e4e421-284e-4813-b98c-3326b5cea532",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural geometric intersection interpolates from the disk to the square. The exact affine-invariant Mahler profile and globally strict ordering are new mathematical content relative to overlap-area algorithms and endpoint convex inequalities; the polar develops supporting segments, and sharp near-disk and near-square stability coefficients provide meaningful quantitative benchmarks.",
+    "status": "PASS"
+  }
+}
