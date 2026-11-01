@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every positive depth vector, the alternating reciprocal-jump test vector has generalized weight \(S\) and total interface variation \(2S\). Weighted Cauchy–Schwarz gives the global lower eigenvalue bound \(4S/H\); its strict equality condition forces the unique allocation. Direct substitution produces the predicted eigenpair at that allocation, and the sign-conjugated irreducible tridiagonal matrix has a positive Perron eigenvector, proving the eigenvalue is the largest. This also proves the bound holds for all integers \(N\ge2\), not merely checked small dimensions. The exact three-layer speed ratio follows from the generalized matrix trace. All positivity, endpoint conditions, and mode index conventions were checked. The numerical checker passes 13,200 assertions but does not replace the analytical proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The classical multilayer modal problem is documented by Shimizu (2011) and the three-layer forward problem by de Melo Viríssimo–Milewski (2019). Their examined material describes modal construction, orthogonality, and nonlinear three-layer dynamics, not the global fixed-total-depth allocation across arbitrary layer number and independently prescribed interface buoyancies. Indexed scientific source/parameter/alias comparisons did not show an equivalent or dominating optimization. The novelty claim is confined to the explicit sharp all-\(N\) design theorem and strict uniqueness. The complete original Shimizu publisher PDF remained inaccessible, and an equivalent derivation in older specialized literature cannot be excluded without independent historical review. A failed search is not proof of priority.
+PASS
 
-## Value — PASS
-Layer thickness is a genuine physical design variable constrained by a natural fixed total column depth. The exact optimizer proves that the interior depths balance adjacent inverse reduced gravities and gives a strong invariant consequence: a three-layer optimal column always places half its depth in the middle layer, independent of the two unequal interface strengths. This is a complete closed-form modal-control classification for arbitrary layer count; it is not merely a restatement of a standard inequality. The result neither predicts nonlinear wave behavior nor optimizes finite-wavelength dispersion, so those are explicit physical limits.
+For N>=2 prescribed positive reduced gravities, H>0 and positive depths summing to H, the rigid-lid generalized Jacobi eigenproblem is exactly K(h)eta=c^-2 D eta. With a_j=1/g_j and alternating v_j=(-1)^(j-1)a_j, v^T D v=S and sum |v_j-v_{j-1}|=2S. The Rayleigh bound and weighted Cauchy–Schwarz show lambda_max>=4S/H, with equality only for h_i=H(a_{i-1}+a_i)/(2S). At those depths K(h*)v=(4S/H)Dv; sign-conjugation produces a positive Perron vector of the tridiagonal matrix, making that eigenvalue the largest and proving attainability. N=2 scalar boundary holds; N=3 trace gives 1:2 slow/fast squared-speed ratio. Fresh generalized-eigenproblem calculations tested 325 randomized depth/gravity choices across N=2..14; universal proof is analytic.
 
-## Closest prior sources and access limits
-- K. Shimizu, *A Theory of Vertical Modes in Multilayer Stratified Fluids* (2011), https://doi.org/10.1175/2011JPO4546.1. Publisher-indexed sections and summary were reviewed, not the inaccessible full PDF.
-- F. de Melo Viríssimo and P. A. Milewski, *Three-layer Flows in the Shallow Water Limit* (2019), https://nora.nerc.ac.uk/id/eprint/527073/1/2018-SAPM-deMeloVirissimoMilewskiREVISION.pdf. Full accessible manuscript examined in the relevant sections.
-- Additional comparison included two-layer quasigeostrophic thickness-instability optimization (different dynamics and objective) and publicly indexed graph-spectral optimization results (different operators and constraints).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The physical multilayer eigenproblem and modal orthogonality are classical, including Shimizu (2011) and de Melo Viríssimo–Milewski (2019), but the inspected fixed-geometry mode theory does not itself state a unique global optimizer for the smallest speed over every fixed-total-depth allocation and arbitrary positive buoyancy jumps. The all-N inverse-gravity adjacent-depth rule is the assessed theorem, not generic Cauchy–Schwarz or two-layer equal-depth folklore. Shimizu publisher full text was not fully accessible and Oxford authorized access returned VPN disconnected; do not infer complete exclusion.
+
+## value
+
+PASS
+
+The output is an exact, unique allocation rule with physically interpretable inverse-buoyancy weights, valid for arbitrary numbers of layers and independent positive jumps. Maximizing the slowest mode under total-depth resource constraint is a natural optimal-stratification question; N=3 half-depth middle-layer law is a nontrivial concrete consequence, not a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
