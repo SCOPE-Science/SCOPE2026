@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:14:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For constant-preserving scalar linear interpolation, the exact oscillation seminorm at old point i is T_i=(|alpha_i-1|+sum_{j!=i}|alpha_j|)/2. If P=sum positive parts alpha_j, normalizing those positive parts gives a nonnegative probability vector with no larger T_i for any i (check separately p_i<=1 and p_i>1). For nonnegative alpha, constraints 1-alpha_i<=c*r_i are jointly feasible iff F(c)=sum_i(1-c*r_i)_+<=1; its max-over-subsets form reduces to the k smallest radii, yielding Lambda=max(1,max_{k>=2}(k-1)/R_k). Positive weights realize the universal Banach extension; the half-l1 zero-sum target with f_i=e_i-e_n forces the exact same minimax lower bound for arbitrary Banach extensions. F(Lambda)=1 if Lambda>1 enforces unique nonnegative coefficients. Pairwise triangle constraints prove Lambda<=2-2/n for n>=3, equality only all r_i=1/2. Independent scipy/HiGHS LP checked 167 valid random rational metric tuples n<=9 to error <=2.23e-16; finite numeric tests do not prove all real radii.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General finite-point frameworks can compute or bound extension constants abstractly",
+          "Basso proves the worst-case ae(X)=2-2/n, not every prescribed Y"
+        ],
+        "reasoning": "A general LP framework or supremum theorem is not the explicit closed pointwise profile. Known worst-case result fully credited.",
+        "searches": [
+          "Resultary semantic search: sharp universal one-point Lipschitz extension equilateral metric arbitrary radii sorted sum Banach coefficients",
+          "arXiv:2104.14238 Lemma 4.1",
+          "arXiv:1707.06593"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2104.14238 — Original arXiv full rendered article, Introduction, Section 3 framework, Section 4 including Lemma 4.1 statement and proof",
+        "Resultary corpus: sharp universal one-point Lipschitz extension equilateral metric arbitrary radii sorted sum Banach coefficients",
+        "Original immutable RESULT.md Git blob c5cfbaed2d23b273b7cc84bc312247c2e65e779e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new Λ depends on sorted radii and can be one for distant points",
+          "Basso Lemma 4.1 computes only the absolute extendability constant of the original equilateral space"
+        ],
+        "reasoning": "The broader supremum over all possible new spaces does not mathematically imply exact values for each heterogeneous fixed extension pair.",
+        "searches": [
+          "arXiv:2104.14238 §4 Lemma 4.1",
+          "Resultary semantic search: sharp universal one-point Lipschitz extension equilateral metric arbitrary radii sorted sum Banach coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Symmetric equiradial star constant already known; its r_i all equal 1/2 case is a strict specialization of the new profile"
+        ],
+        "reasoning": "Lipschitz-free/projection-constant and signed interpolation are equivalent approaches, explicitly optimized; none of the inspected special-case results gives the general R_k threshold.",
+        "searches": [
+          "Resultary semantic search: sharp universal one-point Lipschitz extension equilateral metric arbitrary radii sorted sum Banach coefficients",
+          "arXiv:2104.14238 Lemma 4.1",
+          "Resultary 2026/10/11/SCOPE-sharp-leaf-count-transitions-in-one-point-p-banach-lipschitz-ext--b03e5cc2b3f1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Equiregular three- and n-leaf tables use all r_i=1/2",
+          "Independent LP covers heterogeneous r_i and switches supports"
+        ],
+        "reasoning": "Known tables for symmetric radii do not determine the full n-dimensional metric-parameter formula.",
+        "searches": [
+          "Resultary semantic search: sharp universal one-point Lipschitz extension equilateral metric arbitrary radii sorted sum Banach coefficients",
+          "Resultary 2026/10/11/SCOPE-sharp-three-leaf-star-extension-constants-for-real-p-banach-targ--e0e2d2aa7094"
+        ]
+      },
+      "rationale": "An equilateral source with heterogeneous new-point radii has nonconstant optimal alpha and a sorted-partial-sum threshold; the symmetric equiradial factor 2-2/n does not express the full profile. No change of notation or scaling transforms the one-parameter equiradial theorem into the n-parameter radius-support description.",
+      "residual_risks": [
+        "An older unindexed weighted one-point projection/interpolation formula might encode the same sorted-radius result.",
+        "Only real Banach targets and one new point are proved; quasi-Banach and arbitrary source metrics are excluded.",
+        "The worst-case equiradial number 2-2/n is expressly previously established by Basso."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves 2-2/n as equilateral absolute worst-case constant via the equiradial star but does not provide every heterogeneous one-point radius profile or support transitions",
+          "evidence": [
+            "Lemma 4.1 gives ae(X)=2-2/n for finite equilateral X and explicitly constructs equal-length star edges; the new theorem fixes Y with unequal r_i."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2104.14238",
+          "material_read": "Original arXiv full rendered article, Introduction, Section 3 framework, Section 4 including Lemma 4.1 statement and proof",
+          "method": "arXiv full-text rendering, exact hypotheses and pointwise-versus-worst-case implication comparison",
+          "title": "Absolute Lipschitz extendability and linear projection constants",
+          "trigger": "Same equilateral source and sharp real Banach extension constant, plausible domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This determines a sharp metric-dependent extension constant and optimizer for every admissible heterogeneous equilateral star, including exact support transitions as radii change. That complete natural family profile is not implied by the known equiradial extremal constant and has a constructive effect on which source points contribute; no broader downstream theorem is needed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2104.14238 — Original arXiv full rendered article, Introduction, Section 3 framework, Section 4 including Lemma 4.1 statement and proof",
+    "Resultary corpus: sharp universal one-point Lipschitz extension equilateral metric arbitrary radii sorted sum Banach coefficients",
+    "Original immutable RESULT.md Git blob c5cfbaed2d23b273b7cc84bc312247c2e65e779e"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older unindexed weighted one-point projection/interpolation formula might encode the same sorted-radius result.",
+    "Only real Banach targets and one new point are proved; quasi-Banach and arbitrary source metrics are excluded.",
+    "The worst-case equiradial number 2-2/n is expressly previously established by Basso."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Proves 2-2/n as equilateral absolute worst-case constant via the equiradial star but does not provide every heterogeneous one-point radius profile or support transitions",
+      "evidence": [
+        "Lemma 4.1 gives ae(X)=2-2/n for finite equilateral X and explicitly constructs equal-length star edges; the new theorem fixes Y with unequal r_i."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2104.14238",
+      "material_read": "Original arXiv full rendered article, Introduction, Section 3 framework, Section 4 including Lemma 4.1 statement and proof",
+      "method": "arXiv full-text rendering, exact hypotheses and pointwise-versus-worst-case implication comparison",
+      "title": "Absolute Lipschitz extendability and linear projection constants",
+      "trigger": "Same equilateral source and sharp real Banach extension constant, plausible domination"
+    }
+  ]
+}

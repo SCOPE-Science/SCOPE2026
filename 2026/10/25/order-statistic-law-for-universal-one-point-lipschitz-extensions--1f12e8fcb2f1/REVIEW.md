@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is all-parameter for an exact \(n\)-point equilateral source with a single compatible added point. A signed coefficient vector has sharp pointwise norm \(T_i\), and normalization of its positive part decreases all \(T_i\) simultaneously. The feasibility inequalities for positive weights reduce exactly to \(\sum_i(1-cr_i)_+\le1\); exhaustive subset maximization reduces to the sorted partial sums. The zero-sum half-\(\ell_1\) Banach target supplies an isometric adversarial map, proving the lower bound for **all** possible Banach extensions, while the explicit positive construction supplies a universal upper bound. The support uniqueness when the factor exceeds one follows because the lower bounds on coefficients sum to one. The worst-case comparison uses metric triangle constraints and correctly excludes the trivial two-point case. Computational stress checks agree with the analytic formula but are not substituted for proof.
+## correctness
 
-## Originality — PASS (same-model, residual risk)
-Basso (2021), Lemma 4.1, **already** proves the sharp worst-case equilateral extension constant \(2-2/n\), attained at uniform star distance \(1/2\); the present finding makes no novelty claim for that worst value alone. The inspected literature and published equiradial-star findings do not identify the exact constant for each arbitrary *heterogeneous* radius tuple, its order-statistic partial-sum formula, or exact optimal coefficient support. Related general finite-point and doubling-space results supply broad estimates or constructions but do not imply the pointwise formula. Search overlap and full-text comparisons are recorded in the structured audit; an unindexed classical weighted-extension treatment remains possible.
+PASS
 
-## Mathematical value — PASS
-Determining the minimum factor pointwise for every compatible metric is a natural complete finite-dimensional family classification, not an arbitrary isolated example. The new result reveals a sharp threshold at which individual original points stop contributing to the optimal universal positive extension. It also supplies a practical coefficient construction and compares optimizers with the classical equidistant worst case. The theorem is self-contained except for definitions, and makes no downstream-application claim beyond its proved scope.
+For constant-preserving scalar linear interpolation, the exact oscillation seminorm at old point i is T_i=(|alpha_i-1|+sum_{j!=i}|alpha_j|)/2. If P=sum positive parts alpha_j, normalizing those positive parts gives a nonnegative probability vector with no larger T_i for any i (check separately p_i<=1 and p_i>1). For nonnegative alpha, constraints 1-alpha_i<=c*r_i are jointly feasible iff F(c)=sum_i(1-c*r_i)_+<=1; its max-over-subsets form reduces to the k smallest radii, yielding Lambda=max(1,max_{k>=2}(k-1)/R_k). Positive weights realize the universal Banach extension; the half-l1 zero-sum target with f_i=e_i-e_n forces the exact same minimax lower bound for arbitrary Banach extensions. F(Lambda)=1 if Lambda>1 enforces unique nonnegative coefficients. Pairwise triangle constraints prove Lambda<=2-2/n for n>=3, equality only all r_i=1/2. Independent scipy/HiGHS LP checked 167 valid random rational metric tuples n<=9 to error <=2.23e-16; finite numeric tests do not prove all real radii.
 
-## Limitations and independent status
-Real Banach targets and one added point only; no automatic extension to arbitrary source metrics or quasi-Banach targets. Search and argument review are internal self-review, and a potentially equivalent historical formula may have escaped indexing.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An equilateral source with heterogeneous new-point radii has nonconstant optimal alpha and a sorted-partial-sum threshold; the symmetric equiradial factor 2-2/n does not express the full profile. No change of notation or scaling transforms the one-parameter equiradial theorem into the n-parameter radius-support description.
+
+## value
+
+PASS
+
+This determines a sharp metric-dependent extension constant and optimizer for every admissible heterogeneous equilateral star, including exact support transitions as radii change. That complete natural family profile is not implied by the known equiradial extremal constant and has a constructive effect on which source points contribute; no broader downstream theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

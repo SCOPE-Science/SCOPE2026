@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytical verification reconstructs the sharp pointwise dual oscillation norm, proves signed-to-positive reduction for every index, converts linear feasibility to a positive-part sum, then converts that exact sum to ordered radius partial sums. The lower bound uses the explicit finite-dimensional zero-mass half-\(\ell_1\) Banach space; it is not a heuristic numerical projection estimate.
+# Independent mathematical audit
 
-A separate floating-point linear program enumerating Boolean extreme source potentials found agreement within \(2\cdot10^{-8}\) for 466 compatible metric tuples of cardinality two through eight; it allowed all signed interpolation coefficients. This stress test is finite and does not establish the theorem.
+## correctness
 
-The accompanying standard-library rational checker verifies the positive-part/partial-sum equivalence on complete specified finite grids, checks exact pointwise scalar norms by exhaustive Boolean potentials, checks selected signed-to-positive domination, and reproduces the strict nonuniform support example. It is rerunnable with `python verification/check.py`; the script records its own completed checks. Its finite grids are not claimed exhaustive over all real metric parameters.
+PASS
 
-Scientific limitations: real Banach targets and only one extra point; the universal worst-case bound is a known result of Basso (2021) and is not claimed independently original. Independent mathematical review and independent novelty validation have not been conducted.
+For constant-preserving scalar linear interpolation, the exact oscillation seminorm at old point i is T_i=(|alpha_i-1|+sum_{j!=i}|alpha_j|)/2. If P=sum positive parts alpha_j, normalizing those positive parts gives a nonnegative probability vector with no larger T_i for any i (check separately p_i<=1 and p_i>1). For nonnegative alpha, constraints 1-alpha_i<=c*r_i are jointly feasible iff F(c)=sum_i(1-c*r_i)_+<=1; its max-over-subsets form reduces to the k smallest radii, yielding Lambda=max(1,max_{k>=2}(k-1)/R_k). Positive weights realize the universal Banach extension; the half-l1 zero-sum target with f_i=e_i-e_n forces the exact same minimax lower bound for arbitrary Banach extensions. F(Lambda)=1 if Lambda>1 enforces unique nonnegative coefficients. Pairwise triangle constraints prove Lambda<=2-2/n for n>=3, equality only all r_i=1/2. Independent scipy/HiGHS LP checked 167 valid random rational metric tuples n<=9 to error <=2.23e-16; finite numeric tests do not prove all real radii.
+
+## originality
+
+PASS
+
+An equilateral source with heterogeneous new-point radii has nonconstant optimal alpha and a sorted-partial-sum threshold; the symmetric equiradial factor 2-2/n does not express the full profile. No change of notation or scaling transforms the one-parameter equiradial theorem into the n-parameter radius-support description.
+
+## value
+
+PASS
+
+This determines a sharp metric-dependent extension constant and optimizer for every admissible heterogeneous equilateral star, including exact support transitions as radii change. That complete natural family profile is not implied by the known equiradial extremal constant and has a constructive effect on which source points contribute; no broader downstream theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
