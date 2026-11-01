@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For fixed x>0 and even N, the Macdonald integral equals a strictly log-concave positive moment with one saddle. Saddle equation, curvature and third/fourth derivatives are exact. On the centered Gaussian scale, cubic terms have order sqrt(t/N), quartic terms order t/N; all odd Gaussian contributions cancel, and the remainder is O((t/N)^2) after explicit finite moments. Tails are exponentially negligible by local uniform concavity and one-sided monotonicity. The limit of N Q_N/t_N is -1/8+5/24=1/12. Finite SciPy checker replays centered moment quadrature at twelve parameter-index pairs and is diagnostic, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dunster 2015 introduction and Section 4 use a large Bessel order parameter with first order-differentiation, hence do not dominate unbounded differentiation index at order zero.",
+        "Paris 2019 Section 2 states Cauchy formula J^(n)(a) in its argument a, not high derivatives in the order ν.",
+        "The 2022 open-access reflection paper gives nth-derivative symmetry formulas, not a two-term n→∞ asymptotic."
+      ],
+      "reasoning": "Known identities apply to the same special function but do not supply an estimate of the limit n→∞. The general Laplace technique makes the proof accessible, yet the exact coefficients and remainder for this moving saddle are the evaluated proposition.",
+      "searches": [
+        "Integral representations of high-order derivatives of Bessel functions with respect to the order González Santander Harrington Melino arxiv 2610.31368 asymptotic",
+        "https://arxiv.org/abs/1502.05971",
+        "https://arxiv.org/html/1905.04673v1",
+        "https://link.springer.com/article/10.1007/s00025-022-01804-3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.31368v1 (2026-10-22)",
+      "arxiv:1502.05971",
+      "arxiv:1905.04673v1",
+      "doi:10.1007/s00025-022-01804-3",
+      "arxiv:2105.00869",
+      "Indexed semantic scientific searches q1-q3 with nearest record IDs in named comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 theorem proves an exact integral for arbitrary n and offers algorithms; it does not estimate its n→∞ value.",
+        "Ryavec 2021 obtains expression at order ν=1/2 but does not state high-index saddle asymptotics."
+      ],
+      "reasoning": "An integral representation is a starting premise, not an implication of a sharp asymptotic without the global localization and expansion argument; no inspected theorem contains the two-term statement or dominates its error. General saddle theory potentially renders the calculation standard but is not represented as a published instance.",
+      "searches": [
+        "Macdonald K nu high even order derivatives at zero Lambert W saddle expansion first correction coefficient 1/12 n→∞ fixed argument x",
+        "Integral representations of high-order derivatives of Bessel functions with respect to the order González Santander Harrington Melino arxiv 2610.31368 asymptotic",
+        "order derivatives K_ν(x) fixed positive x, 2n-th derivative ν=0 asymptotic saddle t sinh t n and Gaussian correction",
+        "https://arxiv.org/html/2610.31368v1",
+        "https://arxiv.org/abs/2105.00869"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The motivating Theorem 16 Eq. 71 is the half-line moment after even symmetry but makes no high-index saddle assertion.",
+        "Closest indexed scientific record: 2026/10/11/SCOPE-first-sign-failure-at-an-elliptic-absolute-monotonicity-endpoint--0098d04d5418 concerns a Taylor sign transition, not Macdonald moments."
+      ],
+      "reasoning": "The theorem can equally be written as asymptotics of the even moment integral of exp(-x cosh t); neither the high-index normalized coefficient nor its second-order relative bound was located under moment/saddle/Lambert-W wording. This transformation is taken into account rather than presenting integral reformulation itself as novel.",
+      "searches": [
+        "Macdonald K nu high even order derivatives at zero Lambert W saddle expansion first correction coefficient 1/12 n→∞ fixed argument x",
+        "order derivatives K_ν(x) fixed positive x, 2n-th derivative ν=0 asymptotic saddle t sinh t n and Gaussian correction",
+        "web: \"derivatives\" \"K_ν\" \"Lambert W\" asymptotic",
+        "https://arxiv.org/html/2610.31368v1#S2.SS4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2026 numerical tables concern relative errors in evaluation at particular derivative orders (e.g. n=50,100,1000), not a table or formula of large-n normalized asymptotic coefficients.",
+        "Baricz-Bessel indexed record 2026/9/20/SCOPE-baricz-bessel-scm-counterexample--ac079dddc4e2 concerns Iν complete monotonicity; no exact table for the current moments."
+      ],
+      "reasoning": "A finite numerical table cannot imply the asymptotic coefficient; no exact matching database or already computed all-n formula was discovered under actual searches.",
+      "searches": [
+        "Macdonald K nu high even order derivatives at zero Lambert W saddle expansion first correction coefficient 1/12 n→∞ fixed argument x",
+        "Integral representations of high-order derivatives of Bessel functions with respect to the order González Santander Harrington Melino arxiv 2610.31368 asymptotic",
+        "web: \"t sinh t\" \"K\" \"derivatives\" asymptotic order",
+        "https://arxiv.org/html/2610.31368v1#S3"
+      ]
+    },
+    "rationale": "The inspected 2026 integral-representation paper supplies the underlying exact moment integral and high-order numerical methods, not a large-index two-term saddle law. Paris 2019 treats argument derivatives rather than order derivatives; Dunster 2015 studies large order with first differentiation in order; 2022 reflection formulas and Ryavec 2021 provide identities. Actual indexed scientific searches returned special-function derivative results but no statement implying the explicit normalized one-twelfth coefficient or relative quadratic-remainder law. Exhaustive priority is not claimed.",
+    "residual_risks": [
+      "Unindexed early moment/Laplace asymptotic treatments could implicitly contain the exact one-twelfth term.",
+      "A generally stated saddle theorem may subsume the proof as a specialization without naming Macdonald functions; an independent priority audit would be appropriate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT PREMISE, NOT COVERING THE ASYMPTOTIC CLAIM",
+        "evidence": "2026-10-22 preprint, MSC 33C10; Theorem 16 Eq. 71 gives moment integral; Section 3 tests finite n up to 1000; conclusions only address numerical algorithms.",
+        "identifier_or_url": "https://arxiv.org/html/2610.31368v1",
+        "material_read": "Full HTML introduction, Theorem 16 Eq. 71, numerical Section 3, conclusions Section 4, cited bibliography",
+        "method": "Open full-text HTML and inspect relevant displayed equations, tables, and conclusions",
+        "title": "Integral representations of high-order derivatives of Bessel functions with respect to the order",
+        "trigger": "Exact same special-function order-derivative integral and arbitrarily large differentiation index"
+      },
+      {
+        "assessment": "DIFFERENT ASYMPTOTIC REGIME",
+        "evidence": "The asymptotic variable is large Bessel order ν, not the count of derivatives at ν=0.",
+        "identifier_or_url": "https://arxiv.org/abs/1502.05971",
+        "material_read": "Accessible full arxiv parsed HTML introduction and Sections 4–5, including the large-order Airy asymptotics and representative equations",
+        "method": "Read HTML and compare order of differentiation and asymptotic parameter",
+        "title": "On the order derivatives of Bessel functions",
+        "trigger": "Plausible asymptotic prior on order derivatives"
+      },
+      {
+        "assessment": "NOT COVERING: argument derivatives",
+        "evidence": "Section 2 formula differentiates Jν(a+u) with respect to argument, holding ν fixed; the present theorem differentiates Kν(x) with respect to ν.",
+        "identifier_or_url": "https://arxiv.org/html/1905.04673v1",
+        "material_read": "Full HTML abstract, introduction, and Section 2, including argument-derivative Cauchy formula",
+        "method": "Disambiguate derivative variable in full primary text",
+        "title": "High-order derivatives of the Bessel functions with an application",
+        "trigger": "Strongly plausible title and n→∞ high derivatives of K"
+      },
+      {
+        "assessment": "NOT COVERING ASYMPTOTIC",
+        "evidence": "Results concern reflection and integral identities, not growth in derivative index.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-022-01804-3",
+        "material_read": "Open-access publisher HTML abstract, main content headings and inspection for asymptotic treatment",
+        "method": "Read web full text and search within document for asymptotic estimates",
+        "title": "Reflection Formulas for Order Derivatives of Bessel Functions",
+        "trigger": "General nth order-derivative identities"
+      },
+      {
+        "assessment": "DIFFERENT EVALUATION ORDER, NO MATCHING ASYMPTOTIC",
+        "evidence": "Treats expressions at ν=1/2 motivated by zeta relationships.",
+        "identifier_or_url": "https://arxiv.org/abs/2105.00869",
+        "material_read": "Accessible arxiv parsed full introduction and theorem discussion",
+        "method": "Review parameter choice and stated results",
+        "title": "BesselK Derivatives with respect to Order at one half",
+        "trigger": "Order derivative formula at a fixed symmetric parameter"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "520b1b3c-d661-4ccf-a841-82b5bf9a37cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 numerical paper explicitly tackles very high order derivatives of Macdonald K. This theorem supplies a controlled two-term large-index expansion, resolves the leading nonzero relative correction exactly (1/12), and explains both scaling via Lambert W and how Gaussian-only approximations err by order log N/N. It is a natural invariant of the canonical ν=0 even-derivative moments rather than a selected ad hoc finite sample. This goes beyond reproducing an integral or routine finite low-order derivative.",
+    "status": "PASS"
+  }
+}
