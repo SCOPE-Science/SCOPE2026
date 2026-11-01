@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:57:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 5f8e238969133189653767d626bf49a5027c77ba",
+        "Jacobi exact representation formula for r_2(n)",
+        "Hensel, CRT, Dirichlet theorems",
+        "independent_checks.py exhaustive finite tuple up to largest possible deleted pair sum"
+      ],
+      "rationale": "Inductively choose p_i ≡1 mod4 larger than twice the previous square scale, using two new distinct auxiliary splitting primes ell_ij,m_ij ≡1 mod4 for each prior p_j. Hensel gives unit roots of -p_j² modulo each auxiliary prime square; CRT joins them with p_i≡1 mod4 and Dirichlet supplies arbitrarily large primes in that coprime progression. Hence every cross sum p_i²+p_j² has two distinct 1 mod4 squared prime divisors, forcing r_2≥36 by Jacobi; a deleted unordered positive distinct pair accounts for at most eight. Diagonal 2p_i² has r_2=12 while its diagonal pair accounts for four. Growth p_i²>2p_(i-1)² makes distinct unordered deleted-root pairs have distinct sums; an alternative representation cannot have both roots deleted. Every finite prefix preserves the full set S+S. Independently verified finite tuple {5,37,89} for all sums ≤15842; no finite test establishes the Dirichlet construction.",
+      "residual_risks": [
+        "No effective prime-growth bounds; only existence, not arbitrary prime-set deletions.",
+        "Distinguish number of unordered nonnegative solutions from signed ordered count."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Elsholtz–Stadlmann constructs deletions of roots all divisible by a common p; a family containing distinct primes cannot satisfy this.",
+          "Theorem 1 density constraints do not construct unbounded coprime deleted roots."
+        ],
+        "reasoning": "General arithmetic tools permit this new construction when combined nontrivially but the inspected existing sumset-preservation theorem does not directly entail it.",
+        "searches": [
+          "Elsholtz–Stadlmann arXiv:2610.20554v1 Theorem 2(1) and Theorem 1",
+          "Dirichlet primes in AP and Jacobi two squares formula"
+        ]
+      },
+      "checked_sources": [
+        "Elsholtz–Stadlmann arXiv:2610.20554 Theorems 1, 2(1)",
+        "Jacobi two-squares formula",
+        "Hensel lifting and Dirichlet primes in AP",
+        "Resultary additive-complement search",
+        "Prior two-hole scope cited in research package"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Common-p theorem provides simultaneous holes with one nontrivial common factor, opposite the coprime-root condition.",
+          "k=2 fixed classification does not prove all positive k."
+        ],
+        "reasoning": "The two prime-square divisors per cross sum are an extra construction not an immediate specialization of the common-divisor theorem.",
+        "searches": [
+          "Elsholtz–Stadlmann arXiv:2610.20554v1 Theorem 2(1)",
+          "Earlier two-hole deletion record cited in RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Preservation means every sum with all representations using deleted first-factor roots has an alternative with undeleted root.",
+          "The deleted roots are pairwise coprime primes, unlike all multiples of a fixed prime."
+        ],
+        "reasoning": "Compared complementary pair-sum support and prime-factor constructions, not just paper-title keywords.",
+        "searches": [
+          "Resultary: sums of two squares deletion of arbitrarily many distinct prime squares coprime deleted roots additive complement",
+          "Web: additive complements sums of two squares deletion of prime-square summands"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved results concern other prime-square questions and do not give unbounded pairwise-coprime deletion sequences.",
+          "Two-hole results have only k=2 scope; they cannot entail a uniform arbitrary-k sequence without further proof."
+        ],
+        "reasoning": "A fixed table/example is insufficient for infinitely many finite prefixes; searches were compared by quantified scope.",
+        "searches": [
+          "Resultary: delete prime squares one square summand two squares preserve sumsets Elsholtz",
+          "Source package comparison with earlier exact two-hole classification"
+        ]
+      },
+      "rationale": "Comparison is by exact mathematical statements, quantifiers and implications, with strong prior premises acknowledged; best-of-knowledge historical priority subject to the explicit unread-paper and alias risks.",
+      "residual_risks": [
+        "Unindexed older work on additive bases or Gaussian-integer representations may give an equivalent coprime-root construction.",
+        "The original source was compared through specifically reported theorem scopes rather than independently re-reading its whole article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Inspected theorem only covers roots with a common prime; not present pairwise-prime roots",
+          "evidence": [
+            "Thm 2(1) deletions all have roots p*m with fixed p; Thm 1 asymptotic constraint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.20554",
+          "material_read": "Primary abstract and source-reported full text Theorems 1 and 2(1) and proof 4.1, with precise common-p construction; full paper was not newly downloaded in this run",
+          "method": "Compared shared-divisor and gcd-one deleted-root hypotheses",
+          "title": "The Large Sieve Inequality and Additive decompositions of sums of squares",
+          "trigger": "Direct motivating all-squares deletion result"
+        },
+        {
+          "assessment": "Classical tool, not novelty; validates explicit lower bounds",
+          "evidence": [
+            "Two distinct split squared prime factors imply r_2≥4·3·3=36."
+          ],
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Sum_of_two_squares_theorem",
+          "material_read": "Standard formula r_2(n)=4(d_1(n)-d_3(n)) and multiplication over primes 1 mod4",
+          "method": "Reconstructed arithmetic for cross/diagonal sums",
+          "title": "Jacobi two-square representation formula",
+          "trigger": "Classical exact divisor arithmetic used critically"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Elsholtz–Stadlmann 2026 common-prime deletion theorem",
+        "RESULT.md infinite prime induction"
+      ],
+      "rationale": "Unbounded removal from a natural additive two-square basis when deleted roots are distinct primes (hence pairwise coprime) answers a structural arithmetic-support question not met by the earlier all-common-factor construction. The infinite CRT–Dirichlet induction is mathematically substantive rather than a recomputed finite example.",
+      "residual_risks": [
+        "Does not imply arbitrary finite prime sets can be removed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Existential infinite sequence; no effective size bound, no classification of all deletable sets.",
+  "schema_version": 1
+}
