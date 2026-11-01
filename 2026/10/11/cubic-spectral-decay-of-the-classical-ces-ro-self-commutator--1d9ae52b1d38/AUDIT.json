@@ -1,137 +1,194 @@
 {
   "correctness": {
-    "rationale": "The positive trace-norm Gram sum follows from explicit Cesaro matrix products. The lower bound uses an n-dimensional subspace with finite-difference inverse norm at most 2 and coefficients at least 1/(12n^3). The upper bound imposes fewer than 7n zero-sum constraints on exponentially scaled blocks of length at most ceil(2^(3j/2)), giving Rayleigh quotient <= 4/n^3; the tail starts beyond n^3. Courant-Fischer and comparison of p-series supply the exact Schatten threshold. Independent exact-rational auxiliary finite checks passed.",
+    "rationale": "Direct matrix multiplication gives K_ij=d_max(i,j), d_j=sum_{k>=j}(k+1)^-2-(j+1)^-1 and a_j=d_j-d_{j+1}=1/((j+1)^2(j+2)). Hence K=sum_j a_j v_jv_j* in trace norm because sum_j(j+1)a_j=1; positivity, trace 1, injectivity follow. Lower minmax: on E_n=span(e_n,...,e_{2n-1}), the partial-sum vector has norm >=||x||/2 and a_j>=a_{2n-1}>=1/(12n^3), giving λ_n>=1/(48n^3). Upper: impose first-n-zero and disjoint dyadic zero-sum blocks of L_j=ceil(2^(3j/2)) on I_j=[2^jn,2^(j+1)n); J=ceil(2log_2 n), M=2^Jn>=n^3, codimension <7n. Blockwise Cauchy Schwarz gives <=4n^-3 energy per band norm and the tail has <=1/M<=n^-3; Rayleigh on F_n <=4n^-3, so λ_(7n+1)<=4/n^3. Monotonic interpolation gives exact n^-3 order, Schatten iff p>1/3 and weak endpoint. No leading coefficient is proven. Fresh separately written rational checker verified 192 finite cutoff matrix/Gram identities, trace telescoping at 3 N values and all 698 block counts n=2..699, plus matched the pinned seven-blob Git tree SHA; these tests only corroborate arithmetic, not the universal minmax proof.",
+    "residual_risks": [
+      "Proof is analytic rather than formally verified; no Lean or expert attestation was performed.",
+      "The claim establishes comparability rather than limit of n^3 λ_n."
+    ],
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "https://feldman.academic.wlu.edu/papers/the-self-commutator-of-a-subnormal-operator/",
-        "https://arxiv.org/abs/2610.00193"
+        "https://arxiv.org/html/2610.00193v1 Theorem 1.1: self-commutator >= (1/36) M* R M for alpha>=0, with R diagonal tending to zero",
+        "https://arxiv.org/html/2608.25740v1 Theorem 1.1: Cesàro belongs to Toeplitz algebra via Wiener-Hopf representation",
+        "https://arxiv.org/abs/2311.15245 proves essential normality of precisely the same operator",
+        "Evans, Harris and Lang, Approximation numbers of Hardy-type operators on trees (2001), DOI:10.1112/plms/83.2.390: general Hardy integral approximation numbers"
       ],
-      "reasoning": "Feldman describes general trace-class and compactness conclusions of Berger--Shaw, which do not imply membership below the trace threshold or cubic eigenvalue asymptotics. Ma supplies positive weighted bounds for a parameter family but accessible description offers no matching two-sided singular-value decay. Sang confirms C*-algebra membership, too weak to imply a particular Schatten exponent.",
+      "reasoning": "Weighted positivity, trace class, Toeplitz membership and compactness are broad regularity claims but do not individually imply the two-sided cubic eigenvalue bounds. General Hardy approximation-number results concern different operator classes; no validated factorization/reduction of this positive discrete self-commutator to those theorems was found. A possible such unindexed reduction remains a priority risk.",
       "searches": [
-        "\"Cesaro operator\" \"self-commutator\" \"Schatten\"",
-        "Cesaro operator on H2 subnormal Berger Shaw self commutator 1 trace Schatten one third n cubic"
+        "Web: The Cesaro Operator in l2 is Essentially Normal Uğur Gül",
+        "Web: Cesaro self commutator Bergman weighted Hardy kernel eigenvalues approximation numbers 1/n^3",
+        "Web: approximation numbers of Hardy-type operators on trees Evans Harris Lang 2001",
+        "Read Ma 2610.00193v1 Sections 1, 2, 3, 7"
       ]
     },
     "checked_sources": [
-      "https://arxiv.org/abs/2608.25740",
+      "https://arxiv.org/html/2610.00193v1",
+      "https://arxiv.org/html/2608.25740v1",
+      "https://arxiv.org/abs/2311.15245",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-finite-gram-reduction-of-sharp-ces-ro-self-commutator-bounds-at--2747cc29070a/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-shift-invariant-harmonic-trace-for-generalized-ces-ro-self-com--b9745d36b9d7/RESULT.md",
+      "https://doi.org/10.1112/plms/83.2.390",
       "https://feldman.academic.wlu.edu/papers/the-self-commutator-of-a-subnormal-operator/",
       "https://arxiv.org/abs/2610.00193",
-      "published-finding corpus 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
-      "published-finding corpus 2026/9/20/SCOPE-quasinilpotent-schatten-selfcommutator-counterexample--8ac62c6f153b"
+      "https://arxiv.org/abs/2608.25740"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "https://arxiv.org/abs/2608.25740",
-        "https://feldman.academic.wlu.edu/papers/the-self-commutator-of-a-subnormal-operator/",
-        "https://arxiv.org/abs/2610.00193"
+        "https://arxiv.org/html/2608.25740v1 §§1–5 conclude algebra membership only",
+        "https://arxiv.org/html/2610.00193v1 Theorem 1.1 and §7 give hyponormality and relative weighted estimate, not eigenvalue order",
+        "https://arxiv.org/abs/2311.15245 §2 gives compactness, not n^-3",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-shift-invariant-harmonic-trace-for-generalized-ces-ro-self-com--b9745d36b9d7/RESULT.md gives trace=1 at m=1 but no eigenvalue cutoff",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-finite-gram-reduction-of-sharp-ces-ro-self-commutator-bounds-at--2747cc29070a/RESULT.md finite relative coefficient c_m(alpha) not the singular spectrum of K"
       ],
-      "reasoning": "A compact or even trace-class commutator may have arbitrarily slow trace-summable eigenvalues, so those results cannot give the n^-3 rates or p=1/3 boundary. The 2026 generalized Cesàro quantitative positivity statement does not, from its accessible description, provide a matching upper approximation-number estimate. Full manuscript checks are incomplete and constitute a residual novelty risk.",
+      "reasoning": "The assigned final theorem implies compactness and trace class, and extends them with two-sided absolute eigenvalue bounds and exact S_p cutoff p>1/3. Gül and trace results cover its preliminary facts; Ma may imply one-sided weighted control but does not by itself give both eigenvalue estimates; Sang is algebraic membership and finite Gram is different relative optimization. No inspected stronger result was found to subsume the complete claim.",
       "searches": [
-        "Yuanqi Sang The Cesaro Operator is in the Toeplitz Algebra arxiv 2608.25740 self-commutator Schatten spectra",
-        "Cesaro operator on H2 subnormal Berger Shaw self commutator 1 trace Schatten one third n cubic"
+        "Direct full-text comparison: Sang arXiv:2608.25740v1",
+        "Direct full-text comparison: Ma arXiv:2610.00193v1",
+        "Direct content comparison: Resultary finite Gram reduction and harmonic trace RESULT.md",
+        "Direct full-text reading: Gül arXiv:2311.15245"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "https://arxiv.org/abs/2608.25740",
-        "https://arxiv.org/abs/2610.00193",
-        "published-finding corpus 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683"
+        "https://arxiv.org/abs/2311.15245 §2 main theorem proves compactness of same self-commutator, without eigenvalue rate",
+        "https://arxiv.org/html/2608.25740v1 Theorem 1.1 concerns Toeplitz-algebra membership of the same Cesàro matrix",
+        "https://arxiv.org/html/2610.00193v1 Theorem 1.1 gives positivity and weighted lower bound, not spectral eigenvalue upper/lower laws",
+        "Resultary search returns exact cubic-spectrum record, matching assigned RESULT.md blob; this is its own publication mirror, not independent precedence"
       ],
-      "reasoning": "The exact cubic eigenvalue decay and S_(1/3) endpoint were searched under spectral, singular-value, Schatten, and selfcommutator terminology. The directly surfaced results assert Toeplitz membership, trace class, or generalized-operator positivity, not both eigenvalue inequalities. This does not prove all literature was searched.",
+      "reasoning": "Under eigenvalue, singular-number, compact self-commutator, positive max-kernel and Schatten terminology, the independently identified exact-same research record is a mirror of this assigned result. Gül establishes a weaker compactness theorem, Sang a different operator-algebra theorem, and Ma an operator-weight lower inequality; none of the inspected statements gives both n^-3 bounds. Absence of a search result is not a novelty proof.",
       "searches": [
-        "Self-commutator of classical discrete Cesàro operator C on Hardy space: positive trace class K=C* C - C C*, singular eigenvalues order n^-3, Schatten threshold p>1/3",
-        "Cesaro self commutator singular value asymptotics Schatten membership one third",
-        "Cesaro operator on H2 subnormal Berger Shaw self commutator 1 trace Schatten one third n cubic",
-        "\"Cesaro operator\" \"self-commutator\" \"Schatten\""
+        "Resultary semantic search: Classical discrete Cesaro averaging operator l2 positive selfcommutator C* C - CC* eigenvalues n^-3 Schatten exponent 1/3 approximation numbers positive max kernel d_max(i,j)",
+        "Resultary semantic search: Eigenvalue decay of the Cesàro self-commutator and sharp Schatten class weak trace ideal estimates for weighted Hardy averaging matrix",
+        "Web: \"Cesaro\" \"self-commutator\" \"Schatten\" eigenvalues decay",
+        "Web: \"Cesaro operator\" \"self-commutator\" eigenvalues asymptotics"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "published-finding corpus 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
-        "published-finding corpus 2026/9/20/SCOPE-quasinilpotent-schatten-selfcommutator-counterexample--8ac62c6f153b"
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-shift-invariant-harmonic-trace-for-generalized-ces-ro-self-com--b9745d36b9d7/RESULT.md computes trace=1 at integer order m=1 and trace formula for all generalized orders; this PART of the submitted finding is already covered",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-finite-gram-reduction-of-sharp-ces-ro-self-commutator-bounds-at--2747cc29070a/RESULT.md computes optimal relative weighted commutator coefficient, not eigenvalue counting asymptotics",
+        "Resultary exact-match cubic-spectrum mirror is not independent earlier publication"
       ],
-      "reasoning": "No matching exact spectral table or database entry was returned. The Mellin-convolution Cesàro semigroup result is a different operator/object; the quasinilpotent weighted shift likewise cannot tabulate this classical Cesàro selfcommutator.",
+      "reasoning": "The submitted finding concerns an infinite asymptotic rate and exact quasi-ideal threshold, not a finite numerical tabulation. No independent exact database of that rate surfaced. The trace-one component is already in the generalized harmonic-trace finding and must not be portrayed as the new contribution. The finite-Gram source computes a different sharp coefficient.",
       "searches": [
-        "Cesaro self commutator singular value asymptotics Schatten membership one third",
-        "Cesaro triangular matrix positive commutator K_ij = zeta(2,max(i,j)+1)-1/(max(i,j)+1)"
+        "Resultary semantic searches noted above, top 12 each",
+        "Web: Cesaro triangular matrix positive commutator K_ij zeta(2,max(i,j)+1) -1/(max(i,j)+1)",
+        "Web: \"Cesaro\" \"self-commutator\" \"spectrum\" \"compact\""
       ]
     },
-    "rationale": "The proof gives two-sided operator-specific cubic eigenvalue estimates not implied by mere Toeplitz-algebra membership, classical trace-class results, or the related generalized Cesaro hyponormality lower bounds. Comparison is by object and mathematical implication, with full-text access limits disclosed.",
+    "rationale": "Fresh comparison by exact operator and implication, including full open primary Sang and Ma manuscripts and the same-commutator compactness work of Gül. Exact trace-one is already covered by a related published generalized-trace result; novelty lies in the matching cubic two-sided eigenvalue estimates and exact Schatten p=1/3 threshold. No independent prior theorem subsuming this entire claim identified, best of knowledge only.",
     "residual_risks": [
-      "Full text of arXiv:2608.25740 and arXiv:2610.00193 was not available from the attempted lawful retrieval; an unreported exact corresponding eigenvalue estimate in those texts remains possible.",
-      "No exhaustive search of unindexed operator-theory literature is possible; a previous application of general weighted Hardy approximation-number theory may subsume the particular spectral comparison."
+      "General weighted Hardy/spectral approximation-number theory might yield the cubic law through an uninspected reduction; no such implication was independently established.",
+      "A historical or unindexed direct Cesàro self-commutator eigenvalue theorem remains possible.",
+      "Evans–Harris–Lang 2001 and Feldman 1997 relevant general sources were not fully read; abstract-only access cannot support a whole-document noncoverage claim."
     ],
     "source_inspections": [
       {
-        "assessment": "ACCESS_LIMITED: abstract establishes Toeplitz C*-membership; cannot claim full manuscript excludes eigenvalue result",
+        "assessment": "Same operator positivity and weighted lower quadratic bound; does not provide upper approximation-number bound or cubic eigenvalue law",
         "evidence": [
-          "https://arxiv.org/abs/2608.25740",
-          "https://arxiver.lazybrains.com/author/785237"
+          "https://arxiv.org/html/2610.00193v1 Theorem 1.1, Eq. (1.4), §§2,7; searches of full text for Schatten/eigenvalue/singular found no occurrence"
         ],
-        "identifier_or_url": "https://arxiv.org/abs/2608.25740",
-        "material_read": "Full arXiv listing abstract, creation date, and central claimed algebra membership; manuscript PDF unavailable",
-        "method": "Open bibliographic abstract; lawful arXiv and OA full-text retrieval attempts did not deliver manuscript",
-        "title": "The Cesàro Operator is in the Toeplitz Algebra",
-        "trigger": "Exact same Cesaro operator, 2026 motivating paper"
+        "identifier_or_url": "https://arxiv.org/html/2610.00193v1",
+        "material_read": "Complete open HTML manuscript sections 1–7, including Theorem 1.1, defect decomposition §2, parameter reduction §3, final §7 proof, and bibliography",
+        "method": "Direct primary full-text HTML reading and theorem/implication comparison",
+        "title": "Hyponormality of generalized Cesàro matrices of every positive integer order",
+        "trigger": "Exactly the same m=1, alpha=0 Cesàro matrix within generalized family"
       },
       {
-        "assessment": "NOT_COVERING as read: trace-class and compactness statements do not specify cubic eigenvalue distribution",
+        "assessment": "Toeplitz C*-algebra membership, not quantitative spectrum of the self-commutator",
         "evidence": [
-          "https://feldman.academic.wlu.edu/papers/the-self-commutator-of-a-subnormal-operator/"
+          "https://arxiv.org/html/2608.25740v1 Theorem 1.1, Eq. (5.3); displayed matrix in §1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.25740v1",
+        "material_read": "Complete arXiv v1 HTML sections 1–5, Theorem 1.1 and §5 factorization proof",
+        "method": "Direct open primary full text and comparison of matrix/operator conclusion",
+        "title": "The Cesàro Operator is in the Toeplitz Algebra",
+        "trigger": "2026 same Cesàro operator and exact matrix in introduction"
+      },
+      {
+        "assessment": "Direct prior coverage of compactness only; not cubic eigenvalue bounds nor Schatten p=1/3 threshold",
+        "evidence": [
+          "https://arxiv.org/abs/2311.15245 §2 Main Theorem: compactness of self-commutator"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.15245",
+        "material_read": "Public arXiv full text as rendered on abstract page, introduction and §2 main theorem/proof",
+        "method": "Read public primary page body and its compactness proof, compare conclusion directly",
+        "title": "The Cesaro Operator in ℓ² is Essentially Normal",
+        "trigger": "Exact same self-commutator K=C* C - C C*"
+      },
+      {
+        "assessment": "Different optimized object c_m(alpha); no absolute λ_n(K) cubic bound",
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-finite-gram-reduction-of-sharp-ces-ro-self-commutator-bounds-at--2747cc29070a/RESULT.md Finding and §Proof define c_m as infimum ratio to M*RM"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-finite-gram-reduction-of-sharp-ces-ro-self-commutator-bounds-at--2747cc29070a/RESULT.md",
+        "material_read": "Complete public RESULT.md, definitions, proof steps 1–4, comparisons",
+        "method": "Read pinned published Git blob and compare relative operator Rayleigh coefficient with absolute spectral decay",
+        "title": "Finite Gram reduction of sharp Cesàro self-commutator bounds at every order",
+        "trigger": "Published same-family self-commutator quantitative results"
+      },
+      {
+        "assessment": "Covers trace-one and trace-class subclaims; does not cover cubic eigenvalue decay or p=1/3 boundary",
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-shift-invariant-harmonic-trace-for-generalized-ces-ro-self-com--b9745d36b9d7/RESULT.md m=1 trace formula, §Proof"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-shift-invariant-harmonic-trace-for-generalized-ces-ro-self-com--b9745d36b9d7/RESULT.md",
+        "material_read": "Complete public RESULT.md proof steps 1–5 and relationship to prior work",
+        "method": "Read published Git blob and compare special case m=1, alpha=0",
+        "title": "A shift-invariant harmonic trace for generalized Cesàro self-commutators",
+        "trigger": "Published same-family trace-class and trace invariant"
+      },
+      {
+        "assessment": "ACCESS_LIMITED; no verified mapping of discrete positive self-commutator to theorem hypotheses; retain residual risk",
+        "evidence": [
+          "Evans–Harris–Lang (2001) abstract asserts n a_n(T_a) limit for Hardy integral operator on trees"
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/plms/83.2.390",
+        "material_read": "Published abstract and displayed general approximation-number asymptotic statement; full text not obtained",
+        "method": "Abstract-level implication screen, no full-text exclusion",
+        "title": "The approximation numbers of Hardy-type operators on trees",
+        "trigger": "Potential broad weighted Hardy singular number theorem"
+      },
+      {
+        "assessment": "ACCESS_LIMITED: general trace-class membership insufficient alone for sharp cubic ideal threshold",
+        "evidence": [
+          "Feldman thesis (1997) on subnormal self-commutators; direct web read inaccessible"
         ],
         "identifier_or_url": "https://feldman.academic.wlu.edu/papers/the-self-commutator-of-a-subnormal-operator/",
-        "material_read": "Complete publicly hosted expository mathematical text including Trace Estimates, Berger-Shaw theorem, Compactness Criteria, Diagonalizability of the Self Commutator, and examples",
-        "method": "Direct full-page reading and theorem-level implication comparison",
+        "material_read": "Existing bibliographic summary and theorem description, direct full-page retrieval denied (HTTP 403); no claim of full read in this run",
+        "method": "Background/bibliographic comparison, explicitly access-limited",
         "title": "The Self-Commutator of a Subnormal Operator",
-        "trigger": "Broader rank/trace-class theorem for subnormal selfcommutators"
-      },
-      {
-        "assessment": "ACCESS_LIMITED: visible claim concerns hyponormality and a weighted lower bound; full manuscript may contain extra spectral results",
-        "evidence": [
-          "https://arxiv.org/abs/2610.00193"
-        ],
-        "identifier_or_url": "https://arxiv.org/abs/2610.00193",
-        "material_read": "ArXiv title and full abstract; full PDF unavailable",
-        "method": "Read abstract; compare lower positive quadratic bounds with required two-sided eigenvalue asymptotics",
-        "title": "Hyponormality of Generalized Cesàro Matrices of Every Positive Integer Order",
-        "trigger": "Same operator at first order, explicit 2026 positive selfcommutator work"
-      },
-      {
-        "assessment": "Mellin semigroup product defects are not the Hardy-space operator selfcommutator",
-        "evidence": [
-          "published-finding corpus 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
-        "material_read": "Public summary giving Mellin-convolution semigroup-defect claim",
-        "method": "published-finding corpus semantic description and object comparison",
-        "title": "Trace-class Mellin semigroup defects and zeta traces for Cesaro powers",
-        "trigger": "Closest matching Cesaro and trace class semantic hit"
-      },
-      {
-        "assessment": "Different operator; contrasts Schatten membership of generator, not spectrum of Cesaro selfcommutator",
-        "evidence": [
-          "published-finding corpus 2026/9/20/SCOPE-quasinilpotent-schatten-selfcommutator-counterexample--8ac62c6f153b"
-        ],
-        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-quasinilpotent-schatten-selfcommutator-counterexample--8ac62c6f153b",
-        "material_read": "Public summary describing a quasinilpotent weighted-shift construction",
-        "method": "published-finding corpus semantic description and parameter implication comparison",
-        "title": "A quasinilpotent Schatten self-commutator counterexample",
-        "trigger": "Closest selfcommutator Schatten semantic hit"
+        "trigger": "General Berger–Shaw framework for trace-class self-commutators"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "1d9ae52b-1d38-4636-94a8-bc508e48ac9d",
+  "scientific_limitations": [
+    "Comparable cubic order, not an exact eigenvalue asymptotic coefficient.",
+    "Classical discrete Cesàro operator only.",
+    "No formal proof or external expert attestation claimed.",
+    "Literature priority is best of knowledge, not an exhaustive historical claim."
+  ],
   "value": {
-    "rationale": "The S_p cutoff for p below trace class quantitatively characterizes the classical Cesaro nonnormality defect. The p=1/3 weak endpoint is exact and cannot be inferred from the older fact that the commutator is trace class. A natural complete polynomial spectral-order classification resolves a gap prompted by renewed Cesaro operator-algebra interest.",
+    "checked_sources": [
+      "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cubic-spectral-decay-of-the-classical-ces-ro-self-commutator--1d9ae52b1d38/RESULT.md",
+      "https://arxiv.org/abs/2311.15245",
+      "https://arxiv.org/html/2608.25740v1",
+      "https://arxiv.org/html/2610.00193v1",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-shift-invariant-harmonic-trace-for-generalized-ces-ro-self-com--b9745d36b9d7/RESULT.md"
+    ],
+    "rationale": "A canonical nonnormal operator has a positive self-commutator whose trace-class membership alone leaves all p<1 Schatten thresholds undecided. The self-contained cubic eigenvalue comparison gives a natural precise spectral-order and weak-Schatten endpoint for this classic operator, relevant to ideal-theoretic quantitative nonnormality; the n^-3 exponent is neither automatic from positivity nor from trace=1. This is a naturally motivated analytic invariant, not an arbitrary finite table or relabeling.",
+    "residual_risks": [
+      "No exact leading asymptotic coefficient nor a broader generalized-order spectral theorem is derived; these are genuine scope limitations."
+    ],
     "status": "PASS"
   }
 }
