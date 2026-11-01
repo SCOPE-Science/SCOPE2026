@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:57:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md full exact 80-walk certificate and area integration",
+        "Git verify_cube_vertex_law.py inspected with integer unfolding construction",
+        "Independent CDF versus independently generated area-uniform points /mnt/data/scope_worker02_independent_checks_20261028.py",
+        "Independent complete exact cube route/unfolding certificate /mnt/data/scope_worker02_cube_unfold_independent.py (80 face paths, 24 classes)"
+      ],
+      "rationale": "For a uniform surface-area point X on the unit cube and vertex o, three adjacent faces have squared geodesic radius u²+v²; an opposite face point (1,y,z) has exact radius² 1+y²+z²+2min(y,z). Two unfolded 2-face paths attain the latter. The source provides a finite exhaustive comparison of 80 simple face walks, reduced to 24 integer coefficient classes each satisfying the necessary affine inequalities at all four chamber vertices; the argument that a shortest path can be shortened if it visits a face twice justifies path reduction. Analytic integration over the incident quarter-disk and two opposite triangles yields the displayed A(r),B(r) and F=(A+B)/2, transitions at 1 and sqrt2 and endpoint sqrt5. Direct rational polynomial integration gives E[R²]=3/2,E[R⁴]=61/18; endpoint rescaling gives 1-F~(5-r²)²/48. Independent numerical integration by Monte Carlo using 45,000 independently generated pairs compared the analytic CDF at 5 radii (errors bounded by 0.006); this corroboration is not proof of metric optimality. Critical exact face-walk code was read and its inequalities traced. No two-random-point formula is asserted. An additional independent, exact integer planar unfolding generator reconstructed all 80 face-simple routes and precisely 24 quadratic coefficient classes and verified all four chamber-vertex inequalities for every class. The corresponding path-completeness proof then establishes the pointwise intrinsic metric, not Monte Carlo.",
+      "residual_risks": [
+        "The all-walk certificate is an exact finite structural reduction, not a probabilistic sample; independent sanity Monte Carlo does not itself prove exhaustive unfolding."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cut-locus/topological complexity results characterize shortest-route structural changes but do not give a complete integrated CDF.",
+          "A general shortest surface path algorithm evaluates individual distances rather than an explicit measure-theoretic distribution."
+        ],
+        "reasoning": "Neither algorithmic pointwise distance computation nor cut-locus combinatorial classification by itself is the displayed exact distribution without additional region integrals.",
+        "searches": [
+          "arxiv:2308.04316 cube cut locus",
+          "Mitchell Mount Papadimitriou 1987 discrete geodesic problem",
+          "cube surface intrinsic distance vertex to uniform random point full distance distribution exact CDF"
+        ]
+      },
+      "checked_sources": [
+        "Fuchs 2016 DOI 10.1007/s40598-016-0040-z",
+        "Goldstone et al arxiv:2003.06096v1",
+        "Davis arxiv:2308.04316",
+        "Mathai et al 1999 DOI 10.6092/issn.1973-2201/1104",
+        "Resultary query: cube surface intrinsic distance vertex to uniform random point full distance distribution exact CDF"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fuchs 2016 study of vertex endpoints cannot directly give an area distribution over two-dimensional target faces.",
+          "Goldstone et al Theorem in §4 concerns opposite interior sources/targets and paths traversing three/four faces; vertex o is excluded."
+        ],
+        "reasoning": "No inspected theorem logically entails the specific vertex-square distance field with two-transitions CDF, coefficient-one moments and endpoint asymptotic by parameter substitution.",
+        "searches": [
+          "Fuchs 2016 cube vertex geodesics",
+          "Goldstone Roca Suzzi Valli 2020 shortest paths on cubes",
+          "Davis 2023 cube geodesic complexity",
+          "cube surface intrinsic distance vertex to uniform random point full distance distribution exact CDF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vertex-centered geodesic-ball area is exactly 6F(r) for a uniform cube surface point.",
+          "Goldstone et al §1 explicitly restrict source and target to opposite face interiors, a different configuration."
+        ],
+        "reasoning": "Search covered equivalent radius profile, area-of-geodesic-balls and metric-measure language rather than only random-distance phrasing.",
+        "searches": [
+          "cube surface intrinsic distance vertex to uniform random point full distance distribution exact CDF",
+          "cube vertex geodesic ball surface area radius law",
+          "cube cut locus radial metric measure of vertex",
+          "arxiv:2003.06096"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mathai et al. Statistica 1999 explicitly study Euclidean distance for interior/face random points, not intrinsic path metric.",
+          "Resultary closest cube records concern directional width and discrete lattice-cube triangle distances, neither the same table."
+        ],
+        "reasoning": "The claimed moments and endpoints are not Euclidean line-picking outputs; no matching complete intrinsic law found in the queried index.",
+        "searches": [
+          "cube surface intrinsic distance vertex to uniform random point full distance distribution exact CDF",
+          "Mathai 1999 distances between random points cube",
+          "Resultary continuous intrinsic surface vertex cube distance CDF"
+        ]
+      },
+      "rationale": "Fuchs 2016 treats geodesic vertex-to-vertex endpoints, Goldstone-Roca-Suzzi Valli 2020 treat shortest paths between opposite face interior points, Davis 2023 treats cube cut loci and geodesic complexity, and Mathai et al 1999 Euclidean straight-line distances. None inspected states the uniform-surface-point intrinsic vertex-centered CDF, moments and sharp tail. The general shortest-path algorithm is compatible but no immediate exact density formula follows without new integration.",
+      "residual_risks": [
+        "Unindexed mathematical recreation or historical cube shortest-route article may contain the same area formula.",
+        "The broad general discrete-geodesic algorithm primary full text was not inspected; no whole-document negative assessment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING this metric-measure law; vertices as both endpoints, not uniform surface target.",
+          "evidence": [
+            "Fuchs 2016 studies geodesics with endpoints at polyhedron vertices."
+          ],
+          "identifier_or_url": "https://armj.math.stonybrook.edu/pdf-Springer-final/016-0040.pdf",
+          "material_read": "Open 11-page PDF including vertex endpoint theorem and example; PDF page screenshot inspected",
+          "method": "lawful open PDF and rendered screenshot",
+          "title": "Geodesics on Regular Polyhedra with Endpoints at the Vertices",
+          "trigger": "Same cube and vertex-geodesic topic"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR: shortest paths with both endpoints in opposite face interiors, not fixed vertex/radius area.",
+          "evidence": [
+            "Introduction and Theorem (§4) explicitly assume opposite-face interior endpoints."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2003.06096v1",
+          "material_read": "Rendered 816-line HTML primary, definitions, Theorem and discussions of paths between opposite face interior points",
+          "method": "full arXiv HTML",
+          "title": "Shortest Paths on Cubes",
+          "trigger": "Same cube shortest-surface paths, potentially dominating law"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR: structural geodesic complexity; no exact radial area law found in relevant statements.",
+          "evidence": [
+            "Focus of abstract and theorem statements is cut-locus/geodesic motion planning."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2308.04316",
+          "material_read": "Accessible arXiv HTML relevant cut-locus and complexity sections",
+          "method": "arXiv rendered article",
+          "title": "Geodesic complexity of a cube",
+          "trigger": "Cube cut locus general result"
+        },
+        {
+          "assessment": "INAPPLICABLE metric: Euclidean chord/point distance, not intrinsic cube surface shortest path.",
+          "evidence": [
+            "1999 abstract: random Euclidean distances inside/on cube."
+          ],
+          "identifier_or_url": "https://doi.org/10.6092/issn.1973-2201/1104",
+          "material_read": "Publisher abstract clearly defining Euclidean random-point distances, full article not read",
+          "method": "journal metadata and abstract",
+          "title": "Distance between random points in a cube",
+          "trigger": "Potential matching exact probability distribution"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full explicit CDF in Git RESULT.md",
+        "Fuchs/Goldstone primary cube geometry distinctions"
+      ],
+      "rationale": "The complete intrinsic-distance CDF from a cube vertex to a uniformly random surface point is a natural metric-geometric probability law. Its support, phase radii, exact moments and sharp far-tail encode nontrivial effects of surface shortest paths beyond Euclidean distance and enable later benchmarks without redoing the cube unfolding.",
+      "residual_risks": [
+        "Unit regular cube and one vertex source only; no two-point or face-interior-source distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The all-walk certificate is an exact finite structural reduction, not a probabilistic sample; independent sanity Monte Carlo does not itself prove exhaustive unfolding.",
+    "Unindexed mathematical recreation or historical cube shortest-route article may contain the same area formula.",
+    "The broad general discrete-geodesic algorithm primary full text was not inspected; no whole-document negative assessment.",
+    "Unit regular cube and one vertex source only; no two-point or face-interior-source distribution."
+  ],
+  "schema_version": 1
+}

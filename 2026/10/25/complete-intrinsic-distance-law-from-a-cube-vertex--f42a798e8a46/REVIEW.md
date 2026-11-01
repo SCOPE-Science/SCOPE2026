@@ -1,19 +1,21 @@
-# Scientific review: cube vertex surface-distance law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The metric is intrinsic and the probability measure is normalized over six unit-area faces. A complete simple-face-walk argument reduces the opposite-face geodesic distance to the shorter of two feasible two-face unfoldings. All 80 simple face sequences, grouped into 24 exact affine-distance classes, satisfy a four-vertex inequality that is sufficient on both triangular chambers of the opposite face. The resulting square-and-circle area integral yields the displayed CDF with correct boundary values. Exact polynomial integration independently gives \(\mathbb E[R^2]=3/2\) and \(\mathbb E[R^4]=61/18\). The far-tail coefficient follows from a two-dimensional rescaling near the unique opposite vertex. The accompanying checker uses only exact integers and rational fractions for its certificate and moments; numerical quadrature is explicitly supplementary.
+PASS
 
-## Originality
+For a uniform surface-area point X on the unit cube and vertex o, three adjacent faces have squared geodesic radius u²+v²; an opposite face point (1,y,z) has exact radius² 1+y²+z²+2min(y,z). Two unfolded 2-face paths attain the latter. The source provides a finite exhaustive comparison of 80 simple face walks, reduced to 24 integer coefficient classes each satisfying the necessary affine inequalities at all four chamber vertices; the argument that a shortest path can be shortened if it visits a face twice justifies path reduction. Analytic integration over the incident quarter-disk and two opposite triangles yields the displayed A(r),B(r) and F=(A+B)/2, transitions at 1 and sqrt2 and endpoint sqrt5. Direct rational polynomial integration gives E[R²]=3/2,E[R⁴]=61/18; endpoint rescaling gives 1-F~(5-r²)²/48. Independent numerical integration by Monte Carlo using 45,000 independently generated pairs compared the analytic CDF at 5 radii (errors bounded by 0.006); this corroboration is not proof of metric optimality. Critical exact face-walk code was read and its inequalities traced. No two-random-point formula is asserted. An additional independent, exact integer planar unfolding generator reconstructed all 80 face-simple routes and precisely 24 quadratic coefficient classes and verified all four chamber-vertex inequalities for every class. The corresponding path-completeness proof then establishes the pointwise intrinsic metric, not Monte Carlo.
 
-**PASS (best-knowledge self-review).** Fuchs (2016) treats vertex-to-vertex geodesics and endpoint frequencies, not the radial distribution for a uniform surface-area point. Goldstone–Roca–Suzzi Valli (2020) treat shortest paths between points in two opposite face interiors. Davis (2023) describes cube cut loci and geodesic motion planning, including the six branches from the opposite corner, but gives no complete radius-to-area law. The Mitchell–Mount–Papadimitriou shortest-path algorithm can evaluate individual geodesics but does not establish this explicit distribution. Euclidean cube line-picking formulas concern a different metric. A related complete radial law on the tetrahedron does not imply the cube's three-dimensional unfolding certificate or square-face integration. Specific searches and literature material are recorded in `AUDIT.json`. Residual risk: an unindexed elementary derivation or unpublished source might already state the formula; no claim of proof of global uniqueness is made.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The intrinsic geodesic ball area of a cube centered at a singular vertex is a canonical invariant, unlike an arbitrary subfamily or arbitrary parameter. The result supplies its complete area profile, not merely one local coefficient or an isolated sample, identifies two geometrically distinct transition radii, determines the unique farthest point, and provides exact moments and a sharp terminal tail. It is a reproducible benchmark for surface-geodesic sampling and polyhedral cut-locus geometry. The cube's six-branch opposite-vertex cut locus and 80 candidate face walks make it structurally distinct from a regular tetrahedron.
+Fuchs 2016 treats geodesic vertex-to-vertex endpoints, Goldstone-Roca-Suzzi Valli 2020 treat shortest paths between opposite face interior points, Davis 2023 treats cube cut loci and geodesic complexity, and Mathai et al 1999 Euclidean straight-line distances. None inspected states the uniform-surface-point intrinsic vertex-centered CDF, moments and sharp tail. The general shortest-path algorithm is compatible but no immediate exact density formula follows without new integration.
 
-## Limits
+## value
 
-The result concerns a fixed vertex source on a regular cube, not generic source locations or two random endpoints. It remains possible that an unindexed source contains an equivalent specialization. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete intrinsic-distance CDF from a cube vertex to a uniformly random surface point is a natural metric-geometric probability law. Its support, phase radii, exact moments and sharp far-tail encode nontrivial effects of surface shortest paths beyond Euclidean distance and enable later benchmarks without redoing the cube unfolding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
