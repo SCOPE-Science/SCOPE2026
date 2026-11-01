@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "The polynomial-coordinate update has correct index orientations; the CRT hub factor is precisely \\(t^{e-1}\\); the complementary component is invertible; explicit \\(T^2\\), \\(T^3\\) and rank calculations reconstruct all claimed zero-primary blocks. Fixed-point counts follow from the odd/even-time Smith reduction over \\(\\mathbb F_2[X]/H_n\\), and entry counts follow from Fitting decomposition. Standalone script passed 2,326 exact power-rank checks, 1,984 fixed-kernel checks and exhaustive trajectory classification of 174,720 states. Limits: finite checks are corroborative, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marr–Hütt arXiv:cond-mat/0502509v1, equation (1) and equation (3): degree-density threshold flip rules, not linear open-neighborhood XOR.",
+        "Berman–Borer–Hungerbühler DOI:10.1007/s00591-021-00297-5, Theorem 4: reachability under arbitrary switch choices, not iterations of A.",
+        "Martin–Odlyzko–Wolfram DOI:10.1007/BF01223745, accessible abstract: one-dimensional finite cellular automata with algebraic global dynamics.",
+        "Sutner, The sigma-Game and Cellular Automata (1990), publisher abstract: analyses controllable graph moves and rectangular grids, identifies a connection with cellular automata, but does not state an exact gear-graph recurrence formula in the accessible abstract."
+      ],
+      "reasoning": "A generic polynomial or finite-matrix framework can in principle derive the result, but none of the inspected broader statements itself provides the explicit gear-specific nilpotent partitions or gcd fixed-point formula. The uninspected complete 1984 paper remains a possible historical overlap. Sutner’s 1990 abstract was checked as a plausible general sigma-automaton precursor; its inaccessible full article is an additional historical-coverage risk, not evidence of disjointness.",
+      "searches": [
+        "binary cellular automata graphs general exact temporal period Jordan decomposition",
+        "Algebraic Properties of Cellular Automata Martin Odlyzko Wolfram 1984",
+        "Lights Out on graphs Berman Borer Hungerbühler Theorem 4 adjacency",
+        "Synchronous Lights Out gear graph Jahangir adjacency matrix over F2 periods exact fixed configurations",
+        "The σ-Game and Cellular Automata Klaus Sutner 1990 DOI 10.1080/00029890.1990.11995540"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:cond-mat/0502509v1",
+      "DOI:10.1007/s00591-021-00297-5",
+      "DOI:10.1007/BF01223745 (abstract and excerpts only)",
+      "https://mathworld.wolfram.com/GearGraph.html",
+      "DOI:10.1080/00029890.1990.11995540 (publisher abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:cond-mat/0502509v1, Sections 2–6, computes entropy behavior of non-linear threshold rules on varying graph topologies.",
+        "DOI:10.1007/s00591-021-00297-5, Section 2 and Section 3 deal with press-vectors and one-step linear solvability, not autonomous recurrence.",
+        "Wheel graph K1 join Cn has direct rim edges, while gear graph subdivides each rim edge; a prior wheel-specific dynamic statement therefore has a different update matrix."
+      ],
+      "reasoning": "The present conclusion concerns all n, exact Jordan block sizes, exact entry-time populations, and arithmetic counts for every return time. None of these follows by direct specialization from the inspected different-rule and different-graph statements. The cited general methods are acknowledged rather than treated as absent.",
+      "searches": [
+        "Topology regulates pattern formation capacity of binary cellular automata on graphs arxiv 0502509 full text",
+        "Lights Out on graphs non-reflexive switch rule periodic states",
+        "binary neighbor-XOR gear graph wheel subdivision recurrent states"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gear graph = bipartite wheel = Jahangir graph J(2,n): https://mathworld.wolfram.com/GearGraph.html",
+        "No gear graph or Jahangir graph periodic-point theorem appears in the inspected Marr–Hütt 2005 Sections 1–6 or Berman–Borer–Hungerbühler 2021 full-text theorems.",
+        "A search of published research records returned a distinct result on odd/even dynamics of parity automata on distance-two Boolean cubes (published-finding corpus public record f288ef2fe8b4) and a distinct complete-multipartite parity census (record acea41c73be7); neither graph family includes the hub-plus-subdivided-cycle structure.",
+        "A published gear-graph study on mixed resolving sets (record fd8e9a51a60c) concerns a metric invariant and does not imply fixed points under parity iteration."
+      ],
+      "reasoning": "Alias checks identify the same graph class under three names. Existing nearby works treat metric/zero-forcing invariants or nonadditive rules, not the autonomous iteration and zero-primary Jordan form of this adjacency map. These searches do not establish absolute uniqueness.",
+      "searches": [
+        "gear graph synchronous XOR dynamics fixed points and Jordan blocks",
+        "Jahangir graph J(2,n) characteristic two adjacency transient dynamics",
+        "bipartite wheel graph parity cellular automaton periodic states",
+        "gear graph G_n = wheel with every rim edge subdivided. Binary XOR synchronous adjacency dynamics fixed points recurrent configurations transient depths v2(n)",
+        "Gear graph G_n Jahangir J(2,n) synchronous binary neighbor XOR cellular automaton nilpotent Jordan blocks lengths 1,3,e and fixed point gcd polynomial (x^n+1)",
+        "Bipartite wheel gear graph parity dynamics binary adjacency matrix full transient census n odd mod 4 two-adic valuation",
+        "Jahangir graph GF(2) nilpotent adjacency matrix",
+        "gear graph adjacency binary fixed point counts sequence table"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram MathWorld Gear Graph records structural graph invariants, rather than binary dynamical transition tables: https://mathworld.wolfram.com/GearGraph.html",
+        "The direct finite verification and the infinite symbolic proof are provided as new reproducibility files, not copied from any database."
+      ],
+      "reasoning": "The searched graph-property tables do not include the specified all-time return census. A finite table would not automatically imply the infinite-family claim, and no exact table was located.",
+      "searches": [
+        "gear graph adjacency binary fixed point counts sequence table",
+        "gear graph parity dynamics 3 1 1 Jordan partition",
+        "Jahangir graph GF(2) nilpotent adjacency matrix"
+      ]
+    },
+    "rationale": "The specific gear-graph nilpotent Jordan classifications, first-entry populations and all-time fixed/primitive recurrence census were not implied by the inspected graph-topology threshold automata, Lights Out switch-solvability, ordinary wheel parity results, or generic polynomial-method sources. This is a qualified conclusion subject to a named 1984 full-text access risk and general incomplete historical indexing. Sutner (1990) is another related graph sigma-automaton source inspected only at abstract level, and this limitation is recorded.",
+    "residual_risks": [
+      "Complete 1984 Martin–Odlyzko–Wolfram article could not be fully inspected; a differently phrased older algebraic reduction cannot be excluded.",
+      "Some unindexed graph-dynamics literature may use the alias Jahangir or bipartite wheel.",
+      "The originality review is not an independent third-party literature certification.",
+      "Sutner’s 1990 paper connects sigma-games and cellular automata; only its abstract was accessible for source comparison, so uninspected results remain a concrete historical risk."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different nonadditive degree-density threshold update schemes; does not imply the gear graph XOR Jordan or exact fixed-point counts.",
+        "evidence": [
+          "arXiv:cond-mat/0502509v1",
+          "https://arxiv.org/pdf/cond-mat/0502509"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/cond-mat/0502509v1",
+        "material_read": "Complete rendered article sections 1 through 6 including rule definitions, topology-variation experiments and conclusions; PDF page 4 cross-checked visually.",
+        "method": "Full arXiv HTML and the original arXiv PDF, equations (1)–(4) and Sections 2,4,6.",
+        "title": "Topology regulates pattern formation capacity of binary cellular automata on graphs",
+        "trigger": "Pre-2016 research on binary automata over varying graph topologies, selected literature anchor."
+      },
+      {
+        "assessment": "Provides controllable button-press reachability and linear-algebra solvability, not autonomous iteration of the parity adjacency map or all-time gear-specific dynamics.",
+        "evidence": [
+          "DOI:10.1007/s00591-021-00297-5"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00591-021-00297-5",
+        "material_read": "Open publisher HTML sections 1–4, including Theorem 4, Propositions 7–9 and second-neighbor variants, plus sections 5–7 on computational complexity, circuits and graph symmetry.",
+        "method": "Full publisher-hosted open HTML.",
+        "title": "Lights Out on graphs",
+        "trigger": "Closest broad graph-over-F2 linear-algebra treatment involving adjacency matrices."
+      },
+      {
+        "assessment": "The documented one-dimensional homogeneous setting differs from a gear graph with a hub; full-paper comparison remains a specific originality risk.",
+        "evidence": [
+          "DOI:10.1007/BF01223745"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+        "material_read": "Publisher/author bibliographic material, abstract and accessible opening text; not the complete manuscript.",
+        "method": "Indexed full-text excerpts and bibliographic record; complete public author-hosted PDF retrieval failed owing to source-access constraints.",
+        "title": "Algebraic properties of cellular automata",
+        "trigger": "Foundational primary source on the global algebraic dynamics of finite linear cellular automata."
+      },
+      {
+        "assessment": "Confirms gear/bipartite-wheel/Jahangir equivalence and 2n+1 vertex count; no repeated-parity dynamical classification.",
+        "evidence": [
+          "https://mathworld.wolfram.com/GearGraph.html"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/GearGraph.html",
+        "material_read": "Full graph definition, graph aliases and enumerated algebraic invariants.",
+        "method": "Web reference page.",
+        "title": "Gear Graph",
+        "trigger": "Verify graph alias and ensure correct graph class."
+      },
+      {
+        "assessment": "The abstract focuses on a game on directed graphs and a rectangular-grid special case, not a gear-specific transient/periodic census; the complete manuscript could contain additional relevant material and is not ruled out.",
+        "evidence": [
+          "DOI:10.1080/00029890.1990.11995540"
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00029890.1990.11995540",
+        "material_read": "Publisher abstract and bibliographic information only; full paper inaccessible in current lawful open search.",
+        "method": "Publisher-provided open abstract and cited-bibliography comparison.",
+        "title": "The σ-Game and Cellular Automata",
+        "trigger": "Foundational graph linear-automata literature explicitly joining sigma-game dynamics with cellular automata."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "30e4ad5f-919d-40f7-8f7a-ed7d741e5470",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gear graphs are a classical natural wheel-subdivision family. The explicit size-dependent zero-primary Jordan shape includes an unexpected fusion in the twice-odd case, exact transient populations for every size, a sharp power-of-two extinction phenomenon, and full arithmetic primitive recurrence counts. These are motivated and nontrivial dynamical invariants, unlike a single arbitrary numerical example.",
+    "status": "PASS"
+  }
+}
