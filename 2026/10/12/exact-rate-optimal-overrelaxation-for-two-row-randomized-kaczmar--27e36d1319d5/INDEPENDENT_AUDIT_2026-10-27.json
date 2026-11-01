@@ -1,0 +1,215 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T18:15:24Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Git RESULT.md blob 83ce55612b27f74be5d3e527d7b384d5dd4ffffd full proof reconstructed independently",
+        "Git verifier.py blob fbd1ef33519807852e9a212e84b2fd89611cffa5 source inspected but prior log not taken as proof",
+        "Independent checker independent_kaczmarz_check.py, 7 symbolic identities, 8 high-precision optimization values in independent_kaczmarz_results.json",
+        "Strict Perron positivity for all p,q>0 and omega>0 and determinant lemma establish fully quantified spectral formula"
+      ],
+      "rationale": "Reconstructed from actual frozen RESULT.md: bisector unit normals yield M(omega)=I−2omega diag(p,q)+omega²(p,q)(p,q)^T for expected coordinate squares, with p=(1+c)/2,q=(1−c)/2. Its positive offdiagonal for omega>0 makes Perron root the exact asymptotic expected squared norm factor for any nonzero deterministic starting error. Conditional energy identity and positive definite average Gram yield convergence iff 0<omega<2. For stable omega, rank-one secular equation 1=omega S(z) with z=delta/omega in (0,2q); S strictly increases from 1/2 to infinity, parametrizing omega∈(0,2), and derivative S−zS′=2F has strictly negative derivative −zS″ for z>0, so unique optimizer. At c=0 symmetry yields omega*=1. At c>0 the derivative of rho at omega=1 equals −2pq c²/(p²+q²)<0, giving strict overrelaxation. Near parallel q↓0, critical balance 2q−z~2q^(3/2) implies optimized spectral gap~4q versus default 2q. All boundary quantifiers and the excluded singular c=1 were checked. Independent new SymPy/algebraic replay 7 identities plus eight high-precision representative values; tests are corroboration only, not infinite proof.",
+      "residual_risks": [
+        "No new Lean/formal or third-party expert certification claimed; finite tests only.",
+        "Optimization applies only IID uniform with-replacement two independent unit rows, consistent noise-free equations, constant step, expected square norm asymptotic, deterministic nonzero start."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Strohmer–Vershynin 2007 Section 2 theorem bounds unrelaxed RK; Section 5 discusses a relaxation heuristic but offers neither an exact two-row optimizer nor its proof.",
+          "2014 Agaskar–Wang–Lu writes the general Kronecker second-moment propagator R_A(p) but varying p optimizes row-sampling distribution rather than a constant scalar step.",
+          "The published 2024 Nikazad–Khakzad abstract discusses noise/semiconvergence and a relaxation prescription based on a bound; full source inaccessible, so coverage remains a named risk, NOT a whole-document noncoverage claim."
+        ],
+        "reasoning": "General covariance-lifting is a starting technique, not an already derived and optimized two-row Perron eigenvalue theorem. A stronger theorem on exact constant-relaxation optima would cover this special case, but no accessible examined one establishes it; related rate bounds and noise-dependent prescriptions do not logically establish the exact optimizer.",
+        "searches": [
+          "arxiv:math/0702226 Strohmer Vershynin randomized Kaczmarz algorithm exponential convergence",
+          "Agaskar Wang Lu 2014 exact MSE analysis optimal sampling probabilities DOI 10.1109/GlobalSIP.2014.7032145",
+          "arxiv:1502.00190 Wang Agaskar Lu exact MSE inconsistent",
+          "arxiv:2202.12224 optimal scheduled learning rate randomized Kaczmarz",
+          "Nikazad Khakzad 2024 Choosing relaxation parameter in randomized Kaczmarz method DOI 10.1016/j.cam.2024.115790"
+        ]
+      },
+      "checked_sources": [
+        "Primary SCOPE exact assigned seven Git files at frozen commit 6c379935c2e469fc18959fc6c387e31328c64bcf tree 2cf556a04547934c996cd8fe15712996caaf8009",
+        "Strohmer–Vershynin 2007 arxiv:math/0702226 Section 2 and relaxation Section 5",
+        "Agaskar–Wang–Lu 2014 DOI 10.1109/GlobalSIP.2014.7032145 Harvard OA main equations, partial pages",
+        "Wang–Agaskar–Lu 2015 arxiv:1502.00190 main algorithm and MSE theorem",
+        "Published Resultary/2026 2026-10-04 cyclic two-row full RESULT.md",
+        "Nikazad–Khakzad 2024 DOI 10.1016/j.cam.2024.115790 indexed abstract only",
+        "Cai–Zhao–Tang 2012 DOI 10.1007/978-3-642-28308-6_64 abstract only; institutional retrieval storage-limit error",
+        "Resultary semantic searches: randomized-Kaczmarz overrelaxation/mean-square/cyclic vs IID variants",
+        "arxiv:2202.12224 metadata/abstract context only, not fresh full read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General Kaczmarz bounds set omega=1 and cannot fix derivative or global optimum of M_c(omega).",
+          "General exact-MSE operator of Agaskar–Wang–Lu can be specialized, but finding a unique global optimal positive omega from a rank-one secular equation is an additional mathematical argument.",
+          "Cyclic ordered two-row optimum omega=2/(1+sin theta) is incompatible with the IID computed omega=1.179020469... for c=0.5.",
+          "Cai–Zhao–Tang full text was not accessible; only abstract was read and full scientific implication remains an explicit residual risk."
+        ],
+        "reasoning": "None of the actually read prior theorems has stated conclusions that dominate the submitted joint exact spectral radius minimization and near-parallel factor-two law. Distinct sampling quantifiers prevent treating the stronger-sounding cyclic \"optimal\" title as covering. Full inaccessible plausible prior literature is not asserted noncovering.",
+        "searches": [
+          "Full Strohmer Vershynin 2007 Section 2 + relaxation discussion Section 5",
+          "Agaskar Wang Lu 2014 Proposition 1 exact MSE and optimal row sampling probability",
+          "Wang Agaskar Lu 2015 exact MSE incompatible systems algorithm (5)",
+          "Published Resultary cyclic two-row full RESULT.md",
+          "Cai Zhao Tang 2012 randomized Kaczmarz with relaxation DOI 10.1007/978-3-642-28308-6_64"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The assessed recurrence M_c(omega)=I-2omega diag(p,q)+omega²(p,q)(p,q)^T is the expected covariance-diagonal transfer; the target rate is its Perron eigenvalue.",
+          "Published Resultary/2026 2026-10-04 two-row theorem studies deterministic ordered *cyclic* sweeps, whose spectral optimum 2/(1+sqrt(1-c²)) is distinct from the IID two-row mean-square optimum.",
+          "Agaskar–Wang–Lu 2014 derives general covariance lifting but its displayed updates take exact projections and objective optimizes row probabilities."
+        ],
+        "reasoning": "The Lyapunov/covariance lifting and two-projection formulations are equivalent representations, but deterministic cyclic multiplication, row-sampling optimization and expectation-of-error spectral radius are distinct operations. The closest published cyclic formula gives a provably different optimizer at c=1/2, preventing accidental cross-model coverage.",
+        "searches": [
+          "Resultary query: optimal relaxation parameter randomized Kaczmarz two row system exact expected squared error convergence rate overrelaxation angle row sampling",
+          "Resultary query: uniform IID two-row relaxed randomized Kaczmarz exact optimal constant step mean-square Perron spectral radius and gap two near parallel",
+          "Resultary query: random composition of two rank one orthogonal projections exact second moment optimal overrelaxation",
+          "Resultary query: Kaczmarz relaxed projection optimum annealed Lyapunov exponent two lines angle",
+          "Web: randomized Kaczmarz two lines relaxed angle second moment exact optimal omega; stochastic products of two projections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published finite-horizon two-row table gives ordered cyclic sweep spectral radius and its transient, with different operator and optimum.",
+          "The published maximal-distance selection frontier concerns worst one-step residual amplification, not uniform random IID Perron rate.",
+          "The reverse-order averaging paper studies inconsistent cyclic block errors, not the same target invariant."
+        ],
+        "reasoning": "No actual indexed exact table or database result giving the claimed function omega_*(c), rho_*(c), and limit 2 for uniform IID was found. A mere absent table entry is weak negative evidence and does not alone establish originality.",
+        "searches": [
+          "Resultary semantic database: optimal two-row IID Kaczmarz overrelaxation gap",
+          "Resultary published exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation 2026-10-04",
+          "Published SCOPE/Resultary sharp coherence frontier residual spikes 2026-09-21",
+          "Published SCOPE/Resultary reverse order averaging Kaczmarz underrelaxation bias 2026-09-20",
+          "Search: exact two-row relaxed Kaczmarz eigenvalue optimal stochastic expected square error table"
+        ]
+      },
+      "rationale": "The actual IID-with-replacement, uniform two-row *mean-square* Perron-rate optimizer is not implied by the closest full-primary material assessed: 2007 standard-projection expected bounds, 2014 exact-MSE covariance operator with optimization of sampling rather than relaxation, 2015 unrelaxed exact MSE, and separately published deterministic cyclic two-row finite-horizon optimization. In particular the cyclic optimum 2/(1+sqrt(1-c²)) differs from the IID optimum (for c=1/2, about 1.071797 versus 1.179020). Published semantic searches returned no covering exact two-row IID relaxation result. This is explicitly best-of-knowledge, with major uninspected-relaxation-paper residual risks: source access is not fabricated, and failed search is not a novelty certificate.",
+      "residual_risks": [
+        "Nikazad–Khakzad 2024 is a DIRECT relaxation study but full primary text remained inaccessible; an equivalent optimizer cannot be conclusively excluded.",
+        "Cai–Zhao–Tang 2012 is another directly relevant relaxation chapter not read in full; authorized retrieval returned a storage-limit error, not evidence of lack of coverage.",
+        "Agaskar–Wang–Lu 2014 Harvard OA primary PDF gave initial main sections, but entire last portion was inaccessible on later requests.",
+        "A classical iterative-projection/mean-square optimal relaxation theorem under another name could imply the claim. Negative indexed searches cannot prove absolute novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Unrelaxed contraction bound and nonsharp relaxation heuristic, not exact two-row uniform IID constant-step optimization.",
+          "evidence": [
+            "Algorithm 1 projects with omega=1; Theorem 2 provides expected convergence bound.",
+            "Section 5 discusses relaxation parameter as heuristic and says no proof of optimality."
+          ],
+          "identifier_or_url": "arxiv:math/0702226; https://www.math.ucdavis.edu/~strohmer/papers/2007/kaczmarz.pdf",
+          "material_read": "Section 2 Algorithm 1 and Theorem 2 plus Section 5 discussion of relaxation near PDF p.16, including explicit acknowledgment of heuristic optimum rather than proven exact rate.",
+          "method": "Full-text extracted primary PDF sections; on-page image cross-check at PDF p.16",
+          "title": "A randomized Kaczmarz algorithm with exponential convergence",
+          "trigger": "Foundational RK convergence theorem, possible relaxation claim"
+        },
+        {
+          "assessment": "Standard-projection MSE lifting and row probability optimization were evidenced; NO claim that unread end of document is noncovering.",
+          "evidence": [
+            "Algorithm 1 update uses exact unrelaxed projection.",
+            "Proposition 1 defines R_A(p)=sum p_i P_i^perp tensor P_i^perp; annealed rate from its spectral radius."
+          ],
+          "identifier_or_url": "doi:10.1109/GlobalSIP.2014.7032145; https://dash.harvard.edu/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/download",
+          "material_read": "Harvard open-access PDF text, available beginning/main sections through approximately p.4 of a six-page paper: algorithm and Proposition 1 Kronecker matrix, sampling probability optimization; later pages not fully accessible on re-open.",
+          "method": "Direct lawful Harvard full-PDF parsing; subsequent pages inaccessible due 405 on subsequent requests",
+          "title": "Randomized Kaczmarz algorithms: exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Same mean-square lifting and exact rate, possibly covering optimizer"
+        },
+        {
+          "assessment": "Its exact MSE calculation for inconsistent observations uses unrelaxed row projection, not a constant omega optimum.",
+          "evidence": [
+            "Algorithm around equation (5) updates by unrelaxed projection; exact MSE is studied under inconsistency."
+          ],
+          "identifier_or_url": "arxiv:1502.00190; https://arxiv.org/pdf/1502.00190",
+          "material_read": "Public five-page arXiv preprint algorithm and main theorem, with PDF page image of algorithm.",
+          "method": "Public PDF parsed text and p.1 visual image cross-check",
+          "title": "Randomized Kaczmarz algorithm for inconsistent linear systems: an exact MSE analysis",
+          "trigger": "Exact covariance spectral equation could imply the theorem"
+        },
+        {
+          "assessment": "Deterministic cyclic Kaczmarz, not IID with replacement; its angle-optimal spectral radius differs strictly from the target optimum for generic c.",
+          "evidence": [
+            "The published optimum is omega=2/(1+sin theta), for ordered cyclic sweep.",
+            "Target independent check gives IID omega≈1.179020469 at c=0.5 whereas cyclic formula ≈1.071796770."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1/RESULT.md",
+          "material_read": "Entire RESULT.md, assumptions, sweep-error matrix, theorem, derivation and references.",
+          "method": "Full direct GitHub file read at blob 24c2e94a2e9a18e7795472f32110b0799051eb69",
+          "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+          "trigger": "Closest published mathematical finding: same two-row geometry and optimal relaxation language"
+        },
+        {
+          "assessment": "Plausible exact-optimization prior unresolved. Abstract focuses noise and semiconvergence upper-bound-based relaxation; no whole-text noncoverage asserted.",
+          "evidence": [
+            "Published 2024 in Journal of Computational and Applied Mathematics; abstract reports parameter selection via noise-error bound."
+          ],
+          "identifier_or_url": "doi:10.1016/j.cam.2024.115790",
+          "material_read": "Bibliographic metadata and abstract only; full primary text inaccessible after searched lawful open and preprint routes.",
+          "method": "Indexed abstract only, not complete PDF inspection",
+          "title": "Choosing relaxation parameter in randomized Kaczmarz method",
+          "trigger": "2024 paper addresses relaxation, more recent and highly plausible covering source"
+        },
+        {
+          "assessment": "Unresolved, plausibly relevant source; NO complete-document noncoverage assertion.",
+          "evidence": [
+            "Springer conference chapter pp.467–473, 2012, direct relaxation and convergence topic."
+          ],
+          "identifier_or_url": "doi:10.1007/978-3-642-28308-6_64",
+          "material_read": "Indexed title, chapter abstract and bibliographic metadata only; arxiv and lawful OA retrieval did not yield complete text.",
+          "method": "Publisher abstract/index; authorized Oxford access attempted, returned storage-limit error, not PDF content",
+          "title": "Exponential convergence of a randomized Kaczmarz algorithm with relaxation",
+          "trigger": "2012 specialized relaxation paper could directly precede result"
+        },
+        {
+          "assessment": "Varying schedule in noisy-measurement expected-bound setting, but the current run does not claim whole document independently checked.",
+          "evidence": [
+            "Different objective: scheduled noisy rate bound rather than exact fixed-step IID two-row Perron eigenvalue."
+          ],
+          "identifier_or_url": "arxiv:2202.12224; https://arxiv.org/pdf/2202.12224",
+          "material_read": "Prior package cited a full 19-page reading; THIS independent pass checked title/algorithm summaries and model comparisons but did not read that entire PDF anew.",
+          "method": "Metadata and scoped web search results only for this independent run",
+          "title": "An optimal scheduled learning rate for a randomized Kaczmarz algorithm",
+          "trigger": "Potential dominating step-size optimization paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Rank-one secular optimum and nonzero derivative at omega=1 constitute substantial exact optimization",
+        "Near parallel comparison delta*(q)~4q versus delta_standard(q)~2q yields exact asymptotic factor 2",
+        "The comparable cyclic two-row relaxation optimum is distinct, underscoring need to distinguish algorithm and metric."
+      ],
+      "rationale": "Constant-relaxation choice in two-row uniformly randomized Kaczmarz is a natural measurable performance question whose exact annealed asymptotic factor differs from one-step energy bounds and deterministic cyclic sweeps. The unique root characterization spans every nonorthogonal angle, reveals overrelaxation is strictly optimal for all nonorthogonal rows, and gives a sharp limiting factor-two improvement in spectral gap for nearly parallel lines. It is a nontrivial precise benchmark for stochastic projection dynamics rather than a relabeled standard upper bound or a tiny isolated numerical gain; no claim for finite horizon, general sampling, almost-sure exponents or more rows.",
+      "residual_risks": [
+        "Practical value for many-row/noisy Kaczmarz not established; contribution is a sharp natural small model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Primary SCOPE exact assigned seven Git files at frozen commit 6c379935c2e469fc18959fc6c387e31328c64bcf tree 2cf556a04547934c996cd8fe15712996caaf8009",
+    "Strohmer–Vershynin 2007 arxiv:math/0702226 Section 2 and relaxation Section 5",
+    "Agaskar–Wang–Lu 2014 DOI 10.1109/GlobalSIP.2014.7032145 Harvard OA main equations, partial pages",
+    "Wang–Agaskar–Lu 2015 arxiv:1502.00190 main algorithm and MSE theorem",
+    "Published Resultary/2026 2026-10-04 cyclic two-row full RESULT.md",
+    "Nikazad–Khakzad 2024 DOI 10.1016/j.cam.2024.115790 indexed abstract only",
+    "Cai–Zhao–Tang 2012 DOI 10.1007/978-3-642-28308-6_64 abstract only; institutional retrieval storage-limit error",
+    "Resultary semantic searches: randomized-Kaczmarz overrelaxation/mean-square/cyclic vs IID variants",
+    "arxiv:2202.12224 metadata/abstract context only, not fresh full read"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No model-changing repair; RESULT.md/SLOGAN.txt unchanged.",
+    "No claim of independent external certification or formal proof.",
+    "Publisher-source access gaps recorded in scientific originality, not converted into automatic FAIL.",
+    "Existing public administrative files have source provenance/internal identifiers; publication is withheld until privacy-safe replacements are authorized, complete and guarded."
+  ],
+  "schema_version": 1
+}
