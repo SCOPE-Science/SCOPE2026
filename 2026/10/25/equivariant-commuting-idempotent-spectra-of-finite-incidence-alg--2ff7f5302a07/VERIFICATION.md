@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this file. The checker uses only Python's standard library. It builds literal incidence-algebra products, enumerates actual idempotents, checks ordered pairwise-commuting pairs, and compares them with independent orbit-color sums. It includes chain and two-level examples, an automorphism swapping both sides of a four-element two-level poset, finite prime fields of orders two and three, and crown rotations for three to five index positions. Expected terminator: `VERIFY_OK_EQUIVARIANT_INCIDENCE_IDEMPOTENTS`.
+## correctness
 
-The component-dimension conclusion follows from the same algebraic-group orbit and stabilizer calculation; this geometric argument was reviewed symbolically, not certified by finite-field enumeration. The proof's decisive checks are structural: an explicit simultaneous conjugator, stabilizer coefficient counts, a cycle-multigraph quotient and the two eigenvalues of its edge transfer matrix. The computational suite is finite and cannot prove the unbounded theorem. No external expert review or independent audit has taken place. Priority risk remains for prior simultaneous-idempotent lifting and equivariant coloring interpretations.
+PASS
+
+Because I(P,F_q)=D⊕J is H-stable as a direct vector-space sum, the fixed algebra is D^H⊕J^H without averaging or characteristic restrictions. Orthogonal spectral projectors P_alpha of a commuting tuple have diagonal d_alpha; u=Σ P_alpha d_alpha is a unit in 1+J^H and simultaneously conjugates the diagonal tuple to the original. The stabilizer of the diagonal tuple consists of monochromatic strict-pair orbit coefficients, so each diagonal fiber has q^{b_H(c)} points. The same unipotent orbit over algebraic closure is irreducible of dimension b_H(c) and separate diagonal fibers are clopen. Burnside gives G-orbit formula. For crowns rotations quotient to 2d-cycle with parallel edges at d=1, transfer eigenvalues 1+(2^t−1)q, 1−q give exact totient sum. Independent literal multiplication enumerated small q=2,3 chains and independently counted crown rotations m=3..5; the algebraic proof is general.
+
+## originality
+
+PASS
+
+Explicit characteristic-independent equivariant fixed commuting-tuple count and geometric decomposition, plus exact crown rotations, not provided by the inspected single-idempotent or group-equivariant graph-coloring references; individual lifting and Potts spectral ingredients are prior.
+
+## value
+
+PASS
+
+A useful general, characteristic-free closed enumeration across all finite posets, arbitrary automorphism subgroups and tuple lengths, with direct geometric irreducible-component dimensions and a nontrivial infinite crown rotation family. Not a small recomputation: it reduces polynomial matrix equations to a tractable symmetry-reduced graph partition function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

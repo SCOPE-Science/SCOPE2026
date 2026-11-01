@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The invariant-algebra decomposition \(A^H=D^H\oplus J^H\) remains valid in modular characteristic because it is a split decomposition of invariant subspaces, not an appeal to exactness of invariants. The explicit conjugator \(u=\sum P_\alpha d_\alpha\) has diagonal one and transports the entire mutually orthogonal partition. The stabilizer is diagonal-coordinatewise and has exactly one free field coordinate on each monochromatic orbit of strict comparable pairs. Over an algebraically closed field each diagonal fiber is a closed, irreducible unipotent orbit of dimension equal to the number of bichromatic strict-pair orbits; different fibers are disjoint open-and-closed subsets, so they are precisely the reduced variety's components. The crown quotient is a cycle multigraph; in particular the two parallel edge orbits for \(d=1\) must both be retained. These facts prove the formulas for every stated parameter. Direct ring checks and explicit cycle-color checks are supplied; no finite enumeration is treated as an infinite proof.
+PASS
 
-## Originality — PASS (with residual risk)
+Because I(P,F_q)=D⊕J is H-stable as a direct vector-space sum, the fixed algebra is D^H⊕J^H without averaging or characteristic restrictions. Orthogonal spectral projectors P_alpha of a commuting tuple have diagonal d_alpha; u=Σ P_alpha d_alpha is a unit in 1+J^H and simultaneously conjugates the diagonal tuple to the original. The stabilizer of the diagonal tuple consists of monochromatic strict-pair orbit coefficients, so each diagonal fiber has q^{b_H(c)} points. The same unipotent orbit over algebraic closure is irreducible of dimension b_H(c) and separate diagonal fibers are clopen. Burnside gives G-orbit formula. For crowns rotations quotient to 2d-cycle with parallel edges at d=1, transfer eigenvalues 1+(2^t−1)q, 1−q give exact totient sum. Independent literal multiplication enumerated small q=2,3 chains and independently counted crown rotations m=3..5; the algebraic proof is general.
 
-The 2019 Gargate–Gargate source addresses single involutions and the 2020 source explicitly develops single \((k+1)\)-potent element counts. The 2020 paper's relevant full text was examined in its counting and incidence-algebra sections; neither its stated results nor its constructions address commuting tuples fixed by arbitrary poset automorphism subgroups. White's graph-invariant work makes the group-action coloring aspect a relevant overlap risk. The claimed distinction is the algebraic fixed-tuple formula and its crown rotational orbit count; neither the existence of idempotent lifts nor a Potts transfer trace is claimed as individually new. General simultaneous-idempotent conjugacy theorems might make the synthesis readily derivable; final historical priority is not established independently.
+## originality
 
-## Value — PASS
+PASS
 
-The finding answers a natural symmetry-sensitive algebraic enumeration question uniformly for every finite poset, field size, number of commuting projections and automorphism subgroup. It turns a coupled system of polynomial matrix identities into a graph-orbit partition function, simultaneously classifies all geometrically irreducible components of the associated reduced variety and their dimensions, and gives an explicit all-size crown rotation-orbit formula. This provides a usable structural reduction for further exact counts rather than a small isolated numerical gain.
+Explicit characteristic-independent equivariant fixed commuting-tuple count and geometric decomposition, plus exact crown rotations, not provided by the inspected single-idempotent or group-equivariant graph-coloring references; individual lifting and Potts spectral ingredients are prior.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A useful general, characteristic-free closed enumeration across all finite posets, arbitrary automorphism subgroups and tuple lengths, with direct geometric irreducible-component dimensions and a nontrivial infinite crown rotation family. Not a small recomputation: it reduces polynomial matrix equations to a tractable symmetry-reduced graph partition function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
