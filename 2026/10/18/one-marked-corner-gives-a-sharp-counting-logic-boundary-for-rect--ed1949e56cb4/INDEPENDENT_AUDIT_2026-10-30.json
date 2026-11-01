@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:14:32.178952Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git blob RESULT.md 89cab6d3089cb3c645b3e052edf12fea56fe0246 at assigned frozen commit",
+        "Git blob verify_corner_grids.py 3469e2cd258604a3a988cd4bb6e0044b5f4ac749 and verify_small_square_forcing.py 48b5a623f47dcc6be5db6e70b0d565b168c3be8a",
+        "Independent_grid_audit_check.py and its results from this execution",
+        "arXiv:1502.01255 and arXiv:1503.08792 on C² and stable colour refinement"
+      ],
+      "rationale": "Checked the finite, simple, vertex-coloured 2<=m<=n theorem with exactly one marked corner and arbitrary finite comparison graphs. WL colour classes encode distance from any singleton landmark. For m<n, degree-two corners are distinguishable by distances 0,m-1,n-1,m+n-2 from the marked corner; the corner (m-1,0) is therefore a singleton. The two coordinate distances i+j and m-1-i+j recover each (i,j), forcing a discrete stable partition and C² identification against any graph. For square s, reflection fixes the corner, so classes cannot split coordinate-transpose orbits. Induction on t=i+j uses the multiset of predecessor-orbit colours to separate all unordered coordinate pairs, proving classes precisely X_{i,j}. At s=2,3 all two-element classes are independent and their nontrivial interclass perfect-matchings form a path (none or two links). Every possible classwise pairing is isomorphic via independent flips, and singleton interactions are forced by equitable counts. At all s>=4, switch edges (0,2)-(0,3) and (2,0)-(3,0) to cross edges, preserving equitable neighbours for every orbit and joint 1-WL colours while producing a single 8-cycle instead of two 4-cycles across X02,X03,X13,X12. Those four stable classes are canonically distinguished, so switched graph is nonisomorphic; it remains connected by local detours. Classical C²/1-WL equivalence bridges the claims. Independent separately written exact checker verified 88 grids (77 nonsquares, 11 squares), 9 switched witnesses, 2/3 small-square equitable completions (1 and 4 labelled, each one isomorphism class). Finite runs corroborate, and do not certify the all-size theorem.",
+      "residual_risks": [
+        "The checker is finite and cannot by itself prove all values of m,n; the induction and matching switch supply the infinite proof.",
+        "The result asserts only one marked corner; no interior markers, minimum C² quantifier depth, or planarity of the switched competitor."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2015 Theorem 9 covers all finite graphs via stable-cell local conditions and anisotropic-tree criterion.",
+          "2015 Theorem 17 covers all graphs and coloured relational structures via flip-forest classification.",
+          "2026 article restates tree-characterization of amenable graphs but studies distinguishing and fixing numbers, not marked-grid side thresholds."
+        ],
+        "reasoning": "The earlier all-graphs results dominate the abstract identification property and provide alternate proofs of both directions once grid stable cells are established. The submitted result is narrower but solves their criteria uniformly over an infinite two-parameter family, with the first 4-by-4 cyclic obstruction. If the family computation is already written elsewhere or judged a routine immediate corollary, O should be reconsidered; no such result was located after targeted search.",
+        "searches": [
+          "arXiv:1502.01255 Theorem 9, Conditions A–H and anisotropic components",
+          "arXiv:1503.08792 Theorem 17 and flip/bouquet forest",
+          "web: Arvind Kobler Rattan Verbitsky graph isomorphism color refinement compactness theorem 9 amenable anisotropic cycle grid",
+          "2026 Breaking the symmetries of Amenable graphs Section 2.1"
+        ]
+      },
+      "checked_sources": [
+        "V. Arvind, J. Köbler, G. Rattan, O. Verbitsky, Graph Isomorphism, Color Refinement, and Compactness (arXiv:1502.01255v3, 2015), https://arxiv.org/pdf/1502.01255",
+        "S. Kiefer, P. Schweitzer, E. Selman, Graphs Identified by Logics with Counting (arXiv:1503.08792, 2015/2018), https://arxiv.org/pdf/1503.08792",
+        "V. Arvind et al., The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs (arXiv:1606.04383, 2016), https://arxiv.org/pdf/1606.04383",
+        "Breaking the symmetries of Amenable graphs, Ars Combinatoria 166 (2026), https://combinatorialpress.com/ars-articles/volume-166/breaking-the-symmetries-of-amenable-graphs/",
+        "D. S. Krotov, Perfect colorings of the infinite square grid: coverings and twin colors (arXiv:2010.15839), https://arxiv.org/abs/2010.15839",
+        "Published mathematical record semantic searches via Resultary: three queries about marked-grid C² and corner color refinement; no matching claimed cutoff",
+        "Targeted public-web searches for colour refinement, corner-individualised Cartesian products, amenable square grids"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2015 global amenability criterion implies non-amenability whenever a uniform anisotropic cycle of stable cells is present.",
+          "The 2015 C² characterisation implies the same failure for a cycle of perfect-match cells.",
+          "The 2016 individualisation paper defines the general optimisation task but does not supply this marked-grid family calculation."
+        ],
+        "reasoning": "Both broad 2015 theorems imply the claimed side-four failure conditional on the grid-specific stable partition. The published theorems also guarantee the small-square and nonsquare sides conditional on the explicit partition and forest/singleton check. The nonroutine new portion is the simultaneous geometric classification of stable cells for every m,n and explicit sharp switched family. Strong prior implication is disclosed, not disregarded; a previously published exact implication or mechanical known-example reduction would defeat originality.",
+        "searches": [
+          "arXiv:1502.01255v3 Theorem 9 and Lemmas 7–8",
+          "arXiv:1503.08792 Theorem 17, proof and anisotropic matching-cycle case",
+          "arXiv:1606.04383 Problem 1.3",
+          "web: \"vertex individualization\" \"grid\" \"amenable\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Arvind et al. Theorem 9: graph is amenable iff stable equitable cells satisfy Conditions A,B,G,H; G requires every anisotropic component to be a tree.",
+          "Kiefer et al. Theorem 17: C² identification iff flipped structure is a bouquet forest.",
+          "For the studied square grids, stable two-vertex classes are coordinate-swap orbits; the first class-matching cycle appears at side 4."
+        ],
+        "reasoning": "Colour-refinement amenability, C² identification and 1-WL separation are equivalent formulations for this signature. Broad general classifications apply, but after actual comparison no matching explicit uniform corner-coloured rectangle threshold was located. The specialisation requires reconstructing the stable partition and cell-interaction geometry; generic algorithms alone do not literally state its quantified side-length result.",
+        "searches": [
+          "Resultary query: one marked corner rectangular square grid C2 counting logic color refinement amenability cutoff 4",
+          "Resultary query: graph identification C2 amenable cells anisotropic cycles corner colored grid",
+          "web: \"rectangular grids\" \"color refinement\" corner individualized",
+          "arXiv:1502.01255v3 Sections 2–5",
+          "arXiv:1503.08792 Theorem 17"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching grid-specific cutoff found in the retrieved Resultary findings; similar square-grid results concern unrelated invariants.",
+          "The cited general primary PDFs contain no grid-specific result under their searchable grid text.",
+          "Two independently inspected finite scripts are verification for the submitted case, not an external database or priority evidence."
+        ],
+        "reasoning": "No exact published numeric table or closed-form cutoff was located. That negative search does not establish originality, and the general theorems could yield the boundary through computation.",
+        "searches": [
+          "Resultary query: Cartesian product path graphs grid individualized vertex color refinement discrete stable partition square",
+          "Resultary query: one marked corner rectangular square grid C2 counting logic color refinement amenability cutoff 4",
+          "web: \"square grids\" \"counting logic\" \"corner\" identification",
+          "web: \"grid graphs\" \"amenable\" \"color refinement\"",
+          "arXiv:1502.01255 document search grid",
+          "arXiv:1503.08792 document search grid"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact uniform side-length boundary, with significant prior structural dependence. Arvind–Köbler–Rattan–Verbitsky (2015, Thm 9) already give an iff characterization of amenable arbitrary graphs, requiring an anisotropic-cell forest; Kiefer–Schweitzer–Selman (2015/2018, Thm 17) give a C² identification iff flip is a bouquet forest. These are genuinely broader and apply to every marked grid. They do not in inspected primary text identify the exact stable partition of the corner-coloured P_m square P_n or state/compute the all-size boundary m<n or m=n<=3. The record adds the all-parameter landmark-distance/orbit-cell analysis and explicit connected switched witnesses, not the general equivalence or forest criterion. The 2026 amenable-symmetry paper addresses distinguishing/fixing numbers of already amenable graphs rather than this classification. An equivalent specialisation or a very short derivation from the 2015 theorems is the main priority/value risk; absence of a search hit alone does not prove novelty.",
+      "residual_risks": [
+        "The broad 2015 Theorem 9 and Theorem 17 already imply the general forest test and the side-four obstruction once the stable partition is obtained; the grid-specific derivation could be viewed as an elementary special case and would not support an originality claim if published in earlier notes.",
+        "A previously published explicit root-coloured Cartesian-grid stable-partition theorem may exist under Weisfeiler–Leman, equitable partition, rooted graph, individualized graph or C² terminology.",
+        "The 2020 infinite-grid perfect-colouring paper was not read in full; its abstract covers a different infinite setting.",
+        "Searches cannot establish priority; this is a qualified best-of-knowledge judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides exact general criterion, including exclusion of uniform anisotropic cycles, but no explicit marked rectangular-grid stable partition/cutoff found. Strong prior-coverage risk.",
+          "evidence": [
+            "arXiv:1502.01255v3 Theorem 9, p.10, iff amenability and Conditions A,B,G,H",
+            "Lemma 7(D), p.8, forbids uniform anisotropic cycles",
+            "web source  and screenshot "
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1502.01255",
+          "material_read": "Primary full-text pages 6–11 around definitions of anisotropic cell graphs, Lemmas 7–8, Conditions A–H and Theorem 9; searched PDF for grid.",
+          "method": "arXiv OA PDF text plus rendered page 10; PDF document search.",
+          "title": "Graph Isomorphism, Color Refinement, and Compactness",
+          "trigger": "Complete general amenability theorem and possible prior coverage of every special case."
+        },
+        {
+          "assessment": "General iff flip/bouquet-forest criterion and matching-cycle obstruction cover the method in abstraction, without stated all-size corner-rooted rectangle boundary.",
+          "evidence": [
+            "arXiv:1503.08792 Theorem 17, PDF p.16 (zero-index page 15)",
+            "Theorem 17 proof forbids cycles of perfect matchings between stable classes",
+            "web source  and screenshot "
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.08792",
+          "material_read": "Primary full-text introduction and pages 11–17 including matchings and cycles, Lemmas 13–14 and Theorem 17 and its proof; PDF searched for grid.",
+          "method": "arXiv OA PDF text and rendered page 16; PDF search.",
+          "title": "Graphs Identified by Logics with Counting",
+          "trigger": "General C² identification classification, potentially exact prior implication."
+        },
+        {
+          "assessment": "Motivates landmark problem and hierarchy but no rectangular-grid classification in inspected relevant material.",
+          "evidence": [
+            "arXiv:1606.04383 Problem 1.3, PDF page 3",
+            "web source  and screenshot "
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1606.04383",
+          "material_read": "Primary full-text pages 1–3, definitions of discrete and amenable after marking, Problem 1.3; document searched for grid.",
+          "method": "arXiv OA PDF text and rendered page 3.",
+          "title": "The Parameterized Complexity of Fixing Number and Vertex Individualization in Graphs",
+          "trigger": "Specific literature on individualising vertices before colour refinement."
+        },
+        {
+          "assessment": "Investigates fixing/distinguishing numbers for already amenable graphs and repeats general conditions; not evidence of an exact one-corner-grid boundary. Later sections not read in detail.",
+          "evidence": [
+            "2026-03-28 abstract and Section 2.1 of primary article, web source "
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-166/breaking-the-symmetries-of-amenable-graphs/",
+          "material_read": "Full primary HTML abstract, introduction and Section 2.1 definitions/precursor lemmas; site text searched for grid, corner and individualiz.",
+          "method": "Open-access article HTML, targeted full-page text searches.",
+          "title": "Breaking the symmetries of Amenable graphs",
+          "trigger": "Recent 2026 article with direct amenability and graph symmetry keywords."
+        },
+        {
+          "assessment": "Studies perfect colourings and coverings of infinite grids rather than finite one-corner C² identification; cannot infer full-document noncoverage from abstract.",
+          "evidence": [
+            "2020 arXiv:2010.15839 abstract, web source turn345006academia5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2010.15839",
+          "material_read": "Accessible arXiv abstract only.",
+          "method": "Open-access abstract search result, no claim of full-text inspection.",
+          "title": "Perfect colorings of the infinite square grid: coverings and twin colors",
+          "trigger": "Potential alias via equitable partitions of square grids."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md at frozen Git tree 3e5477fce12dc1983a665c0f2919bad368f9bfcd",
+        "arXiv:1606.04383 Problem 1.3 defines the one-vertex individualisation context",
+        "arXiv:1502.01255 Theorem 9 characterises the broader problem"
+      ],
+      "rationale": "A meaningful structural cut-off in the power of one vertex landmark to make a natural two-parameter graph family definable by C². The exact distinction between all nonsquare rectangles and squares of sides 2/3 versus >=4 is not a mere numerical table: it derives from coordinate recovery by a second degree-two corner and the first cycle of two-vertex equitable-orbit interactions. Explicit connected nonisomorphic switched competitors show the failure, rather than just an algorithm negative response. Though the general amenability framework is known, this exact all-size family-specific boundary is a natural independent invariant relevant to individualisation and colour-refinement graph identification.",
+      "residual_risks": [
+        "The boundary relies on known general C²/amenability tests; its significance is in explicit family-level classification, not a new general algorithm.",
+        "No claim about minimum logical depth or other marker positions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The original administrative JSON contains private provenance in scope_run_id; no GitHub write or publication performed.",
+    "Novelty is best-of-knowledge, with strong theorem-level coverage by general amenability characterizations.",
+    "Earlier pending verification/Lean/expert channels were not overwritten or represented as independently verified."
+  ],
+  "schema_version": 1
+}
