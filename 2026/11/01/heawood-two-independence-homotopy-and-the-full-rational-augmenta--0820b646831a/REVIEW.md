@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The exact point–line incidence rule is a Fano plane and yields a 14-vertex, 21-edge graph. Exhaustive enumeration of all 16,383 nonempty vertex subsets identifies exactly 2,256 two-independent simplices. Complete face-poset incidence verification checks 10,150 directed cover relations, producing an acyclic matching with 1,121 pairs and exactly one critical vertex plus thirteen critical five-cells. No unproved attaching maps survive: the CW model is a wedge of thirteen five-spheres. Separately, mod-two boundary ranks give degree-five Betti number thirteen. Exhaustive enumeration of all 168 Fano collineations and their 168 polarity translates establishes the full automorphism group. Signed fixed-simplex Lefschetz traces agree, element by element, with the natural augmentation character. Rational quotient homology follows by exactness of coinvariants in characteristic zero.
+
+## Originality
+**PASS against the accessible, specified comparisons; independent bibliographic review not performed.** Deshpande–Singh (arXiv:2001.05448) gives classes of higher-independence complexes but not the Fano incidence graph. Deshpande–Shukla–Singh (arXiv:2001.06775) provides connectivity bounds and chordal results, not this nonchordal exact classification. Abdelmalek et al. (arXiv:2106.10863) gives shellability and vertex decomposability for trees/caterpillars/chordal cases; the graph here is not in those families. Published entries on the ordinary Heawood independence, matching, perfect-matching, and two-matching complexes concern distinct face rules. Specific searches for Fano, Heawood, dissociation and 2-independence names found no exact classification or a stronger theorem implying the augmentation character. This is not a proof of worldwide priority; unindexed literature remains a risk.
+
+## Value
+**PASS.** The Heawood graph is the unique cubic graph of girth six on fourteen vertices and the smallest projective-plane incidence graph. Its first higher-independence complex is a natural object that differs sharply from its ordinary independence and matching complexes. Determining the *integral* homotopy type together with the complete rational full-automorphism representation supplies mathematically motivated, reusable exact data. The quotient-homology comparison of the full symmetry and point/line-preserving symmetry adds structural information that cannot be inferred from the number thirteen alone. A single-graph classification is not asserted to yield a uniform projective-plane theorem.
+
+## Scope and residual risks
+The representation equivalence is rational only; no integral equivariant equivalence or integral orbit-space acyclicity is certified. All finite checks are replayable in `verify_heawood_ind2.py`; the inference from an acyclic matching and the rational character argument uses standard mathematical theorems. Equivalent inaccessible or unindexed work could remain.
+
+Self-review: passed. Independent audit: not yet performed.
