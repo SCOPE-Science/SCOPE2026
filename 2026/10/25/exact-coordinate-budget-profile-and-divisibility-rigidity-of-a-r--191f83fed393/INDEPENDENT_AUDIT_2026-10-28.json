@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T20:10:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Coordinatewise extreme-point argument reduces vector suprema to r phases. On the circumference-pi lattice, any cluster of k columns has maximal contribution 2 sin(k pi/(2n))/sin(pi/(2n)), since the best k distances to one phase occur at k cyclic consecutive vertices and a midpoint phase attains the cosine sum. The maximum over all coordinate assignments is the maximum over integer partitions of n into at most r positive block lengths; sine is strictly increasing and concave here, so all s=min(r,n) coordinates are used and lengths differ by at most one. Consecutive balanced blocks realize all per-block upper bounds simultaneously. This yields exact formula, r=1 and r>=n boundary values, Jensen equality iff r|n for r<=n, and the explicit O_r(n^-3) Taylor residue deficit. An independently coded DP over all compositions plus explicit phase evaluation checked all 234 pairs 2<=n<=28, 1<=r<=min(n,10), including equality strictness. No finite grid substitutes for global continuous phase analysis.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 4.6 supplies uniform optimum k sin(pi/(2k)) over all complex 2xn matrices, not all Fourier F_n pointwise values.",
+          "Planar signed sums control a single cosine-phase sum; multiple centers require an integer partition analysis."
+        ],
+        "reasoning": "A supremum over matrices is an upper bound, not a formula for a prescribed Fourier matrix; saturation/divisibility cannot be inferred from the global value alone.",
+        "searches": [
+          "https://arxiv.org/html/2610.04398v1 Proposition 4.6",
+          "https://arxiv.org/abs/2502.13752 weighted planar signed sums"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.04398v1",
+        "https://borowiecki.dev/pdf/2610.04398",
+        "https://arxiv.org/abs/2502.13752"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=3,r=2 the formula recovers source Remark 4.11.",
+          "For r<=n, the source global value is r sin(pi/(2r)); the submitted ratio is strictly lower when r does not divide n, exhibiting why the upper bound does not imply equality."
+        ],
+        "reasoning": "The source exact supremum over all matrices cannot force a nonmaximizing particular F_n to attain it. The submitted iff arithmetic saturation and O(n^-2) deficit add nontrivial information.",
+        "searches": [
+          "https://arxiv.org/html/2610.04398v1 Proposition 4.6 Remark 4.11",
+          "https://arxiv.org/abs/2502.13752"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Santos–Serrano-Rodríguez Lemma 4.1/Section 4 allows endpoint coordinate partitioning.",
+          "Source Remark 4.11 uses the same F_3 for r=2 and obtains 2+2sqrt(3)."
+        ],
+        "reasoning": "The pointwise norm is equivalent to assigning columns to coordinate phases and optimizing regular polygon cosine clusters; this reconstruction yields the full balanced partition law, not present in the source single example.",
+        "searches": [
+          "Resultary: two-row Fourier matrix complex Grothendieck Holder coordinate budget pointwise norm divisibility",
+          "https://arxiv.org/html/2610.04398v1 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The original source explicitly records n=3,r=2, G=2+2sqrt3, but not a general n,r table.",
+          "No Resultary table with the complete pointwise n-by-r budget profile was located in these searches."
+        ],
+        "reasoning": "The existing single numeric instance agrees with and is credited by the formula; a lone instance or search failure is not general prior coverage or proof of novelty.",
+        "searches": [
+          "https://arxiv.org/html/2610.04398v1 Remark 4.11",
+          "Resultary: Fourier coordinate budget balanced consecutive blocks divisibility"
+        ]
+      },
+      "rationale": "The full accessible Santos–Serrano-Rodríguez 2026 paper Section 4 establishes the sharp MATRIX-UNIFORM complex two-row rectangular constant, and Remark 4.11 explicitly computes only n=3,r=2 of the same Fourier row family. The full pointwise n,r Fourier budget profile, balanced-block attainment for every n,r, and iff-divisibility gap are not stated or implied by merely taking the supremum over arbitrary matrices in their Proposition 4.6. Related Ambrus–Grundbacher signed planar sum work is one-center and does not produce multi-coordinate pointwise saturation. No Resultary indexed result matched the full profile. Priority remains qualified for possible circular quantization/facility-location aliases.",
+      "residual_risks": [
+        "An older equivalent in regular-polygon k-median/sinusoidal quantization or tensor-norm literature could state the same balanced partition formula.",
+        "The exact result applies only to the complex two-row fully populated Fourier family at the infinity endpoint; no arbitrary-matrix stability theorem follows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Proposition 4.6 is global rectangular sharp constant; Remark 4.11 is exactly F_3,r=2; no full F_n pointwise budget/divisibility profile in inspected statement and supporting sections.",
+          "identifier_or_url": "https://arxiv.org/html/2610.04398v1",
+          "material_read": "Full accessible paper HTML with Section 4 endpoint compression, Lemma 4.1/Proposition 4.6 and Remark 4.11 inspected; PDF page 15 screenshot of complex endpoint argument also read.",
+          "method": "web primary full-text HTML and PDF screenshot",
+          "title": "Effective Dimensions in Grothendieck–Hölder Inequalities",
+          "trigger": "Direct same norm and same Fourier family example"
+        },
+        {
+          "assessment": "RELATED_ONE_CENTER",
+          "evidence": "The relevant inequality concerns one directional sum and does not by itself classify r optimal centers on F_n.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.13752",
+          "material_read": "Title/abstract and cited planar weighted signed-sum assertion via Proposition 4.6 proof; whole original text not independently read.",
+          "method": "web bibliographic and citing theorem",
+          "title": "Large Signed Sums and the Polarization Constant of Convex Bodies",
+          "trigger": "Referenced sharp single-center cosine inequality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact pointwise budget profile reveals which regular Fourier matrices attain the sharp global rectangular constant and quantifies strict arithmetic near-attainment by residue class. This is not just the known universal constant: fixed matrix, r budget, optimal block geometry, integer divisibility, and leading finite-grid deficit are new specific questions induced by that theorem, and provide an exact benchmark for endpoint tensor norms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.04398v1",
+    "https://borowiecki.dev/pdf/2610.04398",
+    "https://arxiv.org/abs/2502.13752"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older equivalent in regular-polygon k-median/sinusoidal quantization or tensor-norm literature could state the same balanced partition formula.",
+    "The exact result applies only to the complex two-row fully populated Fourier family at the infinity endpoint; no arbitrary-matrix stability theorem follows."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE",
+      "evidence": "Proposition 4.6 is global rectangular sharp constant; Remark 4.11 is exactly F_3,r=2; no full F_n pointwise budget/divisibility profile in inspected statement and supporting sections.",
+      "identifier_or_url": "https://arxiv.org/html/2610.04398v1",
+      "material_read": "Full accessible paper HTML with Section 4 endpoint compression, Lemma 4.1/Proposition 4.6 and Remark 4.11 inspected; PDF page 15 screenshot of complex endpoint argument also read.",
+      "method": "web primary full-text HTML and PDF screenshot",
+      "title": "Effective Dimensions in Grothendieck–Hölder Inequalities",
+      "trigger": "Direct same norm and same Fourier family example"
+    },
+    {
+      "assessment": "RELATED_ONE_CENTER",
+      "evidence": "The relevant inequality concerns one directional sum and does not by itself classify r optimal centers on F_n.",
+      "identifier_or_url": "https://arxiv.org/abs/2502.13752",
+      "material_read": "Title/abstract and cited planar weighted signed-sum assertion via Proposition 4.6 proof; whole original text not independently read.",
+      "method": "web bibliographic and citing theorem",
+      "title": "Large Signed Sums and the Polarization Constant of Convex Bodies",
+      "trigger": "Referenced sharp single-center cosine inequality"
+    }
+  ]
+}
