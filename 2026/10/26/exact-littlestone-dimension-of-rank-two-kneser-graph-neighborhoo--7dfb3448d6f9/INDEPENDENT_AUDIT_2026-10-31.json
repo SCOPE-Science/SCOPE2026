@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:54:51.812493Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Pinned witness_trees.json blob 724fd1904d7621dfa645d94a20a092d9b3cae76a",
+        "Pinned verify.py blob dea0dd44b02d48b0fe49d4aaf8fb3f3853718b8a",
+        "independent_check_results.json n3–7: depths0,1,2,3,4; Git tree 8 entries matched"
+      ],
+      "rationale": "For intersection labels (complement of disjointness) maintain marked S. False-disjoint predictions introduce a new true target element, at most twice; false-overlap predictions remove a marked non-target, also at most twice; hence universal mistake bound 4. Small n branch-size bound using C(n−2,2) disjoint target pairs rules out depth n−2. The pinned certificate gives full trees with 2,4,8,16 realized terminal paths for n4–7; independent memoized shattering-tree search recovered these depths and verifies small upper bounds. A depth4 tree on [7] embeds in every n>7.",
+      "risks": [
+        "Explicit leaf witnesses are finite; universal upper bound and embedding to larger n are analytic.",
+        "Graph neighborhoods are open, not looped; at n3 all concepts equal empty."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Ldim mistake theorem and VC graph bounds address different quantifiers."
+        ],
+        "reasoning": "Neither yields the sharp finite lower-bound witnesses and transition without a separate shattering-tree argument.",
+        "searches": [
+          "Littlestone dimension Kneser KG(n,2) neighborhoods two-element disjointness online mistake bound",
+          "https://arxiv.org/abs/2302.13849",
+          "https://arxiv.org/pdf/2007.16042"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2007.16042",
+        "https://arxiv.org/abs/2109.04805",
+        "https://arxiv.org/abs/2302.13849",
+        "Resultary semantic query: Littlestone dimension Kneser KG(n,2) neighborhoods two-element disjointness online mistake bound"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "VC theorem and generic mistake characterization supply background only."
+        ],
+        "reasoning": "Exact Ldim=min(4,n−3) needs sharp all-n learner + explicit depths1–4 witnesses; no direct logical implication from the statements examined.",
+        "searches": [
+          "https://arxiv.org/pdf/2007.16042",
+          "https://arxiv.org/abs/2302.13849"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "KG(n,2) neighborhoods are pair-disjointness concepts; complement labels are pair-intersection concepts and preserve Ldim."
+        ],
+        "reasoning": "Searched both graph phrasing and intersection-concept online learning alias; Johnson rank2 one-point intersection is complement of Kneser adjacency on distinct pairs.",
+        "searches": [
+          "Littlestone dimension Kneser KG(n,2) neighborhoods two-element disjointness online mistake bound",
+          "rank-two Johnson disjointness intersection concept class Littlestone mistake bound",
+          "https://arxiv.org/pdf/2007.16042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior VC table lacks adaptive Ldim values0,1,2,3,4 for n3–7; independent certificate checks finite trees."
+        ],
+        "reasoning": "A VC-dimension table cannot be treated as the exact Ldim table: nonadaptive versus adaptive shattering are different invariants.",
+        "searches": [
+          "Littlestone dimension Kneser KG(n,2) neighborhoods two-element disjointness online mistake bound",
+          "Resultary semantic query: Littlestone dimension Kneser KG(n,2) neighborhoods two-element disjointness online mistake bound",
+          "https://arxiv.org/pdf/2007.16042"
+        ]
+      },
+      "rationale": "Adler–Benediktsson–Macpherson 2020 determine nonadaptive VC bounds and VC density for Johnson/Hamming graphs; at rank2 Johnson adjacency is one-point intersection while Kneser adjacency is disjointness. Complementing a predicate does not equate VC and adaptive Littlestone dimension. Other general Littlestone literature explains the mistake-bound invariant without giving this exact all-n transition. No direct existing formula found via Resultary semantic search. A possibly unindexed online learning sparse-disjunction theorem may imply it and is retained as risk.",
+      "residual_risks": [
+        "An earlier exact Littlestone theorem for sparse two-element disjointness/complements of 2-uniform edge concepts may imply the formula; absence from semantic hits is not novelty proof.",
+        "Only targeted sections of some primary sources were available or inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Their studied VC dimension is not Ldim; rank2 Johnson adjacency=intersection size1, Kneser adjacency=disjointness; no exact adaptive n→4 theorem in inspected parts",
+          "evidence": "Introduction and adjacency definitions; Kneser graph is complement relation, but VC and Littlestone cannot be identified.",
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Full primary arXiv PDF available; introduction, rank-two adjacency definitions and VC bounds read; relevant PDF screenshot",
+          "method": "Lawful PDF, compared fixed-set shattering to adaptive decision trees and Johnson vs Kneser adjacency",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Closest graph-neighborhood VC theorem, possible k2 disjointness reduction"
+        },
+        {
+          "assessment": "Zero sets of linear-combination families not explicitly the finite pair-disjointness neighborhood class; cannot rule out more general implications from abstract alone",
+          "evidence": "arXiv 2109.04805 bibliographic abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Available abstract and main-theme summary, not full text",
+          "method": "Comparison by concept class type",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Potential broad combinatorial classes implying pair-neighborhood Ldim"
+        },
+        {
+          "assessment": "Explains universal online-learning interpretation, not the precise KG(n,2) finite-size transition",
+          "evidence": "arXiv 2302.13849.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.13849",
+          "material_read": "Abstract and general theorem information, not family-specific exhaustive reading",
+          "method": "Comparison of general characterization with explicit finite n formula",
+          "title": "Optimal Prediction Using Expert Advice and Randomized Littlestone Dimension",
+          "trigger": "General Ldim equals realizable deterministic mistake bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact witness trees and independent dynamic search",
+        "Constructive four-error learner; small n sharp counts"
+      ],
+      "rationale": "The exact adaptive mistake bound for a natural finite graph neighborhood concept class is a meaningful online-learning invariant and demonstrably differs from merely tabulating ordinary VC-dimension; both the sharp finite n cutoff and explicit realizable full trees are provided.",
+      "risks": [
+        "Rank-two only; randomized mistake bounds and KG(n,k) k≥3 excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n≥3 the deterministic realizable Littlestone dimension of the open-neighborhood class of KG(n,2) is min(4,n−3); the exact online mistake bounds are 0,1,2,3 for n3–6 and 4 for n≥7.",
+  "limitations": [
+    "Open neighborhoods, rank-two Kneser, ordinary deterministic realizable Ldim only."
+  ],
+  "schema_version": 1
+}

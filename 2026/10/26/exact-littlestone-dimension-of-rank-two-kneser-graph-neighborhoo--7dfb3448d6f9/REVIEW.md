@@ -1,15 +1,21 @@
-# Review of the rank-two Kneser neighborhood Littlestone theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The target is exactly one pair. The intersection-prediction algorithm adds a positive-error query containing an as-yet-unmarked target element, so this can happen at most twice. Each add creates at most one false marked element. Every subsequent incorrect positive prediction removes at least one false mark and no true target element, so there are at most two of those. Five mistakes are impossible; by the standard shattered-tree adversary argument the Littlestone dimension is at most four. Root splitting has exactly \(\binom{n-2}{2}\) disjoint hypotheses, which gives the sharp small-order upper bounds. The supplied finite certificate verifies every terminal path at depths one through four, including the key depth-four construction on seven labels. The order-extension argument is direct.
+## correctness
 
-## Originality
-**PASS (qualified priority).** Targeted research-index and public-literature searches using Kneser, two-set intersection, sparse two-disjunction, triangular graph complement, thicket and Littlestone terminology identified no equal or dominating theorem. The closest articles are Adler–Benediktsson–Macpherson (2020, Johnson/Hamming *VC* invariants), Guingona–Kolesnikov–Nierwinski–Soucy (2021, zero sets of linear combinations) and Filmus–Hanneke–Mehalel–Moran (2023, general online mistake interpretation). Their statements do not imply the exact Kneser formula as presented. A prior equivalent sparse-disjunction result might exist outside available indexing; this is not a proof of absolute priority.
+PASS
 
-## Mathematical value
-**PASS.** Rank-two Kneser graphs are the first nontrivial disjointness graph family, and the exact piecewise online-learning dimension supplies an interpretable sharp mistake bound uniformly in their size. The seven-label depth-four adversary is a substantive boundary: ordinary four-point VC shattering fails there while adaptive depth-four shattering succeeds. The learner and adversary give a complete, reproducible classification, not just a numerical instance.
+For intersection labels (complement of disjointness) maintain marked S. False-disjoint predictions introduce a new true target element, at most twice; false-overlap predictions remove a marked non-target, also at most twice; hence universal mistake bound 4. Small n branch-size bound using C(n−2,2) disjoint target pairs rules out depth n−2. The pinned certificate gives full trees with 2,4,8,16 realized terminal paths for n4–7; independent memoized shattering-tree search recovered these depths and verifies small upper bounds. A depth4 tree on [7] embeds in every n>7.
 
-## Relationship to prior work and limits
-The 2020 Johnson-paper adjacency at rank two means intersection in exactly one point, rather than Kneser disjointness; its VC conclusions cannot establish this sequential online invariant. The 2021 theorem on linear-combination zero sets needs a different class of hypotheses. The 2023 paper states the general optimal mistake characterization but does not compute rank-two Kneser neighborhoods. This result does not address higher-rank Kneser graphs or randomized Littlestone dimensions. Literature priority and external mathematical review remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adler–Benediktsson–Macpherson 2020 determine nonadaptive VC bounds and VC density for Johnson/Hamming graphs; at rank2 Johnson adjacency is one-point intersection while Kneser adjacency is disjointness. Complementing a predicate does not equate VC and adaptive Littlestone dimension. Other general Littlestone literature explains the mistake-bound invariant without giving this exact all-n transition. No direct existing formula found via Resultary semantic search. A possibly unindexed online learning sparse-disjunction theorem may imply it and is retained as risk.
+
+## value
+
+PASS
+
+The exact adaptive mistake bound for a natural finite graph neighborhood concept class is a meaningful online-learning invariant and demonstrably differs from merely tabulating ordinary VC-dimension; both the sharp finite n cutoff and explicit realizable full trees are provided.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
