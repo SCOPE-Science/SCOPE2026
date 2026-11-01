@@ -1,0 +1,15 @@
+# Scientific assessment: random cube-shadow circumradius
+
+## Correctness — PASS
+The origin-centered circumradius is the largest projected-vertex norm because the shadow is centrally symmetric, and its square is exactly \(3-(c-a-b)^2\) for sorted absolute unit normal coordinates. The solid-angle normalization uses 48 congruent sign-order spherical chambers, each with probability density factor \(12/\pi\). The two monotone angular crossing branches exhaust the event and yield the stated one-dimensional integrals. The second branch exists precisely below \(t=1/\sqrt3\); local derivatives give its quadratic onset and the stated jump in the second derivative. Independent great-circle strip and polar-cap calculations establish the upper and lower endpoint coefficients. The standard-library verifier reconstructs random shadows, evaluates independent spherical quadrature, and checks all asymptotic coefficients. Finite checks corroborate rather than prove the analytic statements.
+
+## Originality — PASS, historical priority provisional
+The closest exact previous metric results determine the diameter of an octahedron **section**, equivalent to the inradius of a cube **projection**, and the inradius of an octahedron **projection**, equivalent to the radius of a cube **section**. Neither determines the circumradius of a cube **projection**. Exact cube directional-width laws concern one-dimensional shadows; cube planar-shadow area moments concern another invariant. The accessible 2019 general-product-measure cube-projection manuscript treats high-dimensional limits rather than this finite three-dimensional law, and the 2020 regular-polytope projection paper addresses combinatorial properties. The inspected sections and searches did not reveal the complete CDF or the identified smoothness transition. Earlier or differently indexed special-case calculations remain a risk, not a proven exclusion.
+
+## Mathematical value — PASS
+The invariant is the actual smallest enclosing-circle radius of the random planar cube shadow, a natural intrinsic metric of an entire family of planar zonogons. Determining its complete law distinguishes concentration at two sharp geometric endpoints and identifies a nontrivial face-interaction transition of the probability distribution, which is not supplied by previously known widths, face counts, or area moments. This is substantially more than recomputation of a single small moment or a normalization check.
+
+## Limitations and closest literature
+The theorem is for Haar-uniform orthogonal planar projections of \([-1,1]^3\), not arbitrary boxes, offset planes, sections, or higher dimensions. Exact distribution is given by convergent one-dimensional elementary quadratures. Relevant comparisons: Kabluchko–Prochno–Thäle (2019, arXiv:1910.02676), Kabluchko–Seidel (2020, arXiv:2006.09492), Finch (2011, arXiv:1110.0671), and the four accessible exact section/inradius/width/area research notes cited in `RESULT.md`. Hidden equivalences in unindexed literature are the remaining priority risk. The test program is not an independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
