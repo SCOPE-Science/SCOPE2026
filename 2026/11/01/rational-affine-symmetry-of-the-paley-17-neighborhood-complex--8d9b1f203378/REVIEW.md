@@ -1,0 +1,15 @@
+# Self-review: Paley-\(17\) affine neighborhood homology
+
+## Correctness — PASS
+The statement is exactly a rational \(G\)-module classification for the ordinary open-neighborhood complex of \(P_{17}\). The face definition and action preserve all 17 facets. The independently reconstructible face vector is \((17,136,612,1122,952,476,136,17)\), and exact mod-two boundary ranks are \((16,120,492,595,357,119,17)\). Rational boundary ranks dominate mod-two boundary ranks, so rational homology vanishes except possibly in degree three; Euler characteristic then forces rank 35 there. For all 136 affine elements, a signed fixed-simplex computation gives the degree-three character. The proposed direct-sum representation has the same character, hence is isomorphic by Maschke's theorem and character uniqueness. The packaged verifier produces the exact finite computations from source and completes successfully. This does not prove any integral lattice decomposition.
+
+## Originality — PASS, with residual literature risk
+The closest published same-object scientific record, *Three-torsion in the neighborhood complex of the Paley graph of order seventeen*, supplies the nonequivariant \(M(\mathbb Z/3,2)\vee\bigvee^{35}S^3\) result but not the affine homology representation. Its full RESULT text was inspected. Kahle's 2005 paper gives a general neighborhood-complex framework and random-graph asymptotics, while Matsushita's 2012 paper studies fundamental groups. Neither computes affine rational characters on \(P_{17}\). Related Paley-17 clique and Paley-13 neighborhood statements involve different complexes or graph orders. The affine module classification is not determined by the known homotopy type alone; the comparison is at the implication level, not only wording. Exhaustive searches of all unindexed publications are impossible, and older disguised representation computations could remain.
+
+## Value — PASS
+The full 35-dimensional rational symmetry module splits into two natural 16-dimensional point-augmentation representations and an exceptional three-dimensional complement. Thus its translation-invariant part has dimension three, but its full affine-invariant part is zero. This is information absent from nonequivariant Betti numbers, and the surprising low-dimensional complement supplies a canonical module description for a highly symmetric Ramsey-extremal graph. The fact is a substantive finite representation classification, not a numerical recomputation of the known rank 35.
+
+## Limits and provenance
+The claim concerns a single finite graph and rational coefficients. No assertion is made about the \(\mathbb Z/3\)-torsion module, full integral lattice, other Paley orders, or all possible graph automorphisms. Originality remains subject to unidentified equivalent literature; independent mathematical validation has not occurred. The initial primary reference has a verified public date of 2005-12-04; related accessible literature and the published same-object result were checked with the exact material-read scope specified in AUDIT.json.
+
+Self-review: passed. Independent audit: not yet performed.
