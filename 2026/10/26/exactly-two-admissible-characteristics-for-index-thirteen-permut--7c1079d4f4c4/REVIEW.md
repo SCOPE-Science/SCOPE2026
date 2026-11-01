@@ -1,11 +1,21 @@
-# Scientific assessment of the index-thirteen characteristic classification
+# Independent mathematical audit
 
-**Correctness — PASS.** For every field extension, the product lemma and quotient normalization of Tang–Fan reduce the possible prime characteristics to the six factors of \(W_{13}\); their inverse-power-sum lemma, valid for \(j=1,2\) since the excluded primes exceed \(26\) and \(t\geq6\), yields the exact modular tests. The standalone certificate exhausts the four excluded characteristics and verifies the two witnesses. The finite enumeration is exhaustive only after the theoretical reduction, not an experiment over extensions.
+## correctness
 
-**Originality — PASS, with residual literature risk.** Tang–Fan [1] establish finiteness for fixed index and exact sets only through index ten, with an index-eleven prime-field statement. The published Wendt determinant [2,3] supplies six candidate primes, not their admissibility. Fan's separate coprime-index classification [4] does not cover this fixed-index-thirteen question. Targeted checks of aliases, determinant factor coverage, and available mathematical result records found no complete \(\mathcal P_{13}\) classification. A derivation implicit in other literature remains possible.
+PASS
 
-**Mathematical value — PASS.** This resolves the complete characteristic set for the first prime index beyond the treated index-eleven case, in the unrestricted extension-field formulation. It distinguishes two true occurrences from four false Wendt candidates, including a second inverse-power-sum obstruction at the nontrivial prime \(8191\); neither the known determinant nor the existing finite-characteristic theorem implies that classification.
+Read Tang–Fan original Proposition 2.2, Lemmas 2.1, 2.5, 3.3 as actual HTML full text: Wendt obstruction p|W13 (and p≠13), product ζ^13=1, ζ≠1, (ζ−1)^13=±1, quotient permutation ψ on μ_t and mandatory modular P13 and P26 equations for j=1,2. Exact integer resultant factorization W13=3^6·53²·79²·131²·521²·8191 was independently recomputed. For p=79,131,521,8191, all eligible 13th roots in F_p and all U∈F_p were exhausted by independent exact modular polynomial recursion, with p8191 survivors eliminated by P26 for both carry cases. Conditions valid for arbitrary extension m, not sampled extensions. Direct field enumerations independently validate F53 f=X³(X^13+2) and F27 f=X(X^13+α), α³−α−1=0. Assumptions t≥6 and p>26 justify j=2 and derivative calculations; p=3,53 existence witnesses handle small primes.
 
-**Scientific limitations.** The theorem does not classify every qualifying polynomial, and its proof invokes published lemmas whose original derivations are not separately reproved. The claimed numerical exclusions are fully reproducible. No external or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Tang–Fan (2026) establishes finiteness by Wendt determinant and computes exact characteristic sets g≤10 and a prime-field g=11 case; its actual full arXiv HTML §§2–6, Appendix A do not give unrestricted extension-degree g=13 classification. OEIS A048954 and Numericana tabulate W13 and prime factors but not realizability. Fan’s coprime-index classification treats X^r(X^{q−1}+a), a different family; no direct dominating all-g theorem with explicit membership was identified. Exact g13 {3,53} is a new computed application contingent on prior lemmas; literature-priority risk remains for independent large-index tables.
+
+## value
+
+PASS
+
+Determines the exact admissible-characteristic set in the first fixed odd index beyond published low-index classifications, resolving Wendt’s mere candidate divisor list into an extension-degree-uniform existence theorem with a compact finite modular obstruction certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

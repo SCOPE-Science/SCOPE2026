@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact finite arithmetic verification
 
-The standalone certificate `verify_index13.py` uses only the Python standard library. Run it from this directory with `python3 verify_index13.py`.
+# Independent mathematical audit
 
-It computes the integer \(13\)-by-\(13\) Wendt-circulant determinant by Bareiss elimination and checks the complete prime factorization. For each of the four excluded primes, it exhaustively enumerates product-condition roots \(\zeta\in\mathbb F_p\) and all possible \(U\in\mathbb F_p\) for the first inverse-power-sum polynomial. The two possibilities for the second condition are checked at all four surviving first-equation roots, and those eight entries are independently recomputed using the generating-series coefficient identity.
+## correctness
 
-A successful run prints `WENDT_OK`, four `EXCLUSION_OK` lines, `WITNESS_53_OK`, `WITNESS_27_OK`, and `CERTIFICATE_OK first_tests= 19306 second_tests= 8`. The witness checks enumerate all elements of \(\mathbb F_{53}\) and all \(27\) elements of \(\mathbb F_3[\alpha]/(\alpha^3-\alpha-1)\).
+PASS
 
-The elimination of *arbitrary* extension degrees depends on the theoretical Wendt, quotient, product and inverse-power-sum lemmas from Tang and Fan, arXiv:2610.18584v1. Finite verification alone would not prove the infinite statement. Independent validation has not been performed.
+Read Tang–Fan original Proposition 2.2, Lemmas 2.1, 2.5, 3.3 as actual HTML full text: Wendt obstruction p|W13 (and p≠13), product ζ^13=1, ζ≠1, (ζ−1)^13=±1, quotient permutation ψ on μ_t and mandatory modular P13 and P26 equations for j=1,2. Exact integer resultant factorization W13=3^6·53²·79²·131²·521²·8191 was independently recomputed. For p=79,131,521,8191, all eligible 13th roots in F_p and all U∈F_p were exhausted by independent exact modular polynomial recursion, with p8191 survivors eliminated by P26 for both carry cases. Conditions valid for arbitrary extension m, not sampled extensions. Direct field enumerations independently validate F53 f=X³(X^13+2) and F27 f=X(X^13+α), α³−α−1=0. Assumptions t≥6 and p>26 justify j=2 and derivative calculations; p=3,53 existence witnesses handle small primes.
+
+## originality
+
+PASS
+
+Tang–Fan (2026) establishes finiteness by Wendt determinant and computes exact characteristic sets g≤10 and a prime-field g=11 case; its actual full arXiv HTML §§2–6, Appendix A do not give unrestricted extension-degree g=13 classification. OEIS A048954 and Numericana tabulate W13 and prime factors but not realizability. Fan’s coprime-index classification treats X^r(X^{q−1}+a), a different family; no direct dominating all-g theorem with explicit membership was identified. Exact g13 {3,53} is a new computed application contingent on prior lemmas; literature-priority risk remains for independent large-index tables.
+
+## value
+
+PASS
+
+Determines the exact admissible-characteristic set in the first fixed odd index beyond published low-index classifications, resolving Wendt’s mere candidate divisor list into an extension-degree-uniform existence theorem with a compact finite modular obstruction certificate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
