@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain is the labeled twelve-vertex, eighteen-edge Frucht graph and its integer component-size filtration. All \(4096\) subsets and every corresponding simplicial incidence are covered. Deterministic element matchings give the displayed critical counts, and an exhaustive directed-Hasse topological sort certifies acyclicity for every threshold. Signed integral Morse boundaries satisfy \(\partial^2=0\) and have only unit nonzero Smith factors. The direct integral persistence reduction has \(2048\) unit pivots, and a separate mod-two reduction produces the identical pairings. The specific homotopy proofs use adjacent-dimensional CW degree cancellation. Threshold five is asserted only at the homology and persistence levels because potentially unstable attaching data are not independently resolved.
+## correctness
 
-**Originality — PASS, subject to residual bibliographic uncertainty.** The exact results for \(\operatorname{Ind}_1(F)\) and its vertex deletions are prior work, explicitly excluded from the novelty claim. The 2026 tree vertex-decomposability theorem cannot imply these numerical results for a cubic graph containing cycles. Deshpande–Singh's result inventory concerns different graph classes. The separately published Frucht independence result, whose proof was materially inspected, concerns only the ordinary independence complex, not any of the new higher thresholds or inclusion maps. Multiple exact-name, alias and numeric published-finding corpus searches found no comparison stating or implying the new complete Frucht filtration. An inaccessible or unindexed equivalent remains possible; search absence alone is not a novelty proof.
+PASS
 
-**Value — PASS.** The Frucht graph is a canonical smallest cubic graph with trivial automorphism group, rather than an arbitrary graph selected for numerical convenience. Its entire higher-independence filtration provides a finite, fully reproducible test case beyond the tree/chordal families of the recent literature. Its persistence is qualitatively nontrivial: among seventeen fifth-dimensional classes at threshold three, sixteen die immediately but one persists through threshold six, and another thirty-two appear at threshold six. The exact homotopy jump from the known \(\bigvee^3S^2\) to the new \(S^3\), together with the mixed-degree integral homology at threshold five, records information unavailable from the ordinary independence complex. These are natural, connected invariants of a fixed graph, not unrelated parameter tweaks.
+For the fixed labeled twelve-vertex cubic Frucht graph, enumerate all 4096 masks and compute maximum component size in induced subgraph to classify every face of K_r. Independent computation gives the twelve cumulative face counts 169,825,1593,2281,2798,3211,3540,3827,4017,4083,4095,4096, and a fresh signed integer boundary-column reduction with exactly 2048 signed-unit pivots +/-1 reproduces all eleven positive-length bars; hence this field-universal barcode is not inferred from mod-two alone. The package source additionally implements complete Hasse-edge acyclicity of explicit Morse matchings and signed integral Morse boundary matrices with unit pivots; its cell-by-cell code and reasoning were inspected, including the r=2 three critical cells with differential (0,1), proving K2≃S3 and the stage homology/wedge assertions. r=5 is claimed only at homology level, not an unproved wedge. The integer computation is exhaustive for this one graph, not a universal family theorem.
 
-**Bibliographic limitations.** Relevant primary material was read as specified in the structured audit. No inference of whole-paper noncoverage was made from an inaccessible record. A complete search of every unpublished or unindexed study is impossible; specific remaining bibliographic uncertainty is disclosed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published SCOPE/Resultary Frucht analysis gives only K1=Ind(F)≃∨³S² and vertex deletions/links; its full RESULT was read and it contains no r>=2 filtration, persistence, or higher-stage character. Deshpande–Singh covers general theory and named families (multipartite, whiskered, paths/cycles/trees), and Sawant covers trees, not asymmetric cyclic cubic Frucht. Stage-one is explicitly prior, while all-field barcode and higher thresholds remain new relative to inspected sources.
+
+## value
+
+PASS
+
+The exact all-field persistence barcode and exceptional long [3,7) interval of the canonical asymmetric smallest cubic graph give a natural, non-table-lookup topology benchmark. A self-contained full twelve-threshold classification, including torsion checks and r=5 homotopy restraint, is useful without an infinite-family claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
