@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The compact metric wheel and edge-interior geodesic distance are specified without an embedding assumption. Rim--rim, rim--spoke and spoke--spoke pairs exhaust every pair. The inequalities and attainment arguments in the proof establish the claimed exact maximum for all integer rim orders and positive real spoke lengths. Piecewise monotonicity gives every equality case of the normalized maximum. The standalone exact-rational edge-pair checker passed 80 independent parameter configurations; these are supplementary tests, not a substitute for the proof.
+
+**Originality — PASS under accessible-evidence comparison, with historical-priority uncertainty.** Network Farthest-Point Diagrams (Bose et al., 2013) supplies general continuous-network farthest-point algorithms, without an explicit symmetric-wheel phase diagram. De Carufel et al. (2015) optimize added shortcuts to paths/cycles, not a weighted wheel with an arbitrary number of hub spokes. Ahn et al. (2026) give general length--diameter inequalities, not this exact family-specific expression. Discrete wheel-graph vertex-distance results do not subsume arbitrary edge-interior distances. Targeted semantic database queries also found no dominating wheel-diameter result; nearby wheel *polytope* results concern different geometric objects. The bibliographic record for Chen--Garfinkel (1982) is relevant, but its complete text was inaccessible and historical overlap remains a concrete risk. Lack of a found match is not a proof of priority.
+
+**Value — PASS.** Continuous diameter measures worst-case travel distance on a network. The theorem supplies an exact invariant for the entire two-parameter positive-length, variable-order family, including nontrivial odd-rim middle branches, and a sharp characterization of spoke lengths maximizing diameter per unit of material/network length. The parity distinction and the exceptional triangular rim are structural; they cannot be read from vertex diameter. General algorithms or coarse length bounds do not provide these explicit thresholds.
+
+The result does not treat unequal spoke lengths or arbitrary wheel edge weights; it does not resolve historical priority over inaccessible older generalized-diameter papers.
+
+Self-review: passed. Independent audit: not yet performed.
