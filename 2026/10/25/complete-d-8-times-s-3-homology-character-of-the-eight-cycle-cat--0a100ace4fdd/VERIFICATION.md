@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Exact computational verification
+# Independent mathematical audit
 
-Run `python3 c8k3_symmetry_verify.py`. Standard-library Python only; no third-party tables or network access.
+## correctness
 
-The algorithm recreates the 24-vertex adjacency relation and all 18,722 independent faces, including the empty face. It verifies the complete face vector; all 9,358 elementary matching pairs; exact acyclicity across 104,592 directed covering relations; the six remaining critical faces in degrees four and five; the exact integral rank-one primitive Morse differential; and the chain boundaries and Morse projections of integral lifted representatives.
+PASS
 
-For all 96 elements of \(D_8\times S_3\), it computes the action on homology by signed simplicial transport of genuine lifted cycles. The resulting degree-four and degree-five traces match the claimed formulas. As a cross-check, signed fixed-simplex Lefschetz traces are enumerated independently and equal the alternating sum of the two homology characters for every element.
+The categorical graph C8×K3 has 24 vertices with edges exactly at adjacent cycle coordinates and unequal colors. Independent enumeration reconstructs precisely 18,722 faces and the stated face vector. The recorded pivot sequence matches 9,358 face pairs; an independently formed reversal of all 104,592 Hasse edges is acyclic, leaving two degree-4 and four degree-5 critical faces. Independent integral Morse projection gives differential [[-1,0,0,1],[-1,0,0,1]], a primitive rank-one map, yielding Htilde4=Z and Htilde5=Z^3 and the wedge S4∨3 S5. Independent signed fixed-simplex Lefschetz sums for ALL 96 D8×S3 elements agree with χ4−χ5 for χ4=(-1)^(a+b)sgnσ, χ5=(-1)^a sgnσ #Fixσ. The inspected full source explicitly lifts critical cycles and tests separate degree-four/five action traces for all 96. These finite integer calculations cover the entire 24-vertex object, not an extrapolated family.
 
-Expected final output: `C8_K3_EQUIVARIANT_HOMOLOGY_VERIFIED 18722 9358 6 96 boundary_rank_1 H4_1 H5_3`.
+## originality
 
-These checks are **exhaustive for the defined finite complex**, not an argument for arbitrary cycle length or color count. They do not establish an integral equivariant group-lattice classification. The homotopy argument uses elementary cancellation of a primitive 4/5 cellular attaching map after the integral Morse reduction.
+PASS
+
+The original cycle categorical-product paper identifies mixed consecutive homology degrees for this graph but does not compute separate D8×S3 characters. A published seven-cycle/four-color sphere count and other graph homology symmetries differ in graph or group action; neither imply χ4 and χ5 here. The exact representation is motivated by that specific known mixed-dimensional case. Unindexed full-group equivariant computations remain residual risk.
+
+## value
+
+PASS
+
+C8×K3 is explicitly highlighted in earlier categorical-product research as a mixed-dimensional example; computing the entire action on each of its two rational homology degrees under its full natural 96-element symmetry is a meaningful natural exact invariant. It separates modules of ranks one and three and their invariant spaces, which nonequivariant sphere counts cannot determine. The finite object is mathematically motivated and the certificate exhaustive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

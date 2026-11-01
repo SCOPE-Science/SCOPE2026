@@ -1,15 +1,21 @@
-# Review of the \(D_8\times S_3\) homology character
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact executable construction enumerates 18,722 independent faces, checks every edge of the 104,592-edge oriented Hasse graph to certify a 9,358-pair acyclic matching, obtains a primitive rank-one integral Morse differential, and constructs actual boundary-zero cycle lifts. Both degree-separated homology character traces are checked for all 96 actions, with independent signed simplicial Lefschetz calculations. The chain-level reduction, not numerical approximation, supplies the claimed rational characters and integral sphere wedge.
+PASS
 
-## Originality — PASS, with residual risk
+The categorical graph C8×K3 has 24 vertices with edges exactly at adjacent cycle coordinates and unequal colors. Independent enumeration reconstructs precisely 18,722 faces and the stated face vector. The recorded pivot sequence matches 9,358 face pairs; an independently formed reversal of all 104,592 Hasse edges is acyclic, leaving two degree-4 and four degree-5 critical faces. Independent integral Morse projection gives differential [[-1,0,0,1],[-1,0,0,1]], a primitive rank-one map, yielding Htilde4=Z and Htilde5=Z^3 and the wedge S4∨3 S5. Independent signed fixed-simplex Lefschetz sums for ALL 96 D8×S3 elements agree with χ4−χ5 for χ4=(-1)^(a+b)sgnσ, χ5=(-1)^a sgnσ #Fixσ. The inspected full source explicitly lifts critical cycles and tests separate degree-four/five action traces for all 96. These finite integer calculations cover the entire 24-vertex object, not an extrapolated family.
 
-The closest primary work, Antolín Camarena–Carnero Bravo, arXiv:2307.12401, mentions two adjacent free homology degrees for this precise graph but does not determine representations under the full \(D_8\times S_3\) action. Goyal–Shukla–Singh, arXiv:1905.06926, treats related categorical products and matchings without this representation. Accessible previously established cases, including a seven-cycle three-color integral equivariant classification and an eight-cycle four-color nonequivariant computation, concern different graphs. Targeted mathematical-result queries returned related, noncovering invariants. Possible unindexed equivalent work remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2023 primary analysis identifies mixed-dimensional homology of a specific canonical product as a relevant gap. The new result resolves the action on **both separate degrees** under every dihedral and color permutation, distinguishing modules of dimensions one and three and giving their fixed-subspace properties. A sphere count alone cannot imply either separate character. The result is restricted to rational representations for this graph; it does not establish an integral equivariant classification or an arbitrary-parameter family.
+The original cycle categorical-product paper identifies mixed consecutive homology degrees for this graph but does not compute separate D8×S3 characters. A published seven-cycle/four-color sphere count and other graph homology symmetries differ in graph or group action; neither imply χ4 and χ5 here. The exact representation is motivated by that specific known mixed-dimensional case. Unindexed full-group equivariant computations remain residual risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+C8×K3 is explicitly highlighted in earlier categorical-product research as a mixed-dimensional example; computing the entire action on each of its two rational homology degrees under its full natural 96-element symmetry is a meaningful natural exact invariant. It separates modules of ranks one and three and their invariant spaces, which nonequivariant sphere counts cannot determine. The finite object is mathematically motivated and the certificate exhaustive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
