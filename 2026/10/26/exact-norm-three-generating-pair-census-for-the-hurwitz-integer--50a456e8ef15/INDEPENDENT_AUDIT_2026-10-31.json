@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:07:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 28bc31ed892ded607ced70f8ff46de3cb4ac12fd",
+        "independent_checks.py: norm3 quadruple enumeration and Q=8",
+        "classical Hurwitz lattice and Cayley-Hamilton identities"
+      ],
+      "rationale": "Reconstructed the integral quaternion-order basis (1,i,j,(1+i+j+k)/2), norm-3 doubled-coordinate parity equation and Cayley–Hamilton reduction of the unital generated subalgebra to Z-span{1,x,y,xy}. In standard coordinates determinant magnitude equals |U×V|²/16 and Hurwitz covolume is 1/2, giving exact generation criterion Q(U,V)=8. Possible imaginary squared lengths 3,8,11,12 force the successful pairs (3,3),(3,8),(3,11). An independent standard-library enumeration of all 96 norm-3 elements and all 9216 ordered pairs gives first-coordinate trace counts (16,24,48,8), partner counts (36,8,4,0), total 960. Unit group has 24 elements, and any simultaneous-conjugation stabilizer of a generating pair is central ±1; every orbit has 12 members and there are 80. This is exhaustive at norm 3 only.",
+      "residual_risks": [
+        "Orbit count is under the 24-element inner unit group, not all automorphisms of all quaternion orders.",
+        "Our enumeration independently checks Q-based classification, not direct lattice Smith form for each pair; the index identity is separately derived analytically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General prime-power-norm existence and at-most-three-generator bounds do not count pairs satisfying a fixed minimal norm.",
+          "The earlier prescribed-norm spanning statements involve collections of elements, not incidence of individual generating pairs."
+        ],
+        "reasoning": "These results operate on a larger class of orders but do not specialize to a numerical two-element incidence census.",
+        "searches": [
+          "arXiv:2610.10139 Sections 7–9 and Theorem 8.2",
+          "arXiv:2307.16828"
+        ]
+      },
+      "checked_sources": [
+        "Eisenträger et al. arXiv:2610.10139 and author manuscript (Sections 7–9)",
+        "Goren–Love arXiv:2307.16828 record",
+        "Resultary norm3 generator pair query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior two-generator commutator condition is necessary/sufficient in the order setting, supplying a tool used in the proof.",
+          "New reduction explicitly solves Q=8 over parity-constrained norm-3 vectors and counts traces and orbits."
+        ],
+        "reasoning": "No inspected theorem implies the numerical counts without an additional exhaustive finite classification; novelty is restricted to that classification.",
+        "searches": [
+          "Eisenträger et al. 2026 Remark 8.3 and Theorem 8.2",
+          "Goren–Love 2025 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Generation iff the squared imaginary cross product of doubled vectors is eight; equivalent to commutator reduced norm two and order index one.",
+          "Remark 8.3 discusses a commutator invariant for two generators of maximal orders."
+        ],
+        "reasoning": "The known criterion is the algebraic test, but not its exact solution incidence among pairs of norm 3 or its trace/orbit distribution.",
+        "searches": [
+          "Resultary: Hurwitz quaternion integer order norm three generating pairs trace stratification 960 80 unit conjugation orbits",
+          "Eisenträger et al. 2026 Remark 8.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known Hurwitz theta count supplies |S|=96 at norm 3; it is a one-point count and cannot give 960 without pair-correlation data.",
+          "No published norm-3 pair-orbit table found in inspected primary sections or Resultary."
+        ],
+        "reasoning": "One-point norm enumeration is not a two-generator adjacency census; older order tables may nevertheless exist.",
+        "searches": [
+          "Resultary: Hurwitz quaternion integer order norm three generating pairs trace stratification 960 80 unit conjugation orbits",
+          "Eisenträger et al. 2026 Section 7 theta series",
+          "Goren–Love 2025"
+        ]
+      },
+      "rationale": "Classical commutator-generation and norm-3 element count are known; the assessed increment is the full ordered-pair incidence and trace/orbit stratification. Comparison with 2026 primary general existence and 2025 prescribed-norm spanning work finds no implication fixing 960 or the 80 orbits. Best-of-knowledge with explicit unpublished-table risk.",
+      "residual_risks": [
+        "An earlier quaternion-order computational incidence or unit-orbit table could already list 960 or a stronger equivalent classification.",
+        "General commutator generation criterion and 96 norm3 elements are known, not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior commutator norm criterion, theta count and general bounds; no trace-stratified 960-pair enumeration in inspected paper.",
+          "evidence": [
+            "Theorem 8.2, Remark 8.3, Section 7"
+          ],
+          "identifier_or_url": "https://jonathanlove.info/egikklmps.pdf",
+          "material_read": "Full lawful author manuscript, especially Sections 7–9, norm-count examples and Remark 8.3; PDF pages visually inspected.",
+          "method": "Read primary full text and inspected relevant PDF pages.",
+          "title": "Generating sets for maximal orders in rational quaternion algebras",
+          "trigger": "same rational quaternion maximal order, generating two prime-power norm elements"
+        },
+        {
+          "assessment": "Prescribed-norm spanning/minima differs from counting ordered generator pairs.",
+          "evidence": [
+            "arXiv:2307.16828 abstract, Theorem 1.1 description"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.16828",
+          "material_read": "Accessible arXiv bibliographic record and theorem descriptions; no verified full-paper exclusion.",
+          "method": "Compared general theorem statement to norm3 ordered-pair census.",
+          "title": "On elements of prescribed norm in maximal orders of a quaternion algebra",
+          "trigger": "earlier norm-restricted Hurwitz generators and spanning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact Hurwitz order arithmetic and pair criterion",
+        "Eisenträger et al. first-level norm discussion",
+        "independent norm3 enumerator"
+      ],
+      "rationale": "Norm 3 is the first prime-power level for the classical Hurwitz order, naturally singled out by the modern minimal-generator question. Exact incidence 960/9216, the unavoidable trace-3 coordinate and 80 symmetry orbits give a complete structural first-level census not entailed by existence alone.",
+      "residual_risks": [
+        "Does not generalize to higher norms, other quaternion discriminants, or full automorphism group actions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical integral Hurwitz order only, generators both norm3; conjugacy by units only."
+  ],
+  "schema_version": 1
+}
