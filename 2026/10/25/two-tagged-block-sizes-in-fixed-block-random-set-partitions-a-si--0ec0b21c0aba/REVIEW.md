@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The entire two-tag joint law is obtained by explicit disjoint counting. The covariance uses two independent Stirling collapse identities for marked pairs, and the sharp sign threshold follows from a positive elementary recurrence. Fixed-block asymptotics use an exact surjection-conditioning representation with an exponentially small conditioning error. A separate exhaustive partition generator and rational arithmetic verifier passed 4,746 assertions; extrapolation from finite data is not used.
+## correctness
 
-**Originality — PASS (self-review, historically provisional).** The closest primary sources establish the unlabeled-partition counting and conditioned occupancy representation, and Timashev studies marginal tagged sizes and fixed-size block counts. These known general mechanisms are not claimed as new. The compared statements did not specify the joint two-tag conditional covariance formula, its strict sign reversal with block count, or the sharp six-label crossover. Published-record searches in published-finding corpus returned different block-size-count covariances, not the joint tagged-cluster-size covariance. General allocation literature could nonetheless contain an equivalent implication; this residual priority risk requires external review.
+PASS
 
-**Value — PASS.** Two fixed tagged elements are the minimal nontrivial pairwise dependence observable in a random clustering. A positive covariance at fixed coarse partition count versus a negative covariance near the discrete partition gives a parameter-dependent qualitative reversal, not just a new table entry. The exact joint law makes the phenomenon reproducible and the six-label onset is sharp; the positive fixed-block limit explains why the reversal is persistent, rather than a small finite coincidence.
+Inspected exact joint tagged-block law: if tags share a block choose x−2 others then S(n−x,k−1), else independently choose x−1 and y−1 others then S(n−x−y,k−2). Indicator collapse yields a=S(n−1,k)/S(n,k), b=S(n−2,k)/S(n,k) and covariance a+n(n−2)b−(n−1)²a² (one squared pair indicator). Elementary k=2 factor F_n=2^(n−1)−n(n−2)−2 changes sign at n=6 and obeys F_(n+1)−2F_n=(n−1)(n−3). k=n−1 exactly one doubleton gives negative covariance. Independent exhaustive RGS enumeration n=2..8 matched every joint cell and rational covariance; fixed-k surjective-box conditioning proves limit (k−1)/k² with O_k(n²(1−1/k)^n).
 
-**Closest literature and limitations.** Pitman's (1997) author-hosted 10-page survey provides the conditional labeled-box construction; Timashev's (2003) full 11-page Russian paper treats fixed-block partitions and marginal statistics; Pittel (2000) concerns meet/join; Goh–Schmutz (1994) concerns maximal block sizes. Published abstracts alone do not establish absence of equivalent general historical theorems. The result does not classify every intermediate block count or growing-block asymptotic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority comparison against primary full/partial texts, published Resultary and target-domain queries found no mathematical implication of the final asserted new portion. Specifically: Known k! labeling and Stirling recurrence supply tools but do not by themselves state the sharp universal sign contrast at k=2 and k=n−1 for each n≥6. Earlier ingredients and special cases are credited; search absence alone is not proof.
+
+## value
+
+PASS
+
+Size dependence of two labeled clusters is a canonical natural statistic of finite random partitions. Exact joint distribution, sharp n=6 sign crossover under two versus n−1 blocks, and fixed-k limit give a genuine dependence classification, not a table of Stirling numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
