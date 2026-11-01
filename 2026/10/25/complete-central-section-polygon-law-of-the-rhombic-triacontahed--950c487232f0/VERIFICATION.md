@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 check_geometry.py` with NumPy and mpmath installed. It reconstructs all independent golden-field generator triples; all 60 true exposed edges by sign chambers in generator-normal circles; 32 original vertices and the two radial shell sizes; the icosahedral reflection generators; the 16 original vertex axes; the exact three interior great-circle boundaries; the four spherical triangle chambers; and the \(10,12,14,12\) sign-changing-edge counts.
+## correctness
 
-The program evaluates their normalized spherical areas at 75-digit precision, confirms exact area normalization numerically to better than \(10^{-65}\), and compares the area-law mean with the independently obtained sixty-edge angle expectation to the same tolerance. These high-precision evaluations check closed-form identities derived by the proof; they do not by themselves certify exact equality for arbitrary symbolic transcendental expressions. The exact field computations are exhaustive for the combinatorial statement.
+PASS
 
-The program separately samples 180,000 Haar-uniform directions through normalized independent Gaussian triples (fixed seed) and confirms the observed proportions agree to within \(0.006\) with the exact three probabilities. The experiment is a corroboration, not a proof of an infinite-probability statement.
+For the specified six icosahedral generating axes, all 20 generator triples are nondegenerate over Q(sqrt5). The source constructs the 60 actual exposed edges and 32 extreme vertices by exact supporting-direction sign tests, then an icosahedral Coxeter chamber with exactly three interior original-vertex orthogonality arcs. Its four triangular cells exhaust a fundamental spherical chamber with edge-crossing side counts 10,12,14,12. Their Girard/solid-angle formula gives the complete Haar law (p10,p12,p14)=(0.122601719540890947437...,0.525235204143268831316...,0.352163076315840221247...) and the expectation 12.459122713549898547619... from independent 60 edge-separation angles. All orientations outside the finite great-circle set are accounted for; numerical sampling merely corroborates the analytic exhaustion.
 
-The expected final output marker is `ALL_GOLDEN_ZONOHEDRAL_SECTION_LAW_CHECKS_OK`. The checker was executed from the current research file and its successful output was observed, not asserted solely from a previously saved log.
+## originality
+
+PASS
+
+The natural aliases Haar central random section polygon size / vertex-sign arrangement / six-generator zonotope were compared by statement. The known icosahedron Haar law, general zonotope normal-cone measure and projected 6-cube construction do not imply the four-cell signed section classification of the 32-vertex triacontahedron. No exact earlier Haar 10/12/14 probability law was located; priority is qualified, not certified.
+
+## value
+
+PASS
+
+The full three-atom Haar polygon-size distribution is a canonical geometric statistic for a classical icosahedrally symmetric Catalan solid, unlike an arbitrary slice. It distinguishes orientations producing 10, 12, and 14 section edges and supplies four exact spherical chambers and an independent mean identity beyond known face counts. This complete finite-type continuum law is valuable without a broader random-polytope theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
