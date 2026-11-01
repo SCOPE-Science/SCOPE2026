@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For every \(n\ge2\), the membership-bits derivation reduces rowmotion to a deterministic transformation of \(48\) hub-mask/column-support states. The complete \(13\)-support-orbit table includes the induced symbol permutations and accounts for all supports. The surjection argument proves every orbit length and multiplicity uniformly, not by finite extrapolation. The included checker was executed from the package and independently compared all actual ideal transitions with reverse-rank toggles for \(2\le n\le6\). The correctness claim is confined to ordinary rowmotion and the stated finite posets.
+## correctness
 
-**Originality: PASS, with residual risk.** Striker–Williams, Grinberg–Roby, Striker, and Plante–Roby were compared by object, operation, scope, and implication rather than title. Their inspected material gives general dynamics on other poset families or toggle frameworks, not this \(K_{2,n}\)-incidence support classification or the six cycle formulas. Targeted published-record, search-engine, and sequence-table searches did not identify a covering result; absence from search results is not a uniqueness proof. The earlier star-incidence result does not imply the result for \(n\ge2\). Unindexed work and unidentified equivalent formulations remain residual risks.
+PASS
 
-**Value: PASS.** A fixed order \(24\) across a growing sequence of posets with \(2^n+2\cdot3^n+5^n\) ideals is a substantive periodicity phenomenon. The exact cycle formulas, the threshold for primitive \(24\)-cycles, and the \(48\)-state reduction explain its structure and provide reusable information for rowmotion and finite-state combinatorial dynamics. This is a complete infinite-family classification, not an arbitrary numerical cutoff.
+Encode an ideal by the two hub bits and a length-n word of five valid leaf/edge column types. The minimal-complement rowmotion rule induces a bijection on 48 (hub mask, nonempty support) states. Independent rebuilding from literal ideal membership produces exactly 13 support cycles with symbol-return permutation orders q; on onto words each support cycle of length p and support size k contributes B_k(n)/q orbits of length pq, B_k(n)=k! S(n,k). The sum yields c2=2^(n-1), c3=3^(n-1)-2^n+2, c4=2^n-2, c6=(5^n-7*3^n+11*2^n-6)/6, c8=3*2^(n-1)-2 and c24=3^(n-1)-2^n+1. All lengths divide 24, while 3/8 orbits force exact order 24; B3>0 iff n>=3. Independent direct ideal enumeration and literal complement rowmotion n=2..5 agrees with formulas, plus all support formulas n=2..49. Finiteness of the 48-state reduction, not a bounded n search, proves all n.
 
-No claim is made for the birational lifting or for incidence posets of \(K_{m,n}\) with \(m\ge3\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete orbit census for classical rowmotion on the height-two vertex–edge incidence posets of K_{2,n} is not supplied by the inspected foundational toggle/rowmotion theorems or claw-by-chain product families. The isolated order 24 is not claimed as independently novel; the six exact multiplicities, all-n finite-state projection, and 24-cycle threshold are the assessed result. Bounded indexed searches do not exclude an unindexed exact census.
+
+## value
+
+PASS
+
+A complete cycle decomposition of classical rowmotion in an infinite family with exponentially many ideals is a natural dynamical invariant, considerably stronger than a shared small period. The fixed 48-state support/surjection mechanism explains a uniform order 24 and exact primitive-cycle threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
