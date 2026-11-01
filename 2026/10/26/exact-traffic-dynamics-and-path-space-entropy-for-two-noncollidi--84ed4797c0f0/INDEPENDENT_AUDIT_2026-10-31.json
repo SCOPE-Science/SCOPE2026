@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:50:13.371570Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "pinned RESULT.md SHA f4d22d547ca98b5866bed4692c256dad8090ee4c",
+        "pinned verify.py SHA e0464b2ac77765d6171659ec2908f47cc8178557 inspected",
+        "independent_checks.py / independent_check_results.json: six m parameters",
+        "git_tree_results.json matched 17db411229a7834254ca8ec7ed701524849c4acd"
+      ],
+      "rationale": "Reconstructed full distinct-particle state reduction S/D: exclusion Q=[[−2m,2m],[2(m−1),−2(m−1)]], killed K=[[−2m,2m],[2(m−1),−2m]]. The positive Perron eigenvector h=(sqrt(m/(m−1)),1) has eigenvalue −λ with λ=2m−2sqrt(m(m−1)). Doob ground-state h transform makes BOTH S↔D rates 2sqrt(m(m−1)), hence stationary opposite probability exactly 1/2 and hazard κ=2I_D with centered stationary covariance exp(−2rt), integrated variance t/r−(1−exp(−2rt))/(2r²). The Radon–Nikodym derivative dNC/dEx=h(Xt)/h(X0) exp(λt−∫κ) yields matched-initial path KL rates λ−1 and 2m/(2m−1)−λ; stationary endpoint log-h difference cancels. Both >0 for m>=2 and tend to 1/(4m). Independent direct numerical/algebraic checks at m=2,3,4,5,10,100 confirm eigenpairs, balance and rates, while exact two-state derivation proves all m. Read pinned verifier that reconstructs full labelled matrices for m=2..6, but the stored claim of 601 checks is not itself evidence of the infinite theorem.",
+      "risks": [
+        "Requires labelled distinct walkers and per-directed-edge jump rate one, and EXACT infinite-horizon Doob conditioning (not finite survival conditioning).",
+        "Relative entropies require identical initial distributions for each law pair, specifically numerator stationary initialization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General positive-eigenfunction h-transform and relative-density formula from killed generator",
+          "New explicit Perron h=(sqrt(m/(m−1)),1) for K_{m,m} with both directed rates 1"
+        ],
+        "reasoning": "A general Doob transform applies to arbitrary finite chains, but requires solving the killed eigenproblem and computing process observables; the exact m-independent half-traffic and the positive O(1/m) entropy separation are not stated as universal consequences. General formulas are credited rather than claimed new.",
+        "searches": [
+          "Resultary_Search: two noncolliding independent walkers complete balanced bipartite graph Doob transformed exclusion entropy production collision hazard",
+          "Shiatis 2026 general exclusion versus noncolliding theory full text"
+        ]
+      },
+      "checked_sources": [
+        "Shiatis, Exclusion vs Noncolliding Dynamics in Markov Processes, arXiv:2610.00741",
+        "Mendonça, Exact eigenspectrum of symmetric exclusion on complete bicliques, arXiv:1207.4106",
+        "Resultary semantic search on conditioned walks/exclusion entropy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Shiatis generic density dNC/dEx=h(Xt)/h(X0)*exp(λt−∫κ), which IS an ingredient",
+          "Explicit two-state lumping and Perron eigenvector determine additional stationary and fluctuation identities"
+        ],
+        "reasoning": "The general RN theorem implies the FORM of the KL identities but not their numerical m-dependent values without an additional K_{m,m} calculation. The natural graph-specific exact characterization is a motivated specialization; risk remains that this elementary 2-state calculation appears implicitly as an example elsewhere.",
+        "searches": [
+          "Resultary_Search: two noncolliding independent walkers complete balanced bipartite graph Doob transformed exclusion entropy production collision hazard",
+          "Shiatis main change-of-measure theorem and complete-bipartite specializations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Shiatis (2026), general killed-versus-exclusion Doob-transformed path law, arXiv:2610.00741",
+          "Mendonça (2013), exclusion spectrum on complete and complete-bipartite graphs, arXiv:1207.4106"
+        ],
+        "reasoning": "The abstract Markov change-of-measure and spectral ground-state relation in Shiatis covers the structural METHOD, not the explicit two-class K_{m,m} rates, stationary half-traffic, hazard covariance and two KL coefficients found here. Mendonça concerns exclusion spectral data but not ground-state conditioning.",
+        "searches": [
+          "Resultary_Search: two noncolliding independent walkers complete balanced bipartite graph Doob transformed exclusion entropy production collision hazard",
+          "web primary: Exclusion vs Noncolliding dynamics in Markov processes arXiv:2610.00741"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Mendonça (2013) complete-bipartite exclusion eigenspectrum",
+          "Our exact stationary P(D)=1/2, covariance, integrated hazard variance and matched-initial path KL functions"
+        ],
+        "reasoning": "The exclusion eigenspectrum or vertex count does not alone give both conditioned and excluded path laws and their relative entropy rates; no same-parameter comparison table found in inspected primary text.",
+        "searches": [
+          "Resultary_Search: two noncolliding independent walkers complete balanced bipartite graph Doob transformed exclusion entropy production collision hazard",
+          "web: complete bipartite exclusion spectral transition tables noncollision stationary traffic"
+        ]
+      },
+      "rationale": "The generic exclusion/noncollision change of measure is acknowledged prior. The assessed extra is explicit balanced-biclique half-traffic identity, exact hazard fluctuation and both directional entropy rates for the full natural m>=2 family.",
+      "residual_risks": [
+        "The m-family formulas may be an implicit elementary specialization of a more general h-transform/entropy-rate theorem or an earlier complete-bipartite example, despite absence of exact wording. The general RN identity is explicitly NOT new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General h-transform and path RN formula already known; no exact balanced complete-bipartite stationary half-traffic and KL rates located in inspected paper",
+          "evidence": [
+            "web: ; screenshot "
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00741",
+          "material_read": "Full primary manuscript parsed with focus on change-of-measure theorem, discussion of killing and ground-state h, graph examples; targeted text search for bipartite and entropy",
+          "method": "arXiv PDF text and screenshot inspected",
+          "title": "Exclusion vs Noncolliding Dynamics in Markov Processes",
+          "trigger": "Same two dynamics, potential dominating general theorem"
+        },
+        {
+          "assessment": "Exclusion generator spectral data are related background; noncollision Doob law and relative entropies are different observables",
+          "evidence": [
+            "arXiv:1207.4106 and result relation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1207.4106",
+          "material_read": "Published abstract, title and problem scope; not a claim of full paper inspection",
+          "method": "Indexed source/abstract, comparison of objective observables",
+          "title": "Exact eigenspectrum of the symmetric simple exclusion process on the complete, complete bipartite, and related graphs",
+          "trigger": "Prior exact spectral results specifically for K_{m,m}"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "pinned RESULT.md complete two-state and KL argument",
+        "independent_check_results.json positivity and numerical consistency across m"
+      ],
+      "rationale": "Balanced complete bipartite graphs give a canonical solvable model in which excluding collisions and conditioning on survival are distinctly different processes. The exact stationary half-traffic law, hazard correlations and both strictly positive quantitative relative-entropy rates give natural path-space observables not supplied by the general existence/change-of-measure theorem. This is a small-dimensional but fully uniform, motivated quantitative classification; it does not claim a new general Doob theory.",
+      "risks": [
+        "The two-state diagonalization is elementary and could have appeared in an earlier specialized calculation; scientific value is specifically the physically interpretable exact comparison, not the linear algebra alone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two labeled continuous-time walkers on K_{m,m}, m>=2, directed edge rates 1, the noncollision Doob transform reduces opposite-side occupancy to symmetric two-state rates r_m=2sqrt(m(m−1)), P(D)=1/2, stationary hazard mean 1 and covariance exp(−2r_mt); relative entropy rates against exclusion are λ_m−1 and 2m/(2m−1)−λ_m, λ_m=2m−2sqrt(m(m−1)), both strictly positive and ~1/(4m).",
+  "limitations": [
+    "Balanced K_{m,m} only, exactly two labelled particles, unit edge rates, stationary initialization for covariance/KL, no unbalanced or high-particle extension.",
+    "Requires labelled distinct walkers and per-directed-edge jump rate one, and EXACT infinite-horizon Doob conditioning (not finite survival conditioning).",
+    "Relative entropies require identical initial distributions for each law pair, specifically numerator stationary initialization.",
+    "The m-family formulas may be an implicit elementary specialization of a more general h-transform/entropy-rate theorem or an earlier complete-bipartite example, despite absence of exact wording. The general RN identity is explicitly NOT new."
+  ],
+  "schema_version": 1
+}

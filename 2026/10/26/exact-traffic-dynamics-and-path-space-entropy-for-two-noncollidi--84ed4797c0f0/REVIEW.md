@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The killed two-class generator, its positive Perron eigenvector, the ground-state Doob transform, the invariant measures, stationary telegraph covariance, integrated-hazard variance and the matched-initial-law KL identities have been derived directly. All formula boundaries include \(m=2\), \(t=0\), and each finite \(m\). The standalone verifier checked 601 assertions including full labelled state spaces for small bicliques. No infinite conclusion is based on finite tests.
+## correctness
 
-**Originality — PASS, qualified.** The generic noncollision/exclusion RN theorem of Shiatis (arXiv:2610.00741v1) gives the change of measure in terms of graph-dependent quantities. Mendonça's arXiv:1207.4106v4 solves the ordinary exclusion spectrum on complete bipartite graphs. The new exact stationary half-traffic identity, all-time correlation, survival exponent and matched-initial-law information rates require the explicit killed eigenvector. A prior general classification of equality versus inequivalence is weaker. Source comparisons and semantic searches did not locate an equivalent full traffic law. A hidden classical spectral specialization is a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** The family \(K_{m,m}\) is a standard testing ground for interacting particle models; indefinite collision conditioning is a natural operation yet cannot generally be replaced by suppressed jumps. The unexpected \(1/2\) stationary opposite-side probability, independent of the graph order, and exact comparison of observable fluctuation and path-space relative entropy provide complete finite-parameter answers. This does not settle unequal or general graphs.
+Reconstructed full distinct-particle state reduction S/D: exclusion Q=[[−2m,2m],[2(m−1),−2(m−1)]], killed K=[[−2m,2m],[2(m−1),−2m]]. The positive Perron eigenvector h=(sqrt(m/(m−1)),1) has eigenvalue −λ with λ=2m−2sqrt(m(m−1)). Doob ground-state h transform makes BOTH S↔D rates 2sqrt(m(m−1)), hence stationary opposite probability exactly 1/2 and hazard κ=2I_D with centered stationary covariance exp(−2rt), integrated variance t/r−(1−exp(−2rt))/(2r²). The Radon–Nikodym derivative dNC/dEx=h(Xt)/h(X0) exp(λt−∫κ) yields matched-initial path KL rates λ−1 and 2m/(2m−1)−λ; stationary endpoint log-h difference cancels. Both >0 for m>=2 and tend to 1/(4m). Independent direct numerical/algebraic checks at m=2,3,4,5,10,100 confirm eigenpairs, balance and rates, while exact two-state derivation proves all m. Read pinned verifier that reconstructs full labelled matrices for m=2..6, but the stored claim of 601 checks is not itself evidence of the infinite theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The generic exclusion/noncollision change of measure is acknowledged prior. The assessed extra is explicit balanced-biclique half-traffic identity, exact hazard fluctuation and both directional entropy rates for the full natural m>=2 family.
+
+## value
+
+PASS
+
+Balanced complete bipartite graphs give a canonical solvable model in which excluding collisions and conditioning on survival are distinctly different processes. The exact stationary half-traffic law, hazard correlations and both strictly positive quantitative relative-entropy rates give natural path-space observables not supplied by the general existence/change-of-measure theorem. This is a small-dimensional but fully uniform, motivated quantitative classification; it does not claim a new general Doob theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
