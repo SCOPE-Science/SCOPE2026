@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Monomial integration gives exact independent gamma energies and beta-binomial CDF with block composition multiplicities. Uniform Chernoff and method-of-types bounds yield the logarithmic CDF exponent within \\(O(\\log m)\\), including the upper-tail index. Fixed-degree multiplicity expansion plus a bounded-variation weighted Riemann sum proves the explicit order-\\(m^d\\) rate and \\(O(m^{d-1}\\log m)\\) remainder. Standard-library exact and finite convergence tests independently exercise the formulas, not the proof of the limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Charles–Estienne (arxiv:1803.03149), their spectral-window Weyl law and trace theorem, use regular endpoint-vanishing test functions: a singular logarithm is outside the stated trace assumptions.",
+        "Berman (arxiv:0812.4224) treats general complex-manifold determinantal large deviations; only its abstract was available for the specific comparison."
+      ],
+      "reasoning": "Regular functional calculus results do not bound the deep exponentially small part of the spectrum whose total log cost has order \\(m^d\\). A more general determinantal LDP might imply the leading logarithmic exponent implicitly; its relationship to the explicitly evaluated two-block rate is a residual priority risk, not an asserted absence.",
+      "searches": [
+        "arxiv:1803.03149 entropy Berezin-Toeplitz characteristic discontinuous symbols",
+        "arxiv:0812.4224 determinantal large deviations complex manifolds",
+        "\"Toeplitz determinants\" \"higher dimension\" \"hard edge\" cap"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.3390/axioms12121080",
+      "arxiv:1803.03149",
+      "arxiv:2405.00386",
+      "arxiv:1606.07379",
+      "arxiv:0812.4224 (abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Circle-invariant Fock Toeplitz decomposition supplies invariant blocks, but no logarithmic large-deviation theorem.",
+        "Charles–Estienne addresses regular spectral counting and traces, not the unbounded near-zero logarithm.",
+        "Byun–Park has logarithmic gap results in one complex coordinate, not a general all-dimension two-block weighted formula."
+      ],
+      "reasoning": "The new rate needs both beta-binomial large deviation bounds uniform across all degrees and a growing multiplicity-weighted Riemann sum. Prior exact diagonalizations alone do not imply the explicit asymptotic, and the inspected general trace result excludes its logarithmic test function.",
+      "searches": [
+        "doi:10.3390/axioms12121080 Theorem 2 invariant symbols",
+        "arxiv:1803.03149 Theorem 1.1 1.2",
+        "arxiv:2405.00386 gap probability logarithmic asymptotics",
+        "arxiv:1606.07379 radial projective Toeplitz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The gap probability of a finite-degree projective determinantal process is a Toeplitz determinant; Byun–Park (arxiv:2405.00386) handles spherical surface ensembles rather than the higher-dimensional two-block multiplicities.",
+        "Quiroga-Barranco–Sánchez-Nungaray (arxiv:1606.07379) describes separately radial/projective diagonalizations."
+      ],
+      "reasoning": "The finite-rank determinant is equivalently a zero-particle gap probability for a degree-m projective ensemble under a two-block cap complement. Existing inspected explicit spherical results are restricted to complex dimension one, while the claimed log-determinant rate weights beta-binomial tails by multivariate composition multiplicities.",
+      "searches": [
+        "\"spherical ensemble\" \"complex projective\" gap determinant cap",
+        "\"homogeneous Fock\" \"angular cap\" \"log determinant\"",
+        "arxiv:2405.00386",
+        "arxiv:1606.07379"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "In the inspected González-Flores et al. (DOI 10.3390/axioms12121080) full primary text, decomposition results are present but neither the explicit determinant rate nor its relative-entropy integral is stated.",
+        "Related two-dimensional beta/binomial spectral formulas and standard statistical beta-binomial identities determine individual eigenvalues, not the weighted higher-dimensional leading determinant coefficient."
+      ],
+      "reasoning": "No directly covering multiblock determinant table or exact formula was located in targeted literature searches; this is search evidence and does not prove global uniqueness.",
+      "searches": [
+        "\"binomial tail\" \"spectral determinant\" \"projective space\" Fock",
+        "\"complex projective\" \"cap\" \"determinant\" binomial tail",
+        "\"angular cap\" \"Fock\" \"log determinant\""
+      ]
+    },
+    "rationale": "Inspected multivariate Fock block-diagonalization (2023), projective toric diagonalization (2016), regular discontinuous-symbol Toeplitz trace asymptotics (2018), and one-complex-dimensional spherical gap asymptotics (2024) do not directly state or imply through their recorded hypotheses the explicit higher-dimensional two-block log-determinant limit. An overarching higher-dimensional gap LDP could imply part of it implicitly, so the priority status is provisional.",
+    "residual_risks": [
+      "A general higher-dimensional determinantal gap large-deviation theorem could subsume the leading rate in an implicit variational form.",
+      "The 2008 complex-manifold large deviations source was accessible only in abstract for this comparison; historical priority needs independent specialist literature review.",
+      "Previous exact eigenvalue descriptions in lower dimensions are acknowledged; only the weighted \\(d\\ge3\\) log-determinant asymptotic is claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides block decomposition, not the claimed sharp log-determinant rate for coordinate-split caps.",
+        "evidence": [
+          "Theorem 2 operator decomposition; no spectral log-determinant asymptotic in inspected full text."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/axioms12121080",
+        "material_read": "Available full article sections on circle-invariant Toeplitz decomposition and statements, including Theorem 2; searched determinant, asymptotic, and binomial occurrences",
+        "method": "Read accessible full HTML/transcribed article and examined theorem statements",
+        "title": "Toeplitz Operators on Fock Space over Cn with Invariant Symbols under the Action of the Unit Circle",
+        "trigger": "Same ambient multivariate Fock space and circle-invariant symbols"
+      },
+      {
+        "assessment": "Regular trace/window results, but no direct singular log-determinant asymptotic for the deep tail.",
+        "evidence": [
+          "The cited trace asymptotic is for functions whose behavior vanishes suitably at spectral endpoints; the logarithm diverges at zero."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1803.03149",
+        "material_read": "Full arXiv HTML with statements of Theorems 1.1 and 1.2 and trace-class hypotheses",
+        "method": "Read arXiv full-text introduction and mathematical theorem statements",
+        "title": "Entanglement entropy and Berezin-Toeplitz operators",
+        "trigger": "Potential stronger coverage by general discontinuous-symbol Toeplitz spectral asymptotics"
+      },
+      {
+        "assessment": "Treats spherical surface ensembles, not these \\(d\\ge3\\) projective two-block multiplicities; establishes priority for lower-dimensional analogues.",
+        "evidence": [
+          "Spherical ensemble and point charges, associated one-complex-dimensional gap probabilities."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.00386",
+        "material_read": "Full arXiv HTML introduction, gap asymptotics and theorem statements",
+        "method": "Read arXiv accessible full text and compared geometric dimension and multiplicity structure",
+        "title": "Large gap probabilities of complex and symplectic spherical ensembles with point charges",
+        "trigger": "Potentially equivalent determinant as a point-process gap probability"
+      },
+      {
+        "assessment": "General exact diagonalization; no all-degree singular log-determinant rate.",
+        "evidence": [
+          "Classical torus-invariant projective Toeplitz eigenvalue description."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1606.07379",
+        "material_read": "Full arXiv HTML, principal operator diagonalization and representation results",
+        "method": "Read accessible arXiv full text and searched for determinant asymptotic",
+        "title": "Separately radial and radial Toeplitz operators on the projective space and representation theory",
+        "trigger": "Same projective toric-coordinate eigenvalue geometry"
+      },
+      {
+        "assessment": "Unresolved indirect implication risk; no full-text exclusion asserted.",
+        "evidence": [
+          "General large-deviation setting could encompass a projective ensemble."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0812.4224",
+        "material_read": "Abstract and bibliographic summary only",
+        "method": "Abstract-level search and comparison, not full-document inspection",
+        "title": "Determinantal point processes and fermions on complex manifolds: large deviations and bosonization",
+        "trigger": "Potential general determinantal LDP implying gap exponent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1568f88b-b83e-47b5-9e41-d6105bfbfb6b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The spectral determinant measures simultaneous mass retention for every holomorphic mode in a finite projective/Fock quantization sector, and is equivalently a natural determinantal gap probability. Exact exponential rates distinguish higher-dimensional coordinate splits and thresholds; the explicit relative-entropy integral and uniform order \\(m^{d-1}\\log m\\) bound are quantitative structural information not provided by eigenvalue diagonalization alone.",
+    "status": "PASS"
+  }
+}
