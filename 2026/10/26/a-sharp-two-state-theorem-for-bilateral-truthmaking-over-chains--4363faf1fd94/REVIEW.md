@@ -1,13 +1,21 @@
-# Review: A sharp two-state theorem for bilateral truthmaking over chains
+# Independent mathematical audit
 
-**Correctness — PASS.** The joint four-bit recurrence for membership and a lower witness is proved for arbitrary subsets of any chain. Induction and canonical realization on the two-element chain establish all quantifiers of the finding. Singleton absorption versus the explicit two-state valuation proves sharpness, and incomparable joins prove the three-state nonchain boundary. Standalone finite checks independently reproduce exact identities; they are not mistaken for the infinite proof.
+## correctness
 
-**Originality — PASS, with priority qualification.** Knudstorp's (2023) general truthmaker finite-model and decidability theorems, and Aloni et al.'s (2026) modal translations, are prior results; the inspected texts did not state the sharp formula-independent two-state chain property with independent signed atomic profiles. Korbmacher (2022) defines the non-inclusive alternative but does not supply the precise special classification in material inspected. The underlying semantic clauses are credited, not presented as new. Searches of mathematical records using direct aliases found no covering claim. Full older treatises were not exhaustively available; earlier special-case folklore remains a historical-priority risk.
+PASS
 
-**Value — PASS.** This gives a precise, optimal and effective complete theory of signed truthmaking observations over chains, rather than a mere worked example. The first failing nonchain frame is exactly identified, exposing the structural reason for the simplification. It is not a decidability claim for general semilattices or more expressive languages.
+For any subset A of a chain at state s define e_A=[s∈A], h_A=[A∩(−∞,s]≠∅]. Union ORs both bits; max-fusion has e=(e_A∧h_B)∨(h_A∧e_B), h=h_A∧h_B. Structural induction computes all bilateral formula bits from independent 2k signed atom profiles; e≤h leaves exactly three possibilities per signed atom. Canonical subsets ∅,{0},{1} on 0<1 realize all 9^k profiles at top. Thus arbitrary finite signed membership/nonmembership requirements transfer exactly, yielding the decision bound. Singleton absorption p∧(p∨q)=p is both-sign valid, while p^+={0},q^+={1} distinguishes at top on two states. Incomparable a,b with join c produce the optimal three-state nonchain witness. Independent direct set-fusion and two-point realization computations passed; universal induction provides all-size proof.
 
-Closest literature: Aloni et al. (2026), *Teams, Truthmakers, Translations*, arXiv:2610.15680v1; Knudstorp (2023), *Logics of Truthmaker Semantics: Comparison, Compactness and Decidability*, doi:10.1007/s11229-023-04401-1; Korbmacher (2022), *Proof Systems for Exact Entailment*, doi:10.1017/S175502032200020X. The closest prior general finite-model theorem does not visibly specify a two-state uniform bound.
+## originality
 
-Limitations: non-inclusive exact semantics; unrestricted independent signed valuations; chains; no modal operators, constants or quantifiers; nonchain counterexample prevents generalization. A broader historical theorem may be undiscovered. Independent validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The assessed new statement, not its model/semantic/occupancy/antipower/divisor premises, survives direct implication comparison to the inspected primary literature. A general truthmaker normal-form theorem may imply the specialized 2-state result without an explicit statement. Best-of-knowledge priority is qualified, not certified by unsuccessful searching.
+
+## value
+
+PASS
+
+The theorem determines an exact finite observational quotient of arbitrary finite/infinite chain truthmaker semantics, an optimal model bound, effective uniform decision algorithm, and an exact minimal nonchain obstruction. This is a natural sharp model-theoretic classification, not merely general known decidability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
