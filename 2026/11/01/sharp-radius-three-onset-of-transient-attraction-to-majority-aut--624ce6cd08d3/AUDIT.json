@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "All local update identities were directly computed, then verified by an independently reconstructible standard-library exhaustive program. For every radius-one/two primitive target template in Nakar–Ron, the complete phase-window automaton has one directed simple recurrent cycle and therefore exactly one incoming labelled configuration. For radius three on period-ten target, the entire cyclic graph consists of one 17-vertex/18-edge strongly connected component with ten-step phase-zero return matrix [[1,1],[1,1]], forcing trace 2^m. Explicit mosaics attain all 2^m possibilities. Complement and rotation commute with the majority rule. Direct microscopic enumeration was separately replayed. The result is an infinite statement proved from a finite exhaustive transition certificate, not extrapolated from finite-size trajectories.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tosic–Agha (2004) Lemma 5 purports to prohibit all incoming transient states universally, and has no radius-three exceptional provision.",
+        "Liu–Chen arXiv:nlin/0209005 Section 4 explicitly analyzes radius-two infinite majority attractor motifs, while the paper says its radius-three analogous calculation was too lengthy to present.",
+        "Aledo et al. (2015) surveys global finite-graph parallel dynamical systems but does not derive the claimed radius-three preimage multiplicity."
+      ],
+      "reasoning": "A purportedly more general no-incoming-transient assertion in the 2004 paper does not cover the claim as a consequence; it is mathematically false under the displayed radius-three witness. General eventual-period results and abstract graph descriptions do not imply the precise inverse-image cardinality.",
+      "searches": [
+        "sharp interaction radius three for attracting temporal two-cycle in synchronous one-dimensional majority CA, radius two all two cycles isolated",
+        "web search: \"radius 3\" \"majority cellular automata\" \"basin\" \"period\"",
+        "web search: \"radius three\" \"majority\" \"two cycle\" \"preimage\"",
+        "web search: general parallel dynamical systems threshold automata period two convergence"
+      ]
+    },
+    "checked_sources": [
+      "Tosic and Agha ACRI 2004 Lemma 5, DOI 10.1007/978-3-540-30479-1_89",
+      "Nakar and Ron 2022 arXiv:2205.08972, Sections 1.4 and 1.6",
+      "Liu and Chen arXiv:nlin/0209005, Section 4",
+      "Aledo et al. 2015 DOI 10.1155/2015/594294",
+      "published-finding corpus 2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be",
+      "published-finding corpus 2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Tosic–Agha, Section 4 Lemma 5 states a universal exclusion of incoming transient states, contradicted by F_{3,10}(1001011001)=0011001110 and the primitive return 0011001110 ↔ 1000111001.",
+        "Nakar–Ron Section 1.4 classifies the two-cycle strings but its theorem does not restrict how many nonperiodic configurations map to those strings.",
+        "Liu–Chen Section 4 establishes radius-two block dynamics and does not give the radius-three quantitative inverse-branch result."
+      ],
+      "reasoning": "The period-template result supplies a finite list of possible targets but no preimage cardinalities or sharp radius transition; these require the distinct phase-preimage transfer graph. The published stronger no-incoming assertion is not a proof of the opposite claim and is refuted by the explicit counterexample. Neither the qualitative radius-two picture nor generic period ≤2 yields 2^m for the ten-cell radius-three oscillator.",
+      "searches": [
+        "five-neighbor majority CA repelling two cycles basin of attraction exactly periodic configurations",
+        "synchronous majority radius 2 no nonperiodic configuration converges to a two cycle",
+        "sharp interaction radius three for attracting temporal two-cycle in synchronous one-dimensional majority CA, radius two all two cycles isolated",
+        "web search: \"Characterizing Configuration Spaces of Simple Threshold Cellular Automata\" pdf Tosic Agha 2004"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakar and Ron, arXiv:2205.08972, Section 1.4 gives the full radius-one/two periodic-word forms and also radius-three ten-bit patterns, but not incoming-preimage counts.",
+        "Tosic and Agha, ACRI 2004, Lemma 5, directly claims the negation of incoming transient states for all finite/infinite threshold automata."
+      ],
+      "reasoning": "The assertion is about the inverse graph of the synchronous majority map and nonperiodic states entering an existing temporal two-cycle, not merely the existence of a two-cycle or the enumeration of its constituent words. The two-cycle words in the 2022 paper are covered; the exact 2^m nonunique predecessor structure and sharp radius transition are not present in its inspected Section 1.4 or its related-work discussion. The 2004 statement is contradicted, not a stronger covering theorem.",
+      "searches": [
+        "radius two majority cellular automata primitive two cycles have unique preimages no transient basin",
+        "radius-three majority cellular automaton ten-cell oscillatory states 0011001110 1000111001 two-to-one preimage transfer matrix exponential 2^(n/10)",
+        "web search: \"0011001110\" \"majority\" \"cellular\" preimage",
+        "web search: \"1001011001\" \"0011001110\" majority"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search closest titled \"Exact odd-ring and twice-odd bijectivity for quadratic five-site cellular automata\", ID 2026/10/11/SCOPE-exact-odd-ring-and-twice-odd-bijectivity-for-quadratic-five-site--8948cda228be, concerns reversible quadratic five-neighbor systems, not this radius-three majority rule.",
+        "published-finding corpus record 2026/10/11/SCOPE-exact-all-transient-coexistence-threshold-and-finite-size-crosso--12759fd2601b concerns Rule 128, not majority of seven sites.",
+        "Published Nakar–Ron Section 1.4 displays period-ten radius-three strings, but not their incoming predecessors or counts."
+      ],
+      "reasoning": "Searches included exact ten-bit patterns and the all-length preimage formula. The nearest mathematical records concern different local rules or periodic-word classification, not an exact radius-three preimage table. The finite computations supporting this claim are freshly reconstructed and are not copied from a known enumerative table.",
+      "searches": [
+        "synchronous majority seven site neighborhood exact inverse image size of period-ten word 0011001110",
+        "radius-three majority cellular automaton ten-cell oscillatory states 0011001110 1000111001 two-to-one preimage transfer matrix exponential 2^(n/10)",
+        "web search: \"0011001110\" \"majority\" \"cellular\" preimage",
+        "web search: \"1001011001\" \"0011001110\" majority"
+      ]
+    },
+    "rationale": "Prior papers classify possible periodic words but not their complete incoming-preimage multiplicity or sharp radius-three onset. Tosic–Agha 2004 Lemma 5 asserts no incoming transients for all threshold CA, precisely contradicted by the ten-cell radius-three witness. Exact statements and implication directions were compared using accessible primary full texts and topical published-finding corpus searches; residual uncatalogued variants are acknowledged.",
+    "residual_risks": [
+      "Historical computations outside the inspected and indexed literature might already list the radius-three precursor words or inverse-branch counts.",
+      "The full 2011 Tosic–Raju text was not inspected; its surfaced abstract addresses convergence generally and does not assert an equivalent ten-cell preimage count.",
+      "The claim relies on the complete radius-one and radius-two periodic-word classification of Nakar–Ron, which has been read as primary full text, not independently reproved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "contradicted by a concrete radius-three parallel majority transient predecessor; not a covering result",
+        "evidence": "Lemma 5 page 8 explicitly: either no proper cycles or none of cycle states has incoming transients.",
+        "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+        "material_read": "full ten-page author-hosted text, especially page 6 radius generalization and page 8 Lemma 5",
+        "method": "read full PDF extraction, compared exact wording with page-image screenshots for Lemma 5 and radius discussion",
+        "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+        "trigger": "directly plausible universal theorem on whether cycle states have transient ancestors"
+      },
+      {
+        "assessment": "covers period-word catalog explicitly (excluded from novelty); does not state the claimed inverse-branch multiplicity or sharp incoming-transient radius",
+        "evidence": "Section 1.4 page 6 lists (01)*, (0011)*, (001101)*, (001011)* and radius-three pattern 0011001110; Section 1.6 discusses transient prevalence but not the proposed count.",
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+        "material_read": "31-page arXiv full text with full Section 1.4 and related-work discussion, Sections 1 and 3 and formal periodicity definitions",
+        "method": "full-text search and read with page-image screenshot of Section 1.4",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "exact same majority radius-one/two/three periodic objects and possible prior complete classifications"
+      },
+      {
+        "assessment": "radius-two attractor results motivate the lower-bound threshold but do not imply the radius-three inverse multiplicity; radius-three analogous work is explicitly omitted",
+        "evidence": "Section 4 gives block labels E,F,G,H,I,J, classifies period-two attractors for k=2 and notes k=3 analysis too lengthy to present.",
+        "identifier_or_url": "https://arxiv.org/pdf/nlin/0209005",
+        "material_read": "all nine pages, including full radius-two block enumeration in Section 4 and conclusions",
+        "method": "read complete PDF text and screenshot of primary technical section",
+        "title": "Analytic Proof of the Attractors of a Class of Cellular Automaton",
+        "trigger": "early analytical majority CA attractor classification potentially stronger than radius-three result"
+      },
+      {
+        "assessment": "background only, neither a finite-radius classification nor incoming-branch count",
+        "evidence": "The survey distinguishes limit-cycle length, number of limit cycles, and whether distinct initial states meet the same limit cycle.",
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2015/594294",
+        "material_read": "open HTML introduction, definitions, overview of orbit-structure questions",
+        "method": "read primary open HTML sections and matched scope of broad results",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "broad threshold parallel-dynamics background and possible general basin theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "624ce6cd-08d3-4b73-9b7e-43ce5d6b1129",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp radius-three threshold for the appearance of genuinely attracting primitive oscillations distinguishes mere existence of two-cycles from accessibility from transient initial data. The explicit length-ten construction yields exact exponentially many immediate predecessors on arbitrarily long labelled rings and supplies a concrete counterexample to a published universal dynamical exclusion, not an arbitrary small numeral or a routine restatement of known period templates.",
+    "status": "PASS"
+  }
+}
