@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:54:23Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read RESULT.md and audited six-file Git tree at exact assigned source SHA; independently reconstructed its Git tree from all blob hashes.",
+        "Independently used SymPy to differentiate 2|v| atan(2t/|v|), proving the exact facet antiderivative and factor 4; benchmark across 201 logarithmically spaced rectangular aspect ratios at fixed area proved numerical global-max agreement.",
+        "The all-lattice integration is a finite sum of analytic facet integrals; the all-aspect-ratio optimum is deduced from a derivative sign for r>1, not sampled benchmarks."
+      ],
+      "rationale": "For a full-rank Euclidean lattice in dimension two, a regular cut-locus Voronoi facet F_v identifies two closest lifts 0 and v. Their unit-distance gradients jump by j(x)=|v|/|x|; since F_v is centrally symmetric about v/2, parameter t along its length ell_v gives j²=|v|²/(|v|²/4+t²). Integrating from -ell_v/2 to ell_v/2 yields 4|v| atan(ell_v/|v|). Count only one facet from each opposite pair; triple intersections are H¹-null. For rectangular 2a by 2b torus, J_2=8a atan(b/a)+8b atan(a/b). At area A=4ab, writing r=b/a the normalized function is symmetric under r<->1/r, and its derivative strictly negative for r>1, so unique square maximum 2πsqrt(A).",
+      "risks": [
+        "This is the squared L² norm of the singular jump density, not the L² norm of the distribution-valued Hessian itself.",
+        "Unique optimizer proved only within rectangular lattice shapes, not all flat two-tori."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mantegazza et al. give arbitrary Riemannian local singular Hessian density. Zhou gives flat-torus facetwise distributional Hessian and Fourier signatures."
+        ],
+        "reasoning": "These broader local formulas imply the integrand but do not state the evaluated arctan facet sum or fixed-area rectangular optimizer. Their prior contribution is directly credited.",
+        "searches": [
+          "arXiv:1303.1421 Theorem 2.10",
+          "arXiv:2609.05622 Proposition 3.1",
+          "web: flat torus cut locus Hessian jump L2 energy square rectangular lattice"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1303.1421 Theorem 2.10 full text",
+        "arXiv:2609.05622 Proposition 3.1 and rectangular distance-energy comparison",
+        "Resultary flat torus J2 semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior local formula can be specialized to j=|v|/|x|; the additional squared integral along a facet gives arctan, and strict global shape comparison needs a separate derivative inequality."
+        ],
+        "reasoning": "The new theorem is a computation using known local geometry, but neither prior theorem logically states the scalar J2 or an optimization of J2; Zhou maximizes a distinct measure-dependent distance energy.",
+        "searches": [
+          "Mantegazza Mascellani Uraltsev Theorem 2.10",
+          "Zhou Distance Energies and Negative Type of Flat Tori §3.1 Proposition 3.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The singular Hessian of the distance function has jump density |∇d^+-∇d^-| on a Voronoi facet."
+        ],
+        "reasoning": "This integral is an L² measure of the scalar jump density; distinct from the singular distribution itself and from Zhou’s pairwise distance energy I_alpha over probability measures.",
+        "searches": [
+          "Resultary: flat torus cut locus Hessian jump energy squared gradients Voronoi facets rectangular torus",
+          "Ye Zhou arXiv:2609.05622 §3.1 distributional Hessian of radial distance kernel",
+          "Mantegazza Mascellani Uraltsev arXiv:1303.1421"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of J2 for general lattice Voronoi facet lengths or rectangular aspect ratio was found in checked literature."
+        ],
+        "reasoning": "The geometric parameter is continuous; standard Voronoi local formulas plus elementary integration can reproduce it but a published exact global J2 invariant and rectangular optimizer was not identified.",
+        "searches": [
+          "rectangular flat torus squared Hessian jump energy arctan lattice facet table",
+          "Resultary flat torus cut locus Hessian jump semantic search",
+          "arXiv:2609.05622 §3-5"
+        ]
+      },
+      "rationale": "Best-of-knowledge new quantity is the explicitly defined squared cut-locus gradient-jump aggregate and its sharp rectangular fixed-area maximum. Prior general Hessian formulas already identify the local jump and are not claimed new.",
+      "residual_risks": [
+        "Because the facet integral is elementary, a previously published general integral formula may yield the same J2 immediately after specialization.",
+        "No uniqueness asserted among nonrectangular flat tori; topology and singular Hessian interpretations depend on defined normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers local singular jump measure; does not state the squared-jump scalar integral J2.",
+          "evidence": "Theorem 2.10 Hess d_p=regular-volume part minus jump tensor on Cut_p.",
+          "identifier_or_url": "https://arxiv.org/pdf/1303.1421",
+          "material_read": "Full 10-page primary PDF, particularly Theorem 2.10 and Corollary 2.11 on page 6, read with PDF screenshot.",
+          "method": "Primary arXiv full text.",
+          "title": "On the Distributional Hessian of the Distance Function",
+          "trigger": "Exact singular-distance Hessian prior local theorem."
+        },
+        {
+          "assessment": "Provides facetwise Hessian density and Fourier/distance-energy consequences, but its functional is I_alpha(mu), not J2 squared jump area; no identical optimizer in inspected sections.",
+          "evidence": "Proposition 3.1 expresses singular Hessian as sum of facet terms with factor Phi_prime(|x|)/|x|.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.05622",
+          "material_read": "Full 41-page primary PDF, §3.1 pp.11-12 and definitions, Proposition 3.1; scanned page screenshots of both.",
+          "method": "Primary arXiv full text.",
+          "title": "Distance Energies and Negative Type of Flat Tori",
+          "trigger": "Recent same flat-torus Voronoi facet and Hessian analysis; highest overlap risk."
+        },
+        {
+          "assessment": "No directly matching J2 invariant in returned matches; not a claim of entire database absence.",
+          "evidence": "Nearest search hits involve systolic ratio and other unrelated flat-torus functionals.",
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Resultary search titles and summaries for related flat-torus papers only, not their entire texts.",
+          "method": "Resultary semantic metadata search.",
+          "title": "Flat torus cut locus geometric results in Resultary search",
+          "trigger": "Potential equivalent geometric invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Explicit arctangent formula aggregates all Voronoi facets for arbitrary planar lattices.",
+        "Sharp fixed-area rectangular inequality includes complete equality classification."
+      ],
+      "rationale": "J2 measures concentration of the singular Hessian jump on a cut locus and is a natural scalar geometric functional on flat tori. The exact facet-sum and sharp square extremizer under fixed rectangular area provide a reusable quantitative shape benchmark beyond merely displaying the local distributional Hessian tensor.",
+      "risks": [
+        "No claimed global optimizer among all lattice shapes or direct PDE estimates."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
