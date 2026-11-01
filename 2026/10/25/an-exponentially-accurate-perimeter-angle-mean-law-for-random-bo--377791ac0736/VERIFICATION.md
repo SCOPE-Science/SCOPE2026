@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility notes
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. No third-party modules, network access, downloads, or external datasets are required. The script checks independently computed convex-hull areas, the exact corner decomposition on its eligible domain, finite-sample means against the explicit binomial-void formula, rescaled variances, and independent exponential-product moments. It prints the finite checks that passed.
+## correctness
 
-Analytical checks consist of: supporting-line and disjoint-corner-triangle geometry on the all-edges-occupied event; two-dimensional integration of the binomial void probability; exponentially small failure probability for empty edges; joint convergence of finite disjoint shrinking boundary intervals to independent exponential waiting times; uniform all-order moment bounds; and the elementary exponential-integral identity for the Laplace transform. None of those universal steps is inferred from numerical output.
+PASS
 
-The claim is limited to fixed positive-edge-length convex polygons and independent uniform boundary points. Simulation tolerances are finite-sample sanity checks, not rigorous numerical error bounds for the infinite limit. Independent mathematical audit has not been performed.
+For a fixed convex polygon with all side lengths positive, on the event every side receives a sampled point the missing hull area is exactly sum of disjoint vertex triangles 1/2 sin(alpha_i) X_i Y_i. Their joint tail is (1-(x+y)/P)^N on two disjoint adjacent boundary arcs; integrate to obtain E(X_i Y_i)=P²/[(N+1)(N+2)] times four exponential edge truncation factors. The empty-edge probability is at most sum_i(1-l_i/P)^N, and the total error is uniformly bounded by a geometric constant times that probability. Thus the universal coefficient P²/2 sum_i sin(alpha_i) and exponential remainder are exact. Joint binomial void probabilities of all 2m rescaled endpoint gaps converge to independent exponentials; continuous mapping and uniform exponential tail bounds imply convergence of ALL fixed positive moments, variance 3 sum w_i² and the product E1 Laplace formula. No approximation by a smooth boundary or a growing number of polygon sides is used.
+
+## originality
+
+PASS
+
+The same boundary-random-polytope sampling model is studied in primary prior literature, including local corner Poisson limits. Prochno–Schütt–Sonnleitner–Werner provide the asymptotic independence mechanism and a Hausdorff-distance result; Reitzner–Schütt–Werner derive volume deficit leading exponents for broader polytopes. Neither inspected primary text supplies the exact two-dimensional rational denominator with error exponentially small for every fixed polygon, nor the angle-sine coefficient. Novelty is restricted primarily to that finite-N perimeter–angle mean law; the exponential-product limiting law is an interpreted consequence of already-known local Poisson behavior.
+
+## value
+
+PASS
+
+The result exposes an exact algebraic cancellation of all higher 1/N corrections in a classic random-polytope observable, and shows that leading mean/limiting distribution are insensitive to individual side lengths beyond perimeter and angle data. It is motivated by the polygonal boundary sampling problem and has useful explicit finite-sample and limit formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

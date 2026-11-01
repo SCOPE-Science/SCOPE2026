@@ -1,19 +1,21 @@
-# Scientific review of the perimeter–angle boundary-hull area law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On the event that each edge receives at least one sample, the convex hull follows the sampled portions of every supporting edge and the complement is the union of the triangular corner cuts. The exact area is one half of each interior-angle sine times the two adjacent endpoint gaps. The probability of an empty edge is exponentially small; the discrepancy from that geometric identity is uniformly bounded. Integrating the exact two-interval void probability produces the finite denominator \((N+1)(N+2)\) and exponential corrections without assuming independent gaps. Simultaneous shrinking boundary intervals yield independent unit exponential endpoint limits. Binomial void tails give uniform moment bounds; the resulting corner products have explicit mean, variance and Laplace transform. The bundled independent hull checker ran successfully after its finite-size analytic correction terms were accounted for. Limits and the law do not depend on the checker.
+PASS
 
-## Originality — PASS relative to checked sources
+For a fixed convex polygon with all side lengths positive, on the event every side receives a sampled point the missing hull area is exactly sum of disjoint vertex triangles 1/2 sin(alpha_i) X_i Y_i. Their joint tail is (1-(x+y)/P)^N on two disjoint adjacent boundary arcs; integrate to obtain E(X_i Y_i)=P²/[(N+1)(N+2)] times four exponential edge truncation factors. The empty-edge probability is at most sum_i(1-l_i/P)^N, and the total error is uniformly bounded by a geometric constant times that probability. Thus the universal coefficient P²/2 sum_i sin(alpha_i) and exponential remainder are exact. Joint binomial void probabilities of all 2m rescaled endpoint gaps converge to independent exponentials; continuous mapping and uniform exponential tail bounds imply convergence of ALL fixed positive moments, variance 3 sum w_i² and the product E1 Laplace formula. No approximation by a smooth boundary or a growing number of polygon sides is used.
 
-The relevant fixed-polygon Hausdorff results establish joint Poisson corner-process convergence, which already implies the area-product limit once the area-cap identity is inserted; that underlying limit mechanism is therefore not counted as independent novelty. The new claim is the stronger exponentially accurate finite-sample mean profile. The 2023 boundary-polytope paper proves a general expected-volume order with a geometry-dependent unspecified constant, not the exact rational finite-sample profile plus exponential error, nor the complete non-Gaussian planar limit. The classical interior-sampling central limit theorem uses a different probability measure. The public regular-polygon Gumbel result also treats Hausdorff error, not area loss. The new assertion supplies an exact exponentially accurate finite-\(N\) mean law, including all inverse-power coefficients and an explicit geometric constant. The accompanying moment-complete limit is an interpretive corollary using an acknowledged older point-process limit. Neither the older corner Poisson convergence nor its direct consequences are claimed independently novel.
+## originality
 
-## Value — PASS
+PASS
 
-Boundary-sampled random polygons are a natural model for stochastic approximation of polyhedral bodies, and the law determines an observable not described by an unspecified expected-deficit order. The exponentially accurate rational expectation shows that individual edge lengths do not affect any inverse-power correction, while the non-Gaussian weighted-product law gives an explicit variance and full Laplace transform. The dependence solely on angles and perimeter supplies a reproducible geometric-probability benchmark across noncongruent polygons and distinguishes boundary sampling from interior-polygon Gaussian limits.
+The same boundary-random-polytope sampling model is studied in primary prior literature, including local corner Poisson limits. Prochno–Schütt–Sonnleitner–Werner provide the asymptotic independence mechanism and a Hausdorff-distance result; Reitzner–Schütt–Werner derive volume deficit leading exponents for broader polytopes. Neither inspected primary text supplies the exact two-dimensional rational denominator with error exponentially small for every fixed polygon, nor the angle-sine coefficient. Novelty is restricted primarily to that finite-N perimeter–angle mean law; the exponential-product limiting law is an interpreted consequence of already-known local Poisson behavior.
 
-## Literature comparisons and residual limitations
+## value
 
-Pardon (arXiv:1003.4209, 2010) treats interior points. Schütt–Werner (2000, doi:10.1016/S0764-4442(00)01685-2) study a smooth-boundary setting; only their bibliographic abstract was inspected, leaving possible historical overlap beyond the stated smoothness hypotheses as a residual risk. Reitzner–Schütt–Werner (arXiv:1911.05917, accessible complete journal text read at the theorem and area-proof sections) derive generic expected-volume asymptotics. Prochno–Schütt–Sonnleitner–Werner (arXiv:2404.02870, accessible HTML full paper read at theorem, point-process convergence and main proof) derive Hausdorff-error asymptotics and a general joint corner Poisson limit. The public result `3fe000dbc9a1` (full mathematical result read) is about a regular-polygon Gumbel Hausdorff limit. No universal historical-priority certification is asserted. The geometry is planar, side count fixed, and sampling arclength-uniform. No independent validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The result exposes an exact algebraic cancellation of all higher 1/N corrections in a classic random-polytope observable, and shows that leading mean/limiting distribution are insensitive to individual side lengths beyond perimeter and angle data. It is motivated by the polygonal boundary sampling problem and has useful explicit finite-sample and limit formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
