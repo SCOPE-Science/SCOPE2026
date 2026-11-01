@@ -1,0 +1,11 @@
+# Three-axis scientific review
+
+**Correctness — PASS.** Massri's complete-intersection theorem supplies the codimension-three hypothesis; the symplectic moment-map differential proves the singular support is precisely the pure-power rational normal curve; pivot elimination and a nondegenerate transvectant antidiagonal give a single-parameter Morse germ. Positive weights force its critical value to be a scalar multiple of \(t^{m+1}\), and the global one-dimensional singular-support calculation forces that scalar to be nonzero. The local Jacobian ideal then gives transverse length \(m\). Exact arithmetic checks in odd degrees \(5,7,9,11,13\) corroborate the formulas; finite cases are not substituted for the uniform proof.
+
+**Originality — PASS, with residual risk.** Massri 2013 [2, Theorem 12] already established three quadrics, degree eight and the inclusion of the rational normal curve in the singular locus. Massri 2026 [1] gives the complete-intersection theorem and a tangent cone, but neither inspected work gives the exact global singular-support equality, uniform analytic \(A_m\) classification or transverse Jacobian length. The other inspected stable-range treatment [3] does not dominate these claims. Targeted semantic and keyword searches for binary transvectants, moment-map zero fibers and transverse ADE singularities found no equivalent statement; this is evidence of an unresolved literature gap, not proof of absolute novelty.
+
+**Value — PASS.** The exact singularity type and its nilpotent singular-scheme multiplicity are natural geometric invariants for an infinite, uniform class of complete intersections recently studied via their tangent cones. The result distinguishes their local analytic geometry for every rank and refines an older partial singular-support statement. It is not a mere dimension/degree recalculation.
+
+**Closest literature and limits.** Sources [1]–[3] as fully specified in RESULT.md. The argument is characteristic-zero and local analytic, and does not classify even-degree analogues. Some older local result implicit in representation-theoretic literature could subsume this finding. Independent mathematical validation remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
