@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:53:02Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md at frozen Git blob b3dc86881f7bf8c8bb7d14eca6439c980e828c9b; its Hilbert-Schmidt dissipation equation, shortest-walk positivity, semisimplicity and ring sine modes reconstructed.",
+        "Independent Python H-Krylov-rank tests for all 54 (n,s) with cycle lengths 3≤n≤11 and 1≤s<n matched floor((gcd(n,2s)-1)/2) exactly.",
+        "The retained 1198-case source log is supporting evidence only; it does not prove the all-graph statement."
+      ],
+      "rationale": "For finite connected graphs with strictly positive real edge hopping and local Markovian dephasing, the Hilbert-Schmidt dissipativity identity is exact: the real form is the negative sum of absorber row/column norms and dephaser commutator norms. A peripheral eigenoperator X must kill each trap cyclic subspace and commute with every dephaser projector. Writing X|s>=x_s|s> and choosing a trap f at graph distance d, the positive shortest-path sum <s|H^d|f> forces x_s=0. The commutator equation then extends annihilation to the H-Krylov spans of F∪S. The orthogonal complement D reduces H and gives unitary persistent matrix evolution; HS contraction rules out peripheral Jordan blocks. Thus survival converges to tr(P_D rho), exactly the coherent F∪S-sink value. On C_n, sink 0 and dephaser s, sine modes with n|2ks yield dim D=floor((g-1)/2), g=gcd(n,2s), and the stated initial-site survival g/(2n) if g does not divide 2a, otherwise zero. The root-of-unity identity includes g=1,2 and even-cycle antipodal endpoints.",
+      "risks": [
+        "Proof requires strictly positive real edge hopping, connected graph, positive absorber rates and fixed-rate t→∞ before any rate-zero limit; magnetic edge phases could cancel shortest paths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Le–Donati–Severini–Caruso 2018 §III.C treats removal of dark states under noise, but its examined statements do not prove arbitrary nonempty F and arbitrary dephasing subset S on every positive-hopping connected weighted graph.",
+          "Razzoli–Paris–Bordone (2021) §6 explicitly neglects disorder and decoherence."
+        ],
+        "reasoning": "Even if a general finite-dimensional Lindblad peripheral-algebra theorem gives parts of the proof, the precise positive-walk implication that annihilation propagates from arbitrary traps to all locally dephased sites must be present to subsume the claimed equivalence; no such direct implication verified.",
+        "searches": [
+          "single site dephasing dephasing asymptotic absorber coherent quantum walk graph dark subspace trap sink noise localization projector",
+          "open quantum network local dephasing sink asymptotic survival dark space equivalence adding trap projector Hamiltonian Krylov invariant 2000 2019"
+        ]
+      },
+      "checked_sources": [
+        "Le et al. 2018 arXiv:1707.07482 §III.C; full relevant primary PDF",
+        "Razzoli et al. 2021 PMC7826824, coherent trap and Krylov subspace",
+        "Agliari–Mülken–Blumen 2009 arXiv:0903.3288, coherent ring",
+        "Resultary published search single site dephasing dephasing asymptotic absorber coherent quantum walk graph dark subspace trap sink noise localization projector"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Le et al., J. Phys. A 51 (2018) 365306 / arXiv:1707.07482, read PDF §III.C including uniform site dephasing and §VI.",
+          "Razzoli–Paris–Bordone, Transport Efficiency of Continuous-Time Quantum Walks on Graphs, §6, states the model deliberately omits decoherence."
+        ],
+        "reasoning": "The earlier coherent transport theorems do imply tr(P_D rho) when both F and S are sinks, but do not mathematically imply the equivalence to a new dissipator at S. Uniform-dephasing examples do not yield an arbitrary sparse-support theorem by specializing their noise pattern.",
+        "searches": [
+          "single site dephasing dephasing asymptotic absorber coherent quantum walk graph dark subspace trap sink noise localization projector",
+          "Le Donati Severini Caruso how to suppress dark states quantum networks 2018 sparse dephasing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Le et al. 2018 §III.C applies uniform dephasing and dark-state theory; arXiv:0903.3288 provides coherent trapping arithmetic without the sparse-dephasing equivalence.",
+          "Razzoli et al., Transport Efficiency of Continuous-Time Quantum Walks on Graphs (2021), analyzes coherent trap Krylov span in the absence of decoherence (PMC7826824)."
+        ],
+        "reasoning": "A coherent absorber on F∪S and a dephaser at S have different Lindblad generators and finite-time transport. Their equality only for asymptotic survival is not automatic from the coherent two-sink formula or full-uniform-noise experiments.",
+        "searches": [
+          "single site dephasing dephasing asymptotic absorber coherent quantum walk graph dark subspace trap sink noise localization projector",
+          "quantum network dark states pure dephasing local sink Krylov subspace equivalence",
+          "arXiv:1707.07482"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Agliari–Mülken–Blumen, arXiv:0903.3288, already covers coherent ring trapping/spectral sine modes; this corollary is therefore not treated as the original core."
+        ],
+        "reasoning": "This is a theorem about arbitrary finite graphs, not a new standalone finite table. Existing ring dark-state formulas give only the coherent F∪S comparison term and do not establish the global Lindblad equivalence.",
+        "searches": [
+          "single site dephasing dephasing asymptotic absorber coherent quantum walk graph dark subspace trap sink noise localization projector",
+          "cyclic quantum walk sink dephaser exact gcd survival formula graph dark states"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact universal sparse-position-dephasing/added-sink long-time survival identity. Coherent two-trap ring arithmetic and general quantum-network dark-state notions are prior work and are NOT independently claimed; no inspected theorem supplies the all-F,S Krylov-annihilator equality. A more general pre-2026 Lindblad invariant-enclosure theorem might subsume it and is an explicit priority risk.",
+      "residual_risks": [
+        "A general older Lindblad invariant-subspace/peripheral spectral theorem, not located in this bounded search, might imply the all-graph equality.",
+        "The ring Fourier corollary overlaps known coherent two-absorber trapping and is not independently original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSEST: does not establish the exact arbitrary-support asymptotic sink-substitution identity in its inspected statements.",
+          "evidence": [
+            "arXiv 1707.07482, §III.C (dephasing) and §§II,VI; web PDF page 5 screenshot"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1707.07482",
+          "material_read": "Full 9-page arXiv PDF; dark-state sections, homogeneous-noise examples, and §III.C dephasing passage including page 5",
+          "method": "Read web PDF text plus page screenshot",
+          "title": "How to suppress dark states in quantum networks and bio-engineered structures",
+          "trigger": "Same graph dark-state and dephasing objects, plausible general prior theorem"
+        },
+        {
+          "assessment": "Covers coherent-sink side; explicitly excludes decoherence, hence no sparse-dephaser identity.",
+          "evidence": [
+            "PMC7826824 §6 states ideal regime neglects decoherence; §4 coherent graph trap benchmarks"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7826824/",
+          "material_read": "Open-access HTML through §§2,4,6, especially coherent trap generator and final Conclusions",
+          "method": "Read full accessible sections in web HTML",
+          "title": "Transport Efficiency of Continuous-Time Quantum Walks on Graphs",
+          "trigger": "General Krylov dark-space equivalent formula for coherent sinks"
+        },
+        {
+          "assessment": "Coherent ring trapping is prior; do not assert the whole source is noncovering.",
+          "evidence": [
+            "arXiv:0903.3288, coherent trapping model and ring case"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.3288",
+          "material_read": "Abstract and source characterization; full independent inspection not completed in this execution",
+          "method": "Bibliographic/abstract comparison",
+          "title": "Continuous-Time Quantum Walks and Trapping",
+          "trigger": "Same ring two-absorber arithmetic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Local Markovian dephasing on a graph is a natural controllable physical perturbation; the all-graph formula and single-site ring threshold are exact, rather than a tiny numerical improvement."
+      ],
+      "rationale": "Sparse positive local noise behaves as an exact asymptotic spectral filter determined solely by its support; this turns a difficult dissipative transport survival calculation into a finite Hamiltonian Krylov computation and separates where dephasing acts from how strongly it acts. Nontrivial dark states persist for special supports, and the explicit ring gcd law characterizes that arithmetic obstruction.",
+      "risks": [
+        "No prediction for finite-time hitting or mean absorption time, and not valid for sign-changing/magnetic edge weights without shortest-path positivity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
