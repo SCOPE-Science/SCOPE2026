@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification protocol and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no third-party libraries. A successful run prints `VERIFY_OK`.
+## correctness
 
-The program performs exact arithmetic in \(\mathbf F_4=\mathbf F_2[t]/(t^2+t+1)\) and exhaustively tests the \(85\) points of \(\mathbf P^3(\mathbf F_4)\). For the four representative zero-coefficient patterns \(r=0,1,2,3\) with \(a=e=1\), it verifies every projective singular point, the exact gradient support, the predicted point counts \(12,10,8,6\), and the six edge-divisor support and multiplicity totals. It separately checks all distinct degree-\(12\) Cremona pullback monomial exponent vectors, the absence of coordinate divisibility, and the cubic involution identity on every nonzero four-tuple over \(\mathbf F_4\).
+PASS
 
-The universal theorem for algebraically closed coefficient fields does **not** follow from the finite-field enumeration. The proof is the characteristic-two differentiation, squarefree coordinate-edge ideal, monic degree-four edge equations, formal transverse splitting, normality, and Laurent-torus birational argument in `RESULT.md`. The program does not establish independent proof certification, general Picard lattices, or novelty in unsearched works.
+The gradient of the quartic is e(yzw,xzw,xyw,xyz), so its critical support is exactly six projective coordinate lines. Every vertex has value a≠0, so edge cuts are disjoint. Restricting to each edge gives a monic binary quartic a(u^4+v^4)+βu²v², finite locally free degree 4. A root has order 2 if β≠0, order 4 if β=0. The transverse polar uv coefficient is a unit; formal splitting gives UV+s² or UV+s⁴ (Artin A1 and A3), including zero-wall intersections. Finite singular support implies normal irreducible quartic and K3 resolution. On torus the Gauss map is an involutive cubic Cremona; F after substitution is degree12 primitive irreducible on torus, no coordinate divisor. Independently GF4 count across r=0,1,2,3 gives supports 12,10,8,6 and rank 24; finite computation corroborates but does not establish relative flatness.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality with disclosed antecedents and material access limits. The classical Heisenberg, Dwork, q²+xyzw and Cremona descriptions were compared by equations. The same ambient char-2 q²+xyzw family covers generic and maximally degenerate examples, but neither a degree-12 dual nor all intermediate scheme structures follows merely from those example counts. The prior published examples imply some endpoints, but do not from accessible text entail all intermediate parameter-wall contact orders and a globally uniform degree-12 Cremona dual. Without full III text, an exact stronger implication remains a residual risk.
+
+## value
+
+PASS
+
+A natural primitive integral quartic family has characteristic-two ADE wall-crossing with constant scheme-theoretic length and polar-degree invariant. Flatness despite collision of reduced singular points and explicitly birational dual map are mathematically distinct from already known generic and special fibers. Not a new discovery of the generic 12 nodes or 6 A3 endpoint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
