@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The fixed-point identification is proved using barycentric subdivision and the fact that chain vertices have distinct ranks. Each fixed colored face is exactly a union of subgroup vertex-orbits with a color constant on each supported subgroup edge-orbit, and all restriction maps in the resulting simplex inflation are surjective projections. The hypotheses of the full-dimensional wedge and homotopically Cohen–Macaulay theorems in Ayzenberg–Khoroshavkina, arXiv:2602.08694v1, Theorems 5.1 and 5.3, are therefore verified. Signed cellular Lefschetz counting proves the separate normalizer character. The case of a single vertex orbit is interpreted as a discrete set, so the zero-dimensional boundary is included. The finite checker directly verifies 41 cases, 3,014 fixed cells and 218 normalizer traces, without pretending to establish an unbounded result by enumeration.
+
+## Originality — PASS, with stated residual uncertainty
+The exact ambient character in *Joint vertex-and-edge-label homology characters of uniform multiclique complexes* is the closest indexed claim. Its cyclic Lefschetz specialization already recovers a numerical relation to cyclic fixed loci, so this is excluded from the novelty claim. The inspected full text does not classify the integral geometric subgroup-fixed spaces, their homotopically Cohen–Macaulay structure, or their normalizer homology representations. Ayzenberg–Khoroshavkina supplies the general inflation theorem as a major input, not the group-orbit identification or character. Ayzenberg–Rukhovich supplies an older nonequivariant inflation framework. The new group-orbit topology and residual normalizer formulas are not direct consequences of ambient character data. Residual risks: a general but currently unlocated equivariant fixed-point inflation theorem could imply some or all of the present statement; the proof combines substantial established ingredients and may therefore be less independently novel than a new inflation theorem.
+
+## Value — PASS
+For **every** subgroup of a symmetric group, the theorem converts a potentially intricate geometric fixed locus into a finite orbit-support combinatorial object, then gives integral homotopy type, Cohen–Macaulay structure and the rational normalizer character. These invariants distinguish subgroup fixed loci and their residual symmetries even where ambient Betti numbers do not. The scope is an arbitrary subgroup lattice, not a single numerical example or an incidental parameter slice. Both fixed-space geometry and normalizer action are natural equivariant invariants.
+
+## Limits and comparison
+No color-twisting permutations, general equivariant wedge models or integral normalizer-module classifications are claimed. The result relies on prior 2020 and 2026 inflation theorems. Its contribution is the structural identification of the fixed poset and explicit normalizer trace. The bounded checker corroborates the theory without replacing the proof. Historical novelty cannot be proven by unsuccessful search.
+
+Self-review: passed. Independent audit: not yet performed.
