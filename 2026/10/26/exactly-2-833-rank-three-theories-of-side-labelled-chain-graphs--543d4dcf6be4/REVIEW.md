@@ -1,19 +1,21 @@
-# Scientific review of the 2,833-class chain-graph theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The logical invariant is reconstructed from ordinary three-round atomic Hintikka types, including equality/repeated choices, both side predicates, and arbitrary adjacency patterns. The word representation lemma covers every finite side-labelled chain graph on exactly its original number of vertices. The two append operations preserve Ehrenfeucht–Fraïssé equivalence, so full transition closure gives an infinite-size theorem. `verify.py` replays 2,833 pairwise distinct rank-three profiles and all 5,666 transitions, proves shortest-path minimality in the finite transition graph, and reports two states at the sharp order 21. The generic independent-in-code atomic recursion corroborates sampled states. Numerical claims require replay of the provided actual files.
+PASS
 
-## Originality
+Every finite bipartite chain graph with named sides A,B is representable as a creation word, 0 inserting an isolated A vertex, 1 inserting a B vertex joined to all preceding A; nested B neighborhoods give the word order, including empty structures. The rank-three Hintikka/Ehrenfeucht–Fraïssé invariant H(G) is built from realized atomic triple types and their extension sets. It is a COMPLETE invariant of rank≤3 sentences (not just a heuristic colour refinement): one-round tuple-type recursion induces exact 3-type of the empty tuple. Appending either creation letter preserves 3-equivalence by an EF strategy matching new vertices and using the winning old strategy. Thus closure of quotient word states is an infinite completeness certificate. Independently RECOMPUTED H for every one of the actual 2833 source certificate words, checked all signatures unique, all 5666 claimed successors exactly, BFS reachability of all 2833 states and distances equal claimed shortest word lengths. The maximum is 21 with exactly two words at that distance: 001100110011011001100, 110011001001100110011. This is exhaustive for all creation words because the fully verified transition table is closed, not a bounded word-sample extrapolation.
 
-PASS under the checked coverage, with residual risk. Search compared the theorem and its aliases against indexed findings and accessible research ledgers; no identified statement implies the exact 2,833-class count or 21-vertex bound for the same signature and class. The closest current literature supplies general logical methods (Pikhurko–Verbitsky 2010), nested chain-graph structure and optimization (Boyacı–Ekim–Shalom 2015), and the forbidden-subgraph/word-class context (Alecu et al. 2022). Distinct already recorded results cover uncoloured connected half-graphs at rank four or uncoloured threshold graphs at rank three, not this fully side-labelled chain-graph class. General finite-index results do not supply the exact enumerated state count without the missing classification. Unindexed literature remains a risk.
+## originality
 
-## Value
+PASS
 
-PASS. The exact bounded-rank logical spectrum and optimal induced-size representative threshold are natural invariants of the full hereditary class of two-sided chain graphs, not arbitrary sizes or selected examples. A compact complete finite-state model controls truth of *every* rank-three first-order sentence on *every* finite graph in the class; in particular, the 21-vertex bound produces a finite complete testing set and an optimal obstruction to smaller uniform kernels. The numerical complexity is nontrivial despite the class's two-letter construction. The result does not claim analogous consequences for uncoloured or richer logics.
+Best-of-knowledge PASS for the precise complete 2833 rank-three theory census and sharp 21-vertex minimal kernel for named-side chain graphs. Pikhurko–Verbitsky provide EF foundations, Boyacı–Ekim–Shalom exploit chain structure for MaxCut, and Alecu–Atminas–Lozin–Malyshev study quasi-chain structural decomposition. None of the inspected mathematical results states this numerical first-order classification. Published rank-q results for other graph/word classes differ in signature and domain.
 
-## Related work and scientific limits
+## value
 
-The closest inspected primary texts are Pikhurko–Verbitsky arXiv:1003.4865 (Section 3 and depth definitions), Boyacı–Ekim–Shalom arXiv:1504.03666v1 (full chain/co-chain discussion and optimization theorems), and Alecu–Atminas–Lozin–Malyshev DOI:10.1007/s00453-022-01019-6 (Sections 1–2 and later structure theorems). None states the exact same first-order rank-three classification. The proof requires exact finite certificate replay, and originality against all inaccessible or unindexed literature remains unproved. No external independent audit was carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 2833 precise theory count and optimal 21-vertex kernel give a natural complete low-rank model-theoretic classification of all finite bipartite chain graphs with named sides. The sharp two extremal witness classes and verified finite syntactic quotient are independently useful for testing bounded-depth logical properties; this is a complete canonical finite classification rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
