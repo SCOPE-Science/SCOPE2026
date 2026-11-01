@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The first update kills each initial biomass-one site and changes each initial biomass-two site to one when competition exceeds one. The second update depends only on the number (zero, one, or two) of initially biomass-two neighbors. The run decomposition then isolates singleton fixed sites and two-site paired oscillators. All equality conditions, cyclic wraparound, complete extinction configurations, and finite-size expectations are handled algebraically. Exact-rational replay of 14,224 finite cases supports the symbolic argument without being substituted for it.
+PASS
 
-## Originality
+Reconstructed for all n≥4 and real α>1: first synchronous update maps each initial-2 to 1 and kills each initial-1, so N_i(1)=X_i. The next sign is sign(1−α(X_{i−1}+X_{i+1})/2), producing exactly isolated survivors, two-run dimers or long-run endpoints, with equality α=2 checked separately. Distinct initial runs are insulated by absorbing zeroes; dimer (2,2)↔(1,1) below α=2 and (1,1) fixed at equality. Local fair iid three-bit probabilities give 3/8 and 1/8 for every finite n≥4; four-bit 0110 gives 1/8 dimer sites, hence fixed sites 1/4 and biomass means. Only all-zero/all-one X cause global extinction for α≤2, probability 2^{1−n}; disjoint four-block events yield the period-two lower bound. New independent exhaustive state transitions confirm 10,160 (n, α, initial-state) cases but do not prove the all-n claim.
 
-PASS under the evidence available, with residual historical-priority uncertainty. The closest source, Sergo et al., arXiv:2606.09494v1, defines the sign-update model and proves that eventual periods cannot exceed two; that upper bound alone neither identifies the finite-cycle basins nor gives the two sharp expected survival densities or the exponentially high probability of two-cycles. Related numerical and discretized Lotka–Volterra works use different update maps. No implication-equivalent published mathematical record was found by the named searches, but equivalent one-dimensional cellular-automaton results remain a risk; material from the main source's full appendix was not completely retrievable during comparison.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The finite degree-two ring is a natural benchmark for network-driven ecological clustering, not an arbitrary parameter slice. The theorem fully classifies the dynamics and provides a sharp, discontinuous change in occupied-site density and oscillator persistence at a physically interpretable interaction threshold. The exact finite-size extinction probability and asymptotically certain oscillation phenomenon give testable calibrations of the much more general network model; no broad empirical claim is asserted.
+Best-of-knowledge novelty is the all-initial-state finite-cycle basin and sharp density/oscillation classification for the same ecological sign map; the originating paper proves a general period bound and random-graph phase structure, neither of which entails the cycle run formulas. An older cellular-automaton alias is a residual priority risk, not ruled out by a null search.
 
-## Limitations and closest literature
+## value
 
-The result covers only uniform degree-two cycles, carrying capacity two, positive binary initial biomasses, and coupling larger than one. The first public source is Sergo, Koller, Erba, and Zdeborová (2026); earlier works by Roeger (2008) and Feldager, Mitarai, and Ohta (2017) discuss distinct discrete competition and ring-mixing models. Only a self-review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The degree-two cycle is the canonical exactly solvable spatial ecology baseline for the originating random-network competition map. A complete basin classification, two distinct sharp competition transitions and all-finite-n 3/8-to-1/8 occupied fraction identify the mechanism behind fixed patches versus synchronized dimers. The exact extinction probability and exponentially high probability of two-cycle occurrence under fair initial states are natural measurements, not arbitrary numerical curiosities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
