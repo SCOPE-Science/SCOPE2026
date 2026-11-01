@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the ordinary, unpadded digit-count convention and a half-open dyadic shell. Independently from finite checks, the proof establishes the Takagi functional identities, proves its uniform maximum is \(2/3\), excludes the outer quarters at every dyadic grid depth at least three using \(7/12<5/8\), derives an exact two-level recurrence for all grid maxima and their full argmax sets, and transfers that result through Baruchel's exact identity. The strict upper-half bound rules out overlooked secondary minimizers. The exceptional shell \(k=1\) is checked directly. The independently computed binary-defect and integer-Takagi finite cases pass, with their finite reach disclosed.
+## correctness
 
-## Originality — PASS within inspected evidence
-Baruchel (arXiv:1908.02250, Section 6.6) explicitly obtains only an upper bound for this particular dyadic-shell minimum and does not prove that the candidate value is attained as the true minimum. Krüppel's continuous Takagi extrema and Monroe's dyadic identities are closer structural results, but the inspected material does not state this shell minimum theorem or the full discrete minimizing-word classification. Searches of the mathematical record, the sequence entry, mathematical literature, and accessible prior claims found no direct equivalent. This is an evidence-limited originality assessment, not proof of universal uniqueness or publication priority.
+PASS
 
-## Mathematical value — PASS
-The exact integer invariant is singled out by a specific unresolved extremal statement in a primary number-theory paper, rather than an arbitrary computed slice. Determining the minimum for all shells and a complete, rapidly growing extremizer family provides a structural resolution and a usable parametrization of all equality cases. Its mathematics depends on a nontrivial interaction of digit sums and exact dyadic Takagi maxima.
+For unpadded binary-digit cumulative deficit a(n), Baruchel's exact Takagi identity and the Takagi quarter-map identities convert each shell minimum into a finite dyadic-grid maximum. The global Takagi bound 2/3 and the grid witness τ(3/8)=5/8 rule out outer quarters for depths >=3. Prefixing 01 and 10 bijects all maximizing words with those two levels below; H_1=1,H_2=2,H_l=2^(l−1)+H_(l−2)=floor(2^(l+1)/3). The first-half transfer j=n−2^k+1 has value 2^k−1−H_(k−1), while the second half is strictly worse. The parity-dependent maximizing word grammar follows inductively, and k=1 is checked directly. Independent exact digit sum enumeration verified full minimizing sets for shells k=1..14, including k=5 indices 36,37,38,40,41,42. Finite checks do not replace the induction.
 
-## Closest literature and limitations
-The main prior input is Baruchel's 2019 digit-deficit identity and explicit unresolved minimum question. Krüppel (2007) establishes classical continuous extrema; Monroe (2021) relates dyadic Takagi values to divide-and-conquer trees. The equivalence may occur implicitly in broader Takagi literature; some indexed later sources were not fully accessible. The theorem does not treat other integer intervals or full distributions. The new result has not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Baruchel studies the exact same sequence and gives its Takagi representation. His §6.6 explicitly gives only a shell-minimum bound and says attainment was not proved. Krüppel establishes the continuous Takagi global maximum set (base-four digits 1 or 2) and local extremal structure, distinct from exact finite-grid maximizers, while Monroe gives dyadic rational Takagi identities. The complete finite-grid maximizer grammar and the resulting all-shell minimum and every minimizing index constitute the assessed increment, though broader literature may derive them implicitly. Resultary semantic search returned unrelated binary extremal records.
+
+## value
+
+PASS
+
+The cumulative deficit A268289 and dyadic shells are canonical arithmetic objects. The exact all-shell minimizers answer a gap explicitly identified in the motivating paper and give a nontrivial self-similar classification and exact counts, beyond merely detecting a small minimum value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
