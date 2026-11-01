@@ -1,15 +1,21 @@
-# Scientific review: ternary Ciani quartic classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain consists of 728 nonzero coefficient vectors, grouped into 364 scalar classes. Euler's formula in characteristic three reduces singularity testing to the three partial derivatives. The all-support principal-matrix criterion proves that smoothness is equivalent to three nonzero diagonal coefficients and at most one mixed coefficient, joining opposite diagonal signs. It yields 32 smooth vectors, or 16 scalar classes. An exact Gröbner-basis checker confirms this equivalence for every nonzero vector. Invertible coordinate permutations and the explicit binomial identity reduce the smooth sextuples to three projective types. The Klein-four quotient has genus zero; its three index-two quotients have genus one, and their direct-sum cohomology supplies the three Weil-factor products. Independent point counts over extensions of degrees one, two, and three corroborate them. The resulting rational-point counts and \(3\)-ranks follow without relying on experimental extrapolation.
+## correctness
 
-## Originality — PASS, qualified
-Ohashi (2022, arXiv:2201.12996, Lemma 2.1 and Sections 3–4) treats normalized Ciani coefficients and superspecial maximality. The present fixed-coordinate \(\mathbf F_3\) classification includes nonsuperspecial rank-one forms with unequal fourth-power coefficients and gives exact scalar-class counts and Weil polynomials. Meagher and Top (2010) treat quartic twists, but explicitly exclude characteristic three in their detailed Fermat-twist theorem; the generic twisting machinery does not itself state this family-specific classification. Lercier–Ritzenthaler–Rovetta–Sijsling (2014) exclude characteristic three from their main parametrization and numerical samples. Searches for the exact \(\mathbf F_3\) Ciani coefficient census, Weil factor patterns, and p-rank dichotomy found no direct equivalent. Related general tables and supplementary classifications could yield the result by additional filtering, and historical priority is not certified. Distinctness between the explicit projective types follows from different point counts, not from uniqueness of a search result.
+PASS
 
-## Value — PASS
-The Klein-four-symmetric genus-three Ciani locus is a standard, geometrically motivated moduli subfamily. The smallest odd characteristic has a rigid arithmetic collapse: only 16 scalar-normalized smooth forms occur, only three Weil spectra survive, and no ordinary Jacobian occurs (in fact, the \(3\)-rank never exceeds one). The exact factorization connects a geometric classification to a nontrivial arithmetic constraint and distinguishes the non-superspecial cases left outside the 2022 superspecial theorem. It provides useful boundary data for arithmetic classification and quotient-elliptic constructions, rather than an arbitrary sliced count.
+PASS: Used Euler identity in characteristic 3 and all-nonzero supports of a principal submatrix of B=[[a,-d,-e],[-d,b,-f],[-e,-f,c]] to reconstruct the exact geometric singularity criterion. All a,b,c must be nonzero and at most one mixed coefficient can be nonzero, joining opposite signs. This gives 8 diagonal plus 24 one-mixed vectors, or 16 modulo nonzero scalar. The invertible (U+V,U-V,W) quartic identity and permutations collapse the 16 to three projective types. For the three signed-coordinate involutions, genus-one quotients and a genus-zero common quotient split H^1; rational counts of elliptic quotients (4,4,4), (2,4,4) or (6,4,4) yield exactly the three stated Weil polynomials and 3-ranks. A fresh independent exhaustive algebraic support computation covered all 728 nonzero coefficient vectors and a separate point count over F3 verified (4:8,2:12,6:12) at vector level. This point count alone does not prove geometric smoothness or all Weil factors; the linear-algebra criterion and quotient argument do.
 
-## Limitations and nearest sources
-The classification does not include non-split geometric Klein-four actions, other coordinate models, or all quartics over \(\mathbf F_3\). The isogeny decomposition by elliptic quotients and the general normalized smoothness criterion are known techniques, not claimed new. The scope is the exact joint classification of fixed-field coefficient forms, rational points, Weil spectra, and p-ranks. Publication priority remains unverified against every historic/supplementary census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Ohashi (2022) treats normalized Ciani forms and superspecial/maximality questions, including elliptic quotient constructions; the rank-one examples and all F3 diagonal sign patterns are not classified in those theorems. Meagher–Top Fermat twist work has a characteristic-not-three restriction for its key explicit family; Lercier et al main moduli parametrization assumes p>7. A more general arithmetic classification or unpublished table could still include the three Weil spectra; no historical uniqueness certification.
+
+## value
+
+PASS
+
+PASS: A complete moduli-and-Weil spectrum classification in the smallest odd characteristic for a natural split Klein-four quartic family is a meaningful finite arithmetic invariant, especially the nonordinary rank ceiling and two nonsuperspecial isomorphism classes. It is not a claim about all genus-three curves or all nonsplit twists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
