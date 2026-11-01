@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package directory, requiring no third-party dependencies. Actual execution: `PASS: 10716 exact integer/rational assertions, unrestricted theorem from the analytical proof; p(100)=190569292`.
+## correctness
 
-The executable recomputes partition numbers by dynamic programming. It verifies 75 two/three-step inequalities at base points 1 through 25, the finite monotonicity and tail-ratio checks, every covariance numerator at integer sizes 2 through 32, and complete independent enumeration of partitions through size 12 for comparison with both marked-part formulas. It checks a sharp nonextension: positive covariance between part-size-presence indicators at size 3.
+PASS
 
-For all larger indices, the proof relies on the published strict log-concavity theorem [2] and the Bessenrodt–Ono partition-number product inequality [3], followed by finite telescoping identities. No finite execution certifies infinity, and no independent audit or formal proof assistant validation has occurred.
+For every n>=2 and 1<=i<j<=n, marking independent part sizes in the Euler generating function gives exact p(n) EC_i and p(n) E(C_i C_j) sums, yielding a covariance numerator of differences p(n)p(n-u-v)-p(n-u)p(n-v). For u,v>=2 and positive remainder, the rectangle inequality follows by finite exact 2/3-step bases for t<=25 and strict eventual log concavity from DeSalvo–Pak for larger indices; all lengths >=2 decompose into 2s and 3s. At zero remainder n>=10, Bessenrodt–Ono p(u)p(v)>p(n); n<=9 checked exactly. For i=1, the quotient F(m)=sum_{k<m}p(k)/p(m) is strictly increasing for steps >=2, using ratio comparisons and a finite starting check, forcing each marked covariance summand negative. Summation gives the disjoint part-class claim, not negative association of arbitrary events. Independent exact DP checked 57,155 distinct pair covariances for 2<=n<=70 and 75 base rectangles; universal proof relies on cited infinite partition inequalities.
+
+## originality
+
+PASS
+
+The previously known partition-function log-concavity and multiplicative inequalities are explicitly imported premises, and odd/even normalized part-count asymptotic independence is prior. Those statements do not themselves supply strict covariance negativity at every finite n, especially the size-one boundary. No indexed exact all-pair finite multiplicity-sign theorem was located; priority risk persists for hidden specialized integer partition probability literature.
+
+## value
+
+PASS
+
+A complete sharp sign classification for all distinct part-size multiplicities in uniform finite integer partitions; it yields strict negativity for every pair of disjoint nonempty size classes, including odd versus even, and distinguishes multiplicities from positively correlated presence indicators. This is a natural finite-sample dependence result, not just an asymptotic paraphrase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every n>=2 and 1<=i<j<=n, marking independent part sizes in the Euler generating function gives exact p(n) EC_i and p(n) E(C_i C_j) sums, yielding a covariance numerator of differences p(n)p(n-u-v)-p(n-u)p(n-v). For u,v>=2 and positive remainder, the rectangle inequality follows by finite exact 2/3-step bases for t<=25 and strict eventual log concavity from DeSalvo–Pak for larger indices; all lengths >=2 decompose into 2s and 3s. At zero remainder n>=10, Bessenrodt–Ono p(u)p(v)>p(n); n<=9 checked exactly. For i=1, the quotient F(m)=sum_{k<m}p(k)/p(m) is strictly increasing for steps >=2, using ratio comparisons and a finite starting check, forcing each marked covariance summand negative. Summation gives the disjoint part-class claim, not negative association of arbitrary events. Independent exact DP checked 57,155 distinct pair covariances for 2<=n<=70 and 75 base rectangles; universal proof relies on cited infinite partition inequalities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeSalvo–Pak proves strict log-concavity of p(n) in the eventual range; it is a needed premise.",
+          "Bessenrodt–Ono Theorem 2.1 handles u,v>=2, u+v>=10 boundary.",
+          "Yakubovich Section 8 Theorem 8.1 proves asymptotic normalized odd/even independence, not finite strict sign."
+        ],
+        "reasoning": "The older inequality theorems prove inputs but do not directly encode marked covariance or its singleton boundary, and weak convergence is insufficient to infer its sign.",
+        "searches": [
+          "uniform integer partitions negative covariance multiplicities different part sizes strict sign",
+          "https://arxiv.org/abs/1310.7982",
+          "https://arxiv.org/abs/1403.3352",
+          "https://arxiv.org/abs/2303.14472"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1310.7982",
+        "https://arxiv.org/abs/1403.3352",
+        "https://arxiv.org/abs/2303.14472",
+        "Resultary indexed search: uniform integer partition multiplicity counts negative covariance; conditioned independent geometric occupancy counts; odd even parts count finite correlation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strict covariance formula requires p(n)p(n-u-v)<p(n-u)p(n-v) plus a separate u=1 argument.",
+          "Known log concavity starts after finite exceptions and cannot simply be applied at the singleton boundary.",
+          "An asymptotic odd/even joint law says nothing about covariance sign of finite unscaled samples."
+        ],
+        "reasoning": "The new finite sign result uses old number-theoretic ingredients but is not identical to their statements. A general conditional-geometric negative-correlation theorem might nonetheless dominate.",
+        "searches": [
+          "uniform integer partitions negative covariance multiplicities different part sizes strict sign",
+          "https://arxiv.org/abs/1310.7982",
+          "https://arxiv.org/abs/1403.3352",
+          "https://arxiv.org/abs/2303.14472"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "C_i multiplicity is the conditioned geometric ensemble occupancy count, not size-presence indicator.",
+          "Odd-even normalized asymptotic independence does not imply exact covariance sign at finite n."
+        ],
+        "reasoning": "Checked occupancy, generating-function marked-part, and conditioned-geometric aliases; presence indicator negative association would be false at n=3.",
+        "searches": [
+          "uniform integer partitions negative covariance multiplicities different part sizes strict sign",
+          "https://arxiv.org/abs/1310.7982",
+          "https://arxiv.org/abs/1403.3352",
+          "https://arxiv.org/abs/2303.14472"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned set-partition 8198e77842ad and composition 0ee24a72cd31 records concern other random combinatorial models.",
+          "No precise all-n individual multiplicity covariance sign record was retrieved."
+        ],
+        "reasoning": "The theorem covers an unbounded two-index sign law, not a recomputation of a known finite table. Failure to locate a table is not proof of priority.",
+        "searches": [
+          "uniform integer partitions negative covariance multiplicities different part sizes strict sign",
+          "https://arxiv.org/abs/1310.7982",
+          "https://arxiv.org/abs/1403.3352",
+          "https://arxiv.org/abs/2303.14472"
+        ]
+      },
+      "rationale": "The previously known partition-function log-concavity and multiplicative inequalities are explicitly imported premises, and odd/even normalized part-count asymptotic independence is prior. Those statements do not themselves supply strict covariance negativity at every finite n, especially the size-one boundary. No indexed exact all-pair finite multiplicity-sign theorem was located; priority risk persists for hidden specialized integer partition probability literature.",
+      "residual_risks": [
+        "Earlier finite covariance results in conditioned geometric or partition combinatorics terminology may be unindexed.",
+        "A broader negative-dependence theorem for multiplicities (not presence indicators) could subsume pairwise negativity; no such precise theorem was confirmed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "APPLICABLE_INPUT; NOT full covariance theorem",
+          "evidence": [
+            "Strict p(n)^2>p(n-1)p(n+1) for n>25 supplies ratios needed after finite base checks."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.7982",
+          "material_read": "Rendered and inspected primary PDF Theorem 1.1, positive-index threshold and nearby proof/strong log-concavity passage",
+          "method": "read mathematical theorem with boundary",
+          "title": "Log-concavity of the partition function",
+          "trigger": "Critical eventual strict inequality"
+        },
+        {
+          "assessment": "APPLICABLE_INPUT; not covariance theorem",
+          "evidence": [
+            "p(a)p(b)>p(a+b) with a,b>=2 and a+b>=10 is invoked only for remainder zero."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1403.3352",
+          "material_read": "Rendered and inspected primary PDF Theorem 2.1, assumptions and small exceptions",
+          "method": "read theorem statement and case conditions",
+          "title": "Maximal multiplicative properties of partitions",
+          "trigger": "Critical zero-remainder boundary"
+        },
+        {
+          "assessment": "ASymptotic SPECIAL CASE; remaining full-text risk",
+          "evidence": [
+            "Normalized odd/even count asymptotic independence is compatible with strictly negative unnormalized finite covariances."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.14472",
+          "material_read": "Section 8 Theorem 8.1 as identified in primary source and accessible summary; complete full-text verification not asserted",
+          "method": "compared theorem conclusion and finite sign claim",
+          "title": "Growing integer partitions with uniform marginals and equivalence of partition ensembles",
+          "trigger": "Potential odd-even count coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete sharp sign classification for all distinct part-size multiplicities in uniform finite integer partitions; it yields strict negativity for every pair of disjoint nonempty size classes, including odd versus even, and distinguishes multiplicities from positively correlated presence indicators. This is a natural finite-sample dependence result, not just an asymptotic paraphrase.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Strict negative covariance of every pair of part-size counts in uniform integer partitions",
+  "limitations": [
+    "Earlier finite covariance results in conditioned geometric or partition combinatorics terminology may be unindexed.",
+    "A broader negative-dependence theorem for multiplicities (not presence indicators) could subsume pairwise negativity; no such precise theorem was confirmed.",
+    "No GitHub write or publication performed; pending privacy-safe package synchronization."
+  ],
+  "schema_version": 1
+}

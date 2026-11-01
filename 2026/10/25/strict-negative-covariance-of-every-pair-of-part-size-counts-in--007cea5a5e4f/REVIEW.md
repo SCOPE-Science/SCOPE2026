@@ -1,15 +1,21 @@
-# Scientific review: strict negative part-size covariance
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Marked generating functions give exact individual and mixed moments. A strict rectangle inequality for partition numbers follows by decomposing shifts into 2/3 steps, checking 75 finite cases, and importing the established eventual log-concavity theorem of DeSalvo–Pak. The zero-remainder boundary invokes Bessenrodt–Ono; the part-size-one case uses a separately proved monotone quotient. The submitted standalone checker passed 10,716 exact assertions, including independent enumeration through size 12. The infinite claim follows from analytic inequalities plus finite checks, not an extrapolation.
+## correctness
 
-## Originality
-**PASS, with residual historical-priority risk.** The closest focal primary work [1, Theorem 8.1] concerns normalized large-size odd/even asymptotic independence, not all-size strict covariance signs. [2] and [3] provide number-theoretic inequalities used in the proof, but do not themselves state multiplicity covariances. Prior published mathematical-result searches and accessible prior-claim comparisons exposed related dependence problems for uniform compositions, set partitions, occupancy indicators, and noncrossing partitions but no verified dominating statement for unrestricted integer-part multiplicities. Earlier unlocated equivalent consequences of conditioned-geometric variables remain possible.
+PASS
 
-## Value
-**PASS.** The sign law settles finite dependence between arbitrary disjoint size classes of parts, including the naturally motivated odd/even split from [1]. The positive covariance of corresponding binary size-presence indicators in the three-partition example shows the result captures a substantive sharp distinction between multiplicity and occupancy rather than a vacuous form of negative association.
+For every n>=2 and 1<=i<j<=n, marking independent part sizes in the Euler generating function gives exact p(n) EC_i and p(n) E(C_i C_j) sums, yielding a covariance numerator of differences p(n)p(n-u-v)-p(n-u)p(n-v). For u,v>=2 and positive remainder, the rectangle inequality follows by finite exact 2/3-step bases for t<=25 and strict eventual log concavity from DeSalvo–Pak for larger indices; all lengths >=2 decompose into 2s and 3s. At zero remainder n>=10, Bessenrodt–Ono p(u)p(v)>p(n); n<=9 checked exactly. For i=1, the quotient F(m)=sum_{k<m}p(k)/p(m) is strictly increasing for steps >=2, using ratio comparisons and a finite starting check, forcing each marked covariance summand negative. Summation gives the disjoint part-class claim, not negative association of arbitrary events. Independent exact DP checked 57,155 distinct pair covariances for 2<=n<=70 and 75 base rectangles; universal proof relies on cited infinite partition inequalities.
 
-## Scope and limitations
-Uniform unrestricted partitions only; no general negative-association claim and no magnitude bound. The infinite proof depends on published sharp partition-function inequalities, whose original proofs are not reproduced. Independent mathematical audit and definitive historical priority verification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously known partition-function log-concavity and multiplicative inequalities are explicitly imported premises, and odd/even normalized part-count asymptotic independence is prior. Those statements do not themselves supply strict covariance negativity at every finite n, especially the size-one boundary. No indexed exact all-pair finite multiplicity-sign theorem was located; priority risk persists for hidden specialized integer partition probability literature.
+
+## value
+
+PASS
+
+A complete sharp sign classification for all distinct part-size multiplicities in uniform finite integer partitions; it yields strict negativity for every pair of disjoint nonempty size classes, including odd versus even, and distinguishes multiplicities from positively correlated presence indicators. This is a natural finite-sample dependence result, not just an asymptotic paraphrase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
