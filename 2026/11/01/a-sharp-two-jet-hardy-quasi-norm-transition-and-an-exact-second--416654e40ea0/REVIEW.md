@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The analytic Hardy quasi-norm is normalized to \(\|f\|_{1/2}=(\int|f|^{1/2})^2\). Brevig--Søvik, arXiv:2610.21788 Theorem 1, forces every unit extremizer of the mixed bounded functional to be outer. A normalized analytic fourth root then belongs to Hilbert \(H^2\). The coefficient identity \(a_2(g^4)=4a^3c+6a^2b^2\), Parseval and a strictly concave coefficient split reduce the complete infinite-dimensional extremum to a two-regime one-variable calculation. Explicit outer fourth powers attain both regimes, including endpoints and all equality phases. The supporting bound and known first-coefficient formula yield the exactly delimited fixed-origin frontier. The checker tests arithmetic and numerical finite examples; it is not used to certify infinity.
+
+**Originality: PASS under inspected evidence.** The 2026 outer-extremizer paper proves outerness, not any mixed-coefficient norm. The older Brevig--Saksman theorem settles the pure second-coefficient norm, a limit of the present profile. Brevig--Grepstad--Instanes proves the first-coefficient fixed-origin formula (Theorem 12), but asks about second-coefficient terminal stabilization (Question 2). The present exact result proves that equality for \(p=1/2\), \(81/100\le t\le1\), and supplies a sharp piecewise second-coefficient formula for \(81/256\le t\le1\). Semantic database and accessible historical-claim comparisons did not find coverage. Older classical literature not fully accessible remains a concrete residual priority risk.
+
+**Value: PASS.** The theorem identifies a genuine shape transition in optimizers for an entire one-parameter family and resolves a natural, explicitly posed fixed-origin second-coefficient question at the first Hilbert-root exponent. The lower fixed-origin range boundary is tied to the pure-second-coefficient extremal, and the terminal equality threshold is sharp in the full proved range.
+
+**Limits.** The scope is \(H^{1/2}\), nonnegative real coefficient weight and fixed origin at least \(81/256\). Lower origin values and different exponents are unproved. The source outer theorem is used, not independently reproved. Earlier equivalent formulations remain possible. Supplementary checker tests are finite.
+
+Self-review: passed. Independent audit: not yet performed.
