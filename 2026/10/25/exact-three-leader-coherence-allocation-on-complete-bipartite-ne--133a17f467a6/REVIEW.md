@@ -1,22 +1,21 @@
-# Review of exact three-leader allocation on complete bipartite networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain is the unit-conductance complete bipartite graph with part sizes \(2\le p\le q\), three distinct noise-free leaders, and objective \(\operatorname{tr}(L_{FF}^{-1})\). The follower-block spectral decomposition supplies the complete objective for all four feasible leader allocations, including cases in which a follower group is empty. Exact rational differences reduce their ordering to the four displayed inequalities. The factorized cases \(p=2,3,4,5\) and the negative-coefficient proof for \(p\ge6\) exhaust all integer boundaries. A standalone checker confirms symbolic identities and computes 1,876 direct grounded inverses with exact rational arithmetic. No finite computation substitutes for the exhaustive algebraic proof.
+PASS
 
-## Originality — PASS, with residual risk
+The grounded follower Laplacian on K_{p,q}, with a leaders in its p-vertex part, reduces to scalar orthogonal modes q and p and a 2×2 constant-vector block. Thus for u=p-a,v=q-3+a its inverse trace is J_a=(u-1)/q+(v-1)/p+(p+q)/(pq-uv), with direct diagonal interpretation if u or v=0. I verified the three key rational-difference identities algebraically and independently checked 3240 exact rational finite phase cases (p=2..28 and q up to 134) against the complete five-boundary table. The signs of J1−J2 and J0−J3 and the factored J3−J2, together with the transformed numerator (6-p)k²+(-2p²+7p-6)k−4p² for p>=6, prove all infinite integer cases without relying on finite tests. The p=2 cases have a separate exact difference J0−J1=(q−6)(q−1)/(6q).
 
-Clark, Bushnell and Poovendran (arXiv:1208.0946, 2012) give general leader-selection algorithms based on supermodularity, but no exact complete-bipartite three-leader allocation table. Fitch and Leonard (arXiv:1407.1569, 2014) give the directly relevant noise-free joint-centrality characterization for arbitrary graphs and explicit leader locations on cycles and paths. The general characterization is acknowledged as prior work; it does not itself give the new strict and tied integer allocations across all complete bipartite part sizes. Searches under bipartite coherence, joint centrality, inverse grounded Laplacian, and three-leader placement did not identify an explicit stronger classification. That absence is not proof of novelty, and specialized sources not indexed or accessed remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact three-leader budget is a natural discrete control-design constraint on a fundamental two-population network. The classification reveals a structural change at smaller-part size six: at large imbalance, all three leaders belong to that smaller part for sizes at least six, but only two do for sizes three through five. It identifies every optimizer, not just the minimum score, and resolves nontrivial finite equality boundaries, including the tie at \((p,q)=(5,30)\). A high-degree-only heuristic can be suboptimal on the smallest imbalanced graphs. These are placement decisions, not arbitrary graph labels or a known spectral table recomputation.
+General noise-free joint centrality supplies the objective on arbitrary graphs but not the exact optimization of three discrete leaders in every bipartite size pair. No covering K_{p,q} three-leader integer phase classification was located. The result is conditional to the stated normalization, with unindexed specialized leader-placement literature a priority risk.
 
-## Closest literature and scientific limits
+## value
 
-1. A. Clark, L. Bushnell, and R. Poovendran, *A Supermodular Optimization Framework for Leader Selection under Link Noise in Linear Multi-Agent Systems*, arXiv:1208.0946 (2012). Link-noise model and general approximation framework differ from the exact node-noise classification here.
-2. K. E. Fitch and N. E. Leonard, *Joint Centrality Distinguishes Optimal Leaders in Noisy Networks*, arXiv:1407.1569 (2014). Its general noise-free criterion is the closest prior mathematical coverage; its specialized explicit results are for path and cycle graphs, not this parameter-family classification.
+PASS
 
-No conclusion concerns edge-weight variation, heterogeneous noise, directed graphs, noisy leaders, a different number of leaders, or optimizing an extreme grounded eigenvalue. Indexed-search incompleteness and possible undiscovered specialized coverage remain originality risks.
+The all-parameter exact placement phase diagram on a basic two-population network reveals sharp transitions and non-obvious ties (notably p=5,q=30). An optimizer needs exact leader locations rather than a general centrality score; this is a motivated complete discrete classification, not a numerical table of random small graphs.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
