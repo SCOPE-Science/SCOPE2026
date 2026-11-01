@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:17:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/dba77ed3d1f80e30411533240fd58f87c547013b/2026/10/26/two-zero-transverse-plane-orbits-of-smooth-cubic-surfaces-over-m--58d14dbd7350/RESULT.md",
+        "Frozen checker blob bd0c822dfa6d1257e0fa6b8a1bb73e12503cd2a1",
+        "Independent local checker independent_cubic_census_results.json"
+      ],
+      "rationale": "Every nonzero cubic in four F2 variables is included in a 2^20-1 enumeration. Smoothness over the algebraic closure is equivalent to the four quadratic partials forming a parameter regular sequence, detected by rank 56 among degree-five multiples; each ternary plane section is geometrically smooth iff its three derivatives have zero-dimensional affine common zero, detected by rank 15 among degree-four multiples. Fresh independently written C++ enumerated all 322560 smooth cubics, classified their fifteen planes and found the exact t spectrum 0:1708,4:11340,6:68320,7:10080,8:94500,9:60480,10:64512,11:10080,12:1540. New group-generator orbits of the 1708 t=0 forms have sizes 28 and 1680. Both representatives and stabilizer orders match. All conditions are exact finite linear algebra, not finite-extension sampling.",
+      "residual_risks": [
+        "Scope is only F2 cubic surfaces, geometric not merely F2-rational smoothness; does not characterize larger fields."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karaoglu already classifies all 36 smooth cubic surface isomorphism orbits, including possible stabilizers 720 and 12; Asgarli–Duan–Lai provide sufficient q lower bounds not met by q=2"
+        ],
+        "reasoning": "General classification entails that every cubic belongs to a known orbit but does not by itself give exact plane-section smoothness incidence; the q-large Bertini theorem cannot imply this q=2 spectrum.",
+        "searches": [
+          "Karaoglu 2021 36 PGL4(F2) cubic surface projective orbits",
+          "Asgarli Duan Lai Transverse linear subspaces to hypersurfaces over finite fields Theorem 1.1",
+          "Vikulova 2023 symmetric cubic surface F2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and check_sections.cpp",
+        "Karaoğlu Turkish J Math 45 (2021) 2492–2510 DOI 10.3906/mat-2102-10 full text",
+        "Vikulova arXiv:2312.17032",
+        "Asgarli–Duan–Lai arXiv:2008.11306",
+        "Resultary binary cubic transverse plane query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Vikulova determines S0 symmetry, not the t=0 property or second orbit; Karaoglu orbit table is a complete input catalogue but t-values need a new geometric smooth-section check; Asgarli lower bound fails q2"
+        ],
+        "reasoning": "Prior results do not directly assert the zero-transverse-plane property or all-label census; a finite procedure applied to prior tables could recover it, leaving a significant derivative-originality risk.",
+        "searches": [
+          "Karaoglu 2021 full-text finite field cubic surface table",
+          "Vikulova 2023 theorem automorphism order 720",
+          "Asgarli Duan Lai 2024 Theorem 1.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geometric smoothness of plane sections is equivalent to Jacobian full rank after restriction; prior smooth cubic class tables provide orbit representatives but not this section-incidence profile"
+        ],
+        "reasoning": "Equivalent formulation as a PGL-invariant 15-plane incidence statistic was compared with classified cubic equations; it is not the same invariant as rational points/lines or surface smoothness.",
+        "searches": [
+          "finite field F2 smooth cubic surfaces rational planes smooth hyperplane sections transverse-free classification",
+          "Karaoglu 2021 Non-Singular Cubic Surfaces over F2^k orbit table",
+          "Vikulova 2023 F2 maximally symmetric smooth cubic surface"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Karaoglu enumerates 36 projective surface classes and stabilizers, but no transverse-plane or hyperplane-section smoothness column or 1708 count was located in inspected full text; original class counts are not novel"
+        ],
+        "reasoning": "Strongest plausible covering database is known orbit classification. Present derived 15-plane incidence/10-row distribution is not explicitly in its tables, but future priority research must compare code-based derivability rather than infer new cubic orbit types.",
+        "searches": [
+          "Karaoglu 2021 Turkish J Math nonsingular cubic surfaces F2k Table 36 orbits F1 F2",
+          "Resultary: finite field F2 smooth cubic surfaces rational planes smooth hyperplane sections transverse-free classification"
+        ]
+      },
+      "rationale": "The classical surface taxonomy and Vikulova 2023/2024 already identify the exceptional highly symmetric orbit (28 equations, stabilizer 720). Karaoğlu 2021 full 36-orbit classification covers underlying cubic surfaces, including a stabilizer-12 orbit; we explicitly do not claim new projective cubic surface classes. The assessed novel invariant is the property of having NO geometrically smooth F2 rational hyperplane section and the complete incidence spectrum across all 322560 surfaces; the inspected 36-orbit study does not tabulate this property or the 1708 zero-section census. Strong residual risk is that it could be mechanically extracted from known orbit tables; present full exact relation is recorded.",
+      "residual_risks": [
+        "Karaoğlu (2021) already enumerates all 36 cubic orbits; the t=0 condition and t histogram could be recovered by computation from that known catalogue, limiting novelty to derived incidence data.",
+        "Scope is only F2 cubic surfaces, geometric not merely F2-rational smoothness; does not characterize larger fields."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SURFACE_ORBITS; NOT_EXPLICIT_SMOOTH_PLANE_SECTION_SPECTRUM in inspected full text",
+          "evidence": [
+            "36 projective orbit types of smooth binary cubics already classified; transversal-plane t(S) statistics absent"
+          ],
+          "identifier_or_url": "https://doi.org/10.3906/mat-2102-10",
+          "material_read": "Accessible full CC-BY article and 36-orbit classification/table including F1 and F2 stabilizer orders",
+          "method": "Read accessible primary text and mathematically compared statements and implications",
+          "title": "Non-Singular Cubic Surfaces over F_{2^k}",
+          "trigger": "Exact same cubic surfaces, strongest possible prior table"
+        },
+        {
+          "assessment": "COVERS_KNOWN_28_ORBIT; does not determine second t=0 orbit or full t histogram",
+          "evidence": [
+            "Stabilizer 720 and one exceptional surface equation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.17032",
+          "material_read": "Full-text relevant automorphism classification and S6 surface theorem",
+          "method": "Read accessible primary text and mathematically compared statements and implications",
+          "title": "The most symmetric smooth cubic surface over a finite field of characteristic 2",
+          "trigger": "Same S0 highly symmetric binary cubic"
+        },
+        {
+          "assessment": "INAPPLICABLE_GENERAL_BOUND at q=2,d=3,projective dimension3",
+          "evidence": [
+            "Large-field sufficient bound q >= d(d-1)^(n-1), not the small binary case"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2008.11306",
+          "material_read": "Full-text main theorem, numerical range and statements",
+          "method": "Read accessible primary text and mathematically compared statements and implications",
+          "title": "Transverse linear subspaces to hypersurfaces over finite fields",
+          "trigger": "Direct transverse-hyperplane theme"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and check_sections.cpp",
+        "Karaoğlu Turkish J Math 45 (2021) 2492–2510 DOI 10.3906/mat-2102-10 full text",
+        "Vikulova arXiv:2312.17032",
+        "Asgarli–Duan–Lai arXiv:2008.11306",
+        "Resultary binary cubic transverse plane query"
+      ],
+      "rationale": "A sharp obstruction to small-field finite Bertini is a natural geometry question: zero transverse sections occur not only for the known F2 space-filling 28-surface orbit but for a second 1680 orbit, and all others have at least four. Complete transverse-plane spectrum is a meaningful geometric incidence invariant despite pre-existing overall cubic-surface classification.",
+      "residual_risks": [
+        "Karaoğlu (2021) already enumerates all 36 cubic orbits; the t=0 condition and t histogram could be recovered by computation from that known catalogue, limiting novelty to derived incidence data.",
+        "Scope is only F2 cubic surfaces, geometric not merely F2-rational smoothness; does not characterize larger fields."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Karaoğlu (2021) already enumerates all 36 cubic orbits; the t=0 condition and t histogram could be recovered by computation from that known catalogue, limiting novelty to derived incidence data.",
+    "Scope is only F2 cubic surfaces, geometric not merely F2-rational smoothness; does not characterize larger fields.",
+    "No completed privacy-safe publication plan; import is not ready."
+  ],
+  "schema_version": 1
+}
