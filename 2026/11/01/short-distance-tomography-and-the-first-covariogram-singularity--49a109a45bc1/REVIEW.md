@@ -1,0 +1,19 @@
+# Research review: Short-distance tomography and the first covariogram singularity of orthotopes
+
+## Correctness — PASS
+
+The claim has three linked exact components: the all-dimensional short-distance probability polynomial, reconstruction of every side-length ratio from its shape-dependent coefficients with sharp finite sampling count, and the positive asymptotic first departure at the shortest-side radius. The first follows from the product triangular density for differences of independent coordinatewise uniforms and an explicit Dirichlet ball integral. Reconstruction follows from Vieta's formulas and a nonsingular Vandermonde system. Generic minimality follows from the local diffeomorphism between distinct positive roots and elementary-symmetric coefficients on the fixed-product hypersurface, followed by the implicit-function theorem. For the endpoint singularity, only one coordinate can lie outside its interval near the first threshold; each shortest-coordinate spherical cap contributes a positive beta-integral and multiplicities add. The leading constant is checked algebraically and independently by planar quadrature. The included verifier passed 76 diagnostic assertions. The infinite statements are proved analytically, not inferred from diagnostics.
+
+## Originality — PASS, with residual literature risk
+
+The closest primary works address different implications. Wang's 2026 radial pair-distance Brunn--Minkowski and Minkowski-measure results give the motivating invariant but no finite-data orthotope inverse theorem. Lellouche--Souris provide the already known planar-rectangle distribution and higher-dimensional equal-edge cube cases, and their forward convolution method is fully credited. Mémoli--Needham study general global-distance inverse problems, but the inspected theorem inventory concerns curves, manifolds and metric graphs, not this orthotope finite-jet classification. The related published geometric findings located by semantic search concern **random projection widths/volumes**, polygonal quartic coefficients, or cubical Minkowski topology, not the proposed \(d-1\)-sample pair-distance reconstruction and first-cap singular coefficient. No inspected statement implies the complete final claim. Older specialized covariogram literature may contain an equivalent inverse observation; full historical priority is not certified.
+
+## Value — PASS
+
+The radial distance law discards directional data, so recovery of an anisotropic body from finitely many *unlabeled scalar distance probabilities* is a substantive inverse problem. The theorem gives a full all-dimensional reconstruction within a natural class, proves that \(d-1\) measurements are generically optimal, identifies the exact operational short-range boundary, and quantifies the first nonanalytic transition with a multiplicity-sensitive constant. The three-dimensional universal \(m/2\) cubic onset is an additional geometric consequence. This is not merely a restatement of the forward rectangle density or an arbitrarily selected numerical invariant. It does not claim stability under noisy measurement or shape rigidity beyond orthotopes.
+
+## Closest literature and limits
+
+The forward convolution representation and the planar-rectangle case are classical and explicitly excluded from originality. One relevant 2019 right-parallelepiped covariogram paper and one 2022 covariogram/distance-distribution article were available primarily by abstract; neither accessible description asserts finite-sample all-dimensional reconstruction. A related published finite-moment tomography theorem uses random hyperplane projection volumes rather than point-pair distances. Complete bibliographic priority and independent expert audit remain open.
+
+Self-review: passed. Independent audit: not yet performed.
