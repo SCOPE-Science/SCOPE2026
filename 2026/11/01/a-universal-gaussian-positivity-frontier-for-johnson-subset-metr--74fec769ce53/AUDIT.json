@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The Newton expansion K_x=sum c_j T_j T_j^T has exact combinatorial coefficients; for j<k, c_j is bounded below by x^((k-j)^2)(2-exp(1/4)) on x<=1/(k-1). B_k=c_k decreases strictly there by an explicit derivative estimate, and is negative at the right endpoint. The Boolean-lattice up/down commutator proves T_{k-1} full column rank for n>=2k, giving endpoint rank, nullity and a strictly negative top-sector eigenvalue immediately outside the interval. An exact standalone Python checker passes 75 rational coefficient checks, 5300 entry identities, and 8410 direct top-sector components. The claim explicitly excludes the unclassified upper-x region.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Krebs--Shaheen: all distance-class adjacency eigenvalues, a general tool; arXiv:1411.0296: universal geodesic Gaussian obstruction for all-bandwidth positivity",
+        "Earlier Hamming full-product threshold has the same polynomial B_k but Hamming graph distance on a different point set"
+      ],
+      "reasoning": "The Eberlein formula would let one construct the finite Johnson eigenvalues, but does not establish the across-n first-root comparison. The full Hamming product has a different metric normalization and full product vertex set, so its stated positivity interval does not imply equality of Johnson first-loss frontiers. A broader published cone theorem remains a possible overlap risk.",
+      "searches": [
+        "Johnson scheme distance Gaussian e^-t distance squared positive semidefinite eigenvalues Eberlein dual Hahn",
+        "positive definite functions on Johnson scheme sufficient positive Fourier Krawtchouk Hamming scheme"
+      ]
+    },
+    "checked_sources": [
+      "https://emis.de/ft/34459",
+      "https://arxiv.org/abs/1411.0296",
+      "https://journals.uwyo.edu/index.php/ela/article/view/513",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Krebs and Shaheen, section 5: eigenvalues for individual Johnson distance graphs but no sign study for the squared-distance exponential mixture",
+        "Feragen et al., sections 1--3: failure of all-bandwidth Gaussian positivity in curved geodesic spaces, but not a sharp finite Johnson bandwidth",
+        "Hamming-product prior threshold B_k is necessary for the top Johnson incidence sector but does not by itself yield positive lower sectors or rank at the boundary"
+      ],
+      "reasoning": "The new content is the uniform lower Gram coefficient positivity for all k and all n>=2k, together with the complete first crossing and exact nullity; those implications are not supplied by the checked prior claims alone.",
+      "searches": [
+        "Johnson scheme distance Gaussian e^-t distance squared positive semidefinite eigenvalues Eberlein dual Hahn",
+        "Universal squared-Hamming Gaussian kernel threshold rho_3 root 1-3u+3u^4-u^9 on binary cube versus Johnson constant-weight 3 layer kernel",
+        "positive definite functions on Johnson scheme sufficient positive Fourier Krawtchouk Hamming scheme"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Krebs--Shaheen DOI 10.13001/1081-3810.1256: generic Eberlein distance-graph spectra; no Gaussian bandwidth statement",
+        "Public index search closest: 2026/10/11/SCOPE-exact-two-coordinate-face-concentration-spectrum-on-johnson-slic--d102febb3be1: restricted Johnson spectral concentration, different operator"
+      ],
+      "reasoning": "Equivalent formulations via Johnson-scheme eigenvalues, constant-weight Hamming slices and incidence Gram matrices were compared; none of the checked statements gives the present first-root sufficiency and endpoint nullity without an additional sign argument.",
+      "searches": [
+        "Johnson graph J(n,3) shortest-path squared-distance Gaussian kernel exp(-t d^2) positive definite critical bandwidth, exact three-subsets",
+        "Johnson scheme distance Gaussian e^-t distance squared positive semidefinite eigenvalues Eberlein dual Hahn",
+        "Johnson Gaussian graph distance positive definite three subsets bandwidth"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public indexed hits concern the Johnson face concentration spectrum and Hamming-shell Turan problems; no exact first-loss table on all Johnson k-subsets surfaced",
+        "The available own-history claim for the Hamming-product case was compared for statement implication, not reused as proof"
+      ],
+      "reasoning": "No directly matching tabulation or stored theorem was found in the sources accessible to this review. Missing results are not treated as proof of global uniqueness.",
+      "searches": [
+        "Johnson graph J(n,3) shortest-path squared-distance Gaussian kernel exp(-t d^2) positive definite critical bandwidth, exact three-subsets",
+        "Universal squared-Hamming Gaussian kernel threshold rho_3 root 1-3u+3u^4-u^9 on binary cube versus Johnson constant-weight 3 layer kernel",
+        "Johnson scheme Gaussian squared distance positive definite radial kernels"
+      ]
+    },
+    "rationale": "Krebs and Shaheen (2008) establish the generic Johnson adjacency spectra, not this all-k n-independent first Gaussian loss or boundary rank. Feragen et al. establish general Gaussian-kernel geometric obstructions, not this finite Johnson threshold. An earlier result for Hamming products uses the same top-difference polynomial B_k but has a different ambient metric and does not imply the sharp Johnson lower bound or endpoint rank. Checked public-index hits concern Johnson spectral concentration and Hamming shell problems without the claimed all-k frontier. Residual risk: an unlocated general positivity-cone theorem might yield the present result as an immediate specialization.",
+    "residual_risks": [
+      "A generalized association-scheme positivity-transfer theorem might imply this exact first-loss specialization without naming Gaussian or Johnson subsets.",
+      "The public-index semantic search is not exhaustive, and unpublished or unindexed earlier calculations may exist.",
+      "The date of the 2008 article is month-verified but not verified as an earliest day-specific public posting; the assigned day-specific evidence comes from arXiv:1411.0296 on 2014-11-02."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies adjacency spectral machinery, not the claimed all-k Gaussian first-loss comparison",
+        "evidence": "Introduction states Eberlein Johnson graph adjacency spectra; Theorem 5.1 provides recursive distance-graph eigenvalues, and no Gaussian kernel term occurs.",
+        "identifier_or_url": "https://emis.de/ft/34459",
+        "material_read": "Primary 14-page PDF, introduction and Johnson-distance definitions in sections 1 and 3, eigenvalue theorem in section 5; searched full parsed text for Gaussian",
+        "method": "Read parsed PDF pages including formula and theorem; inspected rendered page 2",
+        "title": "On the Spectra of Johnson Graphs",
+        "trigger": "General Johnson scheme may subsume the kernel positivity statement"
+      },
+      {
+        "assessment": "Does not exclude a finite positive bandwidth range or give Johnson graph thresholds",
+        "evidence": "Theorems address positivity for all parameters on geodesic spaces and curvature; the present theorem concerns one finite point space per n and the first threshold.",
+        "identifier_or_url": "https://arxiv.org/abs/1411.0296",
+        "material_read": "Open-access arXiv article HTML, introduction, main results and stated proof framework including all-bandwidth quantifiers",
+        "method": "Full-text web reading and implication comparison",
+        "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+        "trigger": "Closest general motivation and potential impossibility theorem for geodesic Gaussian kernels"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "74fec769-ce53-4553-85ac-86f6dcf3061f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single scalar determined by subset size k governs the initial Gaussian covariance feasibility on all binom(n,k) observations independently of n, and the exact singularity size at the sharp boundary is binom(n,k)-binom(n,k-1). The finding explains this with a positive incidence-Gram decomposition and identifies the top incidence-harmonic obstruction. This is a natural infinite family and a complete first-loss cutoff, not a numerical slice or routine parameter adjustment.",
+    "status": "PASS"
+  }
+}
