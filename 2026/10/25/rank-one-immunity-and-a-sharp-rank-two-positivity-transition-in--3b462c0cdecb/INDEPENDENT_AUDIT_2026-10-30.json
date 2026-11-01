@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:11:53.415662Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git RESULT.md blob 3b015c2e072b37d8d31c0be3975c7b8ee030ef0e",
+        "actual verify.py blob d3388a09c76880438679db93a12d1bb1831c5d0e",
+        "independent_checks.py",
+        "independent_results.json",
+        "source tree c6e987c91e04e90311a5b97f9cc7c648349673cb"
+      ],
+      "rationale": "Specializing Carrel–Vandereycken Eq (31) to scalar drift -aI and constant PSD forcing C gives W=sY+q(PC+CP-PCP), with s=exp(-2ah), q=(1-s)/(2a) or h for a=0, and t=q/s. For rank-one Y=sigma uu^T, the only nonzero block of W/s is [[sigma+tc,t||w||],[t||w||,0]], whose positive eigenvalue has strictly larger magnitude than any negative eigenvalue, so every best rank-one Frobenius/SVD truncation is uniquely PSD. For Y=diag(d,e,0), C=(1,0,1)(1,0,1)^T, R=W/s has spectrum p(t)>0,e>0,-b(t), b=[sqrt((d+t)^2+4t^2)-(d+t)]/2. The SVD rank-two selection flips to the negative eigenmode when b>e, equivalently t^2>e(d+t+e), with unique t_*=(e+sqrt(4de+5e^2))/2. h_* follows by inverting t(h). At equality both PSD and indefinite optimal truncations are possible. Higher-rank embedding discards a smaller positive e, retains negative -b, and minimum dimension/rank are 3/2. PSD-constrained best approximation residual s*b versus unrestricted s*e, unbounded b/e as e to zero; exact flow sY+qC remains PSD. Independent SymPy characteristic polynomial, threshold relation and exact witness eigenvalues (1+sqrt2,1/10,1-sqrt2) verify critical arithmetic; not a proof substitute.",
+      "residual_risks": [
+        "Only exact projected exponential Euler for constant PSD forcing, scalar stable drift, symmetric matrices; SVD truncation is set-valued at ties; no arbitrary matrix drift or long-time guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carrel & Vandereycken, arXiv:2312.00172v2 method definition and convergence theory",
+          "Kressner et al., https://doi.org/10.1002/nla.2339, Section 2.3.1"
+        ],
+        "reasoning": "Original scheme is fully prior; general warning that some rank-compressed Lyapunov solvers may be indefinite is also prior. Neither yields the exact low-rank boundary and damping-dependent threshold for Eq (31).",
+        "searches": [
+          "web: Kressner Krylov indefinite Lyapunov approximations positive part repair 2021",
+          "web: Carrel Vandereycken projected exponential Euler low-rank Eq 31 PSD"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2312.00172v2",
+        "https://doi.org/10.1002/nla.2339",
+        "https://arxiv.org/abs/2306.07774",
+        "Resultary search noted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2312.00172v2, Sections 3.2 and 5.1",
+          "https://doi.org/10.1002/nla.2339, Section 2.3.1"
+        ],
+        "reasoning": "A convergence/norm-error estimate for a projected method does not imply positive-cone invariance; a different Krylov method losing PSD and a positive-part repair recipe do not imply the exact 3x3 matrix, critical h_* or constrained/unconstrained residual ratio.",
+        "searches": [
+          "web: Projected exponential methods for stiff dynamical low-rank approximation Eq (31)",
+          "web: Compress-and-restart block Krylov Sylvester positive semidefinite repair"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2312.00172v2, Eq (31) and Sections 3 and 5",
+          "https://doi.org/10.1002/nla.2339, indefinite low-rank Lyapunov repair in another method"
+        ],
+        "reasoning": "Positivity of the exact Lyapunov semigroup does not entail positivity of intermediate tangent projection plus unrestricted SVD. The claim concerns signed singular mode ordering, not a generic timestep stability-region or norm-error bound.",
+        "searches": [
+          "Resultary: Projected exponential Euler low-rank Lyapunov Frobenius truncation positive semidefinite rank one rank two threshold indefinite covariance",
+          "web: Projected exponential Euler low-rank Lyapunov Frobenius truncation positivity failure"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned other positivity projections and Lanczos exponential horizons, not the same map",
+          "Explicit analytical spectral classification of R and independent SymPy exact sample"
+        ],
+        "reasoning": "No exact SVD step-threshold table for the same projected Euler update was found in inspected sources; cannot infer historical novelty solely from this search.",
+        "searches": [
+          "Resultary exact query projected exponential Lyapunov rank-one safe rank-two threshold",
+          "web: rank-one immunity SVD truncated projected exponential Lyapunov scheme"
+        ]
+      },
+      "rationale": "Carrel–Vandereycken introduced the exact tangent-projected exponential Euler and Eq (31); the algorithm is unequivocally prior. Other Lyapunov solvers (Kressner et al.) were already known to yield indefinite approximants and need positive-part repair; this generic phenomenon is not new. The assessed contribution is the specific method-wide rank-one safety theorem, rank-two minimal counterexample, exact step boundary including tie and damping, and unbounded constrained repair cost. The primary original method paper does not state those facts. Risk remains that an older generic best-rank PSD perturbation theorem subsumes these exact formulas.",
+      "residual_risks": [
+        "A general PSD-constrained low-rank matrix approximation inequality could independently reproduce the sharp SVD threshold as a specialization.",
+        "The title must not suggest all low-rank integrators fail; only specified scalar-drift source and method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Published method and convergence prior; exact rank-one/rank-two positivity classification not in inspected statements",
+          "evidence": "Equation (31), Sections 3.2 and 5.1",
+          "identifier_or_url": "https://arxiv.org/html/2312.00172v2",
+          "material_read": "Full arXiv HTML, Sections 2–3 projected exponential Euler and tangent projector, Section 5 Lyapunov experiments, convergence assumptions",
+          "method": "Lawful complete arXiv HTML",
+          "title": "Projected exponential methods for stiff dynamical low-rank approximation problems",
+          "trigger": "Exact source algorithm Eq (31)"
+        },
+        {
+          "assessment": "Confirms general indefiniteness/repair is not original but different solver and no exact projected Euler sharp transition",
+          "evidence": "Section 2.3.1",
+          "identifier_or_url": "https://doi.org/10.1002/nla.2339",
+          "material_read": "Open full journal HTML Section 2.3.1 on positive-part repair and indefinite approximations",
+          "method": "Lawful publisher OA HTML",
+          "title": "Compress-and-restart block Krylov subspace methods for Sylvester matrix equations",
+          "trigger": "Known indefinite low-rank Lyapunov approximants and PSD repair"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2312.00172v2",
+        "https://doi.org/10.1002/nla.2339",
+        "independent_results.json"
+      ],
+      "rationale": "Positive-semidefinite invariance is crucial for covariance and Lyapunov solvers. The sharp minimal rank-two three-dimensional counterexample distinguishes a numerical method preserving low rank from one preserving physical covariance positivity. The exact damping-compatible step threshold, tie behaviour, and arbitrarily costly PSD repair quantify a motivated failure, beyond a routine negative eigenvalue example.",
+      "residual_risks": [
+        "Results do not establish generic failure at every rank-r input or a long-time instability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only exact projected exponential Euler for constant PSD forcing, scalar stable drift, symmetric matrices; SVD truncation is set-valued at ties; no arbitrary matrix drift or long-time guarantee.",
+    "A general PSD-constrained low-rank matrix approximation inequality could independently reproduce the sharp SVD threshold as a specialization.",
+    "The title must not suggest all low-rank integrators fail; only specified scalar-drift source and method.",
+    "Results do not establish generic failure at every rank-r input or a long-time instability theorem.",
+    "Frozen public AUDIT.json and METADATA.json both contain a confidential operational provenance key. The exact full original administrative-file bytes have been examined through authorized Git reads, but complete privacy-neutral replacement files have not been faithfully staged and rehashed in the writable audit container. Publication without exact-blob-guarded verified complete replacements could reveal confidential provenance. Scientific review itself is complete."
+  ],
+  "schema_version": 1
+}
