@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact orbit recurrence in `verify_types.py` was executed successfully with every positive parameter pair through ground-set size 25; its log is `verify_types_output.txt`. It reports eleven rank-three types, rank stabilization at six, the two universal seven-row profiles, and the 121-flat sharp bound.
+## correctness
 
-The independently coded `verify_direct.cpp` was compiled with a C++17 compiler and run on all twelve smallest parameter models, representing eleven distinct theories. It enumerates actual subsets rather than four-region orbits, and compares third-flat adjacency-to-inclusion profiles directly. `compare_direct.py` verified equality of its complete pointed-type signatures with the orbit calculations. The original output is `verify_direct_output.txt`.
+PASS
 
-The infinite statements are established by the explicit four-cell integer inequalities and their symbolic endpoint case reduction in `RESULT.md`. The finite replay cannot by itself verify infinitely many sizes; the seven-row algebraic profile lemma is the critical mathematical proof step. The literature overlap comparison was not an exhaustive search of all historical print material. No independent validation has been performed.
+The Hintikka three-round recurrence reconstructs each sentence type as a set of pointed types, each pointed type as a set of pair relation plus 16-bit third-flat masks. Four-region cell counts and zero/full/interior statuses compute pair masks exactly, with proper flat cardinality <r and the top treated separately. The critical universal endpoint-profile reduction for r>=6 has breakpoints at a=0,1,2 and co-rank 1,2,3, and n-r=0/>0; PROFILES.json gives full Boolean and truncated masks. Explicit rank-three separators follow by isolating complete pointed types. Direct independently written enumeration of literal flat subsets for canonical pairs r<=7 recovers 11 signatures and 121-flat representative; this is corroboration, not the proof of all ranks.
+
+## originality
+
+PASS
+
+Best-of-knowledge original two-parameter classification of three-round pure inclusion theories; neither standard matroid flat descriptions nor known full Boolean-algebra functional-language atom thresholds implies the truncated relational classes.
+
+## value
+
+PASS
+
+Complete natural low-quantifier-rank classification for uniform-matroid flat lattices, with a sharp and nonobvious rank cutoff and optimal 121-element representative. Relates finite model theory to a canonical matroid invariant; neither arbitrary slice nor mechanically prior result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
