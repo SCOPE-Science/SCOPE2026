@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The vertex link introduced by relaxing a circuit-hyperplane is the clique complex of an \(r\)-by-\(s\) rook graph. Its row/column simplex nerve is \(K_{r,s}\), yielding \((r-1)(s-1)\) circles. Under the explicit simply-connected hypothesis, every circle attaching map is null, so coning on the link adds that number of two-spheres. The embedded verifier exhaustively enumerates both Fano flag complexes, checks 784 and 977 Hasse incidences, and verifies perfect acyclic matchings with critical vectors \((1,0,13)\) and \((1,0,19)\). This establishes integral homotopy equivalence, not merely modular homology.
+## correctness
 
-**Originality: PASS.** Chalopin–Chepoi–Osajda treat a triangle-square CW basis complex, not this clique/flag complex. Ferroni's discussion of rook-graph neighbors is prior local input, not the global null-attached cofiber calculation. The closest indexed results concern exchange distances, spectra of rank-two basis graphs, uniform Johnson graph flag complexes, and non-Fano minor structure, and thus do not imply this claim. The historical 1973 basis-graph original was not available in full text; potential unindexed equivalents remain an acknowledged risk.
+PASS
 
-**Value: PASS.** Circuit-hyperplane relaxation is a mathematically central transformation distinguishing the binary Fano from the non-Fano matroid. The exact gain of six second-dimensional spheres makes the effect topologically visible and generalizes to any simply connected basis-exchange flag complex of a matroid with such a relaxation. The result is not an arbitrary graph census invariant.
+For rank r>=2 and corank s=n-r>=2, relaxation at a circuit-hyperplane H introduces a single new basis-graph vertex with neighbors indexed by pairs (h in H,e outside H). Two neighbors differ in one element exactly when their missing h or added e agrees. Thus the flag link is the rook-graph clique complex, covered by row/column simplices with nerve K_{r,s}; its homotopy is a wedge of (r-1)(s-1) circles. Because the old flag complex is assumed simply connected, the link map is null and coning the link splits off exactly (r-1)(s-1) two-spheres. For the Fano and non-Fano matroids, reconstructed independent exhaustive simplicial enumeration, matching using actual recorded pivot permutations, and topological sorting of EVERY directed incidence reproduced respectively 322/384 nonempty faces, 784/977 Hasse incidences, 154/182 matched pairs, one critical vertex and 13/19 critical two-cells. Forman theory then yields the integral wedge homotopy types; a field-only Betti check is not the proof. The theorem explicitly does not cover nonsimply-connected old complexes.
 
-**Scope and limits.** No claim for nonsimply-connected pre-relaxation flag complexes or independent peer validation. The executable finite checker and its original JSON output are provided.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the known basis-graph triangle-square CW complex is not the clique complex; Ferroni provides the rook local combinatorics but not the conditional null-attaching map or Fano/non-Fano complete flag homotopy. Related indexed Johnson graph topology and non-Fano minor data do not imply the 13/19 sphere-wedge result. Earlier unindexed full-text matroid references remain a priority risk.
+
+## value
+
+PASS
+
+A canonical matroid transformation changes an intrinsic topology of the basis-exchange graph in a precisely controlled way across all simply-connected cases, and the Fano/non-Fano pair yields exact integral homotopy types rather than routine ranks; the witness illustrates the exact gain of six spheres. The result addresses a natural structure and invariant, not an arbitrary finite graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact finite checks and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 and its standard library. `verification_output.json` is the exact compact JSON output from the stored executable run. The verifier constructs the Fano matroid directly from the seven XOR triples; constructs the non-Fano relaxation from the single restored line; enumerates every clique and each Hasse incidence; constructs and verifies acyclic Forman matchings by complete topological sorting. It checks the combinatorial rank-three, corank-four rook link at the newly relaxed basis.
+## correctness
 
-Observed Fano values: 28 bases, f-vector [28,126,140,28], 322 nonempty faces, 784 Hasse incidences, 154 matching pairs, 1 critical vertex and 13 critical triangles. Observed non-Fano values: 29 bases, f-vector [29,138,170,44,3], 384 faces, 977 incidences, 182 matching pairs, 1 critical vertex and 19 critical triangles. The checker exhaustively verifies the incidence digraph is acyclic, so the Morse theorem supplies the integral sphere-bouquet homotopy classifications.
+PASS
 
-The generic relaxation theorem uses a separately written combinatorial/topological proof, not the finite check as an empirical extrapolation. No historical full-text audit of every published basis-graph paper, independent scientific review, or general computational census is claimed.
+For rank r>=2 and corank s=n-r>=2, relaxation at a circuit-hyperplane H introduces a single new basis-graph vertex with neighbors indexed by pairs (h in H,e outside H). Two neighbors differ in one element exactly when their missing h or added e agrees. Thus the flag link is the rook-graph clique complex, covered by row/column simplices with nerve K_{r,s}; its homotopy is a wedge of (r-1)(s-1) circles. Because the old flag complex is assumed simply connected, the link map is null and coning the link splits off exactly (r-1)(s-1) two-spheres. For the Fano and non-Fano matroids, reconstructed independent exhaustive simplicial enumeration, matching using actual recorded pivot permutations, and topological sorting of EVERY directed incidence reproduced respectively 322/384 nonempty faces, 784/977 Hasse incidences, 154/182 matched pairs, one critical vertex and 13/19 critical two-cells. Forman theory then yields the integral wedge homotopy types; a field-only Betti check is not the proof. The theorem explicitly does not cover nonsimply-connected old complexes.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the known basis-graph triangle-square CW complex is not the clique complex; Ferroni provides the rook local combinatorics but not the conditional null-attaching map or Fano/non-Fano complete flag homotopy. Related indexed Johnson graph topology and non-Fano minor data do not imply the 13/19 sphere-wedge result. Earlier unindexed full-text matroid references remain a priority risk.
+
+## value
+
+PASS
+
+A canonical matroid transformation changes an intrinsic topology of the basis-exchange graph in a precisely controlled way across all simply-connected cases, and the Fano/non-Fano pair yields exact integral homotopy types rather than routine ranks; the witness illustrates the exact gain of six spheres. The result addresses a natural structure and invariant, not an arbitrary finite graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
