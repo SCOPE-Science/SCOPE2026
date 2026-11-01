@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T15:58:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed radii (18,42,48,12,48,42,18), the claimed x(t)=z+u v_-+v v_+ has u=a(-1/6)^t in [-1/6,1] and v=b2^-t in [0,1]. Every off-center directed pair’s threshold decision is strict and constant throughout this rectangle; exact corner testing of all 7x7 linear gap inequalities confirms the fixed neighborhoods N1={1}, N2={1,2,3}, N3={2,3,4,5}, N5={3,4,5,6}, N6={5,6,7}, N7={7}. For i=4, x4-x3=x5-x4=12+3u-v so both central arcs are present iff v>=3u (inclusive). Both choices yield center mean 84. Symbolic exact row averaging on each side gives (u,v)->(-u/6,v/2), closing the induction for all real square parameters and integer times. At odd t, u<=0 implies arcs present; at even t=2j they are present iff b>=3a*9^-j. Thus in 0<b<3a exactly k=ceil(log_9(3a/b)) even times omit them, with 2k-1 changes and sharp T=2k-1; b=0<a alternates indefinitely, a=0 or b>=3a is constant. Area under b<c a with c=3^(3-2m) is 5/6 for m=1 or c/2 for m>=2. The integer tail-sum yields E[S]=5/6+2*(1/6)/(1-1/9)=29/24. Exact SymPy/Fraction independent computations verified all row identities, threshold corners, several boundary cases and tail identities; finite tests are only corroboration of an analytic general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mirtabatabaei–Bullo stabilization theorem requires limiting equitopology margin >0, but this seven-agent limiting state has two arcs exactly at threshold, making this condition fail.",
+          "Etesami–Basar 2014 expected-switch bound concerns homogeneous asynchronous updates, not a deterministic nonfreezing boundary in heterogeneous synchronous SBC.",
+          "Etesami–Touri 2026 constructs periodic dynamics in a different six-agent system, not a count law on this seven-agent plane.",
+          "Coulson et al. 2015 treat one-sided asymmetric opinion dynamics and a distinct termination/switching pattern problem, as identified by its primary bibliographic abstract; full paper not inspected."
+        ],
+        "reasoning": "Broader asymptotic/convergence or other-model switching theorems may dominate generic behavior but do not compute this specific model’s all-parameter pre-stabilization count. Distinct updates, radii, or hypotheses are not interchangeable; the 2015 source remains an access-scoped residual risk.",
+        "searches": [
+          "arXiv:1103.2829v2 equi-topology Lemma 17 and fixed-topology Theorem 25",
+          "arXiv:1412.6546 Section V expected number of switching topologies and Section VI heterogeneous dynamics",
+          "arXiv:2610.20783 Theorem 2 six-agent period-ten dynamics",
+          "web: On the termination time of the one-sided asymmetric Hegselmann Krause dynamics Coulson Steeves Gharesifard Touri"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03229",
+        "https://arxiv.org/html/1103.2829v2",
+        "https://arxiv.org/abs/2610.20783",
+        "https://arxiv.org/abs/1412.6546",
+        "https://experts.illinois.edu/en/publications/on-the-termination-time-of-the-one-sided-asymmetric-hegselmann-kr/",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-logarithmic-switching-lifetime-near-a-nonfreezing-seven-ag--3aa033f36f32"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 7-agent example gives one b=0 nonfreezing trajectory, a strict subset of the present closed [0,1]^2 phase diagram.",
+          "Fixed topology results assume the graph is already fixed; they cannot give sharp first entrance T=2ceil(log_9(3a/b))-1 for this threshold-zero limit.",
+          "Six-agent periodic orbits do not mathematically imply the 7-agent exact geometric switch tail P(S>=2m-1) or mean 29/24."
+        ],
+        "reasoning": "The claimed finite-b time law requires the actual 1/2 eigenvector, invariant rectangle and paired central arcs, then integer threshold counting; none is furnished as a corollary of inspected prior theorems. The exact base orbit is credited, and no claim is made of novelty for it.",
+        "searches": [
+          "arXiv:2610.03229v1 / 2610.03229 Sections 2, 6–7",
+          "arXiv:1103.2829v2 Lemma 17, Theorem 25",
+          "arXiv:2610.20783 Section 2 periodic system",
+          "arXiv:1412.6546 Section V and VI"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The one-dimensional published orbit is x(t)=z+(-1/6)^t v_- with b=0, Section 2 Eq. (2.1).",
+          "The audited two-eigenvector plane x(t)=z+a(-1/6)^t v_-+b2^{-t}v_+ has a second independent mode; its threshold b >=3a9^{-j} cannot be deduced from the special b=0 path alone."
+        ],
+        "reasoning": "At b=0 the old sequence alternates indefinitely, whereas at every b>0 the critical term eventually wins; showing this requires independently verifying v_+ as an invariant averaging mode for all possible central arc choices. The nonfreezing edge is explicitly known; the nontrivial positive-b count is not equivalent to it.",
+        "searches": [
+          "Resultary: seven-agent heterogeneous Hegselmann Krause nonfreezing proximity graph two eigenmode perturbations exact logarithmic switching time and count",
+          "web: Hegselmann Krause 7 agent nonfreezing digraph logarithmic switching finite perturbation 2 mode oscillating transient",
+          "arXiv:2610.03229 Sections 2, 6, 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search’s exact numerical match was the audited item itself, so it was excluded as independent prior proof. Other high-rank hits concerned unrelated switching flows and graph theory.",
+          "The prior arXiv:2610.03229 Section 2 contains only the single alternating orbit and no k-dependent count table or parameter-area law."
+        ],
+        "reasoning": "No independent exact table or database entry for this two-mode graph-switching distribution was located. This negative search by itself is not evidence of novelty; the central argument compares mathematical hypotheses and implications of accessible full-text primary sources.",
+        "searches": [
+          "Resultary: bounded confidence opinion dynamics exact graph switch-count distribution metastable 7 agents",
+          "Resultary: seven-agent heterogeneous Hegselmann Krause nonfreezing proximity graph two eigenmode perturbations exact logarithmic switching time and count",
+          "web: seven agent Hegselmann Krause non freezing 2026 switching lifetime 2k 9^-k positive eigenvector",
+          "web: Hegarty Ognissanti Wedin seven agent nonfreezing 2026 and variant aliases"
+        ]
+      },
+      "rationale": "The source seven-agent construction of Hegarty–Ognissanti–Wedin proves precisely the negative-eigenvalue b=0 edge, not the independently checked transverse v_+ eigenmode invariant plane or its sharp finite-switch-count/area laws. The 2011 fixed-topology literature does not imply a first stabilization time; 2014 homogeneous asynchronous expected-switch bounds apply to another dynamics. The recent six-agent period-ten nonconvergence witness is stronger against global convergence but does not dominate the claimed seven-agent quantitative transient law. Published research-record searches did return an exact self-record, deliberately excluded as independent priority evidence. No inspected independent source entailed the full final claim; PASS is explicitly best of knowledge, not a priority certificate.",
+      "residual_risks": [
+        "No claim of exhaustive worldwide novelty: equivalent treatments under different terminology, unpublished original authors’ technical explorations and unindexed work may exist.",
+        "The 2015 Coulson–Steeves–Gharesifard–Touri one-sided asymmetric switching study was inspected only through its publication abstract; this is not a finding about the entire paper.",
+        "An exact self-record appeared in Resultary results; it is the same targeted work and does not establish independent prior art.",
+        "The result applies only to a constrained two-parameter eigenmode plane in a fixed seven-agent heterogeneous model, not to open initial-data neighborhoods in the full seven-dimensional space."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the a=1,b=0 nonfreezing path and seven radii, not the positive 1/2 eigenmode plane, b>0 finite switching time, its threshold, nor the uniform two-parameter graph-change distribution.",
+          "evidence": "Section 2 Eq. (2.1): x(t)=z+(-1/6)^t v_-; central arcs alternate with parity. Remark 2.1 says numerical wiggle-room not classified. Section 6 describes zero equitopology distance at the limiting configuration, not exact transient counts. Section 7 mentions unverified/unpublished technical classifications.",
+          "identifier_or_url": "arXiv:2610.03229 / https://arxiv.org/abs/2610.03229",
+          "material_read": "Full-text arXiv HTML: introduction; complete Section 2 including Eq. (2.1) and Remark 2.1; relevant sections 4, 6 and 7 including discussion of unpublished classification attempts and October 23 post-publication note.",
+          "method": "Read the actual primary arXiv web full text, tracing formulas and main implications at Sections 2, 6–7.",
+          "title": "Non-freezing of the proximity digraph and non-pseudostable convergence in heterogeneous Hegselmann–Krause models: Counterexamples to conjectures and results of Mirtabatabaei and Bullo",
+          "trigger": "Exact same seven-agent synchronous bounded-confidence example, confidence radii and negative eigenmode; most plausible dominating primary prior result."
+        },
+        {
+          "assessment": "General sufficient conditions concern invariant graph regions or fixed-topology spectral convergence, and do not give an exact pre-stabilization switch number for the zero-margin seven-agent family; the bound's conditions need not hold at its limit.",
+          "evidence": "Definition 10 and Lemma 17 require positive equitopology margin for eventual topology stabilization; Theorem 25 assumes topology already fixed after some time; its conclusions contain no sharp time-to-first-fix formula for this particular configuration.",
+          "identifier_or_url": "arXiv:1103.2829v2 / https://arxiv.org/html/1103.2829v2",
+          "material_read": "Relevant primary full-text sections: model and topology definitions, Definition 10 and Lemma 17 on equi-topology distances, Theorem 25/Section 6 on fixed-topology dynamics, and simulation/conclusions Sections 5–7.",
+          "method": "Opened primary full HTML; compared the hypotheses/conclusions of stabilization/equitopology theorems to a boundary limit with zero central topology margin.",
+          "title": "Opinion Dynamics in Heterogeneous Networks: Convergence Conjectures and Theorems",
+          "trigger": "Original foundational heterogeneous confidence-model convergence and graph-stabilization criteria; potential stronger prior implication."
+        },
+        {
+          "assessment": "Shows a six-agent truly periodic heterogeneous system and nonconvergence, which is stronger for universal-convergence refutation but incomparable to the audited exact transient count and area distribution for the different converging seven-agent example.",
+          "evidence": "Theorem 2 specifies n=6 and period 10, with radii (0.001,0.25,0.59,0.59,0.25,0.001); not the seven-agent radii (18,42,48,12,48,42,18) or its two-mode invariant plane.",
+          "identifier_or_url": "arXiv:2610.20783 / https://arxiv.org/abs/2610.20783",
+          "material_read": "Primary HTML introduction, model, Theorems 1–2 and full six-agent ten-period construction in Section 2, including tables of six coordinates and switching indicators.",
+          "method": "Compared actual number of agents, radius table, orbit type and claimed consequences in primary full-text HTML.",
+          "title": "Heterogeneous Hegselmann-Krause Dynamics Need Not Converge",
+          "trigger": "Very recent independent stronger-looking counterexample (six-agent nonconvergent dynamics) cited in the earlier seven-agent paper's post-publication note."
+        },
+        {
+          "assessment": "The number-of-switches estimate is an expectation bound for homogeneous asynchronous random updates, while the heterogeneous synchronous section gives a necessary finite-termination condition and a different three-agent example. Neither implies this exact deterministic seven-agent switch classification.",
+          "evidence": "Section V: expected switching topologies bounded above by 16 n^9 for asynchronous homogeneous updates; Section VI: 3-agent monotonically decaying example and necessary finite termination criterion, not seven-agent threshold or count.",
+          "identifier_or_url": "arXiv:1412.6546 / https://arxiv.org/abs/1412.6546",
+          "material_read": "Primary HTML introduction; Sections IV and V summarized and actual expected-switch estimate (Section V); Section VI on heterogeneous dynamics and its three-agent example.",
+          "method": "Read theorem statements and relevant actual equations in full primary HTML, comparing dynamics (homogeneous/asynchronous versus fixed heterogeneous synchronous seven-agent system).",
+          "title": "Game-Theoretic Analysis of the Hegselmann-Krause Model for Opinion Dynamics in Finite Dimensions",
+          "trigger": "Searches about topology switches yielded a prior result with quantitative expected topology-switch bounds and a heterogeneous section; possible broader coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact first graph-stabilization time and number of changes for a natural invariant two-eigenmode perturbation plane of a documented nonfreezing counterexample are motivated dynamical invariants. The transverse mode reveals arbitrarily long but finite switch transients accumulating logarithmically at the infinite-switch boundary, with every odd finite switch count on a positive-area parameter wedge and an exact uniform-area tail/expectation. The classification resolves more than simply restating the known b=0 trajectory: it establishes a stable invariant family and a sharp threshold arrangement with discrete equality cases. The result has meaningful illustrative use in distinguishing numerical finite observation from permanent switching, despite being confined to a specific seven-agent model and a 2D slice. No generic 7D or universal SBC stabilization theorem is asserted.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No statement for arbitrary initial vectors in R^7 or radii other than the specified heterogeneous tuple.",
+    "Original nonfreezing boundary a>0,b=0 is already established by the primary 2026 paper.",
+    "Literature priority is best of knowledge; no independent external expert or Lean verification is claimed.",
+    "Exact checker source was read but not replayed verbatim in the container; an independently written exact symbolic/fraction validation of critical claims was executed.",
+    "Before publishing potentially public package files, strip provenance/operational identifiers and process details from AUDIT.json, METADATA.json and review-facing fields, and correct first_public_date (the recorded October 2 date belongs to the antecedent paper). No full sanitized replacement file bytes or source-guarded operation set were staged; publication therefore not ready."
+  ],
+  "schema_version": 1
+}
