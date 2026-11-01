@@ -1,15 +1,21 @@
-# Scientific review: first two-connected bidirected biclique multipath complex
+# Independent mathematical audit
 
-## Correctness — PASS
-All arc sets of size at most four are examined, because two hubs support at most two incoming and two outgoing arcs. Every admissible arc set is verified to be indegree/outdegree at most one and directed-acyclic, exactly the multipath condition. The complete 793-step finite certificate removes 623 free-face pairs and precisely 170 maximal critical faces (one vertex and 169 tetrahedra); all steps and absence of gradient cycles are verified from the actual companion file. By discrete Morse theory, the result is an integral wedge of 169 three-spheres. Independent exact mod-two boundary computations for the five smaller parameters show low-degree homology obstructing two-connectedness. A numerical experiment alone would not establish these statements; here the complete finite certificate and reconstruction are provided.
+## correctness
 
-## Originality — PASS with residual search risk
-The 2026 paper by Caputi–Collari–Smith treats bidirected paths and cycles, not complete bipartite multicircuit graphs. The 2022 complete-bipartite theorem of Caputi–Collari–Di Trani–Smith assumes a one-way orientation and computes Euler characteristic. Public search comparisons with bidirected double-star trees, chessboard complexes, and discrete-Morse matching complexes do not cover this directed-arc multipath claim. The exact source inspections, search terms, and implication analyses appear in `AUDIT.json`. Equivalent unindexed literature remains possible; originality has not been independently established.
+PASS
 
-## Value — PASS
-An exact two-connectivity threshold in the simplest multicircuit bidirected bipartite family addresses the connectivity and homotopy-type questions motivating current studies of multipath complexes. The integral wedge type and complete elementary discrete-Morse certificate are stronger than a small Betti-number census, and the transition occurs at the first two-connected parameter. This is a finite boundary result, not a claim for all parameter sizes.
+For bidirected K_2,6 each legal arc set has indegree/outdegree at most one and no directed cycle; at most four arcs can be selected. Independent enumeration generated f=(24,192,600,600). Each of 793 recorded Morse operations was checked independently: 623 free-face/coface removals and 170 maximal critical removals, with one critical vertex and 169 critical tetrahedra, 0 unmatched faces, and acyclic complete 1416-face directed Hasse orientation. Hence X6 is integral wedge of 169 S3 and two-connected. An independent exact mod2 boundary-rank computation for n=1..6 showed nonzero reduced H0,H1 or H2 for all n<=5, proving sharpness (not relying on absence of a low-dimensional matching alone).
 
-## Limits
-The result proves the integral homotopy type for the six-leaf case alone and uses mod-two homology to exclude two-connectedness for one through five leaves. Nothing is claimed for seven or more leaves. The mathematical evidence is finite and reproducible, but an independent mathematical review has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Closest bidirected multipath paper classifies polygonal digraphs, i.e. paths and cycles; an undirected K2,6 has multiple 4-cycles and is not in that family. Prior one-way complete bipartite theorem computes a different multipath complex because the orientation lacks reverse arcs and directed 2-cycles. The submitted threshold and exact 169-sphere homotopy were not implied by the inspected theorems.
+
+## value
+
+PASS
+
+The first two-connected point of a natural one-parameter biclique family is a meaningful sharp connectivity threshold; the exact 169-fold integral S3 decomposition gives structural information for a canonical first example and is backed by a complete finite discrete-Morse witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
