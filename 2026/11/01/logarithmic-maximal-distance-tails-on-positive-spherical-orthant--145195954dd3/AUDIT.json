@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "For each ordered pair of distinct maximal-coordinate charts, exact projective spherical Jacobians give the inner product (a+c+sum b_lq_l)/sqrt((1+sum r^2)(1+sum s^2)). Same-index charts cannot contribute below 1/d. Outside a small coordinate box, at least one product pair has one factor >=eta, removing one logarithm and proving O(t^d log^(d-3)) for d>=3. Inside, the exact product density log(eta^2/w) yields the simplex beta integral 1/d! and the eta-sandwich makes spherical factors asymptotically one. d(d-1) ordered charts and orthant area 2^(1-d)pi^(d/2)/Gamma(d/2) yield the asserted exact coefficient. For d=2 the empty-product case is directly exact. The symbolic checker validates the beta and product log integrals, numerical constants, and a deterministic full three-dimensional chart quadrature. Sampling and intrinsic geodesics are correctly normalized; finite checks are not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cai--Fan--Jiang (2013), Theorem 1: full-sphere law; extremal sample angles are for growing samples on the full sphere.",
+        "Sidiropoulos (2014), Secs. II--IV: full-sphere beta laws for distance and dot product.",
+        "Cook (2023), positive-orthant directions only: average dot product and demonstration without extreme-tail formula.",
+        "Laarhoven (2017) Theorem 1 and Appendix A obtain (1/pi)^(d+o(d)) collision probability at nearly right angles in a d→infinity regime. This is not a uniform-in-dimension fixed-d small-angle-deficit expansion and does not imply the exact epsilon and log exponents."
+      ],
+      "reasoning": "Generic full-sphere formulas provide broader ambient dimension but are not stronger coverage of a differently conditioned orthant distribution. A general real-analytic/semialgebraic asymptotic theorem could imply power-log form without the computed coefficient, but no inspected source yields the explicit dimension-dependent exponent and coefficient via an applicable stated result.",
+      "searches": [
+        "published-finding corpus: Spherical orthant pairwise geodesic distance angular separation tail near maximum right angle, all dimensions exact leading constant",
+        "published-finding corpus: Dirichlet half-normal vectors dot product near zero asymptotic coefficient log power",
+        "web: cone restricted random directions spherical angular distance distribution small inner product probability 2014",
+        "web: random points positive orthant unit sphere angle between two random vectors distribution cosine similarity probability near right angle",
+        "web: Hypercube LSH for approximate near neighbors arxiv:1702.05760 Theorem 1 and Appendix A"
+      ]
+    },
+    "checked_sources": [
+      "Cai, Fan, Jiang (2013), arxiv:1306.0256, JMLR 14, pp. 1837--1864; primary full-text evidence.",
+      "Sidiropoulos (2014), arxiv:1411.5639v1, full arXiv HTML.",
+      "Cook (2023), positive-orthant sampling blog, complete post.",
+      "published-finding corpus search records including 2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c (different analytic setting).",
+      "Published related geometric findings: spherical-orthant John ellipsoid; ordinary cube central chords; other intrinsic distances (noncovering).",
+      "Laarhoven, arxiv:1702.05760 (Theorem 1 pp. 1--3; Appendix A Lemma 5 p. 13; comparisons with the fixed-dimensional endpoint limit)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cai--Fan--Jiang (2013) density is nonzero at pi/2 on the full sphere, yielding a linear local probability in that interior region, whereas the positive-orthant tail is an extreme endpoint with the different epsilon^d log^(d-2) scale.",
+        "Sidiropoulos (2014) full-sphere dot product density is smooth and nonzero at zero; no positive-cone conditioning enters.",
+        "Cook (2023) confirms the random-vector model but reports typical means, not nearly orthogonal rare events.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-logarithmic-endpoint-law-for-factorized-smooth-product-ker--a3dd7557422c concerns a singular integral kernel and does not give a probabilistic sum-of-products orthant formula.",
+        "Laarhoven (2017) proves dimension-exponential rates for fixed angle and cannot determine the exact epsilon^d(log 1/epsilon)^(d-2) fixed-d tail, because the order of limits is different and the error is exponent-scale o(d)."
+      ],
+      "reasoning": "Full-sphere laws cannot be restricted by multiplying by an independent sign probability: the pair-angle event depends on coordinate signs. A product-kernel endpoint asymptotic concerns a different operator, and no stated implication to two normalized positive vectors was found. Published analyses of spherical-orthant John ellipsoids and cube central chords treat distinct geometric statistics.",
+      "searches": [
+        "published-finding corpus: Cosine similarity two independent half-normal normalized Gaussian random vectors near zero probability asymptotics",
+        "published-finding corpus: random angular separation in spherical orthant two points positive coordinate unit sphere upper endpoint law",
+        "web: N-sphere chord length distribution dot product formula Sidiropoulos",
+        "web: random points hypersphere orthant near right angle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cai--Fan--Jiang (arXiv:1306.0256), full text pp. 1--4: uniform on the entire sphere, with fixed-d pair-angle density proportional to (sin theta)^(d-2).",
+        "Sidiropoulos (arXiv:1411.5639), complete accessible HTML, Sec. IV: entire-sphere dot-product density, not positive-orthant-conditioned directions.",
+        "Cook (2023-08-09), complete post: positive-orthant sampling and means, not an upper endpoint tail.",
+        "Laarhoven (2017), Thm. 1 p. 2: hypercube hash collision, equivalent to same-orthant conditional angle, but asymptotics are d→infinity at fixed angle, not fixed d as theta→pi/2."
+      ],
+      "reasoning": "The claim is equivalently the small-inner-product probability for two independently uniform positive unit vectors or the near-maximum intrinsic geodesic-distance tail on the spherical orthant. Full-sphere angle densities are not interchangeable with either formulation after jointly conditioning on positive signs. The inspected sources do not state the leading epsilon^d log^(d-2) law.",
+      "searches": [
+        "published-finding corpus: Uniform two random points on positive spherical orthant spherical simplex geodesic distance near diameter pi/2 upper tail epsilon^d logarithm dimension",
+        "published-finding corpus: Nearly orthogonal independent nonnegative spherical unit vectors positive octant angle distribution small dot product asymptotic log",
+        "web: positive orthant angle distribution random sphere points",
+        "web: spherical orthant geodesic distance distribution pair random points",
+        "web: reference request Probability of two vectors lying in the same orthant MathOverflow (2015); Laarhoven arxiv:1702.05760 theorem 1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No identical tabulated orthant near-diameter asymptotic appeared in the returned published-finding corpus mathematical findings.",
+        "Sidiropoulos gives exact beta-function tables for unconstrained full spheres, not this orthant statistic.",
+        "Cook reports an orthant mean experiment and no tail table."
+      ],
+      "reasoning": "The closest encountered tables concern full-sphere pair distances and crosspolytope projections, not the all-dimensional orthant extreme-distance probability. Absence in search results is not proof of universal database novelty.",
+      "searches": [
+        "published-finding corpus: spherical octant two point geodesic distance distribution near 90 degrees logarithmic singularity",
+        "published-finding corpus: random angular separation in spherical orthant two points positive coordinate unit sphere upper endpoint law",
+        "web: distribution angle between random positive vectors sphere orthant exact dimension 3",
+        "web: spherical orthant two independent uniform points geodesic distance tail logarithmic asymptotics"
+      ]
+    },
+    "rationale": "Targeted published-finding corpus and web searches, comparisons with accessible own historical claims, and full-text inspection of the closest full-sphere pair-angle papers and the exact positive-orthant sampling discussion did not reveal a result whose statement implies this logarithmic near-diameter law. The exact coefficient is calculated explicitly; no worldwide uniqueness assertion is made. Residual risk remains from unindexed or differently phrased spherical-cone asymptotic literature. A particularly relevant theorem by Laarhoven (2017) analyzes the conditional same-orthant angular collision probability in the dimension-to-infinity regime, which does not determine the fixed-dimensional near-diameter endpoint law proved here.",
+    "residual_risks": [
+      "Unindexed primary papers on positive-cone random angles or analytic sublevel-set asymptotics may contain an equivalent endpoint coefficient.",
+      "The research-record search is semantic and incomplete and cannot by itself certify global novelty.",
+      "The closest object-identical mean-angle discussion is expository; the rigorous large-d conditional-angle theorem has a different order of limits.",
+      "Laarhoven analyzes the same angular conditioning in the orthant but in a different asymptotic regime; no uniform conversion between those limits is asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No covering claim: the sampling measure is uniform on the entire sphere and extremes refer to multiple independently sampled points; no conditioning to one positive spherical orthant or its fixed-pair upper endpoint coefficient.",
+        "evidence": [
+          "Paper defines X_i uniform on entire S^(p-1), pp. 2--3.",
+          "Theorem 1 provides full-sphere density proportional to (sin theta)^(p-2), p. 4.",
+          "Theorem 2 studies growing-sample extremal angles on entire sphere, p. 4."
+        ],
+        "identifier_or_url": "arxiv:1306.0256; https://jmlr.org/papers/volume14/cai13a/cai13a.pdf",
+        "material_read": "Full PDF introduction, statements of Theorems 1 and 2 and accompanying setup on pages 1--4; text-wide search for sampling definitions and main results; visual inspection of pages 1 and 4.",
+        "method": "Primary lawful open-access PDF with page images and text.",
+        "title": "Distributions of Angles in Random Packing on Spheres",
+        "trigger": "Closest all-dimensional primary pair-angle and extreme-angle distribution on spheres; plausible broader probabilistic coverage."
+      },
+      {
+        "assessment": "No covering claim: pairs sampled on the entire sphere, with dot products supported on positive and negative values; orthant conditioning and near-zero logarithmic singularity are absent.",
+        "evidence": [
+          "Section II assumes independent surface-uniform points on full N-sphere.",
+          "Section IV Eq. (34) gives full-sphere dot-product density proportional to (1-c^2)^((N-3)/2)."
+        ],
+        "identifier_or_url": "arxiv:1411.5639v1; https://arxiv.org/html/1411.5639v1",
+        "material_read": "Complete accessible HTML; Sections I--V, including Proposition II.3, Eq. (33)--(34) in Section IV and concluding statement.",
+        "method": "Primary lawful arXiv full-text HTML.",
+        "title": "N-sphere chord length distribution",
+        "trigger": "All-dimensional explicit pair-distance and unit-vector dot-product law, potentially covering the event after a reduction."
+      },
+      {
+        "assessment": "Relevant model but not covering: focuses on typical dot products and simulations rather than the probability of a near-zero dot product or a fixed-dimensional logarithmic tail.",
+        "evidence": [
+          "Lines 37--49 construct positive-orthant vectors as folded Gaussian directions and discuss average dot product near 2/pi."
+        ],
+        "identifier_or_url": "https://www.johndcook.com/blog/2023/08/09/random-points-hypersphere-orthant/",
+        "material_read": "Complete article, including positive-orthant sampling and final expected-inner-product discussion.",
+        "method": "Full accessible article text.",
+        "title": "Random points in a high-dimensional orthant",
+        "trigger": "Exactly the same two-point positive-orthant sampling model, a closer object match than full-sphere work."
+      },
+      {
+        "assessment": "Not covering the fixed-dimension endpoint: paper fixes angular argument then lets dimension go to infinity, reporting only exponential-in-d asymptotics; here d is fixed and angular deficit tends to zero, with an explicit log correction and constant. Noncommuting limits preclude direct implication.",
+        "evidence": [
+          "Theorem 1 states p(theta)=((1+cos(theta))/(pi sin(theta)))^(d+o(d)) for theta between pi/3 and pi/2, as d grows, PDF p. 2.",
+          "Section 3 and Appendix A explicitly use large deviations for d→infinity, with normalized half-Gaussian vectors.",
+          "The proof concludes an exponential-rate collision estimate, not fixed-dimensional endpoint coefficient."
+        ],
+        "identifier_or_url": "arxiv:1702.05760v1; https://arxiv.org/pdf/1702.05760.pdf",
+        "material_read": "Primary full-text theorem/abstract on PDF pages 1--2; setup and orthant reduction on pp. 5--6; Appendix A statement of Lemma 5 on p. 13 and final proof on p. 17, with visual examination of PDF pages 1, 2, and 13.",
+        "method": "Lawful open-access arXiv PDF full-text search, page text and page-image inspection.",
+        "title": "Hypercube LSH for approximate near neighbors",
+        "trigger": "Directly related conditional probability of two sphere-uniform vectors lying in the same orthant given their angle, potentially a stronger exact equivalent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "14519595-4dd3-4c16-b14a-40e155361b5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A positive spherical orthant is a natural regular spherical simplex and a fundamental directional sampling domain for nonnegative vectors. Its maximum two-point distance is attained only along disjoint-support boundary strata. The exact all-dimensional transition from the planar pure power epsilon^2 to epsilon^d log^(d-2) for d>=3, including gamma-function constants, identifies a nonstandard geometric probability singularity; it is not a mere rewrite of the full-sphere angle density or a mean-value calculation. The formula informs quantitative rare-event and sampling thresholds at maximal spherical separation.",
+    "status": "PASS"
+  }
+}
