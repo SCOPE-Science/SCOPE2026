@@ -1,0 +1,15 @@
+# Mathematical review: sharp reflected mixed-volume envelopes for planar products
+
+## Correctness — PASS
+For every full-dimensional planar convex factor the normalized mixed-area polynomial is \(1+2r_it+t^2\), with \(r_i\in[1,2]\) by the planar Rogers--Shephard bounds and with rigid endpoints (central symmetry and triangle). Products of orthogonal factor sums yield the exact coefficient formula by Fubini. Coefficientwise monotonicity yields both absolute sharp bounds. The elementary-symmetric expansion and Maclaurin inequalities imply the fixed-average optimal envelope; the requisite strict term is \(e_2\) in even degrees and \(e_3\) in odd interior degrees. Convexity of each balanced coefficient as a function of \(r\) yields the globally sharp affine remainder, attained at the all-centrally-symmetric endpoint. Continuity of an interpolation from a triangle to its centered difference body establishes complete parameter realization, and a local lattice central limit theorem plus Stirling gives the central-index asymptotic. The supplied independent finite rational tests run successfully but do not establish the infinite theorem.
+
+## Originality — PASS, with residual priority uncertainty
+The 2026 global Godbersen theorem and 2026 equality/higher-order study establish stronger general *absolute* coverage but do not imply sharp coefficient envelopes, sharp factorwise Rogers--Shephard-deficit coefficients or the fixed-average optimization for arbitrary products of planar convex factors. A publicly accessible exact profile for one-vertex simplex truncations concerns a nonproduct class, while the publicly accessible Cartesian-product theorem for the two-body Bézout coefficient concerns a different mixed-volume quotient. Full mathematical statements and proof material were compared, not merely titles. Targeted mathematical-record searches and literature queries found no equivalent or stronger numerical characterization; absence of a match is not proof of priority. Classical product identities might have appeared implicitly in older literature.
+
+## Value — PASS
+The geometric object and target invariant are canonical following the general Godbersen inequality. The result supplies an exact coefficientwise classification in every even dimension for *all* planar-factor products and every index, sharp global factor-deficit stability with equality classes, the complete fixed-mean profile, parameter attainability, and the sharp exponential central-index decay. These are structural and quantitative facts not supplied by the general inequality or its equality case; they go substantially beyond isolated examples or routine parameter substitution, although the proof uses classical inequalities.
+
+## Scientific limits
+No global claim for nonproduct bodies, no metric near-simplex stability and no independent historical-priority certification. The coefficient sharpness is relative to the explicitly stated factorwise deficit, not a universal geometric distance. All finite tests are corroborating calculations only.
+
+Self-review: passed. Independent audit: not yet performed.
