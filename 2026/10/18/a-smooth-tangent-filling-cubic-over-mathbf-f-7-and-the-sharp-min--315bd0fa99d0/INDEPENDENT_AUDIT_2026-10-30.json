@@ -1,0 +1,191 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T08:09:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 4ad9eb5ef3a880820d852bf2f1a4f7471ca77fae",
+        "Frozen verify_tangent.py blob 71bd3560e6b538d75a7e8548d5840e40daae36f7 (read as evidence, not executed)",
+        "Independent exact checker independent_cubic_check.py and results (19,608 conics, 57 plane points)"
+      ],
+      "rationale": "Reconstructed the exact final claim over F7. The cubic F=X^3+XYZ+Y^3+YZ^2-Z^3 has no geometric singularities: on X=0, the common partial vanishing forces YZ=0 and F excludes projective zeros; on X=1, F_X=0 forces yz=4 and y≠0, z=4/y, and the remaining derivative equations reduce to 3y^4+4y+2=0 and y^3+y^2+1=0. Their gcd in F7[y] is the unit ideal, independently checked by modular Euclidean division (the source also supplies a Bézout identity). Euler's identity 3F=∑X_i F_i justifies this Jacobian approach. Independently enumerated all 57 rational projective points and found exactly 12 smooth cubic points and 12 different gradient tangents; full incidence histogram is {1:36,2:9,3:9,5:3}. The three fivefold centers are noncollinear (determinant 3 in F7); every point is covered. For sharpness, an entirely independent exact census of ALL (7^6-1)/(7-1)=19,608 projective coefficient classes of degree-2 homogeneous forms computed smooth rational tangents by gradient, giving maximum union size 36, with count distribution 0:1254,15:1596,36:16758. Every degree-one curve has one tangent line covering only eight rational points; nonzero constants have no curve. This is genuinely exhaustive for degree <=2, not finite sampling of a larger parameter space. The analytic smoothness proof, not the 57-point calculation, handles the algebraic closure. No claim for other fields or uniqueness of the cubic.",
+      "residual_risks": [
+        "The exhaustive test is only over F7 projective coefficients for degrees <=2; it does not classify all degree-three curves or finite fields.",
+        "The modular gcd is an independent alternative to the displayed Bézout certificate; its correctness rests on the direct algebra and code, not a formal Lean proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Asgarli-Ghioca Theorem 1.3 gives a particular degree q-1 construction only for q>=11; its Remark 3.7 says that construction fails for q=7, not that cubic examples are impossible.",
+          "Asgarli-Ghioca-Yip Theorem 1.3 excludes the *primal* rational points of irreducible cubic curves as blocking sets when q>=5. This is a different set from the tangents in the dual plane.",
+          "Coolsaet-Botteldoorn-Fack 2022 enumerates minimal blocking sets over orders <=8; the visible description supplies abstract configurations but no explicit tangent-cubic realizability theorem."
+        ],
+        "reasoning": "Neither q>=11 existence nor the exclusion of primal cubic point blocking sets proves/disproves the claimed dual Gauss image realization at q=7. The published blocking-set classification is broader in the sense of abstract point configurations, but its stated results do not imply the constrained geometric realization; full text was not available, so this is qualified, not whole-document noncoverage.",
+        "searches": [
+          "arXiv:2302.13420v2 Theorems 1.1-1.3, Question 1.5, Remark 3.7",
+          "arXiv:2208.13299v2 Theorem 1.3, Section 5 and introduction",
+          "web: classification minimal blocking sets in small Desarguesian projective planes q<=8"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md, SLOGAN.txt, REVIEW.md, AUDIT.json, METADATA.json, VERIFICATION.md, verify_tangent.py at f61edba212830e176a67336537db66612bed5f19",
+        "Asgarli-Ghioca arXiv:2302.13420v2 full arXiv PDF",
+        "Asgarli-Ghioca-Yip arXiv:2208.13299v2 full arXiv PDF",
+        "Coolsaet-Botteldoorn-Fack 2022 DOI 10.1002/jcd.21842 publisher and institutional abstracts",
+        "Resultary three semantic searches and relevant published records, actual titles/summaries",
+        "Independent exhaustive projective/conic checker and its JSON output"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2302.13420v2, Question 1.5 explicitly asks for minimum degree of an irreducible tangent-filling plane curve; Theorem 1.3 is for q>=11.",
+          "arXiv:2208.13299v2, Theorem 1.3 is about C(F_q) as primal blocking set for cubic curves; it cannot exclude a blocking set of tangent lines.",
+          "2022 finite-plane blocking classification concerns point configurations without a demonstrated compatibility with the Gauss map of a smooth cubic in the accessible abstract."
+        ],
+        "reasoning": "The claim is not a numerical specialization or corollary of the inspected existence theorem or the primal blocking theorem. An abstract 12-point blocking configuration is necessary but not sufficient to be a smooth cubic's Gauss image; the cubic equation and proof add the missing realization and exact degree exclusion. Literature searches do not certify global historical novelty.",
+        "searches": [
+          "arXiv:2302.13420v2 Question 1.5 and Theorem 1.3",
+          "arXiv:2208.13299v2 Theorem 1.3",
+          "doi:10.1002/jcd.21842 abstract and protected full text",
+          "Resultary three semantic searches recorded above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Asgarli-Ghioca arXiv:2302.13420v2, pages 2-4, identifies tangent-filling as the rational Gauss-image blocking condition in the dual plane.",
+          "Independent exact cubic incidence profile: 12 dual tangent points meet every dual line; max 5 tangent points on any dual line, so it is nontrivial.",
+          "Resultary 2026/9/9/SCOPE040 concerns PG(2,13) Redei blocking sets, not tangent-Gauss images over F7."
+        ],
+        "reasoning": "The correct equivalent formulation is realization of a 12-point nontrivial blocking configuration as the rational Gauss image of a *smooth cubic*, with sharp degree among all plane curves. Classification of abstract blocking sets, even the exact dual point-set incidence, alone does not assert a smooth plane cubic with these tangents.",
+        "searches": [
+          "Resultary: tangent filling smooth cubic over F7 rational tangents cover projective plane 57 points sharp minimal degree",
+          "Resultary: blocking sets of rational tangent lines to elliptic cubic curve over finite fields degree 3 q=7",
+          "web: tangent-filling F_7 cubic degree three; tangent filling elliptic plane cubic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2022 Coolsaet et al. classification covers all minimal blocking sets in PG(2,7) up to projective equivalence, thus the abstract 12-point dual blocking set is not necessarily new as a bare configuration.",
+          "Resultary records 2026/9/10/SCOPE049 and 2026/9/11/SCOPE071 concern PG(2,13) direction or blocking sets, not F7 tangent Gauss images.",
+          "The independent finite computation enumerated every conic up to scalar (19,608) and the specific cubic tangent incidence; it was not used as a novelty search."
+        ],
+        "reasoning": "Prior finite-plane tables can cover the dual incidence type and classical sharp cardinality. What needs originality is the existence of a geometrically smooth cubic realizing it as its 12 rational tangents and attaining the optimal degree. No accessible table showed the cubic equation or that realization; full classification text unavailable, so the residual risk is substantive.",
+        "searches": [
+          "Coolsaet-Botteldoorn-Fack, doi:10.1002/jcd.21842, abstract",
+          "Resultary: smooth finite field plane cubic Gauss image minimal nontrivial blocking set 12 PG(2,7)",
+          "Resultary hits: 2026/9/9/SCOPE040, 2026/9/10/SCOPE049, 2026/9/11/SCOPE071",
+          "web: PG(2,7) 12 blocking projective triangle classification"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact q=7 smooth cubic realization and sharp degree-3 minimum, NOT for the general notion of tangent-filling, dual blocking sets, or Blokhuis's 12-point bound. Full relevant mathematics of the 2023 original question and 2022 primal blocking-curve paper was inspected; no accessible prior theorem implies a degree-3 tangent-filling curve over F7. A 2022 projective-plane blocking-set census classifies the abstract dual configurations (and may contain the 12-point support) but its accessible abstract does not construct the exhibited cubic or derive tangent realizability. Full paper was inaccessible and remains a specific risk; an earlier unindexed q=7 example may exist.",
+      "residual_risks": [
+        "The 2022 Coolsaet-Botteldoorn-Fack full paper, which classifies abstract PG(2,7) blocking sets, was not accessible; its coverage of cubic Gauss realizations cannot be conclusively excluded, although the available abstract does not establish them.",
+        "Oxford authorization reported vpn_disconnected; no bypass or fabricated full-text reading. The inaccessible article alone is not scientific failure.",
+        "An older unindexed elliptic cubic or tangent-filling F7 construction may already give an equivalent projective example.",
+        "Resultary returned only titles/summaries; no whole-document noncoverage claim is made for those records."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Theorem 1.3 assumes q>=11; Remark 3.7 excludes its particular sextic at q=7; Question 1.5 asks minimum degree. No q7 smooth cubic witness in the examined full-text result.",
+          "identifier_or_url": "https://arxiv.org/pdf/2302.13420",
+          "material_read": "Full available 13-page arXiv PDF, especially abstract, introduction, Theorems 1.1-1.3, Question 1.5, Section 2 dual Gauss-map proof, Section 3 examples, Remark 3.7; pages 2-3 visually inspected.",
+          "method": "Open-access arXiv v2 full-text and page screenshot analysis",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Exact object and original Question 1.5; possibility of stronger q=7 result"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Theorem 1.3 excludes C(F_q) being a primal blocking set, not the dual Gauss image of rational tangents. Its projective-triangle study concerns curves passing through primal configurations.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.13299",
+          "material_read": "Available full 25-page PDF with introduction, Theorem 1.3 and discussion of primal blocking, the projective triangle Section 5, and page-2 screenshot.",
+          "method": "Open-access arXiv v2 PDF theorem and hypothesis comparison",
+          "title": "Plane curves giving rise to blocking sets over finite fields",
+          "trigger": "Potential direct theorem ruling out cubics whose tangent sets block"
+        },
+        {
+          "assessment": "ABSTRACT_COVERAGE_OF_BLOCKING_SET_CLASSIFICATION; TANGENT_REALIZATION_UNRESOLVED_IN_FULL_TEXT",
+          "evidence": "Paper enumerates all minimal blocking sets for q<=8, encompassing the abstract 12-point configuration; visible material does not identify whether any table associates the cubic Gauss image, so full-text equivalence remains a risk.",
+          "identifier_or_url": "https://doi.org/10.1002/jcd.21842",
+          "material_read": "Publisher abstract and bibliography, UGent institutional repository abstract and access notice, catalogue description; full article unavailable (restricted at UGent and Oxford VPN disconnected).",
+          "method": "Published publisher/UGent abstract and authorized access attempt; no full-paper noncoverage assertion",
+          "title": "Classification of minimal blocking sets in small Desarguesian projective planes",
+          "trigger": "Full classification of the precise abstract 12-point dual blocking configuration in PG(2,7)"
+        },
+        {
+          "assessment": "COVERS_ONLY_PRIOR_SIZE_BOUND",
+          "evidence": "For p=7, 3(p+1)/2=12 is a classical lower bound; no novelty is claimed for this number alone.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.13299",
+          "material_read": "Introduction of the 2022 paper, which explicitly cites Blokhuis (1994) and the lower bound 3(p+1)/2.",
+          "method": "Secondary full-text theorem citation; original 1994 paper not read",
+          "title": "Projective-plane blocking sets and the Blokhuis bound",
+          "trigger": "Check prior sharp 12-point nontrivial blocking-set bound"
+        },
+        {
+          "assessment": "NOT_COVERING_BY_SUMMARY_ONLY",
+          "evidence": "A PG(2,13) Redei configuration is not an F7 smooth cubic Gauss realization, subject to full-text caveat.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/9/SCOPE040",
+          "material_read": "Search-returned title and summary, not whole repository text",
+          "method": "Resultary semantic search; implication comparison limited to summary",
+          "title": "Minimal Redei-type blocking sets in PG(2,13)",
+          "trigger": "Semantically related published blocking-set finding"
+        },
+        {
+          "assessment": "NOT_COVERING_BY_SUMMARY_ONLY",
+          "evidence": "Exact F13 direction-function table, not F7 cubic tangent incidence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/10/SCOPE049",
+          "material_read": "Search-returned title and summary only",
+          "method": "Resultary semantic search",
+          "title": "No nine-direction graph in a normalized monic degree-seven family over F13",
+          "trigger": "Possible exact finite-plane table overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Asgarli-Ghioca 2023 original minimum-degree Question 1.5",
+        "Independent 19,608-conic exhaustive lower-bound computation",
+        "Original geometric smoothness argument and explicit cubic incidence"
+      ],
+      "rationale": "This determines the sharp minimum degree in the natural tangent-filling question posed by Asgarli and Ghioca at a prime q=7 outside their q>=11 construction, and exhibits a geometrically smooth genus-one cubic rather than a singular or artificial slice. Its exact 12-element rational Gauss-image realizes the classical sharp nontrivial blocking size 12 in PG(2,7) and has an explicit 57-point incidence profile; the geometric realization, not the already known blocking bound or arbitrary 12-point set, is the meaningful fact. The minimum holds without irreducibility, smoothness or reducedness assumptions for competitors. This sharp naturally motivated finite-field boundary and explicit witness is substantial beyond textbook deductions or a known-table recomputation.",
+      "residual_risks": [
+        "The theorem is specific to F7, with no classification of all tangent-filling cubics or extension to other fields.",
+        "The abstract 12-point blocking configuration itself is classical and its size bound is not new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 4ad9eb5ef3a880820d852bf2f1a4f7471ca77fae",
+    "Frozen verify_tangent.py blob 71bd3560e6b538d75a7e8548d5840e40daae36f7 (read as evidence, not executed)",
+    "Independent exact checker independent_cubic_check.py and results (19,608 conics, 57 plane points)",
+    "Frozen Git RESULT.md, SLOGAN.txt, REVIEW.md, AUDIT.json, METADATA.json, VERIFICATION.md, verify_tangent.py at f61edba212830e176a67336537db66612bed5f19",
+    "Asgarli-Ghioca arXiv:2302.13420v2 full arXiv PDF",
+    "Asgarli-Ghioca-Yip arXiv:2208.13299v2 full arXiv PDF",
+    "Coolsaet-Botteldoorn-Fack 2022 DOI 10.1002/jcd.21842 publisher and institutional abstracts",
+    "Resultary three semantic searches and relevant published records, actual titles/summaries",
+    "Independent exhaustive projective/conic checker and its JSON output",
+    "Asgarli-Ghioca 2023 original minimum-degree Question 1.5",
+    "Independent 19,608-conic exhaustive lower-bound computation",
+    "Original geometric smoothness argument and explicit cubic incidence"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Oxford authorization for the relevant 2022 complete blocking-set classification was unavailable; only its abstract was inspected. No assertion of whole-document noncoverage is made.",
+    "The source standalone verifier was read but not blindly executed; the independently written checker instead exhaustively checked all conics over F7.",
+    "Original RESULT.md contains a pre-audit historical sentence that independent review was not yet done; no change to RESULT.md is permitted for passed."
+  ],
+  "residual_risks": [
+    "The exhaustive test is only over F7 projective coefficients for degrees <=2; it does not classify all degree-three curves or finite fields.",
+    "The modular gcd is an independent alternative to the displayed Bézout certificate; its correctness rests on the direct algebra and code, not a formal Lean proof.",
+    "The 2022 Coolsaet-Botteldoorn-Fack full paper, which classifies abstract PG(2,7) blocking sets, was not accessible; its coverage of cubic Gauss realizations cannot be conclusively excluded, although the available abstract does not establish them.",
+    "Oxford authorization reported vpn_disconnected; no bypass or fabricated full-text reading. The inaccessible article alone is not scientific failure.",
+    "An older unindexed elliptic cubic or tangent-filling F7 construction may already give an equivalent projective example.",
+    "Resultary returned only titles/summaries; no whole-document noncoverage claim is made for those records.",
+    "The theorem is specific to F7, with no classification of all tangent-filling cubics or extension to other fields.",
+    "The abstract 12-point blocking configuration itself is classical and its size bound is not new."
+  ],
+  "schema_version": 1
+}
