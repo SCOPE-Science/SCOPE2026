@@ -1,0 +1,194 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:13:53Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Hermitian polynomial expansion, coefficient argument, kernel H_h and cubic determinant sign crossing",
+        "Independent private SymPy: det H_h=2 for arbitrary nonzero h, exact quartic top coefficients, three representative sampled rank classifications",
+        "Conca et al. Proposition 3.1 rank<=2 obstruction; Proposition 5.4 for M=3 gives impossibility of seven measurements"
+      ],
+      "rationale": "For a Hermitian 3x3 K, Q_K(z)=[1,z,z^2]^*K[1,z,z^2] restricts to a real quartic on each horizontal line, whose x^4 and x^3 coefficients are identical across heights (c,2w). Four distinct zeros per line force the restrictions to be c times their corresponding monic quartics. Equality of cubic coefficients gives c*(sum r - sum s)=0. If the sums differ, c=0 and both restricted cubics vanish identically, leaving a one-dimensional real kernel spanned by H_h with determinant 2. A rank<=2 nonzero kernel is therefore impossible. If sums agree, the linear restrictions yield an independent kernel K1 with c=1; det(K1+tH_h) is an odd-degree real cubic with nonzero leading coefficient 2, hence has a real zero at a nonzero singular kernel matrix. Three distinct sample functionals span C3 by Vandermonde, excluding semidefinite nonzero kernel matrices; the singular element is indefinite rank2 and gives two genuinely distinct phaseless polynomials. Independent SymPy verification gives detH=2 and sample linear ranks 8/7 for unequal/equal centroids. The general minimality at N=8 uses Conca et al Proposition 5.4 with M=3,N<=7.",
+      "risk": "Universal exact injectivity, not a uniform noise-stability estimate; h must be nonzero and each row must have four distinct nodes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conca et al. generic C3 phase retrieval and 7-impossibility are prior; Przybyłek–Siedlecki give 25 fixed samples for degree 2; Wellershoff treats equality of entire-function magnitudes on each complete line."
+        ],
+        "reasoning": "Generic frame theory does not decide constrained complex Vandermonde frames; a 25-node grid does not imply 8-node centroid classification; infinite-line uniqueness/equality results do not characterize arbitrary four finite nodes per line.",
+        "searches": [
+          "Conca Edidin Hering Vinzant Proposition 3.1 5.4",
+          "Przybylek Siedlecki theorem 4.2 phaseless polynomial grid",
+          "Wellershoff theorem 10 entire function two parallel lines"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1312.0158",
+        "https://arxiv.org/pdf/1907.09371",
+        "https://arxiv.org/pdf/2202.03733",
+        "https://doi.org/10.1112/blms.13134",
+        "Resultary mathematical records (query: quadratic polynomial phaseless sampling four points on two parallel lines centroid criterion 8 samples phase retrieval)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Conca et al. establish a rank<=2 obstruction and 8 is globally minimum in M=3; finite grids use >=25 samples; full-line results require infinitely many measurements."
+        ],
+        "reasoning": "The claim reuses these theorems only for the obstruction/minimality context, but its if-and-only-if centroid geometry follows from an explicit new kernel calculation, not from any named published implication.",
+        "searches": [
+          "arxiv:1312.0158 Proposition 3.1 and 5.4",
+          "arxiv:1907.09371 Theorem 4.2",
+          "arxiv:2202.03733 Theorem 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The sample frame vectors are (1,z,z^2) and the kernel consists of real biquadratic Hermitian forms vanishing at eight nodes."
+        ],
+        "reasoning": "The equivalent Hermitian polynomial statement was compared; unlike generic frames, here line-restricted quartics share their two leading coefficients, making centroid difference necessary and sufficient.",
+        "searches": [
+          "quadratic polynomial phaseless sampling four points on two parallel lines centroid criterion 8 samples phase retrieval",
+          "Hermitian rank two kernel polynomial evaluation frame moment curve parallel lines",
+          "two parallel lines four samples row centroids complex quadratic phase retrieval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Relevant searches returned fourth-Fourier-moment and finite phase-only results on different object and invariant; no exact centroid criterion was located."
+        ],
+        "reasoning": "General complex frame sampling tables list lower bounds but not this codimension-one geometric degeneracy. A negative search does not establish absolute priority.",
+        "searches": [
+          "\"phaseless\" \"centroid\" \"parallel lines\" quadratic",
+          "Resultary query: quadratic polynomial phaseless sampling four points on two parallel lines centroid criterion 8 samples phase retrieval"
+        ]
+      },
+      "rationale": "Best-of-knowledge sharp eight-node centroid criterion is not implied by general complex frame phase retrieval, arbitrary polynomial grid constructions, or uniqueness from measurements on entire lines. Minimal count and Hermitian lifting are inherited prior theory and are not credited as new. The exact necessary-and-sufficient geometric condition on a finite 4+4 parallel-line configuration is the surviving contribution.",
+      "residual_risks": [
+        "An obscure analytic or discrete phase-retrieval criterion for two-row Vandermonde frames could already encode the same centroid equality.",
+        "No uniform numerical stability estimate is established; its absence does not reduce correctness of injectivity criterion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides known generic criterion and seven-measurement impossibility for C3, not finite two-line centroid classification.",
+          "evidence": [
+            "Proposition 3.1 and Proposition 5.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1312.0158",
+          "material_read": "Full primary arXiv PDF relevant sections 3 and 5, Proposition 3.1, Proposition 5.4, example M=3,N=8; page screenshots",
+          "method": "Primary PDF text and screenshots",
+          "title": "An Algebraic Characterization of Injectivity in Phase Retrieval",
+          "trigger": "General rank-two Hermitian criterion and minimum sample count"
+        },
+        {
+          "assessment": "Provides general (2n+1)^2 grid and reconstruction, thus 25 for quadratic, not sharp eight-point centroid test.",
+          "evidence": [
+            "Theorem 4.2 and Examples 4.1–4.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.09371",
+          "material_read": "Primary arXiv PDF section 4 and Theorem 4.2, page14, plus examples for same line",
+          "method": "PDF text and screenshots",
+          "title": "A Note on the Complexity of a Phaseless Polynomial Interpolation",
+          "trigger": "Nonadaptive finite polynomial sampling"
+        },
+        {
+          "assessment": "Characterizes functions agreeing on complete parallel lines; not just four nodes on each or centroid criterion.",
+          "evidence": [
+            "Theorem 10 and Remark 11"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.03733",
+          "material_read": "Primary PDF abstract, Theorem 10 and Remark 11",
+          "method": "PDF text and screenshots",
+          "title": "Phase Retrieval of Entire Functions and Its Implications for Gabor Phase Retrieval",
+          "trigger": "Equal magnitude on parallel lines"
+        },
+        {
+          "assessment": "Concerns discrete/infinite line progressions in entire-function classes; full text not materially inspected, residual risk noted.",
+          "evidence": [
+            "No whole-document inapplicability conclusion"
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms.13134",
+          "material_read": "Abstract and bibliographic description only",
+          "method": "Literature search",
+          "title": "Arithmetic Progressions and Holomorphic Phase Retrieval",
+          "trigger": "Potential infinite sampling uniqueness domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "If-and-only-if classification holds for arbitrary real sites on each row, not generic sites",
+        "Sharp eight-node necessary sample count from prior C3 topology combines with a nontrivial explicit geometry criterion"
+      ],
+      "rationale": "Eight is the sharp possible sample count for C3 and the centroid condition is a clean complete classification of every 4+4 parallel-line configuration, including exceptional degeneracies, with an explicit counterexample mechanism. It supplies concrete constrained sampling design beyond generic-frame existence or a large grid method.",
+      "risk": "No reconstruction algorithm or robustness against noise is proved; degree higher than two and other allocations remain unclassified.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1312.0158",
+    "https://arxiv.org/pdf/1907.09371",
+    "https://arxiv.org/pdf/2202.03733",
+    "https://doi.org/10.1112/blms.13134",
+    "Resultary mathematical records (query: quadratic polynomial phaseless sampling four points on two parallel lines centroid criterion 8 samples phase retrieval)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Universal exact injectivity, not a uniform noise-stability estimate; h must be nonzero and each row must have four distinct nodes.",
+    "No reconstruction algorithm or robustness against noise is proved; degree higher than two and other allocations remain unclassified.",
+    "An obscure analytic or discrete phase-retrieval criterion for two-row Vandermonde frames could already encode the same centroid equality.",
+    "No uniform numerical stability estimate is established; its absence does not reduce correctness of injectivity criterion."
+  ],
+  "residual_risks": [
+    "An obscure analytic or discrete phase-retrieval criterion for two-row Vandermonde frames could already encode the same centroid equality.",
+    "No uniform numerical stability estimate is established; its absence does not reduce correctness of injectivity criterion."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides known generic criterion and seven-measurement impossibility for C3, not finite two-line centroid classification.",
+      "evidence": [
+        "Proposition 3.1 and Proposition 5.4"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1312.0158",
+      "material_read": "Full primary arXiv PDF relevant sections 3 and 5, Proposition 3.1, Proposition 5.4, example M=3,N=8; page screenshots",
+      "method": "Primary PDF text and screenshots",
+      "title": "An Algebraic Characterization of Injectivity in Phase Retrieval",
+      "trigger": "General rank-two Hermitian criterion and minimum sample count"
+    },
+    {
+      "assessment": "Provides general (2n+1)^2 grid and reconstruction, thus 25 for quadratic, not sharp eight-point centroid test.",
+      "evidence": [
+        "Theorem 4.2 and Examples 4.1–4.2"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1907.09371",
+      "material_read": "Primary arXiv PDF section 4 and Theorem 4.2, page14, plus examples for same line",
+      "method": "PDF text and screenshots",
+      "title": "A Note on the Complexity of a Phaseless Polynomial Interpolation",
+      "trigger": "Nonadaptive finite polynomial sampling"
+    },
+    {
+      "assessment": "Characterizes functions agreeing on complete parallel lines; not just four nodes on each or centroid criterion.",
+      "evidence": [
+        "Theorem 10 and Remark 11"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2202.03733",
+      "material_read": "Primary PDF abstract, Theorem 10 and Remark 11",
+      "method": "PDF text and screenshots",
+      "title": "Phase Retrieval of Entire Functions and Its Implications for Gabor Phase Retrieval",
+      "trigger": "Equal magnitude on parallel lines"
+    },
+    {
+      "assessment": "Concerns discrete/infinite line progressions in entire-function classes; full text not materially inspected, residual risk noted.",
+      "evidence": [
+        "No whole-document inapplicability conclusion"
+      ],
+      "identifier_or_url": "https://doi.org/10.1112/blms.13134",
+      "material_read": "Abstract and bibliographic description only",
+      "method": "Literature search",
+      "title": "Arithmetic Progressions and Holomorphic Phase Retrieval",
+      "trigger": "Potential infinite sampling uniqueness domination"
+    }
+  ]
+}

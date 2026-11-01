@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Analytic checks: the Hermitian form's restriction to both lines has the same leading coefficients \(c\) and \(2w\); the cubic-coefficient discrepancy is \(c(\sum r_j-\sum s_j)\). With unequal sums, a nonzero kernel matrix is a scalar multiple of \(H_h\), whose determinant is exactly \(2\). With equal sums, an independent kernel direction with \(c=1\) exists and \(\det(K_1+tH_h)\) has a real root as an odd-degree real polynomial with leading coefficient \(2\). Vandermonde injectivity excludes nonzero semidefinite kernel elements.
+## correctness
 
-Executable supplementary check: run `python checker.py` using Python 3 and SymPy. It validates the quartic leading terms, the full-rank line-vanishing direction, and six rational/integer coordinate examples on both sides of the centroid boundary. Expected output is in `checker_output.txt`. Finite checks are not a proof of universal injectivity; the full symbolic proof is in `RESULT.md`.
+PASS
 
-No external or independent scientific audit or numerical conditioning certificate has been supplied.
+For a Hermitian 3x3 K, Q_K(z)=[1,z,z^2]^*K[1,z,z^2] restricts to a real quartic on each horizontal line, whose x^4 and x^3 coefficients are identical across heights (c,2w). Four distinct zeros per line force the restrictions to be c times their corresponding monic quartics. Equality of cubic coefficients gives c*(sum r - sum s)=0. If the sums differ, c=0 and both restricted cubics vanish identically, leaving a one-dimensional real kernel spanned by H_h with determinant 2. A rank<=2 nonzero kernel is therefore impossible. If sums agree, the linear restrictions yield an independent kernel K1 with c=1; det(K1+tH_h) is an odd-degree real cubic with nonzero leading coefficient 2, hence has a real zero at a nonzero singular kernel matrix. Three distinct sample functionals span C3 by Vandermonde, excluding semidefinite nonzero kernel matrices; the singular element is indefinite rank2 and gives two genuinely distinct phaseless polynomials. Independent SymPy verification gives detH=2 and sample linear ranks 8/7 for unequal/equal centroids. The general minimality at N=8 uses Conca et al Proposition 5.4 with M=3,N<=7.
+
+## originality
+
+PASS
+
+Best-of-knowledge sharp eight-node centroid criterion is not implied by general complex frame phase retrieval, arbitrary polynomial grid constructions, or uniqueness from measurements on entire lines. Minimal count and Hermitian lifting are inherited prior theory and are not credited as new. The exact necessary-and-sufficient geometric condition on a finite 4+4 parallel-line configuration is the surviving contribution.
+
+## value
+
+PASS
+
+Eight is the sharp possible sample count for C3 and the centroid condition is a clean complete classification of every 4+4 parallel-line configuration, including exceptional degeneracies, with an explicit counterexample mechanism. It supplies concrete constrained sampling design beyond generic-frame existence or a large grid method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
