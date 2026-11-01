@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 certify_mod3_sums.py`. No external libraries or data files are required. The program separately constructs the 18-state nondeterministic binary-addition automaton, and the reference regular-language NFAs (43, 30, 11 states for the three residues). It performs exhaustive BFS of the product of their subset automata with the target digit-weight tracker and tests equivalence on all legal finite binary strings. The counts of all reachable comparison states are 108, 108, 107. The one-digit representation of zero is tested separately. Every mismatching state terminates the checker through an assertion.
+## correctness
 
-Independently, it enumerates all integers from 0 through 10,000 and tests two-summand existence using literal pair enumeration against the predicted exception families. That finite range is a cross-check only, not the source of the infinite conclusion. The finite-state exhaustive calculation, together with the transition/acceptance proof in RESULT.md, supplies the infinite verification; its trust assumptions are correctness of Python integer/bit operations and the stated small automata implementation. No separate external mathematical audit has occurred.
+PASS
+
+A binary LSD-first addition state consists of (carry,u,v) with carry∈{0,1} and u,v∈Z/3Z. For each proposed target bit, the transition enumerates all addend digits with the indicated outgoing carry and updates popcount residues. Starting at zero and accepting (0,c,c) is exactly the two-summand property; tracking target popcount supplies the one-summand alternative. The source NFA independently represents the finite lists and geometric repunit/3×power families. A breadth-first search over the finite reachable product of subset states is exhaustive over all finite canonical binary expansions; our separate implementation recovered exactly 108,108,107 reachable states with no comparison mismatch, and directly checked 8193 integers. This is a genuine infinite regular-language equivalence certificate, not extrapolation from a finite integer cutoff. The log-count coefficients follow from residue-class exponents and finite-overlap properties.
+
+## originality
+
+PASS
+
+Compared precise theorems against their implication directions and alternate formulations using inspected primary literature and Resultary; no covering statement identified; residual priority risks remain and absence of a match is not a novelty proof.
+
+## value
+
+PASS
+
+An explicit complete infinite exceptional-set classification is a natural additive invariant of binary automatic sequences. Its three distinct logarithmic growth constants and lacunary families are not mere restatements of generic automata decidability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:54:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A binary LSD-first addition state consists of (carry,u,v) with carry∈{0,1} and u,v∈Z/3Z. For each proposed target bit, the transition enumerates all addend digits with the indicated outgoing carry and updates popcount residues. Starting at zero and accepting (0,c,c) is exactly the two-summand property; tracking target popcount supplies the one-summand alternative. The source NFA independently represents the finite lists and geometric repunit/3×power families. A breadth-first search over the finite reachable product of subset states is exhaustive over all finite canonical binary expansions; our separate implementation recovered exactly 108,108,107 reachable states with no comparison mismatch, and directly checked 8193 integers. This is a genuine infinite regular-language equivalence certificate, not extrapolation from a finite integer cutoff. The log-count coefficients follow from residue-class exponents and finite-overlap properties.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Allouche–Shallit supply automata and logic methods for parity sets and higher-summand representation results in that parity setting.",
+          "Shallit studies tail-Frobenius numbers, not the fixed two-term same-class sumset complement."
+        ],
+        "reasoning": "A general decision procedure is not a closed classification; no inspected statement dominates the three explicit modulo-three equalities.",
+        "searches": [
+          "Allouche Shallit 2021 Additive Properties of Evil and Odious Numbers",
+          "Shallit Frobenius Numbers and Automatic Sequences 2021",
+          "sum of two numbers popcount modulo 3 automatic sets"
+        ]
+      },
+      "checked_sources": [
+        "Allouche–Shallit arxiv:2112.13627 relevant primary sections",
+        "Shallit arxiv:2103.10904 accessible source description",
+        "Resultary semantic search on modulo-three binary popcount two-summand zero sets",
+        "Git source RESULT.md/certify_mod3_sums.py at exact blobs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Modulo-two evil/odious representation functions do not imply modulo-three weight residues by a simple substitution.",
+          "Classification of binary digit-weight products cannot determine the analogous additive two-summand zero sets."
+        ],
+        "reasoning": "The old proof methodology is applicable, but the explicit infinite class formulas and the exhaustive finite-state comparison are mathematically additional computations.",
+        "searches": [
+          "arxiv:2112.13627 Sections1-5",
+          "arxiv:2103.10904 Sections2-4",
+          "Resultary binary weight product classification 2026/10/4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The relevant equivalence is the zero set of the two-summand representation indicator after allowing one summand, or a regular language of reverse binary words.",
+          "Allouche–Shallit classify mod-two evil/odious representations; the modulo-three case has a different residue state space."
+        ],
+        "reasoning": "Generic automaticity does not state or mechanically give these particular three closed infinite exceptional sets.",
+        "searches": [
+          "Resultary: binary digit sum modulo three classes sums of two integers exceptional set automatic sequence regular language",
+          "Allouche Shallit arxiv:2112.13627 evil odious two-summand representation",
+          "Shallit arxiv:2103.10904 Frobenius numbers automatic sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned published result concerns binary digit-weight multiplication rather than addition.",
+          "No exact exception table or OEIS sequence directly matching all three formula families was identified by the limited searches."
+        ],
+        "reasoning": "Indexed absence does not prove novelty; an older automatic-sequence table remains an explicit priority risk.",
+        "searches": [
+          "Resultary: binary digit sum modulo three classes sums of two integers exceptional set automatic sequence regular language",
+          "binary Hamming weight mod3 sums two exceptions Mersenne repunits OEIS",
+          "13 14 21 22 26 binary weight two summands modulo three"
+        ]
+      },
+      "rationale": "Compared precise theorems against their implication directions and alternate formulations using inspected primary literature and Resultary; no covering statement identified; residual priority risks remain and absence of a match is not a novelty proof.",
+      "residual_risks": [
+        "Unindexed or differently formulated OEIS/automatic-set statement could supply the same lacunary exceptional families.",
+        "The proof relies on an exhaustive executable regular-language equivalence, not a formal assistant; its independently reimplemented transitions and complete state census support exactly that implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING modulo-three residue exception sets",
+          "evidence": [
+            "mod-two evil/odious framework",
+            "general automata representation methodology"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2112.13627",
+          "material_read": "abstract, definitions, mod-two representation results and relevant automata constructions",
+          "method": "read accessible HTML/math text of relevant primary sections",
+          "title": "Additive Properties of the Evil and Odious Numbers and Similar Sequences",
+          "trigger": "same binary digit-sum additive representation problem"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_QUESTION; exact same-class two-term modulo-three classification not established by inspected material",
+          "evidence": [
+            "tail-Frobenius rather than fixed two-summand exception problem"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.10904",
+          "material_read": "abstract and accessible description of tail-Frobenius questions",
+          "method": "read accessible public mathematical description; not used to assert whole-document noncoverage",
+          "title": "Frobenius Numbers and Automatic Sequences",
+          "trigger": "automatic-sequence sumset gaps and potentially stronger classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit complete infinite exceptional-set classification is a natural additive invariant of binary automatic sequences. Its three distinct logarithmic growth constants and lacunary families are not mere restatements of generic automata decidability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each c∈{0,1,2}, A_c={n≥0: s_2(n)≡c mod3}, all exceptions to representation by one or two same-class summands are exactly E_0={2,4,5,6,8,9,10,12,16,17}∪{2^j−1:j>=1,j≡1,2 mod3}∪{3·2^{3j}−1:j>=1}; E_1={0,13,14,21,22,26}∪{2^{3j}−1:j>=1}∪{3·2^{3j−1}−1:j>=1}; E_2={0,1,2,4}∪{2^{3j}−1:j>=1}. Counts grow respectively as log_2 X, 2/3 log_2 X, and 1/3 log_2 X up to O(1).",
+  "limitations": [
+    "Unindexed or differently formulated OEIS/automatic-set statement could supply the same lacunary exceptional families.",
+    "The proof relies on an exhaustive executable regular-language equivalence, not a formal assistant; its independently reimplemented transitions and complete state census support exactly that implication."
+  ],
+  "schema_version": 1
+}

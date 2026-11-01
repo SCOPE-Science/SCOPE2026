@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is proved by a full finite-state equivalence between (a) a precisely defined binary-addition nondeterministic automaton with carry and the two summand digit-weight residues and (b) explicit reverse-binary regular languages for three exceptional-set formulas. The 18 source states and residue tracker exhaust the exact arithmetic of two nonnegative summands. All possible reachable paired automaton states are processed; the three exhaustive counts are 108, 108 and 107. The last-bit-canonical representation condition and zero are checked separately. A second direct enumeration for integers through 10,000 corroborates the independent regular-language formulas but is not substituted for the infinite certificate. No unrestricted higher-summand assertion is made.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest primary paper, Allouche–Shallit (arXiv:2112.13627, v3, full 14-page preprint inspected), gives two-summand representation functions and higher-summand behavior for digit-weight **parity** classes; its finite-automaton generality establishes computability for other automatic sets but not the stated explicit exceptional families for modulo three. Shallit (arXiv:2103.10904, complete HTML text inspected) computes Frobenius invariants of *tails* of several automatic sequences, a different invariant. Public mathematical-record searches for weight-residue additive exceptions, repunit and shifted-repunit families and related sequence tables did not locate the same claim. Closest accessible published comparison on binary digit weight classifies **products** with prescribed weights, not two-term additive sums. Prioritization remains conditional on incomplete indexing and possible implicit earlier automata calculations.
+PASS
 
-## Mathematical value — PASS
-For three natural automatic subsets of the nonnegative integers, this determines the exact obstruction to representation by at most two same-class summands, including infinite lacunary exceptions and sharp logarithmic counting laws. The statement goes beyond decidability or finite samples and is naturally motivated by the existing additive-representation literature. It does not claim an unmotivated isolated parameter or a general theorem for all digital classes.
+A binary LSD-first addition state consists of (carry,u,v) with carry∈{0,1} and u,v∈Z/3Z. For each proposed target bit, the transition enumerates all addend digits with the indicated outgoing carry and updates popcount residues. Starting at zero and accepting (0,c,c) is exactly the two-summand property; tracking target popcount supplies the one-summand alternative. The source NFA independently represents the finite lists and geometric repunit/3×power families. A breadth-first search over the finite reachable product of subset states is exhaustive over all finite canonical binary expansions; our separate implementation recovered exactly 108,108,107 reachable states with no comparison mismatch, and directly checked 8193 integers. This is a genuine infinite regular-language equivalence certificate, not extrapolation from a finite integer cutoff. The log-count coefficients follow from residue-class exponents and finite-overlap properties.
 
-## Residual limits
-Possible unindexed earlier equivalent formulas or an indirect extraction from a broader precomputed automaton remain risks. The exhaustive finite-state proof and accompanying checker are not an independently audited formalized certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared precise theorems against their implication directions and alternate formulations using inspected primary literature and Resultary; no covering statement identified; residual priority risks remain and absence of a match is not a novelty proof.
+
+## value
+
+PASS
+
+An explicit complete infinite exceptional-set classification is a natural additive invariant of binary automatic sequences. Its three distinct logarithmic growth constants and lacunary families are not mere restatements of generic automata decidability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
