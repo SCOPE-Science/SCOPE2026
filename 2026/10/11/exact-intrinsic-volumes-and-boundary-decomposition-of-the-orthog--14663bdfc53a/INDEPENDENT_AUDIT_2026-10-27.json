@@ -1,0 +1,210 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T00:11:28Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/verify.py",
+        "/mnt/data/scope_worker01_20261027T0001Z/independent_three_disk_check.py",
+        "/mnt/data/scope_worker01_20261027T0001Z/independent_three_disk_results.json"
+      ],
+      "rationale": "For any u, each radius-R plane disk supports at R times the Euclidean norm of its two coordinate components. Hence h_K(u)=R sqrt(||u||^2-min_i u_i^2). A unique smallest absolute coordinate yields one supporting point, two equal minima yield a tie segment (occasionally degenerate on coordinate axes), and three equal nonzero magnitudes yield the eight equilateral triangular exposed facets. For each sign octant and each uniquely largest coordinate, a ruled patch F(phi,t)=(cos(phi),t sin(phi),(1-t)sin(phi)), 0<phi<pi/4,0<t<1, has normal (cos(phi),sin(phi),sin(phi)) and Jacobian sin(phi)sqrt(1+sin(phi)^2); 8*3=24 patches. Their interiors and the facets exhaust the 2D boundary except measure-zero seams/circle arcs. The patch integral is I=1/2-sqrt(3)/4+pi/12, triangle area sqrt(3)/4. This yields area 24I+8sqrt(3)/4=12-4sqrt(3)+2pi. The divergence theorem supplies 3Vol=24(1-1/sqrt(2))+8sqrt(2)/4=24-10sqrt(2), hence Vol=8-10sqrt(2)/3. Minimizing h on S^2 yields sqrt(2/3) at body diagonal normals, maximizing yields 1 at coordinate normals; central symmetry makes the centered extremal balls globally optimal. R scaling gives R^3,R^2,R. Independent SymPy cross-product/primitive/flux checks and SciPy polygonal hulls confirm the formulas numerically but are not the continuum proof.",
+      "residual_risks": [
+        "The finite polygonal tests check approximation, not a proof that no exceptional 2D boundary strata exist; exhaustiveness is instead supported by the analytic support-face classification.",
+        "No external formal proof or expert attestation was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary record: A universal surface-volume identity for hulls of concurrent circular disks, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md",
+          "E. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382 (2016/2017), https://arxiv.org/abs/1612.09382",
+          "Y. Wu, A. Gupta, K. Kurzeja, J. Rossignac, CHoCC: Convex Hull of Cospherical Circles and Applications to Lattices, CAD 129 (2020), doi:10.1016/j.cad.2020.102903",
+          "The Resultary general theorem assumes all disk planes share a common diameter line; the three coordinate planes have common intersection {0}, so the hypothesis fails.",
+          "Nash et al., Theorem 2.1 and Theorem 4.2 concern exactly two circles.",
+          "CHoCC abstract defines admissible circles as bounding disjoint spherical caps; the three great circles here cannot bound pairwise disjoint hemispheres."
+        ],
+        "reasoning": "The common-diameter all-k surface/volume theorem is stronger in the number of disks but does not include a triple with trivial common line, so cannot be specialized. The two-circle classification cannot determine three-way support ties. The CHoCC disjoint-cap hypothesis excludes the equatorial great-circle configuration, although unseen full-text remarks remain a risk. No checked broader theorem supplied both claimed exact measures and the 8+24 boundary decomposition.",
+        "searches": [
+          "Resultary: exact volume surface area convex hull of three unit disks in mutually orthogonal coordinate planes centered at origin; eight triangular facets and 24 ruled patches",
+          "Resultary: convex hull of three great circles orthogonal cospherical circles surface area three disks",
+          "CHoCC Convex Hull of Cospherical Circles pdf 2020 Wu Gupta Kurzeja Rossignac",
+          "convex hull of three circles in R3 intrinsic volumes face lattice"
+        ]
+      },
+      "checked_sources": [
+        "Steven R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (2012), https://arxiv.org/abs/1211.4514",
+        "E. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382 (2016/2017), https://arxiv.org/abs/1612.09382",
+        "Y. Wu, A. Gupta, K. Kurzeja, J. Rossignac, CHoCC: Convex Hull of Cospherical Circles and Applications to Lattices, CAD 129 (2020), doi:10.1016/j.cad.2020.102903",
+        "Wolfram MathWorld, Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html",
+        "Published Resultary record: A universal surface-volume identity for hulls of concurrent circular disks, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md",
+        "Ákos G. Horváth, On convex bodies that are characterizable by volume function, arXiv:1908.03196, Conjecture 3, https://arxiv.org/html/1908.03196v1",
+        "Resultary 2026-10-27 semantic results: exact three-disk hull self-hit and distinct common-diameter general theorem",
+        "Searches for exact radical constants and decimal forms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Steven R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (2012), https://arxiv.org/abs/1211.4514",
+          "E. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382 (2016/2017), https://arxiv.org/abs/1612.09382",
+          "Y. Wu, A. Gupta, K. Kurzeja, J. Rossignac, CHoCC: Convex Hull of Cospherical Circles and Applications to Lattices, CAD 129 (2020), doi:10.1016/j.cad.2020.102903",
+          "Published Resultary record: A universal surface-volume identity for hulls of concurrent circular disks, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md",
+          "Finch (Sec.1, Example 1) gives two-centered-orthogonal-disk volume 8/3 and area 2(2+pi); those values are for a strict subconfiguration and are not equal to the present three-disk values.",
+          "For the three-disk hull h(u)=sqrt(||u||^2-min_i u_i^2); adding the third disk changes the support maximum on open sets of normals and creates eight three-point support triangles."
+        ],
+        "reasoning": "None of the actually read prior statements entails the full claim: Finch two-disk values change on adding the third disk, Nash is confined to two circles, CHoCC requires disjoint caps, and the arbitrary-k concurrent-diameter theorem assumes nontrivial common line. The explicit support function and its equal-coordinate three-way ties generate distinct geometry. This is a best-of-knowledge judgment, not proof of historical priority.",
+        "searches": [
+          "convex hull three orthogonal disks Finch two orthogonal disks 1211.4514",
+          "Nash Pir Sottile Ying convex hull two circles 1612.09382 theorem face lattices",
+          "CHoCC cospherical circles disjoint spherical caps 2020",
+          "Resultary published common diameter arbitrary disk planes exact area volume"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wolfram MathWorld, Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html",
+          "For R=1, the polar identity is K^o = {u: u_1^2+u_2^2<=1, u_1^2+u_3^2<=1, u_2^2+u_3^2<=1}, the classical tricylinder; published tricylinder volume 8(2-sqrt(2)) differs from the claimed primal volume 8-10sqrt(2)/3.",
+          "Ákos G. Horváth, On convex bodies that are characterizable by volume function, arXiv:1908.03196, Conjecture 3, https://arxiv.org/html/1908.03196v1"
+        ],
+        "reasoning": "Great-circle hull, equatorial-disk hull and polar tricylinder are legitimate aliases/duals. Duality identifies the set but does not preserve volume, surface area or boundary stratum counts. Horvath's three perpendicular great circles form a partition on S^2 for an unrelated constant-brightness surface-area measure, not a hull of three disks. No searched alias yielded a theorem with these exact primal invariants.",
+        "searches": [
+          "convex hull of three mutually perpendicular unit disks exact volume surface area",
+          "convex hull of three great circles orthogonal cospherical circles surface area three disks",
+          "polar of triple Steinmetz solid triple tricylinder convex body three great circles exact volume intrinsic volumes",
+          "Resultary semantic search on 2026-10-27: exact three orthogonal centered disks / polar tricylinder / three great circles; top same-object hit 2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a, other results distinct."
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wolfram MathWorld, Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html",
+          "Known tricylinder measures concern the intersection of orthogonal cylinders, not the volume and area of its polar; area and volume of a polar are not recovered by simple equality from the primal table.",
+          "No exact-table hit with the claimed two primal constants and boundary decomposition was found in the searches, which is not a novelty proof."
+        ],
+        "reasoning": "The natural tabulated object is the dual. Its familiar exact values (volume 8(2-sqrt(2)), surface area 24(2-sqrt(2))) do not match the target and cannot be transplanted by polarity. Searches for the exact radical/trigonometric constants and decimal evaluations did not yield prior primal tabulation.",
+        "searches": [
+          "\"8 - 10 sqrt(2)/3\" \"convex\"",
+          "\"12 - 4 sqrt(3) + 2 pi\" geometry",
+          "\"3.285954792\" \"11.354982076\" convex",
+          "polar tricylinder Steinmetz solid surface area volume convex hull discs"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the combined exact primal area/volume and full 8-triangle/24-patch classification. Comparisons were made at implication level against both two-disk calculations and the potentially stronger common-diameter n-disk identity, general cospherical-circle classification and polar tricylinder values. The common-diameter condition fails for three mutually perpendicular planes; CHoCC's disjoint-cap condition fails for three equators; the polar tricylinder exact measures do not determine the primal intrinsic volumes. No actually inspected published statement entails the combined claim. The inaccessible 2020 CHoCC complete text and possible unindexed historical treatment remain explicit residual risks and are not treated as proof of novelty.",
+      "residual_risks": [
+        "Authorized Oxford retrieval of CHoCC returned vpn_disconnected; accessible abstract rules out its central stated disjoint-cap theorem but does not exclude incidental discussion of intersecting great circles.",
+        "An older unpublished/unindexed geometry reference might have the same dual or named convex solid and exact constants under an alias.",
+        "Search failure is not conclusive novelty certification; recommend eventual manual bibliographic check."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS TWO DISKS ONLY; does not state a three-disk norm/support partition or these exact constants. The pair case is acknowledged prior art.",
+          "evidence": [
+            "Opening states three configurations each with two perpendicular disks; first shares center.",
+            "Example 1 reports volume 8/3 and the text treats area/mean width for two disks.",
+            "Section 1.2 support-plane construction involves two disk planes only."
+          ],
+          "identifier_or_url": "arXiv:1211.4514; https://arxiv.org/abs/1211.4514",
+          "material_read": "Full web-rendered article through Sections 1-5, with close attention to opening examples, Section 1 support construction and area/volume discussion",
+          "method": "Read arXiv primary full-text rendering, not title-only result",
+          "title": "Convex Hull of Two Orthogonal Disks",
+          "trigger": "Direct prior exact area and volume for the closest orthogonal centered two-disk analogue"
+        },
+        {
+          "assessment": "NOT COVERING triple-circle exact intrinsic volumes; all theorem hypotheses C1,C2 involve two circles. The Section 5 reference to three ellipsoids is an algorithmic discussion, not this evaluation.",
+          "evidence": [
+            "Theorem 2.1 explicitly assumes C1 and C2 circles.",
+            "Theorem 4.2 enumerates order types of two circles, and Table 5 their face lattices.",
+            "Section 5 says it sketches projective duality and refers to a three-ellipsoid convex-hull algorithm."
+          ],
+          "identifier_or_url": "arXiv:1612.09382; https://arxiv.org/abs/1612.09382",
+          "material_read": "Accessible author arXiv full-text HTML: Introduction, Theorem 2.1, Section 4 Theorem 4.2/Table 5, Section 5 duality",
+          "method": "Read primary HTML detailed sections and proof statements",
+          "title": "Convex Hull of Two Circles in R^3",
+          "trigger": "Potential more general boundary face-lattice theorem for unions of circle curves"
+        },
+        {
+          "assessment": "Accessible abstract restricts results to circles bounding disjoint spherical caps, which excludes three equatorial great circles. Full-paper incidental examples remain an access risk; no whole-document NOT_COVERING assertion.",
+          "evidence": [
+            "The abstract explicitly defines C as n cospherical circles bounding disjoint spherical caps; it reports n disks, 2n-4 triangles and 3n-6 corridors, structurally distinct.",
+            "The three input circles are great circles bounding overlapping hemispheres.",
+            "Authorized paper retrieval returned vpn_disconnected, not PDF text."
+          ],
+          "identifier_or_url": "doi:10.1016/j.cad.2020.102903; https://www.sciencedirect.com/science/article/abs/pii/S0010448520300968",
+          "material_read": "Publisher/research bibliography abstract; searched for manuscript/arXiv/open access; thesis repository download was blocked; complete article text not obtained",
+          "method": "Primary abstract and related publicly indexed metadata, lawful OA/preprint search followed by authorized Oxford access request; institution returned vpn_disconnected",
+          "title": "CHoCC: Convex Hull of Cospherical Circles and Applications to Lattices",
+          "trigger": "Broader n-circle hull geometry could dominate a 3-circle special case"
+        },
+        {
+          "assessment": "NOT APPLICABLE: every plane must contain the same diameter line; the three coordinate planes meet only in {0}. Its exact formulas do not specialize.",
+          "evidence": [
+            "Finding assumes shared center and common diameter line.",
+            "Section 1 writes all plane spans as R x Ru_j.",
+            "Our pairwise intersections are coordinate lines but all three intersect trivially."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md",
+          "material_read": "Full published RESULT.md, including definition, exact sections, proof and limitations",
+          "method": "Read published GitHub Git-blob through connector",
+          "title": "A universal surface-volume identity for hulls of concurrent circular disks",
+          "trigger": "Top second Resultary hit proposes exact area and volume for arbitrarily many circular disks"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT: intersection of three cylinders is polar, not the source convex hull; polarity alone does not transfer intrinsic volumes.",
+          "evidence": [
+            "The unit tricylinder has volume 8(2-sqrt(2)) and surface 24(2-sqrt(2)).",
+            "The source hull has support function max of three coordinate pair norms; its polar satisfies their three squared pair inequalities."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/SteinmetzSolid.html",
+          "material_read": "Definitions and exact tricylinder volume and surface values in publicly available mathematical references",
+          "method": "Read math reference and polarity comparison",
+          "title": "Steinmetz Solid / Tricylinder",
+          "trigger": "The exact polar dual is tabulated and might conceal a stronger invariant"
+        },
+        {
+          "assessment": "DIFFERENT OBJECT: three great circles partition normals for a conjectured constant-brightness body, not for the primal convex hull of their filled equatorial disks.",
+          "evidence": [
+            "Conjecture 3 assigns alternating constant surface-area densities over eight octants.",
+            "No convex hull of three unit disks or their intrinsic volumes is asserted in that statement."
+          ],
+          "identifier_or_url": "arXiv:1908.03196; https://arxiv.org/html/1908.03196v1",
+          "material_read": "Survey text and detailed Conjecture 3 and Section 3 context",
+          "method": "Read full-text arXiv HTML relevant passages",
+          "title": "On convex bodies that are characterizable by volume function",
+          "trigger": "An accessible primary text also invokes three mutually orthogonal great circles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Steven R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (2012), https://arxiv.org/abs/1211.4514",
+        "E. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382 (2016/2017), https://arxiv.org/abs/1612.09382",
+        "Wolfram MathWorld, Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md"
+      ],
+      "rationale": "Three congruent orthogonal equatorial disks give a natural octahedrally symmetric 3D convex body, whose polar is the classical tricylinder. Determining its exact volume, boundary area, both radii and all 2D boundary strata supplies intrinsic and structural data for a canonical object not implied by the established dual-cylinder table or the two-disk hull. A geometric researcher comparing cone/ruled-surface hulls or polar convex bodies could need these exact values and support-tie geometry. The result is a self-contained motivated exact invariant, not arbitrary small-instance parameter slicing; no downstream theorem is required for value.",
+      "residual_risks": [
+        "The claim does not compute mean width, all curvature measures, unequal radii, non-orthogonal triples or additional disks.",
+        "Value is intrinsic to a canonical special body, not a new general theory."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Steven R. Finch, Convex Hull of Two Orthogonal Disks, arXiv:1211.4514 (2012), https://arxiv.org/abs/1211.4514",
+    "E. Nash, A. F. Pir, F. Sottile, L. Ying, Convex Hull of Two Circles in R^3, arXiv:1612.09382 (2016/2017), https://arxiv.org/abs/1612.09382",
+    "Y. Wu, A. Gupta, K. Kurzeja, J. Rossignac, CHoCC: Convex Hull of Cospherical Circles and Applications to Lattices, CAD 129 (2020), doi:10.1016/j.cad.2020.102903",
+    "Wolfram MathWorld, Steinmetz Solid, https://mathworld.wolfram.com/SteinmetzSolid.html",
+    "Published Resultary record: A universal surface-volume identity for hulls of concurrent circular disks, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-universal-surface-volume-identity-for-hulls-of-concurrent-circ--f6dccc1bad11/RESULT.md",
+    "Ákos G. Horváth, On convex bodies that are characterizable by volume function, arXiv:1908.03196, Conjecture 3, https://arxiv.org/html/1908.03196v1",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": "The formulas are exact for congruent concentric mutually perpendicular disks only. The support stratum count is up to common edges/vertices. Published source metadata/administrative files contain internal provenance that requires sanitization before relocation/publication; the mathematics itself has not been changed.",
+  "residual_risks": [
+    "CHoCC full text not obtained due institution VPN disconnected; no access workaround or invented reading.",
+    "Historical novelty might be affected by older unindexed primal-dual calculations.",
+    "Symbolic and numerical tests are not independent formal certification; no expert validation."
+  ],
+  "schema_version": 1
+}

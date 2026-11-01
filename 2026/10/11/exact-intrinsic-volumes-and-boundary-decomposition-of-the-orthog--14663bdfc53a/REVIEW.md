@@ -1,19 +1,21 @@
-# Scientific review: orthogonal three-disk hull
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a normal in Euclidean three-space, maximizing over the three input disks gives the exact support function as the square root of the squared normal length minus its smallest squared coordinate. This splits supporting faces into one-point faces, segments occurring when two least absolute coordinates tie, and eight triangles occurring when all three tie. The parametrization of each of the twenty-four ruled patches is explicitly supported by its computed normal. The area integral on one patch is \(1/2-\sqrt3/4+\pi/12\), and its divergence flux is \(1-1/\sqrt2\). Adding the eight triangular faces gives both closed forms without uncontrolled approximation. The squared-coordinate support minimum proves the centered inradius; central symmetry proves its global optimality. Separate numerical convex-hull approximations support the calculations but cannot certify the continuous proof.
+PASS
 
-## Originality — PASS, with risks
+For any u, each radius-R plane disk supports at R times the Euclidean norm of its two coordinate components. Hence h_K(u)=R sqrt(||u||^2-min_i u_i^2). A unique smallest absolute coordinate yields one supporting point, two equal minima yield a tie segment (occasionally degenerate on coordinate axes), and three equal nonzero magnitudes yield the eight equilateral triangular exposed facets. For each sign octant and each uniquely largest coordinate, a ruled patch F(phi,t)=(cos(phi),t sin(phi),(1-t)sin(phi)), 0<phi<pi/4,0<t<1, has normal (cos(phi),sin(phi),sin(phi)) and Jacobian sin(phi)sqrt(1+sin(phi)^2); 8*3=24 patches. Their interiors and the facets exhaust the 2D boundary except measure-zero seams/circle arcs. The patch integral is I=1/2-sqrt(3)/4+pi/12, triangle area sqrt(3)/4. This yields area 24I+8sqrt(3)/4=12-4sqrt(3)+2pi. The divergence theorem supplies 3Vol=24(1-1/sqrt(2))+8sqrt(2)/4=24-10sqrt(2), hence Vol=8-10sqrt(2)/3. Minimizing h on S^2 yields sqrt(2/3) at body diagonal normals, maximizing yields 1 at coordinate normals; central symmetry makes the centered extremal balls globally optimal. R scaling gives R^3,R^2,R. Independent SymPy cross-product/primitive/flux checks and SciPy polygonal hulls confirm the formulas numerically but are not the continuum proof.
 
-Finch's arXiv:1211.4514 treats configurations of *two* orthogonal disks and proves a different two-disk pair of volume and area formulas. Nash–Pir–Sottile–Ying (arXiv:1612.09382) develop the face structure of hulls of *two* circles, while Wu–Gupta–Kurzeja–Rossignac (doi:10.1016/j.cad.2020.102903) restrict their cospherical-circle construction to disjoint cap circles; three great circles do not lie in that class. The known tricylinder formula describes the *polar* of the present hull, not its volume or surface area. Alias, numerical-constant and published-research searches yielded no statement demonstrably implying the present exact two-invariant and surface-stratification result. Search failure alone is not a novelty certificate. Some historical full text remains inaccessible, and an independently derived special-case formula may exist under another name.
+## originality
 
-## Value — PASS
+PASS
 
-Three pairwise perpendicular centered disks form the first symmetric disk family that is not covered by the common-axis arrangement, and their convex hull is the polar dual of the canonical tricylinder. The result supplies exact closed intrinsic volumes for this natural geometric solid, identifies previously nontrivial eight triangular facets and twenty-four developable boundary patches, and gives a complete proof using supporting faces and divergence flux. These are distinct measurements and a complete boundary classification, not a routine substitution into the older two-disk calculations or a merely numerical recomputation.
+Best-of-knowledge PASS for the combined exact primal area/volume and full 8-triangle/24-patch classification. Comparisons were made at implication level against both two-disk calculations and the potentially stronger common-diameter n-disk identity, general cospherical-circle classification and polar tricylinder values. The common-diameter condition fails for three mutually perpendicular planes; CHoCC's disjoint-cap condition fails for three equators; the polar tricylinder exact measures do not determine the primal intrinsic volumes. No actually inspected published statement entails the combined claim. The inaccessible 2020 CHoCC complete text and possible unindexed historical treatment remain explicit residual risks and are not treated as proof of novelty.
 
-## Sources and limitations
+## value
 
-Principal inspected sources: Finch, arXiv:1211.4514, especially Examples 1–3 and Section 1; Nash–Pir–Sottile–Ying, arXiv:1612.09382, especially Theorem 2.1, Section 4 and Section 5. The 2019 public CHoCC poster and the 2020 article abstract were available, but full text of the latter was not. The result does not determine mean width or extend beyond the exact disk geometry specified. Independent external assessment has not occurred.
+PASS
 
-Same-model review: passed. Independent audit: not yet performed.
+Three congruent orthogonal equatorial disks give a natural octahedrally symmetric 3D convex body, whose polar is the classical tricylinder. Determining its exact volume, boundary area, both radii and all 2D boundary strata supplies intrinsic and structural data for a canonical object not implied by the established dual-cylinder table or the two-disk hull. A geometric researcher comparing cone/ruled-surface hulls or polar convex bodies could need these exact values and support-tie geometry. The result is a self-contained motivated exact invariant, not arbitrary small-instance parameter slicing; no downstream theorem is required for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
