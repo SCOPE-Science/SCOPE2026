@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:11:06Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md Git blob efc1a48ce57ae6fc2a720a0a6c4070391ed57a1a: four-abundant lemma and global search proof.",
+        "verify.py Git blob d122873ab4a73dcafecf06049c23d32b71e6b1db and partitions.json Git blob e00f0240f29ead9a676a795002caa69fbd30790d; partition lists independently checked directly.",
+        "Independent local scripts independent_enumeration.py and independent_pattern_bounds.py using exact Fraction arithmetic and sympy prime/factor support; outputs agree with reported exact counts.",
+        "Nine Git object entries reconstruct assigned tree dd04425881c93a727e984e8e95c219083c456ebc; current-main directory blob IDs all match."
+      ],
+      "rationale": "For n=∏p_i^{a_i}, four equal divisor-sum parts imply σ(n)/n≥4. For any prime-power factor, A_a(p)=∑_{j=0}^a p^{-j}<p/(p−1); if m prime-factor slots remain, every continuation is bounded above by R times the Euler factors of the m smallest unused primes. Candidate next-prime upper envelope R·p/(p−1)·E(p,m−1) decreases with p and tends to R; induction over smaller Ω establishes every proper prefix R<4 and hence rigorous termination for Ω≤8 without a guessed prime bound. Independently coded exact Fraction depth-first search returned no σ≥4n integers for Ω=1..7 and exactly 27720,32760,120120,180180,235620 for Ω=8, matching the source traversal counts (1,1,1,1,1,3,8,33 nodes; 58 Ω=8 prime trials, maximum tested 19). Independent distinct exponent-partition/permutation scan of all 22 partitions of Ω=8 finds exactly three viable patterns and all lower-layer maxima <4; this crosschecks pruning independently. Parsed actual partitions.json blob e00f0240... via GitHub and independently reconstructed each complete divisor set and bin sums: all five four-part partition certificates verify, with 96,96,128,144,144 divisors. Exact ratios 312/77,4,576/143,224/55,3744/935 and Ω=8 verified. Program execution alone is not a global proof: the rigorous envelope, induction and termination justify exhaustion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jokar, Theorem 5.28, characterizes four-layered n=p1^α p2^β p3 p4 with four distinct primes, whereas the five boundary integers here have five or six distinct primes. His Section 4/Table 1 gives the least numerical four-layered integer 27720, not a global Ω-extremal fiber.",
+          "Mahanta–Saikia–Yaqubi, Theorems 3.2–3.3 and 3.7, treat low distinct prime supports and selected structural cases, not the complete Ω=8 fiber.",
+          "The published quadriperfect result proves σ(n)=4n and Ω=8 only for 32760; four other solutions have σ(n)/n>4 and do not satisfy that theorem."
+        ],
+        "reasoning": "Neither known smallest numerical term, restricted-prime-shape classification, nor equality-only σ=4n theorem dominates the five-case σ≥4n boundary or certifies divisor partitions in all strict cases. The generic Euler-factor upper-bound idea exists in Jokar Proposition 5.26; the exact exhaustive first multiplicity fiber and witness certificates are not consequences of that inequality alone.",
+        "searches": [
+          "arXiv:2207.09053v1 primary PDF Sections 2,4,5 (Theorem 5.28), 6",
+          "arXiv:2008.11096v1 primary PDF Sections 1–4",
+          "Resultary: The first multiplicity layer of quadriperfect numbers (published record 4f417ab1f93c), complete RESULT.md and verify.py",
+          "OEIS A392936 full entry including primitive four-abundant branch-and-cut comments"
+        ]
+      },
+      "checked_sources": [
+        "Jokar, On k-layered numbers, arXiv:2207.09053v1, primary 25-page PDF and screenshots.",
+        "Mahanta, Saikia, Yaqubi, Some properties of Zumkeller numbers and k-layered numbers, arXiv:2008.11096v1 / Journal of Number Theory 217 (2020), primary PDF and open journal text.",
+        "Resultary published The first multiplicity layer of quadriperfect numbers, full RESULT.md and verify.py, published 2026/10/4.",
+        "OEIS A204831, A023198, A392936, full public entries and exact term lists.",
+        "Resultary semantic searches for full five-case boundary, quadriperfect multiplicity theorem, four-layered Ω classification."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published quadriperfect result restricts to σ(n)=4n and isolates 32760 at Ω=8; the remaining four ratios are 312/77, 576/143, 224/55, 3744/935 (>4).",
+          "The five extremal integer factorizations each have either five or six distinct prime divisors, not the exactly four distinct primes of Jokar Theorem 5.28.",
+          "The first numerical four-layered number 27720 has Ω=8, which provides existence but by itself gives no Ω lower bound, and cannot preclude larger integers with Ω≤7 or determine four additional boundary values."
+        ],
+        "reasoning": "Prior premises do not imply the universal Ω lower bound and five-case characterization. The generic bound σ(n)/n<∏p/(p−1) is prior art; the new finite uniform exhaustion over all patterns, plus explicit partition sufficiency, is the nontrivial remaining consequence.",
+        "searches": [
+          "arXiv:2207.09053v1 Theorem 5.28 and Table 1",
+          "arXiv:2008.11096v1 Theorem 3.2 and Section 3",
+          "Resultary 2026/10/4 quadriperfect exact theorem RESULT.md and verify.py",
+          "OEIS A392936 primitive four-abundant table"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The four-layered ⇒ σ(n)≥4n implication follows because the part containing n has sum σ(n)/4≥n.",
+          "Exact classification by Ω≤8 gives five 4-abundant integers; explicit four-part certificates check all divisors and equal sums, thereby making the necessary condition sufficient exactly on this layer.",
+          "OEIS A204831 lists four-layered terms; A023198 lists four-abundant terms, but their global equivalence is false without the Ω≤8 restriction and no Ω≤8 completeness proof appears in the inspected entries."
+        ],
+        "reasoning": "Equivalent statements are a sharp Ω-minimum for four-layered integers, a full Ω=8 equality fiber, and equivalence of four-abundancy and four-layeredness restricted to Ω≤8. Searches and mathematical comparisons did not find a prior complete global multiplicity-fiber theorem; merely listing examples does not entail exhausting arbitrarily large integers.",
+        "searches": [
+          "Resultary semantic query: Four-layered numbers all n with Ω(n)≤8 sigma(n)≥4n exactly five 27720 32760 120120 180180 235620",
+          "Resultary semantic query: k-layered integers least prime factors counted with multiplicity four-layered divisor partition",
+          "web: Omega(n) four layered 8 minimum prime factors",
+          "web: 27720 32760 120120 180180 235620 four layered",
+          "OEIS A204831; OEIS A023198; OEIS A392936"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A204831 has four of the five boundary integers in its first 31 terms ending at 191520, but not 235620; it supplies an example four-part partition for 27720 and a finite numerical generator, not an all-Ω≤8 proof.",
+          "A392936 lists 235620 and the other four among primitive four-abundant integers and presents branch-and-cut ideas, but its numerically ordered entries do not provide a proof that no higher integer with Ω≤8 escapes the list.",
+          "A023198 is a numerical list of all integers satisfying σ(n)≥4n, not an Ω-filtered completeness certificate."
+        ],
+        "reasoning": "Existing data contain individual numerical cases but do not establish the unbounded prime-factor classification or all partition witnesses at the minimum Ω layer. A table of all values by Ω could cover this claim, but none was found in the inspected databases; possible unpublished tabulations remain a priority risk.",
+        "searches": [
+          "OEIS A204831 full entry (2026-10-20 modification) and initial 31-term table",
+          "OEIS A023198 full entry (four-abundant integers)",
+          "OEIS A392936 full entry, primitive four-abundant integers and 2026 branch-and-cut notes",
+          "Resultary published quadriperfect source and its independent pattern checker",
+          "web: 235620 four layered divisor partition four abundant"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: a global minimum total-prime-multiplicity classification for all four-layered integers, including an exact five-element fiber and sufficiency of four-abundancy within Ω≤8, is not implied by the checked primary results or finite OEIS tables. The exact quadriperfect theorem covers only σ(n)=4n (one of five); Jokar establishes the least integer and treats a restricted four-distinct-prime shape; Mahanta–Saikia–Yaqubi treat small distinct support. A392936 records all five examples as primitive four-abundant terms and discusses branch-and-cut search, but lists terms in numerical order rather than proving exhaustive Ω≤8 classification. Priority risk: an older or unindexed multiplicity-boundary classification or a dominating complete primitive-abundant classification may exist.",
+      "residual_risks": [
+        "Older unindexed k-layered, multiply-perfect or primitive 4-abundant enumeration may already include the same full Ω≤8 classification under another term.",
+        "OEIS A392936 records all five numbers as primitive 4-abundant and describes related branch-and-cut algorithms; an unpublished associated classification by Ω might cover the arithmetic part even though the examined entry does not.",
+        "Primary sources examined do not constitute an exhaustive bibliography; unsuccessful semantic/web searches are not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Identifies the least numerical 4-layered n and classified four-distinct-prime factorizations, not the five-/six-prime full Ω=8 fiber or necessary-condition sufficiency.",
+          "evidence": "Table 1 gives n=27720; Theorem 5.28 starts with n=p1^α p2^β p3 p4 and concludes specific four-prime form; Sections 6–8 do not state a complete Ω first-layer classification.",
+          "identifier_or_url": "Farid Jokar, arXiv:2207.09053v1, https://arxiv.org/pdf/2207.09053",
+          "material_read": "Full 25-page primary PDF available; inspected abstract and introduction; Sections 3–6 including Table 1, Section 4 least numerical 27720 discussion, Theorem 5.28 and proof on page 16 and continuation on page 17, and related multiperfect discussion; reviewed later sections for possible generality.",
+          "method": "Primary arXiv PDF parsed text plus actual page screenshot at page index 15 and 16, with searches for Theorem 5.28 and Ω/multiplicity.",
+          "title": "On k-layered numbers",
+          "trigger": "Direct primary paper on four-layered numbers, the least numerical example, and an apparently relevant four-prime shape theorem."
+        },
+        {
+          "assessment": "Necessary abundance condition and restrictions on low distinct support, no global total multiplicity eight enumeration or five-case partition classification.",
+          "evidence": "Section 3 explicitly uses k|σ(n) and σ(n)≥kn, and Theorem 3.7 excludes a set of all-odd squarefree integers; these do not imply the target exact boundary.",
+          "identifier_or_url": "P. J. Mahanta, M. P. Saikia, D. Yaqubi, arXiv:2008.11096v1, DOI:10.1016/j.jnt.2020.05.003",
+          "material_read": "Full accessible 14-page primary PDF, abstract/introduction, Section 2, Section 3 theorems/lemmas (including Theorems 3.2, 3.3, 3.7) and Section 4; additionally full open-archive journal HTML.",
+          "method": "Primary arXiv PDF parsed text with relevant page index 8 screenshot and open ScienceDirect full HTML.",
+          "title": "Some properties of Zumkeller numbers and k-layered numbers",
+          "trigger": "Foundational primary work with structural k-layered and divisor-sum restrictions."
+        },
+        {
+          "assessment": "Covers one equality case 32760, not the four strict-abundance cases or their partition certificates.",
+          "evidence": "Theorem restricts to σ(n)=4n; verifier terminal condition product==4; other four examples have exact ratios above 4.",
+          "identifier_or_url": "Published Resultary finding 2026/10/4/SCOPE-the-first-multiplicity-layer-of-quadriperfect-numbers--4f417ab1f93c; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-first-multiplicity-layer-of-quadriperfect-numbers--4f417ab1f93c",
+          "material_read": "Full published RESULT.md, including theorem, all proof steps, exponent partition maxima, literature and limitations, plus complete verify.py script.",
+          "method": "Direct read of immutable GitHub content and explicit implication comparison of σ=4n against σ≥4n.",
+          "title": "The first multiplicity layer of quadriperfect numbers",
+          "trigger": "Closest published exact Ω=8 multiplicity theorem with same multiplier four and same tree-pruning method."
+        },
+        {
+          "assessment": "Finite sorted-by-n list, not all-Ω≤8 classification; 235620 beyond displayed range.",
+          "evidence": "A204831 initial terms end at 191520; explicit 27720 divisor partition supplied, but not this complete five-case Ω layer.",
+          "identifier_or_url": "https://oeis.org/A204831",
+          "material_read": "Full public sequence record, all 31 listed terms, links, example partition of 27720, Maple code, citations and last-modified field.",
+          "method": "Direct OEIS HTML entry read.",
+          "title": "OEIS A204831, four-layered numbers",
+          "trigger": "Direct exact-object integer database entry with possible values or classification."
+        },
+        {
+          "assessment": "Directly records every proposed example as primitive four-abundant, but provides no global Ω≤8 exhaustion or four-partition proof for 235620.",
+          "evidence": "The entry defines primitive 4-abundant integers and lists 235620 among terms; branch-and-cut discussion is a computational method rather than a proved total-prime-factor layer classification.",
+          "identifier_or_url": "https://oeis.org/A392936",
+          "material_read": "Full public sequence record including definition, examples 27720,32760,120120,180180,235620, branch-and-cut comments, formula, code and references.",
+          "method": "Direct OEIS HTML entry read and mathematical comparison of primitive vs unrestricted and numerical vs multiplicity completeness.",
+          "title": "OEIS A392936, primitive four-abundant numbers",
+          "trigger": "Potentially stronger database class whose table includes 235620 and whose search algorithm may exhaust cases."
+        },
+        {
+          "assessment": "Its numerical terms are compatible with the five exact Ω=8 examples but do not imply an all-integers multiplicity-layer bound.",
+          "evidence": "Defines the inequality σ(n)≥4n, lists 27720,32760,120120,180180 among early terms, and offers a finite numerical algorithm.",
+          "identifier_or_url": "https://oeis.org/A023198",
+          "material_read": "Public sequence definition and initial term listing plus table/method links, not a complete mathematical classification.",
+          "method": "Direct OEIS web entry inspection.",
+          "title": "OEIS A023198, four-abundant numbers",
+          "trigger": "Broad dominating database target σ(n)≥4n."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Jokar 2022 Table 1 gives smallest numerical four-layered number but not smallest Ω and all equality examples.",
+        "OEIS A204831 lists only four of five examples, while OEIS A392936 lists the fifth as primitive four-abundant without a four-layered partition certificate.",
+        "Five explicit divisor partitions checked against complete divisor multisets and exact σ(n)/4 sums."
+      ],
+      "rationale": "The smallest total number Ω of prime factors permitting a four-way equal divisor-sum partition is an intrinsic natural boundary, distinct from the smallest numerical example. The exact five-element equality fiber (including 235620 beyond the displayed 31-term four-layered list) is a motivated complete classification and proves a nontrivial equivalence between a necessary abundancy inequality and actual layeredness in this minimal layer. The witness partitions and mathematically terminating unbounded-prime search supply precise facts useful for future k-layered and divisor-sum multiplicity investigations. This does not claim classification at Ω≥9 or a general abundance-to-partition theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Jokar, On k-layered numbers, arXiv:2207.09053v1, primary 25-page PDF and screenshots.",
+    "Mahanta, Saikia, Yaqubi, Some properties of Zumkeller numbers and k-layered numbers, arXiv:2008.11096v1 / Journal of Number Theory 217 (2020), primary PDF and open journal text.",
+    "Resultary published The first multiplicity layer of quadriperfect numbers, full RESULT.md and verify.py, published 2026/10/4.",
+    "OEIS A204831, A023198, A392936, full public entries and exact term lists.",
+    "Resultary semantic searches for full five-case boundary, quadriperfect multiplicity theorem, four-layered Ω classification.",
+    "Assigned nine-blob immutable source package, RESULT.md, verify.py, partitions.json, verification output and public administrative files, all examined as actual source evidence."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older, perhaps unpublished or unindexed, complete Ω-filtered primitive 4-abundant classification is a residual priority risk; no failed search proves absolute novelty.",
+    "Finite exact calculation is globally exhaustive only because the independently checked symbolic prime-envelope and induction/termination argument apply, not because the tested prime maximum happens to be 19.",
+    "The existing public AUDIT.json and METADATA.json contain an internal run-identifier field; fully verified neutral replacements were not staged, so no publication operation is authorized.",
+    "No formal Lean or expert attestation was performed or claimed; those channels remain unchanged."
+  ],
+  "schema_version": 1
+}
