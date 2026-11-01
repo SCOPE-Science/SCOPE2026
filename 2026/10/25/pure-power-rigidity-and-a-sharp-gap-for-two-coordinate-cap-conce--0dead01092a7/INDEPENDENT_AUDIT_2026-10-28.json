@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:14:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md full Dirichlet normalization, stochastic transfers, strict imbalance and beta integral; exact Git blob b199e81df1ecbc37d995479bbe4f0e21c512c735",
+        "Independent SciPy beta-marginal/conditional quadrature checked 960 eigenvalues and 60 gap formulas for n=3,4,6; d=2..6; t=0.2,0.4,0.6,0.85",
+        "Source tree 854b6254903581478940c1bfc8cbfb13482e8962 independently verified from eight blobs"
+      ],
+      "rationale": "Torus invariance diagonalizes the cap-restriction operator in orthogonal degree-d monomials, with normalized squared moduli Dirichlet(alpha_j+1). Transferring one exponent from any outside coordinate to cap coordinate strictly increases cap probability by conditional beta monotone likelihood ratios. With all degree in the two cap coordinates, condition on their sum S~Beta(d+2,n-2), and use the strictly monotone symmetrized Beta(a+1,b+1) imbalance likelihood ratio to order every (a,d-a) concentration. The two pure powers are the unique top eigenspace and the nearest imbalance gives the second level. Direct comparison of the conditional beta central interval for (d,0) versus (d-1,1) integrates to the stated positive beta integral, giving sharp stability.",
+      "risk": [
+        "The proof needs strictness also when t approaches 0 or 1; for each 0<t<1 there remains an open positive S interval.",
+        "This is holomorphic degree exactly d, not all spherical harmonics nor unequal/more than two caps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 general Toeplitz theory covers symbols depending on moduli but its inspected theorems do not supply the strict two-cap top-two ordering.",
+          "2019 Bauer–Hagger–Vasilevski work is broad; only metadata/abstract accessible in bounded inspection."
+        ],
+        "reasoning": "Generic diagonal spectral formula is not sufficient to conclude pure-power rigidity or the exactly sharp second-level gap absent the monotone-likelihood-ratio proof; possible unseen specialized examples remain a risk.",
+        "searches": [
+          "sharp spectral gap concentration holomorphic homogeneous polynomials complex sphere union two coordinate caps beta Dirichlet eigenvalues",
+          "arXiv:2106.01980 Sections 4 and 7",
+          "DOI:10.1007/s11785-018-0837-y"
+        ]
+      },
+      "checked_sources": [
+        "Full RESULT.md and eight actual source Git blobs",
+        "ArXiv 1509.07063 and 2106.01980 relevant primary theorem statements",
+        "Bauer–Hagger–Vasilevski 2019 bibliographic metadata",
+        "Resultary spectrum query",
+        "Independent 960 eigenvalue and 60 gap quadrature checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known monomial integral formula allows computation of individual λ_{a,b} but does not directly force their ordering.",
+          "The source proves strict beta transfer and symmetrized imbalance likelihood ratios, and derives an explicit sharp difference integral."
+        ],
+        "reasoning": "One could derive the result from a sufficiently general known monotone Dirichlet ordering, but none was identified in the inspected primary statements; the exact inequality is the candidate addition.",
+        "searches": [
+          "arXiv:1509.07063 Theorem 5.1",
+          "arXiv:2106.01980 Theorems 7.3/7.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holomorphic sphere concentration is diagonalization of a torus-invariant Toeplitz/restriction symbol in the monomial basis.",
+          "The 2015 and 2021 papers provide the corresponding general separately radial eigenvalue integral framework."
+        ],
+        "reasoning": "Diagonalization and Dirichlet representations are acknowledged known methods; the strict global ordering of the two highest eigenvalues and sharp gap for this particular union are extra conclusions.",
+        "searches": [
+          "sharp spectral gap concentration holomorphic homogeneous polynomials complex sphere union two coordinate caps beta Dirichlet eigenvalues",
+          "Quiroga-Barranco arXiv:2106.01980",
+          "Quiroga-Barranco arXiv:1509.07063"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published indexed spectral concentration results concern zonal hemispheres, Bergman spectral filling or finite Grassmannians, not holomorphic two-coordinate-cap top-two tables."
+        ],
+        "reasoning": "The statement is a uniform all-n,d,t inequality, not a small table lookup; no exact table found with these conditions.",
+        "searches": [
+          "sharp spectral gap concentration holomorphic homogeneous polynomials complex sphere union two coordinate caps beta Dirichlet eigenvalues",
+          "Resultary queries: complex-sphere concentration, coordinate caps, spectral gap"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel part: Pure-power rigidity and a sharp gap for two-coordinate cap concentration in complex Hardy spaces. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.",
+      "residual_risks": [
+        "A specialized toric quantization/Dirichlet-majorization result may already imply this ordering.",
+        "2019 broad Toeplitz source not fully inspected and cannot be labelled universally noncovering.",
+        "The gap concerns exactly two equal caps only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known machinery for diagonalization and monomial integrals, but no inspected all-degree two-cap sharp gap.",
+          "evidence": [
+            "Quiroga-Barranco 2021 Theorems 7.3, 7.6"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01980",
+          "material_read": "Original primary text including introduction and key statements in Sections 4 and 7, Theorems 7.3/7.6; inspected corresponding PDF material, not every page.",
+          "method": "ArXiv OA article text and page screenshot.",
+          "title": "Toeplitz operators, T^m-invariance and quasi-homogeneous symbols",
+          "trigger": "Relevant general torus-invariant Toeplitz diagonalization"
+        },
+        {
+          "assessment": "General decomposition and scalar eigenvalue integrals; no inspected two equal-cap extremizer ordering.",
+          "evidence": [
+            "Quiroga-Barranco 2015 Theorem 5.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1509.07063",
+          "material_read": "Accessible introduction and relevant Sections 2/5 and main theorem statements.",
+          "method": "ArXiv primary article reading.",
+          "title": "Separately Radial and Radial Toeplitz Operators on the Unit Ball and Representation Theory",
+          "trigger": "Older general diagonal spectrum theorem"
+        },
+        {
+          "assessment": "Residual possible older exact example, not a full-document exclusion.",
+          "evidence": [
+            "Bauer–Hagger–Vasilevski 2019 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s11785-018-0837-y",
+          "material_read": "Institutional repository abstract and bibliographic description only.",
+          "method": "Bibliographic and OA searches; no claim about unread full text.",
+          "title": "Algebras of Toeplitz operators on the n-dimensional unit ball",
+          "trigger": "Broader operator-algebra coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp optimal deficit for distance from pure-power eigenspace, witnessed by mixed monomial.",
+        "Gap is an explicit positive beta integral that can be evaluated for rational t."
+      ],
+      "rationale": "The two-cap concentration operator is a natural nonconvex spectral restriction on holomorphic polynomial bands. An exact top/second spectral classification and optimal positive stability gap answer robust extremizer questions for every degree, dimension and threshold. General Toeplitz diagonality alone does not provide this nonlinear ordering and constant.",
+      "risk": [
+        "Relevance limited to two equal orthogonal coordinate caps and holomorphic degree bands."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full RESULT.md and eight actual source Git blobs",
+    "ArXiv 1509.07063 and 2106.01980 relevant primary theorem statements",
+    "Bauer–Hagger–Vasilevski 2019 bibliographic metadata",
+    "Resultary spectrum query",
+    "Independent 960 eigenvalue and 60 gap quadrature checks"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The proof needs strictness also when t approaches 0 or 1; for each 0<t<1 there remains an open positive S interval.",
+    "This is holomorphic degree exactly d, not all spherical harmonics nor unequal/more than two caps.",
+    "A specialized toric quantization/Dirichlet-majorization result may already imply this ordering.",
+    "2019 broad Toeplitz source not fully inspected and cannot be labelled universally noncovering.",
+    "The gap concerns exactly two equal caps only.",
+    "Relevance limited to two equal orthogonal coordinate caps and holomorphic degree bands."
+  ],
+  "residual_risks": [
+    "A specialized toric quantization/Dirichlet-majorization result may already imply this ordering.",
+    "2019 broad Toeplitz source not fully inspected and cannot be labelled universally noncovering.",
+    "The gap concerns exactly two equal caps only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Known machinery for diagonalization and monomial integrals, but no inspected all-degree two-cap sharp gap.",
+      "evidence": [
+        "Quiroga-Barranco 2021 Theorems 7.3, 7.6"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2106.01980",
+      "material_read": "Original primary text including introduction and key statements in Sections 4 and 7, Theorems 7.3/7.6; inspected corresponding PDF material, not every page.",
+      "method": "ArXiv OA article text and page screenshot.",
+      "title": "Toeplitz operators, T^m-invariance and quasi-homogeneous symbols",
+      "trigger": "Relevant general torus-invariant Toeplitz diagonalization"
+    },
+    {
+      "assessment": "General decomposition and scalar eigenvalue integrals; no inspected two equal-cap extremizer ordering.",
+      "evidence": [
+        "Quiroga-Barranco 2015 Theorem 5.1"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1509.07063",
+      "material_read": "Accessible introduction and relevant Sections 2/5 and main theorem statements.",
+      "method": "ArXiv primary article reading.",
+      "title": "Separately Radial and Radial Toeplitz Operators on the Unit Ball and Representation Theory",
+      "trigger": "Older general diagonal spectrum theorem"
+    },
+    {
+      "assessment": "Residual possible older exact example, not a full-document exclusion.",
+      "evidence": [
+        "Bauer–Hagger–Vasilevski 2019 abstract"
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/s11785-018-0837-y",
+      "material_read": "Institutional repository abstract and bibliographic description only.",
+      "method": "Bibliographic and OA searches; no claim about unread full text.",
+      "title": "Algebras of Toeplitz operators on the n-dimensional unit ball",
+      "trigger": "Broader operator-algebra coverage"
+    }
+  ]
+}

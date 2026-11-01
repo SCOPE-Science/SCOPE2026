@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof defines normalized complex-sphere measure, fixes \(n\ge3\), \(d\ge2\), and \(0<t<1\), and gives all monomial eigenvalues using the normalized Dirichlet density. Coordinate-phase invariance makes the monomial basis diagonal. Transferring an exponent from a non-cap coordinate is strictly improving by a conditional beta monotone-likelihood-ratio argument; among full cap allocations, the distribution of \(|U-1/2|\) strictly increases with the imbalance \(|a-b|\). These two arguments jointly establish the top and second eigenvalues and all extremizers. A separate conditional-beta calculation establishes the positive sharp gap. The standalone exact-rational checker passed 5,208 assertions. Finite tests do not establish the general theorem.
+## correctness
 
-**Originality (PASS, best-knowledge; not independent).** Quiroga-Barranco's work on separately radial Toeplitz operators (arXiv:1509.07063, Section 5; arXiv:2106.01980, Sections 4 and 7) supplies the general diagonal integral framework. The present named cap union and its all-degree *strict ordering*, second eigenspace, explicit sharp stability coefficient and optimizer rigidity are not stated in those inspected sections. Published mathematical-result comparisons yielded a Johnson-slice two-coordinate face theorem and real-spherical Slepian spectral results, neither of which implies the complex holomorphic Dirichlet/beta ordering. The 2019 Bauer–Hagger–Vasilevski paper was available at abstract level only in this review, so no full-text noncoverage is asserted. A disguised equivalent in older toric quantization or separately radial Toeplitz literature is a residual bibliographic risk.
+PASS
 
-**Mathematical value (PASS).** Nonconvex coordinate-cap unions form a natural two-site localization problem for holomorphic homogeneous spaces on the complex sphere/projective space. The finding supplies the complete exact finite spectrum, all maximizers, the actual second eigenspace, and a strictly positive sharp spectral stability gap for every dimension, degree and threshold. A strict stochastic ordering, not just numerical diagonalization, explains why mixed monomials cannot be optimal. The exact gap is a reusable conditioning constant for two-coordinate restriction in a holomorphic polynomial band. No claim is made for unequal caps or three-site unions.
+Torus invariance diagonalizes the cap-restriction operator in orthogonal degree-d monomials, with normalized squared moduli Dirichlet(alpha_j+1). Transferring one exponent from any outside coordinate to cap coordinate strictly increases cap probability by conditional beta monotone likelihood ratios. With all degree in the two cap coordinates, condition on their sum S~Beta(d+2,n-2), and use the strictly monotone symmetrized Beta(a+1,b+1) imbalance likelihood ratio to order every (a,d-a) concentration. The two pure powers are the unique top eigenspace and the nearest imbalance gives the second level. Direct comparison of the conditional beta central interval for (d,0) versus (d-1,1) integrates to the stated positive beta integral, giving sharp stability.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge novel part: Pure-power rigidity and a sharp gap for two-coordinate cap concentration in complex Hardy spaces. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+The two-cap concentration operator is a natural nonconvex spectral restriction on holomorphic polynomial bands. An exact top/second spectral classification and optimal positive stability gap answer robust extremizer questions for every degree, dimension and threshold. General Toeplitz diagonality alone does not provide this nonlinear ordering and constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
