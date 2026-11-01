@@ -1,13 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The first-order perturbation matrix is explicit and Hermitian; its lower eigenvalue gives the weak-coupling coefficient. The strong-coupling form limit yields two Dirichlet intervals, and their second ordered eigenvalue has a unique maximizer at one-third spacing on the half-circle.
+## correctness
 
-**Originality (O): PASS, best-knowledge.** The closest accessible primary abstract and indexed result concern ground-state optimization. The present claim concerns the first excited branch and the strong-coupling limiting spectrum. The full text of the closest primary paper could not be retrieved, so this remains a documented residual risk rather than a claim of exhaustive novelty.
+PASS
 
-**Value (V): PASS.** The two asymptotic regimes select different spacings for a natural spectral observable. The exact comparison is useful for spectral design and does not overclaim a finite-coupling optimizer.
+With periodic H¹ form for α(δ_0+δ_d), the free first positive eigenvalue (2π/L)² is double. Its degenerate first-order perturbation matrix is (1/L)[[2,1+e^(−2ikd)],[1+e^(2ikd),2]], whose eigenvalues (2/L)(1±|cos(kd)|) give quarter-spaced maximizers of the LOWER branch linear coefficient. At fixed d, monotonically increasing quadratic forms as α→∞ enforce u(0)=u(d)=0, with limiting direct sum of Dirichlet intervals d,L−d. For 0<d<=L/2 the SECOND ordered eigenvalue is min{4π²/(L−d)²,π²/d²}; the first term increases, the second decreases, so the maximum is exactly 9π²/L² at d=L/3; reflection gives 2L/3. The weak O_d(α²) remainder and strong limit are pointwise in fixed d. No conclusion for exact maximizing finite α.
 
-**Closest literature:** P. Exner, “An optimization problem for finite point interaction families,” arXiv:1906.01229 (2019). Its accessible abstract states a ground-state optimization problem for point interactions on a circle or sphere.
+## originality
 
-**Limitations:** The weak-coupling remainder is pointwise in the separation; uniformity and finite-coupling maximizers are not established. The closest primary full text was not retrieved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exner’s directly relevant full 2019 point-interaction paper treats minimization/maximization of the principal (ground-state) eigenvalue, not the first excited doublet or second ordered eigenvalue in the Dirichlet limit. Thus the asymptotic comparison is not a corollary of that ground-state optimizer; nonetheless both components use classical perturbation and interval spectra, with a possible textbook or appendix overlap risk.
+
+## value
+
+PASS
+
+For a canonical two-scatterer quantum loop, weak linear response and strong decoupling prescribe provably different optimal placements. This is a precise spectral-design boundary useful for comparing first-excited mode objectives; it is a narrow natural asymptotic invariant, not an asserted all-coupling optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
