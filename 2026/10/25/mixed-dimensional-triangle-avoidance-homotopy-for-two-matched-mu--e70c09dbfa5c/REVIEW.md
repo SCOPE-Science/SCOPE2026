@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every admissible face is classified into a two-part core, cones over disjoint cross-polytope boundaries, and the edges between extra singleton parts. Both boundary inclusions into their join are explicitly null-homotopic. The contractible-simplex replacements use cofibration homotopy pushouts, and each external cone attaches along a disconnected pair of connected spheres, producing precisely one extra circle. The full integral wedge follows by CW attachments; no field-homology inference is used. Independent face enumeration and mod-two boundary-rank calculations checked 14 finite cases and 4,855 faces, which corroborates but does not replace the infinite argument.
+## correctness
 
-**Originality — PASS subject to indexing risk.** Full primary sections of Ghosh–Selvaraja (arXiv:2602.09623) concern shellability and certain chordal or clique-attached graph classes and do not state these homotopy multiplicities for two matched multipartite parts. The closest preceding join formula assumes a triangle-free residual graph, while the residual graph in this theorem has many triangles; hence that theorem does not imply the new one. Relevant mathematical search and nearby graph-complex records yielded no equivalent or dominating statement. Search noncoverage is not a proof of global novelty, and unindexed literature remains a limitation.
+PASS
 
-**Mathematical value — PASS.** Two independently matched parts are the first genuinely interacting extension beyond a single matched part: their triangle-generating cross edges produce a new sphere in dimension \(k+l-1\), alongside independently tunable middle-dimensional spheres and a free fundamental-group rank. The result is a complete integral homotopy classification for a natural infinite family of minimally non-multipartite graphs, not merely a selected Betti number or an arbitrary finite calculation.
+All triangle-free vertex subsets split as Δ(A),Δ(B), L_A*L_B and cones over L_A∪L_B at singleton clique vertices, followed by independent edges among singleton parts. The inclusions L_A,L_B are null and their cones split suspensions and one S1 per new apex; cross-polytope join contributes S^(k+l−1). The resulting integral wedge formula is valid k,l≥2, s≥0. Independent full face/mod2 chain checks reproduced k,l=2,3 small configurations; homotopy rests on cofiber pushouts.
 
-**Closest related work and limitations.** The 2026 shellability paper does not calculate the present wedge structure. Previous one-part join formulas impose triangle-free residual graphs. The proposed formula is not claimed for higher clique avoidance, general within-part graphs, or more than two internally matched parts. Bibliographic incompleteness remains possible; no independent external validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A full mixed-dimensional integral sphere-wedge homotopy for two nontrivial matched parts; adjacent clique-join results require triangle-free residual graphs and do not apply to these crossing triangles. The result is not an ordinary edge matching complex.
+
+## value
+
+PASS
+
+Gives an all-parameter integral mixed-dimensional homotopy classification for a motivated two-matched-part triangle-avoidance family, with a genuine high sphere from interaction absent under the prior triangle-free residual hypothesis, not just a finite Betti recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

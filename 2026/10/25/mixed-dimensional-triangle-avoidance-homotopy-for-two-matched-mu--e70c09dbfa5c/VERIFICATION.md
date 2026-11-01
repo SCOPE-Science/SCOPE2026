@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete integral homotopy proof is in `RESULT.md`. Its critical geometric checks are: the exact face partition into \(K_0\), the external cones, and external edges; the two opposite-part cone contractions of \(L_A,L_B\) inside their join; replacement of filled simplices by homotopy-equivalent cones along subcomplex cofibrations; and the extra loop from attaching one cone over a disconnected union of two connected complexes. Both sphere boundaries are connected under the declared hypotheses \(k,l\ge2\).
+## correctness
 
-Execute `python verify.py` from this package. This independently enumerates faces, computes all mod-two simplicial boundary ranks, and checks every nonzero reduced Betti number for fourteen parameter choices and 4,855 faces. It prints `VERIFY_OK` and its exact recorded output is included in `verification_output.txt`.
+PASS
 
-Computational limitations: the finite mod-two tests cannot establish the infinite integral homotopy claim, detect all possible integral torsion, or prove the absence of equivalent publications. Those conclusions rely respectively on the explicit topological splitting and the stated bounded literature comparisons.
+All triangle-free vertex subsets split as Δ(A),Δ(B), L_A*L_B and cones over L_A∪L_B at singleton clique vertices, followed by independent edges among singleton parts. The inclusions L_A,L_B are null and their cones split suspensions and one S1 per new apex; cross-polytope join contributes S^(k+l−1). The resulting integral wedge formula is valid k,l≥2, s≥0. Independent full face/mod2 chain checks reproduced k,l=2,3 small configurations; homotopy rests on cofiber pushouts.
+
+## originality
+
+PASS
+
+A full mixed-dimensional integral sphere-wedge homotopy for two nontrivial matched parts; adjacent clique-join results require triangle-free residual graphs and do not apply to these crossing triangles. The result is not an ordinary edge matching complex.
+
+## value
+
+PASS
+
+Gives an all-parameter integral mixed-dimensional homotopy classification for a motivated two-matched-part triangle-avoidance family, with a genuine high sphere from interaction absent under the prior triangle-free residual hypothesis, not just a finite Betti recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
