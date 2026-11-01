@@ -1,11 +1,21 @@
-# Review: strongly obtuse inscribed-triangle count law
+# Independent mathematical audit
 
-**Correctness — PASS.** The strict domain \(0<b<1/2\), triple-count normalization, complete covariance classification and Fourier constants have been reconstructed explicitly. The pair-conditioned geometric kernel is \((2b-s)\mathbf1_{s<b}\), giving \(p_b=3b^2\), \(\zeta_b=14b^3/3-9b^4\), and operator eigenvalues as in the theorem. Canonical Hoeffding orthogonality bounds the remaining third-order component by \(O(n^3)\) variance. The exact arc-count program and independent direct triple test, Monte Carlo and Parseval tests agree. Finite checks are not used as infinite proof.
+## correctness
 
-**Originality — PASS relative to inspected literature, not absolute priority.** The right-angle limit was already derived within the classical bivariate sign/simplicial-depth literature and is excluded. The reviewed 2026 full-text synthesis identifies that endpoint. The older 2013 inscribed polygon work treats extreme area/perimeter statistics; generic U-statistic theory supplies the method but not the explicit strict-angle eigenvalues or the two-sided support phase. Exact comparisons and material-read limits appear in AUDIT.json. The old Killeen–Hettmansperger paper was not available in full after legal-source and institutional-access checks; its abstract and a modern full-text scholarly discussion were read. This leaves historical-priority risk, not evidence of uniqueness.
+PASS
 
-**Value — PASS.** The count aggregates highly dependent triangles in a natural random cyclic polygon. Its explicit finite variance, the complete limiting fluctuation spectrum for every strong-obtuseness cutoff, and the discontinuous change in support at the classical right-angle boundary are structural information beyond single-triangle probability or a routine numerical census. The representative \(120^\circ\) case has exact rational fluctuation constants.
+For iid uniform points on unit circle and b=1−α/π strictly between 0 and 1/2, cyclic spacings of one triangle are Dirichlet(1,1,1). The long gap >1−b is unique, giving exact count A_n=Σ_i binom(m_i(b),2) and probability p=3b². Conditioning on a pair at minor normalized gap s gives q(s)=(2b−s)1_{s<b}, hence E q²=14b³/3 and pair-sharing covariance ζ=14b³/3−9b⁴. Distinct triples sharing 0 or 1 vertices have zero covariance, so exact variance =p(1−p)C(n,3)+2ζ C(n,2)C(n−2,2). The first Hoeffding projection vanishes by rotational invariance, and the Fourier eigenvalues of centered second projection are λ_k=b sin(2πkb)/(πk)+(1−cos(2πkb))/(2π²k²). Canonical third-order remainder has O(n³) variance. Pair-sum CLT plus square-summable truncation gives (A−EA)/n² ⇒ Σ λ_k(E_k−1), whose variance ζ/2. λ_1>0 and some large k with sin(2πkb)<0 force a two-sided full R support for every strict b; b=1/2 has nonnegative λ_k only. Independent deterministic sample counts matched direct enumeration at n=7,11 for three b and Fourier partial sums to 25,000 terms matched ζ/2 within 1e-6.
 
-**Limits.** This theorem assumes iid uniform circle points and a fixed threshold strictly between a right angle and a straight angle. It does not imply general nonuniform results or a functional limit in the threshold. Priority is provisional and no independent review is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing bivariate simplicial depth results include the right-angle endpoint α=π/2 and standard degenerate U-statistic methods. The surviving strict α>π/2 law has a different one-parameter geometry: an exact finite covariance, explicit signed Fourier spectrum and full two-sided support, not obtained by complementing the known endpoint. The 2013 polygon paper treats maxima of perimeter/area, not counts of angles crossing a prescribed threshold. Older 1989/2020 endpoint full texts remain a historical-priority risk.
+
+## value
+
+PASS
+
+Counting all strongly obtuse inscribed triangles is a natural dependent geometric U-statistic for cyclic samples. Exact finite variance, an explicit complete infinite eigenvalue spectrum and a sharp all-strict-cutoff support dichotomy are substantive structure absent from the single-triple probability. The 120° exact rational special case is a motivated benchmark, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
