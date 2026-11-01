@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:55:49Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md Git blob b87fbed5e37f85f5d6339c3104a9c446898f88f8 and original verify.py blob dfc6692e10c7ad78e2543371c65a9c2cdaedbf5d inspected.",
+        "Independent exact integer lattice count for n=5..7 at a=1,2,5,16,20,32 and full polynomial rational interpolation: the t^{n-4} coefficient agrees with predicted Q_n(a).",
+        "Independent symbolic Descartes sign and fixed-order elementary symmetric leading-term derivation; n=5..7 first negative thresholds independently recomputed.",
+        "Caicedo et al. 2025 arxiv:2508.18890 Eq(3) exactly matches count, Theorem 3.5 only asymptotic fixed-n negativity; finite table matches beta(5..8)."
+      ],
+      "rationale": "PASS. Integer lattice points in tP_{n,a} (n>=5, a>=1) can be counted by conditioning on x_n or x_{n-1}; both methods yield L(t)=binom(at+n,n)+sum_{q=0}^{t-1}binom(aq+n-1,n-1) for all integer t>=0. This is a polynomial identity, since finite sums of polynomial summands are polynomials. Exact Bernoulli/Faulhaber extraction of coefficient t^{n-4}, with E_j=e_j(1,...,n-1), produces a^{n-5}/(n-1)! times Q_n(a), where Q_n(z)=E4/(n-4)+(E4/n+E3/2)z+((n-3)/12)E2 z²-[(n-1)(n-2)(n-3)/720]z⁴. The B3=0 term removes z³; B4=-1/30 gives the negative z⁴ coefficient. Descending nonzero coefficients of Q_n have signs -, +, +, +, hence Descartes yields at most one positive root counted with multiplicity; Q_n(0)>0 and Q_n(large)<0 ensure exactly one simple positive root rho_n. Q_n(1)>0 and a domain are checked. For E_j=n^{2j}/(2^j j!)+O(n^{2j-1}), setting z=c n^{4/3}, dividing by n^{25/3}, gives c/384-c⁴/720; root squeeze yields rho_n/n^{4/3}->(15/8)^{1/3}, and rounding changes o(1). Only this monomial coefficient is classified. Direct exact rational interpolation independently verified 18 n/a cases (n5..7), n5..7 integer thresholds 16,19,23, and supplied original code proves no universal statement by finite checks.",
+      "risks": [
+        "Does not prove full Ehrhart positivity for all a below rho_n; lower coefficients may change sign first.",
+        "The asymptotic n^{4/3} root requires joint n growth, not inference from n<=9 table."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caicedo–Juhnke–Poullot Theorem 3.5: [t^{n-4}]L_{n,a}(t) ~ -a^{n-1}/(720(n-4)!) as a->infty fixed n.",
+          "Brändén–Solus Corollary 1: 0/1-difference sequences admit regular flag unimodular triangulations; no coefficientwise monomial positivity consequence."
+        ],
+        "reasoning": "The current result implies the earlier eventual negativity and beta(5..8) table, not vice versa; a leading term does not control a finite all-dimensional threshold or its root uniqueness. Structural h-star properties do not preclude negative monomial Ehrhart coefficients.",
+        "searches": [
+          "Caicedo Juhnke Poullot 2025 arxiv:2508.18890 Theorem 3.5 and Conjecture 3.4",
+          "Brändén Solus 2019 lecture hall triangulation Theorem 3 Corollary 1",
+          "Resultary one step lecture hall Ehrhart threshold quartic n^(4/3)"
+        ]
+      },
+      "checked_sources": [
+        "Caicedo–Juhnke–Poullot arxiv:2508.18890 full primary PDF theorem and beta table",
+        "Brändén–Solus arxiv:1911.12459 full primary PDF main theorem and Corollary 1",
+        "Resultary query one step lecture hall simplex a a+1 Ehrhart coefficient t^(n-4) unique sign threshold n^(4/3)",
+        "Web targeted 2026 related lecture hall positivity and coefficient thresholds"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original source Eq(3) already states L(t)=binom(at+n,n)+sum_{l=0}^{t-1}binom(al+n-1,n-1).",
+          "Its Theorem 3.5 states eventual negativity for fixed n, no sharp beta formula; Conjecture 3.4 concerns overall non-positivity monotonicity, not proved by this result.",
+          "Current exact Q_n gives unique positive root and n^(4/3) asymptotic with constant (15/8)^(1/3)."
+        ],
+        "reasoning": "Counting identity is a stated prior ingredient. Extracting four Bernoulli terms and proving root uniqueness plus joint asymptotic is additional. No false claim to settle the full monotonicity conjecture is made.",
+        "searches": [
+          "arxiv 2508.18890 Eq3 Theorem3.5 vs all-n exact coefficient quartic",
+          "1911.12459 first order differences triangulations vs Ehrhart monomial negativity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caicedo–Juhnke–Poullot arxiv:2508.18890 Section 3: one-step s=(a,...,a,a+1) and beta(n) finite table.",
+          "Brändén–Solus arxiv:1911.12459: lecture hall with first differences in {0,1}, hence includes the same simplex family."
+        ],
+        "reasoning": "The same objects are found under s-lecture-hall simplex/Ehrhart nonpositivity/0–1-difference labels. The earliest same family paper provides one-sided eventual negativity and a small table, not a sharp all-n one-root law.",
+        "searches": [
+          "one step lecture hall simplex a a+1 Ehrhart coefficient t^(n-4) unique sign threshold n^(4/3)",
+          "lecture hall simplex s=(a,...,a,a+1) beta(n) first negative quartic Faulhaber Bernoulli",
+          "Caicedo Juhnke Poullot 2025 Theorem 3.5 threshold followup"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2025 paper table beta(5)=16,beta(6)=19,beta(7)=23,beta(8)=27 is a known finite antecedent.",
+          "Submitted formula derives beta(9)=31 as a corroborative small case, not independently valuable novelty.",
+          "Resultary targeted semantic search yielded unrelated Ehrhart/polytopal thresholds, no stronger all-n same-family table."
+        ],
+        "reasoning": "Finite numerical tables do not establish a unique positive quartic root for each n or asymptotic growth coefficient. New result is structural, not discovery of the first few integers.",
+        "searches": [
+          "Caicedo Juhnke Poullot beta(5) 16 beta(6) 19 beta(7) 23 beta(8) 27 table",
+          "Resultary exact lecture hall first negative Ehrhart coefficient t n minus 4",
+          "lecture hall simplex asymptotic beta(n) n^(4/3) 15/8"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. Caicedo, Juhnke and Poullot (2025), same exact one-step family and coefficient, establish eventual negativity as a grows for each fixed n, and tabulate first negative integer parameters in dimensions 5 through 8. Their full primary paper does not give an exact four-term Q_n for every dimension, an exactly one-positive-root theorem or asymptotic threshold as n grows. These new claims sharpen the precise selected coefficient and are not implied by the earlier leading term or four-row table. Brändén–Solus (2019) gives unimodular triangulations for 0/1-difference lecture-hall sequences but no ordinary Ehrhart monomial coefficient sign cutoff. Recent followups and formula equivalences remain genuine risks.",
+      "residual_risks": [
+        "A follow-up or obscure coefficient-extraction note after 2025 may already state the same quartic or asymptotic, without matching the searched terminology.",
+        "No conclusion about positivity of all coefficients: an incorrect extension to Conjecture 3.4 would be a substantive error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS lattice count, fixed-n eventual negativity and finite beta table; not identified covering one-root quartic all-n threshold and n^(4/3) constant.",
+          "evidence": [
+            "Equation (3) counting formula; Theorem 3.5 eventual negative t^{n-4} term; beta table 16,19,23,27."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.18890",
+          "material_read": "Complete 18-page searchable arxiv PDF; introduction, Section 3 Eq(3), Example 3.3, Conjecture 3.4, Theorems 3.5 and 3.9, beta table, relevant proofs/Appendix.",
+          "method": "Full open-access PDF, rendered screenshot of page 8 with theorem/table and comparison of exact hypotheses.",
+          "title": "Ehrhart non-positivity and unimodular triangulations for classes of s-lecture hall simplices",
+          "trigger": "Exact same family and critical Ehrhart monomial coefficient."
+        },
+        {
+          "assessment": "Different goal: integer decomposition and regular flag unimodular triangulation, no ordinary Ehrhart monomial sign threshold.",
+          "evidence": [
+            "Corollary 1 states regular flag unimodular triangulation for weakly increasing s whose first differences lie in {0,1}."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1911.12459",
+          "material_read": "Full 10-page PDF available; materially inspected abstract, introduction, definitions, main theorem, Corollary 1 p9 and relevant concluding context.",
+          "method": "Open-access primary PDF with screenshots of initial page, and text of Corollary 1.",
+          "title": "Some Algebraic Properties of Lecture Hall Polytopes",
+          "trigger": "Structural results for 0/1 first-difference sequence including (a,...,a,a+1)."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limits": [
+        "Only the coefficient of t^{n-4}, no simultaneous positivity threshold for the complete Ehrhart polynomial; no proof of Conjecture 3.4."
+      ],
+      "rationale": "PASS. The 2025 paper identifies exactly this infinite one-step lecture-hall family as a source of Ehrhart negativity and only proves eventual failure at fixed dimension, motivating a sharp threshold. The new one-positive-root quartic identifies the exact first negative parameter for a genuinely natural coefficient in every dimension, including a nontrivial dimension scaling n^{4/3} with constant (15/8)^{1/3}. This is a complete natural sign-cutoff theorem rather than a textbook binomial-coefficient exercise or recomputed finite data. It deliberately leaves global coefficientwise positivity open.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

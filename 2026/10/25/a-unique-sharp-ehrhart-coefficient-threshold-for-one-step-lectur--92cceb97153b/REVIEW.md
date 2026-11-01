@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact lattice-point formula follows by conditioning on the last coordinate or the penultimate coordinate; both descriptions are displayed and reconciled. Taking the specified monomial coefficient uses the Bernoulli values through degree four, which produces a quartic with no cubic term. Exact rational checks independently reproduce the formula by direct lattice counts and polynomial interpolation for dimensions \(5\)–\(9\). Descartes' rule, the endpoint signs, and elementary-symmetric leading asymptotics establish the two infinite statements without reliance on the finite computations. The domain is all integer \(n\ge5\) and integer \(a\ge1\); no claims are made about all other coefficients.
+PASS
 
-## Originality — PASS under inspected evidence
+PASS. Integer lattice points in tP_{n,a} (n>=5, a>=1) can be counted by conditioning on x_n or x_{n-1}; both methods yield L(t)=binom(at+n,n)+sum_{q=0}^{t-1}binom(aq+n-1,n-1) for all integer t>=0. This is a polynomial identity, since finite sums of polynomial summands are polynomials. Exact Bernoulli/Faulhaber extraction of coefficient t^{n-4}, with E_j=e_j(1,...,n-1), produces a^{n-5}/(n-1)! times Q_n(a), where Q_n(z)=E4/(n-4)+(E4/n+E3/2)z+((n-3)/12)E2 z²-[(n-1)(n-2)(n-3)/720]z⁴. The B3=0 term removes z³; B4=-1/30 gives the negative z⁴ coefficient. Descending nonzero coefficients of Q_n have signs -, +, +, +, hence Descartes yields at most one positive root counted with multiplicity; Q_n(0)>0 and Q_n(large)<0 ensure exactly one simple positive root rho_n. Q_n(1)>0 and a domain are checked. For E_j=n^{2j}/(2^j j!)+O(n^{2j-1}), setting z=c n^{4/3}, dividing by n^{25/3}, gives c/384-c⁴/720; root squeeze yields rho_n/n^{4/3}->(15/8)^{1/3}, and rounding changes o(1). Only this monomial coefficient is classified. Direct exact rational interpolation independently verified 18 n/a cases (n5..7), n5..7 integer thresholds 16,19,23, and supplied original code proves no universal statement by finite checks.
 
-The closest source is Caicedo, Juhnke, and Poullot, arXiv:2508.18890 (2025), Section 3, especially Theorem 3.5 and Conjecture 3.4. It supplies the same family, eventual negativity of this coefficient for fixed dimension, and computational first-negative parameters in dimensions \(5\)–\(8\). It does not provide a global one-root criterion, a sharp exact threshold in every dimension, or an asymptotic law as dimension grows. Brändén and Solus, arXiv:1911.12459, address integer decomposition and regular unimodular triangulations, not the coefficient sign threshold. The new theorem is stronger for the selected coefficient but does not settle the published conjecture about non-positivity of the complete polynomial. Priority risk remains for differently indexed follow-up literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2025 paper specifically isolates the first critical Ehrhart coefficient and only establishes eventual negativity, while tabulating the first few sharp thresholds. The new result proves a single sharp crossing for every dimension and gives the explicit \(n^{4/3}\) growth scale and constant for the crossing parameter. Such a complete cutoff and its dimension growth are natural further structural information about a motivated infinite family, not a numerical recomputation or an arbitrary small case.
+PASS, best of knowledge. Caicedo, Juhnke and Poullot (2025), same exact one-step family and coefficient, establish eventual negativity as a grows for each fixed n, and tabulate first negative integer parameters in dimensions 5 through 8. Their full primary paper does not give an exact four-term Q_n for every dimension, an exactly one-positive-root theorem or asymptotic threshold as n grows. These new claims sharpen the precise selected coefficient and are not implied by the earlier leading term or four-row table. Brändén–Solus (2019) gives unimodular triangulations for 0/1-difference lecture-hall sequences but no ordinary Ehrhart monomial coefficient sign cutoff. Recent followups and formula equivalences remain genuine risks.
 
-## Limitations
+## value
 
-Other monomial coefficients may become negative at smaller parameters; the coefficientwise positivity region for the whole Ehrhart polynomial is not classified. No independent scientific audit is claimed. The published priority comparison is limited to inspected primary documents and targeted bibliographic searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The 2025 paper identifies exactly this infinite one-step lecture-hall family as a source of Ehrhart negativity and only proves eventual failure at fixed dimension, motivating a sharp threshold. The new one-positive-root quartic identifies the exact first negative parameter for a genuinely natural coefficient in every dimension, including a nontrivial dimension scaling n^{4/3} with constant (15/8)^{1/3}. This is a complete natural sign-cutoff theorem rather than a textbook binomial-coefficient exercise or recomputed finite data. It deliberately leaves global coefficientwise positivity open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

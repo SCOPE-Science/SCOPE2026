@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file and the script. The script requires Python 3 and no third-party package.
+## correctness
 
-The checker independently enumerates integer points by slicing at the last coordinate, compares the exact binomial-sum formula at integer dilations, interpolates entire Ehrhart polynomials over the rational numbers, and checks the coefficient extracted from the quartic. It examines dimensions \(5\) through \(9\), six parameter choices per dimension, and every interpolation node from zero through the dimension. It additionally checks first-negative integer boundaries and exact coefficient signs in dimensions \(5\), \(6\), \(7\), \(8\), \(9\), \(10\), \(20\), \(50\), \(100\), and \(250\).
+PASS
 
-Expected output:
+PASS. Integer lattice points in tP_{n,a} (n>=5, a>=1) can be counted by conditioning on x_n or x_{n-1}; both methods yield L(t)=binom(at+n,n)+sum_{q=0}^{t-1}binom(aq+n-1,n-1) for all integer t>=0. This is a polynomial identity, since finite sums of polynomial summands are polynomials. Exact Bernoulli/Faulhaber extraction of coefficient t^{n-4}, with E_j=e_j(1,...,n-1), produces a^{n-5}/(n-1)! times Q_n(a), where Q_n(z)=E4/(n-4)+(E4/n+E3/2)z+((n-3)/12)E2 z²-[(n-1)(n-2)(n-3)/720]z⁴. The B3=0 term removes z³; B4=-1/30 gives the negative z⁴ coefficient. Descending nonzero coefficients of Q_n have signs -, +, +, +, hence Descartes yields at most one positive root counted with multiplicity; Q_n(0)>0 and Q_n(large)<0 ensure exactly one simple positive root rho_n. Q_n(1)>0 and a domain are checked. For E_j=n^{2j}/(2^j j!)+O(n^{2j-1}), setting z=c n^{4/3}, dividing by n^{25/3}, gives c/384-c⁴/720; root squeeze yields rho_n/n^{4/3}->(15/8)^{1/3}, and rounding changes o(1). Only this monomial coefficient is classified. Direct exact rational interpolation independently verified 18 n/a cases (n5..7), n5..7 integer thresholds 16,19,23, and supplied original code proves no universal statement by finite checks.
 
-`VERIFY_OK exact_counts=240 dim5to9_a6 beta5to9=16,19,23,27,31 sign_pattern_n5to250`
+## originality
 
-The infinite sign-change and dimension-asymptotic conclusions are proved analytically in `RESULT.md`; the finite checker alone cannot establish either one. No external audit is included.
+PASS
+
+PASS, best of knowledge. Caicedo, Juhnke and Poullot (2025), same exact one-step family and coefficient, establish eventual negativity as a grows for each fixed n, and tabulate first negative integer parameters in dimensions 5 through 8. Their full primary paper does not give an exact four-term Q_n for every dimension, an exactly one-positive-root theorem or asymptotic threshold as n grows. These new claims sharpen the precise selected coefficient and are not implied by the earlier leading term or four-row table. Brändén–Solus (2019) gives unimodular triangulations for 0/1-difference lecture-hall sequences but no ordinary Ehrhart monomial coefficient sign cutoff. Recent followups and formula equivalences remain genuine risks.
+
+## value
+
+PASS
+
+PASS. The 2025 paper identifies exactly this infinite one-step lecture-hall family as a source of Ehrhart negativity and only proves eventual failure at fixed dimension, motivating a sharp threshold. The new one-positive-root quartic identifies the exact first negative parameter for a genuinely natural coefficient in every dimension, including a nontrivial dimension scaling n^{4/3} with constant (15/8)^{1/3}. This is a complete natural sign-cutoff theorem rather than a textbook binomial-coefficient exercise or recomputed finite data. It deliberately leaves global coefficientwise positivity open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
