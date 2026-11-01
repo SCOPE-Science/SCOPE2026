@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The conditional squared-error identity is exact for unit rows and consistent equations; permutation symmetrization uses concavity of the least eigenvalue. The analytic leaf-difference and two-dimensional block decomposition produces an upper bound attained exactly by the proposed probabilities. The bound is valid for every nonsymmetric distribution. The feasibility endpoint is isolated by the correct-sign root of a quadratic in \(c^2\). A symbolic check and randomized full-matrix eigenvalue comparisons from the included verification script support, but do not replace, the proof.
+## correctness
 
-**Originality — PASS, subject to stated literature risk.** Full primary text of Dai–Soltanalian–Pelckmans describes the general normalized-row SDP but not this explicit overcomplete pooled-star solution. Agaskar–Wang–Lu target exact multi-step annealed MSE, not the sharp one-step worst-direction objective. The close inverse-positive-Hessian formula concerns square systems; the extra pooled observation makes the relevant Gram matrix singular, so it cannot imply the claimed law through direct substitution. Available indexed finding searches and accessible prior claims showed no equivalent or stronger formula for this augmented row design. The evidence does not exclude uncatalogued equivalent E-optimal designs.
+PASS
 
-**Value — PASS.** The aggregate measurement is structurally distinct from individual coordinates and changes the allocation problem from a square design to a redundant, experimentally natural measurement scheme. The exact solution identifies strictly positive sampling of the pooled aggregate at every nonzero coupling and the precise boundary at which a direct hub measurement can be suppressed without degrading the sharp guaranteed one-step rate. These are scalable parametric design properties, not a numerical example or a known-table recomputation.
+PASS: For unit rows and consistent equations E||z+||²=||z||²-z^T F(p)z, F=sum p a a^T, so sharp worst-direction decrement equals lambda_min F. The permutation average of any p cannot reduce lambda_min, by concavity; this handles all asymmetrical distributions for global optimality without asserting their uniqueness. With symmetric u,t,v, the leaf-difference eigenvalue is r t (multiplicity m-1) and the orthogonal hub/pooled 2x2 block has trace 1-(m-1)rt and offdiagonal sqrt(m)tcs. Its smaller eigenvalue is at most trace/2 -sqrt(m)tcs, with equality at equal block diagonals. The maximum of the minimum of rising rt and falling affine bound occurs at t=1/Delta; direct substitution of stated u,v equalizes diagonals and attains r/Delta simultaneously in both invariant subspaces. The endpoint c_m arises from the unique physically allowed root of the hub nonnegativity constraint. Independent calculations verified normalization, 2x2 equality and target eigenvalue at m=2,3,5,8 with c=0.3; finite tests do not prove all m. No extrapolation past c_m, where this design becomes infeasible.
 
-**Closest literature and limitations.** See the specific source comparisons in `AUDIT.json` and references in `RESULT.md`. The finding concerns only the one-step uniform bound in the feasible coupling regime; it does not assert optimal long-run MSE rates, a classification outside the specified range, or uniqueness among asymmetric optimizers. Residual risk: a specialized published E-optimal frame family could imply the result under a nonobvious reduction.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Optimal i.i.d. Kaczmarz row selection as an eigenvalue semidefinite program is classical and explicitly attributed to Dai et al. The assessed new part is an exact analytic optimizer and its positive pooled-weight/zero hub-weight activation threshold for the overcomplete star-plus-pooled frame. Prior inverse-positive square-coordinate-design results do not imply this rectangular rank-one-augmented geometry.
+
+## value
+
+PASS
+
+PASS: The pooled extra measurement has a distinct algorithmic purpose in redundant projection systems, and its optimal weighting against the hub and leaf directions is a meaningful explicit E-optimal design question. The exact nonzero pooled allocation and sharp phase boundary where the hub measurement becomes unnecessary determine actionable behavior unavailable from a generic SDP restatement. A structural two-block proof covers all m>=2 in the natural feasible range. The result makes no inflated claim to universally optimal Kaczmarz runtime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

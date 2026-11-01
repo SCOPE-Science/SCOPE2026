@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For unit rows and consistent equations E||z+||²=||z||²-z^T F(p)z, F=sum p a a^T, so sharp worst-direction decrement equals lambda_min F. The permutation average of any p cannot reduce lambda_min, by concavity; this handles all asymmetrical distributions for global optimality without asserting their uniqueness. With symmetric u,t,v, the leaf-difference eigenvalue is r t (multiplicity m-1) and the orthogonal hub/pooled 2x2 block has trace 1-(m-1)rt and offdiagonal sqrt(m)tcs. Its smaller eigenvalue is at most trace/2 -sqrt(m)tcs, with equality at equal block diagonals. The maximum of the minimum of rising rt and falling affine bound occurs at t=1/Delta; direct substitution of stated u,v equalizes diagonals and attains r/Delta simultaneously in both invariant subspaces. The endpoint c_m arises from the unique physically allowed root of the hub nonnegativity constraint. Independent calculations verified normalization, 2x2 equality and target eigenvalue at m=2,3,5,8 with c=0.3; finite tests do not prove all m. No extrapolation past c_m, where this design becomes infeasible.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agaskar et al. Section 3 optimizes long-run annealed exponent via a different matrix R_A(p), and cites Dai as optimizing an MSE bound; the published SCOPE result handles a square SPD coordinate Gram with inverse-positivity."
+        ],
+        "reasoning": "General stochastic iterative solvers/SDP availability and a square Hessian coordinate formula are neither an analytic evaluation nor an implication for the m+2 by m+1 star-plus-pooled frame.",
+        "searches": [
+          "Agaskar Wang Lu 2014 Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities (Harvard lawful full PDF)",
+          "Published SCOPE closed-form inverse-positive SPD coordinate sampling 2026-09-20 full RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Dai, Soltanalian, Pelckmans (2014), arXiv:1402.2863, Section II optimization SDP",
+        "Agaskar, Wang, Lu (2014), DOI:10.1109/GlobalSIP.2014.7032145, full Harvard OA PDF",
+        "Published SCOPE inverse-positive SPD coordinate sampling (2026-09-20)",
+        "Resultary search for pooled star Kaczmarz E-optimal design (2026-10-29)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic SDP characterizes the numerical optimal design but must be solved for the concrete frame. The square inverse-positive theorem is for coordinate descent and lacks the pooled redundant row."
+        ],
+        "reasoning": "The prior formulation is stronger in allowable inputs but weaker in closed form for this family; a mere specialization of the SDP does not state the exact weights or threshold as a mathematical theorem. No claim of novel general SDP is made.",
+        "searches": [
+          "Dai et al. Eq. (16) SDP optimization for normalized rows; Agaskar et al. Eq. (20) different exact exponent; published square inverse-positive coordinate result",
+          "Resultary Kaczmarz optimal row probabilities query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dai et al. Section II Eq. (16) formulates general row-probability SDP; the particular m+2-row star/pooled frame and closed formula do not appear."
+        ],
+        "reasoning": "Recognized the target as E-optimal design of a discrete row frame, not just a different name for random Kaczmarz; compared exact explicit weights under that equivalent optimization.",
+        "searches": [
+          "Web: randomized Kaczmarz pooled row star frame optimal sampling distribution exact",
+          "Dai Soltanalian Pelckmans 2014 On the Randomized Kaczmarz Algorithm optimal SDP",
+          "Resultary: randomized Kaczmarz optimal row probabilities E-optimal design pooled measurement star equicorrelated frame"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual prior figures concern general random matrices, SDP approximations or quenched exponents; neither publication tabulates c_m or the explicit four-probability-type star design."
+        ],
+        "reasoning": "Comparison was against full formulas/figures, not absence of the title: no exact p_0,p_i,p_b and activation threshold were identified as already tabulated.",
+        "searches": [
+          "Dai et al. arXiv:1402.2863 Sections II-IV numerical examples",
+          "Agaskar et al. GlobalSIP 2014 Tables/Figures 2-3",
+          "Resultary Kaczmarz pooled star design query"
+        ]
+      },
+      "rationale": "PASS: Optimal i.i.d. Kaczmarz row selection as an eigenvalue semidefinite program is classical and explicitly attributed to Dai et al. The assessed new part is an exact analytic optimizer and its positive pooled-weight/zero hub-weight activation threshold for the overcomplete star-plus-pooled frame. Prior inverse-positive square-coordinate-design results do not imply this rectangular rank-one-augmented geometry.",
+      "residual_risks": [
+        "General E-optimal design literature could already contain this specific star-plus-pooled support configuration under another parameterization.",
+        "Formula covers c<=c_m and i.i.d. fixed sampling on consistent systems only; uniqueness is proved only in symmetric class.",
+        "Improving the sharp worst-direction one-step upper bound need not optimize practical runtime or multi-step MSE."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_PRIOR; NOT_COVERING explicit augmented star optimizer",
+          "evidence": "Eq. (16) SDP and Eq. (18) general row norms; no closed m-parameter pooled weights or exact c_m",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+          "material_read": "Primary 11-page PDF, optimization setup and Section II SDP, Section III approximation, examples",
+          "method": "Original arXiv PDF read with page screenshot of optimization equations",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Same optimization objective for fixed iid row selection"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE: annealed error exponent, no exact star/pooled frame",
+          "evidence": "Section 3 Eq. (20) optimizes lambda_max(R_A(p)); discussion contrasts Dai bound",
+          "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+          "material_read": "Full lawfully open six-page PDF; exact MSE, Section 3 optimal row selection, Fig. 3",
+          "method": "Original primary PDF with screenshot of Section 3 and numerical comparison",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Plausible exact-sampling prior paper, same algorithm"
+        },
+        {
+          "assessment": "INAPPLICABLE: square SPD coordinate descent, not redundant star/pooled row Kaczmarz",
+          "evidence": "Requires inverse-positive SPD C and p*=C^-1 1 /1^T C^-1 1; no m+2 rows in R^(m+1)",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+          "material_read": "Entire published RESULT.md including general theorem and Poisson specialization",
+          "method": "Direct full mathematical source reading",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Same eigenvalue and optimal-sampling design language, potential stronger coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The pooled extra measurement has a distinct algorithmic purpose in redundant projection systems, and its optimal weighting against the hub and leaf directions is a meaningful explicit E-optimal design question. The exact nonzero pooled allocation and sharp phase boundary where the hub measurement becomes unnecessary determine actionable behavior unavailable from a generic SDP restatement. A structural two-block proof covers all m>=2 in the natural feasible range. The result makes no inflated claim to universally optimal Kaczmarz runtime.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each m>=2 and 0<c<=sqrt((3m+2+m sqrt(5))/(2(m^2+3m+1))), the augmented star unit row system a_0=e_0, a_i=c e_0+sqrt(1-c^2)e_i (1<=i<=m), b=m^-1/2 sum_i e_i has optimal fixed-iid worst-direction single-step Kaczmarz mean-square decrement (1-c^2)/[(m+1)(1-c^2)+2sqrt(m)c sqrt(1-c^2)]. A symmetric optimal distribution is the exact hub/leaf/pooled formula in RESULT.md, unique among symmetric distributions; pooled weight is positive for c>0 and hub weight vanishes exactly at the endpoint. No claim is made beyond that parameter range or of nonsymmetric uniqueness.",
+  "limitations": [
+    "The formula is only for 0<c<=c_m, iid fixed probabilities and a consistent system; performance at c>c_m and alternative MSE criteria are outside scope.",
+    "The analytic optimizer is unique only among symmetric distributions, not asserted globally unique."
+  ],
+  "schema_version": 1
+}
