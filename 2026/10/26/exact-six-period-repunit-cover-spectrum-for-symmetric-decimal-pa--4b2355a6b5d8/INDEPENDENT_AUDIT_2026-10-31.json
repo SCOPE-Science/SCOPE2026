@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:09:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md six-period proof and verifier source",
+        "independent checker all 666666 states, two arithmetic representations",
+        "source tree SHA1 recomputation from Git tree entries"
+      ],
+      "rationale": "Q=(10^6-1)/9=111111=3*7*11*13*37, and R_(m+6)-R_m=10^m Q give rigorous periodic reduction for every positive padding m and t modulo 6. Prime-wise inverse residue roots modulo the five prime factors produce an exact OR-of-primes test for each of 24 digit/length pairs. Independent full enumeration of 6Q=666666 modular states using both direct arbitrary-precision gcd and CRT-root logic reproduces (60,10121,111,10121,60,10101) and the specified div3/div11 counts. For nonmultiples of 3, digit-3/9 reduced Q/3 candidates and digit-1 obstructions exclude odd-length candidates and force 11 for even t. Since all lengths/centers map into the full finite state space, this is a complete finite certificate, not finite sampling extrapolated to an infinite assertion.",
+      "residual_risks": [
+        "Only divisibility by primes of fixed Q; failure of Q-cover is not evidence of padded primality or of global conjecture resolution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu proves individual sufficient certificates and even-digit 11-compositional cases. Grantham et al. prove existence of infinitely many one-sided seeds k10^m+dR_m; no bilateral fixed-Q distribution."
+        ],
+        "reasoning": "Neither the bounded 2015 computational search nor the 2019 one-sided existence theorem logically implies the complete twenty-four-condition CRT intersection modulo Q.",
+        "searches": [
+          "Wu arXiv:1503.08883 Conjecture 2 and six-period test",
+          "Grantham et al. arXiv:1903.05023 full primary text Section 2/3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1503.08883 Sections 2-4",
+        "arXiv:1903.05023 Sections 1-3",
+        "OEIS A090287 sequence entry",
+        "Resultary covering-repunit semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu explicitly conjectures the multiples-of-3 phenomenon broadly, and empirically observes it for 4919 cases. The submitted necessary obstruction applies only to the fixed-Q six-period certificate; it does not settle Wu broader conjecture."
+        ],
+        "reasoning": "An empirical bound n<=10^7 cannot imply periodic classification for unbounded valid center lengths, whereas a complete modular computation is finite after algebraic period reduction. The narrower sufficient-method obstruction does not follow from one-sided seed existence.",
+        "searches": [
+          "Wu Section 2 full-text covering criterion and Conjecture 2",
+          "Grantham et al. 2019 Theorem on one-sided appending any digit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A090287 and Wu use the same symmetric digit sandwiching f(d,m,n). Wu constructs specific period-six covers for n=231,420,759 and a bounded search, not a complete modulo-111111 table."
+        ],
+        "reasoning": "The covered object is not the global prime-sequence a(n), but the finite-prime Q-divisibility predicate for every d and m. Wu supplies its natural original motivation without the all-residue spectrum.",
+        "searches": [
+          "Resultary semantic: symmetric digit padding repunit 111111 universal composite cover residue classes digits 1 3 7 9 six periods Wu",
+          "OEIS A090287 symmetric sandwiching",
+          "Wu 2015 arXiv:1503.08883 Sections 2-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS entry reports known values/zeros and Wu bounded examples; Wu Section 2 records 4919 centers below 10^7, almost all with period 6. Neither source gives six counts 60/10121/111/10121/60/10101 over all 111111 residue classes."
+        ],
+        "reasoning": "The census is a natural exact table for the canonical smallest highly composite repunit period 6, not a recomputation of an identified existing table. A failed table search alone is not priority proof.",
+        "searches": [
+          "OEIS A090287 entry and linked examples",
+          "Wu 2015 six-period covering test / 4919 centers",
+          "Resultary search on exact period-six 111111 cover spectrum"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the all-residue six-period fixed-Q classification, not the known symmetric padding conjecture or Wu 2015 individual covered examples.",
+      "residual_risks": [
+        "Undocumented independent CRT enumeration or later specialized period-six covering table could reproduce the result; all novelty is conditional on literature inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_COVERS_EXAMPLES_AND_MOTIVATION",
+          "evidence": "The paper gives individual period-6 covers and bounded search observation, not the 6Q complete residue counts.",
+          "identifier_or_url": "arXiv:1503.08883",
+          "material_read": "Preprint Sections 2-4 (pages 2-6), particularly examples n=231,420,759, Theorem 6, 4919-case computer search, Conjecture 2",
+          "method": "full-text PDF extraction and pages 1,4 screenshots",
+          "title": "On a conjecture regarding primality of numbers constructed from prepending and appending identical digits",
+          "trigger": "Same symmetric object and canonical period-six cover"
+        },
+        {
+          "assessment": "DIFFERENT_ONE_SIDED_OBJECT",
+          "evidence": "Theorem concerns k10^m+dR_m, rather than dR_m(10^{t+m}+1)+10^m n.",
+          "identifier_or_url": "arXiv:1903.05023",
+          "material_read": "Primary preprint, especially Sections 1-3 on one-sided append, period-six prime cover and pandigital seed",
+          "method": "primary arXiv PDF text, inspected theorem and Sections 2-3",
+          "title": "Repeatedly Appending Any Digit to Generate Composite Numbers",
+          "trigger": "Potential stronger period-six prime-cover existence theorem"
+        },
+        {
+          "assessment": "NO_EXACT_RESIDUE_TABLE_FOUND",
+          "evidence": "Entry records 231 and 420 as zeros and points to Wu, not a 6-row CRT class spectrum.",
+          "identifier_or_url": "https://oeis.org/A090287",
+          "material_read": "Live sequence entry, comments, zero examples, programming and links",
+          "method": "direct web text of OEIS entry",
+          "title": "OEIS A090287: smallest prime obtained by sandwiching n",
+          "trigger": "Exact database or known-cover table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wu 2015 explicit period-six examples and Conjecture 2",
+        "complete modular covering criterion and independent exhaustive census"
+      ],
+      "rationale": "The divisor set of 111111 is a canonical six-period repunit covering mechanism used in the first symmetric-padding counterexamples. A complete modular classification and strict 3/11 obstruction characterize the limitation of that natural proof method, including twenty exceptional even-digit classes. This is an exact natural finite-state invariant with unbounded conditional scope, not a prime-existence claim.",
+      "residual_risks": [
+        "No extension to periods 8/12/30, other prime divisors, or Wu full compositeness conjecture."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only divisibility by primes of fixed Q; failure of Q-cover is not evidence of padded primality or of global conjecture resolution.; Undocumented independent CRT enumeration or later specialized period-six covering table could reproduce the result; all novelty is conditional on literature inspected.; No extension to periods 8/12/30, other prime divisors, or Wu full compositeness conjecture.",
+  "schema_version": 1
+}
