@@ -75,7 +75,7 @@ The discrete Fourier slice theorem, finite-field line-sum transforms, and image 
 
 ## Limitations
 
-The restriction to \(x^2+y^2=1\) and the use of all frequencies along each selected line are essential to the statement; the formula is not a universal multi-angle tomography result. It gives **injectivity and exact kernels**, not singular values, noise stability, positivity-constrained uniqueness, or an algorithmic robustness guarantee. Older finite-field tomography or norm-one torus literature might contain an equivalent form. Only same-model mathematical review and finite independent-code computations have been performed; independent external audit has not been performed.
+The restriction to \(x^2+y^2=1\) and the use of all frequencies along each selected line are essential to the statement; the formula is not a universal multi-angle tomography result. It gives **injectivity and exact kernels**, not singular values, noise stability, positivity-constrained uniqueness, or an algorithmic robustness guarantee. Older finite-field tomography or norm-one torus literature might contain an equivalent form. Only self-review and finite independent-code computations have been performed; independent external audit has not been performed.
 
 ## References
 
