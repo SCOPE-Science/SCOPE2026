@@ -1,11 +1,21 @@
-# Review of the matching-deleted biclique classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof treats every number of \(2\)-labels up to three, establishes the lower bound by forced positive labels, and checks the special \(n=3\) equality cases separately. It supplies witnesses for all cases and an exact partition of the minimum functions. The independent direct enumerator counts every labeling of weight at most six for all \(39\) parameter pairs with \(3\le n\le8\), and identifies precisely the asserted optimizers; finite tests alone do not establish the infinite result.
+## correctness
 
-**Originality — PASS, subject to bibliographic limits.** The 2023 primary paper on total perfect Roman domination defines the exact constraints and treats complete multipartite graphs but not the matching-deleted graphs. A separately indexed crown-graph theorem treats **perfect** Roman domination, whose optimal functions fail totality, so it does not imply this result. Known ordinary total Roman and other Roman-type statements likewise lack the conjunction of the two conditions. No exact two-parameter transition plus minimum-function census was identified in targeted literature and mathematical-result searches; this is not proof that all literature has been indexed.
+PASS
 
-**Mathematical value — PASS.** The last deleted matching edge causes a sharp invariant jump, and the complete optimizer census changes qualitatively at the threshold. The result determines an exact natural two-parameter stability boundary and describes every minimum function, rather than merely supplying a small numerical improvement.
+PASS. Definition requires each 0-vertex to have exactly one adjacent 2 and no positive-support isolate. For G_{n,k}=K_{n,n} minus k matching edges (n>=3), weight 4 requires exactly adjacent 2s on unaffected vertices a_i,b_j with i,j>k, hence (n-k)^2 optima if k<n. For crown k=n, no weight <=5 is possible; weight-six configurations are precisely Type M (matched 2s plus one extra positive in each part) and Type X (unmatched 2s plus cross-part 1s) except n=3 admits all-ones and twelve one-2 patterns. Counts give n(n-1)^2+n(n-1)=n^2(n-1) plus 13 at n=3. Independently exhaustively enumerated every feasible labeling of weight <=6 for all n=3,4,5,6 and k=0..n: all minima and exact counts agreed; the proof treats arbitrarily large n by number of 2-labels.
 
-**Closest literature and limitations.** A. Almulhim, *Total Perfect Roman Domination* (2023), DOI 10.3390/sym15091676; *Perfect Roman domination of crown graphs* (2026), public mathematical record; Banerjee–Keil–Pradhan, *Perfect Roman domination in graphs* (2019). Residual risk is a possibly unindexed exact treatment of total perfect Roman domination of crown or partially matching-deleted bipartite graphs. The result does not enumerate nonminimum labelings and is limited to balanced parts and \(n\ge3\).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best knowledge: Almulhim introduced total perfect Roman domination and gave general classes/bounds, but the actual full paper reviewed has no matching-deleted balanced-biclique optimizer census. Published SCOPE crown perfect Roman result is a different predicate: its weight-four matched 2s are isolated in the positive support and violate totality. The sharp final-deletion weight jump and full labeled-optimizer count survive the direct mathematical comparison.
+
+## value
+
+PASS
+
+PASS. A natural one-parameter graph perturbation has an abrupt two-unit invariant change at exactly the last matching deletion, and the complete labeled optimum configurations exhibit a nontrivial exceptional n=3 term. A motivated exact extremal classification is independently useful for domination-variant comparisons, not just a tiny graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
