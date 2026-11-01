@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem is proved analytically by mixed-area reduction and an exact trigonometric lattice sum in `RESULT.md`; it is not inferred from finite experiments. The independent script `verify_orientation.py` enumerates all pairwise vertex sums and evaluates their convex-hull area, not the mixed-area expression. Its output on the supplied script was:
+## correctness
 
-```
-PASS: 559 hull area comparisons, maximum absolute error 7.105e-15
-PASS: 13 independent uniform-orientation mean comparisons
-```
+PASS
 
-The 13 test pairs cover equal and unequal, coprime and noncoprime, even and odd side counts. For each pair 40 reproducible pseudorandom orientations over two full turns plus three predicted special angles are tested, with radii 0.7 and 1.3. The mean comparison uses a 1001-point trapezoidal integral on one complete period and checks the known perimeter-product kinematic formula. Run `python verify_orientation.py` with dependencies in `requirements.txt`.
+Planar Minkowski mixed-area formula for regular n and m polygons reduces the cross term to n sampled support values. The gcd g and L=lcm(n,m) yield g copies of an N=n/g-term cosine progression with angular step 2π/L; its odd/even finite trigonometric sum gives Bnm cos distance to θmax+2πZ/L. Strict cosine monotonicity gives all L maxima/minima, cusp minima and angular CDF; uniform nearest-lattice distance gives the mean perimeter-product formula. All n,m>=3 and positive radii covered, including gcd and parity cases. Independent convex-hull computation matched 300 mixed-order orientations to <8×10^-15.
 
-The computations establish only the tested numerical cases. Exact quantifiers over every side count, orientation and radius are discharged by the analytic proof; the numerical tolerance is not treated as a proof of global equality.
+## originality
+
+PASS
+
+Prior excluded-area particle analyses and planar mixed-area formulas cover the geometric method, but the examined publications do not state the complete arbitrary mixed-order lcm/parity orientation profile and pushforward law. Older unindexed exact polygon geometry calculations could coincide; that risk is recorded.
+
+## value
+
+PASS
+
+The exact orientation spectrum, minimizing/maximizing alignments, probability law and nonanalytic cusp structure are natural excluded-area quantities for binary hard-polygon mixtures, and cannot be recovered as a fixed-orientation numerical measurement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

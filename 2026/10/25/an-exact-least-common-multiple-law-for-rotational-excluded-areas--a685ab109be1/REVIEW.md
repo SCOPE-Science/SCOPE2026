@@ -1,11 +1,21 @@
-# Scientific assessment: exact regular-polygon excluded-area orientation law
+# Independent mathematical audit
 
-**Correctness — PASS.** The excluded-area identity is derived from planar mixed area using explicit regular-polygon edge normals and the support function of the reflected/rotated second polygon. Reduction modulo the support period produces exactly \(g\) repetitions of an \(N\)-term equally spaced cosine sum. The displayed odd/even finite trigonometric sums prove the exact coefficient, global extrema, nonsmooth minimum contacts, and full uniform-angle probability law. Direct convex-hull computations passed 559 cases at 13 coprime and noncoprime pairs. Exact general conclusions follow from the analytical argument, not finite sampling.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The closest recent primary study of binary regular-polygon random sequential adsorption develops excluded-area analysis for fixed orientations and selected side-count mixtures, without deriving this arbitrary-angle pairwise law. The older broad excluded-area paper studies numerical orientation profiles and specific particle shapes; it does not cover the arbitrary mixed-order least-common-multiple spectrum. Classical mixed area gives a representation but not this exact arithmetic reduction and full distribution without further proof. Literature searches also considered reciprocal orientation, same-shape special cases, broader Minkowski-sum formulas, and geometric tables; unindexed classical calculations remain a priority risk.
+PASS
 
-**Value — PASS.** The exact excluded area is the central geometric quantity for binary hard-particle exclusion. The result simultaneously resolves every two-species regular polygon pair and angle, locates all sharp extrema, detects cusp minima, and supplies the induced random-orientation distribution with a gcd/lcm selection rule. It generalizes beyond isolated numerical binary-mixture tables and same-species parity cases while remaining a self-contained, independently testable geometric invariant.
+Planar Minkowski mixed-area formula for regular n and m polygons reduces the cross term to n sampled support values. The gcd g and L=lcm(n,m) yield g copies of an N=n/g-term cosine progression with angular step 2π/L; its odd/even finite trigonometric sum gives Bnm cos distance to θmax+2πZ/L. Strict cosine monotonicity gives all L maxima/minima, cusp minima and angular CDF; uniform nearest-lattice distance gives the mean perimeter-product formula. All n,m>=3 and positive radii covered, including gcd and parity cases. Independent convex-hull computation matched 300 mixed-order orientations to <8×10^-15.
 
-**Limitations.** There is no assertion about adsorption saturation or nonsymmetric irregular polygons. The standard first-variation formula for mixed area is used as known; a finite literature search is not a conclusive historical novelty certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior excluded-area particle analyses and planar mixed-area formulas cover the geometric method, but the examined publications do not state the complete arbitrary mixed-order lcm/parity orientation profile and pushforward law. Older unindexed exact polygon geometry calculations could coincide; that risk is recorded.
+
+## value
+
+PASS
+
+The exact orientation spectrum, minimizing/maximizing alignments, probability law and nonanalytic cusp structure are natural excluded-area quantities for binary hard-polygon mixtures, and cannot be recovered as a fixed-orientation numerical measurement alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
