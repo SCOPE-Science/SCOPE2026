@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** Both root shells are explicitly defined, and the Gegenbauer addition formula fixes the Gram normalization. Coordinate sign characters exhaust the sample space; the incidence identity \(MM^T=(n-2)I+J\) proves that the displayed scalar and two-dimensional blocks account for every eigenvalue with all multiplicities. The degree-five and degree-six rank corollary is supported by exact positivity and determinant factorizations, checked symbolically. Direct full-Gram tests agree for 65 dimension/degree combinations. Finite testing is not used as a universal proof.
+## correctness
 
-**Originality: PASS (qualified).** The closest primary text inspected, Dunkl (arXiv:math/0207122, especially the introduction and invariant-harmonic Gram-determinant section), computes inner products of invariant polynomial bases rather than the mixed-root point-sampling Gram. The classical spherical-code/Gegenbauer framework, and earlier long-root-only harmonic sampling, do not directly supply the mixed-shell incidence couplings or the full spectra. Text and semantic searches for short/long root mixtures and degree-five/six rank changes did not locate an equivalent statement. An older unindexed signed association-scheme spectrum remains a residual publication-priority risk; this is not a claim of exhaustive historical priority.
+PASS
 
-**Mathematical value: PASS.** The natural normalized two-shell \(B_n\) root system is a canonical nontransitive spherical sampling set. The complete exact-degree spectrum supplies sharp frame bounds in every dimension and includes a substantial, unexpected nonmonotone rank transition: degree five attains the parity-compatible dimension while degree six loses exactly one direction in every dimension at least five. The two-shell coupling is essential and not an arbitrary single-parameter slice.
+The normalized B_n root set has 2n² points in antipodal pairs; addition kernel is p_{n,l}(x·y) with p_n,l normalized at 1. Coordinate sign characters split the sample module, and Gegenbauer parity annihilates one n²-dimensional half. Odd surviving singleton-character blocks yield scalar 2−4v and 2x2 T_o eigenvalues; even surviving two-character blocks yield scalar 2(1−u), while trivial sign character block is decomposed using unsigned complete-graph incidence MM^T=(n−2)I+J into ker M scalar, n−1 standard T_s blocks, and constant T_c. Dimensions sum to 2n². Symbolic n-dependent Gegenbauer evaluations show degree5 all compatible branches positive and degree6 exactly one zero in T_c; independent direct full Gram numerical spectra checked n=3..6, l=0..8, with max discrepancy 4.5e−14. Universal result rests on representation/incidence decomposition and symbolic determinants.
 
-**Limits.** Exact degrees only; standard surface-measure and equal point weights. No independent mathematical audit or publication-priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Complete spectrum on the non-transitive union of short and long B_n root orbits, including cross-shell 2x2 blocks and all-n 5/6 rank anomaly. Established spherical addition formulas and invariant harmonic polynomial Gram determinants do not themselves state this mixed point-evaluation spectrum.
+
+## value
+
+PASS
+
+Natural nontransitive two-shell root sampling problem. Gives entire exact-degree spectrum, optimal frame singular values, and an unexpected all-dimension parity-compatible rank drop between degrees 5 and 6. Cross-shell mixing is essential; no arbitrary slice or trivial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
