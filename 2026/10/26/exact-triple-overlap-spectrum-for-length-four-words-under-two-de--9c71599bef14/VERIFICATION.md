@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The finite proof covers every equality partition of the twelve symbol positions in a triple of length-four center words. Its canonical recursion generates all \(4213597\) patterns. The complete histogram's integer cells are checked against literal expected values, including zero cells. After removing pairwise-equal centers there are \(4201207\) valid ordered patterns and none has a three-shadow intersection above four.
+## correctness
 
-Run in a fresh extraction of this package:
+PASS
 
-```sh
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic verification/enumerate.cpp -o enumerator
-./enumerator
-python3 verification/direct_check.py
-```
+Each ordered triple of four-letter center words yields exactly one equality partition of twelve labeled letter positions, canonically encoded as a restricted-growth sequence, and conversely every such partition plus an injective q-symbol relabeling yields all triples realizing that pattern. The partitions are a finite exhaustive domain of size B_12=4,213,597, independent of q. Excluding equal four-position blocks leaves 4,201,207 admissible ordered-center patterns. For each pattern, the 6 surviving index pairs per center are represented as ordered-pair bitsets; the intersection of all three bitsets counts distinct common two-letter outputs exactly, with duplicate outputs collapsed. An independent C++ enumerator written separately from the package visited all 4,213,597 patterns, reproduced all 4,201,207 admissible patterns, all 28 displayed coefficient cells (including zeros) and all no-overlap cells, and confirmed maximum 4. A pattern with k classes contributes exactly (q)_k alphabet injective assignments; each unordered triple is counted six times, proving the all-q polynomial identities rather than extrapolating q=2,3,4,5. Witness (0101,0110,1001) has all four possible binary pairs in the intersection, while the table has no k>4 contribution at maximum. The original direct q=2..5 table and first-moment identity were also checked for consistency.
 
-The direct checker independently creates each actual deletion shadow over \(q=2,3,4,5\), examines every unordered triple, checks against the symbolic falling-factorial formula, and validates the two complementary counting identities for \(2\le q\le14\). The two programs report `VERIFY_OK`, with exact outputs supplied as `verification/check_output.txt`.
+## originality
 
-# Proof boundaries
+PASS
 
-Finite-word brute force for four alphabet sizes is not a proof for arbitrary \(q\). The all-alphabet proof rests on exhaustive classification of restricted-growth equality patterns, which is finite because twelve indexed symbol occurrences generate at most twelve distinct symbol classes. The verifier is a reproducible proof-support computation, not an independent external certificate. Code review or a separate implementation would add assurance. No source outside this package is needed to reproduce the computational part.
+Zhu’s primary 2025/26 binary-deletion theorem already gives the maximum intersection 4 for three centers at these parameters; that binary sharp bound is explicitly not claimed as new. Zhu §4 raises the arbitrary-alphabet extension. The assessed distinct contribution is a complete all-q, triple-center, length-four/two-deletion overlap distribution including a sharp extremizer population polynomial and exact quaternary spectrum, which neither a binary maximum nor q-ary two-center or Hamming-ball intersections implies. Junnila et al. 2025 treats larger alphabets and reconstruction but does not enumerate this triple deletion population in inspected relevant sections. Complete priority across older specialized code tables remains a qualified risk.
+
+## value
+
+PASS
+
+This is the first admissible n=t+ℓ−1 boundary for the three-center two-deletion extension highlighted in a primary paper. The complete alphabet-dependent overlap spectrum and exact rarity of worst-case triples quantify natural ambiguity patterns, including the four-letter/DNA alphabet, beyond a bare known binary maximum. The exhaustive 12-position equality-pattern method proves a natural exact finite structural classification for all q; no claim of general code-rate gains or arbitrary n is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

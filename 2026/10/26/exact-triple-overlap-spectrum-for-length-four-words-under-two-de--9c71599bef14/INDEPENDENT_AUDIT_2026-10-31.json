@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:51:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each ordered triple of four-letter center words yields exactly one equality partition of twelve labeled letter positions, canonically encoded as a restricted-growth sequence, and conversely every such partition plus an injective q-symbol relabeling yields all triples realizing that pattern. The partitions are a finite exhaustive domain of size B_12=4,213,597, independent of q. Excluding equal four-position blocks leaves 4,201,207 admissible ordered-center patterns. For each pattern, the 6 surviving index pairs per center are represented as ordered-pair bitsets; the intersection of all three bitsets counts distinct common two-letter outputs exactly, with duplicate outputs collapsed. An independent C++ enumerator written separately from the package visited all 4,213,597 patterns, reproduced all 4,201,207 admissible patterns, all 28 displayed coefficient cells (including zeros) and all no-overlap cells, and confirmed maximum 4. A pattern with k classes contributes exactly (q)_k alphabet injective assignments; each unordered triple is counted six times, proving the all-q polynomial identities rather than extrapolating q=2,3,4,5. Witness (0101,0110,1001) has all four possible binary pairs in the intersection, while the table has no k>4 contribution at maximum. The original direct q=2..5 table and first-moment identity were also checked for consistency.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu’s §4 explicitly asks for extension to larger alphabets after proving binary max.",
+          "Junnila–Laihonen–Lehtilä, arxiv:2504.13342, later sections focus substitutions/erasures and large-q retrieval probabilities; general deletion sets treated but no three-center n=4 t=2 full spectrum."
+        ],
+        "reasoning": "A general q-ary two-center overlap formula or a Hamming-ball s-way formula does not specialize to the subsequence deletion set of three distinct centers.",
+        "searches": [
+          "arxiv:2511.01071",
+          "arxiv:2504.13342v1",
+          "doi:10.1137/090751311"
+        ]
+      },
+      "checked_sources": [
+        "Zhu, arxiv:2511.01071, full primary PDF Theorem 1 and §4",
+        "Junnila, Laihonen, Lehtilä, arxiv:2504.13342v1, full primary PDF",
+        "Chee, Ge, Ling (2010), DOI 10.1137/090751311, abstract scope",
+        "Resultary two-center single-deletion graph and binary deletion-triangle result summaries",
+        "Resultary actual search: three-way intersection two deletion shadows length four q ary words overlap counts spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1 in Zhu is binary and extremal only, so it does not determine H_s(q) for q>2.",
+          "Chee–Ge–Ling (2010) concerns possible cardinalities of perfect q-ary length-four 2-deletion codes, not histogram of all unordered triples."
+        ],
+        "reasoning": "Binary extremal bound is partial prior coverage, not full coverage of all-q distribution. Coding existence or perfect-code size tables cannot recover all overlap populations without additional exhaustive enumeration.",
+        "searches": [
+          "arxiv:2511.01071",
+          "arxiv:2504.13342v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu (2026) Theorem 1 counts the maximum intersection of ℓ≥3 binary t-deletion balls; at ℓ=3,n=4,t=2 this supplies max 4 but not the all-q histogram.",
+          "For q=4 the full computed distribution distinguishes five overlap sizes, not simply a maximum."
+        ],
+        "reasoning": "The binary maximum is already covered, explicitly excluded from novelty; the all-alphabet H_s(q) and extremizer population do not follow from that single extremal statement.",
+        "searches": [
+          "Resultary: three-way intersection two deletion shadows length four q ary words overlap counts spectrum",
+          "arxiv:2511.01071"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary found two-center q-ary single-deletion reconstruction graphs, binary one-deletion triangle counts and other channel invariants, none this three-center two-deletion population.",
+          "Independent exact exhaustive equality-pattern histogram matched the all-q falling-factorial table."
+        ],
+        "reasoning": "No exact table under the searched descriptions was located; this negative result is not treated as proof of priority and specialized finite-alphabet code tables remain a risk.",
+        "searches": [
+          "Resultary: three-way intersection two deletion shadows length four q ary words overlap counts spectrum"
+        ]
+      },
+      "rationale": "Zhu’s primary 2025/26 binary-deletion theorem already gives the maximum intersection 4 for three centers at these parameters; that binary sharp bound is explicitly not claimed as new. Zhu §4 raises the arbitrary-alphabet extension. The assessed distinct contribution is a complete all-q, triple-center, length-four/two-deletion overlap distribution including a sharp extremizer population polynomial and exact quaternary spectrum, which neither a binary maximum nor q-ary two-center or Hamming-ball intersections implies. Junnila et al. 2025 treats larger alphabets and reconstruction but does not enumerate this triple deletion population in inspected relevant sections. Complete priority across older specialized code tables remains a qualified risk.",
+      "residual_risks": [
+        "A short-block code/deletion-sphere table in older literature could already contain the same full H_s(q) coefficients.",
+        "The source uses an exhaustive finite enumeration; independently reconstructed, but no proof-assistant formalization.",
+        "General lengths, larger deletion counts or more than three centers are not solved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_BINARY_MAX_COVERAGE_ONLY",
+          "evidence": "Maximum 4 over binary input already known; theorem does not enumerate H_s(q) for arbitrary q.",
+          "identifier_or_url": "arxiv:2511.01071",
+          "material_read": "Complete primary 15-page PDF, Theorem 1 at p.2, §3 and §4 Conclusion/Open Problems at pp.13–14",
+          "method": "PDF text, targeted theorem/section reading and page screenshots",
+          "title": "Sequence Reconstruction over the Deletion Channel",
+          "trigger": "Same ℓ-center t-deletion ball intersection and the explicit q-ary extension question"
+        },
+        {
+          "assessment": "NOT_COVERING for fixed triple-overlap polynomial",
+          "evidence": "Focuses code reconstruction, erasures/substitutions and probabilistic retrieval for q>n, not exact three-center n=4 t=2 overlap distribution.",
+          "identifier_or_url": "arxiv:2504.13342v1",
+          "material_read": "Complete primary 23-page PDF, abstract, reconstruction framework §§1–2, late §6 deletion probability and Proposition 23",
+          "method": "PDF text, targeted sections and title screenshot",
+          "title": "Levenshtein’s Sequence Reconstruction Problem and Results for Larger Alphabet Sizes",
+          "trigger": "Potential q-ary multiple-center deletion results"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PARAMETER_MATCH",
+          "evidence": "Full perfect-code size spectrum could hide related short-block counting, but an abstract about code cardinalities does not settle triple overlap populations.",
+          "identifier_or_url": "doi:10.1137/090751311",
+          "material_read": "Bibliographic abstract only, no full text materially read",
+          "method": "Publisher/repository abstract",
+          "title": "Spectrum of Sizes for Perfect Deletion-Correcting Codes",
+          "trigger": "Exact q-ary 2-deletion length-four parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is the first admissible n=t+ℓ−1 boundary for the three-center two-deletion extension highlighted in a primary paper. The complete alphabet-dependent overlap spectrum and exact rarity of worst-case triples quantify natural ambiguity patterns, including the four-letter/DNA alphabet, beyond a bare known binary maximum. The exhaustive 12-position equality-pattern method proves a natural exact finite structural classification for all q; no claim of general code-rate gains or arbitrary n is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Zhu, arxiv:2511.01071, full primary PDF Theorem 1 and §4",
+    "Junnila, Laihonen, Lehtilä, arxiv:2504.13342v1, full primary PDF",
+    "Chee, Ge, Ling (2010), DOI 10.1137/090751311, abstract scope",
+    "Resultary two-center single-deletion graph and binary deletion-triangle result summaries",
+    "Resultary actual search: three-way intersection two deletion shadows length four q ary words overlap counts spectrum"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every alphabet q≥2, unordered triples of distinct length-four centers x,y,z have overlap h=|D_2(x)∩D_2(y)∩D_2(z)| between 0 and 4. For s=1..4 the population H_s(q)=(1/6)Σ_(k=2)^8 a_(k,s)(q)_k with exact table k=2:(672,432,132,12),3:(28038,7200,1466,72),4:(113890,11868,1936,18),5:(114600,4304,688,0),6:(39720,384,64,0),7:(5184,0,0,0),8:(216,0,0,0); H_4=2(q)_2+12(q)_3+3(q)_4 and H_0=binom(q^4,3)−Σ_(s=1)^4 H_s. At q=4 the distribution is (2103072,569056,77136,13872,384).",
+  "limitations": [
+    "Exactly three pairwise-distinct four-letter centers and exactly two deletions; no arbitrary n,t,ℓ theorem.",
+    "Maximum 4 for binary is previously known and not a new claim.",
+    "No code redundancy, decoding speed, or biological performance claim."
+  ],
+  "schema_version": 1
+}

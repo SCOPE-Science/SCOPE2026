@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reduces every ordered triple of four-letter centers on any finite alphabet to one canonical set partition of twelve symbol positions. There are exactly \(4213597\) restricted-growth encodings, all enumerated by the standalone checker; exclusion of duplicate centers leaves \(4201207\). The program tests each of the six index pairs for each center, verifies every integer histogram entry, and rules out intersection sizes above four. Falling-factorial injection counts transfer the table to arbitrary alphabet sizes without any extrapolation. A separate exhaustive direct-word verifier checks four small alphabets; the first-moment check supplies a separate combinatorial consistency identity. Residual risk: the reproducible finite enumeration has not received independent audit, and source-code semantics must be rechecked by any independent replicator.
+## correctness
 
-**Originality — PASS on available evidence.** Zhu's binary triple-ball theorem already supplies the binary maximum four; this is explicitly excluded from the novelty claim. His Section 4 asks the larger-alphabet question. The fully enumerated multi-alphabet overlap populations and extremizer counts are not implied by that binary maximum. The 2025 larger-alphabet reconstruction paper emphasizes erasure/substitution and large-alphabet probabilities instead of this triple-deletion spectrum. The accessible earlier multiple-deletion study specifies binary inputs. Closest searchable research claims involving two-center intersections, one-deletion graphs and multiset channels have different domains or parameters and do not imply this distribution. Residual risk: unindexed equivalent work or results within inaccessible parts of older literature.
+PASS
 
-**Value — PASS.** The first admissible length \(n=4\) for three centers and two deletions is a mathematically natural boundary of a published open extension. Beyond the sharp overlap ceiling, the complete labeled triple spectrum quantifies how often three possible sources remain jointly compatible with one through four distinct outputs. The quaternary population and exact maximizer polynomial provide finite-alphabet benchmarks for sequence reconstruction. This is a specific structural classification, not a new redundancy or decoding-performance bound.
+Each ordered triple of four-letter center words yields exactly one equality partition of twelve labeled letter positions, canonically encoded as a restricted-growth sequence, and conversely every such partition plus an injective q-symbol relabeling yields all triples realizing that pattern. The partitions are a finite exhaustive domain of size B_12=4,213,597, independent of q. Excluding equal four-position blocks leaves 4,201,207 admissible ordered-center patterns. For each pattern, the 6 surviving index pairs per center are represented as ordered-pair bitsets; the intersection of all three bitsets counts distinct common two-letter outputs exactly, with duplicate outputs collapsed. An independent C++ enumerator written separately from the package visited all 4,213,597 patterns, reproduced all 4,201,207 admissible patterns, all 28 displayed coefficient cells (including zeros) and all no-overlap cells, and confirmed maximum 4. A pattern with k classes contributes exactly (q)_k alphabet injective assignments; each unordered triple is counted six times, proving the all-q polynomial identities rather than extrapolating q=2,3,4,5. Witness (0101,0110,1001) has all four possible binary pairs in the intersection, while the table has no k>4 contribution at maximum. The original direct q=2..5 table and first-moment identity were also checked for consistency.
 
-The principal limitation is the fixed short input length, not any restriction on alphabet size. All sources are credited and no independent scientific validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhu’s primary 2025/26 binary-deletion theorem already gives the maximum intersection 4 for three centers at these parameters; that binary sharp bound is explicitly not claimed as new. Zhu §4 raises the arbitrary-alphabet extension. The assessed distinct contribution is a complete all-q, triple-center, length-four/two-deletion overlap distribution including a sharp extremizer population polynomial and exact quaternary spectrum, which neither a binary maximum nor q-ary two-center or Hamming-ball intersections implies. Junnila et al. 2025 treats larger alphabets and reconstruction but does not enumerate this triple deletion population in inspected relevant sections. Complete priority across older specialized code tables remains a qualified risk.
+
+## value
+
+PASS
+
+This is the first admissible n=t+ℓ−1 boundary for the three-center two-deletion extension highlighted in a primary paper. The complete alphabet-dependent overlap spectrum and exact rarity of worst-case triples quantify natural ambiguity patterns, including the four-letter/DNA alphabet, beyond a bare known binary maximum. The exhaustive 12-position equality-pattern method proves a natural exact finite structural classification for all q; no claim of general code-rate gains or arbitrary n is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
