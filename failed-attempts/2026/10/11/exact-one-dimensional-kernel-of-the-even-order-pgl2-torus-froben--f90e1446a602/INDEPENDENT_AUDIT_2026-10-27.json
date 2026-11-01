@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T02:13:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01881 Definition 5.1, Proposition 5.2, Lemma 5.5, Theorem 5.6; assigned RESULT.md and VERIFICATION.md"
+      ],
+      "rationale": "Let n=ord(q^2) be even, q+q^{-1} != 0, and t=q^(n^2), exactly as in the cited source. Proposition 5.2 gives a complex vector-space basis consisting of the unit/empty diagram, w and unoriented loop classes e_[u], u in Z^2\\{0} modulo ±. Theorem 5.6, using Lemma 5.5, gives Fr(empty)=empty, Fr(w)=0 and Fr(e_[u])=e_[nu]. Since multiplication by nonzero n induces an injection on the ±-quotient of the lattice, the non-w images are a linearly independent subset of the target basis. Every skein has a FINITE linear expansion; hence its image vanishes precisely if its unit and every loop coefficient vanish, with w arbitrary. This proves ker Fr=Cw. The package proof implicitly needs canonical representatives for ± labels; making that indexing convention explicit resolves the harmless ambiguity without modifying the theorem.",
+      "residual_risks": [
+        "Proof depends on the published torus basis and full Frobenius action as source theorems; their skein calculations were not independently reproved.",
+        "Unoriented indices ± must be normalized to distinct basis classes; the assigned finite sum tacitly assumes this.",
+        "n=2 is excluded by q+q^{-1} != 0, and no extension to other surfaces or different specialization is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.6 constructs the algebra homomorphism and specifies its images for every displayed basis type for both parities, strictly more information than its even-order kernel.",
+          "Proposition 5.2 states the required basis and Corollary 5.7 derives the coarse injective/noninjective dichotomy.",
+          "For even n, only the w coefficient is multiplied by zero; all other distinct basis directions are sent to distinct target-basis directions."
+        ],
+        "reasoning": "The complete basis-action theorem is a stronger prior description of the same map: it explicitly supplies a diagonal-zero-on-w/injective-on-the-other-coordinates representation. Full mathematical coverage is determined by implication, not by whether the printed corollary uses the word kernel.",
+        "searches": [
+          "Higgins et al., PGL2 webs at roots of unity, arXiv:2610.01881v1, full HTML primary text §§1.1 and 5, especially Theorem 5.6",
+          "Web: PGL2 webs at roots of unity pdf theorem 5.6 basis",
+          "Web: PGL2 Frobenius torus skein basis even kernel alpha n noninjectivity exact 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01881 (primary HTML, intro and §5, Proposition 5.2/Lemma 5.5/Theorem 5.6/Corollary 5.7)",
+        "Actual Git snapshot https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-one-dimensional-kernel-of-the-even-order-pgl2-torus-froben--f90e1446a602 (six inspected files and verified tree identity)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-one-dimensional-kernel-of-the-even-order-pgl2-torus-froben--f90e1446a602 (semantic exact-match duplicate, not independent literature)",
+        "https://doi.org/10.1017/S1474748024000550 (partial contextual excerpt on a different Chebyshev-Frobenius map)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Proposition 5.2: one torus basis consists of the empty element, w, and loop classes (k,l)_Y (with geometric identification (k,l)=(-k,-l) stated in Definition 5.1).",
+          "Source Lemma 5.5: alpha_n=2(((-1)^(n+1))+1)/(q+q^(-1))^2, vanishing for even n (under q+q^(-1) != 0).",
+          "Theorem 5.6 maps each loop direction to its n-scaled direction and the unit to itself.",
+          "If n u= +/- n v for nonzero integral vectors u,v, then u= +/-v. Thus scaling preserves injectivity also on the unoriented index classes, so the non-w image directions are independent."
+        ],
+        "reasoning": "For x=c0*empty+cw*w+sum c_[u]e_[u], Fr(x)=c0*empty+sum c_[u]e_[nu]; by the published target basis and injectivity of [u]->[nu], Fr(x)=0 iff c0 and all c_[u] vanish, with cw arbitrary. This is the entire assigned conclusion derived immediately from the broader published theorem plus routine linear algebra. The publication precedes this assigned source record; no historical discovery attribution is inferred.",
+        "searches": [
+          "Higgins et al., arXiv:2610.01881v1, Definition 5.1, Proposition 5.2, Lemma 5.5, Theorem 5.6 and Corollary 5.7",
+          "Web: Theorem 5.6 PGL2 Frobenius w",
+          "Web: Higgins Silva Somers Stephens Sundar Wokhlu Frobenius noninjective even order kernel w"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalent claim is injectivity of Fr^Y on the linear span of the empty diagram and all loop-basis elements together with Fr^Y(w)=0.",
+          "Proposition 5.2 provides the full torus basis; Theorem 5.6 gives Fr^Y(empty)=empty, Fr^Y((k,l)_Y)=(nk,nl)_Y and Fr^Y(w)=alpha_n w, with alpha_n=0 for even n.",
+          "Resultary returned the published version of the assigned claim itself, not an independent prior theorem; it did not change the implication comparison."
+        ],
+        "reasoning": "Though the primary paper does not print ker(Fr^Y)=Cw as a standalone corollary, its basis description and whole-map formula already determine that kernel by elementary coordinate comparison. Rephrasing this immediate consequence as an exact-kernel theorem does not create mathematical independence.",
+        "searches": [
+          "Resultary semantic query: PGL2 torus skein Frobenius homomorphism even order exact one-dimensional kernel span w basis Theorem 5.6 Higgins Silva Somers",
+          "Resultary semantic query: skein algebra Frobenius noninjective torus kernel map on basis Chebyshev threading roots unity",
+          "Web: PGL2 skein Frobenius kernel dimension one even order torus",
+          "Full primary text: Higgins et al., arXiv:2610.01881v1, Definition 5.1, Proposition 5.2, Theorem 5.6 and Corollary 5.7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The torus basis is infinite, indexed by nonzero lattice slopes modulo simultaneous sign; the claim is not an exhaustive finite census.",
+          "A full exact map on that infinite basis is supplied by Theorem 5.6, so no numerical database is needed to obtain the kernel."
+        ],
+        "reasoning": "Finite tables are inapplicable to a universal infinite-dimensional linear-kernel statement. The correct dominating reference is the exact all-basis map, which has already been checked.",
+        "searches": [
+          "Resultary semantic searches for exact torus PGL2 Frobenius kernel and basis-action invariants",
+          "Full primary arXiv:2610.01881v1 Proposition 5.2 and Theorem 5.6"
+        ]
+      },
+      "rationale": "Theorem 5.6 of Higgins–Silva–Somers–Stephens–Sundar–Wokhlu (arXiv:2610.01881v1, October 1, 2026) already gives the complete image of EVERY torus basis element. With Proposition 5.2 and the even-order zero alpha_n, the claimed one-dimensional kernel follows as an immediate formal corollary by injectivity of lattice scaling. Thus the assigned assertion is mathematically covered by strictly stronger earlier published information regardless of the paper not spelling out the exact kernel. Searches and full primary examination confirmed this precise implication; this is not an insufficient-search rejection.",
+      "residual_risks": [
+        "The published basis theorem is attributed to Ellison–Higgins–Sandey–Sylvester, PGL2 Skein Algebras of Small Surfaces, cited as in preparation; its underlying independent manuscript was not examined. The coverage conclusion needs only the publicly stated Proposition 5.2 and Theorem 5.6.",
+        "Exact notation in the primary Proposition 5.2 lists every nonzero integer pair although Definition 5.1 identifies opposite orientations; passing to unoriented classes is the intended normalization and does not alter the implication.",
+        "Resultary returns the assigned result itself as a matching published entry; it was not counted as external priority evidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The primary source is decisive stronger coverage: it publishes a full action on a basis, which directly implies the assigned exact kernel even though the stated corollary mentions only noninjectivity. Its basis theorem is attributed to an in-preparation second paper, not re-proved for this audit.",
+          "evidence": [
+            "Primary text Definition 5.1: an unoriented torus loop has (k,l)=(-k,-l).",
+            "Primary Proposition 5.2: {(p,q)_Y,w,empty} forms a basis.",
+            "Primary Lemma 5.5: alpha_n=2(((-1)^(n+1))+1)/(q+q^{-1})^2.",
+            "Primary Theorem 5.6 defines the complete basis Frobenius map for t=q^(n^2), and Corollary 5.7 reports even-order noninjectivity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01881",
+          "material_read": "Primary arXiv-rendered full HTML: introduction/standing assumption and Theorems 1.3/Corollary 1.4; §5 Definition 5.1 (unoriented +/- identification), Proposition 5.2 (basis), Lemma 5.5 (alpha_n), Theorem 5.6 and its proof of all basis images, and Corollary 5.7; also adjacent §6 comparison.",
+          "method": "Read and cross-compared arXiv full-article HTML via open/find to the actual repository RESULT.md and its six-file tree; equations needed for alpha_n and basis scaling inspected. ArXiv PDF delivery was inaccessible but complete pertinent theorem/definition text was available in HTML.",
+          "title": "PGL2 webs at roots of unity",
+          "trigger": "This is the exact primary paper whose newly computed torus PGL2 Frobenius map and basis action are the premises of the assigned claim."
+        },
+        {
+          "assessment": "Provides surrounding context but not the exact PGL2 torus Frobenius basis-action formula; the decisive coverage is the 2026 primary PGL2 paper.",
+          "evidence": [
+            "Publisher excerpt distinguishes Chebyshev-Frobenius for 3-manifolds from its injective surface restriction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1474748024000550",
+          "material_read": "Publisher overview and displayed discussion of Chebyshev-Frobenius noninjectivity for 3-manifolds and injectivity for thickened surfaces; not the complete article.",
+          "method": "Web search and publisher-exposed excerpt; no whole-document noncoverage inference.",
+          "title": "Stated skein modules of 3-manifolds and TQFT",
+          "trigger": "Earlier general Frobenius noninjectivity phenomenon could be a stronger covering theorem."
+        },
+        {
+          "assessment": "This is the published counterpart of the same assigned record and cannot be counted as distinct prior work. It helps locate terminology, while the genuine covering theorem is Higgins et al. Theorem 5.6.",
+          "evidence": [
+            "Resultary summary states ker(Fr^Y)=Cw for even order and identifies surviving loop-basis images."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-one-dimensional-kernel-of-the-even-order-pgl2-torus-froben--f90e1446a602",
+          "material_read": "Resultary hit title, one-sentence theorem summary and GitHub URL; not an independent source proof.",
+          "method": "Resultary semantic retrieval, top 12 hits in two queries.",
+          "title": "Exact one-dimensional kernel of the even-order PGL2 torus Frobenius map (published record)",
+          "trigger": "Both Resultary semantic searches return an exact title and matching theorem."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.01881 §§1.1,5",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-one-dimensional-kernel-of-the-even-order-pgl2-torus-froben--f90e1446a602/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-one-dimensional-kernel-of-the-even-order-pgl2-torus-froben--f90e1446a602/REVIEW.md"
+      ],
+      "rationale": "The dimension of the kernel of a naturally defined Frobenius map is a meaningful structural quantity, and identifying a minimal loss of injectivity could be useful in a new setting. Here, however, the supplied contribution is only the immediate linear-algebra extraction from an already complete published basis-action table: all the challenging skein construction, basis independence and parity computation occur in the source. No new structural lemma, quotient presentation, previously uncomputable invariant, or motivated nontrivial boundary is established. The exact fact is mechanically implied by stronger known data, so its isolated restatement does not meet the stipulated independent mathematical-value bar.",
+      "residual_risks": [
+        "A short corollary recording the precise kernel may be pedagogically useful to readers; that utility is not the same as a distinct research contribution.",
+        "A substantive quotient-algebra or other-surface computation might change value, but none is supplied or asserted by the actual final claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}
