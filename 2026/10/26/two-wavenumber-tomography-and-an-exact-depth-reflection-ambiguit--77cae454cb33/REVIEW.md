@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The forward dispersion equation is verified against Alam, Liu and Yue (2009), equation (2.7); the result's new algebra and inequalities are reconstructed in the accompanying proof. Positive distinct branches, the total-depth sum rule, the product invariant, the strict ratio derivative, endpoint range, inverse sufficiency, minimality and depth-reflection equivalence are demonstrated for all stated physical parameters. The package-local computational checker passed all 600 deterministic trials and equal/reflected-depth edge cases. The checker is corroboration, not the proof.
+## correctness
 
-## Originality — PASS, subject to listed risk
-The input forward dispersion law is pre-existing and explicitly credited. Its invariance on exchanging depths is elementary and not independently advertised as novel. The literature comparison distinguishes the new complete inverse feasibility/uniqueness theorem from ship-wake inversion and forward two-layer wave models. Relevant full text of Alam et al. (2009) was reviewed, including the dispersion equation and the paper's scope. Avital–Miloh (1998/1999), an inverse ship-wake study, could not be accessed in full, leaving material residual priority uncertainty; its described observations are wake-geometry based rather than the exact pair of linear eigenfrequencies at two wavenumbers. Negative searches alone are not treated as novelty evidence. A hidden equivalent result in specialized inverse-dispersion research remains possible.
+PASS
 
-## Value — PASS
-The problem is a natural, experimentally interpretable parameter-identifiability question for stratified water waves. The finding supplies the minimal number of wavenumbers, global identification rather than local invertibility, necessary-and-sufficient admissibility tests, and a fundamental all-frequency isospectral obstruction. These are structural features that guide the design and interpretation of wave observations, even though no noise-stability theorem is established.
+Starting from the established [AB+beta]lambda^2-(A+B)lambda+1-beta=0, Vieta and hyperbolic addition give H=[atanh(lambda_minus)+atanh(lambda_plus)]/k and q_k=(1-beta)[1-cosh(kz)/cosh(kH)]/2. For k2>k1, G(k,z)=-d_z log F_k(z) has derivative in k [psi(ku)-psi(kv)]/2<0, as psi(t)=coth(t)-t csch(t)^2 is strictly increasing. Thus F_k2/F_k1 increases from R0 to R*, with open right endpoint. Recover unique z and beta, verify the quadratic root sum and product and complete sufficiency; one k leaves a continuum. Exact physical domain H>0, 0<=z<H, 0<beta<1, lambda in (0,1), both distinct modes, known gravity. Independently evaluated 250 random models and reflected data against the forward quadratic. Numerical tests do not establish global monotonicity.
 
-## Scope and outstanding risks
-Exact linearized two-fluid gravity waves without capillarity, background shear or unknown gravitational acceleration are required. Both modes and both wavenumbers must be resolved. Near equal depths the inverse map can lose good conditioning. Earlier specialized literature and an inaccessible closely themed ship-wave inversion work leave residual priority uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The finite-depth two-layer forward dispersion relation is due to Alam, Liu and Yue (2009); its symmetric dependence on the two layer coth factors and hence interchange ambiguity is already implicit. The claimed surviving addition is the quantified global two-wavenumber inverse, sharp admissibility constraints and one-wavenumber minimality, not the forward law. Avital and Miloh studied inverse ship-wake patterns, but an inaccessible closely titled paper leaves a priority risk.
+
+## value
+
+PASS
+
+A physically motivated identifiability question is answered globally: one wavenumber cannot identify stratification, two suffice up to an exact symmetry; the boundary inequalities reject incompatible four-frequency data. Neither the exact realizability criterion nor the minimal measurement statement is a routine forward dispersion calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
