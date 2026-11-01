@@ -1,11 +1,21 @@
-# Scientific review of the exact binary linear one-deletion profile
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The theorem is expressly restricted to the first ten blocklengths and to distinct codeword parents of exactly one deletion. The canonical reduced-row-echelon construction visits each dimension-\(k\) binary linear subspace once, and direct codeword/output incidence counting checks the list-size condition. The boundary test totals were independently matched against Gaussian-binomial counts; `verify.cpp` reproduced the stated passing counts, ruled out the next dimensions, and directly checked the rank-six length-ten generator and the histogram \((220,232,60)\). Testing dimension \(k+1\) excludes all larger dimensions since the condition is inherited by subcodes. The method does not assert an untested infinite extension.
+## correctness
 
-**Originality (O): PASS, with residual literature risk.** Comparison focused on *statements and implications*. The 2026 Verma–Hollanti–Tajeddine paper proves generalized bounds and notes the exceptional binary case; its inequalities do not determine the exact \(K_2(1),\ldots,K_2(10)\) profile, especially the failure of dimension six at length nine. Liu–Tjuawinata–Xing treat asymptotic/list-decoding results rather than exact short binary linear deletion-only dimensions. Indexed nearby results concern arbitrary nonlinear two-deletion codes or other error models, without a stronger theorem subsuming this profile. No exact table was found in the targeted searches. This is evidence of noncoverage in inspected material, not proof that no unindexed result exists; the 2021 Gabrys–Guruswami–Ribeiro–Wu work was only checked through accessible summary material.
+PASS
 
-**Value (V): PASS.** The binary case is singled out as unresolved by the recent generalized rate treatment. The exact first ten dimensions settle a natural sharp finite information-length frontier rather than an arbitrary code invariant: six bits cannot be carried in nine coordinates with a two-word one-deletion list, but can be carried in ten. This also exhibits two genuine equality obstructions at lengths six and nine where the benchmark rate permits the next dimension. A short reproducible complete census and a concrete six-dimensional construction make the boundary reusable for comparisons of binary linear synchronization codes. It does not settle larger lengths, and no downstream theorem is claimed.
+Each k-subspace has a unique reduced-row-echelon generator. For each pivot pattern all free nonpivot bits are enumerated and every codeword and its distinct deletion outputs checked. For k+1 excluded at each n, no larger subspace can pass because list-size-two is inherited by subcodes. Independently compiled C++ gave 10,795 tested n=8,k=6, 788,035 tested n=9,k=6 and 6,347,715 tested n=10,k=7, zero admissible in all; the source RREF exhaustion counts and witness dimensions for n<=9 are inspected. At n=10 the explicit rank-six matrix has deletion parent histogram exactly (220,232,60), and direct independent check verified this. Exhaustion is only for declared n,k, not all lengths.
 
-**Closest literature and residual risks.** arXiv:2610.23270v1 (sections on the generalized bound, binary Remark 9, and optimal constructions); arXiv:1906.09705v6 (introduction and results on random/explicit insdel list decoders); arXiv:2112.09971 (available abstract only). Unindexed finite tables or specialized earlier work might match the numerical result. All scientific verification described here is reproducible but has no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Verma–Hollanti–Tajeddine generalized half-Singleton treatment singles out binary complications; its stated asymptotic and generalized bounds do not determine this exact finite binary linear deletion-only table. Liu–Tjuawinata–Xing studies list decoding of insertion/deletion through general constructions. Resultary nearby codes differ in linearity, deletion number, output channel or question. Earlier unindexed exhaustive dimension tables remain possible.
+
+## value
+
+PASS
+
+The first ten exact dimensions and minimal length for transmitting six linearly encoded information bits with two-list one-deletion reception are a natural sharp short-block synchronization-coding threshold, not an arbitrary slice; it is useful for baseline coding constructions and bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
