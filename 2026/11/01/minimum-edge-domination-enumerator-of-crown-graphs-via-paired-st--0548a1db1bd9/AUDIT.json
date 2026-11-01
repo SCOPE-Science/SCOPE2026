@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The uncovered-vertex lemma exhausts all feasible supports. Essential-edge tests prove the four disjoint types, with the single-missing-value singleton-preimage condition explicitly checked. Inclusion–exclusion of prohibited matching edges gives the star-forest EGF, since disjoint forced edges must inhabit distinct star components. All all-n bounds follow by component sizes. The independent edge-neighborhood brute-force verifier checked 1,052,740 subsets for n=2..5, and exact EGF/forest checks agree. Finite tests do not establish the unbounded theorem; the proof does.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1810.00789 proves output-sensitive enumeration of minimal dominating sets in K_t-free graphs; its stated Theorem 1.1 concerns algorithmic output complexity, not cardinality distributions.",
+        "arXiv:2110.07133 Theorem 4 handles well-edge-dominated classes, including undeleted K_{n,n}, and does not state a crown minimal-edge-domination enumerator."
+      ],
+      "reasoning": "A general enumerator algorithm does not itself determine the closed two-parameter star-forest coefficient formula, while the property that K_{n,n} is well-edge-dominated cannot cover deletion of a full matching. The crown has many distinct cardinalities for n>=5.",
+      "searches": [
+        "\"minimal edge dominating set\" \"K_{n,n}\" matching removed",
+        "\"crown graph\" \"edge domination\" \"upper edge\"",
+        "complete cardinality distribution minimal edge dominating sets crown graph n crown Cr_n K_{n,n} matching deleted spanning star forests"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1810.00789",
+      "https://arxiv.org/abs/2110.07133",
+      "https://arxiv.org/abs/1910.02431"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Anderson–Kuenzel–Rall, arXiv:2110.07133, proves that K_{n,n} is well-edge-dominated, not that Cr_n has the asserted enumerator.",
+        "Bonamy et al., arXiv:1810.00789, produce polynomial-output algorithms for graph classes; no formula for all inclusion-minimal edge dominators of the specific crown is stated in the inspected sections."
+      ],
+      "reasoning": "Known lower-edge-domination/maximal-matching equivalences give only minimum sizes, not the distribution or the one-hole singularity. The present restricted-map plus paired-star-forest bijection yields additional cardinality counts and max-set multiplicities, and is not an immediate corollary of cited statements.",
+      "searches": [
+        "complete cardinality distribution minimal edge dominating sets crown graph n crown Cr_n K_{n,n} matching deleted spanning star forests",
+        "line graph of crown graph minimal dominating sets enumerator generating polynomial inclusion minimal edge dominating",
+        "arXiv:2110.07133 well-edge-dominated complete bipartite crown",
+        "arXiv:1810.00789 minimal dominating sets line graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Edge domination in G is vertex domination in L(G), explicitly discussed in arXiv:2110.07133 (intro).",
+        "For the crown, forbidden-diagonal edges correspond to a restricted rook-position graph; the new theorem counts minimal vertex-dominating sets of its line graph, not all dominating sets.",
+        "No returned mathematical record supplied an exact all-size minimal-domination polynomial for this line graph."
+      ],
+      "reasoning": "The line-graph conversion is a known equivalence, so any prior complete minimal-domination enumerator of L(Cr_n) would cover the claim. Searches under both names found other domination variants, not the corresponding exact polynomial. Residual unindexed literature risk is retained.",
+      "searches": [
+        "line graph of crown graph minimal dominating sets enumerator generating polynomial inclusion minimal edge dominating",
+        "bipartite star forest enumerator derangements edge domination crown",
+        "\"crown graph\" \"minimal edge dominating sets\"",
+        "\"minimal edge dominating set\" \"K_{n,n}\" matching removed"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact coefficient table or recurrence for Cr_n was identified in queried results.",
+        "Actual direct edge-subset computations give M_3=3z^2+2z^3, M_4=8z^3+117z^4, M_5=45z^4+1824z^5+20z^6; these are computational cross-checks, not novelty proofs."
+      ],
+      "reasoning": "Search outcomes do not prove global novelty. The comparison included both cardinality-free algorithms and extremal invariants; neither supplies an exact database covering the all-n coefficient enumerator.",
+      "searches": [
+        "complete cardinality distribution minimal edge dominating sets crown graph n crown Cr_n K_{n,n} matching deleted spanning star forests",
+        "upper edge domination number crown graph K_n,n minus perfect matching 2n-4 optimal star pair",
+        "bipartite star forest enumerator derangements edge domination crown",
+        "minimal edge dominating sets crown graph enumeration coefficients"
+      ]
+    },
+    "rationale": "Comparison against published primary results, direct crown/minimal-edge-domination searches, semantic mathematical-record searches, and line-graph/restricted-star-forest equivalents found no source whose theorem implies the full crown enumerator. The paper arXiv:2110.07133 establishes well-edge-domination for undeleted K_{n,n}, while arXiv:1810.00789 supplies enumeration algorithms, not these closed coefficients. Unindexed equivalent formulas remain a disclosed priority risk.",
+    "residual_risks": [
+      "Older or unindexed star-forest and line-graph minimal-domination enumerators might yield an equivalent formula.",
+      "Semantic similarity retrieval does not exhaust every published claim.",
+      "One related total-edge-domination source was inspected at abstract level only, but its invariant is distinct."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the full crown enumerator; complete balanced biclique result concerns a distinct graph and property",
+        "evidence": [
+          "Theorem 4 addresses connected graphs with a perfect matching that are well-edge-dominated, and includes K_{n,n}.",
+          "Search of full rendered source for crown produced no hit.",
+          "Source describes upper edge domination and minimum edge domination, not size-by-size counts for Cr_n."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.07133",
+        "material_read": "Rendered full-text sections: introduction, definitions and private neighbors, Theorem 4 on complete balanced bipartite graphs, conclusion and open problems; searched for crown",
+        "method": "Source textual full-content examination; statement and scope comparison",
+        "title": "On well-edge-dominated graphs",
+        "trigger": "Closest primary work on minimal edge domination and the undeleted balanced biclique"
+      },
+      {
+        "assessment": "NOT_COVERING an explicit all-size crown minimal-edge-domination polynomial",
+        "evidence": [
+          "Theorem 1.1 is output-polynomial enumeration of minimal dominating sets in forbidden-induced-subgraph classes.",
+          "No specific crown-graph or line-of-crown enumeration formula was found in rendered text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1810.00789",
+        "material_read": "Full rendered paper searched; introduction and main Theorem 1.1, background on line graphs and bipartite cases inspected",
+        "method": "Primary arXiv full-text scope comparison",
+        "title": "Enumerating minimal dominating sets in K_t-free graphs and variants",
+        "trigger": "General algorithmic enumeration could subsume counting claims or line-graph equivalents"
+      },
+      {
+        "assessment": "DIFFERENT_INVARIANT; total edge domination requires selected edges themselves to have neighbors and is not the present ordinary edge domination",
+        "evidence": [
+          "Abstract defines edge domination and total edge domination separately; principal contributions are total-edge-domination complexity and tree results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.02431",
+        "material_read": "Abstract, arXiv bibliographic information and version dates, not the full paper",
+        "method": "Abstract-level scope check only",
+        "title": "The complexity of total edge domination and some related results on trees",
+        "trigger": "Closely named edge-domination variant with possible overlapping families"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0548a1db-1bd9-4bc8-a556-46124d8d4578",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete cardinality distribution of inclusion-minimal edge domination on the natural crown family is motivated by enumerating all minimal solutions, not only minimum matchings. The exact support classification reveals restricted endofunctions and paired star forests, yields sharp lower/upper multiplicities, and quantifies loss of the well-edge-dominated property after deleting one perfect matching. These are substantial natural structural facts beyond direct scalar bounds.",
+    "status": "PASS"
+  }
+}
