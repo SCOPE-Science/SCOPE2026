@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run \(\texttt{python3 verify_lie.py}\) from the extracted package directory with standard Python 3; no third-party packages are needed. The verifier constructs each periodic word explicitly, enumerates all distinct factors beginning at every phase, obtains the canonical lexicographically least cyclic representative of each, and checks whether **all** cyclic rotations are present. It compares these whole factor-class sets against the theorem's predicted representatives for \(b=1,\ldots,19\), \(d=b+1,\ldots,27\), and \(n=1,\ldots,3p+4\). The exhaustive finite comparison has \(28{,}766\) parameter/length cases.
+## correctness
 
-It then directly enumerates all admissible unequal-gap pairs at each primitive period \(p=5,\ldots,99\), computes the spectrum and first-period mass for each, and confirms the stated exact maximum and all maximizing gap parameters. Further independent arithmetic checks cover all tested \(1\le b<d\) with \(b\le39\), \(d\le49\), establishing the predicted mass and threshold in that finite range.
+PASS
 
-Expected successful output (reproduced by executing the packaged source):
+For 1≤b<d the two zero gaps are unequal, so p=b+d+2 is primitive. All length-p phases are unique, and successive rotations of any n>p full class force p|n. At n<p factors contain at most two zeros: one-zero rotations exist iff j≤min(d,2b+1), and the only two-zero class is (01^b)^2 at n=2b+2. The five classes give L(n), rational GF and S=d+3+min(d,2b+1); a two-branch monotonic optimization gives max floor(4p/3)+1 and exact maximizing b values. Independently checked 2004 complete class sets b≤8,d≤12, n≤2p+5 and all fixed-period maxima p≤59; universal conclusion is proof-based.
 
-\(\texttt{VERIFY\_OK complete\_necklace\_sets=28766 sharp\_length\_extrema=5..99 exact\_mass=true peak\_transition=true}\)
+## originality
 
-The universal statements follow from the phase-rigidity and zero-count arguments in RESULT.md; no finite enumeration is claimed to establish them. These checks do not constitute an independent audit. Potential unindexed equivalent earlier literature remains a known originality risk.
+PASS
+
+Complete classification of all-rotation-occurring classes for the natural primitive two-zero period, not just uniform boundedness or the distinct cyclic complexity invariant. The exact short class list, transition and fixed-period maximizers are not covered by inspected prior results.
+
+## value
+
+PASS
+
+This is the simplest primitive periodic binary setting with competing unequal return gaps; complete Lie-class support reveals sharp transition d≥2b+2, rational generating function and exact finite preperiod mass with fixed-period maximizers. These are natural combinatorics-on-words invariants, not an arbitrary computed slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

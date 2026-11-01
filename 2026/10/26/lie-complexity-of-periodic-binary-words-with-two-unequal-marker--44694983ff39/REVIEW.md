@@ -1,25 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The word \((01^b01^d)^\omega\) has primitive period \(p=b+d+2\) for \(1\le b<d\), since a period block with two zeros could be a nontrivial power only when the two inter-zero gaps agree. For lengths greater than the primitive period, cyclic completeness of length-\(n\) factors forces each successive rotation's starting phase to advance by one, and closure forces \(p\mid n\). At shorter lengths, complete classification by the number of zeros gives the only five possible classes; interval coverage across short and long return gaps gives the precise threshold \(\min(d,2b+1)\). Direct summation and a two-piece monotone optimization establish the generating function, fixed-period mass, maximum and equality cases. The complete proof appears in RESULT.md. Independent finite brute-force comparison of complete classes has 28,766 passing cases, plus exact finite optimization and transition checks; finite testing is not used as an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+For 1≤b<d the two zero gaps are unequal, so p=b+d+2 is primitive. All length-p phases are unique, and successive rotations of any n>p full class force p|n. At n<p factors contain at most two zeros: one-zero rotations exist iff j≤min(d,2b+1), and the only two-zero class is (01^b)^2 at n=2b+2. The five classes give L(n), rational GF and S=d+3+min(d,2b+1); a two-branch monotonic optimization gives max floor(4p/3)+1 and exact maximizing b values. Independently checked 2004 complete class sets b≤8,d≤12, n≤2p+5 and all fixed-period maxima p≤59; universal conclusion is proof-based.
 
-Bell–Shallit [1] defines the exact all-conjugates occurrence invariant and obtains general bounds, but the inspected original sections and examples do not imply this specific complete unequal-gap spectrum. De Luca–Fici [2] treats aperiodic Sturmian words, not this periodic word family. Cassaigne and collaborators [3] count conjugacy classes containing any occurring rotation, a different invariant with weaker occurrence requirements. No equivalent or stronger covering result was identified in targeted published-paper and research-record queries. The primary research papers' full available HTML texts were inspected beyond abstracts. An undiscovered reduction or unindexed treatment of a special periodic family remains possible. Absence of a search result does not itself prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two unequal return gaps form the simplest primitive periodic binary family with competing marker spacings. Full cyclic completeness is not equivalent to ordinary cyclic-factor complexity. The exact classes expose a sharp \(d=2b+1\) threshold, a three-class coexistence transition at \(d\ge2b+2\), and explicit first-period mass with sharp all-parameter equality conditions under fixed primitive period length. Counting all transient Lie classes before the permanent primitive-period series is a natural finite invariant for periodic words. This is a complete infinite-family structural and extremal classification, not an arbitrary finite census.
+Complete classification of all-rotation-occurring classes for the natural primitive two-zero period, not just uniform boundedness or the distinct cyclic complexity invariant. The exact short class list, transition and fixed-period maximizers are not covered by inspected prior results.
 
-## Related literature and scope
+## value
 
-[1] J. P. Bell and J. Shallit, *Lie complexity of words*, arXiv:2102.03821 (2021 preprint).
+PASS
 
-[2] A. De Luca and G. Fici, *On the Lie complexity of Sturmian words*, arXiv:2206.00995 (2022 preprint).
+This is the simplest primitive periodic binary setting with competing unequal return gaps; complete Lie-class support reveals sharp transition d≥2b+2, rational generating function and exact finite preperiod mass with fixed-period maximizers. These are natural combinatorics-on-words invariants, not an arbitrary computed slice.
 
-[3] J. Cassaigne, G. Fici, M. Sciortino and L. Q. Zamboni, *Cyclic Complexity of Words*, arXiv:1402.5843 (2014 preprint).
-
-The classification is limited to primitive unequal two-gap periodic binary words, and independent validation remains to be performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
