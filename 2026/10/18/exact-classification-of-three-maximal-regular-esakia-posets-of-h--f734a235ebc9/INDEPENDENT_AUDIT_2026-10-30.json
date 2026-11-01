@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:10:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact final claim is a finite complete classification, not a partial enumeration. Height four means four vertices in a longest chain; in a rooted poset the sole depth-3 point is the root. Nonroot depth-1 points immediately cover distinct subsets of the 3 maxima of cardinality at least 2, yielding at most one for each of four sets ab/ac/bc/abc and hence Q_T. Nonroot depth-2 point covers an antichain of at least 2 points containing at least one depth-1 vertex; conversely any such antichain defines a unique depth-2 point without duplicate cover sets. The selected nonempty family U cannot be the singleton of all minimal points of Q_T, which otherwise leaves the root with only one cover. All other U give root at least 2 covers, and its cover set includes a depth-2 point, preventing coincidence. Induction on depth reconstructs every source poset uniquely. With labelled maxima, sums of (2^|A(T)|-2) give 16718; S3 relabeling exhausts all isomorphisms because cover sets force every lower vertex, with fixed counts identity 16718, transpositions 1070 each, 3-cycles 68 each, yielding (16718+3*1070+2*68)/6=3344. The source correctly invokes the published equivalence of finite regular Esakia duals and cover-set regular posets (Grilletti–Quadrellaro, Theorem 4.7), and 3 maxima give 8 double-negation-fixed elements (Corollary 3.5). An independently written exact Python program, not executing the repository verifier, enumerated ALL 16718 normal-form choices; reconstructed closure and cover edges for each, tested least root, 3 maxima, unique nonmaximal successor sets of size >=2, height 4, canonical S3 orbits and fixed counts, matching 3344, and size range 7..22. The independent enumeration corroborates the finite census; the conceptual exhaustive-normal-form proof establishes completeness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grilletti–Quadrellaro, Section 5.2, constructs a special antichain of regular three-maximal posets F_n, not all height-four such posets; https://link.springer.com/article/10.1007/s00012-023-00833-5",
+          "Grilletti–Quadrellaro Section 7: finite regular posets classification by depth or maximal element count is proposed as further research.",
+          "Theorem 4.15 gives an alternative regularity criterion via ~infinity, but no fixed-parameter counting formula."
+        ],
+        "reasoning": "The strongest primary theorem covers membership of ALL finite regular Esakia posets and is explicitly credited as prerequisite; a decision criterion is not an explicit classification of possible cover antichains or an S3 orbit count. Its special three-maxima family supplies some examples, not all 3344. Search results on generic posets, unrelated regular graded orders or homogeneous infinite Heyting algebras have different hypotheses and do not dominate this restricted class count.",
+        "searches": [
+          "Grilletti Quadrellaro Esakia Duals of Regular Heyting Algebras Theorem 4.7 Section 7 classify finite regular posets depth maximal [web]",
+          "2024 2025 2026 classification finite regular Esakia posets fixed depth number maximal points [web]",
+          "Grilletti Quadrellaro 2024 cited by classification regular Heyting algebra finite posets examples [web]",
+          "finite regular posets fixed height and fixed number of maximal elements classification census tables [Resultary semantic]"
+        ]
+      },
+      "checked_sources": [
+        "Grilletti–Quadrellaro, Esakia Duals of Regular Heyting Algebras, Algebra Universalis 85, 5 (2024), Theorem 4.7, Corollary 3.5, Sections 5.2, 7; full open-access text https://link.springer.com/article/10.1007/s00012-023-00833-5",
+        "arXiv:2303.11246, first public version 2023-03-20; same underlying paper",
+        "Resultary published record Exact unary orbit decomposition of the universal homogeneous Heyting algebra, complete RESULT.md; different domain",
+        "Three direct Resultary semantic queries concerning regular Heyting duals, 3 maxima and height 4; nonmatching top results",
+        "Public web exact-phrase/exact-number searches for 3344, 16718, regular Esakia, fixed height/fixed maxima, rooted frame counts, and alternative dual nomenclature",
+        "Public SCOPE repository code-search queries for Esakia/regular/3344/16718 (no matching indexed file results)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Grilletti–Quadrellaro Theorem 4.7 has exactly the two local cover-set conditions; it does not list the 4 middle support types, 14 possible depth-two antichains or six Burnside fixed-set values.",
+          "Section 5.2 gives a special countable family rather than all finite regular duals at given bounded height.",
+          "Independent exact enumeration obtains marked=16718 and fixed counts 16718,1070×3,68×2; the final 3344 classes require the two-layer normal-form and orbit step."
+        ],
+        "reasoning": "The present theorem is NOT a routine renaming/corollary of the published duality criterion: one must prove the level-by-level antichain form, the root admissibility exception, and a nontrivial finite group orbit calculation. The prior criterion is an essential stated premise, not a source of the numerical answer by direct statement.",
+        "searches": [
+          "Grilletti Quadrellaro finite regular posets enumeration depth maximal elements [web]",
+          "finite rooted regular posets 3 maximal 4 height enumerate exact Burnside [web]",
+          "finite regular Esakia posets height 4 three maxima 3344 16718 classification [web]",
+          "finite rooted Heyting algebra Esakia duals distinct successor sets three maxima depth three antichain normal form Burnside enumeration [Resultary]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grilletti and Quadrellaro, Theorem 4.7: finite regular (subdirectly irreducible) algebras are dual to finite (rooted) posets with every nonmaximal element having at least two immediate successors and pairwise distinct such successor sets; https://doi.org/10.1007/s00012-023-00833-5",
+          "Corollary 3.5 identifies the Boolean double-negation subalgebra with clopen subsets of the maximal dual points; for three finite maxima its cardinality is 2^3=8.",
+          "Esakia duality reflects order/algebra isomorphism for finite discrete Esakia spaces."
+        ],
+        "reasoning": "The algebraic statement, its rooted-poset formulation and the three-maxima eight-element-Boolean-core statement are the SAME count under finite Esakia duality, not separate novelties. The source gives the correspondence and cover criterion but does not perform the height-four orbit enumeration.",
+        "searches": [
+          "finite regular Esakia posets and regularly generated Heyting algebras, rooted height four with exactly three maximal points, classify isomorphism types, 3344 [Resultary semantic]",
+          "finite rooted Heyting algebra Esakia duals distinct successor sets three maxima depth three, antichain normal form, Burnside enumeration [Resultary semantic]",
+          "regularly generated Heyting algebras finite 3 maximal points depth 3 classification [web]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No integer 3344 or 16718 census occurs in the relevant full Grilletti–Quadrellaro article; its Section 7 explicitly asks for a classification.",
+          "Fresh Resultary semantic and public exact-number searches yielded no relevant table; nonmatching tables of finite weak-order posets and unrestricted graded posets concern different regularity definitions."
+        ],
+        "reasoning": "The checked sources do not contain an exact table/database for the constrained class. Negative search results are a bounded evidentiary limitation and do not prove worldwide novelty.",
+        "searches": [
+          "\"3344\" \"Esakia\" \"regular\" posets [web]",
+          "\"16718\" \"Heyting\" \"regular\" [web]",
+          "\"3344\" \"Heyting\" \"posets\" [web]",
+          "Esakia regular height four three maximal [published SCOPE GitHub search]",
+          "3344 [published SCOPE GitHub search]",
+          "regular Heyting algebras 3 maxima enumerations [Resultary]"
+        ]
+      },
+      "rationale": "Grilletti–Quadrellaro (arXiv:2303.11246, Algebra Universalis 85:5) provides Theorem 4.7, the necessary-and-sufficient finite regular-cover criterion, and Corollary 3.5 relating Boolean fixed elements to maxima. Its Section 5 gives special infinite families with three maxima, while Section 7 expressly asks for classification of finite regular posets by depth/maxima; the journal text examined does not provide this complete height-four three-maxima 3344-orbit census or its S3-equivariant antichain normal form. Fresh queries through Resultary, published SCOPE records, and public literature for the exact pair of restrictions, alternative rooted-frame terminology, and integers 3344/16718 found no covering published count; nonmatching hits are not novelty proof. The result is therefore best-of-knowledge original as the exact bounded complete classification, while crediting the crucial prior duality and membership theorem.",
+      "residual_risks": [
+        "A previous exact classification may exist in an unindexed thesis, table, earlier bounded-bisimulation/finite Kripke-frame formulation or unpublished result; no claim of proof of global novelty.",
+        "Originality depends on the correctness of the already published finite Esakia regularity equivalence; it is used as a cited theorem, not independently reconstructed from first-order duality.",
+        "The Resultary semantic search returns ranked abstracts and can miss mathematically equivalent claims not represented in its corpus; exact-number web search is not complete coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes the underlying duality theorem and examples but not the asserted exact 3344 classification. The primary text poses finite regular-poset classification by depth/number of maxima as a future direction.",
+          "evidence": [
+            "Section 4 Theorem 4.7, two conditions on immediate-successor sets",
+            "Corollary 3.5, regular elements correspond to clopen maximal-point subsets",
+            "Section 5.2, special three-maximal antichain family",
+            "Section 7, finite regular posets classification by depth or maximal elements proposed for future research"
+          ],
+          "identifier_or_url": "Gianluca Grilletti and Davide Emilio Quadrellaro, arXiv:2303.11246; doi:10.1007/s00012-023-00833-5; https://link.springer.com/article/10.1007/s00012-023-00833-5",
+          "material_read": "Open-access complete journal HTML, with direct detailed reading of Sections 2–5, Theorem 4.7 and proof, Theorem 4.15, Corollary 3.5, the three-maximal Delta_0 family in Section 5.2 and Section 7 conclusion; remaining article structure inspected for table/coverage.",
+          "method": "Full HTML article by the publisher, definitions, theorem statements, proofs and concluding open question (not snippets)",
+          "title": "Esakia Duals of Regular Heyting Algebras",
+          "trigger": "Same mathematical objects, finite regularity criterion, Boolean core, rootedness and the explicit classification-by-depth question"
+        },
+        {
+          "assessment": "Different object: unary automorphism orbits of a countably infinite homogeneous Heyting algebra, not isomorphism classes of finite regular Heyting algebras with fixed dual dimensions.",
+          "evidence": [
+            "Its main theorem classifies Aut(L)-orbits of elements by the cardinality of one-generated subalgebras, and explicitly restricts to unary actions."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-unary-orbit-decomposition-of-the-universal-homogeneous-hey--705eee942cf7",
+          "material_read": "Complete published RESULT.md including theorem, proof and limits",
+          "method": "GitHub connector file read on the published repository",
+          "title": "Exact unary orbit decomposition of the universal homogeneous Heyting algebra",
+          "trigger": "Closest relevant published SCOPE/Resultary hit in a broad semantic search for Heyting-algebra orbit classifications"
+        },
+        {
+          "assessment": "Same work, not an independent second source; corroborates chronological attribution.",
+          "evidence": [
+            "arXiv:2303.11246 first submission recorded 2023-03-20; journal version is published 2023-11-21, volume 85 article 5 (2024)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.11246",
+          "material_read": "arXiv bibliographic abstract and submission record: first version dated 20 March 2023",
+          "method": "Bibliographic record inspection; journal full text inspected separately for mathematical comparison",
+          "title": "Esakia Duals of Regular Heyting Algebras (arXiv version record)",
+          "trigger": "Original public dissemination date and preprint alias of the inspected primary article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original primary work specifically asks for a classification of finite regular Esakia posets by combinatorial dimensions, including depth and number of maximal elements. Three maxima constitute an 8-element regular Boolean core; height four is a natural first nontrivial case with interacting two-level antichain choices below that core. The reversible, S3-equivariant normal form is mathematically useful independently of the integer: it parametrizes representatives and bounds size (7 through 22 vertices). The complete 3344-class result resolves that meaningful bounded problem and constrains finite regularly generated, subdirectly irreducible Heyting-algebra examples. The result does not claim distinct logics, full algebra sizes, a classification for other depths or arbitrary numbers of maxima, and does not rely on novelty or the verifier alone to establish value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Grilletti–Quadrellaro, Esakia Duals of Regular Heyting Algebras, Algebra Universalis 85, 5 (2024), Theorem 4.7, Corollary 3.5, Sections 5.2, 7; full open-access text https://link.springer.com/article/10.1007/s00012-023-00833-5",
+    "arXiv:2303.11246, first public version 2023-03-20; same underlying paper",
+    "Resultary published record Exact unary orbit decomposition of the universal homogeneous Heyting algebra, complete RESULT.md; different domain",
+    "Three direct Resultary semantic queries concerning regular Heyting duals, 3 maxima and height 4; nonmatching top results",
+    "Public web exact-phrase/exact-number searches for 3344, 16718, regular Esakia, fixed height/fixed maxima, rooted frame counts, and alternative dual nomenclature",
+    "Public SCOPE repository code-search queries for Esakia/regular/3344/16718 (no matching indexed file results)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific acceptance is best-of-knowledge, not external expert certification, and does not imply a published research record.",
+    "Published Theorem 4.7 is used as a mathematical premise. Independent checker confirms finite normal-form count and structural conditions, not the full foundational Esakia duality theorem.",
+    "Potential unindexed earlier classification under a distinct terminology remains a priority risk.",
+    "Two protected administrative files carry an original private provenance field. Complete replacement bytes remove it without changing scientific content; no Git write was performed."
+  ],
+  "residual_risks": [
+    "A previous exact classification may exist in an unindexed thesis, table, earlier bounded-bisimulation/finite Kripke-frame formulation or unpublished result; no claim of proof of global novelty.",
+    "Originality depends on the correctness of the already published finite Esakia regularity equivalence; it is used as a cited theorem, not independently reconstructed from first-order duality.",
+    "The Resultary semantic search returns ranked abstracts and can miss mathematically equivalent claims not represented in its corpus; exact-number web search is not complete coverage."
+  ],
+  "schema_version": 1
+}
