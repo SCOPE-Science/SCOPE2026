@@ -1,0 +1,204 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T01:41:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact four affine branches induce the stated depth/side kernel on dyadic cells for absolutely continuous shell-cell-constant laws: tau2 flips side and adds 2; tau1 subtracts 1 for k>=1 and from k=0 sends uniform mass to a geometric 2^{-j-1} same-side reset. For p>2/3 the stationary recurrence w_k=p w_{k+1}+q 1_{k>=2}w_{k-2}+p w0 2^{-k-1} yields W_p(z)=(3p-2)/((2-z)(p-qz-qz²)), W(1)=1, w0=(3p-2)/(2p)>0 and W'(1)=1/(3p-2). Factor positivity and irreducible side/depth Markov chain prove existence and uniqueness within the stated shell-cell-constant class; no global uniqueness claim is inferred. Positive quadratic pole r solves q(r²+r)=p and simple-pole asymptotics show density power divergence for p in (2/3,6/7), a p=6/7 double pole gives w_k=(k/5+7/25)2^{-k}+(4/75)(-1/3)^k and density 2k/5+14/25+(8/75)(-2/3)^k, and p>6/7 gives limiting density (3p-2)/(7p-6). At critical approach epsilon=3p-2, W(exp(-epsilon t)) tends to 1/(1+t), giving the mean-one exponential limit. For p<2/3, K_n is bounded below by a +2/-1 i.i.d. walk with drift 2-3p>0; hence eventual positive depth, finitely many k=0 resets and strong-law K_n/n=2-3p a.s., giving exponential endpoint proximity. The side flips on infinitely many tau2 selections so no individual endpoint trajectory convergence; annealed spatial weak convergence to half delta0+half delta1 follows from symmetric parity mixing. Invariant AC probabilities cannot converge weakly to singular endpoint mixture, hence no such interior stationary law for p<2/3. Branch boundaries and p=2/3 are properly excluded or ascribed to prior critical work. The independent symbolic/rational checker verified 1032 stationarity equations, 130 p=6/7 coefficients, 920 affine rational itineraries, 90-digit pole checks and 12 finite Laplace evaluations. Those checks corroborate, not prove, the all-p analysis. Exact frozen tree reconstructed from 7 Git blobs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Homburg, Kalle, Ruziboev, Verbitskiy & Zeegers, Critical intermittency in random interval maps, arXiv:2107.02556, Introduction, model assumptions G1–G4, https://arxiv.org/abs/2107.02556",
+          "Homburg et al. require a single critical c, bad maps superattracting at c, and good-map branches diffeomorphic onto (0,1); the mBGI tau2 is affine of slope magnitude 1/4 on each half and tau1 has four branches.",
+          "Yan, Majumdar, Ruffo, Sato, Beck & Klages, Transition to anomalous dynamics in a simple random map, arXiv:2308.09269, Section II.2 and Appendix A, https://arxiv.org/abs/2308.09269",
+          "Yan et al. calculate a one-endpoint Pelikan density and separate regularity transition for that model (p=1/2 normalization, p=2/3 shape/regularity); no two-side mBGI PGF is claimed."
+        ],
+        "reasoning": "The broad critical-intermittency existence/non-L^q theorem is neither a proof nor a stronger statement of this mBGI family: its superattracting critical-point assumptions do not hold for the displayed two affine contracting branches; moreover a bounded mBGI density for p>6/7 is incompatible with a universally non-L^q conclusion. The older Pelikan phase diagram has a related mechanism, not the exact two-ended +2/-1 shell process. Generic Markov renewal and drift theorems explain technique without themselves specifying this model’s exact two thresholds or coefficients.",
+        "searches": [
+          "Homburg Kalle Ruziboev Verbitskiy Zeegers Critical intermittency random interval maps arXiv:2107.02556",
+          "Yan Majumdar Ruffo Sato Beck Klages arXiv:2308.09269 invariant density crossover",
+          "randomized piecewise linear interval maps dyadic shell stationary Markov chain +2 -1 geometric restart exponential scaling density boundedness threshold"
+        ]
+      },
+      "checked_sources": [
+        "Hata & Yano, Arcsine and Darling–Kac laws for piecewise linear random interval maps, arXiv:2108.01332v3, Theorem 1.3 and Section 4, equations (4.1)–(4.6), https://arxiv.org/abs/2108.01332",
+        "Yan, Majumdar, Ruffo, Sato, Beck & Klages, Transition to anomalous dynamics in a simple random map, arXiv:2308.09269, Section II.2 and Appendix A, https://arxiv.org/abs/2308.09269",
+        "Homburg, Kalle, Ruziboev, Verbitskiy & Zeegers, Critical intermittency in random interval maps, arXiv:2107.02556, Introduction, model assumptions G1–G4, https://arxiv.org/abs/2107.02556",
+        "Boyarsky, Góra & Islam, Randomly chosen chaotic maps can give rise to nearly ordered behavior, Physica D 210 (2005) 284–294, DOI:10.1016/j.physd.2005.07.015",
+        "Resultary published-findings semantic searches (the three actual queries recorded in all four comparison checks); inspected ranked matches were on non-equivalent models."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hata & Yano, Arcsine and Darling–Kac laws for piecewise linear random interval maps, arXiv:2108.01332v3, Theorem 1.3 and Section 4, equations (4.1)–(4.6), https://arxiv.org/abs/2108.01332",
+          "Theorem 1.3 of Hata–Yano fixes p=2/3 and gives a nonnormalizable invariant density; its proof does not evaluate a p-biased stationary PGF.",
+          "The submitted stationary PGF has different poles at 2 and the positive root of q(r+r²)=p, coalescing only at p=6/7.",
+          "The p<2/3 claim obtains linear escape rate 2-3p using positive-drift i.i.d. increments; Hata–Yano prove a recurrent critical chain with zero drift.",
+          "Yan, Majumdar, Ruffo, Sato, Beck & Klages, Transition to anomalous dynamics in a simple random map, arXiv:2308.09269, Section II.2 and Appendix A, https://arxiv.org/abs/2308.09269"
+        ],
+        "reasoning": "A critical result at p=2/3 cannot by parameter specialization already contain normalized p>2/3 stationary laws, a p=6/7 double pole, or positive-drift p<2/3 escape rates. The earlier affine map identities directly support the derivation but not its parameter-wide conclusions. The analogous Pelikan calculation does not imply this exact shifted recurrence because the maps and geometry differ. General SLLN and coefficient asymptotics are standard rather than originality claims.",
+        "searches": [
+          "Hata–Yano arXiv:2108.01332v3 Theorem 1.3 Section 4 equations (4.1)–(4.6)",
+          "Yan et al arXiv:2308.09269 Section II.2 pp density threshold",
+          "Homburg et al arXiv:2107.02556 exact family assumptions",
+          "modified Boyarsky Góra Islam Hata Yano off-critical p stationary invariant density shell random interval map 6/7 logarithmic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hata & Yano, Arcsine and Darling–Kac laws for piecewise linear random interval maps, arXiv:2108.01332v3, Theorem 1.3 and Section 4, equations (4.1)–(4.6), https://arxiv.org/abs/2108.01332",
+          "Hata–Yano equation (4.3) gives +2 with weight 1/3, -1 with weight 2/3 and depth-zero geometric reset, and (4.4)–(4.5) give only balanced-weight invariant recurrences.",
+          "The inspected biased claim uses the same kernel but noncritical weights p,q and a normalized rational generating function; no all-p PGF/p=6/7 assertion appears in Section 4.",
+          "Yan, Majumdar, Ruffo, Sato, Beck & Klages, Transition to anomalous dynamics in a simple random map, arXiv:2308.09269, Section II.2 and Appendix A, https://arxiv.org/abs/2308.09269"
+        ],
+        "reasoning": "We compared the exact shell Markov chain, its return/renewal equation, normalized stationary masses and critical-vs-biased quantifiers, including equivalent probabilistic generating-function descriptions. The critical p=2/3 recurrence is prior work and a necessary method ingredient, but it neither states nor as an immediate special case gives the off-critical rational PGF and two different density regimes. The Pelikan +1/-1-like one-endpoint system has a different chain and its threshold p=2/3 is not the mBGI p=6/7 second threshold.",
+        "searches": [
+          "modified Boyarsky Góra Islam Hata Yano off-critical p stationary invariant density shell random interval map 6/7 logarithmic",
+          "randomized piecewise linear interval maps dyadic shell stationary Markov chain +2 -1 geometric restart exponential scaling density boundedness threshold",
+          "Hata–Yano arXiv:2108.01332 Sections 1,4 (1.22)–(1.25), (4.1)–(4.6)",
+          "random-map shell transfer recurrence biased renewal density +2 -1 reset two endpoints"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hata & Yano, Arcsine and Darling–Kac laws for piecewise linear random interval maps, arXiv:2108.01332v3, Theorem 1.3 and Section 4, equations (4.1)–(4.6), https://arxiv.org/abs/2108.01332",
+          "Resultary three semantic searches returned predominantly unrelated expanding/interval-map and endpoint-law records, no matching full mBGI stationary PGF in the inspected ranked results.",
+          "Hata–Yano exact critical shell invariant mass table (4.6) is already published; the new p=6/7 coefficient formula and all-p PGF were not found there."
+        ],
+        "reasoning": "No identified exact literature table or database already supplies the off-critical complete mass sequence or boundedness threshold for the same mBGI branches. The only directly comparable exact table concerns p=2/3 and an infinite measure; failure to find a matching indexed record is not a proof of novelty. This field concerns a continuous-parameter law rather than a finite combinatorial classification.",
+        "searches": [
+          "modified Boyarsky Góra Islam Hata Yano off-critical p stationary invariant density shell random interval map 6/7 logarithmic",
+          "randomized piecewise linear interval maps dyadic shell stationary Markov chain +2 -1 geometric restart exponential scaling density boundedness threshold",
+          "Hata Yano Arcsine Darling Kac random interval maps biased probability p=2/3 invariant probability endpoint escape",
+          "mBGI 6/7 threshold stationary density dyadic shell generating function search; Resultary 2026 current published findings",
+          "Hata and Yano 2021 2023 mBGI critical infinite density formula (4.6)"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of mathematical statements: the exact same mBGI map and shell transitions and critical p=2/3 infinite invariant law are due to Hata–Yano; the present complete off-critical stationary depth generating function, the distinct p=6/7 boundedness/logarithmic threshold, the critical-approach Exp(1) scaling and the p<2/3 escape speed are not included in their inspected theorem or Section 4. Other primary articles give parallel phenomena for a different one-ended Pelikan map or under critical-intermittency assumptions not met by these branches. The older Boyarsky–Góra–Islam primary full text was inaccessible due to an authorized institutional VPN disconnect; its content remains a named historical-priority risk and was not treated as a blanket originality failure. No source-independent absolute novelty certificate is claimed.",
+      "residual_risks": [
+        "The 2005 Boyarsky–Góra–Islam primary full text remains inaccessible through the attempted lawful routes (authorized institutional VPN disconnected); a historical comparable theorem cannot be excluded from bibliographic metadata alone.",
+        "A broad queueing, semi-Markov renewal, random-matrix or random-affine Perron–Frobenius result might recover parts of the coefficients without using the mBGI name; no absolute priority claim is certified.",
+        "The exact results do not establish full uniqueness among arbitrary non-shell-constant absolutely continuous invariant probabilities for p>2/3; that would be stronger than the audited claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME model and shell identities are covered. Its main invariant theorem and Section 4 are specifically at p=2/3, not the biased stationary distribution, p=6/7 regularity transition or positive drift escape; earlier ingredients are explicitly credited.",
+          "evidence": [
+            "Theorem 1.3, equations (1.22)–(1.25), (4.1)–(4.6) and Section 4, https://arxiv.org/abs/2108.01332"
+          ],
+          "identifier_or_url": "arXiv:2108.01332v3; https://arxiv.org/abs/2108.01332",
+          "material_read": "Complete accessible HTML article including Introduction model definition (1.22)–(1.25), theorem 1.3, Section 4 proof and (4.1)–(4.14), contextual theory and references",
+          "method": "Read and compare actual map branches, shell transition kernel, invariant recurrence, quantifiers and critical p=2/3 theorem against the full off-critical claim",
+          "title": "Arcsine and Darling–Kac laws for piecewise linear random interval maps",
+          "trigger": "Exact same modified BGI map and critical invariant measure; strongest direct competitor"
+        },
+        {
+          "assessment": "A different one-ended Pelikan random map already has a finite/infinite density threshold at p=1/2 and a p=2/3 regularity boundary; the underlying phenomenon is prior, but it does not state the precise mBGI two-sided +2/-1 PGF nor the mBGI p=6/7 threshold.",
+          "evidence": [
+            "Section II.2, equations (3)–(6) and subsequent regimes in arXiv:2308.09269"
+          ],
+          "identifier_or_url": "arXiv:2308.09269; https://arxiv.org/abs/2308.09269",
+          "material_read": "Full arXiv HTML with Section I context, Section II Pelikan map definition and exact invariant density (equations (3)–(6)); parameter regime and Appendix A derivation",
+          "method": "Statement-level comparison of maps, shell recursion, number of attracting endpoints and regularity critical probabilities",
+          "title": "Transition to anomalous dynamics in a simple random map",
+          "trigger": "Closely related random piecewise-linear map and stationary-density crossover/critical thresholds"
+        },
+        {
+          "assessment": "Broad results involve superattracting single critical point and onto good half-branches; those assumptions fail for the mBGI affine contraction/two-endpoint family, so no specific mBGI p=6/7 coefficient/limit is entailed.",
+          "evidence": [
+            "Introduction model definition and G1–G4, arXiv:2107.02556"
+          ],
+          "identifier_or_url": "arXiv:2107.02556; https://arxiv.org/abs/2107.02556",
+          "material_read": "Full accessible arXiv text inspected at abstract, Introduction, principal model hypotheses G1–G4 and map classes",
+          "method": "Compare hypotheses of maps and critical point against mBGI four branches and two affine contracting branches",
+          "title": "Critical intermittency in random interval maps",
+          "trigger": "Broad finite/infinite stationary probability phase-transition theorem for random interval maps"
+        },
+        {
+          "assessment": "The original is described as a similar earlier random-map family, but complete statement-level coverage cannot be ruled out because primary full text was not available: authorized retrieval returned VPN disconnected. This is residual priority risk, not a fabricated negative inspection.",
+          "evidence": [
+            "Physica D 210 (2005) 284–294, doi:10.1016/j.physd.2005.07.015; Hata–Yano source context; lawful full-text unavailable"
+          ],
+          "identifier_or_url": "doi:10.1016/j.physd.2005.07.015",
+          "material_read": "Accessible bibliographic metadata and citation/context from Hata–Yano; no complete primary full text obtained",
+          "method": "Checked arXiv and lawful open-access leads for same DOI and requested authorized Oxford institutional retrieval; no access beyond permissions",
+          "title": "Randomly chosen chaotic maps can give rise to nearly ordered behavior",
+          "trigger": "Historical precursor and originally named Boyarsky–Góra–Islam map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The critical mBGI model is a natural random-interval-map example from Hata–Yano, with two distinct attracting endpoints and a Markov shell structure. The parameter-wide exact stationary PGF, normalization boundary p=2/3, independent bounded-density boundary p=6/7, logarithmic crossover, critical-approach exponential scaling, and complementary almost-sure escape rate answer motivated ergodic and density-regularity questions and make the family quantitatively tractable. This is not a named-constant substitution, arbitrary finite slice, or known-table recomputation. The narrower class-uniqueness limitation and exclusion of full quenched convergence are recognized; no broader classification or global AC uniqueness is advertised.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hata & Yano, Arcsine and Darling–Kac laws for piecewise linear random interval maps, arXiv:2108.01332v3, Theorem 1.3 and Section 4, equations (4.1)–(4.6), https://arxiv.org/abs/2108.01332",
+    "Yan, Majumdar, Ruffo, Sato, Beck & Klages, Transition to anomalous dynamics in a simple random map, arXiv:2308.09269, Section II.2 and Appendix A, https://arxiv.org/abs/2308.09269",
+    "Homburg, Kalle, Ruziboev, Verbitskiy & Zeegers, Critical intermittency in random interval maps, arXiv:2107.02556, Introduction, model assumptions G1–G4, https://arxiv.org/abs/2107.02556",
+    "Boyarsky, Góra & Islam, Randomly chosen chaotic maps can give rise to nearly ordered behavior, Physica D 210 (2005) 284–294, DOI:10.1016/j.physd.2005.07.015",
+    "Resultary published-findings semantic searches (the three actual queries recorded in all four comparison checks); inspected ranked matches were on non-equivalent models."
+  ],
+  "disposition": "passed",
+  "final_claim": "For the displayed two-branch/two-half mBGI random interval map with independent choices p of tau1, q=1-p of tau2 and 0<p<1, for 2/3<p<1 there is a unique invariant probability in the dyadic-shell-cell-constant AC class, with stationary total-depth PGF W_p(z)=(3p-2)/((2-z)(p-qz-qz²)), E[K]=1/(3p-2). This invariant density diverges near both endpoints for 2/3<p<=6/7 (power type below 6/7 and logarithm at 6/7), and is bounded with endpoint limit (3p-2)/(7p-6) for p>6/7. As p↓2/3, (3p-2)K converges in distribution to Exp(1). For 0<p<2/3, K_n/n→2-3p a.s. for interior AC initial law, annealed spatial law tends weakly to (delta0+delta1)/2 and no AC invariant probability exists. The critical p=2/3 infinite stationary measure is Hata–Yano prior work; no claim of global AC uniqueness for p>2/3 or almost-sure convergence to a fixed endpoint.",
+  "limitations": [
+    "Initial endpoints and branch-boundary orbits excluded under AC initial law; there may be invariant singular endpoint measures under p<2/3, not discussed as nonexistence.",
+    "Uniqueness above p=2/3 is only proved inside shell-cell-constant density class.",
+    "The p=2/3 critical invariant measure is due to Hata–Yano, not a new theorem; 0 and 1 are excluded selection-probability endpoints.",
+    "No quenched unique-limit endpoint or later universal perturbation theorem asserted.",
+    "Finite checks do not substitute for an infinite proof; full text of BGI 2005 unavailable due to authorized VPN disconnection, retained as priority risk."
+  ],
+  "residual_risks": [
+    "The 2005 Boyarsky–Góra–Islam primary full text remains inaccessible through the attempted lawful routes (authorized institutional VPN disconnected); a historical comparable theorem cannot be excluded from bibliographic metadata alone.",
+    "A broad queueing, semi-Markov renewal, random-matrix or random-affine Perron–Frobenius result might recover parts of the coefficients without using the mBGI name; no absolute priority claim is certified.",
+    "The exact results do not establish full uniqueness among arbitrary non-shell-constant absolutely continuous invariant probabilities for p>2/3; that would be stronger than the audited claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SAME model and shell identities are covered. Its main invariant theorem and Section 4 are specifically at p=2/3, not the biased stationary distribution, p=6/7 regularity transition or positive drift escape; earlier ingredients are explicitly credited.",
+      "evidence": [
+        "Theorem 1.3, equations (1.22)–(1.25), (4.1)–(4.6) and Section 4, https://arxiv.org/abs/2108.01332"
+      ],
+      "identifier_or_url": "arXiv:2108.01332v3; https://arxiv.org/abs/2108.01332",
+      "material_read": "Complete accessible HTML article including Introduction model definition (1.22)–(1.25), theorem 1.3, Section 4 proof and (4.1)–(4.14), contextual theory and references",
+      "method": "Read and compare actual map branches, shell transition kernel, invariant recurrence, quantifiers and critical p=2/3 theorem against the full off-critical claim",
+      "title": "Arcsine and Darling–Kac laws for piecewise linear random interval maps",
+      "trigger": "Exact same modified BGI map and critical invariant measure; strongest direct competitor"
+    },
+    {
+      "assessment": "A different one-ended Pelikan random map already has a finite/infinite density threshold at p=1/2 and a p=2/3 regularity boundary; the underlying phenomenon is prior, but it does not state the precise mBGI two-sided +2/-1 PGF nor the mBGI p=6/7 threshold.",
+      "evidence": [
+        "Section II.2, equations (3)–(6) and subsequent regimes in arXiv:2308.09269"
+      ],
+      "identifier_or_url": "arXiv:2308.09269; https://arxiv.org/abs/2308.09269",
+      "material_read": "Full arXiv HTML with Section I context, Section II Pelikan map definition and exact invariant density (equations (3)–(6)); parameter regime and Appendix A derivation",
+      "method": "Statement-level comparison of maps, shell recursion, number of attracting endpoints and regularity critical probabilities",
+      "title": "Transition to anomalous dynamics in a simple random map",
+      "trigger": "Closely related random piecewise-linear map and stationary-density crossover/critical thresholds"
+    },
+    {
+      "assessment": "Broad results involve superattracting single critical point and onto good half-branches; those assumptions fail for the mBGI affine contraction/two-endpoint family, so no specific mBGI p=6/7 coefficient/limit is entailed.",
+      "evidence": [
+        "Introduction model definition and G1–G4, arXiv:2107.02556"
+      ],
+      "identifier_or_url": "arXiv:2107.02556; https://arxiv.org/abs/2107.02556",
+      "material_read": "Full accessible arXiv text inspected at abstract, Introduction, principal model hypotheses G1–G4 and map classes",
+      "method": "Compare hypotheses of maps and critical point against mBGI four branches and two affine contracting branches",
+      "title": "Critical intermittency in random interval maps",
+      "trigger": "Broad finite/infinite stationary probability phase-transition theorem for random interval maps"
+    },
+    {
+      "assessment": "The original is described as a similar earlier random-map family, but complete statement-level coverage cannot be ruled out because primary full text was not available: authorized retrieval returned VPN disconnected. This is residual priority risk, not a fabricated negative inspection.",
+      "evidence": [
+        "Physica D 210 (2005) 284–294, doi:10.1016/j.physd.2005.07.015; Hata–Yano source context; lawful full-text unavailable"
+      ],
+      "identifier_or_url": "doi:10.1016/j.physd.2005.07.015",
+      "material_read": "Accessible bibliographic metadata and citation/context from Hata–Yano; no complete primary full text obtained",
+      "method": "Checked arXiv and lawful open-access leads for same DOI and requested authorized Oxford institutional retrieval; no access beyond permissions",
+      "title": "Randomly chosen chaotic maps can give rise to nearly ordered behavior",
+      "trigger": "Historical precursor and originally named Boyarsky–Góra–Islam map"
+    }
+  ]
+}
