@@ -1,0 +1,15 @@
+# Scientific review of the natural \(S_6\)-character at Čech scale four
+
+## Correctness — PASS
+The exact graph is identified with the 15-duad/15-syntheme incidence graph and all 720 label-permutation actions preserve the generating closed distance-two balls. The independent homology check performs 13,495 genuine elementary collapses from 27,535 faces to a connected \((30,200,315)\) two-complex and verifies binary triangle boundary rank 171; the dimension bound from its connected one-skeleton forces the *rational* boundary rank to equal 171. This establishes rational reduced homology only in degree two, of dimension 144, without using a reported log as a substitute for the calculation. The signed fixed-orbit Lefschetz trace formula is derived and checked on all 720 elements, then independently re-evaluated on all eleven classes by oriented fixed simplices. Exact character orthogonality and induction determine the complete representation. No integral lattice claim is made.
+
+## Originality — PASS, with residual priority risk
+The closest exact-source paper [3] proves the same 144-sphere **nonequivariant** homotopy type but makes no natural \(S_6\)-representation assertion. That known result alone cannot determine an action on homology; the 144-dimensional induced character is genuinely additional data. The same-graph 256-dimensional scale-three Vietoris–Rips representation [4] is a different complex, and the related fifteen-vertex Kneser Čech representation [5] is also mathematically distinct. The 2015 incidence exposition [1] specifies the symmetry but no Čech homology, while the general graph Čech source [2] does not compute this representation. Focused record and literature searches found no logically covering theorem, although an unindexed equivalent calculation remains possible. The known nonequivariant result is explicitly excluded from the novelty claim.
+
+## Mathematical value — PASS
+This canonical highly symmetric thirty-vertex incidence graph admits two natural vertex-complex functors: a previously studied Vietoris–Rips space with invariant homology and the present Čech nerve with *none*. The complete sparse character, its identification as induction from a nontrivial five-cycle character, and two resulting acyclic rational symmetry quotients provide structurally interpretable information which cannot be recovered from Betti numbers or a wedge decomposition. The scale and symmetry are intrinsic, not arbitrarily selected numerical slices, and the induced-module structure exposes genuine five-cycle control of all 144 classes.
+
+## Scientific limits and closest sources
+The comparison concerns precisely the natural \(S_6\) subgroup, not the larger graph automorphism group; it is rational and complex representation theory, not integral or equivariant homotopy. The full same-object proof [3], same-graph Rips proof [4], and Kneser comparison [5] were inspected in full, alongside the primary graph construction [1] and the Čech definition [2]. The paper-identification and originality checks remain bounded by indexed and accessible research sources.
+
+Self-review: passed. Independent audit: not yet performed.
