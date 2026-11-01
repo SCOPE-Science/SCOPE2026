@@ -1,15 +1,21 @@
-# Scientific review: sharp fixed-center harmonic coefficient envelope
+# Independent mathematical audit
 
-## Correctness
-PASS. The boundary representation, two-phase dual identity and symmetry-paired Jensen inequality give the global bound for every coefficient index. Strict convexity of the scalar integral gives a unique interior dual optimizer; the unimodular boundary trace achieves every inequality simultaneously. Equality rigidity follows from strict Jensen concavity at the maximizing phase and pointwise saturation; the two endpoints follow from the cosine-sign trace and the harmonic maximum principle. The elliptic integral expansions yield the stated asymptotics. The standalone checker independently verifies 15 numerical coefficient cases; it is supporting evidence, not the infinite proof.
+## correctness
 
-## Originality
-PASS, subject to residual historical-priority uncertainty. The earlier unconditioned sharp \(4/\pi\) coefficient estimates (Liu–Liu–Zhu 2011 and Chen–Ponnusamy–Wang 2012), the 2026 harmonic Hardy sharp-constant paper, the fixed-center Bohr study, and two highly relevant published results were compared by mathematical statement. The previous results respectively address no prescribed center, multiple-coefficient Bohr summation, or stability around the unconditioned extremizer. They do not imply the exact fixed-center coefficient function, all its extremizers or its small-center logarithmic law. Searches of synonymous Fourier mean constraints and elliptic-integral variational formulations found no decisive dominating result; no comprehensive global priority claim is made.
+PASS
 
-## Value
-PASS. The objective is the smallest nontrivial harmonic Hardy endpoint invariant beyond an unconditioned sharp bound: fixing the central value changes the exact coefficient frontier. The theorem solves every parameter and every coefficient index, identifies the unique dual balance and all extremizers, and exposes two distinct endpoint scales. This is substantive structural information, not a numerical or arbitrary special case. It does not purport to settle a full Bohr-radius optimization, for which simultaneous coefficient behavior matters.
+The prescribed-center complex harmonic map f has an L∞ circle trace F with |F|≤1, mean c and Fourier coefficients a_n, conjugate b_n. Independent phases turn |a_n|+|b_n| into a real cosine support functional. Adding λc and pairing cos(nt) at opposite signs yields an upper bound I(λ)-cλ via strict square-root concavity; I''(λ)>0 gives the unique λ_c for 0<c<1. The boundary trace (λ_c−2i cos(nt−θ))/sqrt(λ_c²+4cos²(nt−θ)) has mean c and attains both inequalities; strict equality conditions classify all traces, with c=0 sign-cosine and c=1 constants. The standard complete-elliptic K-logarithm and large-λ expansions give B(0)=4/π, B(1)=0, B(c)~2sqrt(1−c) near one, and 4/π−B(c)~πc²/(2log(1/c)) near zero. I checked mean, two Fourier modes and dual optimum independently at 15 center/index pairs. Finite quadrature does not prove all-n/all-c statements.
 
-## Limitations
-The center is constrained only through its modulus, maps need not be locally injective, and the result concerns one Fourier coefficient pair at a time. Independent audit and comprehensive historical priority verification have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. The 2026 harmonic Hardy sharp-constants manuscript and older coefficient literature were compared within available text, not claimed to have been globally exhaustively searched. An unindexed constrained Fourier-moment extremum or an older exact elliptic dual result may duplicate the envelope.
+
+## value
+
+PASS
+
+For the natural Hardy endpoint coefficient problem on the full class of bounded complex harmonic disk maps, prescribing |f(0)| produces a genuinely different exact extremal frontier. The complete function B(c), unique dual optimizer, equality profile at every index, and dissimilar logarithmic/square-root endpoint laws are structural information not supplied by the generic 4/π estimate, and are potentially needed in center-conditioned coefficient or stability questions. This does not conflate one-index sharpness with simultaneous Bohr-majorant control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
