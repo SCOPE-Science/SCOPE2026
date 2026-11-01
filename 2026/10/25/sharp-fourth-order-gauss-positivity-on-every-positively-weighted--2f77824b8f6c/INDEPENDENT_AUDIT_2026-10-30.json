@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:14:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob f8d1e07ab2f8b791667a5cf2c7d4a5bbe4b2520f",
+        "2026/10/25/.../verify.py Git tree blob dbb02f6eb836d75813755f2d36102d50a83a0300",
+        "independent_scope_worker01_checks_results.json:48 exact rational cases"
+      ],
+      "rationale": "The [2/2] Gauss-Padé stability function is R(z)=1−12z/(z²+6z+12). For the positive weighted star, the exact Schur resolvent with s=(3+i√3)/h yields T_0i=12|F_i|² Phi_i/(h w_i), Phi_i=A−w_i B, B>0, so the worst hub-edge is any w_i=wmax. If all Phi_i≥0, the sector bound Re(1/F_i)>0 makes each distinct leaf-leaf entry positive; spectral R(hL)>0 proves diagonals positive, and T1=1 proves stochasticity. The function Phi_star=1−Σh² w_k(wmax−w_k)/(h² w_k²+6h w_k+12) is monotone and tends to (m+1)−wmaxΣ1/w_i, giving the exact all-h criterion, one unique cutoff otherwise, and non-reentry. At h=0 T=I. Direct exact-rational computation of the full 2-stage quotient confirmed the sign criterion and row sums in 48 independently selected cases (2..5 leaves); no finite check proves arbitrary weights.",
+      "residual_risks": [
+        "All-weight sufficiency depends on the complex-sector argument, not its finite tests; graph must be symmetric and strictly positive on every spoke."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SSP implicit RK general order barrier Gottlieb–Shu–Tadmor (2001); positivity-preserving graph flows Blanes–Iserles–Macnamara (2022)."
+        ],
+        "reasoning": "Method-wide barriers rule out a universal scheme guarantee, but do not decide existence of all-step positivity for one fixed symmetric generator family.",
+        "searches": [
+          "Gauss Legendre two stage Padé step weighted star graph Laplacian entrywise positivity unconditional wmax resistance sum",
+          "weighted star Gauss Legendre 2 stage positivity complete graph Laplacian weighted network fourth order 2026"
+        ]
+      },
+      "checked_sources": [
+        "https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+        "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+        "Resultary published semantic search: Gauss Legendre two stage Padé step weighted star graph Laplacian entrywise positivity unconditional wmax resistance sum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier unweighted star and two-spoke claims; Gottlieb et al 2001; Blanes et al 2022."
+        ],
+        "reasoning": "Those result classes do not imply the m≥3 arbitrary-conductance cutoff; new proof derives it via exact sign factorization.",
+        "searches": [
+          "Gauss Legendre two stage Padé step weighted star graph Laplacian entrywise positivity unconditional wmax resistance sum",
+          "weighted star Gauss Legendre 2 stage positivity complete graph Laplacian weighted network fourth order 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Markov matrix nonnegativity of [2/2] rational Padé map; inverse M-matrix, weighted-star effective resistance condition."
+        ],
+        "reasoning": "The inequality wmax Σ1/w_i≤m+1 is stronger than mere A-stability and is an all-timestep star-specific condition.",
+        "searches": [
+          "Gauss Legendre two stage Padé step weighted star graph Laplacian entrywise positivity unconditional wmax resistance sum",
+          "weighted star Gauss Legendre 2 stage positivity complete graph Laplacian weighted network fourth order 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic published findings: Eight-state barrier for Markov positivity of the [2/2] Padé map (2026/9/20/4aad2a3f58ab)."
+        ],
+        "reasoning": "The pure-birth CTMC witness is non-symmetric and neither gives a weighted-star table nor the exact conductance threshold.",
+        "searches": [
+          "Gauss Legendre two stage Padé step weighted star graph Laplacian entrywise positivity unconditional wmax resistance sum",
+          "weighted star Gauss Legendre 2 stage positivity complete graph Laplacian weighted network fourth order 2026"
+        ]
+      },
+      "rationale": "Generic implicit SSP restrictions, positivity-preserving graph ODE integrators, and a related pure-birth Padé positivity witness do not imply the exact sharp scalar criterion on all symmetric weighted stars; the previously described 2-leaf and unweighted-star classes are narrower. The detailed resolvent proof supplies the arbitrary-weight single-cutoff classification not located in accessible relevant primary texts. A specialized unindexed matrix-positivity result could cover it.",
+      "residual_risks": [
+        "A specialized numerical analysis theorem about symmetric star Laplacians or Pade-Markov functions under equivalent conductance inequalities could be missed; search does not certify priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXACT_CLAIM: method-wide SSP barriers, no star-resolvent criterion",
+          "evidence": "SIAM Review 43 (2001), §6 implicit SSP; does not say [2/2] Padé weighted-star matrix entries.",
+          "identifier_or_url": "https://drum.lib.umd.edu/bitstreams/faa96f40-0fbb-4af0-84a3-5e3b80c908df/download",
+          "material_read": "Title, abstract, introduction, Section 6 topic and available primary PDF text",
+          "method": "Read primary PDF text/pages; viewed PDF screenshot",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "General higher-order implicit positivity limitations"
+        },
+        {
+          "assessment": "NOT_COVERING_EXACT_CLAIM in inspected material: different positive integrators and general graph ODEs",
+          "evidence": "Blanes–Iserles–Macnamara (2022) abstract and §1 distinguish their constructed schemes from completed fourth-order Gauss-Padé weighted star classification.",
+          "identifier_or_url": "https://personales.upv.es/serblaza/2022_M2AN.pdf",
+          "material_read": "Abstract, introductory graph Laplacian framework and paper section overview",
+          "method": "Read primary OA PDF text; viewed PDF page",
+          "title": "Positivity-preserving methods for ordinary differential equations",
+          "trigger": "Laplacian-associated positivity preserving methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Git blob f8d1e07ab2f8b791667a5cf2c7d4a5bbe4b2520f"
+      ],
+      "rationale": "This determines precisely when a fourth-order A-stable completed diffusion step remains a Markov operator at every timestep on a natural heterogeneous network, and explicitly locates the first and permanent loss of positivity. The conductance ratio condition is a nonroutine exact boundary relevant to numerical positivity, not merely testing a small matrix.",
+      "residual_risks": [
+        "Applies to completed step on finite symmetric positive stars, not individual implicit Gauss stages or arbitrary network topologies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive finite conductances; m≥2; symmetric star Laplacian; h≥0; no stagewise or nonlinear claim."
+  ],
+  "schema_version": 1
+}
