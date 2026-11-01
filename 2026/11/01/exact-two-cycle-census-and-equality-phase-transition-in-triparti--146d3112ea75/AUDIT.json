@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "All three positive part sizes, synchronous open-neighborhood majority and tie retention are explicit. A changing part necessarily toggles uniformly, a sole toggler is impossible, two togglers must be opposite and equal-sized with exact strict central-binomial weight window, and three togglers exist exactly with a unique largest part. All cases are disjoint and exhaustive. Independent direct-state and weighted aggregate checks agree on 89 and 1,137 triples, respectively; only the analytic proof establishes the infinite claim.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The published Majority C-colorings of complete multipartite graphs RESULT.md completely classifies STATIC half-neighborhood colorings and their counts, equivalent to fixed configurations, but does not count temporal two-cycles.",
+        "Adams et al., arXiv:1102.5361, Sections 1–4: irreversible conversions, so their dynamics cannot have primitive two-cycles.",
+        "Benjamini et al., arXiv:1405.2486, Introduction and period-two theorem: general existence of limiting periods but no all-parameter tripartite orbit count.",
+        "Voutsadakis (2004), author-hosted full article, Sections 3–4: count compression for Boolean functions of overall one-count on the complete graph, unlike a complete-tripartite update that excludes a different within-part subset for each vertex."
+      ],
+      "reasoning": "The possible dominating source on the same graph family addresses fixed points, while the older complete-multipartite dynamic source is monotone/irreversible. Neither implies the reversible periodic-orbit count. The theorem makes no new fixed-point claim.",
+      "searches": [
+        "Exact enumeration and structure of synchronous binary majority dynamics fixed points and primitive two-cycles on complete multipartite tripartite graphs with tie retention",
+        "three-part complete multipartite majority Boolean threshold with inactive group ties binomial formula",
+        "published-finding corpus: 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5",
+        "ON THE LIMIT CYCLE STRUCTURE OF THRESHOLD BOOLEAN NETWORKS OVER COMPLETE GRAPHS Voutsadakis pdf"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1102.5361",
+      "https://arxiv.org/abs/1108.2974",
+      "https://arxiv.org/abs/1405.2486",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7/RESULT.md",
+      "https://www.voutsadakis.com/RESEARCH/PUBLISHED/limcyc.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Adams et al. prove irreversible seed-conversion sizes rather than reversible two-cycle orbit counts.",
+        "Kuhlman et al. prove possible periods, not orbit frequencies by tripartite part sizes.",
+        "Majority C-colorings classify equilibria; equality of fixed points under a map does not imply equality of primitive two-orbit counts.",
+        "The previous balanced special case does not force unequal-size behavior, and the new proof supplies the exact missing phase-inequality analysis.",
+        "Voutsadakis (2004) computes limit-cycle structure for total-count-based symmetric functions over the complete graph; the tripartite majority neighbor count cannot be determined from overall ones alone."
+      ],
+      "reasoning": "The assessed claim is more specific than general period bounds and different from majority-C fixed-state classification. The original contribution is exactly the three-parameter two-cycle enumeration beyond the previously known diagonal, including all-distinct uniqueness and the equality phase boundary. The published XOR parity census operates a different update map.",
+      "searches": [
+        "arXiv:1102.5361 majority complete multipartite irreversible k-threshold",
+        "arXiv:1108.2974 synchronous threshold two cycles Goles Olivos",
+        "arXiv:1405.2486 majority tie retention period two",
+        "published-finding corpus: 2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kuhlman et al., arXiv:1108.2974, Theorem 3.1 and Appendix A: period at most two for synchronous threshold dynamics, no complete-tripartite multiplicity formula.",
+        "Previously established balanced specialization has \\(3(2^p-2)\\) primitive two-orbits on \\(K_{p,p,p}\\), which the new formula recovers but does not claim as original.",
+        "The exact phase classification here uses the equality of two part sizes; no equivalent all-unequal-size phase law was identified in the searched accessible literature."
+      ],
+      "reasoning": "A period-at-most-two theorem is not a two-cycle census. The known fully balanced case is only a one-parameter diagonal of the new three-parameter identity; it does not imply the generic all-distinct or exactly-two-equal regimes. Equivalent phase-based statements and binomial-window aliases were sought.",
+      "searches": [
+        "complete tripartite majority tie retention two cycle exact counts K_a,b,c fixed states tripartition part sizes",
+        "sharp symmetry-breaking temporal two-cycle counts majority complete tripartite graphs with pairwise distinct shore sizes",
+        "tripartite graph K_{a,b,c} strict-neighbor majority recurrent state count unique largest part versus equal sizes binomial central window |2r-c|<p"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing balanced \\(K_{p,p,p}\\) table/formula is covered and explicitly excluded from the novelty claim.",
+        "The published multipartite parity-census RESULT.md treats F(x)=Ax and F(x)=(I+A)x over F_2, not strict majority with ties.",
+        "Direct labelled enumeration for 89 triples and count-weighted enumeration for 1,137 triples test but do not substitute for literature originality."
+      ],
+      "reasoning": "No located exact majority-dynamics database or table gives the three-size central-binomial-window formula. The closest exact orbit database computes linear XOR dynamics, and its results are not reducible to the nonlinear threshold rule.",
+      "searches": [
+        "On balanced complete tripartite K_n,n,n synchronous binary majority tie retention exact two-cycle orbit counts 3(2^n-2) and fixed points",
+        "complete multipartite strict-majority two-cycles synchronous",
+        "published-finding corpus: 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+      ]
+    },
+    "rationale": "The novelty is restricted to exact two-cycle counts on arbitrary unequal complete tripartite part sizes and equality-phase transitions. Previously known fully balanced orbit counts and general period-two theorems, published fixed-state majority C-colorings, irreversible conversion theory, and XOR parity orbit counts do not imply the new unequal-size census in the primary material inspected. Risk of an unindexed equivalent remains.",
+    "residual_risks": [
+      "An older or differently named combinatorial threshold-network classification may contain an equivalent formula outside the searched accessible sources.",
+      "The previously known balanced specialization is covered and not claimed novel.",
+      "No independent external audit was conducted.",
+      "General symmetric threshold-network orbit-enumeration algorithms exist on complete graphs; a distinct encoding of a tripartite model could still yield related identities, but the inspected total-one-count algorithm does not directly imply this three-parameter formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING because irreversible, monotone seed conversion cannot support nontrivial two-cycles.",
+        "evidence": "Abstract explicitly defines permanently black conversion; Section 2 Theorem 1 addresses minimum conversion sets rather than reversible periodic orbits.",
+        "identifier_or_url": "https://arxiv.org/abs/1102.5361",
+        "material_read": "Full arXiv HTML rendering, especially Introduction, Section 2 on complete multipartite graphs and Sections 3–4 on graph products.",
+        "method": "Read available primary full text, compared update irreversibility, theorem outputs and quantified graph parameters.",
+        "title": "Irreversible k-threshold and majority conversion processes on complete multipartite graphs and graph products",
+        "trigger": "Same complete multipartite graph family and a majority-like update."
+      },
+      {
+        "assessment": "NOT_COVERING for the count: proves at most two as a period but no two-cycle multiplicity formula for all tripartite sizes.",
+        "evidence": "Theorem 3.1 and Corollary 3.6 conclude eventual fixed points or two-cycles; Appendix A proves period restriction.",
+        "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+        "material_read": "Full arXiv HTML rendering including Sections 1–4, Theorem 3.1 and Appendix A on limit cycle structure.",
+        "method": "Compared general period bounds and graph-family material against a primitive-cycle enumeration by individual tripartite size parameters.",
+        "title": "Bifurcations in Boolean Networks",
+        "trigger": "Possible dominating general theorem on all finite synchronous threshold systems."
+      },
+      {
+        "assessment": "NOT_COVERING the exact tripartite count; establishes rule and general/restricted-network convergence properties.",
+        "evidence": "Introduction defines tie retention and states classical finite-graph period-two theorem; remaining displayed results focus on unimodular and random graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Full arXiv HTML rendering, especially Introduction, definition (1.1), Theorem 1.1, and sections on infinite and random graphs.",
+        "method": "Checked the rule normalization, period restriction and presence or absence of exact complete tripartite orbit counts.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Exactly the strict majority with current-bit retention on ties."
+      },
+      {
+        "assessment": "COVERS the static half-half fixed-state calculation but NOT the temporal two-cycle formula, which is the only novel claim assessed.",
+        "evidence": "Its theorem classifies two-colorings as half of each part in each color, producing product binomial count, with no second-iterate versus first-iterate cycle census.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-majority-c-colorings-of-complete-multipartite-graphs--dd5898d7bbc5/RESULT.md",
+        "material_read": "Full directly fetched RESULT.md, including proof, verification and prior-work section.",
+        "method": "Translated majority C-coloring condition to fixed states of tie-retaining majority, then compared that static constraint with time-alternating primitive two-cycles.",
+        "title": "Majority C-colorings of complete multipartite graphs",
+        "trigger": "Same graph family with local majority and a theorem potentially equivalent to fixed points or broader dynamics."
+      },
+      {
+        "assessment": "NOT_COVERING: linear XOR updates over the binary field, rather than strict binary majority with tie retention.",
+        "evidence": "The theorem expressly defines self-inclusive and self-exclusive XOR operators and counts periods one, two, four for those maps.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7/RESULT.md",
+        "material_read": "Full directly fetched RESULT.md and its update definitions and proof.",
+        "method": "Compared Boolean update operators rather than shared terminology; XOR parity is linear and majority is nonlinear.",
+        "title": "Sharp period-four census for complete multipartite parity automata",
+        "trigger": "Same graph family and exact enumeration of nontrivial temporal cycles."
+      },
+      {
+        "assessment": "NOT_COVERING the tripartite formula: the algorithm requires each vertex function of the total number of ones across the full complete-graph input, whereas tripartite majority depends on that total minus a variable within-part count.",
+        "evidence": "Section 3 states one-count uniquely determines each next state for threshold Boolean network on complete graph; Section 4 uses a table indexed by global one-count for symmetric Boolean functions.",
+        "identifier_or_url": "https://www.voutsadakis.com/RESEARCH/PUBLISHED/limcyc.pdf",
+        "material_read": "All seven pages via PDF text plus screenshots of pages 5 and 6, including Sections 3–4 and examples.",
+        "method": "Compared assumptions of complete-graph local functions determined by total one-count versus complete-tripartite neighborhood counts excluding an entire part.",
+        "title": "On the limit cycle structure of threshold Boolean networks over complete graphs",
+        "trigger": "Potentially broader exact orbit-count algorithm for all symmetric Boolean networks; plausible implication of the present result."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "146d3112-ea75-44ee-b613-4ee5765f501d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural three-parameter primitive-orbit invariant exhibits a sharp symmetry-breaking contrast: exactly one temporal oscillation for every pairwise-distinct size triple, but potentially exponential multiplicities when two part sizes coincide. The explicit central binomial interval and odd/even boundary quantify this structural transition; this is not a mere fixed-point recount or a routine table recomputation.",
+    "status": "PASS"
+  }
+}
