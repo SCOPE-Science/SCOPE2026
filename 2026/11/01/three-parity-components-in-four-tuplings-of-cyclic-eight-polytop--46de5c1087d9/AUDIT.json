@@ -1,0 +1,95 @@
+{
+  "correctness": {
+    "rationale": "The r=4 construction is a 1-dimensional graph on all 4-subsets. Gale evenness identifies its facets with four disjoint cycle edges. Verified n=10 path base (210 vertices, 525 edges and one component per parity class), proved matching-cover lemma for the n-induction, verified odd wrap bridges and n=9 Kneser base. Each facet contributes 35 distinct graph edges split 1,16,18 across classes at even n; exact E-V+1 gives the claimed integral wedge ranks. The embedded standard-library checker was run on the actual source file.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem A of arXiv:2506.10436 gives weak Cohen–Macaulay dimension floor((7-4+1)/(4+1)) = 0 for this input, not connectedness or precise component data."
+      ],
+      "reasoning": "A weak Cohen–Macaulay dimension-zero conclusion permits disconnected complexes; it does not determine either three components at even n or the integer circle ranks. General four-hypergraph matching complexes contain additional edges.",
+      "searches": [
+        "simplicial r-tupling cyclic even-dimensional polytope boundary n vertices 4-subsets graph three components homotopy rank",
+        "matching graph of disjoint 4-subsets covering facet cyclic polytope C(n,8) connectivity",
+        "arxiv:2506.10436 Theorem A"
+      ]
+    },
+    "checked_sources": [
+      "K. Lesh, B. Schreiner and N. Wahl, The double of a simplicial complex, arXiv:2506.10436 (2025-06-12); Definition 2.1 and Theorem A.",
+      "Gale evenness criterion for cyclic polytopes; verified against independent finite Gale facet enumerations n=9..14.",
+      "Published mathematical-record searches for four-tupling, cyclic polytope dimension eight, and facet-complement graph parity classes."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lesh–Schreiner–Wahl, Theorem A, arXiv:2506.10436",
+        "Gale evenness facet criterion for even-dimensional cyclic polytopes"
+      ],
+      "reasoning": "The primary paper defines the construction and bounds weak connectivity, and Gale describes facets. Both are used as inputs, but the three path-component classes and explicit wrap bridges are new deductions requiring the proved combinatorial argument. Neither source directly implies the conclusion as a corollary.",
+      "searches": [
+        "arxiv:2506.10436 connectivity theorem r-tupling",
+        "\"r-tupling\" \"cyclic polytope\" graph homotopy",
+        "cyclic polytope facets Gale evenness disjoint edges of cycle theorem dimension 8"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lesh–Schreiner–Wahl, arXiv:2506.10436, Definition 2.1 defines the exact r-tupling; no cyclic-polytope specialization is stated in its full rendered text."
+      ],
+      "reasoning": "The graph on disjoint four-subsets whose union is a cyclic eight-polytope facet is the exact object; matching complexes without facet restriction or doubling (\\(r=2\\)) of four-polytopes are not equivalent.",
+      "searches": [
+        "four-tupling simplicial complex boundary cyclic polytope dimension 8 D_4 connected components parity wedge circles",
+        "\"r-tupling\" \"cyclic polytope\" graph homotopy",
+        "\"four-tupling\" \"cyclic\" simplicial complex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The reviewed cyclic-polytope material specifies Gale evenness and the facet structure, not the topology of the four-tupling.",
+        "Targeted published-mathematical-record searches returned topology calculations for other complexes, without an exact matching table for the four-tupling of the cyclic eight-polytope boundary."
+      ],
+      "reasoning": "Known facet tables are input combinatorics; they do not compute graph components for all n. No exact four-tupling homology table was identified.",
+      "searches": [
+        "Gale evenness cyclic 8 polytope four tupling independent clique matching graph",
+        "\"D^4\" \"cyclic polytope\" simplicial",
+        "four-tupling simplicial complex boundary cyclic polytope dimension 8 D_4 connected components parity wedge circles"
+      ]
+    },
+    "rationale": "The source introducing four-tupling gives a weak Cohen–Macaulay bound, not an exact component or fundamental group count; the present cyclic eight-polytope trichotomy is neither the unrestricted hypergraph matching graph nor implied by known two-tupling cyclic four-polytope results. Targeted external-literature and published-mathematical-record searches found no equivalent claim, but uncatalogued equivalents remain possible.",
+    "residual_risks": [
+      "Equivalent unindexed or differently named facet-complement graph connectivity results may exist.",
+      "The theorem does not address full equivariant homotopy types or higher r."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides definition and weak Cohen–Macaulay bound but no cyclic eight-polytope family or component trichotomy",
+        "evidence": "Definition 2.1; Theorem A; text sections 2–3; original first-posting timestamp June 12 2025",
+        "identifier_or_url": "https://arxiv.org/abs/2506.10436",
+        "material_read": "Rendered full article text including Introduction, Definition 2.1, Theorem A, Sections 2–4, and references",
+        "method": "Full-text examination and search for cyclic-polytope and component specialization",
+        "title": "The double of a simplicial complex",
+        "trigger": "Original construction and potential general theorem implying the result"
+      },
+      {
+        "assessment": "Supports the facet description, not the new four-tupling classification",
+        "evidence": "Gale evenness definition and the independent finite comparisons in verify.py",
+        "identifier_or_url": "https://en.wikipedia.org/wiki/Cyclic_polytope",
+        "material_read": "Definition, neighborliness, and evenness-criterion passages",
+        "method": "Read published exposition and compare with direct independent enumeration for n=9..14",
+        "title": "Cyclic polytope: Gale evenness condition",
+        "trigger": "Independent classical facet characterization used in proof"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46de5c10-87d9-44b1-be6a-b15ee8aed5d2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical family of simplicial seven-spheres has a natural newly defined four-tupling whose exact connectivity is not supplied by the general theorem. A three-way parity split at the smallest tuple size where the invariant permits three classes (odd: connected, even: three components) is explained by a uniform path induction and two wrap bridges, and explicit infinite-family fundamental-group ranks give nontrivial topological data beyond standard facet counting alone.",
+    "status": "PASS"
+  }
+}

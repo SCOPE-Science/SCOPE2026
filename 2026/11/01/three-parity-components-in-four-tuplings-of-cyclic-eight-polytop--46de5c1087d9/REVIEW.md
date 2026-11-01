@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The proof uses the exact four-tupling definition and cyclic-polytope Gale facets. The entire 210-vertex path-graph base is checked, the marked-vertex matching lemma is proved for every sufficiently long path, and induction preserves precisely three path-component classes. An explicit wrap facet merges all three when the cyclic length is odd. Unique facet unions prevent edge overcounting; exact graph Euler characteristics yield the integral wedge types. The finite script separately corroborates the theorem, but the induction bears the universal quantifier.
+
+**Originality — PASS, subject to discovery limitations.** The primary 2025 paper [1] proves general weak Cohen–Macaulay connectivity, not these component counts or homotopy ranks. Its reviewed definitions and proof sections do not specialize to cyclic polytopes. A previous calculation concerning doubles of cyclic four-polytopes does not imply the present first three-component classification: the present four-tupling has different-dimensional input, four-subset vertices, and a third component class. Targeted source, notation, equivalence and stronger-coverage searches found no statement covering the claimed infinite family; equivalent unindexed literature remains a risk. General four-uniform hypergraph matching-complex results concern a strictly larger graph of pairs and cannot determine these restricted facets.
+
+**Mathematical value — PASS.** The cyclic polytope is a canonical highly neighborly simplicial sphere and four-tupling is a recently introduced natural topological construction. The finding reveals a sharp odd/even transition between connectedness and **three** components, identifies the first possible three-valued parity-complement invariant rather than another two-component example, and calculates all integral fundamental-group ranks uniformly. The mechanism (path-facet induction and two parity-changing wrap bridges) explains the effect rather than merely enumerating examples.
+
+The complete homotopy formula is limited to four-tuplings of cyclic eight-polytope boundaries, not arbitrary inputs. Its homotopy equivalences are ordinary, not equivariant. An unindexed equivalent computation remains possible.
+
+Self-review: passed. Independent audit: not yet performed.
