@@ -1,0 +1,90 @@
+# Vertex-angle ordering and sharp anisotropy constants for orthogonal simplices
+
+## Finding
+
+Let \(d\ge2\), let \(a_1,\ldots,a_d>0\), and let \(T=\operatorname{conv}\{0,a_1e_1,\ldots,a_de_d\}\subset\mathbb R^d\). Write \(p_i\) for the spherical solid angle at \(a_ie_i\), **divided by the total area of the unit sphere**; \(p_0\) denotes the normalized angle at the origin. The full vertex-angle ordering is
+\[
+p_i\le p_j\ \Longleftrightarrow\ a_i\ge a_j\qquad(1\le i,j\le d),
+\]
+with strict inequality whenever the lengths differ. Moreover \(p_0=2^{-d}>p_i\) for all \(i>0\). In particular, precisely the endpoints of the longest orthogonal legs minimize the solid angle.
+
+Set \(L=\max_i a_i\) and \(Q=\prod_{j=1}^d a_j/L^d\). The minimum normalized solid angle \(p_*:=\min_{0\le i\le d}p_i\) obeys the **sharp** dimension-dependent two-sided estimate
+\[
+\boxed{\ C_d Q\ \le\ p_*\ <\ U_d Q\ },
+\qquad U_d=\frac{\Gamma(d/2)}{2(d-1)!\pi^{d/2}},
+\]
+where the positive explicitly specified constant
+\[
+C_d=(2\pi)^{-d/2}\!\int_{[0,\infty)^d}
+\exp\!\left[-\tfrac12\left((z_0+\cdots+z_{d-1})^2+
+\sum_{j=1}^{d-1}z_j^2\right)\right]\,dz_0\cdots dz_{d-1}.
+\]
+Equality in the lower estimate occurs **exactly when all legs have equal lengths**. The upper constant cannot be attained by a nondegenerate simplex, but is optimal: if one leg remains fixed and all other legs shrink in ratio to it, the quotient \(p_*/Q\) tends to \(U_d\).
+
+For \(d=2\), \(C_2=1/8\) and \(U_2=1/(2\pi)\). For \(d=3\),
+\[
+C_3=\frac{1}{2\pi}\arctan(3-2\sqrt2),\qquad U_3=\frac{1}{8\pi}.
+\]
+More precisely, with \(\{i,j,k\}=\{1,2,3\}\) and \(a_i=L\), the angle is exactly
+\[
+\boxed{\ p_*=\frac{1}{2\pi}\arctan\left(
+\frac{a_ja_k}{(L+\sqrt{L^2+a_j^2})(L+\sqrt{L^2+a_k^2})}
+\right).\ }
+\]
+For fixed other leg lengths and \(L\to\infty\),
+\[
+p_*\sim U_d\,\frac{\prod_{j\ne i}a_j}{L^{d-1}}.
+\]
+Consequently this degeneration asymptotically attains the coefficient \(d\) in the known general bound \(d\mu(T)\le\Omega_{\min}(T)\), with \(\mu(T)=\operatorname{vol}_d(T)/\operatorname{diam}(T)^d\) and \(\Omega_{\min}(T)=|S^{d-1}|p_*\).
+
+## Assumptions and scope
+
+All \(d\) legs are strictly positive, so the simplex is nondegenerate. The angles are Gaussian cone probabilities, not steradian measurements; multiply each \(p_i\) by \(|S^{d-1}|=2\pi^{d/2}/\Gamma(d/2)\) to obtain the conventional absolute solid angle. The sharp constants depend only on dimension and are not asserted to be elementary for dimensions exceeding three. No assertion concerns arbitrary, nonorthogonal simplices.
+
+## Proof
+
+**1. Cone events and vertex ranking.** At the origin, the tangent cone is \(\mathbb R_+^d\), hence \(p_0=2^{-d}\). At vertex \(a_ie_i\), barycentric nonnegativity gives the cone
+\[
+\mathcal C_i=\left\{x:x_j\ge0\ (j\ne i),\quad
+x_i+\sum_{j\ne i}\frac{a_i}{a_j}x_j\le0\right\}.
+\]
+Let \(G_1,\ldots,G_d\) be independent standard normal variables. Radial normality implies \(p_i=\mathbb P\{G\in\mathcal C_i\}\). Each \(p_i<p_0\), since conditioned on strictly positive other coordinates, the remaining normal must be smaller than a strictly negative number rather than merely negative.
+
+For \(i\ne k\), relabel the independent variables in the probability defining \(p_k\) by interchanging coordinates \(i,k\). If \(a_i\ge a_k\), then the condition for \(p_i\), after this relabeling, has coefficient \(a_i/a_k\) on the single shared positive coordinate, and coefficients \(a_i/a_j\) for every other positive coordinate; all are at least those in the relabeled condition for \(p_k\). Thus its Gaussian event is contained in the other event. If \(a_i>a_k\), this inclusion is strict on a nonempty open set of positive Gaussian measure. Reversing the roles proves the displayed equivalence, including ties.
+
+**2. Exact orthant integral.** Fix a longest leg \(a_i=L\), write \(t_j=a_j/L\), and put \(z_j=G_j/t_j\) for \(j\ne i\) and \(z_0=-G_i-\sum_{j\ne i}z_j\). In \(\mathcal C_i\), the transformed variables are nonnegative and the Jacobian has modulus \(Q=\prod_{j\ne i}t_j\). Thus
+\[
+p_*=Q(2\pi)^{-d/2}\int_{[0,\infty)^d}
+\exp\left[-\tfrac12\left(\bigl(z_0+\sum_{j\ne i}z_j\bigr)^2
++\sum_{j\ne i}t_j^2z_j^2\right)\right]dz.
+\]
+Because \(0<t_j\le1\), dropping the nonnegative final summation bounds the integral from above, while replacing every \(t_j\) by \(1\) bounds it from below. The lower integral equals \(C_d\); equality forces every \(t_j=1\), since the positive orthant has full measure. The upper inequality is strict because all \(t_j>0\). Dominated convergence as \(t_j\downarrow0\) gives sharpness of \(U_d\). For the upper integral, the simplex-slice identity
+\[
+\int_{[0,\infty)^d} f(\sum z_j)\,dz
+=\frac{1}{(d-1)!}\int_0^\infty s^{d-1}f(s)\,ds
+\]
+and the gamma integral yield exactly \(U_d\).
+
+**3. Low dimensions.** For \(d=2\) the angle at the endpoint of the longer leg is \(\arctan(a_{\rm shorter}/L)\), giving \(C_2=1/8\). In \(d=3\), the tangent cone at the longest-leg endpoint is generated by three rays with respective directions \(-e_i\), \((-Le_i+a_je_j)/\sqrt{L^2+a_j^2}\), and \((-Le_i+a_ke_k)/\sqrt{L^2+a_k^2}\). The standard spherical trihedral identity \(\tan(\Omega/2)=|\det(u,v,w)|/[1+u\cdot v+v\cdot w+w\cdot u]\) gives the stated arctangent after cancellation, since \(p_*=\Omega/(4\pi)\). Substituting equal legs establishes \(C_3\).
+
+**4. Anisotropic limit and completeness.** Dominated convergence in step 2 yields \(p_*/Q\to U_d\) when the remaining legs are negligible compared with a unique longest leg. If the other legs are fixed and \(L\to\infty\), then \(Q=\prod_{j\ne i}a_j/L^{d-1}\), proving the asymptotic. Also \(\operatorname{vol}_d(T)=\prod a_j/d!\) and \(\operatorname{diam}(T)=\sqrt{L^2+L_{(2)}^2}\), where \(L_{(2)}\) is the second largest length. Therefore \(\mu(T)\sim Q/d!\), while \(|S^{d-1}|U_d d!=d\), proving sharpness of the cited general coefficient within these right simplices. This does not claim novelty for that preexisting general inequality.
+
+## Verification
+
+The standalone script `verify.py` tests vertex-angle rankings and equality cases, the sharp envelopes in dimensions two and three, the independently evaluated Gaussian-orthant and spherical-trihedral expressions, the gamma integral for the sharp upper constant in dimensions two through nine, and the anisotropic limiting rate. Run `python verify.py` with Python 3.9+ and SciPy. A passing finite test suite is not an infinite proof; steps 1–4 supply the latter.
+
+## Relationship to prior work
+
+Licht (2026, arXiv:2610.05883, Sections 3–4) established general solid-angle/fullness inequalities and used Gaussian orthant integrals; his Example 3.2 analyzes a different degenerating simplex family. The present statement specializes to all coordinate-orthogonal simplices and supplies the exact worst-vertex ordering, sharp dimension-only product anisotropy constants, and a three-dimensional formula. Dompierre et al. (2003, 2005) discuss minimum-angle simplex quality measures; existing elementary tetrahedron solid-angle formulas are also credited. Akopyan and Karasev (2015/2016) consider maximal possible minimum solid angles, a different optimization question. These general results are not represented as new.
+
+## Limitations
+
+The constants are sharp inside the stated orthogonal family, not among all simplices. The three-dimensional closed formula is an application of an established trihedral-angle identity; its elementary reduction alone is not asserted to be historically new. The comparison with other publications cannot exclude all unindexed equivalent statements. Strict inequalities do not extend to degenerate zero-length legs, which are outside the theorem's domain. An independent mathematical audit has not been performed.
+
+## References
+
+1. M. W. Licht, *On solid angles and simplex shape measures*, arXiv:2610.05883v1 (2026-10-05), https://arxiv.org/abs/2610.05883.
+2. J. Dompierre, M.-G. Vallet, P. Labbé, and F. Guibault, *On simplex shape measures with extension for anisotropic meshes*, CERCA R2003-10 (2003); https://www.researchgate.net/publication/236578194_On_Simplex_Shape_Measures_with_Extension_for_Anisotropic_Meshes.
+3. J. Dompierre et al., *An analysis of simplex shape measures for anisotropic meshes*, Comput. Methods Appl. Mech. Eng. 194 (2005), 4895–4914, doi:10.1016/j.cma.2004.11.018.
+4. A. Akopyan and R. Karasev, *Bounding minimal solid angles of polytopes*, arXiv:1505.05263 (2015/2016), https://arxiv.org/abs/1505.05263.
+5. A. Van Oosterom and J. Strackee, *The solid angle of a plane triangle*, IEEE Trans. Biomed. Eng. BME-30 (1983), 125–126.
