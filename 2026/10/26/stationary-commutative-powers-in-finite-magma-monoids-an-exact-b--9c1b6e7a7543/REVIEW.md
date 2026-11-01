@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The algebraic identity between magma powers and iterates of swap-equivariant maps is verified directly. The consecutive-power-stationarity condition rules out *all* nontrivial cycles, while commutativity of the stabilized power forces every remaining root onto the diagonal. The fixed-root diagonal forest determinant \(\det(nI-J)=r n^{n-r-1}\) and weighted free-orbit determinant \(\det((n+2m)I-2J)=n(n+2m)^{m-1}\) reconstruct the exact coefficient formula, including the boundary \(r=n\). The distribution, asymptotic, and sharp depth bound then follow. Exhaustive independent enumeration at \(n=2,3\) agrees for each individual operation with the functional-graph characterization. Risk: no finite enumeration independently proves the general case; the proof supplies the infinite argument.
+## correctness
 
-## Originality — PASS, qualified
-The 2026 Baiduk–Kozerenko paper supplies the equivariant-transformation representation, ideals and idempotent/regular-element enumeration. The 2026 López-Permouth paper fully characterizes powers already idempotent at exponent one, rather than the new stationary-commutative limit-rank distribution. The separate formula for every limiting rank, its generating polynomial, Poisson limit and sharp stabilization depth were not found in these inspected papers or targeted published-literature comparisons. The classical directed matrix-tree theorem is explicitly identified as background. A 2022 foundational journal article could not be read in full, and its potentially overlapping specialized results remain a genuine priority risk. No absolute first-discovery claim is made.
+PASS
 
-## Mathematical value — PASS
-The monoid of all binary operations is a natural object of recent semigroup-theoretic investigation. Asymptotic power behavior is an intrinsic semigroup invariant; the exact distribution here distinguishes rare convergence to a commutative limit from ubiquitous eventual periodicity and describes the limiting image rank, not just existence. The probability \(1/n^2\), exact binomial conditional law, Poisson limit and sharp depth are substantive structural consequences for every cardinality, not small-parameter experimentation or a new name for a known idempotent enumeration.
+For T_f(a,b)=(f(a,b),f(b,a)), multiplication f◁g corresponds exactly to function composition T_g ∘ T_f. Each tau-equivariant T on X² comes from a unique binary operation f. Stationarity of consecutive powers is equivalent to every directed cycle being a fixed point; stabilized commutativity requires its image to lie on diagonal D, hence all cycles are diagonal fixed roots. Choose r such roots in C(n,r) ways. The diagonal map is a fixed-root directed forest counted by r*n^(n-r-1), with r=n boundary value 1. Each of the m=C(n,2) free flip-pair orbits points to a diagonal target with weight 1 or to another free orbit with weight 2, with no directed cycles. The weighted forest Laplacian (n+2m)I_m-2J_m has determinant n(n+2m)^(m-1)=n(n²)^(m-1). Independent diagonal and free-orbit choices give C(n,r) r n^(n²-r-2). Summation and normalization yield the binomial law and Poisson limit; all nonroot forest vertices form a path of length n+m-r in a sharp example. Independent defining-power enumeration of all 16 n=2 and 19,683 n=3 magma operations recovered rank counts (4,2), (2187,1458,243); these finite enumerations do not prove general n.
 
-## Residual limitations
-The result is restricted to labeled finite operations, consecutive stabilization and commutative stable powers. It does not enumerate periodic nonstationary powers or rank up to isomorphism. A full-text comparison with the 2022 foundational article remains unavailable. Exhaustive computation was performed only for \(n=2,3\), and independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The existing 2026 open primary article proves exact one-step idempotent and kernel-cokernel counts, not the entire eventual commutative stable-power rank distribution. Baiduk–Kozerenko 2026 establishes equivariant transformation apparatus and related idempotent/regular enumeration, an acknowledged dependence. The specific forest rank polynomial and sharp depth are not in inspected materials; inaccessible full 2026 and 2022 foundational articles are genuine priority uncertainties.
+
+## value
+
+PASS
+
+Eventual stationary/commutative behavior of the natural binary-operation monoid is a structural dynamical question distinct from one-step idempotence. The exact rank profile, sharp maximal convergence depth and asymptotic rarity are natural semigroup invariants, with a non-obvious binomial-to-Poisson phenomenon over every labelled n. The weighted equivariant-forest reduction is reusable rather than a renaming exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
