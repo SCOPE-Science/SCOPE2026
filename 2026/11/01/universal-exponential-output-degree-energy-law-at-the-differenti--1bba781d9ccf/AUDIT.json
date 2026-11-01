@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For fixed -1<alpha<0, the normalized monomial matrix coefficient is (n+1)/(n+k+1)*sqrt(w_n(beta)/w_k(alpha)). Tonelli converts its squared row sum to the integral S_n. The exact beta sandwich for n>=1 uses 0<=-log(t)-(1-t)<=(1-t)^2/(2*t). Gamma-ratio Stirling is uniform for 0<=delta<=1/2 and gives E_n=C_alpha(delta)(n+1)^(-1-delta)+O((n+1)^(-2-delta)), with summable error independent of delta. Integral comparison proves critical C_alpha*log(N), total C_alpha/delta, and a uniform O(1) estimate for partial p-series at exp(s/delta), including the floor. Division gives a Kolmogorov-uniform O(delta) exponential-law error. The auxiliary standard-library checker passed at n=10,100,1000; numerical finite tests are not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The high-p generalized Hilbert result studies weighted-Bergman operator norm damping under a parameter b.",
+        "The dimension-driven Hilbert--Schmidt result studies measure-induced Cesaro operators on complex balls in dimension at least two.",
+        "The generalized Cesaro singular-value result concerns a matrix with geometric off-diagonal weights on l2."
+      ],
+      "reasoning": "Although these works share Bergman/Hilbert/Schatten vocabulary, their operators, distinguished parameters, and observables differ. None of their listed general statements implies the differential-Hilbert output-row distribution. Li--Zhou gives broad compactness/Schatten coverage but the stronger qualitative membership fact does not imply the new quantitative law.",
+      "searches": [
+        "The differential Hilbert operator H2 between weighted Bergman Hilbert spaces exact divergence constant of Hilbert-Schmidt norm as beta approaches alpha plus two Gamma(alpha plus four) Gamma(-alpha)",
+        "Weighted Hilbert matrix compact trace class critical Sobolev Bergman boundary beta alpha+2 Hilbert Schmidt norm asymptotics Abelian zeta logarithmic divergence",
+        "Exact singular value and Schatten norm asymptotics near compactness transition differential Hilbert operator integral 1/(1-tz)^2",
+        "Published finding: Critical high-p damping for generalized Hilbert norms",
+        "Published finding: Dimension-driven Hilbert--Schmidt phase transition for measure-induced Cesaro operators on Bergman balls",
+        "Published finding: Exact singular-value coefficient of generalized Cesaro operators on Hilbert space"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.05672 (Li--Zhou, original rendered full text, Section 4)",
+      "arxiv:1510.05455 (Peláez--Seco, abstract/introduction/main theorem)",
+      "DOI:10.1515/math-2022-0559 (accessible article introduction)",
+      "DOI:10.1016/j.jmaa.2021.125553 (abstract only)",
+      "Published finding: Critical high-p damping for generalized Hilbert norms",
+      "Published finding: Dimension-driven Hilbert--Schmidt phase transition for measure-induced Cesaro operators on Bergman balls",
+      "Published finding: Exact singular-value coefficient of generalized Cesaro operators on Hilbert space",
+      "Published finding: Hilbert--Schmidt Copson model and Fredholm circle at the logarithmic Hilbert-matrix endpoint",
+      "Published finding: Three-regime boundary defect of weighted Bergman kernel norms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li--Zhou classifies the Schatten regime and gives an exact double sum, but no output-frequency probability measure or near-critical Kolmogorov error.",
+        "Peláez--Seco characterizes generalized Hilbert Schatten classes in a distinct on-space operator setting."
+      ],
+      "reasoning": "One can deduce row formulas from the prior operator definition, but the uniform all-degree asymptotics, exact residue, and especially the exponential probability law do not follow from stated bounds alone. The present proof supplies this intermediate analysis. Scope is not falsely inflated to a new Schatten criterion or singular-value result.",
+      "searches": [
+        "The differential Hilbert operator H2 between weighted Bergman Hilbert spaces exact divergence constant of Hilbert-Schmidt norm as beta approaches alpha plus two Gamma(alpha plus four) Gamma(-alpha)",
+        "Exponential law log output degree Hilbert Schmidt row energy near critical two-weight differential Hilbert operator H2 Bergman alpha beta alpha+2+epsilon",
+        "Nearcritical Hilbert Schmidt norm crossover 1-exp(-lambda) beta-alpha-2 times log frequency truncation differential Hilbert Bergman",
+        "arxiv:2610.05672 Theorem 4.4",
+        "arxiv:1510.05455 Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li--Zhou Theorem 4.4 represents the squared Hilbert--Schmidt norm as a positive double series of the same input/output coefficients.",
+        "The new claim concerns uniform distribution of row energies under the nontrivial scaling delta*log(n+1), not merely an infinite total."
+      ],
+      "reasoning": "Rewriting the double series by output row recovers the exact E_n formula but does not itself establish the exponential scaling distribution. Neither the distribution nor a uniform O(delta) bound is stated in the inspected source. The proof establishes these via a uniform summable remainder and sharp comparison to the zeta tail.",
+      "searches": [
+        "Exponential law log output degree Hilbert Schmidt row energy near critical two-weight differential Hilbert operator H2 Bergman alpha beta alpha+2+epsilon",
+        "Output-mode Hilbert Schmidt energy equidistribution exponential measure under delta log n compactness threshold gamma constant",
+        "arxiv:2610.05672 Section 4 Theorem 4.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic lookup returned analogous logarithmic operator/crossover records but none for the cross-weight differential Hilbert row-distribution formula.",
+        "The gamma coefficient and exponential profile are proved symbolically for a continuum of alpha and delta, not inferred from a numerical table."
+      ],
+      "reasoning": "A spectral Fredholm-circle result and weighted Bergman kernel boundary-defect law involve different quantities. No matching exact data table or derived formula appeared in the actual searched records; this negative search result is not a proof of absolute priority.",
+      "searches": [
+        "Output-mode Hilbert Schmidt energy equidistribution exponential measure under delta log n compactness threshold gamma constant",
+        "Nearcritical Hilbert Schmidt norm crossover 1-exp(-lambda) beta-alpha-2 times log frequency truncation differential Hilbert Bergman",
+        "Published finding: Hilbert--Schmidt Copson model and Fredholm circle at the logarithmic Hilbert-matrix endpoint",
+        "Published finding: Three-regime boundary defect of weighted Bergman kernel norms"
+      ]
+    },
+    "rationale": "The inspected source Li--Zhou establishes the Hilbert--Schmidt membership threshold and an exact double series, but not the logarithmically rescaled output-energy probability law or a Kolmogorov bound uniform in all thresholds. Deriving the latter requires an explicit row summation, logarithm/Beta control, uniform gamma-ratio estimates and a uniform cutoff argument. Six topical searches of published mathematical records found no statement implying this distribution. Closest entries address a high-p norm of a different generalized Hilbert operator, a higher-dimensional Cesaro operator, and singular values of other operators, not these row masses. This remains same mathematical model historical originality assessment; a full-text 2022 Bergman predecessor was inaccessible and is an explicit risk.",
+    "residual_risks": [
+      "An equivalent near-critical rowwise energy calculation could be implicit in prior operator-theory sources; database search is not priority proof.",
+      "Full primary text of the 2022 derivative-Hilbert Bergman article was not materially inspected; only the abstract was available.",
+      "Independent audit of the new theorem and historical priority has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERING for original Hilbert--Schmidt representation and threshold; NOT COVERING in inspected text for exponential output-degree energy distribution or uniform near-critical Kolmogorov bound",
+        "evidence": [
+          "Theorem 4.4 has a double sum for Hilbert--Schmidt squared norm; abstract asserts membership exactly for beta>alpha+2.",
+          "The inspected analysis contains no distribution over output degree scaled by (beta-alpha-2)*log(n+1)."
+        ],
+        "identifier_or_url": "arxiv:2610.05672; https://arxiv.org/abs/2610.05672",
+        "material_read": "Original arXiv HTML full text, including introduction, definitions, Theorem 4.4 and surrounding Section 4 proof and references",
+        "method": "Full rendered primary text and specific theorem/parameter/row-matrix comparison",
+        "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+        "trigger": "Identical cross-weight differential-Hilbert operator and sharp compactness boundary"
+      },
+      {
+        "assessment": "Related but different generalized Hilbert operator; inspected statements do not cover cross-weight differential-Hilbert output-row distribution",
+        "evidence": [
+          "The principal investigated generalized Hilbert operators act on weighted analytic spaces and concern Schatten membership."
+        ],
+        "identifier_or_url": "arxiv:1510.05455; https://arxiv.org/abs/1510.05455",
+        "material_read": "Rendered original abstract, introduction and first main theorem, including hypotheses and operator definition",
+        "method": "Direct comparison of input/output spaces, kernel and Schatten observable",
+        "title": "Schatten classes of generalized Hilbert operators",
+        "trigger": "Potential broad Schatten result for Hilbert-type analytic operators"
+      },
+      {
+        "assessment": "Dirichlet-space boundedness/compactness theory, not the weighted Bergman near-critical row-energy distribution in accessible material",
+        "evidence": [
+          "The main setting is Dirichlet rather than cross-weight Bergman Hilbert spaces."
+        ],
+        "identifier_or_url": "DOI:10.1515/math-2022-0559",
+        "material_read": "Accessible publisher HTML title, abstract and introductory claims",
+        "method": "Compare domain spaces and observable",
+        "title": "A derivative-Hilbert operator acting on Dirichlet spaces",
+        "trigger": "Same derivative-Hilbert family and plausible operator extension"
+      },
+      {
+        "assessment": "Possible historical priority source; exact implication cannot be determined from accessible material and is retained as residual risk",
+        "evidence": [
+          "The publicly accessible description concerns boundedness and compactness and does not state a spectral row-distribution formula; full body uninspected."
+        ],
+        "identifier_or_url": "DOI:10.1016/j.jmaa.2021.125553",
+        "material_read": "Bibliographic record and accessible abstract only; full text unavailable",
+        "method": "Compare publicly accessible abstract; unresolved full-paper implication",
+        "title": "A derivative-Hilbert operator acting on Bergman spaces",
+        "trigger": "Earlier paper explicitly about derivative-Hilbert on Bergman spaces"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1bba781d-9ccf-43d9-8bc9-5a63f0d5db25",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The bounded/compactness threshold beta=alpha+2 is an intrinsic transition in a published differential-Hilbert operator problem. Merely identifying Hilbert--Schmidt membership loses how mass escapes into high output monomial degrees. The new theorem quantifies precisely that escape, proving exponential-in-1/delta index scale, the exact gamma-function residue, and a uniform distribution profile with rate; this provides a concrete resolution-scale invariant relevant to approximating a nearly non-Hilbert--Schmidt operator. The observable is the natural output-degree decomposition of the actual squared Hilbert--Schmidt norm, not an arbitrary numerical slice. No singular-value or universal alpha assertion is made.",
+    "status": "PASS"
+  }
+}
