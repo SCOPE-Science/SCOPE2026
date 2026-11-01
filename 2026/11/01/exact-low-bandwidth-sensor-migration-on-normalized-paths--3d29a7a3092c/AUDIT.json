@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Exact normalized path eigenvectors yield the determinant ratio for every complex spectral response with distinct selected multipliers. The three-mode absolute cosine polynomial and four-mode cubic give strict global comparisons, including all finite ties. The general theorem uses a uniform cosine-product inequality plus a nearest-integer argument. The standalone standard-library implementation independently builds graph matrices and checks 5641 assertions, but the analytical proof handles the infinite ranges. No unproved numerical extrapolation is required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marques et al. (2015/2016), sections III and IV, derive Vandermonde recovery and general experimental-design criteria but do not optimize the normalized path first four modes for every path order.",
+        "Bulai et al. arXiv:2609.25472 (first submitted 2026-09-21), publicly accessible abstract says finite-path analysis is numerical and concerns frame bounds/conditioning; full text was unavailable.",
+        "Published published-finding corpus full-spectrum path optimization establishes endpoints for all modes, whereas for fixed small m and large n the current theorem gives one-step inward sensors."
+      ],
+      "reasoning": "A theorem about all modes on a path is not a stronger conclusion about an independently chosen strict low-pass subspace. Generic graph-recovery and D-optimal criteria leave a vertex maximization unresolved. The inaccessible new article is an originality risk; its accessible abstract does not report the exact threshold and tie classification, and no stronger statement was actually observed.",
+      "searches": [
+        "low-pass normalized path dynamic sampling first four eigenvectors optimal single vertex D-optimal determinant endpoint inward transition",
+        "graph dynamical sampling optimal vertex path determinant low-pass first eigenvectors time samples 2024 2025",
+        "arxiv:2609.25472",
+        "doi:10.1109/TSP.2015.2507546"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.25472",
+      "doi:10.1109/TSP.2015.2507546",
+      "doi:10.1093/imaiai/iaae012",
+      "2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+      "2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General observation factorization: Marques et al. PDF pp. 4-6, §§III-B–IV-B; the D-optimal noise criterion is explicitly present.",
+        "Full-spectrum result summary states endpoint maximization, unlike the strict low-pass inward-neighbor optimum.",
+        "2026 motivating paper abstract discusses numerically varying numbers of iterates and sensor locations, without a visible analytic all-order classification."
+      ],
+      "reasoning": "The present result adopts the known Vandermonde algebra and proves additional quantified extremal inequalities. Its new implication is a bandwidth-dependent reversal of the endpoint optimum and exact exceptional ties. It does not claim a novel Vandermonde factorization, a novel general graph-sampling principle, or a condition-number optimum.",
+      "searches": [
+        "doi:10.1109/TSP.2015.2507546",
+        "low-pass normalized path dynamic sampling first four eigenvectors optimal single vertex D-optimal determinant endpoint inward transition",
+        "arxiv:2609.25472"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Marques et al. 2015 author PDF https://www.seas.upenn.edu/~aribeiro/preprints/2015_marques_etal.pdf, section III-B Vandermonde factorization and section IV-B D-optimal design; indexed search yielded no exact normalized-path low-band optimizer classification.",
+        "Published published-finding corpus hit 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f concerns full-spectrum endpoint optimizers."
+      ],
+      "reasoning": "The determinant objective is equivalent to maximizing the product of absolute values of the first m normalized cosine eigenvectors at a vertex; this equivalence is made explicit as ratio (1). A general graph-shift Vandermonde factorization does not solve the nontrivial cosine-product maximization or enumerate low-bandwidth exceptional ties. The indexed full-spectrum path result uses m=n and has endpoint optimizers, whereas this claim proves immediate-neighbor optima in large paths when m<n.",
+      "searches": [
+        "D-optimal single node dynamical sampling normalized path graph first three four lowest Laplacian eigenmodes sensor inward one vertex exceptions N=7 N=9 cosine product determinant",
+        "\"D-optimal\" \"path graph\" \"single sensor\" \"dynamical\"",
+        "\"normalized path\" \"determinant\" \"low-pass\" \"sensor\" Fourier"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search closest IDs: 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f and 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818.",
+        "Accessible own ledger contains 159 research findings; text search of recovered claims for normalized path/dynamical sampling/graph Paley-Wiener returned no match."
+      ],
+      "reasoning": "The closest table or exact-determinant result concerns full-spectrum normalized paths, and the other concerns spectral-demixed two-sensor cycles. Neither covers single-vertex low-pass normalized paths with m=2,3,4, or arbitrary m under the proven size threshold. Results were compared by domain and implication, not by matching keywords alone.",
+      "searches": [
+        "single sensor lowpass graph path normalized Laplacian optimal location first inner vertex cosine product m bands D-optimal sharp N=7 N=9",
+        "normalized path graph sensor determinant lowpass m eigenmodes universal threshold N 3 m^(3/2)",
+        "D-optimal single node dynamical sampling normalized path graph first three four lowest Laplacian eigenmodes sensor inward one vertex exceptions N=7 N=9 cosine product determinant"
+      ]
+    },
+    "rationale": "The substantive new statement is a complete all-n classification of D-optimal single-vertex sensors for the first 2, 3 and 4 normalized-path eigenmodes, with exact exceptional ties, plus a general all-bandwidth sufficient theorem. The known general Vandermonde decomposition is a premise, not this extremal classification. The closest indexed full-spectrum endpoint theorem concerns a different (all-eigenmode) domain and cannot imply the inward-neighbor optimum for strict low bands. Full text of arXiv:2609.25472 was not retrievable, so priority remains provisional.",
+    "residual_risks": [
+      "Full text of arxiv:2609.25472 was not accessible; a theorem or appendix therein could sharpen or reproduce the classification.",
+      "Additional unindexed earlier sensor-design studies could contain equivalent closed-form path optimizers.",
+      "The 2015 general Vandermonde and D-optimal criteria are pre-existing; only the quantified normalized-path extremal classification and general localization threshold are asserted to add mathematical information."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General framework covers determinant factorization as a known lemma, but not the explicit normalized-path low-pass optimum or exceptions.",
+        "evidence": "PDF pages 1,4-6; equations (7)-(13) and (21)-(33).",
+        "identifier_or_url": "https://www.seas.upenn.edu/~aribeiro/preprints/2015_marques_etal.pdf",
+        "material_read": "Abstract/introduction, sections III-B and IV-B and their displayed equations, including the Vandermonde factorization and D-optimal node-selection discussion.",
+        "method": "Opened parsed PDF and inspected rendered page 4; searched the PDF for determinant and optimal-node sections.",
+        "title": "Sampling of graph signals with successive local aggregations",
+        "trigger": "Most directly related general graph-shift single-node determinant sampling method."
+      },
+      {
+        "assessment": "No exact path sensor placement theorem visible in abstract; full-text priority uncertainty explicitly retained.",
+        "evidence": "https://arxivlens.com/paperview/details/dynamical-sampling-in-graph-paley-wiener-spaces-5456-96e00a6d; arxiv:2609.25472 (2026-09-21).",
+        "identifier_or_url": "arxiv:2609.25472",
+        "material_read": "Public abstract and bibliographic/submission history only; full PDF attempts failed.",
+        "method": "Read dated indexed arXiv/ArxivLens abstracts; attempted the arXiv PDF and HTML and open-access reader, without obtaining the complete text.",
+        "title": "Dynamical Sampling in Graph Paley--Wiener Spaces",
+        "trigger": "Direct 2026 motivation including normalized graph Laplacian and finite path experiments."
+      },
+      {
+        "assessment": "Randomized sample complexity and stability rather than deterministic exact path sensor D-optimal location.",
+        "evidence": "https://academic.oup.com/imaiai/article/13/2/iaae012/7682117.",
+        "identifier_or_url": "doi:10.1093/imaiai/iaae012",
+        "material_read": "Available published abstract and introduction on the publisher page.",
+        "method": "Opened available web text; publisher full text redirected to an inaccessible resource.",
+        "title": "Robust estimation of smooth graph signals from randomized space–time samples",
+        "trigger": "Prior low-pass heat evolution sensor-sampling literature."
+      },
+      {
+        "assessment": "Full spectral range (m=n) has endpoint maximizers. The present strict low-pass result instead locates large-path optimizers one vertex inward, so the indexed prior theorem does not dominate it.",
+        "evidence": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f.",
+        "identifier_or_url": "2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+        "material_read": "Indexed title and full summary only; linked page not accessible to the browser.",
+        "method": "Read multiple published-finding corpus semantic-search responses and attempted to open the linked publication.",
+        "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+        "trigger": "Most relevant published mathematical record for the same graph and determinant objective."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3d29a7a3-092c-4bd3-862c-58150697b0c9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first two through four graph Fourier bands are natural low-bandwidth reconstruction spaces, and determinant maximization is an intrinsic volume/noise-design criterion. The theorem precisely locates all optimal single vertices, including exceptional ties and a bandwidth-dependent reversal of full-spectrum endpoint placement; a general all-bandwidth sufficient path-size bound supplies structural extension. This is not merely a pointwise numerical experiment or a special case with no rationale.",
+    "status": "PASS"
+  }
+}
