@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T01:49:10.950297Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the full theorem for each fixed 0<alpha<2, sigma,r>0 and -1<Lambda<1, with the symmetric stable characteristic exponent sigma^alpha |k|^alpha, actual post-jump location and one rate-r independent Poisson reset clock. The Lévy density c|z|^{-1-alpha} integrates to lambda across the exterior of (-1,1) after shift Lambda. On each reset excursion, decompose jumps at delta L. Large jumps have rate O_delta(L^-alpha); two or more before independent Exp(r) time cost O_delta(L^-2alpha). The compensated symmetric small jumps have quadratic variation 2c(delta L)^{2-alpha}/(2-alpha), and stopped Doob yields an O(delta^{2-alpha} epsilon^-2 L^-alpha) probability of macroscopic displacement. After excluding the O(epsilon L^-alpha) boundary landing band and controlling tails, the marked single-excursion success measure converges at rate L^-alpha to (c/r)|y-Lambda|^-1-alpha dy. In particular p_L~lambda/(rL^alpha). The factor e^{-s tau_L/L^alpha} changes the successful measure by at most O(L^-alpha sqrt(p_L)) =o(L^-alpha) since tau_L<R and E R²=2/r². The exact geometric renewal transform q_L(s,g)/(1-E[e^{-sR/L^alpha}1_{R<tau_L}]) has denominator (s+lambda)/(rL^alpha)+o(L^-alpha), yielding Exp(lambda)×Pi for all s≥0 and bounded continuous g. Integrating the exterior power law gives the stated side bias and conditional Pareto overshoots. All limiting integrations are finite because Lambda strictly interior and alpha>0; alpha<2 is needed for the small-jump variance cutoff. Independent code repeated 243 bounded constant, normalizer, tail, Laplace and finite-renewal checks; these are not substitutes for the analytic infinite-L proof. Excluded alpha=2, varying parameters and convergence-rate assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Figueroa-López & Tankov, arXiv:1203.2355, Theorem 2.1: conditional small-time exit/overshoot for unreset Lévy bridges, with terminal value conditioned upon; no Poisson resetting.",
+          "Högele, arXiv:1706.07745: first exit under dissipative deterministic attraction and small multiplicative Lévy noise; these attraction hypotheses fail for drift-free reset flights.",
+          "Klinger–Voituriez–Bénichou, arXiv:2212.06609: left/right exit of discrete-time unreset processes."
+        ],
+        "reasoning": "The closest broader big-jump results establish useful local ingredients and sometimes exponential exit times with marked exit loci, but their theorems have conditioning, deterministic-attractor, no-reset or small-noise assumptions not equal to this fixed-rate pure-stable renewal model. No checked theorem simultaneously covers Poisson-reset epochs, alpha-stable free excursions, both boundaries and the joint independent time/location limit; the possibility of an unlocated general regenerative theorem remains a priority risk.",
+        "searches": [
+          "Resultary: regenerative heavy tailed jump processes marked exponential exit time exit position stable Lévy large domain",
+          "arXiv:1203.2355 Theorem 2.1 small-time stopped Lévy bridges",
+          "arXiv:1706.07745 first exit small multiplicative Lévy noise attracting dynamics",
+          "arXiv:2212.06609 leftward rightward complete exit jump processes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.20410v1",
+        "https://doi.org/10.1103/PhysRevE.110.L022103",
+        "https://arxiv.org/html/1203.2355v4",
+        "https://arxiv.org/html/2311.16014v2",
+        "https://arxiv.org/abs/1706.07745",
+        "https://arxiv.org/abs/2212.06609",
+        "Resultary: creeping makes compound-Poisson stage calibration level-dependent",
+        "Resultary: sharp variance envelope at fixed success probability under memoryless catastrophe"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established same mathematical model mean is consistent with Exp(lambda) but cannot determine its scaled mark or independence.",
+          "Conditional bridge small-time overshoots and no-reset marginal laws are mathematical ingredients, not a theorem on repeated independent reset excursions.",
+          "Finite-interval FPT moments and one-sided discrete leapover optimization are not the joint large-L marked claim."
+        ],
+        "reasoning": "The new theorem strengthens the mean by a weak joint convergence of normalized time and full exit mark; the proof needs a marked single-excursion rare-jump limit before geometric regeneration. Neither earlier time moments, unreset conditional exit estimates nor differently sampled discrete leapovers alone imply the asserted product law under exact stated hypotheses. Generic tools are acknowledged as prior work.",
+        "searches": [
+          "arXiv:2610.20410v1 §§III.1–IV Eq. (7), exact mean coefficient",
+          "arXiv:1203.2355v4 §§1–2 Theorem 2.1, conditional stopped Lévy bridge",
+          "arXiv:2311.16014v2, finite interval first-passage statistics with resetting",
+          "Phys Rev E 110 L022103 (2024), one-sided leapover under discrete resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Żbik–Palmowski, arXiv:2610.20410v1 §III.1 eqs (6),(7) and §IV: E T_L ∼ L^alpha/lambda for the self-review; no simultaneous exit-position limit claimed.",
+          "Radice–Cristadoro 2024: discrete-time, one-sided first crossing and leapover; its reset clock and domain differ."
+        ],
+        "reasoning": "The candidate is equivalent to a marked Laplace-transform limit for all bounded continuous exit-location tests; a time-only Laplace result, mean asymptotic or one-sided leapover marginal cannot imply asymptotic independence of the entire time/exit-mark pair. The 2026 same-model paper gives the scalar mean coefficient but no joint exit-position distribution. The other primary source has a different stochastic protocol.",
+        "searches": [
+          "Resultary: Poisson resetting symmetric alpha-stable Lévy process rare exit large interval joint exit location and time marked exponential independent overshoot",
+          "Resultary: stable flights Poisson resets mean first passage exit law exponential large target domain one jump overshoot asymptotic independence",
+          "web: Żbik Palmowski 2026 asymptotic behaviour escaping interval Levy flights stochastic resetting joint exit location mean 2610.20410",
+          "arXiv:2610.20410v1 §§II–IV; arXiv:2403.12727 (and PRE article 110 L022103)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary finding “Creeping makes the compound-Poisson stage calibration level-dependent”: drift/creeping/stage overshoot, unlike pure stable reset exit.",
+          "Published Resultary finding “Sharp variance envelope at fixed success probability under memoryless catastrophe”: restart duration moments, not the exit-location mark.",
+          "The indexed hits and searched sources did not identify an exact matching marked density c|y-Lambda|^{-1-alpha}/lambda or product Laplace law."
+        ],
+        "reasoning": "Compared the object, scaling, Markov reset mechanism and two-sided mark distribution rather than matching titles. The closest indexed findings concern other overshoot or renewal statistics, so cannot imply this exact statement. Unsuccessful database search is not proof of absolute novelty.",
+        "searches": [
+          "Resultary semantic search: Poisson resetting symmetric alpha-stable Lévy process rare exit large interval joint exit location and time marked exponential independent overshoot (20 hits)",
+          "Resultary semantic search: stable flights Poisson resets mean first passage exit law exponential large target domain one jump overshoot asymptotic independence (20 hits)",
+          "Resultary semantic search: regenerative heavy tailed jump processes marked exponential exit time exit position stable Lévy large domain (20 hits)",
+          "web: Poisson resetting stable flights two-sided overshoot Pareto mark independent exponential waiting time"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge novelty of the full fixed-rate, two-sided continuous-time joint law (Exp waiting time independent of the complete scaled exit location), not of the mean, the one-big-jump heuristic, renewal calculus, nor stable overshoot tails in unrelated settings. The exact same mathematical model 2026 paper proves leading mean first passage time, not a joint marked limit. Primary preprints on discrete-time leapovers and unreset Levy bridges study different protocols and observables. Independently searched published mathematical findings and general heavy-tail escape theory; no inspected theorem was shown to imply this full statement, with residual risk of a more general marked regenerative rare-event result or a detailed appendix not located.",
+      "residual_risks": [
+        "A general marked regenerative one-big-jump/metastability theorem not located might imply this concrete fixed-rate special case; best-of-knowledge originality is not a historical certification.",
+        "One-sided discrete-time leapover supplementary derivations have not been exhaustively ruled out as an indirect reduction to the continuous-time two-sided joint law.",
+        "Independent numerical checks verify constants and finite renewal approximations, not an infinite-L theorem; correctness relies on analytic rare-jump and regeneration bounds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves asymptotic mean L^alpha/lambda and related scalar FPT results, not independent time and two-sided exit-location marks.",
+          "evidence": "arXiv:2610.20410v1, eqs (6),(7), Section IV identifies MFPT asymptotics as main theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2610.20410v1",
+          "material_read": "Full six-page HTML paper: model §II, stable and spectrally negative results §III.1–III.2, equations (1)–(8), summary §IV.",
+          "method": "Read primary full text and compare actual theorem/eq. (7) with marked two-dimensional weak limit.",
+          "title": "Asymptotic behaviour for escaping an interval by Lévy flights under stochastic resetting",
+          "trigger": "Exactly the same one-dimensional symmetric stable Lévy flight, Poisson reset model and L→∞ interval regime."
+        },
+        {
+          "assessment": "Discrete-time one-sided target and per-step resets; no corresponding fixed-rate continuous-time two-sided marked exit-time limit.",
+          "evidence": "Physical Review E 110 L022103 (published 19 August 2024), describes discrete myopic crossing, first-passage time and leapover optimization.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.110.L022103",
+          "material_read": "Accessible 2024 Physical Review E article narrative, model, principal leapover formula and conclusions; arXiv abstract.",
+          "method": "Inspect accessible primary article text and compare time protocol, target side and limit.",
+          "title": "Optimizing Leapover Lengths of Lévy Flights with Resetting",
+          "trigger": "Direct primary treatment of reset-dependent heavy-tailed jump overshoots."
+        },
+        {
+          "assessment": "Gives fine small-time stopped Lévy bridge and overshoot formulas for unreset paths, not exponential renewal and joint post-reset marked escape.",
+          "evidence": "arXiv:1203.2355v4, Theorem 2.1 conditions on X_t=y and estimates small-time two-sided first exit/overshoot.",
+          "identifier_or_url": "https://arxiv.org/html/1203.2355v4",
+          "material_read": "Introduction, §§1–2 including Theorem 2.1 and relevant Proposition/Remark, and associated appendix estimates.",
+          "method": "Read primary open preprint theorem hypotheses and conditional terminal-value formulation.",
+          "title": "Small-time asymptotics of stopped Lévy bridges and simulation schemes with controlled bias",
+          "trigger": "Potentially broad conditional exit-overshoot theorem for Lévy processes with jumps."
+        },
+        {
+          "assessment": "Finite-interval first-passage statistics; no theorem giving joint large-interval side/overshoot and independent clock.",
+          "evidence": "arXiv:2311.16014v2, §§II–IV first-passage and coefficient-of-variation focus.",
+          "identifier_or_url": "https://arxiv.org/html/2311.16014v2",
+          "material_read": "HTML primary paper model and first-passage methods, mean/CV computations and conclusions.",
+          "method": "Inspect full HTML relevant text and compare observables and L-asymptotic mark requirements.",
+          "title": "Lévy flights and Lévy walks under stochastic resetting",
+          "trigger": "Same reset-stable finite-interval first-passage literature."
+        },
+        {
+          "assessment": "Attracting reaction-diffusion equilibrium mechanism not directly applicable to drift-free stable flight reset independently in time.",
+          "evidence": "arXiv:1706.07745, absorbing/attracting drift and small multiplicative noise assumptions.",
+          "identifier_or_url": "https://arxiv.org/abs/1706.07745",
+          "material_read": "Primary preprint introduction and principal dissipative deterministic-attractor assumptions.",
+          "method": "Compare hypotheses and characteristic deterministic flow to free motion with external reset clock.",
+          "title": "The first exit problem of reaction-diffusion equations for small multiplicative Lévy noise",
+          "trigger": "Possible dominating one-big-jump marked exponential exit theorem."
+        },
+        {
+          "assessment": "Studies unreset discrete-time exit side/time laws, not the marked Poisson reset interval limit.",
+          "evidence": "arXiv:2212.06609 introduction and model.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.06609",
+          "material_read": "Primary abstract, introduction and model description for unreset discrete-time walks.",
+          "method": "Compare resetting assumption, step-time process and whether whole scaled exit location is measured.",
+          "title": "Leftward, Rightward and Complete Exit Time Distributions of Jump Processes",
+          "trigger": "Possible related joint side/time exit asymptotic for heavy-tailed jump processes."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The model, large-interval scale and mean exit-time problem are natural and already investigated. The complete two-coordinate weak limit gives the limiting exit sign, size of the terminal overshoot and independence of where a heavy-tailed search exits from how long it takes, quantities not implied by the previously published mean asymptotic. Exact asymmetric reset-point bias and conditional Pareto tail formulas are independently useful for stochastic search risk and first-exit mark questions. The value is a self-contained nontrivial marked rare-event refinement, without asserting a novel general regeneration method or a wider theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every fixed 0<alpha<2, sigma,r>0 and Lambda in (-1,1), a symmetric alpha-stable Lévy flight reset to Lambda L by a rate-r Poisson clock has (T_L/L^alpha, X_{T_L}/L) converging weakly to an independent Exp(lambda_Lambda) clock and Pi_Lambda exit-location mark, with lambda=(c/alpha) [(1-Lambda)^(-alpha)+(1+Lambda)^(-alpha)] and Pi density (c/lambda)|y-Lambda|^(-1-alpha) on |y|>=1. The right-exit probability and conditional Pareto-type overshoot tails stated in RESULT.md follow. The claim excludes alpha=2 and joint moving-parameter limits.",
+  "limitations": [
+    "Literature originality remains best-of-knowledge; generic marked heavy-tail rare-event theorem priority risk expressly retained.",
+    "Infinite-L result rests on one-large-jump bounds and regenerative transform, not numerical experiments.",
+    "Fixed 0<alpha<2, sigma>0, r>0, Lambda in (-1,1); no Brownian endpoint, rate or varying-parameter theorem.",
+    "Administrative JSON sanitization is staged, not actually imported or published; external formal/expert states unchanged."
+  ],
+  "schema_version": 1
+}
