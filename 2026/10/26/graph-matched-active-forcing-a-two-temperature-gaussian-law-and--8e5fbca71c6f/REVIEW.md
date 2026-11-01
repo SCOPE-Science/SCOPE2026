@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Finding assessed:** The graph-matched colored active-force theorem for finite harmonic networks, including the two-temperature stationary Gaussian position–velocity marginal, strictly positive active injected power, and the simultaneous all-pair ring velocity-sign classification.
+## correctness
 
-**Correctness — PASS.** The full stationary generator-moment proof is reproduced in `RESULT.md`: mode-by-mode mixed active-force covariance, stationary kinetic and configurational covariances, the spectral whitening equivalence, and strict positivity of the inverse ring response are sufficient to establish all quantifiers and boundary cases. The translation position is explicitly projected away. The proof does not equate equal-time factorization with dynamical detailed balance. The standalone full Lyapunov check, reproduced from the final package, tests 80 randomly parameterized graphs/rings with a maximum observed discrepancy of \(6.151\times10^{-14}\). Finite tests supplement, not prove, the general result.
+PASS
 
-**Originality — PASS, with unresolved publication priority risks.** The primary full text arXiv:2401.07972v1 establishes the baseline chain, *independent*-active-force response, and positive spatial correlations. Those elements are not new. Its original results do not give the unique graph-wide spatial force covariance producing an independent stationary velocity field, its exact two-temperature factorization with nonzero per-site power, or the universal nearest-neighbor anticorrelation threshold governing *all* ring pairs. The closest spatial-correlation polymer paper (arXiv:2401.14870v1) is overdamped, and the boundary-reservoir active chain (arXiv:2210.09035) imposes different excitation. Actual literature and mathematical-record queries considered equivalent spectral whitening and covariance shaping, and comparable published results were compared for implications rather than matching titles. An implicit result in older Lyapunov covariance-shaping theory is possible; a separate 2023 correlated-polymer full text could not be inspected. Neither is claimed decisively to be noncovering, and further independent priority verification is warranted.
+Simultaneous orthonormal diagonalization of Sigma and L reduces to stable scalar OU driven oscillators. Exact stationarity equations yield E[vf]=s tau/(mDlambda), Var(v)=T/m+s tau/(m² gamma Dlambda) and Var(q)=[T/m+(1+gamma tau)s tau/(m² gamma Dlambda)]/lambda for lambda>0. Flat Gaussian velocity variance iff Sigma=cD; translation position excluded. Equal-time y-v covariance vanishes, giving a two-temperature Gibbs product; per-site active power c tau/m remains positive. On a ring, D=aI-b(S+S^T), a>2b>0, so inverse has all strictly positive entries by graph-walk expansion and AG=(aG-I)/b. Off-diagonal signs are exactly those of 1+a epsilon/b, including n=3. Independently solved seven full stationary Lyapunov systems (path and rings) and checked covariance and sign changes; numerical samples are not the global proof.
 
-**Value — PASS.** Zero covariance throughout a driven many-particle network does not by itself imply absence of nonequilibrium activity. Here an explicit physically valid force-covariance design yields all-pair covariance cancellation *while injecting positive active power*, and a distinct configurational versus kinetic temperature. The exact ring phase diagram goes beyond the single parameter value by proving strict negative/zero/positive off-site correlations for every ring size and separation. This answers a natural structural question motivated by active velocity domains, not an arbitrary finite numerical invariant.
+## originality
 
-**Limits.** The necessity theorem restricts to commuting positive spatial covariances. The ring theorem applies to homogeneous nearest-neighbor rings with \(-1/2<\varepsilon<1/2\). Other graph shapes, heterogeneous dynamics, non-Gaussian forces, time-dependent correlations, and true thermodynamic reversibility are not characterized. Finite numerical checks cannot establish the universal theorem or publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Marini Bettolo Marconi–Löwen–Caprini studied harmonic chains driven by spatially independent active OU forcing; that work provides the baseline response but not the commuting graph covariance shape yielding white stationary velocities and the simultaneous all-pair ring sign reversal. Classical covariance-shaping theory could imply the rigidity algebraically but no matching graph-specific two-temperature and power identity was found.
+
+## value
+
+PASS
+
+Precisely characterizes spatially correlated active forcing that cancels equal-time intersite velocity correlations without canceling activity or making the dynamics equilibrium. The sharp all-pair ring reversal at an admissible tuning threshold is a meaningful analytic phenomenon on a natural network family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

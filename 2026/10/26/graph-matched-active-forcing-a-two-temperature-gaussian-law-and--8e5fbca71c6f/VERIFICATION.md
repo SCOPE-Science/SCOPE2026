@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-`verify.py` is a self-contained NumPy/SciPy script with a deterministic pseudo-random seed. Run `python verify.py` from a folder containing that file. It independently assembles the full drift and diffusion matrices of the projected \((y,v,f)\) process, solves their continuous Lyapunov equation using `scipy.linalg.solve_continuous_lyapunov`, and compares the returned stationary covariance against the theorem.
+## correctness
 
-The verification script passed 80 independently drawn parameter sets: 40 connected randomly weighted graphs with \(n\in\{3,4,5,7,9\}\), and 40 cyclic rings with \(n\in\{3,4,5,8,12\}\). Each ring is additionally tested at five spatial force-correlation settings, including its exact cancellation threshold. Tests cover centered positional covariance, Gaussian velocity whiteness, displacement–velocity covariance, per-site active power, the exact temperature difference, the full covariance residual, and the sign of all distinct-site velocity pairs. The maximum absolute discrepancy was \(6.151\times10^{-14}\) for the tested parameter ranges. The tested critical \(\varepsilon_*\) values ranged from approximately \(-0.435480\) to \(-0.037695\).
+PASS
 
-The test computes the full linear-system covariance rather than recycling the proof's scalar mode equation, so it can detect a lost factor of mass, persistence, noise normalization, or graph eigenvalue. It is nonetheless a finite floating-point experiment: the analytic generator-moment identities, simultaneous diagonalization, and strictly positive Neumann inverse in `RESULT.md` establish the quantified result. The script does not test claims about detailed balance, temporal independence, or entropy production, and none of these are asserted.
+Simultaneous orthonormal diagonalization of Sigma and L reduces to stable scalar OU driven oscillators. Exact stationarity equations yield E[vf]=s tau/(mDlambda), Var(v)=T/m+s tau/(m² gamma Dlambda) and Var(q)=[T/m+(1+gamma tau)s tau/(m² gamma Dlambda)]/lambda for lambda>0. Flat Gaussian velocity variance iff Sigma=cD; translation position excluded. Equal-time y-v covariance vanishes, giving a two-temperature Gibbs product; per-site active power c tau/m remains positive. On a ring, D=aI-b(S+S^T), a>2b>0, so inverse has all strictly positive entries by graph-walk expansion and AG=(aG-I)/b. Off-diagonal signs are exactly those of 1+a epsilon/b, including n=3. Independently solved seven full stationary Lyapunov systems (path and rings) and checked covariance and sign changes; numerical samples are not the global proof.
+
+## originality
+
+PASS
+
+Marini Bettolo Marconi–Löwen–Caprini studied harmonic chains driven by spatially independent active OU forcing; that work provides the baseline response but not the commuting graph covariance shape yielding white stationary velocities and the simultaneous all-pair ring sign reversal. Classical covariance-shaping theory could imply the rigidity algebraically but no matching graph-specific two-temperature and power identity was found.
+
+## value
+
+PASS
+
+Precisely characterizes spatially correlated active forcing that cancels equal-time intersite velocity correlations without canceling activity or making the dynamics equilibrium. The sharp all-pair ring reversal at an admissible tuning threshold is a meaningful analytic phenomenon on a natural network family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
