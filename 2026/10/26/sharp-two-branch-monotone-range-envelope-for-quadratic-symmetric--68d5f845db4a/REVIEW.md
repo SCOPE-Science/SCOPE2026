@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The kernel follows from the three orthogonal basis functions and exact even beta moments, and the upper-tail formula follows by elementary weighted integration by parts. The evaluation-variable maximum is exhausted by an endpoint and a concave quadratic vertex; differentiating each in the jump variable leads to factorizations with precisely the listed critical values. Comparing the boundary values yields the two-branch formula, and the Stieltjes positive-mixture representation extends sharp step-function bounds to all bounded monotone inputs. Symmetry supplies the lower bound. The boundary cases for every \(q>1\), sharpness steps, and weight limits are explicitly justified in the proof. Symbolic identity tests and numerical quadrature support but do not replace the argument.
+## correctness
 
-## Originality — PASS, with residual risk
-Kaber's 2006 full article addresses the asymptotic Gibbs amplitude for Jacobi expansions of a fixed sign discontinuity; it neither optimizes jump location over all monotone bounded data nor gives the sharp quadratic truncation envelope. Kopotun–Leviatan–Prymak–Shevchuk (2011) study shape-preserving approximants, rather than the potentially non-shape-preserving orthogonal projector. Calderón–Urbina (2012) treat Abel means, not the fixed-degree projection. Xiang's 2020/2021 paper on Jacobi spectral projection convergence rates addresses a different quantity. Related indexed results on cubic Lagrange, rational interpolation, and affine least-squares projection do not imply this theorem. Detailed source-by-source scientific comparisons appear in the originality record. The novelty inference is best-knowledge, not a claim of exhaustive bibliographic exclusion.
+PASS
 
-## Value — PASS
-A fixed-degree Jacobi projection is a natural model for spectral truncation of ordered bounded data. Even when the observations are monotone, the unconstrained projector can exceed the original range. The result computes the exact universal overshoot and undershoot as a function of a continuous weight parameter, classifies all sharp witnesses, and exhibits a genuine change in the type and location of the worst step. Its explicit two-branch formula is actionable for quantitative range-safety estimates; it is not merely a finite numerical experiment or a routine restatement of asymptotic Gibbs theory. The uniqueness and numerical position of the branch crossing are not asserted.
+The three-term orthogonal basis (1,t,t²−1/q) has exact beta norms 1,1/q,2(q−1)/(q²(q+2)); this gives the displayed quadratic reproducing kernel and the integrated upper-tail step response F(z,a). For each cutoff a, maximizing the quadratic in z yields either z=1 or the interior vertex z=−1/((q+2)a), whose admissible range is a≤−1/(q+2). Independently refactoring K(1,a) and K(z*(a),a) gives critical thresholds u=1/(sqrt(q+3)+1) and v=−1/(sqrt(q+3)−1), and the only two global candidates E(q),I(q). At endpoint a=−1 the response is 1; both candidate branch maxima exceed 1 on the domain. The positive Stieltjes-mixture representation extends the sharp step bound to every bounded nondecreasing f. Reflection gives the lower envelope, with both stated equality cases and ties. q↓1 weight and q=3 radical limits have consistent beta-tail behavior. Independent SymPy identities verify both factorizations, and sampled high-precision quadrature across eight positive q values agrees with the analytic branch envelope; finite samples are not the all-q proof.
 
-## Limitations
-This self-review is not independent peer review. An unindexed equivalent theorem remains possible, and literature outside the inspected documents could contain stronger coverage. The day-level provenance anchor is the initially public arXiv version dated 2011-09-05; an older paper is known by publication year without a verified earliest-public calendar day.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The distinctive assertion is the all-cutoff, all-input sharp quadratic range envelope in a continuous ultraspherical weight parameter with two extremal geometries, not the classical limiting Jacobi Gibbs overshoot. Kaber computes large-degree fixed-jump asymptotics; constrained monotone approximation chooses a different operator; Abel-Jacobi kernels concern another summability method. Fresh indexed Resultary search returned no directly matching theorem but nonhits cannot establish priority. Best-of-knowledge PASS with explicit risk from unindexed classical spectral approximation results.
+
+## value
+
+PASS
+
+A natural finite-degree orthogonal spectral projector applied to monotone [0,1]-valued data need not preserve range; the exact worst overshoot controls amplitude safety and identifies all sharp cutoff/evaluation pairs. The two competing geometry branches and switch with the Jacobi weight are a mathematically meaningful classification rather than routine asymptotic Gibbs rephrasing; the unproved uniqueness of the crossing is not needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
