@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof represents an infinitely exchangeable Bernoulli sequence by a directing variable on \([0,1]\), then constructs explicit quadratic majorants and minorants of \(f(t)=4t^3-3t^4\). Every bound is accompanied by an extremal directing distribution with the prescribed two moments. The five phase boundaries, empty regimes, and endpoint degeneracies follow from the feasibility inequalities. The supplementary symbolic checker confirms all exact polynomial factorizations and 297 rational feasible parameter pairs; its finite tests are corroborative, not a replacement for the universal proof.
+## correctness
 
-**Originality — PASS, with identified priority risk.** The lead 2026 paper treats predictive moment hierarchies and nonidentification, not the exact sharp second-moment envelope. The closely related published mean-only infinite-exchangeability theorem does not fix the second moment. The 2010 finite-exchangeability paper was examined in full; it does not impose infinite extendibility, and explicit same-moment four-fold exchangeable witnesses lie strictly outside the newly derived sharp interval. The 2011 finite-exchangeability/correlation article was inspected at the abstract level, but its complete text was not accessible; a differently framed precursor cannot be excluded. These risks do not provide an identified covering implication.
+PASS
 
-**Value — PASS.** Exact two-moment partial identification is directly motivated by recent work on multi-step exchangeable prediction and a natural four-component threshold reliability event. The theorem gives a complete, attained classification and nontrivial phase changes, including a fixed optimal support point, rather than a generic numerical moment-program bound. The statement does not claim universality for other thresholds, moments, or finite exchangeability.
+Under infinite Bernoulli exchangeability, de Finetti reduces the event to E f(Theta), f(t)=4t³−3t⁴ with ETheta=mu, ETheta²=nu and mu²<=nu<=mu. For upper low-nu, the quadratic majorant satisfies q−f=3(t−a)²(t−b)² where a+b=2/3, ab=2mu/3−nu and a<=mu<=b; the two-atom support attains equality. For upper high-nu, q−f=3t(t−b)²(t−c) with b=nu/mu>=2/3 and c=4/3−2b<=0; support 0,b attains. For lower low-nu, f−q=3t(t−b)²(c−t) with b<=1/6 and c>=1; support 0,b attains. For middle lower phase, f−q=3(t−a)²(1−t)(t−c), a=(mu−nu)/(1−mu)>=1/6 and c=1/3−2a<=0, attained at a,1. For final lower phase, f−(13t²−t)/12=3t(1−t)(t−1/6)² and support 0,1/6,1 with weights (1−7mu+6nu,36(mu−nu)/5,(6nu−mu)/5) matches both moments and is nonnegative under the stated branch conditions. Boundary contacts agree, mu=0,1 and nu=mu²,mu collapse correctly; mixing the endpoint directing laws realizes every intermediate probability. These are full-domain analytic inequalities, not an inference from numerical tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best of knowledge, the exact fixed-first-and-second-moment, infinitely extendible 3-of-4 Bernoulli probability interval was not implied by the closest fully inspected primary results. The 2010 finite-exchangeable theorem and the 2026 published infinite mean-only envelopes optimize strictly different feasible classes; the explicit finite-only witnesses demonstrate that finite correlation-moment bounds do not collapse to the target sharp endpoints. Classical two-moment polynomial duality is acknowledged as established, not claimed new. The uninspected full Di Cecco 2011 paper and older truncated Hausdorff canonical-moment literature create genuine priority risk; incomplete access alone does not establish coverage and is not used as a rejection.
+
+## value
+
+PASS
+
+The 3-of-4 reliability/predictive-success probability is a natural fixed-horizon statistic whose value is not determined by marginal and pairwise frequencies even under de Finetti extendibility. The theorem solves that concrete partial-identification problem completely, with sharp five algebraic phases, a nontrivial universal 1/6 contact support, explicit attainability, and numerical differences from finite exchangeability. Knowing the exact interval can be needed when forecasts or systems report only one- and two-coordinate success rates. This is a motivated exact invariant of a natural class, not an arbitrary one-off slice or code-only experiment. It neither claims new moment-problem duality nor a general all-threshold classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
