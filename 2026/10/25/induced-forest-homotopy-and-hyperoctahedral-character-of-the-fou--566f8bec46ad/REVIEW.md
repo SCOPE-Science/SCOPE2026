@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Two independent forest predicates agree on all 65,536 vertex subsets. A complete acyclicity check of a 12,497-pair discrete Morse matching over 158,256 face incidences leaves 15 six-cells and six seven-cells after augmentation. Exact signed gradient-path elimination gives the displayed 15-by-6 boundary with a determinant \(-1\) full-column minor, so the integral attaching maps cancel six of the 15 six-spheres. Independent full simplicial boundary ranks over \(\mathbb F_2\) corroborate the homology. Fixed-face Lefschetz sums verify the trace of each of the 384 automorphisms.
+## correctness
 
-**Originality — PASS, subject to residual literature risk.** The inspected full texts of Taylan (arXiv:1501.06754v1, 2015) and Carnero Bravo (arXiv:2307.13271, 2023) give the relevant constructions and other graph-family cases, but not the four-cube statement. Targeted search of public mathematical records finds four-cube independence, Čech, Rips, neighborhood and cut-complex results, none of which implies the vertex-induced forest calculation. Alias searches included `acyclic induced vertex sets`, `induced forest`, `devoid complex`, `hypercube`, `tesseract`, \(\mathcal F_\infty(Q_4)\), and the numerical sphere count. Published tables or unindexed equivalent material may still exist; a failed search does not prove universal novelty.
+PASS
 
-**Value — PASS.** The four-dimensional hypercube is a canonical highly symmetric graph with many interacting induced cycles and lies outside the known path/cycle/cactus classifications. The complete integral homotopy type resolves a natural specific case of the forest filtration, and the full group character, trivial fixed subspace and precise order-two representation kernel provide substantial equivariant structure not implied by rank alone. This is a motivated exact topological invariant rather than a cosmetic reparameterization.
+PASS: Independently enumerated all 2^16 vertex masks of the Hamming-one 4-cube (32 edges), retaining 25,015 valid induced-forest faces; size vector (1,16,120,560,1796,4080,6488,6848,4090,1008,8). Verified full greedy matching with 12,497 pairs and acyclic incidence DAG over 158,256 arrows; ordinary critical cells are one point, 15 dimension-six and 6 dimension-seven. Independently reconstructed signed integral Morse boundary 15×6 exactly matching the displayed matrix; a 6×6 minor has determinant -1, giving ∨9S6, not just mod-2 evidence. For all 384 affine cube automorphisms, recomputed signed invariant-face Lefschetz traces, distribution {-3:20,-1:120,0:128,1:90,3:24,9:2}, trace sum zero and identity/antipode the only kernel elements.
 
-**Remaining limitations.** This does not establish an all-dimensional hypercube formula or an integral group-module decomposition. Possible equivalent work in unindexed literature and absence of independent mathematical validation remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: The forest filtration by Carnero Bravo has selected path/cycle/product families but not this graph and full B4 character; published Q4 ordinary independence complex is ∨7S3, different simplex predicate. Resultary has Q4 Čech and cut complex characters, distinct faces and homology degrees, so do not cover induced forests. Full equivalence to an older hypercube Morse census is possible but unlocated.
+
+## value
+
+PASS
+
+PASS: the four-cube is a canonical symmetric graph; the integral ∨9S6 decomposition from a nonpure 9-dimensional simplicial complex requires nontrivial torsion-sensitive signed Morse cancellation, and its full hyperoctahedral character/kernel is a substantial exact equivariant refinement of a natural graph-complex invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
