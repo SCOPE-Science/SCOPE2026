@@ -1,19 +1,21 @@
-# Scientific review — regular truncated tetrahedron section side counts
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The specified twelve-vertex Archimedean solid has an exact eight-facet halfspace model, reconstructed with rational arithmetic. Each generic central-plane section vertex corresponds to a sign-changing original edge. The twelve great-circle arrangement is in general position, giving 134 chambers independently of enumeration. Integer sign-mask enumeration produces exactly those 134 chambers and six scalar-product signatures; Girard's spherical area formula gives the exact three probabilities and normalizes their sum to one. The independent edge-angle mean, direct facet-plane section reconstructions and orientation sampling agree. Finite tests support the formula but do not replace the exhaustive exact certificate and geometric proof.
+PASS
 
-## Originality
+For the twelve explicit vectors with coordinate magnitudes (3,1,1) and sign product +1, the eight supporting inequalities reconstruct exactly the Archimedean truncated tetrahedron. A generic central plane cuts exactly those of its 18 edges with opposite endpoint signs. Every triple of vertex vectors has nonzero determinant, giving a 12-great-circle arrangement with 134 chambers. An independently coded exact integer cone and wall enumeration found the six claimed signature classes, with counts 24,6,48,24,8,24. Girard spherical excess yields P(N=4)=0.215936085312640, P(N=5)=0.520247465238935, P(N=6)=0.263816449448423. All masses sum to one, and the independent 18-edge separation expectation gives 18 acos(7/11)/pi=5.04788036413578. The enumeration is genuinely exhaustive over all 2^12 sign masks; the side-count law is not extrapolated from Monte Carlo.
 
-**PASS relative to the checked scientific record.** Lonke's 1998 full text computes central cube-section expectations; this cannot determine the three-type distribution of a non-centrally-symmetric truncated tetrahedron. Schein and collaborators' 2016 full paper treats the geometry and face decorations of the same Archimedean solid, not random central sections. MathWorld's geometry and projection entry has no corresponding probability law. Published exact laws for other solids do not cover this object by parameter substitution or simple duality. Targeted database, alternate-phrase and exact-number searches disclosed no equivalent law. Unindexed earlier work remains a historical priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The exact law gives a natural, complete and previously unlocated stereological invariant of a distinguished Archimedean polyhedron: the probabilities of quadrilateral, pentagonal and hexagonal central sections. The strict pentagon majority and six-chamber-class decomposition convey information not present in the mean side count or classical face list. The finite exact classification is intrinsically meaningful for this particular canonical solid; the claim does not depend on an arbitrary slice or artificial parameter.
+Best-of-knowledge new object-specific complete three-atom Haar section-side law, not merely a known mean or classical arrangement recipe. The directly relevant same-polyhedron primary article is about face decorations; Lonke analyzes central cubes. A broader formula allowing a separate finite arrangement calculation does not state or imply these evaluated six angle classes without new object-specific incidence work.
 
-## Scope and limitations
+## value
 
-The plane is center-passing and Haar-uniform; exceptional vertex-intersecting orientations have measure zero. The statement does not cover translated sections, other polyhedra, section areas, general affine deformations or exhaustive historical priority. The included code is reproducible finite arithmetic plus numerical corroboration, not independent mathematical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Archimedean truncated tetrahedron is a canonical non-centrally-symmetric solid. Its complete probability law of central-section polygon types is an intrinsically motivated stereological invariant, and the strict pentagon majority distinguishes it from a simple moment calculation. The exact six-class chamber structure makes the answer reusable for comparison and geometric checks; no downstream general theorem is needed for this complete natural finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

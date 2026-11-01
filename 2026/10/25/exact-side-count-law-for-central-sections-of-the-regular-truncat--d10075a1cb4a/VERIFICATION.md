@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone source `verify_truncated_tetrahedron.py` uses only Python's standard library and executes with `python3 verify_truncated_tetrahedron.py`. Its core finite computation uses exact integer/rational arithmetic: it reconstructs the eight-facet polyhedron, verifies all twelve vertices, all eighteen edges, the nonzero determinants of all \(220\) vertex triples, the \(132\) signed pairwise great-circle intersections, and all \(4096\) sign masks. Integer-based cyclic wall signatures reproduce the six classes of \(134\) chambers and the complete side-count distribution. Spherical areas are evaluated by the stated exact inverse-cosine formula. The independent edge-angle identity confirms the mean without reusing the chamber area calculation.
+# Independent mathematical audit
 
-Additional numerical corroborations reconstruct section vertices directly by solving intersections with pairs of the eight facet planes for \(600\) orientations and compare with edge-crossing counts; \(80{,}000\) deterministic-seed Gaussian directions produce frequencies consistent with the exact law. Neither sample check replaces the exact finite enumeration or analytic spherical area argument. The correctness claim concerns this model and its stated generic orientations, not arbitrary polytopes. No external independent audit has been performed.
+## correctness
+
+PASS
+
+For the twelve explicit vectors with coordinate magnitudes (3,1,1) and sign product +1, the eight supporting inequalities reconstruct exactly the Archimedean truncated tetrahedron. A generic central plane cuts exactly those of its 18 edges with opposite endpoint signs. Every triple of vertex vectors has nonzero determinant, giving a 12-great-circle arrangement with 134 chambers. An independently coded exact integer cone and wall enumeration found the six claimed signature classes, with counts 24,6,48,24,8,24. Girard spherical excess yields P(N=4)=0.215936085312640, P(N=5)=0.520247465238935, P(N=6)=0.263816449448423. All masses sum to one, and the independent 18-edge separation expectation gives 18 acos(7/11)/pi=5.04788036413578. The enumeration is genuinely exhaustive over all 2^12 sign masks; the side-count law is not extrapolated from Monte Carlo.
+
+## originality
+
+PASS
+
+Best-of-knowledge new object-specific complete three-atom Haar section-side law, not merely a known mean or classical arrangement recipe. The directly relevant same-polyhedron primary article is about face decorations; Lonke analyzes central cubes. A broader formula allowing a separate finite arrangement calculation does not state or imply these evaluated six angle classes without new object-specific incidence work.
+
+## value
+
+PASS
+
+The Archimedean truncated tetrahedron is a canonical non-centrally-symmetric solid. Its complete probability law of central-section polygon types is an intrinsically motivated stereological invariant, and the strict pentagon majority distinguishes it from a simple moment calculation. The exact six-class chamber structure makes the answer reusable for comparison and geometric checks; no downstream general theorem is needed for this complete natural finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
