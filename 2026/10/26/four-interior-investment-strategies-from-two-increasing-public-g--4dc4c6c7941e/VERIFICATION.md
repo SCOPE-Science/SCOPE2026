@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof checks
+# Independent mathematical audit
 
-Run `python3 verify_two_threshold.py` in the directory containing this file. The program relies only on the Python standard library. It computes \(g(z+h)+g(z-h)\) directly from logistic derivatives, locates the zeros using an independent direct-benefit grid and bisection method, and cross-checks the explicit quadratic root formula. It verifies left/right flow signs at all zeros for 141 parameter configurations, including the exact rational/algebraic witness with \(n=10\), \(H=3\), and \(\theta=17/64\). The 140 additional parameter triples are deterministic from the embedded seed.
+## correctness
 
-The program prints four approximate roots \(0.29422383882416\), \(0.42245482677022\), \(0.57754517322978\), and \(0.70577616117584\) and reports all parameter checks passed.
+PASS
 
-Analytic proof requirements are separately specified in `RESULT.md`: the two-sigmoid hyperbolic identity, the exact derivative and maximum of \(F_H\), the strict endpoint inequalities, the quadratic roots, and the signs establishing attraction and repulsion. The published gradient and fitness-curvature equations are hypotheses about the particular weak-selection pair approximation, not newly proved stochastic-process convergence claims. Numerical checks alone cannot establish four-root maximality on an infinite parameter domain. Independent scientific audit has not been performed.
+The source pair-approximation selection gradient, assumed as an established premise, is proportional to (n+2)B'(nx)-nc. For B as sum of two logistic stage benefits, direct differentiation yields g(z+h)+g(z-h)=(1+H cosh z)/(H+cosh z)^2 with H=cosh h, z=beta n(x-1/2). For C=cosh z in [1,Q], F_H(C)=(1+HC)/(H+C)^2 has derivative (H²−2−HC)/(H+C)^3. When H>2 it increases until C*=H−2/H then strictly decreases; since Q>H>C*, exactly two admissible C roots require theta strictly between both endpoint values and the maximum. Each C>1 gives two interior x, total four. Quadratic formula gives C± and stability alternates by sign of derivative. At attracting roots B''(nx)<0 and the explicit positive coefficient in source invasion-curvature Eq B18 gives ESS. Independent direct sigmoid derivative evaluation and four-root bisections reproduced exact example and signs. This is exact in the approximation, not in finite stochastic networks.
+
+## originality
+
+PASS
+
+The generalized adaptive selection-gradient equation and its one-sigmoid analyses are prior. Archetti studied different well-mixed binary public goods including an increase-then-decrease payoff, not two increasing stages. The surviving explicit complete four-root cost window, stability ordering, and minimum threshold separation are not among those inspected source theorems. Bimodality of equal-width logistic mixtures may be known; this source-level claim includes an explicit game-theoretic parameter domain and Hessian verification.
+
+## value
+
+PASS
+
+Two strictly increasing beneficial project stages can create exactly two evolutionarily stable interior strategies separated by repellers, a substantive multistability phase transition absent with one stage. The exact cost window and threshold-separation constant are natural design/dynamical invariants, not arbitrary parameter samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

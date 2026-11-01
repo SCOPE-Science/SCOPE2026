@@ -1,11 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-**Correctness — PASS.** The source's Eq. (B16) defines the deterministic selection-gradient equation on the stated regular-graph, weak-selection domain. Direct differentiation reduces the two increasing logistic stages to \(F_H(C)=(1+HC)/(H+C)^2\) with \(C=\cosh z\). Its derivative has exactly one maximum for \(H>2\), and its endpoint values give necessary and sufficient strict inequalities for two \(C\)-roots and four interior investments. Their attraction types follow from the exact flow sign; the evolutionary-stability curvature has the same negative sign at both attracting roots by the source's Eq. (B18). The exact-parameter witness and 140 additional admissible triples passed an independent direct-sigmoid numerical replay. Finite checks do not replace the proof.
+## correctness
 
-**Originality — PASS, with explicit residual risks.** The closest source [1] supplies the general gradient and a single-sigmoid classification, but not the two-increasing-stage critical separation, exact four-root parameter region, or two-attractor phase diagram. Archetti [2] uses well-mixed binary games and an increase-then-decrease double inverse sigmoid, so its stability statements are not equivalent. Related published mathematical records and prior reported claims were searched by aliases and implications. A more general unindexed two-logistic mixture theorem could cover the bimodality sublemma; it is not presented as new. Novelty remains subject to independent literature audit.
+PASS
 
-**Value — PASS.** A single threshold in the motivating model permits at most one internal attracting investment; the analytically natural addition of a second beneficial stage can produce two, with a sharp dimensionless separation requirement and an explicit finite-domain cost window. This determines when the same public-goods mechanism supports distinct long-run investment levels and which initial conditions select them, a structural bifurcation rather than a mere parameter example.
+The source pair-approximation selection gradient, assumed as an established premise, is proportional to (n+2)B'(nx)-nc. For B as sum of two logistic stage benefits, direct differentiation yields g(z+h)+g(z-h)=(1+H cosh z)/(H+cosh z)^2 with H=cosh h, z=beta n(x-1/2). For C=cosh z in [1,Q], F_H(C)=(1+HC)/(H+C)^2 has derivative (H²−2−HC)/(H+C)^3. When H>2 it increases until C*=H−2/H then strictly decreases; since Q>H>C*, exactly two admissible C roots require theta strictly between both endpoint values and the maximum. Each C>1 gives two interior x, total four. Quadratic formula gives C± and stability alternates by sign of derivative. At attracting roots B''(nx)<0 and the explicit positive coefficient in source invasion-curvature Eq B18 gives ESS. Independent direct sigmoid derivative evaluation and four-root bisections reproduced exact example and signs. This is exact in the approximation, not in finite stochastic networks.
 
-**Closest literature and limits.** Luo et al., *Chaos* 35, 043115 (2025), arXiv:2504.06769, especially Eqs. (B16)-(B24); Archetti, *Games* 9, 17 (2018), Secs. 2.4-2.6. The inference concerns pair-approximation adaptive dynamics, not exact stochastic network trajectories; possible prior equivalences in mixture-distribution research remain a risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The generalized adaptive selection-gradient equation and its one-sigmoid analyses are prior. Archetti studied different well-mixed binary public goods including an increase-then-decrease payoff, not two increasing stages. The surviving explicit complete four-root cost window, stability ordering, and minimum threshold separation are not among those inspected source theorems. Bimodality of equal-width logistic mixtures may be known; this source-level claim includes an explicit game-theoretic parameter domain and Hessian verification.
+
+## value
+
+PASS
+
+Two strictly increasing beneficial project stages can create exactly two evolutionarily stable interior strategies separated by repellers, a substantive multistability phase transition absent with one stage. The exact cost window and threshold-separation constant are natural design/dynamical invariants, not arbitrary parameter samples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
