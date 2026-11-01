@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The relative simplicial-chain description reduces the integral equivariant second homology to the kernel of the augmented simplex contraction; since augmentation splits as free abelian groups, the kernel is integrally \(\bigwedge^3 W_T\) without an unproved torsion assumption. The star-cover nerve computes the intermediate \(H_1\), and its triangular connecting map is surjective. The complete finite checker verifies all combinatorial identifications, 720 signed symmetries, relative orientations, exact character values and the two distinct mod-two ranks. Limits: modular chain ranks alone would not prove torsion freeness, so the integral sequence is essential.
+
+**Originality — PASS, with residual risk.** The classical exceptional outer action and nonequivariant line-graph clique-complex homotopy are covered by Baez's exposition and Goyal–Shukla–Singh's Lemma 3.2; the nonequivariant matching-avoidance complex also has earlier homotopy coverage in Linusson–Shareshian–Welker. The precise comparison of two integral equivariant lattices, rationally isomorphic but with unequal transposition-mod-two ranks, is not stated in the inspected materials or encountered in exact-object and alternate-formulation searches. The published constructions make a naturality deduction possible, and equivalent independent expositions remain a real residual risk; absence of a search hit is not proof of originality.
+
+**Value — PASS.** The rank-four-versus-rank-three invariant separates two canonical \(S_6\)-stable integral forms of the same irreducible ten-dimensional rational representation. The example couples the exceptional outer symmetry of six labels with an integral obstruction invisible to homotopy type, homology ranks, and ordinary characters. This is a motivated structural boundary rather than a parameter change or arbitrary small invariant.
+
+**Scientific limitations.** The statement concerns only six original labels. It establishes no global classification of integral forms or equivariant isogeny indices. The closest homotopy literature supplies substantial ingredients and could contain stronger equivalent implications than the sections inspected.
+
+Self-review: passed. Independent audit: not yet performed.
