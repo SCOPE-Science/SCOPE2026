@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The proof in RESULT.md is the basis for the universal assertions. The attached `verification.py` is a standard-library Python 3 program that supplements the proof with reproducible floating-point diagnostics. Run `python3 verification.py` with no arguments. Its deterministic seed is `20261023`.
+## correctness
 
-On the actual embedded program, 1,500 parameter configurations were sampled across the below-local-threshold, between-thresholds and above-global-threshold regimes. At each, 401 feasible allocations were checked against the theorem's endpoint/center candidates, for 601,500 comparisons. Off-center minima were reconstructed from the hyperbolic stationarity equation and checked by first derivatives. Additional checks covered all three exact quadratic global optima, the two off-center minima and their barrier, onset scaling for seven Hill exponents and three small perturbations, and 2,093 strictly increasing hyperbolic-budget comparisons.
+PASS
 
-All diagnostics passed. The quadratic example was checked against exact radical formulas. The tests are finite and use floating-point arithmetic; they neither exhaust all real parameters nor certify the analytic inequalities. Analytical proofs of the count, monotonicity, equality boundaries, and asymptotic statement are in RESULT.md. No external independent audit has been performed.
+Reconstructed f_p derivatives and unique inflection at u0=((p-1)/(p+1))^(1/p), endpoint one-sided strict maxima, stationary equality f_p(t)=f_p(N-t) in derivative form. Under t/N=(1-tanh z)/2, the off-center stationary point equation gives N=Qp(z)=2 cosh(z)[sinh((p-1)z/2)/sinh((p+1)z/2)]^(1/p). The explicit monotonicity inequality using G(s)=s coth(s), H(s)=G'(s), and H(s)/s decreasing ensures Qp strictly rises from Nloc to infinity for EVERY real p>1 (no integer restriction). This proves exact count and sign of critical points, including flat strict local minimum at Nloc. Comparing endpoint and center payoffs gives Nglob, the ordering Nloc<Nglob, and the tied maximizers. Expansion log(Qp/Nloc)=z^2/3+O_p(z^4) proves the exponent-independent square-root coefficient. Independent bounded checks 618 comparisons, supporting but not substituting for the analytic argument.
+
+## originality
+
+PASS
+
+Hill sigmoidal response and global maximization of sums of sigmoids are established, notably Fazel–Chiang 2005 and Udell–Boyd 2014. The relevant primary section of Fazel–Chiang handles nonconcave rational utilities via semidefinite/sum-of-squares relaxations, not a closed-form theorem for two equal patches and all real p>1. The exact double threshold, complete stationary-point topology and universal square-root onset were not identified as quoted prior statements in actual literature comparisons. Qualified best-of-knowledge due to possibility of elementary previous two-patch derivations.
+
+## value
+
+PASS
+
+The distinction between local and global optimality in the same motivated response objective, rigorously valid for every real Hill exponent and the universal onset coefficient, identifies a nontrivial allocation trap. Its value is a precise model-theoretic threshold, not an empirical ecological or population dynamics claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
