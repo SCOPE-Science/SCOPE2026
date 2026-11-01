@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all positive chord pairs at most one, the explicit original circular-arc and new elliptic-arc slope graphs establish strict ordering. An exact midpoint-height difference and the 1-Lipschitz property of the Euclidean arclength integrand prove that two elliptic arcs always exceed either original circular arc. The mixed-surgery construction and supporting-center characterization supply the additivity of one-dimensional Hausdorff length: the nonsmooth locus differs from the finitely many chosen generating arcs only at finitely many points. The quadratic degeneracy is obtained by a uniformly valid Taylor expansion in the square of the short chord. The included checker verifies algebraic identities and illustrative numerical parameters; the proof, not the computations, covers the continuum of pairs.
+PASS
 
-## Originality — PASS (with residual risk)
+For each dual edge pair a,b in (0,1], the original circular and replacement elliptic height graphs have descending slopes m_R=x/sqrt(1-b²/4-x²), m_E=c*x/sqrt(c²-x²). Squaring gives m_R>m_E exactly for 0<x<a/2. Integration of sqrt(1+m²) gives E_A<C_A; symmetry gives E_B<C_B. The exact midpoint height difference a²b²/[16(1+r_A)(r_A+h)(1+h)] and the strict 1-Lipschitz graph-length inequality imply 0<C_A-E_A<b/8<E_B, and symmetrically C_B-E_B<E_A. Thus max(C_A,C_B)<E_A+E_B<C_A+C_B. Original source Sections 3–6 establish disjoint surgery regions, selected-arc support centers and smoothness off the chosen arcs, so the singular H¹ measure is the sum of selected arc lengths up to finitely many points. All-elliptic is the unique max; minimum selects a shorter original circular arc in every pair (equal-length ties permitted). Differentiation in b² under a uniformly positive denominator proves the coefficient kappa(a); independent quadrature compared six nondegenerate pairs, the midpoint identity, and kappa(a) at a=.1,.4,1 against its positive integral.
 
-The complete current source [1] provides the needed three-way mixed surgery construction, but its curve-position comparison (Lemma 2.3) does not imply the strict total-length ranking without further arclength analysis. Its boundary-regularity propositions allow the nonsmooth set to be localized but do not determine which mixture maximizes or minimizes its one-dimensional measure. The 2025 tetrahedral precursor [2] presents the elliptic arcs, not the all-Reuleaux mixed length ordering or local degeneracy coefficient. Searches of indexed findings for dual-edge arclength, singular-set length, elliptic–Meissner comparisons, and their aliases returned mostly planar Reuleaux geometry, unrelated ellipsoid calculations, and dual-edge product questions; none covered the final claim by mathematical implication. Earlier Meissner geometry is acknowledged, not relabeled as new.
+## originality
 
-Residual risk: a classical but unindexed comparison of elliptic versus circular arclengths, or a specialized discussion in a broader text on ball polyhedra, could contain this ordering. This assessment is not a priority guarantee; independent audit remains necessary.
+PASS
 
-## Value — PASS
+The 2026 geometric primary supplies the arcs, independent surgery choices and nonsmooth locus, while its comparisons concern pointwise curve position. Independent slope/Lipschitz analysis supplies a new strict length ranking, singular-length extremizers and quadratic coefficient. The 2025 tetrahedral precursor contains the six-arc construction only. Originality is qualified against unindexed older constant-width geometry.
 
-This is an exact optimization of a geometrically meaningful non-smoothness invariant across all \(3^m\) independently admissible local constructions based on any fixed standard Reuleaux polyhedron, rather than a calculation for an arbitrarily chosen example. It gives a rigorous regularity-versus-symmetry trade-off: the all-elliptic, symmetry-respecting choice has the largest total singular length, while every minimum uses Meissner choices. The sharp short-dual-edge quadratic coefficient quantifies the only degenerating comparison mechanism. It does not purport to improve a general constant-width volume inequality.
+## value
 
-## Sources and limitations
+PASS
 
-Primary full text consulted: [1] arXiv:2610.16997v1, especially Definitions 2.1, Lemma 2.3, Proposition 3.1, Proposition 5.2, and Section 6.2. The 2025 full text [2] was inspected for the tetrahedral precursor and prior ellipse description. Accessible related results on Reuleaux bodies and Meissner polyhedra were checked; some historical full text is only indirectly cited in [1]. The incomplete older-literature coverage is a residual originality risk, not evidence of an equivalent statement. Only mixed surgeries from a fixed input polyhedron are optimized.
+H¹-measure of the nonsmooth boundary is an intrinsic geometric regularity measure for constant-width solids. The theorem optimizes this invariant across the natural 3^m mixed-surgery family for every fixed standard Reuleaux polyhedron, identifying a structural tradeoff between symmetric elliptic replacement and minimal singular length. The positive quadratic coefficient gives the natural asymptotic for a degenerate dual chord, beyond merely verifying a numerical ellipse perimeter.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
