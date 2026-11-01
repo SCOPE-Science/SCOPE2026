@@ -1,15 +1,21 @@
-# Review of the square-pyramidal semigroup classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The cubic recurrence and exact adjacent gcds reduce the three-generator complete-intersection criterion to three sign-constrained Diophantine cases. The only valid orientation for \(n\ge3\) forces \(\gcd(n+1,6)=1\), and Sylvester/gluing yields the Frobenius polynomial. The small redundant-generator cases are solved independently. Exact Apéry computations on forty starting cases and congruence checks through ten thousand indices support but do not replace the proof.
+## correctness
 
-## Originality — PASS, with limitations
-OEIS A000330 specifies the sum-of-squares generator sequence. Fel, arXiv:1608.08693, proves symmetry statements for *pure powers* of consecutive integers and supplies the classical criterion, not the present sums of squares. Robles-Pérez and Rosales, arXiv:1706.04378, analyze triangular triples and tetrahedral quadruples, rather than this square-pyramidal triple. Published-literature searches yielded no equivalent theorem. This does not rule out unindexed literature.
+PASS
 
-## Value — PASS
-The result completely characterizes the symmetric members of a geometrically defined infinite semigroup family and determines every symmetric Frobenius number and genus in closed form, including the exceptional small indices. Its exact period-six law and density distinguish this family from nearby figurate/pure-power examples.
+PASS: The generator identity (n+1)c=(n+2)a+5b and exact adjacent gcd(a,b)=(n+1)/gcd(n+1,6), gcd(b,c)=(n+2)/gcd(n+2,6) imply gcd(a,b,c)=1; also gcd(a,c)|5. For n>=3 all three generators minimal, using c<2a for n>=8 and checks n=3..7. The classical symmetric three-generator gluing criterion applies. For pair (a,b), a nonnegative representation of c after dividing by gcd forces t=0 in the 2-generated Diophantine general solution and hence gcd(n+1,6)=1; conversely it constructs gluing when n≡0,4 mod6. Pairs (b,c) and (a,c) are ruled out by divisibility and size inequalities. The gluing Frobenius formula yields [4n^5+32n^4+101n^3+175n²+102n−36]/36 and g=(F+1)/2. At n=1 S=N0, F=-1; at n=2 S=<5,14>, F=51. Independent Apéry shortest-path checks all 100 indices n<=100 agree, but all-n follows from gluing proof not enumeration.
 
-## Closest literature, risks, and limits
-The universal gluing criterion itself is a known theorem and is not claimed as new. No genus/Frobenius formula is given for nonsymmetric indices. The absence of an unlocated equivalent theorem cannot be guaranteed. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Fel's related 2016 primary paper studies generators (n-1)^k,n^k,(n+1)^k for k=2,3,4, not consecutive values of the cubic square-pyramidal partial sum Q(n). Robles-Perez and Rosales study consecutive triangular/tetrahedral rather than these triples. OEIS A000330 and A322479 tabulate raw pyramidal numbers and consecutive sums, not three-generator semigroup symmetry or Frobenius polynomials. An earlier equivalent general polynomial-sequence gluing result remains possible; no database search establishes absolute novelty.
+
+## value
+
+PASS
+
+PASS: Classifying a natural family of minimally three-generated numerical semigroups into exact mod-six symmetry classes and deriving the degree-five Frobenius polynomial is a precise infinite arithmetic classification. The density 1/3 and two exceptional small semigroups are structurally motivated by the gcd/gluing mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
