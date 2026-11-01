@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four connected-triple patterns follow from the two-neighbor condition in the squared cycle. Checking fourth-vertex extensions gives exactly the cyclic four-block tetrahedra; all larger faces are excluded. A reflection fixes faces only as unions of its fixed vertices and transposed pairs. Their enumerated numbers and orientation signs yield the displayed ordinary Lefschetz formulas, and equivariant Alexander duality converts these to the top-homology character with the full-vertex sign twist. The self-contained checker independently reconstructs the dual and the original cut complexes on two finite ranges, including all reflection elements, with successful results. The infinite assertion rests on the exact pattern and orbit arguments, not those finite runs.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The cited squared-cycle theorems calculate shellability and sphere counts, not the reflection character. The closest published cyclic representation calculation explicitly restricts to rotations, so does not determine the two inequivalent reflection conjugacy classes at even lengths. Bayer and coauthors' dihedral calculations refer to unpowered cycles or different squared-cycle parameters. The resulting character values are not implied by rank data or restriction to the cyclic subgroup. The relevant full texts, published result records and focused indexed searches were compared. Independently rediscovered or unindexed symmetry results remain possible.
+PASS
 
-**Value — PASS.** In the natural studied family of ordinary cut complexes, the full dihedral module cannot be recovered from already-known nonequivariant topology or cyclic restriction. The theorem resolves that missing structural information for an infinite family. In even lengths it distinguishes vertex-axis and edge-axis reflections by explicit, growing and frequently opposite-signed traces, for example \((0,2)\) at length ten and \((1,-3)\) at length twelve. This is meaningful equivariant topology, not a renaming of Betti numbers.
+For ordinary 3-cut K=Delta_3(C_n²), n>=9, dual L contains all vertices/edges, exactly four cyclic families of connected triangles (4n), and precisely n consecutive-block tetrahedra; no 5-faces. Under s_a, invariant-triangle and invariant-4-face counts are (2,1) for odd n; (4,0) even n/a even; (0,2) even n/a odd. With f fixed vertices, t swaps, Lefschetz Lambda=f-[C(f,2)-t]-T-Q, the top rational H_{n-4} trace is (-1)^t(1-Lambda) by orientation-twisted Alexander duality. Thus all three claimed cases follow. Independently enumerated dual faces and signed reflection Lefschetz for every 9<=n<=18: 4n triangles, n tetrahedra, formula matches every reflection class; no five-face appears. Published shellability concentration is a separate input, not inferred from finite checking.
 
-Scope: rational characters at reflections for \(n\ge9\), using published degree concentration; no integral representation classification, equivariant homotopy equivalence or higher cycle powers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayer et al. establish ordinary cut-complex framework and dihedral characters for unpowered cycles, plus exceptional squared-cycle settings distinct from k=3,n>=9. Chauhan–Shukla–Vinayak and the 2026 cycle-powers paper prove nonequivariant shells. Previously published SCOPE cyclic character for powered cycles explicitly restricts to rotations. Reflection-axis classes at even n are independent of the cyclic module and require distinct fixed-dual-face counts. Best-of-knowledge new.
+
+## value
+
+PASS
+
+The complete rational reflection traces close a natural dihedral representation problem for all n>=9, showing the two even-n mirror classes differ, a finer invariant than rank, shellability or cyclic characters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

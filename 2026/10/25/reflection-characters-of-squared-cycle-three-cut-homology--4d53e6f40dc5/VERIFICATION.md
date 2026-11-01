@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify_reflections.py` with Python 3.9 or later; no optional packages, network services or external source files are required. The program reconstructs simplices directly from graph connectivity and compares them against the four-orbit dual-face classification. It then calculates signed fixed-face Lefschetz sums for every reflection and compares with the closed formulas.
+## correctness
 
-Verified output:
+PASS
 
-`VERIFY_OK dual_graph_sizes=14 dual_symmetry_checks=217 direct_cut_symmetry_checks=69 independent_face_template_checks=14`
+For ordinary 3-cut K=Delta_3(C_n²), n>=9, dual L contains all vertices/edges, exactly four cyclic families of connected triangles (4n), and precisely n consecutive-block tetrahedra; no 5-faces. Under s_a, invariant-triangle and invariant-4-face counts are (2,1) for odd n; (4,0) even n/a even; (0,2) even n/a odd. With f fixed vertices, t swaps, Lefschetz Lambda=f-[C(f,2)-t]-T-Q, the top rational H_{n-4} trace is (-1)^t(1-Lambda) by orientation-twisted Alexander duality. Thus all three claimed cases follow. Independently enumerated dual faces and signed reflection Lefschetz for every 9<=n<=18: 4n triangles, n tetrahedra, formula matches every reflection class; no five-face appears. Published shellability concentration is a separate input, not inferred from finite checking.
 
-The dual checks cover \(9\le n\le22\). Separate direct ordinary-cut-chain checks cover \(9\le n\le14\). These finite computations do not establish the universal quantifier; the proof in `RESULT.md` relies on an exhaustive neighbor-offset classification for \(n\ge9\), the fixed-orbit table and equivariant combinatorial Alexander duality. The known degree concentration comes from the published shellability theorem. No external independent audit has been conducted.
+## originality
+
+PASS
+
+Bayer et al. establish ordinary cut-complex framework and dihedral characters for unpowered cycles, plus exceptional squared-cycle settings distinct from k=3,n>=9. Chauhan–Shukla–Vinayak and the 2026 cycle-powers paper prove nonequivariant shells. Previously published SCOPE cyclic character for powered cycles explicitly restricts to rotations. Reflection-axis classes at even n are independent of the cyclic module and require distinct fixed-dual-face counts. Best-of-knowledge new.
+
+## value
+
+PASS
+
+The complete rational reflection traces close a natural dihedral representation problem for all n>=9, showing the two even-n mirror classes differ, a finer invariant than rank, shellability or cyclic characters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
