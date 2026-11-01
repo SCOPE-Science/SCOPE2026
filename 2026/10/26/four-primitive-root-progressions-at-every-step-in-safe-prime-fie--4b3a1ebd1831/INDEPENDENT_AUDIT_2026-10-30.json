@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:53:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md: 2026/10/26/four-primitive-root-progressions-at-every-step-in-safe-prime-fie--4b3a1ebd1831/RESULT.md, Git blob 36a0acda96c00f016ff920ed993f1e3379e344cd",
+        "Independent verification artifact: independent_checks.py; check_results.txt",
+        "Classical lemmas/primary theorems identified in the proof above"
+      ],
+      "rationale": "For safe p>=11, multiplicative order p−1=2q shows primitive roots are precisely quadratic nonresidues except -1, the sole order-2 nonresidue. The character class of four consecutive nonresidues has count B_p=[p−10−4chi_p(2)+S_p]/16: reflection t→−3−t exchanges square/non-square patterns since chi_p(-1)=−1; odd character sums vanish, each distinct quadratic pair sum is −1, and correcting the four zeros gives the -10−4chi2 constant. Scaling x=dt maps all prescribed steps to one of two equal sign-class counts; deleting progressions containing -1 gives exactly E_p(d)<=4. Weil’s degree-4 quadratic character sum bound |S_p|<=3sqrt(p) gives B_p>(p−14−3sqrt p)/16>4 for p>=113. For safe p<113 the finite list 5,7,11,23,47,59,83,107 is complete and all x,d were exhaustively checked; min counts 0,0,0,0,1,1,1,4. The universal part follows from the Weil inequality and finite exhaustive cutoff, not extrapolation from higher sample primes.",
+      "residual_risks": [
+        "The exact formula is only for safe p>=11 and relies on q prime and chi(-1)=-1; p=5,7 handled separately.",
+        "Does not assert infinitely many safe primes, all primes, higher AP length or a closed elementary form of the quartic sum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Carella treats general fixed (k+1)-tuples a_i and asymptotic p→∞; its error/large-p cutoff may depend on those offsets. Every d in F_p varies with p and requires a uniform bound with a sharp small safe-prime threshold, so the existing theorem does not logically yield p>=47 or N_p(d)."
+        ],
+        "reasoning": "The broader fixed-offset existence premise is acknowledged; the exact uniform-all-d and finite cutoff remain not directly covered.",
+        "searches": [
+          "safe prime primitive root arithmetic progression four elements every nonzero common difference quartic character sum",
+          "Carella arXiv:1910.02308v2 Theorem 1.1 and Section 15.1; Jarso–Trudgian arXiv:2109.11691; Cohen et al arXiv:1410.6210.",
+          "https://arxiv.org/abs/2109.11691",
+          "https://arxiv.org/html/1910.02308v2",
+          "https://arxiv.org/abs/1410.6210"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2109.11691",
+        "https://arxiv.org/html/1910.02308v2",
+        "https://arxiv.org/abs/1410.6210",
+        "Resultary semantic search: safe prime primitive root arithmetic progression four elements every nonzero common difference quartic character sum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jarso’s unit d theorem is a strict special case. Carella establishes large-p existence for fixed integer offsets but not an explicit uniform 47 safe-prime threshold as d ranges over the field. No scalar multiplier can transfer a four-consecutive primitive run to arbitrary prescribed d because being primitive is not multiplicatively invariant."
+        ],
+        "reasoning": "Thus prior claims do not imply full uniform quantification plus exact character correction, while the unit-step existence part is prior.",
+        "searches": [
+          "safe prime primitive root arithmetic progression four elements every nonzero common difference quartic character sum",
+          "Jarso–Trudgian four consecutive primitive elements arXiv:2109.11691; Carella arXiv:1910.02308v2 §15.1 fixed-offset theorem.",
+          "https://arxiv.org/abs/2109.11691",
+          "https://arxiv.org/html/1910.02308v2",
+          "https://arxiv.org/abs/1410.6210"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For safe p, primitive root iff quadratic nonresidue except -1. The new count is an explicit character-sum formula with four exceptional alignments, whereas older primitive-root run statements fix d=1 or require offsets fixed before p varies."
+        ],
+        "reasoning": "Transform x=dt does not preserve primitivity under a multiplicative change of residues; therefore the known d=1 existence does NOT imply every d.",
+        "searches": [
+          "safe prime primitive root arithmetic progression four elements every nonzero common difference quartic character sum",
+          "Primitive generator four-term additive progression in F_p, quadratic-nonresidue run modulo p excluding order-two -1, fixed-offset primitive-root constellations.",
+          "https://arxiv.org/abs/2109.11691",
+          "https://arxiv.org/html/1910.02308v2",
+          "https://arxiv.org/abs/1410.6210"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published fixed-prime tables concern maximal UNIT-step consecutive runs, e.g. p=47 has 4; the new table enumerates min/max N_p(d) across EVERY nonzero difference. Indexed related four-point Fourier-support findings do not enumerate primitive-root progressions."
+        ],
+        "reasoning": "A d=1 table is covered, but the full all-step min/max table and E_p(d) exact dependence are distinct data with a natural uniform existence question.",
+        "searches": [
+          "safe prime primitive root arithmetic progression four elements every nonzero common difference quartic character sum",
+          "Resultary safe prime primitive root arithmetic progression four elements every nonzero common difference quartic character sum; Carella Section 14 Table of consecutive primitive-root run lengths",
+          "https://arxiv.org/abs/2109.11691",
+          "https://arxiv.org/html/1910.02308v2",
+          "https://arxiv.org/abs/1410.6210"
+        ]
+      },
+      "rationale": "Jarso–Trudgian proves the four-CONSECUTIVE (unit-difference) primitive-root question and exact exceptions. Carella 2019/2022 Section 15.1 treats any *fixed tuple of distinct offsets* for sufficiently large p with asymptotic error; that does not provide a uniform finite bound simultaneously for every nonzero d in F_p nor the sharp safe-prime threshold 47. This claim strengthens quantification from fixed d to every field step and provides an exact count with an explicit exceptional -1 correction. The unit-step d=1 specialization is already known at the existence level and is not advertised as new.",
+      "residual_risks": [
+        "A uniform character-sum bound specialized to safe primes may have appeared in earlier primitive-root progression papers not indexed by Resultary.",
+        "Carella fixed-tuple theorem is a material antecedent; its asymptotics and table must not be misrepresented as no prior knowledge of arbitrary fixed differences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS existence for d=1 with exceptions, not all nonzero d or N_p(d) formula",
+          "evidence": "Published four-unit-step exception theorem (2021).",
+          "identifier_or_url": "https://arxiv.org/abs/2109.11691",
+          "material_read": "Theorem 1.1 exception list, proof and finite field context in primary accessible full text",
+          "method": "Full accessible primary arXiv text, mathematical theorem and key proof sections",
+          "title": "Four consecutive primitive elements in a finite field",
+          "trigger": "Exact same number of consecutive primitive elements, strongest unit-step case"
+        },
+        {
+          "assessment": "COVERS fixed-offset asymptotic primitive-root configurations; does not itself furnish explicit uniform sharp p=47 for arbitrary varying d",
+          "evidence": "Theorem 1.1 and Sec 15.1 fixed a_0,...,a_k distinct integers, p sufficiently large.",
+          "identifier_or_url": "https://arxiv.org/html/1910.02308v2",
+          "material_read": "Intro Theorem 1.1, Section 15.1 (lines 1369–1402), source Table 1 and asymptotic statements",
+          "method": "Inspected full 2011-line HTML primary text, emphasis on complete relevant Section 15.1 and tables",
+          "title": "Configurations Of Consecutive Primitive Roots",
+          "trigger": "Potential direct general tuple/offset theorem"
+        },
+        {
+          "assessment": "Prior unit-step conjecture and character-sum setting",
+          "evidence": "2014 paper studies runs with consecutive d=1.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.6210",
+          "material_read": "Primary abstract/introduction and reference history as cited in Jarso",
+          "method": "Accessible abstract and mathematical context; full text noncoverage not inferred",
+          "title": "On consecutive primitive elements in a finite field",
+          "trigger": "Original four consecutive primitive-root conjecture, prior baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2109.11691",
+        "https://arxiv.org/html/1910.02308v2",
+        "https://arxiv.org/abs/1410.6210"
+      ],
+      "rationale": "Uniform existence of four primitive roots at every prescribed nonzero additive step is a natural strengthening of the classic consecutive-primitive-root question. The sharp least safe-prime cutoff, exact dependence on step and a complete certified finite exceptional range are substantive arithmetic facts; not merely a sample count.",
+      "residual_risks": [
+        "No generalization to arbitrary primes; finiteness of safe-prime sequence is unresolved and not addressed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every safe prime p=2q+1 with q prime, and every prescribed nonzero step d in F_p, there is a four-term primitive-root arithmetic progression x,x+d,x+2d,x+3d when p>=47, a sharp threshold among safe primes. For safe p>=11, count N_p(d)=[p−10−4 chi_p(2)+S_p]/16−E_p(d), S_p=sum_t chi_p(t(t+1)(t+2)(t+3)), E_p(d) is the explicit sum of 4 tests for a progression containing -1. Exact exceptional step counts are given for all eight safe primes below 113.",
+  "limitations": [
+    "The exact formula is only for safe p>=11 and relies on q prime and chi(-1)=-1; p=5,7 handled separately.",
+    "Does not assert infinitely many safe primes, all primes, higher AP length or a closed elementary form of the quartic sum.",
+    "A uniform character-sum bound specialized to safe primes may have appeared in earlier primitive-root progression papers not indexed by Resultary.",
+    "Carella fixed-tuple theorem is a material antecedent; its asymptotics and table must not be misrepresented as no prior knowledge of arbitrary fixed differences.",
+    "No generalization to arbitrary primes; finiteness of safe-prime sequence is unresolved and not addressed."
+  ],
+  "schema_version": 1
+}

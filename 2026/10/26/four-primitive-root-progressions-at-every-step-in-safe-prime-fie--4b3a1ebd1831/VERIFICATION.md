@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The argument is an analytic-plus-exhaustive finite proof. For all safe primes \(p\ge113\), the squarefree quartic character-sum bound \(|S_p|\le3\sqrt p\) proves that the step-independent baseline \(B_p\) exceeds four, while no more than four placements of the nonprimitive nonresidue \(-1\) may occur. Therefore \(N_p(d)\ge1\) for all nonzero \(d\), without exhaustive enumeration of large primes.
+## correctness
 
-For the complementary finite range, run `python3 check_ap4.py`. It uses only the Python standard library, exhausts all safe primes below \(113\), and checks *every* \(1\le d<p\) and \(0\le x<p\) with a modular-exponentiation primitive-root predicate independent of the Legendre-character formula. It also evaluates the exact quartic character sum and \(E_p(d)\) to check the identity at every difference. All safe primes through \(1000\) are included as nonessential corroboration.
+PASS
 
-Expected final line: `VERIFY_OK: all safe primes below 113 exhaustive; exact identity and independent primitive-test through 1000`.
+For safe p>=11, multiplicative order p−1=2q shows primitive roots are precisely quadratic nonresidues except -1, the sole order-2 nonresidue. The character class of four consecutive nonresidues has count B_p=[p−10−4chi_p(2)+S_p]/16: reflection t→−3−t exchanges square/non-square patterns since chi_p(-1)=−1; odd character sums vanish, each distinct quadratic pair sum is −1, and correcting the four zeros gives the -10−4chi2 constant. Scaling x=dt maps all prescribed steps to one of two equal sign-class counts; deleting progressions containing -1 gives exactly E_p(d)<=4. Weil’s degree-4 quadratic character sum bound |S_p|<=3sqrt(p) gives B_p>(p−14−3sqrt p)/16>4 for p>=113. For safe p<113 the finite list 5,7,11,23,47,59,83,107 is complete and all x,d were exhaustively checked; min counts 0,0,0,0,1,1,1,4. The universal part follows from the Weil inequality and finite exhaustive cutoff, not extrapolation from higher sample primes.
 
-Finite testing through \(1000\) is not itself proof for the infinite domain, and the standalone script does not independently certify the standard Weil bound. Mathematical assessment here is not independent external review.
+## originality
+
+PASS
+
+Jarso–Trudgian proves the four-CONSECUTIVE (unit-difference) primitive-root question and exact exceptions. Carella 2019/2022 Section 15.1 treats any *fixed tuple of distinct offsets* for sufficiently large p with asymptotic error; that does not provide a uniform finite bound simultaneously for every nonzero d in F_p nor the sharp safe-prime threshold 47. This claim strengthens quantification from fixed d to every field step and provides an exact count with an explicit exceptional -1 correction. The unit-step d=1 specialization is already known at the existence level and is not advertised as new.
+
+## value
+
+PASS
+
+Uniform existence of four primitive roots at every prescribed nonzero additive step is a natural strengthening of the classic consecutive-primitive-root question. The sharp least safe-prime cutoff, exact dependence on step and a complete certified finite exceptional range are substantive arithmetic facts; not merely a sample count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
