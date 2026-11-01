@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:15:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md blob 2065b26030b679da90a1dd33c0e97853915b3b8b; sections Binary matrices, Every primitive state attainable, Uniform limiting distribution",
+        "independent_checks.py / independent_checks_results.json: primitive orbit sizes 7,56,448,3584,28672; lifting exponents r=2..9"
+      ],
+      "rationale": "The generating function with digits 0,1,3 yields the asserted c(2m)=c(m), c(2m+1)=c(m)+c(m-1) recursion. The explicitly given A and B are unimodular; the 7 nonzero mod-2 states form one orbit. The congruences A^3=I+2E (mod4) and A^(3*2^(r-1))=I+2^r D (mod2^(r+1)), together with the 14 determinant-one conjugate displacement witnesses for all parity states, inductively imply transitivity on every primitive triple modulo 2^r. Averaging A/B gives an irreducible doubly stochastic finite Markov chain, aperiodic because A fixes (1,0,0); dyadic-cylinder decomposition upgrades fixed-length binary mixing to natural density at unrestricted cutoffs. Exact marginal and valuation fractions then follow by counting primitive triples. Independent recurrences and matrix-orbit sizes matched all primitive states modulo 2,4,8,16,32; the unbounded result rests on the lifting proof, not those bounded checks.",
+      "residual_risks": [
+        "The quantitative mixing rate is not uniform in r, and the claim makes no such assertion; only fixed-modulus natural densities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ballantine–Beck treats the identical coefficient sequence but proves a weaker parity conclusion; general binary matrix-product methods supply tools without the specific subgroup-transitivity assertion."
+        ],
+        "reasoning": "The known parity theorem is not broad enough to dominate the final fixed-modulus joint law.",
+        "searches": [
+          "arXiv:2303.11493 §7",
+          "Resultary: semi Narayana cows partition numbers 2-adic residues 2-adic valuations density primitive triple distribution"
+        ]
+      },
+      "checked_sources": [
+        "Ballantine and Beck, Partitions enumerated by self-similar sequences, arXiv:2303.11493, §7 Theorem 7.3",
+        "Resultary semantic search: semi Narayana cows partition numbers 2-adic residues 2-adic valuations density primitive triple distribution",
+        "OEIS A120562"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The established equivalence c(n) even iff n∈{3,5,6} (mod7) determines only c(n) modulo2."
+        ],
+        "reasoning": "The final theorem implies its parity frequency but the prior theorem does not determine the triple orbit modulo4,8,...; genuine additional lifting and equidistribution is needed.",
+        "searches": [
+          "arXiv:2303.11493 Theorem 7.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 7.3 determines parity modulo 2, while the audited statement determines every primitive triple modulo arbitrary 2^r."
+        ],
+        "reasoning": "Valuation law at j=0 agrees with known even density, but joint higher-power equidistribution is a strictly stronger assertion not obtained by simply rephrasing the parity criterion.",
+        "searches": [
+          "Resultary: semi Narayana cows partition numbers 2-adic residues 2-adic valuations density primitive triple distribution",
+          "arXiv:2303.11493"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS records generating series, recurrence and initial coefficients; small residue tables do not determine natural densities for every 2^r."
+        ],
+        "reasoning": "No exact all-r triple-density database or table was identified; finite data cannot establish the unbounded density law.",
+        "searches": [
+          "OEIS A120562",
+          "arXiv:2303.11493 §7"
+        ]
+      },
+      "rationale": "Ballantine–Beck prove parity for this same semi-Narayana coefficient sequence (even precisely n ≡3,5,6 mod7), implying the known even proportion 3/7. Their result does not imply a uniform joint distribution of three consecutive coefficients modulo every 2^r, nor the higher valuation distribution; these need the exhibited 2-adic matrix-lifting and Markov orbit argument. Relevant Resultary semantic search returned other 2-adic partition and Thue–Morse results, not this primitive-triple measure. Best-of-knowledge additional theorem, without asserting absence of all equivalent automata literature.",
+      "residual_risks": [
+        "An earlier congruence automaton or 2-adic matrix-product theorem may imply the entire primitive-triple equidistribution, even without the same sequence name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Weaker parity result; no exhibited all-2^r primitive triple law",
+          "evidence": "Section 7.3 gives residue classes 3,5,6 modulo 7 for even coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.11493",
+          "material_read": "Accessible paper text, especially §7 and Theorem 7.3",
+          "method": "full-text HTML examination of relevant section",
+          "title": "Partitions enumerated by self-similar sequences",
+          "trigger": "Same semi-Narayana cows sequence and parity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ballantine and Beck, Partitions enumerated by self-similar sequences, arXiv:2303.11493, §7 Theorem 7.3",
+        "Resultary semantic search: semi Narayana cows partition numbers 2-adic residues 2-adic valuations density primitive triple distribution",
+        "OEIS A120562"
+      ],
+      "rationale": "The object is a natural restricted binary partition sequence whose parity structure was previously understood; the previously unknown joint distribution and full valuation profile give an exact, reusable arithmetic invariant, with an infinite family of moduli and genuine uniformity of primitive states rather than a trivial parity reformulation.",
+      "residual_risks": [
+        "Not a prime-uniform or effective-mixing theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No error rate uniform in r and no moduli other than 2-powers.",
+    "Source administrative metadata contains private provenance; no sanitized replacement staged.",
+    "An earlier congruence automaton or 2-adic matrix-product theorem may imply the entire primitive-triple equidistribution, even without the same sequence name."
+  ],
+  "schema_version": 1
+}
