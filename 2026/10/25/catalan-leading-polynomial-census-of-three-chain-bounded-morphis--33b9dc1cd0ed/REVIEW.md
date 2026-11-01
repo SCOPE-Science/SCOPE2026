@@ -1,19 +1,21 @@
-# Scientific review: three-chain bounded morphisms from rectangular grids
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The counted objects are precisely the surjective order-preserving maps satisfying the upward back condition on reflexive finite chains. The proof first normalizes a map into two decreasing row-boundary sequences, proves the maximal-zero local cover criterion in both directions, then standardizes weak orders of the boundary lengths. That gives a genuinely bijective positive binomial formula. At highest interior-rank order every comparison is strict and the remaining interleaving count is Catalan by the reflection principle. MacMahon's plane partition count is used solely to compare with *all* monotone maps, so the density conclusion follows from independently established matching leading terms. The exact two-row coefficients follow from an exhaustive finite comparison pattern set, and its direct-map and transfer checks are reproducible from the package. Boundaries \(a=1\), \(b=1\), and non-surjective small dimensions are covered; no claim about growing width is made.
+PASS
 
-## Originality
+Every monotone map [a]×[b] -> C3 is encoded by weakly decreasing sequences of counts ell_i of 0 labels and u_i of labels <=1, 0<=ell_i<=u_i<=b. Surjectivity/endpoints require ell_1>0, u_a<b; the upward-back condition for each maximal 0 is exactly that an immediate right or lower cover is labelled 1, i.e. u_i>ell_i or (i<a and u_{i+1}>=ell_i). Row comparison conditions are purely weak-order relations of the 2a boundaries; standardizing m distinct interior ranks and selecting m of b-1 positions gives F_a(b)=sum c_{a,m}binom(b-1,m). The top m=2a strict-interlacing configurations are Catalan ballot words, giving coefficient Cat_a, degree 2a and leading b^{2a}/(a!(a+1)!). MacMahon unrestricted 3-colour grid count has the same top term, so fraction of surjective order-preserving maps satisfying back tends 1 for fixed a. Two-row weak-order enumeration gives c=(0,3,9,7,2), F_2=(b-1)(b^3+5b²+10b-12)/12, and failure b(b²-1)/3. Fresh independent direct world-map enumeration verified F_2(1..6)=(0,3,15,43,96,185) and all weak-rank c_{2,m} without using the original verifier. These finite checks do not prove all a,b; proof normal form does.
 
-**PASS, subject to residual literature risk.** Classical p-morphism theory establishes the back condition but not the grid census; the standard MacMahon formula counts all monotone maps without back. The 2014 Kripke p-morphism paper and 2007 plane-partition paper were inspected in relevant full-text sections; no theorem giving this exact conditioned binomial expansion, Catalan coefficient or two-row obstruction count was identified. Relevant separate enumerative results concern Boolean-lattice to three-chain maps, rectangular grids to the four-point diamond, and weak-order frames. Different domain/target shape prevents implication of the numerical formula by those statements. Search coverage is not a uniqueness proof. An unindexed result on restricted plane partitions or open maps could cover part of the work and remains a risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The two-chain product is the simplest nontrivial rectangular Kripke frame with branching upper cones, where monotonicity alone no longer ensures the back condition. The finding gives a complete, nonnegative coefficient theory at every fixed width, an explicit Catalan leading term, a rigorous fixed-width prevalence result and a closed obstruction count for the first branching width. These distinguish modal quotients from unrestricted plane partitions and provide reusable exact enumerative invariants for finite-frame semantics rather than an arbitrary slice or a mere recoding of MacMahon's product.
+The Kripke bounded-morphism condition is classical; the unrestricted plane-partition count is MacMahon, and some order-polynomial structure is standard. The complete back-conditioned positive-binomial pattern census, Catalan top coefficient and explicit first branching-width exclusion count are a distinct statement not supplied by the inspected general sources. Qualified best-of-knowledge originality.
 
-## Comparison limits
+## value
 
-The proof does not classify growing-aspect-ratio limits, arbitrary target chains, or orbit counts. The weak-order coefficient definition is algorithmic rather than a closed factorial formula for every coefficient. Available full-text comparisons and indexed search reduce but cannot eliminate priority uncertainty; independent scholarly review remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact count is a natural complete enumeration of surjective bounded morphisms of grid Kripke frames, with nonnegative binomial structure and Catalan top growth; the two-row complete failure count quantifies the first nonchain branching case. This solves a motivated object/invariant combination beyond routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
