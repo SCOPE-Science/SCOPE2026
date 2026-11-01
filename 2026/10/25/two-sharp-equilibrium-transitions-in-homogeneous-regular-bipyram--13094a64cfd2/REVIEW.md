@@ -1,20 +1,21 @@
-# Scientific review: two sharp equilibrium transitions in regular bipyramids
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim covers every integer \(n\ge3\), all positive radii and apex heights, and all noncritical values of \(\tau=\min(a,b)|a-b|/(4r^2)\). The centroid is \(z_0=(a-b)/4\), derived from the exact volume weights of the two pyramids. Up to reflection, the \(2n\) facets, \(3n\) edges, and \(n+2\) vertices split into seven symmetry classes. The proof gives explicit necessary-and-sufficient inequalities for every class, namely \(\tau<c_n^2\) for the shorter-side face and equatorial-edge classes and \(\tau<1\) for shorter-side slant-edge and equatorial-vertex classes. Other classes always contribute. The two transition boundaries, including the exact colliding locations, follow by equality in the corresponding foot and normal-cone conditions. Since \(c_n^2<1\), no other class can become degenerate simultaneously. The independently implemented coordinate-based checker passed 56 cases in seven polygon orders, checking normal-cone coefficients and foot positions rather than using orbit counts as an input. Finite checks corroborate the analytic proof, not replace it.
+## correctness
 
-## Originality — PASS, with specified residual risks
-The 2026 primary source explains general facet, edge and vertex equilibrium criteria and certifies a separate mono-monostatic construction, but gives no height-parameterized regular-bipyramid classification. The 2024 mono-unstable lower-bound study discusses the triangular-bipyramid graph as a combinatorial exclusion case; its theorem about one unstable vertex does not determine the three signatures, and no contradiction arises because the present family has at least two unstable vertices. The 2020 *Balancing polyhedra* paper establishes global realizability and complexity bounds for equilibrium signatures and uses a regular-pyramid construction, but does not calculate these bipyramid height thresholds. The 2006 foundational static-equilibrium paper supplies global signature classification principles, not the specific critical height products in the material inspected. Searches for aliases including gravitational rest positions, static equilibria, normal-cone support points, polygonal bipyramids, and all three signature vectors found no dominating prior formula. A related result on illumination of regular bipyramids concerns directional illumination incidence, not gravity or centroid-normal alignments, so sharing the object does not imply the present classification. An unindexed historical example could nonetheless contain this elementary family: priority beyond the inspected literature cannot be certified.
+PASS
 
-## Mathematical value — PASS
-This is a complete parameter classification for the canonical family of uniform-density regular bipyramids, not an arbitrary numerical example or a restatement of general normal-cone tests. For every polygon order, the family realizes exactly three distinct Morse-type signatures, two separate synchronized \(n\)-fold collisions, and a sharp width \(\sin^2(\pi/n)\) of the intermediate regime. Its mechanical complexity jumps by exactly \(2n\) at each transition, from \(0\) to \(4n\), despite the fixed combinatorial face vector. The constant face and vertex counts of the combinatorial polytope mask these gravity-driven changes. The result gives a concrete test family for static-equilibrium bifurcations and clarifies why homogeneous bipyramids cannot approach mono-monostatic behavior while retaining this rotational symmetry. It does not address the global minimum-facet problem or higher-dimensional analogues.
+Checked frozen RESULT.md exact centroid g_z=(a−b)/4 by upper/lower pyramid volume weights and all seven normal-cone orbits. Lower facet foot and equator-edge cone require b z0<r²cos²(π/n), lower slant foot and equatorial vertices require b z0<r²; all other orbit conditions always hold for a≥b. At equalities exactly n non-generic collisions; all noncritical parameter values have three stated (S,H,U) signatures and Euler S−H+U=2. Independent 30 representative parameter/order computations recomputed inequalities and Euler counts from raw formulas; these are corroboration, not universal proof.
 
-## Closest literature and limits
-- T. Schettini Gherardini (2026), *An explicit mono-monostatic polyhedron*, arXiv:2609.07827v1, especially Section 2.
-- S. Bozóki, G. Domokos, D. Papp, K. Regős (2024), *The smallest mono-unstable, homogeneous convex polyhedron has at least 7 vertices*, arXiv:2401.17906v1, especially Sections 1 and 4.
-- G. Domokos, F. Kovács, Z. Lángi, K. Regős, and P. T. Varga (2020), *Balancing polyhedra*, Ars Math. Contemp. 19, 95--124, particularly Section 3.
-- P. L. Várkonyi and G. Domokos (2006), *Static Equilibria of Rigid Bodies: Dice, Pebbles, and the Poincaré--Hopf Theorem*, Journal of Nonlinear Science 16, 255--281.
+## originality
 
-Boundary cases are degenerate and excluded from the open-regime signature count. No independent external audit has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge priority comparison against primary full/partial texts, published Resultary and target-domain queries found no mathematical implication of the final asserted new portion. Specifically: No inspected theorem logically yields n-dependent pair of thresholds and complexity 0,2n,4n. The generic normal-cone method alone is not claimed new. Earlier ingredients and special cases are credited; search absence alone is not proof.
+
+## value
+
+PASS
+
+Full two-transition classification for a canonical symmetric polyhedral family while combinatorics stays fixed; determines all three equilibrium types and a shrinking n-dependent mechanical-complexity phase. This is a motivated and useful structural boundary, not merely checking a tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

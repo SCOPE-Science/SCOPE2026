@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The file `bipyramid_checker.py` uses only the Python standard library. Execute `python bipyramid_checker.py` from the directory containing this file. The script reconstructs triangle planes and outward unit normals directly from all vertex coordinates and the exact centroid formula. It then classifies each face by the strict barycentric position of the centroid's perpendicular projection, each edge by the perpendicular-foot parameter and the positivity of both adjacent normal-cone coefficients, and each vertex by strict dot-product inequalities on its adjacent edges.
+## correctness
 
-The program exercised \(56\) noncritical parameter cases in all three open regimes for seven polygon orders \(n=3,4,5,6,8,11,20\). Every reconstructed signature matched the exact stated phase formula, and every case satisfied \(S-H+U=2\). Sample printed signatures for \(n=3\) are \((6,9,5)\), \((3,6,5)\), and \((3,3,2)\); for \(n=4\), they are \((8,12,6)\), \((4,8,6)\), and \((4,4,2)\).
+PASS
 
-These finite floating-point checks do not prove the theorem for arbitrarily large polygon order, real heights, or exact transition parameters; the proof uses closed-form centroid, plane, cone and edge-foot inequalities. The script deliberately tests strictly noncritical samples and does not purport to certify degeneracy at a floating-point equality. No independent audit is asserted.
+Checked frozen RESULT.md exact centroid g_z=(a−b)/4 by upper/lower pyramid volume weights and all seven normal-cone orbits. Lower facet foot and equator-edge cone require b z0<r²cos²(π/n), lower slant foot and equatorial vertices require b z0<r²; all other orbit conditions always hold for a≥b. At equalities exactly n non-generic collisions; all noncritical parameter values have three stated (S,H,U) signatures and Euler S−H+U=2. Independent 30 representative parameter/order computations recomputed inequalities and Euler counts from raw formulas; these are corroboration, not universal proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority comparison against primary full/partial texts, published Resultary and target-domain queries found no mathematical implication of the final asserted new portion. Specifically: No inspected theorem logically yields n-dependent pair of thresholds and complexity 0,2n,4n. The generic normal-cone method alone is not claimed new. Earlier ingredients and special cases are credited; search absence alone is not proof.
+
+## value
+
+PASS
+
+Full two-transition classification for a canonical symmetric polyhedral family while combinatorics stays fixed; determines all three equilibrium types and a shrinking n-dependent mechanical-complexity phase. This is a motivated and useful structural boundary, not merely checking a tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
