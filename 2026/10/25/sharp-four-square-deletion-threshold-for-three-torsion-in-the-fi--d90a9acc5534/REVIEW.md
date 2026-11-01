@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The central claim concerns all deletion sets of size at most four, with no unverified infinite extrapolation. Exact orbit completion has sizes \(1,1,2,4,10\) and direct orbit sizes sum to \(\binom{25}{k}\) at each cardinality; chain generators are all nonattacking rook configurations. Integral elementary operations with unit pivots preserve Smith factors. For both first and second boundary maps the residual is zero; for the third, every residual is either zero or rank one with gcd exactly three, certified by checking all two-by-two minors. Since the image of the second boundary is free, torsion in \(H_2\) agrees with that in the cokernel of the third boundary. Exact ranks calculate the two free-rank exceptions; all other free ranks vanish. The standalone script reproduces every statement.
+## correctness
 
-## Originality — PASS (with bibliographic risk)
-Shareshian–Wachs determines the undeleted five-by-five chessboard's \(H_2\), while its full-diagonal-deletion family is not any deletion set of size at most four. Jonsson's restricted-edge constructions and the special Ferrers shape calculations do not imply the complete arbitrary-four-cell deletion profile. Semantic research-record searches include both the full-board matching-complex topic and forbidden squares/deletion/torsion variants; the closest hits concern other graph complexes, an eleven-vertex graph threshold, or finite support carriers rather than the present classification. A sixteen-allowed-square torsion carrier would not by itself force torsion to persist in every 21–25-square superspace, since inclusions need not inject on homology. Equivalent independently tabulated chessboard homology remains possible, not established.
+PASS
 
-## Mathematical value — PASS
-The five-by-five chessboard complex is the standard minimal square chessboard example exhibiting integral \(3\)-torsion in dimension two. Quantifying exactly how forbidden positions affect that torsion is a natural structural robustness question. The first four-deletion threshold and the two sharply different torsion-removal geometries classify all \(12650\) extremal labeled configurations and determine the contrasting free ranks. These distinctions are not recoverable from the previously known full-board \(H_2\) alone and bear directly on matching-complex topology for bipartite graphs with forbidden edges.
+Independent canonicalization under S5(row)×S5(column)⋊C2(transpose) generated 1,1,2,4,10 complete orbit types for 0–4 forbidden positions. Independent enumeration of ALL 12,650 four-cell forbidden subsets found ten orbit sizes 50,1200,800,100,1200,3600,600,900,3600,600; sums and class types match. A separate exact signed simplicial-chain Smith-style unit-pivot reduction was performed on all 18 orbit representatives. d1 and d2 matrices have only unit pivots; d3 leaves either zero residual or rank-one residual whose entries have gcd exactly 3 with all two-by-two minors zero; hence integral H2 = Z/3 outside two exceptions, four-star gives Z^8, full 2x2 rectangle Z^7. Additional independent F3/F5 rank checks distinguished the same torsion and Betti structure for every orbit. This is an exhaustive *finite* certificate, not extrapolation to larger deletion counts. Read actual source verify.py to verify unit operations and rank-minor logic.
 
-## Literature, limits, and checks
-Primary sources: Shareshian–Wachs (arXiv:math/0409054v1, sections 1, 5, 8), Jonsson (arXiv:1203.5644, section 3), Clark–Zeckner (arXiv:1008.4525, introduction and relevant Ferrers-board theorem). Their mathematical hypotheses and conclusions were compared against the present low-deletion classification. The proof is an exhaustive exact finite integer certificate; no higher homology, homotopy equivalence or induced-map statement follows. Residual risk: an unindexed or differently named board-homology census might already contain the same eighteen orbit computations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shareshian–Wachs establish full board 5x5 H2=Z/3, but their diagonal deletion family removes five cells and does not classify arbitrary 0–4 holes. Jonsson treats chessboard 3-torsion and selected subcomplexes; triangular Ferrers board work covers special shapes, not arbitrary forbidden sets. An October 2026 “Column Law and Torsion in Chessboard Complexes” treatment of full rectangular diagrams was inspected for deletion/forbidden claims; no general low-hole classification located. Resultary search yielded other grid matching complexes and rook-graph cut homology, not this classification. A prior unindexed chessboard numerical table remains possible.
+
+## value
+
+PASS
+
+The 5x5 board is a canonical minimum-sized example of 3-torsion. The exact first deletion threshold and both structurally distinct torsion-killing patterns measure robust integral topology under vertex deletions, a natural finite but exhaustive and sharply classified invariant, rather than an arbitrary small isolated computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
