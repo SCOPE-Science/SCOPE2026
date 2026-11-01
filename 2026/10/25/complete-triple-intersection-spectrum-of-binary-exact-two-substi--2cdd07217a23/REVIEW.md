@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The triangle inequality and binary parity reduce positive three-way intersections to eight coordinate-disagreement profiles. Explicit integer allocation equations evaluate their sizes. Orbit-stabilizer counting with all six center orderings yields the global populations and exact worst-case list threshold. A complete independent brute-force check of all unordered triples for dimensions three through eight agrees with the formula. Finite verification is auxiliary: the coordinate-profile proof handles all dimensions.
+## correctness
 
-## Originality
-**PASS with residual literature risk.** The May 2026 work of Vu, Wang, and Vu addresses binary intersections of three Hamming balls, particularly their exponential-rate asymptotics, with a sphere formula only for canonical centers. The June 2026 work of Junnila, Laihonen, Lehtilä, and Devaraj provides an arbitrary-center formula for Hamming ball intersections, which can imply the intersection size of any specified triple of spheres, but does not count the global distribution of triple configurations or supply the four-population polynomial. The claimed contribution is precisely this complete unordered-center spectrum, its maximizing populations, and its sharp exact-two substitution two-list consequence, not the general intersection method. Searches of mathematical research records and directly relevant source text did not reveal an equivalent classification. The 1987 Honkala paper on sphere intersections could not be inspected fully; it is a genuine unresolved originality risk, not evidence that the result is unique.
+PASS
 
-## Value
-**PASS.** Fixed exact substitution radius two is the first radius permitting nontrivial nonzero common intersections with multiple competing centers. A complete distribution over all triples quantifies both the worst-case two-list reconstruction threshold and the frequency of ambiguous configurations, information not supplied by a per-triple evaluator. The result has an explicit infinite-length parameter range and does not rely on an arbitrary cutoff. It does not assert a code construction or rate improvement.
+The exact-two condition forces all pairwise center distances to be positive even and <=4, yielding exactly eight coordinate profiles after XOR normalization. For three centers with disagreement sizes (a,b,c) and A common-zero positions, the linear constraints i+j+l+r=2, j+r=(a+c)/2 and l+r=(b+c)/2 give J=n-2,4,3,1 in the four profile classes. Multinomial counts summed over all first centers and divided by six produce precisely 2^n*[C(n,3),3C(n,4),10C(n,5),15C(n,6)] unordered triples; coincident exponents combine. For n=3 maximum one, n=4,5 maximum four, n=6 tie at four, n>=7 maximum n-2. Exactly max J distinct outputs can leave three candidates, so max J+1 threshold sharp. Positive mass ~n^6/(8*4^n). Independent brute-force n=3..6 enumerated all triples from actual sphere masks, reproducing histograms (n=6 positive J counts 960,3840,4160 at J=1,3,4). Finite checks are not the all-n proof.
 
-## Scope and residual limitations
-The classification covers the binary exact-two-error model and unrestricted distinct centers. The cited 2026 studies concern balls rather than the present global sphere-population problem. Historical sphere-intersection literature is a possible coverage risk, and independent external audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the whole unordered-center population polynomial, not of per-triple Hamming sphere/ball intersection methods. General q-ary per-instance formulas and fixed-distance extremizers predate the record, but do not by themselves count the number of all center triples with each J-value. An older sphere classification or newer v2 specialization may cover it.
+
+## value
+
+PASS
+
+Exact-two binary substitutions are a natural reconstruction model; the full all-n distribution of three-center ambiguity, not just its maximum, gives both sharp two-list read threshold and exponentially small frequency of ambiguous center triples. The four populations are an exact natural classification; no coding-rate claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

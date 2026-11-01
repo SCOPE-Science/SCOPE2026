@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:16:46.999006Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 40bb31d4ebc3698500bb5c48ab8ec19fead52dca",
+        "Frozen verification/verify_triple_spheres.py Git blob 38f4a230bb74d5192146c8cede21a2b935bbb839",
+        "Frozen VERIFICATION.md Git blob 16d1e4a14baaea977feb843b58e9c549b882ba4e",
+        "Frozen METADATA.json Git blob 8e4d9aedb22ad72d55c57285a4bcf3b645cb850d",
+        "Frozen AUDIT.json Git blob 31a9b389de4819d06f2cef9aa02212ee18c651df",
+        "Frozen REVIEW.md Git blob a6c1897d98e2c39f21dd13f71f470e96e19b52cc",
+        "Frozen SLOGAN.txt Git blob 03d855140ff7c36f3b4c9fb054bf3764ddc993a9",
+        "independent_batch5_checks.py and independent_batch5_results.json (independently executed)"
+      ],
+      "rationale": "The exact-two condition forces all pairwise center distances to be positive even and <=4, yielding exactly eight coordinate profiles after XOR normalization. For three centers with disagreement sizes (a,b,c) and A common-zero positions, the linear constraints i+j+l+r=2, j+r=(a+c)/2 and l+r=(b+c)/2 give J=n-2,4,3,1 in the four profile classes. Multinomial counts summed over all first centers and divided by six produce precisely 2^n*[C(n,3),3C(n,4),10C(n,5),15C(n,6)] unordered triples; coincident exponents combine. For n=3 maximum one, n=4,5 maximum four, n=6 tie at four, n>=7 maximum n-2. Exactly max J distinct outputs can leave three candidates, so max J+1 threshold sharp. Positive mass ~n^6/(8*4^n). Independent brute-force n=3..6 enumerated all triples from actual sphere masks, reproducing histograms (n=6 positive J counts 960,3840,4160 at J=1,3,4). Finite checks are not the all-n proof.",
+      "residual_risks": [
+        "No full text of Honkala 1987 inspected",
+        "At fixed n, finite enumeration does not establish all-n counting, supplied coordinate proof does"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Junnila et al. Theorem 3 is a stronger per-instance q-ary multi-ball evaluator; Section III specializes maximum intersections with distance constraints",
+          "Vu–Wang–Vu arXiv:2605.23638 abstract treats asymptotic radius alpha*n and distance beta*n"
+        ],
+        "reasoning": "Neither inspected statement implies the count of each intersection size across unordered distinct binary center triples without additional type enumeration; the q-ary theorem dominates the local evaluator only.",
+        "searches": [
+          "web: The Size of the Intersection of q-ary Hamming Balls full text",
+          "web: List Reconstruction Problem with List Size Two 2605.23638"
+        ]
+      },
+      "checked_sources": [
+        "RG Junnila et al. full-text Theorem 3 and Section III (arXiv:2606.09158v1)",
+        "Vu Wang Vu arXiv:2605.23638 abstract",
+        "Danoyan article citing Honkala 1987",
+        "Resultary semantic search 2026-10-30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior evaluator yields J(x1,x2,x3) after specifying the centers",
+          "Current formula sums over all unordered center triples with populations 2^n*C(n,3), 3*2^n*C(n,4), 10*2^n*C(n,5), 15*2^n*C(n,6)"
+        ],
+        "reasoning": "The population enumeration and sharp unrestricted exact-two two-list threshold require an extra all-center orbit count; not an immediate wording change of the cited per-instance formula.",
+        "searches": [
+          "RG primary arXiv:2606.09158v1 Theorem 3 and Section III",
+          "arXiv:2605.23638 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Junnila et al. arXiv:2606.09158, Theorem 3 computes per-configuration Hamming-ball intersection; exact spheres can be recovered by inclusion-exclusion",
+          "1987 Honkala reference found in Danoyan 2013/2021 bibliographic discussion"
+        ],
+        "reasoning": "An exact-two sphere triple may be rewritten as alternating sums of 3-ball intersections; this supplies each given triple J, not the global distribution over all triples.",
+        "searches": [
+          "Resultary: binary Hamming exact radius two spheres triple intersection distribution polynomial list reconstruction centers",
+          "web: Honkala On the intersections and unions of Hamming spheres 1987 exact binary sphere triple intersections"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same histogram/table found in searches; independent n=3..6 histograms computed from actual spheres, not used as novelty proof"
+        ],
+        "reasoning": "No existing table furnishing all n and multiplicities was located; this negative search cannot certify priority.",
+        "searches": [
+          "Resultary search of Hamming exact-two triple population; top results include Hamming Turan masses, no matching distributions",
+          "web: binary three exact distance-two sphere triple histogram 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the whole unordered-center population polynomial, not of per-triple Hamming sphere/ball intersection methods. General q-ary per-instance formulas and fixed-distance extremizers predate the record, but do not by themselves count the number of all center triples with each J-value. An older sphere classification or newer v2 specialization may cover it.",
+      "residual_risks": [
+        "Honkala 1987 sphere-intersection chapter not read; may contain an equivalent profile count",
+        "Junnila preprint revised 2026-10-23; accessible material inspected principally v1; newer text could add special cases",
+        "Other coding reconstruction population tables may be indexed under different terminology"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_PER_INSTANCE_NOT_SHOWN_POPULATION",
+          "evidence": "Theorem 3 coordinate type formula; Section III studies extrema at fixed minimum distance; Conclusion lists related open cases",
+          "identifier_or_url": "https://www.researchgate.net/publication/406464200_The_Size_of_the_Intersection_of_q-ary_Hamming_Balls",
+          "material_read": "2026 first-version accessible full-text HTML transcription; Theorem 3, Section III and conclusion passages",
+          "method": "Read relevant full-text sections and compared quantifiers",
+          "title": "The Size of the Intersection of q-ary Hamming Balls",
+          "trigger": "Same Hamming intersection objects and general formulas"
+        },
+        {
+          "assessment": "INCOMPLETE_INSPECTION",
+          "evidence": "Abstract emphasizes large-radius alpha*n, beta*n three-ball maximal asymptotic rate",
+          "identifier_or_url": "https://arxiv.org/abs/2605.23638",
+          "material_read": "Abstract only; PDF/full text not obtained",
+          "method": "Read indexed arXiv abstract",
+          "title": "List Reconstruction Problem with List Size Two",
+          "trigger": "Closest triple-intersection list application"
+        },
+        {
+          "assessment": "INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Danoyan 2013/2021 cites Honkala; no reliable whole-text verdict",
+          "identifier_or_url": "Honkala, The Very Knowledge of Coding (1987), pp. 70–81",
+          "material_read": "Bibliographic title only, not full text",
+          "method": "Citation found via Danoyan article",
+          "title": "On the intersections and unions of Hamming spheres",
+          "trigger": "Potential older matching exact-sphere literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual frozen RESULT.md blob 40bb31d4ebc3698500bb5c48ab8ec19fead52dca",
+        "RG Junnila et al. full-text Theorem 3 and Section III (arXiv:2606.09158v1)",
+        "Vu Wang Vu arXiv:2605.23638 abstract"
+      ],
+      "rationale": "Exact-two binary substitutions are a natural reconstruction model; the full all-n distribution of three-center ambiguity, not just its maximum, gives both sharp two-list read threshold and exponentially small frequency of ambiguous center triples. The four populations are an exact natural classification; no coding-rate claim.",
+      "residual_risks": [
+        "Value limited to stated natural object, range and quantifiers; no downstream/general theorem asserted"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full-text literature access varies by source; see individual source_inspections; institutional VPN disconnected for two closely relevant papers",
+    "No server derived publication, GitHub modification or external attestation occurred"
+  ],
+  "schema_version": 1
+}

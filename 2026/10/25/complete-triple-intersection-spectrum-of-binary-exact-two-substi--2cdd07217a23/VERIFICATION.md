@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof uses the exact equations for the numbers of changed positions inside the four binary-coordinate agreement classes. These equations reduce the possible positive intersection types to eight; the proof evaluates each and counts labeled configurations before dividing by the six orders of a triple. The complete finite-dimensional experiment is a separate check, not a substitute for the all-dimensional argument.
+## correctness
 
-Reproduce the check with `python3 verification/verify_triple_spheres.py` using only the Python standard library. For every integer dimension from three through eight, the program constructs each exact-two Hamming sphere directly from the Hamming distance, enumerates every unordered triple of distinct centers, compares its histogram to the symbolic formula, and checks the maximum. It also independently enumerates all admissible agreement-pattern types in a separate code path. The recorded output in `verification/verify_output.txt` terminates with `VERIFY_OK`.
+PASS
 
-The verifier explicitly checks the dimensions \(3\le n\le8\); it does **not** exhaust infinitely many dimensions. The all-dimensional classification, asymptotic frequency and sharp two-list threshold are established by the complete proof in `RESULT.md`. No external independent audit has been performed.
+The exact-two condition forces all pairwise center distances to be positive even and <=4, yielding exactly eight coordinate profiles after XOR normalization. For three centers with disagreement sizes (a,b,c) and A common-zero positions, the linear constraints i+j+l+r=2, j+r=(a+c)/2 and l+r=(b+c)/2 give J=n-2,4,3,1 in the four profile classes. Multinomial counts summed over all first centers and divided by six produce precisely 2^n*[C(n,3),3C(n,4),10C(n,5),15C(n,6)] unordered triples; coincident exponents combine. For n=3 maximum one, n=4,5 maximum four, n=6 tie at four, n>=7 maximum n-2. Exactly max J distinct outputs can leave three candidates, so max J+1 threshold sharp. Positive mass ~n^6/(8*4^n). Independent brute-force n=3..6 enumerated all triples from actual sphere masks, reproducing histograms (n=6 positive J counts 960,3840,4160 at J=1,3,4). Finite checks are not the all-n proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty of the whole unordered-center population polynomial, not of per-triple Hamming sphere/ball intersection methods. General q-ary per-instance formulas and fixed-distance extremizers predate the record, but do not by themselves count the number of all center triples with each J-value. An older sphere classification or newer v2 specialization may cover it.
+
+## value
+
+PASS
+
+Exact-two binary substitutions are a natural reconstruction model; the full all-n distribution of three-center ambiguity, not just its maximum, gives both sharp two-list read threshold and exponentially small frequency of ambiguous center triples. The four populations are an exact natural classification; no coding-rate claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
