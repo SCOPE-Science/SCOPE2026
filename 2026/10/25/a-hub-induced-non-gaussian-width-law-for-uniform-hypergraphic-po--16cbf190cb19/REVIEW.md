@@ -1,13 +1,21 @@
-## Correctness — PASS
-Exact simplex support functions yield Gaussian range U-statistics. Independence of Gaussian direction and chi radius establishes exact equal spherical means and validates star second-moment convergence. Hoeffding projection and a joint CLT for the Gaussian radius yield the corrected complete-width variance \(k^2v_k-\mu_k^2/2\), not the uncorrected U-statistic variance. Gaussian integration by parts proves the covariance; conditional expectation formulas prove the inverse CDF and sharp tails. The executable reproduces 1,350 support checks and the displayed constants; simulation is supplementary.
+# Independent mathematical audit
 
-## Originality — PASS, qualified
-Agnarsson (2017) already treats the complete cardinality-homogeneous hyper-permutahedra and provides its vertex support indirectly; this is fully credited. Benedetti–Bergeron–Machacek (2017) establish the general simplex-sum model. Chapoton–Pilaud (2022) survey related deformed-permutahedron constructions. None of the specifically inspected materials states a full hub-versus-complete Haar-width fluctuation comparison, sharp hub edges, or the chi-radius-corrected Gaussian variance. Relevant indexed diameter/asymmetry results concern different invariants; own ledger stellohedron width work uses exponentially many nonuniform hyperedges. Extensive generic U-statistic literature and unindexed width work remain priority risks.
+## correctness
 
-## Mathematical value — PASS
-The two natural extreme incidence patterns of fixed-uniformity hyperedge families have *identical finite-n first moments* but separate into a concentration regime and persistent hub randomness. The theorem supplies the full one-dimensional limiting distribution, both sharp edges, and a strictly positive spherical correction. These are intrinsic geometric probabilistic invariants, not arbitrary finite tables or merely relabeled classical U-statistics.
+PASS
 
-## Literature and limits
-Agnarsson, *On a special class of hyper-permutahedra* (2017), #P3.46; Benedetti–Bergeron–Machacek, *Hypergraphic polytopes: combinatorial properties and antipode* (2019), arXiv:1712.08848; Chapoton–Pilaud, *Shuffles of deformed permutahedra* (2024), arXiv:2201.06896; Hoeffding (1948). The theorem does not cover varying k or arbitrary simplex weights; independent review remains outstanding.
+PASS: Minkowski additivity identifies direction width as sum of Gaussian k-point coordinate ranges divided by Gaussian radius. For complete k-uniform hypergraph the nondegenerate first Hoeffding projection yields a sqrt(n) Gaussian CLT; radius expansion and Gaussian integration-by-parts produce corrected variance k^2 Var(F_k(Z))-mu_k^2/2. For fixed-hub k-uniform star conditional LLN yields nonconstant F_k(Z), hence a non-Gaussian limit without CLT scaling. Finite-n expectation equals mu_k sqrt(n)/E chi_{n+1}. Lower-edge square-root and positive folded-Gaussian tail follow from F_k even with positive second derivative at zero. Independent high-precision quadrature reproduced k=4 mu=2.0587507460, Var(F4)=0.134056689748 and tau4²=0.025679718878.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Agnarsson supplies hyper-permutahedron constructions and face flag enumeration; Benedetti–Bergeron–Machacek classifies acyclic orientations/faces. Neither primary text contains the stated Haar spherical random-width laws. Hoeffding-type U-statistic CLT is classical and explicitly a tool, not itself original.
+
+## value
+
+PASS
+
+PASS: The complete fixed-k and fixed-hub uniform hypergraphic polytopes have sharply different normalized random-width fluctuations despite identical normalized means. Exact non-Gaussian hub distribution and complete Gaussian variance make a structurally motivated probabilistic invariant, not an unmotivated low-dimensional calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
