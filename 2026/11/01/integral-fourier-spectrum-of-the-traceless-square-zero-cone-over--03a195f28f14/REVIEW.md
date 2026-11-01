@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement is a complete, quantified all-odd-prime spectrum for unnormalized convolution by the indicator of the trace-zero square-zero cone over a length-two prime-power ring. Character orthogonality separates zero, unit, and nonzero nonunit Lagrange multipliers. The unit contribution is an exactly evaluated Ramanujan sum, and the nonunit contribution is a quadratic-character Gauss sum. The frequency strata and counts follow from a smooth nonzero conic modulo the prime, with exact lift counts. Explicit proof calculations agree with exhaustive exact cyclotomic enumeration for the primes three and five. The finite tests are not presented as an infinite proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-Compared with Liu–Zhou (2012), Liu–Zhou (2015), Momihara–Xiang (2012), relevant published quadratic-cone concentration research records, and prior finite-matrix Fourier calculations. Unitary Cayley graphs and quadratic-unitary Cayley graphs on a one-dimensional ring have different connecting sets and cannot imply this three-variable zero-cone spectrum by an immediate specialization. Field-based even-dimensional affine-polar constructions are not ring-based odd-dimensional quadrics. Prior local results on determinant-one Fourier coefficients of four matrix coordinates describe a different affine variety and Fourier dual, and do not determine the current three-coordinate quadratic-null set. No identical or stronger covering assertion was found. An equivalence hidden in a general theory of Gauss sums over finite chain rings or association schemes remains possible.
+PASS
 
-## Mathematical value — PASS
-The trace-zero square-zero cone is a canonical quadratic algebraic set rather than an arbitrary numerical slice. Its convolution has an explicit Fourier-null basis, a five-level integral spectrum, and an exact rank of \(p^5\) in an ambient dimension \(p^6\). In contrast to the odd-dimensional finite-field cone, whose Fourier transform is supported on nearly all frequencies, this length-two ring cone is supported on exactly a \(1/p\) fraction. This sharp structural collapse supplies a natural exact spectral invariant for harmonic analysis over a nonreduced ring. No downstream theorem is needed for that precise finite-convolution classification to be relevant.
+For odd p, unnormalized Fourier characters diagonalize the indicator-convolution on G=(Z/p^2)^3. Applying orthogonality for a^2+bc=0 partitions the Lagrange multiplier s into zero (p^4 at M=0), units (p*c_(p^2)(Delta)), and nonzero p multiples (p^3*1_{M in pG} chi_p(Delta(M/p))). The unit formula follows from the complete-square quadratic Gauss sum p and the bilinear bc sum p^2, and c_(p^2) takes values p(p-1), -p, 0 depending on valuation. In the s=pj stratum, summing p lifts in each coordinate reduces to the finite-field ternary quadratic Gauss identity, giving the p^3 term. The discriminant Delta=u^2+4vw is nondegenerate for odd p, has p^2 zeros over F_p; nonzero isotropic reductions have nonzero gradient and exactly p^2 of the p^3 lifts are zero mod p^2. These counts yield all five eigenvalues, their stated multiplicities, total dimension p^6, rank p^5 and kernel iff primitive M with Delta nonzero mod p. Independently reconstructed exact cyclotomic character sums for every M at p=3 (729 frequencies) and p=5 (15625), including all cone points; obtained respectively spectra (-9:150, 0:486, 18:80, 45:12, 99:1) and (-25:2440, 0:12500, 100:624, 225:60, 725:1). These finite instances do not establish all odd primes; the stated Gauss/Ramanujan computation does.
 
-## Boundaries
-Only odd primes and the quadratic cone over \(\mathbb Z/p^2\mathbb Z\) are covered. The result does not assert novelty of the classical Gauss-sum tools or independent verification; additional older equivalent formulations remain a residual originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The natural traceless nilpotent 2×2 cone over the prime-square ring and its complete Fourier spectrum/rank are more specific than classical character diagonalization. Inspected Liu-Zhou quadratic-unitary Cayley graphs take (square) unit connection sets on a one-dimensional ring; Momihara-Xiang uses nondegenerate even-dimensional quadratic-form Cayley sets over finite fields. Neither theorem specializes to the 3-dimensional singular-cone indicator on a nonreduced ring. The full five-level all-prime spectrum and explicit null Fourier stratum survive as a bounded best-of-knowledge original exact invariant; general Gauss identities themselves are classical.
+
+## value
+
+PASS
+
+The nilpotent traceless 2×2 matrix cone over a length-two local ring is a natural algebraic-geometric subset; the exact unnormalized additive convolution spectrum, full kernel basis and rank collapse to p^5 are precise invariants useful for harmonic analysis of finite-ring quadratic varieties and Cayley operators. The result extends beyond counting cone points and is not an arbitrary slice or a numerical table for fixed small p.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
