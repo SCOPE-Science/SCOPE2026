@@ -1,0 +1,19 @@
+# Scientific assessment: binary projective cap homology character
+
+## Correctness — PASS
+The claim specifies the ordinary cap simplicial complex on the fifteen nonzero four-bit vectors and its full linear collineation group. The source code reconstructs every admissible subset and all reversible matching incidences. Its 1,484-pair acyclic discrete-Morse matching leaves critical cells in dimensions zero, three, and four only; exact integer gradient paths give a nonzero degree-four to degree-three differential with gcd two. Thus rational reduced homology is exclusively 77-dimensional in degree four. A separate enumerator lists all 20,160 invertible four-by-four binary matrices and their fourteen conjugacy classes and checks the reduced simplicial Lefschetz trace on each element. An oriented fixed-simplex computation independently agrees on representatives. The Jacobi–Trudi Specht character calculation exactly reproduces the entire trace table and establishes two absolutely irreducible summands. The class-size weighted character average is zero, proving the quotient rationally acyclic.
+
+The finite calculation is exhaustive for precisely this finite complex; no claim is made about a general family. The rational character follows from the verified rational homological concentration and the standard Lefschetz trace identity. The integral Morse result is a premise rechecked here, not the novelty claim.
+
+## Originality — PASS (with residual risks)
+The closest prior same-object calculation establishes the nonequivariant homotopy type \(M(\mathbb Z/2,3)\vee\bigvee^{77}S^4\), but does not compute the action of any nontrivial collineation on homology. The new character does not follow from that homotopy equivalence: equal Betti numbers do not determine a group representation. The group isomorphism \(\operatorname{GL}_4(2)\cong A_8\) is an established independent group-theoretic fact and is not new. Forbes–Grannell–Griggs (2004) count independent sets in Steiner triple systems, not homology representations. Grynkiewicz–Lev (2008) classify large binary caps, not their complexes' equivariant homology. Lew (2017), Section 6.2, studies cap-complex face counts and Laplacians in other finite projective/affine examples, not this \(77\)-dimensional character. Indexed comparisons with other graph-complex characters address different simplicial complexes.
+
+Relevant full text was inspected for the first three primary cap-complex sources (the eight-page 2004 paper, the full accessible arXiv HTML, and Lew's relevant cap-complex chapter). The group-isomorphism paper was inspected through its abstract and bibliographic record, not its full derivation. An equivalent unindexed computation or a different unpublished equivalence remains possible; source search cannot certify absolute priority.
+
+## Mathematical value — PASS
+The full collineation group is intrinsic to the incidence geometry, and the rational representation is a natural equivariant topological invariant. Its unexpectedly multiplicity-free decomposition into 7- and 70-dimensional constituents, complete character on all fourteen symmetry classes, and vanishing quotient invariants reveal structure invisible to the established rank 77. This is a motivated exact classification of a canonical small binary-projective configuration, not a random subgroup trace or arbitrary parameter slice. It provides exact character data for future comparisons of integral and modular refinements; such future applications are not asserted as proved.
+
+## Limits
+No integral \(\mathbb Z[G]\)-lattice classification, no equivariant homotopy decomposition and no integral quotient homology are established. This is a self-review; independent mathematical validation and definitive publication-priority review are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
