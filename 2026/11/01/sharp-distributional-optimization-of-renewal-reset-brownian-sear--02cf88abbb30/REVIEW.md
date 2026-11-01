@@ -1,0 +1,19 @@
+# Scientific review: fixed-mean reset-radius optimization
+
+## Correctness — PASS
+
+The assessed theorem is a full stochastic ordering, not merely a comparison of means. The two no-reset survival formulas are exact for Brownian motion with generator \(D\Delta\), and each is strictly concave in starting radius for every positive time. Convex order therefore reverses the one-cycle survival distributions. A common-uniform quantile construction orders the full first-hitting times, including the possible infinite free hit time outside a three-dimensional sphere. Using the same positive renewal deadlines and initial first-hit time makes the final completion times ordered cycle by cycle. A finite positive per-cycle success probability gives almost-sure completion. Strict concavity forces the unique two-endpoint and point-mass extremizers, with distinct full completion-time laws whenever the extrema differ.
+
+The proof covers arbitrary iid positive finite reset intervals; a finite clock mean is only required for the auxiliary mean formula. The finite standard-library script `verification_check.py` passed 332 assertions, comprising curvature evaluations, fixed-mean envelopes, Poisson means and deterministic-clock quadratures. These tests are supporting diagnostics rather than proofs of an infinite-time statement.
+
+## Originality — PASS, with stated residual risk
+
+The nearest primary work by Julián-Salgado, Dagdug and Boyer (arXiv:2311.11897, first posted 2023-11-20) derives Poisson mean first-passage behavior for two reset sites and optimal-rate transitions. Méndez, Flaquer-Galmés and Campos (arXiv:2401.01125) study the Poisson mean, fluctuations and random resetting sites, including the **already known** fact that widening a uniform reset interval can reduce its mean. Toledo-Marín and Boyer (arXiv:2206.14387) derive Poisson first-passage and reset-event formulas for random location distributions. The later full-text study (arXiv:2507.14483v2, 2025) investigates Poisson optimal-rate transitions and the distribution of the last reset point, not a universal fixed-mean stochastic-law comparison. Evans and Majumdar (2014) examine fixed-position spherical resetting. General renewal-restart work of Chechkin and Sokolov (2018) underlies the method and might conceal an implicit broader comparison; only its abstract was accessible for comparison.
+
+The ordinary renewal decomposition, free Brownian hitting laws and Poisson mean formula are all prior work; applying Jensen to the published Poisson mean formula is **not claimed as new**. The accepted statement is the simultaneous arbitrary-renewal **full-distribution**, complete endpoint-optimality and exterior-three-dimensional-sphere theorem. Searches and inspected relevant source sections did not identify its direct statement or a decisive covering theorem. Residual novelty uncertainty persists for implicit general restart and convex-order results, particularly in unindexed literature.
+
+## Mathematical value — PASS
+
+This is a natural complete distributional-design problem: with the mean reset distance and allowed spatial zone fixed, select the entire spatial reset law without choosing a special reset-time model. The theorem determines the unique best and worst laws for every observation horizon and every increasing cost, uniformly over all independent positive renewal clocks. Its three-dimensional extension is substantive because the free Brownian search can miss the spherical target forever, yet renewal resets restore almost-sure search completion. The result therefore supplies both a mechanistic comparison principle and a complete design answer, beyond the previously known Poisson mean-rate optimization. It does not account for reset relocation costs or feedback, and makes no claim of experimental validation.
+
+Self-review: passed. Independent audit: not yet performed.
