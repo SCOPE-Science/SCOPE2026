@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Specified isolated sets forbid the union of their incident-edge rectangles. Direct counting proves the factorial moment identity; the elementary product factorization proves strict cross-part negative factorial-moment covariance, including the zero-probability boundaries. The sparse-limit constant follows from uniform expansions in the regime of linearly many sampled edges. The comparison with independent-edge and with-replacement sampling is exact. A standalone checker independently reproduces thousands of exact finite cases. No finite computation is treated as a general proof.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The closest primary literature is Blasiak and Durrett's 2004 Random Oxford Graphs: its independence argument concerns the **with-replacement** model, not the fixed-size distinct-edge model. Saltykov's 1995 bipartite graph likewise samples with replacement and discusses connectivity and Poisson total-isolate limits. Joag-Dev and Proschan's 1983 negative-association theorem applies its closure property to disjoint coordinate families; left and right isolation constraints overlap in exactly the rectangular intersection. None of these statements alone implies the new product factorization or its sparse covariance constant. Searches for zero rows/columns, opposite-part isolates, fixed-edge dependency, and equivalent hypergeometric formulations did not uncover stronger coverage. This does not certify historical uniqueness: an unindexed exact rectangular-occupancy inequality could cover the claim, and Saltykov's original full text was not available.
+PASS
 
-## Mathematical value — PASS
-Cross-part isolated vertices control whether a bipartite graph avoids trivial connectivity and matching obstructions. Their dependence changes **sign across three standard sampling ensembles** even when expected edge counts are matched: strictly negative with distinct fixed-size edges, zero with replacement, and strictly positive under independent Bernoulli edges. The factorial-moment hierarchy and exact product show why the fixed-budget cancellation persists at every prescribed subset size; the constant nonzero limiting covariance quantifies a second-order effect invisible in leading-order occupancy approximations. These are structural probability facts rather than a relabeled marginal expectation.
+For complete bipartite K_{a,b}, uniform choice of exactly m distinct edges, a,b>=2, all joint falling factorial moments of isolated side counts equal (a)_r (b)_s * binom((a-r)(b-s),m)/binom(ab,m) for allowable integer ranges. The conditional pair-event ratio factors into product of 1-rsj/((ab-rb-j)(ab-as-j)), giving strict negative cross-part factorial dependence at m>=2 when both margins are positive. The exact covariance sign interval follows at r=s=1. In the balanced sparse m/n->c>0 the product log expansion gives covariance -> -(c²/2)e^(-2c). With-replacement independent row/column index sequences give independence; Bernoulli edges give covariance ab*p*(1-p)^(a+b-1)>0.
 
-## Boundaries and residual risk
-The result is not full negative association or a negative quadrant-dependence theorem for the count pair. It concerns complete bipartite hosts, requires strictly positive marginal events for strictness, and does not settle publication priority. All executable checks are finite, whereas the all-parameter proof is analytic.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new exact all-parameter factorial-moment comparison and three-ensemble covariance sign contrast; prior replacement-model independence and disjoint-group negative association are important ingredients but do not imply the overlapping row-column fixed-m calculation.
+
+## value
+
+PASS
+
+The negative/zero/positive covariance contrast between natural three ways of sampling the same bipartite potential-edge set is a concrete structural probabilistic distinction, with exact all-size factorial moment inequality and nontrivial balanced sparse limit. It informs which random-graph ensemble can legitimately support isolated-vertex independence approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

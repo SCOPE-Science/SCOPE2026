@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:54:23Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read exact RESULT.md and standalone verify.py; independently reconstructed the seven-blob Git source tree.",
+        "Independently enumerated every edge subset of K_{2,2}, K_{2,3}, K_{3,3}, K_{3,4} at every m (totals 16,64,512,4096) to compute rational covariance and compare binomial formula; all exact equalities and zero/negative boundaries passed.",
+        "The unrestricted combinatorial proof comes from excluded-edge counting, product ratio identity and binomial asymptotics, not finite enumeration."
+      ],
+      "rationale": "For complete bipartite K_{a,b}, uniform choice of exactly m distinct edges, a,b>=2, all joint falling factorial moments of isolated side counts equal (a)_r (b)_s * binom((a-r)(b-s),m)/binom(ab,m) for allowable integer ranges. The conditional pair-event ratio factors into product of 1-rsj/((ab-rb-j)(ab-as-j)), giving strict negative cross-part factorial dependence at m>=2 when both margins are positive. The exact covariance sign interval follows at r=s=1. In the balanced sparse m/n->c>0 the product log expansion gives covariance -> -(c²/2)e^(-2c). With-replacement independent row/column index sequences give independence; Bernoulli edges give covariance ab*p*(1-p)^(a+b-1)>0.",
+      "risks": [
+        "Strict inequality requires 1<=r<a,1<=s<b and positive marginals; when joint event impossible but marginal events possible, inequality still strict.",
+        "Factorial-moment cross-part negativity is not full negative association or negative quadrant dependence."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical negative association applies to monotone functions on disjoint sampled-edge coordinate sets; empty-row and empty-column coordinate families overlap in rs edges, violating direct closure hypothesis. Oxford paper proves independence for repeated edge draws."
+        ],
+        "reasoning": "A stronger general negative-association claim with disjoint-coordinate premises cannot imply the overlapping cross-side count covariance here. The replacement model is statistically different.",
+        "searches": [
+          "Joag-Dev Proschan Ann Statist 1983 negative association disjoint subsets",
+          "Blasiak Durrett 2004 Random Oxford Graphs pp1-3",
+          "Saltykov 1995 The Number of Components in a Random Bipartite Graph"
+        ]
+      },
+      "checked_sources": [
+        "Joag-Dev Proschan Ann. Statist. 11 (1983) 286-295",
+        "Blasiak Durrett 2004 full PDF",
+        "Saltykov 1995 DOI:10.1515/DMA.1995.5.6.515",
+        "Resultary semantic fixed-edge bipartite isolation query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The replacement independence conclusion differs from fixed-distinct-edge strict negative dependence; the Bernoulli model has explicit positive same-edge-induced covariance."
+        ],
+        "reasoning": "No cited prior model includes the three ensembles in one exact comparison. General hypergeometric counting is a method, not a documented statement of the joint factorial product strictness and its limit.",
+        "searches": [
+          "Random Oxford Graphs replacement model proof of independent A,B",
+          "Joag-Dev Proschan 1983 disjoint-group closure",
+          "Saltykov 1995 replacement sampling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "All models interpret edges as cells of an a-by-b binary table; sample without replacement (uniform m marked cells) differs from m iid cell choices and Bernoulli cells."
+        ],
+        "reasoning": "The ordinary occupancy alias is empty rows and empty columns; exact sampling convention is essential because correlation sign changes with the ensemble.",
+        "searches": [
+          "Resultary: bipartite random graph fixed number edges negative covariance isolated vertices both parts factorial moments",
+          "web: fixed edge bipartite G(a,b,m) isolated rows columns covariance",
+          "Random Oxford Graphs Blasiak Durrett 2004"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact factorial-moment sum is combinatorial and may be derivable from classical occupancy inclusion-exclusion, but no source found giving its strict product inequality and order-one sparse covariance constant."
+        ],
+        "reasoning": "This is a finite family for each a,b,m with elementary binomial expressions; known binomial tables could reproduce raw moments, but a previously published theorem about the full sign comparison was not identified.",
+        "searches": [
+          "random rectangular 0-1 matrices fixed number ones empty rows columns joint factorial moments",
+          "Resultary semantic bipartite isolation dependence",
+          "Blasiak Durrett 2004 occupancy arrays"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact all-parameter factorial-moment comparison and three-ensemble covariance sign contrast; prior replacement-model independence and disjoint-group negative association are important ingredients but do not imply the overlapping row-column fixed-m calculation.",
+      "residual_risks": [
+        "Classical occupancy formulas for prescribed number of ones in a binary matrix may already contain an equivalent joint moment/covariance sign theorem.",
+        "Saltykov 1995 full article was not available for comprehensive exclusion; risk remains although model is different."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Replacement graph model, independence of nonempty rows and columns; does not directly cover fixed-distinct-edge negative dependence.",
+          "evidence": "At p2, G^r chooses edges with replacement and P(A),P(B) independent.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/RG/rndgr0604.pdf",
+          "material_read": "Entire accessible 29-page primary PDF, with page 2 explicit with-replacement sampling and independence discussion; primary abstract and model equations read.",
+          "method": "Lawful author-hosted PDF and page screenshot.",
+          "title": "Random Oxford Graphs",
+          "trigger": "Very close bipartite empty-row/column occupancy language."
+        },
+        {
+          "assessment": "Hypothesis on disjoint coordinate groups is violated for row and column forbidden edge sets; no direct implication.",
+          "evidence": "Row and column sets overlap in exactly r*s possible edges.",
+          "identifier_or_url": "https://doi.org/10.1214/aos/1176346079",
+          "material_read": "Published definition and disjoint-coordinate monotone-function closure theorem as located, not an assertion of reading all possible corollaries.",
+          "method": "Primary DOI and mathematical theorem comparison.",
+          "title": "Negative Association of Random Variables with Applications",
+          "trigger": "Potential generic theorem implying all negative cross-part correlations."
+        },
+        {
+          "assessment": "Could conceal related formulas; named residual risk, cannot use abstract to rule out full overlap.",
+          "evidence": "Studied replacement-sampled graph and Poisson total isolates near connectivity.",
+          "identifier_or_url": "https://doi.org/10.1515/DMA.1995.5.6.515",
+          "material_read": "Accessible abstract/model identifying repeated-edge sampling and total isolated count limit; full article unavailable, thus noncoverage not claimed.",
+          "method": "Bibliographic/abstract model comparison.",
+          "title": "The Number of Components in a Random Bipartite Graph",
+          "trigger": "Older near-connectivity isolated-vertex statistics."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "The sign changes precisely at m=2 and the maximum marginal-support endpoint rather than a numerical-only range.",
+        "The sparse limit is an order-one negative constant, contrasting independence for replacement and positive Bernoulli correlation."
+      ],
+      "rationale": "The negative/zero/positive covariance contrast between natural three ways of sampling the same bipartite potential-edge set is a concrete structural probabilistic distinction, with exact all-size factorial moment inequality and nontrivial balanced sparse limit. It informs which random-graph ensemble can legitimately support isolated-vertex independence approximations.",
+      "risks": [
+        "Does not establish full vector negative association; selection of a non-complete host graph changes the counting identity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
