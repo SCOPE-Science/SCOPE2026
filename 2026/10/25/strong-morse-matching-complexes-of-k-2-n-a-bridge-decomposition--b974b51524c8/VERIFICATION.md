@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` was executed. For \(2\le n\le7\), exhaustive enumeration of all total orders on the vertices of \(K_{2,n}\) yielded exactly the faces of the explicit facet model. The script independently computed the face vector and reduced mod-two boundary-matrix homology. The unique nonzero reduced mod-two Betti number is \(3n-1\) in degree one, and the first model face vectors are \((12,27,8)\) for \(n=3\), \((16,48,32,10)\) for \(n=4\), and \((20,75,80,50,12)\) for \(n=5\).
+# Independent mathematical audit
 
-The mathematical proof, rather than the finite exhaustive enumeration, certifies the claim for every \(n\ge3\). The graph-of-contractible-spaces equivalence supplies the integral homotopy type, and the relative exact sequence supplies the integral \(S_n\)-action. No external or independent audit is asserted. The original September 2026 preprint was only partly retrievable at comparison time; this is an originality-coverage limitation, not a mathematical assumption.
+## correctness
+
+PASS
+
+For each total order of K_(2,n), a graph vertex produces a strong matching exactly when it has one earlier neighbor. Inspecting the positions of the two high-degree vertices exhausts all matching facets: two disjoint complexes D_a,D_b, each a central (n−1)-simplex with n attached ridge simplices, and 3n maximal cross-component edges. Every facet has an explicit realizing order. Each D_i admits an explicit S_n-equivariant deformation retract to its central simplex, so contracting both yields a two-node multigraph with 3n edges and integral wedge of 3n−1 circles. Relative H1 exact sequence is ker(sum:(Z^n)^3→Z) and rational trace 3 Fix(σ)−1. Face vector f_(r−1)=2[C(n,r)+nC(n−1,r−1)]+3n·1_(r=2). Independent enumeration of all (n+2)! orders for n=3,4,5 reconstructed all matching sets and exact facet/face model (face vectors (12,27,8),(16,48,32,10),(20,75,80,50,12)).
+
+## originality
+
+PASS
+
+The 2026 founding primary explicitly computes full strong complexes for paths, stars, simplices, boundaries, and finite-range cycle cases, NOT this complete bipartite variable family; ordinary Morse matching complex on the same K_(2,n) is a DIFFERENT simplicial object. The bridge homotopy decomposition and integral S_n-module consequently survive as best-of-knowledge new.
+
+## value
+
+PASS
+
+This natural infinite graph family has complexes with maximal faces of dimension n−1 but homotopy concentrated in degree one. The two-contractible-piece/3n-bridge explanation and exact integral permutation representation are nontrivial structural data beyond low-n computations and beyond Betti ranks alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

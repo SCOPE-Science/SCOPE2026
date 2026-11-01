@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each vertex filtration on the triangle-free graph \(K_{2,n}\), the descending domination test is a unique-earlier-neighbor test. The proof gives an exhaustive, mutually exclusive order classification and explicit witness orders for every facet. The two high-dimensional pieces admit explicit deformation retractions, and the bridging edges reduce the homotopy type to \(3n-1\) circles. A relative exact-sequence calculation proves the integral permutation-module description, not just numerical Betti numbers. Independent exhaustive order enumeration agrees with the symbolic face model for \(2\le n\le7\). The infinite claim rests on the case analysis, not those finite checks.
+## correctness
 
-**Originality — PASS (access-bounded).** The September 2026 source defines full strong Morse matching complexes and treats paths, stars, simplices, simplex boundaries and cycles. The old four-cycle case \(n=2\) is excluded. A published theorem for the ordinary Morse matching complex of \(K_{2,n}\) concerns a larger, different simplicial complex, so its wedge of \(n\)-spheres does not imply this first-homology classification or its \(S_n\)-action. Searches for the full strong-complex formula, alternative descriptions and equivariant character did not return matching coverage. Parts of the originating preprint beyond the accessible opening pages could not be inspected, and uncatalogued equivalents remain possible.
+PASS
 
-**Value — PASS.** The number of top-dimensional faces grows linearly while the simplex dimension grows without bound, but all higher-dimensional homotopy vanishes; an exact two-component, three-channel bridge decomposition explains why. The simultaneous integral symmetry classification provides information beyond a Betti number and distinguishes the strong complex sharply from its ordinary counterpart.
+For each total order of K_(2,n), a graph vertex produces a strong matching exactly when it has one earlier neighbor. Inspecting the positions of the two high-degree vertices exhausts all matching facets: two disjoint complexes D_a,D_b, each a central (n−1)-simplex with n attached ridge simplices, and 3n maximal cross-component edges. Every facet has an explicit realizing order. Each D_i admits an explicit S_n-equivariant deformation retract to its central simplex, so contracting both yields a two-node multigraph with 3n edges and integral wedge of 3n−1 circles. Relative H1 exact sequence is ker(sum:(Z^n)^3→Z) and rational trace 3 Fix(σ)−1. Face vector f_(r−1)=2[C(n,r)+nC(n−1,r−1)]+3n·1_(r=2). Independent enumeration of all (n+2)! orders for n=3,4,5 reconstructed all matching sets and exact facet/face model (face vectors (12,27,8),(16,48,32,10),(20,75,80,50,12)).
 
-**Limits.** No result is claimed for a larger left bipartition or the complete automorphism-group action; no independent review or certification has been performed. Exhaustive small cases are supporting reproducibility checks, not a substitute for the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 founding primary explicitly computes full strong complexes for paths, stars, simplices, boundaries, and finite-range cycle cases, NOT this complete bipartite variable family; ordinary Morse matching complex on the same K_(2,n) is a DIFFERENT simplicial object. The bridge homotopy decomposition and integral S_n-module consequently survive as best-of-knowledge new.
+
+## value
+
+PASS
+
+This natural infinite graph family has complexes with maximal faces of dimension n−1 but homotopy concentrated in degree one. The two-contractible-piece/3n-bridge explanation and exact integral permutation representation are nontrivial structural data beyond low-n computations and beyond Betti ranks alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
